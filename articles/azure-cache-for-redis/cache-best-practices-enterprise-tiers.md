@@ -21,18 +21,24 @@ This [increases the availability](https://azure.microsoft.com/support/legal/sla/
 
 ## Scaling
 
-In the Enterprise and Enterprise Flash tiers of Azure Cache for Redis, we recommended to prioritize scaling up over scaling out. Prioritize scaling up because the Enterprise tiers are built on Redis Enterprise, which is able to utilize the additional CPU cores in larger VMs.
+In the Enterprise and Enterprise Flash tiers of Azure Cache for Redis, we recommended prioritizing scaling up over scaling out. Prioritize scaling up because the Enterprise tiers are built on Redis Enterprise, which is able to utilize the additional CPU cores in larger VMs.
 
-Conversely, the opposite recommendation is true for the Basic, Standard, and Premium tiers, which are built on open-source Redis. There, prioritizing scaling out over scaling up is recommended in most cases.
-<!-- You didn't an actual note so I removed that intro -->
+Conversely, the opposite recommendation is true for the Basic, Standard, and Premium tiers, which are built on open-source Redis. In those tiers, prioritizing scaling out over scaling up is recommended in most cases.
+
 
 ## Sharding and CPU Utilization
 
-In the Basic, Standard, and Premium tiers of Azure Cache for Redis, determining the number of vCPUs utilized is fairly straightforward. Each Redis node runs on a dedicated VM. The Redis server process is single-threaded, utilizing one vCPU on each primary and each replica node. The other vCPUs on the VM are still used for other activities, such as workflow coordination for different tasks, health monitoring, and TLS load, among others. When you use clustering, the effect is to shard data across additional nodes, which linearly increases the number of vCPUs that can be utilized based on the number of shards in the cluster. 
-<!-- Let's work on the last sentence sounds a bit to marketing-shh -->
+In the Basic, Standard, and Premium tiers of Azure Cache for Redis, determining the number of vCPUs utilized is fairly straightforward. Each Redis node runs on a dedicated VM. The Redis server process is single-threaded, utilizing one vCPU on each primary and each replica node. The other vCPUs on the VM are still used for other activities, such as workflow coordination for different tasks, health monitoring, and TLS load, among others. 
 
-Redis Enterprise, on the other hand, is able to utilize multiple vCPUs for the Redis instance itself. In other words, all tiers of Azure Cache for Redis can utilize multiple vCPUs for background and monitoring tasks, but only the Enterprise and Enterprise Flash tiers are able to utilize multiple vCPUs per VM for Redis shards. The table below shows the number of effective vCPUs utilized for each SKU and capacity (that is, scale-out) configuration. The tables just show the number of vCPUs utilized for the primary shards, not the replica shards. Note that there isn’t a one-to-one mapping between the number of shards and number of vCPUs. Some configurations use more shards than available vCPUs. This will boost performance further in some usage scenarios. 
-<!-- Let's clarify what is This in the last sentence. -->
+When you use clustering, the effect is to spread data across additional shards and additional nodes. By increasing the number of shards, you linearly increases the number of vCPUs you use based on the number of shards in the cluster. 
+
+<!-- When you use clustering, the effect is to shard data across additional nodes, which linearly increases the number of vCPUs that can be utilized based on the number of shards in the cluster. 
+See fxl revision above -->
+
+Redis Enterprise, on the other hand, can use multiple vCPUs for the Redis instance itself. In other words, all tiers of Azure Cache for Redis can use multiple vCPUs for background and monitoring tasks, but only the Enterprise and Enterprise Flash tiers are able to utilize multiple vCPUs per VM for Redis shards. The table below shows the number of effective vCPUs used for each SKU and capacity (that is, scale-out) configuration. 
+
+The tables show the number of vCPUs used for the primary shards, not the replica shards. Shards don't map one-to-one to the number of vCPUs. The table only illustrate vCPUs, not shards. Some configurations use more shards than available vCPUs to boost performance further in some usage scenarios. 
+<!-- fxl revision -->
 
 ### E10
 
@@ -95,16 +101,16 @@ Redis Enterprise, on the other hand, is able to utilize multiple vCPUs for the R
 
 ## Clustering on Enterprise
 
-Unlike the Basic, Standard, and Premium tiers, the Enterprise and Enterprise Flash tiers are inherently clustered. The implementation depends on the clustering policy that is selected.
+Enterprise and Enterprise Flash tiers are inherently clustered, in contrast to the Basic, Standard, and Premium tiers. The implementation depends on the clustering policy that is selected.
 The Enterprise tiers offer two choices for Clustering Policy: _OSS_ and _Enterprise_. _OSS_ cluster policy is recommended for most applications because it supports higher maximum throughput, but there are advantages and disadvantages to each version. 
 
 The _OSS clustering policy_ implements the same [Redis Cluster API](https://redis.io/docs/reference/cluster-spec/) as open-source Redis. This allows the Redis client to connect directly to each Redis node, minimizing latency and optimizing network throughput. As a result, near-linear scalability is obtained when scaling the cluster out with additional nodes. The OSS clustering policy generally provides the best latency and throughput performance, but requires your client library to support Redis Clustering. OSS clustering policy also cannot be used with the [RediSearch module](cache-redis-modules.md). 
 
-The _Enterprise clustering policy_ is a simpler configuration that utilizes a single endpoint for all client connections. Using the Enterprise clustering policy routes all requests to a single Redis node that is then used as a proxy, internally routing requests to the correct node in the cluster. The advantage of this approach is that Redis client libraries don’t need to support Redis Clustering to take advantage of multiple nodes. The downside is that the single node proxy can be a bottleneck, in either compute utilization or network throughput. The Enterprise clustering policy is the only one that can be used with the[RediSearch module](cache-redis-modules.md). 
+The _Enterprise clustering policy_ is a simpler configuration that utilizes a single endpoint for all client connections. Using the Enterprise clustering policy routes all requests to a single Redis node that is then used as a proxy, internally routing requests to the correct node in the cluster. The advantage of this approach is that Redis client libraries don’t need to support Redis Clustering to take advantage of multiple nodes. The downside is that the single node proxy can be a bottleneck, in either compute utilization or network throughput. The Enterprise clustering policy is the only one that can be used with the [RediSearch module](cache-redis-modules.md). 
 
 ## Multi-key commands
 
-Because the Enterprise tiers use a clustered configuration, you will see `CROSSSLOT` exceptions on commands that operate on multiple keys. Behavior varies based on which clustering policy is used. When using the OSS clustering policy, multi-key commands require all keys to be mapped to [the same hash slot](https://docs.redis.com/latest/rs/databases/configure/oss-cluster-api/#multi-key-command-support). 
+Because the Enterprise tiers use a clustered configuration, you might see `CROSSSLOT` exceptions on commands that operate on multiple keys. Behavior varies depending on the clustering policy used. When using the OSS clustering policy, multi-key commands require all keys to be mapped to [the same hash slot](https://docs.redis.com/latest/rs/databases/configure/oss-cluster-api/#multi-key-command-support). 
 
 You might also see `CROSSSLOT` errors with Enterprise clustering policy. Only the following multi-key commands are allowed across slots with Enterprise clustering: `DEL`, `MSET`, `MGET`, `EXISTS`, `UNLINK`, and `TOUCH`. For more information, see [Database clustering](https://docs.redis.com/latest/rs/databases/durability-ha/clustering/#multikey-operations).
 
@@ -117,8 +123,8 @@ For example, consider these tips:
 - Identify in advance which other cache in the geo-replication group to switch over to if a region goes down.
 - Ensure that firewalls are set so that any applications and clients can access the identified backup cache.
 - Each cache in the geo-replication group has its own access key. Determine how the application switches access keys when targeting a backup cache. 
-- If a cache in the geo-replication group goes down, a buildup of metadata starts to occur in all the caches in the geo-replication group. The metadata cannot be discarded until writes can be synced again to all caches. This can be prevented by [force unlinking](cache-how-to-active-geo-replication.md) the cache that is down. 
-<!-- need to clarify what can be prevented. then join the next sentence as part of the bullet.  -->
+- If a cache in the geo-replication group goes down, a buildup of metadata starts to occur in all the caches in the geo-replication group. The metadata can't be discarded until writes can be synced again to all caches. You can prevent the metadata build up by force unlinking the cache that is down. Consider monitoring the available memory in the cache and unlinking if there is memory pressure, especially for write-heavy workloads.
+<!-- My revision - should the last sentence be its own bullet?  -->
 
 Consider monitoring the available memory in the cache and unlinking if there is memory pressure, especially for write-heavy workloads.
 
