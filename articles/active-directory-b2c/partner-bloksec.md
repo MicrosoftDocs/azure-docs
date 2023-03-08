@@ -21,7 +21,8 @@ zone_pivot_groups: b2c-policy-type
 
 Use the **Choose a policy type** selector for policy type. Azure Active Directory B2C has two methods to define users interaction with applications: predefined user flows or configurable custom policies.  
 
-Learn more: [User flows and custom policies overview](user-flow-overview.md)
+>[!NOTE]
+>In Azure Active Directory B2C, custom policies primarily address complex scenarios. For most scenarios, we recommend built-in user flows.</br> See, [User flows and custom policies overview](./user-flow-overview.md).
 
 ## Azure AD B2C and BlokSec
 
@@ -169,7 +170,7 @@ You should now see BlokSec as a new OIDC Identity provider listed within your B2
 1. Once the authentication challenge is accepted, the browser will redirect the user to the replying URL.
 
 >[!NOTE]
->In Azure Active Directory B2C, [**custom policies**](./user-flow-overview.md) are designed primarily to address complex scenarios. For most scenarios, we recommend that you use built-in [**user flows**](./user-flow-overview.md).
+>In Azure Active Directory B2C, [custom policies](./user-flow-overview.md) are designed primarily to address complex scenarios. For most scenarios, we recommend that you use built-in [user flows](./user-flow-overview.md).
 
 ### Part 2 - Create a policy key
 
