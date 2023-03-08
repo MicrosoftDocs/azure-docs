@@ -86,7 +86,7 @@ The following steps describe how to enable availability zones.
 
 1. To redeploy and ensure you'll be able to use availability zones, you'll need to be on the App Service footprint that supports availability zones. If you're already using the Pv3 SKU and are in one of the [supported regions](#prerequisites), you can move on to the next step. Otherwise, you should create a new resource group in one of the supported regions to ensure the App Service control plane can find a scale unit in the selected region that supports availability zones.
 1. Create a new App Service plan in one of the supported regions using the **new** resource group.
-1. Ensure the zoneRedundant property (described below) is set to true when creating the new App Service plan.
+1. Ensure the `zoneRedundant` property (described below) is set to true when creating the new App Service plan.
 1. Create your apps in the new App Service plan using your desired deployment method.
 
 You can create an App Service with availability zones using the [Azure CLI](/cli/azure/install-azure-cli), [Azure portal](https://portal.azure.com), or an [Azure Resource Manager (ARM) template](../azure-resource-manager/templates/overview.md).

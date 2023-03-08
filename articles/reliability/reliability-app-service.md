@@ -12,7 +12,6 @@ ms.date: 02/22/2022
 
 # Reliability in Azure App Service
 
-
 This article describes reliability support in [Azure App Service](/azure/app-service/overview), and covers intra-regional resiliency with availability zones. Azure App Service is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. 
 
 Azure App Service adds the power of Microsoft Azure to your application, such as:
@@ -34,7 +33,7 @@ When you configure to be zone redundant, the platform automatically spreads the 
 
 Availability zone support is a property of the App Service plan. App Service plans can be created on managed multi-tenant environment or dedicated environment using App Service Environment. To Learn more regarding App Service Environment, see [App Service Environment overview](/azure/app-service/environment/overview).
 
-
+For App Services that aren't configured to be zone redundant, VM instances are not zone resilient and can experience downtime during an outage in any zone in that region.
 
 ### Prerequisites
 
@@ -47,7 +46,12 @@ Availability zone support is a property of the App Service plan. The following a
     - In a multi-tenant environment using App Service Premium v2 or Premium v3 plans.
     - In a dedicated environment using App Service Environment v3, which is used with Isolated v2 App Service plans.
 
-- For dedicated environments, your App Service Environment must be v3. App Service Environment v2 will be retired on 31 August 2024 and isn't recommended for availability zone deployment. ASE v1 doesn't support availability zones. 
+- For dedicated environments, your App Service Environment must be v3. 
+
+    >[!IMPORTANT]
+    >[App Service Environment v2 will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement/). App Service Environment v3 is easier to use and runs on more powerful infrastructure. To learn more about App Service Environment v3, see [App Service Environment overview](azure/app-service/environment/overview). If you're currently using App Service Environment v2 and you want to upgrade to v3, please follow the [steps in this article](/azure/app-service/environment/migration-alternatives) to migrate to the new version.
+     
+     App Service Environment v1 doesn't support availability zones. 
 
 - Minimum instance count of three zones is enforced. The platform will enforce this minimum count behind the scenes if you specify an instance count fewer than three.
 
@@ -57,9 +61,7 @@ Availability zone support is a property of the App Service plan. The following a
 
 ### Create a resource with availability zone enabled
 
-#### Deploy a zone-redundant App Service
-
-**To deploy a multi-tenant zone-redundant App Service:**
+#### To deploy a multi-tenant zone-redundant App Service:
 
 # [Azure CLI](#tab/cli)
 
@@ -117,15 +119,9 @@ The Azure Resource Manager template snippet below shows the new ***zoneRedundant
 ```
 ---
 
-**To deploy a zone-redundant App Service using a dedicated environment:**
+#### To deploy a zone-redundant App Service using a dedicated environment:
 
-- Create the App Service Environment v3 on Isolated v2 plan, see [Create an App Service Environment](/azure/app-service/environment/creation).
-
-- To create a zonal deployment  with *Isolated* plan hosted on App Service Environment v2, see [Availability zone support for App Service Environment v2](/azure/app-service/environment/zone-redundancy).
-
-
->[!IMPORTANT]
->[App Service Environment v2 will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement/). App Service Environment v3 is easier to use and runs on more powerful infrastructure. To learn more about App Service Environment v3, see [App Service Environment overview](azure/app-service/environment/overview). If you're currently using App Service Environment v2 and you want to upgrade to v3, please follow the [steps in this article](/azure/app-service/environment/migration-alternatives) to migrate to the new version.
+To learn how to create the App Service Environment v3 on Isolated v2 plan, see [Create an App Service Environment](/azure/app-service/environment/creation).
 
 ### Fault tolerance
 
