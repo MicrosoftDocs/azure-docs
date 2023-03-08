@@ -8,7 +8,7 @@ ms.service: virtual-network
 ms.subservice: nat
 ms.topic: how-to
 ms.date: 10/31/2022
-ms.custom: template-how-to
+ms.custom: template-how-to, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Manage NAT gateway

@@ -1,15 +1,12 @@
 ---
 title: Migrate databases by using the Azure SQL Migration extension for Azure Data Studio
 description: Learn how to use the Azure SQL Migration extension in Azure Data Studio to migrate databases with Azure Database Migration Service.
-services: database-migration
 author: croblesm
 ms.author: roblescarlos
-manager: 
 ms.reviewer: randolphwest
-ms.service: dms
-ms.workload: data-services
-ms.topic: conceptual
 ms.date: 09/28/2022
+ms.service: dms
+ms.topic: conceptual
 ms.custom: references_regions
 ---
 
