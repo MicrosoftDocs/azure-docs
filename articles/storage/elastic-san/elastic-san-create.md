@@ -81,7 +81,7 @@ az feature show --name ElasticSanPreviewAccess --namespace Microsoft.ElasticSan
 
 # [PowerShell](#tab/azure-powershell)
 
-The following command creates an Elastic SAN that uses locally-redundant storage. To create one that uses zone-redundant storage, replace `Premium_LRS` with `Premium_ZRS`.
+The following command creates an Elastic SAN that uses locally redundant storage. To create one that uses zone-redundant storage, replace `Premium_LRS` with `Premium_ZRS`.
 
 ```azurepowershell
 ## Variables
@@ -99,7 +99,7 @@ New-AzElasticSAN -ResourceGroupName $rgName -Name $sanName -AvailabilityZone $zo
 ```
 # [Azure CLI](#tab/azure-cli)
 
-The following command creates an Elastic SAN that uses locally-redundant storage. To create one that uses zone-redundant storage, replace `Premium_LRS` with `Premium_ZRS`.
+The following command creates an Elastic SAN that uses locally redundant storage. To create one that uses zone-redundant storage, replace `Premium_LRS` with `Premium_ZRS`.
 
 ```azurecli
 ## Variables
