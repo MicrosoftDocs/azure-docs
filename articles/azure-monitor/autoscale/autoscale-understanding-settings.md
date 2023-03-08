@@ -104,7 +104,7 @@ The following table describes the elements in the preceding autoscale setting's 
 | Setting | name | |The autoscale setting name. |
 | Setting | location | |The location of the autoscale setting. This location can be different from the location of the resource being scaled. |
 | properties | targetResourceUri | |The resource ID of the resource being scaled. You can only have one autoscale setting per resource. |
-| properties | profiles | Scale condition |An autoscale setting is composed of one or more profiles. Each time the autoscale engine runs, it executes one profile. |
+| properties | profiles | Scale condition |An autoscale setting is composed of one or more profiles. Each time the autoscale engine runs, it executes one profile. Configure up to 20 profiles per autoscale setting. |
 | profiles | name | |The name of the profile. You can choose any name that helps you identify the profile. |
 | profiles | capacity.maximum | Instance limits - Maximum |The maximum capacity allowed. It ensures that autoscale doesn't scale your resource above this number when it executes the profile. |
 | profiles | capacity.minimum | Instance limits - Minimum  |The minimum capacity allowed. It ensures that autoscale doesn't scale your resource below this number when it executes the profile |
@@ -124,6 +124,7 @@ The following table describes the elements in the preceding autoscale setting's 
 
 ## Autoscale profiles
 
+Define up to 20 different profiles per autoscale setting.  
 There are three types of autoscale profiles:
 
 - **Default profile**: Use the default profile if you don't need to scale your resource based on a particular date and time or day of the week. The default profile runs when there are no other applicable profiles for the current date and time. You can only have one default profile.

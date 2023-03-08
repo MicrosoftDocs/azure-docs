@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.subservice: autoscale
 ms.topic: conceptual
 ms.date: 03/08/2023
-ms.reviewer: 
+ms.reviewer:
 ---
 
 # Overview of autoscale in Azure
