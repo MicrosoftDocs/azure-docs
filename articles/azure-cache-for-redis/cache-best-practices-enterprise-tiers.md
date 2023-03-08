@@ -13,7 +13,7 @@ ms.author: franlanglois
 
 ## Zone Redundancy
 
-We strongly recommended that you deploy new caches in a [zone redundant](cache-high-availability.md) configuration. Zone redundancy ensures that Redis Enterprise nodes are spread among three availability zones, boosting redundancy from data center-level outages. Using zone redundancy increases the availability SLA to 99.99%. For more information, see [Service Level Agreements (SLA) for Online Services](https://azure.microsoft.com/support/legal/sla/cache/v1_1/).
+We strongly recommended that you deploy new caches in a [zone redundant](cache-high-availability.md) configuration. Zone redundancy ensures that Redis Enterprise nodes are spread among three availability zones, boosting redundancy from data center-level outages. Using zone redundancy increases availability. For more information, see [Service Level Agreements (SLA) for Online Services](https://azure.microsoft.com/support/legal/sla/cache/v1_1/).
 
 Zone redundancy is important on the Enterprise tier because your cache instance always uses at least three nodes. Two nodes are data nodes, which hold your data, and a _quorum node_. Increasing capacity scales the number of data nodes in even-number increments. 
 
@@ -26,7 +26,7 @@ In the Enterprise and Enterprise Flash tiers of Azure Cache for Redis, we recomm
 Conversely, the opposite recommendation is true for the Basic, Standard, and Premium tiers, which are built on open-source Redis. In those tiers, prioritizing scaling out over scaling up is recommended in most cases.
 
 
-## Sharding and CPU Utilization
+## Sharding and CPU utilization
 
 In the Basic, Standard, and Premium tiers of Azure Cache for Redis, determining the number of virtual CPUs (vCPUs) utilized is straightforward. Each Redis node runs on a dedicated VM. The Redis server process is single-threaded, utilizing one vCPU on each primary and each replica node. The other vCPUs on the VM are still used for other activities, such as workflow coordination for different tasks, health monitoring, and TLS load, among others. 
 
