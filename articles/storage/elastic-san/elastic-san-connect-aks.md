@@ -4,7 +4,7 @@ description: Learn how to connect to an Azure Elastic SAN (preview) volume an Az
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/07/2023
+ms.date: 03/08/2023
 ms.author: rogarana
 ms.subservice: elastic-san
 ---
@@ -30,8 +30,8 @@ The iSCSI CSI driver for Kubernetes is [licensed under the Apache 2.0 license](h
 ## Pre-requisites
 
 - Have an [Azure Elastic SAN](elastic-san-create.md) with volumes
-- Either the [latest Azure CLI](/cli/azure/install-azure-cli) or use the following command to install the Azure PowerShell preview module: `Install-Module -Name Az.ElasticSan -Scope CurrentUser -Repository PSGallery -Force -RequiredVersion 0.1.0`
-- Meet the [compatibility requirements](https://github.com/kubernetes-csi/csi-driver-iscsi/blob/master/README.md#container-images--kubernetes-compatibility) for the iSCSI CSI driver.
+- Either the [latest Azure CLI](/cli/azure/install-azure-cli) or install the [latest Azure PowerShell module](/powershell/azure/install-az-ps)
+- Meet the [compatibility requirements](https://github.com/kubernetes-csi/csi-driver-iscsi/blob/master/README.md#container-images--kubernetes-compatibility) for the iSCSI CSI driver
 
 ## Limitations
 
