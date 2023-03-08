@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 ms.custom: cliv2, event-tier1-ignite-2022
-
+ms.date: 03/08/2023
 ms.author: shoja
 author: shouryaj
 ms.date: 10/11/2022
