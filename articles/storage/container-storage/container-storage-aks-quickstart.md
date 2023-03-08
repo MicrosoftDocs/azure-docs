@@ -154,7 +154,7 @@ azstorpoolset.azstor.azure.com/azstorpoolset1 created
 
 ## Use the new storage classes
 
-You can now use the new out-of-the-box storage classes when creating persistent volume claims and deploying persistent volumes, using Azure Disks as back-end storage. Follow the instructions in Create and use a volume with Azure Disks in Azure Kubernetes Service, using `azure-disk-sc-for-mayastor` in place of the other built-in storage classes for Disks. You can also edit the new storage classes, or create your own.
+You can now use the new out-of-the-box storage classes when creating persistent volume claims and deploying persistent volumes, using Azure Disks as back-end storage. Follow the instructions in [Create and use a volume with Azure Disks in AKS](../../aks/azure-csi-disk-storage-provision.md#create-a-persistent-volume-claim), using `azure-disk-sc-for-mayastor` in place of the other built-in storage classes for Disks. You can also edit the new storage classes, or create your own.
 
 ## Clean up resources
 

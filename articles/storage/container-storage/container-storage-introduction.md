@@ -19,9 +19,7 @@ ms.custom: references_regions
 
 Azure Container Storage is a cloud-based volume management offering built natively for containers. It integrates volume management and deployment with Kubernetes, allowing customers to dynamically and automatically provision persistent volumes so they can focus on running workloads instead of managing storage.
 
-This public preview only supports Linux-based [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md) clusters.
-
-(https://learn.microsoft.com/azure/aks/intro-kubernetes) clusters with [Azure managed disks](../../virtual-machines/managed-disks-overview.md).
+This public preview only supports Linux-based [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md) clusters with [Azure managed disks](../../virtual-machines/managed-disks-overview.md).
 
 To get started using Azure Container Storage, see [Quickstart: Use Azure Container Storage with AKS](container-storage-aks-quickstart.md).
 
