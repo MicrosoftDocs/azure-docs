@@ -42,11 +42,11 @@ The following SDKs and features are unsupported for use with Azure AD authentica
 
 1. If you don't already have an identity, create one by using either a managed identity or a service principal.
 
-    1. We recommend using a managed identity:
+    - We recommend using a managed identity:
 
         [Set up a managed identity for your Azure service](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) (Virtual Machines or App Service).
 
-    1. We don't recommend using a service principal:
+    - We don't recommend using a service principal:
 
         For more information on how to create an Azure AD application and service principal that can access resources, see [Create a service principal](../../active-directory/develop/howto-create-service-principal-portal.md).
 
@@ -469,7 +469,7 @@ You can inspect network traffic by using a tool like Fiddler. To enable the traf
 }
 ```
 
-Or add the following JVM args while running your application:`-Djava.net.useSystemProxies=true -Dhttps.proxyHost=localhost -Dhttps.proxyPort=8888`
+Or add the following JVM args while running your application: `-Djava.net.useSystemProxies=true -Dhttps.proxyHost=localhost -Dhttps.proxyPort=8888`
 
 If Azure AD is enabled in the agent, outbound traffic will include the HTTP header `Authorization`.
 
