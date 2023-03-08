@@ -233,7 +233,7 @@ To call existing functions from your logic app workflow, you can add functions l
 
 ## Enable authentication for function calls (Consumption workflows only)
 
-When calling an Azure function, your Consumption workflow can authenticate access to resources protected by Azure Active Directory (Azure AD) by using a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) (formerly known as Managed Service Identity or MSI). This managed identity can authenticate access without having to sign in and provide credentials or secrets. Azure manages this identity for you and helps secure your credentials because you don't have to provide or rotate secrets. You can set up the system-assigned identity or a manually created, user-assigned identity at the logic app resource level. The function that's called from your workflow can use the same identity for authentication.
+Your Consumption workflow can authenticate function calls and access to resources protected by Azure Active Directory (Azure AD) by using a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) (formerly known as Managed Service Identity or MSI). This managed identity can authenticate access without having to sign in and provide credentials or secrets. Azure manages this identity for you and helps secure your credentials because you don't have to provide or rotate secrets. You can set up the system-assigned identity or a manually created, user-assigned identity at the logic app resource level. The function that's called from your workflow can use the same identity for authentication.
 
 > [!NOTE]
 > 
