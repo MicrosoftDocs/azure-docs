@@ -84,10 +84,6 @@ You can create a personalized sign-in experience for users who sign in using a s
 
 For languages that are read right-to-left, such as Arabic and Hebrew, they are displayed in the opposite direction compared to languages that are read left-to-right. Azure AD supports right-to-left functionality and features for languages that work in a right-to-left environment for entering, and displaying data. Right-to-left readers can interact in a natural reading manner. 
 
-The following screenshot demonstrates a sign-in page in LTR and RTL orientations:
-
-<!--![Screenshot of the Azure AD sign-in page in English, Arabic and Hebrew.](./media/ciam-pp1/company-branding-rtl-support.png)-->
-
 ## Next steps
 
 - [Customize the branding and end-user experience](how-to-customize-branding-customers.md) 
