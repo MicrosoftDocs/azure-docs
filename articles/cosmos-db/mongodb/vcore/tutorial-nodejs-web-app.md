@@ -53,7 +53,7 @@ TODO - Short sentence or two.
 1. In an empty directory, use `git clone` to pull down the existing application.
 
     ```bash
-    git clone https://github.com/Azure-Samples/msdocs-azure-cosmos-db-mongodb-mern-web-app.git .
+    git clone https://github.com/azure-samples/msdocs-azure-cosmos-db-mongodb-mern-web-app.git .
     ```
 
 1. Create a new `.env` file in the root of the sample project with the connection string you recorded earlier.
