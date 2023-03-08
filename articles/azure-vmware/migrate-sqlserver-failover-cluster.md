@@ -91,18 +91,18 @@ For illustration purposes in this document, we're using a two-node cluster with 
        1. Verify virtual machine network configuration and ensure it can reach on-premises and Azure resources. 
        1. Open Failover Cluster Manager and verify cluster services.
 
-            :::image type="content" source="media/sql-server-hybrid-benefit/sqlfci-3.png" alt-text="Diagram showing offline state of of failover cluster on SQL server for  Azure VMware Solution." border="false":::
+        :::image type="content" source="media/sql-server-hybrid-benefit/sqlfci-3.png" alt-text="Diagram showing offline state of of failover cluster on SQL server for  Azure VMware Solution." border="false":::
 
 1. Power on second node virtual machine.
 1. Access the second node VM with VMware Remote Console.
    1. Verify that Windows Server can see the storage.
    1. In Failover Cluster Manager review that the second node appears as Online status.
 
-:::image type="content" source="media/sql-server-hybrid-benefit/sqlfci-4.png" alt-text="Diagram showing offline state of failover cluster on SQL server for  Azure VMware Solution." border="false":::
+    :::image type="content" source="media/sql-server-hybrid-benefit/sqlfci-4.png" alt-text="Diagram showing offline state of failover cluster on SQL server for  Azure VMware Solution." border="false":::
 
 1. Using SQL Server Management Studio connect to the SQL Server cluster resource network name.
-    1. Check the database is online and accessible.
-    :::image type="content" source="media/sql-server-hybrid-benefit/sqlfci-5.png" alt-text="Diagram showing offline state of failover cluster on SQL server for  Azure VMware Solution." border="false":::
+        Check the database is online and accessible.
+        :::image type="content" source="media/sql-server-hybrid-benefit/sqlfci-5.png" alt-text="Diagram showing offline state of failover cluster on SQL server for  Azure VMware Solution." border="false":::
     
 1. Finally check connectivity to SQL from other systems and applications in your infrastructure and verify that all applications using the database(s) can still access it.
 
