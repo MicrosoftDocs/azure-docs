@@ -15,7 +15,7 @@ In support of the experience of viewing impacted resources, Service Health has e
 This article details what is communicated to users and where they can view information about their impacted resources.
 
 >[!Note]
->This feature will be rolled out in phases. Initially, only selected subscription-level customers will get the experience. The rollout will gradually expand to 100 percent of subscription and tenant customers.
+>This feature will be rolled out in phases. The rollout will gradually expand to 100 percent of subscription and tenant customers.
 
 ## Role Based Access (RBAC) For Security Incident Resource Impact
 
@@ -43,10 +43,8 @@ Along with resource information, Service Health provides the below information t
 |---------|---------|
 |**Subscription ID**|Unique ID for the subscription that contains the impacted resource|
 |**Subscription Name**|Subscription name for the subscription that contains the impacted resource|
-|**Resource Name**|This will be the resource name of the resource.  It will be text only for security impacted resources|
 |**Tenant Name**|Unique ID for the tenant that contains the impacted resource|
 |**Tenant ID**|Unique ID for the tenant that contains the impacted resource|
-|**App ID**| description
 
 ## Accessing Impacted Resources programmatically via an API
 
