@@ -18,10 +18,10 @@ The [MERN (MongoDB, Express, React.js, Node.js) stack](https://www.mongodb.com/m
 
 > [!div class="checklist"]
 >
-> - Use the mongo shell to create a database and collection
-> - Get the connection string for your cluster
-> - Connect an application using Node.js, React.js, and Express to your cluster
-> - Deploy your application to Azure App Service
+> - Clone and test the MERN application with a MongoDB container
+> - Connect to your Azure Cosmos DB for MongoDB vCore cluster and populate with seed data
+> - Connect and validate your application with the vCore cluster
+> - Deploy your application to Azure App Service resources
 >
 
 ## Prerequisites
@@ -30,31 +30,144 @@ To complete this tutorial, you need the following resources:
 
 - An existing Azure Cosmos DB for MongoDB vCore cluster.
   - If you don't have an Azure subscription, [create an account for free](https://azure.microsoft.com/free).
-  - If you have an existing Azure subscription, [create a new Azure Cosmos DB for MongoDB vCore cluster](about:blank).
+  - If you have an existing Azure subscription, [create a new Azure Cosmos DB for MongoDB vCore cluster](quickstart-portal.md?tabs=azure-cli).
+- [Node.js](https://nodejs.org/)
+- [Docker](https://www.docker.com/)
+- [MongoDB Shell](https://www.mongodb.com/)
 
-## Create resources with the mongo shell
+## Clone and test the MERN application with a MongoDB container
 
-TODO - Short sentence or two.
+Start by taking the [sample application](https://github.com/azure-samples/msdocs-azure-cosmos-db-mongodb-mern-web-app) published to GitHub, cloning it to your local machine, and running it with a local MongoDB container.
 
-1. TODO
+1. Run a MongoDB container on your local machine
 
-## Get your cluster's connection string
-
-TODO - Short sentence or two.
-
-1. TODO
-
-## Connect your MERN stack application to your cluster
-
-TODO - Short sentence or two.
+    ```bash
+    docker run --detach --publish 65000:27017 mongo
+    ```
 
 1. TODO
 
-1. In an empty directory, use `git clone` to pull down the existing application.
+    ```bash
+    mongosh "mongodb://127.0.0.1:65000"
+    ```
+
+1. TODO
+
+    ```bash
+    use cosmicworks
+    ```
+
+1. TODO
+
+    ```bash
+    db.products.insertMany([
+      { name: "Confira Watch", category: "watches", price: 105.00 },
+      { name: "Diannis Watch", category: "watches", price: 98.00, sale: true },
+      { name: "Peache Sunglasses", category: "sunglasses", price: 32.00, sale: false, sizes: [ "S", "M", "L" ] }
+    ])
+    ```
+
+1. TODO
+
+    ```bash
+    db.products.find({})
+    ```
+
+1. TODO
+
+    ```bash
+    exit
+    ```
+
+1. In an empty directory, use `git clone` to clone the MERN application from GitHub.
 
     ```bash
     git clone https://github.com/azure-samples/msdocs-azure-cosmos-db-mongodb-mern-web-app.git .
     ```
+
+1. TODO
+
+    ```bash
+
+    ```
+
+1. TODO
+
+    ```bash
+
+    ```
+
+1. TODO
+
+    ```bash
+
+    ```
+
+1. TODO
+
+    ```bash
+
+    ```
+
+1. TODO
+
+    ```bash
+
+    ```
+
+1. TODO
+
+    ```bash
+
+    ```
+
+1. TODO
+
+    ```bash
+
+    ```
+
+1. TODO
+
+    ```bash
+
+    ```
+
+1. TODO
+
+    ```bash
+
+    ```
+
+1. TODO
+
+    ```bash
+
+    ```
+
+1. TODO
+
+    ```bash
+
+    ```
+
+1. TODO
+
+    ```bash
+
+    ```
+
+## Connect to your Azure Cosmos DB for MongoDB vCore cluster and populate with seed data
+
+TODO - Short sentence or two.
+
+1. TODO
+
+## Connect and validate your application with the vCore cluster
+
+TODO - Short sentence or two.
+
+1. TODO
 
 1. Create a new `.env` file in the root of the sample project with the connection string you recorded earlier.
 
@@ -71,7 +184,7 @@ TODO - Short sentence or two.
     > ```
     >
 
-## Deploy your application to Azure App Service
+## Deploy your application to Azure App Service resources
 
 TODO - Short sentence or two.
 
