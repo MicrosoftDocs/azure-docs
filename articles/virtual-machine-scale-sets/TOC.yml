@@ -68,8 +68,6 @@
       href: tutorial-autoscale-cli.md
     - name: Azure PowerShell
       href: tutorial-autoscale-powershell.md
-    - name: Template
-      href: tutorial-autoscale-template.md
 - name: Scale
   items:
   - name: Autoscale

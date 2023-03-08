@@ -86,7 +86,7 @@ Learn how to use additional features of the drawing tools module:
 > [!div class="nextstepaction"]
 > [Interaction types and keyboard shortcuts](drawing-tools-interactions-keyboard-shortcuts.md)
 
-Learn more about the Services module:
+Learn more about the services module:
 
 > [!div class="nextstepaction"]
 > [Services module](how-to-use-services-module.md)

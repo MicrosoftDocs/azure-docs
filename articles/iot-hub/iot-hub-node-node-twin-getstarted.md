@@ -6,14 +6,20 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: javascript
 ms.topic: conceptual
-ms.date: 08/26/2019
+ms.date: 02/17/2023
 ms.author: kgremban
-ms.custom: mqtt, devx-track-js, devx-track-azurecli
+ms.custom: mqtt, devx-track-js
 ---
 
 # Get started with device twins (Node.js)
 
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
+
+This article shows you how to:
+
+* Use a simulated device app to report its connectivity channel as a reported property on the device twin.
+
+* Query devices from your back-end app using filters on the tags and properties previously created.
 
 In this article, you create two Node.js console apps:
 
