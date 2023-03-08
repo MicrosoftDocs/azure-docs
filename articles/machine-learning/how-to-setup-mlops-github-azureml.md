@@ -144,10 +144,10 @@ Before you can set up an MLOps project with Machine Learning, you need to set up
       ![GitHub Secrets String 1](./media/how-to-setup-mlops-azureml/gh-secrets-string.png)
 
 1. Add each of the following additional GitHub secrets using the corresponding values from the service principal output as the content of the secret:  
-      > **ARM_CLIENT_ID**  
-      > **ARM_CLIENT_SECRET**  
-      > **ARM_SUBSCRIPTION_ID**  
-      > **ARM_TENANT_ID**  
+      - **ARM_CLIENT_ID**  
+      - **ARM_CLIENT_SECRET**  
+      - **ARM_SUBSCRIPTION_ID**  
+      - **ARM_TENANT_ID**  
 
       ![GitHub Secrets String 2](./media/how-to-setup-mlops-azureml/gh-secrets-string2.png)
 
@@ -209,24 +209,24 @@ This training pipeline contains the following steps:
 
 **Prepare Data**
    - This component takes multiple taxi datasets (yellow and green) and merges/filters the data, and prepare the train/val and evaluation datasets.
-   - Input: Local data under `./data/` (multiple .csv files)
-   - Output: Single prepared dataset (.csv) and train/val/test datasets.
+   - **Input:** Local data under `./data/` (multiple .csv files).
+   - **Output:** Single prepared dataset (.csv) and train/val/test datasets.
 
 **Train Model**
    - This component trains a Linear Regressor with the training set.
-   - Input: Training dataset
-   - Output: Trained model (pickle format)
+   - **Input:** Training dataset.
+   - **Output:** Trained model (pickle format).
    
 **Evaluate Model**
    - This component uses the trained model to predict taxi fares on the test set.
-   - Input: ML model and Test dataset
-   - Output: Performance of model and a deploy flag whether to deploy or not.
+   - **Input:** ML model and Test dataset.
+   - **Output:** Performance of model and a deploy flag whether to deploy or not.
    - This component compares the performance of the model with all previous deployed models on the new test dataset and decides whether to promote or not model into production. Promoting model into production happens by registering the model in AML workspace.
 
 **Register Model**
    - This component scores the model based on how accurate the predictions are in the test set.
-   - Input: Trained model and the deploy flag.
-   - Output: Registered model in Machine Learning.
+   - **Input:** Trained model and the deploy flag.
+   - **Output:** Registered model in Machine Learning.
 
 ## Deploying the model training pipeline
 
