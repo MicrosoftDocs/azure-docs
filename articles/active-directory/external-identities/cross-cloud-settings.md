@@ -40,6 +40,9 @@ After each organization has completed these steps, Azure AD B2B collaboration be
 - **Decide on inbound and outbound access settings for the partner.** Selecting a cloud in your Microsoft cloud settings doesn't automatically enable B2B collaboration. Once you enable another Microsoft Azure cloud, all B2B collaboration is blocked by default for organizations in that cloud. You'll need to add the tenant you want to collaborate with to your Organizational settings. At that point, your default settings go into effect for that tenant only. You can allow the default settings to remain in effect. Or, you can modify the inbound and outbound settings for the organization.
 - **Obtain any required object IDs or app IDs.** If you want to apply access settings to specific users, groups, or applications in the partner organization, you'll need to contact the organization for information before configuring your settings. Obtain their user object IDs, group object IDs, or application IDs (*client app IDs* or *resource app IDs*) so you can target your settings correctly.
 
+> [!NOTE]
+> Users from another Microsoft cloud must be invited using their user principal name (UPN). [Email as sign in](/azure/active-directory/authentication/howto-authentication-use-email-signin#b2b-guest-user-sign-in-with-an-email-address) is not currently supported when collaborating with users from another Microsoft cloud.
+
 ## Enable the cloud in your Microsoft cloud settings
 
 In your Microsoft cloud settings, enable the Microsoft Azure cloud you want to collaborate with.
@@ -98,12 +101,6 @@ The following scenarios are supported when collaborating with an organization fr
 
 > [!NOTE]
 > Enabling the [SharePoint and OneDrive integration with Azure AD B2B](/sharepoint/sharepoint-azureb2b-integration) will provide the best experience for inviting users from another Microsoft cloud within SharePoint and OneDrive.
-
-## Limitations with collaborating across Microsoft clouds
-
-The following limitations apply when collaborating with users from another Microsoft cloud:
-
-- Users from another Microsoft cloud must be invited using their user principal name (UPN). [Email as sign in](/azure/active-directory/authentication/howto-authentication-use-email-signin#b2b-guest-user-sign-in-with-an-email-address) is not currently supported when collaborating with users from another Microsoft cloud.
 
 ## Next steps
 
