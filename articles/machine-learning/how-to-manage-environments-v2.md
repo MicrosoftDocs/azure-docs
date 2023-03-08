@@ -167,6 +167,9 @@ ml_client.environments.create_or_update(env_docker_context)
 
 Azure Machine Learning will start building the image from the build context when the environment is created. You can monitor the status of the build and view the build logs in the studio UI.
 
+> [!NOTE]
+> Uploading a Dockerfile larger than 1MB is currently unsupported.
+
 ### Create an environment from a conda specification
 
 You can define an environment using a standard conda YAML configuration file that includes the dependencies for the conda environment. See [Creating an environment manually](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-file-manually) for information on this standard format.
