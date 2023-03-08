@@ -13,7 +13,7 @@ keywords: ChatGPT
 
 # Learn how to work with Chat Markup Language (preview)
 
-The ChatGPT model (gpt-35-turbo) is a language model designed for conversational interfaces and the model behaves differently than previous GPT-3 models. Previous models were text-in and text-out, meaning they accepted a prompt string and returned a completion to append to the prompt. However, the ChatGPT model is conversation-in and message-out. The model expects a prompt string formatted in a specific chat-like transcript format, and returns a completion that represents a model-written message in the chat. While the prompt format was designed specifically for multi-turn conversations, you'll find it can also work well for non-chat scenarios too.
+The ChatGPT model (`gpt-35-turbo`) is a language model designed for conversational interfaces and the model behaves differently than previous GPT-3 models. Previous models were text-in and text-out, meaning they accepted a prompt string and returned a completion to append to the prompt. However, the ChatGPT model is conversation-in and message-out. The model expects a prompt string formatted in a specific chat-like transcript format, and returns a completion that represents a model-written message in the chat. While the prompt format was designed specifically for multi-turn conversations, you'll find it can also work well for non-chat scenarios too.
 
 The ChatGPT model can be used with the same [completion API](/azure/cognitive-services/openai/reference#completions) that you use for other models like text-davinci-002, but it requires a unique prompt format known as Chat Markup Language (ChatML). It's important to use the new prompt format to get the best results. Without the right prompts, the model tends to be verbose and provides less useful responses.
 
@@ -42,7 +42,7 @@ print(response['choices'][0]['text'])
 > [!NOTE]  
 > The following parameters aren't available with the gpt-35-turbo model: `logprobs`, `best_of`, and `echo`. If you set any of these parameters to a value other than their default, you'll get an error.
 
-The `<|im_end|>` token indicates the end of a message. We recommend including `<|im_end|>` token as a stop sequence to ensure that the model stops generating text when it reaches the end of the message. You can read more about the special tokens in the [Chat Markup Language (ChatML)](# working-with-chat-markup-language-(chatml)) section.
+The `<|im_end|>` token indicates the end of a message. We recommend including `<|im_end|>` token as a stop sequence to ensure that the model stops generating text when it reaches the end of the message. You can read more about the special tokens in the [Chat Markup Language (ChatML)](#chatml) section.
 
 Consider setting `max_tokens` to a slightly higher value than normal such as 300 or 500. This ensures that the model doesn't stop generating text before it reaches the end of the message.
 
@@ -57,6 +57,7 @@ Currently, only version `"0301"` is available. This is equivalent to the `gpt-3.
 
 One thing that's important to note is that Chat Markup Language (ChatML) will continue to evolve with the new versions of the model. You may need to make updates to your prompts when you upgrade to a new version of the model.
 
+<a id="chatml"></a>
 
 ## Working with Chat Markup Language (ChatML)
 
