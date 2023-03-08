@@ -29,7 +29,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Review the template
 
-This template creates a single Standard SKU public IP with DDoS IP Protection enabled. The template used in this quickstart is from [Azure Quickstart Templates](~/samples/azure/azure-quickstart-templates/pip-with-ddos-ip-protection/).
+This template creates a single Standard SKU public IP with DDoS IP Protection enabled. The template used in this quickstart is from [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/pip-with-ddos-ip-protection/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/pip-with-ddos-ip-protection/azuredeploy.json":::
 
