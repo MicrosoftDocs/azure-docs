@@ -256,8 +256,6 @@ items:
           href: quickstarts/multi-device-conversation.md
     - name: Voice assistants
       items:
-        - name: Voice assistants documentation
-          href: index-voice-assistants.yml
         - name: Voice assistants overview
           href: voice-assistants.md
         - name: Voice assistants FAQ
