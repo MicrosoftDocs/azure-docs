@@ -237,7 +237,6 @@ southeastasia - 20.24.186.80
 
 If you experience RHUI certificate issues from your Azure RHEL PAYG VM, reference the [troubleshooting guidance for RHUI certificate issues in Azure](/troubleshoot/azure/virtual-machines/troubleshoot-linux-rhui-certificate-issues).
 
-> * [Troubleshoot RHUI certificate issues in Azure](/troubleshoot/azure/virtual-machines/troubleshoot-linux-rhui-certificate-issues)
  
 
 ### Troubleshoot connection problems to Azure RHUI
