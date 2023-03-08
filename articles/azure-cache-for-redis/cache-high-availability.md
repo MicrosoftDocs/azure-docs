@@ -31,7 +31,7 @@ Applicable tiers: **Standard**, **Premium**, **Enterprise**, **Enterprise Flash*
 
 Recommended for: **High availability**
 
-Azure Cache for Redis has a high availability architecture that ensures your managed instance is functioning, even when outages affect the underlying virtual machines (VMs). Whether the outage is planned or unplanned outages, Azure Cache for Redis delivers much greater percentage availability rates than what's attainable by hosting Redis on a single VM.
+Azure Cache for Redis has a high availability architecture that ensures your managed instance is functioning, even when outages affect the underlying virtual machines (VMs). Whether the outage is planned or unplanned outages, Azure Cache for Redis delivers greater percentage availability rates than what's attainable by hosting Redis on a single VM.
 
 An Azure Cache for Redis in the applicable tiers runs on a pair of Redis servers by default. The two servers are hosted on dedicated VMs. Open-source Redis allows only one server to handle data write requests.
 
@@ -57,7 +57,7 @@ A typical failover sequence looks like this, when a primary needs to go down for
 
 A primary node can go out of service as part of a planned maintenance activity, such as an update to Redis software or the operating system. It also can stop working because of unplanned events such as failures in underlying hardware, software, or network. [Failover and patching for Azure Cache for Redis](cache-failover.md) provides a detailed explanation on types of failovers. An Azure Cache for Redis goes through many failovers during its lifetime. The design of the high availability architecture makes these changes inside a cache as transparent to its clients as possible.
 
-Also, Azure Cache for Redis provides more replica nodes in the Premium tier. A [multi-replica cache](cache-how-to-multi-replicas.md) can be configured with up to three replica nodes. Having more replicas generally improves resiliency because you have nodes backing up the primary. Even with more replicas, an Azure Cache for Redis instance still can be severely impacted by a data center or Availability Zone outage. You can increase cache availability by using multiple replicas with [zone redundancy](#zone-redundancy).
+Also, Azure Cache for Redis provides more replica nodes in the Premium tier. A [multi-replica cache](cache-how-to-multi-replicas.md) can be configured with up to three replica nodes. Having more replicas generally improves resiliency because you have nodes backing up the primary. Even with more replicas, an Azure Cache for Redis instance still can be severely affected by a data center or Availability Zone outage. You can increase cache availability by using multiple replicas with [zone redundancy](#zone-redundancy).
 
 ## Zone redundancy
 
@@ -68,7 +68,7 @@ Recommended for: **High availability**, **Disaster recovery - intra region**
 Azure Cache for Redis supports zone redundant configurations in the Premium and Enterprise tiers. A zone redundant cache can place its nodes across different Azure Availability Zones in the same region. It eliminates data center or AZ outage as a single point of failure and increases the overall availability of your cache.
 See this article for information on how to set it up.
 
-If a cache is configured to use two or more zones as described above, the cache nodes are created in different zones. When a zone goes down, cache nodes in other zones are available to keep the cache functioning as usual.
+If a cache is configured to use two or more zones as described earlier in the article, the cache nodes are created in different zones. When a zone goes down, cache nodes in other zones are available to keep the cache functioning as usual.
 
 Azure Cache for Redis supports zone redundant configurations in the Premium and Enterprise tiers. A [zone redundant cache](cache-how-to-zone-redundancy.md) can place its nodes across different [Azure Availability Zones](../availability-zones/az-overview.md) in the same region. It eliminates data center or Availability Zone outage as a single point of failure and increases the overall availability of your cache.
 
@@ -78,11 +78,11 @@ The following diagram illustrates the zone redundant configuration for the Premi
 
 :::image type="content" source="media/cache-high-availability/zone-redundancy.png" alt-text="Zone redundancy setup":::
 
-Azure Cache for Redis distributes nodes in a zone redundant cache in a round-robin manner over the selected Availability Zones. It also determines which node will serve as the primary initially.
+Azure Cache for Redis distributes nodes in a zone redundant cache in a round-robin manner over the selected Availability Zones. It also determines the node that serves as the primary initially.
 
-#### Zone Down Experience
+#### Zone Down Experience for Premium tier
 
-A zone redundant cache provides automatic failover. When the current primary node is unavailable, one of the replicas will take over. Your application may experience higher cache response time if the new primary node is located in a different AZ. Availability Zones are geographically separated. Switching from one AZ to another alters the physical distance between where your application and cache are hosted. This change impacts round-trip network latencies from your application to the cache. The extra latency is expected to fall within an acceptable range for most applications. We recommend you test your application to ensure it does well with a zone-redundant cache.
+A zone redundant cache provides automatic failover. When the current primary node is unavailable, one of the replicas take over. Your application may experience higher cache response time if the new primary node is located in a different AZ. Availability Zones are geographically separated. Switching from one AZ to another alters the physical distance between where your application and cache are hosted. This change impacts round-trip network latencies from your application to the cache. The extra latency is expected to fall within an acceptable range for most applications. We recommend you test your application to ensure it does well with a zone-redundant cache.
 
 ### Enterprise and Enterprise Flash tiers
 
@@ -93,7 +93,7 @@ A cache in either Enterprise tier runs on a Redis Enterprise _cluster_. It alway
 
 The Enterprise cluster divides Azure Cache for Redis data into partitions internally. Each partition has a _primary_ and at least one _replica_. Each data node holds one or more partitions. The Enterprise cluster ensures that the primary and replica(s) of any partition are never collocated on the same data node. Partitions replicate data asynchronously from primaries to their corresponding replicas.
 
-#### Zone Down Experience
+#### Zone Down Experience for Enterprise tiers
 
 When a data node becomes unavailable or a network split happens, a failover similar to the one described in [Standard replication](#standard-replication-for-high-availability) takes place. The Enterprise cluster uses a quorum-based model to determine which surviving nodes participate in a new quorum. It also promotes replica partitions within these nodes to primaries as needed.
 
@@ -186,7 +186,7 @@ For more information on force-unlinking, see [Force-Unlink if there's region out
 
 Applicable tiers: **Standard**, **Premium**, **Enterprise**, **Enterprise Flash**
 
-If you experience a regional outage, consider recreating your cache in a different region, and updating your application to connect to the new cache instead. It's important to understand that data will be lost during a regional outage. Your application code should be resilient to data loss.
+If you experience a regional outage, consider recreating your cache in a different region, and updating your application to connect to the new cache instead. It's important to understand that data is lost during a regional outage. Your application code should be resilient to data loss.
 
 Once the affected region is restored, your unavailable Azure Cache for Redis is automatically restored, and available for use again. For more strategies for moving your cache to a different region, see [Move Azure Cache for Redis instances to different regions](./cache-moving-resources.md).
 
