@@ -2,7 +2,7 @@
     "redirections": [
     {
         "source_path_from_root": "/articles/machine-learning/referencemanaged-online-endpoints-vm-sku-list.md",
-        "redirect_url": "/articles/machine-learning/reference-managed-online-endpoints-vm-sku-list",
+        "redirect_url": "/azure/machine-learning/reference-managed-online-endpoints-vm-sku-list",
         "redirect_document_id": false
     },
     {
