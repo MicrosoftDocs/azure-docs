@@ -161,7 +161,7 @@ Time to connect has two stages:
 
 When monitoring time to connect, keep in mind the following things:
 
-- Time to connect is measured with the following checkpoints from Azure Virtual Desktop service diagnostics data. Note that the checkpoints used to denote when the connection has been established are different for a desktop versus a remote application scenario:
+- Time to connect is measured with the following checkpoints from Azure Virtual Desktop service diagnostics data. The checkpoints Insights uses to determine when the connection is established are different for a desktop versus a remote application scenario.
 
   - Begins: [WVDConnection](/azure/azure-monitor/reference/tables/wvdconnections) state = started
 
