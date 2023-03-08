@@ -23,7 +23,7 @@ This guide assumes you've already [created a Computer Vision resource](https://p
 
 ## Submit data to the service
 
-When calling the **Image Analysis - Segment** API,  you specify the image's URL by formatting the request body like this: `{"url":"https://docs.microsoft.com/azure/cognitive-services/computer-vision/images/windows-kitchen.jpg"}`.
+When calling the **Image Analysis - Segment** API,  you specify the image's URL by formatting the request body like this: `{"url":"https://learn.microsoft.com/azure/cognitive-services/computer-vision/images/windows-kitchen.jpg"}`.
 
 To analyze a local image, you'd put the binary image data in the HTTP request body.
 

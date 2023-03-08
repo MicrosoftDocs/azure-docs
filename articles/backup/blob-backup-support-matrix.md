@@ -23,7 +23,7 @@ Operational backup for blobs is available in all public cloud regions, except Fr
 
 # [Vaulted backup](#tab/vaulted-backup)
 
-Vaulted backup (preview) for blobs is currently available in the following regions: France Central, Canada Central, Canada East, US East, and US South.
+Vaulted backup (preview) for blobs is currently available in the following regions: France Central, Canada Central, Canada East, US East, South Central US, Germany West Central, Germany North, Australia Central, Australia Central 2, India South, India West, Korea Central and Korea South.
 
 ---
 
