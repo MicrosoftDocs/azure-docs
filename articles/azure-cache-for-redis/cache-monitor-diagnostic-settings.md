@@ -13,10 +13,10 @@ ms.devlang: azurecli
 
 # Monitor Azure Cache for Redis data using diagnostic settings
 
-Diagnostic settings in Azure are used to collect resource logs. Azure resource Logs are emitted by a resource and provide rich, frequent data about the operation of that resource. These logs are captured per request and they're also referred to as "data plane logs". The content of these logs varies by resource type. Two options are available to log:
+Diagnostic settings in Azure are used to collect resource logs. An Azure resource emits resource logs and provides rich, frequent data about the operation of that resource. These logs are captured per request and they're also referred to as "data plane logs". The content of these logs varies by resource type. Two options are available to log:
 
-- **Cache Metrics** (i.e. "AllMetrics") which can be used to [log metrics from Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)  
-- **Connection Logs** which logs connections to the cache for security and diagnostic purposes. 
+- **Cache Metrics** (that is "AllMetrics") used to [log metrics from Azure Monitor](/azure-monitor/essentials/diagnostic-settings.md)  
+- **Connection Logs** logs connections to the cache for security and diagnostic purposes. 
 
 ## Scope of availability
 
@@ -27,7 +27,7 @@ Diagnostic settings in Azure are used to collect resource logs. Azure resource L
 
 ## Cache Metrics
 
-Azure Cache for Redis emmits [many metrics](cache-how-to-monitor.md#list-of-metrics) such as _Server Load_ and _Connections per Second_ that are useful to log. Selecting the **AllMetrics** option allows these and other cache metrics to be logged. You can configure how long the metrics are retained. See [here for an example of exporting cache metrics to a storage account](cache-how-to-monitor.md#use-a-storage-account-to-export-cache-metrics). 
+Azure Cache for Redis emits [many metrics](cache-how-to-monitor.md#list-of-metrics) such as _Server Load_ and _Connections per Second_ that are useful to log. Selecting the **AllMetrics** option allows these and other cache metrics to be logged. You can configure how long the metrics are retained. See [here for an example of exporting cache metrics to a storage account](cache-how-to-monitor.md#use-a-storage-account-to-export-cache-metrics). 
 
 ## Connection Logs
 
@@ -36,32 +36,32 @@ Azure Cache for Redis uses Azure diagnostic settings to log information on clien
 ## Differences Between Azure Cache for Redis Tiers
 
 Implementation of connection logs is slightly different between tiers:
-- **Basic, Standard, and Premium-tier caches** polls client connections by IP address, including the number of connections originating from each unique IP address. These logs aren't cumulative. They represent point-in-time snapshots taken at 10-second intervals. Authentication events (successful and failed) and disconnection events are not logged in these tiers.  
-- **Enterprise and Enterprise Flash-tier caches** use the [audit connection events](https://docs.redis.com/latest/rs/security/audit-events/) functionality built-into Redis Enterprise. This allows every connection, disconnection, and authentication event to be logged, including failed authentication events. 
+- **Basic, Standard, and Premium-tier caches** polls client connections by IP address, including the number of connections originating from each unique IP address. These logs aren't cumulative. They represent point-in-time snapshots taken at 10-second intervals. Authentication events (successful and failed) and disconnection events aren't logged in these tiers.  
+- **Enterprise and Enterprise Flash-tier caches** use the [audit connection events](https://docs.redis.com/latest/rs/security/audit-events/) functionality built-into Redis Enterprise. Audit connection events allows every connection, disconnection, and authentication event to be logged, including failed authentication events. 
 
-The connection logs produced look similar between the tiers, but have some differences. The two formats are shown in more detail below.  
+The connection logs produced look similar among the tiers, but have some differences. The two formats are shown in more detail later in the article.  
 
 > [!IMPORTANT]
 > The connection logging in the Basic, Standard, and Premium tiers _polls_ the current client connections in the cache. The same client IP addresses will appear over and over again. Logging in the Enterprise and Enterprise Flash tiers is focused on each connection _event_. Logs will only occur when the actual event occured for the first time.
 >
 
-## Prequisites/Limitations of Connection Logging
+## Prerequisites/Limitations of Connection Logging
 
 ### Basic, Standard, and Premium tiers
-- Because connection logs in these tiers consist of point-in-time snapshots taken every 10 seconds, connections that are established and removed in-between 10-second intervals will not be logged.
-- Authentication events are not logged.
+- Because connection logs in these tiers consist of point-in-time snapshots taken every 10 seconds, connections that are established and removed in-between 10-second intervals aren't logged.
+- Authentication events aren't logged.
 - All diagnostic settings may take up to [90 minutes](../azure-monitor/essentials/diagnostic-settings.md#time-before-telemetry-gets-to-destination) to start flowing to your selected destination. 
-- Enabling connection logs may cause a small performance degredation to the cache instance.
-- Only the _Analytics Logs_ pricing plan is supported when streaming logs to Azure Log Analytics. See [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) for more information. 
+- Enabling connection logs can cause a small performance degradation to the cache instance.
+- Only the _Analytics Logs_ pricing plan is supported when streaming logs to Azure Log Analytics. For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/). 
 
 ### Enterprise and Enterprise Flash tiers
-- When using **OSS Cluster Policy**, logs will be emitted from each data node. When using **Enterprise Cluster Policy**, only the node being used as a proxy will emit logs. Both versions will still cover all connections to the cache. This is just an architectural difference.  
-- Data loss (i.e. missing a connection event) is rare, but possible. It is typically caused by networking issues. 
-- Disconnection logs are not yet fully stable and events may be missed.  
-- Because connection logs on the Enterprise tiers are event-based, be careful of your retention policies. For instance, if retention is set up to be 10 days, and a connection event occured 15 days ago, that connection will still exist but the log for that connection will not have been retained.
+- When you use **OSS Cluster Policy**, logs are emitted from each data node. When you use **Enterprise Cluster Policy**, only the node being used as a proxy emits logs. Both versions still cover all connections to the cache. This is just an architectural difference.  
+- Data loss (that is, missing a connection event) is rare, but possible. Data loss is typically caused by networking issues. 
+- Disconnection logs aren't yet fully stable and events may be missed.  
+- Because connection logs on the Enterprise tiers are event-based, be careful of your retention policies. For instance, if retention is set to 10 days, and a connection event occurred 15 days ago, that connection still exist, but the log for that connection isn't retained.
 - If using [active geo-replication](cache-how-to-active-geo-replication.md), logging must be configured for each cache instance in the geo-replication group individually.
 - All diagnostic settings may take up to [90 minutes](../azure-monitor/essentials/diagnostic-settings.md#time-before-telemetry-gets-to-destination) to start flowing to your selected destination. 
-- Enabling connection logs may cause a small performance degredation to the cache instance.
+- Enabling connection logs may cause a small performance degradation to the cache instance.
 
 
 > [!NOTE]
@@ -79,11 +79,11 @@ You can turn on diagnostic settings for Azure Cache for Redis instances and send
 
 For more information on diagnostic requirements, see [diagnostic settings](../azure-monitor/essentials/diagnostic-settings.md?tabs=CMD).
 
-You'll be charged normal data rates for storage account and event hub usage when you send diagnostic logs to either destination. You're billed under Azure Monitor not Azure Cache for Redis. When sending logs to **Log Analytics**, you're only charged for Log Analytics data ingestion.
+You're charged normal data rates for storage account and event hub usage when you send diagnostic logs to either destination. You're billed under Azure Monitor not Azure Cache for Redis. When sending logs to **Log Analytics**, you're only charged for Log Analytics data ingestion.
 
 For more pricing information, [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
-## Enable connection logging using the Azure Portal
+## Enable connection logging using the Azure portal
 
 ### [Portal with Basic, Standard, and Premium tiers](#tab/basic-standard-premium)
 
@@ -97,7 +97,7 @@ For more pricing information, [Azure Monitor pricing](https://azure.microsoft.co
 
    For more detail on the data logged, see below [Contents of the Connection Logs](#contents-of-the-connection-logs).
 
-1. Once you select **ConnectedClientList**, send your logs to your preferred destination. Select the information on the right.
+1. Once you select **ConnectedClientList**, send your logs to your preferred destination. Select the information in the working pane.
 
     :::image type="content" source="media/cache-monitor-diagnostic-settings/diagnostics-resource-specific.png" alt-text="Select enable resource-specific":::
 
@@ -113,7 +113,7 @@ For more pricing information, [Azure Monitor pricing](https://azure.microsoft.co
 
    For more detail on the data logged, see below [Contents of the Connection Logs](#contents-of-the-connection-logs).
 
-1. Once you select **Connection events**, send your logs to your preferred destination. Select the information on the right.
+1. Once you select **Connection events**, send your logs to your preferred destination. Select the information in the working pane.
 
     **FRAN--need a new picture here**
     
@@ -306,8 +306,8 @@ These fields and properties appear in the `ConnectionEvents` log category. In **
 | `resourceId` | `_ResourceId` | The Azure Cache for Redis resource for which logs are enabled.|
 | `operationName` | `OperationName` | The Redis operation associated with the log record. |
 | `properties` | n/a | The contents of this field are described in the rows that follow. |
-| `eventEpochTime` | `EventEpochTime` | The UNIX timestamp (number of seconds since January 1, 1970) when the event happened in UTC. This can be converted to datetime format using function unixtime_seconds_todatetime in log analytics workspace. |
-| `clientIP` | `ClientIP` | The Redis client IP address. If using Azure storage, this will either be in IPv4 or private link IPv6 format based on cache type. If using Log Analytics, this result will always be in IPv4, as a separate IPv6 field is provided. |
+| `eventEpochTime` | `EventEpochTime` | The UNIX timestamp (number of seconds since January 1, 1970) when the event happened in UTC. The timestamp can be converted to datetime format using function unixtime_seconds_todatetime in log analytics workspace. |
+| `clientIP` | `ClientIP` | The Redis client IP address. If using Azure storage, the IP address is IPv4 or private link IPv6 format based on cache type. If using Log Analytics, the result is always in IPv4, as a separate IPv6 field is provided. |
 | n/a | `PrivateLinkIPv6` | The Redis client private link IPv6 address (only emitted if using both Private Link and log analytics). |
 | `id` | `ConnectionId` | Unique connection ID assigned by Redis. |
 | `eventType` |  `EventType` | Type of connection event (new_conn, auth, or close_conn). |
@@ -319,7 +319,7 @@ These fields and properties appear in the `ConnectionEvents` log category. In **
 
 #### Sample storage account log
 
-If you send your logs to a storage account, a log for a connection event will look like this:
+If you send your logs to a storage account, a log for a connection event looks like this:
 
 ```json
     {
@@ -337,7 +337,7 @@ If you send your logs to a storage account, a log for a connection event will lo
     }
 ```
 
-And the log for an auth event will look like this:
+And the log for an auth event looks like this:
 
 ```json
  {
@@ -356,7 +356,7 @@ And the log for an auth event will look like this:
     }
 ```
 
-And the log for a disconnection event will look like this:
+And the log for a disconnection event looks like this:
 ```json
     {
         "time": "2023-01-24T10:00:03.3680050Z",
