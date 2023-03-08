@@ -154,24 +154,28 @@ The following sections present information on the alert rules provided by Contai
 
 ### Community alert rules
 
-These handpicked alerts come from the Prometheus community. Source code for these mixin alerts can be found in [GitHub](https://aka.ms/azureprometheus-mixins):
+These handpicked alerts come from the Prometheus community. Source code for these mixin alerts can be found in [GitHub](https://aka.ms/azureprometheus-communityalerts):
 
-- KubeJobNotCompleted
-- KubeJobFailed
-- KubePodCrashLooping
-- KubePodNotReady
-- KubeDeploymentReplicasMismatch
-- KubeStatefulSetReplicasMismatch
-- KubeHpaReplicasMismatch
-- KubeHpaMaxedOut
-- KubeQuotaAlmostFull
-- KubeMemoryQuotaOvercommit
-- KubeCPUQuotaOvercommit
-- KubeVersionMismatch
-- KubeNodeNotReady
-- KubeNodeReadinessFlapping
-- KubeletTooManyPods
-- KubeNodeUnreachable
+| Alert name | Description | Default threshold |
+|:---|:---|:---|
+| NodeFilesystemSpaceFillingUp | An extrapolation algorithm predicts that disk space usage for a node on a device in a cluster will run out of space within the upcoming 24 hours. | NA |
+| NodeFilesystemSpaceUsageFull85Pct | Disk space usage for a node on a device in a cluster is greater than 85%. | 85% |
+| KubePodCrashLooping | Pod is in CrashLoop which means the app dies or is unresponsive and kubernetes tries to restart it automatically. | NA |
+| KubePodNotReady | Pod has been in a non-ready state for more than 15 minutes. | NA |
+| KubeDeploymentReplicasMismatch  | Deployment has not matched the expected number of replicas.  | NA |
+| KubeStatefulSetReplicasMismatch | StatefulSet has not matched the expected number of replicas. | NA |
+| KubeJobNotCompleted | Job is taking more than 1h to complete. | NA |
+| KubeJobFailed | Job failed complete. | NA |
+| KubeHpaReplicasMismatch | Horizontal Pod Autoscaler has not matched the desired number of replicas for longer than 15 minutes. | NA |
+| KubeHpaMaxedOut | Horizontal Pod Autoscaler has been running at max replicas for longer than 15 minutes. | NA |
+| KubeCPUQuotaOvercommit | Cluster has overcommitted CPU resource requests for Namespaces and cannot tolerate node failure. | 1.5 |
+| KubeMemoryQuotaOvercommit | Cluster has overcommitted memory resource requests for Namespaces. | 1.5 |
+| KubeQuotaAlmostFull | Cluster reaches to the allowed limits for given namespace. | Between 0.9 and 1 |
+| KubeVersionMismatch | Different semantic versions of Kubernetes components running. | NA |
+| KubeNodeNotReady | KubeNodeNotReady alert is fired when a Kubernetes node is not in Ready state for a certain period.  | NA |
+| KubeNodeUnreachable | Kubernetes node is unreachable and some workloads may be rescheduled. | NA |
+| KubeletTooManyPods | The alert fires when a specific node is running >95% of its capacity of pods  | 0.95 |
+| KubeNodeReadinessFlapping | The readiness status of node has changed few times in the last 15 minutes. | 2 |
 
 ### Recommended alert rules
 
