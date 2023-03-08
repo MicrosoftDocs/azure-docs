@@ -5,7 +5,7 @@ items:
   expanded: true
   items:
   - name: What is Entra Global Secure Access?
-    href: overview-what-is-network-access.md
+    href: overview-what-is-global-secure-access.md
 - name: Quickstarts
   expanded: false
   items:
