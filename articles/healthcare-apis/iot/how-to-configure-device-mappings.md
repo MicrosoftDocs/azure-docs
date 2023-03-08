@@ -1,30 +1,36 @@
 ---
-title: How to configure device mappings in MedTech service - Azure Health Data Services
-description: This article describes how to configure device mappings in the Azure Health Data Services MedTech service. 
+title: How to configure the MedTech service device mapping - Azure Health Data Services
+description: This article describes how to configure the MedTech service device mapping. 
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 02/09/2023
+ms.date: 03/08/2023
 ms.author: jasteppe
 ---
 
-# How to configure device mappings
-
-This article provides an overview and describes how to configure the MedTech service device mappings.
-
-The MedTech service requires two types of JSON-based mappings. The first type, **device mappings**, is responsible for mapping the device payloads sent to the MedTech service device message event hub endpoint. The device mapping extracts types, device identifiers, measurement date time, and the measurement value(s). 
-
-The second type, **Fast Healthcare Interoperability Resources (FHIR&#174;) destination mappings**, controls the mapping for FHIR resource. The FHIR destination mappings allow configuration of the length of the observation period, FHIR data type used to store the values, and terminology code(s). 
+# How to configure the MedTech service device mapping
 
 > [!NOTE]
-> Device and FHIR destination mappings are stored in an underlying blob storage and loaded from blob per compute execution. Once updated they should take effect immediately.
+> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
-The two types of mappings are composed into a JSON document based on their type. These JSON documents are then added to your MedTech service through the Azure portal. The device mapping is added through the **Device mapping** page and the FHIR destination mapping through the **Destination** page.
+This article provides an overview and describes how to configure the MedTech service device mapping.
+
+The MedTech service requires two types of [JSON-based](https://www.json.org/) mappings. The first type, device mapping, is responsible for mapping the device message data sent to the MedTech service device message event hub endpoint. The device mapping extracts types, device identifiers, measurement date time, and the measurement value(s). 
+
+The second type, FHIR destination mapping, controls the mapping for FHIR Observation resources. The FHIR destination mappings allow configuration of the length of the observation period, FHIR data type used to store the values, and terminology code(s). 
+
+The device and FHIR destination mappings are JSON documents based on their type and composed of different templates based on requirements. These JSON documents are then added to your MedTech service through the Azure portal or ARM API (Azure Resource Manage API).
+
+> [!NOTE]
+> The device and FHIR destination mappings are stored in [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction) and loaded from blob storage per compute execution. Once updated, the mappings should take effect immediately.
+
+> [!TIP]
+> For more information about how the MedTech service processes device message data into FHIR Observation resources for persistence on the FHIR service, see [Understand the MedTech service device message data transformation](understand-service.md).
   
-## Device mappings overview
+## Overview of the device mapping
 
-Device mappings provide functionality to extract device message content into a common format for further evaluation. Each device message received is evaluated against all device mapping templates. A single inbound device message can be separated into multiple outbound messages that are later mapped to different observations in the FHIR service. The result is a normalized data object representing the value or values parsed by the device mapping templates. 
+The device mapping provides functionality to extract device message data into a common format for further evaluation. Each device message received is evaluated against all device mapping templates. A single inbound device message can be separated into multiple outbound messages that are later mapped to different FHIR  Observations in the FHIR service. The result is a normalized data object representing the value or values parsed by the device mapping templates. 
 
 The normalized data model has a few required properties that must be found and extracted:
 
@@ -38,11 +44,11 @@ The normalized data model has a few required properties that must be found and e
 > [!IMPORTANT]
 > The full normalized model is defined by the [IMeasurement](https://github.com/microsoft/iomt-fhir/blob/master/src/lib/Microsoft.Health.Fhir.Ingest.Schema/IMeasurement.cs) interface.
 
-Below is an example of what happens during normalization and transformation process within the MedTech service. For the purposes of the device mapping, we'll be focusing on the **Normalized data** process:
+Below is an example of what happens during the  normalization and transformation stage processes within the MedTech service.
 
-:::image type="content" source="media/how-to-configure-device-mappings/iot-data-normalization-high-level.png" alt-text="Diagram of IoT data normalization flow example zoomed out." lightbox="media/how-to-configure-device-mappings/iot-data-normalization-high-level.png":::
+:::image type="content" source="media/how-to-configure-device-mappings/normalization-process-diagram.png" alt-text="Diagram example of the MedTech service device message data normalization processing flow." lightbox="media/how-to-configure-device-mappings/normalization-process-diagram.png":::
 
-The content payload itself is an Azure Event Hubs message, which is composed of three parts: Body, Properties, and SystemProperties. The `Body` is a byte array representing an UTF-8 encoded string. During template evaluation, the byte array is automatically converted into the string value. `Properties` is a key value collection for use by the message creator. `SystemProperties` is also a key value collection reserved by the Azure Event Hubs framework with entries automatically populated by it.
+The content of the device message itself is an Azure Event Hubs message, which is composed of three parts: `Body`, `Properties`, and `SystemProperties`. The `Body` is a byte array representing an UTF-8 encoded string. During device mapping template evaluation, the byte array is automatically converted into the string value. `Properties` is a key value collection for use by the message creator. `SystemProperties` is also a key value collection reserved by the Azure Event Hubs framework with entries automatically populated by it.
 
 ```json
 {
@@ -62,11 +68,11 @@ The content payload itself is an Azure Event Hubs message, which is composed of 
 }
 ```
 
-## Device mappings validations
+## Device mapping validations
 
-The validation process validates the device mappings before allowing them to be saved for use. These elements are required in the device mapping templates.
+The validation process validates the device mapping before allowing them to be saved for use. These elements are required in the device mapping templates.
 
-**Device mappings**
+**Device mapping**
 
 |Element|Required|
 |:-------|:------|
@@ -82,11 +88,13 @@ The validation process validates the device mappings before allowing them to be 
 >
 > For example:
 > 
-> Some IoMT scenarios may require creating an Observation Resource in the FHIR service that does not contain a value.
+> Some scenarios may require creating an Observation Resource in the FHIR service that does not contain a value.
 
 ## CollectionContentTemplate
 
-The CollectionContentTemplate is the **root** template type used by the MedTech service device mappings template and represents a list of all templates that will be used during the normalization process.
+The CollectionContentTemplate is the root template type used by the MedTech service device mapping and represents a list of all templates that will be used during the normalization process.
+
+:::image type="content" source="media/how-to-configure-device-mappings/device-mapping-diagram.png" alt-text="Diagram showing MedTech service device mapping architecture." lightbox="media/how-to-configure-device-mappings/device-mapping-diagram.png":::
                                                              
 ### Example
 
@@ -103,7 +111,7 @@ The CollectionContentTemplate is the **root** template type used by the MedTech 
         "timestampExpression": "$.matchedToken.endDate",
         "values": [
           {
-            "required": "true",
+            "required": true,
             "valueExpression": "$.matchedToken.heartRate",
             "valueName": "hr"
           }
@@ -119,7 +127,7 @@ The CollectionContentTemplate is the **root** template type used by the MedTech 
         "timestampExpression": "$.matchedToken.endDate",
         "values": [
           {
-            "required": "true",
+            "required": true,
             "valueExpression": "$.matchedToken.steps",
             "valueName": "steps"
           }
@@ -136,9 +144,7 @@ The device mapping content types supported by the MedTech service rely on JSONPa
 
 ### Example
 
-**Heart rate**
-
-*A device message from the Azure Event Hubs event hub received by the MedTech service*
+An example of device message capturing `heartRate` received from an event hub by the MedTech service.
 
 ```json
 {
@@ -147,12 +153,16 @@ The device mapping content types supported by the MedTech service rely on JSONPa
         "endDate": "2021-02-01T22:46:01.8750000Z",
         "deviceId": "device123"
     },
-    "Properties": {},
-    "SystemProperties": {}
+    "Properties": {
+        "iothub-creation-time-utc" : "2022-02-01T22:46:01.8750000Z"
+    },
+    "SystemProperties": {
+        "iothub-connection-device-id" : "device123"
+   }
 }
 ```
 
-*A conforming MedTech service device mapping template that could be used during the normalization process with the example device message*
+A conforming MedTech service device mapping that could be used during the normalization process with the example device message.
 
 ```json
 {
@@ -167,7 +177,7 @@ The device mapping content types supported by the MedTech service rely on JSONPa
         "timestampExpression": "$.endDate",
         "values": [
             {
-                "required": "true",
+                "required": true,
                 "valueExpression": "$.heartRate",
                 "valueName": "hr"
             }
@@ -177,6 +187,25 @@ The device mapping content types supported by the MedTech service rely on JSONPa
    ]
 }
 ```
+
+An example of a normalized message using the example device message and FHIR destination mapping.
+
+```json
+[
+    {
+        "type": "heartrate",
+        "occurrenceTimeUtc": "2021-02-01T22:46:01.875Z",
+        "deviceId": "device123",
+        "properties": [
+            {
+                "name": "hr",
+                "value": "78"
+            }
+        ]
+    }
+]
+```
+
 JSONPath allows matching on and extracting values from a device message.
 
 |Property|Description|Example|
@@ -202,13 +231,15 @@ You can define one or more templates within the MedTech service device mapping. 
 |[IotJsonPathContentTemplate](how-to-use-iot-jsonpath-content-mappings.md)|A template that supports messages sent from Azure Iot Hub or the Legacy Export Data feature of Azure Iot Central.
  
 > [!TIP]
-> See the MedTech service article [Troubleshoot MedTech service errors](troubleshoot-errors.md) for assistance fixing common MedTech service errors. 
+> See [Troubleshoot MedTech service deployment errors](troubleshoot-errors-deployment.md) for assistance fixing common MedTech service deployment errors.  
+>
+> See [Troubleshoot errors using the MedTech service logs](troubleshoot-errors-logs.md) for assistance fixing MedTech service errors. 
 
 ## Next steps
 
-In this article, you learned how to configure device mappings. 
+In this article, you learned how the MedTech service device mapping is used and how to configure. 
 
-To learn how to configure FHIR destination mappings, see
+To learn how the MedTech service FHIR destination mapping is used and configured to configure, see
 
 > [!div class="nextstepaction"]
 > [How to configure FHIR destination mappings](how-to-configure-fhir-mappings.md)
