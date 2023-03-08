@@ -34,7 +34,15 @@ If upgrading the extension bundle didn't resolve your problem, and you noticed a
 
 First, remove the `extensionBundle` section from your host.json file.
 
-Then run the command to upgrade the Durable Functions extension. The command requires the `dotnet` CLI to be installed, which you can get from this [page](https://www.microsoft.com/net/download/): 
+Install the `dotnet` CLI if you don't already have it. You can get it from this [page](https://www.microsoft.com/net/download/).
+
+Because applications normally use more than one extension, it's recommended that you run the following to manually install all the latest version of all extensions supported by Extension Bundles:
+
+```console
+func extensions install
+```
+
+If you want to upgrade only the Durable Functions extension, you can do the following: 
 
 ```console
 func extensions install Microsoft.Azure.WebJobs.Extensions.DurableTask -v <version>
@@ -45,8 +53,6 @@ For example:
 ```console
 func extensions install Microsoft.Azure.WebJobs.Extensions.DurableTask -v 2.9.1
 ```
-
-Because applications normally use more than one extension, it's recommended that you run just `func extensions install` to get **all** the latest extensions supported by Azure Functions, which would include the Durable Functions extension.  
 
 Changes to the Durable Functions extension can be found in the repo's [release notes](https://github.com/Azure/azure-functions-durable-extension/releases). You can also receive notifications whenever there's a new extension release by going to the Releases page -> Watch -> check “Releases”:
 
