@@ -29,7 +29,7 @@ In this article, you'll learn to:
 
 > [!div class="checklist"]
 > * Define an online endpoint with a deployment called "blue" to serve version 1 of a model
-<!-- > * Scale the blue deployment so that it can handle more requests -->
+> * Scale the blue deployment so that it can handle more requests
 > * Deploy version 2 of the model (called the "green" deployment) to the endpoint, but send the deployment no live traffic
 > * Test the green deployment in isolation
 > * Mirror a percentage of live traffic to the green deployment to validate it (preview)
@@ -510,9 +510,10 @@ From the **Endpoint details page**
     * __Choose an environment__ section: Select the **Scikit-learn 0.24.1** curated environment.
 1. Select __Next__ to go to the "Compute" page. Here, keep the default selection for the virtual machine "Standard_DS3_v2" and change the __Instance count__ to 1.
 1. Select __Next__ to go to the "Traffic" page. Here, keep the default traffic allocation to the deployments (100% traffic to "blue" and 0% traffic to "green").
-1. Review your deployment settings and select the __Create__ button.
+1. Select __Next__ to review your deployment settings.
 
-:::image type="content" source="media/how-to-safely-rollout-managed-endpoints/add-green-deployment-from-endpoint-page.png" lightbox="media/how-to-safely-rollout-managed-endpoints/add-green-deployment-from-endpoint-page.png" alt-text="A screenshot of Add deployment option from Endpoint details page.":::
+    :::image type="content" source="media/how-to-safely-rollout-managed-endpoints/add-green-deployment-from-endpoint-page.png" lightbox="media/how-to-safely-rollout-managed-endpoints/add-green-deployment-from-endpoint-page.png" alt-text="A screenshot of Add deployment option from Endpoint details page.":::
+1.  Select __Create__ to create the deployment.
 
 Alternatively, you can use the **Models** page to add a deployment:
 
@@ -520,16 +521,12 @@ Alternatively, you can use the **Models** page to add a deployment:
 1. Select a model by checking the circle next to the model name.
 1. Select **Deploy** > **Real-time endpoint**.
 1. Choose to deploy to an existing managed online endpoint.
-
-:::image type="content" source="media/how-to-safely-rollout-managed-endpoints/add-green-deployment-from-models-page.png" lightbox="media/how-to-safely-rollout-managed-endpoints/add-green-deployment-from-models-page.png" alt-text="A screenshot of Add deployment option from Models page.":::
+    :::image type="content" source="media/how-to-safely-rollout-managed-endpoints/add-green-deployment-from-models-page.png" lightbox="media/how-to-safely-rollout-managed-endpoints/add-green-deployment-from-models-page.png" alt-text="A screenshot of Add deployment option from Models page.":::
+1. Follow the previous steps 3 to 9 to finish creating the green deployment.
 
 ### Test the new deployment
 
-Though `green` has 0% of traffic allocated, you can still invoke the endpoint and deployment with the [json](https://github.com/Azure/azureml-examples/tree/main/sdk/python/endpoints/online/model-2/sample-request.json) file.
-
-[!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=test_new_deployment)]
-
-Use the **Test** tab in the endpoint's details page to test your managed online deployment. Enter sample input and view the results.
+Though `green` has 0% of traffic allocated, you can still invoke the endpoint and deployment. Use the **Test** tab in the endpoint's details page to test your managed online deployment. Enter sample input and view the results.
 
 1. Select the **Test** tab in the endpoint's detail page.
 1. Select the green deployment from the dropdown menu.
@@ -537,7 +534,6 @@ Use the **Test** tab in the endpoint's details page to test your managed online 
 1. Paste the sample input in the test box.
 1. Select **Test**.
 
-<!-- :::image type="content" source="media/how-to-safely-rollout-managed-endpoints/test-deployment.png" lightbox="media/how-to-safely-rollout-managed-endpoints/test-deployment.png" alt-text="A screenshot of testing a deployment by providing sample data, directly in your browser."::: -->
 
 <!-- 
 > [!NOTE]
@@ -632,7 +628,7 @@ The studio doesn't support mirrored traffic. See the Azure CLI or Python tabs fo
 
 ---
 
-## Test the new deployment with a small percentage of live traffic
+## Allocate a small percentage of live traffic to the new deployment
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -648,7 +644,14 @@ Once you've tested your `green` deployment, allocate a small percentage of traff
 
 # [Studio](#tab/azure-studio)
 
-M.A: add details here from "Add a deployment to a managed online endpoint" section of "online endpoints in studio"
+Once you've tested your `green` deployment, allocate a small percentage of traffic to it:
+
+1. In the endpoint Details page, Select  **Update traffic**.
+1. Adjust the deployment traffic by allocating 10% to the green deployment and 90% to the blue deployment.
+1. Select **Update**.
+
+> [!TIP]
+> The **Total traffic percentage** must sum to either 0% (to disable traffic) or 100% (to enable traffic).
 
 ---
 
@@ -672,11 +675,17 @@ Once you're fully satisfied with your `green` deployment, switch all traffic to 
 
 # [Studio](#tab/azure-studio)
 
-M.A: add details here from "Add a deployment to a managed online endpoint" section of "online endpoints in studio"
+Once you're fully satisfied with your `green` deployment, switch all traffic to it.
+
+1. In the endpoint Details page, Select  **Update traffic**.
+1. Adjust the deployment traffic by allocating 100% to the green deployment and 0% to the blue deployment.
+1. Select **Update**.
 
 ---
 
 ## Remove the old deployment
+
+Use the following steps to delete an individual deployment from a managed online endpoint. This does affect the other deployments in the managed online endpoint:
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -688,7 +697,11 @@ M.A: add details here from "Add a deployment to a managed online endpoint" secti
 
 # [Studio](#tab/azure-studio)
 
-M.A: add details here
+> [!NOTE]
+> You cannot delete a deployment that has traffic allocated to it. You must first [set traffic allocation](#Send-all-traffic-to-your-new-deployment) for the deployment to 0% before deleting it.
+
+1. In the endpoint Details page, find the blue deployment.
+1. Select the **delete icon** next to the deployment name.
 
 ---
 
@@ -696,19 +709,19 @@ M.A: add details here
 
 # [Azure CLI](#tab/azure-cli)
 
-If you aren't going use the deployment, you should delete it with:
+If you aren't going to use the endpoint and deployment, you should delete them. By deleting the endpoint, you'll also delete all its underlying deployments.
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="delete_endpoint" :::
 
 # [Python](#tab/python)
 
-If you aren't going use the deployment, you should delete it with:
+If you aren't going to use the endpoint and deployment, you should delete them. By deleting the endpoint, you'll also delete all its underlying deployments.
 
 [!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=delete_endpoint)]
 
 # [Studio](#tab/azure-studio)
 
-If you aren't going use the endpoint and deployment, you should delete them. By deleting the endpoint, you'll also delete all its underlying deployments.
+If you aren't going to use the endpoint and deployment, you should delete them. By deleting the endpoint, you'll also delete all its underlying deployments.
 
 1. Go to the [Azure Machine Learning studio](https://ml.azure.com).
 1. In the left navigation bar, select the **Endpoints** page.
