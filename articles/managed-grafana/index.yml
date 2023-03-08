@@ -49,7 +49,7 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Modify permissions
+          - text: Modify access to Azure Monitor
             url: how-to-permissions.md
           - text: Share an instance
             url: how-to-share-grafana-workspace.md
