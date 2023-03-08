@@ -136,7 +136,8 @@ If the MTU settings are correct, try the following workaround:
     `docker network create --opt com.docker.network.driver.mtu=1429 test-mtu`
 
     In the example, the MTU setting for the device is 1430. Hence, the MTU for the Docker network is set to 1430 or lower. In this case, it's set to 1429.
-1. Stop and remove the Azure network. For example,
+
+1. Stop and remove the Azure network.
 
     `docker network rm azure-iot-edge`
 
@@ -144,7 +145,7 @@ If the MTU settings are correct, try the following workaround:
 
    `docker network create --opt com.docker.network.driver.mtu=1429 azure-iot-edge`
 
-1. Remove all images and restart the aziot-edged service
+1. Remove all images and restart the *aziot-edged* service.
 
 ### IoT Edge agent can't access a module's image (403)
 
