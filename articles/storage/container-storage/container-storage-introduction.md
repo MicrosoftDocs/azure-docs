@@ -1,6 +1,6 @@
 ---
 title: Introduction to Azure Container Storage
-description: An overview of Azure Container Storage, a service built natively for containers that enables customers to create and manage volumes for running production-scale stateful container applications (preview).
+description: An overview of Azure Container Storage, a service built natively for containers that enables customers to create and manage volumes for running production-scale stateful container applications.
 author: khdownie
 ms.service: storage
 ms.topic: overview
@@ -25,7 +25,7 @@ To get started using Azure Container Storage, see [Quickstart: Use Azure Contain
 
 ## Regional availability
 
-The Azure Container Storage preview is only available in the following Azure regions:
+The Azure Container Storage Preview is only available in the following Azure regions:
 
 - East US
 - East US 2
@@ -54,7 +54,7 @@ You can use Azure Container Storage to:
     By providing volume orchestration via the Kubernetes control plane, Azure Container Storage makes it easy to deploy and manage volumes within Kubernetes - without the need to move back and forth between different control planes.
 
 * **Reduce total cost of ownership (TCO)**:
-    Improve cost efficiency by packing and mounting a large number of storage volumes per node. Increase disk utilization for stateful workloads, enabling dynamic sharing of resources provisioned on the Azure Container Storage Pool across all deployed persistent volumes.
+    Improve cost efficiency by packing and mounting a large number of storage volumes per node. Increase disk utilization for stateful workloads, enabling dynamic sharing of resources provisioned on the Azure Container Storage pool across all deployed persistent volumes.
 
 ## Key benefits
 * **Rapid scale up and scale out**. Start small and deploy resources as needed while making sure that applications aren't starved or disrupted during initialization or in production. Azure Container Storage enables sub-second volume creation using thin provisioning, making it easy to scale up or out.
@@ -62,7 +62,7 @@ You can use Azure Container Storage to:
 * **Integrated data protection with recoverability**. Recover stateful workloads within a cluster, across clusters, or across regions at different granularities, including per pod, per application, or cluster-wide.
 
 ## Glossary 
-It's helpful to understand some key terms relating to Azure Container Storage and related technologies:
+It's helpful to understand some key terms relating to Azure Container Storage and Kubernetes:
 
 -   **Containerization**
 

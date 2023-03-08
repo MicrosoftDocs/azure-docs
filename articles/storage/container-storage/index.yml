@@ -42,5 +42,5 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Use Azure Container Storage FAQ
+          - text: Azure Container Storage FAQ
             url: container-storage-faq.md
