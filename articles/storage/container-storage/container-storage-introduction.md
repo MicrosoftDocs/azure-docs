@@ -4,7 +4,7 @@ description: An overview of Azure Container Storage, a service built natively fo
 author: khdownie
 ms.service: storage
 ms.topic: overview
-ms.date: 03/07/2023
+ms.date: 03/08/2023
 ms.author: kendownie
 ms.subservice: container-storage
 ms.custom: references_regions
@@ -60,6 +60,42 @@ You can use Azure Container Storage to:
 * **Rapid scale up and scale out**. Start small and deploy resources as needed while making sure that applications aren't starved or disrupted during initialization or in production. Azure Container Storage enables sub-second volume creation using thin provisioning, making it easy to scale up or out.
 * **Maximize stateful workload performance**. Azure Container Storage enables superior read performance by leveraging local caches where possible. It also provides near-disk write performance by using NVMe-oF over RDMA. This allows customers to cost-effectively meet performance requirements for various container workloads including tier 1 I/O intensive, general purpose, throughput sensitive, and dev/test. Accelerate the attach/detach time of persistent volumes and minimize pod failover time.
 * **Integrated data protection with recoverability**. Recover stateful workloads within a cluster, across clusters, or across regions at different granularities, including per pod, per application, or cluster-wide.
+
+## Glossary 
+It's helpful to understand some key terms relating to Azure Container Storage and related technologies:
+
+-   **Containerization**
+
+    Packing application code with only the operating system and required dependencies to create a single executable.
+
+-  **Kubernetes**
+
+    Kubernetes is an open-source system for automating deployment, scaling, and management of containerized applications. A Kubernetes cluster is a set of nodes that run containerized applications.
+
+-  **Azure Kubernetes Service (AKS)**
+
+    AKS is a hosted Kubernetes service that simplifies deploying a managed Kubernetes cluster in Azure by offloading the operational overhead to Azure. Azure handles critical tasks, like health monitoring and maintenance.
+
+-   **Mayastor**
+
+    An adaptation of the open source openEBS stack based on the Mayastor data engine provides the cluster-centric software stack for Azure Container Storage.
+
+-   **Storage pool**
+
+    The Azure Container Storage stack attempts to unify the object model across cluster owned resources and platform abstractions. To accomplish the unified representation, the available storage capacity is aggregated into a storage pool object. The storage capacity within a storage pool is considered homogeneous. An AKS cluster can have multiple storage pools. Storage pools also serve as the authentication and provisioning boundary. They provide a logical construct for operators to manage the storage infrastructure while simplifying volume creation and management for application developers.
+
+-   **Storage class**
+
+    A Kubernetes storage class defines how a unit of storage is dynamically created with a persistent volume. For more information, see [Kubernetes Storage Classes](https://kubernetes.io/docs/concepts/storage/storage-classes/).
+
+-   **Persistent volume**
+
+    Persistent volumes are like disks in a virtual machine. They represent a raw block device that you can use to mount any file system. Volumes are thinly provisioned within a storage pool and share the performance characteristics (IOPS, bandwidth, and capacity) of the storage pool. Application developers create persistent volumes alongside their application or pod definitions, and the volumes are often tied to the lifecycle of the stateful application.
+
+-   **Persistent volume claim (PVC)**
+
+    A persistent volume claim is used to automatically provision storage based on a storage class.
+
 
 ## Next Steps
 - [Deploy Azure Container Storage](container-storage-aks-quickstart.md)

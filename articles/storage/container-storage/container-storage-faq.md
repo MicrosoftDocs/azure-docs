@@ -3,7 +3,7 @@ title: Frequently asked questions (FAQ) for Azure Container Storage
 description: Get answers to Azure Container Storage frequently asked questions.
 author: khdownie
 ms.service: storage
-ms.date: 03/06/2023
+ms.date: 03/08/2023
 ms.author: kendownie
 ms.subservice: container-storage
 ms.topic: conceptual
@@ -26,6 +26,11 @@ Azure Container Storage is a cloud-based volume management offering built native
 **Which other Azure services does Azure Container Storage support?**
     During public preview, Azure Container Storage supports only Azure Kubernetes Service (AKS).
 
-## See also
-* [What is Azure Container Storage?](container-storage-introduction.md)
+## Billing and pricing
 
+* <a id="azure-container-storage-billing"></a>
+**How much does Azure Container Storage cost to use?**
+    See the [Azure Container Storage pricing page](https://aka.ms/AzureContainerStoragePricingPage).
+
+## See also
+- [What is Azure Container Storage?](container-storage-introduction.md)

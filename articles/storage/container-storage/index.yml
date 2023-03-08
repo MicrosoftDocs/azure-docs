@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: khdownie #Required; your GitHub user alias, with correct capitalization.
   ms.author: kendownie #Required; microsoft alias of author; optional team alias.
-  ms.date: 03/07/2023
+  ms.date: 03/08/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -34,6 +34,13 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Use Azure Container Storage with Azure Kubernetes Service and managed disks
+          - text: Use Azure Container Storage with Azure Kubernetes Service
             url: container-storage-aks-quickstart.md
 
+# Card (optional)
+  - title: Frequently asked questions
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Use Azure Container Storage FAQ
+            url: container-storage-faq.md

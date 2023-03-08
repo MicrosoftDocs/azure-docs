@@ -4,7 +4,7 @@ description: Learn how to configure and use Azure Container Storage with Azure K
 author: khdownie
 ms.service: storage
 ms.topic: quickstart
-ms.date: 03/07/2023
+ms.date: 03/08/2023
 ms.author: kendownie
 ms.subservice: container-storage
 ---
@@ -124,11 +124,11 @@ azure-disk-sc-for-mayastor
 azurecontainerstorage-single-replica
 ```
 
-A Kubernetes storage class defines how a unit of storage is dynamically created with a persistent volume. For more information, see [Kubernetes Storage Classes](https://kubernetes.io/docs/concepts/storage/storage-classes/).
+A Kubernetes storage class defines how a unit of storage is dynamically created with a persistent volume.
 
 ## Create a storage pool
 
-Now you can create a storage pool, which is a logical grouping of storage for your Kubernetes cluster. The `name` value can be whatever you want. Keep in mind that your storage pool will be constrained by whatever value you provide for `capacity`.
+Now you can create a storage pool, which is a logical grouping of storage for your Kubernetes cluster, by defining it in a yaml file. The `name` value can be whatever you want. Keep in mind that your storage pool will be constrained by whatever value you provide for `capacity`.
 
 ```azurecli-interactive
 cat <<EOF | kubectl apply -f -
@@ -146,7 +146,7 @@ EOF
 
 ```
 
-When creation is complete, you'll see a message like:
+When storage pool creation is complete, you'll see a message like:
 
 ```output
 azstorpoolset.azstor.azure.com/azstorpoolset1 created
