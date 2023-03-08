@@ -38,7 +38,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 - Azure SQL Database
 
-  You'll use Azure SQL Database as a destination data store. If you don't have a database in SQL Database, see [Create a database in Azure SQL Database in the Azure portal](/azure/azure-sql/database/single-database-create-quickstart).
+  You use Azure SQL Database as a destination data store. If you don't have a database in SQL Database, see [Create a database in Azure SQL Database in the Azure portal](/azure/azure-sql/database/single-database-create-quickstart).
 
 - Azure CLI 
 
@@ -50,7 +50,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Download, extract and then upload the data
 
-In this section, you'll download sample flight data. Then, you'll upload that data to your HDInsight cluster and then copy that data to your Data Lake Storage Gen2 account.
+In this section, you download sample flight data. Then, you upload that data to your HDInsight cluster and then copy that data to your Data Lake Storage Gen2 account.
 
 1. Download the [On_Time_Reporting_Carrier_On_Time_Performance_1987_present_2016_1.zip](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/tutorials/On_Time_Reporting_Carrier_On_Time_Performance_1987_present_2016_1.zip) file. This file contains the flight data.
 
@@ -59,10 +59,10 @@ In this section, you'll download sample flight data. Then, you'll upload that da
    ```bash
    scp On_Time_Reporting_Carrier_On_Time_Performance_1987_present_2016_1.zip <ssh-user-name>@<cluster-name>-ssh.azurehdinsight.net:
    ```
-   - Replace the `<ssh-user-name>` placeholder with the SSH login for the HDInsight cluster.
+   - Replace the `<ssh-user-name>` placeholder with the SSH username for the HDInsight cluster.
    - Replace the `<cluster-name>` placeholder with the name of the HDInsight cluster.
 
-   If you use a password to authenticate your SSH login, you're prompted for the password.
+   If you use a password to authenticate your SSH username, you're prompted for the password.
 
    If you use a public key, you might need to use the `-i` parameter and specify the path to the matching private key. For example, `scp -i ~/.ssh/id_rsa <file_name>.zip <user-name>@<cluster-name>-ssh.azurehdinsight.net:`.
 
@@ -116,7 +116,7 @@ As part of the Apache Hive job, you import the data from the .csv file into an A
    nano flightdelays.hql
    ```
 
-2. Modify the following text by replace the `<container-name>` and `<storage-account-name>` placeholders with your container and storage account name. Then copy and paste the text into the nano console by using pressing the SHIFT key along with the right-mouse click button.
+2. Modify the following text by replacing the `<container-name>` and `<storage-account-name>` placeholders with your container and storage account name. Then copy and paste the text into the nano console by using pressing the SHIFT key along with the right-mouse select button.
 
     ```hiveql
       DROP TABLE delays_raw;
@@ -180,7 +180,7 @@ As part of the Apache Hive job, you import the data from the .csv file into an A
       FROM delays_raw;
     ```
 
-3. Save the file by using use CTRL+X and then type `Y` when prompted.
+3. Save the file by typing CTRL+X and then typing `Y` when prompted.
 
 4. To start Hive and run the `flightdelays.hql` file, use the following command:
 
@@ -240,11 +240,11 @@ You need the server name from SQL Database for this operation. Complete these st
 
    - Replace the `<server-name>` placeholder with the logical SQL server name.
 
-   - Replace the `<admin-login>` placeholder with the admin login for SQL Database.
+   - Replace the `<admin-login>` placeholder with the admin username for SQL Database.
 
    - Replace the `<database-name>` placeholder with the database name
 
-   When you're prompted, enter the password for the SQL Database admin login.
+   When you're prompted, enter the password for the SQL Database admin username.
 
    You receive output similar to the following text:
 

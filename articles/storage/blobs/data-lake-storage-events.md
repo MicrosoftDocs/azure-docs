@@ -51,7 +51,7 @@ First, create a csv file that describes a sales order, and then upload that file
 2. Select **Storage browser**->**Blob containers**->**Add container** and create a new container named **data**.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of creating a folder in storage browser](./media/data-lake-storage-events/data-container.png)
+   > ![Screenshot of creating a folder in storage browser](./media/data-lake-storage-events/data-container.png).
 
 3. In the **data** container, create a directory named **input**.
 
@@ -253,9 +253,9 @@ Create an Azure Function that runs the Job.
 
 11. Choose **Azure Event Grid Trigger**.
 
-   Install the **Microsoft.Azure.WebJobs.Extensions.EventGrid** extension if you're prompted to do so. If you have to install it, then you'll have to choose **Azure Event Grid Trigger** again to create the function.
+    Install the **Microsoft.Azure.WebJobs.Extensions.EventGrid** extension if you're prompted to do so. If you have to install it, then you'll have to choose **Azure Event Grid Trigger** again to create the function.
 
-   The **New Function** pane appears.
+    The **New Function** pane appears.
 
 12. In the **New Function** pane, name the function **UpsertOrder**, and then select the **Create** button.
 

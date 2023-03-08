@@ -59,17 +59,15 @@ This tutorial uses flight data from the Bureau of Transportation Statistics. You
 
 ## Create an Azure Synapse workspace
 
-1. [Create a Synapse workspace in the Azure portal](../../synapse-analytics/get-started-create-workspace.md#create-a-synapse-workspace-in-the-azure-portal).
+[Create a Synapse workspace in the Azure portal](../../synapse-analytics/get-started-create-workspace.md#create-a-synapse-workspace-in-the-azure-portal). As you create the workspace, use these values:
 
-   As you create the workspace, use these values:
-
-   - **Subscription**: Select the Azure subscription associated with your storage account.
-   - **Resource group**: Select the resource group where you placed your storage account.
-   - **Region**: Select the region of the storage account (for example, `Central US`).
-   - **Name**: Enter a name for your Synapse workspace.
-   - **SQL Administrator login**: Enter the administrator username for the SQL Server.
-   - **SQL Administrator password**: Enter the administrator password for the SQL Server.
-   - **Tag Values**: Accept the default.
+- **Subscription**: Select the Azure subscription associated with your storage account.
+- **Resource group**: Select the resource group where you placed your storage account.
+- **Region**: Select the region of the storage account (for example, `Central US`).
+- **Name**: Enter a name for your Synapse workspace.
+- **SQL Administrator login**: Enter the administrator username for the SQL Server.
+- **SQL Administrator password**: Enter the administrator password for the SQL Server.
+- **Tag Values**: Accept the default.
 
 #### Find your Synapse SQL endpoint name (optional) 
 
@@ -84,7 +82,7 @@ To find the fully qualified server name:
 
    ![Full server name serverless SQL pool](../../synapse-analytics/sql/media/connect-overview/server-connect-example-sqlod.png)
 
-In this tutorial, you'll use Synapse Studio to query data from the CSV file that you uploaded to the storage account.
+In this tutorial, you use Synapse Studio to query data from the CSV file that you uploaded to the storage account.
 
 ## Use Synapse Studio to explore data
 
@@ -107,8 +105,7 @@ In this tutorial, you'll use Synapse Studio to query data from the CSV file that
 
 ## Clean up resources
 
-When they're no longer needed, delete your Synapse Analytics workspace. The workspace tat do not have some additional dedicated SQL pools or Spark pools is not charged if you are not using it, so you will get **no billing even if you keep it**.
-Do not delete the resource group if you have selected the resource group where you have placed your Azure storage account.
+When they're no longer needed, delete the resource group and all related resources. To do so, select the resource group for the storage account and workspace, and then and select **Delete**.
 
 ## Next steps
 
