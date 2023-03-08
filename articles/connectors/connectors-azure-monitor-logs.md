@@ -84,6 +84,8 @@ For technical information about this connector's operations, see the [connector'
 
    - To add an action between steps, move your pointer use over the connecting arrow. Select the plus sign (**+**) that appears, and then select **Add an action**.
 
+   For more information about adding an action, see [Build a workflow by adding a trigger or action](../logic-apps/create-workflow-with-trigger-or-action.md).
+
 1. Under the **Choose an operation** search box, select **Standard**. In the search box, enter **Azure Monitor Logs**.
 
 1. From the actions list, select the action that you want.
