@@ -6,7 +6,7 @@ author: johndowns
 ms.service: frontdoor
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 02/07/2023
+ms.date: 03/06/2023
 ms.author: jodowns
 ---
 
@@ -120,11 +120,12 @@ Sometimes, you might need to provide your own TLS certificates. Common scenarios
 
 #### Certificate requirements
 
-When you create your TLS/SSL certificate, you must create a complete certificate chain with an allowed certificate authority (CA) that is part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT). If you use a non-allowed CA, your request will be rejected.  The root CA must be part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT). If a certificate without complete chain is presented, the requests that involve that certificate aren't guaranteed to work as expected.
+To use your certificate with Azure Front Door, it must meet the following requirements:
 
-The common name (CN) of the certificate must match the domain configured in Azure Front Door.
-
-Azure Front Door doesn't support certificates with elliptic curve (EC) cryptography algorithms.
+- **Complete certificate chain:** When you create your TLS/SSL certificate, you must create a complete certificate chain with an allowed certificate authority (CA) that is part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT). If you use a non-allowed CA, your request will be rejected.  The root CA must be part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT). If a certificate without complete chain is presented, the requests that involve that certificate aren't guaranteed to work as expected.
+- **Common name:** The common name (CN) of the certificate must match the domain configured in Azure Front Door.
+- **Algorithm:** Azure Front Door doesn't support certificates with elliptic curve (EC) cryptography algorithms.
+- **File (content) type:** Your certificate must be uploaded to your key vault from a PFX file, which uses the `application/x-pkcs12` content type.
 
 #### Import a certificate to Azure Key Vault
 
