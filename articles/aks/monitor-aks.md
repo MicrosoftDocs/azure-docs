@@ -25,7 +25,7 @@ This article does *not* include information on the following scenarios:
 > [!NOTE]
 > Azure Monitor was designed to monitor the availability and performance of cloud resources. While the operational data stored in Azure Monitor may be useful for investigating security incidents, other services in Azure were designed to monitor security. Security monitoring for AKS is done with [Microsoft Sentinel](../sentinel/overview.md) and [Microsoft Defender for Cloud](../defender-for-cloud/defender-for-cloud-introduction.md). See [Monitor virtual machines with Azure Monitor - Security monitoring](../azure-monitor/vm/monitor-virtual-machine-security.md) for a description of the security monitoring tools in Azure and their relationship to Azure Monitor.
 >
-> For information on using the security services to monitor AKS, see [Microsoft Defender for Kubernetes - the benefits and features](../defender-for-cloud/defender-for-kubernetes-introduction.md) and [AKS diagnostics logs to Microsoft Sentinel](../sentinel/data-connectors-reference.md#azure-kubernetes-service-aks).
+> For information on using the security services to monitor AKS, see [Microsoft Defender for Kubernetes - the benefits and features](../defender-for-cloud/defender-for-kubernetes-introduction.md) and  [Connect Azure Kubernetes Service (AKS) diagnostics logs to Microsoft Sentinel](../sentinel/data-connectors/azure-kubernetes-service-aks.md).
 
 ## Container Insights
 
