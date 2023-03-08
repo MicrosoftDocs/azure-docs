@@ -128,15 +128,14 @@ In some cases, it was found that the mismatch between the MTU on the docker netw
 #### Solution
 1. Check the MTU setting for your device and ensure it is appropriately set based on your network setting. Contact your ISP for more information.
 2. In some cases, the workaround below also worked:
-> - Create a new network by using the command 
+   - Create a new network by using the command 
    `docker network create --opt com.docker.network.driver.mtu=1429 test-mtu`
-
-   In this example, the MTU setting for the device was 1430 hence the MTU for the docker network was set to 1430 or lower i.e.,1429
-> - Stop and remove the azure network 
+   In this example, the MTU setting for the device was 1430 hence the MTU for the docker network was set to 1430 or lower that is, 1429
+   - Stop and remove the Azure network 
    `docker network rm azure-iot-edge`
-> - Recreate the azure network using the command below
+   - Recreate the Azure network using the command below
    `docker network create --opt com.docker.network.driver.mtu=1429 azure-iot-edge`
-> - Remove all images and restart the aziot-edged service
+   - Remove all images and restart the aziot-edged service
 
 ### IoT Edge agent can't access a module's image (403)
 
