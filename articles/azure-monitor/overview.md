@@ -55,9 +55,13 @@ The diagram depicts the Azure Monitor system components:
 
 ## Data sources
 
-Azure Monitor can collect data from multiple sources, including from your application, operating systems, the services they rely on, and from the platform itself. The diagram below shows an expanded version of the datasource types gathered by Azure Monitor. Click on the picture to see a larger version of the diagram in context. 
+Azure Monitor can collect data from multiple sources, including from your application, operating systems, the services they rely on, and from the platform itself. The diagram below shows an expanded version of the datasource types gathered by Azure Monitor. 
 
-:::image type="content" source="media/overview/overview-data-sources.png" alt-text="Diagram that shows an overview of Azure Monitor data sources." border="false" lightbox="media/overview/overview-data-sources-large.png":::
+
+:::image type="content" source="media/overview/overview-data-sources.png" alt-text="Diagram that shows an overview of Azure Monitor data sources." border="false" lightbox="media/overview/overview-data-sources-large-in-context.png":::
+
+
+Click on the picture to see a larger version of the data sources diagram in context.
 
 You can integrate monitoring data from sources outside Azure, including on-premises and other non-Microsoft clouds, using the application, infrastructure, and custom data sources.
 
@@ -66,9 +70,8 @@ Azure Monitor collects these types of data:
 |Data Type  |Description  |
 |---------|---------|
 |Application|Data about the performance and functionality of your application code on any platform.|
-|Infrastructure| **Container.** Data about containers, such as Azure Kubernetes, and about the applications running inside containers. - **Operating system.** Data about the guest operating system on which your application is running.|
-|Azure Platform|**Azure resource**. Data about the operation of an Azure resource. Resource Logs are one example.<br>**Azure subscription.** The operation and management of an Azure subscription, and data about the health and operation of Azure itself. The Activity Log is one example. <br>**Azure tenant.** Data about the operation of tenant-level Azure services, such as Azure Active Directory.<br>**Azure resource changes.** Data about changes within your Azure resources and how to address and triage incidents and issues.         |
-|Custom Sources| Data sent into the Azure Monitor data platform using the Azure Monitor REST API. |
+|Infrastructure| **Container** -  Data about containers, such as Azure Kubernetes, and about the applications running inside containers. <br/>**Operating system** - Data about the guest operating system on which your application is running.|
+|Azure Platform|**Azure resource** - Data about the operation of an Azure resource. Resource Logs are one example. This includes data about changes within your Azure resources. <br>**Azure subscription** - The operation and management of an Azure subscription, and data about the health and operation of Azure itself. The activity log is one example. <br>**Azure tenant** - Data about the operation of tenant-level Azure services, such as Azure Active Directory.<br>| Data sent into the Azure Monitor data platform using the Azure Monitor REST API. |
 
 
 For detailed information about each of the data sources, see [data sources](./data-sources.md).
@@ -77,13 +80,14 @@ For detailed information about each of the data sources, see [data sources](./da
 
 Azure Monitor stores data in data stores for each of the pillars of observability: metrics, logs, distributed traces, and changes. Each store is optimized for specific types of data and monitoring scenarios.
 
-:::image type="content" source="media/overview/overview-data-platform.png" alt-text="Diagram that shows an overview of Azure Monitor data platform." border="false" lightbox="media/overview/overview-data-platform-large.png":::
+:::image type="content" source="media/overview/overview-data-platform.png" alt-text="Diagram that shows an overview of Azure Monitor data platform." border="false" lightbox="media/overview/overview-data-platform-large-in-context.png":::
 
+Click on the picture to see a larger version of the data platform diagram in context.
 
 
 |Pillar of Observability/<br>Data Store|Description|
 |---------|---------|
-|[Azure Monitor Metrics](essentials/data-platform-metrics.md)|Metrics are numerical values that describe an aspect of a system at a particular point in time. [Azure Monitor Metrics](./essentials/data-platform-metrics.md) is a time-series database, optimized for analyzing time-stamped data. Azure Monitor collects metrics at regular intervals. Metrics are identified with a timestamp, a name, a value, and one or more defining labels. They can be aggregated using algorithms, compared to other metrics, and analyzed for trends over time. It supports native Azure Monitor metrics and [Prometheus based metrics](essentials/prometheus-metrics-overview.md).|
+|[Azure Monitor Metrics](essentials/data-platform-metrics.md)|Metrics are numerical values that describe an aspect of a system at a particular point in time. [Azure Monitor Metrics](./essentials/data-platform-metrics.md) is a time-series database, optimized for analyzing time-stamped data. Azure Monitor collects metrics at regular intervals. Metrics are identified with a timestamp, a name, a value, and one or more defining labels. They can be aggregated using algorithms, compared to other metrics, and analyzed for trends over time. It supports native Azure Monitor metrics and [Prometheus based metrics](./essentials/prometheus-metrics-overview.md).|
 |[Azure Monitor Logs](logs/data-platform-logs.md)|Logs are recorded system events. Logs can contain different types of data, be structured or free-form text, and they contain a timestamp. Azure Monitor stores structured and unstructured log data of all types in [Azure Monitor Logs](./logs/data-platform-logs.md). You can route data to [Log Analytics workspaces](./logs/log-analytics-overview.md) for querying and analysis.|
 |Traces|[Distributed traces](/app/distributed-tracing.md) identify the series of related events that follow a user request through a distributed system. A trace measures the operation and performance of your application across the entire set of components in your system. Traces can be used to determine the behavior of application code and the performance of different transactions. Azure Monitor gets distributed trace data from the Application Insights SDK. The trace data is stored in a separate workspace in Azure Monitor Logs.|
 |Changes|Changes are a series of events in your application and resources. They're  tracked and stored when you use the [Change Analysis](./change/change-analysis.md) service, which uses [Azure Resource Graph](../governance/resource-graph/overview.md) as its store. Change Analysis helps you understand which changes, such as deploying updated code, may have caused issues in your systems.|
@@ -93,7 +97,10 @@ Azure Monitor stores data in data stores for each of the pillars of observabilit
 
 Azure Monitor collects and routes monitoring data using a few different mechanisms depending on the data being routed and the destination.  Much like a road system built over time, not all roads lead to all locations. Some are legacy, some new, and some are better to take than others given how Azure Monitor has evolved over time. For more information, see **[data sources](data-sources.md)**.
 
-:::image type="content" source="media/overview/overview-data-collection-large-all.png" alt-text="Diagram that shows an overview of Azure Monitor data collection and routing." border="false" lightbox="media/overview/overview-data-collection-large.png":::
+:::image type="content" source="media/overview/overview-data-collection.png" alt-text="Diagram that shows an overview of Azure Monitor data collection and routing." border="false" lightbox="media/overview/overview-data-collection-large-in-context.png":::
+
+Click on the picture to see a larger version of the data collection diagram in context.
+
 
 |Collection method|Description  |
 |---------|---------|
@@ -110,7 +117,7 @@ For detailed information about data collection, see [data collection](./best-pra
 
 The following sections outline methods and services that consume montoring data from the data platform.
 
-:::image type="content" source="media/overview/overview-consume.png" alt-text="Diagram that shows an overview of Azure Monitor data platform." border="false" lightbox="media/overview/overview-consume-large.png":::
+:::image type="content" source="media/overview/overview-consume.png" alt-text="Diagram that shows an overview of Azure Monitor data platform." border="false" lightbox="media/overview/overview-consume-in-context.png":::
 
 All areas in the *consumption* section of the diagram have a user interface that appears in the Azure portal.
 
