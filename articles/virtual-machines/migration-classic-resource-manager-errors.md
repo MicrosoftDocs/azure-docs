@@ -9,8 +9,6 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 10/10/2022
 ms.author: tagore 
-ms.custom: devx-track-azurepowershell
-
 ---
 
 # Errors that commonly occur during Classic to Azure Resource Manager migration
