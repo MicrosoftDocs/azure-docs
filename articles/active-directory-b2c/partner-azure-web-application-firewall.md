@@ -9,7 +9,7 @@ ms.reviewer: kengaderdus
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/17/2021
+ms.date: 03/08/2023
 ms.author: gasinh
 ms.subservice: B2C
 ---
@@ -47,57 +47,58 @@ To enable WAF, configure a WAF policy and associate it with the AFD for protecti
 
 ### Create a WAF policy
 
-To create a WAF policy with Azure-managed Default Rule Set (DRS):
+Create a WAF policy with Azure-managed default rule set (DRS). See, [Web Application Firewall DRS rule groups and rules](../web-application-firewall/afds/waf-front-door-drs.md).
 
-1. Go to the [Azure portal](https://portal.azure.com). Select **Create a resource** and then search for Azure WAF. Select **Azure Web Application Firewall (WAF)** > **Create**.
-
-2. Go to the **Create a WAF policy** page, select the **Basics** tab. Enter the following information, accept the defaults for the remaining settings.
-
-| Value | Description |
-|:--------|:-------|
-| Policy for | Global WAF (Front Door)|
-| Front Door SKU | Select between Basic, Standard, or Premium SKU |
-|Subscription | Select your Front Door subscription name |
-| Resource group | Select your Front Door resource group name |
-| Policy name | Enter a unique name for your WAF policy |
-| Policy state | Set as Enabled |
-| Policy mode | Set as Detection |
-
-3. Select **Review + create**
-
-4. Go to the **Association** tab of the Create a WAF policy page, select + **Associate a Front Door profile**, enter the following settings
-
-| Value | Description |
-|:----|:------|
-| Front Door | Select your Front Door name associated with Azure AD B2C custom domain |
-| Domains | Select the Azure AD B2C custom domains you want to associate the WAF policy to|
-
-5. Select **Add**.
-
-6. Select **Review + create**, then select **Create**.
+1. Go to the [Azure portal](https://portal.azure.com). 
+2. Select **Create a resource**.
+3. Search for Azure WAF. 
+4. Select **Azure Web Application Firewall (WAF)**.
+5. Select **Create**.
+6. Go to the **Create a WAF policy** page.
+7. Select the **Basics** tab. 
+8. For **Policy for**, select **Global WAF (Front Door)**.
+9. For **Front Door SKU**, select between **Basic**, **Standard**, or **Premium** SKU.
+10. For **Subscription**, select your Front Door subscription name.
+11. For **Resource group**, select your Front Door resource group name.
+12. For **Policy name**, enter a unique name for your WAF policy.
+13. For **Policy state**, select **Enabled**.
+14. For **Policy mode**, select **Detection**.
+15. Select **Review + create**.
+16. Go to the **Association** tab of the Create a WAF policy page.
+17. Select **+ Associate a Front Door profile**.
+18. For **Front Door**, select your Front Door name associated with Azure AD B2C custom domain.
+19. For **Domains**, select the Azure AD B2C custom domains to associate the WAF policy to.
+20. Select **Add**.
+21. Select **Review + create**.
+22. Select **Create**.
 
 ### Change policy mode from detection to prevention
 
-When a WAF policy is created, by default the policy is in Detection mode. In Detection mode, WAF doesn't block any requests, instead, requests matching the WAF rules are logged in the WAF logs. For more information about WAF logging, see [Azure WAF monitoring and logging](../web-application-firewall/afds/waf-front-door-monitor.md).
+When you create WAF policy, the policy is in Detection mode. We recommend you don't disable Detection mode. In this mode, WAF doesn't block requests. Instead, requests that match the WAF rules are logged in the WAF logs. 
 
-The sample query shows all the requests that were blocked by the WAF policy in the past 24 hours. The details include, rule name, request data, action taken by the policy, and the policy mode.
+Learn more: [Azure Web Application Firewall monitoring and logging](../web-application-firewall/afds/waf-front-door-monitor.md)
 
-![Image shows the blocked requests](./media/partner-azure-web-application-firewall/blocked-requests-query.png)
+The following query shows the requests blocked by the WAF policy in the past 24 hours. The details include, rule name, request data, action taken by the policy, and the policy mode.
 
-![Image shows the blocked requests details](./media/partner-azure-web-application-firewall/blocked-requests-details.png)
+   ![Screenshot of blocked requests](./media/partner-azure-web-application-firewall/blocked-requests-query.png)
 
-It's recommended that you let the WAF capture requests in Detection mode. Review the WAF logs to determine if there are any rules in the policy that are causing false positive results. Then after [exclude the WAF rules based on the WAF logs](../web-application-firewall/afds/waf-front-door-exclusion.md#define-exclusion-based-on-web-application-firewall-logs).
+   ![Screenshot of blocked requests details, such as Rule ID, Action, Mode, etc.](./media/partner-azure-web-application-firewall/blocked-requests-details.png)
 
-To see WAF in action, use Switch to prevention mode to change from Detection to Prevention mode. All requests that match the rules defined in the Default Rule Set (DRS) are blocked and logged in the WAF logs.
+Review the WAF logs to determine if policy rules cause false positives. Then, exclude the WAF rules based on the WAF logs.
 
-![Image shows the switch to prevention mode](./media/partner-azure-web-application-firewall/switch-to-prevention-mode.png)
+Learn more: [Define exclusion rules based on Web Application Firewall logs](../web-application-firewall/afds/waf-front-door-exclusion.md#define-exclusion-based-on-web-application-firewall-logs)
 
-In case you want to switch back to the detection mode, you can do so by using Switch to detection mode option.
+#### Switch to prevention mode
 
-![Image shows the switch to detection mode](./media/partner-azure-web-application-firewall/switch-to-detection-mode.png)
+To see WAF operating, select **Switch to prevention mode**, which changes the mode from Detection to Prevention. Requests that match the rules in the DRS are blocked and logged in the WAF logs.
+
+  ![Screenshot of options and selections for DefaultRuleSet under Web Application Firewall policies.](./media/partner-azure-web-application-firewall/switch-to-prevention-mode.png)
+
+To revert to Detection mode, select **Switch to detection mode**.
+
+  ![Screenshot of DefaultRuleSet with Switch to detection mode.](./media/partner-azure-web-application-firewall/switch-to-detection-mode.png)
 
 ## Next steps
 
-- [Azure WAF monitoring and logging](../web-application-firewall/afds/waf-front-door-monitor.md)
-
-- [WAF with Front Door service exclusion lists](../web-application-firewall/afds/waf-front-door-exclusion.md)
+* [Azure Web Application Firewall monitoring and logging](../web-application-firewall/afds/waf-front-door-monitor.md)
+* [Web Application Firewall (WAF) with Front Door exclusion lists](../web-application-firewall/afds/waf-front-door-exclusion.md)
