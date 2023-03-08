@@ -3,7 +3,7 @@ title: Query apiserver requests
 description: Enable kube-audit to query the various types of requests to apiserver
 ms.topic: conceptual
 ms.owner: sprab
-ms.reviewer: sprab
+ms.contributors: sprab, sugan
 ---
 
 ## Overview
@@ -94,4 +94,29 @@ To configure an alert:
 11. Under Advanced options select the Number of violations and Evaluation period to trigger the alert.
 12. If you have set a time range in the query, that can be overriden using the Override query time range.
 
+Now that we have set the conditions to trigger the alert, next we need to configure who should receive the alert and the alert delivery method.
+
+To deliver the alerts we will leverage the action groups.  Either we can select an existing one or create a new action group to receive the alerts.
+
+> [!NOTE]
+>
+> Refer this article to [configure action groups](https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/main/articles/azure-monitor/alerts/action-groups.md)
+
+
+Go to the Details tab:
+
+13. Under Project details select the subscription and resource group to save this alert.  This should be auto populated since we are creating this from the resource itself.
+
+14. Under Alert rule details choose the appropriate Severity for the alert, give it a name and description.
+15. Optionally, under Advanced options you can include custom properties that needs to be sent along with the alert.
+16. Select the option Enable upon creation to start triggering the alert.
+17. Configure tags if needed.
+18. Click Review + Create.
+
+![image](https://user-images.githubusercontent.com/17014671/223608498-2433ea41-b4b4-45fc-a909-9551cf437ee8.png)
+
+Once the alert is setup, allow sometime depending on the alert rule conditions to see the triggered alerts in the portal or to get notified via the chosen method.
+
+This is the alert that was triggered for the alert rule setup in the above example.
+![image](https://user-images.githubusercontent.com/17014671/223620056-ed563dd7-a4d5-4286-ad69-9a0f47f755be.png)
 
