@@ -16,7 +16,7 @@ ms.author: jeedes
 
 # Azure Active Directory SSO integration with Hawkeye Platform
 
-In this article, you'll learn how to integrate Hawkeye Platform with Azure Active Directory (Azure AD). Hawkeye Platform was developed by Redbridge Debt & Treasury Advisory to help Clients manage their bank fees. When you integrate Hawkeye Platform with Azure AD, you can:
+In this article, you learn how to integrate Hawkeye Platform with Azure Active Directory (Azure AD). Hawkeye Platform was developed by Redbridge Debt & Treasury Advisory to help Clients manage their bank fees. When you integrate Hawkeye Platform with Azure AD, you can:
 
 * Control in Azure AD who has access to Hawkeye Platform.
 * Enable your users to be automatically signed-in to Hawkeye Platform with their Azure AD accounts.
