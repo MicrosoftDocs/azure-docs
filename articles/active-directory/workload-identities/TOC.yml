@@ -23,7 +23,7 @@
         href: ../conditional-access/concept-continuous-access-evaluation-workload.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json
 - name: How-to guides
   items:
-  - name: Connect without secrets
+  - name: Connect workloads without managing secrets
     items:
       - name: Configure an app to trust an external identity provider
         href: workload-identity-federation-create-trust.md
