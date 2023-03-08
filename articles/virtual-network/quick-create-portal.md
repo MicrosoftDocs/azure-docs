@@ -43,7 +43,11 @@ A virtual network is the fundamental building block for private networks in Azur
 
 1. Select **Next**.
 
-1. On the **Security** tab, select the checkbox next to **Enable Azure Bastion**. Select **Next** to accept the defaults for **Azure Bastion host name** and **Azure Bastion public IP address**.
+1. On the **Security** tab, select the checkbox next to **Enable Azure Bastion**.
+
+   Azure Bastion uses your browser to connect to VMs in your virtual network over secure shell (SSH) or remote desktop protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration. For more information about Azure Bastion, see [Azure Bastion](~/articles/bastion/bastion-overview.md).
+
+   Select **Next** to accept the defaults for **Azure Bastion host name** and **Azure Bastion public IP address**.
 
    :::image type="content" source="./media/quick-create-portal/example-security-tab.png" alt-text="Screenshot of the Security tab of the Create virtual network screen.":::
 
@@ -59,7 +63,7 @@ A virtual network is the fundamental building block for private networks in Azur
 
    :::image type="content" source="./media/quick-create-portal/example-review-create.png" alt-text="Screenshot of the completed IP Addresses tab of the Create virtual network screen.":::
 
-1. After validation succeeds, select **Create**. It takes a few minutes to create the virtual network and Bastion host.
+1. After validation succeeds, select **Create**. It takes a few minutes to create the Bastion host.
 
 ## Create virtual machines
 
@@ -97,7 +101,7 @@ Create two VMs named *VM1* and *VM2* in the virtual network.
 1. After the VM creation finishes, you can select **Create another VM** to create the second VM. Name the VM *VM2*, with all the same settings.
 
 >[!NOTE]
->VMs in a virtual network that Bastion hosts don't need public IP addresses. Bastion provides the public IP, and the VMs use private IPs to communicate within the network. You can remove the public IPs from any VMs in Bastion-hosted virtual networks. For more information, see [Dissociate a public IP address from an Azure VM](ip-services/remove-public-ip-address-vm.md).
+>VMs in a virtual network with a Bastion host don't need public IP addresses. Bastion provides the public IP, and the VMs use private IPs to communicate within the network. You can remove the public IPs from any VMs in Bastion-hosted virtual networks. For more information, see [Dissociate a public IP address from an Azure VM](ip-services/remove-public-ip-address-vm.md).
 
 ## Connect to a VM
 

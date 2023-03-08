@@ -39,7 +39,7 @@ You can also [install Azure PowerShell locally](/powershell/azure/install-Az-ps)
    New-AzResourceGroup @rg
    ```
    
-1. Use [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) to create a virtual network named *VNet* with IP address prefix `10.0.0.0/16` in the `TestRG` resource group and `eastus` location.
+1. Use [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) to create a virtual network named `VNet` with IP address prefix `10.0.0.0/16` in the `TestRG` resource group and `eastus` location.
 
    ```azurepowershell-interactive
    $vnet = @{
@@ -70,9 +70,9 @@ You can also [install Azure PowerShell locally](/powershell/azure/install-Az-ps)
 
 ## Deploy Azure Bastion
 
-Azure Bastion lets you use your browser to connect to VMs in your virtual network over secure shell (SSH) or remote desktop protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration. For more information about Azure Bastion, see [Azure Bastion](~/articles/bastion/bastion-overview.md).
+Azure Bastion uses your browser to connect to VMs in your virtual network over secure shell (SSH) or remote desktop protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration. For more information about Azure Bastion, see [Azure Bastion](~/articles/bastion/bastion-overview.md).
 
-1. Configure an Azure Bastion subnet for your virtual network. This subnet is reserved exclusively for Azure Bastion resources and must have the name `AzureBastionSubnet`.
+1. Configure an Azure Bastion subnet for your virtual network. This subnet is reserved exclusively for Azure Bastion resources and must be named `AzureBastionSubnet`.
 
    ```azurepowershell-interactive
    $subnet = @{
@@ -148,7 +148,7 @@ Use [New-AzVM](/powershell/module/az.compute/new-azvm) to create two VMs named `
 Azure takes a few minutes to create the VMs. When Azure finishes creating the VMs, it returns output to PowerShell.
 
 >[!NOTE]
->VMs in a virtual network that Bastion hosts don't need public IP addresses. Bastion provides the public IP, and the VMs use private IPs to communicate within the network. You can remove the public IPs from any VMs in Bastion-hosted virtual networks. For more information, see [Dissociate a public IP address from an Azure VM](ip-services/remove-public-ip-address-vm.md).
+>VMs in a virtual network with a Bastion host don't need public IP addresses. Bastion provides the public IP, and the VMs use private IPs to communicate within the network. You can remove the public IPs from any VMs in Bastion-hosted virtual networks. For more information, see [Dissociate a public IP address from an Azure VM](ip-services/remove-public-ip-address-vm.md).
 
 ## Connect to a VM
 

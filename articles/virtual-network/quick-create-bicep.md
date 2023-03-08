@@ -25,19 +25,19 @@ A virtual network is the fundamental building block for private networks in Azur
 
 - To deploy the Bicep files, either PowerShell or Azure CLI installed.
 
-   # [CLI](#tab/azure-cli)
+  # [CLI](#tab/azure-cli)
 
   [Install Azure CLI locally](/cli/azure/install-azure-cli) to run the commands. You need Azure CLI version 2.0.28 or later. Run [az version](/cli/azure/reference-index?#az-version) to find your installed version and dependent libraries, and run [az upgrade](/cli/azure/reference-index?#az-upgrade) to upgrade.
 
 - Sign in to Azure by using the [az login](/cli/azure/reference-index#az-login) command.
 
-   # [PowerShell](#tab/azure-powershell)
+  # [PowerShell](#tab/azure-powershell)
 
   [Install Azure PowerShell locally](/powershell/azure/install-Az-ps) to run the cmdlets. You need Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find your installed version. If you need to upgrade, see [Update the Azure PowerShell module](/powershell/azure/install-Az-ps#update-the-azure-powershell-module).
 
 - Run `Connect-AzAccount` to connect to Azure.
 
-   # [Portal](#tab/azure-portal)
+  # [Portal](#tab/azure-portal)
 
    To create and deploy the resources in the Azure portal, see [Quickstart: Use the Azure portal to create a virtual network](quick-create-portal.md).
 
@@ -134,7 +134,7 @@ Review the Bicep file:
    @description('Name of Azure Bastion resource')
    param bastionHostName = 'VNet-bastion'
    
-```
+   ```
 
 1. Save the file *bastion.bicep*.
 
@@ -161,7 +161,7 @@ Review the Bicep file:
 When the deployment finishes, a message indicates that the deployment succeeded.
 
 >[!NOTE]
->VMs in a virtual network that Bastion hosts don't need public IP addresses. Bastion provides the public IP, and the VMs use private IPs to communicate within the network. You can remove the public IPs from any VMs in Bastion-hosted virtual networks. For more information, see [Dissociate a public IP address from an Azure VM](ip-services/remove-public-ip-address-vm.md).
+>VMs in a virtual network with a Bastion host don't need public IP addresses. Bastion provides the public IP, and the VMs use private IPs to communicate within the network. You can remove the public IPs from any VMs in Bastion-hosted virtual networks. For more information, see [Dissociate a public IP address from an Azure VM](ip-services/remove-public-ip-address-vm.md).
 
 ## Review deployed resources
 
