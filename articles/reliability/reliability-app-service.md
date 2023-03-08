@@ -51,7 +51,7 @@ Availability zone support is a property of the App Service plan. The following a
 -  App Service Environment v1 doesn't support availability zones.  
 
     >[!IMPORTANT]
-    >[App Service Environment v2 and v1 will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement/). App Service Environment v3 is easier to use and runs on more powerful infrastructure. To learn more about App Service Environment v3, see [App Service Environment overview](azure/app-service/environment/overview). If you're currently using App Service Environment v2 or v1 and you want to upgrade to v3, please follow the [steps in this article](/azure/app-service/environment/migration-alternatives) to migrate to the new version.
+    >[App Service Environment v2 and v1 will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement/). App Service Environment v3 is easier to use and runs on more powerful infrastructure. To learn more about App Service Environment v3, see [App Service Environment overview](/azure/app-service/environment/overview). If you're currently using App Service Environment v2 or v1 and you want to upgrade to v3, please follow the [steps in this article](/azure/app-service/environment/migration-alternatives) to migrate to the new version.
      
 - Minimum instance count of three zones is enforced. The platform will enforce this minimum count behind the scenes if you specify an instance count fewer than three.
 
@@ -165,7 +165,8 @@ When the App Service platform allocates instances to a zone redundant App Servic
 
 ### Availability zone migration
 
-You cannot migrate existing App Service instances or resources from non-availability zone support to availability zone support. To gain support for availability zones, you'll need to [redeploy your apps into a newly created availability zone enabled App Service plan](#deploy-a-zone-redundant-app-service).
+You cannot migrate existing App Service instances or environment resources from non-availability zone support to availability zone support. To get support for availability zones, you'll need to [create upir resources with availability zones enabled](#create-a-resource-with-availability-zone-enabled).
+
 ## Pricing
 
 There's no additional cost associated with enabling availability zones. Pricing for a zone redundant App Service is the same as a single zone App Service. You'll be charged based on your App Service plan SKU, the capacity you specify, and any instances you scale to based on your autoscale criteria. If you enable availability zones but specify a capacity less than three, the platform will enforce a minimum instance count of three and charge you for those three instances.
