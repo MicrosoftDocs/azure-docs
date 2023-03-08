@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Azure ML in a day"
+title: "Quickstart: First look at Azure Machine Learning"
 titleSuffix: Azure Machine Learning
 description: Use Azure Machine Learning to train and deploy a model in a cloud-based Python Jupyter Notebook. 
 services: machine-learning
@@ -137,7 +137,7 @@ except Exception:
 
 ## What is a command job?
 
-You'll create an Azure ML *command job* to train a model for credit default prediction. The command job is used to run a *training script* in a specified environment on a specified compute resource.  You've already created the environment and the compute resource.  Next you'll create the training script.
+You'll create an Azure Machine Learning *command job* to train a model for credit default prediction. The command job is used to run a *training script* in a specified environment on a specified compute resource.  You've already created the environment and the compute resource.  Next you'll create the training script.
 
 The *training script* handles the data preparation, training and registering of the trained model. In this tutorial, you'll create a Python training script.
 
@@ -280,7 +280,7 @@ Now that you have a script that can perform the desired tasks, you'll use the ge
 Here, you'll create input variables to specify the input data, split ratio, learning rate and registered model name.  The command script will:
 * Use the compute created earlier to run this command.
 * Use an *environment* that defines software and runtime libraries needed for the training script. Azure Machine Learning provides many curated or ready-made environments, which are useful for common training and inference scenarios. You'll use one of those environments here.  In the [Train a model](tutorial-train-model.md) tutorial, you'll learn how to create a custom environment. 
-* Configure some metadata like display name, experiment name etc. An *experiment* is a container for all the iterations you do on a certain project. All the jobs submitted under the same experiment name would be listed next to each other in Azure ML studio.
+* Configure some metadata like display name, experiment name etc. An *experiment* is a container for all the iterations you do on a certain project. All the jobs submitted under the same experiment name would be listed next to each other in Azure Machine Learning studio.
 * Configure the command line action itself - `python main.py` in this case. The inputs/outputs are accessible in the command via the `${{ ... }}` notation.
 * In this sample, we access the data from a file on the internet. 
 
