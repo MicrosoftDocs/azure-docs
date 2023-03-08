@@ -36,7 +36,7 @@ This tutorial uses the [Postman](https://www.postman.com/) application, but you 
 
 >[!IMPORTANT]
 >
-> * This article uses the `us.atlas.microsoft.com` geographical URL. If your Creator service wasn't created in the United States, you must use a different geographical URL.  For more information, see [Access to Creator Services](how-to-manage-creator.md#access-to-creator-services).
+> * This article uses the `us.atlas.microsoft.com` geographical URL. If your Creator service wasn't created in the United States, you must use a different geographical URL.  For more information, see [Access to Creator services](how-to-manage-creator.md#access-to-creator-services).
 > * In the URL examples in this article you will need to replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key.
 
 ## Upload a drawing package
@@ -160,7 +160,7 @@ To convert a drawing package:
 
 4. Select the **POST** HTTP method.
 
-5. Enter the following URL to the [Conversion Service](/rest/api/maps/v2/conversion/convert) (replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key and `udid` with the `udid` of the uploaded package):
+5. Enter the following URL to the [Conversion service](/rest/api/maps/v2/conversion/convert) (replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key and `udid` with the `udid` of the uploaded package):
 
     ```http
     https://us.atlas.microsoft.com/conversions?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=2.0&udid={udid}&inputType=DWG&outputOntology=facility-2.0

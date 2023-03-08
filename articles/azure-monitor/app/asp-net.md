@@ -377,6 +377,12 @@ There's a known issue in the current version of Visual Studio 2019: storing the 
 
 For the latest updates and bug fixes, [consult the release notes](./release-notes.md).
 
+## Release Notes
+
+For version 2.12 and newer: [.NET SDKs (Including ASP.NET, ASP.NET Core, and Logging Adapters)](https://github.com/Microsoft/ApplicationInsights-dotnet/releases) 
+
+Our [Service Updates](https://azure.microsoft.com/updates/?service=application-insights) also summarize major Application Insights improvements.
+
 ## Next steps
 
 * Add synthetic transactions to test that your website is available from all over the world with [availability monitoring](availability-overview.md).
