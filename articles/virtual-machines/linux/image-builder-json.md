@@ -8,7 +8,7 @@ ms.date: 09/06/2022
 ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.custom: devx-track-azurepowershell, references_regions
+ms.custom: references_regions
 ---
 
 # Create an Azure Image Builder Bicep or ARM JSON template
