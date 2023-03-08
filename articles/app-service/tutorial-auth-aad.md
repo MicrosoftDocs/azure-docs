@@ -133,7 +133,7 @@ The frontend application needs to the know the URL of the backend application fo
 az webapp config appsettings set --resource-group myAuthResourceGroup --name <front-end-app-name> --settings BACKEND_URL="https://<back-end-app-name>.azurewebsites.net"
 ```
 
-## 4. Call the backend
+## 4. Frontend calls the backend
 
 Browse to the frontend app and return the _fake_ profile from the backend. This action validates that the frontend is successfully requesting the profile from the backend, and the backend is returning the profile. 
 
@@ -345,7 +345,7 @@ In the preceding steps, you created Azure resources in a resource group.
 1. Delete app registrations for both frontend and backend apps.
 
     ```azurecli-interactive
-    # delete app - do this for both frontend and backend app
+    # delete app - do this for both frontend and backend client ids
     az ad app delete <client-id>
     ```
 
