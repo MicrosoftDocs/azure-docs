@@ -25,13 +25,13 @@ A virtual network is the fundamental building block for private networks in Azur
 
 - To deploy the Bicep files, either PowerShell or Azure CLI installed.
 
-   # [CLI](#tab/CLI)
+   # [CLI](#tab/azure-cli)
 
   [Install Azure CLI locally](/cli/azure/install-azure-cli) to run the commands. You need Azure CLI version 2.0.28 or later. Run [az version](/cli/azure/reference-index?#az-version) to find your installed version and dependent libraries, and run [az upgrade](/cli/azure/reference-index?#az-upgrade) to upgrade.
 
 - Sign in to Azure by using the [az login](/cli/azure/reference-index#az-login) command.
 
-   # [PowerShell](#tab/PowerShell)
+   # [PowerShell](#tab/azure-powershell)
 
   [Install Azure PowerShell locally](/powershell/azure/install-Az-ps) to run the cmdlets. You need Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find your installed version. If you need to upgrade, see [Update the Azure PowerShell module](/powershell/azure/install-Az-ps#update-the-azure-powershell-module).
 
@@ -64,14 +64,14 @@ Review the Bicep file:
 1. Save the Bicep file to your local computer as *main.bicep*.
 1. Deploy the Bicep file by using either Azure CLI or Azure PowerShell.
 
-   # [CLI](#tab/CLI)
+   # [CLI](#tab/azure-cli)
 
    ```azurecli
    az group create --name TestRG --location eastus
    az deployment group create --resource-group TestRG --template-file main.bicep
    ```
 
-   # [PowerShell](#tab/PowerShell)
+   # [PowerShell](#tab/azure-powershell)
 
    ```azurepowershell
    New-AzResourceGroup -Name TestRG -Location eastus
@@ -140,13 +140,13 @@ Review the Bicep file:
 
 1. Deploy the Bicep file by using either Azure CLI or Azure PowerShell.
 
-   # [CLI](#tab/CLI)
+   # [CLI](#tab/azure-cli)
 
    ```azurecli
    az deployment group create --resource-group TestRG --template-file bastion.bicep
    ```
 
-   # [PowerShell](#tab/PowerShell)
+   # [PowerShell](#tab/azure-powershell)
 
    ```azurepowershell
    New-AzResourceGroupDeployment -ResourceGroupName TestRG -TemplateFile bastion.bicep
@@ -160,17 +160,20 @@ Review the Bicep file:
 
    When the deployment finishes, a message indicates that the deployment succeeded.
 
+>[!NOTE]
+>VMs in a virtual network that Bastion hosts don't need public IP addresses. Bastion provides the public IP, and the VMs use private IPs to communicate within the network. You can remove the public IPs from any VMs in Bastion-hosted virtual networks. For more information, see [Dissociate a public IP address from an Azure VM](ip-services/remove-public-ip-address-vm.md).
+
 ## Review deployed resources
 
 Use Azure CLI, Azure PowerShell, or the Azure portal to review the deployed resources.
 
-# [CLI](#tab/CLI)
+# [CLI](#tab/azure-cli)
 
 ```azurecli
 az resource list --resource-group TestRG
 ```
 
-# [PowerShell](#tab/PowerShell)
+# [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 Get-AzResource -ResourceGroupName TestRG
@@ -184,9 +187,6 @@ Get-AzResource -ResourceGroupName TestRG
 1. Select **Subnets** from the left menu, and on the **Subnets** page, note the deployed subnets of **backendSubnet** and **AzureBastionSubnet** with the assigned values from the Bicep files.
 
 ---
-
->[!NOTE]
->VMs in a virtual network that Bastion hosts don't need public IP addresses. Bastion provides the public IP, and the VMs use private IPs to communicate within the network. You can remove the public IPs from any VMs in Bastion-hosted virtual networks. For more information, see [Dissociate a public IP address from an Azure VM](ip-services/remove-public-ip-address-vm.md).
 
 ## Connect to a VM
 
@@ -256,13 +256,13 @@ Get-AzResource -ResourceGroupName TestRG
 
 When you're done with the virtual network, use Azure CLI, Azure PowerShell, or the Azure portal to delete the resource group and all its resources.
 
-# [CLI](#tab/CLI)
+# [CLI](#tab/azure-cli)
 
 ```azurecli
 az group delete --name TestRG
 ```
 
-# [PowerShell](#tab/PowerShell)
+# [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 Remove-AzResourceGroup -Name TestRG

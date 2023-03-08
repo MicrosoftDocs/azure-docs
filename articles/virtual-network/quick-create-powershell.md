@@ -39,11 +39,11 @@ You can also [install Azure PowerShell locally](/powershell/azure/install-Az-ps)
    New-AzResourceGroup @rg
    ```
    
-1. Use [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) to create a virtual network named *VNet1* with IP address prefix `10.0.0.0/16` in the `TestRG` resource group and `eastus` location.
+1. Use [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) to create a virtual network named *VNet* with IP address prefix `10.0.0.0/16` in the `TestRG` resource group and `eastus` location.
 
    ```azurepowershell-interactive
    $vnet = @{
-       Name = 'VNet1'
+       Name = 'VNet'
        ResourceGroupName = 'TestRG'
        Location = 'eastus'
        AddressPrefix = '10.0.0.0/16'
@@ -68,6 +68,44 @@ You can also [install Azure PowerShell locally](/powershell/azure/install-Az-ps)
    $virtualNetwork | Set-AzVirtualNetwork
    ```
 
+## Deploy Azure Bastion
+
+Azure Bastion lets you use your browser to connect to VMs in your virtual network over secure shell (SSH) or remote desktop protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration. For more information about Azure Bastion, see [Azure Bastion](~/articles/bastion/bastion-overview.md).
+
+1. Configure an Azure Bastion subnet for your virtual network. This subnet is reserved exclusively for Azure Bastion resources and must have the name `AzureBastionSubnet`.
+
+   ```azurepowershell-interactive
+   $subnet = @{
+       Name = 'AzureBastionSubnet'
+       VirtualNetwork = $virtualNetwork
+       AddressPrefix = '10.1.1.0/26'
+   }
+   $subnetConfig = Add-AzVirtualNetworkSubnetConfig @subnet
+   ```
+
+1. Set the configuration.
+
+   ```azurepowershell-interactive
+      $virtualNetwork | Set-AzVirtualNetwork
+   ```
+
+1. Create a public IP address for Azure Bastion. The bastion host uses the public IP to access secure shell (SSH) and remote desktop protocol (RDP) over port 443.
+
+   ```azurepowershell-interactive
+      $publicip = New-AzPublicIpAddress -ResourceGroupName "TestRG" -name "VNet-ip" -location "EastUS" -AllocationMethod Static -Sku Standard
+   ```
+
+1. Use the [New-AzBastion](/powershell/module/az.network/new-azbastion) command to create a new Standard SKU Azure Bastion host in the AzureBastionSubnet.
+
+   ```azurepowershell-interactive
+      New-AzBastion -ResourceGroupName "TestRG" -Name "VNet-bastion" `
+      -PublicIpAddressRgName "TestRG" -PublicIpAddressName "VNet-ip" `
+      -VirtualNetworkRgName "TestRG" -VirtualNetworkName "VNet" `
+      -Sku "Standard"
+   ```
+
+1. It takes about 10 minutes for the Bastion resources to deploy. You can create VMs in the next section while Bastion deploys to your virtual network.
+
 ## Create virtual machines
 
 Use [New-AzVM](/powershell/module/az.compute/new-azvm) to create two VMs named `VM1` and `VM2` in the `default` subnet of the virtual network. When you're prompted for credentials, enter user names and passwords for the VMs.
@@ -79,7 +117,7 @@ Use [New-AzVM](/powershell/module/az.compute/new-azvm) to create two VMs named `
        ResourceGroupName = 'TestRG'
        Location = 'eastus'
        Name = 'VM1'
-       VirtualNetworkName = 'VNet1'
+       VirtualNetworkName = 'VNet'
        SubnetName = 'default'
    }
    New-AzVM @vm1
@@ -92,14 +130,14 @@ Use [New-AzVM](/powershell/module/az.compute/new-azvm) to create two VMs named `
        ResourceGroupName = 'TestRG'
        Location = 'eastus'
        Name = 'VM2'
-       VirtualNetworkName = 'VNet1'
+       VirtualNetworkName = 'VNet'
        SubnetName = 'default'
    }
    New-AzVM @vm2
    ```
 
->[!NOTE]
->You can also use the `-AsJob` option to create a VM in the background while you continue with other tasks. For example, run `New-AzVM @vm1 -AsJob`. When Azure starts creating the VM in the background, you get something like the following output:
+>[!TIP]
+>You can use the `-AsJob` option to create a VM in the background while you continue with other tasks. For example, run `New-AzVM @vm1 -AsJob`. When Azure starts creating the VM in the background, you get something like the following output:
 >
 >```powershell
 >Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
@@ -109,7 +147,8 @@ Use [New-AzVM](/powershell/module/az.compute/new-azvm) to create two VMs named `
 
 Azure takes a few minutes to create the VMs. When Azure finishes creating the VMs, it returns output to PowerShell.
 
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+>[!NOTE]
+>VMs in a virtual network that Bastion hosts don't need public IP addresses. Bastion provides the public IP, and the VMs use private IPs to communicate within the network. You can remove the public IPs from any VMs in Bastion-hosted virtual networks. For more information, see [Dissociate a public IP address from an Azure VM](ip-services/remove-public-ip-address-vm.md).
 
 ## Connect to a VM
 
