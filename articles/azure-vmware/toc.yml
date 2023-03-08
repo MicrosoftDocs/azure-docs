@@ -44,7 +44,7 @@
     href: concepts-identity.md
   - name: API Management
     href: concepts-api-management.md
-  -name : Azure Hybrid benefit
+  - name : Azure Hybrid benefit
     href: sql-server-hybrid-benefit.md
   - name: Hub and spoke
     href: concepts-hub-and-spoke.md
