@@ -5,9 +5,9 @@ services: private-link
 author: asudbring
 ms.service: private-link
 ms.topic: conceptual
-ms.date: 02/09/2022
+ms.date: 03/07/2023
 ms.author: allensu
-ms.custom: template-how-to, fasttrack-edit
+ms.custom: fasttrack-edit
 ---
 
 # Azure Private Endpoint DNS configuration
@@ -128,16 +128,16 @@ For Azure services, use the recommended zone names as described in the following
 | Storage account (Microsoft.Storage/storageAccounts) / File (file, file_secondary) | privatelink.file.core.usgovcloudapi.net | file.core.usgovcloudapi.net |
 | Storage account (Microsoft.Storage/storageAccounts) / Web (web, web_secondary) | privatelink.web.core.usgovcloudapi.net | web.core.usgovcloudapi.net |
 | Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) / Sql | privatelink.documents.azure.us | documents.azure.us |
-| Azure Batch (Microsoft.Batch/batchAccounts) / batchAccount | privatelink.batch.usgovcloudapi.net | {region}.batch.usgovcloudapi.net |
-| Azure Batch (Microsoft.Batch/batchAccounts) / nodeManagement | privatelink.batch.usgovcloudapi.net | {region}.service.batch.usgovcloudapi.net |
+| Azure Batch (Microsoft.Batch/batchAccounts) / batchAccount | privatelink.batch.usgovcloudapi.net | {regionName}.batch.usgovcloudapi.net |
+| Azure Batch (Microsoft.Batch/batchAccounts) / nodeManagement | privatelink.batch.usgovcloudapi.net | {regionName}.service.batch.usgovcloudapi.net |
 | Azure Database for PostgreSQL - Single server (Microsoft.DBforPostgreSQL/servers) / postgresqlServer | privatelink.postgres.database.usgovcloudapi.net | postgres.database.usgovcloudapi.net |
 | Azure Database for MySQL (Microsoft.DBforMySQL/servers) / mysqlServer | privatelink.mysql.database.usgovcloudapi.net | mysql.database.usgovcloudapi.net|
 | Azure Database for MariaDB (Microsoft.DBforMariaDB/servers) / mariadbServer | privatelink.mariadb.database.usgovcloudapi.net| mariadb.database.usgovcloudapi.net |
 | Azure Key Vault (Microsoft.KeyVault/vaults) / vault | privatelink.vaultcore.usgovcloudapi.net | vault.usgovcloudapi.net <br> vaultcore.usgovcloudapi.net |
 | Azure Search (Microsoft.Search/searchServices) / searchService | privatelink.search.windows.us | search.windows.us |
 | Azure App Configuration (Microsoft.AppConfiguration/configurationStores) / configurationStores | privatelink.azconfig.azure.us | azconfig.azure.us |
-| Azure Backup (Microsoft.RecoveryServices/vaults) / AzureBackup | privatelink.{region}.backup.windowsazure.us | {region}.backup.windowsazure.us |
-| Azure Site Recovery (Microsoft.RecoveryServices/vaults) / AzureSiteRecovery | privatelink.siterecovery.windowsazure.us | {region}.siterecovery.windowsazure.us |
+| Azure Backup (Microsoft.RecoveryServices/vaults) / AzureBackup | privatelink.{regionCode}.backup.windowsazure.us | {regionCode}.backup.windowsazure.us |
+| Azure Site Recovery (Microsoft.RecoveryServices/vaults) / AzureSiteRecovery | privatelink.siterecovery.windowsazure.us | {regionCode}.siterecovery.windowsazure.us |
 | Azure Event Hubs (Microsoft.EventHub/namespaces) / namespace | privatelink.servicebus.usgovcloudapi.net | servicebus.usgovcloudapi.net|
 | Azure Service Bus (Microsoft.ServiceBus/namespaces) / namespace | privatelink.servicebus.usgovcloudapi.net| servicebus.usgovcloudapi.net |
 | Azure IoT Hub (Microsoft.Devices/IotHubs) / iotHub | privatelink.azure-devices.us<br/>privatelink.servicebus.windows.us<sup>1</sup> | azure-devices.us<br/>servicebus.usgovcloudapi.net |
@@ -194,7 +194,7 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Data Factory (Microsoft.DataFactory/factories) / portal |  privatelink.adf.azure.cn  |  adf.azure.cn  |
 | Azure Cache for Redis (Microsoft.Cache/Redis) / redisCache | privatelink.redis.cache.chinacloudapi.cn | redis.cache.chinacloudapi.cn |
 | Azure HDInsight (Microsoft.HDInsight) | privatelink.azurehdinsight.cn | azurehdinsight.cn |
-| Azure Data Explorer (Microsoft.Kusto) | privatelink.{region}.kusto.windows.cn | {region}.kusto.windows.cn |
+| Azure Data Explorer (Microsoft.Kusto) | privatelink.{regionName}.kusto.windows.cn | {regionName}.kusto.windows.cn |
 
 <sup>1</sup>To use with IoT Hub's built-in Event Hub compatible endpoint. To learn more, see [private link support for IoT Hub's built-in endpoint](../iot-hub/virtual-network-support.md#built-in-event-hubs-compatible-endpoint)
 
