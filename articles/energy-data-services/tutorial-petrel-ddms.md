@@ -1,7 +1,7 @@
 ---
-title: Tutorial - Work with petrel data records by using Petrel DDMS APIs
-description: Learn how to work with petrel data records in your Microsoft Energy Data Services Preview instance by using Petrel Domain Data Management Services (Petrel DDMS) APIs in Postman.
-author: Nick Karsky
+title: Tutorial - Work with Petrel data records by using Petrel DDMS APIs in Azure Data Manager for Energy Preview
+description: Learn how to work with Petrel data records in your Azure Data Manager for Energy Preview instance by using Petrel Domain Data Management Services (Petrel DDMS) APIs in Postman.
+author: nikarsky
 ms.author: nikarsky
 ms.service: energy-data-services
 ms.topic: tutorial
@@ -9,9 +9,9 @@ ms.date: 2/07/2023
 ms.custom: template-tutorial
 ---
 
-# Tutorial: Work with petrel data records by using Petrel DDMS APIs
+# Tutorial: Work with Petrel data records by using Petrel DDMS APIs
 
-Use Petrel Domain Data Management Services (Petrel DDMS) APIs in Postman to work with well data in your instance of Microsoft Energy Data Services Preview.
+Use Petrel Domain Data Management Services (Petrel DDMS) APIs in Postman to work with Petrel data in your instance of Azure Data Manager for Energy Preview.
 
 In this tutorial, you'll learn how to:
 > [!div class="checklist"]
@@ -29,11 +29,11 @@ For more information about DDMS, see [DDMS concepts](concepts-ddms.md).
 ## Prerequisites
 
 - An Azure subscription
-- An instance of [Microsoft Energy Data Services Preview](quickstart-create-microsoft-energy-data-services-instance.md) created in your Azure subscription.
+- An instance of [Azure Data Manager for Energy Preview](quickstart-create-microsoft-energy-data-services-instance.md) created in your Azure subscription.
 
-## Get your Microsoft Energy Data Services instance details
+## Get your Azure Data Manager for Energy Services instance details
 
-The first step is to get the following information from your [Microsoft Energy Data Services Preview instance](quickstart-create-microsoft-energy-data-services-instance.md) in the [Azure portal](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_OpenEnergyPlatformHidden):
+The first step is to get the following information from your [Azure Data Manager for Energy Preview instance](quickstart-create-microsoft-energy-data-services-instance.md) in the [Azure portal](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_OpenEnergyPlatformHidden):
 
 | Parameter          | Value             | Example                               |
 | ------------------ | ------------------------ |-------------------------------------- |
@@ -64,7 +64,7 @@ Next, set up Postman:
 
 ## Generate a token to use in APIs
 
-The Postman collection for Petrel DDMS contains requests you can use to interact with your Petrel Projects. It also contains a request to query current Petrel projects and records in your Microsoft Energy Data Services instance.
+The Postman collection for Petrel DDMS contains requests you can use to interact with your Petrel Projects. It also contains a request to query current Petrel projects and records in your Azure Data Manager for Energy instance.
 
 1. In Postman, in the left menu, select **Collections**, and then select **Petrel DDMS**. Under **Setup**, select **Get Token**.
 
@@ -89,7 +89,7 @@ In order to use this cURL generated token, you must update `access_token` in you
 
 ## Use Petrel DDMS APIs to work with Petrel Projects
 
-Successfully completing the Postman requests described in the following Petrel DDMS API allows you to interact with your save petrel projects. While the API does provide a means of uploading data, we recommended that you upload your projects via the Delfi Petrel Explorer. All of the following API calls assume you have a project uploaded to Petrel Explorer.
+Successfully completing the Postman requests described in the following Petrel DDMS API allows you to interact with your save Petrel projects. While the API does provide a means of uploading data, we recommended that you upload your projects via the DELFI Petrel Explorer. All of the following API calls assume you have a project uploaded to Petrel Explorer.
 
 ### Create a legal tag
 
@@ -107,7 +107,7 @@ For more information, see [Manage legal tags](how-to-manage-legal-tags.md).
 
 In order to ensure the user has the proper permissions to make the Petrel DDMS API calls, the user must be apart of the `users.datalake.admins@{data-partition-id}.dataservices.energy` entitlements group. This call adds the user to the proper groups. 
 
-The **USER** in this case is the Client ID/OID contained in the token used for authentication. For example, if I generate my token using a client ID of `8cdxxxxxxxxxxxx`, I must add `8cdxxxxxxxxxxxx` to the **users.datalake.admins** group.
+The **USER** in this case is the Client ID/OID contained in the token used for authentication. For example, if you generate a token using a client ID of `8cdxxxxxxxxxxxx`, you must add `8cdxxxxxxxxxxxx` to the **users.datalake.admins** group.
 
 API: **Setup** > **Add User to DATALAKE Admins**
 
@@ -117,7 +117,7 @@ Method: POST
 
 ### Get Project
 
-Given a Project ID, returns the corresponding Petrel Project record in your Microsoft Energy Data Services instance.
+Given a Project ID, returns the corresponding Petrel Project record in your Azure Data Manager for Energy instance.
 
 API: **Project** > **Get Project**.
 
@@ -127,7 +127,7 @@ Method: GET
 
 ### Delete Project
 
-Given a Project ID, deletes the project and the associated Petrel Project record data in your Microsoft Energy Data Services instance.
+Given a Project ID, deletes the project and the associated Petrel Project record data in your Azure Data Manager for Energy instance.
 
 API: **Project** > **Delete Project**
 
@@ -137,7 +137,7 @@ Method: DELETE
 
 ### Get Project Version
 
-Given a Project ID and a Version ID, gets the Petrel Version record associated with that project/version ID in your Microsoft Energy Data Services instance.
+Given a `Project ID` and a `Version ID`, gets the Petrel Version record associated with that project/version ID in your Microsoft Energy Data Services instance.
 
 API: **Project** > **Project Version**
 
@@ -147,7 +147,7 @@ Method: GET
 
 ### Get a Project Download URL
 
-Given a Project ID, returns a SAS URL to download the data of the corresponding project from your Microsoft Energy Data Services instance.
+Given a Project ID, returns a SAS URL to download the data of the corresponding project from your Azure Data Manager for Energy instance.
 
 API: **Project** > **Download URL**
 
@@ -157,7 +157,7 @@ Method: GET
 
 ### Get a Project Upload URL
 
-Given a Project ID, returns two SAS URLs. One to upload data to and one to download data from the corresponding project in your Microsoft Energy Data Services instance.
+Given a Project ID, returns two SAS URLs. One to upload data to and one to download data from the corresponding project in your Azure Data Manager for Energy instance.
 
 API: **Project** > **Upload URL**
 
@@ -197,11 +197,10 @@ Method: POST
 :::image type="content" source="media/tutorial-petrel-ddms/search-projects-pdsv2.png" alt-text="Screenshot that shows the API that deletes a well record." lightbox="media/tutorial-petrel-ddms/search-projects-pdsv2.png":::
 
 ## Next Steps
-
-Visit the following DELFI links for further tutorials involving Petrel Explorer and Petrel Workflows:
-
-- Browse existing Petrel projects in Petrel - [Get started with Project Explorer (slb.com)](https://guru.delfi.slb.com/content/1015/help/1/en-US/299EC605-5CC6-4CD9-9B07-482B16426769)
-- Open Petrel project from PDS Project Explorer - [Open a project saved in Project Explorer (slb.com)](https://guru.delfi.slb.com/content/1015/help/1/en-US/20AACC1C-E501-4436-9FC9-03427C21B12E)
-- In Petrel, upload seismic data to Project Oak SDMS - [Upload ZGY data from Petrel to the DELFI Data Ecosystem (slb.com)](https://guru.delfi.slb.com/content/1015/help/1/en-US/9F76FDB2-7817-491A-995F-A18D558A191C)
-- Consume seismic data from SDMS (converted ZGY) in Petrel - [Import ZGY data from the DELFI Data Ecosystem to Petrel (slb.com)](https://guru.delfi.slb.com/content/1015/help/1/en-US/B0B8DA1A-74B6-4109-B80D-25FF4A75C57D)
-- Upload Petrel.PET project file to PDS - [Save a Petrel project in Project Explorer (slb.com)](https://guru.delfi.slb.com/content/1015/help/1/en-US/C86C74BE-6FF9-4962-AEBF-887897B95D4B)
+> [!div class="nextstepaction"]
+> Visit the following DELFI links for further tutorials involving Petrel Explorer and Petrel Workflows:\
+> [Get started with Project Explorer (slb.com)](https://guru.delfi.slb.com/content/1015/help/1/en-US/299EC605-5CC6-4CD9-9B07-482B16426769)\
+> [Open a project saved in Project Explorer (slb.com)](https://guru.delfi.slb.com/content/1015/help/1/en-US/20AACC1C-E501-4436-9FC9-03427C21B12E)\
+> [Upload ZGY data from Petrel to the DELFI Data Ecosystem (slb.com)](https://guru.delfi.slb.com/content/1015/help/1/en-US/9F76FDB2-7817-491A-995F-A18D558A191C)\
+> [Import ZGY data from the DELFI Data Ecosystem to Petrel (slb.com)](https://guru.delfi.slb.com/content/1015/help/1/en-US/B0B8DA1A-74B6-4109-B80D-25FF4A75C57D)\
+> [Save a Petrel project in Project Explorer (slb.com)](https://guru.delfi.slb.com/content/1015/help/1/en-US/C86C74BE-6FF9-4962-AEBF-887897B95D4B)
