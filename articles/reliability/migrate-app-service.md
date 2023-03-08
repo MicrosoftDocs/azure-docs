@@ -37,7 +37,7 @@ Availability zone support is a property of the App Service plan. The following a
   - Currently, if you're running on Pv2 or Pv3, then it's possible that you're already on a footprint that supports availability zones. In this scenario, you can create a new App Service plan and specify zone redundancy.
   - If you aren't using Pv2/Pv3 or a scale unit that supports availability zones, are in an unsupported region, or are unsure, see the [migration guidance](#migration-guidance-redeployment).
 
-- Availability zones are only supported in a [subset of regions](../app-service/environment/overview.md#regions).
+- Availability zones are only supported in a [subset of regions](./reliability-app-service.md#Prerequisites).
 
 
 ## Downtime requirements
@@ -51,7 +51,7 @@ Downtime will be dependent on how you decide to carry out the migration. Since y
 If you want your App Service to use availability zones, redeploy your apps into newly created availability zone enabled App Service plans.
 ### How to redeploy
 
-To redeploy your new App Service, you'll need to create the App Service on either Premium v2 or Premium v3. For instructions on how to create your App Service, see [Create an App Service Environment](./reliability-app-service.md#to-deploy-a-multi-tenant-zone-redundant-app-service).
+To redeploy your new App Service, you'll need to create the App Service on either Premium v2 or Premium v3. For instructions on how to create your App Service, see [Create an App Service](./reliability-app-service.md#to-deploy-a-multi-tenant-zone-redundant-app-service).
 
 ## Pricing
 
