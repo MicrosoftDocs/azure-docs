@@ -78,6 +78,8 @@
         href: ot-virtual-appliances.md
     - name: Supported protocols
       href: concept-supported-protocols.md
+    - name: Defender for IoT device inventory
+      href: device-inventory.md
     - name: Defender for IoT alerts
       href: alerts.md
     - name: Monitoring OT threats in enterprise SOCs
@@ -86,6 +88,10 @@
     - name: Securing IoT devices in the enterprise
       href: concept-enterprise.md
       displayName: Microsoft Defender for Endpoint, MDE
+    - name: Security
+      items:
+      - name: Azure security baseline for Defender for IoT
+        href: /security/benchmark/azure/baselines/microsoft-defender-for-iot-security-baseline?bc=%2fazure%2defender-for-iot%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fdefender-for-iot%2fTOC.json        
 - name: How-to guides
   items:
   - name: Visualize devices
@@ -104,8 +110,6 @@
         displayName: devices, assets, inventory, device
     - name: View OT device mapping
       href: how-to-work-with-the-sensor-device-map.md
-    - name: View OT devices per zone
-      href: how-to-view-information-per-zone.md
   - name: Manage alerts
     items:
     - name: Azure portal
@@ -285,8 +289,6 @@
         href: how-to-manage-sensors-from-the-on-premises-management-console.md
     - name: Enrich device information
       items:
-      - name: Work with device notifications
-        href: how-to-work-with-device-notifications.md
       - name: Enhance port and VLAN name resolution
         href: how-to-enhance-port-and-vlan-name-resolution.md
       - name: Import device information

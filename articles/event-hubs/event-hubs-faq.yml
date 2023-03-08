@@ -221,7 +221,7 @@ sections:
       - question: |
           How is Event Hubs Capture billed?
         answer: |
-          Capture is enabled when any event hub in the namespace has the Capture option enabled. Event Hubs Capture is billed hourly per purchased throughput unit. As the throughput unit count is increased or decreased, Event Hubs Capture billing reflects these changes in whole hour increments. For more information about Event Hubs Capture billing, see [Event Hubs pricing information](https://azure.microsoft.com/pricing/details/event-hubs/).
+          Capture is enabled when any event hub in the namespace has the Capture option enabled. Event Hubs Capture is billed monthly per purchased throughput unit. As the throughput unit count is increased or decreased, Event Hubs Capture billing reflects these changes in whole hour increments. For more information about Event Hubs Capture billing, see [Event Hubs pricing information](https://azure.microsoft.com/pricing/details/event-hubs/).
           
       - question: |
           Do I get billed for the storage account I select for Event Hubs Capture?

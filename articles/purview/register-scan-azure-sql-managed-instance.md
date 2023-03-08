@@ -171,6 +171,8 @@ To create and run a new scan, complete the following steps:
 
 1. Review your scan and select **Save and run**.
 
+If you're having trouble connecting to your data source, or running your scan, you scan see our [troubleshooting guide for scans and connections.](troubleshoot-connections.md)
+
 [!INCLUDE [view and manage scans](includes/view-and-manage-scans.md)]
 
 ## Next steps
