@@ -119,31 +119,31 @@ Be sure to set this configuration for the *edgeAgent* and *edgeHub* modules as w
 
 #### Symptoms
 
-The LTE modem configured with LTE connection is having issues starting modules defined in the deployment. The *edgeAgent* isn't able to connect to the IoT Hub and reports *empty edge agent config* and *transient network error occurred.*
+A device configured with LTE connection is having issues starting modules defined in the deployment. The *edgeAgent* isn't able to connect to the IoT Hub and reports *empty edge agent config* and *transient network error occurred.*
 
 #### Cause
 
-Sometimes a mismatch between the MTU on the Docker network and the LTE devices cause connectivity issues, instability, performance issues, and unreachable websites.
+Some networks have packet overhead, which makes the default docker network MTU (1500) too high and causes packet fragmentation preventing access to external resources.
 
 #### Solution
 
-Check the MTU setting for your device and ensure it's appropriately set based on your network setting. Contact your ISP for more information.
+Check the MTU setting for your device and ensure it's appropriately set based on your network setting. The MTU for the docker network cannot be higher than the MTU for your device. Contact your ISP for more information.
 
 If the MTU settings are correct, try the following workaround:
 
 1. Create a new network. For example,
 
-    `docker network create --opt com.docker.network.driver.mtu=1429 test-mtu`
+    `docker network create --opt com.docker.network.driver.mtu=1430 test-mtu`
 
-    In the example, the MTU setting for the device is 1430. Hence, the MTU for the Docker network is set to 1430 or lower. In this case, it's set to 1429.
+    In the example, the MTU setting for the device is 1430. Hence, the MTU for the Docker network is set to 1430.
 
 1. Stop and remove the Azure network.
 
     `docker network rm azure-iot-edge`
 
-1. Recreate the Azure network using the command below. For example,
+1. Recreate the Azure network.
 
-   `docker network create --opt com.docker.network.driver.mtu=1429 azure-iot-edge`
+   `docker network create --opt com.docker.network.driver.mtu=1430 azure-iot-edge`
 
 1. Remove all images and restart the *aziot-edged* service.
 
