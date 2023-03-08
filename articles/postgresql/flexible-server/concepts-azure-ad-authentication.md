@@ -91,9 +91,8 @@ Once you've authenticated against the Active Directory, you then retrieve a toke
 
 ## Limitations
 
-- PG bouncer is currently not supported, and we are planning to release this very soon..
+- PG bouncer is currently supported for newly created servers and we are going to support existing servers very soon..
 
-- GA versions of Terraform/CLI/API will be released soon. You can use preview API 2022-12-01 version until then.
 
 
 ## Next steps

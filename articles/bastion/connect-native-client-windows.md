@@ -141,6 +141,9 @@ Use the example that corresponds to the type of target VM to which you want to c
    az network bastion rdp --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-resource-id "<VMResourceId>"
    ```
 
+> [!IMPORTANT]
+> Remote connection to VMs that are joined to Azure AD is allowed only from Windows 10 or later PCs that are Azure AD registered (starting with Windows 10 20H1), Azure AD joined, or hybrid Azure AD joined to the *same* directory as the VM. 
+
    **SSH:**
 
    The extension can be installed by running, ```az extension add --name ssh```. To sign in using an SSH key pair, use the following example.

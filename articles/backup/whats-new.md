@@ -2,7 +2,7 @@
 title: What's new in Azure Backup
 description: Learn about new features in Azure Backup.
 ms.topic: conceptual
-ms.date: 10/14/2022
+ms.date: 02/20/2023
 ms.service: backup
 author: jyothisuri
 ms.author: jsuri
@@ -16,6 +16,8 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Updates summary
 
+- February 2023
+  - [Azure Blob vaulted backups (preview)](#azure-blob-vaulted-backups-preview)
 - October 2022
   - [Multi-user authorization using Resource Guard for Backup vault (in preview)](#multi-user-authorization-using-resource-guard-for-backup-vault-in-preview)
   - [Enhanced soft delete for Azure Backup (preview)](#enhanced-soft-delete-for-azure-backup-preview)
@@ -49,6 +51,18 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Archive Tier support for Azure Backup (in preview)](#archive-tier-support-for-azure-backup-in-preview)
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
+
+## Azure Blob vaulted backups (preview)
+
+Azure Backup now enables you to perform a vaulted backup of block blob data in *general-purpose v2 storage accounts* to protect data against ransomware attacks or source data loss due to malicious or rogue admin. You can define the backup schedule to create recovery points and the retention settings that determine how long backups will be retained in the vault. You can configure and manage the vaulted and operational backups using a single backup policy. 
+
+Under vaulted backups, the data is copied and stored in the Backup vault. So, you get an offsite copy of data that can be retained for up to *10 years*. If any data loss happens on the source account, you can trigger a restore to an alternate account and get access to your data. The vaulted backups can be managed at scale via the Backup center, and monitored via the rich alerting and reporting capabilities offered by the Azure Backup service.
+
+If you're currently using operational backups, we recommend you to switch to vaulted backups for complete protection against different data loss scenarios.
+
+For more information, see [Azure Blob backup overview](blob-backup-overview.md).
+
+
 
 ## Multi-user authorization using Resource Guard for Backup vault (in preview)
 
