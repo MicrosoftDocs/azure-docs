@@ -180,7 +180,7 @@ The solution to this issue is to clean up the existing resources of the Containe
 If the preceding steps didn't resolve the installation of Azure Monitor Containers Extension issues, create a support ticket to send to Microsoft for further investigation.
 
 ## Duplicate alerts being received
-You may have enabled Prometheus alert rules without disabling Container insights recommended alerts. See [Migrate from Container insights recommended alerts to Prometheus recommended alert rules (preview)](container-insights-recommended-alerts-migrate.md).
+You may have enabled Prometheus alert rules without disabling Container insights recommended alerts. See [Migrate from Container insights recommended alerts to Prometheus recommended alert rules (preview)](container-insights-metric-alerts#migrate-from-metric-rules-to-prometheus-rules-preview).
 
 
 ## Next steps
