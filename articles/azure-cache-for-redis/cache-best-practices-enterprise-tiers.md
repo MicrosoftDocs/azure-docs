@@ -28,7 +28,7 @@ Conversely, the opposite recommendation is true for the Basic, Standard, and Pre
 
 ## Sharding and CPU Utilization
 
-In the Basic, Standard, and Premium tiers of Azure Cache for Redis, determining the number of vCPUs utilized is fairly straightforward. Each Redis node runs on a dedicated VM. The Redis server process is single-threaded, utilizing one vCPU on each primary and each replica node. The other vCPUs on the VM are still used for other activities, such as workflow coordination for different tasks, health monitoring, and TLS load, among others. 
+In the Basic, Standard, and Premium tiers of Azure Cache for Redis, determining the number of virtual CPUs (vCPUs) utilized is straightforward. Each Redis node runs on a dedicated VM. The Redis server process is single-threaded, utilizing one vCPU on each primary and each replica node. The other vCPUs on the VM are still used for other activities, such as workflow coordination for different tasks, health monitoring, and TLS load, among others. 
 
 When you use clustering, the effect is to spread data across more shards and more nodes. By increasing the number of shards, you linearly increase the number of vCPUs you use based on the number of shards in the cluster. 
 
