@@ -222,7 +222,7 @@ Use the general guidelines when implementing a SCIM endpoint to ensure compatibi
 * If a value isn't present, don't send null values.
 * Property values should be camel cased (for example, readWrite).
 * Must return a list response.
-* The Azure AD Provisioning Service makes the /schemas request every time someone saves the provisioning configuration in the Azure portal or every time a user lands on the edit provisioning page in the Azure portal. Other attributes discovered are surfaced to customers in the attribute mappings under the target attribute list. Schema discovery only leads to more target attributes being added. Attributes aren't removed. 
+* The Azure AD Provisioning Service makes the /schemas request when you save the provisioning configuration in the Azure portal. The request is also made when you open the edit provisioning page in the Azure portal. Other attributes discovered are surfaced to customers in the attribute mappings under the target attribute list. Schema discovery only leads to more target attributes being added. Attributes aren't removed. 
 
 ### User provisioning and deprovisioning
 
