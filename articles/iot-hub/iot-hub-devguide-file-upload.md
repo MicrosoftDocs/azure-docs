@@ -81,7 +81,7 @@ The following settings control file upload notifications to backend services.
 | **enableFileUploadNotifications** |Controls whether file upload notifications are written to the file notifications endpoint. |Bool. Default: False. |
 | **fileNotifications.ttlAsIso8601** |Default TTL for file upload notifications. |ISO_8601 interval up to 48 hours (minimum one minute). Default: one hour. |
 | **fileNotifications.lockDuration** |Lock duration for the file upload notifications queue. |5 to 300 seconds. Default: 60 seconds. |
-| **fileNotifications.maxDeliveryCount** |Maximum delivery count for the file upload notification queue. |1 to 100. Default: 100. |
+| **fileNotifications.maxDeliveryCount** |Maximum delivery count for the file upload notification queue. |1 to 10. Default: 10. |
 
 ## File upload using an SDK
 
