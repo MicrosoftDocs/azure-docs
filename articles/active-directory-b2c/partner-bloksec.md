@@ -17,11 +17,13 @@ zone_pivot_groups: b2c-policy-type
 
 # Tutorial: Configure Azure Active Directory B2C with BlokSec for passwordless authentication
 
-[!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
+## Before you begin
 
-::: zone pivot="b2c-custom-policy"
+Use the **Choose a policy type** selector for policy type. Azure Active Directory B2C has two methods to define users interaction with applications: predefined user flows or configurable custom policies.  
 
-::: zone-end
+Learn more: [User flows and custom policies overview](user-flow-overview.md)
+
+## Azure AD B2C and BlokSec
 
 In this sample tutorial, learn how to integrate Azure Active Directory (AD) B2C authentication with [BlokSec](https://bloksec.com/). BlokSec simplifies the end-user login experience by providing customers passwordless authentication and tokenless multifactor authentication (MFA). BlokSec protects customers against identity-centric cyber-attacks such as password stuffing, phishing, and man-in-the-middle attacks.
 
