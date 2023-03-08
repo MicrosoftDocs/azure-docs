@@ -20,7 +20,7 @@ There are two types of metric rules used by Container insights based on either P
 | Alert rule type | Description |
 |:---|:---|
 | [Prometheus rules](#prometheus-alert-rules) | Alert rules that use metrics stored in [Azure Monitor managed service for Prometheus (preview)](../essentials/prometheus-metrics-overview.md). There are two sets of Prometheus alert rules that you can choose to enable.<br><br>- *Community alerts* are handpicked alert rules from the Prometheus community. Use this set of alert rules if you don't have any other alert rules enabled.<br>- *Recommended alerts* are the equivalent of the custom metric alert rules. Use this set if you're migrating from custom metrics to Prometheus metrics and want to retain identical functionality.
-| [Metric rules](#metric-alert-rules) | Alert rules that use [custom metrics collected for your Kubernetes cluster](container-insights-custom-metrics.md). Use these alert rules if you're not ready to move to Prometheus metrics yet or if you want to manage your alert rules in the Azure portal. |
+| [Metric rules](#metric-alert-rules) | Alert rules that use [custom metrics collected for your Kubernetes cluster](container-insights-custom-metrics.md). Use these alert rules if you're not ready to move to Prometheus metrics yet or if you want to manage your alert rules in the Azure portal. Metric rules will be retired on March 14, 2026. |
 
 ## Prometheus alert rules
 
@@ -30,7 +30,7 @@ There are two types of metric rules used by Container insights based on either P
 
 Your cluster must be configured to send metrics to [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md). For more information, see [Collect Prometheus metrics with Container insights](container-insights-prometheus-metrics-addon.md).
 
-### Enable alert rules
+### Enable Prometheus alert rules
 
 The only method currently available for creating Prometheus alert rules is an Azure Resource Manager template (ARM template).
 
@@ -44,7 +44,7 @@ The only method currently available for creating Prometheus alert rules is an Az
 > [!NOTE]
 > Although you can create the Prometheus alert in a resource group different from the target resource, use the same resource group as your target resource.
 
-### Edit alert rules
+### Edit Prometheus alert rules
 
  To edit the query and threshold or configure an action group for your alert rules, edit the appropriate values in the ARM template and redeploy it by using any deployment method.
 
@@ -95,15 +95,66 @@ The configuration change can take a few minutes to finish before it takes effect
 ## Metric alert rules
 
 > [!IMPORTANT]
-> Metric alerts (preview) is retiring. Please refer to the migration guidance at [Migrate from Container insights recommended alerts to Prometheus recommended alert rules (preview)](container-insights-recommended-alerts-migrate.md) and take the recommended actions to migrate to Prometheus metric alerts (preview) before 14 March 2026.
-
-[Metric alert rules](../alerts/alerts-types.md#metric-alerts) use [custom metric data from your Kubernetes cluster](container-insights-custom-metrics.md).
+> Metric alerts (preview) is retiring. Please refer to the migration guidance at [Migrate from Container insights recommended alerts to Prometheus recommended alert rules (preview)](#migrate-from-metric-rules-to-prometheus-rules-preview).
 
 ### Prerequisites
 
   - You might need to enable collection of custom metrics for your cluster. See [Metrics collected by Container insights](container-insights-custom-metrics.md).
   - See the supported regions for custom metrics at [Supported regions](../essentials/metrics-custom-overview.md#supported-regions).
 
+### Enable and configure metric alert rules
+
+#### [Azure portal](#tab/azure-portal)
+
+#### Enable metric alert rules
+
+1. On the **Insights** menu for your cluster, select **Recommended alerts**.
+
+    :::image type="content" source="media/container-insights-metric-alerts/command-bar-recommended-alerts.png" lightbox="media/container-insights-metric-alerts/command-bar-recommended-alerts.png" alt-text="Screenshot that shows recommended alerts option in Container insights.":::
+
+1. Toggle the **Status** for each alert rule to enable. The alert rule is created and the rule name updates to include a link to the new alert resource.
+
+    :::image type="content" source="media/container-insights-metric-alerts/recommended-alerts-pane-enable.png" lightbox="media/container-insights-metric-alerts/recommended-alerts-pane-enable.png" alt-text="Screenshot that shows a list of recommended alerts and options for enabling each.":::
+
+1. Alert rules aren't associated with an [action group](../alerts/action-groups.md) to notify users that an alert has been triggered. Select **No action group assigned** to open the **Action Groups** page. Specify an existing action group or create an action group by selecting **Create action group**.
+
+    :::image type="content" source="media/container-insights-metric-alerts/select-action-group.png" lightbox="media/container-insights-metric-alerts/select-action-group.png" alt-text="Screenshot that shows selecting an action group.":::
+
+#### Edit metric alert rules
+
+To edit the threshold for a rule or configure an [action group](../alerts/action-groups.md) for your Azure Kubernetes Service (AKS) cluster.
+
+1. From Container insights for your cluster, select **Recommended alerts**.
+2. Select the **Rule Name** to open the alert rule.
+3. See [Create an alert rule](../alerts/alerts-create-new-alert-rule.md?tabs=metric) for information on the alert rule settings.
+
+#### Disable metric alert rules
+
+1. From Container insights for your cluster, select **Recommended alerts**.
+1. Change the status for the alert rule to **Disabled**.
+
+### [Resource Manager](#tab/resource-manager)
+
+For custom metrics, a separate ARM template is provided for each alert rule.
+
+#### Enable metric alert rules
+
+1. Download one or all of the available templates that describe how to create the alert from [GitHub](https://github.com/microsoft/Docker-Provider/tree/ci_dev/alerts/recommended_alerts_ARM).
+1. Create and use a [parameters file](../../azure-resource-manager/templates/parameter-files.md) as a JSON to set the values required to create the alert rule.
+1. Deploy the template by using any standard methods for installing ARM templates. For guidance, see [ARM template samples for Azure Monitor](../resource-manager-samples.md).
+
+#### Disable metric alert rules
+
+To disable custom alert rules, use the same ARM template to create the rule, but change the `isEnabled` value in the parameters file to `false`.
+
+---
+
+
+# Migrate from metric rules to Prometheus rules (preview) 
+If you're using metric alert rules to monitor your Kubernetes cluster, you should transition to Prometheus recommended alert rules (preview) before March 14, 2026 when metric alerts are retired.
+
+1. Follow the steps at [Enable Prometheus alert rules](#enable-prometheus-alert-rules) to configure Prometheus recommended alert rules (preview). 
+2. Follow the steps at [Disable metric alert rules](container-insights-metric-alerts.md#disable-alert-rules) to remove metric alert rules from your clusters. 
 
 ## Alert rule details
 
