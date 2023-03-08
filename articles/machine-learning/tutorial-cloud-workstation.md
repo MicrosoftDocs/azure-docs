@@ -178,9 +178,6 @@ This code uses `sklearn` for training and MLflow for logging the metrics.
 
     ```python
     # Train Gradient Boosting Classifier
-
-    # Start Logging
-    mlflow.start_run()
     print(f"Training with data of shape {X_train.shape}")
     
     clf = GradientBoostingClassifier(
@@ -201,7 +198,6 @@ Now that you have model results, you may want to change something and try again.
 
 ```python
 # Train  AdaBoost Classifier
-
 from sklearn.ensemble import AdaBoostClassifier
 
 print(f"Training with data of shape {X_train.shape}")
