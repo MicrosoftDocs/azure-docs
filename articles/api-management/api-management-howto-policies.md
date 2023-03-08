@@ -84,7 +84,7 @@ API Management allows you to define policies at the following *scopes*, from mos
 
 * Global (all APIs)
 * Workspace (all APIs associated with a selected workspace)
-* Product (APIs associated with a selected product)
+* Product (all APIs associated with a selected product)
 * API (all operations in an API)
 * Operation (single operation in an API) 
 
