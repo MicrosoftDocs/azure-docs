@@ -3,7 +3,7 @@ title: Create instance of DMS (Bicep)
 description: Learn how to create Database Migration Service by using Bicep.
 author: rothja
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
+ms.custom: subject-armqs, mode-arm
 ms.author: jroth
 ms.date: 03/21/2022
 ms.service: dms
