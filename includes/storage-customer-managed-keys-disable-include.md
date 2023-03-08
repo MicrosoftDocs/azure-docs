@@ -5,21 +5,24 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: "include"
-ms.date: 08/22/2022
+ms.date: 03/08/2023
 ms.author: tamram
 ms.custom: "include file"
 ---
 
-## Disable customer-managed keys
+## Switch between customer-managed keys and Microsoft-managed keys
 
-When you disable customer-managed keys, your storage account is once again encrypted with Microsoft-managed keys.
+You can switch from customer-managed keys back to Microsoft-managed keys at any time, using the Azure portal, PowerShell, or the Azure CLI.
 
 # [Azure portal](#tab/azure-portal)
 
-To disable customer-managed keys in the Azure portal, follow these steps:
+To switch from customer-managed keys back to Microsoft-managed keys in the Azure portal, follow these steps:
 
-1. Navigate to your storage account and display the **Encryption** settings.
+1. Navigate to your storage account.
+1. Under **Security + networking**, select **Encryption**.
 1. Deselect the checkbox next to the **Use your own key** setting.
+
+    :::image type="content" source="../articles/storage/common/media/customer-managed-keys-configure-common/portal-enable-MMK.png" alt-text="Screenshot showing how to switch to Microsoft-managed keys for a storage account.":::
 
 # [PowerShell](#tab/azure-powershell)
 
