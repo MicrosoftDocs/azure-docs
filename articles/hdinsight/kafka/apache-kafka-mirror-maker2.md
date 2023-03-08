@@ -151,6 +151,9 @@ This architecture features two clusters in different resource groups and virtual
    status.storage.replication.factor=1
    config.storage.replication.factor=1
    ```
+   > [!NOTE]
+   > This article contains references to the term *blacklist*, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
+
 1. Here source is your `PRIMARYCLUSTER` and destination is your `SECONDARYCLUSTR`.  Replace it everywhere with correct name and replace `source.bootstrap.servers` and `destination.bootstrap.servers` with correct FQDN or IP of their respective worker nodes. 
 1. You can control the topics that you want to replicate along with configurations using regular expressions. `replication.factor=3` makes the replication factor = 3 for all the topic which Mirror maker script creates by itself. 
 1. Increase the replication factor from 1 to 3 for these topics 
