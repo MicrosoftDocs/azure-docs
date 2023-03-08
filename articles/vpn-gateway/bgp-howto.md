@@ -129,7 +129,7 @@ Configure a local network gateway with BGP settings.
 
    * Name: Site5
    * IP address: The IP address of the gateway endpoint you want to connect to. Example: 128.9.9.9
-   * Address spaces: the address spaces on the on-premises site to which you want to route.
+   * Address spaces: the address spaces is not required when BGP is enabled.
 
 1. To configure BGP settings, go to the **Advanced** page. Use the following example values (shown in Diagram 3). Modify any values necessary to match your environment.
 
