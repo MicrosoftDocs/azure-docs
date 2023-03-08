@@ -1,5 +1,5 @@
 ---
-title: How to manage multicloud data sources
+title: How to manage data sources
 description: Learn how to register new data sources, manage collections of data sources, and view sources in Microsoft Purview.
 author: linda33wj
 ms.author: jingwang
