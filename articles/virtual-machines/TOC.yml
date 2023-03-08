@@ -1256,6 +1256,8 @@
     - name: Deploy a premium SSD v2
       href: disks-deploy-premium-v2.md
       displayname: Performance, cost, perf, disks, disk
+    - name: Increase performance of premium SSD and standard SSD/HDDs
+      href: disks-enable-performance.md
     - name: Virtual machine and disk performance
       href: disks-performance.md
       displayname: Performance, cost, perf, disks, disk
