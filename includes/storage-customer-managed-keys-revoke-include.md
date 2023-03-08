@@ -26,7 +26,7 @@ To disable a customer-managed key with the Azure portal, follow these steps:
 
 # [PowerShell](#tab/azure-powershell)
 
-To revoke a customer-managed key with PowerShell, call the [Update-AzKeyVaultKey](/powershell/module/az.keyvault/Update-AzKeyVaultKey) command, as shown in the following example. Remember to replace the placeholder values in brackets with your own values to define the variables, or use the variables defined in the previous examples.
+To revoke a customer-managed key with PowerShell, call the [Update-AzKeyVaultKey](/powershell/module/az.keyvault/update-azkeyvaultkey) command, as shown in the following example. Remember to replace the placeholder values in brackets with your own values to define the variables, or use the variables defined in the previous examples.
 
 ```azurepowershell
 $kvName  = "<key-vault-name>"
@@ -43,7 +43,7 @@ Update-AzKeyVaultKey -VaultName $kvName -Name $keyName -Enable $enabled
 
 # [Azure CLI](#tab/azure-cli)
 
-To revoke a customer-managed key with Azure CLI, call the [az keyvault key set-attributes](/cli/azure/keyvault#az-keyvault-key-set-attributes) command, as shown in the following example. Remember to replace the placeholder values in brackets with your own values to define the variables, or use the variables defined in the previous examples.
+To revoke a customer-managed key with Azure CLI, call the [az keyvault key set-attributes](/cli/azure/keyvault/key#az-keyvault-key-set-attributes) command, as shown in the following example. Remember to replace the placeholder values in brackets with your own values to define the variables, or use the variables defined in the previous examples.
 
 ```azurecli
 kvName="<key-vault-name>"
