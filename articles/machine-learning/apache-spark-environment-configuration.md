@@ -112,6 +112,7 @@ Once the user identity has the appropriate roles assigned, data in the Azure sto
 > If an [attached Synapse Spark pool](./how-to-manage-synapse-spark-pool.md) points to a Synapse Spark pool in an Azure Synapse workspace that has a managed virtual network associated with it, [a managed private endpoint to storage account should be configured](../synapse-analytics/security/connect-to-a-secure-storage-account.md) to ensure data access.
 
 ## Ensuring resource access for Spark jobs
+
 Spark jobs can use either a managed identity or user identity passthrough to access data and other resources. The following table summarizes the different mechanisms for resource access while using Azure Machine Learning Managed (Automatic) Spark compute and attached Synapse Spark pool.
 
 |Spark pool|Supported identities|Default identity|
@@ -122,6 +123,7 @@ Spark jobs can use either a managed identity or user identity passthrough to acc
 If the CLI or SDK code defines an option to use managed identity, Azure Machine Learning Managed (Automatic) Spark compute relies on a user-assigned managed identity attached to the workspace. You can attach a user-assigned managed identity to an existing Azure Machine Learning workspace using Azure Machine Learning CLI v2, or with `ARMClient`.
 
 ## Next steps
+
 - [Apache Spark in Azure Machine Learning (preview)](./apache-spark-azure-ml-concepts.md)
 - [Attach and manage a Synapse Spark pool in Azure Machine Learning (preview)](./how-to-manage-synapse-spark-pool.md)
 - [Interactive Data Wrangling with Apache Spark in Azure Machine Learning (preview)](./interactive-data-wrangling-with-apache-spark-azure-ml.md)

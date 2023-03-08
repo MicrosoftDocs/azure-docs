@@ -58,6 +58,7 @@ These prerequisites cover the submission of a Spark job from Azure Machine Learn
 > To learn more about resource access while using Azure Machine Learning Managed (Automatic) Spark compute, and attached Synapse Spark pool, see [Ensuring resource access for Spark jobs](apache-spark-environment-configuration.md#ensuring-resource-access-for-spark-jobs).
 
 ### Attach user assigned managed identity using CLI v2
+
 1. Create a YAML file that defines the user-assigned managed identity that should be attached to the workspace:
     ```yaml
     identity:
@@ -73,6 +74,7 @@ These prerequisites cover the submission of a Spark job from Azure Machine Learn
     ```
 
 ### Attach user assigned managed identity using `ARMClient`
+
 1. Install [ARMClient](https://github.com/projectkudu/ARMClient), a simple command line tool that invokes the Azure Resource Manager API.
 1. Create a JSON file that defines the user-assigned managed identity that should be attached to the workspace:
     ```json
@@ -139,6 +141,7 @@ The above script takes two arguments `--titanic_data` and `--wrangled_data`, whi
 To create a job, a standalone Spark job can be defined as a YAML specification file, which can be used in the `az ml job create` command, with the `--file` parameter. Define these properties in the YAML file as follows:
 
 ### YAML properties in the Spark job specification
+
 - `type` - set to `spark`.
 - `code` - defines the location of the folder that contains source code and scripts for this job.
 - `entry` - defines the entry point for the job. It should cover one of these properties:
@@ -216,8 +219,9 @@ To create a job, a standalone Spark job can be defined as a YAML specification f
         mode: direct
     ```
 - `identity` - this optional property defines the identity used to submit this job. It can have `user_identity` and `managed` values. If no identity is defined in the YAML specification, the Spark job will use the default identity.
- 
+
 ### Standalone Spark job
+
 This example YAML specification shows a standalone Spark job. It uses an Azure Machine Learning Managed (Automatic) Spark compute:
 
 ```yaml
@@ -393,6 +397,7 @@ ml_client.jobs.stream(returned_spark_job.name)
 # [Studio UI](#tab/ui)
 
 ### Submit a standalone Spark job from Azure Machine Learning studio UI
+
 To submit a standalone Spark job using the Azure Machine Learning studio UI:
 
 :::image type="content" source="media/how-to-submit-spark-jobs/create_standalone_spark_job.png" alt-text="Screenshot showing creation of a new Spark job in Azure Machine Learning studio UI.":::
@@ -479,6 +484,7 @@ To submit a standalone Spark job using the Azure Machine Learning studio UI:
 ---
 
 ## Spark component in a pipeline job
+
 A Spark component offers the flexibility to use the same component in multiple [Azure Machine Learning pipelines](./concept-ml-pipelines.md), as a pipeline step.
 
 # [Azure CLI](#tab/cli)
@@ -688,5 +694,6 @@ This functionality isn't available in the Studio UI. The Studio UI doesn't suppo
 ---
 
 ## Next steps
+
 - [Code samples for Spark jobs using Azure Machine Learning CLI](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/spark)
 - [Code samples for Spark jobs using Azure Machine Learning Python SDK](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/spark)
