@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 02/14/2023
 ms.author: allensu
-ms.custom: template-how-to, engagement-fy23
+ms.custom: template-how-to, engagement-fy23, devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Create, change, or delete a network security group
@@ -690,4 +690,3 @@ To do tasks on network security groups, security rules, and application security
 
 - Add or remove [a network interface to or from an application security group](./virtual-network-network-interface.md?tabs=network-interface-portal#add-or-remove-from-application-security-groups).
 - Create and assign [Azure Policy definitions](./policy-reference.md) for virtual networks
-
