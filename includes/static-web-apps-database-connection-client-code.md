@@ -41,7 +41,7 @@ Now you can run your website and manipulate data in the database directly.
 Now that the CLI is started, you can access your database via the endpoints as defined in the *staticwebapp.database.config.json* file.
 
 ::: zone pivot="static-web-apps-rest"
-The `http://localhost:4280/data-api/api/<ENTITY_NAME>` endpoint accepts `GET`, `PUT`, `POST` and `DELETE` requests to manipulate data in the database.
+The `http://localhost:4280/data-api/rest/<ENTITY_NAME>` endpoint accepts `GET`, `PUT`, `POST` and `DELETE` requests to manipulate data in the database.
 ::: zone-end
 
 ::: zone pivot="static-web-apps-graphql"
@@ -454,7 +454,7 @@ Refresh the page and select the **Delete** button.
 
 The browser's console window now displays a table showing the response from the delete request.
 
-*Record deleted: 2*
+*Record deleted: 3*
 
 Now that you've worked with your site locally, you can now deploy it to Azure.
 

@@ -199,7 +199,7 @@ directCommands:
   - name: --output-location, -O <PATH>
     summary: The folder containing the built source of the front end application. The path is relative to `--app-location`. Default is `.`.
   - name: --data-api-location
-    summary: The folder containing the *staticwebapp.database.config.js* file.
+    summary: The folder containing the *staticwebapp.database.config.json* file.
   - name: --app-devserver-url, -D <URL>
     summary: Connect to the app dev server at this URL instead of using output location.
   - name: --api-devserver-url, -is <URL>
