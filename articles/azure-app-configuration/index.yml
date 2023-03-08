@@ -82,6 +82,8 @@ landingContent:
           url: quickstart-resource-manager.md       
         - text: Azure Container Apps
           url: quickstart-container-apps.md
+        - text: Azure Kubernetes Service
+          url: quickstart-azure-kubernetes-service.md
       - linkListType: tutorial
         links:  
         - text: Use dynamic config in ASP.NET Core
