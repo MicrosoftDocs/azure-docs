@@ -4,15 +4,16 @@ description: Learn how to manually set up permissions that allow your Azure Mana
 author: maud-lv 
 ms.author: malev 
 ms.service: managed-grafana 
+ms.custom: engagement-fy23
 ms.topic: how-to 
-ms.date: 6/10/2022 
+ms.date: 3/08/2022 
 ---
 
 # How to modify access permissions to Azure Monitor
 
 By default, when a Grafana instance is created, Azure Managed Grafana grants it the Monitoring Reader role for all Azure Monitor data and Log Analytics resources within a subscription.
 
-This means that the new Grafana instance can access and search all monitoring data in the subscription, including viewing the Azure Monitor metrics and logs from all resources, and any logs stored in Log Analytics workspaces in the subscription.
+This means that the new Grafana instance can access and search all monitoring data in the subscription. It can view the Azure Monitor metrics and logs from all resources, and any logs stored in Log Analytics workspaces in the subscription.
 
 In this article, you'll learn how to manually grant permission for Azure Managed Grafana to access an Azure resource using a managed identity.
 
@@ -36,23 +37,22 @@ To change permissions for a specific resource, follow these steps:
 
    :::image type="content" source="./media/permissions/permissions-iam.png" alt-text="Screenshot of the Azure platform to add role assignment in App Insights.":::
 
-1. The portal lists various roles you can give to your Managed Grafana resource. Select a role. For instance, **Monitoring Reader**. Select this role.
-1. Click **Next**.
+1. The portal lists all the roles you can give to your Azure Managed Grafana resource. Select a role. For instance, **Monitoring Reader**, and select **Next**.
       :::image type="content" source="./media/permissions/permissions-role.png" alt-text="Screenshot of the Azure platform and choose Monitor Reader.":::
 
-1. For **Assign access to**, select **Managed Identity**.
-1. Click **Select members**.
+1. For **Assign access to**, select **Managed identity**.
+1. Click on **Select members**.
 
       :::image type="content" source="media/permissions/permissions-members.png" alt-text="Screenshot of the Azure platform selecting members.":::
 
-1. Select the **Subscription** containing your Managed Grafana instance
-1. Select a **Managed identity** from the options in the dropdown list
-1. Select the Managed Grafana instance from the list.
+1. Select the **Subscription** containing your Managed Grafana instance.
+1. For **Managed identity**, select **Azure Managed Grafana**.
+1. Select one or several Managed Grafana instances.
 1. Click **Select** to confirm
 
       :::image type="content" source="media/permissions/permissions-managed-identities.png" alt-text="Screenshot of the Azure platform selecting the instance.":::
 
-1. Click **Next**, then **Review + assign** to confirm the application of the new permission
+1. Click **Next**, then **Review + assign** to confirm the assignment of the new permission.
 
 For more information about how to use Managed Grafana with Azure Monitor, go to [Monitor your Azure services in Grafana](../azure-monitor/visualize/grafana-plugin.md).
 
