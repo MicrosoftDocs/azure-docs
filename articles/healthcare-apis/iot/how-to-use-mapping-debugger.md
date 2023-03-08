@@ -6,11 +6,11 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 03/05/2023
+ms.date: 03/07/2023
 ms.author: jasteppe
 ---
 
-# How to use the Mapping debugger
+# How to use the MedTech service Mapping debugger
 
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.

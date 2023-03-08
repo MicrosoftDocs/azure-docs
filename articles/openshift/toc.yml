@@ -5,6 +5,8 @@
   items:
     - name: About Azure Red Hat OpenShift
       href: intro-openshift.md
+    - name: What's new with Azure Red Hat OpenShift?
+      href: azure-redhat-openshift-release-notes.md
 - name: Tutorials
   expanded: true
   items:

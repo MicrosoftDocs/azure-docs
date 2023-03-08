@@ -4,6 +4,7 @@ description: In this tutorial you'll learn to create a signing certificate, buil
 author: dtzar
 ms.author: davete
 ms.service: container-registry
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 12/12/2022
 ---
