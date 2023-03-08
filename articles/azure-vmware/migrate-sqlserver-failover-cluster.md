@@ -57,17 +57,17 @@ For illustration purposes in this document, we're using a two-node cluster with 
 1. Access the first node of the cluster and open Failover Cluster Manager.
     1. Verify that the second node is in **Offline** state and that all clustered services and storage are under control of the first node.
      
-    :::image type="content" source="media/sql-server-hybrid-benefit/sqlfci-1.png" alt-text="Diagram showing offline state of failover cluster on SQL server for  Azure VMware Solution." border="false":::
+         :::image type="content" source="media/sql-server-hybrid-benefit/sqlfci-1.png" alt-text="Diagram showing offline state of failover cluster on SQL server for  Azure VMware Solution." border="false":::
  
-   1. Shut down the cluster.
+    1. Shut down the cluster.
     :::image type="content" source="media/sql-server-hybrid-benefit/sqlfci-2.png" alt-text="Diagram showing offline state of failover cluster on SQL server for  Azure VMware Solution." border="false":::
    
 
-    1. Check that all cluster services are stopped gracefully and without errors. 
+     1. Check that all cluster services are stopped gracefully and without errors.
 1. Shut down first node of the cluster.
 1. From the vSphere Client, edit the settings of the second node of the cluster.
-   - Remove all shared disks from the virtual machine configuration. Ensure that the **Delete files from datastore** check isn't selected, this will permanently delete the disk from the datastore, and you'll need to recover the cluster from a previous backup.
-   - Set SCSI Bus Sharing from Physical to None in the virtual SCSI controllers used for the shared storage. Usually, these controllers are of VMware Paravirtual type.
+    1. Remove all shared disks from the virtual machine configuration. Ensure that the **Delete files from datastore** check isn't selected, this will permanently delete the disk from the datastore, and you'll need to recover the cluster from a previous backup.
+    1. Set SCSI Bus Sharing from Physical to None in the virtual SCSI controllers used for the shared storage. Usually, these controllers are of VMware Paravirtual type.
 1. Edit first node virtual machine settings. Set SCSI Bus Sharing from Physical to None in the SCSI controllers. 
 1. From vSphere Client access HCX plugin area. Under **Services** select **Migration** > **Migrate**. 
        1. Select second node virtual machine.
@@ -91,7 +91,7 @@ For illustration purposes in this document, we're using a two-node cluster with 
        1. Verify virtual machine network configuration and ensure it can reach on-premises and Azure resources. 
        1. Open Failover Cluster Manager and verify cluster services.
 
-        :::image type="content" source="media/sql-server-hybrid-benefit/sqlfci-3.png" alt-text="Diagram showing offline state of of failover cluster on SQL server for  Azure VMware Solution." border="false":::
+            :::image type="content" source="media/sql-server-hybrid-benefit/sqlfci-3.png" alt-text="Diagram showing offline state of of failover cluster on SQL server for  Azure VMware Solution." border="false":::
 
 1. Power on second node virtual machine.
 1. Access the second node VM with VMware Remote Console.
@@ -104,7 +104,7 @@ For illustration purposes in this document, we're using a two-node cluster with 
     1. Check the database is online and accessible.
     :::image type="content" source="media/sql-server-hybrid-benefit/sqlfci-5.png" alt-text="Diagram showing offline state of failover cluster on SQL server for  Azure VMware Solution." border="false":::
     
-- Finally check connectivity to SQL from other systems and applications in your infrastructure and verify that all applications using the database(s) can still access it.
+1. Finally check connectivity to SQL from other systems and applications in your infrastructure and verify that all applications using the database(s) can still access it.
 
 During the process, you'll create placement policies that can recreate the Affinity or Anti-Affinity rules previously present on-premises. For details about placement policies, see [Create a placement policy in Azure VMware Solution](https://learn.microsoft.com/azure/azure-vmware/create-placement-policy). 
 

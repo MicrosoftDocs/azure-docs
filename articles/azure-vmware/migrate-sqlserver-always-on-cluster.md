@@ -8,7 +8,7 @@ ms.custom: engagement-fy23
 ---
 # Migrate Microsoft SQL Server Always-On cluster to Azure VMware Solution
 
-In this article, you’ll learn how to migrate Microsoft SQL Server Always-On Cluster to Azure VMware Solution, VMware HCX can use the vMotion migration method. 
+In this article, you’ll learn how to migrate Microsoft SQL Server Always-On Cluster to Azure VMware Solution.For VMware HCX, you can use the vMotion migration method. 
 
 :::image type="content" source="media/sql-server-hybrid-benefit/sql-alwayson-architecture.png" alt-text="Diagram showing the architecture of always on SQL server for  Azure VMware Solution." border="false":::
 
