@@ -72,8 +72,6 @@ Now create a compute instance.
 1. Keep the default values for the rest of the page.
 1. Select **Create**.
 
-In about two minutes, you'll see the **State** of the compute instance change from **Creating** to **Running**. It's now ready to go.
-
 ## Quick tour of the studio
 
 The studio is your web portal for Azure Machine Learning. This portal combines no-code and code-first experiences for an inclusive data science platform.
@@ -90,7 +88,7 @@ Review the parts of the studio on the left-hand navigation bar:
 
 * The **Manage** section of the studio lets you create and manage compute and external services you link to your workspace. It's also where you can create and manage a **Data labeling** project.
 
-:::image type="content" source="media/quickstart-create-resources/overview.png" alt-text="Screenshot of Azure ML studio." lightbox="media/quickstart-create-resources/overview.png":::
+:::image type="content" source="media/quickstart-create-resources/overview.png" alt-text="Screenshot of Azure Machine Learning studio." lightbox="media/quickstart-create-resources/overview.png":::
 
 ## Learn from sample notebooks
 

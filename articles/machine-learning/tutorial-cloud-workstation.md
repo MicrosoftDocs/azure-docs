@@ -71,6 +71,7 @@ In order for your script to run, you need to be working in an environment config
         ```bash
         conda env list
         ```
+    1. If you created a subfolder for this tutorial, `cd` to that folder now.
 
     1. Create the environment based on the conda file provided. It takes a few minutes to build this environment.
 
@@ -130,16 +131,6 @@ This code uses `sklearn` for training and MLflow for logging the metrics.
     from sklearn.model_selection import train_test_split
     ```
 
-1. Add the next code cell to start an MLflow run, so that you can track the metrics and results. With the iterative nature of model development, MLflow helps you log model parameters and results.  Refer back to those runs to compare and understand how your model performs. The logs also provide context when you're ready to move from the development to training phase of your workflows within Azure Machine Learning.
-
-    ```python
-    # enable autologging
-    mlflow.sklearn.autolog()
-
-    # Start Logging
-    mlflow.start_run()
-    ```
-
 1. Next, load and process the data for this experiment. In this tutorial, you read the data from a file on the internet.
 
     ```python
@@ -172,10 +163,21 @@ This code uses `sklearn` for training and MLflow for logging the metrics.
     X_test = test_df.values
     ```
 
+1. Add code to start an MLflow run, so that you can track the metrics and results. With the iterative nature of model development, MLflow helps you log model parameters and results.  Refer back to those runs to compare and understand how your model performs. The logs also provide context when you're ready to move from the development to training phase of your workflows within Azure Machine Learning.
+
+    ```python
+    # enable autologging with MLflow
+    mlflow.sklearn.autolog()
+
+    ```
+
 1. Train a model.
 
     ```python
     # Train Gradient Boosting Classifier
+
+    # Start Logging
+    mlflow.start_run()
     print(f"Training with data of shape {X_train.shape}")
     
     clf = GradientBoostingClassifier(
@@ -237,7 +239,7 @@ Now that you've tried two different models, which one do you like best?  Since y
 
 1. Go back and review the metrics and images for the other model.
 
-## Prepare notebook
+## Simplify notebook
 
 Once you're satisfied with the model code and results, you're ready to create a Python script from the notebook.  But first, you want to gather together only the cells that are useful for creating your preferred model.  You could look through the notebook and delete cells you don't want in your training script.  Or, you could use the **Gather** function in notebooks to create a new notebook for you with just the cells that you need.  
 
@@ -245,7 +247,10 @@ Use these steps to gather just the cells that you need:
 
 1. Go back to the **Notebooks** section of your workspace.
 1. Click inside the code cell for the model you wish to use.  For this tutorial, let's select the first model, GradientBoostingClassifier.
-1. On the toolbar that appears on the right at the top of the cell, select the **Gather tool** :::image type="icon" source="media/tutorial-cloud-workstation/gather-tool.png" border="false":::.
+1. On the toolbar that appears on the right at the top of the cell, select the **Gather tool** 
+
+    :::image type="content" source="media/tutorial-cloud-workstation/gather-tool.png" alt-text="Screenshot shows the gather tool above a code cell.":::
+
 1. On the **Create new Gather file** form, shorten the file name to **train**.
 1. Select **Create**.
 
@@ -288,7 +293,14 @@ For now, you're running this code on your compute instance, which is your Azure 
 
 ## Examine script results
 
-Go back to **Jobs** to see the results of your training script. Keep in mind that the training data changes with each split, so the results differ between runs as well.
+Go back to **Jobs** to see the results of your training script. There isn't a third training run. 
+
+When you used **Gather** to create the trimmed notebook, the `MLflow` cell is not included, since `MLflow` isn't a direct dependency of the training code.  While the `.start_run()` and `.stop_run()` aren't needed when you train just one model, `.autolog()` is necessary to create logging.  Add the `.autolog()` back into the Python script, prior to the training.
+
+```python
+    # enable autologging
+    mlflow.sklearn.autolog()
+```
 
 ## Clean up resources
 
@@ -318,5 +330,5 @@ Learn more about:
 This tutorial showed you the early steps of creating a model, prototyping on the same machine where the code resides.  For your production training, learn how to use that training script on more powerful remote compute resources:
 
 > [!div class="nextstepaction"]
-> [[Train a model](tutorial-train-model.md)
+> [Train a model](tutorial-train-model.md)
 >
