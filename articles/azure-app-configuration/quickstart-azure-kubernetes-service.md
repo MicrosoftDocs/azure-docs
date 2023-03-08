@@ -28,12 +28,14 @@ In this quickstart, you'll incorporate the Azure App Configuration service into 
 [!INCLUDE[Azure App Configuration resource creation steps](../../includes/azure-app-configuration-create.md)]
 
 9. Select **Operations** > **Configuration explorer** > **Create** > **Key-value** to add the following key-value pairs:
+
     |**Key**|**Value**|
     |---|---|
     |TestApp__Settings__BackgroundColor|*white*|
     |TestApp__Settings__FontColor|*black*|
     |TestApp__Settings__FontSize|*24*|
     |TestApp__Settings__Message|*Data from Azure App Configuration*|
+
 Leave **Label** and **Content type** empty for now. Select **Apply**.
 
 ## Create a Container Registry and AKS cluster
