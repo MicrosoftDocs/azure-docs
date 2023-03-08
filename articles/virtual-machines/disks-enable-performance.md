@@ -1,19 +1,19 @@
 ---
-title: Enable performance plus
-description: Increase the performance of managed disks.
+title: Increase performance of Premium SSDs and Standard SSD/HDDs
+description: Increase the performance of Azure Premium SSDs and Standard SSD/HDDs using performance plus.
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/01/2023
+ms.date: 03/14/2023
 ms.author: rogarana
 ms.subservice: disks
 ---
 
-# Performance plus for managed disks
+# Increase IOPS and throughput limits for Azure Premium SSDs and Standard SSD/HDDs
 
-You can increase the Input/Output Operations Per Second (IOPS) and throughput limits for Premium SSD, Standard SSD, and Standard HDD disks that are 1024 GB and larger using performance plus. Performance plus enhances performance for workloads that require high IOPS and throughput, such as database and transactional workloads. There's no extra charge for enabling performance plus on a disk.
+The Input/Output Operations Per Second (IOPS) and throughput limits for Azure Premium solid-state drives (SSD), Standard SSDs, and Standard hard disk drives (HDD) that are 1024 GB and larger can be increased by enabling performance plus. Enabling performance plus improves the experience for workloads that require high IOPS and throughput, such as database and transactional workloads. There's no extra charge for enabling performance plus on a disk.
 
-Once enabled, the IOPS and throughput limits for a disk are increased to the higher maximum limits. To see the eligible disks and their new limitations, see [Scalability and performance targets for VM disks](disks-scalability-targets.md).
+Once enabled, the IOPS and throughput limits for an eligible disk increase to the higher maximum limits. To see the new IOPS and throughput limits for eligible disks, consult the columns that begin with "*Expanded" in the [Scalability and performance targets for VM disks](disks-scalability-targets.md) article.
 
 ## Limitations
 
@@ -23,9 +23,14 @@ Once enabled, the IOPS and throughput limits for a disk are increased to the hig
 - Not supported for disks recovered with Azure Site Recovery or Azure Backup.
 - Can't be enabled in the Azure portal.
 
+## Prerequisites
+
+Either use the Azure Cloud Shell to run your commands or install the latest [Azure PowerShell module](/powershell/azure/install-az-ps) or [Azure CLI](/cli/azure/install-azure-cli) locally.
+
+
 ## Enable performance plus
 
-Performance plus can be enabled when creating a disk using either the Azure PowerShell module or the Azure CLI.
+You'll need to create a new disk to use performance plus. The following script will create a disk that has performance plus enabled and attach it to a VM:
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -42,8 +47,7 @@ az disk create -g $myRG -n $myDisk --size-gb 1024 --sku $sku -l $region –perfo
 az vm disk attach --vm-name $myVM --name $myDisk --resource-group $myRG 
 ```
 
-
-The following is the command to create a new Azure disk with performance plus enabled with data from another disk or snapshot:
+To migrate data from an existing disk or snapshot to a new disk with performance plus enabled, use the following script:
 
 ```azurecli
 myRG=yourResourceGroupName
@@ -60,6 +64,8 @@ az disk create --name $myDisk --resource-group $myRG --size-gb $size -- --perfor
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
+
+You'll need to create a new disk to use performance plus. The following script will create a disk that has performance plus enabled and attach it to a VM:
 
 ```azurepowershell
 $myRG=yourResourceGroupName
@@ -78,7 +84,7 @@ $diskConfig = New-AzDiskConfig -Location $region -CreateOption Empty -DiskSizeGB
 $dataDisk = New-AzDisk -ResourceGroupName $myRG -DiskName $myDisk -Disk $diskConfig 
 ```
 
-The following is the command to create a new Azure disk with performance plus enabled with data from another disk or snapshot:
+To migrate data from an existing disk or snapshot to a new disk with performance plus enabled, use the following script:
 
 ```azurepowershell
 $myDisk=yourDiskOrSnapshotName
