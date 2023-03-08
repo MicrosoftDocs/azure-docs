@@ -54,7 +54,7 @@ The following architecture diagram shows the implementation.
 ## Enable BlokSec
 
 1. Go to bloksec.com and select **Request a demo** tenant. 
-2. In the message field, indicate you want to onboard with Azure AD B2C. 
+2. In the message field, indicate you want to integrate with Azure AD B2C. 
 3. Download and install the free BlokSec yuID mobile app. 
 4. After the demo tenant is prepared, an email arrives. 
 5. On the mobile device with the BlokSec application, select the link to register your admin account with your yuID app.
@@ -75,30 +75,24 @@ See also, [Tutorial: Create user flows and custom policies in Azure AD B2C](./tu
 
 ### Create an application registration in BlokSec
 
-In the account registration email received when you onboard to BlokSec.
+In the account registration email from BlokSec, find the link to the BlokSec admin console. 
 
-1. Sign in to the BlokSec admin portal. 
-
-2. On the main dashboard, select **Add Application > Create Custom**
-
-3. Complete the application details as follows and submit:  
-
-   |Property  |Value  |
-   |---------|---------|
-   |  Name         |Azure AD B2C or your desired application name|
-   |SSO type         | OIDC|
-   |Logo URI     |[https://bloksec.io/assets/AzureB2C.png](https://bloksec.io/assets/AzureB2C.png) a link to the image of your choice|
-   |Redirect URIs     | https://**your-B2C-tenant-name**.b2clogin.com/**your-B2C-tenant-name**.onmicrosoft.com/oauth2/authresp<BR>**For Example**:      'https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp' <BR><BR>If you use a custom domain, enter  https://**your-domain-name**/**your-tenant-name**.onmicrosoft.com/oauth2/authresp. <BR> Replace your-domain-name with your custom domain, and your-tenant-name with the name of your tenant.         |
-   |Post log out redirect URIs  |https://**your-B2C-tenant-name**.b2clogin.com/**your-B2C-tenant-name**.onmicrosoft.com/**{policy}**/oauth2/v2.0/logout <BR> [Send a sign-out request](./openid-connect.md#send-a-sign-out-request). |
-
-4. Once saved, select the newly created Azure AD B2C application to open the application configuration, select **Generate App Secret**.
+1. Sign in to the BlokSec admin console. 
+2. On the main dashboard, select **Add Application > Create Custom**.
+3. For **Name**, enter Azure AD B2C or an application name.
+4. For **SSO type**, select **OIDC**.
+5. For **Logo URI**, enter a link to logo image.
+6. For **Redirect URIs**, use `https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp`. For example,      `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`. For a custom domain, enter `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp`.
+7. For **Post log out redirect URIs**, enter `https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/{policy}/oauth2/v2.0/logout`.
+8. Select the created Azure AD B2C application to open the application configuration.
+9. Select **Generate App Secret**.
+ 
+Learn more: [Send a sign-out request](./openid-connect.md#send-a-sign-out-request).
 
 >[!NOTE]
->You'll need application ID and application secret later to configure the Identity provider in Azure AD B2C.
+>You need application ID and application secret to configure the identity provider (IdP) in Azure AD B2C.
 
-::: zone pivot="b2c-user-flow"
-
-### Part 2 - Add a new Identity provider in Azure AD B2C
+### Add a new Identity provider in Azure AD B2C
 
 1. Sign-in to the [Azure portal](https://portal.azure.com/#home) as the global administrator of your Azure AD B2C tenant.
 1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
