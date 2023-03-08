@@ -4,6 +4,7 @@ description: How to migrate a Windows VM from unmanaged disks to managed disks b
 author: roygara
 ms.service: storage
 ms.subservice: disks
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 07/12/2018
 ms.author: rogarana
