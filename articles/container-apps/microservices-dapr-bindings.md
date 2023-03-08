@@ -1,25 +1,25 @@
 ---
-title: "Event-driven work using Dapr bindings"
-description: Deploy a sample Dapr bindings application to Azure Container Apps.
+title: "Event-driven work using Dapr Bindings"
+description: Deploy a sample Dapr Bindings application to Azure Container Apps.
 author: hhunter-ms
 ms.author: hannahhunter
 ms.service: container-apps
 ms.topic: how-to
-ms.date: 03/07/2023
+ms.date: 03/08/2023
 zone_pivot_group_filename: container-apps/dapr-zone-pivot-groups.json
 zone_pivot_groups: dapr-languages-set
 ---
 
-# Event-driven work using Dapr bindings 
+# Event-driven work using Dapr Bindings 
 
-In this tutorial, you create a microservice to demonstrate [Dapr's bindings API](https://docs.dapr.io/developing-applications/building-blocks/bindings/bindings-overview/) to work with external systems as inputs and outputs. You'll:
+In this tutorial, you create a microservice to demonstrate [Dapr's Bindings API](https://docs.dapr.io/developing-applications/building-blocks/bindings/bindings-overview/) to work with external systems as inputs and outputs. You'll:
 > [!div class="checklist"]
 > * Run the application locally. 
 > * Deploy the application to Azure Container Apps via the Azure Developer CLI with the provided Bicep. 
 
 The service listens to input binding events from a system CRON and then outputs the contents of local data to a PostreSql output binding.
 
-:::image type="content" source="media/microservices-dapr-azd/bindings-application.png" alt-text="Diagram of the Dapr binding application.":::
+:::image type="content" source="media/microservices-dapr-azd/bindings-quickstart.png" alt-text="Diagram of the Dapr binding application.":::
 
 > [!NOTE]
 > This tutorial uses [Azure Developer CLI (`azd`)](/developer/azure-developer-cli/overview.md), which is currently in preview. Preview features are available on a self-service, opt-in basis. Previews are provided "as is" and "as available," and they're excluded from the service-level agreements and limited warranty. The `azd` previews are partially covered by customer support on a best-effort basis.
@@ -111,7 +111,7 @@ Before deploying the application to Azure Container Apps, start by running the P
 
 ## Deploy the Dapr application template using `azd`
 
-Now that you've run the application locally using PostgreSQL and Docker Compose, let's deploy the Dapr bindings application to Azure Container Apps using [Azure Postgres](../postgresql/single-server/overview.md) and [`azd`](/developer/azure-developer-cli/overview.md).
+Now that you've run the application locally using PostgreSQL and Docker Compose, let's deploy the Dapr bindings application to Azure Container Apps using [`azd`](/developer/azure-developer-cli/overview.md). During deployment, we will swap the local containerized PostgreSQL for an Azure PostgreSQL component.
 
 ### Prepare the project
 
