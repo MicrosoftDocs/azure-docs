@@ -47,7 +47,8 @@ EmailSendResult returns the following status on the email operation performed.
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
-> Note: We can also send an email from our own verified domain [Add custom verified domains to Email Communication Service](../add-custom-verified-domains.md).
+> [!Note]
+> We can also send an email from our own verified domain [Add custom verified domains to Email Communication Service](../add-custom-verified-domains.md).
 
 ### Prerequisite check
 - In a terminal or command window, run `mvn -v` to check that Maven is installed.
