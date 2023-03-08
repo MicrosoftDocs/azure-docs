@@ -165,7 +165,7 @@ When the App Service platform allocates instances to a zone redundant App Servic
 
 ### Availability zone migration
 
-You cannot migrate existing App Service instances or environment resources from non-availability zone support to availability zone support. To get support for availability zones, you'll need to [create upir resources with availability zones enabled](#create-a-resource-with-availability-zone-enabled).
+You cannot migrate existing App Service instances or environment resources from non-availability zone support to availability zone support. To get support for availability zones, you'll need to [create upir resources with availability` zones enabled](#create-a-resource-with-availability-zone-enabled).
 
 ## Pricing
 
