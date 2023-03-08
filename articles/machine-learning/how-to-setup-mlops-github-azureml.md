@@ -19,7 +19,7 @@ ms.custom: cli-v2, sdk-v2, github-actions-azure
 
 Azure Machine Learning allows you to integrate with [GitHub Actions](https://docs.github.com/actions) to automate the machine learning lifecycle. Some of the operations you can automate are:
 
-* Deployment of Azure Machine Learning infrastructure
+* Deployment of Azure Machine Learning infrastructure.
 * Data preparation (extract, transform, load operations)
 * Training machine learning models with on-demand scale-out and scale-up
 * Deployment of machine learning models as public or private web services
