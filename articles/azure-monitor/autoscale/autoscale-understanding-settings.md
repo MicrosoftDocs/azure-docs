@@ -263,7 +263,7 @@ If no scale-out rules are triggered, autoscale evaluates the scale-in rules, tha
 
 Autoscale calculates the new capacity determined by the **scaleAction** of each of those rules. To ensure service availability, autoscale scales in by as little as possible to achieve the maximum capacity specified. For example, assume two scale-in rules, one that decreases capacity by 50% and one that decreases capacity by three instances. If the first rule results in five instances and the second rule results in seven, autoscale scales in to seven instances.
 
-Each time autoscale calculates the result of a scale-in action, it evaluates whether that action would trigger a scale-out action. The scenario where a scale action triggers the opposite scale action is known as flapping. Autoscale might defer a scale-in action to avoid flapping or might scale by a number less than what was specified in the rule. For more information on flapping, see [Flapping in autoscale](./autoscale-custom-metric.md)
+Each time autoscale calculates the result of a scale-in action, it evaluates whether that action would trigger a scale-out action. The scenario where a scale action triggers the opposite scale action is known as flapping. Autoscale might defer a scale-in action to avoid flapping or might scale by a number less than what was specified in the rule. For more information on flapping, see [Flapping in autoscale](./autoscale-custom-metric.md).
 
 ## Next steps
 
