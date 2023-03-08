@@ -17,7 +17,7 @@ The following sections describe some of the most common maintenance tasks for Ar
 
 Arc resource bridge consists of an on-premises appliance VM. The appliance VM [stores credentials](system-requirements.md#user-account-and-credentials) (for example, a user account for VMware vCenter) used to access the control center of the on-premises infrastructure to view and manage on-premises resources.
 
-The credentials used by Arc resource bridge are the same ones provided during deployment of the bridge. This allows the bridge visibility to on-premise resources for guest management in Azure.
+The credentials used by Arc resource bridge are the same ones provided during deployment of the bridge. This allows the bridge visibility to on-premises resources for guest management in Azure.
 
 If the credentials change, the credentials stored in the Arc resource bridge need to be updated with the [`update-infracredentials` command](/cli/azure/arcappliance/update-infracredentials). This command must be run from the management machine, and it requires a [kubeconfig file](system-requirements.md#kubeconfig).
 
