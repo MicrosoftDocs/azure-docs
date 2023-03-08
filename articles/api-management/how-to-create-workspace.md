@@ -5,7 +5,7 @@ author: dlepow
 ms.topic: how-to
 ms.service: api-management
 ms.author: danlep
-ms.date: 02/22/2023
+ms.date: 03/07/2023
 ms.custom:
 ---
 
@@ -36,7 +36,7 @@ The new workspace appears in the list on the **Workspaces** page. Select the wor
 
 ## Assign users to workspace - portal
 
-After creating a workspace, assign permissions to users to manage the workspace's resources. Each workspace user must be assigned an RBAC role at the service level and at the workspace level.
+After creating a workspace, assign permissions to users to manage the workspace's resources. Each workspace user must be assigned a workspace-specific RBAC role at the service level and at the workspace level, or granted equivalent permissions using custom roles.
 
 At minimum, assign an *administrator* of the workspace. Optionally, assign permissions to other workspace collaborators.
 
@@ -53,8 +53,9 @@ At minimum, assign an *administrator* of the workspace. Optionally, assign permi
 1. Assign the administrator the following role:
     * **API Management Service Workspace API Product Manager**
 
-1. Assign the following role to other members of the workspace:
+1. Assign one of the following roles to other members of the workspace:
     * **API Management Service Workspace Member**
+    * **API Management Service Workspace API Product Manager**
 
 ### Assign a workspace-level role
 
@@ -65,7 +66,12 @@ At minimum, assign an *administrator* of the workspace. Optionally, assign permi
 
     * **API Management Workspace Owner** 
 
-1. Optionally, assign workspace-level roles to other workspace members to manage workspace APIs and other resources. The administrator of the workspace can also assign workspace-level roles.
+1. Optionally, assign one of the following workspace-level roles to other workspace members to manage workspace APIs and other resources. The administrator of the workspace can also assign workspace-level roles.
+
+    * **API Management Workspace Reader**
+    * **API Management Workspace Contributor**
+    * **API Management Workspace API Developer**
+    * **API Management Workspace API Product Manager**
 
 ## Next steps
 
