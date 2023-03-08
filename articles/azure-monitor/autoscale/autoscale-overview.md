@@ -6,9 +6,8 @@ ms.author: edbaynash
 ms.service: azure-monitor
 ms.subservice: autoscale
 ms.topic: conceptual
-ms.date: 08/01/2022
+ms.date: 03/08/2023
 ms.reviewer: 
-
 ---
 
 # Overview of autoscale in Azure
@@ -104,8 +103,8 @@ Autoscale uses the following terminology and structure.
 
 | UI               | JSON/CLI     | Description                                                                                                                                                                                                                                                                   |
 |------------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Scale conditions | profiles     | A collection of rules, instance limits, and schedules based on a metric or time. You can define one or more scale conditions or profiles.                                                                                                                                                                                             |
-| Rules            | rules        | A set of conditions based on time or metrics that triggers a scale action. You can define one or more rules for both scale-in and scale-out actions.                                                                                                                                                                                                         |
+| Scale conditions | profiles     | A collection of rules, instance limits, and schedules based on a metric or time. You can define one or more scale conditions or profiles. Define up to 20 profiles per autoscale setting.                                                                                                                                                                                            |
+| Rules            | rules        | A set of conditions based on time or metrics that triggers a scale action. You can define one or more rules for both scale-in and scale-out actions. Define up to a total of 10 rules per profile.                                                                                                                                                                                                         |
 | Instance limits  | capacity     | Each scale condition or profile defines the default, maximum, and minimum number of instances that can run under that profile.                                                                                                                                                                                                                                    |
 | Schedule         | recurrence   | Indicates when autoscale should put this scale condition or profile into effect. You can have multiple scale conditions, which allow you to handle different and overlapping requirements. For example, you can have different scale conditions for different times of day or days of the week. |
 | Notify           | notification | Defines the notifications to send when an autoscale event occurs. Autoscale can notify one or more email addresses or make a call by using one or more webhooks. You can configure multiple webhooks in the JSON but only one in the UI.                               |
