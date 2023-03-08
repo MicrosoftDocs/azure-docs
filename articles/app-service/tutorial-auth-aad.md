@@ -418,4 +418,4 @@ What you learned:
 Advance to the next tutorial to learn how to use this user's identity to access an Azure service.
 
 > [!div class="nextstepaction"]
-> [Access Microsoft Graph from a secured JavaScript app as the user](tutorial-connect-app-access-microsoft-graph-as-user-javascript.md)
+> [Create a secure n-tier app in Azure App Service](tutorial-secure-ntier-app.md)
