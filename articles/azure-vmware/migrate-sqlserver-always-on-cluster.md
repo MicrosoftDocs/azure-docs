@@ -9,6 +9,7 @@ ms.custom: engagement-fy23
 # Migrate Microsoft SQL Server Always-On cluster to Azure VMware Solution
 
 In this article, you’ll learn to migrate Microsoft SQL Server Always-On Cluster to Azure VMware Solution, VMware HCX can use the vMotion migration method. 
+
 :::image type="content" source="media/sql-server-hybrid-benefit/sql-alwayson-architecture.png" alt-text="Diagram showing the architecture of always on SQL server for  Azure VMware Solution." border="false":::
 
 ## Prerequisites
@@ -39,42 +40,41 @@ If the cluster uses a **File share witness** running on-premises, then the type 
 - Disaster Recovery and Business Continuity: For a disaster recovery scenario the best and most reliable option is to create a **Cloud Witness** running in Azure Storage. 
 - Application Modernization: For this use case the best option is to deploy a **Cloud Witness**.
 
-Full details about quorum configuration and management can be consulted in [Failover Clustering documentation](https://learn.microsoft.com/windows-server/failover-clustering/manage-cluster-quorum). Refer to [Deploy a Cloud Witness for a Failover Cluster](https://learn.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness) documentation for the details about deployment of Cloud witness in Azure Blob Storage.
+Full details about quorum configuration and management can be consulted in [Failover Clustering documentation](https://learn.microsoft.com/windows-server/failover-clustering/manage-cluster-quorum). Refer to [Manage  a cluster quorum for a Failover Cluster](https://learn.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness) documentation for the details about deployment of Cloud witness in Azure Blob Storage.
 
 ## Migrate Microsoft SQL Server Always-On cluster
 
 1. Access your Always-On cluster with SQL Server Management Studio with administration credentials.
-   b. Select your primary replica and open **Availability Group** **Properties**.
+    1. Select your primary replica and open **Availability Group** **Properties**.
 
 
       :::image type="content" source="media/sql-server-hybrid-benefit/sql-alwayson-1.png" alt-text="Diagram showing how to migrate always on SQL server for  Azure VMware Solution." border="false":::
 
-  f. Change **Availability Mode** to **Asynchronous commit** only for the replica to be migrated.
-  a. Change **Failover Mode** to **Manual** for every member of the availability group.
+     1. Change **Availability Mode** to **Asynchronous commit** only for the replica to be migrated.
+     1. Change **Failover Mode** to **Manual** for every member of the availability group.
 - Access the on-premises vCenter and proceed to HCX area.
 - Under **Services** select **Migration** > **Migrate**. 
-  j. Select one virtual machine running the secondary replica of the database the is going to be migrated.
-  a. Set the vSphere cluster in the remote private cloud that will run the migrated SQL cluster as the **Compute Container**.
-  a. Select the **vSAN Datastore** as remote storage.
-  a. Select a folder if you want to place the virtual machines in specific folder, this not mandatory but is recommended to separate the different workloads in your Azure VMware Solution private cloud.
-  a. Keep **Same format as source**.
-  a. Select **vMotion** as **Migration profile**. 
-  a. In **Extended Options** select **Migrate Custom Attributes**.
-  a. Verify that on-premises network segments have the correct remote stretched segment in Azure.
-  a. Select **Validate** and ensure that all checks are completed with pass status. The most common error here will be one related to the storage configuration. Verify again that there are no virtual SCSI controllers with physical sharing setting. 
-  a. Click **Go** and the migration will initiate. 
+      1. Select one virtual machine running the secondary replica of the database the is going to be migrated.
+      1. Set the vSphere cluster in the remote private cloud that will run the migrated SQL cluster as the **Compute Container**.
+      1. Select the **vSAN Datastore** as remote storage.
+      1. Select a folder if you want to place the virtual machines in specific folder, this not mandatory but is recommended to separate the different workloads in your Azure VMware Solution private cloud.
+      1. Keep **Same format as source**.
+      1. Select **vMotion** as **Migration profile**. 
+      1. In **Extended Options** select **Migrate Custom Attributes**.
+      1. Verify that on-premises network segments have the correct remote stretched segment in Azure.
+      1. Select **Validate** and ensure that all checks are completed with pass status. The most common error here will be one related to the storage configuration. Verify again that there are no virtual SCSI controllers with physical sharing setting. 
+      1. Click **Go** and the migration will initiate. 
 - Once the migration has been completed, access the migrated replica and verify connectivity with the rest of the members in the availability group.
 - In SQL Server Management Studio, open the **Availability Group Dashboard** and verify that the replica appears as **Online**. 
-  :::image type="content" source="media/sql-server-hybrid-benefit/sql-alwayson-2.png" alt-text="Diagram showing how to migrate always on SQL server for  Azure VMware Solution." border="false":::
+      :::image type="content" source="media/sql-server-hybrid-benefit/sql-alwayson-2.png" alt-text="Diagram showing how to migrate always on SQL server for  Azure VMware Solution." border="false":::
  
-- **Data Loss** status in the **Failover Readiness** column is expected since the replica has been out-of-sync with the primary during the migration. 
+    **Data Loss** status in the **Failover Readiness** column is expected since the replica has been out-of-sync with the primary during the migration. 
 - Edit the **Availability Group** **Properties** again and set **Availability Mode** back to **Synchronous commit**.
-  aa. The secondary replica will start to synchronize back all the changes made to the primary replica during the migration. Wait until it appears in Synchronized state. 
+      1. The secondary replica will start to synchronize back all the changes made to the primary replica during the migration. Wait until it appears in Synchronized state. 
 - From the **Availability Group Dashboard** in SSMS click on **Start Failover Wizard**.
 - Select the migrated replica and click **Next**.
 
     :::image type="content" source="media/sql-server-hybrid-benefit/sql-alwayson-3.png" alt-text="Diagram showing how to migrate always on SQL server for  Azure VMware Solution." border="false":::
- 
 
 - Connect to the replica in the next screen with your DB admin credentials.
     :::image type="content" source="media/sql-server-hybrid-benefit/sql-alwayson-4.png" alt-text="Diagram showing how to connect to the replica and migrate always on SQL server for  Azure VMware Solution." border="false":::
@@ -90,12 +90,13 @@ Full details about quorum configuration and management can be consulted in [Fail
 
 - Refresh the **Object Explorer** view in SSMS and verify that the migrated instance is now the primary replica.
 - Repeat steps 1 to 6 for the rest of the replicas of the availability group.
-  at. Do not migrate all the replicas at the same time using **HCX Bulk Migration**. Instead, migrate one replica at a time and verify that all changes are synchronized back to the replica after each migration.
+  at. 
+    Do not migrate all the replicas at the same time using **HCX Bulk Migration**. Instead, migrate one replica at a time and verify that all changes are synchronized back to the replica after each migration.
 - Once the migration of all the replicas is completed, access your Always-On availability group with **SQL Server Management Studio**.
-      - Open the Dashboard and verify there is no data loss in any of the replicas and that all are in **Synchronized** state.
+      1. Open the Dashboard and verify there is no data loss in any of the replicas and that all are in **Synchronized** state.
       :::image type="content" source="media/sql-server-hybrid-benefit/sql-alwayson-7.png" alt-text="Diagram showing how to review changes and migrate always on SQL server for  Azure VMware Solution." border="false":::
-      - Edit the **Properties** of the availability group and set **Failover Mode** to **Automatic** in all replicas. 
-          :::image type="content" source="media/sql-server-hybrid-benefit/sql-alwayson-8.png" alt-text="Diagram showing how to review changes and migrate always on SQL server for  Azure VMware Solution." border="false":::
+      1. Edit the **Properties** of the availability group and set **Failover Mode** to **Automatic** in all replicas. 
+          :::image type="content" source="media/sql-server-hybrid-benefit/sql-alwayson-8.png" alt-text="Diagram showing how to edit the properties and  migrate always on SQL server for  Azure VMware Solution." border="false":::
 
 During the process, you will create placement policies that can recreate the Affinity or Anti-Affinity rules previously present on-premises. For more details about placement policies, see [Create a placement policy in Azure VMware Solution](https://learn.microsoft.com/azure/azure-vmware/create-placement-policy) article. 
 
