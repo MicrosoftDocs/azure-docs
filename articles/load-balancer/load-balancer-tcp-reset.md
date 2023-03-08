@@ -52,10 +52,10 @@ It is important to take into account how the idle timeout values set for differe
 
 | Resource w/Idle Timeout Value | Inbound Priority | Outbound Priority|
 | --- | --- | --- |
-| Public IP (attached to backend pool node) | 3 | 2 |
 | Public IP (attached to load balancer frontend) | 1 | 4 |
 | Load Balancer Inbound Rule | 2 | N/A |
 | Load Balancer Outbound Rule | N/A | 3 |
+| Public IP (attached to backend pool node) | 3 | 2 |
 | NAT Gateway | N/A | 1 |
 
 ### Inbound
