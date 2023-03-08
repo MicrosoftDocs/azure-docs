@@ -8,7 +8,7 @@ ms.date: 12/19/2022
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 
 # Tutorial: Automate Azure Device Provisioning Service with GitHub Actions

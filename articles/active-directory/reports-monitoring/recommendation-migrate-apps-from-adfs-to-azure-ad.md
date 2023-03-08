@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 02/07/2023
+ms.date: 03/07/2023
 ms.author: sarahlipsey
 ms.reviewer: hafowler
 
@@ -23,11 +23,7 @@ This article covers the recommendation to migrate apps from Active Directory Fed
 
 ## Description
 
-As an admin responsible for managing applications, I want my applications to use Azure AD’s security features and maximize their value. 
-
-## Logic 
-
-If a tenant has apps on AD FS, and any of these apps are deemed 100% migratable, this recommendation shows up. 
+As an admin responsible for managing applications, you want your applications to use Azure AD’s security features and maximize their value. This recommendation shows up if your tenant has apps on ADFS that can 100% be migrated to Azure AD.
 
 ## Value 
 
@@ -45,7 +41,6 @@ Using Azure AD gives you granular per-application access controls to secure acce
  
 ## Next steps
 
-* [What is Azure Active Directory recommendations](overview-recommendations.md)
-* [Azure AD reports overview](overview-reports.md)
-* [Learn more about Microsoft Graph](/graph/overview)
-* [Explore the Microsoft Graph API properties for recommendations](/graph/api/resources/recommendation)
+- [Review the Azure AD recommendations overview](overview-recommendations.md)
+- [Learn how to use Azure AD recommendations](howto-use-recommendations.md)
+- [Explore the Microsoft Graph API properties for recommendations](/graph/api/resources/recommendation)

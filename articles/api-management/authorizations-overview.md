@@ -6,7 +6,6 @@ ms.service: api-management
 ms.topic: conceptual
 ms.date: 02/21/2023
 ms.author: danlep
-ms.custom: references_regions
 ---
 
 # What are API authorizations?

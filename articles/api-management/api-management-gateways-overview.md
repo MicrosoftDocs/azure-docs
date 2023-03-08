@@ -104,7 +104,7 @@ Managed and self-hosted gateways support all available [policies](api-management
 | Policy | Managed (Dedicated)  | Managed (Consumption) | Self-hosted<sup>1</sup>  |
 | --- | ----- | ----- | ---------- |
 | [Dapr integration](api-management-policies.md#dapr-integration-policies) |  ❌ | ❌ | ✔️ |
-| [Get authorization context](get-authorization-context-policy.md) |  ✔️ |  ✔️ | ❌ |
+| [Get authorization context](get-authorization-context-policy.md) |  ✔️ |  ❌ | ❌ |
 | [Quota and rate limit](api-management-policies.md#access-restriction-policies) |  ✔️ |  ✔️<sup>2</sup> | ✔️<sup>3</sup>
 | [Set GraphQL resolver](set-graphql-resolver-policy.md) |  ✔️ |  ❌ | ❌ |
 

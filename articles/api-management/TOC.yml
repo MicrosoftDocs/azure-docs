@@ -516,6 +516,8 @@
               href: xml-to-json-policy.md
             - name: xsl-transform
               href: xsl-transform-policy.md
+      - name: Authorizations - identity providers
+        href: authorizations-reference.md
       - name: Azure Policy built-ins
         displayName: samples, policies, definitions
         href: ./policy-reference.md
