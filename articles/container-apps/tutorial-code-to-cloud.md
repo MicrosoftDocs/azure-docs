@@ -4,7 +4,7 @@ description: Code to cloud deploying your application to Azure Container Apps
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
-ms.topic: quicksttutorialart
+ms.topic: tutorial
 ms.date: 05/11/2022
 ms.author: cshoe
 zone_pivot_groups: container-apps-image-build-type

@@ -15,9 +15,9 @@ zone_pivot_groups: container-apps-image-build-from-repo
 
 This article demonstrates how to build and deploy a microservice to Azure Container Apps from a source repository using the programming language of your choice.
 
-In this quickstart, you create a backend web API service that returns a static collection of music albums.  After this quickstart, you can continue to [Tutorial: Communication between microservices in Azure Container Apps](communicate-between-microservices.md) to learn how to deploy a front end application that calls the API.
+In this quickstart, you create a backend web API service that returns a static collection of music albums.  After this completing this quickstart, you can continue to [Tutorial: Communication between microservices in Azure Container Apps](communicate-between-microservices.md) to learn how to deploy a front end application that calls the API.
 
-The following screenshot shows the output from the album API service deployed in this quickstart.
+The following screenshot shows the output from the album API service you'll deploy.
 
 :::image type="content" source="media/quickstart-code-to-cloud/azure-container-apps-album-api.png" alt-text="Screenshot of response from albums API endpoint.":::
 

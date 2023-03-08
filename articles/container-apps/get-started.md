@@ -72,7 +72,7 @@ By setting `--ingress` to `external`, you make the container app available to pu
 
 ## Verify deployment
 
-The `create` command returns the fully qualified domain name for the container app. Copy this location to a web browser.
+The `up` command returns the fully qualified domain name for the container app. Copy this location to a web browser.
 
 The following message is displayed when the container app is deployed:
 
