@@ -10,10 +10,10 @@ ms.date: 03/08/2023
 
 Security standards contain comprehensive sets of security recommendations to help secure your cloud environments. Security teams can use the readily available standards such as AWS CIS 1.2.0, AWS CIS 1.5.0, AWS Foundational Security Best Practices, and AWS PCI DSS 3.2.1.
 
-There are three types of resources that are needed to create and manage assessments:
+There are two types of resources that are needed to create and manage assessments:
 
 - Standard: defines a set of assessments
-- Standard assignment: defines the scope, which the standard will evaluate. For example, specific AWS account(s).
+- Standard assignment: defines the scope, which the standard evaluates. For example, specific AWS account(s).
 
 ## Assign a built-in compliance standard to your AWS account
 
@@ -29,9 +29,9 @@ There are three types of resources that are needed to create and manage assessme
 
     :::image type="content" source="media/how-to-manage-assessments-standards/aws-add-standard.png" alt-text="Screenshot that shows you where to navigate to in order to add an AWS standard." lightbox="media/how-to-manage-assessments-standards/aws-add-standard-zoom.png":::
 
-1. Enter a name, description and select built-in recommendations from the menu.
+1. Enter a name, description and select built-in recommendations from the drop-down menu.
 
-    :::image type="content" source="media/how-to-manage-assessments-standards/create-standard-aws.png" alt-text="Screenshot of the create new standard window.":::
+    :::image type="content" source="media/how-to-manage-assessments-standards/create-standard-aws.png" alt-text="Screenshot of the Create new standard window.":::
 
 1. Select **Create**.
 
