@@ -20,7 +20,7 @@ To switch from customer-managed keys back to Microsoft-managed keys in the Azure
 
 1. Navigate to your storage account.
 1. Under **Security + networking**, select **Encryption**.
-1. Deselect the checkbox next to the **Use your own key** setting.
+1. Change **Encryption type** to **Microsoft-managed keys**.
 
     :::image type="content" source="../articles/storage/common/media/customer-managed-keys-configure-common/portal-enable-MMK.png" alt-text="Screenshot showing how to switch to Microsoft-managed keys for a storage account.":::
 
