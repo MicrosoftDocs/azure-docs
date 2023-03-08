@@ -4,6 +4,7 @@ description: Create a container group in a virtual network and use an Azure appl
 ms.author: tomcassidy
 author: tomvcassidy
 ms.service: container-instances
+ms.custom: devx-track-azurecli
 services: container-instances
 ms.topic: how-to
 ms.date: 06/17/2022
