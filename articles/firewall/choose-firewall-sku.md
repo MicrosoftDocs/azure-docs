@@ -18,4 +18,4 @@ Azure Firewall now supports three different SKUs to cater to a wide range of cus
 - Azure Firewall Basic is recommended for SMB customers with throughput needs of 250 Mbps.
 - Let’s take a closer look at the features across the three Azure Firewall SKUs.
 
-:::image type="content" source="media/choose-firewall-sku/azure-firewall-sku-table.png" alt-text="Table of Azure Firewall Sku features.":::
+:::image type="content" source="media/choose-firewall-sku/azure-firewall-sku-table.png" alt-text="Table of Azure Firewall Sku features." lightbox="media/choose-firewall-sku/azure-firewall-sku-table-large.png":::

@@ -35,9 +35,7 @@ High availability is built in, so no extra load balancers are required and there
 
 ## Availability Zones
 
-Azure Firewall can be configured during deployment to span multiple Availability Zones for increased availability. With Availability Zones, your availability increases to 99.99% uptime. For more information, see the Azure Firewall [Service Level Agreement (SLA)](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1). The 99.99% uptime SLA is offered when two or more Availability Zones are selected.
-
-You can also associate Azure Firewall to a specific zone just for proximity reasons, using the service standard 99.95% SLA.
+Azure Firewall can be configured during deployment to span multiple Availability Zones for increased availability. You can also associate Azure Firewall to a specific zone for proximity reasons.  For more information on availability, see the Azure Firewall [Service Level Agreement (SLA)](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1).
 
 There's no extra cost for a firewall deployed in more than one Availability Zone. However, there are added costs for inbound and outbound data transfers associated with Availability Zones. For more information, see [Bandwidth pricing details](https://azure.microsoft.com/pricing/details/bandwidth/).
 
