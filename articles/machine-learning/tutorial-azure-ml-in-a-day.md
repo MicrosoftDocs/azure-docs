@@ -483,10 +483,6 @@ If you're not going to use the endpoint, delete it to stop using the resource.  
 ml_client.online_endpoints.begin_delete(name=online_endpoint_name)
 ```
 
-## Next Steps
-
-Learn more about training and deployment with the other notebooks in this folder.
-
 <!-- nbend -->
 
 
