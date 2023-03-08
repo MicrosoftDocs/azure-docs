@@ -57,7 +57,7 @@ npm install webpack@4.42.0 webpack-cli@3.3.11 webpack-dev-server@3.10.3 --save-d
 
 Here's the code:
 
-Create an `index.html` file in the root directory of your project. We use this file to configure a basic layout that allow the user to place a 1:1 video call.
+Create an `index.html` file in the root directory of your project. We use this file to configure a basic layout that allows the user to place a 1:1 video call.
 
 ```html
 <!-- index.html -->

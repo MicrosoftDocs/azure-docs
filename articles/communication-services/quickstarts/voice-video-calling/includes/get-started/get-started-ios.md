@@ -60,7 +60,7 @@ In Xcode, create a new iOS project and select the **App** template. This tutoria
 
 ### Request access to the microphone
 
-In order to access the device's microphone, you need to update your app's Information Property List with an `NSMicrophoneUsageDescription`. You set the associated value to a `string` that will be included in the dialog the system uses to request access from the user.
+In order to access the device's microphone, you need to update your app's Information Property List with an `NSMicrophoneUsageDescription`. You set the associated value to a `string` that was included in the dialog the system uses to request access from the user.
 
 Right-click the `Info.plist` entry of the project tree and select **Open As** > **Source Code**. Add the following lines the top level `<dict>` section, and then save the file.
 
@@ -134,7 +134,7 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Authenticate the client
 
-Initialize a `CallAgent` instance with a User Access Token, which enable us to make and receive calls.
+Initialize a `CallAgent` instance with a User Access Token, which enables us to make and receive calls.
 
 In the following code, you need to replace `<USER ACCESS TOKEN>` with a valid user access token for your resource. Refer to the [user access token](../../../identity/access-tokens.md) documentation if you don't already have a token available.
 
@@ -166,7 +166,7 @@ self.callClient?.createCallAgent(userCredential: userCredential!) { (agent, erro
 
 ## Start a call
 
-The `startCall` method is set as the action that will be performed when the *Start Call* button is tapped. Update the implementation to start a call with the `ASACallAgent`:
+The `startCall` method is set as the action that is performed when the *Start Call* button is tapped. Update the implementation to start a call with the `ASACallAgent`:
 
 ```swift
 func startCall()
@@ -188,7 +188,7 @@ func startCall()
 }
 ```
 
-You also can use the properties in `StartCallOptions` to set the initial options for the call (i.e. it allows starting the call with the microphone muted).
+You also can use the properties in `StartCallOptions` to set the initial options for the call (that is, it allows starting the call with the microphone muted).
 
 ## End a call
 

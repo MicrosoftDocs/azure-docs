@@ -169,7 +169,7 @@ Two inputs are needed: a text input for the callee ID, and a button for placing 
 
 ### Create the main activity scaffolding and bindings
 
-With, the layout created the bindings can be added as well as the basic scaffolding of the activity. The activity handlesrequesting runtime permissions, creating the call agent, and placing the call when the button is press ed. Each will be covered in its own section. The `onCreate` method will be overridden to invoke `getAllPermissions` and `createAgent` and to add the bindings for the call button. This event occurs only once when the activity is created. For more information, on `onCreate`, see the guide [Understand the Activity Lifecycle](https://developer.android.com/guide/components/activities/activity-lifecycle).
+With the layout created the bindings can be added as well as the basic scaffolding of the activity. The activity handles requesting runtime permissions, creating the call agent, and placing the call when the button is press ed. Each is covered in its own section. The `onCreate` method is overridden to invoke `getAllPermissions` and `createAgent` and to add the bindings for the call button. This event occurs only once when the activity is created. For more information, on `onCreate`, see the guide [Understand the Activity Lifecycle](https://developer.android.com/guide/components/activities/activity-lifecycle).
 
 Navigate to **MainActivity.java** and replace the content with the following code:
 
@@ -301,7 +301,7 @@ private void createAgent() {
 
 ## Start a call using the call agent
 
-Placing the call can be done via the call agent, and just requires providing a list of callee IDs and the call options. For the quickstart, the default call options without video and a single callee ID from the text input will be used.
+Placing the call can be done via the call agent, and just requires providing a list of callee IDs and the call options. For the quickstart, the default call options without video and a single callee ID from the text input are used.
 
 ```java
 /**

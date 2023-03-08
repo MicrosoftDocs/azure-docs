@@ -236,7 +236,7 @@ struct ContentView_Previews: PreviewProvider {
 
 ### Authenticate the client
 
-In order to initialize a `CallAgent` instance, you need a User Access Token which enable it to make, and receive calls. Refer to the [user access token](../../../identity/access-tokens.md?pivots=programming-language-csharp) documentation, if you don't have a token available.
+In order to initialize a `CallAgent` instance, you need a User Access Token which enables it to make, and receive calls. Refer to the [user access token](../../../identity/access-tokens.md?pivots=programming-language-csharp) documentation, if you don't have a token available.
 
 Once you have a token, Add the following code to the `onAppear` callback in `ContentView.swift`. You need to replace `<USER ACCESS TOKEN>` with a valid **user access token** for your resource:
 
@@ -396,7 +396,7 @@ func startCall() {
     }
 ```
 
-`CallObserver` and `RemotePariticipantObserver` are used to manage mid-call events and remote participants. We'll set the observers in the `setCallAndOberserver` function.
+`CallObserver` and `RemotePariticipantObserver` are used to manage mid-call events and remote participants. We set the observers in the `setCallAndOberserver` function.
 
 ```Swift
 func setCallAndObersever(call:Call!, error:Error?) {
@@ -459,7 +459,7 @@ Set a delegate to the CallAgent after the CallAgent being successfully created:
 self.callAgent!.delegate = incomingCallHandler
 ```
 
-Once there's an incoming call, the `IncomingCallHandler` will call the function `showIncomingCallBanner` to display `answer` and `decline` button.
+Once there's an incoming call, the `IncomingCallHandler` calls the function `showIncomingCallBanner` to display `answer` and `decline` button.
 
 ```Swift
 func showIncomingCallBanner(_ incomingCall: IncomingCall?) {

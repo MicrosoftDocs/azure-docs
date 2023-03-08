@@ -40,7 +40,7 @@ In Visual Studio, create a new project with the **Blank App (Universal Windows)*
 
 #### Install the package
 
-Right click your project and go to `Manage Nuget Packages` to install `Azure.Communication.Calling` [1.0.0-beta.33](https://www.nuget.org/packages/Azure.Communication.Calling/1.0.0-beta.33) or above. Make sure Include Preleased is checked.
+Right click your project and go to `Manage Nuget Packages` to install `Azure.Communication.Calling` [1.0.0-beta.33](https://www.nuget.org/packages/Azure.Communication.Calling/1.0.0-beta.33) or superior. Make sure Include Preleased is checked.
 
 #### Request access
 
@@ -139,22 +139,22 @@ namespace CallingQuickstart
 
 ### Object model
 
-The following classes and interfaces handle some of the major features of the Azure Communication Services Calling SDK:
+In the table is listed, the classes and interfaces handle some of the major features of the Azure Communication Services Calling SDK:
 
 | Name                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| CallClient | The CallClient is the main entry point to the Calling SDK.|
-| CallAgent | The CallAgent is used to start and manage calls. |
-| CommunicationTokenCredential | The CommunicationTokenCredential is used as the token credential to instantiate the CallAgent.|
-| CommunicationUserIdentifier | The CommunicationUserIdentifier is used to represent the identity of the user, which can be one of the following: CommunicationUserIdentifier/PhoneNumberIdentifier/CallingApplication. |
+| `CallClient` | The `CallClient` is the main entry point to the Calling SDK.|
+| `CallAgent` | The `CallAgent` is used to start and manage calls. |
+| `CommunicationTokenCredential` | The `CommunicationTokenCredential` is used as the token credential to instantiate the `CallAgent`.|
+|` CommunicationUserIdentifier` | The `CommunicationUserIdentifier` is used to represent the identity of the user, which can be one of the following options: `CommunicationUserIdentifier`, `PhoneNumberIdentifier`, `CallingApplication`. |
 
 ### Authenticate the client
 
-Initialize a `CallAgent` instance with a User Access Token which enable us to make and receive calls, and optionally obtain a DeviceManager instance to query for client device configurations.
+Initialize a `CallAgent` instance with a User Access Token that enables us to make and receive calls, and optionally obtain a DeviceManager instance to query for client device configurations.
 
-In the following code, replace `<AUTHENTICATION_TOKEN>` with a User Access Token. Refer to the [user access token](../../../identity/access-tokens.md) documentation if you don't already have a token available.
+In the code, replace `<AUTHENTICATION_TOKEN>` with a User Access Token. Refer to the [user access token](../../../identity/access-tokens.md) documentation if you don't already have a token available.
 
-Add the following code to the `InitCallAgentAndDeviceManagerAsync` function. 
+Add the code to the `InitCallAgentAndDeviceManagerAsync` function.
 
 ```C#
 var callClient = new CallClient();
@@ -204,9 +204,9 @@ await this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, ()
 
 ### Run the code
 
-You can build and run the code on Visual Studio. Note that for solution platforms we support `ARM64`, `x64` and `x86`. 
+You can build and run the code on Visual Studio. For solution platforms, we support `ARM64`, `x64` and `x86`. 
 
-You can make an outbound call by providing a user ID in the text field and clicking the `Start Call` button. Calling `8:echo123` connects you with an echo bot, this is great for getting started and verifying your audio devices are working.
+You can make an outbound call by providing a user ID in the text field and clicking the `Start Call` button. Calling `8:echo123` connects you with an echo bot, this feature is great for getting started and verifying your audio devices are working.
 
 :::image type="content" source="../../media/windows/run-the-app.png" alt-text="Screenshot showing running the UWP quickstart app":::
 
@@ -241,7 +241,7 @@ In Visual Studio, create a new project with the **Blank App, Packaged (WinUI 3 i
 
 #### Install the package
 
-Right click your project and go to `Manage Nuget Packages` to install `Azure.Communication.Calling` [1.0.0-beta.33](https://www.nuget.org/packages/Azure.Communication.Calling/1.0.0-beta.33) or above. Make sure Include Preleased is checked.
+Right click your project and go to `Manage Nuget Packages` to install `Azure.Communication.Calling` [1.0.0-beta.33](https://www.nuget.org/packages/Azure.Communication.Calling/1.0.0-beta.33) or superior. Make sure Include Preleased is checked.
 
 #### Request access
 
@@ -340,7 +340,7 @@ The following classes and interfaces handle some of the major features of the Az
 
 ### Authenticate the client
 
-Initialize a `CallAgent` instance with a User Access Token, which enable us to make and receive calls, and optionally obtain a DeviceManager instance to query for client device configurations.
+Initialize a `CallAgent` instance with a User Access Token, which enables us to make and receive calls, and optionally obtain a DeviceManager instance to query for client device configurations.
 
 In the following code, replace `<AUTHENTICATION_TOKEN>` with a User Access Token. Refer to the [user access token](../../../identity/access-tokens.md) documentation if you don't already have a token available.
 
@@ -399,7 +399,7 @@ this.DispatcherQueue.TryEnqueue(() => {
 
 ### Run the code
 
-You can build and run the code on Visual Studio. Note that for solution platforms we support `ARM64`, `x64` and `x86`. 
+You can build and run the code on Visual Studio. For solution platforms, we support `ARM64`, `x64` and `x86`. 
 
 You can make an outbound call by providing a user ID in the text field and clicking the `Start Call` button. Calling `8:echo123` connects you with an echo bot, this feature is great for getting started and verifying your audio devices are working.
 

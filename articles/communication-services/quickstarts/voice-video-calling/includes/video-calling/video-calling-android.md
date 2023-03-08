@@ -125,7 +125,7 @@ See https://developer.android.com/about/versions/pie/android-9.0-changes-28#apac
 
 You need a text input for the caller ID or group call ID, a button for placing the call, and extra button for hanging up the call.
 
-Also need two buttons to turn on and turn off the local video. You need to place two containers for local and remote video streams. You can add these through the designer, or by editing the layout XML.
+Also need two buttons to turn on and turn off the local video. You need to place two containers for local and remote video streams. You can add these buttons through the designer, or by editing the layout XML.
 
 Go to *app/src/main/res/layout/activity_main.xml*, and replace the content of file with the following code:
 
@@ -236,9 +236,9 @@ Go to *app/src/main/res/layout/activity_main.xml*, and replace the content of fi
 
 ## Create the main activity scaffolding and bindings
 
-With, the layout created, you can add the bindings, as well as the basic scaffolding of the activity. The activity handles requesting runtime permissions, creating the call agent, and placing the call when the button is pressed.
+With the layout created, you can add the bindings, and the basic scaffolding of the activity. The activity handles requesting runtime permissions, creating the call agent, and placing the call when the button is pressed.
 
-The `onCreate` method will be overridden to invoke `getAllPermissions` and `createAgent`, as well as add the bindings for the call button. This occurs only once when the activity is created. For more information about `onCreate`, see the guide [Understand the activity lifecycle](https://developer.android.com/guide/components/activities/activity-lifecycle).
+The `onCreate` method is overridden to invoke `getAllPermissions` and `createAgent`, and add the bindings for the call button. This event occurs only once when the activity is created. For more information about `onCreate`, see the guide [Understand the activity lifecycle](https://developer.android.com/guide/components/activities/activity-lifecycle).
 
 Go to *MainActivity.java* file, and replace the content with the following code:
 
@@ -507,7 +507,7 @@ private void startCall() {
 }
 ```
 
-In this quickstart, you rely on the function `getNextAvailableCamera` to pick the camera that the call will use. The function takes the enumeration of cameras as input, and iterates through the list to get the next camera available. If the argument is `null`, the function picks the first device on the list. If there are no available cameras when you select **Start Call**, an audio call starts instead. But if the remote participant answered with video, you can still see the remote video stream.
+In this quickstart, you rely on the function `getNextAvailableCamera` to pick the camera that the call uses. The function takes the enumeration of cameras as input, and iterates through the list to get the next camera available. If the argument is `null`, the function picks the first device on the list. If there are no available cameras when you select **Start Call**, an audio call starts instead. But if the remote participant answered with video, you can still see the remote video stream.
 
 ```java
 private VideoDeviceInfo getNextAvailableCamera(VideoDeviceInfo camera) {
@@ -619,7 +619,7 @@ call.addOnRemoteParticipantsUpdatedListener(remoteParticipantUpdatedListener);
 
 When you use event listeners that are defined within the same class, bind the listener to a variable. Pass the variable in as an argument to add and remove listener methods.
 
-If you try to pass the listener in directly as an argument, you'll lose the reference to that listener. Java creates new instances of these listeners, not referencing previously created ones. You can't remove prior instances, because you won’t have a reference to them anymore.
+If you try to pass the listener in directly as an argument, you lose the reference to that listener. Java creates new instances of these listeners, not referencing previously created ones. You can't remove prior instances, because you don’t have a reference to them.
 
 ### Remote video stream updates
 
@@ -785,7 +785,7 @@ private void hangUp() {
 
 ## Hide and show local video
 
-When the call has started, you can stop local video rendering and streaming with  `turnOffLocalVideo()`. This method removes the view that wraps the local render, and disposes of the current stream. To resume the stream and render the local preview again, use `turnOnLocalVideo()`. This shows the video preview and starts streaming.
+When the call has started, you can stop local video rendering and streaming with `turnOffLocalVideo()`, this method removes the view that wraps the local render, and disposes of the current stream. To resume the stream and render the local preview again, use `turnOnLocalVideo()`, this method shows the video preview and starts streaming.
 
 ```java
 public void turnOnLocalVideo() {
@@ -839,7 +839,7 @@ Now you can update your app to let the user choose between 1:1 calls or group ca
 
 ### Update layout
 
-Use radio buttons to select if the SDK creates a 1:1 call or joins a group call. The radio buttons will be at the top, so the first section of *app/src/main/res/layout/activity_main.xml* will end as follows.
+Use radio buttons to select if the SDK creates a 1:1 call or joins a group call. The radio buttons are at the top, so the first section of *app/src/main/res/layout/activity_main.xml* end as follows.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -893,7 +893,7 @@ Use radio buttons to select if the SDK creates a 1:1 call or joins a group call.
 
 ### Update MainActivity.Java
 
-You can now update the elements and logic to decide when to create a 1:1 call, and when to join a group call. The first portion of code requires updates to add dependencies, items, and additional configurations.
+You can now update the elements and logic to decide when to create a 1:1 call, and when to join a group call. The first portion of code requires updates to add dependencies, items, and other configurations.
 
 Dependencies:
 
