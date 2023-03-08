@@ -51,9 +51,9 @@ Consider setting `max_tokens` to a slightly higher value than normal such as 300
 > [!NOTE]  
 > `gpt-35-turbo` is equivalent to the `gpt-3.5-turbo` model from OpenAI.
 
-Unlike previous GPT-3 and GPT-3.5 models, the `gpt-35-turbo` model will continue to be updated. When creating a [deployment](../create-resource.md#deploy-a-model) of `gpt-35-turbo`, you'll also need to specify a model version.
+Unlike previous GPT-3 and GPT-3.5 models, the `gpt-35-turbo` model will continue to be updated. When creating a [deployment](./create-resource.md#deploy-a-model) of `gpt-35-turbo`, you'll also need to specify a model version.
 
-Currently, only version `"0301"` is available. This is equivalent to the `gpt-3.5-turbo-0301` model from OpenAI. We'll continue to make updated versions available in the future. You can find model deprecation times on our [models](../models.md) page.
+Currently, only version `"0301"` is available. This is equivalent to the `gpt-3.5-turbo-0301` model from OpenAI. We'll continue to make updated versions available in the future. You can find model deprecation times on our [models](../concepts/models.md) page.
 
 One thing that's important to note is that Chat Markup Language (ChatML) will continue to evolve with the new versions of the model. You may need to make updates to your prompts when you upgrade to a new version of the model.
 
