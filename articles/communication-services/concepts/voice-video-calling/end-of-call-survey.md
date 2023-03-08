@@ -33,7 +33,7 @@ The End of Call Survey provides you with a tool to understand how your end users
 ## Purpose of the End of Call Survey
 It’s difficult to determine a customer’s perceived calling experience and determine how well your calling solution is performing without gathering subjective feedback from customers.
 
-You can use the End of Call Survey to collect and analyze customers **subjective** opinions on their calling experience as opposed to relying only on **objective** measurements such as audio and video bitrate, jitter, and latency, which may not indicate if a customer had a poor calling experience. After publishing survey data you can view the survey results through Azure for analysis and improvements. Azure Communication Services uses these survey results to monitor and improve quality and reliability.
+You can use the End of Call Survey to collect and analyze customers **subjective** opinions on their calling experience as opposed to relying only on **objective** measurements such as audio and video bitrate, jitter, and latency, which may not indicate if a customer had a poor calling experience. After publishing survey data, you can view the survey results through Azure for analysis and improvements. Azure Communication Services uses these survey results to monitor and improve quality and reliability.
 
 ## End of Call Survey vs. Post-Call Survey
 
@@ -114,7 +114,7 @@ The API allows applications to gather data points that describe user perceived r
 
 
 
--	***Note**: A question’s indicated cutoff value in the API is the threshold that Microsoft uses when analyzing your survey data. When you customize the cutoff value or Question Input Range Microsoft analyzes your survey data according to your customization.
+-	***Note**: A question’s indicated cutoff value in the API is the threshold that Microsoft uses when analyzing your survey data. When you customize the cutoff value or Input Range, Microsoft analyzes your survey data according to your customization.
 
 ### API Tags by Value
 | API Values | Optional Tags |
@@ -137,7 +137,8 @@ TODO – add details on implementation
 Here are our recommended API survey flows and suggested question prompts for consideration. Your development can use our recommendation or use customized question prompts and flows for your visual interface.
 
 **Question 1:** How did the users perceive their overall call quality experience?
-We recommend you start the survey by only asking about the participants’ overall quality. Separating the first and second questions helps only collect responses to Audio, Video, and Screen Share issues if they’re related to a call if a survey participant indicates they experienced call quality issues with a score at or below your cutoff value. 
+We recommend you start the survey by only asking about the participants’ overall quality. If you separate the first and second questions, it helps to only collect responses to Audio, Video, and Screen Share issues if a survey participant indicates they experienced call quality issues. 
+
 
 -	Suggested prompt: “How was the call quality?” 
 -	API Question Values: Overall Call
@@ -166,7 +167,7 @@ You can choose to collect each of the four API values or only the ones you find 
 |  Video  |    0-100   |   0-100    |     
 |  ScreenShare  |   0-100    |   0-100    |     
 
--	***Note**: A question’s indicated cutoff value in the API is the threshold that Microsoft uses when analyzing your survey data. When you customize the cutoff value or Question Input Range Microsoft analyzes your survey data according to your customization.
+-	***Note**: A question’s indicated cutoff value in the API is the threshold that Microsoft uses when analyzing your survey data. When you customize the cutoff value or Input Range, Microsoft analyzes your survey data according to your customization.
 
 **TODO - To Invoke**
 
@@ -240,8 +241,7 @@ If you want to export your survey data, you can instead choose to send the log d
 -	Day after a call? Yes?
 -	Week after a call? No?
 -	How can I tell if the API isn’t working?
--	How long will the data take to become available?
-
+-	How long does it take for survey data to be available in Azure?
 
 ## Next Steps
 
