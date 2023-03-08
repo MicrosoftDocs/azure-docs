@@ -6,7 +6,7 @@ ms.author: edbaynash
 ms.service: azure-monitor
 ms.subservice: autoscale
 ms.topic: conceptual
-ms.date: 08/01/2022
+ms.date: 08/03/2023
 ms.reviewer:
 ---
 
