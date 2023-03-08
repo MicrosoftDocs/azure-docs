@@ -13,20 +13,20 @@ ms.date: 06/17/2021
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-In this article, you will learn how to create and manage read replicas in the Azure Database for MySQL flexible server using the Azure portal.
+In this article, you learn how to create and manage read replicas in the Azure Database for MySQL flexible server using the Azure portal.
 
-> [!Note]
+> [!NOTE]
 > 
-> * If GTID is enabled on a primary server (`gtid_mode` = ON), newly created replicas will also have GTID enabled and use GTID based replication. To learn more refer to [Global transaction identifier (GTID)](concepts-read-replicas.md#global-transaction-identifier-gtid)
+> If GTID is enabled on a primary server (`gtid_mode` = ON), newly created replicas also have GTID enabled and use GTID based replication. To learn more refer to [Global transaction identifier (GTID)](concepts-read-replicas.md#global-transaction-identifier-gtid)
 
 ## Prerequisites
 
-- An [Azure Database for MySQL server Flexible Server](quickstart-create-server-portal.md) that will be used as the source server.
+- An [Azure Database for MySQL server Flexible Server](quickstart-create-server-portal.md) that is used as the source server.
 
 ## Create a read replica
 
 > [!IMPORTANT]
->When you create a replica for a source that has no existing replicas, the source will first restart to prepare itself for replication. Take this into consideration and perform these operations during an off-peak period.
+>When you create a replica for a source that has no existing replicas, the source first restarts to prepare itself for replication. Take this into consideration and perform these operations during an off-peak period.
 
 A read replica server can be created using the following steps:
 
@@ -49,7 +49,7 @@ A read replica server can be created using the following steps:
 > [!NOTE]
 > Read replicas are created with the same server configuration as the source. The replica server configuration can be changed after it has been created. The replica server is always created in the same resource group, same location and same subscription as the source server. If you want to create a replica server to a different resource group or different subscription, you can [move the replica server](../../azure-resource-manager/management/move-resource-group-and-subscription.md) after creation. It is recommended that the replica server's configuration should be kept at equal or greater values than the source to ensure the replica is able to keep up with the source.
 
-Once the replica server has been created, it can be viewed from the **Replication** blade.
+Once the replica server has been created, it can be viewed from the **Replication** page.
 
    [:::image type="content" source="./media/how-to-read-replica-portal/list-replica.png" alt-text="Azure Database for MySQL - List replicas":::](./media/how-to-read-replica-portal/list-replica.png#lightbox)
 
@@ -92,7 +92,7 @@ To delete a read replica server from the Azure portal, use the following steps:
 
    :::image type="content" source="./media/how-to-read-replica-portal/delete-replica.png" alt-text="Azure Database for MySQL - Delete replica":::
 
-5. Type the name of the replica and click **Delete** to confirm deletion of the replica.
+5. Type the name of the replica and select **Delete** to confirm deletion of the replica.
 
    :::image type="content" source="./media/how-to-read-replica-portal/delete-replica-confirm.png" alt-text="Azure Database for MySQL - Delete replica confirm":::
 
@@ -109,7 +109,7 @@ To delete a source server from the Azure portal, use the following steps:
 
    [:::image type="content" source="./media/how-to-read-replica-portal/delete-master-overview.png" alt-text="Azure Database for MySQL - Delete source":::](./media/how-to-read-replica-portal/delete-master-overview.png#lightbox)
 
-3. Type the name of the source server and click **Delete** to confirm deletion of the source server.
+3. Type the name of the source server and select **Delete** to confirm deletion of the source server.
 
    :::image type="content" source="./media/how-to-read-replica-portal/delete-master-confirm.png" alt-text="Azure Database for MySQL - Delete source confirm":::
 
@@ -123,7 +123,7 @@ To delete a source server from the Azure portal, use the following steps:
 
    [:::image type="content" source="./media/how-to-read-replica-portal/monitor-select-replication-lag.png" alt-text="Select Replication lag":::](./media/how-to-read-replica-portal/monitor-select-replication-lag.png#lightbox)
 
-4. Select the time range you wish to view. The image below selects a 30 minute time range.
+4. Select the time range you wish to view. The image below selects a 30-minute time range.
 
    [:::image type="content" source="./media/how-to-read-replica-portal/monitor-replication-lag-time-range.png" alt-text="Select time range":::](./media/how-to-read-replica-portal/monitor-replication-lag-time-range.png#lightbox)
 
