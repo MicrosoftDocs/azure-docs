@@ -35,7 +35,7 @@ Maximizing *High CPU Analysis* shows that one app is causing high CPU usage.
 
 :::image type="content" source="media/durable-functions-best-practice/high-cpu-analysis.png" alt-text="Screenshot of Durable Functions high CPU analysis detector.":::
 
-The following is suggested when clicking "View Solutions". If you decide follow the second option, you can easily restart your site by clicking the button. 
+The following is suggested when clicking "View Solutions". If you decide to follow the second option, you can easily restart your site by clicking the button. 
 
 :::image type="content" source="media/durable-functions-best-practice/high-cpu-solution.png" alt-text="Screenshot of suggested solution from high CPU analysis detector.":::
 
