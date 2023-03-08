@@ -82,9 +82,9 @@ Review the Bicep file:
 
    To create the resources in the Azure portal, see [Quickstart: Use the Azure portal to create a virtual network](quick-create-portal.md).
 
-   ---
+---
 
-   When the deployment finishes, a message indicates that the deployment succeeded.
+When the deployment finishes, a message indicates that the deployment succeeded.
 
 ## Deploy Azure Bastion
 
@@ -156,9 +156,9 @@ Review the Bicep file:
 
    To create the resources in the Azure portal, see [Quickstart: Use the Azure portal to create a virtual network](quick-create-portal.md).
 
-   ---
+---
 
-   When the deployment finishes, a message indicates that the deployment succeeded.
+When the deployment finishes, a message indicates that the deployment succeeded.
 
 >[!NOTE]
 >VMs in a virtual network that Bastion hosts don't need public IP addresses. Bastion provides the public IP, and the VMs use private IPs to communicate within the network. You can remove the public IPs from any VMs in Bastion-hosted virtual networks. For more information, see [Dissociate a public IP address from an Azure VM](ip-services/remove-public-ip-address-vm.md).
