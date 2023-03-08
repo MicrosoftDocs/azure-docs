@@ -129,13 +129,13 @@ Configure a local network gateway with BGP settings.
 
    * Name: Site5
    * IP address: The IP address of the gateway endpoint you want to connect to. Example: 128.9.9.9
-   * Address spaces: the address spaces on the on-premises site to which you want to route.
+   * Address spaces: If BGP is enabled, no address space is required.
 
 1. To configure BGP settings, go to the **Advanced** page. Use the following example values (shown in Diagram 3). Modify any values necessary to match your environment.
 
    * Configure BGP settings: Yes
    * Autonomous system number (ASN): 65050
-   * BGP peer IP address: The address that you noted in previous steps.
+   * BGP peer IP address: The address of the on-premise VPN Device. Example: 10.51.255.254
 
 1. Click **Review + create** to create the local network gateway.
 
