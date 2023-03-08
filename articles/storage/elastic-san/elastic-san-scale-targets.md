@@ -34,7 +34,7 @@ The throughput of an Elastic SAN increases by 80 MB/s per base TiB. So if you ha
 
 ### Elastic SAN scale targets
 
-The appliance scale targets vary depending on region and redundancy of the SAN itself. The following table breaks out the scale targets based on whether the SAN's [redundancy](elastic-san-planning.md#redundancy) is set to locally-redundant storage (LRS) or zone-redundant storage (ZRS), and what region the SAN is in.
+The appliance scale targets vary depending on region and redundancy of the SAN itself. The following table breaks out the scale targets based on whether the SAN's [redundancy](elastic-san-planning.md#redundancy) is set to locally redundant storage (LRS) or zone-redundant storage (ZRS), and what region the SAN is in.
 
 #### LRS
 
