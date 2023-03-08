@@ -109,7 +109,8 @@ You can use your own certificate to enable the HTTPS feature. This process is do
 2. Azure Key Vault certificates: If you have a certificate, upload it directly to your Azure Key Vault account. If you don't have a certificate, create a new certificate directly through Azure Key Vault.
 
 > [!NOTE]
-> The certificate must have a complete certificate chain with leaf and intermediate certificates, and root CA must be part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT).
+> * Azure CDN only supports PFX certificates.
+> * The certificate must have a complete certificate chain with leaf and intermediate certificates, and root CA must be part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT).
 
 ### Register Azure CDN
 
@@ -120,8 +121,10 @@ Register Azure CDN as an app in your Azure Active Directory via PowerShell.
 2. In PowerShell, run the following command:
 
      `New-AzADServicePrincipal -ApplicationId "205478c0-bd83-4e1b-a9d6-db63a3e1e1c8" -Role Contributor`
+
     > [!NOTE]
-    > **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8** is the service principal for **Microsoft.AzureFrontDoor-Cdn**.
+    > * **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8** is the service principal for **Microsoft.AzureFrontDoor-Cdn**.
+    > * You need to have the **Global Administrator** role to run this command.
 
     ```bash
     New-AzADServicePrincipal -ApplicationId "205478c0-bd83-4e1b-a9d6-db63a3e1e1c8" -Role Contributor
@@ -180,7 +183,8 @@ Grant Azure CDN permission to access the certificates (secrets) in your Azure Ke
     - The available certificate/secret versions.
 
     > [!NOTE]
-    > In order for the certificate to be automatically rotated to the latest version when a newer version of the certificate is available in your Key Vault, please set the certificate/secret version to 'Latest'. If a specific version is selected, you have to re-select the new version manually for certificate rotation. It takes up to 72 hours for the new version of the certificate/secret to be deployed.
+    > * Azure CDN only supports PFX certificates.
+    > * In order for the certificate to be automatically rotated to the latest version when a newer version of the certificate is available in your Key Vault, please set the certificate/secret version to 'Latest'. If a specific version is selected, you have to re-select the new version manually for certificate rotation. It takes up to 72 hours for the new version of the certificate/secret to be deployed.
 
 5. Select **On** to enable HTTPS.
 
