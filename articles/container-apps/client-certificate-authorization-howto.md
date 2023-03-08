@@ -15,7 +15,7 @@ Azure Container Apps supports mutual TLS to allow you to authorize access to you
  
 mTLS is often used in "zero trust" security models to authorize client access within an organization.  For example, you might want to require a client certificate for a backend container app used to manage sensitive data.
 
-Container Apps accepts client certificates in the PKCS12 format.  The certificate can be issued by a trusted certificate authority (CA) or may be self-signed.  
+Container Apps accepts client certificates in the PKCS12 format issued by a trusted certificate authority (CA) or is self-signed.  
 
 > [!NOTE}
 > Is this true?
@@ -36,10 +36,10 @@ The client certificate mode is an ingress property that can be configured for yo
     - accept: The client certificate is optional. If the client certificate is not provided, the request is still accepted.
     - ignore: The client certificate is ignored. 
 
-When `require` or `accept` is used the client certificate is passed by ingress to the container app.
+When `require` or `accept` are set, ingress passes the client certificate to the container app.
 
 
-The following is a template example:
+The following template example configures ingress to require a client certificate for all requests to the container app.
 
 ```text
 { 
@@ -64,7 +64,10 @@ To configure client certificate authorization in the Azure portal, follow these 
 1. ???
 
 
-#[Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab/azure-cli)
   
+>[!NOTE]
+> need to add the CLI commands here
 
+---
 

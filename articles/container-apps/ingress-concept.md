@@ -12,22 +12,25 @@ ms.custom: ignite-fall-2021, event-tier1-build-2022
 
 # Ingress in Azure Container Apps
 
-Azure Container Apps allows you to expose your container app to the public web, to your VNET, or to other container apps within your environment by enabling ingress. Ingress is a feature that works on a set of configurable rules that control the routing of external and internal traffic to your container app. When you enable ingress, you don't need to create an Azure Load Balancer, public IP address, or any other Azure resources to enable incoming HTTPS requests or TCP traffic.
 
-> [!NOTE]
-> Should list more use cases here?
+Azure Container Apps uses the ingress feature to allow you to expose your container app to the public web, your VNET, and other container apps within your environment. Ingress works on a set of configurable rules that control the routing of external and internal traffic to your container app.  When you enable ingress, you don't need to create an Azure Load Balancer, public IP address, or any other Azure resources to enable incoming HTTPS requests or TCP traffic.
+
+Ingress supports:
+
+- Public and private ingress
+- [HTTPS and TCP ingress types](#ingress-types)
+- [Fully qualified domain names (FQDNs)](#fully-qualified-domain-name)
+- [HTTP Headers](#http-headers)
+- [Traffic routing rules](#traffic-splitting-scenari[os)
+- [IP restrictions](#ip-restrictions)
+- [Ingress authentication](#ingress-authentication)
 
 
 > [!NOTE]
 > Add diagram here
 
+
 Each container app can be configured with different ingress settings. For example, you can have one container app that is exposed to the public web and another that is only accessible from within your Container Apps environment.
-
-## <a name="scenarios"></a>Ingress Scenarios
-
-### Public Container Apps environment
-
-### Private Container Apps VNET environment
 
 ## Ingress types
 
@@ -46,6 +49,23 @@ With HTTPS ingress enabled, your container app features the following characteri
 - The container app is accessed via its fully qualified domain name (FQDN)
 - Request timeout is 240 seconds
 
+#### HTTP headers
+
+The HTTP headers are used to pass protocol and metadata related information between the client and your container app. For example, the `X-Forwarded-Proto` header is used to identify the protocol that the client used to connect with the Container Apps service.  For information about configuring HTTP headers, see [Configure HTTP headers](./ingress.md#configure-http-headers).
+
+> [!NOTE] 
+> why is X-Forwarded-Proto used?  Example of how it's used?
+
+The header is added to an HTTP request or response using a *name: value* format.  The following table lists the HTTP headers that are relevant to ingress in Container Apps:
+
+> [!NOTE]
+> Do we have response headers we need to document?
+
+| Header | Description | Values | Required |
+|---|---|---|---|
+| `X-Forwarded-Proto` | The protocol that the client used to connect with the Container Apps service. | `http` or `https` | Yes |
+| `X-Forwarded-For` | The IP address of the client that sent the request. | Yes |
+| 'X-Forwarded-Host | The host name that the client used to connect with the Container Apps service. | Yes |
 ### <a name="tcp"></a>TCP (preview) 
 
 TCP ingress is useful for exposing container apps that use a TCP-based protocol other than HTTP or HTTPS. For example, you can use TCP ingress to expose a container app that uses the [Redis protocol](https://redis.io/topics/protocol).
@@ -82,8 +102,24 @@ You can get access to the environment's unique identifier by querying the enviro
 
 [!INCLUDE [container-apps-get-fully-qualified-domain-name](../../includes/container-apps-get-fully-qualified-domain-name.md)]
 
+## IP restrictions
 
-## Enable ingress
+Container Apps supports IP restrictions for ingress. You can restrict access to your container app by specifying a list of IP addresses or IP address ranges.  For more information, see [Configure IP restrictions](ip-restrictions-howto.md).
+
+
+## Ingress authentication
+
+Container Apps supports the following authentication methods for ingress:
+
+- TLS server certificate authentication (default).
+- mTLS client certificate authentication.  For more information, see [Configure client certificate authorization in Azure Container Apps](client-certificate-authorization-howto.md)
+- OAUTH2 authentication.  For more information, see [Configure OAUTH2 authorization in Azure Container Apps](oauth2-authorization-howto.md)
+- Do we have anything else?
+
+
+## Ingress configuration
+
+### Enable ingress
 
 Ingress is an application-wide setting. Changes to ingress settings apply to all revisions simultaneously, and don't generate new revisions.
 
@@ -102,54 +138,44 @@ The ingress configuration section of the container app template has the followin
 }
 ```
 
-The following settings are available when configuring ingress:
-
-| Property | Description | Values | Required |
-|---|---|---|---|
-| `external` | Whether your ingress-enabled app is accessible outside its Container Apps environment. |`true` for visibility from internet or VNET, depending on app environment endpoint, `false` for visibility within app environment only. (default) | Yes |
-| `targetPort` | The port your container listens to for incoming requests. | Set this value to the port number that your container uses. Your application ingress endpoint is always exposed on port `443`. | Yes |
-| `exposedPort` | (TCP ingress only) The port used to access the app. If `external` is `true`, the value must be unique in the Container Apps environment and can't be `80` or `443`. | A port number from `1` to `65535`. | No |
-| `transport` | The transport type. | `http` for HTTP/1, `http2` for HTTP/2, `auto` to automatically detect HTTP/1 or HTTP/2 (default), `tcp` for TCP. | No |
-| `allowInsecure` | Allows insecure traffic to your container app. | `false` (default), `true`<br><br>If set to `true`, HTTP requests to port 80 aren't automatically redirected to port 443 using HTTPS, allowing insecure connections. | No |
-
-> [!NOTE]
-> To disable ingress for your application, omit the `ingress` configuration property entirely.
-
-## Ingress authentication
-
-Container Apps supports the following authentication methods for ingress:
-
-- TLS server certificate authentication (default).
-- mTLS client certificate authentication, which requires a client certificate to be presented by the client.  For more information, see [Configure client certificate authorization in Azure Container Apps](client-certificate-authorization-howto.md)
-- Do we have anything else?
-
 ## Ingress Configuration options
 
 > [!NOTE] 
 > Need information about the flags that are available in the CLI and the portal.
 
-## HTTP headers
+The following settings are available when configuring ingress:
 
-The HTTP headers are used to pass protocol and metadata related information between the client and your container app. For example, the `X-Forwarded-Proto` header is used to identify the protocol that the client used to connect with the Container Apps service.  For information about configuring HTTP headers, see [Configure HTTP headers](./ingress.md#configure-http-headers).
-
-> [!NOTE] 
-> why is X-Forwarded-Proto used?  Example of how it's used?
-
-The header is added to an HTTP request or response using a *name: value* format.  The following table lists the HTTP headers that are relevant to ingress in Container Apps:
+| Property | Description | Values | Required |
+|---|---|---|---|
+| `external` | Allow ingress to your app from outside its Container Apps environment. |`true` for visibility from internet or VNET, depending on app environment endpoint, `false` for visibility within app environment only. (default) | Yes |
+| `targetPort` | The port your container listens to for incoming requests. | Set this value to the port number that your container uses. Your application ingress endpoint is always exposed on port `443`. | Yes |
+| `exposedPort` | (TCP ingress only) An additional exposed port used to access the app. If `external` is `true`, the value must be unique in the Container Apps environment if ingress is external. | A port number from `1` to `65535`. (can't be `80` or `443`) | No |
+| `transport` | The transport protocol type. | auto (default) detects HTTP/1 or HTTP/2,  `http` for HTTP/1, `http2` for HTTP/2, `tcp` for TCP. | No |
+| `allowInsecure` | Allows insecure traffic to your container app. | `false` (default), `true`<br><br>If set to `true`, HTTP requests to port 80 aren't automatically redirected to port 443 using HTTPS, allowing insecure connections. | No |
+| `autoTLS` | Enables automatic TLS certificate provisioning. If set to `true`, Container Apps automatically provisions a TLS certificate for your container app. |`true` (default), `false`<br><br> | No | 
+| `access-restriction` | Configure IP ingress restrictions. | See [Set up IP ingress restrictions](ip-restrictions.md)| No |
 
 > [!NOTE]
-> Do we have response headers we need to document?
-
-| Header | Description | Values | Required |
-|---|---|---|---|
-| `X-Forwarded-Proto` | The protocol that the client used to connect with the Container Apps service. | `http` or `https` | Yes |
-| `X-Forwarded-For` | The IP address of the client that sent the request. | Yes |
-| 'X-Forwarded-Host | The host name that the client used to connect with the Container Apps service. | Yes |
-
+> To disable ingress for your application, omit the `ingress` configuration property entirely.
 
 
 >[!NOTE]
 > Should we include the other ingress scenarios, like access restrictions?
+
+## <a name="scenarios"></a>Ingress Scenarios
+
+### Public Container Apps environment
+
+- TLS authentication (server certificate)
+- OAUTH2 authentication
+- IP Restrictions
+
+>[!NOTE]
+> Should we include the other ingress scenarios, like access restrictions?
+
+### Private Container Apps VNET environment
+
+- mTLS authentication (client certificate)
 
 ## Traffic splitting scenarios
 
@@ -161,7 +187,7 @@ In situations where you're frequently iterating development of your container ap
 
 The following example template routes all traffic to the latest deployed revision:
 
-```json
+```jso
 "ingress": { 
   "traffic": [
     {
