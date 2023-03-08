@@ -1,7 +1,7 @@
 ---
 title: Create a JavaScript function from the command line - Azure Functions
 description: Learn how to create a JavaScript function from the command line, then publish the local Node.js project to serverless hosting in Azure Functions.
-ms.date: 02/07/2023
+ms.date: 03/08/2023
 ms.topic: quickstart
 ms.devlang: javascript
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, mode-api
@@ -51,7 +51,13 @@ Verify your prerequisites, which depend on whether you are using Azure CLI or Az
 
 # [Azure CLI](#tab/azure-cli)
 
+::: zone pivot="node-model-v3" 
 + In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 4.x.
+::: zone-end
+
+::: zone pivot="node-model-v4" 
++ In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version v4.0.4915 or above.
+::: zone-end
 
 + Run `az --version` to check that the Azure CLI version is 2.4 or later.
 
@@ -59,7 +65,13 @@ Verify your prerequisites, which depend on whether you are using Azure CLI or Az
 
 # [Azure PowerShell](#tab/azure-powershell)
 
+::: zone pivot="node-model-v3" 
 + In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 4.x.
+::: zone-end
+
+::: zone pivot="node-model-v4" 
++ In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version v4.0.4915 or above.
+::: zone-end
 
 + Run `(Get-Module -ListAvailable Az).Version` and verify version 5.0 or later.
 
@@ -115,36 +127,63 @@ For an HTTP trigger, the function receives request data in the variable `req` as
 :::code language="json" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-JavaScript/function.json":::
 
 Each binding requires a direction, a type, and a unique name. The HTTP trigger has an input binding of type [`httpTrigger`](functions-bindings-http-webhook-trigger.md) and output binding of type [`http`](functions-bindings-http-webhook-output.md).
+
 ::: zone-end
 
 ::: zone pivot="node-model-v4" 
 1. Run the `func init` command, as follows, to create a functions project in a folder named *LocalFunctionProj* with the specified runtime:
 
     ```console
-    func init LocalFunctionProj --node -m V4
+    func init LocalFunctionProj --model V4
+    ```
+    You are then prompted to choose a worker runtime and a language - choose Node for the first and JavaScript for the second.
+
+2. Navigate into the project folder:
+
+    ```console
+    cd LocalFunctionProj
     ```
 
-1. Add a function to your project:
+    This folder contains various files for the project, including configurations files named *local.settings.json* and *host.json*. Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
+
+3. Add a function to your project by using the following command:
 
     ```console
     func new
     ```
 
-    You are then asked to choose a function template. Enter the number that corresponds to the HTTP trigger one. The default name will be *httpTrigger* unless you specify your own. Note that function names must be **unique**. If the name you entered already exists, you will be asked if you want to overwrite the existing function. 
+    Choose the template for "HTTP trigger". By default, the function name is *httpTrigger*. You can also give it another name. Your function name must be unique, or you'll be asked to confirm if your intention is to replace an existing function. 
 
-    Find the function you created under the *src\functions* directory. 
+    You can find the function you added in the *src/functions* directory. 
 
-1. (Optional) If you want to learn more about a particular function, say HTTP trigger, you can run the following command:
+4. Add Azure Storage connection information in *local.settings.json*. 
+    ```json
+    {
+        "Values": {
+            "FUNCTIONS_WORKER_RUNTIME": "node",
+            "AzureWebJobsStorage": "<Azure Storage connection information>"
+        }
+    }
+    ```
+    You can also use the Azure Storage emulator, [Azurite](azure/storage/common/storage-use-azurite?tabs=npm#install-azurite).
+    ```json
+    {
+        "Values": {
+            "FUNCTIONS_WORKER_RUNTIME": "node",
+            "AzureWebJobsStorage": "UseDevelopmentStorage=true"
+        }
+    }
+    ```
+
+5. (Optional) If you want to learn more about a particular function, say HTTP trigger, you can run the following command:
 
     ```console
     func help httptrigger
     ```
 
-
 >[!NOTE]
 > In the v4 programming model, functions are not organized in their own separate directories like in the v3 model. This was designed to give you more flexibility in organizing your functions. Also, the file *function.json* is no longer needed. To learn more about function app structure in the v4 model, see [Azure Functions JavaScript developer guide](functions-reference-node.md)
 ::: zone-end 
-
 
 [!INCLUDE [functions-run-function-test-local-cli](../../includes/functions-run-function-test-local-cli.md)]
 
