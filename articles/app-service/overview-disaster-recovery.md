@@ -1,9 +1,8 @@
 ---
 title: Disaster recovery guide
 description: Learn three common disaster recovery patterns for Azure App Service. 
-keywords: app service, azure app service, hadr, disaster recovery, business continuity
+keywords: app service, azure app service, hadr, disaster recovery, business continuity, high availability, bcdr
 
-ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.topic: article
 ms.date: 03/07/2023
 ms.reviewer: mahender
@@ -45,7 +44,7 @@ With this example architecture:
 - Identical App Service apps are deployed in two separate regions, including pricing tier and number of instances. 
 - Public traffic directly to the App Service apps is blocked. 
 - Azure Front Door is used to route traffic to both the active regions.
-- During a disaster, one of the regions becomes offline, and Azure Front Door routes traffic exclusively to the region that remains online. The RTO during such failover is near-zero.
+- During a disaster, one of the regions becomes offline, and Azure Front Door routes traffic exclusively to the region that remains online. The RTO during such a geo-failover is near-zero.
 - Application files should be deployed to both web apps with a CI/CD solution. This ensures that the RPO is practically zero. 
 - If your application actively modifies the file system, the best way to minimize RPO is to only write to a [mounted Azure Storage share](configure-connect-to-azure-storage.md) instead of writing directly to the web app's */home* content share. Then, use the Azure Storage redundancy features ([GZRS](../storage/common/storage-redundancy.md#geo-zone-redundant-storage) or [GRS](../storage/common/storage-redundancy.md#geo-redundant-storage)) for your mounted share, which has an [RPO of about 15 minutes](../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region).
 
