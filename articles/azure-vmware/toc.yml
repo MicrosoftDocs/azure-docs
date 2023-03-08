@@ -176,7 +176,7 @@
       href: azure-vmware-solution-citrix.md
   - name: Deploy vSAN stretched clusters (Preview)
     href: deploy-vsan-stretched-clusters.md
-  - name: Manage hybrid benefit for SQL Server
+  - name: Migrate SQL Server clusters
     items:  
     - name: Migrate Microsoft SQL Server Standalone to Azure VMware Solution
       href: migrate-sqlserver-standalone-cluster.md
