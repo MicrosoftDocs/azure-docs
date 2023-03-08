@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Provision an Azure Spring Apps service
-description: Learn how to create an Azure Spring Apps service instance for application deployment.
+title: "Quickstart - Provision an Azure Spring Apps service"
+description: Describes creation of an Azure Spring Apps service instance for app deployment.
 author: karlerickson
 ms.author: karler
 ms.service: spring-apps
@@ -15,7 +15,7 @@ zone_pivot_groups: programming-languages-spring-apps
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️Standard consumption (Preview) ✔️Basic/Standard ✔️Enterprise
+**This article applies to:** ✔️ Basic/Standard tier ❌ Enterprise tier
 
 ::: zone pivot="programming-language-csharp"
 
@@ -44,7 +44,7 @@ az extension add --name spring
 
 ## Sign in to Azure
 
-1. Sign in to Azure with the Azure CLI.
+1. Sign in to the Azure CLI.
 
    ```azurecli
    az login
@@ -57,12 +57,12 @@ az extension add --name spring
    ```
 
    ```azurecli
-   az account set --subscription <Name or ID of the subscription>
+   az account set --subscription <Name or ID of a subscription from the last step>
    ```
 
 ## Provision an instance of Azure Spring Apps
 
-1. Create a [resource group](../azure-resource-manager/management/overview.md) to contain your Azure Spring Apps service. The resource group name can include letters, numbers, underscores, parentheses, hyphens, periods (except at the end) and Unicode characters.
+1. Create a [resource group](../azure-resource-manager/management/overview.md) to contain your Azure Spring Apps service. The resource group name can include alphanumeric, underscore, parentheses, hyphen, period (except at end), and Unicode characters.
 
    ```azurecli
    az group create --location eastus --name <resource group name>
@@ -76,21 +76,21 @@ az extension add --name spring
 
    This command might take several minutes to complete.
 
-1. Set your default resource group name and service instance name to avoid having to specify these values in subsequent commands.
+1. Set your default resource group name and service instance name so you don't have to repeatedly specify these values in subsequent commands.
 
    ```azurecli
-   az config set defaults.group = <resource group name>
+   az config set defaults.group=<resource group name>
    ```
 
    ```azurecli
-   az config set defaults.spring-cloud = <service instance name>
+   az config set defaults.spring-cloud=<service instance name>
    ```
 
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
 
-You can provision an instance of the Azure Spring Apps service using the Azure portal or the Azure CLI. Both methods are explained in the following procedures.
+You can provision an instance of the Azure Spring Apps service using the Azure portal or the Azure CLI.  Both methods are explained in the following procedures.
 
 ## Prerequisites
 
@@ -101,32 +101,29 @@ You can provision an instance of the Azure Spring Apps service using the Azure p
 
 ## Provision an instance of Azure Spring Apps
 
-#### [Azure portal](#tab/Azure-portal)
+#### [Portal](#tab/Azure-portal)
 
 The following procedure creates an instance of Azure Spring Apps using the Azure portal.
 
 1. In a new tab, open the [Azure portal](https://portal.azure.com/).
 
-1. In the search box, search for *Azure Spring Apps*, and then select **Azure Spring Apps** from the results.
+1. From the top search box, search for **Azure Spring Apps**.
 
-   :::image type="content" source="media/quickstart-provision-service-instance/spring-apps-start.png" alt-text="Screenshot of Azure portal showing the Azure Spring Apps service in search results." lightbox="media/quickstart-provision-service-instance/spring-apps-start.png":::
+1. Select **Azure Spring Apps** from the results.
+
+   :::image type="content" source="media/quickstart-provision-service-instance/spring-apps-start.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps service in search results." lightbox="media/quickstart-provision-service-instance/spring-apps-start.png":::
 
 1. On the Azure Spring Apps page, select **Create**.
 
-   :::image type="content" source="media/quickstart-provision-service-instance/spring-apps-create.png" alt-text="Screenshot of Azure portal showing the Azure Spring Apps resource with Create button highlighted.":::
+   :::image type="content" source="media/quickstart-provision-service-instance/spring-apps-create.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps resource with Create button highlighted.":::
 
-1. Fill out the **Basics** form on the Azure Spring Apps **Create** page using the following guidelines:
+1. Fill out the form on the Azure Spring Apps **Create** page.  Consider the following guidelines:
 
-   - **Project Details**
-
-     - **Subscription**: Select the subscription you want to be billed for this resource.
-     - **Resource group**: Select an existing resource group or create a new one.
-
-   - **Service Details**
-
-     - **Name**: Create the name for the Azure Spring Apps instance. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
-     - **Location**: Select the location of your service instance.
-   - **Plan**: Select **Standard** for the **Pricing tier** option.
+   - **Subscription**: Select the subscription you want to be billed for this resource.
+   - **Resource group**: Creating new resource groups for new resources is a best practice. You will use this value in later steps as **\<resource group name\>**.
+   - **Service Details/Name**: Specify the **\<service instance name\>**.  The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens.  The first character of the service name must be a letter and the last character must be either a letter or a number.
+   - **Location**: Select the location for your service instance.
+   - Select **Standard** for the **Pricing tier** option.
 
    :::image type="content" source="media/quickstart-provision-service-instance/portal-start.png" alt-text="Screenshot of Azure portal showing the Azure Spring Apps Create page." lightbox="media/quickstart-provision-service-instance/portal-start.png":::
 
@@ -135,7 +132,7 @@ The following procedure creates an instance of Azure Spring Apps using the Azure
 > [!div class="nextstepaction"]
 > [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=public-endpoint)
 
-#### [Azure CLI](#tab/Azure-CLI)
+#### [CLI](#tab/Azure-CLI)
 
 The following procedure uses the Azure CLI extension to provision an instance of Azure Spring Apps.
 
@@ -145,17 +142,17 @@ The following procedure uses the Azure CLI extension to provision an instance of
    az extension update --name spring
    ```
 
-1. Sign in to the Azure CLI. If needed, set your active subscription.
+1. Sign in to the Azure CLI and choose your active subscription.
 
    ```azurecli
    az login
    az account list -o table
-   az account set --subscription <Subscription ID or name>
+   az account set --subscription <Name or ID of subscription, skip if you only have 1 subscription>
    ```
 
-1. Prepare a name for the Azure Spring Apps service instance. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
+1. Prepare a name for your Azure Spring Apps service.  The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens.  The first character of the service name must be a letter and the last character must be either a letter or a number.
 
-1. Create a resource group to contain the Azure Spring Apps service instance. Create in instance of the Azure Spring Apps service.
+1. Create a resource group to contain your Azure Spring Apps service.  Create in instance of the Azure Spring Apps service.
 
    ```azurecli
    az group create --name <resource group name>
@@ -164,10 +161,10 @@ The following procedure uses the Azure CLI extension to provision an instance of
 
    Learn more about [Azure Resource Groups](../azure-resource-manager/management/overview.md).
 
-1. Set your default resource group name and Azure Spring Apps service name using the following command:
+1. Set your default resource group name and Spring Cloud service name using the following command:
 
    ```azurecli
-   az config set defaults.group=<resource group name> defaults.spring-cloud = <service name>
+   az config set defaults.group=<resource group name> defaults.spring-cloud=<service name>
    ```
 
 ---
