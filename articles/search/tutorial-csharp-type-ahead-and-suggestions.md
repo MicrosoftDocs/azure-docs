@@ -1,7 +1,7 @@
 ---
-title: C# tutorial on autocomplete and suggestions
+title: Add autocomplete and suggestions to search app
 titleSuffix: Azure Cognitive Search
-description:  Add autocomplete and suggestions to collect search term input from users using dropdown list. This tutorial builds on an existing hotels project.
+description:  In this tutorial for Azure Cognitive Search, add autocomplete and suggestions based on search term inputs. 
 
 manager: nitinme
 author: HeidiSteen
