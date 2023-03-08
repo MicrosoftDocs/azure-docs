@@ -8,7 +8,7 @@ ms.custom: engagement-fy23
 ---
 # Migrate Microsoft SQL Server Always-On cluster to Azure VMware Solution
 
-In this article, you’ll learn to migrate Microsoft SQL Server Always-On Cluster to Azure VMware Solution, VMware HCX can use the vMotion migration method. 
+In this article, you’ll learn how to migrate Microsoft SQL Server Always-On Cluster to Azure VMware Solution, VMware HCX can use the vMotion migration method. 
 
 :::image type="content" source="media/sql-server-hybrid-benefit/sql-alwayson-architecture.png" alt-text="Diagram showing the architecture of always on SQL server for  Azure VMware Solution." border="false":::
 
@@ -93,9 +93,9 @@ Full details about quorum configuration and management can be consulted in [Fail
   at. 
        1. Do not migrate all the replicas at the same time using **HCX Bulk Migration**. Instead, migrate one replica at a time and verify that all changes are synchronized back to the replica after each migration.
 1. Once the migration of all the replicas is completed, access your Always-On availability group with **SQL Server Management Studio**.
-      1. Open the Dashboard and verify there is no data loss in any of the replicas and that all are in     **Synchronized** state.
+    1. Open the Dashboard and verify there is no data loss in any of the replicas and that all are in     **Synchronized** state.
           :::image type="content" source="media/sql-server-hybrid-benefit/sql-alwayson-7.png" alt-text="Diagram showing how to review changes and migrate always on SQL server for  Azure VMware Solution." border="false":::
-        1. Edit the **Properties** of the availability group and set **Failover Mode** to **Automatic** in all replicas. 
+    1. Edit the **Properties** of the availability group and set **Failover Mode** to **Automatic** in all replicas. 
               :::image type="content" source="media/sql-server-hybrid-benefit/sql-alwayson-8.png" alt-text="Diagram showing how to edit the properties and  migrate always on SQL server for  Azure VMware Solution." border="false":::
 
 During the process, you will create placement policies that can recreate the Affinity or Anti-Affinity rules previously present on-premises. For more details about placement policies, see [Create a placement policy in Azure VMware Solution](https://learn.microsoft.com/azure/azure-vmware/create-placement-policy) article. 
