@@ -176,10 +176,6 @@ For additional information, review the following articles:
 
 - [Get started with custom policies in Azure AD B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy)
 
-::: zone-end
-
-::: zone pivot="b2c-custom-policy"
-
 >[!NOTE]
 >In Azure Active Directory B2C, [**custom policies**](./user-flow-overview.md) are designed primarily to address complex scenarios. For most scenarios, we recommend that you use built-in [**user flows**](./user-flow-overview.md).
 
@@ -340,4 +336,3 @@ For additional information, review the following articles:
 
 - [Get started with custom policies in Azure AD B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy)
 
-::: zone-end
