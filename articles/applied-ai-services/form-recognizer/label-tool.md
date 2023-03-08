@@ -270,7 +270,7 @@ After training finishes, examine the **Average Accuracy** value. If it's low, yo
 
 ## Compose trained models
 
-With Model Compose, you can compose up to 100 models to a single model ID. When you call Analyze with the composed `modelID`, Form Recognizer will first classify the form you submitted, choose the best matching model, and then return results for that model. This operation is useful when incoming forms may belong to one of several templates.
+With Model Compose, you can compose up to 200 models to a single model ID. When you call Analyze with the composed `modelID`, Form Recognizer will first classify the form you submitted, choose the best matching model, and then return results for that model. This operation is useful when incoming forms may belong to one of several templates.
 
 * To compose models in the Sample Labeling tool, select the Model Compose (merging arrow) icon from the navigation bar.
 * Select the models you wish to compose together. Models with the arrows icon are already composed models.

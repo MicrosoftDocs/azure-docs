@@ -32,7 +32,7 @@ items:
   items:
     - name: Form Recognizer Studio
       displayName: get started, cors, blob, storage, upload, labels, custom, dynamic, fixed, signatures
-      href: quickstarts/try-form-recognizer-studio.md
+      href: quickstarts/try-v3-form-recognizer-studio.md
     - name: "Get started with Form Recognizer"
       displayName: formRecognizerClient, form recognizer client, boundingBox, box, begin_recognize
       href: quickstarts/get-started-sdks-rest-api.md
@@ -58,12 +58,15 @@ items:
     href:  create-sas-tokens.md
   - name: Custom models
     items:
-    - name: Build a custom model
+    - name: Build a custom extraction model
       displayName: tables, labels, ocr, input, train, training, sets, testing
       href: how-to-guides/build-a-custom-model.md
-    - name: Compose custom models
+    - name: Compose custom extraction models
       displayName: custom, models, modelId, model ID, train, dataset, data set, label, ocr, upload
       href: how-to-guides/compose-custom-models.md
+    - name: Build a custom classification model
+      displayName: custom, classifier, splitter
+      href: how-to-guides/build-a-custom-classifier.md
     - name: Deploy the sample-labeling tool
       displayName: FOTT, migration, containers, docker
       href: deploy-label-tool.md
@@ -145,9 +148,6 @@ items:
   - name: Layout model
     displayName: tables, selection marks, structure, paragraph roles, text, headers, page numbers
     href: concept-layout.md
-  - name: 🆕 Add-on capabilities (preview)
-    displayName: extract, formula, font, styles, fontStyle, ocr.highResolution, ocr.formula, high resolution, background color, inline, display
-    href: concept-add-on-capabilities.md
   - name: W-2 form model
     displayName: wages, taxes, salary, employees
     href: concept-w2.md
@@ -174,10 +174,13 @@ items:
     - name: Custom neural model
       displayName: selection, structure, tables, tabular, train, template, neural, build mode, signatures, custom
       href: concept-custom-neural.md
-    - name: Create labeled datasets
+    - name: Custom classification model
+      displayName: custom, train, classification, splitting
+      href: concept-custom-classification.md
+    - name: Custom labels
       displayName: structure, selection, labels, tables, tabular, train
       href: concept-custom-label.md
-    - name: Labeling tips and pointers
+    - name: Custom labeling tips
       displayName: structure, selection, labels, tables, tabular, train, tips
       href: concept-custom-label-tips.md
     - name: Composed models

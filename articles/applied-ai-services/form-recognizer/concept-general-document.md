@@ -25,7 +25,7 @@ The General document v3.0 model combines powerful Optical Character Recognition 
 The general document API supports most form types and will analyze your documents and extract keys and associated values. It's ideal for extracting common key-value pairs from documents. You can use the general document model as an alternative to training a custom model without labels.
 
 > [!NOTE]
-> The ```2022-06-30``` and subsequent versions of the general document model add support for selection marks.
+> The ```2023-02-28-preview``` version of the general document model adds support for normalized keys.
 
 ## General document features
 
@@ -35,13 +35,19 @@ The general document API supports most form types and will analyze your document
 
 * The general document model supports structured, semi-structured, and unstructured documents.
 
-* Key names are spans of text within the document that are associated with a value.
+* Key names are spans of text within the document that are associated with a value. With the ```2023-02-28-preview``` API version, key names are normalized where applicable.
 
-* Selection marks are identified as fields with a value of ```:selected:``` or ```:unselected:``` 
+* Selection marks are identified as fields with a value of ```:selected:``` or ```:unselected:```
 
 ***Sample document processed in the Form Recognizer Studio***
 
 :::image type="content" source="media/studio/general-document-analyze.png" alt-text="Screenshot: general document analysis in the Form Recognizer Studio.":::
+
+### Key normalization (common name)
+
+When analyzing documents with variations in key names like ```Social Security Number```, ```Social Security Nbr```, ```SSN```, the output normalizes the key variations to a single common name, ```SocialSecurityNumber```. This simplifies downstream processing of documents where you no longer need to account for variations in the key name.
+
+:::image type="content" source="media/common-name.png" alt-text="Screenshot: general document analysis in the Form Recognizer Studio.":::
 
 ## Development options
 
@@ -87,10 +93,11 @@ Keys can also exist in isolation when the model detects that a key exists, with 
 
 ## Data extraction
 
-| **Model**   | **Text extraction** |**Key-Value pairs** |**Selection Marks**   | **Tables**   |
-| --- | :---: |:---:| :---: | :---: |
-|General document  | ✓  |  ✓ | ✓  | ✓  |
+| **Model**   | **Text extraction** |**Key-Value pairs** |**Selection Marks**   | **Tables**   | **Common Names** |
+| --- | :---: |:---:| :---: | :---: | :---: |
+|General document  | ✓  |  ✓ | ✓  | ✓  | ✓* |
 
+✓* - Only available in the 2023-02-28-preview API version.
 ## Input requirements
 
 [!INCLUDE [input requirements](./includes/input-requirements.md)]

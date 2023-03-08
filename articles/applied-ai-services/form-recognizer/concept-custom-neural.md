@@ -42,7 +42,20 @@ Custom neural models currently only support key-value pairs and selection marks 
 
 The build custom model operation has added support for the *template* and *neural* custom models. Previous versions of the REST API and SDKs only supported a single build mode that is now known as the *template* mode.
 
-Neural models support documents that have the same information, but different page structures. Examples of these documents include United States W2 forms, which share the same information, but may vary in appearance across companies. Neural models currently only support English text. For more information, *see* [Custom model build mode](concept-custom.md#build-mode).
+Neural models support documents that have the same information, but different page structures. Examples of these documents include United States W2 forms, which share the same information, but may vary in appearance across companies. For more information, *see* [Custom model build mode](concept-custom.md#build-mode).
+
+## Language support
+
+Neural models now support additional languages in the ```2023-02-28-preview``` API.
+
+| Languages | API version |
+|:--:|:--:|
+| English | 2022-08-31 (GA) , 2023-02-28-preview|
+| German |  2023-02-28-preview|
+| Italian |  2023-02-28-preview|
+| French |  2023-02-28-preview|
+| Spanish |  2023-02-28-preview|
+| Dutch |  2023-02-28-preview|
 
 ## Tabular fields
 

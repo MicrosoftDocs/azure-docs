@@ -80,9 +80,7 @@ This article contains both a quick reference and detailed description of Azure F
 | Adjustable | No | No |
 | **Training dataset size * Neural** | 1 GB <sup>3</sup> | 1 GB (default value) |
 | Adjustable | No | No |
-| **Training file size * Template** | 50 MB <sup>4</sup> | 50 MB (default value) |
-| Adjustable | No | No |
-| **Total Training dataset size * Template** | 150 MB <sup>4</sup> | 150 MB (default value) |
+| **Training dataset size * Template** | 50 MB <sup>4</sup> | 50 MB (default value) |
 | Adjustable | No | No |
 | **Max number of pages (Training) * Template** | 500 | 500 (default value) |
 | Adjustable | No | No |
@@ -104,7 +102,7 @@ This article contains both a quick reference and detailed description of Azure F
 
 | Quota | Free (F0) <sup>1</sup> | Standard (S0) |
 |--|--|--|
-| **Compose Model limit** | 5 | 100 (default value) |
+| **Compose Model limit** | 5 | 200 (default value) |
 | Adjustable | No | No |
 | **Training dataset size** | 50 MB | 50 MB (default value) |
 | Adjustable | No | No |
