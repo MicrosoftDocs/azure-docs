@@ -8,8 +8,8 @@ manager: jegeib
 editor: jegeib
 
 ms.assetid: na
-ms.service: security
-ms.subservice: security-develop
+ms.service: information-protection
+ms.subservice: aiplabels
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
@@ -138,7 +138,7 @@ ms.author: jegeib
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | SQL Azure |
 | **Attributes**              | SQL Version - V12 |
-| **References**              | [Get Started with SQL Database Threat Detection](../../azure-sql/database/threat-detection-configure.md)|
+| **References**              | [Get Started with SQL Database Threat Detection](/azure/azure-sql/database/threat-detection-configure)|
 | **Steps** |<p>Threat Detection detects anomalous database activities indicating potential security threats to the database. It provides a new layer of security, which enables customers to detect and respond to potential threats as they occur by providing security alerts on anomalous activities.</p><p>Users can explore the suspicious events using Azure SQL Database Auditing to determine if they result from an attempt to access, breach or exploit data in the database.</p><p>Threat Detection makes it simple to address potential threats to the database without the need to be a security expert or manage advanced security monitoring systems</p>|
 
 ## <a id="analytics"></a>Use Azure Storage Analytics to audit access of Azure Storage

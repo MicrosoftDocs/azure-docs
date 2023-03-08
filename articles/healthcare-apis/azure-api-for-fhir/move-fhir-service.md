@@ -1,27 +1,27 @@
 ---
-title: Move FHIR service to another subscription or resource group
-description: This article describes how to move Azure an API for FHIR service instance  
-author: zxue
+title: Move Azure API for FHIR instance to a different subscription or resource group
+description: This article describes how to move Azure an API for FHIR instance  
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 01/14/2022
-ms.author: zxue
+ms.date: 06/03/2022
+ms.author: kesheth
 ---
 
-# Move FHIR service to another subscription or resource group
+# Move Azure API for FHIR to a different subscription or resource group
 
-In this article, you'll learn how to move an Azure API for FHIR service instance to another subscription or another resource group.  
+In this article, you'll learn how to move an Azure API for FHIR instance to a different subscription or another resource group.  
 
 
-Moving to a different region is not supported, though the option may be available from the list. See more information on [Move operation support for resources](../../azure-resource-manager/management/move-support-resources.md).
+Moving to a different region isn’t supported, though the option may be available from the list. For more information, see [Move operation support for resources](../../azure-resource-manager/management/move-support-resources.md).
 
 > [!Note] 
 > Moving an instance of Azure API for FHIR between subscriptions or resource groups is supported, as long as Private Link is NOT enabled and no IoMT connectors are created.
 
 ## Move to another subscription
 
-You can move an Azure API for FHIR service instance to another subscription from the portal. However, the runtime and data for the service are not moved. On average the **move** operation takes approximately 15 minutes or so, and the actual time may vary.
+You can move an Azure API for FHIR instance to another subscription from the portal. However, the runtime and data for the service aren’t moved. On average the **move** operation takes approximately 15 minutes or so, and the actual time may vary.
 
 The **move** operation takes a few simple steps.
 
@@ -51,8 +51,10 @@ The process works similarly to **Move to another subscription**, except the sele
 
 ## Next steps
 
-In this article, you've learned how to move the FHIR service. For more information about the FHIR service, see
+In this article, you've learned how to move the Azure API for FHIR instance. For more information about the supported FHIR features in Azure API for FHIR, see
 
 >[!div class="nextstepaction"]
->[Supported FHIR Features](fhir-features-supported.md)
+>[Supported FHIR features](fhir-features-supported.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
 

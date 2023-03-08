@@ -1,15 +1,17 @@
 ---
 title: Use Java to manage data in Azure Data Lake Storage Gen2
-description: Use Azure Storage libraries for Java to manage directories and files in storage accounts that has hierarchical namespace enabled.
-author: normesta
+titleSuffix: Azure Storage
+description: Use Azure Storage libraries for Java to manage directories and files in storage accounts that have a hierarchical namespace enabled.
+author: pauljewellmsft
+
+ms.author: pauljewell
 ms.service: storage
-ms.date: 02/17/2021
+ms.date: 02/07/2023
 ms.devlang: java
-ms.custom: devx-track-java
-ms.author: normesta
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
+ms.custom: devx-track-java
 ---
 
 # Use Java to manage directories and files in Azure Data Lake Storage Gen2
@@ -58,24 +60,23 @@ import com.azure.storage.file.datalake.options.PathSetAccessControlRecursiveOpti
 
 To use the snippets in this article, you'll need to create a **DataLakeServiceClient** instance that represents the storage account.
 
-### Connect by using an account key
-
-This is the easiest way to connect to an account.
-
-This example creates a **DataLakeServiceClient** instance by using an account key.
-
-:::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/Authorize_DataLake.java" id="Snippet_AuthorizeWithKey":::
-
 ### Connect by using Azure Active Directory (Azure AD)
 
 You can use the [Azure identity client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity) to authenticate your application with Azure AD.
 
-This example creates a **DataLakeServiceClient** instance by using a client ID, a client secret, and a tenant ID. To get these values, see [Acquire a token from Azure AD for authorizing requests from a client application](../common/storage-auth-aad-app.md).
+Create a [DataLakeServiceClient](/java/api/com.azure.storage.file.datalake.datalakeserviceclient) instance and pass in a new instance of the [DefaultAzureCredential](/java/api/com.azure.identity.defaultazurecredential) class.
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/Authorize_DataLake.java" id="Snippet_AuthorizeWithAzureAD":::
 
-> [!NOTE]
-> For more examples, see the [Azure identity client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity) documentation.
+To learn more about using **DefaultAzureCredential** to authorize access to data, see [Azure Identity client library for Java](/java/api/overview/azure/identity-readme).
+
+### Connect by using an account key
+
+You can authorize access to data using your account access keys (Shared Key). This example creates a [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) instance that is authorized with the account key.
+
+:::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/Authorize_DataLake.java" id="Snippet_AuthorizeWithKey":::
+
+[!INCLUDE [storage-shared-key-caution](../../../includes/storage-shared-key-caution.md)]
 
 ## Create a container
 
@@ -89,7 +90,7 @@ This example creates a container named `my-file-system`.
 
 Create a directory reference by calling the **DataLakeFileSystemClient.createDirectory** method.
 
-This example adds a directory named `my-directory` to a container, and then adds a sub-directory named `my-subdirectory`.
+This example adds a directory named `my-directory` to a container, and then adds a subdirectory named `my-subdirectory`.
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/CRUD_DataLake.java" id="Snippet_CreateDirectory":::
 
@@ -97,11 +98,11 @@ This example adds a directory named `my-directory` to a container, and then adds
 
 Rename or move a directory by calling the **DataLakeDirectoryClient.rename** method. Pass the path of the desired directory a parameter.
 
-This example renames a sub-directory to the name `my-subdirectory-renamed`.
+This example renames a subdirectory to the name `my-subdirectory-renamed`.
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/CRUD_DataLake.java" id="Snippet_RenameDirectory":::
 
-This example moves a directory named `my-subdirectory-renamed` to a sub-directory of a directory named `my-directory-2`.
+This example moves a directory named `my-subdirectory-renamed` to a subdirectory of a directory named `my-directory-2`.
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/CRUD_DataLake.java" id="Snippet_MoveDirectory":::
 
@@ -134,13 +135,13 @@ Use the **DataLakeFileClient.uploadFromFile** method to upload large files witho
 
 ## Download from a directory
 
-First, create a **DataLakeFileClient** instance that represents the file that you want to download. Use the **DataLakeFileClient.read** method to read the file. Use any .NET file processing API to save bytes from the stream to a file.
+First, create a **DataLakeFileClient** instance that represents the file that you want to download. Use the **DataLakeFileClient.read** method to read the file. Use any Java file processing API to save bytes from the stream to a file.
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/CRUD_DataLake.java" id="Snippet_DownloadFile":::
 
 ## List directory contents
 
-This example, prints the names of each file that is located in a directory named `my-directory`.
+This example prints the names of each file that is located in a directory named `my-directory`.
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/CRUD_DataLake.java" id="Snippet_ListFilesInDirectory":::
 

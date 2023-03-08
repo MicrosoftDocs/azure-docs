@@ -2,12 +2,13 @@
 title: Remove resources from a move collection in Azure Resource Mover
 description: Learn how to remove resources from a move collection in Azure Resource Mover.
 manager: evansma
-author: rayne-wiselman 
+author: ankitaduttaMSFT
 ms.service: resource-mover
 ms.topic: how-to
 ms.date: 02/22/2020
-ms.author: raynew 
+ms.author: ankitadutta
 ms.custom: devx-track-azurepowershell
+
 #Customer intent: As an Azure admin,  I want remove resources I've added to a move collection.
 
 ---

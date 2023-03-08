@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 10/04/2021
+ms.date: 02/23/2023
 ms.author: anfdocs
 ---
 # Create an NFS volume for Azure NetApp Files
@@ -40,7 +40,7 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
 
 ## Best practice
 
-* Ensure that you’re using the proper mount instructions for the volume.  See [Mount a volume for Windows or Linux VMs](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md).
+* Ensure that you’re using the proper mount instructions for the volume. See [Mount a volume for Windows or Linux VMs](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md).
 
 * The NFS client should be in the same VNet or peered VNet as the Azure NetApp Files volume. Connecting from outside the VNet is supported; however, it will introduce additional latency and decrease overall performance.
 
@@ -54,11 +54,9 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
 
 2.	In the Create a Volume window, click **Create**, and provide information for the following fields under the Basics tab:   
     * **Volume name**      
-        Specify the name for the volume that you are creating.   
+        Specify the name for the volume that you are creating. 
 
-        A volume name must be unique within each capacity pool. It must be at least three characters long. The name must begin with a letter. It can contain letters, numbers, underscores ('_'), and hyphens ('-') only.
-
-        You cannot use `default` or `bin` as the volume name.
+        Refer to [Naming rules and restrictions for Azure resources](../azure-resource-manager/management/resource-name-rules.md#microsoftnetapp) for naming conventions on volumes. Additionally, you cannot use `default` or `bin` as the volume name.
 
     * **Capacity pool**  
         Specify the capacity pool where you want the volume to be created.
@@ -67,6 +65,10 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
         Specify the amount of logical storage that is allocated to the volume.  
 
         The **Available quota** field shows the amount of unused space in the chosen capacity pool that you can use towards creating a new volume. The size of the new volume must not exceed the available quota.  
+
+    * **Large Volume**
+        If the quota of your volume is less than 100 TiB, select **No**. If the quota of your volume is greater than 100 TiB, select **Yes**.
+        [!INCLUDE [Large volumes warning](includes/large-volumes-notice.md)]
 
     * **Throughput (MiB/S)**   
         If the volume is created in a manual QoS capacity pool, specify the throughput you want for the volume.   
@@ -91,11 +93,17 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
     * **Network features**  
         In supported regions, you can specify whether you want to use **Basic** or **Standard** network features for the volume. See [Configure network features for a volume](configure-network-features.md) and [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) for details.
 
+    * **Availability zone**   
+        This option lets you deploy the new volume in the logical availability zone that you specify. Select an availability zone where Azure NetApp Files resources are present. For details, see [Manage availability zone volume placement](manage-availability-zone-volume-placement.md).
+
     * If you want to apply an existing snapshot policy to the volume, click **Show advanced section** to expand it, specify whether you want to hide the snapshot path, and select a snapshot policy in the pull-down menu. 
 
         For information about creating a snapshot policy, see [Manage snapshot policies](snapshots-manage-policy.md).
 
         ![Show advanced selection](../media/azure-netapp-files/volume-create-advanced-selection.png)
+
+        >[!NOTE]
+        >By default, the `.snapshot` directory path is hidden from NFSv4.1 clients. Enabling the **Hide snapshot path** option will hide the .snapshot directory from NFSv3 clients; the directory will still be accessible.
 
 3. Click **Protocol**, and then complete the following actions:  
     * Select **NFS** as the protocol type for the volume.   
@@ -112,7 +120,7 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
 
         Additional configurations are required if you use Kerberos with NFSv4.1. Follow the instructions in [Configure NFSv4.1 Kerberos encryption](configure-kerberos-encryption.md).
 
-    * If you want to enable Active Directory LDAP users and extended groups (up to 1024 groups) to access the volume, select the **LDAP** option. Follow instructions in [Configure ADDS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md) to complete the required configurations. 
+    * If you want to enable Active Directory LDAP users and extended groups (up to 1024 groups) to access the volume, select the **LDAP** option. Follow instructions in [Configure AD DS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md) to complete the required configurations. 
  
     *  Customize **Unix Permissions** as needed to specify change permissions for the mount path. The setting does not apply to the files under the mount path. The default setting is `0770`. This default setting grants read, write, and execute permissions to the owner and the group, but no permissions are granted to other users.     
         Registration requirement and considerations apply for setting **Unix Permissions**. Follow instructions in [Configure Unix permissions and change ownership mode](configure-unix-permissions-change-ownership-mode.md).   
@@ -121,7 +129,7 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
 
     ![Specify NFS protocol](../media/azure-netapp-files/azure-netapp-files-protocol-nfs.png)
 
-4. Click **Review + Create** to review the volume details.  Then click **Create** to create the volume.
+4. Click **Review + Create** to review the volume details. Then click **Create** to create the volume.
 
     The volume you created appears in the Volumes page. 
  
@@ -129,12 +137,16 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
 
 ## Next steps  
 
+* [Manage availability zone volume placement for Azure NetApp Files](manage-availability-zone-volume-placement.md)
 * [Configure NFSv4.1 default domain for Azure NetApp Files](azure-netapp-files-configure-nfsv41-domain.md)
 * [Configure NFSv4.1 Kerberos encryption](configure-kerberos-encryption.md)
-* [Configure ADDS LDAP over TLS for Azure NetApp Files](configure-ldap-over-tls.md)
-* [Configure ADDS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md)
+* [Enable Active Directory Domain Services (AD DS) LDAP authentication for NFS volumes](configure-ldap-over-tls.md)
+* [Configure AD DS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md)
 * [Mount a volume for Windows or Linux VMs](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Configure export policy for an NFS volume](azure-netapp-files-configure-export-policy.md)
 * [Configure Unix permissions and change ownership mode](configure-unix-permissions-change-ownership-mode.md). 
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Learn about virtual network integration for Azure services](../virtual-network/virtual-network-for-azure-services.md)
+* [Configure access control lists on NFSv4.1 with Azure NetApp Files](configure-access-control-lists.md)
+* [Application resilience FAQs for Azure NetApp Files](faq-application-resilience.md)
+* [Requirements and considerations for large volumes](large-volumes-requirements-considerations.md)

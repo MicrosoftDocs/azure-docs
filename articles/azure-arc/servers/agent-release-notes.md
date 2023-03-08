@@ -2,7 +2,7 @@
 title: What's new with Azure Arc-enabled servers agent
 description: This article has release notes for Azure Arc-enabled servers agent. For many of the summarized issues, there are links to more details.
 ms.topic: overview
-ms.date: 09/01/2021
+ms.date: 01/23/2023
 ms.custom: references_regions
 ---
 
@@ -16,51 +16,75 @@ The Azure Connected Machine agent receives improvements on an ongoing basis. To 
 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [archive for What's new with Azure Arc-enabled servers agent](agent-release-notes-archive.md).
 
-## Version 1.14 - January 2022
+## Version 1.27 - February 2023
 
 ### Fixed
 
-- A state corruption issue in the extension manager that could cause extension operations to get stuck in transient states has been fixed. Customers running agent version 1.13 are encouraged to upgrade to version 1.14 as soon as possible. If you continue to have issues with extensions after upgrading the agent, [submit a support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+- The extension service now correctly restarts when the Azure Connected Machine agent is upgraded by Update Management Center
+- Resolved issues with the hybrid connectivity component that could result in the "himds" service crashing, the server showing as "disconnected" in Azure, and connectivity issues with Windows Admin Center and SSH
+- Improved handling of resource move scenarios that could impact Windows Admin Center and SSH connectivity
+- Improved reliability when changing the [agent configuration mode](security-overview.md#local-agent-security-controls) from "monitor" mode to "full" mode.
+- Increased the [resource limits](agent-overview.md#agent-resource-governance) for the Microsoft Sentinel DNS extension to improve log collection reliability
+- Tenant IDs are better validated when connecting the server
 
-## Version 1.13 - November 2021
+## Version 1.26 - January 2023
 
-### Known issues
-
-- Extensions may get stuck in transient states (creating, deleting, updating) on Windows machines running the 1.13 agent in certain conditions. Microsoft recommends upgrading to agent version 1.14 as soon as possible to resolve this issue.
+> [!NOTE]
+> Version 1.26 is only available for Linux operating systems.
 
 ### Fixed
 
-- Improved reliability when installing or upgrading the agent.
+- Increased the [resource limits](agent-overview.md#agent-resource-governance) for the Microsoft Defender for Endpoint extension (MDE.Linux) on Linux to improve installation reliability
+
+## Version 1.25 - January 2023
 
 ### New features
 
-- Local configuration of agent settings now available using the [azcmagent config command](manage-agent.md#config).
-- Proxy server settings can be [configured using agent-specific settings](manage-agent.md#update-or-remove-proxy-settings) instead of environment variables.
-- Extension operations will execute faster using a new notification pipeline. You may need to adjust your firewall or proxy server rules to allow the new network addresses for this notification service (see [networking configuration](agent-overview.md#networking-configuration)). The extension manager will fall back to the existing behavior of checking every 5 minutes when the notification service cannot be reached.
-- Detection of the AWS account ID, instance ID, and region information for servers running in Amazon Web Services.
-
-## Version 1.12 - October 2021
+- Red Hat Enterprise Linux (RHEL) 9 is now a [supported operating system](prerequisites.md#supported-operating-systems)
 
 ### Fixed
 
-- Improved reliability when validating signatures of extension packages.
-- `azcmagent_proxy remove` command on Linux now correctly removes environment variables on Red Hat Enterprise Linux and related distributions.
-- `azcmagent logs` now includes the computer name and timestamp to help disambiguate log files.
+- Reliability improvements in the machine (guest) configuration policy engine
+- Improved error messages in the Windows MSI installer
+- Additional improvements to the detection logic for machines running on Azure Stack HCI
 
-## Version 1.11 - September 2021
+## Version 1.24 - November 2022
+
+### New features
+
+- `azcmagent logs` improvements:
+  - Only the most recent log file for each component is collected by default. To collect all log files, use the new `--full` flag.
+  - Journal logs for the agent services are now collected on Linux operating systems
+  - Logs from extensions are now collected
+- Agent telemetry is no longer sent to `dc.services.visualstudio.com`. You may be able to remove this URL from any firewall or proxy server rules if no other applications in your environment require it.
+- Failed extension installs can now be retried without removing the old extension as long as the extension settings are different
+- Increased the [resource limits](agent-overview.md#agent-resource-governance) for the Azure Update Management Center extension on Linux to reduce downtime during update operations
 
 ### Fixed
 
-- The agent can now be installed on Windows systems with the [System objects: Require case insensitivity for non-Windows subsystems](/windows/security/threat-protection/security-policy-settings/system-objects-require-case-insensitivity-for-non-windows-subsystems) policy set to Disabled.
-- The guest configuration policy agent will now automatically retry if an error is encountered during service start or restart events.
-- Fixed an issue that prevented guest configuration audit policies from successfully executing on Linux machines.
+- Improved logic for detecting machines running on Azure Stack HCI to reduce false positives
+- Auto-registration of required resource providers only happens when they are unregistered
+- Agent will now detect drift between the proxy settings of the command line tool and background services
+- Fixed a bug with proxy bypass feature that caused the agent to incorrectly use the proxy server for bypassed URLs
+- Improved error handling when extensions don't download successfully, fail validation, or have corrupt state files
 
-## Version 1.10 - August 2021
+## Version 1.23 - October 2022
+
+### New features
+
+- The minimum PowerShell version required on Windows Server has been reduced to PowerShell 4.0
+- The Windows agent installer is now compatible with systems that enforce a Microsoft publisher-based Windows Defender Application Control policy.
+- Added support for Rocky Linux 8 and Debian 11.
 
 ### Fixed
 
-- The guest configuration policy agent can now configure and remediate system settings. Existing policy assignments continue to be audit-only. Learn more about the Azure Policy [guest configuration remediation options](../../governance/policy/concepts/guest-configuration-policy-effects.md).
-- The guest configuration policy agent now restarts every 48 hours instead of every 6 hours.
+- Tag values are correctly preserved when connecting a server and specifying multiple tags (fixes known issue from version 1.22).
+- An issue preventing some users who tried authenticating with an identity from a different tenant than the tenant where the server is (will be) registered has been fixed.
+- The `azcamgent check` command no longer validates CNAME records to reduce warnings that did not impact agent functionality.
+- The agent will now try to obtain an access token for up to 5 minutes when authenticating with an Azure Active Directory service principal.
+- Cloud presence checks now only run once at the time the `himds` service starts on the server to reduce local network traffic. If you live migrate your virtual machine to a different cloud provider, it will not reflect the new cloud provider until the service or computer has rebooted.
+- Improved logging during the installation process.
+- The install script for Windows now saves the MSI to the TEMP directory instead of the current directory.
 
 ## Next steps
 

@@ -7,10 +7,10 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: deeikele
 author: denniseik
+ms.reviewer: larryfr
 ms.date: 01/05/2022
 ms.topic: how-to
-ms.custom: 
-
+ms.tool: terraform
 ---
 
 # Manage Azure Machine Learning workspaces using Terraform
@@ -50,7 +50,7 @@ Create the Terraform configuration file that declares the Azure provider:
 
 ## Deploy a workspace
 
-The following Terraform configurations can be used to create an Azure Machine Learning workspace. When you create an Azure Machine Learning workspace, various other services are required as dependencies. The template also specifies these [associated resources to the workspace](./concept-workspace.md#resources). Depending on your needs, you can choose to use the template that creates resources with either public or private network connectivity.
+The following Terraform configurations can be used to create an Azure Machine Learning workspace. When you create an Azure Machine Learning workspace, various other services are required as dependencies. The template also specifies these [associated resources to the workspace](./concept-workspace.md#associated-resources). Depending on your needs, you can choose to use the template that creates resources with either public or private network connectivity.
 
 # [Public network connectivity](#tab/publicworkspace)
 
@@ -68,7 +68,7 @@ The configuration below creates a workspace in an isolated network environment u
 
 Some resources in Azure require globally unique names. Before deploying your resources using the following templates, set the `resourceprefix` variable to a value that is unique.
 
-When using private link endpoints for both Azure Container Registry and Azure Machine Learning, Azure Container Registry tasks cannot be used for building [environment](/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true) images. Instead you can build images using an Azure Machine Learning compute cluster. To configure the cluster name of use, set the [image_build_compute_name](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/machine_learning_workspace) argument. You can configure to [allow public access](./how-to-configure-private-link.md?tabs=python#enable-public-access) to a workspace that has a private link endpoint using the [public_network_access_enabled](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/machine_learning_workspace) argument.
+When using private link endpoints for both Azure Container Registry and Azure Machine Learning, Azure Container Registry tasks cannot be used for building [environment](/python/api/azure-ai-ml/azure.ai.ml.entities.environment) images. Instead you can build images using an Azure Machine Learning compute cluster. To configure the cluster name of use, set the [image_build_compute_name](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/machine_learning_workspace) argument. You can configure to [allow public access](./how-to-configure-private-link.md?tabs=python#enable-public-access) to a workspace that has a private link endpoint using the [public_network_access_enabled](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/machine_learning_workspace) argument.
 
 **variables.tf**:
 :::code language="terraform" source="~/terraform/quickstart/201-machine-learning-moderately-secure/variables.tf":::
@@ -124,20 +124,17 @@ There are several options to connect to your private link endpoint workspace. To
 
 [!INCLUDE [machine-learning-resource-provider](../../includes/machine-learning-resource-provider.md)]
 
-### Current limitations
-
-* It is currently not possible to use Terraform for the deployment of workspaces using customer-managed encryption keys, while using a user-assigned managed identity. You can create a CMK workspace using a system-assigned managed identity.
-
 ## Next steps
 
 * To learn more about Terraform support on Azure, see [Terraform on Azure documentation](/azure/developer/terraform/).
 * For details on the Terraform Azure provider and Machine Learning module, see [Terraform Registry Azure Resource Manager Provider](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/machine_learning_workspace).
 * To find "quick start" template examples for Terraform, see [Azure Terraform QuickStart Templates](https://github.com/Azure/terraform/tree/master/quickstart):
   
-  * [101: Machine learning workspace and compute](https://github.com/Azure/terraform/tree/master/quickstart/101-machine-learning) – the minimal set of resources needed to get started with Azure ML.
+  * [101: Machine learning workspace and compute](https://github.com/Azure/terraform/tree/master/quickstart/101-machine-learning) – the minimal set of resources needed to get started with Azure Machine Learning.
   * [201: Machine learning workspace, compute, and a set of network components for network isolation](https://github.com/Azure/terraform/tree/master/quickstart/201-machine-learning-moderately-secure) – all resources that are needed to create a production-pilot environment for use with HBI data.
   * [202: Similar to 201, but with the option to bring existing network components.](https://github.com/Azure/terraform/tree/master/quickstart/202-machine-learning-moderately-secure-existing-VNet).
   * [301:  Machine Learning workspace (Secure Hub and Spoke with Firewall)](https://github.com/azure/terraform/tree/master/quickstart/301-machine-learning-hub-spoke-secure).
   
 * To learn more about network configuration options, see [Secure Azure Machine Learning workspace resources using virtual networks (VNets)](./how-to-network-security-overview.md).
 * For alternative Azure Resource Manager template-based deployments, see [Deploy resources with Resource Manager templates and Resource Manager REST API](../azure-resource-manager/templates/deploy-rest.md).
+* For information on how to keep your Azure Machine Learning up to date with the latest security updates, see [Vulnerability management](concept-vulnerability-management.md).

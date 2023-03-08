@@ -4,14 +4,14 @@ description: This topic details supported and unsupported topologies for Azure A
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 editor: ''
 ms.assetid: 1034c000-59f2-4fc8-8137-2416fa5e4bfe
 ms.service: active-directory
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/14/2022
+ms.date: 01/26/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -46,7 +46,7 @@ The most common topology is a single on-premises forest, with one or multiple do
 ### Single forest, multiple sync servers to one Azure AD tenant
 ![Unsupported, filtered topology for a single forest](./media/plan-connect-topologies/singleforestfilteredunsupported.png)
 
-Having multiple Azure AD Connect sync servers connected to the same Azure AD tenant is not supported, except for a [staging server](#staging-server). It's unsupported even if these servers are configured to synchronize with a mutually exclusive set of objects. You might have considered this topology if you can't reach all domains in the forest from a single server, or if you want to distribute load across several servers.
+Having multiple Azure AD Connect sync servers connected to the same Azure AD tenant is not supported, except for a [staging server](#staging-server). It's unsupported even if these servers are configured to synchronize with a mutually exclusive set of objects. You might have considered this topology if you can't reach all domains in the forest from a single server, or if you want to distribute load across several servers. (No errors occur when a new Azure AD Sync Server is configured for a new Azure AD forest and a new verified child domain.) 
 
 ## Multiple forests, single Azure AD tenant
 ![Topology for multiple forests and a single tenant](./media/plan-connect-topologies/multiforestsingledirectory.png)
@@ -78,7 +78,7 @@ You can find more details in [Understanding the default configuration](concept-a
 
 Having more than one Azure AD Connect sync server connected to a single Azure AD tenant is not supported. The exception is the use of a [staging server](#staging-server).
 
-This topology differs from the one below in that **multiple sync servers** connected to a single Azure AD tenant is not supported.
+This topology differs from the one below in that **multiple sync servers** connected to a single Azure AD tenant is not supported. (While not supported, this still works.)
 
 ### Multiple forests, single sync server, users are represented in only one directory
 ![Option for representing users only once across all directories](./media/plan-connect-topologies/multiforestusersonce.png)
@@ -136,27 +136,22 @@ It's possible to have more than one staging server when you want to have multipl
 ## Multiple Azure AD tenants
 We recommend having a single tenant in Azure AD for an organization. Before you plan to use multiple Azure AD tenants, see the article [Administrative units management in Azure AD](../roles/administrative-units.md). It covers common scenarios where you can use a single tenant.
 
-### (Public preview) Sync AD objects to multiple Azure AD tenants
+### Sync AD objects to multiple Azure AD tenants
 
 ![Diagram that shows a topology of multiple Azure A D tenants.](./media/plan-connect-topologies/multi-tenant-2.png)
 
-> [!NOTE]
-> This topology is currently in Public Preview. As the supported scenarios might still change, we recommend not deploying this topology in a production environment.
-
 This topology implements the following use cases:
 
-* AADConnect can synchronize the same users, groups, and contacts from a single Active Directory to multiple Azure AD tenants. These tenants can be in different Azure environments, such as the Azure China environment or the Azure Government environment, but they could also be in the same Azure environment, such as two tenants that are both in Azure Commercial. 
-*	The same Source Anchor can be used for a single object in separate tenants (but not for multiple objects in the same tenant)
+* AADConnect can synchronize the users, groups, and contacts from a single Active Directory to multiple Azure AD tenants. These tenants can be in different Azure environments, such as the Azure China environment or the Azure Government environment, but they could also be in the same Azure environment, such as two tenants that are both in Azure Commercial. For more details on options, see [Planning identity for Azure Government applications] (/azure/azure-government/documentation-government-plan-identity).
+*	The same Source Anchor can be used for a single object in separate tenants (but not for multiple objects in the same tenant). (The verified domain can't be the same in two tenants. More details are needed to enable the same object to have two UPNs.)
 *	You will need to deploy an AADConnect server for every Azure AD tenant you want to synchronize to - one AADConnect server cannot synchronize to more than one Azure AD tenant.
 *	It is supported to have different sync scopes and different sync rules for different tenants.
 *	Only one Azure AD tenant sync can be configured to write back to Active Directory for the same object. This includes device and group writeback as well as Hybrid Exchange configurations – these features can only be configured in one tenant. The only exception here is Password Writeback – see below.
 *	It is supported to configure Password Hash Sync from Active Directory to multiple Azure AD tenants for the same user object. If Password Hash Sync is enabled for a tenant, then Password Writeback may be enabled as well, and this can be done on multiple tenants: if the password is changed on one tenant, then password writeback will update it in Active Directory, and Password Hash Sync will update the password in the other tenants.
-*	It is not supported to use the same custom domain name in more than one Azure AD tenant, with one exception: it is supported to use a custom domain name in the Azure Commercial environment and use that same domain name in the Azure GCCH environment. Note that the custom domain name MUST exist in Commercial before it can be verified in the GCCH environment.
-*	It is not supported to configure hybrid experiences such as Seamless SSO and Hybrid Azure AD Join on more than one tenant. Doing so would overwrite the configuration of the other tenant and would make it unusable. 
-*	You can synchronize device objects to more than one tenant but only one tenant can be configured to trust a device.
+*	It is not supported to add and verify the same custom domain name in more than one Azure AD tenant, even if these tenants are in different Azure environments.
+*	It is not supported to configure hybrid experiences that utilize forest level configuration in AD, such as Seamless SSO and Hybrid Azure AD Join (non-targeted approach), with more than one tenant.  Doing so would overwrite the configuration of the other tenant, making it no longer usable.  You can find additional information in [Plan your hybrid Azure Active Directory join deployment](../devices/hybrid-azuread-join-plan.md#hybrid-azure-ad-join-for-single-forest-multiple-azure-ad-tenants). 
+*	You can synchronize device objects to more than one tenant but a device can be Hybrid Azure AD Joined to only one tenant.
 * Each Azure AD Connect instance should be running on a domain-joined machine.
-
-Related information to enable cross cloud federation can be found in [the dual federation article](./how-to-connect-fed-single-adfs-multitenant-federation.md)
 
 >[!NOTE]
 >Global Address List Synchronization (GalSync) is not done automatically in this topology and requires an additional custom MIM implementation to ensure each tenant has a complete Global Address List (GAL) in Exchange Online and Skype for Business Online.

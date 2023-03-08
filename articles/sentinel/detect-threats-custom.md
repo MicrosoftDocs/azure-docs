@@ -2,22 +2,19 @@
 title: Create custom analytics rules to detect threats with Microsoft Sentinel | Microsoft Docs
 description: Learn how to create custom analytics rules to detect security threats with Microsoft Sentinel. Take advantage of event grouping, alert grouping, and alert enrichment, and understand AUTO DISABLED.
 author: yelevin
-ms.topic: how-to
-ms.date: 11/09/2021
 ms.author: yelevin
-ms.custom: ignite-fall-2021
+ms.topic: how-to
+ms.date: 01/08/2023
 ---
 
 # Create custom analytics rules to detect threats
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 After [connecting your data sources](quickstart-onboard.md) to Microsoft Sentinel, create custom analytics rules to help discover threats and anomalous behaviors in your environment.
 
 Analytics rules search for specific events or sets of events across your environment, alert you when certain event thresholds or conditions are reached, generate incidents for your SOC to triage and investigate, and respond to threats with automated tracking and remediation processes.
 
 > [!TIP]
-> When creating custom rules, use existing rules as templates or references. Using existing rules as a baseline helps by building out most of the logic before you make any changes needed.
+> When creating custom rules, use existing rules as templates or references. Using existing rules as a baseline helps by building out most of the logic before you make any needed changes.
 
 > [!div class="checklist"]
 > - Create analytics rules
@@ -33,11 +30,13 @@ Analytics rules search for specific events or sets of events across your environ
 
     :::image type="content" source="media/tutorial-detect-threats-custom/create-scheduled-query-small.png" alt-text="Create scheduled query" lightbox="media/tutorial-detect-threats-custom/create-scheduled-query-full.png":::
 
-### Analytics rule wizard - General tab
+### Analytics rule wizard&mdash;General tab
 
 - Provide a unique **Name** and a **Description**.
 
-- In the **Tactics** field, you can choose from among categories of attacks by which to classify the rule. These are based on the tactics of the [MITRE ATT&CK](https://attack.mitre.org/) framework.
+- In the **Tactics and techniques** field, you can choose from among categories of attacks by which to classify the rule. These are based on the tactics and techniques of the [MITRE ATT&CK](https://attack.mitre.org/) framework.
+
+    [Incidents](investigate-cases.md) created from alerts that are detected by rules mapped to MITRE ATT&CK tactics and techniques automatically inherit the rule's mapping.
 
 - Set the alert **Severity** as appropriate.
 
@@ -66,7 +65,7 @@ In the **Set rule logic** tab, you can either write a query directly in the **Ru
 
     > [!IMPORTANT]
     >
-    > We recommend that your query uses an [Advanced SIEM Information model (ASIM) parser](normalization-about-parsers.md) and not a native table. This will ensure that the query supports any current or future relevant data source rather than a single data source.
+    > We recommend that your query uses an [Advanced Security Information Model (ASIM) parser](normalization-about-parsers.md) and not a native table. This will ensure that the query supports any current or future relevant data source rather than a single data source.
     >
 
 
@@ -82,9 +81,6 @@ In the **Set rule logic** tab, you can either write a query directly in the **Ru
 
 ### Alert enrichment
 
-> [!IMPORTANT]
-> The alert enrichment features are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 - Use the **Entity mapping** configuration section to map parameters from your query results to Microsoft Sentinel-recognized entities. Entities enrich the rules' output (alerts and incidents) with essential information that serves as the building blocks of any investigative processes and remedial actions that follow. They are also the criteria by which you can group alerts together into incidents in the **Incident settings** tab.
 
     Learn more about [entities in Microsoft Sentinel](entities.md).
@@ -95,7 +91,7 @@ In the **Set rule logic** tab, you can either write a query directly in the **Ru
 
     Learn more about surfacing custom details in alerts, and see the [complete instructions](surface-custom-details-in-alerts.md).
 
-- Use the **Alert details** configuration section to tailor the alert's presentation details to its actual content. Alert details allow you to display, for example, an attacker's IP address or account name in the title of the alert itself, so it will appear in your incidents queue, giving you a much richer and clearer picture of your threat landscape.
+- Use the **Alert details** configuration section to override default values of the alert's properties with details from the underlying query results. Alert details allow you to display, for example, an attacker's IP address or account name in the title of the alert itself, so it will appear in your incidents queue, giving you a much richer and clearer picture of your threat landscape.
 
     See complete instructions on [customizing your alert details](customize-alert-details.md).
 
@@ -113,20 +109,33 @@ In the **Set rule logic** tab, you can either write a query directly in the **Ru
 
    :::image type="content" source="media/tutorial-detect-threats-custom/set-rule-logic-tab-2.png" alt-text="Set query schedule and event grouping" lightbox="media/tutorial-detect-threats-custom/set-rule-logic-tab-all-2-new.png":::
 
-  - Set **Run query every** to control how often the query is run - as frequently as every 5 minutes or as infrequently as once every 14 days.
+  - Set **Run query every** to control how often the query is run&mdash;as frequently as every 5 minutes or as infrequently as once every 14 days.
 
-  - Set **Lookup data from the last** to determine the time period of the data covered by the query - for example, it can query the past 10 minutes of data, or the past 6 hours of data. The maximum is 14 days.
+  - Set **Lookup data from the last** to determine the time period of the data covered by the query&mdash;for example, it can query the past 10 minutes of data, or the past 6 hours of data. The maximum is 14 days.
+  
+  - For the new **Start running** setting (in Preview):
+
+      - Leave it set to **Automatically** to continue the original behavior: the rule will run for the first time immediately upon being created, and after that at the interval set in the **Run query every** setting.
+
+      - Toggle the switch to **At specific time** if you want to determine when the rule first runs, instead of having it run immediately. Then choose the date using the calendar picker and enter the time in the format of the example shown.
+
+        :::image type="content" source="media/tutorial-detect-threats-custom/advanced-scheduling.png" alt-text="Screenshot of advanced scheduling toggle and settings.":::
+    
+        Future runnings of the rule will occur at the specified interval after the first running.
+
+    The line of text under the **Start running** setting (with the information icon at its left) summarizes the current query scheduling and lookback settings.
 
     > [!NOTE]
+    >
     > **Query intervals and lookback period**
     >
     >  These two settings are independent of each other, up to a point. You can run a query at a short interval covering a time period longer than the interval (in effect having overlapping queries), but you cannot run a query at an interval that exceeds the coverage period, otherwise you will have gaps in the overall query coverage.
-        >
-        > **Ingestion delay**
-        >
-        > To account for **latency** that may occur between an event's generation at the source and its ingestion into Microsoft Sentinel, and to ensure complete coverage without data duplication, Microsoft Sentinel runs scheduled analytics rules on a **five-minute delay** from their scheduled time.
-        >
-        > For more information, see [Handle ingestion delay in scheduled analytics rules](ingestion-delay.md).
+    >
+    > **Ingestion delay**
+    >
+    > To account for **latency** that may occur between an event's generation at the source and its ingestion into Microsoft Sentinel, and to ensure complete coverage without data duplication, Microsoft Sentinel runs scheduled analytics rules on a **five-minute delay** from their scheduled time.
+    >
+    > For more information, see [Handle ingestion delay in scheduled analytics rules](ingestion-delay.md).
 
 - Use the **Alert threshold** section to define the sensitivity level of the rule. For example, set **Generate alert when number of query results** to **Is greater than** and enter the number 1000 if you want the rule to generate an alert only if the query returns more than 1000 results each time it runs. This is a required field, so if you don’t want to set a threshold – that is, if you want your alert to register every event – enter 0 in the number field.
 
@@ -142,16 +151,13 @@ If you see that your query would trigger too many or too frequent alerts, you ca
 
 ### Event grouping and rule suppression
 
-> [!IMPORTANT]
-> Event grouping is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 - Under **Event grouping**, choose one of two ways to handle the grouping of **events** into **alerts**:
 
   - **Group all events into a single alert** (the default setting). The rule generates a single alert every time it runs, as long as the query returns more results than the specified **alert threshold** above. The alert includes a summary of all the events returned in the results.
 
-  - **Trigger an alert for each event**. The rule generates a unique alert for each event returned by the query. This is useful if you want events to be displayed individually, or if you want to group them by certain parameters - by user, hostname, or something else. You can define these parameters in the query.
+  - **Trigger an alert for each event**. The rule generates a unique alert for each event returned by the query. This is useful if you want events to be displayed individually, or if you want to group them by certain parameters&mdash;by user, hostname, or something else. You can define these parameters in the query.
 
-    Currently the number of alerts a rule can generate is capped at 20. If in a particular rule, **Event grouping** is set to **Trigger an alert for each event**, and the rule's query returns more than 20 events, each of the first 19 events will generate a unique alert, and the 20th alert will summarize the entire set of returned events. In other words, the 20th alert is what would have been generated under the **Group all events into a single alert** option.
+    Currently the number of alerts a rule can generate is capped at 150. If in a particular rule, **Event grouping** is set to **Trigger an alert for each event**, and the rule's query returns more than 150 events, each of the first 149 events will generate a unique alert, and the 150th alert will summarize the entire set of returned events. In other words, the 150th alert is what would have been generated under the **Group all events into a single alert** option.
 
     If you choose this option, Microsoft Sentinel will add a new field, **OriginalQuery**, to the results of the query. Here is a comparison of the existing **Query** field and the new field:
 
@@ -179,9 +185,6 @@ If you see that your query would trigger too many or too frequent alerts, you ca
 
 In the **Incident Settings** tab, you can choose whether and how Microsoft Sentinel turns alerts into actionable incidents. If this tab is left alone, Microsoft Sentinel will create a single, separate incident from each and every alert. You can choose to have no incidents created, or to group several alerts into a single incident, by changing the settings in this tab.
 
-> [!IMPORTANT]
-> The incident settings tab is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 For example:
 
 :::image type="content" source="media/tutorial-detect-threats-custom/incident-settings-tab.png" alt-text="Define the incident creation and alert grouping settings":::
@@ -207,32 +210,46 @@ In the **Alert grouping** section, if you want a single incident to be generated
     | **Group alerts into a single incident if all the entities match** | Alerts are grouped together if they share identical values for each of the mapped entities (defined in the [Set rule logic](#define-the-rule-query-logic-and-configure-settings) tab above). This is the recommended setting. |
     | **Group all alerts triggered by this rule into a single incident** | All the alerts generated by this rule are grouped together even if they share no identical values. |
     | **Group alerts into a single incident if the selected entities and details match** | Alerts are grouped together if they share identical values for all of the mapped entities, alert details, and custom details selected from the respective drop-down lists.<br><br>You might want to use this setting if, for example, you want to create separate incidents based on the source or target IP addresses, or if you want to group alerts that match a specific entity and severity.<br><br>**Note**: When you select this option, you must have at least one entity type or field selected for the rule. Otherwise, the rule validation will fail and the rule won't be created. |
-    |
 
 - **Re-open closed matching incidents**: If an incident has been resolved and closed, and later on another alert is generated that should belong to that incident, set this setting to **Enabled** if you want the closed incident re-opened, and leave as **Disabled** if you want the alert to create a new incident.
 
     > [!NOTE]
-    > **Up to 150 alerts** can be grouped into a single incident. If more than 150 alerts are generated by a rule that groups them into a single incident, a new incident will be generated with the same incident details as the original, and the excess alerts will be grouped into the new incident.
+    >
+    > **Up to 150 alerts** can be grouped into a single incident.
+    > - The incident will only be created after all the alerts have been generated. All of the alerts will be added to the incident immediately upon its creation.
+    >
+    > - If more than 150 alerts are generated by a rule that groups them into a single incident, a new incident will be generated with the same incident details as the original, and the excess alerts will be grouped into the new incident.
 
 ## Set automated responses and create the rule
 
-1. In the **Automated responses** tab, you can set automation based on the alert or alerts generated by this analytics rule, or based on the incident created by the alerts.
-    - For alert-based automation, select from the drop-down list under **Alert automation** any playbooks you want to run automatically when an alert is generated.
-    - For incident-based automation, select or create an automation rule under **Incident automation (preview)**. You can call playbooks (those based on the **incident trigger**) from these automation rules, as well as automate triage, assignment, and closing.
-    - For more information and instructions on creating playbooks and automation rules, see [Automate threat responses](tutorial-respond-threats-playbook.md#automate-threat-responses).
-    - For more information about when to use the **alert trigger** or the **incident trigger**, see [Use triggers and actions in Microsoft Sentinel playbooks](playbook-triggers-actions.md#microsoft-sentinel-triggers-summary).
+In the **Automated responses** tab, you can use [automation rules](automate-incident-handling-with-automation-rules.md) to set automated responses to occur at any of three types of occasions:
+- When an alert is generated by this analytics rule.
+- When an incident is created with alerts generated by this analytics rule.
+- When an incident is updated with alerts generated by this analytics rule.
+   
+The grid displayed under **Automation rules** shows the automation rules that already apply to this analytics rule (by virtue of it meeting the conditions defined in those rules). You can edit any of these by selecting the ellipsis at the end of each row. Or, you can [create a new automation rule](create-manage-use-automation-rules.md).
+
+Use automation rules to perform basic triage, assignment, [workflow](incident-tasks.md), and closing of incidents. 
+
+Automate more complex tasks and invoke responses from remote systems to remediate threats by calling playbooks from these automation rules. You can do this for incidents as well as for individual alerts.
+
+- For more information and instructions on creating playbooks and automation rules, see [Automate threat responses](tutorial-respond-threats-playbook.md#automate-threat-responses).
+
+- For more information about when to use the **incident created trigger**, the **incident updated trigger**, or the **alert created trigger**, see [Use triggers and actions in Microsoft Sentinel playbooks](playbook-triggers-actions.md#microsoft-sentinel-triggers-summary).
 
     :::image type="content" source="media/tutorial-detect-threats-custom/automated-response-tab.png" alt-text="Define the automated response settings":::
 
-1. Select **Review and create** to review all the settings for your new alert rule. When the "Validation passed" message appears, select **Create** to initialize your alert rule.
+- Under **Alert automation (classic)** at the bottom of the screen, you'll see any playbooks you've configured to run automatically when an alert is generated using the old method. If you still have any of these, you should instead create an automation rule based on the **alert created trigger** and invoke the playbook from there.
 
-    :::image type="content" source="media/tutorial-detect-threats-custom/review-and-create-tab.png" alt-text="Review all settings and create the rule":::
+Select **Review and create** to review all the settings for your new analytics rule. When the "Validation passed" message appears, select **Create**.
+
+:::image type="content" source="media/tutorial-detect-threats-custom/review-and-create-tab.png" alt-text="Review all settings and create the rule":::
 
 ## View the rule and its output
   
 - You can find your newly created custom rule (of type "Scheduled") in the table under the **Active rules** tab on the main **Analytics** screen. From this list you can enable, disable, or delete each rule.
 
-- To view the results of the alert rules you create, go to the **Incidents** page, where you can triage, [investigate incidents](investigate-cases.md), and remediate the threats.
+- To view the results of the analytics rules you create, go to the **Incidents** page, where you can triage incidents, [investigate them](investigate-cases.md), and [remediate the threats](respond-threats-during-investigation.md).
 
 - You can update the rule query to exclude false positives. For more information, see [Handle false positives in Microsoft Sentinel](false-positives.md).
 
@@ -295,8 +312,6 @@ SOC managers should be sure to check the rule list regularly for the presence of
 When using analytics rules to detect threats from Microsoft Sentinel, make sure that you enable all rules associated with your connected data sources in order to ensure full security coverage for your environment. The most efficient way to enable analytics rules is directly from the data connector page, which lists any related rules. For more information, see [Connect data sources](connect-data-sources.md).
 
 You can also push rules to Microsoft Sentinel via [API](/rest/api/securityinsights/) and [PowerShell](https://www.powershellgallery.com/packages/Az.SecurityInsights/0.1.0), although doing so requires additional effort. When using API or PowerShell, you must first export the rules to JSON before enabling the rules. API or PowerShell may be helpful when enabling rules in multiple instances of Microsoft Sentinel with identical settings in each instance.
-
-For more information, see:
 
 For more information, see:
 

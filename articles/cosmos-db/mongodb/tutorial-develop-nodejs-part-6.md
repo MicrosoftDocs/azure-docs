@@ -1,20 +1,20 @@
 ---
 title: Add CRUD functions to an Angular app with Azure Cosmos DB's API for MongoDB
 description: Part 6 of the tutorial series on creating a MongoDB app with Angular and Node on Azure Cosmos DB using the exact same APIs you use for MongoDB
-author: johnpapa
+author: gahl-levy
 ms.service: cosmos-db
-ms.subservice: cosmosdb-mongo
+ms.subservice: mongodb
 ms.devlang: javascript
 ms.topic: tutorial
 ms.date: 08/26/2021
-ms.author: jopapa
-ms.custom: seodec18, devx-track-js
-ms.reviewer: sngun
+ms.author: gahllevy
+ms.custom: seodec18, devx-track-js, ignite-2022
+ms.reviewer: mjbrown
 ---
 # Create an Angular app with Azure Cosmos DB's API for MongoDB - Add CRUD functions to the app
-[!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
+[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
-This multi-part tutorial demonstrates how to create a new app written in Node.js with Express and Angular and then connect it to your [Cosmos account configured with Cosmos DB's API for MongoDB](mongodb-introduction.md). Part 6 of the tutorial builds on [Part 5](tutorial-develop-nodejs-part-5.md) and covers the following tasks:
+This multi-part tutorial demonstrates how to create a new app written in Node.js with Express and Angular and then connect it to your [Azure Cosmos DB account configured with Azure Cosmos DB's API for MongoDB](introduction.md). Part 6 of the tutorial builds on [Part 5](tutorial-develop-nodejs-part-5.md) and covers the following tasks:
 
 > [!div class="checklist"]
 > * Create Post, Put, and Delete functions for the hero service
@@ -192,4 +192,3 @@ Check back soon for additional videos in this tutorial series.
 Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
 * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
 * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-capacity-planner.md)
-

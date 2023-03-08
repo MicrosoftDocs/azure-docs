@@ -2,10 +2,10 @@
 title: Azure Policy samples for onboarding resources in Azure Chaos Studio
 description: Sample Azure policies to onboard resources to Azure Chaos Studio using targets and capabilities
 services: chaos-studio
-author: johnkemnetz
+author: prasha-microsoft 
 ms.topic: sample
 ms.date: 11/11/2021
-ms.author: johnkem
+ms.author: prashabora
 ms.service: chaos-studio
 ---
 

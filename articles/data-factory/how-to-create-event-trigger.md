@@ -9,7 +9,7 @@ author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 08/09/2022
 ---
 
 # Create a trigger that runs a pipeline in response to a storage event
@@ -20,12 +20,11 @@ This article describes the Storage Event Triggers that you can create in your Da
 
 Event-driven architecture (EDA) is a common data integration pattern that involves production, detection, consumption, and reaction to events. Data integration scenarios often require customers to trigger pipelines based on events happening in storage account, such as the arrival or deletion of a file in Azure Blob Storage account. Data Factory and Synapse pipelines natively integrate with [Azure Event Grid](https://azure.microsoft.com/services/event-grid/), which lets you trigger pipelines on such events.
 
-For a ten-minute introduction and demonstration of this feature, watch the following video:
-
-> [!VIDEO https://docs.microsoft.com/Shows/Azure-Friday/Event-based-data-integration-with-Azure-Data-Factory/player]
-
 > [!NOTE]
 > The integration described in this article depends on [Azure Event Grid](https://azure.microsoft.com/services/event-grid/). Make sure that your subscription is registered with the Event Grid resource provider. For more info, see [Resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal). You must be able to do the *Microsoft.EventGrid/eventSubscriptions/** action. This action is part of the EventGrid EventSubscription Contributor built-in role.
+
+> [!IMPORTANT]
+> If you are using this feature in Azure Synapse Analytics, please ensure that your subscription is also registered with Data Factory resource provider, or otherwise you will get an error stating that _the creation of an "Event Subscription" failed_.
 
 > [!NOTE]
 > If the blob storage account resides behind a [private endpoint](../storage/common/storage-private-endpoints.md) and blocks public network access, you need to configure network rules to allow communications from blob storage to Azure Event Grid. You can either grant storage access to trusted Azure services, such as Event Grid, following [Storage documentation](../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services), or configure private endpoints for Event Grid that map to VNet address space, following [Event Grid documentation](../event-grid/configure-private-endpoints.md)
@@ -43,14 +42,14 @@ This section shows you how to create a storage event trigger within the Azure Da
 1. Select trigger type **Storage Event**
 
     # [Azure Data Factory](#tab/data-factory)
-    :::image type="content" source="media/how-to-create-event-trigger/event-based-trigger-image-1.png" alt-text="Screenshot of Author page to create a new storage event trigger in Data Factory UI.":::
+    :::image type="content" source="media/how-to-create-event-trigger/event-based-trigger-image-1.png" lightbox="media/how-to-create-event-trigger/event-based-trigger-image-1.png" alt-text="Screenshot of Author page to create a new storage event trigger in Data Factory UI." :::
     # [Azure Synapse](#tab/synapse-analytics)
-    :::image type="content" source="media/how-to-create-event-trigger/event-based-trigger-image-1-synapse.png" alt-text="Screenshot of Author page to create a new storage event trigger in the Azure Synapse UI.":::
+    :::image type="content" source="media/how-to-create-event-trigger/event-based-trigger-image-1-synapse.png" lightbox="media/how-to-create-event-trigger/event-based-trigger-image-1-synapse.png" alt-text="Screenshot of Author page to create a new storage event trigger in the Azure Synapse UI.":::
 
 5. Select your storage account from the Azure subscription dropdown or manually using its Storage account resource ID. Choose which container you wish the events to occur on. Container selection is required, but be mindful that selecting all containers can lead to a large number of events.
 
    > [!NOTE]
-   > The Storage Event Trigger currently supports only Azure Data Lake Storage Gen2 and General-purpose version 2 storage accounts. Due to an Azure Event Grid limitation, Azure Data Factory only supports a maximum of 500 storage event triggers per storage account. If you hit the limit, please contact support for recommendations and increasing the limit upon evaluation by Event Grid team. 
+   > The Storage Event Trigger currently supports only Azure Data Lake Storage Gen2 and General-purpose version 2 storage accounts. If you are working with SFTP Storage Events you need to specify the SFTP Data API under the filtering section too. Due to an Azure Event Grid limitation, Azure Data Factory only supports a maximum of 500 storage event triggers per storage account. If you hit the limit, please contact support for recommendations and increasing the limit upon evaluation by Event Grid team. 
 
    > [!NOTE]
    > To create a new or modify an existing Storage Event Trigger, the Azure account used to log into the service and publish the storage event trigger must have appropriate role based access control (Azure RBAC) permission on the storage account. No additional permission is required: Service Principal for the Azure Data Factory and Azure Synapse does _not_ need special permission to either the Storage account or Event Grid. For more information about access control, see [Role based access control](#role-based-access-control) section.
@@ -103,6 +102,9 @@ This section provides examples of storage event trigger settings.
 > [!IMPORTANT]
 > You have to include the `/blobs/` segment of the path, as shown in the following examples, whenever you specify container and folder, container and file, or container, folder, and file. For **blobPathBeginsWith**, the UI will automatically add `/blobs/` between the folder and container name in the trigger JSON.
 
+> [!NOTE]
+> File arrival triggers are not recommended as a triggering mechanism from data flow sinks. Data flows perform a number of file renaming and partition file shuffling tasks in the target folder that can inadvertenly trigger a file arrival event before the complete processing of your data.
+
 | Property | Example | Description |
 |---|---|---|
 | **Blob path begins with** | `/containername/` | Receives events for any blob in the container. |
@@ -125,6 +127,12 @@ Any of following RBAC settings works for storage event trigger:
 * Owner role to the storage account
 * Contributor role to the storage account
 * _Microsoft.EventGrid/EventSubscriptions/Write_ permission to storage account _/subscriptions/####/resourceGroups/####/providers/Microsoft.Storage/storageAccounts/storageAccountName_
+
+
+Specifically,
+
+- When authoring in the data factory (in the development environment for instance), the Azure account signed in needs to have the above permission
+- When publishing through [CI/CD](continuous-integration-delivery.md), the account used to publish the ARM template into the testing or production factory needs to have the above permission.
 
 In order to understand how the service delivers the two promises, let's take back a step and take a peek behind the scenes. Here are the high-level work flows for integration between Azure Data Factory/Azure Synapse, Storage, and Event Grid.
 
@@ -157,5 +165,5 @@ There are three noticeable call outs in the workflow related to Event triggering
 
 ## Next steps
 
-* For detailed information about triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#trigger-execution).
+* For detailed information about triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#trigger-execution-with-json).
 * Learn how to reference trigger metadata in pipeline, see [Reference Trigger Metadata in Pipeline Runs](how-to-use-trigger-parameterization.md)

@@ -1,22 +1,24 @@
 ---
-title: Link to existing Datadog - Azure partner solutions
+title: Link to existing Datadog
 description: This article describes how to use the Azure portal to link to an existing instance of Datadog.
 ms.topic: quickstart
-ms.date: 05/28/2021
+ms.date: 01/06/2023
+author: flang-msft
+ms.author: franlanglois
 ms.custom: references_regions, mode-other
 ---
 
 # QuickStart: Link to existing Datadog organization
 
-In this quickstart, you'll link to a existing organization of Datadog. You can either [create a new Datadog organization](create.md) or link to an existing Datadog organization.
+In this quickstart, you'll link to an existing organization of Datadog. You can either [create a new Datadog organization](create.md) or link to an existing Datadog organization.
 
 ## Prerequisites
 
-Before creating your first instance of Datadog in Azure, [configure your environment](prerequisites.md). These steps must be completed before continuing with the next steps in this quickstart.
+Before creating your first instance of Datadog - An Azure Native ISV Service, [configure your environment](prerequisites.md). These steps must be completed before continuing with the next steps in this quickstart.
 
 ## Find offer
 
-Use the Azure portal to find Datadog.
+Use the Azure portal to find Datadog - An Azure Native ISV Service.
 
 1. Go to the [Azure portal](https://portal.azure.com/) and sign in.
 
@@ -24,7 +26,7 @@ Use the Azure portal to find Datadog.
 
     :::image type="content" source="media/link-to-existing-organization/marketplace.png" alt-text="Marketplace icon.":::
 
-1. In the Marketplace, search for **Datadog**.
+1. In the Marketplace, search for **Datadog - An Azure Native ISV Service**.
 
 1. In the plan overview screen, select **Set up + subscribe**.
 
@@ -34,7 +36,7 @@ Use the Azure portal to find Datadog.
 
 The portal displays a selection asking whether you would like to create a Datadog organization or link Azure subscription to an existing Datadog organization.
 
-If you are linking to an existing Datadog organization, select **Create** under the **Link Azure subscription to an existing Datadog organization**
+If you're linking to an existing Datadog organization, select **Create** under the **Link Azure subscription to an existing Datadog organization**
 
 :::image type="content" source="media/link-to-existing-organization/datadog-create-link-selection.png" alt-text="Create or link a Datadog organization" border="true":::
 
@@ -55,7 +57,7 @@ Provide the following values.
 
 Select **Link to Datadog organization**. The link opens a Datadog authentication window. Sign in to Datadog.
 
-By default, Azure links your current Datadog organization to your Datadog resource. If you would like to link to a different organization, select the appropriate organization in the authentication window, as shown below.
+By default, Azure links your current Datadog organization to your Datadog resource. If you would like to link to a different organization, select the appropriate organization in the authentication window.
 
 :::image type="content" source="media/link-to-existing-organization/select-datadog-organization.png" alt-text="Select appropriate Datadog organization to link" border="true":::
 
@@ -67,9 +69,9 @@ Use Azure resource tags to configure which metrics and logs are sent to Datadog.
 
 Tag rules for sending **metrics** are:
 
-- By default, metrics are collected for all resources, except virtual machines, virtual machine scale sets, and app service plans.
-- Virtual machines, virtual machine scale sets, and app service plans with *Include* tags send metrics to Datadog.
-- Virtual machines, virtual machine scale sets, and app service plans with *Exclude* tags don't send metrics to Datadog.
+- By default, metrics are collected for all resources, except **Virtual Machines, Virtual Machine Scale Sets, and App Service Plans**.
+- **Virtual Machines, Virtual Machine Scale Sets, and App Service Plans** with *Include* tags send metrics to Datadog.
+- **Virtual Machines, Virtual Machine Scale Sets, and App Service Plans** with *Exclude* tags don't send metrics to Datadog.
 - If there's a conflict between inclusion and exclusion rules, exclusion takes priority
 
 Tag rules for sending **logs** are:
@@ -79,7 +81,7 @@ Tag rules for sending **logs** are:
 - Azure resources with  *Exclude* tags don't send logs to Datadog.
 - If there's a conflict between inclusion and exclusion rules, exclusion takes priority.
 
-For example, the screenshot below shows a tag rule where only those virtual machines, virtual machine scale sets, and app service plans tagged as *Datadog = True* send metrics to Datadog.
+For example, the screenshot shows a tag rule where only those **Virtual Machines, Virtual Machine Scale Sets, and App Service Plans** tagged as *Datadog = True* send metrics to Datadog.
 
 :::image type="content" source="media/link-to-existing-organization/config-metrics-logs.png" alt-text="Configure Logs and Metrics." border="true":::
 
@@ -127,5 +129,5 @@ When the process completes, select **Go to Resource** to see the Datadog resourc
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Manage the Datadog resource](manage.md)
+- [Manage the Datadog resource](manage.md)
+

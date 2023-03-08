@@ -3,7 +3,7 @@ title: Azure Kinect Viewer
 description: Understand how to visualize all device data streams using the Azure Kinect viewer.
 author: tesych
 ms.author: tesych
-ms.prod: kinect-dk
+ms.service: azure-kinect-developer-kit
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: azure, kinect, sensor, viewer, visualization, depth, rgb, color, imu, audio, microphone, point cloud

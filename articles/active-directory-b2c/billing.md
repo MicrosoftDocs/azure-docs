@@ -76,7 +76,7 @@ A subscription linked to an Azure AD B2C tenant can be used for the billing of A
 1. Select **Create**.
 1. Select **Link an existing Azure AD B2C Tenant to my Azure subscription**.
 1. Select an **Azure AD B2C Tenant** from the dropdown. Only tenants for which you're a global administrator and that are not already linked to a subscription are shown. The **Azure AD B2C Resource name** field is populated with the domain name of the Azure AD B2C tenant you select.
-1. Select an active Azure **Subscription** of which you're an administrator.
+1. Select an active Azure **Subscription** of which you're an owner.
 1. Under **Resource group**, select **Create new**, and then specify the **Resource group location**. The resource group settings here have no impact on your Azure AD B2C tenant location, performance, or billing status.
 1. Select **Create**.
 
@@ -111,8 +111,8 @@ To change your pricing tier, follow these steps:
 
    ![Screenshot that shows how to select the pricing tier.](media/billing/select-tier.png)
 
-> [!NOTE]
-> Currently, Azure AD Premium P1 for Azure AD B2C is the default pricing tier, and it's equivalent to Azure AD Free tier, but it costs money. Therefore, in terms of features, Azure AD Premium P1 license applied to Azure AD tenant, is not equivalent to Azure AD B2C Premium P1 license in a B2C tenant, and the same is true for Premium P2. Hence, you expect that some features available in Azure AD tenant may be missing in Azure AD B2C even when the tenants have Azure AD Premium P2 and Azure AD B2C Premium P2 licenses respectively. For instance, Azure AD Premium P2 offers identity protection in Azure AD B2C tenants, but does not offer other Azure AD Premium P2 features that apply to Azure AD tenants.
+Learn about the [Azure AD features, which are supported in Azure AD B2C](supported-azure-ad-features.md). 
+ 
 
 ## Switch to MAU billing (pre-November 2019 Azure AD B2C tenants)
 

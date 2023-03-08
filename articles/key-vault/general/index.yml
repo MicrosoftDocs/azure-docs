@@ -83,7 +83,7 @@ landingContent:
           - text: .NET Client library
             url: /dotnet/api/overview/azure/key-vault
           - text: Python Client library
-            url: /python/api/overview/azure/key-vault-index
+            url: /python/api/overview/azure/keyvault-keys-readme
           - text: Java Client library
             url: https://azure.github.io/azure-sdk-for-java/keyvault.html
           - text: Node.js Client library
@@ -94,9 +94,9 @@ landingContent:
 
 
   # Card
-  - title: Microsoft Learn
+  - title: Microsoft Learn training
     linkLists:
       - linkListType: learn
         links:
           - text: Manage secrets in your server apps with Azure Key Vault
-            url: /learn/modules/manage-secrets-with-azure-key-vault/
+            url: /training/modules/manage-secrets-with-azure-key-vault/

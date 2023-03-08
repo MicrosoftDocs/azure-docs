@@ -1,18 +1,13 @@
 ---
-title: "Conceptual overview Azure Kubernetes Configuration Management (GitOps)"
+title: "GitOps Flux v2 configurations with AKS and Azure Arc-enabled Kubernetes"
 description: "This article provides a conceptual overview of GitOps in Azure for use in Azure Arc-enabled Kubernetes and Azure Kubernetes Service (AKS) clusters."
-keywords: "GitOps, Flux, Kubernetes, K8s, Azure, Arc, AKS, Azure Kubernetes Service, containers, devops"
-services: azure-arc, aks
-ms.service: azure-arc
-ms.date: 11/22/2021
+ms.date: 02/07/2023
 ms.topic: conceptual
-author: csand-msft
-ms.author: csand
 ---
 
-# GitOps in Azure
+# GitOps Flux v2 configurations with AKS and Azure Arc-enabled Kubernetes
 
-Azure provides configuration management capability using GitOps in Azure Arc-enabled Kubernetes and Azure Kubernetes Service (AKS) clusters. You can easily enable and use GitOps in these clusters.
+Azure provides configuration management capability using GitOps in Azure Kubernetes Service (AKS) and Azure Arc-enabled Kubernetes clusters. You can easily enable and use GitOps in these clusters.
 
 With GitOps, you declare the desired state of your Kubernetes clusters in files in Git repositories. The Git repositories may contain the following files:
 
@@ -22,7 +17,7 @@ With GitOps, you declare the desired state of your Kubernetes clusters in files 
 
 Because these files are stored in a Git repository, they're versioned, and changes between versions are easily tracked. Kubernetes controllers run in the clusters and continually reconcile the cluster state with the desired state declared in the Git repository. These operators pull the files from the Git repositories and apply the desired state to the clusters. The operators also continuously assure that the cluster remains in the desired state.
 
-GitOps on Azure Arc-enabled Kubernetes or Azure Kubernetes Service uses [Flux](https://fluxcd.io/docs/), a popular open-source tool set. Flux provides support for common file sources (Git and Helm repositories, Buckets) and template types (YAML, Helm, and Kustomize). Flux also supports multi-tenancy and deployment dependency management, among [other features](https://fluxcd.io/docs/).
+GitOps on Azure Arc-enabled Kubernetes or Azure Kubernetes Service uses [Flux](https://fluxcd.io/docs/), a popular open-source tool set. Flux provides support for common file sources (Git and Helm repositories, Buckets, Azure Blob Storage) and template types (YAML, Helm, and Kustomize). Flux also supports [multi-tenancy](#multi-tenancy) and deployment dependency management, among [other features](https://fluxcd.io/docs/).
 
 ## Flux cluster extension
 
@@ -30,29 +25,40 @@ GitOps on Azure Arc-enabled Kubernetes or Azure Kubernetes Service uses [Flux](h
 
 :::image type="content" source="media/gitops/flux2-extension-install-aks.png" alt-text="Diagram showing the installation of the Flux extension for Azure Kubernetes Service cluster." lightbox="media/gitops/flux2-extension-install-aks.png":::
 
-GitOps is enabled in an Azure Arc-enabled Kubernetes or AKS cluster as a `Microsoft.KubernetesConfiguration/extensions/microsoft.flux` [cluster extension](./conceptual-extensions.md) resource.  You can install the `microsoft.flux` extension manually using the portal or the Azure CLI (*az k8s-extension create --extensionType=microsoft.flux*) or have it installed automatically when you create the first `Microsoft.KubernetesConfiguration/fluxConfigurations` in the cluster. The `microsoft.flux` extension must be installed in the cluster before one or more `fluxConfigurations` can be created.
+GitOps is enabled in an Azure Arc-enabled Kubernetes or AKS cluster as a `Microsoft.KubernetesConfiguration/extensions/microsoft.flux` [cluster extension](./conceptual-extensions.md) resource.  The `microsoft.flux` extension must be installed in the cluster before one or more `fluxConfigurations` can be created. The extension will be installed automatically when you create the first `Microsoft.KubernetesConfiguration/fluxConfigurations` in a cluster, or you can install it manually using the portal, the Azure CLI (*az k8s-extension create --extensionType=microsoft.flux*), ARM template, or REST API.
+
+### Version support
+
+The most recent version of the Flux v2 extension and the two previous versions (N-2) are supported. We generally recommend that you use the [most recent version](extensions-release.md#flux-gitops) of the extension.
+
+> [!NOTE]
+> Eventually Azure will stop supporting GitOps with Flux v1, so we recommend [migrating to Flux v2](#migrate-from-flux-v1) as soon as possible.
+
+### Controllers
 
 The `microsoft.flux` extension installs by default the [Flux controllers](https://fluxcd.io/docs/components/) (Source, Kustomize, Helm, Notification) and the FluxConfig CRD, fluxconfig-agent, and fluxconfig-controller. You can control which of these controllers is installed and can optionally install the Flux image-automation and image-reflector controllers, which provide functionality around updating and retrieving Docker images.
 
-* [Flux Source controller](https://toolkit.fluxcd.io/components/source/controller/): Watches the source.toolkit.fluxcd.io custom resources. Handles the synchronization between the Git repositories, Helm repositories, and Buckets. Handles authorization with the source for private Git and Helm repos. Surfaces the latest changes to the source through a tar archive file.
+* [Flux Source controller](https://toolkit.fluxcd.io/components/source/controller/): Watches the source.toolkit.fluxcd.io custom resources. Handles the synchronization between the Git repositories, Helm repositories, Buckets and Azure Blob storage. Handles authorization with the source for private Git, Helm repos and Azure blob storage accounts. Surfaces the latest changes to the source through a tar archive file.
 * [Flux Kustomize controller](https://toolkit.fluxcd.io/components/kustomize/controller/): Watches the `kustomization.toolkit.fluxcd.io` custom resources. Applies Kustomize or raw YAML files from the source onto the cluster.
 * [Flux Helm controller](https://toolkit.fluxcd.io/components/helm/controller/): Watches the `helm.toolkit.fluxcd.io` custom resources. Retrieves the associated chart from the Helm Repository source surfaced by the Source controller. Creates the `HelmChart` custom resource and applies the `HelmRelease` with given version, name, and customer-defined values to the cluster.
 * [Flux Notification controller](https://toolkit.fluxcd.io/components/notification/controller/): Watches the `notification.toolkit.fluxcd.io` custom resources. Receives notifications from all Flux controllers. Pushes notifications to user-defined webhook endpoints.
 * Flux Custom Resource Definitions:
-    * `kustomizations.kustomize.toolkit.fluxcd.io`
-    * `imagepolicies.image.toolkit.fluxcd.io`
-    * `imagerepositories.image.toolkit.fluxcd.io`
-    * `imageupdateautomations.image.toolkit.fluxcd.io`
-    * `alerts.notification.toolkit.fluxcd.io`
-    * `providers.notification.toolkit.fluxcd.io`
-    * `receivers.notification.toolkit.fluxcd.io`
-    * `buckets.source.toolkit.fluxcd.io`
-    * `gitrepositories.source.toolkit.fluxcd.io`
-    * `helmcharts.source.toolkit.fluxcd.io`
-    * `helmrepositories.source.toolkit.fluxcd.io`
-    * `helmreleases.helm.toolkit.fluxcd.io`
-    * `fluxconfigs.clusterconfig.azure.com`
-* [FluxConfig CRD](https://github.com/Azure/ClusterConfigurationAgent/blob/master/charts/azure-arc-flux/templates/clusterconfig.azure.com_fluxconfigs.yaml): Custom Resource Definition for `fluxconfigs.clusterconfig.azure.com` custom resources that define `FluxConfig` Kubernetes objects.
+
+  * `kustomizations.kustomize.toolkit.fluxcd.io`
+  * `imagepolicies.image.toolkit.fluxcd.io`
+  * `imagerepositories.image.toolkit.fluxcd.io`
+  * `imageupdateautomations.image.toolkit.fluxcd.io`
+  * `alerts.notification.toolkit.fluxcd.io`
+  * `providers.notification.toolkit.fluxcd.io`
+  * `receivers.notification.toolkit.fluxcd.io`
+  * `buckets.source.toolkit.fluxcd.io`
+  * `gitrepositories.source.toolkit.fluxcd.io`
+  * `helmcharts.source.toolkit.fluxcd.io`
+  * `helmrepositories.source.toolkit.fluxcd.io`
+  * `helmreleases.helm.toolkit.fluxcd.io`
+  * `fluxconfigs.clusterconfig.azure.com`
+
+* FluxConfig CRD: Custom Resource Definition for `fluxconfigs.clusterconfig.azure.com` custom resources that define `FluxConfig` Kubernetes objects.
 * fluxconfig-agent: Responsible for watching Azure for new or updated `fluxConfigurations` resources, and for starting the associated Flux configuration in the cluster. Also, is responsible for pushing Flux status changes in the cluster back to Azure for each `fluxConfigurations` resource.
 * fluxconfig-controller: Watches the `fluxconfigs.clusterconfig.azure.com` custom resources and responds to changes with new or updated configuration of GitOps machinery in the cluster.
 
@@ -63,7 +69,7 @@ The `microsoft.flux` extension installs by default the [Flux controllers](https:
 
 :::image type="content" source="media/gitops/flux2-config-install.png" alt-text="Diagram showing the installation of a Flux configuration in an Azure Arc-enabled Kubernetes or Azure Kubernetes Service cluster." lightbox="media/gitops/flux2-config-install.png":::
 
-With the `microsoft.flux` extension installed in your cluster, you can then create Flux configuration resources (`Microsoft.KubernetesConfiguration/fluxConfigurations`) to enable GitOps management of the cluster from your Git repos. When you create a `fluxConfigurations` resource, the values you supply for the parameters, such as the target Git repo, are used to create and configure the Kubernetes objects that enable the GitOps process in that cluster. To ensure data security, the `fluxConfigurations` resource data is stored encrypted at rest in an Azure Cosmos DB database by the Cluster Configuration service.
+You create Flux configuration resources (`Microsoft.KubernetesConfiguration/fluxConfigurations`) to enable GitOps management of the cluster from your Git repos, Bucket sources or Azure Blob Storage. When you create a `fluxConfigurations` resource, the values you supply for the [parameters](#parameters), such as the target Git repo, are used to create and configure the Kubernetes objects that enable the GitOps process in that cluster. To ensure data security, the `fluxConfigurations` resource data is stored encrypted at rest in an Azure Cosmos DB database by the Cluster Configuration service.
 
 The `fluxconfig-agent` and `fluxconfig-controller` agents, installed with the `microsoft.flux` extension, manage the GitOps configuration process.  
 
@@ -79,16 +85,574 @@ The `fluxconfig-agent` and `fluxconfig-controller` agents, installed with the `m
 * Creates private/public key pair that exists for the lifetime of the `fluxConfigurations`. This key is used for authentication if the URL is SSH based and if the user doesn't provide their own private key during creation of the configuration.
 * Creates custom authentication secret based on user-provided private-key/http basic-auth/known-hosts/no-auth data.
 * Sets up RBAC (service account provisioned, role binding created/assigned, role created/assigned).
-* Creates `GitRepository` custom resource and `Kustomization` custom resources from the information in the `FluxConfig` custom resource.
+* Creates `GitRepository` or `Bucket` custom resource and `Kustomization` custom resources from the information in the `FluxConfig` custom resource.
 
-Each `fluxConfigurations` resource in Azure will be associated in a Kubernetes cluster with one Flux `GitRepository` custom resource and one or more `Kustomization` custom resources. When you create a `fluxConfigurations` resource, you'll specify, among other information, the URL to the Git repository and the sync target in the Git repository for each `Kustomization`. You can configure dependencies between `Kustomization` custom resources to control deployment sequencing. Also, you can create multiple namespace-scoped `fluxConfigurations` resources on the same cluster.
+Each `fluxConfigurations` resource in Azure will be associated in a Kubernetes cluster with one Flux `GitRepository` or `Bucket` custom resource and one or more `Kustomization` custom resources. When you create a `fluxConfigurations` resource, you'll specify, among other information, the URL to the source (Git repository, Bucket or Azure Blob storage) and the sync target in the source for each `Kustomization`. You can configure dependencies between `Kustomization` custom resources to control deployment sequencing. Also, you can create multiple namespace-scoped `fluxConfigurations` resources on the same cluster for different applications and app teams.
 
 > [!NOTE]
-> * `fluxconfig-agent` monitors for new or updated `fluxConfiguration` resources in Azure. The agent requires connectivity to Azure for the desired state of the `fluxConfiguration` to be applied to the cluster. If the agent is unable to connect to Azure, there will be a delay in making the changes in the cluster until the agent can connect. If the cluster is disconnected from Azure for more than 48 hours, then the request to the cluster will time-out, and the changes will need to be re-applied in Azure.
-> * Sensitive customer inputs like private key, known hosts content, HTTPS username, and token/password are stored for less than 48 hours in the Kubernetes Configuration service. If you update any of these values in Azure, assure that your clusters connect with Azure within 48 hours.
+> The `fluxconfig-agent` monitors for new or updated `fluxConfiguration` resources in Azure. The agent requires connectivity to Azure for the desired state of the `fluxConfiguration` to be applied to the cluster. If the agent is unable to connect to Azure, there will be a delay in making the changes in the cluster until the agent can connect. If the cluster is disconnected from Azure for more than 48 hours, then the request to the cluster will time-out, and the changes will need to be re-applied in Azure.
+>
+> Sensitive customer inputs like private key and token/password are stored for less than 48 hours in the Kubernetes Configuration service. If you update any of these values in Azure, make sure that your clusters connect with Azure within 48 hours.
+
+## GitOps with Private Link
+
+If you've added support for [private link to an Azure Arc-enabled Kubernetes cluster](private-link.md), then the `microsoft.flux` extension works out-of-the-box with communication back to Azure. For connections to your Git repository, Helm repository, or any other endpoints that are needed to deploy your Kubernetes manifests, you will need to provision these endpoints behind your firewall or list them on your firewall so that the Flux Source controller can successfully reach them.
+
+## Data residency
+
+The Azure GitOps service (Azure Kubernetes Configuration Management) stores/processes customer data. By default, customer data is replicated to the paired region. For the regions Singapore, East Asia, and Brazil South, all customer data is stored and processed in the region.
+
+## Apply Flux configurations at scale
+
+Because Azure Resource Manager manages your configurations, you can automate creating the same configuration across all Azure Kubernetes Service and Azure Arc-enabled Kubernetes resources using Azure Policy, within the scope of a subscription or a resource group. This at-scale enforcement ensures that specific configurations will be applied consistently across entire groups of clusters.
+
+[Learn how to use the built-in policies for Flux v2](./use-azure-policy-flux-2.md).
+
+## Parameters
+
+For a description of all parameters that Flux supports, see the [official Flux documentation](https://fluxcd.io/docs/). Flux in Azure doesn't support all parameters yet. Let us know if a parameter you need is missing from the Azure implementation.
+
+You can see the full list of parameters that the `k8s-configuration flux` Azure CLI command supports by using the `-h` parameter:
+
+```azurecli
+az k8s-configuration flux -h
+
+Group
+    az k8s-configuration flux : Commands to manage Flux v2 Kubernetes configurations.
+
+Subgroups:
+    deployed-object : Commands to see deployed objects associated with Flux v2 Kubernetes
+                      configurations.
+    kustomization   : Commands to manage Kustomizations associated with Flux v2 Kubernetes
+                      configurations.
+
+Commands:
+    create          : Create a Flux v2 Kubernetes configuration.
+    delete          : Delete a Flux v2 Kubernetes configuration.
+    list            : List all Flux v2 Kubernetes configurations.
+    show            : Show a Flux v2 Kubernetes configuration.
+    update          : Update a Flux v2 Kubernetes configuration.
+```
+
+Here are the parameters for the `k8s-configuration flux create` CLI command:
+
+```azurecli
+az k8s-configuration flux create -h
+
+This command is from the following extension: k8s-configuration
+
+Command
+    az k8s-configuration flux create : Create a Flux v2 Kubernetes configuration.
+
+Arguments
+    --cluster-name -c   [Required] : Name of the Kubernetes cluster.
+    --cluster-type -t   [Required] : Specify Arc connected clusters or AKS managed clusters.
+                                     Allowed values: connectedClusters, managedClusters.
+    --name -n           [Required] : Name of the flux configuration.
+    --resource-group -g [Required] : Name of resource group. You can configure the default group
+                                     using `az configure --defaults group=<name>`.
+    --url -u            [Required] : URL of the source to reconcile.
+    --bucket-insecure              : Communicate with a bucket without TLS.  Allowed values: false,
+                                     true.
+    --bucket-name                  : Name of the S3 bucket to sync.
+    --container-name               : Name of the Azure Blob Storage container to sync
+    --interval --sync-interval     : Time between reconciliations of the source on the cluster.
+    --kind                         : Source kind to reconcile.  Allowed values: bucket, git, azblob.
+                                     Default: git.
+    --kustomization -k             : Define kustomizations to sync sources with parameters ['name',
+                                     'path', 'depends_on', 'timeout', 'sync_interval',
+                                     'retry_interval', 'prune', 'force'].
+    --namespace --ns               : Namespace to deploy the configuration.  Default: default.
+    --no-wait                      : Do not wait for the long-running operation to finish.
+    --scope -s                     : Specify scope of the operator to be 'namespace' or 'cluster'.
+                                     Allowed values: cluster, namespace.  Default: cluster.
+    --suspend                      : Suspend the reconciliation of the source and kustomizations
+                                     associated with this configuration.  Allowed values: false,
+                                     true.
+    --timeout                      : Maximum time to reconcile the source before timing out.
+
+Auth Arguments
+    --local-auth-ref --local-ref   : Local reference to a kubernetes secret in the configuration
+                                     namespace to use for communication to the source.
+
+Bucket Auth Arguments
+    --bucket-access-key            : Access Key ID used to authenticate with the bucket.
+    --bucket-secret-key            : Secret Key used to authenticate with the bucket.
+
+Git Auth Arguments
+    --https-ca-cert                : Base64-encoded HTTPS CA certificate for TLS communication with
+                                     private repository sync.
+    --https-ca-cert-file           : File path to HTTPS CA certificate file for TLS communication
+                                     with private repository sync.
+    --https-key                    : HTTPS token/password for private repository sync.
+    --https-user                   : HTTPS username for private repository sync.
+    --known-hosts                  : Base64-encoded known_hosts data containing public SSH keys
+                                     required to access private Git instances.
+    --known-hosts-file             : File path to known_hosts contents containing public SSH keys
+                                     required to access private Git instances.
+    --ssh-private-key              : Base64-encoded private ssh key for private repository sync.
+    --ssh-private-key-file         : File path to private ssh key for private repository sync.
+
+Git Repo Ref Arguments
+    --branch                       : Branch within the git source to reconcile with the cluster.
+    --commit                       : Commit within the git source to reconcile with the cluster.
+    --semver                       : Semver range within the git source to reconcile with the
+                                     cluster.
+    --tag                          : Tag within the git source to reconcile with the cluster.
+
+Global Arguments
+    --debug                        : Increase logging verbosity to show all debug logs.
+    --help -h                      : Show this help message and exit.
+    --only-show-errors             : Only show errors, suppressing warnings.
+    --output -o                    : Output format.  Allowed values: json, jsonc, none, table, tsv,
+                                     yaml, yamlc.  Default: json.
+    --query                        : JMESPath query string. See http://jmespath.org/ for more
+                                     information and examples.
+    --subscription                 : Name or ID of subscription. You can configure the default
+                                     subscription using `az account set -s NAME_OR_ID`.
+    --verbose                      : Increase logging verbosity. Use --debug for full debug logs.
+    
+Azure Blob Storage Account Auth Arguments
+    --sp_client_id                 : The client ID for authenticating a service principal with Azure Blob, required for this authentication method
+    --sp_tenant_id                 : The tenant ID for authenticating a service principal with Azure Blob, required for this authentication method
+    --sp_client_secret             : The client secret for authenticating a service principal with Azure Blob
+    --sp_client_cert               : The Base64 encoded client certificate for authenticating a service principal with Azure Blob
+    --sp_client_cert_password      : The password for the client certificate used to authenticate a service principal with Azure Blob
+    --sp_client_cert_send_chain    : Specifies whether to include x5c header in client claims when acquiring a token to enable subject name / issuer based authentication for the client certificate
+    --account_key                  : The Azure Blob Shared Key for authentication
+    --sas_token                    : The Azure Blob SAS Token for authentication
+    --mi_client_id                 : The client ID of the managed identity for authentication with Azure Blob
+
+Examples
+    Create a Flux v2 Kubernetes configuration
+        az k8s-configuration flux create --resource-group my-resource-group \
+        --cluster-name mycluster --cluster-type connectedClusters \
+        --name myconfig --scope cluster --namespace my-namespace \
+        --kind git --url https://github.com/Azure/arc-k8s-demo \
+        --branch main --kustomization name=my-kustomization
+
+    Create a Kubernetes v2 Flux Configuration with Bucket Source Kind
+        az k8s-configuration flux create --resource-group my-resource-group \
+        --cluster-name mycluster --cluster-type connectedClusters \
+        --name myconfig --scope cluster --namespace my-namespace \
+        --kind bucket --url https://bucket-provider.minio.io \
+        --bucket-name my-bucket --kustomization name=my-kustomization \
+        --bucket-access-key my-access-key --bucket-secret-key my-secret-key
+        
+    Create a Kubernetes v2 Flux Configuration with Azure Blob Storage Source Kind
+        az k8s-configuration flux create --resource-group my-resource-group \
+        --cluster-name mycluster --cluster-type connectedClusters \
+        --name myconfig --scope cluster --namespace my-namespace \
+        --kind azblob --url https://mystorageaccount.blob.core.windows.net \
+        --container-name my-container --kustomization name=my-kustomization \
+        --account-key my-account-key
+```
+
+### Configuration general arguments
+
+| Parameter | Format | Notes |
+| ------------- | ------------- | ------------- |
+| `--cluster-name` `-c` | String | Name of the cluster resource in Azure. |
+| `--cluster-type` `-t` | `connectedClusters`, `managedClusters` | Use `connectedClusters` for Azure Arc-enabled Kubernetes clusters and `managedClusters` for AKS clusters. |
+| `--resource-group` `-g` | String | Name of the Azure resource group that holds the Azure Arc or AKS cluster resource. |
+| `--name` `-n`| String | Name of the Flux configuration in Azure. |
+| `--namespace` `--ns` | String | Name of the namespace to deploy the configuration.  Default: `default`. |
+| `--scope` `-s` | String | Permission scope for the operators. Possible values are `cluster` (full access) or `namespace` (restricted access). Default: `cluster`.
+| `--suspend` | flag | Suspends all source and kustomize reconciliations defined in this Flux configuration. Reconciliations active at the time of suspension will continue.  |
+
+### Source general arguments
+
+| Parameter | Format | Notes |
+| ------------- | ------------- | ------------- |
+| `--kind` | String | Source kind to reconcile. Allowed values: `bucket`, `git`, `azblob`.  Default: `git`. |
+| `--timeout` | [golang duration format](https://pkg.go.dev/time#Duration.String) | Maximum time to attempt to reconcile the source before timing out. Default: `10m`. |
+| `--sync-interval` `--interval` | [golang duration format](https://pkg.go.dev/time#Duration.String) | Time between reconciliations of the source on the cluster. Default: `10m`. |
+
+### Git repository source reference arguments
+
+| Parameter | Format | Notes |
+| ------------- | ------------- | ------------- |
+| `--branch` | String | Branch within the Git source to sync to the cluster. Default: `master`. Newer repositories might have a root branch named `main`, in which case you need to set `--branch=main`.  |
+| `--tag` | String | Tag within the Git source to sync to the cluster. Example: `--tag=3.2.0`. |
+| `--semver` | String | Git tag `semver` range within the Git source to sync to the cluster. Example: `--semver=">=3.1.0-rc.1 <3.2.0"`. |
+| `--commit` | String | Git commit SHA within the Git source to sync to the cluster. Example: `--commit=363a6a8fe6a7f13e05d34c163b0ef02a777da20a`. |
+
+For more information, see the [Flux documentation on Git repository checkout strategies](https://fluxcd.io/docs/components/source/gitrepositories/#checkout-strategies).
+
+### Public Git repository
+
+| Parameter | Format | Notes |
+| ------------- | ------------- | ------------- |
+| `--url` `-u` | http[s]://server/repo[.git] | URL of the Git repository source to reconcile with the cluster. |
+
+### Private Git repository with SSH and Flux-created keys
+
+Add the public key generated by Flux to the user account in your Git service provider.
+
+| Parameter | Format | Notes |
+| ------------- | ------------- | ------------- |
+| `--url` `-u` | ssh://user@server/repo[.git] | `git@` should replace `user@` if the public key is associated with the repository instead of the user account. |
+
+### Private Git repository with SSH and user-provided keys
+
+Use your own private key directly or from a file. The key must be in [PEM format](https://aka.ms/PEMformat) and end with a newline (`\n`).
+
+Add the associated public key to the user account in your Git service provider.
+
+| Parameter | Format | Notes |
+| ------------- | ------------- | ------------- |
+| `--url` `-u` | ssh://user@server/repo[.git] | `git@` should replace `user@` if the public key is associated with the repository instead of the user account. |
+| `--ssh-private-key` | Base64 key in [PEM format](https://aka.ms/PEMformat) | Provide the key directly. |
+| `--ssh-private-key-file` | Full path to local file | Provide the full path to the local file that contains the PEM-format key.
+
+### Private Git host with SSH and user-provided known hosts
+
+The Flux operator maintains a list of common Git hosts in its `known_hosts` file. Flux uses this information to authenticate the Git repository before establishing the SSH connection. If you're using an uncommon Git repository or your own Git host, you can supply the host key so that Flux can identify your repository.
+
+Just like private keys, you can provide your `known_hosts` content directly or in a file. When you're providing your own content, use the [known_hosts content format specifications](https://aka.ms/KnownHostsFormat), along with either of the preceding SSH key scenarios.
+
+| Parameter | Format | Notes |
+| ------------- | ------------- | ------------- |
+| `--url` `-u` | ssh://user@server/repo[.git] | `git@` can replace `user@`. |
+| `--known-hosts` | Base64 string | Provide `known_hosts` content directly. |
+| `--known-hosts-file` | Full path to local file | Provide `known_hosts` content in a local file. |
+
+### Private Git repository with an HTTPS user and key
+
+| Parameter | Format | Notes |
+| ------------- | ------------- | ------------- |
+| `--url` `-u` | `https://server/repo[.git]` | HTTPS with Basic Authentication. |
+| `--https-user` | Raw string | HTTPS username. |
+| `--https-key` | Raw string | HTTPS personal access token or password.
+
+### Private Git repository with an HTTPS CA certificate
+
+| Parameter | Format | Notes |
+| ------------- | ------------- | ------------- |
+| `--url` `-u` | `https://server/repo[.git]` | HTTPS with Basic Authentication. |
+| `--https-ca-cert` | Base64 string | CA certificate for TLS communication. |
+| `--https-ca-cert-file` | Full path to local file | Provide CA certificate content in a local file. |
+
+### Bucket source arguments
+
+If you use a `bucket` source instead of a `git` source, here are the bucket-specific command arguments.
+
+| Parameter | Format | Notes |
+| ------------- | ------------- | ------------- |
+| `--url` `-u` | URL String | The URL for the `bucket`. Formats supported: http://, https://. |
+| `--bucket-name` | String | Name of the `bucket` to sync. |
+| `--bucket-access-key` | String | Access Key ID used to authenticate with the `bucket`. |
+| `--bucket-secret-key` | String | Secret Key used to authenticate with the `bucket`. |
+| `--bucket-insecure` | Boolean | Communicate with a `bucket` without TLS.  If not provided, assumed false; if provided, assumed true. |
+
+### Azure Blob Storage Account source arguments
+
+If you use a `azblob` source, here are the blob-specific command arguments.
+
+| Parameter | Format | Notes |
+| ------------- | ------------- | ------------- |
+| `--url` `-u` | URL String | The URL for the `azblob`. |
+| `--container-name` | String | Name of the Azure Blob Storage container to sync |
+| `--sp_client_id` | String | The client ID for authenticating a service principal with Azure Blob, required for this authentication method |
+| `--sp_tenant_id` | String | The tenant ID for authenticating a service principal with Azure Blob, required for this authentication method |
+| `--sp_client_secret` | String | The client secret for authenticating a service principal with Azure Blob |
+| `--sp_client_cert` | String | The Base64 encoded client certificate for authenticating a service principal with Azure Blob |
+| `--sp_client_cert_password` | String | The password for the client certificate used to authenticate a service principal with Azure Blob |
+| `--sp_client_cert_send_chain` | String | Specifies whether to include x5c header in client claims when acquiring a token to enable subject name / issuer based authentication for the client certificate |
+| `--account_key` | String | The Azure Blob Shared Key for authentication |
+| `--sas_token` | String | The Azure Blob SAS Token for authentication |
+| `--mi_client_id` | String | The client ID of the managed identity for authentication with Azure Blob |
+
+### Local secret for authentication with source
+
+You can use a local Kubernetes secret for authentication with a `git`, `bucket` or `azBlob` source.  The local secret must contain all of the authentication parameters needed for the source and must be created in the same namespace as the Flux configuration.
+
+| Parameter | Format | Notes |
+| ------------- | ------------- | ------------- |
+| `--local-auth-ref` `--local-ref`  | String | Local reference to a Kubernetes secret in the Flux configuration namespace to use for authentication with the source. |
+
+For HTTPS authentication, you create a secret with the `username` and `password`:
+
+```azurecli
+kubectl create ns flux-config
+kubectl create secret generic -n flux-config my-custom-secret --from-literal=username=<my-username> --from-literal=password=<my-password-or-key>
+```
+
+For SSH authentication, you create a secret with the `identity` and `known_hosts` fields:
+
+```azurecli
+kubectl create ns flux-config
+kubectl create secret generic -n flux-config my-custom-secret --from-file=identity=./id_rsa --from-file=known_hosts=./known_hosts
+```
+
+For both cases, when you create the Flux configuration, use `--local-auth-ref my-custom-secret` in place of the other authentication parameters:
+
+```azurecli
+az k8s-configuration flux create -g <cluster_resource_group> -c <cluster_name> -n <config_name> -t connectedClusters --scope cluster --namespace flux-config -u <git-repo-url> --kustomization name=kustomization1 --local-auth-ref my-custom-secret
+```
+
+Learn more about using a local Kubernetes secret with these authentication methods:
+
+* [Git repository HTTPS authentication](https://fluxcd.io/docs/components/source/gitrepositories/#https-authentication)
+* [Git repository HTTPS self-signed certificates](https://fluxcd.io/docs/components/source/gitrepositories/#https-self-signed-certificates)
+* [Git repository SSH authentication](https://fluxcd.io/docs/components/source/gitrepositories/#ssh-authentication)
+* [Bucket static authentication](https://fluxcd.io/docs/components/source/buckets/#static-authentication)
+
+> [!NOTE]
+> If you need Flux to access the source through your proxy, you'll need to update the Azure Arc agents with the proxy settings. For more information, see [Connect using an outbound proxy server](./quickstart-connect-cluster.md?tabs=azure-cli-connect-using-an-outbound-proxy-server).
+
+### Git implementation
+
+To support various repository providers that implement Git, Flux can be configured to use one of two Git libraries: `go-git` or `libgit2`. See the [Flux documentation](https://fluxcd.io/docs/components/source/gitrepositories/#git-implementation) for details.
+
+The GitOps implementation of Flux v2 automatically determines which library to use for public cloud repositories:
+
+* For GitHub, GitLab, and BitBucket repositories, Flux uses `go-git`.
+* For Azure DevOps and all other repositories, Flux uses `libgit2`.
+
+For on-premises repositories, Flux uses `libgit2`.
+
+### Kustomization
+
+By using `az k8s-configuration flux create`, you can create one or more kustomizations during the configuration.
+
+| Parameter | Format | Notes |
+| ------------- | ------------- | ------------- |
+| `--kustomization` | No value | Start of a string of parameters that configure a kustomization. You can use it multiple times to create multiple kustomizations. |
+| `name` | String | Unique name for this kustomization. |
+| `path` | String | Path within the Git repository to reconcile with the cluster. Default is the top level of the branch. |
+| `prune` | Boolean | Default is `false`. Set `prune=true` to assure that the objects that Flux deployed to the cluster will be cleaned up if they're removed from the repository or if the Flux configuration or kustomizations are deleted. Using `prune=true` is important for environments where users don't have access to the clusters and can make changes only through the Git repository. |
+| `depends_on` | String | Name of one or more kustomizations (within this configuration) that must reconcile before this kustomization can reconcile. For example: `depends_on=["kustomization1","kustomization2"]`. Note that if you remove a kustomization that has dependent kustomizations, the dependent kustomizations will get a `DependencyNotReady` state and reconciliation will halt.|
+| `timeout` | [golang duration format](https://pkg.go.dev/time#Duration.String) | Default: `10m`.  |
+| `sync_interval` | [golang duration format](https://pkg.go.dev/time#Duration.String) | Default: `10m`.  |
+| `retry_interval` | [golang duration format](https://pkg.go.dev/time#Duration.String) | Default: `10m`.  |
+| `validation` | String | Values: `none`, `client`, `server`. Default: `none`.  See [Flux documentation](https://fluxcd.io/docs/) for details.|
+| `force` | Boolean | Default: `false`. Set `force=true` to instruct the kustomize controller to re-create resources when patching fails because of an immutable field change. |
+
+You can also use `az k8s-configuration flux kustomization` to create, update, list, show, and delete kustomizations in a Flux configuration:
+
+```console
+az k8s-configuration flux kustomization -h
+
+Group
+    az k8s-configuration flux kustomization : Commands to manage Kustomizations associated with Flux
+    v2 Kubernetes configurations.
+
+Commands:
+    create : Create a Kustomization associated with a Flux v2 Kubernetes configuration.
+    delete : Delete a Kustomization associated with a Flux v2 Kubernetes configuration.
+    list   : List Kustomizations associated with a Flux v2 Kubernetes configuration.
+    show   : Show a Kustomization associated with a Flux v2 Kubernetes configuration.
+    update : Update a Kustomization associated with a Flux v2 Kubernetes configuration.
+```
+
+Here are the kustomization creation options:
+
+```azurecli
+az k8s-configuration flux kustomization create -h
+
+This command is from the following extension: k8s-configuration
+
+Command
+    az k8s-configuration flux kustomization create : Create a Kustomization associated with a
+    Kubernetes Flux v2 Configuration.
+
+Arguments
+    --cluster-name -c          [Required] : Name of the Kubernetes cluster.
+    --cluster-type -t          [Required] : Specify Arc connected clusters or AKS managed clusters.
+                                            Allowed values: connectedClusters, managedClusters.
+    --kustomization-name -k    [Required] : Specify the name of the kustomization to target.
+    --name -n                  [Required] : Name of the flux configuration.
+    --resource-group -g        [Required] : Name of resource group. You can configure the default
+                                            group using `az configure --defaults group=<name>`.
+    --dependencies --depends --depends-on : Comma-separated list of kustomization dependencies.
+    --force                               : Re-create resources that cannot be updated on the
+                                            cluster (i.e. jobs).  Allowed values: false, true.
+    --interval --sync-interval            : Time between reconciliations of the kustomization on the
+                                            cluster.
+    --no-wait                             : Do not wait for the long-running operation to finish.
+    --path                                : Specify the path in the source that the kustomization
+                                            should apply.
+    --prune                               : Garbage collect resources deployed by the kustomization
+                                            on the cluster.  Allowed values: false, true.
+    --retry-interval                      : Time between reconciliations of the kustomization on the
+                                            cluster on failures, defaults to --sync-interval.
+    --timeout                             : Maximum time to reconcile the kustomization before
+                                            timing out.
+
+Global Arguments
+    --debug                               : Increase logging verbosity to show all debug logs.
+    --help -h                             : Show this help message and exit.
+    --only-show-errors                    : Only show errors, suppressing warnings.
+    --output -o                           : Output format.  Allowed values: json, jsonc, none,
+                                            table, tsv, yaml, yamlc.  Default: json.
+    --query                               : JMESPath query string. See http://jmespath.org/ for more
+                                            information and examples.
+    --subscription                        : Name or ID of subscription. You can configure the
+                                            default subscription using `az account set -s
+                                            NAME_OR_ID`.
+    --verbose                             : Increase logging verbosity. Use --debug for full debug
+                                            logs.
+
+Examples
+    Create a Kustomization associated with a Kubernetes v2 Flux Configuration
+        az k8s-configuration flux kustomization create --resource-group my-resource-group \
+        --cluster-name mycluster --cluster-type connectedClusters --name myconfig \
+        --kustomization-name my-kustomization-2 --path ./my/path --prune --force
+```
+
+## Multi-tenancy
+
+Flux v2 supports [multi-tenancy](https://github.com/fluxcd/flux2-multi-tenancy) in [version 0.26](https://fluxcd.io/blog/2022/01/january-update/#flux-v026-more-secure-by-default). This capability has been integrated into Azure GitOps with Flux v2.
+
+> [!NOTE]
+> For the multi-tenancy feature, you need to know if your manifests contain any cross-namespace sourceRef for HelmRelease, Kustomization, ImagePolicy, or other objects, or [if you use a Kubernetes version less than 1.20.6](https://fluxcd.io/blog/2022/01/january-update/#flux-v026-more-secure-by-default). To prepare:
+>
+> * Upgrade to Kubernetes version 1.20.6 or greater.
+> * In your Kubernetes manifests, assure that all `sourceRef` are to objects within the same namespace as the GitOps configuration.
+>   * If you need time to update your manifests, you can [opt out of multi-tenancy](#opt-out-of-multi-tenancy). However, you still need to upgrade your Kubernetes version.
+
+### Update manifests for multi-tenancy
+
+Let’s say you deploy a `fluxConfiguration` to one of our Kubernetes clusters in the **cluster-config** namespace with cluster scope. You configure the source to sync the `https://github.com/fluxcd/flux2-kustomize-helm-example` repo. This is the same sample Git repo used in the [Deploy applications using GitOps with Flux v2 tutorial](tutorial-use-gitops-flux2.md). After Flux syncs the repo, it will deploy the resources described in the manifests (YAML files). Two of the manifests describe HelmRelease and HelmRepository objects.
+
+```yaml
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: nginx
+  namespace: nginx
+spec:
+  releaseName: nginx-ingress-controller
+  chart:
+    spec:
+      chart: nginx-ingress-controller
+      sourceRef:
+        kind: HelmRepository
+        name: bitnami
+        namespace: flux-system
+      version: "5.6.14"
+  interval: 1h0m0s
+  install:
+    remediation:
+      retries: 3
+  # Default values
+  # https://github.com/bitnami/charts/blob/master/bitnami/nginx-ingress-controller/values.yaml
+  values:
+    service:
+      type: NodePort
+```
+
+```yaml
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: HelmRepository
+metadata:
+  name: bitnami
+  namespace: flux-system
+spec:
+  interval: 30m
+  url: https://charts.bitnami.com/bitnami
+```
+
+By default, the Flux extension will deploy the `fluxConfigurations` by impersonating the **flux-applier** service account that is deployed only in the **cluster-config** namespace. Using the above manifests, when multi-tenancy is enabled the HelmRelease would be blocked. This is because the HelmRelease is in the **nginx** namespace and is referencing a HelmRepository in the **flux-system** namespace. Also, the Flux helm-controller cannot apply the HelmRelease, because there is no **flux-applier** service account in the **nginx** namespace.
+
+To work with multi-tenancy, the correct approach is to deploy all Flux objects into the same namespace as the `fluxConfigurations`. This avoids the cross-namespace reference issue, and allows the Flux controllers to get the permissions to apply the objects. Thus, for a GitOps configuration created in the **cluster-config** namespace, the above manifests would change to these:
+
+```yaml
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: nginx
+  namespace: cluster-config 
+spec:
+  releaseName: nginx-ingress-controller
+  targetNamespace: nginx
+  chart:
+    spec:
+      chart: nginx-ingress-controller
+      sourceRef:
+        kind: HelmRepository
+        name: bitnami
+        namespace: cluster-config
+      version: "5.6.14"
+  interval: 1h0m0s
+  install:
+    remediation:
+      retries: 3
+  # Default values
+  # https://github.com/bitnami/charts/blob/master/bitnami/nginx-ingress-controller/values.yaml
+  values:
+    service:
+      type: NodePort
+```
+
+```yaml
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: HelmRepository
+metadata:
+  name: bitnami
+  namespace: cluster-config
+spec:
+  interval: 30m
+  url: https://charts.bitnami.com/bitnami
+```
+
+### Opt out of multi-tenancy
+
+When the `microsoft.flux` extension is installed, multi-tenancy is enabled by default to assure security by default in your clusters.  However, if you need to disable multi-tenancy, you can opt out by creating or updating the `microsoft.flux` extension in your clusters with "--configuration-settings multiTenancy.enforce=false":
+
+```azurecli
+az k8s-extension create --extension-type microsoft.flux --configuration-settings multiTenancy.enforce=false -c CLUSTER_NAME -g RESOURCE_GROUP -n flux -t <managedClusters or connectedClusters>
+```
+
+```azurecli
+az k8s-extension update --configuration-settings multiTenancy.enforce=false -c CLUSTER_NAME -g RESOURCE_GROUP -n flux -t <managedClusters or connectedClusters>
+```
+
+## Migrate from Flux v1
+
+If you are still using Flux v1, we recommend migrating to Flux v2 as soon as possible.
+
+To migrate to using Flux v2 in the same clusters where you've been using Flux v1, you first need to delete all Flux v1 `sourceControlConfigurations` from the clusters. Because Flux v2 has a fundamentally different architecture, the `microsoft.flux` cluster extension won't install if there are Flux v1 `sourceControlConfigurations` resources in a cluster.
+
+Removing Flux v1 `sourceControlConfigurations` will not stop any applications that are running on the clusters. However, during the period when Flux v1 configuration is removed and Flux v2 extension is not yet fully deployed, expect that:
+
+* If there are new changes in the application manifests stored in a Git repository, these will not be pulled during the migration, and the application version deployed on the cluster will be stale.
+* If there are unintended changes in the cluster state and it deviates from the desired state specified in source Git repository, the cluster will not be able to self-heal.
+
+We recommend testing your migration scenario in a development environment before migrating your production environment. The process of removing Flux v1 configurations and deploying Flux v2 configurations should not take more than 30 minutes. 
+
+### View and delete Flux v1 configurations
+
+Use these Azure CLI commands to find and then delete existing `sourceControlConfigurations` in a cluster:
+
+```azurecli
+az k8s-configuration list --cluster-name <Arc or AKS cluster name> --cluster-type <connectedClusters OR managedClusters> --resource-group <resource group name>
+az k8s-configuration delete --name <configuration name> --cluster-name <Arc or AKS cluster name> --cluster-type <connectedClusters OR managedClusters> --resource-group <resource group name>
+```
+
+You can also view and delete existing GitOps configurations for a cluster in the Azure portal. To do so, navigate to the cluster where the configuration was created and select **GitOps** in the left pane. Select the configuration, then select **Delete**.
+
+### Deploy Flux v2 configurations
+
+Use the Azure portal or Azure CLI to [apply Flux v2 configurations](tutorial-use-gitops-flux2.md#apply-a-flux-configuration) to your clusters.
+
+### Flux v1 retirement information
+
+The open-source project of Flux v1 has been archived, and feature development has been stopped indefinitely. For more information, see the [fluxcd project](https://fluxcd.io/docs/migration/).
+
+Flux v2 was launched as the upgraded open-source project of Flux. It has a new architecture and supports more GitOps use cases. Microsoft launched a version of an extension using Flux v2 in May 2022. Since then, customers have been advised to move to Flux v2 within three years, as support for using Flux v1 is scheduled to end in May 2025.
+
+Key new features introduced in the GitOps extension for Flux v2:
+
+* Flux v1 is a monolithic do-it-all operator. Flux v2 separates the functionalities into [specialized controllers](#controllers) (Source controller, Kustomize controller, Helm controller, and Notification controller).
+* Supports synchronization with multiple source repositories.
+* Supports [multi-tenancy](#multi-tenancy), like applying each source repository with its own set of permissions
+* Provides operational insights through health checks, events and alerts.
+* Supports Git branches, pinning on commits and tags, and following SemVer tag ranges.
+* Credentials configuration per GitRepository resource: SSH private key, HTTP/S username/password/token, and OpenPGP public keys.
 
 ## Next steps
 
-Advance to the next tutorial to learn how to enable GitOps on your Azure Arc-enabled Kubernetes or AKS clusters
-> [!div class="nextstepaction"]
-* [Enable GitOps with Flux](./tutorial-use-gitops-flux2.md)
+* Use our tutorial to learn how to [enable GitOps on your AKS or Azure Arc-enabled Kubernetes clusters](tutorial-use-gitops-flux2.md).
+* Learn about [CI/CD workflow using GitOps](conceptual-gitops-flux2-ci-cd.md).

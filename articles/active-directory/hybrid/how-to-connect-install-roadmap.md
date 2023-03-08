@@ -3,12 +3,12 @@ title: 'Azure AD Connect and Azure AD Connect Health installation roadmap. | Mic
 description: This document provides an overview of the installation options and paths available for installing Azure AD Connect and Connect Health.
 services: active-directory
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 09/18/2018
+ms.date: 01/26/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management

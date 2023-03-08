@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 1/11/2022
+ms.date: 02/16/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -47,6 +47,8 @@ The following table lists the claim resolvers with information about the languag
 | {Culture:RegionName} | The two letter ISO code for the region. | US |
 | {Culture:RFC5646} | The RFC5646 language code. | en-US |
 
+Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-resolver#culture) of the culture claim resolvers.
+
 ## Policy
 
 The following table lists the claim resolvers with information about the policy used in the authorization request:
@@ -58,6 +60,7 @@ The following table lists the claim resolvers with information about the policy 
 | {Policy:TenantObjectId} | The tenant object ID of the relying party policy. | 00000000-0000-0000-0000-000000000000 |
 | {Policy:TrustFrameworkTenantId} | The tenant ID of the trust framework. | your-tenant.onmicrosoft.com |
 
+Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-resolver#policy) of the policy claim resolvers.
 
 ## Context
 
@@ -72,6 +75,8 @@ The following table lists the contextual claim resolvers of the authorization re
 | {Context:HostName} | The host name of the current request.  | contoso.b2clogin.com |
 | {Context:IPAddress} | The user IP address. | 11.111.111.11 |
 | {Context:KMSI} | Indicates whether [Keep me signed in](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi) checkbox is selected. |  true |
+
+Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-resolver#context) of the context claim resolvers.
 
 ## Claims 
 
@@ -100,6 +105,8 @@ The following table lists the claim resolvers with information about the OpenID 
 | {OIDC:Scope} |The `scope`  query string parameter. | openid |
 | {OIDC:Username}| The [resource owner password credentials flow](add-ropc-policy.md) user's username.| emily@contoso.com|
 
+Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-resolver#openid-connect-relying-party-application) of the OpenID Connect claim resolvers.
+
 ## OAuth2 key-value parameters
 
 Any parameter name included as part of an OIDC or OAuth2 request can be mapped to a claim in the user journey. For example, the request from the application might include a query string parameter with a name of `app_session`, `loyalty_number`, or any custom query string.
@@ -126,6 +133,8 @@ The following table lists the claim resolvers  with information about the SAML a
 | {SAML:RelayState} | The `RelayState` query string parameter.| 
 | {SAML:Subject} | The `Subject` from the NameId element of the SAML AuthN request.| 
 | {SAML:Binding} | The `ProtocolBinding` attribute value, from the `AuthnRequest` element of the SAML request. | urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST |
+
+Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-resolver#saml-service-provider) of the SAML claim resolvers.
 
 ## OAuth2 identity provider
 
@@ -156,7 +165,6 @@ To use the OAuth2 identity provider claim resolvers, set the output claim's `Par
   </TechnicalProfiles>
 </ClaimsProvider>
 ```
-
 
 ## Using claim resolvers
 
@@ -287,3 +295,7 @@ In a [Relying party](relyingparty.md) policy technical profile, you may want to 
     </TechnicalProfile>
   </RelyingParty>
 ```
+
+## Next steps
+
+- Find more [claims resolvers samples](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-resolver) on the Azure AD B2C community GitHub repo

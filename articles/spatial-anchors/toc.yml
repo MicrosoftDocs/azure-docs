@@ -6,53 +6,44 @@ items:
   - name: About Spatial Anchors
     href: overview.md
 - name: Quickstarts
-  expanded: true
   items:
-  - name: Create Unity app
-    expanded: true
-    items:
-    - name: Unity overview
-      href: unity-overview.md
-    - name: HoloLens
-      href: quickstarts/get-started-unity-hololens.md
-      displayName: Azure CLI, az spatial-anchors-account
-    - name: Android
-      href: quickstarts/get-started-unity-android.md
-      displayName: Azure CLI, az spatial-anchors-account
-    - name: iOS
-      href: quickstarts/get-started-unity-ios.md
-      displayName: Azure CLI, az spatial-anchors-account
-  - name: Create HoloLens app
-    href: quickstarts/get-started-hololens.md
-    displayName: Azure CLI, az spatial-anchors-account
-  - name: Create Android app
-    href: quickstarts/get-started-android.md
-    displayName: Azure CLI, az spatial-anchors-account
-  - name: Create iOS app
-    href: quickstarts/get-started-ios.md
-    displayName: Azure CLI, az spatial-anchors-account
-  - name: Create Xamarin app
-    items:
-    - name: Android
-      href: quickstarts/get-started-xamarin-android.md
-      displayName: Azure CLI, az spatial-anchors-account
-    - name: iOS
-      href: quickstarts/get-started-xamarin-ios.md
-      displayName: Azure CLI, az spatial-anchors-account
+  - name: Run sample app
+    items:  
+    - name: Unity
+      items:
+      - name: HoloLens - Unity
+        href: quickstarts/get-started-unity-hololens.md
+      - name: Android - Unity
+        href: quickstarts/get-started-unity-android.md
+      - name: iOS - Unity
+        href: quickstarts/get-started-unity-ios.md
+    - name: HoloLens - Visual Studio (Native)
+      href: quickstarts/get-started-hololens.md
+    - name: Android - Android Studio
+      href: quickstarts/get-started-android.md
+    - name: iOS - Xcode
+      href: quickstarts/get-started-ios.md
+    - name: Xamarin
+      items:
+      - name: Android - Xamarin
+        href: quickstarts/get-started-xamarin-android.md
+        displayName: Azure CLI, az spatial-anchors-account
+      - name: iOS - Xamarin
+        href: quickstarts/get-started-xamarin-ios.md
 - name: Tutorials
   items:
+  - name: Create your own HoloLens app - Unity
+    href: tutorials/tutorial-new-unity-hololens-app.md
+    displayName: Azure CLI, az spatial-anchors-account
+  - name: Create your own Android app - Android Studio
+    href: tutorials/tutorial-new-android-app.md
+    displayName: Azure CLI, az spatial-anchors-account
   - name: Sharing across sessions and devices
     href: tutorials/tutorial-share-anchors-across-devices.md
     displayName: Azure CLI, az spatial-anchors-account
     items:
     - name: Persistent sharing with Azure Cosmos DB
       href: tutorials/tutorial-use-cosmos-db-to-store-anchors.md
-  - name: Starting a new Unity HoloLens app
-    href: tutorials/tutorial-new-unity-hololens-app.md
-    displayName: Azure CLI, az spatial-anchors-account
-  - name: Starting a new Android app
-    href: tutorials/tutorial-new-android-app.md
-    displayName: Azure CLI, az spatial-anchors-account
 - name: How-to
   items:
   - name: Create an Azure Spatial Anchors account
@@ -90,18 +81,18 @@ items:
     href: how-tos/use-coarse-relocalization-without-anchor-session.md
   - name: Project setup
     items:
-    - name: C++/WinRT
-      href: how-tos/setup-cpp-winrt-project.md
     - name: Unity
       href: how-tos/setup-unity-project.md
+    - name: C++/WinRT
+      href: how-tos/setup-cpp-winrt-project.md
+  - name: Move a Spatial Anchors account between regions
+    href: how-tos/move-azure-spatial-anchors-account.md
 - name: Samples
   items:
   - name: Azure Spatial Anchors samples (GitHub)
     href: https://github.com/Azure/azure-spatial-anchors-samples
   - name: MROpenXR Azure Spatial Anchors sample (GitHub)
     href: https://github.com/microsoft/OpenXR-Unity-MixedReality-Samples
-  - name: MRTK Azure Spatial Anchors learning module
-    href: /learn/modules/azure-spatial-anchors-tutorials/
 - name: Concepts
   items:
   - name: Authentication
@@ -115,7 +106,13 @@ items:
   - name: Coarse relocalization
     href: concepts/coarse-reloc.md
   - name: Anchor locate strategy
-    href: concepts/anchor-locate-strategy.md    
+    href: concepts/anchor-locate-strategy.md
+  - name: Reliability in Spatial Anchors
+    href: concepts/reliability-spatial-anchors.md
+  - name: Security
+    items:
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/azure-spatial-anchors-security-baseline?toc=/azure/spatial-anchors/toc.json
 - name: References
   items:
   - name: SDK for Unity
@@ -140,9 +137,5 @@ items:
     href: /rest/api/mixedreality/
   - name: FAQ
     href: spatial-anchor-faq.yml
-  - name: Provide Product Feedback
-    href: https://feedback.azure.com/d365community/forum/f47d9b25-0725-ec11-b6e6-000d3a4f07b8
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-spatial-anchors
-  - name: Support
+  - name: Support & Feedback
     href: spatial-anchor-support.md

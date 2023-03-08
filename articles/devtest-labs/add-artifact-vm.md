@@ -2,6 +2,8 @@
 title: Add an artifact to a VM
 description: Learn how to add an artifact to a virtual machine in a lab in Azure DevTest Labs.
 ms.topic: how-to
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 01/11/2022
 ms.custom: devx-track-azurepowershell
 ---
@@ -121,7 +123,7 @@ $artifactParameters = @()
 # Fill the artifact parameter with the additional -param_ data and strip off the -param_
 $Params | ForEach-Object {
    if ($_ -match '^-param_(.*)') {
-      $name = $_.TrimStart('^-param_')
+      $name = $_ -replace '^-param_'
    } elseif ( $name ) {
       $artifactParameters += @{ "name" = "$name"; "value" = "$_" }
       $name = $null #reset name variable

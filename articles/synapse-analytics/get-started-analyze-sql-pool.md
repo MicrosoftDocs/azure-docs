@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Get started analyze data with dedicated SQL pools' 
 description: In this tutorial, you'll use the NYC Taxi sample data to explore SQL pool's analytic capabilities.
-services: synapse-analytics
 author: saveenr
 ms.author: saveenr
 ms.reviewer: sngun, wiassaf
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
-ms.date: 09/29/2021 
+ms.date: 11/18/2022
+ms.custom: engagement-fy23
 ---
 
 # Analyze data with dedicated SQL pools
@@ -105,9 +105,11 @@ A dedicated SQL pool consumes billable resources as long as it's active. You can
     SELECT PassengerCount,
           SUM(TripDistanceMiles) as SumTripDistance,
           AVG(TripDistanceMiles) as AvgTripDistance
+    INTO dbo.PassengerCountStats
     FROM  dbo.NYCTaxiTripSmall
     WHERE TripDistanceMiles > 0 AND PassengerCount > 0
-    GROUP BY PassengerCount
+    GROUP BY PassengerCount;
+    SELECT * FROM dbo.PassengerCountStats
     ORDER BY PassengerCount;
     ```
 

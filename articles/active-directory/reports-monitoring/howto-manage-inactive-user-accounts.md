@@ -2,19 +2,14 @@
 title: How to manage inactive user accounts in Azure AD | Microsoft Docs
 description: Learn about how to detect and handle user accounts in Azure AD that have become obsolete
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
-manager: karenhoran
-editor: ''
-
-ms.assetid: ada19f69-665c-452a-8452-701029bf4252
+author: shlipsey3
+manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 12/17/2021
-ms.author: markvi
+ms.date: 10/31/2022
+ms.author: sarahlipsey
 ms.reviewer: besiler
 
 ms.collection: M365-identity-device-management
@@ -90,7 +85,7 @@ To generate a lastSignInDateTime timestamp, you need a successful sign-in. Becau
 
 ### For how long is the last sign-in retained?
 
-The last sign-in date is associated with the user object. The value is retained until the sign-in of the user. 
+The last sign-in date is associated with the user object. The value is retained until the next sign-in of the user. 
 
 ## Next steps
 

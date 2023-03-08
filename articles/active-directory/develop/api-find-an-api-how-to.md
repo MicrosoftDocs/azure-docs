@@ -1,5 +1,5 @@
 ---
-title: Find an API for a custom-developed app | Azure
+title: Find an API for a custom-developed app
 description: How to configure the permissions you need to access a particular API in your custom developed Azure AD application
 services: active-directory
 author: rwike77

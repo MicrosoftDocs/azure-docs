@@ -44,7 +44,7 @@ The text box will be used to enter the Teams meeting context and the button will
             Hang Up
         </button>
     </div>
-    <script src="./bundle.js"></script>
+    <script src="./app.js" type="module"></script>
 </body>
 
 </html>
@@ -52,7 +52,7 @@ The text box will be used to enter the Teams meeting context and the button will
 
 ## Enable the Teams UI controls
 
-Replace content of client.js file with following snippet.
+Replace content of app.js file with following snippet.
 
 ```javascript
 import { CallClient } from "@azure/communication-calling";
@@ -70,7 +70,7 @@ const recordingStateElement = document.getElementById('recording-state');
 async function init() {
     const callClient = new CallClient();
     const tokenCredential = new AzureCommunicationTokenCredential("<USER ACCESS TOKEN>");
-    callAgent = await callClient.createCallAgent(tokenCredential, {displayName: 'ACS user'});
+    callAgent = await callClient.createCallAgent(tokenCredential, {displayName: 'Test user'});
     teamsMeetingJoinButton.disabled = false;
 }
 init();
@@ -115,13 +115,13 @@ You can also get the required meeting information from the **Join Meeting** URL 
 
 ## Run the code
 
-Webpack users can use the `webpack-dev-server` to build and run your app. Run the following command to bundle your application host on a local webserver:
+Run the following command to bundle your application host on a local webserver:
 
 ```console
-npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
+npx parcel index.html
 ```
 
-Open your browser and navigate to http://localhost:8080/. You should see the following:
+Open your browser and navigate to http://localhost:1234/. You should see the following:
 
 :::image type="content" source="../../media/javascript/acs-join-teams-meeting-quickstart.PNG" alt-text="Screenshot of the completed JavaScript Application.":::
 

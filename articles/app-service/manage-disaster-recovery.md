@@ -4,7 +4,7 @@ description: Learn how Azure App Service helps you maintain business continuity 
 
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.custom: subject-moving-resources
+ms.custom: "UpdateFrequency3, subject-moving-resources"
 
 #Customer intent: As an Azure service administrator, I want to recover my App Service app from a region-wide failure in Azure.
 ---
@@ -17,7 +17,7 @@ App Service resources are region-specific and can't be moved across regions. You
 
 ## Prerequisites
 
-- None. [Restoring from snapshot](app-service-web-restore-snapshots.md) usually requires **Premium** tier, but in disaster recovery mode, it's automatically enabled for your impacted app, regardless which tier the impacted app is in.
+- None. [Restoring an automatic backup](manage-backup.md#restore-a-backup) usually requires **Standard** or **Premium** tier, but in disaster recovery mode, it's automatically enabled for your impacted app, regardless which tier the impacted app is in.
 
 ## Prepare
 
@@ -55,7 +55,7 @@ Certain resources, such as imported certificates or hybrid connections, contain 
 
 3. Configure [everything else](#prepare) in the target app to mirror the impacted app and verify your configuration.
 
-4. When you're ready for the custom domain to point to the target app, [remap the domain name](manage-custom-dns-migrate-domain.md#remap-the-active-dns-name).
+4. When you're ready for the custom domain to point to the target app, [remap the domain name](manage-custom-dns-migrate-domain.md#4-remap-the-active-dns-name).
 
 ## Recover app content only
 
@@ -85,4 +85,4 @@ If you only want to recover the files from the impacted app without restoring it
     ![Screenshot of a FileZilla file hierarchy. The wwwroot folder is highlighted, and its shortcut menu is visible. In that menu, Download is highlighted.](media/manage-disaster-recovery/download-content.png)
 
 ## Next steps
-[Restore an app in Azure from a snapshot](app-service-web-restore-snapshots.md)
+[Backup and restore](manage-backup.md)

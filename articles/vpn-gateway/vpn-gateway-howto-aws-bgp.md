@@ -2,8 +2,8 @@
 title: 'Tutorial - Configure a BGP-enabled connection between Azure and Amazon Web Services (AWS) using the portal'
 description: In this tutorial, learn how to connect Azure and AWS using an active-active VPN Gateway and two site-to-site connections on AWS.
 titleSuffix: Azure VPN Gateway
-author: jaidharosenblatt
-ms.author: jrosenblatt
+author: cherylmc
+ms.author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
 ms.date: 12/2/2021
@@ -53,7 +53,8 @@ For example, if you set your AWS **Inside IPv4 CIDR** to be **169.254.21.0/30**,
    >
    > [!IMPORTANT]
    >
-   > Your APIPA addresses must not overlap between the on-premises VPN devices and all connected Azure VPN gateways.
+   > 1. Your APIPA addresses must not overlap between the on-premises VPN devices and all connected Azure VPN gateways.
+   > 2. If you choose to configure multiple APIPA BGP peer addresses on the VPN gateway, you must also configure all Connection objects with their corresponding IP address of your choice. If you fail to do so, all connections will use the first APIPA IP address in the list no matter how many IPs are present.
    >
 
 ## Prerequisites

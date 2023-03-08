@@ -1,17 +1,17 @@
 ### YamlMime:Landing
 
-title: Managed Applications documentation
+title: Azure Managed Applications documentation
 summary: Offer cloud solutions that are easy for consumers to deploy and operate.
 
 metadata:
   title: Azure Managed Applications documentation
-  description: Azure managed applications enable you to offer cloud solutions that are easy for consumers to deploy and operate.
+  description: Azure Managed Applications enable you to offer cloud solutions that are easy for consumers to deploy and operate.
   ms.service: managed-applications
   ms.topic: landing-page
   ms.collection: na
-  author: tfitzmac
-  ms.author: tomfitz
-  ms.date: 01/02/2020
+  author: davidsmatlak
+  ms.author: davidsmatlak
+  ms.date: 03/03/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -38,14 +38,14 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Publish application definition
-            url: ./publish-service-catalog-app.md
+            url: publish-service-catalog-app.md
+          - text: Publish definition with bring your own storage
+            url: publish-service-catalog-bring-your-own-storage.md
           - text: Deploy service catalog app
             url: deploy-service-catalog-quickstart.md
       - linkListType: tutorial
         links:
-          - text: Create definition files
-            url: publish-service-catalog-app.md
-          - text: Publish marketplace application 
+          - text: Publish marketplace application
             url: ../../marketplace/azure-app-offer-setup.md
           - text: Create managed application with custom provider
             url: tutorial-create-managed-app-with-custom-provider.md

@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "custom-disaster-recovery.md",
+      "redirect_url": "/azure/event-grid/custom-disaster-recovery-client-side",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "premium-basic-tiers.md",
       "redirect_url": "https://azure.microsoft.com/pricing/details/event-grid/",
       "redirect_document_id": false
@@ -15,6 +20,11 @@
       "redirect_url": "/azure/event-grid/overview#event-sources",
       "redirect_document_id": false
     },
+    {
+      "source_path": "metrics.md",
+      "redirect_url": "/azure/azure-monitor/essentials/metrics-supported#microsofteventgriddomains",
+      "redirect_document_id": false
+    },    
     {
       "source_path": "move-partner-namespaces-across-regions.md",
       "redirect_url": "/azure/event-grid/move-system-topics-across-regions",
@@ -39,6 +49,31 @@
       "source_path": "event-subscription-template.md",
       "redirect_url": "/azure/event-grid/template-samples",
       "redirect_document_id": false
-    }
+    },
+    {
+      "source_path": "partner-onboarding-overview.md",
+      "redirect_url": "/azure/event-grid/onboard-partner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "geo-disaster-recovery.md",
+      "redirect_url": "/azure/event-grid/availability-zones-disaster-recovery",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "availability-zone-resiliency.md",
+      "redirect_url": "/azure/event-grid/availability-zones-disaster-recovery",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "deliver-events-to-partner-destinations.md",
+      "redirect_url": "/azure/event-grid/partner-events-overview-for-partners",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "event-schema-farmbeats.md",
+      "redirect_url": "/azure/event-grid/system-topics",
+      "redirect_document_id": false
+    }    
   ]
 }

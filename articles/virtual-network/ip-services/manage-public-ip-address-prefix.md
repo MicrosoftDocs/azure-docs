@@ -34,7 +34,7 @@ Alternatively, you may use the CLI and PowerShell commands below to create a pub
 
 |Tool|Command|
 |---|---|
-|CLI|[az network public-ip prefix create](/cli/azure/network/public-ip/prefix#az_network_public_ip_prefix_create)|
+|CLI|[az network public-ip prefix create](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-create)|
 |PowerShell|[New-AzPublicIpPrefix](/powershell/module/az.network/new-azpublicipprefix)|
 
 >[!NOTE]
@@ -54,7 +54,7 @@ Alternatively, you may use the CLI and PowerShell commands below with the **--pu
 
 |Tool|Command|
 |---|---|
-|CLI|[az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create)|
+|CLI|[az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create)|
 |PowerShell|[New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)|
 
 >[!NOTE]
@@ -71,7 +71,7 @@ To view or delete a prefix, the following commands can be used in Azure CLI and 
 
 |Tool|Command|
 |---|---|
-|CLI|[az network public-ip prefix list](/cli/azure/network/public-ip/prefix#az_network_public_ip_prefix_list) to list public IP addresses<br>[az network public-ip prefix show](/cli/azure/network/public-ip/prefix#az_network_public_ip_prefix_show) to show settings<br> [az network public-ip prefix update](/cli/azure/network/public-ip/prefix#az_network_public_ip_prefix_update) to update<br>[az network public-ip prefix delete](/cli/azure/network/public-ip/prefix#az_network_public_ip_prefix_delete) to delete|
+|CLI|[az network public-ip prefix list](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-list) to list public IP addresses<br>[az network public-ip prefix show](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-show) to show settings<br> [az network public-ip prefix update](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-update) to update<br>[az network public-ip prefix delete](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-delete) to delete|
 |PowerShell|[Get-AzPublicIpPrefix](/powershell/module/az.network/get-azpublicipprefix) to retrieve a public IP address object and view its settings<br>[Set-AzPublicIpPrefix](/powershell/module/az.network/set-azpublicipprefix) to update settings<br> [Remove-AzPublicIpPrefix](/powershell/module/az.network/remove-azpublicipprefix) to delete|
 
 ## Permissions

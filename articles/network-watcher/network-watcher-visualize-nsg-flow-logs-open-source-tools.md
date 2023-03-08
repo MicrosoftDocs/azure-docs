@@ -3,14 +3,13 @@ title: Visualize NSG flow logs - Elastic Stack
 titleSuffix: Azure Network Watcher
 description: Manage and analyze Network Security Group Flow Logs in Azure using Network Watcher and Elastic Stack.
 services: network-watcher
-documentationcenter: na
-author: damendo
+author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload:  infrastructure-services
-ms.date: 02/22/2017
-ms.author: damendo
+ms.workload: infrastructure-services
+ms.date: 09/15/2022
+ms.author: halkazwini
+ms.custom: engagement-fy23
 ---
 
 # Visualize Azure Network Watcher NSG flow logs using open source tools
@@ -35,7 +34,7 @@ By connecting NSG flow logs with the Elastic Stack, we can create a Kibana dashb
 
 #### Install Elasticsearch
 
-1. The Elastic Stack from version 5.0 and above requires Java 8. Run the command `java -version` to check your version. If you do not have java installed, refer to documentation on the [Azure-suppored JDKs](/azure/developer/java/fundamentals/java-support-on-azure).
+1. The Elastic Stack from version 5.0 and above requires Java 8. Run the command `java -version` to check your version. If you do not have Java installed, refer to documentation on the [Azure-suppored JDKs](/azure/developer/java/fundamentals/java-support-on-azure).
 2. Download the correct binary package for your system:
 
    ```bash
@@ -95,7 +94,7 @@ For further instructions on installing Elastic search, refer to [Installation in
             storage_access_key => "VGhpcyBpcyBhIGZha2Uga2V5Lg=="
             container => "insights-logs-networksecuritygroupflowevent"
             codec => "json"
-            # Refer https://docs.microsoft.com/azure/network-watcher/network-watcher-read-nsg-flow-logs
+            # Refer https://learn.microsoft.com/azure/network-watcher/network-watcher-read-nsg-flow-logs
             # Typical numbers could be 21/9 or 12/2 depends on the nsg log file types
             file_head_bytes => 12
             file_tail_bytes => 2

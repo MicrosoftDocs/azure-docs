@@ -4,7 +4,8 @@ description: Common issues with Azure Monitor alerts and possible solutions.
 author: ofirmanor
 ms.author: ofmanor
 ms.topic: reference
-ms.date: 03/16/2020
+ms.date: 2/23/2022
+ms.reviewer: ofmanor
 ---
 # Troubleshooting problems in Azure Monitor alerts
 
@@ -135,9 +136,16 @@ If you can see a fired alert in the portal, but its configured action did not tr
     1. **Are you calling Slack or Microsoft Teams?**  
     Each of these endpoints expects a specific JSON format. Follow [these instructions](../alerts/action-groups-logic-app.md) to configure a logic app action instead.
 
-    1. **Did your webhook became unresponsive or returned errors?** 
+    1. **Did your webhook become unresponsive or return errors?** 
 
-        Our timeout period for a webhook response is 10 seconds. The webhook call will be retried up to two additional times when the following HTTP status codes are returned: 408, 429, 503, 504, or when the HTTP endpoint does not respond. The first retry happens after 10 seconds. The second and final retry happens after 100 seconds. If the second retry fails, the endpoint will not be called again for 30 minutes for any action group.
+        The webhook response timeout period is 10 seconds. When the HTTP endpoint does not respond or when the following HTTP status codes are returned, the webhook call is retried up to two times:
+        
+    - `408`
+    -  `429`
+    - `503`
+    - `504`
+   
+        One retry occurs after 10 seconds and another retry occurs after 100 seconds. If the second retry fails, the endpoint is not called again for 15 minutes for any action group.
 
 ## Action or notification happened more than once 
 
@@ -236,7 +244,7 @@ If you received an error while trying to create, update or delete an [alert proc
 
 1. **Did you verify the alert processing rule parameters?**  
 
-    Check the [alert processing rule documentation](../alerts/alerts-action-rules.md), or the [alert processing rule PowerShell Set-AzActionRule](/powershell/module/az.alertsmanagement/set-azactionrule) command. 
+    Check the [alert processing rule documentation](../alerts/alerts-action-rules.md), or the [alert processing rule PowerShell Set-AzActionRule](/powershell/module/az.alertsmanagement/set-azalertprocessingrule) command. 
 
 
 ## Next steps

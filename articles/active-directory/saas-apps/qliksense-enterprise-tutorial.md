@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Qlik Sense Enterprise | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Qlik Sense Enterprise.
+title: 'Tutorial: Azure AD SSO integration with Qlik Sense Enterprise Client-Managed'
+description: Learn how to configure single sign-on between Azure Active Directory and Qlik Sense Enterprise Client-Managed.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -9,25 +9,28 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/28/2020
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Integrate Qlik Sense Enterprise with Azure Active Directory
+# Tutorial: Azure AD SSO integration with Qlik Sense Enterprise Client-Managed
 
-In this tutorial, you'll learn how to integrate Qlik Sense Enterprise with Azure Active Directory (Azure AD). When you integrate Qlik Sense Enterprise with Azure AD, you can:
+In this tutorial, you'll learn how to integrate Qlik Sense Enterprise Client-Managed with Azure Active Directory (Azure AD). When you integrate Qlik Sense Enterprise Client-Managed with Azure AD, you can:
 
 * Control in Azure AD who has access to Qlik Sense Enterprise.
 * Enable your users to be automatically signed-in to Qlik Sense Enterprise with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
+Note that there are two versions of Qlik Sense Enterprise. While this tutorial covers integration with the client-managed releases, a different process is required for Qlik Sense Enterprise SaaS (Qlik Cloud version).
 
 ## Prerequisites
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get one-month free trial [here](https://azure.microsoft.com/pricing/free-trial/).
+* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Qlik Sense Enterprise single sign-on (SSO) enabled subscription.
+* Along with Cloud Application Administrator, Application Administrator can also add or manage applications in Azure AD.
+For more information, see [Azure built-in roles](../roles/permissions-reference.md).
 
 ## Scenario description
 
@@ -35,7 +38,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 * Qlik Sense Enterprise supports **SP** initiated SSO.
 * Qlik Sense Enterprise supports **just-in-time provisioning**
 
-## Adding Qlik Sense Enterprise from the gallery
+## Add Qlik Sense Enterprise from the gallery
 
 To configure the integration of Qlik Sense Enterprise into Azure AD, you need to add Qlik Sense Enterprise from the gallery to your list of managed SaaS apps.
 
@@ -45,6 +48,8 @@ To configure the integration of Qlik Sense Enterprise into Azure AD, you need to
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Qlik Sense Enterprise** in the search box.
 1. Select **Qlik Sense Enterprise** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for Qlik Sense Enterprise
 
@@ -59,7 +64,7 @@ To configure and test Azure AD SSO with Qlik Sense Enterprise, perform the follo
     1. **[Create Qlik Sense Enterprise test user](#create-qlik-sense-enterprise-test-user)** - to have a counterpart of Britta Simon in Qlik Sense Enterprise that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-### Configure Azure AD SSO
+## Configure Azure AD SSO
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
@@ -67,31 +72,30 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Select a Single sign-on method** page, select **SAML**.
 1. On the **Set up Single Sign-On with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-   ![Edit Basic SAML Configuration](common/edit-urls.png)
+    ![Screenshot shows to edit Basic S A M L Configuration.](common/edit-urls.png "Basic Configuration")
 
-1. On the **Basic SAML Configuration** page, enter the values for the following fields:
+1. On the **Basic SAML Configuration** section, perform the following steps:
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<Fully Qualified Domain Name>:443{/virtualproxyprefix}/hub`
-
-    b. In the **Identifier** textbox, type a URL using one of the following pattern:
+    a. In the **Identifier** textbox, type a URL using one of the following patterns:
 
     | Identifier |
     |-------------|
     | `https://<Fully Qualified Domain Name>.qlikpoc.com` |
     | `https://<Fully Qualified Domain Name>.qliksense.com` |
-    |
-   
 
-    c. In the **Reply URL** textbox, type a URL using the following pattern:
+    b. In the **Reply URL** textbox, type a URL using the following pattern:
 
     `https://<Fully Qualified Domain Name>:443{/virtualproxyprefix}/samlauthn/`
 
+    c. In the **Sign on URL** textbox, type a URL using the following pattern: 
+    `https://<Fully Qualified Domain Name>:443{/virtualproxyprefix}/hub`
+
     > [!NOTE]
-    > These values are not real. Update these values with the actual Sign-On URL, Identifier, and Reply URL, Which are explained later in this tutorial or contact [Qlik Sense Enterprise Client support team](https://www.qlik.com/us/services/support) to get these values. The default port for the URLs is 443 but you can customize it per your Organization need.
+    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL which are explained later in this tutorial or contact [Qlik Sense Enterprise Client support team](https://www.qlik.com/us/services/support) to get these values. The default port for the URLs is 443 but you can customize it per your Organization need.
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, find **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
-    ![The Certificate download link](common/metadataxml.png)
+    ![Screenshot shows the Certificate download link.](common/metadataxml.png "Certificate")
 
 ### Create an Azure AD test user
 
@@ -238,7 +242,7 @@ In this section, you'll enable Britta Simon to use Azure single sign-on by grant
 
 Qlik Sense Enterprise supports **just-in-time provisioning**, Users automatically added to the 'USERS' repository of Qlik Sense Enterprise as they use the SSO feature. In addition, clients can use the QMC and create a UDC (User Directory Connector) for pre-populating users in Qlik Sense Enterprise from their LDAP of choice such as Active Directory, and others.
 
-### Test SSO
+## Test SSO
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 

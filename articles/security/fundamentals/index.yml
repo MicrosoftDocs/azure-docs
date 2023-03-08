@@ -7,8 +7,8 @@ metadata:
   title: Azure security fundamentals documentation
   description: Learn how to secure your cloud solutions on Azure.
   services: security
-  ms.service: security
-  ms.subservice: fundamentals
+  ms.service: information-protection
+  ms.subservice: aiplabels
   ms.topic: landing-page
   author: TerryLanfear
   ms.author: terrylan
@@ -90,7 +90,7 @@ landingContent:
           - text: Encryption at rest
             url: encryption-atrest.md
           - text: Data protection
-            url: ../../azure-sql/database/security-overview.md
+            url: /azure/azure-sql/database/security-overview
           - text: Network security
             url: network-overview.md
           - text: Virtual machines security
@@ -100,7 +100,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Secure your cloud applications
-            url: /learn/paths/secure-your-cloud-apps/
+            url: /training/paths/secure-your-cloud-apps/
 
   # Card
   - title: Build your security skills
@@ -108,10 +108,10 @@ landingContent:
       - linkListType: learn
         links:
           - text: Implement network security
-            url: /learn/paths/implement-network-security
+            url: /training/paths/implement-network-security
           - text: Manage identity and access
-            url: /learn/paths/manage-identity-and-access
+            url: /training/paths/manage-identity-and-access
           - text: Implement resource management security
-            url: /learn/paths/implement-resource-mgmt-security
+            url: /training/paths/implement-resource-mgmt-security
           - text: Implement virtual machine host security
-            url: /learn/paths/implement-host-security
+            url: /training/paths/implement-host-security

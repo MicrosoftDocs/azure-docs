@@ -143,7 +143,7 @@ At Windows firewall level, these outbound ports are normally enabled. If not, yo
 
 > [!NOTE]
 > 1. Based on your source/ sinks, you may have to allow additional domains and outbound ports in your corporate/Windows firewall.
-> 2. For some Cloud Databases (For example: [Azure SQL Database](../../azure-sql/database/firewall-configure.md), [Azure Data Lake](../../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access), etc.), you may need to allow IP address of Gateway machine on their firewall configuration.
+> 2. For some Cloud Databases (For example: [Azure SQL Database](/azure/azure-sql/database/firewall-configure), [Azure Data Lake](../../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access), etc.), you may need to allow IP address of Gateway machine on their firewall configuration.
 >
 >
 

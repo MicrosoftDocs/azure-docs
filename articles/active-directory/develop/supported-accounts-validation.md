@@ -1,17 +1,16 @@
 ---
 # required metadata
-title: Validation differences by supported account types | Azure
-titleSuffix: Microsoft identity platform
+title: Validation differences by supported account types
 description: Learn about the validation differences of various properties for different supported account types when registering your app with the Microsoft identity platform.
-author: SureshJa
-ms.author: sureshja
+author: cilwerner
+ms.author: cwerner
 manager: CelesteDG
 ms.date: 09/29/2021
 ms.topic: conceptual
 ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
-ms.reviewer: manrath
+ms.reviewer: manrath, sureshja
 ---
 
 # Validation differences by supported account types (signInAudience)
@@ -42,6 +41,7 @@ See the following table for the validation differences of various properties for
 | appRoles                                                     | Supported <br> No limit\*                                                                                                                                                                                                                           | Supported <br> No limit\*                                                                                                                                                                                                                      | Not supported                                                                                                                                                                                                      |
 | Front-channel logout URL                                     | https://localhost is allowed <br><br> `http` scheme isn't allowed <br><br> Maximum length of 255 characters                                                                                                                                         | https://localhost is allowed <br><br> `http` scheme isn't allowed <br><br> Maximum length of 255 characters                                                                                                                                    | https://localhost is allowed, http://localhost fails <br><br> `http` scheme isn't allowed <br><br> Maximum length of 255 characters <br><br> Wildcards aren't supported                                            |
 | Display name                       | Maximum length of 120 characters                                                                                                                                                                                                                                         | Maximum length of 120 characters                                                                                                                                                                                                                                    | Maximum length of 90 characters                                                                                                                                                               |
+| Tags                       | Individual tag size must be between 1 and 256 characters (inclusive) <br><br> No whitespaces or duplicate tags allowed <br><br> No limit\* on number of tags                                                                                                                                                                                                                                         | Individual tag size must be between 1 and 256 characters (inclusive) <br><br> No whitespaces or duplicate tags allowed <br><br> No limit\* on number of tags                                                                                                                                                                                                                                      | Individual tag size must be between 1 and 256 characters (inclusive) <br><br> No whitespaces or duplicate tags allowed <br><br> No limit\* on number of tags                                                                                                                                                                  |
 
 \* There's a global limit of about 1000 items across all the collection properties on the app object.
 

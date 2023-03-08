@@ -2,6 +2,8 @@
 title: Create VMs by using ARM templates
 description: Learn how to view, edit, save, and store ARM virtual machine (VM) templates, and connect template repositories to Azure DevTest Labs.
 ms.topic: how-to
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 01/11/2022
 ---
 
@@ -76,7 +78,7 @@ Add your template repositories to your lab so all lab users can access the templ
 
 1. On the **Configuration and policies** page, select **Repositories** under **External resources** in the left navigation.
 
-   On the **Repositories** screen, the **Public Artifact Repo** and **Public Environment Repo** are automatically present for all labs, and connect to the [DevTest Labs public GitHub repository](https://github.com/Azure/azure-devtestlab). If these repos aren't enabled for your lab, you can enable them by selecting the checkboxes next to **Public Artifact Repo** and **Public Environment Repo**, and then selecting **Enable** on the top menu bar. For more information, see [Enable and configure public environments](devtest-lab-create-environment-from-arm.md#enable-and-configure-public-environments).
+   On the **Repositories** screen, the **Public Artifact Repo** and **Public Environment Repo** are automatically present for all labs, and connect to the [DevTest Labs public GitHub repository](https://github.com/Azure/azure-devtestlab). If these repos aren't enabled for your lab, you can enable them by selecting the checkboxes next to **Public Artifact Repo** and **Public Environment Repo**, and then selecting **Enable** on the top menu bar. For more information, see [Enable and configure public environments](devtest-lab-create-environment-from-arm.md#configure-public-environment-settings-for-your-lab).
 
 1. To add your private ARM template repository to the lab, select **Add** in the top menu bar.
 
@@ -98,6 +100,13 @@ Add your template repositories to your lab so all lab users can access the templ
 
 The repository now appears in the **Repositories** list for the lab. Users can now use the repository templates to [create multi-VM DevTest Labs environments](devtest-lab-create-environment-from-arm.md). Lab administrators can use the templates to [automate lab deployment and management tasks](devtest-lab-use-arm-and-powershell-for-lab-resources.md#arm-template-automation).
 
+###  How do I create multiple VMs from the same template at once?
+You have two options for simultaneously creating multiple VMs from the same template:
+       
+   - You can use the [Azure DevOps Tasks extension](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
+   - You can [generate a Resource Manager template](devtest-lab-add-vm.md#create-and-add-virtual-machines) while you're creating a VM, and [deploy the Resource Manager template from Windows PowerShell](../azure-resource-manager/templates/deploy-powershell.md).
+   - You can also specify more than one instance of a machine to be created during virtual machine creation. To learn more about creating multiple instances of virtual machines, see the doc on [creating a lab virtual machine](devtest-lab-add-vm.md).
+      
 ### Next steps
 
 - [Best practices for creating Azure Resource Manager templates](../azure-resource-manager/templates/best-practices.md)

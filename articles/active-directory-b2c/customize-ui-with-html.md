@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/14/2021
+ms.date: 02/23/2022
 ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
@@ -55,13 +55,15 @@ Instead of creating your custom page content from scratch, you can customize Azu
 
 The following table lists the default page content provided by Azure AD B2C. Download the files and use them as a starting point for creating your own custom pages.
 
-| Default page | Description | Content definition ID<br/>(custom policy only) |
+| Page | Description | Templates |
 |:-----------------------|:--------|-------------|
-| [exception.html](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Error page**. This page is displayed when an exception or an error is encountered. | *api.error* |
-| [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) |  **Self-Asserted page**. Use this file as a custom page content for a social account sign-up page, a local account sign-up page, a local account sign-in page, password reset, and more. The form can contain various input controls, such as: a text input box, a password entry box, a radio button, single-select drop-down boxes, and multi-select check boxes. | *api.localaccountsignin*, *api.localaccountsignup*, *api.localaccountpasswordreset*, *api.selfasserted* |
-| [multifactor-1.0.0.html](https://login.microsoftonline.com/static/tenant/default/multifactor-1.0.0.cshtml) | **Multi-factor authentication page**. On this page, users can verify their phone numbers (by using text or voice) during sign-up or sign-in. | *api.phonefactor* |
-| [updateprofile.html](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Profile update page**. This page contains a form that users can access to update their profile. This page is similar to the social account sign-up page, except for the password entry fields. | *api.selfasserted.profileupdate* |
-| [unified.html](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Unified sign-up or sign-in page**. This page handles the user sign-up and sign-in process. Users can use enterprise identity providers, social identity providers such as Facebook or Google+, or local accounts. | *api.signuporsignin* |
+| Unified sign-up or sign-in | This page handles the user sign-up and sign-in process. Users can use enterprise identity providers, social identity providers such as Facebook, Microsoft account, or local accounts. | [Classic](https://login.microsoftonline.com/static/tenant/default/unified.cshtml), [Ocean Blue](https://login.microsoftonline.com/static/tenant/templates/AzureBlue/unified.cshtml), and [Slate Gray](https://login.microsoftonline.com/static/tenant/templates/MSA/unified.cshtml). |
+| Sign-in (only)| The sign-in page is also known as the *Identity provider selection*. It handles the user sign-in with local account, or federated identity providers. Use this page to allow sign-in without the ability to sign-up. For example before user can edit their profile. | [Classic](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml), [Ocean Blue](https://login.microsoftonline.com/static/tenant/templates/AzureBlue/idpSelector.cshtml), and [Slate Gray](https://login.microsoftonline.com/static/tenant/templates/MSA/idpSelector.cshtml).
+| Self-Asserted | Most interactions in Azure AD B2C where the user is expected to provide input are self-asserted. For example, a sign-up page, sign-in page, or password reset page. Use this template as a custom page content for a social account sign-up page, a local account sign-up page, a local account sign-in page, password reset, edit profile, block page and more. The self-asserted page can contain various input controls, such as: a text input box, a password entry box, a radio button, single-select drop-down boxes, and multi-select check boxes. | [Classic](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml), [Ocean Blue](https://login.microsoftonline.com/static/tenant/templates/AzureBlue/selfAsserted.cshtml), and [Slate Gray](https://login.microsoftonline.com/static/tenant/templates/MSA/selfAsserted.cshtml).  |
+|  Multi-factor authentication |  On this page, users can verify their phone numbers (by using text or voice) during sign-up or sign-in. | [Classic](https://login.microsoftonline.com/static/tenant/default/multifactor-1.0.0.cshtml), [Ocean Blue](https://login.microsoftonline.com/static/tenant/templates/AzureBlue/multifactor-1.0.0.cshtml), and [Slate Gray](https://login.microsoftonline.com/static/tenant/templates/MSA/multifactor-1.0.0.cshtml). |
+| Error | This page is displayed when an exception or an error is encountered. | [Classic](https://login.microsoftonline.com/static/tenant/default/exception.cshtml), [Ocean Blue](https://login.microsoftonline.com/static/tenant/templates/AzureBlue/exception.cshtml), and [Slate Gray](https://login.microsoftonline.com/static/tenant/templates/MSA/exception.cshtml). |
+
+
 
 ## Hosting the page content
 
@@ -89,7 +91,7 @@ When using your own HTML and CSS files to customize the UI, host your UI content
 
 You localize your HTML content by enabling [language customization](language-customization.md) in your Azure AD B2C tenant. Enabling this feature allows Azure AD B2C to set the HTML page language attribute and pass the OpenID Connect parameter `ui_locales` to your endpoint.
 
-#### Single-template approach
+### Single-template approach
 
 During page load, Azure AD B2C sets the HTML page language attribute with the current language. For example, `<html lang="en">`. To render different styles per the current language, use the CSS `:lang` selector along with your CSS definition.
 
@@ -223,6 +225,7 @@ To host your HTML content in Blob storage, perform the following steps:
 1. **Redundancy** can remain **Geo-redundant storage (GRS)**
 1. Select **Review + create** and wait a few seconds for Azure AD to run a validation. 
 1. Select **Create** to create the storage account. After the deployment is completed, the storage account page opens automatically or select **Go to resource**.
+
 #### 2.1 Create a container
 
 To create a public container in Blob storage, perform the following steps:

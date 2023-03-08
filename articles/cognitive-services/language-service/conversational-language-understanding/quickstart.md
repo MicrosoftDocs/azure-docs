@@ -1,22 +1,22 @@
 ---
-title: Quickstart - create a conversations language understanding project
+title: Quickstart - create a conversational language understanding project
 titleSuffix: Azure Cognitive Services
-description: Use this article to quickly get started with Conversational Language Understanding
+description: Quickly start building an AI model to extract information and predict the intentions of text-based utterances.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: quickstart
-ms.date: 11/02/2021
+ms.date: 02/28/2023
 ms.author: aahi
 ms.custom: language-service-clu, ignite-fall-2021, mode-other
 zone_pivot_groups: usage-custom-language-features
 ---
 
-# Quickstart: Conversational language understanding (preview)
+# Quickstart: Conversational language understanding 
 
-Use this article to get started with Custom text classification using Language Studio and the REST API. Follow these steps to try out an example.
+Use this article to get started with Conversational Language understanding using Language Studio and the REST API. Follow these steps to try out an example.
 
 ::: zone pivot="language-studio"
 

@@ -1,12 +1,12 @@
 ---
 title: Av2-series 
 description: Specifications for the Av2-series VMs.
-author: migerdes
+author: rishabv90
 ms.service: virtual-machines
-ms.subservice: vm-sizes-general
+ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 02/03/2020
-ms.author: jushiman
+ms.date: 12/21/2022
+ms.author: risverma
 ---
 
 # Av2-series
@@ -23,6 +23,7 @@ The Av2-series VMs can be deployed on a variety of hardware types and processors
 [VM Generation Support](generation-2.md): Generation 1 <br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Not Supported<br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
+[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not Supported <br>
 <br>
 
 | Size | vCore | Memory: GiB | Temp storage (SSD) GiB | Max temp storage throughput: IOPS/Read MBps/Write MBps | Max data disks/throughput: IOPS | Max NICs | Expected network bandwidth (Mbps)

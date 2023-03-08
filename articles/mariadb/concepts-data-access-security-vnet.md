@@ -1,11 +1,11 @@
 ---
 title: VNet service endpoints - Azure Database for MariaDB
 description: 'Describes how VNet service endpoints work for your Azure Database for MariaDB server.'
+ms.service: mariadb
 author: savjani
 ms.author: pariks
-ms.service: mariadb
 ms.topic: conceptual
-ms.date: 7/17/2020
+ms.date: 06/24/2022
 ---
 
 # Use Virtual Network service endpoints and rules for Azure Database for MariaDB
@@ -38,9 +38,6 @@ A virtual network rule tells your Azure Database for MariaDB server to accept co
 
 
 
-
-
-
 <a name="anch-benefits-of-a-vnet-rule-68b"></a>
 
 ## Benefits of a virtual network rule
@@ -58,7 +55,6 @@ The Azure Database for MariaDB firewall allows you to specify IP address ranges 
 You can salvage the IP option by obtaining a *static* IP address for your VM. For details, see [Configure private IP addresses for a virtual machine by using the Azure portal][vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w].
 
 However, the static IP approach can become difficult to manage, and it is costly when done at scale. Virtual network rules are easier to establish and to manage.
-
 
 <a name="anch-details-about-vnet-rules-38q"></a>
 
@@ -130,13 +126,15 @@ Merely setting a VNet firewall rule does not help secure the server to the VNet.
 You can set the **IgnoreMissingServiceEndpoint** flag by using the Azure CLI or portal.
 
 ## Related articles
+
 - [Azure virtual networks][vm-virtual-network-overview]
 - [Azure virtual network service endpoints][vm-virtual-network-service-endpoints-overview-649d]
 
 ## Next steps
+
 For articles on creating VNet rules, see:
 - [Create and manage Azure Database for MariaDB VNet rules using the Azure portal](howto-manage-vnet-portal.md)
- 
+
 <!--
 - [Create and manage Azure Database for MariaDB VNet rules using Azure CLI](howto-manage-vnet-using-cli.md)
 -->

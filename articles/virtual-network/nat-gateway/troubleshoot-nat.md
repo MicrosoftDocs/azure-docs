@@ -1,195 +1,198 @@
 ---
-title: Troubleshoot Azure Virtual Network NAT connectivity
+title: Troubleshoot Azure Virtual Network NAT (NAT gateway)
 titleSuffix: Azure Virtual Network
 description: Troubleshoot issues with Virtual Network NAT.
 services: virtual-network
-documentationcenter: na
 author: asudbring
-manager: KumudD
 ms.service: virtual-network
-# Customer intent: As an IT administrator, I want to troubleshoot Virtual Network NAT.
+ms.subservice: nat
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/20/2020
+ms.date: 08/29/2022
 ms.author: allensu
 ---
 
-# Troubleshoot Azure Virtual Network NAT connectivity
+# Troubleshoot Azure Virtual Network NAT (NAT gateway)
 
-This article helps administrators diagnose and resolve connectivity problems when using Virtual Network NAT.
+This article provides guidance on how to correctly configure your NAT gateway and troubleshoot common configuration and deployment related issues.  
 
-## Problems
+* [NAT gateway configuration basics](#nat-gateway-configuration-basics) 
 
-* [SNAT exhaustion](#snat-exhaustion)
-* [ICMP ping is failing](#icmp-ping-is-failing)
-* [Connectivity failures](#connectivity-failures)
-* [IPv6 coexistence](#ipv6-coexistence)
-* [Connection doesn't originate from NAT gateway IP(s)](#connection-doesnt-originate-from-nat-gateway-ips)
+* [NAT gateway in a failed state](#nat-gateway-in-a-failed-state) 
 
-To resolve these problems, follow the steps in the following section.
+* [Add or remove NAT gateway](#add-or-remove-nat-gateway) 
 
-## Resolution
+* [Add or remove subnet](#add-or-remove-subnet) 
 
-### SNAT exhaustion
+* [Add or remove public IPs](#add-or-remove-public-ip-addresses) 
 
-A single [NAT gateway resource](nat-gateway-resource.md) supports from 64,000 up to 1 million concurrent flows.  Each IP address provides 64,000 SNAT ports to the available inventory. You can use up to 16 IP addresses per NAT gateway resource.  The SNAT mechanism is described [here](nat-gateway-resource.md#source-network-address-translation) in more detail.
+## NAT gateway configuration basics
 
-Frequently the root cause of SNAT exhaustion is an anti-pattern for how outbound connectivity is established, managed, or configurable timers changed from their default values.  Review this section carefully.
+Check the following configurations to ensure that NAT gateway can be used to direct traffic outbound:
 
-#### Steps
+1. At least one public IP address or one public IP prefix is attached to NAT gateway. At least one public IP address must be associated with the NAT gateway for it to provide outbound connectivity. 
 
-1. Check if you have modified the default idle timeout to a value higher than 4 minutes.
-2. Investigate how your application is creating outbound connectivity (for example, code review or packet capture). 
-3. Determine if this activity is expected behavior or whether the application is misbehaving.  Use [metrics](nat-metrics.md) in Azure Monitor to substantiate your findings. Use "Failed" category for SNAT Connections metric.
-4. Evaluate if appropriate patterns are followed.
-5. Evaluate if SNAT port exhaustion should be mitigated with additional IP addresses assigned to NAT gateway resource.
+2. At least one subnet is attached to a NAT gateway. You can attach multiple subnets to a NAT gateway for going outbound, but those subnets must exist within the same virtual network. NAT gateway can't span beyond a single virtual network. 
 
-#### Design patterns
+3. No [NSG rules](../network-security-groups-overview.md#outbound) or [UDRs](./troubleshoot-nat-connectivity.md#virtual-appliance-udrs-and-expressroute-override-nat-gateway-for-routing-outbound-traffic) are blocking NAT gateway from directing traffic outbound to the internet.
 
-Always take advantage of connection reuse and connection pooling whenever possible.  These patterns will avoid resource exhaustion problems and result in predictable behavior. Primitives for these patterns can be found in many development libraries and frameworks.
+### How to validate connectivity
 
-_**Solution:**_ Use appropriate patterns and best practices
+[Virtual Network NAT gateway](./nat-overview.md#virtual-network-nat-basics) supports IPv4 UDP and TCP protocols. ICMP isn't supported and is expected to fail. 
 
-- NAT gateway resources have a default TCP idle timeout of 4 minutes.  If this setting is changed to a higher value, NAT will hold on to flows longer and can cause [unnecessary pressure on SNAT port inventory](nat-gateway-resource.md#timers).
-- Atomic requests (one request per connection) are a poor design choice. Such anti-pattern limits scale, reduces performance, and decreases reliability. Instead, reuse HTTP/S connections to reduce the numbers of connections and associated SNAT ports. The application scale will increase and performance improve due to reduced handshakes, overhead, and cryptographic operation cost  when using TLS.
-- DNS can introduce many individual flows at volume when the client is not caching the DNS resolvers result. Use caching.
-- UDP flows (for example DNS lookups) allocate SNAT ports for the duration of the idle timeout. The longer the idle timeout, the higher the pressure on SNAT ports. Use short idle timeout (for example 4 minutes).
-- Use connection pools to shape your connection volume.
-- Never silently abandon a TCP flow and rely on TCP timers to clean up flow. If you don't let TCP explicitly close the connection, state remains allocated at intermediate systems and endpoints and makes SNAT ports unavailable for other connections. This pattern can trigger application failures and SNAT exhaustion. 
-- Don't change OS-level TCP close related timer values without expert knowledge of impact. While the TCP stack will recover, your application performance can be negatively impacted when the endpoints of a connection have mismatched expectations. The desire to change timers is usually a sign of an underlying design problem. Review following recommendations.
+To validate end-to-end connectivity of NAT gateway, follow these steps: 
+1. Validate that your [NAT gateway public IP address is being used](./quickstart-create-nat-gateway-portal.md#test-nat-gateway).
 
-SNAT exhaustion can also be amplified with other anti-patterns in the underlying application. Review these additional patterns and best practices to improve the scale and reliability of your service.
+2. Conduct TCP connection tests and UDP-specific application layer tests.
 
-- Explore impact of reducing [TCP idle timeout](nat-gateway-resource.md#timers) to lower values including default idle timeout of 4 minutes to free up SNAT port inventory earlier.
-- Consider [asynchronous polling patterns](/azure/architecture/patterns/async-request-reply) for long-running operations to free up connection resources for other operations.
-- Long-lived flows (for example reused TCP connections) should use TCP keepalives or application layer keepalives to avoid intermediate systems timing out. Increasing the idle timeout is a last resort and may not resolve the root cause. A long timeout can cause low rate failures when timeout expires and introduce delay and unnecessary failures.
-- Graceful [retry patterns](/azure/architecture/patterns/retry) should be used to avoid aggressive retries/bursts during transient failure or failure recovery.
-Creating a new TCP connection for every HTTP operation (also known as "atomic connections") is an anti-pattern.  Atomic connections will prevent your application from scaling well and waste resources.  Always pipeline multiple operations into the same connection.  Your application will benefit in transaction speed and resource costs.  When your application uses transport layer encryption (for example TLS), there's a significant cost associated with the processing of new connections.  Review [Azure Cloud Design Patterns](/azure/architecture/patterns/) for additional best practice patterns.
+3. Look at NSG flow logs to analyze outbound traffic flows from NAT gateway.
 
-#### Additional possible mitigations
-
-_**Solution:**_ Scale outbound connectivity as follows:
-
-| Scenario | Evidence |Mitigation |
-|---|---|---|
-| You're experiencing contention for SNAT ports and SNAT port exhaustion during periods of high usage. | "Failed" category for SNAT Connections [metric](nat-metrics.md) in Azure Monitor shows transient or persistent failures over time and high connection volume.  | Determine if you can add additional public IP address resources or public IP prefix resources. This addition will allow for up to 16 IP addresses in total to your NAT gateway. This addition will provide more inventory for available SNAT ports (64,000 per IP address) and allow you to scale your scenario further.|
-| You've already given 16 IP addresses and still are experiencing SNAT port exhaustion. | Attempt to add additional IP address fails. Total number of IP addresses from public IP address resources or public IP prefix resources exceeds a total of 16. | Distribute your application environment across multiple subnets and provide a NAT gateway resource for each subnet.  Reevaluate your design pattern(s) to optimize based on preceding [guidance](#design-patterns). |
-
->[!NOTE]
->It is important to understand why SNAT exhaustion occurs. Make sure you are using the right patterns for scalable and reliable scenarios.  Adding more SNAT ports to a scenario without understanding the cause of the demand should be a last resort. If you do not understand why your scenario is applying pressure on SNAT port inventory, adding more SNAT ports to the inventory by adding more IP addresses will only delay the same exhaustion failure as your application scales.  You may be masking other inefficiencies and anti-patterns.
-
-### ICMP ping is failing
-
-[Virtual Network NAT](nat-overview.md) supports IPv4 UDP and TCP protocols. ICMP isn't supported and expected to fail.  
-
-_**Solution:**_ Instead, use TCP connection tests (for example "TCP ping") and UDP-specific application layer tests to validate end to end connectivity.
-
-The following table can be used a starting point for which tools to use to start tests.
+Refer to the table below for which tools to use to validate NAT gateway connectivity.
 
 | Operating system | Generic TCP connection test | TCP application layer test | UDP |
 |---|---|---|---|
 | Linux | nc (generic connection test) | curl (TCP application layer test) | application specific |
 | Windows | [PsPing](/sysinternals/downloads/psping) | PowerShell [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest) | application specific |
 
-### Connectivity failures
+### How to analyze outbound connectivity
 
-Connectivity issues with [Virtual Network NAT](nat-overview.md) can be caused by several different issues:
+To analyze outbound traffic from NAT gateway, use NSG flow logs. NSG flow logs provide connection information for your virtual machines. The connection information contains the source IP and port and the destination IP and port and the state of the connection. The traffic flow direction and the size of the traffic in number of packets and bytes sent is also logged.
 
-* permanent failures due to configuration mistakes.
-* transient or persistent [SNAT exhaustion](#snat-exhaustion) of the NAT gateway,
-* transient failures in the Azure infrastructure, 
-* transient failures in the path between Azure and the public Internet destination, 
-* transient or persistent failures at the public Internet destination.
+* To learn more about NSG flow logs, see [NSG flow log overview](../../network-watcher/network-watcher-nsg-flow-logging-overview.md).
 
-Use tools like the following to validation connectivity. [ICMP ping isn't supported](#icmp-ping-is-failing).
+* For guides on how to enable NSG flow logs, see [Enabling NSG flow logs](../../network-watcher/network-watcher-nsg-flow-logging-overview.md#enabling-nsg-flow-logs).
 
-| Operating system | Generic TCP connection test | TCP application layer test | UDP |
-|---|---|---|---|
-| Linux | nc (generic connection test) | curl (TCP application layer test) | application specific |
-| Windows | [PsPing](/sysinternals/downloads/psping) | PowerShell [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest) | application specific |
+* For guides on how to read NSG flow logs, see [Working with NSG flow logs](../../network-watcher/network-watcher-nsg-flow-logging-overview.md#working-with-flow-logs).
 
-#### Configuration
+## NAT gateway in a failed state
 
-Check your configuration:
-1. Does the NAT gateway resource have at least one public IP resource or one public IP prefix resource? You must at least have one IP address associated with the NAT gateway for it to be able to provide outbound connectivity.
-2. Is the virtual network's subnet configured to use the NAT gateway?
-3. Are you using UDR (user-defined route) and are you overriding the destination?  NAT gateway resources become the default route (0/0) on configured subnets.
+You may experience outbound connectivity failure if your NAT gateway resource is in a failed state. To get your NAT gateway out of a failed state, follow these instructions:
 
-#### SNAT exhaustion
+1. Once you identify the resource that is in a failed state, go to [Azure Resource Explorer](https://resources.azure.com/) and identify the resource in this state. 
 
-Review section on [SNAT exhaustion](#snat-exhaustion) in this article.
+2. Update the toggle on the right-hand top corner to Read/Write. 
 
-#### Azure infrastructure
+3. Select on Edit for the resource in failed state. 
 
-Azure monitors and operates its infrastructure with great care. Transient failures can occur, there's no guarantee that transmissions are lossless.  Use design patterns that allow for SYN retransmissions for TCP applications. Use connection timeouts large enough to permit TCP SYN retransmission to reduce transient impacts caused by a lost SYN packet.
+4. Select on PUT followed by GET to ensure the provisioning state was updated to Succeeded. 
 
-_**Solution:**_
+5. You can then proceed with other actions as the resource is out of failed state. 
 
-* Check for [SNAT exhaustion](#snat-exhaustion).
-* The configuration parameter in a TCP stack that controls the SYN retransmission behavior is called RTO ([Retransmission Time-Out](https://tools.ietf.org/html/rfc793)). The RTO value is adjustable but typically 1 second or higher by default with exponential back-off.  If your application's connection time-out is too short (for example 1 second), you may see sporadic connection timeouts.  Increase the application connection time-out.
-* If you observe longer, unexpected timeouts with default application behaviors, open a support case for further troubleshooting.
+## Add or remove NAT gateway 
 
-We don't recommend artificially reducing the TCP connection timeout or tuning the RTO parameter.
+### Can't delete NAT gateway
 
-#### Public Internet transit
+NAT gateway must be detached from all subnets within a virtual network before the resource can be removed or deleted. See [Remove NAT gateway from an existing subnet and delete the resource](./manage-nat-gateway.md?tabs=manage-nat-portal#remove-a-nat-gateway-from-an-existing-subnet-and-delete-the-resource) for step by step guidance.
 
-The chances of transient failures increases with a longer path to the destination and more intermediate systems. It's expected that transient failures can increase in frequency over [Azure infrastructure](#azure-infrastructure). 
+## Add or remove subnet 
 
-Follow the same guidance as preceding [Azure infrastructure](#azure-infrastructure) section.
+### NAT gateway can't be attached to subnet already attached to another NAT gateway 
 
-#### Internet endpoint
+A subnet within a virtual network can't have more than one NAT gateway attached to it for connecting outbound to the internet. An individual NAT gateway resource can be associated to multiple subnets within the same virtual network. NAT gateway can't span beyond a single virtual network. 
 
-The previous sections apply, along with the Internet endpoint that communication is established with. Other factors that can impact connectivity success are:
+### Basic SKU resources can't exist in the same subnet as NAT gateway
 
-* traffic management on destination side, including
-- API rate limiting imposed by the destination side
-- Volumetric DDoS mitigations or transport layer traffic shaping
-* firewall or other components at the destination 
+NAT gateway isn't compatible with basic resources, such as Basic Load Balancer or Basic Public IP. Basic resources must be placed on a subnet not associated with a NAT Gateway. Basic Load Balancer and Basic Public IP can be upgraded to standard to work with NAT gateway. 
 
-Usually packet captures at the source and the destination (if available) are required to determine what is taking place.
+* To upgrade a basic load balancer to standard, see [upgrade from basic public to standard public load balancer](../../load-balancer/upgrade-basic-standard.md).
 
-_**Solution:**_
+* To upgrade a basic public IP to standard, see [upgrade from basic public to standard public IP](../ip-services/public-ip-upgrade-portal.md).
 
-* Check for [SNAT exhaustion](#snat-exhaustion). 
-* Validate connectivity to an endpoint in the same region or elsewhere for comparison.  
-* If you're creating high volume or transaction rate testing, explore if reducing the rate reduces the occurrence of failures.
-* If changing rate impacts the rate of failures, check if API rate limits or other constraints on the destination side might have been reached.
-* If your investigation is inconclusive, open a support case for further troubleshooting.
+### NAT gateway can't be attached to a gateway subnet
 
-#### TCP Resets received
+NAT gateway can't be deployed in a gateway subnet. A gateway subnet is used by a VPN gateway for sending encrypted traffic between an Azure virtual network and on-premises location. See [VPN gateway overview](../../vpn-gateway/vpn-gateway-about-vpngateways.md) to learn more about how gateway subnets are used by VPN gateway.
 
-The NAT gateway generates TCP resets on the source VM for traffic that isn't recognized as in progress.
+### Can't attach NAT gateway to a subnet that contains a virtual machine NIC in a failed state
 
-One possible reason is the TCP connection has idle timed out.  You can adjust the idle timeout from 4 minutes to up to 120 minutes.
+When associating a NAT gateway to a subnet that contains a virtual machine network interface (NIC) in a failed state, you'll receive an error message indicating that this action can't be performed. You must first resolve the VM NIC failed state before you can attach a NAT gateway to the subnet.
 
-TCP Resets aren't generated on the public side of NAT gateway resources. TCP resets on the destination side are generated by the source VM, not the NAT gateway resource.
+To get your virtual machine NIC out of a failed state, you can use one of the two following methods. 
 
-_**Solution:**_
+#### Use PowerShell to get your virtual machine NIC out of a failed state
 
-* Review [design patterns](#design-patterns) recommendations.  
-* Open a support case for further troubleshooting if necessary.
+1. Determine the provisioning state of your NICs using the [Get-AzNetworkInterface PowerShell command](/powershell/module/az.network/get-aznetworkinterface#example-2-get-all-network-interfaces-with-a-specific-provisioning-state) and setting the value of the "provisioningState" to "Succeeded".
+
+2. Perform [GET/SET PowerShell commands](/powershell/module/az.network/set-aznetworkinterface#example-1-configure-a-network-interface) on the network interface to update the provisioning state.
+
+3. Check the results of this operation by checking the provisioning state of your NICs again (follow commands from step 1).
+
+#### Use Azure Resource Explorer to get your virtual machine NIC out of a failed state 
+
+1. Go to [Azure Resource Explorer](https://resources.azure.com/) (recommended to use Microsoft Edge browser) 
+
+2. Expand Subscriptions (takes a few seconds for it to appear on the left) 
+
+3. Expand your subscription that contains the VM NIC in the failed state 
+
+4. Expand resourceGroups 
+
+5. Expand the correct resource group that contains the VM NIC in the failed state 
+
+6. Expand providers 
+
+7. Expand Microsoft.Network 
+
+8. Expand networkInterfaces 
+
+9. Select on the NIC that is in the failed provisioning state 
+
+10. Select the Read/Write button at the top 
+
+11. Select the green GET button 
+
+12. Select the blue EDIT button 
+
+13. Select the green PUT button 
+
+14. Select Read Only button at the top 
+
+15. The VM NIC should now be in a succeeded provisioning state, you can close your browser 
+
+## Add or remove public IP addresses
+
+### Can't exceed 16 public IP addresses on NAT gateway 
+
+NAT gateway can't be associated with more than 16 public IP addresses. You can use any combination of public IP addresses and prefixes with NAT gateway up to a total of 16 IP addresses. The following IP prefix sizes can be used with NAT gateway: 
+
+* /28 (sixteen addresses) 
+
+* /29 (eight addresses) 
+
+* /30 (four addresses) 
+
+* /31 (two addresses) 
 
 ### IPv6 coexistence
 
-[Virtual Network NAT](nat-overview.md) supports IPv4 UDP and TCP protocols. NAT cannot be associated to an IPv6 Public IP address or IPv6 Public IP Prefix. However, NAT can be deployed on a dual stack subnet.
+[Virtual Network NAT gateway](nat-overview.md) supports IPv4 UDP and TCP protocols. NAT gateway can't be associated to an IPv6 Public IP address or IPv6 Public IP Prefix. NAT gateway can be deployed on a dual stack subnet, but will still only use IPv4 Public IP addresses for directing outbound traffic. Deploy NAT gateway on a dual stack subnet when you need IPv6 resources to exist in the same subnet as IPv4 resources.
 
-_**Solution:**_ Deploy NAT gateway on a dual stack subnet.
+### Can't use basic SKU public IPs with NAT gateway 
 
-### Connection doesn't originate from NAT gateway IP(s)
+NAT gateway is a standard SKU resource and can't be used with basic SKU resources, including basic public IP addresses. You can upgrade your basic SKU public IP address in order to use with your NAT gateway using the following guidance: [Upgrade a public IP address](../ip-services/public-ip-upgrade-portal.md) 
 
-You configure NAT gateway, IP address(es) to use, and which subnet should use a NAT gateway resource. However, connections from virtual machine instances that existed before the NAT gateway was deployed don't use the IP address(es).  They appear to be using IP address(es) not used with the NAT gateway resource.
+### Can't mismatch zones of public IP addresses and NAT gateway 
 
-_**Solution:**_
+NAT gateway is a [zonal resource](./nat-availability-zones.md) and can either be designated to a specific zone or to ‘no zone’. When NAT gateway is placed in ‘no zone’, Azure places the NAT gateway into a zone for you, but you don't have visibility into which zone the NAT gateway is located. 
 
-[Virtual Network NAT](nat-overview.md) replaces the outbound connectivity for the subnet it is configured on. When transitioning from default SNAT or load balancer outbound SNAT to using NAT gateways, new connections will immediately begin using the IP address(es) associated with the NAT gateway resource.  However, if a virtual machine still has an established connection during the switch to NAT gateway resource, the connection will continue using the old SNAT IP address that was assigned when the connection was established.  Make sure you are really establishing a new connection rather than reusing a connection that already existed because the OS or the browser was caching the connections in a connection pool.  For example, when using _curl_ in PowerShell, make sure to specify the _-DisableKeepalive_ parameter to force a new connection.  If you're using a browser, connections may also be pooled.
+NAT gateway can be used with public IP addresses designated to a specific zone, no zone, all zones (zone-redundant) depending on its own availability zone configuration. Follow guidance below: 
 
-It's not necessary to reboot a virtual machine configuring a subnet for a NAT gateway resource.  However, if a virtual machine is rebooted, the connection state is flushed.  When the connection state has been flushed, all connections will begin using the NAT gateway resource's IP address(es).  However, this is a side effect of the virtual machine being rebooted and not an indicator that a reboot is required.
+| NAT gateway availability zone designation | Public IP address / prefix designation that can be used |
+|---|---|
+| No zone | Zone-redundant, No zone, or Zonal (the public IP zone designation can be any zone within a region in order to work with a no zone NAT gateway) |
+| Designated to a specific zone | The public IP address zone must match the zone of the NAT gateway |
 
-If you are still having trouble, open a support case for further troubleshooting.
+>[!NOTE]
+>If you need to know the zone that your NAT gateway resides in, make sure to designate it to a specific availability zone. 
 
 ## Next steps
 
-* Learn about [Virtual Network NAT](nat-overview.md)
-* Learn about [NAT gateway resource](nat-gateway-resource.md)
-* Learn about [metrics and alerts for NAT gateway resources](nat-metrics.md).
+We're always looking to improve the experience of our customers. If you're experiencing issues with NAT gateway that aren't listed or resolved by this article, submit feedback through GitHub via the bottom of this page. We'll address your feedback as soon as possible. 
+
+To learn more about NAT gateway, see:
+
+* [Virtual Network NAT](nat-overview.md)
+
+* [NAT gateway resource](nat-gateway-resource.md)
+
+* [Manage NAT gateway](./manage-nat-gateway.md)
+
+* [Metrics and alerts for NAT gateway resources](nat-metrics.md).

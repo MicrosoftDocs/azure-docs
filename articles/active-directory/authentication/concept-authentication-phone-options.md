@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/30/2021
+ms.date: 01/29/2023
 
 ms.author: justinha
 author: justinha
-manager: karenhoran
+manager: amycolannino
 
 ms.collection: M365-identity-device-management
 
@@ -30,7 +30,7 @@ To work properly, phone numbers must be in the format *+CountryCode PhoneNumber*
 > [!NOTE]
 > There needs to be a space between the country/region code and the phone number.
 >
-> Password reset doesn't support phone extensions. Even in the *+1 4251234567X12345* format, extensions are removed before the call is placed.
+> Password reset and Azure AD Multi-Factor Authentication don't support phone extensions. Even in the *+1 4251234567X12345* format, extensions are removed before the call is placed.
 
 ## Mobile phone verification
 
@@ -52,16 +52,16 @@ With phone call verification during SSPR or Azure AD Multi-Factor Authentication
 
 ## Office phone verification
 
-With phone call verification during SSPR or Azure AD Multi-Factor Authentication, an automated voice call is made to the phone number registered by the user. To complete the sign-in process, the user is prompted to press # on their keypad. 
+With office phone call verification during SSPR or Azure AD Multi-Factor Authentication, an automated voice call is made to the phone number registered by the user. To complete the sign-in process, the user is prompted to press # on their keypad. 
 
 ## Troubleshooting phone options
 
 If you have problems with phone authentication for Azure AD, review the following troubleshooting steps:
 
 * “You've hit our limit on verification calls” or “You’ve hit our limit on text verification codes” error messages during sign-in
-   * Microsoft may limit repeated authentication attempts that are performed by the same user in a short period of time. This limitation does not apply to the Microsoft Authenticator or verification code. If you have hit these limits, you can use the Authenticator App, verification code or try to sign in again in a few minutes.
+   * Microsoft may limit repeated authentication attempts that are performed by the same user or organization in a short period of time. This limitation does not apply to Microsoft Authenticator or verification codes. If you have hit these limits, you can use the Authenticator App, verification code or try to sign in again in a few minutes.
 * "Sorry, we're having trouble verifying your account" error message during sign-in
-   * Microsoft may limit or block voice or SMS authentication attempts that are performed by the same user, phone number, or organization due to high number of failed voice or SMS authentication attempts. If you are experiencing this error, you can try another method, such as Authenticator App or verification code, or reach out to your admin for support.
+   * Microsoft may limit or block voice or SMS authentication attempts that are performed by the same user, phone number, or organization due to high number of voice or SMS authentication attempts. If you are experiencing this error, you can try another method, such as Authenticator App or verification code, or reach out to your admin for support.
 * Blocked caller ID on a single device.
    * Review any blocked numbers configured on the device.
 * Wrong phone number or incorrect country/region code, or confusion between personal phone number versus work phone number.
@@ -76,6 +76,9 @@ If you have problems with phone authentication for Azure AD, review the followin
    * Have the user change methods or activate SMS on the device.
 * Faulty telecom providers such as no phone input detected, missing DTMF tones issues, blocked caller ID on multiple devices, or blocked SMS across multiple devices.
    * Microsoft uses multiple telecom providers to route phone calls and SMS messages for authentication. If you see any of the above issues, have a user attempt to use the method at least five times within 5 minutes and have that user's information available when contacting Microsoft support.
+*  Poor signal quality.
+   * Have the user attempt to log in using a wi-fi connection by installing the Authenticator app.
+   * Or, use SMS authentication instead of phone (voice) authentication.
 
 ## Next steps
 

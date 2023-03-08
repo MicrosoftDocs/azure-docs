@@ -2,14 +2,14 @@
 title: Configure F5 BIG-IP Access Policy Manager for header-based SSO
 description: Learn how to configure F5's BIG-IP Access Policy Manager (APM) and Azure Active Directory SSO for header-based authentication
 services: active-directory
-author: NishthaBabith-V
+author: gargi-sinha
 manager: martinco
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
 ms.date: 11/10/2021
-ms.author: v-nisba
+ms.author: gasinh
 ms.collection: M365-identity-device-management
 ---
 
@@ -19,12 +19,12 @@ In this article, you’ll learn to implement Secure Hybrid Access (SHA) with sin
 
 Configuring BIG-IP published applications with Azure AD provides many benefits, including:
 
-- Improved Zero trust governance through Azure AD pre-authentication and authorization
+- Improved Zero trust governance through Azure AD pre-authentication and [Conditional Access](../conditional-access/overview.md)
 
 - Full Single sign-on (SSO) between Azure AD and BIG-IP published
   services.
 
-- Manage identities and access from a single control plane, The [Azure portal](https://azure.microsoft.com/features/azure-portal)
+- Manage identities and access from a single control plane, the [Azure portal](https://azure.microsoft.com/features/azure-portal)
 
 To learn about all of the benefits, see the article on [F5 BIG-IP and Azure AD integration](./f5-aad-integration.md) and [what is application access and single sign-on with Azure AD](/azure/active-directory/active-directory-appssoaccess-whatis).
 
@@ -48,7 +48,7 @@ The secure hybrid access solution for this scenario is made up of:
 - **BIG-IP**: Reverse proxy and SAML service provider (SP) to the application, delegating authentication to the SAML IdP, before
 performing header-based SSO to the backend application.
 
-![Screenshot shows the architecture flow diagram](./media/f5-big-ip-header-advanced/flow-diagram.png)
+![Screenshot shows the architecture flow diagram](./media/f5-big-ip-easy-button-header/sp-initiated-flow.png)
 
 | Step | Description |
 |:-------|:-----------|

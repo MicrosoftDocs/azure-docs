@@ -1,8 +1,12 @@
 ---
 title: Deploy container group to Azure virtual network
 description: Learn how to deploy a container group to a new or existing Azure virtual network via the Azure CLI.
-ms.topic: article
-ms.date: 11/11/2021
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+services: container-instances
+ms.date: 06/17/2022
 ms.custom: devx-track-js, devx-track-azurecli
 ---
 
@@ -15,7 +19,7 @@ This article shows how to use the [az container create][az-container-create] com
 For networking scenarios and limitations, see [Virtual network scenarios and resources for Azure Container Instances](container-instances-virtual-network-concepts.md).
 
 > [!IMPORTANT]
-> Container group deployment to a virtual network is generally available for Linux containers, in most regions where Azure Container Instances is available. For details, see [Regions and resource availability][container-regions]. 
+> Container group deployment to a virtual network is generally available for Linux and Windows containers, in most regions where Azure Container Instances is available. For details, see [available-regions][available-regions]. 
 
 [!INCLUDE [network profile callout](./includes/network-profile/network-profile-callout.md)]
 
@@ -55,7 +59,7 @@ When you deploy to a new virtual network by using this method, the deployment ca
 
 To deploy a container group to an existing virtual network:
 
-1. Create a subnet within your existing virtual network, use an existing subnet in which a container group is already deployed, or use an existing subnet emptied of *all* other resources
+1. Create a subnet within your existing virtual network, use an existing subnet in which a container group is already deployed, or use an existing subnet emptied of *all* other resources and configuration.
 1. Deploy a container group with [az container create][az-container-create] and specify one of the following:
    * Virtual network name and subnet name
    * Virtual network resource ID and subnet resource ID, which allows using a virtual network from a different resource group
@@ -209,8 +213,10 @@ az network vnet delete --resource-group $RES_GROUP --name aci-vnet
 
 ## Next steps
 
-To deploy a new virtual network, subnet, network profile, and container group using a Resource Manager template, see [Create an Azure container group with VNet](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.containerinstance/aci-vnet
+* To deploy a new virtual network, subnet, network profile, and container group using a Resource Manager template, see [Create an Azure container group with VNet](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.containerinstance/aci-vnet
 ).
+
+* To deploy Azure Container Instances that can pull images from an Azure Container Registry through a private endpoint, see [Deploy to Azure Container Instances from Azure Container Registry using a managed identity](../container-instances/using-azure-container-registry-mi.md).
 
 <!-- IMAGES -->
 [aci-vnet-01]: ./media/container-instances-vnet/aci-vnet-01.png
@@ -223,4 +229,4 @@ To deploy a new virtual network, subnet, network profile, and container group us
 [az-container-show]: /cli/azure/container#az_container_show
 [az-network-vnet-create]: /cli/azure/network/vnet#az_network_vnet_create
 [az-network-profile-list]: /cli/azure/network/profile#az_network_profile_list
-[container-regions]: container-instances-region-availability.md
+[available-regions]: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=container-instances

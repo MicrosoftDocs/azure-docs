@@ -2,13 +2,13 @@
 title: Tutorial - Create an Azure Active Directory Domain Services managed domain | Microsoft Docs
 description: In this tutorial, you learn how to create and configure an Azure Active Directory Domain Services managed domain using the Azure portal.
 author: justinha
-manager: karenhoran
+manager: amycolannino
 
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/15/2021
+ms.date: 01/29/2023
 ms.author: justinha
 
 #Customer intent: As an identity administrator, I want to create an Azure Active Directory Domain Services managed domain so that I can synchronize identity information with my Azure Active Directory tenant and provide Domain Services connectivity to virtual machines and applications in Azure.
@@ -37,14 +37,14 @@ To complete this tutorial, you need the following resources and privileges:
     * If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * An Azure Active Directory tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
     * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
-* You need *global administrator* privileges in your Azure AD tenant to enable Azure AD DS.
-* You need *Contributor* privileges in your Azure subscription to create the required Azure AD DS resources.
-* A virtual network with DNS servers that can query necessary infrastructure such as storage. DNS servers that can't perform general internet queries might prevent the ability to create a managed domain. 
+* You need [Application Administrator](../active-directory/roles/permissions-reference.md#application-administrator) and [Groups Administrator](../active-directory/roles/permissions-reference.md#groups-administrator) Azure AD roles in your tenant to enable Azure AD DS.
+* You need [Domain Services Contributor](../role-based-access-control/built-in-roles.md#domain-services-contributor) Azure role to create the required Azure AD DS resources.
+* A virtual network with DNS servers that can query necessary infrastructure such as storage. DNS servers that can't perform general internet queries might block the ability to create a managed domain. 
 
 Although not required for Azure AD DS, it's recommended to [configure self-service password reset (SSPR)][configure-sspr] for the Azure AD tenant. Users can change their password without SSPR, but SSPR helps if they forget their password and need to reset it.
 
 > [!IMPORTANT]
-> You can't move the managed domain to a different subscription, resource group, region, virtual network, or subnet after you create it. Take care to select the most appropriate subscription, resource group, region, virtual network, and subnet when you deploy the managed domain.
+> You can't move the managed domain to a different subscription, resource group, or region after you create it. Take care to select the most appropriate subscription, resource group, and region when you deploy the managed domain.
 
 ## Sign in to the Azure portal
 
@@ -213,7 +213,7 @@ Before you domain-join VMs and deploy applications that use the managed domain, 
 [tutorial-create-instance-advanced]: tutorial-create-instance-advanced.md
 [skus]: overview.md
 [resource-forests]: concepts-resource-forest.md
-[availability-zones]: ../availability-zones/az-overview.md
+[availability-zones]: ../reliability/availability-zones-overview.md
 [concepts-sku]: administration-concepts.md#azure-ad-ds-skus
 
 <!-- EXTERNAL LINKS -->

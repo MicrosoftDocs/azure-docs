@@ -4,7 +4,7 @@ description: How to write a custom token provider as an Azure Function and deplo
 services: azure-fluid
 author: hickeys
 ms.author: hickeys
-ms.date: 10/05/2021
+ms.date: 02/05/2023
 ms.topic: article
 ms.service: azure-fluid
 fluid.url: https://fluidframework.com/docs/build/tokenproviders/
@@ -15,13 +15,13 @@ fluid.url: https://fluidframework.com/docs/build/tokenproviders/
 > [!NOTE]
 > This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 
-In the [Fluid Framework](https://fluidframework.com/), TokenProviders are responsible for creating and signing tokens that the `@fluidframework/azure-client` uses to make requests to the Azure Fluid Relay service. The Fluid Framework provides a simple, insecure TokenProvider for development purposes, aptly named **InsecureTokenProvider**. Each Fluid service must implement a custom TokenProvider based on the particulars service's authentication and security considerations.
+In the [Fluid Framework](https://fluidframework.com/), TokenProviders are responsible for creating and signing tokens that the `@fluidframework/azure-client` uses to make requests to the Azure Fluid Relay service. The Fluid Framework provides a simple, insecure TokenProvider for development purposes, aptly named **InsecureTokenProvider**. Each Fluid service must implement a custom TokenProvider based on the particular service's authentication and security considerations.
 
-Each Azure Fluid Relay service tenant you create is assigned a **tenant ID** and its own unique **tenant secret key**. The secret key is a **shared secret**. Your app/service knows it, and the Azure Fluid Relay service knows it. TokenProviders must know the secret key to sign requests, but the secret key cannot be included in client code.
+Each Azure Fluid Relay resource you create is assigned a **tenant ID** and its own unique **tenant secret key**. The secret key is a **shared secret**. Your app/service knows it, and the Azure Fluid Relay service knows it. TokenProviders must know the secret key to sign requests, but the secret key can't be included in client code.
 
 ## Implement an Azure Function to sign tokens
 
-One option for building a secure token provider is to create HTTPS endpoint and create a TokenProvider implementation that makes authenticated HTTPS requests to that endpoint to retrieve tokens. This enables you to store the *tenant secret key* in a secure location, such as [Azure Key Vault](../../key-vault/general/overview.md).
+One option for building a secure token provider is to create HTTPS endpoint and create a TokenProvider implementation that makes authenticated HTTPS requests to that endpoint to retrieve tokens. This path enables you to store the *tenant secret key* in a secure location, such as [Azure Key Vault](../../key-vault/general/overview.md).
 
 The complete solution has two pieces:
 
@@ -30,7 +30,7 @@ The complete solution has two pieces:
 
 ### Create an endpoint for your TokenProvider using Azure Functions
 
-[Azure Functions](../../azure-functions/functions-overview.md) are a fast way to create such an HTTPS endpoint. The example below implements that pattern in a class called **AzureFunctionTokenProvider**. It accepts the URL to your Azure Function, `userId` and`userName`. This specific implementation is also provided for you as an export from the `@fluidframework/azure-client` package.
+Using [Azure Functions](../../azure-functions/functions-overview.md) is a fast way to create such an HTTPS endpoint.
 
 This example demonstrates how to create your own **HTTPTrigger Azure Function** that fetches the token by passing in your tenant key.
 
@@ -45,7 +45,7 @@ const key = "myTenantKey";
 const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<void> {
     // tenantId, documentId, userId and userName are required parameters
     const tenantId = (req.query.tenantId || (req.body && req.body.tenantId)) as string;
-    const documentId = (req.query.documentId || (req.body && req.body.documentId)) as string;
+    const documentId = (req.query.documentId || (req.body && req.body.documentId)) as string | undefined;
     const userId = (req.query.userId || (req.body && req.body.userId)) as string;
     const userName = (req.query.userName || (req.body && req.body.userName)) as string;
     const scopes = (req.query.scopes || (req.body && req.body.scopes)) as ScopeType[];
@@ -62,14 +62,6 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
         context.res = {
             status: 404,
             body: `No key found for the provided tenantId: ${tenantId}`,
-        };
-        return;
-    }
-
-    if (!documentId) {
-        context.res = {
-            status: 400,
-            body: "No documentId provided in query params"
         };
         return;
     }
@@ -94,20 +86,19 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
 export default httpTrigger;
 ```
 
-The `generateToken` function, found in the `@fluidframework/azure-service-utils` package, generates a token for the given user that is signed using the tenant's secret key. This enables the token to be returned to the client without exposing the secret. Instead, the token is generated server-side using the secret to provide scoped access to the given document. The example ITokenProvider below makes HTTP requests to this Azure Function to retrieve tokens.
+The `generateToken` function, found in the `@fluidframework/azure-service-utils` package, generates a token for the given user that is signed using the tenant's secret key. This method enables the token to be returned to the client without exposing the secret. Instead, the token is generated server-side using the secret to provide scoped access to the given document. The example ITokenProvider below makes HTTP requests to this Azure Function to retrieve the tokens.
 
 ### Deploy the Azure Function
 
-Azure Functions can be deployed in several ways. See the **Deploy** section of the [Azure Functions documentation](../../azure-functions/functions-continuous-deployment.md) for more information about deploying Azure Functions.
+Azure Functions can be deployed in several ways. For more information, see the **Deploy** section of the [Azure Functions documentation](../../azure-functions/functions-continuous-deployment.md) for more information about deploying Azure Functions.
 
 ### Implement the TokenProvider
 
-TokenProviders can be implemented in many ways, but must implement two separate API calls: `fetchOrdererToken` and `fetchStorageToken`. These APIs are responsible for fetching tokens for the Fluid orderer and storage services respectively. Both functions return `TokenResponse` objects representing the token value. The Fluid Framework runtime calls these two APIs as needed to retrieve tokens.
+TokenProviders can be implemented in many ways, but must implement two separate API calls: `fetchOrdererToken` and `fetchStorageToken`. These APIs are responsible for fetching tokens for the Fluid orderer and storage services respectively. Both functions return `TokenResponse` objects representing the token value. The Fluid Framework runtime calls these two APIs as needed to retrieve tokens. Note that while your application code is using only one service endpoint to establish connectivity with the Azure Fluid Relay service, the azure-client internally in conjunction with the service translate that one endpoint to an orderer and storage endpoint pair. Those two endpoints are used from that point on for that session which is why you need to implement the two separate functions for fetching tokens, one for each.
 
+To ensure that the tenant secret key is kept secure, it's stored in a secure backend location and is only accessible from within the Azure Function. To retrieve tokens, you need to make a `GET` or `POST` request to your deployed Azure Function, providing the `tenantID` and `documentId`, and `userID`/`userName`. The Azure Function is responsible for the mapping between the tenant ID and a tenant key secret to appropriately generate and sign the token.
 
-To ensure that the tenant secret key is kept secure, it is stored in a secure backend location and is only accessible from within the Azure Function. To retrieve tokens, you need to make a `GET` or `POST` request to your deployed Azure Function, providing the `tenantID` and `documentId`, and `userID`/`userName`. The Azure Function is responsible for the mapping between the tenant ID and a tenant key secret to appropriately generate and sign the token.
-
-This example implementation below uses the [axios](https://www.npmjs.com/package/axios) library to make HTTP requests. You can use other libraries or approaches to making an HTTP request from server code.
+The example implementation below handles making these requests to your Azure Function. It uses the [axios](https://www.npmjs.com/package/axios) library to make HTTP requests. You can use other libraries or approaches to making an HTTP request from server code.
 
 ```typescript
 import { ITokenProvider, ITokenResponse } from "@fluidframework/routerlicious-driver";
@@ -155,7 +146,21 @@ export class AzureFunctionTokenProvider implements ITokenProvider {
     }
 }
 ```
+
+### Add efficiency and error handling
+
+The `AzureFunctionTokenProvider` is a simple implementation of `TokenProvider` which should be treated as a starting point when implementing your own custom token provider. For the implementation of a production-ready token provider, you should consider various failure scenarios which the token provider needs to handle. For example, the `AzureFunctionTokenProvider` implementation fails to handle network disconnect situations because it doesn't cache the token on the client side. 
+
+When the container disconnects, the connection manager attempts to get a new token from the TokenProvider before reconnecting to the container. While the network is disconnected, the API get request made in `fetchOrdererToken` will fail and throw a non-retryable error. This in turn leads to the container being disposed and not being able to reconnect even if a network connection is re-established. 
+
+A potential solution for this disconnect issue is to cache valid tokens in [Window.localStorage](https://developer.mozilla.org/docs/Web/API/Window/localStorage). With token-caching the container will retrieve a valid stored token instead of making an API get request while the network is disconnected. Note that a locally stored token could expire after a certain period of time and you would still need to make an API request to get a new valid token. In this case, additional error handling and retry logic would be required to prevent the container from disposing after a single failed attempt. 
+
+How you choose to implement these improvements is completely up to you and the requirements of your application. Note that with the `localStorage` token solution, you'll also see performance improvements in your application because you're removing a network request on each `getContainer` call. 
+
+Token-caching with something like `localStorage` may come with security implications, and it is up to your discretion when deciding what solution is appropriate for your application. Whether or not you implement token-caching, you should add error-handling and retry logic in `fetchOrdererToken` and `fetchStorageToken` so that the container isn't disposed after a single failed call. Consider, for example, wrapping the call of `getToken` in a `try` block with a `catch` block that retries and throws an error only after a specified number of retries.
+
 ## See also
 
 - [Add custom data to an auth token](connect-fluid-azure-service.md#adding-custom-data-to-tokens)
 - [How to: Deploy Fluid applications using Azure Static Web Apps](deploy-fluid-static-web-apps.md)
+- [How to: Validate a User Created a Document](validate-document-creator.md)

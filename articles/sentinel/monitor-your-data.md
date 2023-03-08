@@ -10,8 +10,6 @@ ms.custom: ignite-fall-2021
 
 # Use Azure Monitor workbooks to visualize and monitor your data
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 Once you have [connected your data sources](quickstart-onboard.md) to Microsoft Sentinel, you can visualize and monitor the data using the Microsoft Sentinel adoption of Azure Monitor Workbooks, which provides versatility in creating custom dashboards. While the Workbooks are displayed differently in Microsoft Sentinel, it may be useful for you to see how to [create interactive reports with Azure Monitor Workbooks](../azure-monitor/visualize/workbooks-overview.md). Microsoft Sentinel allows you to create custom workbooks across your data, and also comes with built-in workbook templates to allow you to quickly gain insights across your data as soon as you connect a data source.
 
 This article describes how to visualize your data in Microsoft Sentinel.
@@ -67,7 +65,7 @@ You must have at least **Workbook reader** or **Workbook contributor** permissio
 
    > [!IMPORTANT]
    >
-   > We recommend that your query uses an [Advanced SIEM Information model (ASIM) parser](normalization-about-parsers.md) and not a built-in table. This ensures that the query will support any current or future relevant data source rather than a single data source.
+   > We recommend that your query uses an [Advanced Security Information Model (ASIM) parser](normalization-about-parsers.md) and not a built-in table. This ensures that the query will support any current or future relevant data source rather than a single data source.
    >
     
 1. After you create your workbook, save the workbook, making sure you save it under the subscription and resource group of your Microsoft Sentinel workspace.
@@ -84,9 +82,9 @@ You must have at least **Workbook reader** or **Workbook contributor** permissio
 
 Refresh your workbook to display updated data. In the toolbar, select one of the following options:
 
-- :::image type="icon" source="media/whats-new/manual-refresh-button.png" border="false"::: **Refresh**, to manually refresh your workbook data.
+- :::image type="icon" source="media/monitor-your-data/manual-refresh-button.png" border="false"::: **Refresh**, to manually refresh your workbook data.
 
-- :::image type="icon" source="media/whats-new/auto-refresh-workbook.png" border="false"::: **Auto refresh**, to set your workbook to automatically refresh at a configured interval.
+- :::image type="icon" source="media/monitor-your-data/auto-refresh-workbook.png" border="false"::: **Auto refresh**, to set your workbook to automatically refresh at a configured interval.
 
     - Supported auto refresh intervals range from **5 minutes** to **1 day**.
 
@@ -102,12 +100,12 @@ Refresh your workbook to display updated data. In the toolbar, select one of the
 
 To print a workbook, or save it as a PDF, use the options menu to the right of the workbook title.
 
-1. Select options > :::image type="icon" source="media/whats-new/print-icon.png" border="false"::: **Print content**. 
+1. Select options > :::image type="icon" source="media/monitor-your-data/print-icon.png" border="false"::: **Print content**. 
 2. In the print screen, adjust your print settings as needed or select **Save as PDF** to save it locally.
 
 For example:
 
-[ ![Print your workbook or save as PDF.](media/whats-new/print-workbook.png) ](media/whats-new/print-workbook.png#lightbox)
+[ ![Print your workbook or save as PDF.](media/monitor-your-data/print-workbook.png) ](media/monitor-your-data/print-workbook.png#lightbox)
 
 ## How to delete workbooks
 

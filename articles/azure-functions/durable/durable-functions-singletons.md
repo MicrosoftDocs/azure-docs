@@ -171,12 +171,38 @@ async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
 
 ```
 
+# [Java](#tab/java)
+
+```java
+@FunctionName("HttpStartSingle")
+public HttpResponseMessage runSingle(
+        @HttpTrigger(name = "req") HttpRequestMessage<?> req,
+        @DurableClientInput(name = "durableContext") DurableClientContext durableContext) {
+
+    String instanceID = "StaticID";
+    DurableTaskClient client = durableContext.getClient();
+
+    // Check to see if an instance with this ID is already running
+    OrchestrationMetadata metadata = client.getInstanceMetadata(instanceID, false);
+    if (metadata.isRunning()) {
+        return req.createResponseBuilder(HttpStatus.CONFLICT)
+                .body("An instance with ID '" + instanceID + "' already exists.")
+                .build();
+    }
+
+    // No such instance exists - create a new one. De-dupe is handled automatically
+    // in the storage layer if another function tries to also use this instance ID.
+    client.scheduleNewOrchestrationInstance("MyOrchestration", null, instanceID);
+    return durableContext.createCheckStatusResponse(req, instanceID);
+}
+```
+
 ---
 
-By default, instance IDs are randomly generated GUIDs. In the previous example, however, the instance ID is passed in route data from the URL. The code calls `GetStatusAsync`(C#), `getStatus` (JavaScript), or `get_status` (Python) to check if an instance having the specified ID is already running. If no such instance is running, a new instance is created with that ID.
+By default, instance IDs are randomly generated GUIDs. In the previous example, however, the instance ID is passed in route data from the URL. The code then fetches the orchestration instance metadata to check if an instance having the specified ID is already running. If no such instance is running, a new instance is created with that ID.
 
 > [!NOTE]
-> There is a potential race condition in this sample. If two instances of **HttpStartSingle** execute concurrently, both function calls will report success, but only one orchestration instance will actually start. Depending on your requirements, this may have undesirable side effects. For this reason, it is important to ensure that no two requests can execute this trigger function concurrently.
+> There is a potential race condition in this sample. If two instances of **HttpStartSingle** execute concurrently, both function calls will report success, but only one orchestration instance will actually start. Depending on your requirements, this may have undesirable side effects.
 
 The implementation details of the orchestrator function don't actually matter. It could be a regular orchestrator function that starts and completes, or it could be one that runs forever (that is, an [Eternal Orchestration](durable-functions-eternal-orchestrations.md)). The important point is that there is only ever one instance running at a time.
 

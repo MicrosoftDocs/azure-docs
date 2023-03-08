@@ -8,13 +8,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 11/08/2021
+ms.date: 04/04/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
 ---
 # Tutorial: Use the data copy service to copy data into Azure Data Box (preview)
 
-This tutorial describes how to ingest data by using the data copy service without an intermediate host. The data copy service runs locally on Microsoft Azure Data Box, connects to your network-attached storage (NAS) device via SMB, and copies data to Data Box.
+This tutorial describes how to ingest data by using the data copy service without an intermediate host. The data copy service runs locally on Microsoft Azure Data Box, connects to your network-attached storage (NAS) device via SMB, and copies data to Data Box. 
 
 Use the data copy service:
 
@@ -65,10 +65,10 @@ To copy data by using the data copy service, you need to create a job:
     |**Username**                       |Username in `\\<DomainName><UserName>` format to access the data source. If a local administrator is connecting, they will need explicit security permissions. Right-click the folder, select **Properties** and then select **Security**. This should add the local administrator in the **Security** tab.       |
     |**Password**                       |Password to access the data source.           |
     |**Destination storage account**    |Select the target storage account to upload data to from the list.         |
-    |**Destination type**       |Select the target storage type from the list: **Block Blob**, **Page Blob**, or **Azure Files**.        |
+    |**Destination type**       |Select the target storage type from the list: **Block Blob**, **Page Blob**, **Azure Files**, or **Block Blob (Archive)**.        |
     |**Destination container/share**    |Enter the name of the container or share that you want to upload data to in your destination storage account. The name can be a share name or a container name. For example, use `myshare` or `mycontainer`. You can also enter the name in the format `sharename\directory_name` or `containername\virtual_directory_name`.        |
     |**Copy files matching pattern**    | You can enter the file-name matching pattern in the following two ways:<ul><li>**Use wildcard expressions:** Only `*` and `?` are supported in wildcard expressions. For example, the expression `*.vhd` matches all the files that have the `.vhd` extension. Similarly, `*.dl?` matches all the files with either the extension `.dl` or that start with `.dl`, such as `.dll`. Likewise, `*foo` matches all the files whose names end with `foo`.<br>You can directly enter the wildcard expression in the field. By default, the value you enter in the field is treated as a wildcard expression.</li><li>**Use regular expressions:** POSIX-based regular expressions are supported. For example, the regular expression `.*\.vhd` will match all the files that have the `.vhd` extension. For regular expressions, provide the `<pattern>` directly as `regex(<pattern>)`. For more information about regular expressions, go to [Regular expression language - a quick reference](/dotnet/standard/base-types/regular-expression-language-quick-reference).</li><ul>|
-    |**File optimization**              |When this feature is enabled, files smaller than 1 MB are packed during ingestion. This packing speeds up the data copy for small files. It also saves a significant amount of time when the number of files far exceeds the number of directories.</br>If you use file optimization:<ul><li>After you run prepare to ship, you can [download a BOM file](data-box-logs.md#inspect-bom-during-prepare-to-ship), which lists the original file names, to help you ensure that all the right files are copied.</li><li>Don't delete the packed files, whose file names begin with "ADB_PACK_". If you delete a packed file, the original file isn't uploaded during future data copies.</li><li>Don't copy the same files that you copy with the Copy Service via other protocols such as SMB, NFS, or REST API. Using different protocols can result in conflicts and failure during data uploads. </li></ul>    |
+    |**File optimization**              |When this feature is enabled, files smaller than 1 MB are packed during ingestion. This packing speeds up the data copy for small files. It also saves a significant amount of time when the number of files far exceeds the number of directories.</br>If you use file optimization:<ul><li>After you run prepare to ship, you can [download a BOM file](data-box-logs.md#inspect-bom-during-prepare-to-ship), which lists the original file names, to help you ensure that all the right files are copied.</li><li>Don't delete the packed files, whose file names begin with "ADB_PACK_". If you delete a packed file, the original file isn't uploaded during future data copies.</li><li>Don't copy the same files that you copy with the Copy Service via other protocols such as SMB, NFS, or REST API. Using different protocols can result in conflicts and failure during data uploads. </li><li>File optimization is not supported for Azure Files. To see what timestamps, file attributes, and ACLs are copied for a non-optimized data copy job, view the [transferred metadata](data-box-file-acls-preservation.md). </li></ul>    |
  
 4. Select **Start**. The inputs are validated, and if the validation succeeds, then the job starts. It might take a few minutes for the job to start.
 

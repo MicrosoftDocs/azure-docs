@@ -18,7 +18,7 @@ This cURL-based quickstart walks you through getting an answer from your knowled
     * Latest [**cURL**](https://curl.haxx.se/).
     * If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
-> * A [QnA Maker resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) created in the Azure portal. Remember your Azure Active Directory ID, Subscription, QnA resource name you selected when you created the resource.
+> * A [QnA Maker resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) created in the Azure portal. Remember your Azure Active Directory ID, Subscription, QnA resource name you selected when you created the resource.
 
    * A trained and published knowledge base with questions and answers, from the previous [quickstart](../Quickstarts/add-question-metadata-portal.md), configured with metadata and Chit chat.
 
@@ -53,7 +53,7 @@ Use the knowledge base from the previous quick to query for an answer based on m
                 "answer": "The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](../concepts/azure-resources.md) for more details.",
                 "score": 68.76,
                 "id": 3,
-                "source": "https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting",
+                "source": "https://learn.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting",
                 "metadata": [
                     {
                         "name": "link_in_answer",
@@ -104,7 +104,7 @@ Debug: {Enable:true}
                 "answer": "Sharing works at the level of a QnA Maker service, that is, all knowledge bases in the service will be shared.",
                 "score": 56.07,
                 "id": 5,
-                "source": "https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting",
+                "source": "https://learn.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting",
                 "metadata": [],
                 "context": {
                     "isContextOnly": false,
@@ -346,7 +346,7 @@ You can request a minimum threshold for the answer. If the threshold is not met,
                 "answer": "The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](../Concepts/azure-resources.md) for more details.",
                 "score": 71.1,
                 "id": 3,
-                "source": "https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting",
+                "source": "https://learn.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting",
                 "metadata": [
                     {
                         "name": "link_in_answer",

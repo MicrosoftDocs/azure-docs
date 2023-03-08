@@ -1,0 +1,80 @@
+### YamlMime:Landing
+
+title: Microsoft Defender for IoT - OT monitoring appliance catalog
+summary: Learn about the OT monitoring appliances supported for Microsoft Defender for IoT OT sensors and on-premises management consoles, including any extra procedures required for each appliance type.
+
+metadata:
+  title: Microsoft Defender for IoT - OT monitoring appliance reference
+  description: Learn about the appliances available for use with Microsoft Defender for IoT OT sensors and on-premises management consoles.
+  ms.topic: landing-page
+  ms.date: 07/24/2022
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: Corporate environments
+    linkLists:
+      - linkListType: deploy
+        links:
+          - text: HPE ProLiant DL360
+            url: hpe-proliant-dl360.md
+
+  # Card
+  - title: Large enterprises
+    linkLists:
+      - linkListType: deploy
+        links:
+          - text: HPE ProLiant DL20 Gen10 Plus (4SFF)
+            url: hpe-proliant-dl20-plus-enterprise.md
+          - text: Dell Edge 5200 (Rugged MIL-STD-810G)
+            url: dell-edge-5200.md
+          - text: Dell PowerEdge R350 
+            url: dell-poweredge-r350-e1800.md
+
+  # Card
+  - title: Production line
+    linkLists:
+      - linkListType: deploy
+        links:
+          - text: HPE ProLiant DL20 Gen10 Plus (NHP 2LFF)
+            url: hpe-proliant-dl20-plus-smb.md
+          - text: YS-techsystems YS-FIT2 (Rugged MIL-STD-810G)
+            url: ys-techsystems-ys-fit2.md
+
+  # Card
+  - title: Virtual appliances
+    linkLists:
+      - linkListType: deploy
+        links:
+          - text: OT sensor (VMware ESXi)
+            url: virtual-sensor-vmware.md
+          - text: OT sensor (Microsoft Hyper-V)
+            url: virtual-sensor-hyper-v.md
+          - text: On-premises management console (VMware ESXi)
+            url: virtual-management-vmware.md
+          - text: On-premises management console (Microsoft Hyper-V)
+            url: virtual-management-hyper-v.md
+
+  # Card
+  - title: Legacy appliances
+    linkLists:
+      - linkListType: deploy
+        links:
+          - text: HPE ProLiant DL20 Gen10 
+            url: hpe-proliant-dl20-legacy.md              
+          - text: Dell PowerEdge R340 XL 
+            url: dell-poweredge-r340-xl-legacy.md            
+          - text: HPE ProLiant DL20 Gen10 (NHP 2LFF) 
+            url: hpe-proliant-dl20-smb-legacy.md                  
+          - text: HPE Edgeline EL300 
+            url: hpe-edgeline-el300.md
+          - text: Neousys Nuvo-500LP
+            url: neousys-nuvo-5006lp.md
+    
+      # - linkListType: reference
+      #   links:
+      #     - text: Security recommendations for GCP resources
+      #       url: recommendations-reference-gcp.md

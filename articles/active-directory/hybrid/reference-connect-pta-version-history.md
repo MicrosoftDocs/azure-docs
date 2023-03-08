@@ -3,12 +3,12 @@ title: 'Azure AD Pass-through Authentication: Version release history | Microsof
 description: This article lists all releases of the Azure AD Pass-through Authentication agent
 services: active-directory
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 04/14/2020
+ms.date: 01/19/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management

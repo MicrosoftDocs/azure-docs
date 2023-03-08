@@ -1,18 +1,18 @@
 ---
-title: Request process & notifications - Azure AD entitlement management
-description: Learn about the request process for an access package and when email notifications are sent in Azure Active Directory entitlement management.
+title: Request process & notifications - Microsoft Entra entitlement management
+description: Learn about the request process for an access package and when email notifications are sent in entitlement management.
 services: active-directory
 documentationCenter: ''
-author: ajburnle
-manager: karenhoran
+author: owinfreyatl
+manager: amycolannino
 editor: mamtakumar
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 5/17/2021
-ms.author: ajburnle
+ms.date: 01/25/2023
+ms.author: owinfrey
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
 
@@ -20,9 +20,9 @@ ms.collection: M365-identity-device-management
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
 
 ---
-# Request process and email notifications in Azure AD entitlement management
+# Request process and email notifications in entitlement management
 
-When a user submits a request to an access package, a process begins to deliver that access request. Azure AD entitlement management sends email notifications to approvers and requestors when key events occur during the process. This article describes the request process and the email notifications that are sent.
+When a user submits a request to an access package, a process begins to deliver that access request. Entitlement management sends email notifications to approvers and requestors when key events occur during the process. This article describes the request process and the email notifications that are sent.
 
 ## Request process
 
@@ -54,17 +54,17 @@ The following diagrams show when these email notifications are sent to either th
 ### First approvers and alternate approvers
 The following diagram shows the experience of first approvers and alternate approvers, and the email notifications they receive during the request process:
 
-![First and alternate approvers process flow](./media/entitlement-management-process/first-approvers-and-alternate-with-escalation-flow.png)
+:::image type="content" source="./media/entitlement-management-process/first-approvers-and-alternate-with-escalation-flow.png" alt-text="First and alternate approvers process flow" lightbox="./media/entitlement-management-process/first-approvers-and-alternate-with-escalation-flow.png":::
 
 ### Requestors
 The following diagram shows the experience of requestors and the email notifications they receive during the request process:
 
-![Requestor process flow](./media/entitlement-management-process/requestor-approval-request-flow.png)
+:::image type="content" source="./media/entitlement-management-process/requestor-approval-request-flow.png" alt-text="Requestor process flow" lightbox="./media/entitlement-management-process/requestor-approval-request-flow.png":::
 
 ### Multi-stage approval
 The following diagram shows the experience of stage-1 and stage-2 approvers and the email notifications they receive during the request process:
 
-![2-stage approval process flow](./media/entitlement-management-process/2stage-approval-with-request-timeout-flow.png)
+:::image type="content" source="./media/entitlement-management-process/2stage-approval-with-request-timeout-flow.png" alt-text="2-stage approval process flow" lightbox="./media/entitlement-management-process/2stage-approval-with-request-timeout-flow.png":::
 
 ### Email notifications table
 The following table provides more detail about each of these email notifications. To manage these emails, you can use rules. For example, in Outlook, you can create rules to move the emails to a folder if the subject contains words from this table.  Note that the words will be based on the default language settings of the tenant where the user is requesting access.
@@ -143,7 +143,7 @@ When the request reaches its configured expiration date and expires, it can no l
 
 An email notification is sent to the requestor, notifying them that their access request has expired, and that they need to resubmit the access request. The following diagram shows the experience of the requestor and the email notifications they receive when they request to extend access:
 
-![Requestor extend access process flow](./media/entitlement-management-process/requestor-expiration-request-flow.png) 
+:::image type="content" source="./media/entitlement-management-process/requestor-expiration-request-flow.png" alt-text="Requestor extend access process flow" lightbox="./media/entitlement-management-process/requestor-expiration-request-flow.png":::
 
 Here is a sample email notification that is sent to a requestor when their access request has expired:
 

@@ -15,6 +15,9 @@ ms.date: 10/25/2021
 
 # Use versions to edit and test without impacting staging or production apps
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
+
 Versions allow you to build and publish different models. A good practice is to clone the current active model to a different [version](./luis-concept-app-iteration.md) of the app before making changes to the model.
 
 The active version is the version you are editing in the LUIS portal **Build** section with intents, entities, features, and patterns. When using the authoring APIs, you don't need to set the active version because the version-specific REST API calls include the version in the route.

@@ -4,7 +4,7 @@ description: How to set up NVIDIA GPU drivers for N-series VMs running Windows S
 author: vikancha-MSFT
 manager: jkabat
 ms.service: virtual-machines
-ms.subservice: vm-sizes-gpu
+ms.subservice: sizes
 ms.collection: windows
 ms.topic: how-to
 ms.date: 09/24/2018

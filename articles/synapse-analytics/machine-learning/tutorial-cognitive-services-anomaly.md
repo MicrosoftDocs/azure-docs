@@ -1,7 +1,6 @@
 ---
 title: 'Tutorial: Anomaly detection with Cognitive Services'
 description: Learn how to use Cognitive Services for anomaly detection in Azure Synapse Analytics.
-services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: machine-learning
 ms.topic: tutorial
@@ -38,17 +37,33 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 You need a Spark table for this tutorial.
 
-1. Download the following notebook file that contains code to generate a Spark table: [prepare_anomaly_detector_data.ipynb](https://go.microsoft.com/fwlink/?linkid=2149577).
+Create a PySpark notebook and run following code.
 
-1. Upload the file to your Azure Synapse workspace.
+```python
+from pyspark.sql.functions import lit
 
-   ![Screenshot that shows selections for uploading a notebook.](media/tutorial-cognitive-services/tutorial-cognitive-services-anomaly-00a.png)
+df = spark.createDataFrame([
+    ("1972-01-01T00:00:00Z", 826.0),
+    ("1972-02-01T00:00:00Z", 799.0),
+    ("1972-03-01T00:00:00Z", 890.0),
+    ("1972-04-01T00:00:00Z", 900.0),
+    ("1972-05-01T00:00:00Z", 766.0),
+    ("1972-06-01T00:00:00Z", 805.0),
+    ("1972-07-01T00:00:00Z", 821.0),
+    ("1972-08-01T00:00:00Z", 20000.0),
+    ("1972-09-01T00:00:00Z", 883.0),
+    ("1972-10-01T00:00:00Z", 898.0),
+    ("1972-11-01T00:00:00Z", 957.0),
+    ("1972-12-01T00:00:00Z", 924.0),
+    ("1973-01-01T00:00:00Z", 881.0),
+    ("1973-02-01T00:00:00Z", 837.0),
+    ("1973-03-01T00:00:00Z", 9000.0)
+], ["timestamp", "value"]).withColumn("group", lit("series1"))
 
-1. Open the notebook file and select **Run All** to run all cells.
+df.write.mode("overwrite").saveAsTable("anomaly_detector_testing_data")
 
-   ![Screenshot that shows selections for creating a Spark table.](media/tutorial-cognitive-services/tutorial-cognitive-services-anomaly-00b.png)
-
-1. A Spark table named **anomaly_detector_testing_data** should now appear in the default Spark database.
+```
+A Spark table named **anomaly_detector_testing_data** should now appear in the default Spark database.
 
 ## Open the Cognitive Services wizard
 
@@ -90,4 +105,7 @@ You can now run all cells to perform anomaly detection. Select **Run All**. [Lea
 
 - [Tutorial: Sentiment analysis with Azure Cognitive Services](tutorial-cognitive-services-sentiment.md)
 - [Tutorial: Machine learning model scoring in Azure Synapse dedicated SQL pools](tutorial-sql-pool-model-scoring-wizard.md)
+- [Tutorial: Use Multivariate Anomaly Detector in Azure Synapse Analytics](../../cognitive-services/Anomaly-Detector/tutorials/multivariate-anomaly-detection-synapse.md)
+- [SynapseML anomaly detection](https://microsoft.github.io/SynapseML/docs/documentation/transformers/transformers_cognitive/#anomaly-detection)
 - [Machine Learning capabilities in Azure Synapse Analytics](what-is-machine-learning.md)
+

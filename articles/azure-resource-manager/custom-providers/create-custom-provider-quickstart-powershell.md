@@ -15,7 +15,7 @@ In this quickstart, you learn how to create your own Azure custom resource provi
 [Az.CustomProviders](/powershell/module/az.customproviders) PowerShell module.
 
 > [!CAUTION]
-> Azure Custom Providers is currently in public preview. This preview version is provided without a
+> Azure Custom Resource Providers is currently in public preview. This preview version is provided without a
 > service level agreement. It's not recommended for production workloads. Certain features might not
 > be supported or might have constrained capabilities. For more information, see
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

@@ -1,586 +1,343 @@
 ---
 title: What's new in Microsoft Sentinel
 description: This article describes new features in Microsoft Sentinel from the past few months.
-author: batamig
-ms.author: bagol
+author: yelevin
+ms.author: yelevin
 ms.topic: conceptual
-ms.date: 01/13/2022
-ms.custom: ignite-fall-2021
+ms.date: 02/24/2023
 ---
 
 # What's new in Microsoft Sentinel
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 This article lists recent features added for Microsoft Sentinel, and new features in related services that provide an enhanced user experience in Microsoft Sentinel.
 
-If you're looking for items older than six months, you'll find them in the [Archive for What's new in Sentinel](whats-new-archive.md). For information about earlier features delivered, see our [Tech Community blogs](https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog/label-name/What's%20New).
+The listed features were released in the last three months. For information about earlier features delivered, see our [Tech Community blogs](https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog/label-name/What's%20New).
 
-> [!IMPORTANT]
-> Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
+See these [important announcements](#announcements) about recent changes to features and services.
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-> [!TIP]
-> Our threat hunting teams across Microsoft contribute queries, playbooks, workbooks, and notebooks to the [Microsoft Sentinel Community](https://github.com/Azure/Azure-Sentinel), including specific [hunting queries](https://github.com/Azure/Azure-Sentinel) that your teams can adapt and use.
->
-> You can also contribute! Join us in the [Microsoft Sentinel Threat Hunters GitHub community](https://github.com/Azure/Azure-Sentinel/wiki).
+## February 2023
 
-## January 2021
+- [Out-of-the-box content centralization changes](#out-of-the-box-content-centralization-changes) (in [Announcements](#announcements) section below)
+- [New CloudWatch data type for the AWS S3 connector (Preview)](#new-cloudwatch-data-type-for-the-aws-s3-connector)
+- [Audit and monitor the health of your analytics rules (Preview)](#audit-and-monitor-the-health-of-your-analytics-rules-preview)
+- [New behavior for alert grouping in analytics rules](#new-behavior-for-alert-grouping-in-analytics-rules) (in [Announcements](#announcements) section below)
+- [Microsoft 365 Defender data connector is now generally available](#microsoft-365-defender-data-connector-is-now-generally-available)
+- [Advanced scheduling for analytics rules (Preview)](#advanced-scheduling-for-analytics-rules-preview)
 
-- [SentinelHealth data table (Public preview)](#sentinelhealth-data-table-public-preview)
-- [More workspaces supported for Multiple Workspace View](#more-workspaces-supported-for-multiple-workspace-view)
-- [Kusto Query Language workbook and tutorial](#kusto-query-language-workbook-and-tutorial)
+### New CloudWatch data type for the AWS S3 connector
 
-### SentinelHealth data table (Public preview)
+The Microsoft Sentinel AWS S3 connector now supports [CloudWatch logs](connect-aws.md) in addition to the supported CloudTrail, VPC Flow, and Guard Duty logs. Logs from AWS CloudWatch provide operational information from different AWS sources, which enables Microsoft Sentinel customers with AWS footprints to better understand and operate their AWS systems and applications.  
 
-Microsoft Sentinel now provides the **SentinelHealth** data table to help you monitor your connector health, providing insights on health drifts, such as latest failure events per connector, or connectors with changes from success to failure states. Use this data to create alerts and other automated actions, such as Microsoft Teams messages, new tickets in a ticketing system, and so on.
+The CloudWatch data type has the ability to perform the same data transformation functions as the other data types within the AWS S3 connector. Learn how to [transform your data for CloudWatch](../azure-monitor/logs/tutorial-workspace-transformations-portal.md).
 
-Turn on the Microsoft Sentinel health feature for your workspace in order to have the **SentinelHealth** data table created at the next success or failure event generated for supported data connectors.
+### Audit and monitor the health of your analytics rules (Preview)
 
-For more information, see [Use the SentinelHealth data table (Public preview)](monitor-data-connector-health.md#use-the-sentinelhealth-data-table-public-preview).
+Microsoft Sentinel's **health monitoring feature is now available for analytics rules** in addition to automation rules, playbooks, and data connectors. Also now available for the first time, and currently only for analytics rules, is Microsoft Sentinel's **audit feature**. The audit feature collects information about any changes made to Sentinel resources (analytics rules) so that you can discover any unauthorized actions or tampering with the service.
 
-### More workspaces supported for Multiple Workspace View
+Learn more about [auditing and health monitoring in Microsoft Sentinel](health-audit.md):
+- [Turn on auditing and health monitoring for Microsoft Sentinel (preview)](enable-monitoring.md)
+- [Monitor the health and audit the integrity of your analytics rules](monitor-analytics-rule-integrity.md)
+- Explore the new [Analytics Health & Audit workbook](monitor-analytics-rule-integrity.md#use-the-auditing-and-health-monitoring-workbook).
 
-Now, instead of being limited to 10 workspaces in Microsoft Sentinel's [Multiple Workspace View](multiple-workspace-view.md), you can view data from up to 30 workspaces simultaneously.
+### Microsoft 365 Defender data connector is now generally available
 
-While we often recommend a single-workspace environment, some use cases require multiple use cases, such as for Managed Security Service Providers (MSSPs) and their customers. **Multiple Workspace View** lets you see and work with security incidents across several workspaces at the same time, even across tenants, allowing you to maintain full visibility and control of your organization’s security responsiveness.
+Microsoft 365 Defender incidents, alerts, and raw event data can be ingested into Microsoft Sentinel using this connector. It also enables the bi-directional synchronization of incidents between Microsoft 365 Defender and Microsoft Sentinel. This integration allows you to manage all of your incidents in Microsoft Sentinel, while taking advantage of Microsoft 365 Defender's specialized tools and capabilities to investigate those incidents that originated in Microsoft 365.
 
-For more information, see:
+- Learn more about [Microsoft 365 Defender integration with Microsoft Sentinel](microsoft-365-defender-sentinel-integration.md).
+- Learn how to [connect Microsoft 365 Defender to Microsoft Sentinel](connect-microsoft-365-defender.md).
 
-- [The need to use multiple Microsoft Sentinel workspaces](extend-sentinel-across-workspaces-tenants.md#the-need-to-use-multiple-microsoft-sentinel-workspaces)
-- [Work with incidents in many workspaces at once](multiple-workspace-view.md)
-- [Manage multiple tenants in Microsoft Sentinel as an MSSP](multiple-tenants-service-providers.md)
+### Advanced scheduling for analytics rules (Preview)
 
-### Kusto Query Language workbook and tutorial
+To give you more flexibility in scheduling your analytics rule execution times and to help you avoid potential conflicts, Microsoft Sentinel now allows you to determine when newly created analytics rules will run for the first time. The default behavior is as it has been: for them to run immediately upon creation.
 
-Kusto Query Language is used in Microsoft Sentinel to search, analyze, and visualize data, as the basis for detection rules, workbooks, hunting, and more.
+[Learn more about advanced scheduling](detect-threats-custom.md#query-scheduling-and-alert-threshold).
 
-The new **Advanced KQL for Microsoft Sentinel** interactive workbook is designed to help you improve your Kusto Query Language proficiency by taking a use case-driven approach based on:
 
-- Grouping Kusto Query Language operators/commands by category for easy navigation.
-- Listing the possible tasks a user would perform with Kusto Query Language in Microsoft Sentinel. Each task includes operators used, sample queries and use cases.
-- Compiling a list of existing content found in Microsoft Sentinel (analytics rules, hunting queries, workbooks and so on) to provide additional references specific to the operators you want to learn.
-- Allowing you to execute sample queries on-the-fly, within your own environment or in "LA Demo" - a public [Log Analytics demo environment](https://aka.ms/lademo). Try the sample Kusto Query Language statements in real time without the need to navigate away from the workbook.
+## January 2023
 
-Accompanying the new workbook is an explanatory [blog post](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/advanced-kql-framework-workbook-empowering-you-to-become-kql/ba-p/3033766), as well as a new [introduction to Kusto Query Language](kusto-overview.md) and a [collection of learning and skilling resources](kusto-resources.md) in the Microsoft Sentinel documentation.
+- [New incident investigation experience (Preview)](#new-incident-investigation-experience-preview)
+- [Monitor SAP system health (Preview)](#monitor-sap-system-health-and-role-preview)
+- [Microsoft Purview Information Protection connector (Preview)](#microsoft-purview-information-protection-connector-preview)
 
-## December 2021
+### New incident investigation experience (Preview)
 
-- [IoT OT Threat Monitoring with Defender for IoT solution](#iot-ot-threat-monitoring-with-defender-for-iot-solution-public-preview)
-- [Ingest GitHub logs into your Microsoft Sentinel workspace](#ingest-github-logs-into-your-microsoft-sentinel-workspace-public-preview)
-- [Apache Log4j Vulnerability Detection solution](#apache-log4j-vulnerability-detection-solution-public-preview)
+SOC analysts need to understand the full scope of an attack as fast as possible to respond effectively. 
 
-### IoT OT Threat Monitoring with Defender for IoT solution (Public preview)
+While triaging, investigating, and responding to a security incident, analysts require quick and seamless access to many pieces of information, actions, and tools. This access should optimally be within the incident investigation environment, with an absolute minimum of pivoting to other pages, products, or services&mdash;for example, to find Azure AD info or the geo-location of an IP, edit a bookmark, or add an entity to threat intelligence.
 
-The new **IoT OT Threat Monitoring with Defender for IoT** solution available in the [Microsoft Sentinel content hub](sentinel-solutions-catalog.md#microsoft) provides further support for the Microsoft Sentinel integration with Microsoft Defender for IoT, bridging gaps between IT and OT security challenges, and empowering SOC teams with enhanced abilities to efficiently and effectively detect and respond to OT threats.
+**Microsoft Sentinel now offers a new incident investigation experience**. The new incident page design, along with many new features for investigation, response, and incident management, offers the analyst the information and tools necessary to understand the incident and the scope of breach, while making navigation easy and context switching less frequent. New features include, among others, top insights, a new activity log for incident audits and a Log Analytics query window to investigate logs.
 
-For more information, see [Tutorial: Integrate Microsoft Sentinel and Microsoft Defender for IoT](iot-solution.md).
+Learn more about the new investigation experience:
+- [Understand Microsoft Sentinel's incident investigation and case management capabilities](incident-investigation.md)
+- [Navigate and investigate incidents in Microsoft Sentinel](investigate-incidents.md)
 
+### Monitor SAP system health and role (Preview)
 
-### Ingest GitHub logs into your Microsoft Sentinel workspace (Public preview)
+To ensure proper functioning and performance of your SAP systems, you can now use the SAP data connector page to [monitor information about the health of your SAP systems](monitor-sap-system-health.md) and the status of the SAP roles for the system. You can also use an alert rule template to get information about the health of the SAP agent's data collection.
 
-Use the new [Continuous Threat Monitoring for GitHub](sentinel-solutions-catalog.md#github) solution and [data connector](data-connectors-reference.md#github-preview) to ingest your GitHub logs into your Microsoft Sentinel workspace.
+### Microsoft Purview Information Protection connector (Preview)
 
-The **Continuous Threat Monitoring for GitHub** solution includes a data connector, relevant analytics rules, and a workbook that you can use to visualize your log data.
+With the new [Microsoft Purview Information Protection connector](connect-microsoft-purview.md), you can stream data from Microsoft Purview Information Protection (formerly Microsoft Information Protection or MIP) to Microsoft Sentinel. You can use the data ingested from the Microsoft Purview labeling clients and scanners to track, analyze, report on the data, and use it for compliance purposes.
 
-For example, view the number of users that were added or removed from GitHub repositories, how many repositories were created, forked, or cloned, in the selected time frame.
+> [!IMPORTANT]
+> This connector replaces the Azure Information Protection (AIP) data connector, aligned with the retirement of the AIP analytics and audit logs public preview as of **March 31, 2023**.
 
-> [!NOTE]
-> The **Continuous Threat Monitoring for GitHub** solution is supported for GitHub enterprise licenses only.
->
+The new connector streams audit logs into the standardized 
+`MicrosoftPurviewInformationProtection` table, which has been adjusted to enhance the deprecated schema used by AIP, with more fields and easier access to parameters. Data is gathered through the [Office Management API](/office/office-365-management-api/office-365-management-activity-api-schema), which uses a structured schema. Review the list of supported [audit log record types and activities](microsoft-purview-record-types-activities.md).
 
-For more information, see [Centrally discover and deploy Microsoft Sentinel out-of-the-box content and solutions (Public preview)](sentinel-solutions-deploy.md) and [instructions](data-connectors-reference.md#github-preview) for installing the GitHub data connector.
+## December 2022
 
-### Apache Log4j Vulnerability Detection solution (Public preview)
+- [Create and run playbooks on entities on-demand (Preview)](#create-and-run-playbooks-on-entities-on-demand-preview)
+- [Customize more alert properties (Preview)](#customize-more-alert-properties-preview)
 
-Remote code execution vulnerabilities related to Apache Log4j were disclosed on 9 Dec 2021. The vulnerability allows for unauthenticated remote code execution, and it is triggered when a specially crafted string, provided by the attacker through a variety of different input vectors, is parsed and processed by the Log4j 2 vulnerable component. 
+### Create and run playbooks on entities on-demand (Preview)
 
-The [Apache Log4J Vulnerability Detection](sentinel-solutions-catalog.md#domain-solutions) solution was added to the Microsoft Sentinel content hub to help customers monitor, detect, and investigate signals related to the exploitation of this vulnerability, using Microsoft Sentinel.
+SOC analysts can now take immediate action on a particular entity representing a threat actor, while in the middle of investigating an incident or hunting for threats, without leaving those contexts or having to pivot to other screens or apps. 
 
-For more information, see the [Microsoft Security Response Center blog](https://msrc-blog.microsoft.com/2021/12/11/microsofts-response-to-cve-2021-44228-apache-log4j2/) and [Centrally discover and deploy Microsoft Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md).
+Similarly, SOC engineers can now encapsulate a series of automated actions in workflows that run on a specific entity, so that analysts can use these workflows in the scenarios above.
 
-## November 2021
+These improvements for SOC efficiency and productivity are thanks to the **new entity trigger for playbooks**.
 
-- [Incident advanced search now available in GA](#incident-advanced-search-now-available-in-ga)
-- [Amazon Web Services S3 connector now available (Public preview)](#amazon-web-services-s3-connector-now-available-public-preview)
-- [Windows Forwarded Events connector now available (Public preview)](#windows-forwarded-events-connector-now-available-public-preview)
-- [Near-real-time (NRT) threat detection rules now available (Public preview)](#near-real-time-nrt-threat-detection-rules-now-available-public-preview)
-- [Fusion engine now detects emerging and unknown threats (Public preview)](#fusion-engine-now-detects-emerging-and-unknown-threats-public-preview)
-- [Get fine-tuning recommendations for your analytics rules (Public preview)](#get-fine-tuning-recommendations-for-your-analytics-rules-public-preview)
-- [Free trial updates](#free-trial-updates)
-- [Content hub and new solutions (Public preview)](#content-hub-and-new-solutions-public-preview)
-- [Enable continuous deployment from your content repositories (Public preview)](#enable-continuous-deployment-from-your-content-repositories-public-preview)
-- [Enriched threat intelligence with Geolocation and WhoIs data (Public preview)](#enriched-threat-intelligence-with-geolocation-and-whois-data-public-preview)
-- [Use notebooks with Azure Synapse Analytics in Microsoft Sentinel (Public preview)](#use-notebooks-with-azure-synapse-analytics-in-microsoft-sentinel-public-preview)
-- [Enhanced Notebooks area in Microsoft Sentinel](#enhanced-notebooks-area-in-microsoft-sentinel)
-- [Microsoft Sentinel renaming](#microsoft-sentinel-renaming)
-- [Deploy and monitor Azure Key Vault honeytokens with Azure Sentinel](#deploy-and-monitor-azure-key-vault-honeytokens-with-azure-sentinel)
+- Learn more about [running playbooks on entities on-demand](respond-threats-during-investigation.md).
+- Learn more about [creating playbooks based on the entity trigger](tutorial-respond-threats-playbook.md#create-a-playbook).
 
-### Incident advanced search now available in GA
+### Customize more alert properties (Preview)
 
-Searching for incidents using the advanced search functionality is now Generally Available.
+Alerts generated by a given analytics rule - and all incidents created as a result - inherit the name, description, severity, and tactics defined in the rule, without regard to the particular content of a specific instance of the alert.
 
-The advanced incident search provides the ability to search across more data, including alert details, descriptions, entities, tactics, and more.
+You've already been able to use the **alert details** feature to override these four default properties of alerts; now there are **nine more alert properties** that can be customized to override their defaults.
 
-For more information, see [Search for incidents](investigate-cases.md#search-for-incidents).
+See which ones, and learn how to use the updated mechanism, in [Customize alert details in Microsoft Sentinel](customize-alert-details.md).
 
-### Amazon Web Services S3 connector now available (Public preview)
+## November 2022
 
-You can now connect Microsoft Sentinel to your Amazon Web Services (AWS) S3 storage bucket, in order to ingest logs from a variety of AWS services.
+- [Use Incident tasks to manage incident workflow (Preview)](#use-incident-tasks-to-manage-incident-workflow-preview)
+- [Common Event Format (CEF) via AMA (Preview)](#common-event-format-cef-via-ama-preview)
+- [Monitor the health of automation rules and playbooks](#monitor-the-health-of-automation-rules-and-playbooks)
+- [Updated Microsoft Sentinel Logstash plugin](#updated-microsoft-sentinel-logstash-plugin)
 
-For now, you can use this connection to ingest VPC Flow Logs and GuardDuty findings, as well as AWS CloudTrail.
+### Use Incident tasks to manage incident workflow (Preview)
 
-For more information, see [Connect Microsoft Sentinel to S3 Buckets to get Amazon Web Services (AWS) data](connect-aws.md).
+SecOps analysts are expected to perform a list of steps, or tasks, in the process of triaging, investigating, or remediating an incident. Standardizing and formalizing the list of tasks can help keep your SOC running smoothly, ensuring the same requirements apply to all analysts.
 
-### Windows Forwarded Events connector now available (Public preview)
+SOC managers, automation engineers, and senior analysts can use Microsoft Sentinel's automation capabilities to generate lists of tasks that will apply across groups of incidents based on their content, ensuring that front-line analysts apply the same standards of care across the board and don't miss any critical steps.
 
-You can now stream event logs from Windows Servers connected to your Azure Sentinel workspace using Windows Event Collection/Windows Event Forwarding (WEC/WEF), thanks to this new data connector. The connector uses the new Azure Monitor Agent (AMA), which provides a number of advantages over the legacy Log Analytics agent (also known as the MMA):
+- Learn more about [incident tasks](incident-tasks.md).
+- Learn how analysts can [use tasks to handle incident workflow](work-with-tasks.md).
+- Learn how to add tasks to groups of incidents automatically using [automation rules](create-tasks-automation-rule.md) or [playbooks](create-tasks-playbook.md).
 
-- **Scalability:** If you have enabled Windows Event Collection (WEC), you can install the Azure Monitor Agent (AMA) on the WEC machine to collect logs from many servers with a single connection point.
+### Common Event Format (CEF) via AMA (Preview)
 
-- **Speed:** The AMA can send data at an improved rate of 5K EPS, allowing for faster data refresh.
+The [Common Event Format (CEF) via AMA](connect-cef-ama.md) connector allows you to quickly filter and upload logs over CEF from multiple on-premises appliances to Microsoft Sentinel via the Azure Monitor Agent (AMA).
 
-- **Efficiency:** The AMA allows you to design complex Data Collection Rules (DCR) to filter the logs at their source, choosing the exact events to stream to your workspace. DCRs help lower your network traffic and your ingestion costs by leaving out undesired events.
+The AMA supports Data Collection Rules (DCRs), which you can use to filter the logs before ingestion, for quicker upload, efficient analysis, and querying.
 
-- **Coverage:** WEC/WEF enables the collection of Windows Event logs from legacy (on-premises and physical) servers and also from high-usage or sensitive machines, such as domain controllers, where installing an agent is undesired.
+### Monitor the health of automation rules and playbooks
 
-We recommend using this connector with the [Azure Sentinel Information Model (ASIM)](normalization.md) parsers installed to ensure full support for data normalization.
+To ensure proper functioning and performance of your security orchestration, automation, and response operations in your Microsoft Sentinel service, keep track of the health of your automation rules and playbooks by monitoring their execution logs.
 
-Learn more about the [Windows Forwarded Events connector](data-connectors-reference.md#windows-forwarded-events-preview).
+Set up notifications of health events for relevant stakeholders, who can then take action. For example, define and send email or Microsoft Teams messages, create new tickets in your ticketing system, and so on.
 
-### Near-real-time (NRT) threat detection rules now available (Public preview)
+- Learn what [health monitoring in Microsoft Sentinel](health-audit.md) can do for you.
+- [Turn on health monitoring](enable-monitoring.md) in Microsoft Sentinel.
+- Monitor the health of your [automation rules and playbooks](monitor-automation-health.md).
+- See more information about the [*SentinelHealth* table schema](health-table-reference.md).
 
-When you're faced with security threats, time and speed are of the essence. You need to be aware of threats as they materialize so you can analyze and respond quickly to contain them. Microsoft Sentinel's near-real-time (NRT) analytics rules offer you faster threat detection - closer to that of an on-premises SIEM - and the ability to shorten response times in specific scenarios.
+### Updated Microsoft Sentinel Logstash plugin
 
-Microsoft Sentinel’s [near-real-time analytics rules](detect-threats-built-in.md#nrt) provide up-to-the-minute threat detection out-of-the-box. This type of rule was designed to be highly responsive by running its query at intervals just one minute apart.
+A [new version of the Microsoft Sentinel Logstash plugin](connect-logstash-data-connection-rules.md) leverages the new Azure Monitor Data Collection Rules (DCR) based Logs Ingestion API. The new plugin: 
 
-Learn more about [NRT rules](near-real-time-rules.md) and [how to use them](create-nrt-rules.md).
+- Provides data transformation capabilities like filtering, masking, and enrichment. 
+- Allows full control over the output schema, including configuration of the column names and types. 
+- Can forward logs from external data sources into both custom tables and standard tables. 
+- Provides performance improvements, compression, and better telemetry and error handling.
 
-### Fusion engine now detects emerging and unknown threats (Public preview)
+## Announcements
 
-In addition to detecting attacks based on [predefined scenarios](fusion-scenario-reference.md), Microsoft Sentinel's ML-powered Fusion engine can help you find the emerging and unknown threats in your environment by applying extended ML analysis and by correlating a broader scope of anomalous signals, while keeping the alert fatigue low.
+- [WindowsEvent table enhancements](#windowsevent-table-enhancements)
+- [Out-of-the-box content centralization changes](#out-of-the-box-content-centralization-changes)
+- [New behavior for alert grouping in analytics rules](#new-behavior-for-alert-grouping-in-analytics-rules)
+- [Microsoft 365 Defender now integrates Azure Active Directory Identity Protection (AADIP)](#microsoft-365-defender-now-integrates-azure-active-directory-identity-protection-aadip)
+- [Account enrichment fields removed from Azure AD Identity Protection connector](#account-enrichment-fields-removed-from-azure-ad-identity-protection-connector)
+- [Name fields removed from UEBA UserPeerAnalytics table](#name-fields-removed-from-ueba-userpeeranalytics-table)
 
-The Fusion engine's ML algorithms constantly learn from existing attacks and apply analysis based on how security analysts think. It can therefore discover previously undetected threats from millions of anomalous behaviors across the kill-chain throughout your environment, which helps you stay one step ahead of the attackers.
+### WindowsEvent table enhancements
 
-Learn more about [Fusion for emerging threats](fusion.md#fusion-for-emerging-threats).
+The WindowsEvent schema has been expanded to include new fields, such as `Keywords`, `Version`, `Opcode`, `Correlation`, `SystemProcessId`, `SystemThreadId` and `EventRecordId`. 
 
-Also, the [Fusion analytics rule is now more configurable](configure-fusion-rules.md), reflecting its increased functionality.
+These additions allow for more comprehensive analysis and for more information to be extracted and parsed from the event. 
 
-### Get fine-tuning recommendations for your analytics rules (Public preview)
+If you aren't interested in ingesting the new fields, use ingest-time transformation in the AMA DCR to filter and drop the fields, while still ingesting the events. To ingest the events, add the following to your DCRs: 
 
-Fine-tuning threat detection rules in your SIEM can be a difficult, delicate, and continuous process of balancing between maximizing your threat detection coverage and minimizing false positive rates. Microsoft Sentinel simplifies and streamlines this process by using machine learning to analyze billions of signals from your data sources as well as your responses to incidents over time, deducing patterns and providing you with actionable recommendations and insights that can significantly lower your tuning overhead and allow you to focus on detecting and responding to actual threats.
+```kusto
+"transformKql": "source | project-away TimeCreated, SystemThreadId, EventRecordId, SystemProcessId, Correlation, Keywords, Opcode, SystemUserId, Version"
+```
+Learn more about [ingest-time transformations](../azure-monitor/essentials/data-collection-transformations.md).
 
-[Tuning recommendations and insights](detection-tuning.md) are now built in to your analytics rules.
+### Out-of-the-box content centralization changes
+A new banner is appearing in Microsoft Sentinel gallery pages! This informational banner is rolling out to all tenants to explain upcoming changes regarding out-of-the-box (OOTB) content. In short, the **Content hub** will be the central source whether you're looking for standalone content or packaged solutions. Expect banners to appear in the templates section of **Workbooks**, **Hunting**, **Automation**, **Analytics** and **Data connectors** galleries. Here's an example of the banner in the **Workbooks** gallery. 
 
-### Free trial updates
+:::image type="complex" source="media/whats-new/example-content-central-change-banner.png" alt-text="Screenshot shows an example informational banner in the **Workbooks** gallery.":::
+The banner reads, 'All Workbook templates, and additional out-of-the-box (OOTB) content are now centrally available in Content hub. Starting Q2 2023, only Workbook templates installed from the content hub will be available in this gallery. Learn more about the OOTB content centralization changes.'
+:::image-end:::
 
-Microsoft Sentinel's free trial continues to support new or existing Log Analytics workspaces at no additional cost for the first 31 days.
-We are evolving our current free trial experience to include the following updates:
+For all the details on what these upcoming changes will mean for you, see [Microsoft Sentinel out-of-the-box content centralization changes](sentinel-content-centralize.md).
 
-- **New Log Analytics workspaces** can ingest up to 10 GB/day of log data for the first 31-days at no cost. New workspaces include workspaces that are less than three days old.
+### New behavior for alert grouping in analytics rules
 
-   Both Log Analytics data ingestion and Microsoft Sentinel charges are waived during the 31-day trial period. This free trial is subject to a 20 workspace limit per Azure tenant.
+Starting **February 6, 2023** and continuing through the end of February, Microsoft Sentinel is rolling out a change in the way that incidents are created from analytics rules with certain event and alert grouping settings, and also the way that such incidents are updated by automation rules. This change is being made in order to produce incidents with more complete information and to simplify automation triggered by the creating and updating of incidents.
 
-- **Existing Log Analytics workspaces** can enable Microsoft Sentinel at no additional cost. Existing workspaces include any workspaces created more than three days ago.
+The affected analytics rules are those with both of the following two settings:
+- **Event grouping** is set to **Trigger an alert for each event** (sometimes referred to as "alert per row" or "alert per result").
+- **Alert grouping** is enabled, in any one of the [three possible configurations](detect-threats-custom.md#alert-grouping).
 
-   Only the Microsoft Sentinel charges are waived during the 31-day trial period.
+#### The problem
 
-Usage beyond these limits will be charged per the pricing listed on the [Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel) page. Charges related to additional capabilities for [automation](automation.md) and [bring your own machine learning](bring-your-own-ml.md) are still applicable during the free trial.
+Rules with these two settings generate unique alerts for each event (result) returned by the query. These alerts are then all grouped together into a single incident (or a small number of incidents, depending on the alert grouping configuration choice).
 
-> [!TIP]
-> During your free trial, find resources for cost management, training, and more on the **News & guides > Free trial** tab in Microsoft Sentinel. This tab also displays details about the dates of your free trial, and how many days you have left until it expires.
->
+The problem is that the incident is created as soon as the first alert is generated, so at that point the incident contains only the first alert. The remaining alerts are joined to the incident, one after the other, as they are generated. So you end up with a *single running of an analytics rule* resulting in:
+- One incident creation event *and*
+- Up to 149 incident update events
 
-For more information, see [Plan and manage costs for Microsoft Sentinel](billing.md).
+These circumstances result in unpredictable behavior when evaluating the conditions defined in automation rules or populating the incident schema in playbooks:
 
-### Content hub and new solutions (Public preview)
+- **Incorrect evaluation of an incident's conditions by automation rules:**
 
-Microsoft Sentinel now provides a **Content hub**, a centralized location to find and deploy Microsoft Sentinel out-of-the-box (built-in) content and solutions to your Microsoft Sentinel workspace. Find the content you need by filtering for content type, support models, categories and more, or use the powerful text search.
+    Automation rules on this incident will run immediately on its creation, even with just the one alert included. So the automation rule will only consider the incident's status as containing the first alert, even though other alerts are being created nearly simultaneously (by the same running of the analytics rule) and will continue being added while the automation rule is running. So you end up with a situation where the automation rule's evaluation of the incident is incomplete and likely incorrect.
 
-Under **Content management**, select **Content hub**. Select a solution to view more details on the right, and then click **Install** to install it in your workspace.
+    If there are automation rules defined to run when the incident is *updated*, they will run again and again as each subsequent alert is added to the incident (even though the alerts were all generated by the same running of the analytics rule). So you'll have alerts being added and automation rules running, each time possibly incorrectly evaluating the conditions of the incident.
 
-:::image type="content" source="media/whats-new/solutions-list.png" alt-text="Screenshot of the new Microsoft Sentinel content hub." lightbox="media/whats-new/solutions-list.png":::
+    Automation rules' conditions might ignore entities that only later become part of the incident but weren't included in the first alert/creation of the incident.
 
-The following list includes highlights of new, out-of-the-box solutions added to the Content hub:
+    In these cases, incorrect evaluation of an incident's condition may cause automation rules to run when they shouldn't, or not to run when they should. The result of this would be that the wrong actions would be taken on an incident, or that the right actions would not be taken.
 
-:::row:::
-   :::column span="":::
-      - Microsoft Sentinel Training Lab
-      - Cisco ASA
-      - Cisco Duo Security
-      - Cisco Meraki
-      - Cisco StealthWatch
-      - Digital Guardian
-      - 365 Dynamics
-      - GCP Cloud DNS
-   :::column-end:::
-   :::column span="":::
-      - GCP CloudMonitor
-      - GCP Identity and Access Management
-      - FalconForce
-      - FireEye NX
-      - Flare Systems Firework
-      - Forescout
-      - Fortinet Fortigate
-      - Imperva Cloud FAW
-   :::column-end:::
-   :::column span="":::
-      - Insider Risk Management (IRM)
-      - IronNet CyberSecurity Iron Defense
-      - Lookout
-      - McAfee Network Security Platform
-      - Microsoft MITRE ATT&CK Solution for Cloud
-      - Palo Alto PAN-OS
-   :::column-end:::
-   :::column span="":::
-      - Rapid7 Nexpose / Insight VM
-      - ReversingLabs
-      - RSA SecurID
-      - Semperis
-      - Tenable Nessus Scanner
-      - Vectra Stream
-      - Zero Trust
-   :::column-end:::
-:::row-end:::
+- **Information in later alerts being unavailable to playbooks run on the incident:**
 
-For more information, see:
+    When an automation rule calls a playbook, it passes the incident's detailed information to the playbook. Because of the behavior mentioned above, a playbook might only receive the details (entities, custom details, and so on) of the first alert in an incident, but not those from subsequent alerts. This means that the playbook's actions would not have access to all the information in the incident.
 
-- [About Microsoft Sentinel solutions](sentinel-solutions.md)
-- [Discover and deploy Microsoft Sentinel solutions](sentinel-solutions-deploy.md)
-- [Microsoft Sentinel solutions catalog](sentinel-solutions-catalog.md)
+#### The solution
 
-### Enable continuous deployment from your content repositories (Public preview)
+Going forward, instead of creating the incident as soon as the first alert is generated, Microsoft Sentinel will wait until a single running of an analytics rule has generated all of its alerts, and then create the incident, adding all the alerts to it at once. So instead of an incident creation event and a whole bunch of incident update events, you have only the incident creation event.
 
-The new Microsoft Sentinel **Repositories** page provides the ability to manage and deploy your custom content from GitHub or Azure DevOps repositories, as an alternative to managing them in the Azure portal. This capability introduces a more streamlined and automated approach for managing and deploying content across Microsoft Sentinel workspaces.
+Now, automation rules that run on the creation of an incident can evaluate the complete incident with all of its alerts (as well as entities and custom details) and its most updated properties, and any playbooks that run will similarly have the complete details of the incident.
 
-If you store your custom content in an external repository in order to maintain it outside of Microsoft Sentinel, now you can connect that repository to your Microsoft Sentinel workspace. Content you add, create, or edit in your repository is automatically deployed to your Microsoft Sentinel workspaces, and will be visible from the various Microsoft Sentinel galleries, such as the **Analytics**, **Hunting**, or **Workbooks** pages.
 
-For more information, see [Deploy custom content from your repository](ci-cd.md).
 
-### Enriched threat intelligence with Geolocation and WhoIs data (Public preview)
+The following table describes the change in the incident creation and automation behaviors:
 
-Now, any threat intelligence data that you bring in to Microsoft Sentinel via data connectors and logic app playbooks, or create in Microsoft Sentinel, is automatically enriched with GeoLocation and WhoIs information.
+| When incident created/updated with multiple alerts | Before the change | After the change |
+| -- | -- | -- |
+| **Automation rule** conditions are evaluated based on... | The first alert generated by the current running of the analytics rule. | All alerts and entities resulting from the current running of the analytics rule. |
+| **Playbook input** includes... | - Alerts list containing only the first alert of the incident.<br>- Entities list containing only entities from the first alert of the incident. | - Alerts list containing all the alerts triggered by this rule execution and grouped to this incident.<br>- Entities list containing the entities from all the alerts triggered by this rule execution and grouped to this incident. |
+| **SecurityIncident** table in Log Analytics shows... | -&nbsp;One&nbsp;row&nbsp;for&nbsp;*incident&nbsp;created*&nbsp;with&nbsp;one&nbsp;alert.<br>- Multiple&nbsp;events&nbsp;of&nbsp;*alert&nbsp;added*. | One row for *incident created* only after all alerts triggered by this rule execution have been added and grouped to this incident. |
 
-GeoLocation and WhoIs data can provide more context for investigations where the selected indicator of compromise (IOC) is found.
+### Microsoft 365 Defender now integrates Azure Active Directory Identity Protection (AADIP)
 
-For example, use GeoLocation data to find details like *Organization* or *Country* for the indicator, and WhoIs data to find data like *Registrar* and *Record creation* data.
+As of **October 24, 2022**, [Microsoft 365 Defender](/microsoft-365/security/defender/) integrates [Azure Active Directory Identity Protection (AADIP)](../active-directory/identity-protection/index.yml) alerts and incidents. Customers can choose between three levels of integration:
 
-You can view GeoLocation and WhoIs data on the **Threat Intelligence** pane for each indicator of compromise that you've imported into Microsoft Sentinel. Details for the indicator are shown on the right, including any Geolocation and WhoIs data available.
+- **Show high-impact alerts only (Default)** includes only alerts about known malicious or highly suspicious activities that might require attention. These alerts are  chosen by Microsoft security researchers and are mostly of Medium and High severities.
+- **Show all alerts** includes all AADIP alerts, including activity that might not be unwanted or malicious.
+- **Turn off all alerts** disables any AADIP alerts from appearing in your Microsoft 365 Defender incidents.
 
-For example:
+Microsoft Sentinel customers (who are also AADIP subscribers) with [Microsoft 365 Defender integration](microsoft-365-defender-sentinel-integration.md) enabled now automatically receive AADIP alerts and incidents in their Microsoft Sentinel incidents queue. Depending on your configuration, this may affect you as follows:
 
-:::image type="content" source="media/whats-new/geolocation-whois-ti.png" alt-text="Screenshot of indicator details including GeoLocation and WhoIs data." lightbox="media/whats-new/geolocation-whois-ti.png":::
+- If you already have your AADIP connector enabled in Microsoft Sentinel, and you've enabled incident creation, you may receive duplicate incidents. To avoid this, you have a few choices, listed here in descending order of preference:
 
-> [!TIP]
-> The Geolocation and WhoIs information come from the Microsoft Threat Intelligence service, which you can also access via API. For more information, see [Enrich entities with geolocation data via API](geolocation-data-api.md).
->
+    | Preference | Action in Microsoft 365 Defender | Action in Microsoft Sentinel |
+    | - | - | - |
+    | **1** | Keep the default AADIP integration of **Show high-impact alerts only**. | Disable any [**Microsoft Security** analytics rules](detect-threats-built-in.md) that create incidents from AADIP alerts. |
+    | **2** | Choose the **Show all alerts** AADIP integration. | Create automation rules to automatically close incidents with unwanted alerts.<br><br>Disable any [**Microsoft Security** analytics rules](detect-threats-built-in.md) that create incidents from AADIP alerts. |
+    | **3** | Don't use Microsoft 365 Defender for AADIP alerts:<br>Choose the **Turn off all alerts** option for AADIP integration. | Leave enabled those [**Microsoft Security** analytics rules](detect-threats-built-in.md) that create incidents from AADIP alerts. |
 
-For more information, see:
+    See the [Microsoft 365 Defender documentation for instructions](/microsoft-365/security/defender/investigate-alerts#configure-aad-ip-alert-service) on how to take the prescribed actions in Microsoft 365 Defender.
 
-- [Understand threat intelligence in Microsoft Sentinel](understand-threat-intelligence.md)
-- [Threat intelligence integrations](threat-intelligence-integration.md)
-- [Work with threat indicators in Microsoft Sentinel](work-with-threat-indicators.md)
-- [Connect threat intelligence platforms](connect-threat-intelligence-tip.md)
+- If you don't have your [AADIP connector](data-connectors-reference.md#azure-active-directory-identity-protection) enabled, you must enable it. Be sure **not** to enable incident creation on the connector page. If you don't enable the connector, you may receive AADIP incidents without any data in them.
 
-### Use notebooks with Azure Synapse Analytics in Microsoft Sentinel (Public preview)
+- If you're first enabling your Microsoft 365 Defender connector now, the AADIP connection was made automatically behind the scenes. You won't need to do anything else.
 
-Microsoft Sentinel now integrates Jupyter notebooks with Azure Synapse for large-scale security analytics scenarios.
+### Account enrichment fields removed from Azure AD Identity Protection connector
 
-Until now, Jupyter notebooks in Microsoft Sentinel have been integrated with Azure Machine Learning. This functionality supports users who want to incorporate notebooks, popular open-source machine learning toolkits, and libraries such as TensorFlow, as well as their own custom models, into security workflows.
+As of **September 30, 2022**, alerts coming from the **Azure Active Directory Identity Protection connector** no longer contain the following fields:
 
-The new Azure Synapse integration provides extra analytic horsepower, such as:
+- CompromisedEntity
+- ExtendedProperties["User Account"]
+- ExtendedProperties["User Name”]
 
-- **Security big data analytics**, using cost-optimized, fully-managed Azure Synapse Apache Spark compute pool.
+We are working to adapt Microsoft Sentinel's built-in queries and other operations affected by this change to look up these values in other ways (using the *IdentityInfo* table).
 
-- **Cost-effective Data Lake access** to build analytics on historical data via Azure Data Lake Storage Gen2, which is a set of capabilities dedicated to big data analytics, built on top of Azure Blob Storage.
+In the meantime, or if you've built any custom queries or rules directly referencing these fields, you'll need another way to get this information. Use the following two-step process to have your queries look up these values in the *IdentityInfo* table:
 
-- **Flexibility to integrate data sources** into security operation workflows from multiple sources and formats.
+1. If you haven't already, **enable the UEBA solution** to sync the *IdentityInfo* table with your Azure AD logs. Follow the instructions in [this document](enable-entity-behavior-analytics.md).  
+(If you don't intend to use UEBA in general, you can ignore the last instruction  about selecting data sources on which to enable entity behavior analytics.)
 
-- **PySpark, a Python-based API** for using the Spark framework in combination with Python, reducing the need to learn a new programming language if you're already familiar with Python.
+1. Incorporate the query below in your existing queries or rules to look up this data by joining the *SecurityAlert* table with the *IdentityInfo* table.
 
-To support this integration, we've added the ability to create and launch an Azure Synapse workspace directly from Microsoft Sentinel. We also added new, sample notebooks to guide you through configuring the Azure Synapse environment, setting up a continuous data export pipeline from Log Analytics into Azure Data Lake Storage, and then hunting on that data at scale.
+    ```kusto
+    SecurityAlert
+    | where TimeGenerated > ago(7d)
+    | where ProductName == "Azure Active Directory Identity Protection"
+    | mv-expand Entity = todynamic(Entities)
+    | where Entity.Type == "account"
+    | extend AadTenantId = tostring(Entity.AadTenantId)
+    | extend AadUserId = tostring(Entity.AadUserId)
+    | join kind=inner (
+        IdentityInfo
+        | where TimeGenerated > ago(14d)
+        | distinct AccountTenantId, AccountObjectId, AccountUPN, AccountDisplayName
+        | extend UserAccount = AccountUPN
+        | extend UserName = AccountDisplayName
+        | where isnotempty(AccountDisplayName) and isnotempty(UserAccount)
+        | project AccountTenantId, AccountObjectId, UserAccount, UserName
+        )
+        on
+        $left.AadTenantId == $right.AccountTenantId,
+        $left.AadUserId == $right.AccountObjectId
+    | extend CompromisedEntity = iff(CompromisedEntity == "N/A" or isempty(CompromisedEntity), UserAccount, CompromisedEntity)
+    | project-away AadTenantId, AadUserId, AccountTenantId, AccountObjectId
+    ```
 
-For more information, see [Integrate notebooks with Azure Synapse](notebooks-with-synapse.md).
+For information on looking up data to replace enrichment fields removed from the UEBA UserPeerAnalytics table, See [Name fields removed from UEBA UserPeerAnalytics table](#name-fields-removed-from-ueba-userpeeranalytics-table) for a sample query.
 
-### Enhanced Notebooks area in Microsoft Sentinel
+### Name fields removed from UEBA UserPeerAnalytics table
 
-The **Notebooks** area in Microsoft Sentinel also now has an **Overview** tab, where you can find basic information about notebooks, and a new **Notebook types** column in the **Templates** tab to indicate the type of each notebook displayed. For example, notebooks might have types of **Getting started**, **Configuration**, **Hunting**, and now **Synapse**.
+As of **September 30, 2022**, the UEBA engine no longer performs automatic lookups of user IDs and resolves them into names. This change resulted in the removal of four name fields from the *UserPeerAnalytics* table: 
 
-For example:
+- UserName
+- UserPrincipalName
+- PeerUserName
+- PeerUserPrincipalName 
 
-:::image type="content" source="media/whats-new/notebooks-synapse.png" alt-text="Screenshot of the new Azure Synapse functionality on the Notebooks page." lightbox="media/whats-new/notebooks-synapse.png":::
+The corresponding ID fields remain part of the table, and any built-in queries and other operations execute the appropriate name lookups in other ways (using the IdentityInfo table), so you shouldn’t be affected by this change in nearly all circumstances. 
 
-For more information, see [Use Jupyter notebooks to hunt for security threats](notebooks.md).
+The only exception to this is if you’ve built custom queries or rules directly referencing any of these name fields. In this scenario, you can incorporate the following lookup queries into your own, so you can access the values that would have been in these name fields. 
 
-### Microsoft Sentinel renaming
+The following query resolves **user** and **peer identifier fields**: 
 
-Starting in November 2021, Azure Sentinel is being renamed to Microsoft Sentinel, and you'll see upcoming updates in the portal, documentation, and other resources in parallel.
-
-Earlier entries in this article and the older [Archive for What's new in Sentinel](whats-new-archive.md) continue to use the name *Azure* Sentinel, as that was the service name when those features were new.
-
-For more information, see our [blog on recent security enhancements](https://aka.ms/secblg11).
-
-### Deploy and monitor Azure Key Vault honeytokens with Azure Sentinel
-
-The new **Azure Sentinel Deception** solution helps you watch for malicious activity in your key vaults by helping you to deploy decoy keys and secrets, called *honeytokens*, to selected Azure key vaults.
-
-Once deployed, any access or operation with the honeytoken keys and secrets generate incidents that you can investigate in Azure Sentinel.
-
-Since there's no reason to actually use honeytoken keys and secrets, any similar activity in your workspace may be malicious and should be investigated.
-
-The **Azure Sentinel Deception** solution includes a workbook to help you deploy the honeytokens, either at scale or one at a time, watchlists to track the honeytokens created, and analytics rules to generate incidents as needed.
-
-For more information, see [Deploy and monitor Azure Key Vault honeytokens with Azure Sentinel (Public preview)](monitor-key-vault-honeytokens.md).
-
-## October 2021
-
-- [Windows Security Events connector using Azure Monitor Agent now in GA](#windows-security-events-connector-using-azure-monitor-agent-now-in-ga)
-- [Defender for Office 365 events now available in the Microsoft 365 Defender connector (Public preview)](#defender-for-office-365-events-now-available-in-the-microsoft-365-defender-connector-public-preview)
-- [Playbook templates and gallery now available (Public preview)](#playbook-templates-and-gallery-now-available-public-preview)
-- [Manage template versions for your scheduled analytics rules (Public preview)](#manage-template-versions-for-your-scheduled-analytics-rules-public-preview)
-- [DHCP normalization schema (Public preview)](#dhcp-normalization-schema-public-preview)
-
-### Windows Security Events connector using Azure Monitor Agent now in GA
-
-The new version of the Windows Security Events connector, based on the Azure Monitor Agent, is now generally available! See [Connect to Windows servers to collect security events](connect-windows-security-events.md?tabs=AMA) for more information.
-
-### Defender for Office 365 events now available in the Microsoft 365 Defender connector (Public preview)
-
-In addition to those from Microsoft Defender for Endpoint, you can now ingest raw [advanced hunting events](/microsoft-365/security/defender/advanced-hunting-overview) from [Microsoft Defender for Office 365](/microsoft-365/security/office-365-security/overview) through the [Microsoft 365 Defender connector](connect-microsoft-365-defender.md). [Learn more](microsoft-365-defender-sentinel-integration.md#advanced-hunting-event-collection).
-
-### Playbook templates and gallery now available (Public preview)
-
-A playbook template is a pre-built, tested, and ready-to-use workflow that can be customized to meet your needs. Templates can also serve as a reference for best practices when developing playbooks from scratch, or as inspiration for new automation scenarios.
-
-Playbook templates have been developed by the Sentinel community, independent software vendors (ISVs), and Microsoft's own experts, and you can find them in the **Playbook templates** tab (under **Automation**), as part of an [Azure Sentinel solution](sentinel-solutions.md), or in the [Azure Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks).
-
-For more information, see [Create and customize playbooks from built-in templates](use-playbook-templates.md).
-
-### Manage template versions for your scheduled analytics rules (Public preview)
-
-When you create analytics rules from [built-in Azure Sentinel rule templates](detect-threats-built-in.md), you effectively create a copy of the template. Past that point, the active rule is ***not*** dynamically updated to match any changes that get made to the originating template.
-
-However, rules created from templates ***do*** remember which templates they came from, which allows you two advantages:
-
-- If you made changes to a rule when creating it from a template (or at any time after that), you can always revert the rule back to its original version (as a copy of the template).
-
-- You can get notified when a template is updated, and you'll have the choice to update your rules to the new version of their templates or leave them as they are.
-
-[Learn how to manage these tasks](manage-analytics-rule-templates.md), and what to keep in mind. These procedures apply to any [Scheduled](detect-threats-built-in.md#scheduled) analytics rules created from templates.
-
-### DHCP normalization schema (Public preview)
-
-The Advanced SIEM Information Model (ASIM) now supports a DHCP normalization schema, which is used to describe events reported by a DHCP server and is used by Azure Sentinel to enable source-agnostic analytics. 
-
-Events described in the DHCP normalization schema include serving requests for DHCP IP address leased from client systems and updating a DNS server with the leases granted.
-
-For more information, see:
-
-- [Azure Sentinel DHCP normalization schema reference (Public preview)](dhcp-normalization-schema.md)
-- [Normalization and the Azure Sentinel Information Model (ASIM)](normalization.md)
-
-## September 2021
-
-- [Data connector health enhancements (Public preview)](#data-connector-health-enhancements-public-preview)
-
-- [New in docs: scaling data connector documentation](#new-in-docs-scaling-data-connector-documentation)
-- [Azure Storage account connector changes](#azure-storage-account-connector-changes)
-
-### Data connector health enhancements (Public preview)
-
-Azure Sentinel now provides the ability to enhance your data connector health monitoring with a new *SentinelHealth* table. The *SentinelHealth* table is created after you've [turned on the Azure Sentinel health feature](monitor-data-connector-health.md#turn-on-microsoft-sentinel-health-for-your-workspace) in your Azure Sentinel workspace, at the first success or failure health event that's generated.
-
-For more information, see [Monitor the health of your data connectors with this Azure Sentinel workbook](monitor-data-connector-health.md).
-
-> [!NOTE]
-> The *SentinelHealth* data table is currently supported only for selected data connectors. For more information, see [Supported data connectors](monitor-data-connector-health.md#supported-data-connectors).
->
-
-
-### New in docs: scaling data connector documentation
-
-As we continue to add more and more built-in data connectors for Azure Sentinel, we've reorganized our data connector documentation to reflect this scaling.
-
-For most data connectors, we've replaced full articles that describe an individual connector with a series of generic procedures and a full reference of all currently supported connectors.
-
-Check the [Azure Sentinel data connectors reference](data-connectors-reference.md) for details about your connector, including references to the relevant generic procedure, as well as extra information and configurations required.
-
-For more information, see:
-
-- **Conceptual information**: [Connect data sources](connect-data-sources.md)
-
-- **Generic how-to articles**:
-
-   - [Connect to Azure, Windows, Microsoft, and Amazon services](connect-azure-windows-microsoft-services.md)
-   - [Connect your data source to the Azure Sentinel Data Collector API to ingest data](connect-rest-api-template.md)
-   - [Get CEF-formatted logs from your device or appliance into Azure Sentinel](connect-common-event-format.md)
-   - [Collect data from Linux-based sources using Syslog](connect-syslog.md)
-   - [Collect data in custom log formats to Azure Sentinel with the Log Analytics agent](connect-custom-logs.md)
-   - [Use Azure Functions to connect your data source to Azure Sentinel](connect-azure-functions-template.md)
-   - [Resources for creating Azure Sentinel custom connectors](create-custom-connector.md)
-
-### Azure Storage account connector changes
-
-Due to some changes made within the Azure Storage account resource configuration itself, the connector also needs to be reconfigured.
-The storage account (parent) resource has within it other (child) resources for each type of storage: files, tables, queues, and blobs.
-
-When configuring diagnostics for a storage account, you must select and configure, in turn:
-- The parent account resource, exporting the **Transaction** metric.
-- Each of the child storage-type resources, exporting all the logs and metrics (see the table above).
-
-You will only see the storage types that you actually have defined resources for.
-
-:::image type="content" source="media/whats-new/storage-diagnostics.png" alt-text="Screenshot of Azure Storage diagnostics configuration.":::
-
-## August 2021
-
-- [Advanced incident search (Public preview)](#advanced-incident-search-public-preview)
-- [Fusion detection for Ransomware (Public preview)](#fusion-detection-for-ransomware-public-preview)
-- [Watchlist templates for UEBA data](#watchlist-templates-for-ueba-data-public-preview)
-- [File event normalization schema (Public preview)](#file-event-normalization-schema-public-preview)
-- [New in docs: Best practice guidance](#new-in-docs-best-practice-guidance)
-
-### Advanced incident search (Public preview)
-
-By default, incident searches run across the **Incident ID**, **Title**, **Tags**, **Owner**, and **Product name** values only. Azure Sentinel now provides [advanced search options](investigate-cases.md#search-for-incidents) to search across more data, including alert details, descriptions, entities, tactics, and more.
-
-For example:
-
-:::image type="content" source="media/tutorial-investigate-cases/advanced-search.png" alt-text="Screenshot of the Incidents page advanced search options.":::
-
-For more information, see [Search for incidents](investigate-cases.md#search-for-incidents).
-
-### Fusion detection for Ransomware (Public preview)
-
-Azure Sentinel now provides new Fusion detections for possible Ransomware activities, generating incidents titled as **Multiple alerts possibly related to Ransomware activity detected**.
-
-Incidents are generated for alerts that are possibly associated with Ransomware activities, when they occur during a specific time-frame, and are associated with the Execution and Defense Evasion stages of an attack. You can use the alerts listed in the incident to analyze the techniques possibly used by attackers to compromise a host/device and to evade detection.
-
-Supported data connectors include:
-
-- [Azure Defender (Azure Security Center)](connect-defender-for-cloud.md)
-- [Microsoft Defender for Endpoint](./data-connectors-reference.md#microsoft-defender-for-endpoint)
-- [Microsoft Defender for Identity](./data-connectors-reference.md#microsoft-defender-for-identity)
-- [Microsoft Cloud App Security](./data-connectors-reference.md#microsoft-defender-for-cloud-apps)
-- [Azure Sentinel scheduled analytics rules](detect-threats-built-in.md#scheduled)
-
-For more information, see [Multiple alerts possibly related to Ransomware activity detected](fusion.md#fusion-for-ransomware).
-
-### Watchlist templates for UEBA data (Public preview)
-
-Azure Sentinel now provides built-in watchlist templates for UEBA data, which you can customize for your environment and use during investigations.
-
-After UEBA watchlists are populated with data, you can correlate that data with analytics rules, view it in the entity pages and investigation graphs as insights, create custom uses such as to track VIP or sensitive users, and more.
-
-Watchlist templates currently include:
-
-- **VIP Users**. A list of user accounts of employees that have high impact value in the organization.
-- **Terminated Employees**. A list of user accounts of employees that have been, or are about to be, terminated.
-- **Service Accounts**. A list of service accounts and their owners.
-- **Identity Correlation**. A list of related user accounts that belong to the same person.
-- **High Value Assets**. A list of devices, resources, or other assets that have critical value in the organization.
-- **Network Mapping**. A list of IP subnets and their respective organizational contexts.
-
-For more information, see [Create a new watchlist using a template](watchlists-create.md#create-a-watchlist-by-using-a-template-public-preview) and [Built-in watchlist schemas](watchlist-schemas.md).
-
-
-
-### File Event normalization schema (Public preview)
-
-The Azure Sentinel Information Model (ASIM) now supports a File Event normalization schema, which is used to describe file activity, such as creating, modifying, or deleting files or documents. File events are reported by operating systems, file storage systems such as Azure Files, and document management systems such as Microsoft SharePoint.
-
-For more information, see:
-
-- [Azure Sentinel File Event normalization schema reference (Public preview)](file-event-normalization-schema.md)
-- [Normalization and the Azure Sentinel Information Model (ASIM)](normalization.md)
-
-
-### New in docs: Best practice guidance
-
-In response to multiple requests from customers and our support teams, we've added a series of best practice guidance to our documentation.
-
-For more information, see:
-
-- [Prerequisites for deploying Azure Sentinel](prerequisites.md)
-- [Best practices for Azure Sentinel](best-practices.md)
-- [Azure Sentinel workspace architecture best practices](best-practices-workspace-architecture.md)
-- [Design your Azure Sentinel workspace architecture](design-your-workspace-architecture.md)
-- [Azure Sentinel sample workspace designs](sample-workspace-designs.md)
-- [Data collection best practices](best-practices-data.md)
-
-> [!TIP]
-> You can find more guidance added across our documentation in relevant conceptual and how-to articles. For more information, see [Best practice references](best-practices.md#best-practice-references).
->
-
-## July 2021
-
-- [Microsoft Threat Intelligence Matching Analytics (Public preview)](#microsoft-threat-intelligence-matching-analytics-public-preview)
-- [Use Azure AD data with Azure Sentinel's IdentityInfo table (Public preview)](#use-azure-ad-data-with-azure-sentinels-identityinfo-table-public-preview)
-- [Enrich Entities with geolocation data via API (Public preview)](#enrich-entities-with-geolocation-data-via-api-public-preview)
-- [Support for ADX cross-resource queries (Public preview)](#support-for-adx-cross-resource-queries-public-preview)
-- [Watchlists are in general availability](#watchlists-are-in-general-availability)
-- [Support for data residency in more geos](#support-for-data-residency-in-more-geos)
-- [Bidirectional sync in Azure Defender connector (Public preview)](#bidirectional-sync-in-azure-defender-connector-public-preview)
-
-### Microsoft Threat Intelligence Matching Analytics (Public preview)
-
-Azure Sentinel now provides the built-in **Microsoft Threat Intelligence Matching Analytics** rule, which matches Microsoft-generated threat intelligence data with your logs. This rule generates high-fidelity alerts and incidents, with appropriate severities based on the context of the logs detected. After a match is detected, the indicator is also published to your Azure Sentinel threat intelligence repository.
-
-The **Microsoft Threat Intelligence Matching Analytics** rule currently matches domain indicators against the following log sources:
-
-- [CEF](connect-common-event-format.md)
-- [DNS](./data-connectors-reference.md#windows-dns-server-preview)
-- [Syslog](connect-syslog.md)
-
-For more information, see [Detect threats using matching analytics (Public preview)](work-with-threat-indicators.md#detect-threats-using-matching-analytics-public-preview).
-
-### Use Azure AD data with Azure Sentinel's IdentityInfo table (Public preview)
-
-As attackers often use the organization's own user and service accounts, data about those user accounts, including the user identification and privileges, are crucial for the analysts in the process of an investigation.
-
-Now, having [UEBA enabled](enable-entity-behavior-analytics.md) in your Azure Sentinel workspace also synchronizes Azure AD data into the new **IdentityInfo** table in Log Analytics. Synchronizations between your Azure AD and the **IdentifyInfo** table create a snapshot of your user profile data that includes user metadata, group information, and the Azure AD roles assigned to each user.
-
-Use the **IdentityInfo** table during investigations and when fine-tuning analytics rules for your organization to reduce false positives.
-
-For more information, see [IdentityInfo table](ueba-enrichments.md#identityinfo-table-public-preview) in the UEBA enrichments reference and [Use UEBA data to analyze false positives](investigate-with-ueba.md#use-ueba-data-to-analyze-false-positives).
-
-### Enrich entities with geolocation data via API (Public preview)
-
-Azure Sentinel now offers an API to enrich your data with geolocation information. Geolocation data can then be used to analyze and investigate security incidents.
-
-For more information, see [Enrich entities in Azure Sentinel with geolocation data via REST API (Public preview)](geolocation-data-api.md) and [Classify and analyze data using entities in Azure Sentinel](entities.md).
-
-
-### Support for ADX cross-resource queries (Public preview)
-
-The hunting experience in Azure Sentinel now supports [ADX cross-resource queries](../azure-monitor/logs/azure-monitor-data-explorer-proxy.md#cross-query-your-log-analytics-or-application-insights-resources-and-azure-data-explorer).
- 
-Although Log Analytics remains the primary data storage location for performing analysis with Azure Sentinel, there are cases where ADX is required to store data due to cost, retention periods, or other factors. This capability enables customers to hunt over a wider set of data and view the results in the [Azure Sentinel hunting experiences](hunting.md), including hunting queries, [livestream](livestream.md), and the Log Analytics search page.
-
-To query data stored in ADX clusters, use the adx() function to specify the ADX cluster, database name, and desired table. You can then query the output as you would any other table. See more information in the pages linked above.
-
-
-
-
-### Watchlists are in general availability
-
-The [watchlists](watchlists.md) feature is now generally available. Use watchlists to enrich alerts with business data, to create allowlists or blocklists against which to check access events, and to help investigate threats and reduce alert fatigue.
-
-### Support for data residency in more geos
-
-Azure Sentinel now supports full data residency in the following additional geos:
-
-Brazil, Norway, South Africa, Korea, Germany, United Arab Emirates (UAE), and Switzerland.
-
-See the [complete list of supported geos](quickstart-onboard.md#geographical-availability-and-data-residency) for data residency.
-
-### Bidirectional sync in Azure Defender connector (Public preview)
-
-The Azure Defender connector now supports bi-directional syncing of alerts' status between Defender and Azure Sentinel. When you close a Sentinel incident containing a Defender alert, the alert will automatically be closed in the Defender portal as well.
-
-See this [complete description of the updated Azure Defender connector](connect-defender-for-cloud.md).
+```kusto
+UserPeerAnalytics 
+| where TimeGenerated > ago(24h) 
+// join to resolve user identifier fields 
+| join kind=inner ( 
+    IdentityInfo  
+    | where TimeGenerated > ago(14d) 
+    | distinct AccountTenantId, AccountObjectId, AccountUPN, AccountDisplayName 
+    | extend UserPrincipalNameIdentityInfo = AccountUPN 
+    | extend UserNameIdentityInfo = AccountDisplayName 
+    | project AccountTenantId, AccountObjectId, UserPrincipalNameIdentityInfo, UserNameIdentityInfo 
+) on $left.AADTenantId == $right.AccountTenantId, $left.UserId == $right.AccountObjectId 
+// join to resolve peer identifier fields 
+| join kind=inner ( 
+    IdentityInfo  
+    | where TimeGenerated > ago(14d) 
+    | distinct AccountTenantId, AccountObjectId, AccountUPN, AccountDisplayName 
+    | extend PeerUserPrincipalNameIdentityInfo = AccountUPN 
+    | extend PeerUserNameIdentityInfo = AccountDisplayName 
+    | project AccountTenantId, AccountObjectId, PeerUserPrincipalNameIdentityInfo, PeerUserNameIdentityInfo 
+) on $left.AADTenantId == $right.AccountTenantId, $left.PeerUserId == $right.AccountObjectId 
+```
+If your original query referenced the user or peer names (not just their IDs), substitute this query in its entirety for the table name (“UserPeerAnalytics”) in your original query.
 
 ## Next steps
 

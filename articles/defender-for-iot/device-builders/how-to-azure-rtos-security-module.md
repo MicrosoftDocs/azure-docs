@@ -2,18 +2,22 @@
 title: Configure and customize Defender-IoT-micro-agent for Azure RTOS
 description: Learn about how to configure and customize your Defender-IoT-micro-agent for Azure RTOS.
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 01/01/2023
 ---
 
 # Configure and customize Defender-IoT-micro-agent for Azure RTOS
 
 This article describes how to configure the Defender-IoT-micro-agent for your Azure RTOS device, to meet your network, bandwidth, and memory requirements.
 
+## Configuration steps
+
 You must select a target distribution file that has a `*.dist` extension, from the `netxduo/addons/azure_iot/azure_iot_security_module/configs` directory.  
 
 When using a CMake compilation environment, you must set a command line parameter to `IOT_SECURITY_MODULE_DIST_TARGET` for the chosen value. For example, `-DIOT_SECURITY_MODULE_DIST_TARGET=RTOS_BASE`.
 
 In an IAR, or other non CMake compilation environment, you must add the `netxduo/addons/azure_iot/azure_iot_security_module/inc/configs/<target distribution>/` path to any known included paths. For example, `netxduo/addons/azure_iot/azure_iot_security_module/inc/configs/RTOS_BASE`.
+
+## Device behavior
 
 Use the following file to configure your device behavior.
 
@@ -23,16 +27,16 @@ In a CMake compilation environment, you must change the default configuration by
 
 The default behavior of each configuration is provided in the following tables: 
 
-## General
+## General configuration
 
 | Name | Type | Default | Details |
 | - | - | - | - |
 | ASC_SECURITY_MODULE_ID | String | defender-iot-micro-agent | The unique identifier of the device.  |
 | SECURITY_MODULE_VERSION_(MAJOR)(MINOR)(PATCH)  | Number | 3.2.1 | The version. |
 | ASC_SECURITY_MODULE_SEND_MESSAGE_RETRY_TIME  | Number  | 3 | The amount of time the Defender-IoT-micro-agent will take to send the security message after a fail. (in seconds) |
-| ASC_SECURITY_MODULE_PENDING_TIME  | Number | 300 | The Defender-IoT-micro-agent pending time (in seconds). The state will change to suspend, if the time is exceeded.. |
+| ASC_SECURITY_MODULE_PENDING_TIME  | Number | 300 | The Defender-IoT-micro-agent pending time (in seconds). The state will change to suspend, if the time is exceeded. |
 
-## Collection
+## Collection configuration
 
 | Name | Type | Default | Details |
 | - | - | - | - |

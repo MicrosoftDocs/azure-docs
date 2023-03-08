@@ -1,17 +1,17 @@
 ---
 title: Create a scan rule set
-description: Create a scan rule set in Azure Purview to quickly scan data sources in your organization.
+description: Create a scan rule set in Microsoft Purview to quickly scan data sources in your organization.
 author: linda33wj
 ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 09/27/2021
+ms.date: 11/01/2022
 ---
 
 # Create a scan rule set
 
-In an Azure Purview catalog, you can create scan rule sets to enable you to quickly scan data sources in your organization.
+In a Microsoft Purview catalog, you can create scan rule sets to enable you to quickly scan data sources in your organization.
 
 A scan rule set is a container for grouping a set of scan rules together so that you can easily associate them with a scan. For example, you might create a default scan rule set for each of your data source types, and then use these scan rule sets by default for all scans within your company. You might also want users with the right permissions to create other scan rule sets with different configurations based on business need.
 
@@ -19,7 +19,7 @@ A scan rule set is a container for grouping a set of scan rules together so that
 
 To create a scan rule set:
 
-1. From your Azure [Azure Purview Studio](https://web.purview.azure.com/resource/), select **Data Map**.
+1. From your Azure [Microsoft Purview governance portal](https://web.purview.azure.com/resource/), select **Data Map**.
 
 1. Select **Scan rule sets** from the left pane, and then select **New**.
 
@@ -57,7 +57,7 @@ To create a scan rule set:
 
 ## Create a custom file type
 
-Azure Purview supports adding a custom extension and defining a custom column delimiter in a scan rule set.
+Microsoft Purview supports adding a custom extension and defining a custom column delimiter in a scan rule set.
 
 To create a custom file type:
 
@@ -89,7 +89,7 @@ To create a custom file type:
 
 ## Ignore patterns
 
-Azure Purview supports defining regular expressions (regex) to exclude assets during scanning. During scanning, Azure Purview will compare the asset's URL against these regular expressions. All assets matching any of the regexes mentioned will be ignored while scanning.
+Microsoft Purview supports defining regular expressions (regex) to exclude assets during scanning. During scanning, Microsoft Purview will compare the asset's URL against these regular expressions. All assets matching any of the regexes mentioned will be ignored while scanning.
 
 The **Ignore patterns** blade pre-populates one regex for spark transaction files. You can remove the pre-existing pattern if it is not required. You can define up to 10 ignore patterns.
 
@@ -102,14 +102,14 @@ In the above example:
 
 Here are some more tips you can use to ignore patterns:
 
-- While processing the regex, Azure Purview will add $ to the regex by default.
-- A good way to understand what url the scanning agent will compare with your regular expression is to browse through the Azure Purview data catalog, find the asset you want to ignore in the future, and see its fully qualified name (FQN) in the **Overview** tab.
+- While processing the regex, Microsoft Purview will add $ to the regex by default.
+- A good way to understand what url the scanning agent will compare with your regular expression is to browse through the Microsoft Purview data catalog, find the asset you want to ignore in the future, and see its fully qualified name (FQN) in the **Overview** tab.
 
    :::image type="content" source="./media/create-a-scan-rule-set/fully-qualified-name.png" alt-text="Screenshot showing the fully qualified name on an asset's overview tab.":::
 
 ## System scan rule sets
 
-System scan rule sets are Microsoft-defined scan rule sets that are automatically created for each Azure Purview catalog. Each system scan rule set is associated with a specific data source type. When you create a scan, you can associate it with a system scan rule set. Every time Microsoft makes an update to these system rule sets, you can update them in your catalog, and apply the update to all the associated scans.
+System scan rule sets are Microsoft-defined scan rule sets that are automatically created for each Microsoft Purview catalog. Each system scan rule set is associated with a specific data source type. When you create a scan, you can associate it with a system scan rule set. Every time Microsoft makes an update to these system rule sets, you can update them in your catalog, and apply the update to all the associated scans.
 
 1. To view the list of system scan rule sets, select **Scan rule sets** in the **Management Center** and choose the **System** tab.
 

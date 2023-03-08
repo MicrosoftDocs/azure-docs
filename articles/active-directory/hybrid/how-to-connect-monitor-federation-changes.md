@@ -4,11 +4,11 @@ description: This article explains how to monitor changes to your federation con
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/21/2021
+ms.date: 01/26/2023
 ms.subservice: hybrid
 ms.author: billmath
 ---

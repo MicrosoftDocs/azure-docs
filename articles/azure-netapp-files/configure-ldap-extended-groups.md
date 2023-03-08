@@ -1,5 +1,5 @@
 ---
-title: Configure ADDS LDAP with extended groups for Azure NetApp Files NFS volume access | Microsoft Docs
+title: Enable Active Directory Domain Services (AD DS) LDAP authentication for NFS volumes | Microsoft Docs
 description: Describes the considerations and steps for enabling LDAP with extended groups when you create an NFS volume by using Azure NetApp Files.  
 services: azure-netapp-files
 documentationcenter: ''
@@ -12,35 +12,51 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 01/14/2022
+ms.date: 02/21/2023
 ms.author: anfdocs
 ---
-# Configure ADDS LDAP with extended groups for NFS volume access
+# Enable Active Directory Domain Services (AD DS) LDAP authentication for NFS volumes
 
-When you [create an NFS volume](azure-netapp-files-create-volumes.md), you have the option to enable the LDAP with extended groups feature (the **LDAP** option) for the volume. This feature enables Active Directory LDAP users and extended groups (up to 1024 groups) to access files and directories in the volume. You can use the LDAP with extended groups feature with both NFSv4.1 and NFSv3 volumes. 
+When you [create an NFS volume](azure-netapp-files-create-volumes.md), you can enable the LDAP with extended groups feature (the **LDAP** option) for the volume. This feature enables Active Directory LDAP users and extended groups (up to 1024 groups) to access files and directories in the volume. You can use the LDAP with extended groups feature with both NFSv4.1 and NFSv3 volumes. 
 
-This article explains the considerations and steps for enabling LDAP with extended groups when you create an NFS volume.  
+> [!NOTE]
+> By default, in Active Directory LDAP servers, the `MaxPageSize` attribute is set to a default of 1,000. This setting means that groups beyond 1,000 are truncated in LDAP queries. To enable full support with the 1,024 value for extended groups, the `MaxPageSiz`e attribute must be modified to reflect the 1,024 value. For information about how to change that value, see [How to view and set LDAP policy in Active Directory by using Ntdsutil.exe](/troubleshoot/windows-server/identity/view-set-ldap-policy-using-ntdsutil).
+
+Azure NetApp Files supports fetching of extended groups from the LDAP name service rather than from the RPC header. Azure NetApp Files interacts with LDAP by querying for attributes such as usernames, numeric IDs, groups, and group memberships for NFS protocol operations.
+
+When it’s determined that LDAP will be used for operations such as name lookup and fetching extended groups, the following process occurs:
+
+1. Azure NetApp Files uses an LDAP client configuration to make a connection attempt to the ADDS/AADDS LDAP server that is specified in the [Azure NetApp Files AD configuration](create-active-directory-connections.md).
+1. If the TCP connection over the defined ADDS/AADDS LDAP service port is successful, then the Azure NetApp Files LDAP client attempts to “bind” (sign in) to the ADDS/AADDS LDAP server (domain controller) by using the defined credentials in the LDAP client configuration.
+1. If the bind is successful, then the Azure NetApp Files LDAP client uses the RFC 2307bis LDAP schema to make an LDAP search query to the ADDS/AADDS LDAP server (domain controller).
+The following information is passed to the server in the query:
+   * [Base/user DN](configure-ldap-extended-groups.md#ldap-search-scope) (to narrow search scope)
+   * Search scope type (subtree)
+   * Object class (`user`, `posixAccount` for users, and `posixGroup` for groups)
+   * UID or username 
+   * Requested attributes (`uid`, `uidNumber`, `gidNumber` for users, or `gidNumber` for groups) 
+1. If the user or group isn’t found, the request fails, and access is denied.
+1. If the request is successful, then user and group attributes are [cached for future use](configure-ldap-extended-groups.md#considerations). This operation improves the performance of subsequent LDAP queries associated with the cached user or group attributes. It also reduces the load on the ADDS/AADDS LDAP server.
 
 ## Considerations
 
-* You can enable the LDAP with extended groups feature only during volume creation. This feature cannot be retroactively enabled on existing volumes.  
+* You can enable the LDAP with extended groups feature only during volume creation. This feature can't be retroactively enabled on existing volumes.  
 
-* LDAP with extended groups is supported only with Active Directory Domain Services (ADDS) or Azure Active Directory Domain services (AADDS). OpenLDAP or other third-party LDAP directory services are not supported. 
+* LDAP with extended groups is supported only with Active Directory Domain Services (AD DS) or Azure Active Directory Domain services (AADDS). OpenLDAP or other third-party LDAP directory services aren't supported. 
 
-* LDAP over TLS must *not* be enabled if you are using Azure Active Directory Domain Services (AADDS).  
+* LDAP over TLS must *not* be enabled if you're using Azure Active Directory Domain Services (AADDS).  
 
-* You cannot modify the LDAP option setting (enabled or disabled) after you have created the volume.  
+* You can't modify the LDAP option setting (enabled or disabled) after you've created the volume.  
 
 * The following table describes the Time to Live (TTL) settings for the LDAP cache. You need to wait until the cache is refreshed before trying to access a file or directory through a client. Otherwise, an access or permission denied message appears on the client. 
 
-    |     Error condition    |     Resolution    |
-    |-|-|
     | Cache |  Default Timeout |
+    |-|-|
     | Group membership list  | 24-hour TTL  |
     | Unix groups  | 24-hour TTL, 1-minute negative TTL  |
     | Unix users  | 24-hour TTL, 1-minute negative TTL  |
 
-    Caches have a specific timeout period called *Time to Live*. After the timeout period, entries age out so that stale entries do not linger. The *negative TTL* value is where a lookup that has failed resides to help avoid performance issues due to LDAP queries for objects that might not exist.
+    Caches have a specific timeout period called *Time to Live*. After the timeout period, entries age out so that stale entries don't linger. The *negative TTL* value is where a lookup that has failed resides to help avoid performance issues due to LDAP queries for objects that might not exist.
     
 * The **Allow local NFS users with LDAP** option in Active Directory connections intends to provide occasional and temporary access to local users. When this option is enabled, user authentication and lookup from the LDAP server stop working, and the number of group memberships that Azure NetApp Files will support will be limited to 16.  As such, you should keep this option *disabled* on Active Directory connections, except for the occasion when a local user needs to access LDAP-enabled volumes. In that case, you should disable this option as soon as local user access is no longer required for the volume. See [Allow local NFS users with LDAP to access a dual-protocol volume](create-volumes-dual-protocol.md#allow-local-nfs-users-with-ldap-to-access-a-dual-protocol-volume) about managing local user access.
 
@@ -49,7 +65,7 @@ This article explains the considerations and steps for enabling LDAP with extend
 1. LDAP volumes require an Active Directory configuration for LDAP server settings. Follow instructions in [Requirements for Active Directory connections](create-active-directory-connections.md#requirements-for-active-directory-connections) and [Create an Active Directory connection](create-active-directory-connections.md#create-an-active-directory-connection) to configure Active Directory connections on the Azure portal.  
 
     > [!NOTE]
-    > Ensure that you have configured the Active Directory connection settings. A machine account will be created in the organizational unit (OU) that is specified in the Active Directory connection settings. The settings are used by the LDAP client to authenticate with your Active Directory.
+    > Ensure that you have configured the Active Directory connection settings. A computer account will be created in the organizational unit (OU) that is specified in the Active Directory connection settings. The settings are used by the LDAP client to authenticate with your Active Directory.
 
 2. Ensure that the Active Directory LDAP server is up and running on the Active Directory. 
 
@@ -80,12 +96,12 @@ This article explains the considerations and steps for enabling LDAP with extend
 
     Then you need to restart the `rpcbind` service on your host or reboot the host. 
 
-6.	Follow steps in [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md) to create an NFS volume. During the volume creation process, under the **Protocol** tab, enable the **LDAP** option.   
+6. Follow steps in [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md) to create an NFS volume. During the volume creation process, under the **Protocol** tab, enable the **LDAP** option.   
 
     ![Screenshot that shows Create a Volume page with LDAP option.](../media/azure-netapp-files/create-nfs-ldap.png)  
 
 7. Optional - You can enable local NFS client users not present on the Windows LDAP server to access an NFS volume that has LDAP with extended groups enabled. To do so, enable the **Allow local NFS users with LDAP** option as follows:
-    1. Click **Active Directory connections**.  On an existing Active Directory connection, click the context menu (the three dots `…`), and select **Edit**.  
+    1. Select **Active Directory connections**.  On an existing Active Directory connection, select the context menu (the three dots `…`), and select **Edit**.  
     2. On the **Edit Active Directory settings** window that appears, select the **Allow local NFS users with LDAP** option.  
 
     ![Screenshot that shows the Allow local NFS users with LDAP option](../media/azure-netapp-files/allow-local-nfs-users-with-ldap.png)  
@@ -98,6 +114,8 @@ This article explains the considerations and steps for enabling LDAP with extend
 
     * Specify nested **User DN** and **Group DN** in the format of `OU=subdirectory,OU=directory,DC=domain,DC=com`. 
     * Specify **Group Membership Filter** in the format of `(gidNumber=*)`. 
+    * If a user is a member of more than 256 groups, only 256 groups will be listed. 
+    * Refer to [errors for LDAP volumes](troubleshoot-volumes.md#errors-for-ldap-volumes) if you run into errors.
 
     ![Screenshot that shows options related to LDAP Search Scope](../media/azure-netapp-files/ldap-search-scope.png)  
 
@@ -106,4 +124,6 @@ This article explains the considerations and steps for enabling LDAP with extend
 * [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)
 * [Create and manage Active Directory connections](create-active-directory-connections.md)
 * [Configure NFSv4.1 domain](azure-netapp-files-configure-nfsv41-domain.md#configure-nfsv41-domain)
+* [Configure an NFS client for Azure NetApp Files](configure-nfs-clients.md)
 * [Troubleshoot volume errors for Azure NetApp Files](troubleshoot-volumes.md)
+* [Modify Active Directory connections for Azure NetApp Files](modify-active-directory-connections.md)

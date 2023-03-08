@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/20/2021
+ms.date: 01/31/2023
 ---
 
 # Detailed example of shapes and projections in a knowledge store

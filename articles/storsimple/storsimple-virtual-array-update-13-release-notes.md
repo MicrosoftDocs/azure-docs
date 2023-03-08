@@ -4,11 +4,13 @@ description: Describes critical open issues and resolutions for the Azure StorSi
 ms.service: storsimple
 author: v-dalc
 ms.topic: article
-ms.date: 04/13/2021
+ms.date: 08/19/2022
 ms.author: alkohli
 ---
 
 # StorSimple Virtual Array Update 1.3 release notes
+
+[!INCLUDE [storsimple-1200-eol-banner](../../includes/storsimple-1200-eol-banner.md)]
 
 The following release notes identify the critical open issues and the resolved issues for Microsoft Azure StorSimple Virtual Array updates.
 
@@ -23,7 +25,7 @@ Update 1.3 corresponds to software version 10.0.10319.0.
 
 ## What's new in Update 1.3
 
-This update contains the following improvements:KB4540725
+This update contains the following improvements:
 
 - Transport Layer Security (TLS) 1.2 is a mandatory update and must be installed. From this release onward, TLS 1.2 becomes the standard protocol for all Azure portal communication.
   

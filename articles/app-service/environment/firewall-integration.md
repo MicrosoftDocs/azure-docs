@@ -4,7 +4,7 @@ description: Learn how to integrate with Azure Firewall to secure outbound traff
 author: madsd
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
-ms.date: 01/12/2022
+ms.date: 03/29/2022
 ms.author: madsd
 ms.custom: seodec18, references_regions
 
@@ -12,8 +12,9 @@ ms.custom: seodec18, references_regions
 
 # Locking down an App Service Environment
 
-> [!NOTE]
-> This article is about the App Service Environment v2, which is used with Isolated App Service plans.
+> [!IMPORTANT]
+> This article is about App Service Environment v2 which is used with Isolated App Service plans. [App Service Environment v2 will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement/). There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v2, please follow the steps in [this article](migration-alternatives.md) to migrate to the new version.
+>
 
 The App Service Environment (ASE) has many external dependencies that it requires access to in order to function properly. The ASE lives in the customer Azure Virtual Network. Customers must allow the ASE dependency traffic, which is a problem for customers that want to lock down all egress from their virtual network.
 
@@ -68,7 +69,7 @@ The steps to lock down egress from your existing ASE with Azure Firewall are:
 
    ![Add NTP service tag network rule][6]
 
-1. Create a route table with the management addresses from [App Service Environment management addresses]( ./management-addresses.md) with a next hop of Internet. The route table entries are required to avoid asymmetric routing problems. Add routes for the IP address dependencies noted below in the IP address dependencies with a next hop of Internet. Add a Virtual Appliance route to your route table for 0.0.0.0/0 with the next hop being your Azure Firewall private IP address.
+1. Create a route table with the management addresses from [App Service Environment management addresses]( ./management-addresses.md) or the AppServiceManagement service tag with a next hop of Internet. The route table entries are required to avoid asymmetric routing problems. Add routes for the IP address dependencies noted below in the IP address dependencies with a next hop of Internet. Add a Virtual Appliance route to your route table for 0.0.0.0/0 with the next hop being your Azure Firewall private IP address.
 
    ![Creating a route table][4]
 
@@ -237,6 +238,7 @@ With an Azure Firewall, you automatically get everything below configured with t
 | Endpoint |
 |----------|
 |gr-prod-\*.cloudapp.net:443 |
+|gr-prod-\*.azurewebsites.windows.net:443 |
 | \*.management.azure.com:443 |
 | \*.update.microsoft.com:443 |
 | \*.windowsupdate.microsoft.com:443 |

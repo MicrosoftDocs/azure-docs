@@ -4,6 +4,8 @@
     items:
     - name: HPC for H-series and N-series VMs
       href: overview.md
+    - name: How to set up HPC/AI VMs
+      href: set-up-hpc-vms.md
   - name: Configuration
     items:
     - name: Configure and optimize VMs
@@ -15,30 +17,6 @@
   - name: Scaling applications
     href: compiling-scaling-applications.md  
   - name: Virtual machines
-    items:
-    - name: HB-series 
-      items:
-      - name: Overview
-        href: hb-series-overview.md
-      - name: Performance
-        href: hb-series-performance.md  
-    - name: HBv2-series
-      items:
-      - name: Overview
-        href: hbv2-series-overview.md
-      - name: Performance
-        href: hbv2-performance.md
-    - name: HBv3-series
-      items:
-      - name: Overview
-        href: hbv3-series-overview.md
-      - name: Performance
-        href: hbv3-performance.md
-    - name: HC-series
-      items:
-      - name: Overview
-        href: hc-series-overview.md
-      - name: Performance
-        href: hc-series-performance.md   
+    items:   
     - name: Known issues with H-series and N-series VMs
       href: hb-hc-known-issues.md

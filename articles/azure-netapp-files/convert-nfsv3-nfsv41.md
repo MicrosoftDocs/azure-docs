@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 12/14/2021
+ms.date: 11/08/2022
 ms.author: anfdocs
 ---
 # Convert an NFS volume between NFSv3 and NFSv4.1
@@ -39,6 +39,8 @@ Converting a volume between NFSv3 and NFSv4.1 does not require that you create a
 * You cannot convert a single-protocol NFS volume to a dual-protocol volume, or the other way around. 
 * You cannot convert a destination volume in a cross-region replication relationship. 
 * Converting an NFSv4.1 volume to NFSv3 will cause all advanced NFSv4.1 features such as ACLs and file locking to become unavailable. 
+* Converting a volume from NFSv3 to NFSv4.1 will cause the `.snapshot` directory to be hidden from NFSv4.1 clients. The directory will still be accessible.
+* Converting a volume from NFSv4.1 to NFSv3 will cause the `.snapshot` directory to be visible. You can modify the properties of the volume to [hide the snapshot path](snapshots-edit-hide-path.md).
 
 ## Register the option 
 
@@ -77,7 +79,7 @@ This section shows you how to convert the NFSv3 volume to NFSv4.1.
 2. Convert the NFS version:
 
     1. In the Azure portal, navigate to the NFS volume that you want to convert.
-    2. Click **Edit**.
+    2. Select **Edit**.
     3. In the Edit window that appears, select **NSFv4.1** in the **Protocol type** pulldown.  
     
     ![screenshot that shows the Edit menu with the Protocol Type field](../media/azure-netapp-files/edit-protocol-type.png)   
@@ -107,15 +109,16 @@ This section shows you how to convert the NFSv4.1 volume to NFSv3.
 > [!IMPORTANT]
 > Converting a volume from NFSv4.1 to NFSv3 will result in all NFSv4.1 features such as ACLs and file locking to become unavailable. 
 
-1. Before converting the volume, unmount it from the clients in preparation. See [Mount or unmount a volume](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md).  
-
-    Example:   
-    `sudo umount /path/to/vol1`
+1. Before converting the volume:
+    1. Unmount it from the clients in preparation. See [Mount or unmount a volume](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md).  
+        Example:   
+        `sudo umount /path/to/vol1`
+    2. Change the export policy to read-only. See [Configure export policy for NFS or dual-protocol volumes](azure-netapp-files-configure-export-policy.md).
 
 2. Convert the NFS version:
 
     1. In the Azure portal, navigate to the NFS volume that you want to convert.
-    2. Click **Edit**.
+    2. Select **Edit**.
     3. In the Edit window that appears, select **NSFv3** in the **Protocol type** pulldown.  
     
     ![screenshot that shows the Edit menu with the Protocol Type field](../media/azure-netapp-files/edit-protocol-type.png)   
@@ -130,11 +133,14 @@ This section shows you how to convert the NFSv4.1 volume to NFSv3.
 
     Example:   
     `mount -v | grep /path/to/vol1`  
-    `vol1:/path/to/vol1 on /path type nfs (rw,intr,tcp,nfsvers=3,rsize=16384,wsize=16384,addr=192.168.1.1)`
+    `vol1:/path/to/vol1 on /path type nfs (rw,intr,tcp,nfsvers=3,rsize=16384,wsize=16384,addr=192.168.1.1)`.
 
-7. Verify access using root and non-root users.
+7. Change the read-only export policy back to the original export policy. See See [Configure export policy for NFS or dual-protocol volumes](azure-netapp-files-configure-export-policy.md).
+
+8. Verify access using root and non-root users.
 
 ## Next steps  
 
 * [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)
 * [Mount or unmount a volume](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
+* [Configure access control lists on NFSv4.1 with Azure NetApp Files](configure-access-control-lists.md)

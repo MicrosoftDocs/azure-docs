@@ -1,32 +1,32 @@
 ---
-title: "Quickstart: Call an ASP.NET web API that is protected by the Microsoft identity platform | Azure"
-titleSuffix: Microsoft identity platform
+title: "Quickstart: Call an ASP.NET web API that is protected by the Microsoft identity platform"
 description: In this quickstart, learn how to call an ASP.NET web API that's protected by the Microsoft identity platform from a Windows Desktop (WPF) application.
 services: active-directory
-author: jmprieur
+author: cilwerner
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: include
 ms.workload: identity
-ms.date: 01/11/2022
-ms.author: jmprieur
-ms.custom: devx-track-csharp, aaddev, identityplatformtop40, "scenarios:getting-started", "languages:ASP.NET", mode-api
+ms.date: 12/09/2022
+ms.author: cwerner 
+ms.reviewer: jmprieur
+ms.custom: devx-track-csharp, aaddev, identityplatformtop40, "scenarios:getting-started", "languages:ASP.NET", mode-api, engagement-fy23
 #Customer intent: As an application developer, I want to know how to set up OpenId Connect authentication in a web application that's built by using Node.js with Express.
 ---
 
-In this quickstart, you download and run a code sample that demonstrates how to protect an ASP.NET web API by restricting access to its resources to authorized accounts only. The sample supports authorization of personal Microsoft accounts and accounts in any Azure Active Directory (Azure AD) organization.
+The following quickstart uses, uses a code sample that demonstrates how to protect an ASP.NET web API by restricting access to its resources to authorized accounts only. The sample supports authorization of personal Microsoft accounts and accounts in any Azure Active Directory (Azure AD) organization.
 
-The article also uses a Windows Presentation Foundation (WPF) app to demonstrate how you can request an access token to access a web API.
+The article also uses a Windows Presentation Foundation (WPF) app to demonstrate how to request an access token to access a web API.
 
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Visual Studio 2017 or 2019. Download [Visual Studio for free](https://www.visualstudio.com/downloads/).
+* Visual Studio 2022. Download [Visual Studio for free](https://www.visualstudio.com/downloads/).
 
 ## Clone or download the sample
 
-You can obtain the sample in either of two ways:
+The code sample can be obtained in two ways:
 
 * Clone it from your shell or command line:
 
@@ -128,7 +128,7 @@ Configure your TodoListClient project by adding the Application ID to the *app.c
 
 ## Run your projects
 
-Start both projects. If you are using Visual Studio:
+Start both projects. For Visual Studio users;
 
 1. Right click on the Visual Studio solution and select **Properties**
 

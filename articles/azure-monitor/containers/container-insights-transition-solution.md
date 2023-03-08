@@ -1,15 +1,16 @@
 ---
-title: "Transition from the Container Monitoring Solution to using Container Insights"
-ms.date: 1/18/2022
+title: Transition from the Container Monitoring Solution to using Container Insights
+ms.date: 8/29/2022
 ms.topic: article
 author: austonli
 ms.author: aul
 description: "Learn how to migrate from using the legacy OMS solution to monitoring your containers using Container Insights"
+ms.reviewer: viviandiec
 ---
 
 # Transition from the Container Monitoring Solution to using Container Insights
 
-With both the underlying platform and agent deprecations, on March 1, 2025 the [Container Monitoring Solution](./containers.md) will be retired. If you use the Container Monitoring Solution to ingest data to your Log Analytics workspace, make sure to transition to using [Container Insights](./container-insights-overview.md) prior to that date.
+With both the underlying platform and agent deprecations, on March 31, 2025 the [Container Monitoring Solution](./containers.md) will be retired. If you use the Container Monitoring Solution to ingest data to your Log Analytics workspace, make sure to transition to using [Container Insights](./container-insights-overview.md) prior to that date.
 
 ## Steps to complete the transition
 
@@ -34,7 +35,7 @@ The following table highlights the key differences between monitoring using the 
 | Agent | Log Analytics Agent (deprecated in 2024) | [Azure Monitor Agent](../agents/azure-monitor-agent-overview.md)
 | Alerting | Log based alerts tied to Log Analytics Workspace | Log based alerting and [recommended metric-based](./container-insights-metric-alerts.md) alerts |
 | Metrics | Does not support Azure Monitor metrics | Supports Azure Monitor metrics |
-| Consumption | Viewable only from Log Analytics Workspace | Accessible from both Azure Monitor and AKS/Arc resource blade |
+| Consumption | Viewable only from Log Analytics Workspace | Accessible from both Azure Monitor and AKS/Arc resource pane |
 | Agent | Manual agent upgrades | Automatic updates for monitoring agent with version control through Azure Arc cluster extensions |
 
 ## Next steps

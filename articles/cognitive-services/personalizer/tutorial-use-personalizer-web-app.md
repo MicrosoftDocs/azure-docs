@@ -1,8 +1,8 @@
 ---
 title: Use web app - Personalizer
 description: Customize a C# .NET web app with a Personalizer loop to provide the correct content to a user based on actions (with features) and context features.
-author: jeffmend
-ms.author: jeffme
+author: jcodella
+ms.author: jacodel
 ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
@@ -229,7 +229,7 @@ Install the following software:
 
 ### Set up Azure Personalizer Service
 
-1. [Create a Personalizer resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer) in the Azure portal.
+1. [Create a Personalizer resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer) in the Azure portal.
 
 1. In the Azure portal, find the `Endpoint` and either `Key1` or `Key2` (either will work) in the **Keys and Endpoints** tab. These are your `PersonalizerServiceEndpoint` and your `PersonalizerApiKey`.
 1. Fill in the `PersonalizerServiceEndpoint` in **appsettings.json**.

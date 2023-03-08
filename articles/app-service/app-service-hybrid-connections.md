@@ -5,9 +5,9 @@ author: madsd
 
 ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
 ms.topic: article
-ms.date: 05/05/2021
+ms.date: 2/10/2022
 ms.author: madsd
-ms.custom: seodec18, fasttrack-edit
+ms.custom: "UpdateFrequency3, fasttrack-edit"
 ---
 
 # Azure App Service Hybrid Connections
@@ -140,7 +140,7 @@ To support the Hybrid Connections it's configured with, HCM requires:
 
 - TCP access to Azure over port 443.
 - TCP access to the Hybrid Connection endpoint.
-- The ability to do DNS look-ups on the endpoint host and the Service Bus namespace.
+- The ability to do DNS look-ups on the endpoint host and the Service Bus namespace. In other words, the hostname in the Azure relay connection should be resolvable from the machine hosting the HCM.
 
 > [!NOTE]
 > Azure Relay relies on Web Sockets for connectivity. This capability is only available on Windows Server 2012 or later. Because of that, HCM is not supported on anything earlier than Windows Server 2012.

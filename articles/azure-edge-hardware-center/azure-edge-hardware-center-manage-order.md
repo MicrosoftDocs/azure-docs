@@ -1,13 +1,11 @@
 ---
-title: Manage Azure Edge Hardware Center orders 
+title: Manage Azure Edge Hardware Center orders
 description: Describes how to use the Azure portal to manage orders created via Azure Edge Hardware Center.
 services: Azure Edge Hardware Center
 author: alkohli
-
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-edge-hardware-center
 ms.topic: how-to
-ms.date: 01/03/2022
+ms.date: 06/01/2022
 ms.author: alkohli
 ---
 # Use the Azure portal to manage your Azure Edge Hardware Center orders

@@ -4,7 +4,7 @@ description: Find content and API references for administrator roles for Microso
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles

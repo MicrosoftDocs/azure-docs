@@ -1,12 +1,12 @@
 ---
 title: Connect to workspace resources in Azure Synapse Analytics Studio from a restricted network
 description: This article will teach you how to connect to your workspace resources from a restricted network
-author: xujxu 
+author: Danzhang-msft
+ms.author: danzhang
 ms.service: synapse-analytics 
 ms.topic: how-to
 ms.subservice: security 
-ms.date: 10/25/2020 
-ms.author: xujiang1
+ms.date: 02/09/2023
 ms.reviewer: sngun
 ---
 
@@ -91,7 +91,7 @@ On the **Resource** tab:
 To access the linked storage with the storage explorer in Azure Synapse Analytics Studio workspace, you must create one private endpoint. The steps for this are similar to those of step 3. 
 
 On the **Resource** tab:
-* For **Resource type**, select **Microsoft.Synapse/storageAccounts**.
+* For **Resource type**, select **Microsoft.Storage/storageAccounts**.
 * For **Resource**, select the storage account name that you created previously.
 * For **Target sub-resource**, select the endpoint type:
   * **blob** is for Azure Blob Storage.
@@ -110,6 +110,24 @@ If you want your notebook to access the linked storage resources under a certain
 After you create this endpoint, the approval state shows a status of **Pending**. Request approval from the owner of this storage account, in the **Private endpoint connections** tab of this storage account in the Azure portal. After it's approved, your notebook can access the linked storage resources under this storage account.
 
 Now, all set. You can access your Azure Synapse Analytics Studio workspace resource.
+
+## Step 6: Allow URL through firewall
+
+Following URLs must be accessible from client browser after enabling Azure Synapse private link hub. 
+
+Required for auth: 
+ - `login.microsoftonline.com`
+ - `aadcdn.msauth.net`
+ - `msauth.net`
+ - `msftauth.net`
+ - `graph.microsoft.com`
+ - `login.live.com`, though this may be different based on account type.
+ 
+Required for workspace/pool management: 
+ - `management.azure.com`
+ - `{workspaceName}.[dev|sql].azuresynapse.net`
+ - `{workspaceName}-ondemand.sql.azuresynapse.net`
+
 
 ## Appendix: DNS registration for private endpoint
 

@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 12/10/2021
+ms.date: 01/31/2023
 ---
 
 # Tutorial: Use REST and AI to generate searchable content from Azure blobs
 
 If you have unstructured text or images in Azure Blob Storage, an [AI enrichment pipeline](cognitive-search-concept-intro.md) can extract information and create new content for full-text search or knowledge mining scenarios.
 
-In this REST tutorial, you will learn how to:
+In this REST tutorial, you'll learn how to:
 
 > [!div class="checklist"]
 > * Set up a development environment.
@@ -39,12 +39,12 @@ The skillset is attached to an [indexer](search-indexer-overview.md). It uses bu
 * [Azure Cognitive Search](https://azure.microsoft.com/services/search/)
 * [Sample data](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/ai-enrichment-mixed-media)
 
-> [!Note]
+> [!NOTE]
 > You can use the free service for this tutorial. A free search service limits you to three indexes, three indexers, and three data sources. This tutorial creates one of each. Before starting, make sure you have room on your service to accept the new resources.
 
 ## Download files
 
-The sample data consists of 14 files of mixed content type that you will upload to Azure Blob Storage in a later step.
+The sample data consists of 14 files of mixed content type that you'll upload to Azure Blob Storage in a later step.
 
 1. Get the files from [azure-search-sample-data/ai-enrichment-mixed-media/](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/ai-enrichment-mixed-media) and copy them to your local computer. 
 
@@ -58,7 +58,7 @@ If possible, create both in the same region and resource group for proximity and
 
 ### Start with Azure Storage
 
-1. [Sign in to the Azure portal](https://portal.azure.com/) and click **+ Create Resource**.
+1. [Sign in to the Azure portal](https://portal.azure.com/) and select **+ Create Resource**.
 
 1. Search for *storage account* and select Microsoft's Storage Account offering.
 
@@ -108,13 +108,13 @@ For this exercise, however, you can skip resource provisioning because Azure Cog
 
 ### Azure Cognitive Search
 
-The third component is Azure Cognitive Search, which you can [create in the portal](search-create-service-portal.md) or [find an existing search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in your subscription.
+The third component is Azure Cognitive Search, which you can [create in the portal](search-create-service-portal.md) or [find an existing search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in your subscription.
 
 You can use the Free tier to complete this walkthrough. 
 
 ### Copy an admin api-key and URL for Azure Cognitive Search
 
-To interact with your Azure Cognitive Search service you will need the service URL and an access key.
+To interact with your Azure Cognitive Search service you'll need the service URL and an access key.
 
 1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, get the name of your search service. You can confirm your service name by reviewing the endpoint URL. If your endpoint URL were `https://mydemo.search.windows.net`, your service name would be `mydemo`.
 
@@ -126,9 +126,9 @@ All HTTP requests to a search service require an API key. A valid key establishe
 
 ## 2 - Set up Postman
 
-1. Start Postman, import the collection, and set up the environment variables. If you are unfamiliar with this tool, see [Explore Azure Cognitive Search REST APIs](search-get-started-rest.md). 
+1. Start Postman, import the collection, and set up the environment variables. If you're unfamiliar with this tool, see [Explore Azure Cognitive Search REST APIs](search-get-started-rest.md). 
 
-1. You will need to provide a search service name, an admin API key, an index name, a connection string to your Azure Storage account, and the container name.
+1. You'll need to provide a search service name, an admin API key, an index name, a connection string to your Azure Storage account, and the container name.
 
    :::image type="content" source="media/cognitive-search-tutorial-blob/postman-setup.png" alt-text="Screenshot of the Variables page in Postman." border="true":::
 
@@ -151,10 +151,10 @@ Call [Create Data Source](/rest/api/searchservice/create-data-source) to set the
         "description" : "Demo files to demonstrate cognitive search capabilities.",  
         "type" : "azureblob",
         "credentials" : { 
-           "connectionString": "{{azure-storage-connection-string}}"
+           "connectionString": "{{azure_storage_connection_string}}"
         },  
       "container" : { 
-        "name" : "{{blob-container}}"
+        "name" : "{{container_name}}"
       }
     }
     ```
@@ -174,7 +174,7 @@ Call [Create Skillset](/rest/api/searchservice/create-skillset) to specify which
    | Skill                 | Description    |
    |-----------------------|----------------|
    | [Optical Character Recognition](cognitive-search-skill-ocr.md) | Recognizes text and numbers in image files. |
-   | [Text Merge](cognitive-search-skill-textmerger.md)  | Creates "merged content" that recombines previously separated content, useful for documents with embedded images (PDF, DOCX, and so forth). Images and text are separated during the document cracking phase. The merge skill recombines them by inserting any recognized text, image captions, or tags created during enrichment into the same location where the image was extracted from in the document. </p>When working with merged content in a skillset, this node will be inclusive of all text in the document, including text-only documents that never undergo OCR or image analysis. |
+   | [Text Merge](cognitive-search-skill-textmerger.md)  | Creates "merged content" that recombines previously separated content, useful for documents with embedded images (PDF, DOCX, and so forth). Images and text are separated during the document cracking phase. The merge skill recombines them by inserting any recognized text, image captions, or tags created during enrichment into the same location where the image was extracted from in the document. </p>When you're working with merged content in a skillset, this node will be inclusive of all text in the document, including text-only documents that never undergo OCR or image analysis. |
    | [Language Detection](cognitive-search-skill-language-detection.md) | Detects the language and outputs either a language name or code. In multilingual data sets, a language field can be useful for filters. |
    | [Entity Recognition](cognitive-search-skill-entity-recognition-v3.md) | Extracts the names of people, organizations, and locations from merged content. |
    | [Text Split](cognitive-search-skill-textsplit.md)  | Breaks large merged content into smaller chunks before calling the key phrase extraction skill. Key phrase extraction accepts inputs of 50,000 characters or less. A few of the sample files need splitting up to fit within this limit. |
@@ -526,9 +526,9 @@ Call [Create Indexer](/rest/api/searchservice/create-indexer) to drive the pipel
 
 The script sets ```"maxFailedItems"```  to -1, which instructs the indexing engine to ignore errors during data import. This is acceptable because there are so few documents in the demo data source. For a larger data source, you would set the value to greater than 0.
 
-The ```"dataToExtract":"contentAndMetadata"``` statement tells the indexer to automatically extract the content from different file formats as well as metadata related to each file. 
+The ```"dataToExtract":"contentAndMetadata"``` statement tells the indexer to automatically extract the values from the blob's content property and the metadata of each object. 
 
-When content is extracted, you can set ```imageAction``` to extract text from images found in the data source. The ```"imageAction":"generateNormalizedImages"``` configuration, combined with the OCR Skill and Text Merge Skill, tells the indexer to extract text from the images (for example, the word "stop" from a traffic Stop sign), and embed it as part of the content field. This behavior applies to both the images embedded in the documents (think of an image inside a PDF), as well as images found in the data source, for instance a JPG file.
+When content is extracted, you can set ```imageAction``` to extract text from images found in the data source. The ```"imageAction":"generateNormalizedImages"``` configuration, combined with the OCR Skill and Text Merge Skill, tells the indexer to extract text from the images (for example, the word "stop" from a traffic Stop sign), and embed it as part of the content field. This behavior applies to both embedded images (think of an image inside a PDF) and standalone image files, for instance a JPG file.
 
 ## 4 - Monitor indexing
 
@@ -565,7 +565,7 @@ Recall that we started with blob content, where the entire document is packaged 
 1. For the next query, apply a filter. Recall that the language field and all entity fields are filterable.
 
    ```http
-    GET /indexes/{{index_name}}/docs?search=*&$filter=organizations/any(organizations: organizations eq 'NASDAQ')&$select=metadata_storage_name,organizations&$count=true&api-version=2020-06-30
+    GET /indexes/{{index_name}}/docs?search=*&$filter=organizations/any(organizations: organizations eq 'Microsoft')&$select=metadata_storage_name,organizations&$count=true&api-version=2020-06-30
    ```
 
 These queries illustrate a few of the ways you can work with query syntax and filters on new fields created by cognitive search. For more query examples, see [Examples in Search Documents REST API](/rest/api/searchservice/search-documents#bkmk_examples), [Simple syntax query examples](search-query-simple-examples.md), and [Full Lucene query examples](search-query-lucene-examples.md).

@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure AD SSO integration with BetterWorks'
-description: Learn how to configure single sign-on between Azure Active Directory and BetterWorks.
+title: 'Tutorial: Azure AD SSO integration with Betterworks'
+description: Learn how to configure single sign-on between Azure Active Directory and Betterworks.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/07/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure AD SSO integration with BetterWorks
+# Tutorial: Azure AD SSO integration with Betterworks
 
-In this tutorial, you'll learn how to integrate BetterWorks with Azure Active Directory (Azure AD). When you integrate BetterWorks with Azure AD, you can:
+In this tutorial, you'll learn how to integrate Betterworks with Azure Active Directory (Azure AD). When you integrate Betterworks with Azure AD, you can:
 
-* Control in Azure AD who has access to BetterWorks.
-* Enable your users to be automatically signed-in to BetterWorks with their Azure AD accounts.
+* Control in Azure AD who has access to Betterworks.
+* Enable your users to be automatically signed-in to Betterworks with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
 ## Prerequisites
@@ -26,46 +26,48 @@ In this tutorial, you'll learn how to integrate BetterWorks with Azure Active Di
 To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* BetterWorks single sign-on (SSO) enabled subscription.
+* Betterworks single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* BetterWorks supports **SP and IDP** initiated SSO.
+* Betterworks supports **SP and IDP** initiated SSO.
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
-## Add BetterWorks from the gallery
+## Add Betterworks from the gallery
 
-To configure the integration of BetterWorks into Azure AD, you need to add BetterWorks from the gallery to your list of managed SaaS apps.
+To configure the integration of Betterworks into Azure AD, you need to add Betterworks from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
 1. On the left navigation pane, select the **Azure Active Directory** service.
 1. Navigate to **Enterprise Applications** and then select **All Applications**.
 1. To add new application, select **New application**.
-1. In the **Add from the gallery** section, type **BetterWorks** in the search box.
-1. Select **BetterWorks** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+1. In the **Add from the gallery** section, type **Betterworks** in the search box.
+1. Select **Betterworks** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-## Configure and test Azure AD SSO for BetterWorks
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-Configure and test Azure AD SSO with BetterWorks using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in BetterWorks.
+## Configure and test Azure AD SSO for Betterworks
 
-To configure and test Azure AD SSO with BetterWorks, perform the following steps:
+Configure and test Azure AD SSO with Betterworks using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Betterworks.
+
+To configure and test Azure AD SSO with Betterworks, perform the following steps:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-1. **[Configure BetterWorks SSO](#configure-betterworks-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create BetterWorks test user](#create-betterworks-test-user)** - to have a counterpart of B.Simon in BetterWorks that is linked to the Azure AD representation of user.
+1. **[Configure Betterworks SSO](#configure-betterworks-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create Betterworks test user](#create-betterworks-test-user)** - to have a counterpart of B.Simon in Betterworks that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the Azure portal, on the **BetterWorks** application integration page, find the **Manage** section and select **single sign-on**.
+1. In the Azure portal, on the **Betterworks** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
@@ -85,13 +87,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://app.betterworks.com`
 
    > [!NOTE]
-   > If you're a European Union customer of BetterWorks, please use `eu.betterworks.com` as the domain name instead of `app.betterworks.com` in these URLs.
+   > If you're a European Union customer of Betterworks, please use `eu.betterworks.com` as the domain name instead of `app.betterworks.com` in these URLs.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
 	![The Certificate download link](common/metadataxml.png)
 
-1. On the **Set up BetterWorks** section, copy the appropriate URL(s) based on your requirement.
+1. On the **Set up Betterworks** section, copy the appropriate URL(s) based on your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
@@ -109,23 +111,23 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to BetterWorks.
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Betterworks.
 
 1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
-1. In the applications list, select **BetterWorks**.
+1. In the applications list, select **Betterworks**.
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
-## Configure BetterWorks SSO
+## Configure Betterworks SSO
 
-To configure single sign-on on **BetterWorks** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [BetterWorks support team](mailto:support@betterworks.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Betterworks** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Betterworks support team](mailto:support@betterworks.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
-### Create BetterWorks test user
+### Create Betterworks test user
 
-In this section, you create a user called Britta Simon in BetterWorks. Work with [BetterWorks support team](mailto:support@betterworks.com) to add the users in the BetterWorks platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in Betterworks. Work with [Betterworks support team](mailto:support@betterworks.com) to add the users in the Betterworks platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
@@ -133,16 +135,16 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to BetterWorks Sign on URL where you can initiate the login flow.  
+* Click on **Test this application** in Azure portal. This will redirect to Betterworks Sign on URL where you can initiate the login flow.  
 
-* Go to BetterWorks Sign-on URL directly and initiate the login flow from there.
+* Go to Betterworks Sign-on URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the BetterWorks for which you set up the SSO. 
+* Click on **Test this application** in Azure portal and you should be automatically signed in to the Betterworks for which you set up the SSO. 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the BetterWorks tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the BetterWorks for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+You can also use Microsoft My Apps to test the application in any mode. When you click the Betterworks tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Betterworks for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 
-Once you configure BetterWorks you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).
+Once you configure Betterworks you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

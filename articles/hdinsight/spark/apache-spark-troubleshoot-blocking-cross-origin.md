@@ -3,7 +3,7 @@ title: Jupyter 404 error - "Blocking Cross Origin API" - Azure HDInsight
 description: Jupyter server 404 "Not Found" error due to "Blocking Cross Origin API" in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 07/29/2019
+ms.date: 04/29/2022
 ---
 
 # Scenario: Jupyter server 404 "Not Found" error due to "Blocking Cross Origin API" in Azure HDInsight

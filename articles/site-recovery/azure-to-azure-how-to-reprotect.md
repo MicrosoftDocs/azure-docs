@@ -2,12 +2,12 @@
 title: Reprotect Azure VMs to the primary region with Azure Site Recovery | Microsoft Docs
 description: Describes how to reprotect Azure VMs after failover, the secondary to primary region, using Azure Site Recovery.
 services: site-recovery
-author: Rajeswari-Mamilla
-manager: gaggupta
+author: v-pgaddala
+manager: jsuri
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
-ms.author: ramamill
+ms.date: 12/07/2022
+ms.author: v-pgaddala
 ---
 
 # Reprotect failed over Azure VMs to the primary region
@@ -43,9 +43,10 @@ You can customize the following properties of the target VM during reprotection.
 |---------|---------|
 |Target resource group | Modify the target resource group in which the VM is created. As the part of reprotection, the target VM is deleted. You can choose a new resource group under which to create the VM after failover. |
 |Target virtual network | The target network can't be changed during the reprotect job. To change the network, redo the network mapping. |
+|Capacity reservation | Configure a capacity reservation for the VM. You can create a new capacity reservation group to reserve capacity or select an existing capacity reservation group. [Learn more](azure-to-azure-how-to-enable-replication.md#enable-replication) about capacity reservation. |
 |Target storage (Secondary VM doesn't use managed disks) | You can change the storage account that the VM uses after failover. |
 |Replica managed disks (Secondary VM uses managed disks) | Site Recovery creates replica managed disks in the primary region to mirror the secondary VM's managed disks. |
-|Cache storage | You can specify a cache storage account to be used during replication. By default, a new cache storage account is created, if it doesn't exist. |
+|Cache storage | You can specify a cache storage account to be used during replication. By default, a new cache storage account is created, if it doesn't exist. </br>By default, type of storage account (Standard storage account or Premium Block Blob storage account) that you have selected for the source VM in original primary location is used. For example, during replication from original source to target, if you have selected *High Churn*, during re-protection back from target to original source, Premium Block blob will be used by default. You can configure and change it for re-protection. For more information, see [Azure VM Disaster Recovery - High Churn Support](./concepts-azure-to-azure-high-churn-support.md).|
 |Availability set | If the VM in the secondary region is part of an availability set, you can choose an availability set for the target VM in the primary region. By default, Site Recovery tries to find the existing availability set in the primary region, and use it. During customization, you can specify a new availability set. |
 
 ### What happens during reprotection?
@@ -90,9 +91,9 @@ The following conditions determine how much data is replicated:
 |Source region has 1 VM with 1-TB premium disk.<br/>Only 127-GB data is used and rest of the disk is empty.<br/>Disk type is premium with 200-MBps throughput.<br/>45-GB data changes after failover.| Approximate time: 45-75 mins.<br/>During reprotection, Site Recovery will populate the checksum of all data, which operates at 46% of disk throughput - 92 MBps. The total time that it will take is 127 GB/92 MBps, approximately 25 minutes. </br>Transfer speed is approximately 23% of throughput, or 46 MBps. Therefore, transfer time to apply changes of 45 GB that is 45 GB/46 MBps, approximately 17 minutes.<br/>Some overhead time may be required for Site Recovery to auto scale, approximately 20-30 minutes. |
 |Source region has 1 VM with 1-TB premium disk.<br/>Only 20-GB data is used and rest of the disk is empty.<br/>Disk type is premium with 200-MBps throughput.<br/>The initial data on the disk immediately after failover was 15 GB. There was 5-GB data change after failover. Total populated data is therefore 20 GB| Approximate time: 10-40 minutes.<br/>Since the data populated in the disk is less than 10% of the size of the disk, we perform a complete initial replication.<br/>Transfer speed is approximately 23% of throughput, or 46-MBps. Therefore, transfer time to apply changes of 20 GB that is 20 GB/46 MBps, approximately 8 minutes.<br/>Some overhead time may be required for Site Recovery to auto scale, approximately 20-30 minutes |
 
-When the VM is re-protected after failing back to the primary region (that is, if the VM is re-protected from primary region to DR region), the target VM, and associated NIC(s) are deleted.
+When the VM is re-protected from DR region to primary region (that is, after failing over from the primary region to DR region), the target VM (original source VM), and associated NIC(s) are deleted.
 
-When the VM is re-protected from the DR region to the primary region, we do not delete the erstwhile primary VM and associated NIC(s).
+When the VM is re-protected again from the primary region to DR region after failback, we do not delete the VM and associated NIC(s) in the DR region that were created during the earlier failover.
 
 ## Next steps
 

@@ -2,7 +2,7 @@
 title: Install C# agent on Windows device 
 description: Learn about how to install Defender for IoT agent on 32-bit or 64-bit Windows devices.
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 03/28/2022
 ---
 
 # Deploy a Defender for IoT C#-based security agent for Windows

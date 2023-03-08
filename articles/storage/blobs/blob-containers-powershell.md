@@ -7,15 +7,16 @@ author: stevenmatthew
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/07/2021
+ms.date: 10/03/2022
 ms.author: shaas
 ms.subservice: blobs
-ms.custom: template-how-to
+ms.devlang: powershell
+ms.custom: devx-track-azurepowershell
 ---
 
 # Manage blob containers using PowerShell
 
-Azure blob storage allows you to store large amounts of unstructured object data. You can use Blob Storage to gather or expose media, content, or application data to users. Because all blob data is stored within containers, you must create a storage container before you can begin to upload data. To learn more about Blob Storage, read the [Introduction to Azure Blob storage](storage-blobs-introduction.md).
+Azure blob storage allows you to store large amounts of unstructured object data. You can use blob storage to gather or expose media, content, or application data to users. Because all blob data is stored within containers, you must create a storage container before you can begin to upload data. To learn more about blob storage, read the [Introduction to Azure Blob storage](storage-blobs-introduction.md).
 
 This how-to article explains how to work with both individual and multiple storage container objects.
 
@@ -123,9 +124,9 @@ loop-container4                           11/2/2021 12:22:00 AM +00:00   True   
 
 ## Read container properties and metadata
 
-A container exposes both system properties and user-defined metadata. System properties exist on each Blob Storage resource. Some properties are read-only, while others can be read or set. Under the covers, some system properties map to certain standard HTTP headers.
+A container exposes both system properties and user-defined metadata. System properties exist on each blob storage resource. Some properties are read-only, while others can be read or set. Under the covers, some system properties map to certain standard HTTP headers.
 
-User-defined metadata consists of one or more name-value pairs that you specify for a Blob Storage resource. You can use metadata to store additional values with the resource. Metadata values are for your own purposes only, and don't affect how the resource behaves.
+User-defined metadata consists of one or more name-value pairs that you specify for a blob storage resource. You can use metadata to store additional values with the resource. Metadata values are for your own purposes only, and don't affect how the resource behaves.
 
 ### Container properties
 
@@ -315,7 +316,8 @@ To learn more about the soft delete data protection option, refer to the [Soft d
  $ctx = New-AzStorageContext -StorageAccountName $accountName -UseConnectedAccount
 
 # Retrieve all containers, filter deleted containers, restore deleted containers
- Get-AzStorageContainer -Prefix $prefixName -IncludeDeleted -Context $ctx | ? { $_.IsDeleted } | Restore-AzStorageContainer
+ Get-AzStorageContainer -Prefix $prefixName -IncludeDeleted `
+    -Context $ctx | ? { $_.IsDeleted } | Restore-AzStorageContainer
 ```
 
 The results display all containers with the prefix **demo** which have been restored.
@@ -332,4 +334,4 @@ loop-container4
 ## See also
 
 - [Run PowerShell commands with Azure AD credentials to access blob data](./authorize-data-operations-powershell.md)
-- [Create a storage account](../common/storage-account-create.md?tabs=azure-portal&toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Create a storage account](../common/storage-account-create.md?tabs=azure-portal&toc=/azure/storage/blobs/toc.json)

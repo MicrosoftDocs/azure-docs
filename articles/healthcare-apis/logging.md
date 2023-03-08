@@ -1,28 +1,25 @@
 ---
-title: Logging for Azure Healthcare APIs
-description: This article explains how logging works and how to enable logging for the Azure Healthcare APIs
+title: Logging for Azure Health Data Services
+description: This article explains how logging works and how to enable logging for the Azure Health Data Services
 services: healthcare-apis
-author: ginalee-dotcom
+author: mikaelweave
 ms.service: healthcare-apis
 ms.topic: tutorial
-ms.date: 12/15/2021
-ms.author: ginle
+ms.date: 10/10/2022
+ms.author: mikaelw
 ---
 
-# Logging for Azure Healthcare APIs (preview)
+# Logging for Azure Health Data Services
 
-> [!IMPORTANT]
-> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-The Azure platform provides three types of logs, activity logs, resource logs and Azure Active Directory logs. See more details on [activity logs](../azure-monitor/essentials/platform-logs-overview.md). In this article, you will learn about how logging works for the Azure Healthcare APIs.
+The Azure platform provides three types of logs, activity logs, resource logs and Azure Active Directory logs. For more information, see [activity logs](../azure-monitor/essentials/platform-logs-overview.md). In this article, you’ll learn about how logging works for the Azure Health Data Services.
 
 ## AuditLogs
-While activity logs are available for each Azure resource from the Azure portal, the Healthcare APIs emit resource logs, which include two categories of logs, AuditLogs and DiagnosticLogs.
+While activity logs are available for each Azure resource from the Azure portal, Azure Health Data Services emits resource logs, which include two categories of logs, AuditLogs and DiagnosticLogs.
 
-- AuditLogs provides auditing trail for healthcare services, for example, caller's ip address and resource url when a user or application accesses the FHIR service. Each service emits required properties and optionally implements additional properties.
+- AuditLogs provide auditing trails for healthcare services. For example, a caller's IP address and resource URL are logged when a user or application accesses the FHIR service. Each service emits required properties and optionally implements additional properties.
 - DiagnosticLogs provides insight into the operation of the service, for example, log level (information, warning or error) and log message.
 
-Currently, Healthcare APIs only supports AuditLogs for public preview. DiagnosticLogs will be available when the service is generally available.
+At this time, Azure Health Data Services only supports AuditLogs.
 
 Below is one example of the AuditLog.
 
@@ -54,17 +51,19 @@ Below is one example of the AuditLog.
 
 ## Next steps
 
-In this article, you learned how to enable diagnostic logging for Azure Healthcare APIs. For more information about the supported metrics for Azure Healthcare APIs with Azure Monitor, see 
+In this article, you learned how to enable diagnostic logging for Azure Health Data Services. For more information about the supported metrics for Azure Health Data Services with Azure Monitor, see 
 
 >[!div class="nextstepaction"]
 >[Supported metrics with Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
 
-For more information about service logs and metrics for the DICOM service and IoT connector, see
+For more information about service logs and metrics for the DICOM service and MedTech service, see
 
 >[!div class="nextstepaction"]
 >[Enable diagnostic logging in the DICOM service](./dicom/enable-diagnostic-logging.md)
 
 >[!div class="nextstepaction"]
->[How to display IoT connector metrics](./../healthcare-apis/iot/how-to-display-metrics.md)
+>[How to enable diagnostic settings for the MedTech service](./../healthcare-apis/iot/how-to-enable-diagnostic-settings.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
 
 

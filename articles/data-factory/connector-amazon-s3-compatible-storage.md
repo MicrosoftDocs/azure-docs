@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 12/13/2021
+ms.date: 01/11/2023
 ---
 
 # Copy data from Amazon S3 Compatible Storage by using Azure Data Factory or Synapse Analytics
@@ -20,16 +20,18 @@ This article outlines how to copy data from Amazon Simple Storage Service (Amazo
 
 ## Supported capabilities
 
-This Amazon S3 Compatible Storage connector is supported for the following activities:
+This Amazon S3 Compatible Storage connector is supported for the following capabilities:
 
-- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
-- [Lookup activity](control-flow-lookup-activity.md)
-- [GetMetadata activity](control-flow-get-metadata-activity.md)
-- [Delete activity](delete-activity.md)
+| Supported capabilities|IR |
+|---------| --------|
+|[Copy activity](copy-activity-overview.md) (source/-)|&#9312; &#9313;|
+|[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|
+|[GetMetadata activity](control-flow-get-metadata-activity.md)|&#9312; &#9313;|
+|[Delete activity](delete-activity.md)|&#9312; &#9313;|
+
+<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
 
 Specifically, this Amazon S3 Compatible Storage connector supports copying files as is or parsing files with the [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md). The connector uses [AWS Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) to authenticate requests to S3. You can use this Amazon S3 Compatible Storage connector to copy data from any S3-compatible storage provider. Specify the corresponding service URL in the linked service configuration.
-
-
 
 ## Required permissions
 

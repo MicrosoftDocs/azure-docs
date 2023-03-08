@@ -4,7 +4,8 @@ titleSuffix: Azure AD B2C
 description: Tutorial to configure Azure Active Directory B2C with BioCatch to identify risky and fraudulent users
 services: active-directory-b2c
 author: gargi-sinha
-manager: martinco
+manager: CelesteDG
+ms.reviewer: kengaderdus
 
 ms.service: active-directory
 ms.workload: identity
@@ -340,7 +341,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
     </TechnicalProfile> 
 
-  </RelyingParty>
+    </RelyingParty>
     ```
 
 ## Integrate with Azure AD B2C

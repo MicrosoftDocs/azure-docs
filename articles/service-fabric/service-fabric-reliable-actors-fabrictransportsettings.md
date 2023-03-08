@@ -1,13 +1,14 @@
 ---
 title: Change FabricTransport settings
 description: Learn about configuring Azure Service Fabric actor communication settings for different actor configurations.
-author: suchiagicha
-
-ms.topic: conceptual
-ms.date: 04/20/2017
-ms.author: pepogors
-ms.custom: devx-track-csharp
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Configure FabricTransport settings for Reliable Actors
 
 Here are the settings that you can configure:
@@ -117,7 +118,7 @@ If the client is not running as part of a service, you can create a "&lt;Client 
   </Section>
    ```
   * Configuring FabricTransport  Settings for Securing Actor Service/Client Using Subject Name.
-	User needs to provide findType as FindBySubjectName,add CertificateIssuerThumbprints and CertificateRemoteCommonNames values.
+	User needs to provide findType as FindBySubjectName, add CertificateIssuerThumbprints and CertificateRemoteCommonNames values.
     Below is the example for the Listener TransportSettings.
 
     ```xml

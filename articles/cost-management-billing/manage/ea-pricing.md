@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 10/19/2021
+ms.date: 12/06/2022
 ms.author: banders
 ms.custom: seodec18
 ---
@@ -43,7 +43,7 @@ If you have an MCA, you must be the billing profile owner, contributor, reader, 
 1. Select a billing profile. Depending on your access, you might need to select a billing account first.
 1. Select **Invoices**.
 1. In the invoice grid, find the row of the invoice corresponding to the price sheet you want to download.
-1. Click the ellipsis (`...`) at the end of the row.  
+1. Select the ellipsis (`...`) at the end of the row.  
     ![Screenshot that shows the ellipsis selected](./media/ea-pricing/billingprofile-invoicegrid-new.png)
 1. If you want to see prices for the services in the selected invoice, select **Invoice price sheet**.
 1. If you want to see prices for all Azure services for the given billing period, select **Azure price sheet**.  

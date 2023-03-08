@@ -2,10 +2,10 @@
 title: Back up multiple SQL Server VMs from the vault
 description: In this article, learn how to back up SQL Server databases on Azure virtual machines with Azure Backup from the Recovery Services vault
 ms.topic: conceptual
-ms.date: 01/14/2022
-author: v-amallick
+ms.date: 08/11/2022
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 # Back up multiple SQL Server VMs from the Recovery Services vault
 
@@ -20,6 +20,9 @@ In this article, you'll learn how to:
 > * Create and configure a vault.
 > * Discover databases and set up backups.
 > * Set up auto-protection for databases.
+
+>[!Note]
+>See the [SQL backup support matrix](sql-support-matrix.md) to know more about the supported configurations and scenarios.
 
 ## Prerequisites
 
@@ -48,10 +51,13 @@ The following table lists the various alternatives you can use for establishing 
 | Private endpoints                 | Allow backups over private IPs inside the virtual network  <br><br>   Provide granular control on the network and vault side | Incurs standard private endpoint [costs](https://azure.microsoft.com/pricing/details/private-link/) |
 | NSG service tags                  | Easier to manage as range changes are automatically merged   <br><br>   No additional costs | Can be used with NSGs only  <br><br>    Provides access to the entire service |
 | Azure Firewall FQDN tags          | Easier to manage since the required FQDNs are automatically managed | Can be used with Azure Firewall only                         |
-| Allow access to service FQDNs/IPs | No additional costs   <br><br>  Works with all network security appliances and firewalls | A broad set of IPs or FQDNs may be required to be accessed   |
+| Allow access to service FQDNs/IPs | No additional costs.   <br><br>  Works with all network security appliances and firewalls. <br><br> You can also use service endpoints for *Storage* and *Azure Active Directory*. However, for Azure Backup, you need to assign the access to the corresponding IPs/FQDNs. | A broad set of IPs or FQDNs may be required to be accessed.    |
 | Use an HTTP proxy                 | Single point of internet access to VMs                       | Additional costs to run a VM with the proxy software         |
 
-More details around using these options are shared below:
+The following sections provide more details around using these options.
+
+>[!Note]
+>You can use the [Azure Backup connectivity test scripts](https://github.com/Azure/Azure-Workload-Backup-Troubleshooting-Scripts/releases/download/v1.0.0/AzureBackupConnectivityTestScriptsForWindows.zip) to self-diagnose the network connectivity issues on Windows environment.
 
 #### Private endpoints
 
@@ -263,9 +269,11 @@ To create a backup policy:
 
 You can enable auto-protection to automatically back up all existing and future databases to a standalone SQL Server instance or to an Always On availability group.
 
-* There's no limit on the number of databases you can select for auto-protection at a time. Discovery typically runs every eight hours. However, you can discover and protect new databases immediately if you manually run a discovery by selecting the **Rediscover DBs** option.
+* There's no limit on the number of databases you can select for auto-protection at a time. Discovery typically runs every eight hours. The auto-protection of a newly discovered database will be triggered within 32 hours. However, you can discover and protect new databases immediately if you manually run a discovery by selecting the **Rediscover DBs** option.
+* If the auto-protection operation on the newly discovered database fails, it'll be retried three times. If all three retries fail, the database won't be protected.
 * You can't selectively protect or exclude databases from protection in an instance at the time you enable auto-protection.
 * If your instance already includes some protected databases, they'll remain protected under their respective policies even after you turn on auto-protection. All unprotected databases added later will have only a single policy that you define at the time of enabling auto-protection, listed under **Configure Backup**. However, you can change the policy associated with an auto-protected database later.  
+* If the **Configure Protection** operation for the newly discovered database fails, it won't raise an alert. However, a failed backup job could be found on the **Backup jobs** page.
 
 To enable auto-protection:
 

@@ -6,7 +6,7 @@ author: msangapu-msft
 
 ms.assetid: 66f9988f-8ffa-414a-9137-3a9b15a5573c
 ms.topic: article
-ms.date: 09/10/2021
+ms.date: 11/18/2022
 ms.author: msangapu
 ms.custom: seodec18, devx-track-azurecli
 
@@ -37,7 +37,7 @@ Using TCP tunneling you can create a network connection between your development
 
 To get started, you need to install [Azure CLI](/cli/azure/install-azure-cli). To see how it works without installing Azure CLI, open [Azure Cloud Shell](../cloud-shell/overview.md). 
 
-Open a remote connection to your app using the [az webapp create-remote-connection](/cli/azure/webapp#az_webapp_create_remote_connection) command. Specify _\<subscription-id>_, _\<group-name>_ and _\<app-name>_ for your app.
+Open a remote connection to your app using the [az webapp create-remote-connection](/cli/azure/webapp#az-webapp-create-remote-connection) command. Specify _\<subscription-id>_, _\<group-name>_ and _\<app-name>_ for your app.
 
 ```azurecli-interactive
 az webapp create-remote-connection --subscription <subscription-id> --resource-group <resource-group-name> -n <app-name> &

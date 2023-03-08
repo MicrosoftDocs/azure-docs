@@ -4,7 +4,7 @@ description: Learn how to change performance tiers for new and existing managed 
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/02/2021
+ms.date: 08/30/2022
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
@@ -35,31 +35,12 @@ The following steps show how to change the performance tier of your disk when yo
 :::image type="content" source="media/disks-performance-tiers-portal/new-disk-change-performance-tier.png" alt-text="Screenshot of the disk creation blade, a disk is highlighted, and the performance tier dropdown is highlighted." lightbox="media/disks-performance-tiers-portal/performance-tier-settings.png":::
 
 
-### Change the performance tier of an existing disk without downtime
+### Change the performance tier of an existing disk
 
-You can also change your performance tier without downtime, so you don't have to deallocate your VM or detach your disk to change the tier.
-
-### Prerequisites
-
-You must enable the feature for your subscription before you can change the performance tier of a disk without downtime. Please follow the steps below to enable the feature for your subscription:
-
-1.	Execute the following command to register the feature for your subscription
-
-    ```azurecli
-    az feature register --namespace Microsoft.Compute --name LiveTierChange
-    ```
- 
-1.	Confirm that the registration state is **Registered** (may take a few minutes) using the following command before trying out the feature.
-
-    ```azurecli
-    az feature show --namespace Microsoft.Compute --name LiveTierChange
-    ```
+A disk's performance tier can be changed without downtime, so you don't have to deallocate your VM or detach your disk to change the tier.
 
 ### Change performance tier
 
-Now that the feature has been registered, you can change applicable disk's performance tiers without downtime.
-
-1. Sign in to the Azure portal from the following link: [https://aka.ms/diskPerfTiersPreview](https://aka.ms/diskPerfTiersPreview).
 1. Navigate to the VM containing the disk you'd like to change.
 1. Select your disk
 1. Select **Size + Performance**.

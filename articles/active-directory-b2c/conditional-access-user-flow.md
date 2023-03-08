@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 12/09/2021
+ms.date: 04/10/2022
 ms.custom: project-no-code
 ms.author: kengaderdus
 author: kengaderdus
@@ -91,7 +91,7 @@ To add a Conditional Access policy, disable security defaults:
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
-1. Under **Azure services**, select **Azure AD B2C**. Or use the search box to find and select **Azure AD B2C**.
+1. Under **Azure services**, select **Azure Active Directory**. Or use the search box to find and select **Azure Active Directory**.
 1. Select **Properties**, and then select **Manage Security defaults**.
 
    ![Disable the security defaults](media/conditional-access-user-flow/disable-security-defaults.png)
@@ -120,7 +120,7 @@ To add a Conditional Access policy:
 
     | Include  |License   |   Notes|
     |---|---|---|
-    |**All users**    | P1, P2  | If you choose to include **All Users**, this policy will affect all of your users. To be sure not to lock yourself out, exclude your administrative account by choosing **Exclude**, selecting **Directory roles**, and then selecting **Global Administrator** in the list. You can also select **Users and Groups** and then select your account in the **Select excluded users** list.  |
+    |**All users**    | P1, P2  | This policy will affect all of your users. To be sure not to lock yourself out, exclude your administrative account by choosing **Exclude**, selecting **Directory roles**, and then selecting **Global Administrator** in the list. You can also select **Users and Groups** and then select your account in the **Select excluded users** list.  |
 
 1. Select **Cloud apps or actions**, and then **Select apps**. Browse for your [relying party application](tutorial-register-applications.md).
 1. Select **Conditions**, and then select from the following conditions. For example, select **Sign-in risk** and **High**, **Medium**, and **Low** risk levels.
@@ -130,7 +130,7 @@ To add a Conditional Access policy:
     | **User risk**  | P2  |User risk represents the probability that a given identity or account is compromised.   |
     | **Sign-in risk**   | P2  |Sign-in risk represents the probability that a given authentication request isn't authorized by the identity owner.   |
     | **Device platforms**  |Not supported   |Characterized by the operating system that runs on a device. For more information, see [Device platforms](../active-directory/conditional-access/concept-conditional-access-conditions.md#device-platforms).   |
-    | **Locations**  |P1,P2   |Named locations may include the public IPv4 network information, country or region, or unknown areas that don't map to specific countries or regions. For more information, see [Locations](../active-directory/conditional-access/concept-conditional-access-conditions.md#locations).   |
+    | **Locations**  |P1, P2   |Named locations may include the public IPv4 network information, country or region, or unknown areas that don't map to specific countries or regions. For more information, see [Locations](../active-directory/conditional-access/concept-conditional-access-conditions.md#locations).   |
 
 3. Under **Access controls**, select **Grant**. Then select whether to block or grant access:
 
@@ -170,7 +170,7 @@ Configure Conditional Access through the Azure portal or Microsoft Graph APIs to
 
 ### Enable template 1 with Conditional Access APIs (optional)
 
-Create a sign-in risk-based Conditional Access policy with MS Graph APIs. For more information, see [Conditional Access APIs](../active-directory/conditional-access/howto-conditional-access-apis.md#graph-api).
+Create a sign-in risk-based Conditional Access policy with MS Graph APIs. For more information, see [Conditional Access APIs](../active-directory/conditional-access/howto-conditional-access-apis.md#microsoft-graph-apis).
 The following template can be used to create a Conditional Access policy with display name "Template 1: Require MFA for medium+ sign-in risk" in report-only mode.
 
 ```json
@@ -232,7 +232,7 @@ To configure your user based conditional access:
 
 ### Enable template 2 with Conditional Access APIs (optional)
 
-To create a user risk-based Conditional Access policy with Conditional Access APIs, refer to the documentation for [Conditional Access APIs](../active-directory/conditional-access/howto-conditional-access-apis.md#graph-api).
+To create a user risk-based Conditional Access policy with Conditional Access APIs, refer to the documentation for [Conditional Access APIs](../active-directory/conditional-access/howto-conditional-access-apis.md#microsoft-graph-apis).
 
 The following template can be used to create a Conditional Access policy with display name "Template 2: Require secure password change for medium+ user risk" in report-only mode.
 
@@ -270,11 +270,7 @@ The following template can be used to create a Conditional Access policy with di
 
 ## Template 3: Block locations with Conditional Access
 
-With the location condition in Conditional Access, you can control access to your cloud apps based on the network location of a user. More information about the location condition in Conditional Access can be found in the article,
-[Using the location condition in a Conditional Access policy](../active-directory/conditional-access/location-condition.md
-
-Configure Conditional Access through Azure portal or Microsoft Graph APIs to enable a Conditional Access policy blocking access to specific locations.
-For more information about the location condition in Conditional Access can be found in the article, [Using the location condition in a Conditional Access policy](../active-directory/conditional-access/location-condition.md)
+With the location condition in Conditional Access, you can control access to your cloud apps based on the network location of a user. Configure Conditional Access via the Azure portal or Microsoft Graph APIs to enable a Conditional Access policy blocking access to specific locations. For more information, see [Using the location condition in a Conditional Access policy](../active-directory/conditional-access/location-condition.md)
 
 ### Define locations
 
@@ -307,7 +303,7 @@ To enable with condition access policy:
 
 ### Enable template 3 with Conditional Access APIs (optional)
 
-To create a location-based Conditional Access policy with Conditional Access APIs,  refer to the documentation for [Conditional Access APIs](../active-directory/conditional-access/howto-conditional-access-apis.md#graph-api). To set up Named Locations, refer to the documentations for [Named Locations](/graph/api/resources/namedlocation).
+To create a location-based Conditional Access policy with Conditional Access APIs,  refer to the documentation for [Conditional Access APIs](../active-directory/conditional-access/howto-conditional-access-apis.md#microsoft-graph-apis). To set up Named Locations, refer to the documentations for [Named Locations](/graph/api/resources/namedlocation).
 
 The following template can be used to create a Conditional Access policy with display name "Template 3: Block unallowed locations" in report-only mode.
 

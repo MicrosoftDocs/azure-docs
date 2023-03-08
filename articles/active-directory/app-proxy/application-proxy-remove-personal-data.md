@@ -2,12 +2,12 @@
 title: Remove personal data - Azure Active Directory Application Proxy
 description:  Remove personal data from connectors installed on devices for Azure Active Directory Application Proxy.
 author: kenwith
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/28/2021
+ms.date: 11/17/2022
 ms.author: kenwith
 ms.reviewer: harshja
 ---

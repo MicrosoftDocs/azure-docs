@@ -9,11 +9,6 @@ ms.date: 12/21/2021
 ms.custom: template-how-to
 ---
 
-<!-- 1. H1
-Required. Start your H1 with a verb. Pick an H1 that clearly conveys the task the 
-user will complete.
--->
-
 # Create a lab in Azure Education Hub through REST APIs.
 
 This article will walk you through how to create a lab, add students to that lab and verify that the lab has been created.

@@ -3,6 +3,7 @@ title: "Quickstart: Create a shared query with Azure CLI"
 description: In this quickstart, you follow the steps to enable the Resource Graph extension for Azure CLI and create a shared query.
 ms.date: 08/17/2021
 ms.topic: quickstart
+ms.custom: devx-track-azurecli
 ---
 # Quickstart: Create a Resource Graph shared query using Azure CLI
 
@@ -19,7 +20,7 @@ and create a Resource Graph shared query.
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account
 before you begin.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+<!-- [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)] -->
 
 ## Add the Resource Graph extension
 
@@ -32,18 +33,18 @@ Docker image](https://hub.docker.com/_/microsoft-azure-cli), or locally installe
    follow [these instructions](/cli/azure/install-azure-cli-windows).
 
 1. In your Azure CLI environment of choice, use
-   [az extension add](/cli/azure/extension#az_extension_add) to import the Resource Graph extension
+   [az extension add](/cli/azure/extension#az-extension-add) to import the Resource Graph extension
    with the following command:
 
-   ```azurecli-interactive
+   ```azurecli
    # Add the Resource Graph extension to the Azure CLI environment
    az extension add --name resource-graph
    ```
 
 1. Validate that the extension has been installed and is the expected version (at least **1.1.0**)
-   with [az extension list](/cli/azure/extension#az_extension_list):
+   with [az extension list](/cli/azure/extension#az-extension-list):
 
-   ```azurecli-interactive
+   ```azurecli
    # Check the extension list (note that you may have other extensions installed)
    az extension list
 
@@ -58,11 +59,11 @@ shared query. The shared query is an Azure Resource Manager object that you can 
 or run in Azure Resource Graph Explorer. The query summarizes the count of all resources grouped by
 _location_.
 
-1. Create a resource group with [az group create](/cli/azure/group#az_group_create) to store the
+1. Create a resource group with [az group create](/cli/azure/group#az-group-create) to store the
    Azure Resource Graph shared query. This resource group is named `resource-graph-queries` and the
    location is `westus2`.
 
-   ```azurecli-interactive
+   ```azurecli
    # Login first with az login if not using Cloud Shell
 
    # Create the resource group
@@ -70,10 +71,10 @@ _location_.
    ```
 
 1. Create the Azure Resource Graph shared query using the `graph` extension and
-   [az graph shared-query create](/cli/azure/graph/shared-query#az_graph_shared_query_create)
+   [az graph shared-query create](/cli/azure/graph/shared-query#az-graph-shared-query-create)
    command:
 
-   ```azurecli-interactive
+   ```azurecli
    # Create the Azure Resource Graph shared query
    az graph shared-query create --name 'Summarize resources by location' \
       --description 'This shared query summarizes resources by location for a pinnable map graphic.' \
@@ -82,31 +83,31 @@ _location_.
    ```
 
 1. List the shared queries in the new resource group. The
-   [az graph shared-query list](/cli/azure/graph/shared-query#az_graph_shared_query_list)
+   [az graph shared-query list](/cli/azure/graph/shared-query#az-graph-shared-query-list)
    command returns an array of values.
 
-   ```azurecli-interactive
+   ```azurecli
    # List all the Azure Resource Graph shared queries in a resource group
    az graph shared-query list --resource-group 'resource-graph-queries'
    ```
 
 1. To get just a single shared query result, use the
-   [az graph shared-query show](/cli/azure/graph/shared-query#az_graph_shared_query_show)
+   [az graph shared-query show](/cli/azure/graph/shared-query#az-graph-shared-query-show)
    command.
 
-   ```azurecli-interactive
+   ```azurecli
    # Show a specific Azure Resource Graph shared query
    az graph shared-query show --resource-group 'resource-graph-queries' \
       --name 'Summarize resources by location'
    ```
 
 1. Run the shared query in Azure CLI with the `{{shared-query-uri}}` syntax in an
-   [az graph query](/cli/azure/graph#az_graph_query) command.
+   [az graph query](/cli/azure/graph#az-graph-query) command.
    First, copy the `id` field from the result of the previous `show` command. Replace
    `shared-query-uri` text in the example with the value from the `id` field, but leave the
    surrounding `{{` and `}}` characters.
 
-   ```azurecli-interactive
+   ```azurecli
    # Run a Azure Resource Graph shared query
    az graph query --graph-query "{{shared-query-uri}}"
    ```
@@ -124,11 +125,11 @@ page, the **Query** tab displays the saved query. The **Edit** button opens it i
 If you wish to remove the Resource Graph shared query, resource group, and extension from your Azure
 CLI environment, you can do so by using the following commands:
 
-- [az graph shared-query delete](/cli/azure/graph/shared-query#az_graph_shared_query_delete)
-- [az group delete](/cli/azure/group#az_group_delete)
-- [az extension remove](/cli/azure/extension#az_extension_remove)
+- [az graph shared-query delete](/cli/azure/graph/shared-query#az-graph-shared-query-delete)
+- [az group delete](/cli/azure/group#az-group-delete)
+- [az extension remove](/cli/azure/extension#az-extension-remove)
 
-```azurecli-interactive
+```azurecli
 # Delete the Azure Resource Graph shared query
 az graph shared-query delete --resource-group 'resource-graph-queries' \
    --name 'Summarize resources by location'

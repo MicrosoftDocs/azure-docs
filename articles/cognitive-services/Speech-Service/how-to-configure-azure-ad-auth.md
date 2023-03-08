@@ -7,12 +7,12 @@ author: rhurey
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/18/2021
 ms.author: rhurey
 zone_pivot_groups: programming-languages-set-two
 ms.devlang: cpp, csharp, java, python
-
+ms.custom: devx-track-azurepowershell
 ---
 # Azure Active Directory Authentication with the Speech SDK
 
@@ -28,7 +28,7 @@ This article shows how to use Azure AD authentication with the Speech SDK. You'l
 > - Create the appropriate SDK configuration object.
 
 ## Create a Speech resource
-To create a Speech resource, see [Try Speech For Free](overview.md#try-the-speech-service-for-free).
+To create a Speech resource in the [Azure portal](https://portal.azure.com), see [Get the keys for your resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)
 
 ## Configure the Speech resource for Azure AD authentication
 
@@ -51,6 +51,7 @@ Here's an example of using Azure Identity to get an Azure AD access token from a
 TokenRequestContext context = new Azure.Core.TokenRequestContext(new string[] { "https://cognitiveservices.azure.com/.default" });
 InteractiveBrowserCredential browserCredential = new InteractiveBrowserCredential();
 var browserToken = browserCredential.GetToken(context);
+string aadToken = browserToken.Token;
 ```
 The token context must be set to "https://cognitiveservices.azure.com/.default".
 ::: zone-end
@@ -167,13 +168,14 @@ $resourceId = resource.Id
 ***
 
 ## Create the Speech SDK configuration object
+
 With an Azure AD access token, you can now create a Speech SDK configuration object.
 
 The method of providing the token, and the method to construct the corresponding Speech SDK ```Config``` object varies by the object you'll be using.
 
-### SpeechRecognizer, IntentRecognizer, ConversationTranscriber, and SpeechSynthesizer
+### SpeechRecognizer, SpeechSynthesizer, IntentRecognizer, ConversationTranscriber, and SourceLanguageRecognizer
 
-For ```SpeechRecognizer```, ```IntentRecognizer```, ```ConversationTranscriber```, and ```SpeechSynthesizer``` objects, build the authorization token from the resource ID and the Azure AD access token and then use it to create a ```SpeechConfig``` object.
+For ```SpeechRecognizer```, ```SpeechSynthesizer```, ```IntentRecognizer```, ```ConversationTranscriber```, and ```SourceLanguageRecognizer``` objects, build the authorization token from the resource ID and the Azure AD access token and then use it to create a ```SpeechConfig``` object.
 
 ::: zone pivot="programming-language-csharp"
 ```C#

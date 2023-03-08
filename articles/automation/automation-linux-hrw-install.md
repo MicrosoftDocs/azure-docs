@@ -17,18 +17,17 @@ The Linux Hybrid Runbook Worker executes runbooks as a special user that can be 
 After you successfully deploy a runbook worker, review [Run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md) to learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environment.
 
 > [!NOTE]
-> A hybrid worker can co-exist with both platforms: **Agent based (V1)** and **Extension based (V2)**. If you install Extension based (V2) on a hybrid worker already running Agent based (V1), then you would see two entries of the Hybrid Runbook Worker in the group. One with Platform Extension based (V2) and the other Agent based (V1). [**Learn more**](./extension-based-hybrid-runbook-worker-install.md#install-extension-based-v2-on-existing-agent-based-v1-hybrid-worker).
-
+> A hybrid worker can co-exist with both platforms: **Agent based (V1)** and **Extension based (V2)**. If you install Extension based (V2) on a hybrid worker already running Agent based (V1), then you would see two entries of the Hybrid Runbook Worker in the group. One with Platform Extension based (V2) and the other Agent based (V1). [**Learn more**](./extension-based-hybrid-runbook-worker-install.md#migrate-an-existing-agent-based-to-extension-based-hybrid-workers).
 
 ## Prerequisites
 
-Before you start, make sure that you have the following.
+Before you start, make sure that you've the following.
 
 ### A Log Analytics workspace
 
 The Hybrid Runbook Worker role depends on an Azure Monitor Log Analytics workspace to install and configure the role. You can create it through [Azure Resource Manager](../azure-monitor/logs/resource-manager-workspace.md#create-a-log-analytics-workspace), through [PowerShell](../azure-monitor/logs/powershell-workspace-configuration.md?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../azure-monitor/logs/quick-create-workspace.md).
 
-If you don't have an Azure Monitor Log Analytics workspace, review the [Azure Monitor Log design guidance](../azure-monitor/logs/design-logs-deployment.md) before you create the workspace.
+If you don't have an Azure Monitor Log Analytics workspace, review the [Azure Monitor Log design guidance](../azure-monitor/logs/workspace-design.md) before you create the workspace.
 
 ### Log Analytics agent
 
@@ -43,8 +42,15 @@ The Hybrid Runbook Worker feature supports the following distributions. All oper
 * Oracle Linux 6, 7, and 8
 * Red Hat Enterprise Linux Server 5, 6, 7, and 8
 * Debian GNU/Linux 6, 7, and 8
-* Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS, 18.04, and 20.04 LTS
-* SUSE Linux Enterprise Server 12, 15, and 15.1 (SUSE didn't release versions numbered 13 or 14)
+* SUSE Linux Enterprise Server 12, 15, and 15.1 (SUSE didn't release versions numbered 13 or 14) 
+* Ubuntu
+
+   **Linux OS** | **Name** |
+  ---|--- |
+  20.04 LTS | Focal Fossa 
+  18.04 LTS | Bionic Beaver 
+  16.04 LTS | Xenial Xerus   
+  14.04 LTS | Trusty Tahr  
 
 > [!IMPORTANT]
 > Before enabling the Update Management feature, which depends on the system Hybrid Runbook Worker role, confirm the distributions it supports [here](update-management/operating-system-requirements.md).
@@ -155,7 +161,7 @@ To install and configure a Linux Hybrid Runbook Worker, perform the following st
 
       - Using Azure Policy.
 
-        Using this approach, you use the Azure Policy [Deploy Log Analytics agent to Linux or Windows Azure Arc machines](../governance/policy/samples/built-in-policies.md#monitoring) built-in policy definition to audit if the Arc-enabled server has the Log Analytics agent installed. If the agent isn't installed, it automatically deploys it using a remediation task. If you plan to monitor the machines with Azure Monitor for VMs, instead use the [Enable Azure Monitor for VMs](../governance/policy/samples/built-in-initiatives.md#monitoring) initiative to install and configure the Log Analytics agent.
+        Using this approach, you use the Azure Policy [Deploy Log Analytics agent to Linux or Microsoft Azure Arc machines](../governance/policy/samples/built-in-policies.md#monitoring) built-in policy definition to audit if the Arc-enabled server has the Log Analytics agent installed. If the agent isn't installed, it automatically deploys it using a remediation task. If you plan to monitor the machines with Azure Monitor for VMs, instead use the [Enable Azure Monitor for VMs](../governance/policy/samples/built-in-initiatives.md#monitoring) initiative to install and configure the Log Analytics agent.
 
       We recommend installing the Log Analytics agent for Windows or Linux using Azure Policy.
 
@@ -221,10 +227,31 @@ sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessK
 > [!NOTE]
 > - This script doesn't remove the Log Analytics agent for Linux from the machine. It only removes the functionality and configuration of the Hybrid Runbook Worker role. </br>
 > - After you disable the Private Link in your Automation account, it might take up to 60 minutes to remove the Hybrid Runbook worker.
+> - After you remove the Hybrid Worker, the Hybrid Worker authentication certificate on the machine is valid for 45 minutes.
 
 ## Remove a Hybrid Worker group
 
 To remove a Hybrid Runbook Worker group of Linux machines, you use the same steps as for a Windows hybrid worker group. See [Remove a Hybrid Worker group](automation-windows-hrw-install.md#remove-a-hybrid-worker-group).
+
+## Manage Role permissions for Hybrid Worker Groups and Hybrid Workers
+
+You can create custom Azure Automation roles and grant following permissions to Hybrid Worker Groups and Hybrid Workers. To learn more about how to create Azure Automation custom roles, see [Azure custom roles](../role-based-access-control/custom-roles.md)
+
+**Actions** | **Description**
+--- | ---
+Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/read | Reads a Hybrid Runbook Worker Group.
+Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/write | Creates a Hybrid Runbook Worker Group.
+Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/delete | Deletes a Hybrid Runbook Worker Group.
+Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/hybridRunbookWorkers/read | Reads a Hybrid Runbook Worker.
+Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/hybridRunbookWorkers/delete| Deletes a Hybrid Runbook Worker.
+
+
+## Check version of Hybrid Worker
+To check the version of agent-based Linux Hybrid Runbook Worker, go to the following path:
+
+`vi/opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/VERSION`
+
+The file *VERSION* has the version number of Hybrid Runbook Worker. 
 
 ## Next steps
 

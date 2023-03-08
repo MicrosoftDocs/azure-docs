@@ -6,7 +6,7 @@ services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 08/28/2021
+ms.date: 06/15/2022
 ms.topic: how-to
 
 ---
@@ -31,19 +31,9 @@ You land on the Azure IoT Central Application Manager page. Azure IoT Central ke
 
 ![Create Manager for CSPs](media/howto-create-and-manage-applications-csp/image3.png)
 
-To create an Azure IoT Central application, select **Build** in the left menu. Choose one of the industry templates, or choose **Custom app** to create an application from scratch. This will load the Application Creation page. You must complete all the fields on this page and then choose **Create**. You find more information about each of the fields below.
+:::image type="content" source="media/howto-create-and-manage-applications-csp/iot-central-landing-page.png" alt-text="Screenshot of the IoT Central application manager page.":::
 
-![Screenshot that shows the "Build your IoT application" page with the "Build" button selected.](media/howto-create-and-manage-applications-csp/image4.png)
-
-![Create Application Page for CSPs](media/howto-create-and-manage-applications-csp/image4-1.png)
-
-![Create Application Page for CSPs Billing Info](media/howto-create-and-manage-applications-csp/image4-2.png)
-
-## Pricing plan
-
-You can only create applications that use a standard pricing plan as a CSP. To showcase Azure IoT Central to your customer, you can create an application that uses the free pricing plan separately. Learn more about the free and standard pricing plans on the [Azure IoT Central pricing page](https://azure.microsoft.com/pricing/details/iot-central/).
-
-You can only create applications that use a standard pricing plan as a CSP. To showcase Azure IoT Central to your customer, you can create an application that uses the free pricing plan separately. Learn more about the free and standard pricing plans on the [Azure IoT Central pricing page](https://azure.microsoft.com/pricing/details/iot-central/).
+To create an Azure IoT Central application, select **Build** in the left menu. Choose one of the industry templates, or choose **Custom app** to create an application from scratch. This will load the Application Creation page. You must complete all the fields on this page and then choose **Create**. 
 
 ## Application name
 
@@ -73,7 +63,7 @@ To learn more, see [Azure subscriptions](../../guides/developer/azure-developer-
 
 ## Location
 
-**Location** is where you'd like to create the application. Typically, you should choose the location that's physically closest to your devices to get optimal performance. Currently, you can create an IoT Central application in the **Australia East**, **Central US**, **East US**, **East US 2**, **Japan East**, **North Europe**, **Southeast Asia**, **UK South**, **West Europe** and **West US** regions. Once you choose a location, you can't later move your application to a different location.
+**Location** is where you'd like to create the application. Typically, you should choose the location that's physically closest to your devices to get optimal performance. Currently, you can create an IoT Central application in the **Australia East**, **Canada Central**, **Central US**, **East US**, **East US 2**, **Japan East**, **North Europe**, **South Central US**, **Southeast Asia**, **UK South**, **West Europe**, and **West US** regions. Once you choose a location, you can't later move your application to a different location.
 
 ## Application template
 

@@ -2,17 +2,15 @@
 title: Incoming Request Tracking in Azure Application Insights with OpenCensus Python | Microsoft Docs
 description: Monitor request calls for your Python apps via OpenCensus Python.
 ms.topic: conceptual
-author: lzchen
-ms.author: lechen
-ms.date: 10/15/2019
+ms.date: 8/19/2022
 ms.devlang: python
 ms.custom: devx-track-python
-
+ms.reviewer: mmcc
 ---
 
 # Track incoming requests with OpenCensus Python
 
-Incoming request data is collected using OpenCensus Python and its various integrations. Track incoming request data sent to your web applications built on top of the popular web frameworks `django`, `flask` and `pyramid`. The data is then sent to Application Insights under Azure Monitor as `requests` telemetry.
+OpenCensus Python and its integrations collect incoming request data. Track incoming request data sent to your web applications built on top of the popular web frameworks `django`, `flask` and `pyramid`. Application Insights receives the data as `requests` telemetry
 
 First, instrument your Python application with latest [OpenCensus Python SDK](./opencensus-python.md).
 
@@ -30,7 +28,8 @@ First, instrument your Python application with latest [OpenCensus Python SDK](./
     )
     ```
 
-3. Make sure AzureExporter is properly configured in your `settings.py` under `OPENCENSUS`. For requests from urls that you do not wish to track, add them to `EXCLUDELIST_PATHS`.
+3. Make sure AzureExporter is configured properly in your `settings.py` under `OPENCENSUS`. For requests from urls that you don't wish to track, add them to `EXCLUDELIST_PATHS`.
+
 
     ```python
     OPENCENSUS = {
@@ -44,6 +43,7 @@ First, instrument your Python application with latest [OpenCensus Python SDK](./
     }
     ```
 
+You can find a Django sample application in the sample Azure Monitor OpenCensus Python samples repository located [here](https://github.com/Azure-Samples/azure-monitor-opencensus-python/tree/master/azure_monitor/django_sample).
 ## Tracking Flask applications
 
 1. Download and install `opencensus-ext-flask` from [PyPI](https://pypi.org/project/opencensus-ext-flask/) and instrument your application with the `flask` middleware. Incoming requests sent to your `flask` application will be tracked.
@@ -71,7 +71,7 @@ First, instrument your Python application with latest [OpenCensus Python SDK](./
     
     ```
 
-2. You can also configure your `flask` application through `app.config`. For requests from urls that you do not wish to track, add them to `EXCLUDELIST_PATHS`.
+2. You can also configure your `flask` application through `app.config`. For requests from urls that you don't wish to track, add them to `EXCLUDELIST_PATHS`.
 
     ```python
     app.config['OPENCENSUS'] = {
@@ -88,6 +88,8 @@ First, instrument your Python application with latest [OpenCensus Python SDK](./
     > [!NOTE]
     > To run Flask under uWSGI in a Docker environment, you must first add `lazy-apps = true` to the uWSGI configuration file (uwsgi.ini). For more information, see the [issue description](https://github.com/census-instrumentation/opencensus-python/issues/660). 
     
+You can find a Flask sample application that tracks requests in the Azure Monitor OpenCensus Python samples repository located [here](https://github.com/Azure-Samples/azure-monitor-opencensus-python/tree/master/azure_monitor/flask_sample).
+
 ## Tracking Pyramid applications
 
 1. Download and install `opencensus-ext-django` from [PyPI](https://pypi.org/project/opencensus-ext-pyramid/) and instrument your application with the `pyramid` tween. Incoming requests sent to your `pyramid` application will be tracked.
@@ -100,7 +102,7 @@ First, instrument your Python application with latest [OpenCensus Python SDK](./
                          '.pyramid_middleware.OpenCensusTweenFactory')
     ```
 
-2. You can configure your `pyramid` tween directly in the code. For requests from urls that you do not wish to track, add them to `EXCLUDELIST_PATHS`.
+2. You can configure your `pyramid` tween directly in the code. For requests from urls that you don't wish to track, add them to `EXCLUDELIST_PATHS`.
 
     ```python
     settings = {
@@ -124,6 +126,8 @@ OpenCensus doesn't have an extension for FastAPI. To write your own FastAPI midd
 1. The following dependencies are required: 
     - [fastapi](https://pypi.org/project/fastapi/)
     - [uvicorn](https://pypi.org/project/uvicorn/)
+      
+      In a production setting, we recommend that you deploy [uvicorn with gunicorn](https://www.uvicorn.org/deployment/#gunicorn).
 
 2. Add [FastAPI middleware](https://fastapi.tiangolo.com/tutorial/middleware/). Make sure that you set the span kind server: `span.span_kind = SpanKind.SERVER`.
 
@@ -145,11 +149,14 @@ OpenCensus doesn't have an extension for FastAPI. To write your own FastAPI midd
 
     HTTP_URL = COMMON_ATTRIBUTES['HTTP_URL']
     HTTP_STATUS_CODE = COMMON_ATTRIBUTES['HTTP_STATUS_CODE']
+    
+    exporter=AzureExporter(connection_string='<your-appinsights-connection-string-here>')
+    sampler=ProbabilitySampler(1.0)
 
     # fastapi middleware for opencensus
     @app.middleware("http")
-    async def middlewareOpencensus(request: Request, call_next):
-        tracer = Tracer(exporter=AzureExporter(connection_string=f'InstrumentationKey={APPINSIGHTS_INSTRUMENTATIONKEY}'),sampler=ProbabilitySampler(1.0))
+    async def middlewareOpencensus(request: Request, call_next):  
+        tracer = Tracer(exporter=exporter, sampler=sampler)       
         with tracer.span("main") as span:
             span.span_kind = SpanKind.SERVER
 
@@ -175,7 +182,7 @@ OpenCensus doesn't have an extension for FastAPI. To write your own FastAPI midd
 ## Next steps
 
 * [Application Map](./app-map.md)
-* [Availability](./monitor-web-app-availability.md)
+* [Availability](./availability-overview.md)
 * [Search](./diagnostic-search.md)
 * [Log (Analytics) query](../logs/log-query-overview.md)
 * [Transaction diagnostics](./transaction-diagnostics.md)

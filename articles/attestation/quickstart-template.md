@@ -3,11 +3,11 @@ title: Create an Azure Attestation certificate by using Azure Resource Manager t
 description: Learn how to create an Azure Attestation certificate by using Azure Resource Manager template.
 services: azure-resource-manager
 author: msmbaldwin
-ms.service: azure-resource-manager
+ms.service: attestation
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
 ms.author: mbaldwin
-ms.date: 05/20/2021
+ms.date: 01/23/2023
 ---
 
 # Quickstart: Create an Azure Attestation provider with an ARM template

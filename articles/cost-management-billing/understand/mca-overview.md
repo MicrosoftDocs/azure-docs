@@ -6,7 +6,7 @@ ms.reviewer: amberbhargava
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 09/15/2021
+ms.date: 05/26/2022
 ms.author: banders
 ---
 
@@ -61,7 +61,7 @@ Azure plans determine the pricing and service level agreements for Azure subscri
 | Plan             | Definition  |
 |------------------|-------------|
 |Microsoft Azure Plan   | Allow users to create subscriptions that can run any workloads.  |
-|Microsoft Azure Plan for Dev/Test | Allow Visual Studio subscribers to create subscriptions that are restricted for development or testing workloads. These subscriptions get benefits such as lower rates and access to exclusive virtual machine images in the Azure portal. |
+|Microsoft Azure Plan for Dev/Test | Allow Visual Studio subscribers to create subscriptions that are restricted for development or testing workloads. These subscriptions get benefits such as lower rates and access to exclusive virtual machine images in the Azure portal. Azure Plan for DevTest is only available for Microsoft Customer Agreement customers who purchase through a Microsoft Sales representative. |
 
 ## Invoice sections
 

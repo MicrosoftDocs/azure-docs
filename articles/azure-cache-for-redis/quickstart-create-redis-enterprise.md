@@ -6,8 +6,8 @@ ms.author: franlanglois
 ms.service: cache
 ms.custom: mvc, mode-other
 ms.topic: quickstart
-ms.date: 02/08/2021
-#Customer intent: As a developer new to Azure Cache for Redis, I want to create an instance of Azure Cache for Redis Enterprise tier.
+ms.date: 04/12/2022
+
 ---
 # Quickstart: Create a Redis Enterprise cache
 
@@ -16,11 +16,15 @@ The Azure Cache for Redis Enterprise tiers provide fully integrated and managed 
 * Enterprise, which uses volatile memory (DRAM) on a virtual machine to store data
 * Enterprise Flash, which uses both volatile and non-volatile memory (NVMe or SSD) to store data.
 
-Both Enterprise and Enterprise Flash support open-source Redis 6 and some new features that aren't yet available in the Basic, Standard, or Premium tiers. The supported features include some Redis modules that enable additional features like search, bloom filters, and time series.  
+Both Enterprise and Enterprise Flash support open-source Redis 6 and some new features that aren't yet available in the Basic, Standard, or Premium tiers. The supported features include some Redis modules that enable other features like search, bloom filters, and time series.  
 
 ## Prerequisites
 
 You'll need an Azure subscription before you begin. If you don't have one, create an [account](https://azure.microsoft.com/). For more information, see [special considerations for Enterprise tiers](cache-overview.md#special-considerations-for-enterprise-tiers).
+
+### Availability by region
+
+Azure Cache for Redis is continually expanding into new regions. To check the availability by region for all tiers, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=redis-cache&regions=all).
 
 ## Create a cache
 
@@ -48,16 +52,16 @@ You'll need an Azure subscription before you begin. If you don't have one, creat
 
 1. Select **Next: Networking** and skip.
 
-1. Select **Next: Advanced**.     
-   
+1. Select **Next: Advanced**.
+
    Enable **Non-TLS access only** if you plan to connect to the new cache without using TLS. Disabling TLS is **not** recommended, however.
 
    Set **Clustering policy** to **Enterprise** for a non-clustered cache. For more information on choosing **Clustering policy**, see [Clustering Policy](#clustering-policy).
 
-   :::image type="content" source="media/cache-create/enterprise-tier-advanced.png" alt-text="Screenshot that shows the Enterprise tier Advanced tab.":::
+   :::image type="content" source="media/cache-create/cache-clustering-policy.png" alt-text="Screenshot that shows the Enterprise tier Advanced tab.":::
 
    > [!NOTE]
-   > Redis Enterprise supports two clustering policies. Use the **Enterprise** policy to access your cache using the regular Redis API, and **OSS** the OSS Cluster API.
+   > Redis Enterprise supports two clustering policies. Use the **Enterprise** policy to access your cache using the regular Redis API. Use **OSS** to use the OSS Cluster API.
    >
 
    > [!NOTE]
@@ -78,7 +82,7 @@ You'll need an Azure subscription before you begin. If you don't have one, creat
 
 The OSS Cluster mode allows clients to communicate with Redis using the same Redis Cluster API as open-source Redis. This mode provides optimal latency and near-linear scalability improvements when scaling the cluster. Your client library must support clustering to use the OSS Cluster mode.
 
-The Enterprise Cluster mode is a simpler configuration that exposes a single endpoint for client connections. This mode allows an application designed to use a standalone, or non-clustered, Redis server to seamlessly operate with a scalable, multi-node, Redis implementation. Enterprise Cluster mode abstracts the Redis Cluster implementation from the client by internally routing requests to the correct node in the cluster. Clients are not required to support OSS Cluster mode.
+The Enterprise Cluster mode is a simpler configuration that exposes a single endpoint for client connections. This mode allows an application designed to use a standalone, or non-clustered, Redis server to seamlessly operate with a scalable, multi-node, Redis implementation. Enterprise Cluster mode abstracts the Redis Cluster implementation from the client by internally routing requests to the correct node in the cluster. Clients aren't required to support OSS Cluster mode.
 
 ## Next steps
 

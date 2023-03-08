@@ -4,7 +4,7 @@ description: This topic walks you through how to select the installation type to
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 editor: ''
 
 ms.assetid:
@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 07/12/2017
+ms.date: 01/26/2023
 ms.subservice: hybrid
 ms.author: billmath
 

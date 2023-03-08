@@ -1,14 +1,13 @@
 ---
 title: Set up Message Passing Interface (MPI) for HPC - Azure Virtual Machines | Microsoft Docs
 description: Learn how to set up MPI for HPC on Azure. 
-author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 01/10/2022
-ms.author: amverma
+ms.date: 03/04/2023
 ms.reviewer: cynthn
-
+ms.author: mamccrea
+author: mamccrea
 ---
 
 # Set up Message Passing Interface for HPC
@@ -49,7 +48,7 @@ make -j 8 && make install
 ```
 
 > [!NOTE]
-> Recent builds of UCX have fixed an [issue](https://github.com/openucx/ucx/pull/5965) whereby the right InfiniBand interface is chosen in the presence of multiple NIC interfaces. For more information, see [Troubleshooting known issues with HPC and GPU VMs](hb-hc-known-issues.md#accelerated-networking-on-hb-hc-hbv2-hbv3-and-ndv2) on running MPI over InfiniBand when Accelerated Networking is enabled on the VM.
+> Recent builds of UCX have fixed an [issue](https://github.com/openucx/ucx/pull/5965) whereby the right InfiniBand interface is chosen in the presence of multiple NIC interfaces. For more information, see [Troubleshooting known issues with HPC and GPU VMs](hb-hc-known-issues.md) on running MPI over InfiniBand when Accelerated Networking is enabled on the VM.
 
 ## HPC-X
 
@@ -326,7 +325,7 @@ The above syntax assumes a shared home directory, else .ssh directory must be co
 ## Next steps
 
 - Learn about the [InfiniBand enabled](../../sizes-hpc.md#rdma-capable-instances) [H-series](../../sizes-hpc.md) and [N-series](../../sizes-gpu.md) VMs
-- Review the [HBv3-series overview](hbv3-series-overview.md) and [HC-series overview](hc-series-overview.md).
+- Review the [HBv3-series overview](../../hbv3-series-overview.md) and [HC-series overview](../../hc-series-overview.md).
 - Read [Optimal MPI process placement for HB-series VMs](https://techcommunity.microsoft.com/t5/azure-global/optimal-mpi-process-placement-for-azure-hb-series-vms/ba-p/2450663).
 - Read about the latest announcements, HPC workload examples, and performance results at the [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 - For a higher level architectural view of running HPC workloads, see [High Performance Computing (HPC) on Azure](/azure/architecture/topics/high-performance-computing/).

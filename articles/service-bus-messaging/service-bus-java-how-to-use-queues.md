@@ -1,7 +1,7 @@
 ---
 title: Get started with Azure Service Bus queues (Java)
 description: This tutorial shows you how to send messages to and receive messages from Azure Service Bus queues using the Java programming language.
-ms.date: 02/13/2021
+ms.date: 03/24/2022
 ms.topic: quickstart
 ms.devlang: java
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java, mode-api
@@ -18,6 +18,9 @@ In this quickstart, you'll create a Java app to send messages to and receive mes
 
 > [!NOTE]
 > This quick start provides step-by-step instructions for a simple scenario of sending messages to a Service Bus queue and receiving them. You can find pre-built Java samples for Azure Service Bus in the [Azure SDK for Java repository on GitHub](https://github.com/azure/azure-sdk-for-java/tree/main/sdk/servicebus/azure-messaging-servicebus/src/samples). 
+
+> [!TIP]
+> If you're working with Azure Service Bus resources in a Spring application, we recommend that you consider [Spring Cloud Azure](/azure/developer/java/spring-framework/) as an alternative. Spring Cloud Azure is an open-source project that provides seamless Spring integration with Azure services. To learn more about Spring Cloud Azure, and to see an example using Service Bus, see [Spring Cloud Stream with Azure Service Bus](/azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-with-service-bus).
 
 ## Prerequisites
 - An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
@@ -55,15 +58,10 @@ If you are using Eclipse and created a Java console application, convert your Ja
 		</plugins>
 	</build>
 	<dependencies>
-  		<dependency>
-    		<groupId>com.azure</groupId>
-    		<artifactId>azure-core</artifactId>
-    		<version>1.13.0</version>
-		</dependency>
 		<dependency>
     		<groupId>com.azure</groupId>
     		<artifactId>azure-messaging-servicebus</artifactId>
-    		<version>7.0.2</version>
+    		<version>7.7.0</version>
 		</dependency>
 	</dependencies>
 </project>

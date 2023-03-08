@@ -1,7 +1,6 @@
 ---
 title: 'Tutorial: Sentiment analysis with Cognitive Services'
 description: Learn how to use Cognitive Services for sentiment analysis in Azure Synapse Analytics
-services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: machine-learning
 ms.topic: tutorial
@@ -40,7 +39,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 You'll need a Spark table for this tutorial.
 
-1. Download the [FabrikamComments.csv](https://github.com/Kaiqb/KaiqbRepo0731190208/blob/master/CognitiveServices/TextAnalytics/FabrikamComments.csv) file, which contains a dataset for text analytics. 
+1. Download the [FabrikamComments.csv](https://github.com/aghonaim/datasets/blob/master/FabrikamComments.csv) file, which contains a dataset for text analytics. 
 
 1. Upload the file to your Azure Synapse storage account in Data Lake Storage Gen2.
   
@@ -97,4 +96,5 @@ The sentiments are returned as **positive**, **negative**, **neutral**, or **mix
 ## Next steps
 - [Tutorial: Anomaly detection with Azure Cognitive Services](tutorial-cognitive-services-anomaly.md)
 - [Tutorial: Machine learning model scoring in Azure Synapse dedicated SQL pools](tutorial-sql-pool-model-scoring-wizard.md)
+- [SynapseML text sentiment analysis](https://microsoft.github.io/SynapseML/docs/documentation/transformers/transformers_cognitive/#textsentiment)
 - [Machine Learning capabilities in Azure Synapse Analytics](what-is-machine-learning.md)

@@ -2,6 +2,8 @@
 title: Add tags to a lab
 description: Learn how to create custom tags in Azure DevTest Labs and use tags to categorize resources. You can see all the resources in your subscription that have a tag.
 ms.topic: how-to
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 06/26/2020
 ---
 

@@ -2,7 +2,7 @@
 author: xixian73
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 12/01/2021
+ms.date: 08/02/2022
 ms.author: xixian
 ---
 
@@ -10,7 +10,7 @@ Get started with Azure Communication Services by using the Communication Service
 
 ## Sample Code
 
-If you'd like to skip ahead to the end, you can download this quickstart as a sample on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-video-calling).
+If you'd like to skip ahead to the end, you can download this quickstart as a sample on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-cte-video-calling).
 
 ## Prerequisites
 - Obtain an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -28,10 +28,10 @@ mkdir calling-quickstart && cd calling-quickstart
 ### Install the package
 Use the `npm install` command to install the Azure Communication Services Calling SDK for JavaScript.
 > [!IMPORTANT]
-> This quickstart uses the Azure Communication Services Calling SDK version `1.3.2-beta.1`.
+> This quickstart uses the Azure Communication Services Calling SDK version `1.8.1-beta.1`.
 ```console
 npm install @azure/communication-common --save
-npm install @azure/communication-calling@1.3.2-beta.1 --save
+npm install @azure/communication-calling@1.8.1-beta.1 --save
 ```
 ### Set up the app framework
 This quickstart uses webpack to bundle the application assets. Run the following command to install the `webpack`, `webpack-cli` and `webpack-dev-server` npm packages and list them as development dependencies in your `package.json`:
@@ -55,16 +55,12 @@ Here's the code:
             type="text"
             placeholder="User access token"
             style="margin-bottom:1em; width: 500px;"/>
-        <button id="initialize-call-agent" type="button">Initialize Call Agent</button>
+        <button id="initialize-teams-call-agent" type="button">Initialize Teams Call Agent</button>
         <br>
         <br>
         <input id="callee-teams-user-id"
             type="text"
             placeholder="Enter callee's Teams user identity in format: '8:orgid:USER_GUID'"
-            style="margin-bottom:1em; width: 500px; display: block;"/>
-        <input id="teams-thread-id"
-            type="text"
-            placeholder="Enter Teams thread id"
             style="margin-bottom:1em; width: 500px; display: block;"/>
         <button id="start-call-button" type="button" disabled="true">Start Call</button>
         <button id="hangup-call-button" type="button" disabled="true">Hang up Call</button>
@@ -84,17 +80,17 @@ Here's the code:
 </html>
 ```
 
-## ACS Calling Web SDK Object model
+## Azure Communication Services Calling Web SDK Object model
 
 The following classes and interfaces handle some of the main features of the Azure Communication Services Calling SDK:
 
 | Name                                | Description                                                                                                                              |
 | ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
 | `CallClient`                        | The main entry point to the Calling SDK.                                                                                                 |
-| `AzureCommunicationTokenCredential` | Implements the `CommunicationTokenCredential` interface, which is used to instantiate `callAgent`.                                       |
-| `CallAgent`                         | Used to start and manage calls.                                                                                                          |
+| `AzureCommunicationTokenCredential` | Implements the `CommunicationTokenCredential` interface, which is used to instantiate `teamsCallAgent`.                                       |
+| `TeamsCallAgent`                         | Used to start and manage Teams calls.                                                                                                          |
 | `DeviceManager`                     | Used to manage media devices.                                                                                                            |
-| `Call`                              | Used for representing a Call                                                                                                              |
+| `TeamsCall`                              | Used for representing a Teams Call                                                                                                              |
 | `LocalVideoStream`                  | Used for creating a local video stream for a camera device on the local system.                                                          |
 | `RemoteParticipant`                 | Used for representing a remote participant in the Call                                                                                   |
 | `RemoteVideoStream`                 | Used for representing a remote video stream from a Remote Participant.        
@@ -111,7 +107,7 @@ AzureLogger.log = (...args) => {
     console.log(...args);
 };
 // Calling web sdk objects
-let callAgent;
+let teamsCallAgent;
 let deviceManager;
 let call;
 let incomingCall;
@@ -120,8 +116,7 @@ let localVideoStreamRenderer;
 // UI widgets
 let userAccessToken = document.getElementById('user-access-token');
 let calleeTeamsUserId = document.getElementById('callee-teams-user-id');
-let teamsThreadId = document.getElementById('teams-thread-id');
-let initializeCallAgentButton = document.getElementById('initialize-call-agent');
+let initializeCallAgentButton = document.getElementById('initialize-teams-call-agent');
 let startCallButton = document.getElementById('start-call-button');
 let hangUpCallButton = document.getElementById('hangup-call-button');
 let acceptCallButton = document.getElementById('accept-call-button');
@@ -131,20 +126,20 @@ let connectedLabel = document.getElementById('connectedLabel');
 let remoteVideoContainer = document.getElementById('remoteVideoContainer');
 let localVideoContainer = document.getElementById('localVideoContainer');
 /**
- * Create an instance of CallClient. Initialize a CallAgent instance with a CommunicationUserCredential via created CallClient. CallAgent enables us to make outgoing calls and receive incoming calls. 
+ * Create an instance of CallClient. Initialize a TeamsCallAgent instance with a CommunicationUserCredential via created CallClient. TeamsCallAgent enables us to make outgoing calls and receive incoming calls. 
  * You can then use the CallClient.getDeviceManager() API instance to get the DeviceManager.
  */
 initializeCallAgentButton.onclick = async () => {
     try {
         const callClient = new CallClient(); 
         tokenCredential = new AzureCommunicationTokenCredential(userAccessToken.value.trim());
-        callAgent = await callClient.createCallAgent(tokenCredential)
+        teamsCallAgent = await callClient.createTeamsCallAgent(tokenCredential)
         // Set up a camera device to use.
         deviceManager = await callClient.getDeviceManager();
         await deviceManager.askDevicePermission({ video: true });
         await deviceManager.askDevicePermission({ audio: true });
         // Listen for an incoming call to accept.
-        callAgent.on('incomingCall', async (args) => {
+        teamsCallAgent.on('incomingCall', async (args) => {
             try {
                 incomingCall = args.incomingCall;
                 acceptCallButton.disabled = false;
@@ -171,7 +166,7 @@ startCallButton.onclick = async () => {
     try {
         const localVideoStream = await createLocalVideoStream();
         const videoOptions = localVideoStream ? { localVideoStreams: [localVideoStream] } : undefined;
-        call = callAgent.startCall([{ microsoftTeamsUserId: calleeTeamsUserId.value.trim() }], { videoOptions: videoOptions, threadId: teamsThreadId });
+        call = teamsCallAgent.startCall([{ microsoftTeamsUserId: calleeTeamsUserId.value.trim() }], { videoOptions: videoOptions });
         // Subscribe to the call's properties and events.
         subscribeToCall(call);
     } catch (error) {
@@ -181,7 +176,7 @@ startCallButton.onclick = async () => {
 /**
  * Accepting an incoming call with a video
  * Add an event listener to accept a call when the `acceptCallButton` is selected.
- * You can accept incoming calls after subscribing to the `CallAgent.on('incomingCall')` event.
+ * You can accept incoming calls after subscribing to the `TeamsCallAgent.on('incomingCall')` event.
  * You can pass the local video stream to accept the call with the following code.
  */
 acceptCallButton.onclick = async () => {
@@ -402,7 +397,7 @@ On the first tab, enter a valid user access token. On the second tab, enter anot
 On both tabs, click on the "Initialize Call Agent" buttons. Tabs should show the similar result like the following image:
 :::image type="content" source="../../media/javascript/1-on-1-video-calling-b.png" alt-text="Screenshot is showing steps to initialize each Teams user in the browser tab."  lightbox="../../media/javascript/1-on-1-video-calling-b.png":::
 
-On the first tab, enter the ACS user identity of the second tab, and select the "Start Call" button. The first tab will start the outgoing call to the second tab, and the second tab's "Accept Call" button becomes enabled:
+On the first tab, enter the Azure Communication Services user identity of the second tab, and select the "Start Call" button. The first tab will start the outgoing call to the second tab, and the second tab's "Accept Call" button becomes enabled:
 :::image type="content" source="../../media/javascript/1-on-1-video-calling-c.png" alt-text="Screenshot is showing experience when Teams users initialize the SDK and shows steps to start a call to second user and way how to accept the call." lightbox="../../media/javascript/1-on-1-video-calling-c.png":::
 
 From the second tab, select the "Accept Call" button. The call will be answered and connected. Tabs should show the similar result like the following image:

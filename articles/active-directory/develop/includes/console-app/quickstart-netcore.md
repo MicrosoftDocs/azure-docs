@@ -1,22 +1,21 @@
 ---
-title: "Quickstart: Get token & call Microsoft Graph in a console app | Azure"
-titleSuffix: Microsoft identity platform
+title: "Quickstart: Get token & call Microsoft Graph in a console app"
 description: In this quickstart, you learn how a .NET Core sample app can use the client credentials flow to get a token and call Microsoft Graph.
 services: active-directory
-author: jmprieur
+author: OwenRichards1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: include
 ms.workload: identity
-ms.date: 01/10/2022
-ms.author: jmprieur
-ms.reviewer: marsma
+ms.date: 12/08/2022
+ms.author: owenrichards
+ms.reviewer: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, "scenarios:getting-started", "languages:aspnet-core", mode-other
 #Customer intent: As an application developer, I want to learn how my .NET Core app can get an access token and call an API that's protected by the Microsoft identity platform by using the client credentials flow.
 ---
 
-In this quickstart, you download and run a code sample that demonstrates how a .NET Core console application can get an access token to call the Microsoft Graph API and display a [list of users](/graph/api/user-list) in the directory. The code sample also demonstrates how a job or a Windows service can run with an application identity, instead of a user's identity. The sample console application in this quickstart is also a daemon application, so it's a confidential client application.
+The following quickstart uses a code sample to demonstrates how a .NET Core console application can get an access token to call the Microsoft Graph API and display a [list of users](/graph/api/user-list) in the directory. It also demonstrates how a job or a Windows service can run with an application identity, instead of a user's identity. The sample console application in this quickstart is also a daemon application, therefore it's a confidential client application.
 
 The following diagram shows how the sample app works:
 
@@ -24,17 +23,15 @@ The following diagram shows how the sample app works:
 
 ## Prerequisites
 
-This quickstart requires [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download) but will also work with .NET 5.0 SDK.
-
+This quickstart requires [.NET Core 6.0 SDK](https://dotnet.microsoft.com/download).
 
 ## Register and download the app
 
-
-You have two options to start building your application: automatic or manual configuration.
+The application can be built using either an automatic or manual configuration.
 
 ### Automatic configuration
 
-If you want to register and automatically configure your app and then download the code sample, follow these steps:
+To register and automatically configure the app and then download the code sample, follow these steps:
 
 1. Go to the [Azure portal page for app registration](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/DotNetCoreDaemonQuickstartPage/sourceType/docs).
 1. Enter a name for your application and select **Register**.
@@ -42,16 +39,17 @@ If you want to register and automatically configure your app and then download t
 
 ### Manual configuration
 
-If you want to manually configure your application and code sample, use the following procedures.
+To manually configure your application and code sample, use the following procedures.
 
 #### Step 1: Register your application
-To register your application and add the app's registration information to your solution manually, follow these steps:
+
+To register the application and add the registration information to the solution manually, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="../../media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
+1. If access to multiple tenants is available, use the **Directories + subscriptions** filter :::image type="icon" source="../../media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which to register the application.
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations** > **New registration**.
-1. For **Name**, enter a name for your application. For example, enter **Daemon-console**. Users of your app will see this name, and you can change it later.
+1. For **Name**, enter a name for the application. For example, enter **Daemon-console**. Users of the app will see this name, and can be changed later.
 1. Select **Register** to create the application.
 1. Under **Manage**, select **Certificates & secrets**.
 1. Under **Client secrets**, select **New client secret**, enter a name, and then select **Add**. Record the secret value in a safe location for use in a later step.
@@ -61,84 +59,80 @@ To register your application and add the app's registration information to your 
 
 #### Step 2: Download your Visual Studio project
 
-
 [Download the Visual Studio project](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/master.zip)
 
-You can run the provided project in either Visual Studio or Visual Studio for Mac.
-
+This project can be run in either Visual Studio or Visual Studio for Mac and can be downloaded from the [code sample](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/master.zip).
 
 [!INCLUDE [active-directory-develop-path-length-tip](../../../../../includes/active-directory-develop-path-length-tip.md)]
 
-
 #### Step 3: Configure your Visual Studio project
 
-1. Extract the .zip file to a local folder that's close to the root of the disk. For example, extract to *C:\Azure-Samples*.
-
-   We recommend extracting the archive into a directory near the root of your drive to avoid errors caused by path length limitations on Windows.
+1. Extract the *.zip* file to a local folder that's close to the root of the disk to avoid errors caused by path length limitations on Windows. For example, extract to *C:\Azure-Samples*.
 
 1. Open the solution in Visual Studio: *1-Call-MSGraph\daemon-console.sln* (optional).
-1. In *appsettings.json*, replace the values of `Tenant`, `ClientId`, and `ClientSecret`:
+1. In *appsettings.json*, replace the values of `Tenant`, `ClientId`, and `ClientSecret`. The value for the application (client) ID and the directory (tenant) ID, can be found in the app's **Overview** page on the Azure portal.
 
    ```json
    "Tenant": "Enter_the_Tenant_Id_Here",
    "ClientId": "Enter_the_Application_Id_Here",
    "ClientSecret": "Enter_the_Client_Secret_Here"
    ```
-   In that code:
-   - `Enter_the_Application_Id_Here` is the application (client) ID for the application that you registered.
-        To find the values for the application (client) ID and the directory (tenant) ID, go to the app's **Overview** page in the Azure portal.
+
+   In the code:
+   - `Enter_the_Application_Id_Here` is the application (client) ID for the registered application.
    - Replace `Enter_the_Tenant_Id_Here` with the tenant ID or tenant name (for example, `contoso.microsoft.com`).
    - Replace `Enter_the_Client_Secret_Here` with the client secret that you created in step 1.
     To generate a new key, go to the **Certificates & secrets** page.
 
-
 #### Step 4: Admin consent
 
-If you try to run the application at this point, you'll receive an *HTTP 403 - Forbidden* error: "Insufficient privileges to complete the operation." This error happens because any app-only permission requires a global administrator of your directory to give consent to your application. Select one of the following options, depending on your role.
+Running the application now results in the output `HTTP 403 - Forbidden* error: "Insufficient privileges to complete the operation`. This error occurs because any app-only permission requires a global administrator of the directory to give consent to the application. Select one of the following options, depending on the role.
 
 ##### Global tenant administrator
 
-If you're a global tenant administrator, go to **Enterprise applications** in the Azure portal. Select your app registration, and select **Permissions** from the **Security** section of the left pane. Then select the large button labeled **Grant admin consent for {Tenant Name}** (where **{Tenant Name}** is the name of your directory).
-
+For a global tenant administrator, go to **Enterprise applications** in the Azure portal. Select the app registration, and select **Permissions** from the **Security** section of the left pane. Then select the large button labeled **Grant admin consent for {Tenant Name}** (where **{Tenant Name}** is the name of the directory).
 
 ##### Standard user
 
-If you're a standard user of your tenant, ask a global administrator to grant admin consent for your application. To do this, give the following URL to your administrator:
+For a standard user of your tenant, ask a global administrator to grant admin consent to the application. To do this, provide the following URL to the administrator:
 
 ```url
 https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_id=Enter_the_Application_Id_Here
 ```
 
+In the URL:
 
-In that URL:
-* Replace `Enter_the_Tenant_Id_Here` with the tenant ID or tenant name (for example, `contoso.microsoft.com`).
-* `Enter_the_Application_Id_Here` is the application (client) ID for the application that you registered.
+- Replace `Enter_the_Tenant_Id_Here` with the tenant ID or tenant name (for example, `contoso.microsoft.com`).
+- `Enter_the_Application_Id_Here` is the application (client) ID for the registered application.
 
-You might see the error "AADSTS50011: No reply address is registered for the application" after you grant consent to the app by using the preceding URL. This error happens because this application and the URL don't have a redirect URI. You can ignore it.
+The error `AADSTS50011: No reply address is registered for the application` may be displayed after you grant consent to the app by using the preceding URL. This error occurs because the application and the URL don't have a redirect URI. This can be ignored.
 
 #### Step 5: Run the application
 
-If you're using Visual Studio or Visual Studio for Mac, press **F5** to run the application. Otherwise, run the application via command prompt, console, or terminal:
+In Visual Studio, press **F5** to run the application. Otherwise, run the application via command prompt, console, or terminal:
 
 ```dotnetcli
 cd {ProjectFolder}\1-Call-MSGraph\daemon-console
 dotnet run
 ```
+
 In that code:
-* `{ProjectFolder}` is the folder where you extracted the .zip file. An example is `C:\Azure-Samples\active-directory-dotnetcore-daemon-v2`.
 
-You should see a list of users in Azure Active Directory as result.
+- `{ProjectFolder}` is the folder where you extracted the .zip file. An example is `C:\Azure-Samples\active-directory-dotnetcore-daemon-v2`.
 
-This quickstart application uses a client secret to identify itself as a confidential client. The client secret is added as a plain-text file to your project files. For security reasons, we recommend that you use a certificate instead of a client secret before considering the application as a production application. For more information on how to use a certificate, see [these instructions](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/#variation-daemon-application-using-client-credentials-with-certificates) in the GitHub repository for this sample.
+A list of users in Azure Active Directory should be displayed as a result.
+
+This quickstart application uses a client secret to identify itself as a confidential client. The client secret is added as a plain-text file to the project files. For security reasons, it is recommended to use a certificate instead of a client secret before considering the application as a production application. For more information on how to use a certificate, see [these instructions](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/#variation-daemon-application-using-client-credentials-with-certificates).
 
 ## More information
-This section gives an overview of the code required to sign in users. This overview can be useful to understand how the code works, what the main arguments are, and how to add sign-in to an existing .NET Core console application.
+
+This section provides an overview of the code required to sign in users. The overview can be useful to understand how the code works, what the main arguments are, and how to add sign-in to an existing .NET Core console application.
 
 ### MSAL.NET
 
 Microsoft Authentication Library (MSAL, in the [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client) package) is the library that's used to sign in users and request tokens for accessing an API protected by the Microsoft identity platform. This quickstart requests tokens by using the application's own identity instead of delegated permissions. The authentication flow in this case is known as a [client credentials OAuth flow](../../v2-oauth2-client-creds-grant-flow.md). For more information on how to use MSAL.NET with a client credentials flow, see [this article](https://aka.ms/msal-net-client-credentials).
 
- You can install MSAL.NET by running the following command in the Visual Studio Package Manager Console:
+ MSAL.NET can be installed by running the following command in the Visual Studio Package Manager Console:
 
 ```dotnetcli
 dotnet add package Microsoft.Identity.Client
@@ -146,13 +140,13 @@ dotnet add package Microsoft.Identity.Client
 
 ### MSAL initialization
 
-You can add the reference for MSAL by adding the following code:
+Add the reference for MSAL by adding the following code:
 
 ```csharp
 using Microsoft.Identity.Client;
 ```
 
-Then, initialize MSAL by using the following code:
+Then, initialize MSAL with the following:
 
 ```csharp
 IConfidentialClientApplication app;

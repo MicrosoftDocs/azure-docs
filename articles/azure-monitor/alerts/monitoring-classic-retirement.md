@@ -4,7 +4,7 @@ description: Description of the retirement of classic monitoring services and fu
 author: yanivlavi
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 02/14/2021
+ms.date: 2/23/2022
 ms.author: yalavi
 ---
 # Unified alerting & monitoring in Azure Monitor replaces classic alerting & monitoring

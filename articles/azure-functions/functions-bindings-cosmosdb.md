@@ -1,12 +1,10 @@
 ---
 title: Azure Cosmos DB bindings for Functions 1.x
 description: Understand how to use Azure Cosmos DB triggers and bindings in Azure Functions 1.x.
-author: craigshoemaker
-ms.author: cshoe
 ms.topic: reference
 ms.date: 11/21/2017
 ms.devlang: csharp, javascript
-ms.custom: "devx-track-csharp, seodec18"
+ms.custom: devx-track-csharp, seodec18, ignite-2022
 ---
 
 # Azure Cosmos DB bindings for Azure Functions 1.x
@@ -20,12 +18,10 @@ This article explains how to work with [Azure Cosmos DB](../cosmos-db/serverless
 > [!NOTE]
 > This article is for Azure Functions 1.x. For information about how to use these bindings in Functions 2.x and higher, see [Azure Cosmos DB bindings for Azure Functions 2.x](functions-bindings-cosmosdb-v2.md).
 >
->This binding was originally named DocumentDB. In Functions version 1.x, only the trigger was renamed Cosmos DB; the input binding, output binding, and NuGet package retain the DocumentDB name.
-
-[!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+>This binding was originally named DocumentDB. In Azure Functions version 1.x, only the trigger was renamed Azure Cosmos DB; the input binding, output binding, and NuGet package retain the DocumentDB name.
 
 > [!NOTE]
-> Azure Cosmos DB bindings are only supported for use with the SQL API. For all other Azure Cosmos DB APIs, you should access the database from your function by using the static client for your API, including [Azure Cosmos DB's API for MongoDB](../cosmos-db/mongodb-introduction.md), [Cassandra API](../cosmos-db/cassandra-introduction.md), [Gremlin API](../cosmos-db/graph-introduction.md), and [Table API](../cosmos-db/table-introduction.md).
+> Azure Cosmos DB bindings are only supported for use with the SQL API. For all other Azure Cosmos DB APIs, you should access the database from your function by using the static client for your API, including [Azure Cosmos DB for MongoDB](../cosmos-db/mongodb-introduction.md), [Azure Cosmos DB for Apache Cassandra](../cosmos-db/cassandra-introduction.md), [Azure Cosmos DB for Apache Gremlin](../cosmos-db/graph-introduction.md), and [Azure Cosmos DB for Table](../cosmos-db/table-introduction.md).
 
 ## Packages - Functions 1.x
 
@@ -74,7 +70,7 @@ namespace CosmosDBSamplesV1
 
 # [C# Script](#tab/csharp-script)
 
-The following example shows a Cosmos DB trigger binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function writes log messages when Cosmos DB records are modified.
+The following example shows an Azure Cosmos DB trigger binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function writes log messages when Azure Cosmos DB records are modified.
 
 Here's the binding data in the *function.json* file:
 
@@ -110,7 +106,7 @@ Here's the C# script code:
 
 # [JavaScript](#tab/javascript)
 
-The following example shows a Cosmos DB trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function writes log messages when Cosmos DB records are modified.
+The following example shows an Azure Cosmos DB trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function writes log messages when Azure Cosmos DB records are modified.
 
 Here's the binding data in the *function.json* file:
 
@@ -130,10 +126,8 @@ Here's the binding data in the *function.json* file:
 Here's the JavaScript code:
 
 ```javascript
-    module.exports = function (context, documents) {
+    module.exports = async function (context, documents) {
         context.log('First document Id modified : ', documents[0].id);
-
-        context.done();
     }
 ```
 
@@ -203,7 +197,7 @@ The following table explains the binding configuration properties that you set i
 The trigger requires a second collection that it uses to store _leases_ over the partitions. Both the collection being monitored and the collection that contains the leases must be available for the trigger to work.
 
 >[!IMPORTANT]
-> If multiple functions are configured to use a Cosmos DB trigger for the same collection, each of the functions should use a dedicated lease collection or specify a different `LeaseCollectionPrefix` for each function. Otherwise, only one of the functions will be triggered. For information about the prefix, see the [Configuration section](#trigger---configuration).
+> If multiple functions are configured to use an Azure Cosmos DB trigger for the same collection, each of the functions should use a dedicated lease collection or specify a different `LeaseCollectionPrefix` for each function. Otherwise, only one of the functions will be triggered. For information about the prefix, see the [Configuration section](#trigger---configuration).
 
 The trigger doesn't indicate whether a document was updated or inserted, it just provides the document itself. If you need to handle updates and inserts differently, you could do that by implementing timestamp fields for insertion or update.
 
@@ -549,7 +543,7 @@ namespace CosmosDBSamplesV1
 
 ### Queue trigger, look up ID from string
 
-The following example shows a Cosmos DB input binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function reads a single document and updates the document's text value.
+The following example shows an Azure Cosmos DB input binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function reads a single document and updates the document's text value.
 
 Here's the binding data in the *function.json* file:
 
@@ -893,7 +887,7 @@ This section contains the following examples:
 
 ### Queue trigger, look up ID from JSON
 
-The following example shows a Cosmos DB input binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function reads a single document and updates the document's text value.
+The following example shows an Azure Cosmos DB input binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function reads a single document and updates the document's text value.
 
 Here's the binding data in the *function.json* file:
 
@@ -926,10 +920,9 @@ Here's the JavaScript code:
 
 ```javascript
     // Change input document contents using Azure Cosmos DB input binding, using context.bindings.inputDocumentOut
-    module.exports = function (context) {
-    context.bindings.inputDocumentOut = context.bindings.inputDocumentIn;
-    context.bindings.inputDocumentOut.text = "This was updated!";
-    context.done();
+    module.exports = async function (context) {
+        context.bindings.inputDocumentOut = context.bindings.inputDocumentIn;
+        context.bindings.inputDocumentOut.text = "This was updated!";
     };
 ```
 
@@ -976,7 +969,7 @@ Here's the *function.json* file:
 Here's the JavaScript code:
 
 ```javascript
-module.exports = function (context, req, toDoItem) {
+module.exports = async function (context, req, toDoItem) {
     context.log('JavaScript queue trigger function processed work item');
     if (!toDoItem)
     {
@@ -986,8 +979,6 @@ module.exports = function (context, req, toDoItem) {
     {
         context.log("Found ToDo item, Description=" + toDoItem.Description);
     }
-
-    context.done();
 };
 ```
 
@@ -1035,7 +1026,7 @@ Here's the *function.json* file:
 Here's the JavaScript code:
 
 ```javascript
-module.exports = function (context, req, toDoItem) {
+module.exports = async function (context, req, toDoItem) {
     context.log('JavaScript queue trigger function processed work item');
     if (!toDoItem)
     {
@@ -1045,8 +1036,6 @@ module.exports = function (context, req, toDoItem) {
     {
         context.log("Found ToDo item, Description=" + toDoItem.Description);
     }
-
-    context.done();
 };
 ```
 
@@ -1077,13 +1066,12 @@ The [configuration](#input---configuration) section explains these properties.
 Here's the JavaScript code:
 
 ```javascript
-    module.exports = function (context, input) {
+    module.exports = async function (context, input) {
         var documents = context.bindings.documents;
         for (var i = 0; i < documents.length; i++) {
             var document = documents[i];
             // operate on each document
         }
-        context.done();
     };
 ```
 
@@ -1403,7 +1391,7 @@ The [configuration](#output---configuration) section explains these properties.
 Here's the JavaScript code:
 
 ```javascript
-    module.exports = function (context) {
+    module.exports = async function (context) {
 
       context.bindings.employeeDocument = JSON.stringify({
         id: context.bindings.myQueueItem.name + "-" + context.bindings.myQueueItem.employeeId,
@@ -1411,8 +1399,6 @@ Here's the JavaScript code:
         employeeId: context.bindings.myQueueItem.employeeId,
         address: context.bindings.myQueueItem.address
       });
-
-      context.done();
     };
 ```
 
@@ -1477,14 +1463,14 @@ By default, when you write to the output parameter in your function, a document 
 
 | Binding | Reference |
 |---|---|
-| CosmosDB | [CosmosDB Error Codes](/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
+| Azure Cosmos DB | [HTTP status codes for Azure Cosmos DB](/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
 
 ## Next steps
 
-* [Learn more about serverless database computing with Cosmos DB](../cosmos-db/serverless-computing-database.md)
-* [Learn more about Azure functions triggers and bindings](functions-triggers-bindings.md)
+* [Learn more about serverless database computing with Azure Cosmos DB](../cosmos-db/serverless-computing-database.md)
+* [Learn more about Azure Functions triggers and bindings](functions-triggers-bindings.md)
 
 <!---
 > [!div class="nextstepaction"]
-> [Go to a quickstart that uses a Cosmos DB trigger](functions-create-cosmos-db-triggered-function.md)
+> [Go to a quickstart that uses an Azure Cosmos DB trigger](functions-create-cosmos-db-triggered-function.md)
 --->

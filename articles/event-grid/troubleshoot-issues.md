@@ -2,11 +2,14 @@
 title: Troubleshoot Event Grid issues
 description: This article provides different ways of troubleshooting Azure Event Grid issues
 ms.topic: conceptual
-ms.date: 06/10/2021
+ms.date: 07/18/2022
 ---
 
 # Troubleshoot Azure Event Grid issues
 This article provides information that helps you with troubleshooting Azure Event Grid issues. 
+
+## Azure Event Grid status in a region
+You can view status of Event Grid in a particular region using the [Azure status dashboard](https://status.azure.com/en-us/status).
 
 ## Diagnostic logs
 Enable diagnostic settings for Event Grid topics or domains to capture and view publish and delivery failure logs. For more information, see [Diagnostic logs](enable-diagnostic-logs-topic.md).
@@ -47,6 +50,10 @@ az eventgrid event-subscription create --name <event-grid-subscription-name> \
     --endpoint <event-hubs-endpoint> \
     --delivery-attribute-mapping Diagnostic-Id dynamic traceparent
 ```
+
+Azure Functions supports [distributed tracing with Azure Monitor](../azure-monitor/app/azure-functions-supported-features.md), which includes built-in tracing of executions and bindings, performance monitoring, and more.
+
+[Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid/) package version 3.1.0 or later enables correlation for CloudEvents between producer calls and Functions Event Grid trigger executions. For more information, see [Distributed tracing with Azure Functions and Event Grid triggers](https://devblogs.microsoft.com/azure-sdk/distributed-tracing-with-azure-functions-event-grid-triggers/).
 
 ### Sample
 See the [Line Counter sample](/samples/azure/azure-sdk-for-net/line-counter/). This sample app illustrates using Storage, Event Hubs, and Event Grid clients along with ASP.NET Core integration, distributed tracing, and hosted services. It allows users to upload a file to a blob, which triggers an Event Hubs event containing the file name. The Event Hubs Processor receives the event, and then the app downloads the blob and counts the number of lines in the file. The app displays a link to a page containing the line count. When the link is clicked, a CloudEvent containing the name of the file is published using Event Grid.

@@ -1,13 +1,11 @@
 ---
 title: Use dependency injection in .NET Azure Functions
 description: Learn how to use dependency injection for registering and using services in .NET functions
-author: ggailey777
 
 ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.date: 03/24/2021
-ms.author: glenga
 ms.reviewer: jehollan
 ---
 # Use dependency injection in .NET Azure Functions
@@ -21,7 +19,7 @@ Azure Functions supports the dependency injection (DI) software design pattern, 
 - Dependency injection patterns differ depending on whether your C# functions run [in-process](functions-dotnet-class-library.md) or [out-of-process](dotnet-isolated-process-guide.md).  
 
 > [!IMPORTANT]
-> The guidance in this article applies only to [C# class library functions](functions-dotnet-class-library.md), which run in-process with the runtime. This custom dependency injection model doesn't apply to [.NET isolated functions](dotnet-isolated-process-guide.md), which lets you run .NET 5.0 functions out-of-process. The .NET isolated process model relies on regular ASP.NET Core dependency injection patterns. To learn more, see [Dependency injection](dotnet-isolated-process-guide.md#dependency-injection) in the .NET isolated process guide.
+> The guidance in this article applies only to [C# class library functions](functions-dotnet-class-library.md), which run in-process with the runtime. This custom dependency injection model doesn't apply to [.NET isolated functions](dotnet-isolated-process-guide.md), which lets you run .NET functions out-of-process. The .NET isolated worker process model relies on regular ASP.NET Core dependency injection patterns. To learn more, see [Dependency injection](dotnet-isolated-process-guide.md#dependency-injection) in the .NET isolated worker process guide.
 
 ## Prerequisites
 
@@ -31,7 +29,7 @@ Before you can use dependency injection, you must install the following NuGet pa
 
 - [Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) package version 1.0.28 or later
 
-- [Microsoft.Extensions.DependencyInjection](https://www.nuget.org/packages/Microsoft.Extensions.DependencyInjection/) (currently, only version 3.x and earlier supported)
+- [Microsoft.Extensions.DependencyInjection](https://www.nuget.org/packages/Microsoft.Extensions.DependencyInjection/) (currently, only version 2.x or later supported)
 
 ## Register services
 
@@ -206,7 +204,7 @@ Overriding services provided by the host is currently not supported.  If there a
 
 Values defined in [app settings](./functions-how-to-use-azure-function-app-settings.md#settings) are available in an `IConfiguration` instance, which allows you to read app settings values in the startup class.
 
-You can extract values from the `IConfiguration` instance into a custom type. Copying the app settings values to a custom type makes it easy test your services by making these values injectable. Settings read into the configuration instance must be simple key/value pairs.
+You can extract values from the `IConfiguration` instance into a custom type. Copying the app settings values to a custom type makes it easy test your services by making these values injectable. Settings read into the configuration instance must be simple key/value pairs. Please note that, the functions running on Elastic Premium SKU has this constraint "App setting names can only contain letters, numbers (0-9), periods ("."), colons (":") and underscores ("_")"
 
 Consider the following class that includes a property named consistent with an app setting:
 

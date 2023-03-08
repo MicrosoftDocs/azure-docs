@@ -1,7 +1,7 @@
 ---
-title: Release notes - Speech Service
+title: What's new - Speech Service
 titleSuffix: Azure Cognitive Services
-description: A running log of Speech Service feature releases, improvements, bug fixes, and known issues.
+description: Find out about new releases and features for the Azure Cognitive Service for Speech.
 services: cognitive-services
 manager: nitinme
 author: eric-urban
@@ -9,21 +9,22 @@ ms.author: eur
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/11/2022
+ms.date: 01/09/2023
 ms.custom: ignite-fall-2021, references_regions
 ---
 
-# Speech Service release notes
+# What's new in Azure Cognitive Service for Speech?
 
-See below for information about changes to Speech services and resources.
+Azure Cognitive Service for Speech is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
 
-## What's new?
+## Recent highlights
 
-* Speaker Recognition service is generally available (GA). With [Speaker Recognition](./speaker-recognition-overview.md) you can accurately verify and identify speakers by their unique voice characteristics.
-* Speech SDK 1.19.0 release including Speaker Recognition support, Mac M1 ARM support, OpenSSL linking in Linux is dynamic, and Ubuntu 16.04 is no longer supported.
-* Custom Neural Voice extended to support [49 locales](./language-support.md#custom-neural-voice).
-* Commitment Tiers added to [pricing options](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
-
+* Speech SDK 1.26.0 was released in March 2023.
+* Custom Speech-to-Text container disconnected mode was released in January 2023.
+* Text-to-speech Batch synthesis API is available in public preview.
+* Speech-to-text REST API version 3.1 is generally available.
+* Speech-to-text and text-to-speech container versions were updated in October 2022.
+* TTS Service November 2022, several voices for `es-MX`, `it-IT`, and `pr-BR` locales were made generally available.
 
 ## Release notes
 
@@ -37,11 +38,11 @@ See below for information about changes to Speech services and resources.
 
 [!INCLUDE [speech-cli](./includes/release-notes/release-notes-cli.md)]
 
-# [Text-to-speech](#tab/text-to-speech)
+# [Text-to-speech service](#tab/text-to-speech)
 
 [!INCLUDE [text-to-speech](./includes/release-notes/release-notes-tts.md)]
 
-# [Speech-to-text](#tab/speech-to-text)
+# [Speech-to-text service](#tab/speech-to-text)
 
 [!INCLUDE [speech-to-text](./includes/release-notes/release-notes-stt.md)]
 

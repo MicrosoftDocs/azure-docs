@@ -2,7 +2,9 @@
 title: Backup solutions for Azure VMware Solution virtual machines
 description: Learn about leading backup and restore solutions for your Azure VMware Solution virtual machines.
 ms.topic: how-to
-ms.date: 04/21/2021
+ms.service: azure-vmware
+ms.date: 10/26/2022
+ms.custom: engagement-fy23
 ---
 
 # Backup solutions for Azure VMware Solution virtual machines (VMs)
@@ -15,8 +17,6 @@ Back up network traffic between Azure VMware Solution VMs and the backup reposit
 
 >[!NOTE]
 >For common questions, see [our third-party backup solution FAQ](./faq.yml).
-
-
 
 You can find more information on these backup solutions here:
 - [Cohesity](https://www.cohesity.com/blogs/expanding-cohesitys-support-for-microsofts-ecosystem-azure-stack-and-azure-vmware-solution/)

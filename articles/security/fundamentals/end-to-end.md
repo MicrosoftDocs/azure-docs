@@ -12,7 +12,7 @@ ms.subservice: security-fundamentals
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/06/2022
+ms.date: 01/29/2023
 ms.author: terrylan
 
 ---
@@ -29,12 +29,10 @@ The security services map organizes services by the resources they protect (colu
 - Detect threats – Services that identify suspicious activities and facilitate mitigating the threat.
 - Investigate and respond – Services that pull logging data so you can assess a suspicious activity and respond.
 
-The diagram includes the Azure Security Benchmark program, a collection of high-impact security recommendations you can use to help secure the services you use in Azure.
-
 :::image type="content" source="media/end-to-end/security-diagram.svg" alt-text="Diagram showing end-to-end security services in Azure." border="false":::
 
 ## Security controls and baselines
-The [Azure Security Benchmark](../benchmarks/introduction.md) program includes a collection of high-impact security recommendations you can use to help secure the services you use in Azure:
+The [Microsoft cloud security benchmark](/security/benchmark/azure/introduction) includes a collection of high-impact security recommendations you can use to help secure the services you use in Azure:
 
 - Security controls - These recommendations are generally applicable across your Azure tenant and Azure services. Each recommendation identifies a list of stakeholders that are typically involved in planning, approval, or implementation of the benchmark.
 - Service baselines - These apply the controls to individual Azure services to provide recommendations on that service’s security configuration.
@@ -55,7 +53,7 @@ The [Azure Security Benchmark](../benchmarks/introduction.md) program includes a
 | [Azure AD Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md) | A tool that allows organizations to automate the detection and remediation of identity-based risks, investigate risks using data in the portal, and export risk detection data to third-party utilities for further analysis. |
 | **Infrastructure&nbsp;&&nbsp;Network** |  |
 | [VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md) | A virtual network gateway that is used to send encrypted traffic between an Azure virtual network and an on-premises location over the public Internet and to send encrypted traffic between Azure virtual networks over the Microsoft network. |
-| [Azure DDoS Protection Standard](../../ddos-protection/ddos-protection-overview.md) | Provides enhanced DDoS mitigation features to defend against DDoS attacks. It is automatically tuned to help protect your specific Azure resources in a virtual network. |
+| [Azure DDoS Protection](../../ddos-protection/ddos-protection-overview.md) | Provides enhanced DDoS mitigation features to defend against DDoS attacks. It is automatically tuned to help protect your specific Azure resources in a virtual network. |
 | [Azure Front Door](../../frontdoor/front-door-overview.md) | A global, scalable entry-point that uses the Microsoft global edge network to create fast, secure, and widely scalable web applications. |
 | [Azure Firewall](../../firewall/overview.md) | A cloud-native and intelligent network firewall security service that provides threat protection for your cloud workloads running in Azure. It's a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability. Azure Firewall is offered in two SKUs: [Standard](../../firewall/features.md) and [Premium](../../firewall/premium-features.md). |
 | [Azure Key Vault](../../key-vault/general/overview.md) | A secure secrets store for tokens, passwords, certificates, API keys, and other secrets. Key Vault can also be used to create and control the encryption keys used to encrypt your data. |
@@ -73,7 +71,7 @@ The [Azure Security Benchmark](../benchmarks/introduction.md) program includes a
 | [Azure confidential computing](../../confidential-computing/overview.md) | Allows you to isolate your sensitive data while it's being processed in the cloud. |
 | [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) | Your development projects benefit from multiple layers of security and governance technologies, operational practices, and compliance policies when stored in Azure DevOps. |
 | **Customer Access** |  |
-| [Azure AD External Identities](../../active-directory/external-identities/compare-with-b2c.md) | With External Identities in Azure AD, you can allow people outside your organization to access your apps and resources, while letting them sign in using whatever identity they prefer. |
+| [Azure AD External Identities](../../active-directory/external-identities/external-identities-overview.md) | With External Identities in Azure AD, you can allow people outside your organization to access your apps and resources, while letting them sign in using whatever identity they prefer. |
 |  | You can share your apps and resources with external users via [Azure AD B2B](../../active-directory/external-identities/what-is-b2b.md) collaboration. |
 |  | [Azure AD B2C](../../active-directory-b2c/overview.md) lets you support millions of users and billions of authentications per day, monitoring and automatically handling threats like denial-of-service, password spray, or brute force attacks. |
 
@@ -96,8 +94,7 @@ The [Azure Security Benchmark](../benchmarks/introduction.md) program includes a
 | [Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) | Provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network. Network Watcher is designed to monitor and repair the network health of IaaS products which includes virtual machines, virtual networks, application gateways, and load balancers. |
 | [Azure Policy](../../governance/policy/overview.md) | Helps to enforce organizational standards and to assess compliance at-scale. Azure Policy uses activity logs, which are automatically enabled to include event source, date, user, timestamp, source addresses, destination addresses, and other useful elements. |
 | **Data & Application** |  |
-| [Microsoft Defender for container registries](../../security-center/defender-for-container-registries-introduction.md) | Includes a vulnerability scanner to scan the images in your Azure Resource Manager-based Azure Container Registry registries and provide deeper visibility into your images' vulnerabilities. |
-| [Microsoft Defender for Kubernetes](../../security-center/defender-for-kubernetes-introduction.md) | Provides cluster-level threat protection by monitoring your AKS-managed services through the logs retrieved by Azure Kubernetes Service (AKS). |
+| [Microsoft Defender for Containers](../../defender-for-cloud/defender-for-containers-introduction.md) | A cloud-native solution that is used to secure your containers so you can improve, monitor, and maintain the security of your clusters, containers, and their applications. |
 | [Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security) | A cloud access security broker (CASB) that operates on multiple clouds. It provides rich visibility, control over data travel, and sophisticated analytics to identify and combat cyberthreats across all your cloud services. |
 
 ## Investigate and respond

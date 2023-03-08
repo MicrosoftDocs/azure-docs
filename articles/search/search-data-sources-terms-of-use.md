@@ -8,7 +8,7 @@ ms.author: heidist
 
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/29/2021
+ms.date: 09/07/2022
 
 ---
 

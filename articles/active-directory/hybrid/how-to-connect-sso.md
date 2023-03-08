@@ -1,37 +1,37 @@
 ---
-title: 'Azure AD Connect: Seamless Single Sign-On | Microsoft Docs'
-description: This topic describes Azure Active Directory (Azure AD) Seamless Single Sign-On and how it allows you to provide true single sign-on for corporate desktop users inside your corporate network.
+title: 'Azure AD Connect: Seamless single sign-on | Microsoft Docs'
+description: This topic describes Azure Active Directory (Azure AD) Seamless single sign-on and how it allows you to provide true single sign-on for corporate desktop users inside your corporate network.
 services: active-directory
 keywords: what is Azure AD Connect, install Active Directory, required components for Azure AD, SSO, Single Sign-on
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 08/13/2019
+ms.date: 01/27/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
-# Azure Active Directory Seamless Single Sign-On
+# Azure Active Directory Seamless single sign-on
 
-## What is Azure Active Directory Seamless Single Sign-On?
+## What is Azure Active Directory Seamless single sign-on?
 
-Azure Active Directory Seamless Single Sign-On (Azure AD Seamless SSO) automatically signs users in when they are on their corporate devices connected to your corporate network. When enabled, users don't need to type in their passwords to sign in to Azure AD, and usually, even type in their usernames. This feature provides your users easy access to your cloud-based applications without needing any additional on-premises components.
+Azure Active Directory Seamless single sign-on (Azure AD Seamless SSO) automatically signs users in when they are on their corporate devices connected to your corporate network. When enabled, users don't need to type in their passwords to sign in to Azure AD, and usually, even type in their usernames. This feature provides your users easy access to your cloud-based applications without needing any additional on-premises components.
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
 Seamless SSO can be combined with either the [Password Hash Synchronization](how-to-connect-password-hash-synchronization.md) or [Pass-through Authentication](how-to-connect-pta.md) sign-in methods. Seamless SSO is _not_ applicable to Active Directory Federation Services (ADFS).
 
-![Seamless Single Sign-On](./media/how-to-connect-sso/sso1.png)
+![Seamless single sign-on](./media/how-to-connect-sso/sso1.png)
 
 ## SSO via primary refresh token vs. Seamless SSO
 
 For Windows 10, Windows Server 2016 and later versions, it’s recommended to use SSO via primary refresh token (PRT). For Windows 7 and Windows 8.1, it’s recommended to use Seamless SSO.
-Seamless SSO needs the user's device to be domain-joined, but it is not used on Windows 10 [Azure AD joined devices](../devices/concept-azure-ad-join.md) or [hybrid Azure AD joined devices](../devices/concept-azure-ad-join-hybrid.md). SSO on Azure AD joined, Hybrid Azure AD joined, and Azure AD registered devices works based on the [Primary Refresh Token (PRT)](../devices/concept-primary-refresh-token.md)
+Seamless SSO needs the user's device to be domain-joined, but it isn't used on Windows 10 [Azure AD joined devices](../devices/concept-azure-ad-join.md) or [hybrid Azure AD joined devices](../devices/concept-azure-ad-join-hybrid.md). SSO on Azure AD joined, Hybrid Azure AD joined, and Azure AD registered devices works based on the [Primary Refresh Token (PRT)](../devices/concept-primary-refresh-token.md)
 
 SSO via PRT works once devices are registered with Azure AD for hybrid Azure AD joined, Azure AD joined or personal registered devices via Add Work or School Account. 
 For more information on how SSO works with Windows 10 using PRT, see: [Primary Refresh Token (PRT) and Azure AD](../devices/concept-primary-refresh-token.md)
@@ -55,10 +55,10 @@ For more information on how SSO works with Windows 10 using PRT, see: [Primary R
 - If an application (for example,  `https://myapps.microsoft.com/contoso.com`) forwards a `domain_hint` (OpenID Connect) or `whr` (SAML) parameter - identifying your tenant, or `login_hint` parameter - identifying the user, in its Azure AD sign-in request, users are automatically signed in without them entering usernames or passwords.
 - Users also get a silent sign-on experience if an application (for example, `https://contoso.sharepoint.com`) sends sign-in requests to Azure AD's endpoints set up as tenants - that is, `https://login.microsoftonline.com/contoso.com/<..>` or `https://login.microsoftonline.com/<tenant_ID>/<..>` - instead of Azure AD's common endpoint - that is, `https://login.microsoftonline.com/common/<...>`.
 - Sign out is supported. This allows users to choose another Azure AD account to sign in with, instead of being automatically signed in using Seamless SSO automatically.
-- Microsoft 365 Win32 clients (Outlook, Word, Excel, and others) with versions 16.0.8730.xxxx and above are supported using a non-interactive flow. For OneDrive, you will have to activate the [OneDrive silent config feature](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) for a silent sign-on experience.
+- Microsoft 365 Win32 clients (Outlook, Word, Excel, and others) with versions 16.0.8730.xxxx and above are supported using a non-interactive flow. For OneDrive, you'll have to activate the [OneDrive silent config feature](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) for a silent sign-on experience.
 - It can be enabled via Azure AD Connect.
-- It is a free feature, and you don't need any paid editions of Azure AD to use it.
-- It is supported on web browser-based clients and Office clients that support [modern authentication](/office365/enterprise/modern-auth-for-office-2013-and-2016) on platforms and browsers capable of Kerberos authentication:
+- It's a free feature, and you don't need any paid editions of Azure AD to use it.
+- It's supported on web browser-based clients and Office clients that support [modern authentication](/office365/enterprise/modern-auth-for-office-2013-and-2016) on platforms and browsers capable of Kerberos authentication:
 
 | OS\Browser |Internet Explorer|Microsoft Edge\*\*\*\*|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
@@ -72,7 +72,7 @@ For more information on how SSO works with Windows 10 using PRT, see: [Primary R
  >Microsoft Edge legacy is no longer supported
 
 
-\*Requires Internet Explorer version 11 or later. ([Beginning August 17, 2021, Microsoft 365 apps and services will not support IE 11](https://techcommunity.microsoft.com/t5/microsoft-365-blog/microsoft-365-apps-say-farewell-to-internet-explorer-11-and/ba-p/1591666).)
+\*Requires Internet Explorer version 11 or later. ([Beginning August 17, 2021, Microsoft 365 apps and services won't support IE 11](https://techcommunity.microsoft.com/t5/microsoft-365-blog/microsoft-365-apps-say-farewell-to-internet-explorer-11-and/ba-p/1591666).)
 
 \*\*Requires Internet Explorer version 11 or later. Disable Enhanced Protected Mode.
 

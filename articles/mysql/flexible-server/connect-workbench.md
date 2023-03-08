@@ -4,6 +4,7 @@ description: This Quickstart provides the steps to use MySQL Workbench to connec
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: flexible-server
 ms.custom: mvc, mode-other
 ms.topic: quickstart
 ms.date: 9/21/2020
@@ -55,13 +56,13 @@ To connect to Azure Database for MySQL Flexible Server using MySQL Workbench:
     | Hostname | *server name* | Specify the server name value that was used when you created the Azure Database for MySQL earlier. Our example server shown is mydemoserver.mysql.database.azure.com. Use the fully qualified domain name (\*.mysql.database.azure.com) as shown in the example. Follow the steps in the previous section to get the connection information if you do not remember your server name.  |
     | Port | 3306 | Always use port 3306 when connecting to Azure Database for MySQL. |
     | Username |  *server admin login name* | Type in the server admin login username supplied when you created the Azure Database for MySQL earlier. Our example username is myadmin. Follow the steps in the previous section to get the connection information if you do not remember the username.
-    | Password | your password | Click **Store in Vault...** button to save the password. |
+    | Password | your password | Select **Store in Vault...** button to save the password. |
 
-3. Click **Test Connection** to test if all parameters are correctly configured.
+3. Select **Test Connection** to test if all parameters are correctly configured.
 
-4. Click **OK** to save the connection.
+4. Select **OK** to save the connection.
 
-5. In the listing of **MySQL Connections**, click the tile corresponding to your server, and then wait for the connection to be established.
+5. In the listing of **MySQL Connections**, select the tile corresponding to your server, and then wait for the connection to be established.
 
     A new SQL tab opens with a blank editor where you can type your queries.
 
@@ -103,7 +104,7 @@ To connect to Azure Database for MySQL Flexible Server using MySQL Workbench:
 
     :::image type="content" source="./media/connect-workbench/3-workbench-sql-tab.png" alt-text="MySQL Workbench SQL Tab to run sample SQL code":::
 
-2. To run the sample SQL Code, click the lightening bolt icon in the toolbar of the **SQL File** tab.
+2. To run the sample SQL Code, select the lightening bolt icon in the toolbar of the **SQL File** tab.
 3. Notice the three tabbed results in the **Result Grid** section in the middle of the page.
 4. Notice the **Output** list at the bottom of the page. The status of each command is shown.
 

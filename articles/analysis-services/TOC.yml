@@ -10,6 +10,9 @@
     href: analysis-services-create-server.md
   - name: Create a server - PowerShell
     href: analysis-services-create-powershell.md
+  - name: Create a server - Bicep
+    displayName: Resource Manager, ARM, Bicep
+    href: analysis-services-create-bicep-file.md
   - name: Create a server - ARM template
     displayName: Resource Manager
     href: analysis-services-create-template.md
@@ -45,6 +48,10 @@
     href: analysis-services-datasource.md
   - name: Network connectivity FAQ
     href: analysis-services-network-faq.yml
+  - name: Security
+    items:
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/azure-analysis-services-security-baseline?toc=/azure/analysis-services/TOC.json
 - name: How-to
   items:
   - name: Server
@@ -126,7 +133,7 @@
   - name: Azure updates
     href: https://azure.microsoft.com/updates/?query=Analysis%20Services
   - name: Azure status
-    href: https://status.azure.com/
+    href: https://azure.status.microsoft/
   - name: Feedback
     href: https://feedback.azure.com/d365community/forum/d92323a0-0525-ec11-b6e6-000d3a4f0858
   - name: Pricing

@@ -1,23 +1,22 @@
 ---
 title: Access Azure resources from Google Cloud without credentials
-titleSuffix: Microsoft identity platform
 description: Access Azure AD protected resources from a service running in Google Cloud without using secrets or certificates.  Use workload identity federation to set up a trust relationship between an app in Azure AD and an identity in Google Cloud. The workload running in Google Cloud can get an access token from Microsoft identity platform and access Azure AD protected resources.
 services: active-directory
-author: rwike77
+author: OwenRichards1
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 01/06/2022
-ms.author: ryanwi
+ms.date: 01/06/2023
+ms.author: owenrichards
 ms.custom: aaddev
 ms.reviewer: udayh
 #Customer intent: As an application developer, I want to create a trust relationship with a Google Cloud identity so my service in Google Cloud can access Azure AD protected resources without managing secrets.
 ---
 
-# Access Azure AD protected resources from an app in Google Cloud (preview)
+# Access Azure AD protected resources from an app in Google Cloud
 
 Software workloads running in Google Cloud need an Azure Active Directory (Azure AD) application to authenticate and access Azure AD protected resources. A common practice is to configure that application with credentials (a secret or certificate). The credentials are used by a Google Cloud workload to request an access token from Microsoft identity platform. These credentials pose a security risk and have to be stored securely and rotated regularly. You also run the risk of service downtime if the credentials expire.
 
@@ -31,7 +30,7 @@ Take note of the *object ID* of the app (not the application (client) ID) which 
 
 ## Grant your app permissions to resources
 
-Grant your app the permissions necessary to access the Azure AD protected resources targeted by your software workload running in Google Cloud.  For example, [assign the Storage Blob Data Contributor role](/azure/storage/blobs/assign-azure-role-data-access) to your app if your application needs to read, write, and delete blob data in [Azure Storage](/azure/storage/blobs/storage-blobs-introduction).
+Grant your app the permissions necessary to access the Azure AD protected resources targeted by your software workload running in Google Cloud.  For example, [assign the Storage Blob Data Contributor role](../../storage/blobs/assign-azure-role-data-access.md) to your app if your application needs to read, write, and delete blob data in [Azure Storage](../../storage/blobs/storage-blobs-introduction.md).
 
 ## Set up an identity in Google Cloud
 
@@ -60,9 +59,28 @@ The most important fields for creating the federated identity credential are:
 
 The following command configures a federated identity credential:
 
-```http
-az rest --method POST --uri 'https://graph.microsoft.com/beta/applications/41be38fd-caac-4354-aa1e-1fdb20e43bfa/federatedIdentityCredentials' --body '{"name":"GcpFederation","issuer":"https://accounts.google.com","subject":"112633961854638529490","description":"Testing","audiences":["api://AzureADTokenExchange"]}'
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+az ad app federated-credential create --id 41be38fd-caac-4354-aa1e-1fdb20e43bfa --parameters credential.json
+("credential.json" contains the following content)
+{
+    "name": "GcpFederation",
+    "issuer": "https://accounts.google.com",
+    "subject": "112633961854638529490",
+    "description": "Test GCP federation",
+    "audiences": [
+        "api://AzureADTokenExchange"
+    ]
+}
 ```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+New-AzADappfederatedidentitycredential -ApplicationObjectId $appObjectId -Audience api://AzureADTokenExchange -Issuer 'https://accounts.google.com' -name 'GcpFederation' -Subject '112633961854638529490'
+```
+---
 
 For more information and examples, see [Create a federated identity credential](workload-identity-federation-create-trust.md).
 
@@ -97,7 +115,7 @@ async function getGoogleIDToken() {
 ```
 
 # [C#](#tab/csharp)
-Here’s an example in TypeScript of how to request an ID token from the Google metadata server:
+Here’s an example in C# of how to request an ID token from the Google metadata server:
 ```csharp
 private string getGoogleIdToken()
 {
@@ -116,6 +134,33 @@ private string getGoogleIdToken()
         string result = streamReader.ReadToEnd();
         return result;
     }
+}
+```
+
+# [Java](#tab/java)
+Here’s an example in Java of how to request an ID token from the Google metadata server:
+```java
+private String getGoogleIdToken() throws IOException {
+    final String endpoint = "http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/default/identity?audience=api://AzureADTokenExchange";
+
+    URL url = new URL(endpoint);
+    HttpURLConnection httpUrlConnection = (HttpURLConnection) url.openConnection();
+    
+    httpUrlConnection.setRequestMethod("GET");
+    httpUrlConnection.setRequestProperty("Metadata-Flavor", "Google ");
+
+    InputStream inputStream = httpUrlConnection.getInputStream();
+    InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+    BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+    StringBuffer content = new StringBuffer();
+    String inputLine;
+
+    while ((inputLine = bufferedReader.readLine()) != null)
+        content.append(inputLine);
+
+    bufferedReader.close();
+
+    return content.toString();
 }
 ```
 ---
@@ -161,32 +206,32 @@ class ClientAssertionCredential implements TokenCredential {
 
         // Get the ID token from Google.
         return getGoogleIDToken() // calling this directly just for clarity, 
-                               // this should be a callback
-        // pass this as a client assertion to the confidential client app
-        .then((clientAssertion:any)=> {
-            var msalApp: any;
-            msalApp = new msal.ConfidentialClientApplication({
-                auth: {
-                    clientId: this.clientID,
-                    authority: this.aadAuthority + this.tenantID,
-                    clientAssertion: clientAssertion,
-                }
+
+            let aadAudience = "api://AzureADTokenExchange"
+            const jwt = axios({
+            url: "http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/default/identity?audience=" 
+            + aadAudience,
+            method: "GET",
+            headers: {
+                "Metadata-Flavor": "Google"
+                    }}).then(response => {
+                        console.log("AXIOS RESPONSE");
+                        return response.data;
+                    });
+                return jwt;
+            .then(function(aadToken) {
+                // return in form expected by TokenCredential.getToken
+                let returnToken = {
+                    token: aadToken.accessToken,
+                    expiresOnTimestamp: aadToken.expiresOn.getTime(),
+                };
+                return (returnToken);
+            })
+            .catch(function(error) {
+                // error stuff
             });
-            return msalApp.acquireTokenByClientCredential({ scopes })
-        })
-        .then(function(aadToken) {
-            // return in form expected by TokenCredential.getToken
-            let returnToken = {
-                token: aadToken.accessToken,
-                expiresOnTimestamp: aadToken.expiresOn.getTime(),
-            };
-            return (returnToken);
-        })
-        .catch(function(error) {
-            // error stuff
-        });
+        }
     }
-}
 export default ClientAssertionCredential;
 ```
 
@@ -254,6 +299,73 @@ public class ClientAssertionCredential:TokenCredential
 }
 ```
 
+# [Java](#tab/java)
+
+The following Java sample code snippet implements the `TokenCredential` interface, gets an ID token from Google (using the `getGoogleIDToken` method previously defined), and exchanges the ID token for an access token.
+
+```java
+import java.io.Exception;
+import java.time.Instant;
+import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
+import java.util.HashSet;
+import java.util.Set;
+
+import com.azure.core.credential.AccessToken;
+import com.azure.core.credential.TokenCredential;
+import com.azure.core.credential.TokenRequestContext;
+import com.microsoft.aad.msal4j.ClientCredentialFactory;
+import com.microsoft.aad.msal4j.ClientCredentialParameters;
+import com.microsoft.aad.msal4j.ConfidentialClientApplication;
+import com.microsoft.aad.msal4j.IClientCredential;
+import com.microsoft.aad.msal4j.IAuthenticationResult;
+import reactor.core.publisher.Mono;
+
+public class ClientAssertionCredential implements TokenCredential {
+    private String clientID;
+	private String tenantID;
+    private String aadAuthority;
+
+    public ClientAssertionCredential(String clientID, String tenantID, String aadAuthority)
+    {
+        this.clientID = clientID;
+        this.tenantID = tenantID;
+        this.aadAuthority = aadAuthority;  // https://login.microsoftonline.com/                
+    }
+
+    @Override
+	public Mono<AccessToken> getToken(TokenRequestContext requestContext) {
+        try {
+			// Get the ID token from Google
+            String idToken = getGoogleIdToken(); // calling this directly just for clarity, this should be a callback
+            
+			IClientCredential clientCredential = ClientCredentialFactory.createFromClientAssertion(idToken);
+            String authority = String.format("%s%s", aadAuthority, tenantID);
+
+            ConfidentialClientApplication app = ConfidentialClientApplication
+                .builder(clientID, clientCredential)
+                .authority(aadAuthority)
+                .build();
+
+            Set<String> scopes = new HashSet<String>(requestContext.getScopes());
+		    ClientCredentialParameters clientCredentialParam = ClientCredentialParameters
+				.builder(scopes)
+				.build();
+
+            IAuthenticationResult authResult = app.acquireToken(clientCredentialParam).get();
+            Instant expiresOnInstant = authResult.expiresOnDate().toInstant();
+            OffsetDateTime expiresOn = OffsetDateTime.ofInstant(expiresOnInstant, ZoneOffset.UTC);
+
+            AccessToken accessToken = new AccessToken(authResult.accessToken(), expiresOn);
+
+            return Mono.just(accessToken);
+        } catch (Exception ex) {
+			return Mono.error(ex);
+		}
+	}
+}
+```
+
 ---
 
 ## Access Azure AD protected resources
@@ -293,6 +405,24 @@ var credential = new ClientAssertionCredential(clientID,
                             authority);
 
 BlobServiceClient blobServiceClient = new BlobServiceClient(new Uri(storageUrl), credential);
+
+// write code to access Blob storage
+```
+
+# [Java](#tab/java)
+
+```java
+String clientID = "<client-id>";
+String tenantID = "<tenant-id>";
+String authority = "https://login.microsoftonline.com/";
+String storageUrl = "https://<storageaccount>.blob.core.windows.net";
+
+ClientAssertionCredential credential = new ClientAssertionCredential(clientID, tenantID, authority);
+
+BlobServiceClient blobServiceClient = new BlobServiceClientBuilder()
+    .endpoint(storageUrl)
+    .credential(credential)
+    .buildClient();
 
 // write code to access Blob storage
 ```

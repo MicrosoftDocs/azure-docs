@@ -64,6 +64,8 @@ configuration TestConfig {
 ```
 
 > [!NOTE]
+> Configuration names in Azure Automation must be limited to no more than 100 characters.
+> 
 > In more advanced scenarios where you require multiple modules to be imported that provide DSC Resources,
 > make sure each module has a unique `Import-DscResource` line in your configuration.
 

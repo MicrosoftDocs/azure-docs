@@ -1,278 +1,155 @@
 ---
-title: Gain insight into devices discovered by a specific sensor
-description: The device inventory displays an extensive range of device attributes that a sensor detects. 
-ms.date: 11/09/2021
+title: Manage your OT device inventory from a sensor console
+description: Learn how to view and manage OT devices (assets) from the Device inventory page on a sensor console.
+ms.date: 02/28/2023
 ms.topic: how-to
 ---
 
-# Investigate sensor detections in a device inventory
+# Manage your OT device inventory from a sensor console
 
-The device inventory displays an extensive range of device attributes that a sensor detects. Options are available to:
+Use the **Device inventory** page from a sensor console to manage all OT and IT devices detected by that console. Identify new devices detected, devices that might need troubleshooting, and more.
 
- - Easily filter the information.
+For more information, see [What is a Defender for IoT committed device?](architecture.md#what-is-a-defender-for-iot-committed-device)
 
- - Export information to a CSV file.
+> [!TIP]
+> Alternately, view your device inventory from a [the Azure portal](how-to-manage-device-inventory-for-organizations.md), or from an [on-premises management console](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md).
+>
 
- - Import Windows registry details.
+## View the device inventory
 
- - Create groups for display in the device map.
+This procedure describes how to view detected devices in the **Device inventory** page in an OT sensor console.
 
-## View device attributes in the Device inventory
+1. Sign-in to your OT sensor console, and then select **Device inventory**.
 
-The following attributes appear in the Device inventory table.
+    :::image type="content" source="media/how-to-work-with-asset-inventory-information/sensor-device-inventory.png" alt-text="Screenshot of the sensor console's Device inventory page." lightbox="media/how-to-work-with-asset-inventory-information/sensor-device-inventory.png":::
 
-| Parameter | Description |
-|--|--|
-| Name | The name of the device as the sensor discovered it, or as entered by the user. |
-| Type | The type of device as determined by the sensor, or as entered by the user. |
-| Vendor | The name of the device's vendor, as defined in the MAC address. |
-| Operating System | The OS of the device, if detected. |
-| Firmware version | The device's firmware, if detected. |
-| IP Address | The IP address of the device where defined. |
-| VLAN | The VLAN of the device. For details about instructing the sensor to discover VLANs, see [Define VLAN names](how-to-manage-the-on-premises-management-console.md#define-vlan-names).(how-to-define-management-console-network-settings.md#define-vlan-names). |
-| MAC Address | The MAC address of the device. |
-| Protocols | The protocols that the device uses. |
-| Unacknowledged Alerts | The number of unacknowledged alerts associated with this device. |
-| Is Authorized | The authorization status defined by the user:<br />- **True**: The device has been authorized.<br />- **False**: The device has not been authorized. |
-| Is Known as Scanner | Defined as a network scanning device by the user. |
-| Is Programming device | Defined as an authorized programming device by the user. <br />- **True**: The device performs programming activities for PLCs, RTUs, and controllers, which are relevant to engineering stations. <br />- **False**: The device is not a programming device. |
-| Groups | The groups that this device participates in. |
-| Last Activity | The last activity that the device performed. |
-| Discovered | When this device was first seen in the network. |
-| **PLC mode (preview)** | The PLC operating mode includes the Key state (physical) and run state (logical). Possible **Key** states include, Run, Program, Remote, Stop, Invalid, Programming Disabled.Possible Run. The possible **Run** states are Run, Program, Stop, Paused, Exception, Halted, Trapped, Idle, Offline. if both states are the same, only oe state is presented. |
+    Use any of the following options to modify or filter the devices shown:
 
-## What is an Inventory device?
+    |Option  |Steps  |
+    |---------|---------|
+    | **Sort devices** | Select a column header to sort the devices by that column. |
+    |**Filter devices shown**    |   Select **Add filter** to filter the devices shown. <br><br>In the **Add filter** box, define your filter by column name, operator, and filter value. Select **Apply** to apply your filter.<br><br>You can apply multiple filters at the same time. Search results and filters aren't saved when you refresh the **Device inventory** page. |
+    | **Save a filter** | To save the current set of filters:<br><br>1. Select **+Save Filter**. <br>2. In the **Create New Device Inventory Filter** pane on the right, enter a name for your filter, and then select **Submit**. <br><br>Saved filters are also saved as **Device map** groups, and provides extra granularity when [viewing network devices](how-to-work-with-the-sensor-device-map.md) on the **Device map** page. |
+    | **Load a saved filter** | If you have predefined filters saved, load them by selecting the **show side pane** :::image type="icon" source="media/how-to-inventory-sensor/show-side-pane.png" border="false"::: button, and then select the filter you want to load. |
+    |**Modify columns shown**     | Select **Edit Columns** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/edit-columns-icon.png" border="false":::. In the **Edit columns** pane:<br><br>        - Select **Add Column** to add new columns to the grid<br>        - Drag and drop fields to change the columns order.<br>- To remove a column, select the **Delete** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/trashcan-icon.png" border="false"::: icon to the right.<br>- To reset the columns to their default settings, select **Reset** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/reset-icon.png" border="false":::.   <br><br>Select **Save** to save any changes made.  |
 
-The Defender for IoT Device inventory displays an extensive range of asset attributes that are detected by sensors monitoring the organizations networks and managed endpoints.
+1. Select a device row to view more details about that device. Initial details are shown in a pane on the right, where you can also select **View full details** to drill down more.
 
-Defender for IoT will identify and classify devices as a single unique network device in the inventory for:
+    For example:
 
-1. Standalone IT/OT/IoT devices (w/ 1 or multiple NICs)
-1. Devices composed of multiple backplane components (including all racks/slots/modules)
-1. Devices acting as network infrastructure such as Switch/Router (w/ multiple NICs). 
+    :::image type="content" source="media/how-to-inventory-sensor/sensor-inventory-view-details.png" alt-text="Screenshot of the Device inventory page on an OT sensor console." lightbox="media/how-to-inventory-sensor/sensor-inventory-view-details.png":::
 
-Public internet IP addresses, multicast groups, and broadcast groups are not considered inventory devices.
-Devices that have been inactive for more than 60 days are classified as inactive Inventory devices.
+For more information, see [Device inventory column data](device-inventory.md#device-inventory-column-data).
 
-**To view the device inventory:**
+## Edit device details
 
-1. In the left pane, select **Devices**. The **Devices** pane opens on the right.
+As you manage your network devices, you may need to update their details. For example, you may want to modify security value as assets change, or personalize the inventory to better identify devices, or if a device was classified incorrectly.
 
-2. In the **Devices** pane, select :::image type="icon" source="media/how-to-work-with-asset-inventory-information/device-pane-icon.png" border="false":::.
+If you're working with a cloud-connected sensor, any edits you make in the sensor console are updated in the Azure portal.
 
-To hide and display columns, customize the device inventory table:
+**To edit device details**:
 
-1. On the upper-right menu of the device inventory, select :::image type="icon" source="media/how-to-work-with-asset-inventory-information/settings-icon.png" border="false":::.
+1. Select a device in the grid, and then select **Edit** in the toolbar at the top of the page.
 
-    :::image type="content" source="media/how-to-work-with-asset-inventory-information/device-inventory-settings-screens-v2.png" alt-text="Device inventory settings screen.":::
+1. In the **Edit** pane on the right, modify the device fields as needed, and then select **Save** when you're done.
 
-2. In the **Device Inventory Settings** window, select the columns that you want to display in the device inventory table.
+You can also open the edit pane from the device details page:
 
-3. Change the location of the columns in the table by using arrows.
+1. Select a device in the grid, and then select **View full details** in the pane on the right.
 
-4. Select **Save**. The **Device Inventory Settings** window closes, and the new settings appear in the table.
+1. In the device details page, select **Edit Properties**.
 
-### Create temporary device inventory filters
+1. In the **Edit** pane on the right, modify the device fields as needed, and then select **Save** when you're done.
 
-You can set a filter that defines what information the table displays. For example, you can decide that you want to view only the PLC device's information.
+Editable fields include:
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/devices-learning-v2.png" alt-text="Devices learning.":::
+- Authorized status
+- Device name
+- Device type
+- OS
+- Purdue level
+- Description
+- Scanner or programming device
 
-The filter is not saved when you leave the inventory.
+For more information, see [Device inventory column data](device-inventory.md#device-inventory-column-data).
 
-### Save device inventory filters
+## Export the device inventory to CSV
 
-You can save a filter or a combination of filters that you need and reapply them in the device inventory. Create broader filters based on a certain device type, or more narrow filters based on a specific type and a specific protocol.
+Export your device inventory to a CSV file to manage or share data outside of the OT sensor.
 
-The filters that you save are also saved as device map groups. This feature provides an additional level of granularity in viewing network devices on the map.
+To export device inventory data, on the **Device inventory** page, select **Export** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/export-button.png" border="false":::.
 
-**To create filters:**
+The device inventory is exported with any filters currently applied, and you can save the file locally.
 
-1. In the column that you want to filter, select :::image type="icon" source="media/how-to-work-with-asset-inventory-information/filter-icon.png" border="false":::.
+## Merge devices
 
-2. In the **Filter** dialog box, select the filter type:
+You may need to merge duplicate devices if the sensor has discovered separate network entities that are associated with a single, unique device.
 
-   - **Equals**: The exact value according to which you want to filter the column. For example, if you filter the protocol column according to **Equals** and `value=ICMP`, the column will present devices that use the ICMP protocol only.
+Examples of this scenario might include a PLC with four network cards, a laptop with both WiFi and a physical network card, or a single workstation with multiple network cards.
 
-   - **Contains**: The value that's contained among other values in the column. For example, if you filter the protocol column according to **Contains** and `value=ICMP`, the column will present devices that use the ICMP protocol as a part of the list of protocols that the device uses.
+> [!NOTE]
+>
+> - You can only merge authorized devices.
+> - Device merges are irreversible. If you merge devices incorrectly, you'll have to delete the merged device and wait for the sensor to rediscover both devices.
+> - Alternately, merge devices from the [Device map](how-to-work-with-the-sensor-device-map.md) page.
+When merging, you instruct the sensor to combine the device properties of two devices into one. When you do this, the Device Properties window and sensor reports will be updated with the new device property details.
 
-3. To organize the column information according to alphabetical order, select :::image type="icon" source="media/how-to-work-with-asset-inventory-information/alphabetical-order-icon.png" border="false":::. Arrange the order by selecting the :::image type="icon" source="media/how-to-work-with-asset-inventory-information/alphabetical-a-z-order-icon.png" border="false"::: and :::image type="icon" source="media/how-to-work-with-asset-inventory-information/alphabetical-z-a-order-icon.png" border="false"::: arrows.
+For example, if you merge two devices, each with an IP address, both IP addresses will appear as separate interfaces in the Device Properties window.
 
-4. To save a new filter, define the filter and select **Save As**.
+**To merge devices from the device inventory:**
 
-5. To change the filter definitions, change the definitions and select **Save Changes**.
+In the device inventory grid, select the devices you want to merge, and then select **Merge** in the toolbar at the top of the page.
 
-To view filters:
+The devices are merged, and a confirmation message appears at the top right.
 
-- Open the left pane and view the filters that you've saved:
-
-  :::image type="content" source="media/how-to-work-with-asset-inventory-information/filters-from-left-pane-v2.png" alt-text="View the filters from the left-side pane.":::
-
-### View filtered information as a map group
-
-When you switch to the map view, the filtered devices are highlighted and filtered. The filter group that you saved appears in the side menu under the **Device Inventory Filters** group.
-
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/filters-in-the-map-view-v2.png" alt-text="View filters when in the map view.":::
-
-## Learn Windows registry details
-
-In addition to learning OT devices, you can discover Microsoft Windows workstations, and servers. These devices are also displayed in Device Inventory. After you learn devices, you can enrich the Device Inventory with detailed Windows information, such as:
-
-- Windows version installed
-
-- Applications installed
-
-- Patch-level information
-
-- Open ports
-
-- More robust information on OS versions
-
-Two options are available for retrieving this information:
-
-- Active polling by using scheduled WMI scans. 
-
-- Local surveying by distributing and running a script on the device. Working with local scripts bypasses the risks of running WMI polling on an endpoint. It's also useful for regulated networks with waterfalls and one-way elements.
-
-This article describes how to locally survey the Windows endpoint registry with a script. This information will be used for generating alerts, notifications, data mining reports, risk assessments, and attack vector reports.
-
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/data-mining-screen.png" alt-text="Data mining screenshot.":::
-
-You can survey the following Windows operating systems:
-
-- Windows XP
-
-- Windows 2000
-
-- Windows NT
-
-- Windows 7
-
-- Windows 10
-
-- Windows Server 2003/2008/2012/2016
-
-### Before you begin
-
-To work with the script, you need to meet the following requirements:
-
-- Administrator permissions are required to run the script on the device.
-
-- The sensor should have already learned the Windows device. This means that if the device already exists, the script will retrieve its information.
-
-- A sensor is monitoring the network that the Windows PC is connected to.
-
-### Acquire the script
-
-To receive the script, [contact customer support](mailto:support.microsoft.com).
-
-### Deploy the script
-
-You can deploy the script once or schedule ongoing queries by using standard automated deployment methods and tools.
-
-### About the script
-
-- The script is run as a utility and not an installed program. Running the script does not affect the endpoint.
-
-- The files that the script generates remain on the local drive until you delete them.
-
-- The files that the script generates are located next to each other. Don't separate them.
-
-- If you run the script again in the same location, these files are overwritten.
-
-**To run the script:** 
-
-1. Copy the script to a local drive and unzip it. The following files appear:
-
-    - start.bat
-
-    - settings.json
-
-    - data.bin
-
-    - run.bat
-
-   :::image type="content" source="media/how-to-work-with-asset-inventory-information/files-in-file-explorer.png" alt-text="View of the files in File Explorer.":::
-
-2. Run the `run.bat` file.
-
-3. After the registry is probed, the CX-snapshot file appears with the registry information.
-
-4. The file name indicates the system name and date and time of the snapshot. An example file name is `CX-snaphot_SystemName_Month_Year_Time`.
-
-### Import device details
-
-Information learned on each endpoint should be imported to the sensor.
-
-Files generated from the queries can be placed in one folder that you can access from sensors. Use standard, automated methods and tools to move the files from each Windows endpoint to the location where you'll be importing them to the sensor.
-
-Don't update file names.
-
-**To import:**
-
-1. Select **Import Settings** from the **Import Windows Configuration** dialog box.
-
-   :::image type="content" source="media/how-to-work-with-asset-inventory-information/import-windows-configuration-v2.png" alt-text="Import your Windows configurations.":::
-
-2. Select **Add**, and then select all the files (Ctrl+A).
-
-3. Select **Close**. The device registry information is imported. If there's a problem uploading one of the files, you'll be informed which file upload failed.
-
-   :::image type="content" source="media/how-to-work-with-asset-inventory-information/add-new-file.png" alt-text="Upload of added files was successful.":::
-
-## View and delete inactive devices from the inventory
+## View inactive devices
 
 You may want to view devices in your network that have been inactive and delete them.
-Devices may become inactive because of:
-- Misconfigured SPAN ports
-- Changes in network coverage
-- Unplugging from the network
 
-Deleting inactive devices helps:
+For example, devices may become inactive because of misconfigured SPAN ports, changes in network coverage, or by unplugging them from the network
 
-- Defender for IoT create a more accurate representation of current network activity
-- Better evaluate committed devices when managing subscriptions
-- Reduce clutter on your screen
+**To view inactive devices**, filter the device inventory to display devices that have been inactive.
 
-### View inactive devices
+On the **Device inventory** page:
 
-You can filter the inventory to display devices that are inactive:
+1. Select **Add filter**.
+1. Select **Last Activity** in the column field.
+1. Choose the time period in the **Filter** field. Filtering options include seven days or more, 14 days or more, 30 days or more, or 90 days or more.
 
-- for 7 days or more
-- for 14 days or more
-- 30 days or more
-- 90 days or more
+> [!TIP]
+> We recommend that you [delete](#delete-devices) inactive devices to display a more accurate representation of current network activity, better evaluate [committed devices](architecture.md#what-is-a-defender-for-iot-committed-device), and reduce clutter on your screen.
 
-**To filter the inventory:**
-  
-1. Select the **Last Seen** filter icon in the Inventory.
+## Delete devices
+
+You may want to delete devices from your device inventory, such as if they've been [merged incorrectly](#merge-devices), or are [inactive](#view-inactive-devices).
+
+Deleted devices are removed from the **Device map** and the device inventories on the Azure portal and on-premises management console, and aren't calculated when generating reports, such as Data Mining, Risk Assessment, or Attack Vector reports.
+
+**To delete one or more devices**:
+
+You can delete a device when it's been inactive for more than 10 minutes.
+
+1. In the **Device inventory** page, select the device or devices you want to delete, and then select **Delete** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/delete-device.png" border="false"::: in the toolbar at the top of the page.
+
+1. At the prompt, select **Confirm** to confirm that you want to delete the device from Defender for IoT.
+
+A confirmation message appears at the top right.
+
+**To delete all inactive devices**:
+
+This procedure is supported for the *cyberx* and admin users only.
+
+1. Select the **Last Activity** filter icon in the Inventory.
 1. Select a filter option.
 1. Select **Apply**.
+1. Select **Delete Inactive Devices**. In the prompt displayed, enter the reason you're deleting the devices, and then select **Delete**.
 
-### Delete inactive devices
+All devices detected within the range of the filter will be deleted. If you delete a large number of devices, the delete process may take a few minutes.
 
-Devices you delete from the Inventory are removed from the map and won't be calculated when generating Defender for IoT reports, for example Data Mining, Risk Assessment, and Attack Vector reports.
+## Next steps
 
-You will be prompted to record a reason for deleting devices. This information, as well as the time/date and number of devices deleted, appears in the Event timeline.
+For more information, see:
 
-**To delete devices from the inventory:**
-  
-1. Select the **Last Seen** filter icon in the Inventory.
-1. Select a filter option.
-1. Select **Apply**.
-1. Select **Delete Inactive Devices**.
-1. In the confirmation dialog box that opens, enter the reason for the deletion and select **Delete**. All devices detected within the range of the filter will be deleted. If you  delete a large number of devices, the delete process may take a few minutes.
-
-## Export device inventory information
-
-You can export device inventory information to an Excel file.
-
-To export a CSV file:
-
-- On the upper-right menu of the device inventory, select :::image type="icon" source="media/how-to-work-with-asset-inventory-information/csv-excel-export-icon.png" border="false":::. The CSV report is generated and downloaded.
-
-## See also
-
-[Investigate all enterprise sensor detections in a device inventory](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)
-
-[Work with site map views](how-to-gain-insight-into-global-regional-and-local-threats.md#work-with-site-map-views)
+- [Control what traffic is monitored](how-to-control-what-traffic-is-monitored.md)
+- [Detect Windows workstations and servers with a local script](detect-windows-endpoints-script.md)
+- [Device data retention periods](references-data-retention.md#device-data-retention-periods)

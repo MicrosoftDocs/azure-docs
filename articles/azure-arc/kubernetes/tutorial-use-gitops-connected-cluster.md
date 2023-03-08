@@ -1,18 +1,15 @@
 ---
 title: 'Tutorial: Deploy configurations using GitOps on an Azure Arc-enabled Kubernetes cluster'
-description: This tutorial demonstrates applying configurations on an Azure Arc-enabled Kubernetes cluster. For a conceptual take on this process, see the Configurations and GitOps - Azure Arc-enabled Kubernetes article. 
-author: csand-msft
-ms.author: csand
-ms.service: azure-arc
+description: This tutorial demonstrates applying configurations on an Azure Arc-enabled Kubernetes cluster.
 ms.topic: tutorial 
-ms.date: 03/02/2021
+ms.date: 02/16/2023
 ms.custom: template-tutorial, devx-track-azurecli
 ---
 
 # Tutorial: Deploy configurations using GitOps on an Azure Arc-enabled Kubernetes cluster 
 
-> [!NOTE]
-> This tutorial is for GitOps with Flux v1.  GitOps with Flux v2 is now available in preview for Azure Arc-enabled Kubernetes and Azure Kubernetes Service (AKS) clusters; [go to the tutorial for GitOps with Flux v2](./tutorial-use-gitops-flux2.md).
+> [!IMPORTANT]
+> This tutorial is for GitOps with Flux v1.  GitOps with Flux v2 is now available for Azure Arc-enabled Kubernetes and Azure Kubernetes Service (AKS) clusters; [go to the tutorial for GitOps with Flux v2](./tutorial-use-gitops-flux2.md). Eventually Azure will stop supporting GitOps with Flux v1, so begin using Flux v2 as soon as possible.
 
 In this tutorial, you will apply configurations using GitOps on an Azure Arc-enabled Kubernetes cluster. You'll learn how to:
 
@@ -36,8 +33,6 @@ In this tutorial, you will apply configurations using GitOps on an Azure Arc-ena
 
     >[!TIP]
     > If the `k8s-configuration` extension is already installed, you can update it to the latest version using the following command - `az extension update --name k8s-configuration`
-
-- If your Git repository is located outside the firewall and git protocol is being used with the configuration repository parameter, then TCP on port 9418 (`git://:9418`) needs to be enabled for egress access on firewall.
 
 ## Create a configuration
 
@@ -100,7 +95,7 @@ Use the Azure CLI extension for `k8s-configuration` to link a connected cluster 
 
 | Parameter | Format |
 | ------------- | ------------- |
-| `--repository-url` | http[s]://server/repo[.git] or git://server/repo[.git]
+| `--repository-url` | http[s]://server/repo[.git]
 
 ### Use a private Git repository with SSH and Flux-created keys
 
@@ -150,7 +145,7 @@ Just like private keys, you can provide your known_hosts content directly or in 
 >[!NOTE]
 >* Helm operator chart version 1.2.0+ supports the HTTPS Helm release private auth.
 >* HTTPS Helm release is not supported for AKS managed clusters.
->* If you need Flux to access the Git repository through your proxy, you will need to update the Azure Arc agents with the proxy settings. For more information, see [Connect using an outbound proxy server](./quickstart-connect-cluster.md#4a-connect-using-an-outbound-proxy-server).
+>* If you need Flux to access the Git repository through your proxy, you will need to update the Azure Arc agents with the proxy settings. For more information, see [Connect using an outbound proxy server](./quickstart-connect-cluster.md#connect-using-an-outbound-proxy-server).
 
 
 ## Additional Parameters
@@ -265,8 +260,8 @@ If you generated your own SSH keys, then you already have the private and public
 
 Use the following in Azure CLI if Flux is generating the keys.
 
-```console
-$ az k8s-configuration show --resource-group <resource group name> --cluster-name <connected cluster name> --name <configuration name> --cluster-type connectedClusters --query 'repositoryPublicKey' 
+```azurecli
+az k8s-configuration show --resource-group <resource group name> --cluster-name <connected cluster name> --name <configuration name> --cluster-type connectedClusters --query 'repositoryPublicKey' 
 "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAREDACTED"
 ```
 

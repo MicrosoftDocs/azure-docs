@@ -16,17 +16,24 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-- An Azure Automation account. For instructions, see [Create an Azure Automation account](./quickstarts/create-account-portal.md).
+- An Azure Automation account. For instructions, see [Create an Azure Automation account](./quickstarts/create-azure-automation-account-portal.md).
 
 - The latest version of Az PowerShell modules Az.Accounts, Az.Resources, Az.Automation, Az.KeyVault.
 
 - An Azure resource that you want to access from your Automation runbook. This resource needs to have a role defined for the managed identity, which helps the Automation runbook authenticate access to the resource. To add roles, you need to be an owner for the resource in the corresponding Azure AD tenant.
 
-- If you want to execute hybrid jobs using a managed identity, update the Hybrid Runbook Worker to the latest version. The minimum required versions are:
+- If you want to execute hybrid jobs using a managed identity, update the agent-based Hybrid Runbook Worker to the latest version. There is no minimum version requirement for extension-based Hybrid Runbook Worker, and all the versions would work. The minimum required versions for the agent-based Hybrid Worker are:
 
-  - Windows Hybrid Runbook Worker: version 7.3.1125.0
-  - Linux Hybrid Runbook Worker: version 1.7.4.0
+    - Windows Hybrid Runbook Worker: version 7.3.1125.0
+    - Linux Hybrid Runbook Worker: version 1.7.4.0
+  
+  To check the versions:
+    - Windows Hybrid Runbook Worker: Go to the installation path - `C:\ProgramFiles\Microsoft Monitoring Agent\Agent\AzureAutomation\.` and the folder *Azure Automation* contains a sub-folder with the version number as the name of sub-folder.
+    - Linux Hybrid Runbook Worker: Go to the path - `vi/opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/VERSION.` and the file *VERSION* has the version number of the Hybrid Worker.
 
+- To assign an Azure role  you must have ```Microsoft.Authorization/roleAssignments/write``` permission such as [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) or [Owner](../role-based-access-control/built-in-roles.md#owner).
+
+ 
 ## Enable a system-assigned managed identity for an Azure Automation account
 
 Once enabled, the following properties will be assigned to the system-assigned managed identity.
@@ -246,7 +253,7 @@ Perform the following steps.
 
    The output will look similar to the output shown for the REST API example, above.
 
-## Give access to Azure resources by obtaining a token
+## Assign role to a system-assigned managed identity
 
 An Automation account can use its system-assigned managed identity to get tokens to access other resources protected by Azure AD, such as Azure Key Vault. These tokens don't represent any specific user of the application. Instead, they represent the application that's accessing the resource. In this case, for example, the token represents an Automation account.
 
@@ -263,6 +270,33 @@ New-AzRoleAssignment `
     -RoleDefinitionName "Contributor"
 ```
 
+## Verify role assignment to a system-managed identity
+
+To verify a role to a system-assigned managed identity of the Automation account, follow these steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com)
+1. Go to your Automation account.
+1. Under **Account Settings**, select **Identity**.
+
+    :::image type="content" source="media/managed-identity/system-assigned-main-screen-inline.png" alt-text="Assigning role in system-assigned identity in Azure portal." lightbox="media/managed-identity/system-assigned-main-screen-expanded.png":::
+
+1. Under **Permissions**, click **Azure role assignments**.
+
+   If the roles are already assigned to the selected system-assigned managed identity, you can see a list of role assignments. This list includes all the role-assignments you have permission to read.
+
+    :::image type="content" source="media/managed-identity/role-assignments-view-inline.png" alt-text="View role-assignments that you have permission in Azure portal." lightbox="media/managed-identity/role-assignments-view-expanded.png":::
+
+1. To change the subscription, click the **Subscription** drop-down list and select the appropriate subscription.
+1. Click **Add role assignment (Preview)**
+1. In the drop-down list, select the set of resources that the role assignment applies - **Subscription**, **Resource group**, **Role**, and **Scope**. </br> If you don't have the role assignment, you can view the write permissions for the selected scope as an inline message.
+1. In the **Role** drop-down list, select a role as *Virtual Machine Contributor*.
+1. Click **Save**.
+
+    :::image type="content" source="media/managed-identity/add-role-assignment-inline.png" alt-text="Add a role assignment in Azure portal." lightbox="media/managed-identity/add-role-assignment-expanded.png":::
+
+After a few minutes, the managed identity is assigned the role at the selected scope.
+
+
 ## Authenticate access with system-assigned managed identity
 
 After you enable the managed identity for your Automation account and give an identity access to the target resource, you can specify that identity in runbooks against resources that support managed identity. For identity support, use the Az cmdlet `Connect-AzAccount` cmdlet. See [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) in the PowerShell reference.
@@ -274,7 +308,7 @@ Disable-AzContextAutosave -Scope Process
 # Connect to Azure with system-assigned managed identity
 $AzureContext = (Connect-AzAccount -Identity).context
 
-# set and store context
+# Set and store context
 $AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription -DefaultProfile $AzureContext
 ```
 
@@ -354,7 +388,7 @@ print(response.text)
 
 ### Using system-assigned managed identity to Access SQL Database
 
-For details on provisioning access to an Azure SQL database, see [Provision Azure AD admin (SQL Database)](../azure-sql/database/authentication-aad-configure.md#provision-azure-ad-admin-sql-database).
+For details on provisioning access to an Azure SQL database, see [Provision Azure AD admin (SQL Database)](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-database).
 
 ```powershell
 $queryParameter = "?resource=https://database.windows.net/" 

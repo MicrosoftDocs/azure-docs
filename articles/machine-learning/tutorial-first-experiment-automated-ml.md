@@ -6,13 +6,12 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: tutorial
-author: cartacioS
-ms.author: sacartac
-ms.reviewer: nibaccam
+author: manashgoswami 
+ms.author: magoswam
+ms.reviewer: ssalgado 
 ms.date: 10/21/2021
-ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4
-
-# Customer intent: As a non-coding data scientist, I want to use automated machine learning techniques so that I can build a classification model.
+ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4, ignite-2022
+#Customer intent: As a non-coding data scientist, I want to use automated machine learning techniques so that I can build a classification model.
 ---
 
 # Tutorial: Train a classification model with no-code AutoML in the Azure Machine Learning studio
@@ -32,7 +31,7 @@ You won't write any code in this tutorial, you'll use the studio interface to pe
 Also try automated machine learning for these other model types:
 
 * For a no-code example of forecasting, see [Tutorial: Demand forecasting & AutoML](tutorial-automated-ml-forecast.md).
-* For a code first example of a regression model, see the [Tutorial: Regression model with AutoML](tutorial-auto-train-models.md).
+* For a code first example of an object detection model, see the [Tutorial: Train an object detection model with AutoML and Python](tutorial-auto-train-image-models.md),
 
 ## Prerequisites
 
@@ -67,7 +66,7 @@ You complete the following experiment set-up and run steps  via the Azure Machin
 
    ![Get started page](./media/tutorial-first-experiment-automated-ml/get-started.png)
 
-1. Select **+New automated ML run**. 
+1. Select **+New automated ML job**. 
 
 ## Create and load dataset
 
@@ -111,13 +110,13 @@ Before you configure your experiment, upload your data file to your workspace in
 
     1. Select  **Next**.
 
-## Configure run
+## Configure job
 
 After you load and configure your data, you can set up your experiment. This setup includes experiment design tasks such as, selecting the size of your compute environment and specifying what column you want to predict. 
 
 1. Select the **Create new** radio button.
 
-1. Populate the **Configure Run** form as follows:
+1. Populate the **Configure Job** form as follows:
     1. Enter this experiment name: `my-1st-automl-experiment`
 
     1. Select **y** as the target column, what you want to predict. This column indicates whether the client subscribed to a term deposit or not.
@@ -175,7 +174,7 @@ After you load and configure your data, you can set up your experiment. This set
     1. Select k-fold cross-validation as your **Validation type**.
     1.  Select 2 as your **Number of cross validations**.
 
-1. Select **Finish** to run the experiment. The **Run Detail**  screen opens with the **Run status** at the top as the experiment preparation begins. This status updates as the experiment progresses. Notifications also appear in the top right corner of the studio to inform you of the status of your experiment.
+1. Select **Finish** to run the experiment. The **Job Detail**  screen opens with the **Job status** at the top as the experiment preparation begins. This status updates as the experiment progresses. Notifications also appear in the top right corner of the studio to inform you of the status of your experiment.
 
 >[!IMPORTANT]
 > Preparation takes **10-15 minutes** to prepare the experiment run.
@@ -200,14 +199,14 @@ These model explanations can be generated on demand, and are summarized in the m
 
 To generate model explanations, 
  
-1. Select **Run 1** at the top to navigate back to the **Models** screen. 
+1. Select **Job 1** at the top to navigate back to the **Models** screen. 
 1. Select the **Models** tab.
 1. For this tutorial, select the first **MaxAbsScaler, LightGBM** model.
 1. Select the **Explain model** button at the top. On the right, the **Explain model** pane appears. 
-1. Select the **automl-compute** that you created previously. This compute cluster initiates a child run to generate the model explanations.
+1. Select the **automl-compute** that you created previously. This compute cluster initiates a child job to generate the model explanations.
 1. Select **Create** at the bottom. A green success message appears towards the top of your screen. 
     >[!NOTE]
-    > The explainability run takes about 2-5 minutes to complete.
+    > The explainability job takes about 2-5 minutes to complete.
 1. Select the **Explanations (preview)** button. This tab populates once the explainability run completes.
 1. On the left hand side, expand the pane and select the row that says **raw** under **Features**. 
 1. Select the **Aggregate feature importance** tab on the right. This chart shows which data features influenced the predictions of the selected model. 
@@ -222,7 +221,7 @@ The automated machine learning interface allows you to deploy the best model as 
 
 For this experiment, deployment to a web service means that the financial institution now has an iterative and scalable web solution for identifying potential fixed term deposit customers. 
 
-Check to see if your experiment run is complete. To do so,  navigate back to the parent run page by selecting **Run 1** at the top of your screen. A **Completed** status is shown on the top left of the screen. 
+Check to see if your experiment run is complete. To do so,  navigate back to the parent job page by selecting **Job 1** at the top of your screen. A **Completed** status is shown on the top left of the screen. 
 
 Once the experiment run is complete, the **Details** page is populated with a **Best model summary** section. In this experiment context, **VotingEnsemble** is considered the best model, based on the **AUC_weighted** metric.  
 
@@ -230,7 +229,7 @@ We deploy this model, but be advised, deployment takes about 20 minutes to compl
 
 1. Select **VotingEnsemble** to open the model-specific page.
 
-1. Select the **Deploy** button in the top-left.
+1. Select the **Deploy** menu in the top-left and select **Deploy to web service**.
 
 1. Populate the **Deploy a model** pane as follows:
 
@@ -238,7 +237,7 @@ We deploy this model, but be advised, deployment takes about 20 minutes to compl
     ----|----
     Deployment name| my-automl-deploy
     Deployment description| My first automated machine learning experiment deployment
-    Compute type | Select Azure Compute Instance (ACI)
+    Compute type | Select Azure Container Instance (ACI)
     Enable authentication| Disable. 
     Use custom deployments| Disable. Allows for the default driver file (scoring script) and environment file to be auto-generated. 
     
@@ -246,7 +245,7 @@ We deploy this model, but be advised, deployment takes about 20 minutes to compl
 
 1. Select **Deploy**.  
 
-    A green success message appears at the top of the **Run** screen, and in the **Model summary** pane, a status message appears under **Deploy status**. Select **Refresh** periodically to check the deployment status.
+    A green success message appears at the top of the **Job** screen, and in the **Model summary** pane, a status message appears under **Deploy status**. Select **Refresh** periodically to check the deployment status.
     
 Now you have an operational web service to generate predictions. 
 
@@ -280,7 +279,7 @@ In this automated machine learning tutorial, you used Azure Machine Learning's a
 + Learn more about [automated machine learning](concept-automated-ml.md).
 + For more information on classification metrics and charts, see the [Understand automated machine learning results](how-to-understand-automated-ml.md) article.
 + Learn more about [featurization](how-to-configure-auto-features.md#featurization).
-+ Learn more about [data profiling](how-to-connect-data-ui.md#profile).
++ Learn more about [data profiling](v1/how-to-connect-data-ui.md#profile).
 
 
 >[!NOTE]

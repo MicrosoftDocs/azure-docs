@@ -4,13 +4,16 @@ description: Learn about Azure disk pools (preview).
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/04/2022
+ms.date: 02/28/2023
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: references_regions, ignite-fall-2021
+ms.custom: references_regions, ignite-fall-2021, ignite-2022
 ---
 
 # Azure disk pools (preview)
+
+> [!IMPORTANT]
+> Disk pools are being retired soon. If you're looking for an alternative solution, see either [Azure Elastic SAN (preview)](../storage/elastic-san/elastic-san-introduction.md) or [Azure NetApp Files](../aks/azure-netapp-files.md).
 
 An Azure disk pool (preview) is an Azure resource that allows your applications and workloads to access a group of managed disks from a single endpoint. A disk pool can expose an Internet Small Computer Systems Interface (iSCSI) target to enable data access to disks inside this pool over iSCSI. Each disk pool can have one iSCSI target and each disk can be exposed as an iSCSI LUN. You can connect disks under the disk pool to Azure VMware Solution hosts as datastores. This allows you to scale your storage independent of your Azure VMware Solution hosts. Once a datastore is configured, you can create volumes on it and attach them to your VMware instances.
 
@@ -26,7 +29,7 @@ When you add a managed disk to the disk pool, the disk is attached to managed iS
 
 In preview, disk pools have the following restrictions:
 
-- Only premium SSDs and standard SSDs, or ultra disks can be added to a disk pool.
+- Only premium SSD managed disks and standard SSDs, or ultra disks can be added to a disk pool.
     - A disk pool can't be configured to contain both ultra disks and premium/standard SSDs. If a disk pool is configured to use ultra disks, it can only contain ultra disks. Likewise, a disk pool configured to use premium and standard SSDs can only contain premium and standard SSDs.
 - Disks using [zone-redundant storage (ZRS)](disks-redundancy.md#zone-redundant-storage-for-managed-disks) aren't currently supported. 
 
@@ -38,12 +41,16 @@ Disk pools are currently available in the following regions:
 - Canada Central
 - Central US
 - East US
+- East US 2
 - West US 2
 - Japan East
 - North Europe
 - West Europe
 - Southeast Asia
 - UK South
+- Korea Central
+- Sweden Central
+- Central India
 
 
 ## Billing

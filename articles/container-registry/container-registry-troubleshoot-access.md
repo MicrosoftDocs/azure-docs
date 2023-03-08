@@ -2,7 +2,9 @@
 title: Troubleshoot network issues with registry
 description: Symptoms, causes, and resolution of common problems when accessing an Azure container registry in a virtual network or behind a firewall
 ms.topic: article
-ms.date: 05/10/2021
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ---
 
 # Troubleshoot network issues with registry
@@ -34,11 +36,11 @@ May include one or more of the following:
 
 ## Further diagnosis 
 
-Run the [az acr check-health](/cli/azure/acr#az_acr_check_health) command to get more information about the health of the registry environment and optionally access to a target registry. For example, diagnose certain network connectivity or configuration problems. 
+Run the [az acr check-health](/cli/azure/acr#az-acr-check-health) command to get more information about the health of the registry environment and optionally access to a target registry. For example, diagnose certain network connectivity or configuration problems. 
 
 See [Check the health of an Azure container registry](container-registry-check-health.md) for command examples. If errors are reported, review the [error reference](container-registry-health-error-reference.md) and the following sections for recommended solutions.
 
-If you're experiencing problems using an Azure Kubernetes Service with an integrated registry, run the [az aks check-acr](/cli/azure/aks#az_aks_check_acr) command to validate that the AKS cluster can reach the registry.
+If you're experiencing problems using an Azure Kubernetes Service with an integrated registry, run the [az aks check-acr](/cli/azure/aks#az-aks-check-acr) command to validate that the AKS cluster can reach the registry.
 
 > [!NOTE]
 > Some network connectivity symptoms can also occur when there are issues with registry authentication or authorization. See [Troubleshoot registry login](container-registry-troubleshoot-login.md).
@@ -84,7 +86,7 @@ Confirm that the virtual network is configured with either a private endpoint fo
 
 If a private endpoint is configured, confirm that DNS resolves the registry's public FQDN such as *myregistry.azurecr.io* to the registry's private IP address.
 
-  * Run the [az acr check-health](/cli/azure/acr#az_acr_check_health) command with the `--vnet` parameter to confirm the DNS routing to the private endpoint in the virtual network.
+  * Run the [az acr check-health](/cli/azure/acr#az-acr-check-health) command with the `--vnet` parameter to confirm the DNS routing to the private endpoint in the virtual network.
   * Use a network utility such as `dig` or `nslookup` for DNS lookup. 
   * Ensure that [DNS records are configured](container-registry-private-link.md#dns-configuration-options) for the registry FQDN and for each of the data endpoint FQDNs. 
 

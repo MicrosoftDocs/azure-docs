@@ -5,7 +5,7 @@ author: toddysm
 ms.author: memladen
 ms.service: container-registry
 ms.topic: overview
-ms.date: 10/21/2021
+ms.date: 10/11/2022
 ms.custom: ignite-fall-2021
 ---
 
@@ -23,7 +23,7 @@ To access and manage a [connected registry](intro-connected-registry.md), curren
 
 ## Client tokens
 
-To manage client access to a connected registry, you create tokens scoped for actions on one or more repositories. After creating a token, configure the connected registry to accept the token by using the [az acr connected-registry update](/cli/azure/acr/connected-registry#az_acr_connected_registry_update) command. A client can then use the token credentials to access a connected registry endpoint - for example, to use Docker CLI commands to pull or push images to the connected registry.
+To manage client access to a connected registry, you create tokens scoped for actions on one or more repositories. After creating a token, configure the connected registry to accept the token by using the [az acr connected-registry update](/cli/azure/acr/connected-registry#az-acr-connected-registry-update) command. A client can then use the token credentials to access a connected registry endpoint - for example, to use Docker CLI commands to pull or push images to the connected registry.
 
 Your options for configuring client token actions depend on whether the connected registry allows both push and pull operations or functions as a pull-only mirror. 
 * A connected registry in the default [ReadWrite mode](intro-connected-registry.md#modes) allows both pull and push operations, so you can create a token that allows actions to both *read* and *write* repository content in that registry. 
@@ -31,7 +31,7 @@ Your options for configuring client token actions depend on whether the connecte
 
 ### Manage client tokens
 
-Update client tokens, passwords, or scope maps as needed by using [az acr token](/cli/azure/acr#az_acr_token) and [az acr scope-map](/cli/azure/acr#az_acr_scope-map) commands. Client token updates are propagated automatically to the connected registries that accept the token.
+Update client tokens, passwords, or scope maps as needed by using [az acr token](/cli/azure/acr#az-acr-token) and [az acr scope-map](/cli/azure/acr#az-acr-scope-map) commands. Client token updates are propagated automatically to the connected registries that accept the token.
 
 ## Sync token
 
@@ -44,7 +44,7 @@ Each connected registry uses a sync token to authenticate with its immediate par
 
 ### Manage sync token
 
-Update sync tokens, passwords, or scope maps as needed by using [az acr token](/cli/azure/acr#az_acr_token) and [az acr scope-map](/cli/azure/acr#az_acr_scope-map) commands. Sync token updates are propagated automatically to the connected registry. Follow the standard practices of rotating passwords when updating the sync token.
+Update sync tokens, passwords, or scope maps as needed by using [az acr token](/cli/azure/acr#az-acr-token) and [az acr scope-map](/cli/azure/acr#az-acr-scope-map) commands. Sync token updates are propagated automatically to the connected registry. Follow the standard practices of rotating passwords when updating the sync token.
 
 > [!NOTE]
 > The sync token cannot be deleted until the connected registry associated with the token is deleted. You can disable a connected registry by setting the status of the sync token to `disabled`. 

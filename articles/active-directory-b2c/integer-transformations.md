@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/17/2022
+ms.date: 02/16/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -20,7 +20,7 @@ This article provides examples for using the integer claims transformations of t
 
 ## AdjustNumber
 
-Increases or decreases a numeric claim and return a new claim.
+Increases or decreases a numeric claim and return a new claim. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/integer#adjustnumber) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -66,13 +66,13 @@ If the input claim is null, the output claim will be one.
 
 ## AssertNumber
 
-Determines whether a numeric claim is greater, lesser, equal, or not equal to a number. 
+Determines whether a numeric claim is greater, lesser, equal, or not equal to a number. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/integer#assertnumber) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim | int | The first numeric claim to compare whether it is greater, lesser, equal, or not equal than the second number. Null value throws an exception. |
-| InputParameter | CompareToValue | int | The second number to compare whether it is greater, lesser, equal, or not equal than the first number. |
-| InputParameter | Operator | string | Possible values: `LESSTHAN`, `GREATERTHAN`, `GREATERTHANOREQUAL`, `LESSTHANOREQUAL`, `EQUAL`, `NOTEQUAL`. |
+| InputClaim | inputClaim | int | The first numeric claim to compare whether it's greater, lesser, equal, or not equal than the second number. Null value throws an exception. |
+| InputParameter | CompareToValue | int | The second number to compare whether it's greater, lesser, equal, or not equal than the first number. |
+| InputParameter | Operator | string | Possible values: `LessThan`, `GreaterThan`, `GreaterThanOrEqual`, `LessThanOrEqual`, `Equal`, `NotEqual`. |
 | InputParameter | throwError | boolean | Specifies whether this assertion should throw an error if the comparison result is `true`. Possible values: `true` (default), or `false`. <br />&nbsp;<br />When set to `true` (Assertion mode), and the comparison result is `true`, an exception will be thrown. When set to `false` (Evaluation mode), the result is a new boolean claim type with a value of `true`, or `false`.| 
 | OutputClaim | outputClaim | boolean | If `ThrowError` is set to `false`, this output claim contains `true`, or `false` according to the comparison result. |
 
@@ -103,7 +103,7 @@ The following example asserts the number of attempts is over five. The  claims t
     <InputClaim ClaimTypeReferenceId="attempts" TransformationClaimType="inputClaim" />
   </InputClaims>
   <InputParameters>
-    <InputParameter Id="Operator" DataType="string" Value="GREATERTHAN" />
+    <InputParameter Id="Operator" DataType="string" Value="GreaterThan" />
     <InputParameter Id="CompareToValue" DataType="int" Value="5" />
     <InputParameter Id="throwError" DataType="boolean" Value="true" />
   </InputParameters>
@@ -113,14 +113,14 @@ The following example asserts the number of attempts is over five. The  claims t
 - Input claims:
   - **inputClaim**: 10
 - Input parameters:
-  - **Operator**: GREATERTHAN
+  - **Operator**: GreaterThan
   - **CompareToValue**: 5
   - **throwError**: true
 - Result: Error thrown
 
 ### Example of AssertNumber evaluation mode
 
-The following example evaluates whether the number of attempts is over five. The output claim contains a boolean value according to the comparison result. The claims transformation will not throw an error. 
+The following example evaluates whether the number of attempts is over five. The output claim contains a boolean value according to the comparison result. The claims transformation won't throw an error. 
 
 ```xml
 <ClaimsTransformation Id="isOverLimit" TransformationMethod="AssertNumber">
@@ -128,7 +128,7 @@ The following example evaluates whether the number of attempts is over five. The
     <InputClaim ClaimTypeReferenceId="attempts" TransformationClaimType="inputClaim" />
   </InputClaims>
   <InputParameters>
-    <InputParameter Id="Operator" DataType="string" Value="GREATERTHAN" />
+    <InputParameter Id="Operator" DataType="string" Value="GreaterThan" />
     <InputParameter Id="CompareToValue" DataType="int" Value="5" />
     <InputParameter Id="throwError" DataType="boolean" Value="false" />
   </InputParameters>
@@ -141,7 +141,7 @@ The following example evaluates whether the number of attempts is over five. The
 - Input claims:
   - **inputClaim**: 10
 - Input parameters:
-  - **Operator**: GREATERTHAN
+  - **Operator**: GreaterThan
   - **CompareToValue**: 5
   - **throwError**: false
 - Output claims:
@@ -150,7 +150,7 @@ The following example evaluates whether the number of attempts is over five. The
 
 ## ConvertNumberToStringClaim
 
-Converts a long data type into a string data type.
+Converts a long data type into a string data type. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/integer#convertnumbertostringclaim) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -179,4 +179,4 @@ In this example, the `numericUserId` claim with a value type of long is converte
 
 ## Next steps
 
-- Find more [claims transformation samples](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation) on the Azure AD B2C community GitHub repo
+- Find more [claims transformation samples](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/integer) on the Azure AD B2C community GitHub repo

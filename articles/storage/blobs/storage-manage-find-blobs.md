@@ -67,19 +67,21 @@ You can apply multiple tags on your blob to be more descriptive of the data.
 > "Status" = 'Unprocessed'
 > "Priority" = '01'
 
-To modify the existing index tag attributes, retrieve the existing tag attributes, modify the tag attributes, and replace with the [Set Blob Tags](/rest/api/storageservices/set-blob-tags) operation. To remove all index tags from the blob, call the `Set Blob Tags` operation with no tag attributes specified. As blob index tags are a subresource to the blob data contents, `Set Blob Tags` doesn't modify any underlying content and doesn't change the blob's last-modified-time or eTag. You can create or modify index tags for all current base blobs. Index tags are also preserved for previous versions but they aren't passed to the blob index engine, so you cannot query index tags to retrieve previous versions. Tags on snapshots or soft deleted blobs cannot be modified.
+To modify the existing index tag attributes, retrieve the existing tag attributes, modify the tag attributes, and replace with the [Set Blob Tags](/rest/api/storageservices/set-blob-tags) operation. To remove all index tags from the blob, call the `Set Blob Tags` operation with no tag attributes specified. As blob index tags are a subresource to the blob data contents, `Set Blob Tags` doesn't modify any underlying content and doesn't change the blob's last-modified-time or eTag. You can create or modify index tags for all current base blobs. Index tags are also preserved for previous versions but they aren't passed to the blob index engine, so you cannot query index tags to retrieve previous versions. Tags on snapshots or soft-deleted blobs cannot be modified.
 
 The following limits apply to blob index tags:
 
 - Each blob can have up to 10 blob index tags
 
-- Tag keys must be between one and 128 characters
+- Tag keys must be between one and 128 characters.
 
-- Tag values must be between zero and 256 characters
+- Tag values must be between zero and 256 characters.
 
-- Tag keys and values are case-sensitive
+- Tag keys and values are case-sensitive.
 
-- Tag keys and values only support string data types. Any numbers, dates, times, or special characters are saved as strings
+- Tag keys and values only support string data types. Any numbers, dates, times, or special characters are saved as strings.
+
+- If versioning is enabled, index tags are applied to a specific version of blob. If you set index tags on the current version, and a new version is created, then the tag won't be associated with the new version. The tag will be associated only with the previous version.
 
 - Tag keys and values must adhere to the following naming rules:
 
@@ -139,7 +141,7 @@ The below table shows all the valid operators for `Find Blobs by Tags`:
 |     >      |  Greater than | `"Date" > '2018-06-18'` |
 |     >=     |  Greater than or equal | `"Priority" >= '5'` |
 |     <      |  Less than   | `"Age" < '32'` |
-|     <=     |  Less than or equal  | `"Company" <= 'Contoso'` |
+|     <=     |  Less than or equal  | `"Priority" <= '5'` |
 |    AND     |  Logical and  | `"Rank" >= '010' AND "Rank" < '100'` |
 | @container | Scope to a specific container | `@container = 'videofiles' AND "status" = 'done'` |
 
@@ -165,7 +167,7 @@ The below table shows the valid operators for conditional operations:
 |     >      |  Greater than | `"Date" > '2018-06-18'` |
 |     >=     |  Greater than or equal | `"Priority" >= '5'` |
 |     <      |  Less than   | `"Age" < '32'` |
-|     <=     |  Less than or equal  | `"Company" <= 'Contoso'` |
+|     <=     |  Less than or equal  | `"Priority" <= '5'` |
 |    AND     |  Logical and  | `"Rank" >= '010' AND "Rank" < '100'` |
 |     OR     | Logical or   | `"Status" = 'Done' OR "Priority" >= '05'` |
 
@@ -316,24 +318,17 @@ You're charged for the monthly average number of index tags within a storage acc
 
 ## Feature support
 
-This table shows how this feature is supported in your account and the impact on support when you enable certain capabilities.
-
-| Storage account type | Blob Storage (default support) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> | SFTP <sup>1</sup> |
-|--|--|--|--|--|
-| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![No](../media/icons/no-icon.png)              | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Premium block blobs          | ![No](../media/icons/no-icon.png)|![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-
-<sup>1</sup> Data Lake Storage Gen2, Network File System (NFS) 3.0 protocol, and SSH File Transfer Protocol (SFTP) support all require a storage account with a hierarchical namespace enabled.
+[!INCLUDE [Blob Storage feature support in Azure Storage accounts](../../../includes/azure-storage-feature-support.md)]
 
 ## Conditions and known issues
 
 This section describes known issues and conditions.
 
-- Only general-purpose v2 accounts are supported. Premium block blob, legacy blob, and accounts with a hierarchical namespace enabled aren't supported. General-purpose v1 accounts won't be supported.
+- Only general-purpose v2 accounts and premium block blob accounts are supported. Premium page blob, legacy blob, and accounts with a hierarchical namespace enabled aren't supported. General-purpose v1 accounts won't be supported.
 
 - Uploading page blobs with index tags doesn't persist the tags. Set the tags after uploading a page blob.
 
-- If Blob storage versioning is enabled, you can still use index tags on the current version. Index tags are preserved for previous versions, but those tags aren't passed to the blob index engine, so you cannot them to retrieve previous versions. If you promote a previous version to the current version, then the tags of that previous version become the tags of the current version. Because those tags are associated with the current version, they are passed to the blob index engine and you can query them.
+- If Blob storage versioning is enabled, you can still use index tags on the current version. Index tags are preserved for previous versions, but those tags aren't passed to the blob index engine, so you cannot use them to retrieve previous versions. If you promote a previous version to the current version, then the tags of that previous version become the tags of the current version. Because those tags are associated with the current version, they are passed to the blob index engine and you can query them.
 
 - There is no API to determine if index tags are indexed.
 

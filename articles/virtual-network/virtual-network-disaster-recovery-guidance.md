@@ -1,22 +1,18 @@
 ---
-title: Virtual network business continuity | Microsoft Docs
+title: Virtual network business continuity
 description: Learn what to do in the event of an Azure service disruption impacting Azure Virtual Networks.
 services: virtual-network
-documentationcenter: ''
-author: NarayanAnnamalai
+author: asudbring
 manager: jefco
-editor: ''
-
 ms.assetid: ad260ab9-d873-43b3-8896-f9a1db9858a5
 ms.service: virtual-network
 ms.workload: virtual-network
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/16/2016
-ms.author: narayan
+ms.author: allensu
 ms.reviewer: aglick
-
 ---
+
 # Virtual Network – Business Continuity
 
 ## Overview
@@ -34,7 +30,7 @@ A: The virtual network and the resources in the affected region remains inaccess
 
 ![Simple Virtual Network Diagram](./media/virtual-network-disaster-recovery-guidance/vnet.png)
 
-**Q: What can I to do re-create the same virtual network in a different region?**
+**Q: What can I do to re-create the same virtual network in a different region?**
 
 A: Virtual networks are fairly lightweight resources. You can invoke Azure APIs to create a VNet with the same address space in a different region. To recreate the same environment that was present in the affected region, you make API calls to redeploy the Cloud Services web and worker roles, and the virtual machines that you had. If you have on-premises connectivity, such as in a hybrid deployment, you have to deploy a new VPN Gateway, and connect to your on-premises network.
 

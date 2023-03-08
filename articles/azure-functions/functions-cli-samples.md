@@ -5,7 +5,7 @@ description: Find links to bash scripts for Azure Functions that use the Azure C
 ms.assetid: 577d2f13-de4d-40d2-9dfc-86ecc79f3ab0
 ms.topic: sample
 ms.date: 09/17/2021
-ms.custom: mvc, devx-track-azurecli, seo-azure-cli
+ms.custom: mvc, devx-track-azurecli, seo-azure-cli, ignite-2022
 keywords: functions, azure cli samples, azure cli examples, azure cli code samples
 ---
 
@@ -25,10 +25,9 @@ The following table includes links to bash scripts for Azure Functions that use 
 | Integrate | Description|
 |---|---|
 | [Create a function app and connect to a storage account](scripts/functions-cli-create-function-app-connect-to-storage-account.md) | Create a function app and connect it to a storage account. |
-| [Create a function app and connect to an Azure Cosmos DB](scripts/functions-cli-create-function-app-connect-to-cosmos-db.md) | Create a function app and connect it to an Azure Cosmos DB. |
-| [Create a Python function app and mount a Azure Files share](scripts/functions-cli-mount-files-storage-linux.md) | By mounting a share to your Linux function app, you can leverage existing machine learning models or other data in your functions. | 
+| [Create a function app and connect to an Azure Cosmos DB](scripts/functions-cli-create-function-app-connect-to-cosmos-db.md) | Create a function app and connect it to an Azure Cosmos DB instance. |
+| [Create a Python function app and mount an Azure Files share](scripts/functions-cli-mount-files-storage-linux.md) | By mounting a share to your Linux function app, you can leverage existing machine learning models or other data in your functions. |
 
 | Continuous deployment | Description|
 |---|---|
 | [Deploy from GitHub](scripts/functions-cli-create-function-app-github-continuous.md) | Create a function app that deploys from a GitHub repository.  |
-| [Deploy from Azure DevOps](scripts/functions-cli-create-function-app-vsts-continuous.md) | Create a function app that deploys from an Azure DevOps repository.  |

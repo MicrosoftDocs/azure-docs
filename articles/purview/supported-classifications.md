@@ -1,8 +1,8 @@
 ---
 title: List of supported classifications
-description: This page lists the supported system classifications in Azure Purview.
-author: viseshag
-ms.author: viseshag
+description: This page lists the supported system classifications in Microsoft Purview.
+author: ankitscribbles
+ms.author: ankitgup
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: reference
@@ -10,43 +10,109 @@ ms.date: 09/27/2021
 #Customer intent: As a data steward or catalog administrator, I need to understand what's supported under classifications.
 ---
 
-# System classifications in Azure Purview
+# System classifications in Microsoft Purview
 
-This article lists the supported system classifications in Azure Purview. To learn more about classification, see [Classification](concept-classification.md).
+This article lists the supported system classifications in Microsoft Purview. To learn more about classification, see [Classification](concept-classification.md).
 
-Azure Purview classifies data by [RegEx](https://wikipedia.org/wiki/Regular_expression) and [Bloom Filter](https://wikipedia.org/wiki/Bloom_filter). The following lists describe the format, pattern, and keywords for the Azure Purview defined system classifications. Each classification name is prefixed by *MICROSOFT*.
+Microsoft Purview classifies data by using [RegEx](https://wikipedia.org/wiki/Regular_expression), [Bloom Filter](https://wikipedia.org/wiki/Bloom_filter) and Machine Learning models. The following lists describe the format, pattern, and keywords for the Microsoft Purview defined system classifications. Each classification name is prefixed by *MICROSOFT*.
 
 > [!Note]
-> Azure Purview can classify both structured (CSV, TSV, JSON, SQL Table etc.) as well as unstructured data (DOC, PDF, TXT etc.). However, there are certain classifications that are only applicable to structured data. Here is the list of classifications that Azure Purview doesn't apply on unstructured data - City Name, Country Name, Date Of Birth, Email, Ethnic Group, GeoLocation, Person Name, U.S. Phone Number, U.S. States, U.S. ZipCode
+> Microsoft Purview can classify both structured (CSV, TSV, JSON, SQL Table etc.) as well as unstructured data (DOC, PDF, TXT etc.). However, there are certain classifications that are only applicable to structured data. Here is the list of classifications that Microsoft Purview doesn't apply on unstructured data - City Name, Country Name, Date Of Birth, Email, Ethnic Group, GeoLocation, Person Name, U.S. Phone Number, U.S. States, U.S. ZipCode
 
 > [!Note]
 > **Minimum match threshold**: It is the minimum percentage of data value matches in a column that must be found by the scanner for the classification to be applied. For system classification minimum match threshold value is set at 60% and cannot be changed. For custom classification, this value is configurable.
 
 ## Bloom Filter based classifications
 
-## City, Country, and Place
+### City, Country, and Place
 
 The City, Country, and Place filters have been prepared using best datasets available for preparing the data.
 
-## Person Name
-
-Person Name bloom filter has been prepared using the below two datasets.
-
-- [2010 US Census Data for Last Names (162-K entries)](https://www.census.gov/topics/population/genealogy/data/2010_surnames.html)
-- [Popular Baby Names (from SSN), using all years 1880-2019 (98-K entries)](https://www.ssa.gov/oact/babynames/limits.html)
+## Machine Learning based classifications
 
 > [!NOTE]
-> Azure Purview classifies columns only when the data contains first/last names. Azure Purview doesn't classify columns that contain full names.
+> Machine learning based classifiers are only supported for structured data like tabular or columnar data sources.
+
+### Person's Name
+
+Person Name machine learning model has been trained using global datasets of names in English language.
+
+> [!NOTE]
+> Microsoft Purview classifies full names stored in the same column as well as first/last names in separate columns.
+
+### Person's Address
+Person's address classification is used to detect full address stored in a single column containing the following elements: House number, Street Name, City, State, Country, Zip Code. Person's Address classifier uses machine learning model that is trained on the global addresses data set in English language.
+
+#### Supported formats
+Currently the address model supports the following formats in the same column:
+
+- number, street, city
+- name, street, pincode or zipcode
+- number, street, area, pincode or zipcode
+- street, city, pincode or zipcode
+- landmark, city
+
+### Person's Gender
+Person's Gender machine learning model has been trained using US Census data and other public data sources in English language.
+
+### Person's Age
+Person's Age machine learning model detects age of an individual specified in various different formats. The qualifiers for days, months, and years must be in English language.
+
+#### Keywords
+- Age
+
+#### Supported formats
+- {%y} y, {%m} m
+- {%y} years {%m} months
+- {%y} years and {%m} months
+- {%y} years {%w} weeks
+- {%y} years and {%w} weeks
+- {%y} y, {%d} d
+- {%y} y, {%w} w
+- {%y} years, {%d} days
+- {%y} years and {%d} days
+- "{%y} years, {%m} months and {%d} days
+- {%y} months and {%d} days
+- {%y} yr
+- {%y}.{%yd} yr
+- {%y} years
+- {%y} years old
+- {%y}.{%yd} years
+- age {%y}
+- {%y} to {%y2}
+- {%y} to {%y2} yrs
+- {%y} years to {%y2} years
+- {%m} months to {%y} years
+- {%m} m to {%y} years
+- {%y}-{%y2} yrs
+- {%y}-{%y2}
+- {%y} - {%y2}
+- {%y}+
+- {%m}-{%m2} mos
+- {%y} and over
+- {%y} and under
+- below {%y}
+- above {%y}
+- month {%m}
+- week {%w}
+- {%y}
+
+#### Unsupported formats
+- {%y}y {%m}m
+- {%y}y {%d}d
+- {%y}y {%w}w
+- {%y}.{%m}
+- {%y}.{%yd}
 
 ## RegEx Classifications
 
-## ABA routing number
+### ABA routing number
 
-### Format
+#### Format
 
 Nine digits that can be in a formatted or unformatted pattern.
 
-### Pattern
+#### Pattern
 
 - two digits in the ranges 00-12, 21-32, 61-72, or 80
 - two digits
@@ -55,13 +121,13 @@ Nine digits that can be in a formatted or unformatted pattern.
 - an optional hyphen
 - a digit
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keyword_aba_routing
+##### Keyword_aba_routing
 
 - aba number
 - aba#
@@ -81,13 +147,13 @@ Yes
 
 -------------------------------------
 
-## Argentina national identity (DNI) number
+### Argentina national identity (DNI) number
 
-### Format
+#### Format
 
 Eight digits with or without periods
 
-### Pattern
+#### Pattern
 
 Eight digits:
 
@@ -97,13 +163,13 @@ Eight digits:
 - an optional period
 - three digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keyword_argentina_national_id
+##### Keyword_argentina_national_id
 
 - Argentina National Identity number
 - cedula
@@ -117,13 +183,13 @@ No
 
 -------------------------------------
 
-## Australia bank account number
+### Australia bank account number
 
-### Format
+#### Format
 
 six to 10 digits with or without a bank state branch number
 
-### Pattern
+#### Pattern
 
 Account number is 6 to 10 digits.
 
@@ -132,13 +198,13 @@ Australia bank state branch number:
 - a hyphen
 - three digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keyword_australia_bank_account_number
+##### Keyword_australia_bank_account_number
 
 - swift bank code
 - correspondent bank
@@ -156,21 +222,13 @@ No
 
 -------------------------------------
 
-## Australia business number
+### Australia business number
 
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
-
-
-### Format
+#### Format
 
 11 digits with optional delimiters
 
-### Pattern
+#### Pattern
 
 11 digits with optional delimiters:
 
@@ -182,13 +240,13 @@ This sensitive information type is only available for use in:
 - an optional hyphen or space
 - three digits
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keyword_australia_business_number
+##### Keyword_australia_business_number
 
 - australia business no
 - business number
@@ -200,13 +258,13 @@ Yes
 
 -------------------------------------
 
-## Australia company number
+### Australia company number
 
-### Format
+#### Format
 
 nine digits with delimiters
 
-### Pattern
+#### Pattern
 
 nine digits with delimiters:
 
@@ -216,13 +274,13 @@ nine digits with delimiters:
 - a space
 - three digits
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keyword_australia_company_number
+##### Keyword_australia_company_number
 
 - acn
 - australia company no
@@ -234,13 +292,13 @@ Yes
 
 -------------------------------------
 
-## Australia driver's license number
+### Australia driver's license number
 
-### Format
+#### Format
 
 nine letters and digits
 
-### Pattern
+#### Pattern
 
 nine letters and digits:
 
@@ -257,13 +315,13 @@ OR
 
 - nine digits or letters (not case-sensitive)
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keyword_australia_drivers_license_number
+##### Keyword_australia_drivers_license_number
 
 - international driving permits
 - australian automobile association
@@ -329,7 +387,7 @@ No
 - Driver's Licence#
 - Driver's Licences#
 
-#### Keyword_australia_drivers_license_number_exclusions
+##### Keyword_australia_drivers_license_number_exclusions
 
 - aaa
 - DriverLicense
@@ -367,13 +425,13 @@ No
 
 -------------------------------------
 
-## Australia medical account number
+### Australia medical account number
 
-### Format
+#### Format
 
 10-11 digits
 
-### Pattern
+#### Pattern
 
 10-11 digits:
 - First digit is in the range 2-6
@@ -381,13 +439,13 @@ No
 - Tenth digit is the issue digit
 - Eleventh digit (optional) is the individual number
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keyword_Australia_Medical_Account_Number
+##### Keyword_Australia_Medical_Account_Number
 
 - bank account details
 - medicare payments
@@ -401,13 +459,13 @@ Yes
 
 -------------------------------------
 
-## Australia passport number
+### Australia passport number
 
-### Format
+#### Format
 
 eight or nine alphanumeric characters
 
-### Pattern
+#### Pattern
 
 - one letter (N, E, D, F, A, C, U, X) followed by seven digits
 
@@ -415,13 +473,13 @@ eight or nine alphanumeric characters
 
 - Two letters (PA, PB, PC, PD, PE, PF, PU, PW, PX, PZ) followed by seven digits.
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keyword_australia_passport_number
+##### Keyword_australia_passport_number
 
 - passport#
 - passport #
@@ -443,13 +501,13 @@ No
 
 -------------------------------------
 
-## Australia tax file number
+### Australia tax file number
 
-### Format
+#### Format
 
 eight to nine digits
 
-### Pattern
+#### Pattern
 
 eight to nine digits typically presented with spaces as follows:
 - three digits
@@ -458,13 +516,13 @@ eight to nine digits typically presented with spaces as follows:
 - an optional space
 - two to three digits where the last digit is a check digit
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keyword_australia_tax_file_number
+##### Keyword_australia_tax_file_number
 
 - australian business number
 - marginal tax rate
@@ -478,23 +536,23 @@ Yes
 
 -------------------------------------
 
-## Austria driver's license number
+### Austria driver's license number
 
-### Format
+#### Format
 
 eight digits without spaces and delimiters
 
-### Pattern
+#### Pattern
 
 eight digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keywords_eu_driver's_license_number
+##### Keywords_eu_driver's_license_number
 
 - driverlic
 - driverlics
@@ -615,7 +673,7 @@ No
 - dlno
 - dl number
 
-#### Keywords_austria_eu_driver's_license_number
+##### Keywords_austria_eu_driver's_license_number
 
 - fuhrerschein
 - führerschein
@@ -625,19 +683,13 @@ No
 
 -------------------------------------
 
-## Austria identity card
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
+### Austria identity card
 
-### Format
+#### Format
 
 A 24-character combination of letters, digits, and special characters
 
-### Pattern
+#### Pattern
 
 24 characters:
 
@@ -645,13 +697,13 @@ A 24-character combination of letters, digits, and special characters
 
 - two letters (not case-sensitive), digits, backslashes, forward slashes, plus signs, or equal signs
 
-### Checksum
+#### Checksum
 
 Not applicable
 
-### Keywords
+#### Keywords
 
-#### Keywords_austria_eu_national_id_card
+##### Keywords_austria_eu_national_id_card
 
 - identity number
 - national id
@@ -659,13 +711,13 @@ Not applicable
 
 -------------------------------------
 
-## Austria passport number
+### Austria passport number
 
-### Format
+#### Format
 
 One letter followed by an optional space and seven digits
 
-### Pattern
+#### Pattern
 
 A combination of one letter, seven digits, and one space:
 
@@ -673,13 +725,13 @@ A combination of one letter, seven digits, and one space:
 - one space (optional)
 - seven digits
 
-### Checksum
+#### Checksum
 
 not applicable
 
-### Keywords
+#### Keywords
 
-#### Keywords_eu_passport_number
+##### Keywords_eu_passport_number
 
 - passport#
 - passport #
@@ -692,7 +744,7 @@ not applicable
 - passportnumbers
 - passport numbers
 
-#### Keywords_austria_eu_passport_number
+##### Keywords_austria_eu_passport_number
 
 - reisepassnummer
 - reisepasse
@@ -702,20 +754,20 @@ not applicable
 - Passnummer
 - reisepässe
 
-#### Keywords_eu_passport_date
+##### Keywords_eu_passport_date
 
 - date of issue
 - date of expiry
 
 -------------------------------------
 
-## Austria social security number
+### Austria social security number
 
-### Format
+#### Format
 
 10 digits in the specified format
 
-### Pattern
+#### Pattern
 
 10 digits:
 
@@ -723,13 +775,13 @@ not applicable
 - one check digit
 - six digits that correspond to the birth date (DDMMYY)
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keywords_austria_eu_ssn_or_equivalent
+##### Keywords_austria_eu_ssn_or_equivalent
 
 - austrian ssn
 - ehic number
@@ -757,13 +809,13 @@ Yes
 
 -------------------------------------
 
-## Austria tax identification number
+### Austria tax identification number
 
-### Format
+#### Format
 
 nine digits with optional hyphen and forward slash
 
-### Pattern
+#### Pattern
 
 nine digits with optional hyphen and forward slash:
 
@@ -773,13 +825,13 @@ nine digits with optional hyphen and forward slash:
 - a forward slash (optional)
 - four digits
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keywords_austria_eu_tax_file_number
+##### Keywords_austria_eu_tax_file_number
 
 - österreich
 - st.nr.
@@ -804,13 +856,13 @@ Yes
 
 -------------------------------------
 
-## Austria value added tax
+### Austria value added tax
 
-### Format
+#### Format
 
 11-character alphanumeric pattern
 
-### Pattern
+#### Pattern
 
 11-character alphanumeric pattern:
 
@@ -825,13 +877,13 @@ Yes
 - optional space
 - one or two digits
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keyword_austria_value_added_tax
+##### Keyword_austria_value_added_tax
 
 - vat number
 - vat#
@@ -851,23 +903,23 @@ Yes
 
 -------------------------------------
 
-## Belgium driver's license number
+### Belgium driver's license number
 
-### Format
+#### Format
 
 10 digits without spaces and delimiters
 
-### Pattern
+#### Pattern
 
 10 digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keywords_eu_driver's_license_number
+##### Keywords_eu_driver's_license_number
 
 - driverlic
 - driverlics
@@ -988,7 +1040,7 @@ No
 - dlno
 - dl number
 
-#### Keywords_belgium_eu_driver's_license_number
+##### Keywords_belgium_eu_driver's_license_number
 
 - rijbewijs
 - rijbewijsnummer
@@ -1004,13 +1056,13 @@ No
 
 -------------------------------------
 
-## Belgium national number
+### Belgium national number
 
-### Format
+#### Format
 
 11 digits plus optional delimiters
 
-### Pattern
+#### Pattern
 
 11 digits plus delimiters:
 - six digits and two optional periods in the format YY.MM.DD for date of birth
@@ -1019,14 +1071,14 @@ No
 - An optional delimiter from dot, dash, space
 - two check digits
 
-### Checksum
+#### Checksum
 
 Yes
 
 
-### Keywords
+#### Keywords
 
-#### Keyword_belgium_national_number
+##### Keyword_belgium_national_number
 
 - belasting aantal
 - bnn#
@@ -1087,23 +1139,23 @@ Yes
 
 -------------------------------------
 
-## Belgium passport number
+### Belgium passport number
 
-### Format
+#### Format
 
 two letters followed by six digits with no spaces or delimiters
 
-### Pattern
+#### Pattern
 
 two letters and followed by six digits
 
-### Checksum
+#### Checksum
 
 not applicable
 
-### Keywords
+#### Keywords
 
-#### Keywords_eu_passport_number
+##### Keywords_eu_passport_number
 
 - passport#
 - passport #
@@ -1116,7 +1168,7 @@ not applicable
 - passportnumbers
 - passport numbers
 
-#### Keywords_belgium_eu_passport_number
+##### Keywords_belgium_eu_passport_number
 
 - numéro passeport
 - paspoort nr
@@ -1129,20 +1181,20 @@ not applicable
 - Passnummer
 - reisepass kein
 
-#### Keywords_eu_passport_date
+##### Keywords_eu_passport_date
 
 - date of issue
 - date of expiry
 
 -------------------------------------
 
-## Belgium value added tax number
+### Belgium value added tax number
 
-### Format
+#### Format
 
 12-character alphanumeric pattern
 
-### Pattern
+#### Pattern
 
 12-character alphanumeric pattern:
 
@@ -1156,13 +1208,13 @@ not applicable
 - four digits
 
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keyword_belgium_value_added_tax_number
+##### Keyword_belgium_value_added_tax_number
 
 - nº tva
 - vat number
@@ -1176,13 +1228,13 @@ Yes
 
 -------------------------------------
 
-## Brazil CPF number
+### Brazil CPF number
 
-### Format
+#### Format
 
 11 digits that include a check digit and can be formatted or unformatted
 
-### Pattern
+#### Pattern
 
 Formatted:
 - three digits
@@ -1196,13 +1248,13 @@ Formatted:
 Unformatted:
 - 11 digits where the last two digits are check digits
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keyword_brazil_cpf
+##### Keyword_brazil_cpf
 
 - CPF
 - Identification
@@ -1216,13 +1268,13 @@ Yes
 
 -------------------------------------
 
-## Brazil legal entity number (CNPJ)
+### Brazil legal entity number (CNPJ)
 
-### Format
+#### Format
 
 14 digits that include a registration number, branch number, and check digits, plus delimiters
 
-### Pattern
+#### Pattern
 
 14 digits, plus delimiters:
 
@@ -1236,13 +1288,13 @@ Yes
 - a hyphen
 - two digits that are check digits
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keyword_brazil_cnpj
+##### Keyword_brazil_cnpj
 
 - CNPJ
 - CNPJ/MF
@@ -1266,15 +1318,15 @@ Yes
 
 -------------------------------------
 
-## Brazil national identification card (RG)
+### Brazil national identification card (RG)
 
-### Format
+#### Format
 
 Registro Geral (old format): Nine digits
 
 Registro de Identidade (RIC) (new format): 11 digits
 
-### Pattern
+#### Pattern
 
 Registro Geral (old format):
 - two digits
@@ -1290,13 +1342,13 @@ Registro de Identidade (RIC) (new format):
 - a hyphen
 - one digit that is a check digit
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keyword_brazil_rg
+##### Keyword_brazil_rg
 
 - Cédula de identidade
 - identity card
@@ -1309,23 +1361,23 @@ Yes
 
 -------------------------------------
 
-## Bulgaria driver's license number
+### Bulgaria driver's license number
 
-### Format
+#### Format
 
 nine digits without spaces and delimiters
 
-### Pattern
+#### Pattern
 
 nine digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keywords_eu_driver's_license_number
+##### Keywords_eu_driver's_license_number
 
 - driverlic
 - driverlics
@@ -1447,7 +1499,7 @@ No
 - dl number
 
 
-#### Keywords_bulgaria_eu_driver's_license_number
+##### Keywords_bulgaria_eu_driver's_license_number
 
 - свидетелство за управление на мпс
 - свидетелство за управление на моторно превозно средство
@@ -1457,13 +1509,13 @@ No
 
 -------------------------------------
 
-## Bulgaria uniform civil number
+### Bulgaria uniform civil number
 
-### Format
+#### Format
 
 10 digits without spaces and delimiters
 
-### Pattern
+#### Pattern
 
 10 digits without spaces and delimiters
 
@@ -1472,13 +1524,13 @@ No
 - one digit that corresponds to gender: An even digit for male and an odd digit for female
 - one check digit
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keywords_bulgaria_eu_national_id_card
+##### Keywords_bulgaria_eu_national_id_card
 
 - bnn#
 - bnn
@@ -1525,23 +1577,23 @@ Yes
 
 -------------------------------------
 
-## Bulgaria passport number
+### Bulgaria passport number
 
-### Format
+#### Format
 
 nine digits without spaces and delimiters
 
-### Pattern
+#### Pattern
 
 nine digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keywords_eu_passport_number
+##### Keywords_eu_passport_number
 
 - passport#
 - passport #
@@ -1554,26 +1606,26 @@ No
 - passportnumbers
 - passport numbers
 
-#### Keywords_bulgaria_eu_passport_number
+##### Keywords_bulgaria_eu_passport_number
 
 - номер на паспорта
 - номер на паспорт
 - паспорт №
 
-#### Keywords_eu_passport_date
+##### Keywords_eu_passport_date
 
 - date of issue
 - date of expiry
 
 -------------------------------------
 
-## Canada bank account number
+### Canada bank account number
 
-### Format
+#### Format
 
 7 or 12 digits
 
-### Pattern
+#### Pattern
 
 A Canada Bank Account Number is 7 or 12 digits.
 
@@ -1588,13 +1640,13 @@ A Canada bank account transit number is:
 - a zero "0"
 - eight digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keyword_canada_bank_account_number
+##### Keyword_canada_bank_account_number
 
 - canada savings bonds
 - canada revenue agency
@@ -1620,13 +1672,13 @@ No
 
 -------------------------------------
 
-## Canada driver's license number
+### Canada driver's license number
 
-### Format
+#### Format
 
 Varies by province
 
-### Pattern
+#### Pattern
 
 Various patterns covering:
 - Alberta
@@ -1640,18 +1692,18 @@ Various patterns covering:
 - Quebec
 - Saskatchewan
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keyword_[province_name]_drivers_license_name
+##### Keyword_[province_name]_drivers_license_name
 
 - The province abbreviation, for example AB
 - The province name, for example Alberta
 
-#### Keyword_canada_drivers_license
+##### Keyword_canada_drivers_license
 
 - DL
 - DLS
@@ -1786,23 +1838,23 @@ No
 
 -------------------------------------
 
-## Canada health service number
+### Canada health service number
 
-### Format
+#### Format
 
  10 digits
 
-### Pattern
+#### Pattern
 
 10 digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keyword_canada_health_service_number
+##### Keyword_canada_health_service_number
 
 - personal health number
 - patient information
@@ -1816,23 +1868,23 @@ No
 
 -------------------------------------
 
-## Canada passport number
+### Canada passport number
 
-### Format
-
-two uppercase letters followed by six digits
-
-### Pattern
+#### Format
 
 two uppercase letters followed by six digits
 
-### Checksum
+#### Pattern
+
+two uppercase letters followed by six digits
+
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keyword_canada_passport_number
+##### Keyword_canada_passport_number
 
 - canadian citizenship
 - canadian passport
@@ -1843,7 +1895,7 @@ No
 - processing times
 - renewal application
 
-#### Keyword_passport
+##### Keyword_passport
 
 - Passport Number
 - Passport No
@@ -1866,23 +1918,23 @@ No
 
 -------------------------------------
 
-## Canada personal health identification number (PHIN)
+### Canada personal health identification number (PHIN)
 
-### Format
-
-nine digits
-
-### Pattern
+#### Format
 
 nine digits
 
-### Checksum
+#### Pattern
+
+nine digits
+
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keyword_canada_phin
+##### Keyword_canada_phin
 
 - social insurance number
 - health information act
@@ -1900,7 +1952,7 @@ No
 - patient referral
 - health and wellness
 
-#### Keyword_canada_provinces
+##### Keyword_canada_provinces
 
 - Nunavut
 - Quebec
@@ -1919,13 +1971,13 @@ No
 
 -------------------------------------
 
-## Canada social insurance number
+### Canada social insurance number
 
-### Format
+#### Format
 
 nine digits with optional hyphens or spaces
 
-### Pattern
+#### Pattern
 
 Formatted:
 - three digits
@@ -1936,13 +1988,13 @@ Formatted:
 
 Unformatted: nine digits
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keyword_sin
+##### Keyword_sin
 
 - sin
 - social insurance
@@ -1958,7 +2010,7 @@ Yes
 - soc ins
 - social ins
 
-#### Keyword_sin_collaborative
+##### Keyword_sin_collaborative
 
 - driver's license
 - drivers license
@@ -1971,13 +2023,13 @@ Yes
 
 -------------------------------------
 
-## Chile identity card number
+### Chile identity card number
 
-### Format
+#### Format
 
 seven to eight digits plus delimiters a check digit or letter
 
-### Pattern
+#### Pattern
 
 seven to eight digits plus delimiters:
 - one to two digits
@@ -1988,13 +2040,13 @@ seven to eight digits plus delimiters:
 - a dash
 - one digit or letter (not case-sensitive) which is a check digit
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keyword_chile_id_card
+##### Keyword_chile_id_card
 
 - cédula de identidad
 - identificación
@@ -2034,13 +2086,13 @@ Yes
 
 -------------------------------------
 
-## China resident identity card (PRC) number
+### China resident identity card (PRC) number
 
-### Format
+#### Format
 
 18 digits
 
-### Pattern
+#### Pattern
 
 18 digits:
 - six digits that are an address code
@@ -2048,13 +2100,13 @@ Yes
 - three digits that are an order code
 - one digit that is a check digit
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-### Keyword_china_resident_id
+#### Keyword_china_resident_id
 
 - Resident Identity Card
 - PRC
@@ -2070,23 +2122,23 @@ Yes
 
 -------------------------------------
 
-## Credit card number
+### Credit card number
 
-### Format
+#### Format
 
 14 to 16 digits that can be formatted or unformatted (dddddddddddddddd) and that must pass the Luhn test.
 
-### Pattern
+#### Pattern
 
 Detects cards from all major brands worldwide, including Visa, MasterCard, Discover Card, JCB, American Express, gift cards, diner's cards, Rupay and China UnionPay.
 
-### Checksum
+#### Checksum
 
 Yes, the Luhn checksum
 
-### Keywords
+#### Keywords
 
-#### Keyword_cc_verification
+##### Keyword_cc_verification
 
 - card verification
 - card identification number
@@ -2161,7 +2213,7 @@ Yes, the Luhn checksum
 - セキュリティ ナンバー
 - セキュリティ番号
 
-#### Keyword_cc_name
+##### Keyword_cc_name
 
 - amex
 - american express
@@ -2347,23 +2399,23 @@ Yes, the Luhn checksum
 
 -------------------------------------
 
-## Croatia driver's license number
+### Croatia driver's license number
 
-### Format
+#### Format
 
 eight digits without spaces and delimiters
 
-### Pattern
+#### Pattern
 
 eight digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keywords_eu_driver's_license_number
+##### Keywords_eu_driver's_license_number
 
 - driverlic
 - driverlics
@@ -2485,7 +2537,7 @@ No
 - dl number
 
 
-#### Keywords_croatia_eu_driver's_license_number
+##### Keywords_croatia_eu_driver's_license_number
 
 - vozačka dozvola
 - vozačke dozvole
@@ -2493,25 +2545,25 @@ No
 
 -------------------------------------
 
-## Croatia identity card number
+### Croatia identity card number
 
 This entity is included in the EU National Identification Number sensitive information type. It's available as a stand-alone sensitive information type entity.
 
-### Format
+#### Format
 
 nine digits
 
-### Pattern
+#### Pattern
 
 nine consecutive digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keyword_croatia_id_card
+##### Keyword_croatia_id_card
 
 - majstorski broj građana
 - master citizen number
@@ -2545,23 +2597,23 @@ No
 
 -------------------------------------
 
-## Croatia passport number
+### Croatia passport number
 
-### Format
+#### Format
 
 nine digits without spaces and delimiters
 
-### Pattern
+#### Pattern
 
 nine digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keywords_eu_passport_number_common
+##### Keywords_eu_passport_number_common
 
 - passport#
 - passport #
@@ -2574,7 +2626,7 @@ No
 - passportnumbers
 - passport numbers
 
-#### Keywords_croatia_eu_passport_number
+##### Keywords_croatia_eu_passport_number
 
 - broj putovnice
 - br. Putovnice
@@ -2582,25 +2634,25 @@ No
 
 -------------------------------------
 
-## Croatia personal identification (OIB) number
+### Croatia personal identification (OIB) number
 
-### Format
+#### Format
 
 11 digits
 
-### Pattern
+#### Pattern
 
 11 digits:
 - 10 digits
 - final digit is a check digit
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keyword_croatia_oib_number
+##### Keyword_croatia_oib_number
 
 - majstorski broj građana
 - master citizen number
@@ -2633,23 +2685,23 @@ Yes
 
 -------------------------------------
 
-## Cyprus drivers license number
+### Cyprus drivers license number
 
-### Format
+#### Format
 
 12 digits without spaces and delimiters
 
-### Pattern
+#### Pattern
 
 12 digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keywords_eu_driver's_license_number
+##### Keywords_eu_driver's_license_number
 
 - driverlic
 - driverlics
@@ -2770,7 +2822,7 @@ No
 - dlno
 - dl number
 
-#### Keywords_cyprus_eu_driver's_license_number
+##### Keywords_cyprus_eu_driver's_license_number
 
 - άδεια οδήγησης
 - αριθμό άδειας οδήγησης
@@ -2779,30 +2831,23 @@ No
 
 -------------------------------------
 
-## Cyprus identity card
+### Cyprus identity card
 
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
-
-### Format
+#### Format
 
 10 digits without spaces and delimiters
 
-### Pattern
+#### Pattern
 
 10 digits
 
-### Checksum
+#### Checksum
 
 not applicable
 
-### Keywords
+#### Keywords
 
-#### Keywords_cyprus_eu_national_id_card
+##### Keywords_cyprus_eu_national_id_card
 
 - id card number
 - identity card number
@@ -2814,23 +2859,23 @@ not applicable
 
 -------------------------------------
 
-## Cyprus passport number
+### Cyprus passport number
 
-### Format
+#### Format
 
 one letter followed by 6-8 digits with no spaces or delimiters
 
-### Pattern
+#### Pattern
 
 one letter followed by six to eight digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keywords_eu_passport_number_common
+##### Keywords_eu_passport_number_common
 
 - passport#
 - passport #
@@ -2843,7 +2888,7 @@ No
 - passportnumbers
 - passport numbers
 
-#### Keywords_cyprus_eu_passport_number
+##### Keywords_cyprus_eu_passport_number
 
 - αριθμό διαβατηρίου
 - pasaportu
@@ -2857,27 +2902,20 @@ No
 - Pasaport no.
 - Αρ. Διαβατηρίου
 
-#### Keywords_cyprus_eu_passport_date
+##### Keywords_cyprus_eu_passport_date
 
 - expires on
 - issued on
 
 -------------------------------------
 
-## Cyprus tax identification number
+### Cyprus tax identification number
 
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
-
-### Format
+#### Format
 
 eight digits and one letter in the specified pattern
 
-### Pattern
+#### Pattern
 
 eight digits and one letter:
 
@@ -2885,13 +2923,13 @@ eight digits and one letter:
 - seven digits
 - one letter (not case-sensitive)
 
-### Checksum
+#### Checksum
 
 not applicable
 
-### Keywords
+#### Keywords
 
-#### Keywords_cyprus_eu_tax_file_number
+##### Keywords_cyprus_eu_tax_file_number
 
 - tax id
 - tax identification code
@@ -2921,13 +2959,13 @@ not applicable
 
 -------------------------------------
 
-## Czech Republic Driver's License Number
+### Czech Republic Driver's License Number
 
-### Format
+#### Format
 
 two letters followed by six digits
 
-### Pattern
+#### Pattern
 
 eight letters and digits:
 
@@ -2936,13 +2974,13 @@ eight letters and digits:
 - a space (optional)
 - six digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keywords_eu_driver's_license_number
+##### Keywords_eu_driver's_license_number
 
 - driverlic
 - driverlics
@@ -3063,7 +3101,7 @@ No
 - dlno
 - dl number
 
-#### Keywords_czech_republic_eu_driver's_license_number
+##### Keywords_czech_republic_eu_driver's_license_number
 
 - řidičský prúkaz
 - řidičské průkazy
@@ -3073,23 +3111,23 @@ No
 
 -------------------------------------
 
-## Czech passport number
+### Czech passport number
 
-### Format
-
-eight digits without spaces or delimiters
-
-### Pattern
+#### Format
 
 eight digits without spaces or delimiters
 
-### Checksum
+#### Pattern
+
+eight digits without spaces or delimiters
+
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keywords_eu_passport_number_common
+##### Keywords_eu_passport_number_common
 
 - passport#
 - passport #
@@ -3102,7 +3140,7 @@ No
 - passportnumbers
 - passport numbers
 
-#### Keywords_czech_republic_eu_passport_number
+##### Keywords_czech_republic_eu_passport_number
 
 - cestovní pas
 - číslo pasu
@@ -3110,7 +3148,7 @@ No
 - passeport no
 - čísla pasu
 
-#### Keywords_eu_passport_date
+##### Keywords_eu_passport_date
 
 - date of issue
 - date of expiry
@@ -3118,14 +3156,14 @@ No
 
 -------------------------------------
 
-## Czech National Identity Card Number
+### Czech National Identity Card Number
 
-### Format
+#### Format
 
 nine digits with optional forward slash (old format)
 10 digits with optional forward slash (new format)
 
-### Pattern
+#### Pattern
 
 nine digits (old format):
 - six digits that represent date of birth
@@ -3137,13 +3175,13 @@ nine digits (old format):
 - an optional forward slash
 - four digits where last digit is a check digit
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keyword_czech_id_card
+##### Keyword_czech_id_card
 
 - birth number
 - czech republic id
@@ -3192,17 +3230,17 @@ Yes
 
 -------------------------------------
 
-## Date Of Birth
+### Date Of Birth
 
-### Format
+#### Format
 Any valid date
 
-### Checksum
+#### Checksum
 Not applicable
 
-### Keywords
+#### Keywords
 
-#### Keywords_date_of_birth
+##### Keywords_date_of_birth
 
 - dob
 - birth day
@@ -3211,23 +3249,23 @@ Not applicable
 
 -------------------------------------
 
-## Denmark driver's license number
+### Denmark driver's license number
 
-### Format
+#### Format
 
 eight digits without spaces and delimiters
 
-### Pattern
+#### Pattern
 
 eight digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keywords_eu_driver's_license_number
+##### Keywords_eu_driver's_license_number
 
 - driverlic
 - driverlics
@@ -3348,30 +3386,30 @@ No
 - dlno
 - dl number
 
-#### Keywords_denmark_eu_driver's_license_number
+##### Keywords_denmark_eu_driver's_license_number
 
 - kørekort
 - kørekortnummer
 
 -------------------------------------
 
-## Denmark passport number
+### Denmark passport number
 
-### Format
+#### Format
 
 nine digits without spaces and delimiters
 
-### Pattern
+#### Pattern
 
 nine digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keywords_eu_passport_number_common
+##### Keywords_eu_passport_number_common
 
 - passport#
 - passport #
@@ -3384,39 +3422,39 @@ No
 - passportnumbers
 - passport numbers
 
-#### Keywords_denmark_eu_passport_number
+##### Keywords_denmark_eu_passport_number
 
 - pasnummer
 - Passeport n°
 - pasnumre
 
-#### Keywords_eu_passport_date
+##### Keywords_eu_passport_date
 
 - date of issue
 - date of expiry
 
 -------------------------------------
 
-## Denmark personal identification number
+### Denmark personal identification number
 
-### Format
+#### Format
 
 10 digits containing a hyphen
 
-### Pattern
+#### Pattern
 
 10 digits:
 - six digits in the format DDMMYY, which are the date of birth
 - a hyphen
 - four digits where the final digit is a check digit
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keyword_denmark_id
+##### Keyword_denmark_id
 
 - centrale personregister
 - civilt registreringssystem
@@ -3490,17 +3528,17 @@ Yes
 
 -------------------------------------
 
-## Email
+### Email
 
-### Format
+#### Format
 Any valid email address that abides by [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt)
 
-### Checksum
+#### Checksum
 Not applicable
 
-### Keywords
+#### Keywords
 
-#### Keywords_email
+##### Keywords_email
 
 - contact
 - email
@@ -3513,26 +3551,26 @@ Not applicable
 
 -------------------------------------
 
-## Estonia driver's license number
+### Estonia driver's license number
 
-### Format
+#### Format
 
 two letters followed by six digits
 
-### Pattern
+#### Pattern
 
 two letters and six digits:
 
 - the letters "ET" (not case-sensitive)
 - six digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keywords_eu_driver's_license_number
+##### Keywords_eu_driver's_license_number
 
 - driverlic
 - driverlics
@@ -3653,7 +3691,7 @@ No
 - dlno
 - dl number
 
-#### Keywords_estonia_eu_driver's_license_number
+##### Keywords_estonia_eu_driver's_license_number
 
 - permis de conduire
 - juhilubade numbrid
@@ -3662,13 +3700,13 @@ No
 
 -------------------------------------
 
-## Estonia Personal Identification Code
+### Estonia Personal Identification Code
 
-### Format
+#### Format
 
 11 digits without spaces and delimiters
 
-### Pattern
+#### Pattern
 
 11 digits:
 
@@ -3677,13 +3715,13 @@ No
 - three digits that correspond to a serial number separating persons born on the same date
 - one check digit
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keywords_estonia_eu_national_id_card
+##### Keywords_estonia_eu_national_id_card
 
 - id-kaart
 - ik
@@ -3718,23 +3756,23 @@ Yes
 
 -------------------------------------
 
-## Estonia passport number
+### Estonia passport number
 
-### Format
+#### Format
 
 one letter followed by seven digits with no spaces or delimiters
 
-### Pattern
+#### Pattern
 
 one letter followed by seven digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keywords_eu_passport_number_common
+##### Keywords_eu_passport_number_common
 
 - passport#
 - passport #
@@ -3747,7 +3785,7 @@ No
 - passportnumbers
 - passport numbers
 
-#### Keywords_estonia_eu_passport_number
+##### Keywords_estonia_eu_passport_number
 
 - eesti kodaniku pass
 - passi number
@@ -3756,25 +3794,25 @@ No
 - document no
 - dokumendi nr
 
-#### Keywords_eu_passport_date
+##### Keywords_eu_passport_date
 
 - date of issue
 - date of expiry
 
 -------------------------------------
 
-## Ethnic groups
+### Ethnic groups
 
-### Format
+#### Format
 
-Most common ethnic groups. For a reference list see this [article](https://en.wikipedia.org/wiki/List_of_contemporary_ethnic_groups).
+This classifier consists of the most common ethnic groups. For a reference list, see this [article](https://en.wikipedia.org/wiki/List_of_contemporary_ethnic_groups).
 
-### Checksum
+#### Checksum
 Not applicable
 
-### Keywords
+#### Keywords
 
-#### Keywords_ethnic_group
+##### Keywords_ethnic_group
 
 - ethnic
 - ethnic groups
@@ -3785,23 +3823,23 @@ Not applicable
 
 -------------------------------------
 
-## EU debit card number
+### EU debit card number
 
-### Format
+#### Format
 
 16 digits
 
-### Pattern
+#### Pattern
 
 Complex and robust pattern
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keyword_eu_debit_card
+##### Keyword_eu_debit_card
 
 - account number
 - card number
@@ -3809,7 +3847,7 @@ Yes
 - security number
 - cc#
 
-#### Keyword_card_terms_dict
+##### Keyword_card_terms_dict
 
 - acct nbr
 - acct num
@@ -3990,7 +4028,7 @@ Yes
 - visum
 - vpay
 
-#### Keyword_card_security_terms_dict
+##### Keyword_card_security_terms_dict
 
 - card identification number
 - card verification
@@ -4062,7 +4100,7 @@ Yes
 - veiligheidsnummer
 - verfalldatum
 
-#### Keyword_card_expiration_terms_dict
+##### Keyword_card_expiration_terms_dict
 
 - ablauf
 - data de expiracao
@@ -4108,7 +4146,7 @@ Yes
 
 -------------------------------------
 
-## EU driver's license number
+### EU driver's license number
 
 These entities are in the EU Driver's License Number and are sensitive information types.
 
@@ -4143,7 +4181,7 @@ These entities are in the EU Driver's License Number and are sensitive informati
 
 -------------------------------------
 
-## EU passport number
+### EU passport number
 
 These entities are in the EU passport number and are sensitive information types. These entities are in the EU passport number bundle.
 
@@ -4178,13 +4216,13 @@ These entities are in the EU passport number and are sensitive information types
 
 -------------------------------------
 
-## Finland driver's license number
+### Finland driver's license number
 
-### Format
+#### Format
 
 10 digits containing a hyphen
 
-### Pattern
+#### Pattern
 
 10 digits containing a hyphen:
 
@@ -4193,13 +4231,13 @@ These entities are in the EU passport number and are sensitive information types
 - three digits
 - a digit or letter
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keywords_eu_driver's_license_number
+##### Keywords_eu_driver's_license_number
 
 - driverlic
 - driverlics
@@ -4321,7 +4359,7 @@ No
 - dl number
 
 
-#### Keywords_finland_eu_driver's_license_number
+##### Keywords_finland_eu_driver's_license_number
 
 - ajokortti
 - permis de conduire
@@ -4336,13 +4374,13 @@ No
 
 -------------------------------------
 
-## Finland european health insurance number
+### Finland european health insurance number
 
-### Format
+#### Format
 
 20-digit number
 
-### Pattern
+#### Pattern
 
 20-digit number:
 
@@ -4350,13 +4388,13 @@ No
 - an optional space or hyphen
 - 10 digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keyword_finland_european_health_insurance_number
+##### Keyword_finland_european_health_insurance_number
 
 - ehic#
 - ehic
@@ -4377,13 +4415,13 @@ No
 
 -------------------------------------
 
-## Finland national ID
+### Finland national ID
 
-### Format
+#### Format
 
 six digits plus a character indicating a century plus three digits plus a check digit
 
-### Pattern
+#### Pattern
 
 Pattern must include all of the following:
 - six digits in the format DDMMYY, which are a date of birth
@@ -4391,11 +4429,11 @@ Pattern must include all of the following:
 - three-digit personal identification number
 - a digit or letter (case insensitive) which is a check digit
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
 - ainutlaatuinen henkilökohtainen tunnus
 - henkilökohtainen tunnus
@@ -4448,25 +4486,25 @@ Yes
 
 -------------------------------------
 
-## Finland passport number
+### Finland passport number
 
 This entity is available in the EU Passport Number sensitive information type and is available as a stand-alone sensitive information type entity.
 
-### Format
+#### Format
 combination of nine letters and digits
 
-### Pattern
+#### Pattern
 combination of nine letters and digits:
 - two letters (not case-sensitive)
 - seven digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keywords_eu_passport_number
+##### Keywords_eu_passport_number
 
 - passport#
 - passport #
@@ -4479,7 +4517,7 @@ No
 - passportnumbers
 - passport numbers
 
-#### Keyword_finland_passport_number
+##### Keyword_finland_passport_number
 
 - suomalainen passi
 - passin numero
@@ -4489,32 +4527,32 @@ No
 - passi#
 - passi number
 
-#### Keywords_eu_passport_date
+##### Keywords_eu_passport_date
 
 - date of issue
 - date of expiry
 
 -------------------------------------
 
-## France driver's license number
+### France driver's license number
 
 This entity is available in the EU Driver's License Number sensitive information type and is available as a stand-alone sensitive information type entity.
 
-### Format
+#### Format
 
 12 digits
 
-### Pattern
+#### Pattern
 
 12 digits with validation to discount similar patterns such as French telephone numbers
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keyword_french_drivers_license
+##### Keyword_french_drivers_license
 
 - driverlic
 - driverlics
@@ -4644,19 +4682,13 @@ No
 
 -------------------------------------
 
-## France health insurance number
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
+### France health insurance number
 
-### Format
+#### Format
 
 21-digit number
 
-### Pattern
+#### Pattern
 
 21-digit number:
 
@@ -4667,13 +4699,13 @@ This sensitive information type is only available for use in:
 - a digit
 
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keyword_France_health_insurance_number
+##### Keyword_France_health_insurance_number
 
 - insurance card
 - carte vitale
@@ -4682,23 +4714,23 @@ No
 
 -------------------------------------
 
-## France national id card (CNI)
+### France national id card (CNI)
 
-### Format
-
-12 digits
-
-### Pattern
+#### Format
 
 12 digits
 
-### Checksum
+#### Pattern
+
+12 digits
+
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keywords_france_eu_national_id_card
+##### Keywords_france_eu_national_id_card
 
 - card number
 - carte nationale d’identité
@@ -4715,27 +4747,27 @@ No
 
 -------------------------------------
 
-## France passport number
+### France passport number
 This entity is available in the EU Passport Number sensitive information type. It's also available as a stand-alone sensitive information type entity.
 
-### Format
+#### Format
 
 nine digits and letters
 
-### Pattern
+#### Pattern
 
 nine digits and letters:
 - two digits
 - two letters (not case-sensitive)
 - five digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keywords_eu_passport_number
+##### Keywords_eu_passport_number
 
 - passport#
 - passport #
@@ -4748,7 +4780,7 @@ No
 - passportnumbers
 - passport numbers
 
-#### Keywords_france_eu_passport_number
+##### Keywords_france_eu_passport_number
 
 - numéro de passeport
 - passeport n °
@@ -4765,7 +4797,7 @@ No
 - n° du passeport
 - n° passeport
 
-#### Keywords_eu_passport_date
+##### Keywords_eu_passport_date
 
 - date of issue
 - date of expiry
@@ -4773,26 +4805,26 @@ No
 
 -------------------------------------
 
-## France social security number (INSEE)
+### France social security number (INSEE)
 
-### Format
+#### Format
 
 15 digits
 
-### Pattern
+#### Pattern
 
 Must match one of two patterns:
 - 13 digits followed by a space followed by two digits<br/>
 or
 - 15 consecutive digits
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keyword_fr_insee
+##### Keyword_fr_insee
 
 - code sécu
 - d'identité nationale
@@ -4824,13 +4856,13 @@ Yes
 
 -------------------------------------
 
-## France tax identification number
+### France tax identification number
 
-### Format
+#### Format
 
 13 digits
 
-### Pattern
+#### Pattern
 
 13 digits
 
@@ -4846,13 +4878,13 @@ Yes
 - Three check digits
 
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keywords_france_eu_tax_file_number
+##### Keywords_france_eu_tax_file_number
 
 - numéro d'identification fiscale
 - tax id
@@ -4875,19 +4907,13 @@ Yes
 
 -------------------------------------
 
-## France value added tax number
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
+### France value added tax number
 
-### Format
+#### Format
 
 13 character alphanumeric pattern
 
-### Pattern
+#### Pattern
 
 13 character alphanumeric pattern:
 
@@ -4901,13 +4927,13 @@ This sensitive information type is only available for use in:
 - an optional space, dot, hyphen, or comma
 - three digits
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keyword_France_value_added_tax_number
+##### Keyword_France_value_added_tax_number
 
 - vat number
 - vat no
@@ -4923,15 +4949,15 @@ Yes
 
 -------------------------------------
 
-## Germany driver's license number
+### Germany driver's license number
 
 This sensitive information type entity is included in the EU Driver's License Number sensitive information type. It's also available as a stand-alone sensitive information type entity.
 
-### Format
+#### Format
 
 combination of 11 digits and letters
 
-### Pattern
+#### Pattern
 
 11 digits and letters (not case-sensitive):
 - a digit or letter
@@ -4940,13 +4966,13 @@ combination of 11 digits and letters
 - a digit
 - a digit or letter
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keyword_german_drivers_license_number
+##### Keyword_german_drivers_license_number
 
 - ausstellungsdatum
 - ausstellungsort
@@ -5098,15 +5124,15 @@ Yes
 
 -------------------------------------
 
-## Germany identity card number
+### Germany identity card number
 
-### Format
+#### Format
 
 since 1 November 2010: Nine letters and digits
 
 from 1 April 1987 until 31 October 2010: 10 digits
 
-### Pattern
+#### Pattern
 
 since 1 November 2010:
 - one letter (not case-sensitive)
@@ -5115,13 +5141,13 @@ since 1 November 2010:
 from 1 April 1987 until 31 October 2010:
 - 10 digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keyword_germany_id_card
+##### Keyword_germany_id_card
 
 - ausweis
 - gpid
@@ -5140,15 +5166,15 @@ No
 
 -------------------------------------
 
-## Germany passport number
+### Germany passport number
 
 This entity is included in the EU Passport Number sensitive information type and is available as a stand-alone sensitive information type entity.
 
-### Format
+#### Format
 
 10 digits or letters
 
-### Pattern
+#### Pattern
 
 Pattern must include all of the following:
 - first character is a digit or a letter from this set (C, F, G, H, J, K)
@@ -5156,13 +5182,13 @@ Pattern must include all of the following:
 - five digits or letters from this set (C, -H, J-N, P, R, T, V-Z)
 - a digit
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keyword_german_passport
+##### Keyword_german_passport
 
 - reisepasse
 - reisepassnummer
@@ -5174,7 +5200,7 @@ Yes
 - passeport no.
 - passeport no
 
-#### Keywords_eu_passport_number_common
+##### Keywords_eu_passport_number_common
 
 - passport#
 - passport #
@@ -5190,13 +5216,13 @@ Yes
 
 -------------------------------------
 
-## Germany tax identification number
+### Germany tax identification number
 
-### Format
+#### Format
 
 11 digits without spaces and delimiters
 
-### Pattern
+#### Pattern
 
 11 digits
 
@@ -5209,13 +5235,13 @@ Yes
 - Two digits
 - one check digit
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keywords_germany_eu_tax_file_number
+##### Keywords_germany_eu_tax_file_number
 
 - identifikationsnummer
 - steuer id
@@ -5244,19 +5270,13 @@ Yes
 
 -------------------------------------
 
-## Germany value added tax number
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
+### Germany value added tax number
 
-### Format
+#### Format
 
 11 character alphanumeric pattern
 
-### Pattern
+#### Pattern
 
 11-character alphanumeric pattern:
 
@@ -5269,18 +5289,18 @@ This sensitive information type is only available for use in:
 - an optional space or comma
 - three digits
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keyword_germany_value_added_tax_number
+##### Keyword_germany_value_added_tax_number
 
 - vat number
 - vat no
 - vat#
-- vat#  mehrwertsteuer
+- vat##  mehrwertsteuer
 - mwst
 - mehrwertsteuer identifikationsnummer
 - mehrwertsteuer nummer
@@ -5288,25 +5308,25 @@ Yes
 
 -------------------------------------
 
-## Greece driver's license number
+### Greece driver's license number
 
-This entity is included in the EU Driver's License Number sensitive information type. It is also available as a stand-alone sensitive information type entity.
+This entity is included in the EU Driver's License Number sensitive information type. It's also available as a stand-alone sensitive information type entity.
 
-### Format
+#### Format
 
 nine digits without spaces and delimiters
 
-### Pattern
+#### Pattern
 
 nine digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keywords_eu_driver's_license_number
+##### Keywords_eu_driver's_license_number
 
 - driverlic
 - driverlics
@@ -5428,7 +5448,7 @@ No
 - dl number
 
 
-#### Keywords_greece_eu_driver's_license_number
+##### Keywords_greece_eu_driver's_license_number
 
 - δεια οδήγησης
 - Adeia odigisis
@@ -5438,13 +5458,13 @@ No
 
 -------------------------------------
 
-## Greece national ID card
+### Greece national ID card
 
-### Format
+#### Format
 
 Combination of 7-8 letters and numbers plus a dash
 
-### Pattern
+#### Pattern
 
 Seven letters and numbers (old format):
 - One letter (any letter of the Greek alphabet)
@@ -5456,13 +5476,13 @@ Eight letters and numbers (new format):
 - A dash
 - Six digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keyword_greece_id_card
+##### Keyword_greece_id_card
 
 - greek id
 - greek national id
@@ -5476,23 +5496,23 @@ No
 
 -------------------------------------
 
-## Greece passport number
+### Greece passport number
 
-### Format
+#### Format
 
 Two letters followed by seven digits with no spaces or delimiters
 
-### Pattern
+#### Pattern
 
 Two letters followed by seven digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keywords_eu_passport_number
+##### Keywords_eu_passport_number
 
 - passport#
 - passport #
@@ -5505,7 +5525,7 @@ No
 - passportnumbers
 - passport numbers
 
-#### Keywords_greece_eu_passport_number
+##### Keywords_greece_eu_passport_number
 
 - αριθμός διαβατηρίου
 - αριθμούς διαβατηρίου
@@ -5514,31 +5534,25 @@ No
 
 -------------------------------------
 
-## Greece Social Security Number (AMKA)
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
+### Greece Social Security Number (AMKA)
 
-### Format
+#### Format
 
 11 digits without spaces and delimiters
 
-### Pattern
+#### Pattern
 
 - Six digits as date of birth YYMMDD
 - Four digits
 - a check digit
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keywords_greece_eu_ssn_or_equivalent
+##### Keywords_greece_eu_ssn_or_equivalent
 
 - ssn
 - ssn#
@@ -5552,29 +5566,23 @@ Yes
 
 -------------------------------------
 
-## Greece tax identification number
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
+### Greece tax identification number
 
-### Format
+#### Format
 
 Nine digits without spaces and delimiters
 
-### Pattern
+#### Pattern
 
 Nine digits
 
-### Checksum
+#### Checksum
 
 Not applicable
 
-### Keywords
+#### Keywords
 
-#### Keywords_greece_eu_tax_file_number
+##### Keywords_greece_eu_tax_file_number
 
 - afm#
 - afm
@@ -5606,26 +5614,26 @@ Not applicable
 
 -------------------------------------
 
-## Hong Kong identity card (HKID) number
+### Hong Kong identity card (HKID) number
 
-### Format
+#### Format
 
 Combination of 8-9 letters and numbers plus optional parentheses around the final character
 
-### Pattern
+#### Pattern
 
 Combination of 8-9 letters:
 - 1-2 letters (not case-sensitive)
 - Six digits
 - The final character (any digit or the letter A), which is the check digit and is optionally enclosed in parentheses.
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keyword_hong_kong_id_card
+##### Keyword_hong_kong_id_card
 
 - hkid
 - hong kong identity card
@@ -5668,26 +5676,26 @@ Yes
 
 -------------------------------------
 
-## Hungary driver's license number
+### Hungary driver's license number
 
-### Format
+#### Format
 
 Two letters followed by six digits
 
-### Pattern
+#### Pattern
 
 Two letters and six digits:
 
 - Two letters (not case-sensitive)
 - Six digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keywords_eu_driver's_license_number
+##### Keywords_eu_driver's_license_number
 
 - driverlic
 - driverlics
@@ -5809,7 +5817,7 @@ No
 - dl number
 
 
-#### Keywords_hungary_eu_driver's_license_number
+##### Keywords_hungary_eu_driver's_license_number
 
 - vezetoi engedely
 - vezetői engedély
@@ -5818,19 +5826,13 @@ No
 
 -------------------------------------
 
-## Hungary personal identification number
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
+### Hungary personal identification number
 
-### Format
+#### Format
 
 11 digits
 
-### Pattern
+#### Pattern
 
 11 digits:
 
@@ -5839,13 +5841,13 @@ This sensitive information type is only available for use in:
 - Three digits that correspond to a serial number
 - One check digit
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keywords_hungary_eu_national_id_card
+##### Keywords_hungary_eu_national_id_card
 
 - id number
 - identification number
@@ -5858,23 +5860,23 @@ Yes
 
 -------------------------------------
 
-## Hungary passport number
+### Hungary passport number
 
-### Format
+#### Format
 
 Two letters followed by six or seven digits with no spaces or delimiters
 
-### Pattern
+#### Pattern
 
 Two letters followed by six or seven digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keywords_eu_passport_number
+##### Keywords_eu_passport_number
 
 - passport#
 - passport #
@@ -5887,13 +5889,13 @@ No
 - passportnumbers
 - passport numbers
 
-#### Keywords_hungary_eu_passport_number
+##### Keywords_hungary_eu_passport_number
 
 - útlevél száma
 - Útlevelek száma
 - útlevél szám
 
-#### Keywords_eu_passport_date
+##### Keywords_eu_passport_date
 
 - date of issue
 - date of expiry
@@ -5901,23 +5903,23 @@ No
 
 -------------------------------------
 
-## Hungary social security number (TAJ)
+### Hungary social security number (TAJ)
 
-### Format
+#### Format
 
 Nine digits without spaces and delimiters
 
-### Pattern
+#### Pattern
 
 Nine digits
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keywords_hungary_eu_ssn_or_equivalent
+##### Keywords_hungary_eu_ssn_or_equivalent
 
 - hungarian social security number
 - social security number
@@ -5940,19 +5942,13 @@ Yes
 
 -------------------------------------
 
-## Hungary tax identification number
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
+### Hungary tax identification number
 
-### Format
+#### Format
 
 10 digits with no spaces or delimiters
 
-### Pattern
+#### Pattern
 
 10 digits:
 
@@ -5960,13 +5956,13 @@ This sensitive information type is only available for use in:
 - Eight digits
 - One check digit
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keywords_hungary_eu_tax_file_number
+##### Keywords_hungary_eu_tax_file_number
 
 - adóazonosító szám
 - adóhatóság szám
@@ -5995,19 +5991,13 @@ Yes
 
 -------------------------------------
 
-## Hungary value added tax number
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
+### Hungary value added tax number
 
-### Format
+#### Format
 
 10 character alphanumeric pattern
 
-### Pattern
+#### Pattern
 
 10 character alphanumeric pattern:
 
@@ -6015,13 +6005,13 @@ This sensitive information type is only available for use in:
 - optional space
 - eight digits
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keyword_Hungary_value_added_tax_number
+##### Keyword_Hungary_value_added_tax_number
 
 - vat
 - value added tax number
@@ -6037,13 +6027,13 @@ Yes
 
 -------------------------------------
 
-## India permanent account number (PAN)
+### India permanent account number (PAN)
 
-### Format
+#### Format
 
 10 letters or digits
 
-### Pattern
+#### Pattern
 
 10 letters or digits:
 - Three letters (not case-sensitive)
@@ -6052,42 +6042,42 @@ Yes
 - Four digits
 - A letter that is an alphabetic check digit
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keyword_india_permanent_account_number
+##### Keyword_india_permanent_account_number
 
 - Permanent Account Number
 - PAN
 
 -------------------------------------
 
-## India unique identification (Aadhaar) number
+### India unique identification (Aadhaar) number
 
-### Format
+#### Format
 
 12 digits containing optional spaces or dashes
 
-### Pattern
+#### Pattern
 
 12 digits:
-- A digit which is not 0 or 1
+- A digit that is not 0 or 1
 - Three digits
 - An optional space or dash
 - Four digits
 - An optional space or dash
 - The final digit, which is the check digit
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keyword_india_aadhar
+##### Keyword_india_aadhar
 - aadhaar
 - aadhar
 - aadhar#
@@ -6097,13 +6087,13 @@ Yes
 
 -------------------------------------
 
-## Indonesia identity card (KTP) number
+### Indonesia identity card (KTP) number
 
-### Format
+#### Format
 
 16 digits containing optional periods
 
-### Pattern
+#### Pattern
 
 16 digits:
 - Two-digit province code
@@ -6115,13 +6105,13 @@ Yes
 - A period (optional)
 - Four digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keyword_indonesia_id_card
+##### Keyword_indonesia_id_card
 
 - KTP
 - Kartu Tanda Penduduk
@@ -6129,13 +6119,13 @@ No
 
 -------------------------------------
 
-## International banking account number (IBAN)
+### International banking account number (IBAN)
 
-### Format
+#### Format
 
 Country code (two letters) plus check digits (two digits) plus bban number (up to 30 characters)
 
-### Pattern
+#### Pattern
 
 Pattern must include all of the following:
 
@@ -6207,35 +6197,35 @@ The format for each country is slightly different. The IBAN sensitive informatio
 - tr
 - vg
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
 None
 
 -------------------------------------
 
-## IP address
+### IP address
 
-### Format
+#### Format
 
-#### IPv4:
+##### IPv4:
 Complex pattern that accounts for formatted (periods) and unformatted (no periods) versions of the IPv4 addresses
 
-#### IPv6:
+##### IPv6:
 Complex pattern that accounts for formatted IPv6 numbers (which include colons)
 
-### Pattern
+#### Pattern
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keyword_ipaddress
+##### Keyword_ipaddress
 
 - IP (this keyword is case-sensitive)
 - ip address
@@ -6246,22 +6236,22 @@ No
 
 -------------------------------------
 
-## IP Address v4
+### IP Address v4
 
-### Format
+#### Format
 
 Complex pattern that accounts for formatted (periods) and unformatted (no periods) versions of the IPv4 addresses
 
-### Pattern
+#### Pattern
 
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keyword_ipaddress
+##### Keyword_ipaddress
 
 - IP (case sensitive)
 - ip address
@@ -6272,22 +6262,22 @@ No
 
 -------------------------------------
 
-## IP Address v6
+### IP Address v6
 
-### Format
+#### Format
 
 Complex pattern that accounts for formatted IPv6 numbers (which include colons)
 
-### Pattern
+#### Pattern
 
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keyword_ipaddress
+##### Keyword_ipaddress
 
 - IP (case sensitive)
 - ip address
@@ -6298,26 +6288,26 @@ No
 
 -------------------------------------
 
-## Ireland driver's license number
+### Ireland driver's license number
 
-### Format
+#### Format
 
 Six digits followed by four letters
 
-### Pattern
+#### Pattern
 
 Six digits and four letters:
 
 - Six digits
 - Four letters (not case-sensitive)
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keywords_eu_driver's_license_number
+##### Keywords_eu_driver's_license_number
 
 - driverlic
 - driverlics
@@ -6439,33 +6429,33 @@ No
 - dl number
 
 
-#### Keywords_ireland_eu_driver's_license_number
+##### Keywords_ireland_eu_driver's_license_number
 
 - ceadúnas tiomána
 - ceadúnais tiomána
 
 -------------------------------------
 
-## Ireland passport number
+### Ireland passport number
 
-### Format
+#### Format
 
 Two letters or digits followed by seven digits with no spaces or delimiters
 
-### Pattern
+#### Pattern
 
 Two letters or digits followed by seven digits:
 
 - Two digits or letters (not case-sensitive)
 - Seven digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keywords_eu_passport_number_common
+##### Keywords_eu_passport_number_common
 
 - passport#
 - passport #
@@ -6478,7 +6468,7 @@ No
 - passportnumbers
 - passport numbers
 
-#### Keywords_ireland_eu_passport_number
+##### Keywords_ireland_eu_passport_number
 
 - passeport numero
 - uimhreacha pasanna
@@ -6488,7 +6478,7 @@ No
 - uimhir cárta
 - uimhir chárta
 
-#### Keywords_eu_passport_date
+##### Keywords_eu_passport_date
 
 - date of issue
 - date of expiry
@@ -6496,9 +6486,9 @@ No
 
 -------------------------------------
 
-## Ireland personal public service (PPS) number
+### Ireland personal public service (PPS) number
 
-### Format
+#### Format
 
 Old format (until 31 December 2012):
 - seven digits followed by 1-2 letters
@@ -6506,7 +6496,7 @@ Old format (until 31 December 2012):
 New format (1 January 2013 and after):
 - seven digits followed by two letters
 
-### Pattern
+#### Pattern
 
 Old format (until 31 December 2012):
 - seven digits
@@ -6517,13 +6507,13 @@ New format (1 January 2013 and after):
 - a letter (not case-sensitive) which is an alphabetic check digit
 - An optional letter in the range A-I, or “W”
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keywords_ireland_eu_national_id_card
+##### Keywords_ireland_eu_national_id_card
 
 - client identity service
 - identification number
@@ -6571,13 +6561,13 @@ Yes
 
 -------------------------------------
 
-## Israel bank account number
+### Israel bank account number
 
-### Format
+#### Format
 
 13 digits
 
-### Pattern
+#### Pattern
 
 Formatted:
 - two digits
@@ -6589,13 +6579,13 @@ Formatted:
 Unformatted:
 - 13 consecutive digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keyword_israel_bank_account_number
+##### Keyword_israel_bank_account_number
 
 - Bank Account Number
 - Bank Account
@@ -6604,23 +6594,23 @@ No
 
 -------------------------------------
 
-## Israel national identification number
+### Israel national identification number
 
-### Format
+#### Format
 
 nine digits
 
-### Pattern
+#### Pattern
 
 nine consecutive digits
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keyword_Israel_National_ID
+##### Keyword_Israel_National_ID
 
 -   מספר זהות
 -   מספר זיה וי
@@ -6642,15 +6632,15 @@ Yes
 
 -------------------------------------
 
-## Italy driver's license number
+### Italy driver's license number
 
-This type entity is included in the EU Driver's License Number sensitive information type. It is also available as a stand-alone sensitive information type entity.
+This type entity is included in the EU Driver's License Number sensitive information type. It's also available as a stand-alone sensitive information type entity.
 
-### Format
+#### Format
 
 a combination of 10 letters and digits
 
-### Pattern
+#### Pattern
 
 a combination of 10 letters and digits:
 - one letter (not case-sensitive)
@@ -6658,13 +6648,13 @@ a combination of 10 letters and digits:
 - seven digits
 - one letter (not case-sensitive)
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keywords_eu_driver's_license_number
+##### Keywords_eu_driver's_license_number
 
 - driverlic
 - driverlics
@@ -6785,7 +6775,7 @@ No
 - dlno
 - dl number
 
-#### Keyword_italy_drivers_license_number
+##### Keyword_italy_drivers_license_number
 
 - numero di patente
 - patente di guida
@@ -6796,19 +6786,13 @@ No
 
 -------------------------------------
 
-## Italy fiscal code
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
+### Italy fiscal code
 
-### Format
+#### Format
 
 a 16-character combination of letters and digits in the specified pattern
 
-### Pattern
+#### Pattern
 
 A 16-character combination of letters and digits:
 - three letters that correspond to the first three consonants in the family name
@@ -6819,13 +6803,13 @@ A 16-character combination of letters and digits:
 - four digits that correspond to the area code specific to the municipality where the person was born (country-wide codes are used for foreign countries)
 - one parity digit
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keywords_italy_eu_national_id_card
+##### Keywords_italy_eu_national_id_card
 
 - codice fiscal
 - codice fiscale
@@ -6863,26 +6847,26 @@ Yes
 
 -------------------------------------
 
-## Italy passport number
+### Italy passport number
 
-### Format
+#### Format
 
 two letters or digits followed by seven digits with no spaces or delimiters
 
-### Pattern
+#### Pattern
 
 two letters or digits followed by seven digits:
 
 - two digits or letters (not case-sensitive)
 - seven digits
 
-### Checksum
+#### Checksum
 
 not applicable
 
-### Keywords
+#### Keywords
 
-#### Keywords_eu_passport_number_common
+##### Keywords_eu_passport_number_common
 
 - passport#
 - passport #
@@ -6895,7 +6879,7 @@ not applicable
 - passportnumbers
 - passport numbers
 
-#### Keywords_italy_eu_passport_number
+##### Keywords_italy_eu_passport_number
 
 - italiana passaporto
 - passaporto italiana
@@ -6905,7 +6889,7 @@ not applicable
 - numeri del passaporto
 - passeport italien
 
-#### Keywords_eu_passport_date
+##### Keywords_eu_passport_date
 
 - date of issue
 - date of expiry
@@ -6913,19 +6897,13 @@ not applicable
 
 -------------------------------------
 
-## Italy value added tax number
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
+### Italy value added tax number
 
-### Format
+#### Format
 
 13 character alphanumeric pattern with optional delimiters
 
-### Pattern
+#### Pattern
 
 13 character alphanumeric pattern with optional delimiters:
 
@@ -6934,13 +6912,13 @@ This sensitive information type is only available for use in:
 - optional space, dot, hyphen, or comma
 - 11 digits
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keyword_italy_value_added_tax_number
+##### Keyword_italy_value_added_tax_number
 
 - vat number
 - vat no
@@ -6951,13 +6929,13 @@ Yes
 
 -------------------------------------
 
-## Japan bank account number
+### Japan bank account number
 
-### Format
+#### Format
 
 seven or eight digits
 
-### Pattern
+#### Pattern
 
 bank account number:
 - seven or eight digits
@@ -6970,9 +6948,9 @@ Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keyword_jp_bank_account
+##### Keyword_jp_bank_account
 
 - Checking Account Number
 - Checking Account
@@ -7015,7 +6993,7 @@ No
 - 銀行
 - バンク
 
-#### Keyword_jp_bank_branch_code
+##### Keyword_jp_bank_branch_code
 
 - 支店番号
 - 支店コード
@@ -7023,23 +7001,23 @@ No
 
 -------------------------------------
 
-## Japan driver's license number
+### Japan driver's license number
 
-### Format
+#### Format
 
 12 digits
 
-### Pattern
+#### Pattern
 
 12 consecutive digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keyword_jp_drivers_license_number
+##### Keyword_jp_drivers_license_number
 
 - driverlicense
 - driverslicense
@@ -7080,32 +7058,26 @@ No
 
 -------------------------------------
 
-## Japan My Number - Corporate
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
+### Japan My Number - Corporate
 
-### Format
+#### Format
 
 13-digit number
 
-### Pattern
+#### Pattern
 
 13-digit number:
 
 - one digit from one to nine
 - 12 digits
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keyword_japan_my_number_corporate
+##### Keyword_japan_my_number_corporate
 
 - corporate number
 - マイナンバー
@@ -7121,19 +7093,13 @@ Yes
 
 -------------------------------------
 
-## Japan My Number - Personal
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
+### Japan My Number - Personal
 
-### Format
+#### Format
 
 12-digit number
 
-### Pattern
+#### Pattern
 
 12-digit number:
 
@@ -7143,13 +7109,13 @@ This sensitive information type is only available for use in:
 - an optional space, dot, or hyphen
 - four digits
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keyword_japan_my_number_personal
+##### Keyword_japan_my_number_personal
 
 - my number
 - マイナンバー
@@ -7165,23 +7131,23 @@ Yes
 
 -------------------------------------
 
-## Japan passport number
+### Japan passport number
 
-### Format
+#### Format
 
 two letters followed by seven digits
 
-### Pattern
+#### Pattern
 
 two letters (not case-sensitive) followed by seven digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keyword_jp_passport
+##### Keyword_jp_passport
 
 - Passport
 - Passport Number
@@ -7201,26 +7167,26 @@ No
 
 -------------------------------------
 
-## Japan residence card number
+### Japan residence card number
 
-### Format
+#### Format
 
 12 letters and digits
 
-### Pattern
+#### Pattern
 
 12 letters and digits:
 - two letters (not case-sensitive)
 - eight digits
 - two letters (not case-sensitive)
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keyword_jp_residence_card_number
+##### Keyword_jp_residence_card_number
 
 - Residence card number
 - Residence card no
@@ -7231,23 +7197,23 @@ No
 
 -------------------------------------
 
-## Japan resident registration number
+### Japan resident registration number
 
-### Format
+#### Format
 
 11 digits
 
-### Pattern
+#### Pattern
 
 11 consecutive digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keyword_jp_resident_registration_number
+##### Keyword_jp_resident_registration_number
 
 - Resident Registration Number
 - Residents Basic Registry Number
@@ -7263,13 +7229,13 @@ No
 
 -------------------------------------
 
-## Japan social insurance number (SIN)
+### Japan social insurance number (SIN)
 
-### Format
+#### Format
 
 7-12 digits
 
-### Pattern
+#### Pattern
 
 7-12 digits:
 
@@ -7281,13 +7247,13 @@ No
 
 - 7-12 consecutive digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keyword_jp_sin
+##### Keyword_jp_sin
 
 - Social Insurance No.
 - Social Insurance Num
@@ -7311,26 +7277,26 @@ No
 
 -------------------------------------
 
-## Latvia driver's license number
+### Latvia driver's license number
 
-### Format
+#### Format
 
 three letters followed by six digits
 
-### Pattern
+#### Pattern
 
 three letters and six digits:
 
 - three letters (not case-sensitive)
 - six digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keywords_eu_driver's_license_number
+##### Keywords_eu_driver's_license_number
 
 - driverlic
 - driverlics
@@ -7452,7 +7418,7 @@ No
 - dl number
 
 
-#### Keywords_latvia_eu_driver's_license_number
+##### Keywords_latvia_eu_driver's_license_number
 
 - autovadītāja apliecība
 - autovadītāja apliecības
@@ -7460,13 +7426,13 @@ No
 
 -------------------------------------
 
-## Latvia Personal Code
+### Latvia Personal Code
 
-### Format
+#### Format
 
 11 digits and an optional hyphen
 
-### Pattern
+#### Pattern
 
 Old format
 
@@ -7484,13 +7450,13 @@ New format
 - Two digits "32"
 - Nine digits
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keywords_latvia_eu_national_id_card
+##### Keywords_latvia_eu_national_id_card
 
 - administrative number
 - alvas nē
@@ -7555,26 +7521,26 @@ Yes
 
 -------------------------------------
 
-## Latvia passport number
+### Latvia passport number
 
-### Format
+#### Format
 
 two letters or digits followed by seven digits with no spaces or delimiters
 
-### Pattern
+#### Pattern
 
 two letters or digits followed by seven digits:
 
 - two digits or letters (not case-sensitive)
 - seven digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keywords_eu_passport_number_common
+##### Keywords_eu_passport_number_common
 
 - passport#
 - passport #
@@ -7587,7 +7553,7 @@ No
 - passportnumbers
 - passport numbers
 
-#### Keywords_latvia_eu_passport_number
+##### Keywords_latvia_eu_passport_number
 
 - pase numurs
 - pase numur
@@ -7596,7 +7562,7 @@ No
 - passeport no
 - n° du Passeport
 
-#### Keywords_eu_passport_date
+##### Keywords_eu_passport_date
 
 - date of issue
 - date of expiry
@@ -7604,23 +7570,23 @@ No
 
 -------------------------------------
 
-## Lithuania driver's license number
+### Lithuania driver's license number
 
-### Format
+#### Format
 
 eight digits without spaces and delimiters
 
-### Pattern
+#### Pattern
 
 eight digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keywords_eu_driver's_license_number
+##### Keywords_eu_driver's_license_number
 
 - driverlic
 - driverlics
@@ -7742,7 +7708,7 @@ No
 - dl number
 
 
-#### Keywords_lithuania_eu_driver's_license_number
+##### Keywords_lithuania_eu_driver's_license_number
 
 - vairuotojo pažymėjimas
 - vairuotojo pažymėjimo numeris
@@ -7750,19 +7716,13 @@ No
 
 -------------------------------------
 
-## Lithuania Personal Code
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
+### Lithuania Personal Code
 
-### Format
+#### Format
 
 11 digits without spaces and delimiters
 
-### Pattern
+#### Pattern
 
 11 digits without spaces and delimiters:
 
@@ -7771,13 +7731,13 @@ This sensitive information type is only available for use in:
 - three digits that correspond to the serial number of the date of birth
 - one check digit
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keywords_lithuania_eu_national_id_card
+##### Keywords_lithuania_eu_national_id_card
 
 - asmeninis skaitmeninis kodas
 - asmens kodas
@@ -7814,23 +7774,23 @@ Yes
 
 -------------------------------------
 
-## Lithuania passport number
+### Lithuania passport number
 
-### Format
+#### Format
 
 eight digits or letters with no spaces or delimiters
 
-### Pattern
+#### Pattern
 
 eight digits or letters (not case-sensitive)
 
-### Checksum
+#### Checksum
 
 not applicable
 
-### Keywords
+#### Keywords
 
-#### Keywords_eu_passport_number
+##### Keywords_eu_passport_number
 
 - passport#
 - passport #
@@ -7843,28 +7803,28 @@ not applicable
 - passportnumbers
 - passport numbers
 
-#### Keywords_lithuania_eu_passport_number
+##### Keywords_lithuania_eu_passport_number
 
 - paso numeris
 - paso numeriai
 - paso nr
 
-#### Keywords_eu_passport_date
+##### Keywords_eu_passport_date
 
 - date of issue
 - date of expiry
 
 -------------------------------------
 
-## Location
+### Location
 
-### Format
+#### Format
 Longitude can range from -180.0 to 180.0. Latitude can range from -90.0 to 90.0.
 
-### Checksum
+#### Checksum
 Not applicable
 
-### Keywords
+#### Keywords
 
 - lat
 - latitude
@@ -7880,23 +7840,23 @@ Not applicable
 
 -------------------------------------
 
-## Luxemburg driver's license number
+### Luxemburg driver's license number
 
-### Format
+#### Format
 
 six digits without spaces and delimiters
 
-### Pattern
+#### Pattern
 
 six digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keywords_eu_driver's_license_number
+##### Keywords_eu_driver's_license_number
 
 - driverlic
 - driverlics
@@ -8018,39 +7978,33 @@ No
 - dl number
 
 
-#### Keywords_luxemburg_eu_driver's_license_number
+##### Keywords_luxemburg_eu_driver's_license_number
 
 - fahrerlaubnis
 - Führerschäin
 
 -------------------------------------
 
-## Luxemburg national identification number natural persons
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
+### Luxemburg national identification number natural persons
 
-### Format
+#### Format
 
 13 digits with no spaces or delimiters
 
-### Pattern
+#### Pattern
 
 13 digits:
 
 - 11 digits
 - two check digits
 
-### Checksum
+#### Checksum
 
 yes
 
-### Keywords
+#### Keywords
 
-#### Keywords_luxemburg_eu_national_id_card
+##### Keywords_luxemburg_eu_national_id_card
 
 - eindeutige id
 - eindeutige id-nummer
@@ -8075,13 +8029,13 @@ yes
 
 -------------------------------------
 
-## Luxemburg national identification number non-natural persons
+### Luxemburg national identification number non-natural persons
 
-### Format
+#### Format
 
 11 digits
 
-### Pattern
+#### Pattern
 
 11 digits
 
@@ -8094,13 +8048,13 @@ yes
 - two digits
 - one check digit
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keywords_luxemburg_eu_tax_file_number
+##### Keywords_luxemburg_eu_tax_file_number
 
 - carte de sécurité sociale
 - étain non
@@ -8142,23 +8096,23 @@ Yes
 
 -------------------------------------
 
-## Luxemburg passport number
+### Luxemburg passport number
 
-### Format
+#### Format
 
 eight digits or letters with no spaces or delimiters
 
-### Pattern
+#### Pattern
 
 eight digits or letters (not case-sensitive)
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keywords_eu_passport_number
+##### Keywords_eu_passport_number
 
 - passport#
 - passport #
@@ -8171,7 +8125,7 @@ No
 - passportnumbers
 - passport numbers
 
-#### Keywords_luxemburg_eu_passport_number
+##### Keywords_luxemburg_eu_passport_number
 - ausweisnummer
 - luxembourg pass
 - luxembourg passeport
@@ -8188,7 +8142,7 @@ No
 - reisepass-nr
 - reisepassnummer
 
-#### Keywords_eu_passport_date
+##### Keywords_eu_passport_date
 
 - date of issue
 - date of expiry
@@ -8196,13 +8150,13 @@ No
 
 -------------------------------------
 
-## Malaysia identification card number
+### Malaysia identification card number
 
-### Format
+#### Format
 
 12 digits containing optional hyphens
 
-### Pattern
+#### Pattern
 
 12 digits:
 - six digits in the format YYMMDD, which are the date of birth
@@ -8212,13 +8166,13 @@ No
 - three random digits
 - one-digit gender code
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keyword_malaysia_id_card_number
+##### Keyword_malaysia_id_card_number
 
 - digital application card
 - i/c
@@ -8247,13 +8201,13 @@ No
 
 -------------------------------------
 
-## Malta driver's license number
+### Malta driver's license number
 
-### Format
+#### Format
 
 Combination of two characters and six digits in the specified pattern
 
-### Pattern
+#### Pattern
 
 combination of two characters and six digits:
 
@@ -8263,13 +8217,13 @@ combination of two characters and six digits:
 - a space (optional)
 - three digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keywords_eu_driver's_license_number
+##### Keywords_eu_driver's_license_number
 
 - driverlic
 - driverlics
@@ -8391,7 +8345,7 @@ No
 - dl number
 
 
-#### Keywords_malta_eu_driver's_license_number
+##### Keywords_malta_eu_driver's_license_number
 
 - liċenzja tas-sewqan
 - liċenzji tas-sewwieq
@@ -8399,32 +8353,26 @@ No
 
 -------------------------------------
 
-## Malta identity card number
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
+### Malta identity card number
 
-### Format
+#### Format
 
 seven digits followed by one letter
 
-### Pattern
+#### Pattern
 
 seven digits followed by one letter:
 
 - seven digits
 - one letter in "M, G, A, P, L, H, B, Z" (case insensitive)
 
-### Checksum
+#### Checksum
 
 Not applicable
 
-### Keywords
+#### Keywords
 
-#### Keywords_malta_eu_national_id_card
+##### Keywords_malta_eu_national_id_card
 
 - citizen service number
 - id tat-taxxa
@@ -8444,23 +8392,23 @@ Not applicable
 
 -------------------------------------
 
-## Malta passport number
+### Malta passport number
 
-### Format
+#### Format
 
 seven digits without spaces or delimiters
 
-### Pattern
+#### Pattern
 
 seven digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keywords_eu_passport_number
+##### Keywords_eu_passport_number
 
 - passport#
 - passport #
@@ -8473,13 +8421,13 @@ No
 - passportnumbers
 - passport numbers
 
-#### Keywords_malta_eu_passport_number
+##### Keywords_malta_eu_passport_number
 
 - numru tal-passaport
 - numri tal-passaport
 - Nru tal-passaport
 
-#### Keywords_eu_passport_date
+##### Keywords_eu_passport_date
 
 - date of issue
 - date of expiry
@@ -8487,9 +8435,9 @@ No
 
 -------------------------------------
 
-## Malta tax identification number
+### Malta tax identification number
 
-### Format
+#### Format
 
 For Maltese nationals:
 - seven digits and one letter in the specified pattern
@@ -8497,7 +8445,7 @@ For Maltese nationals:
 Non-Maltese nationals and Maltese entities:
 - nine digits
 
-### Pattern
+#### Pattern
 
 Maltese nationals: seven digits and one letter
 
@@ -8508,13 +8456,13 @@ Non-Maltese nationals and Maltese entities: nine digits
 
 - nine digits
 
-### Checksum
+#### Checksum
 
 Not applicable
 
-### Keywords
+#### Keywords
 
-#### Keywords_malta_eu_tax_file_number
+##### Keywords_malta_eu_tax_file_number
 
 - citizen service number
 - id tat-taxxa
@@ -8549,13 +8497,13 @@ Not applicable
 
 -------------------------------------
 
-## Netherlands citizen's service (BSN) number
+### Netherlands citizen's service (BSN) number
 
-### Format
+#### Format
 
 eight or nine digits containing optional spaces
 
-### Pattern
+#### Pattern
 
 eight-nine digits:
 - three digits
@@ -8564,13 +8512,13 @@ eight-nine digits:
 - a space (optional)
 - two-three digits
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keywords_netherlands_eu_national_id_card
+##### Keywords_netherlands_eu_national_id_card
 
 - bsn#
 - bsn
@@ -8596,23 +8544,23 @@ Yes
 
 -------------------------------------
 
-## Netherlands driver's license number
+### Netherlands driver's license number
 
-### Format
+#### Format
 
 10 digits without spaces and delimiters
 
-### Pattern
+#### Pattern
 
 10 digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keywords_eu_driver's_license_number
+##### Keywords_eu_driver's_license_number
 
 - driverlic
 - driverlics
@@ -8734,7 +8682,7 @@ No
 - dl number
 
 
-#### Keywords_netherlands_eu_driver's_license_number
+##### Keywords_netherlands_eu_driver's_license_number
 
 - permis de conduire
 - rijbewijs
@@ -8746,23 +8694,23 @@ No
 
 -------------------------------------
 
-## Netherlands passport number
+### Netherlands passport number
 
-### Format
+#### Format
 
 nine letters or digits with no spaces or delimiters
 
-### Pattern
+#### Pattern
 
 nine letters or digits
 
-### Checksum
+#### Checksum
 
 not applicable
 
-### Keywords
+#### Keywords
 
-#### Keywords_eu_passport_number
+##### Keywords_eu_passport_number
 
 - passport#
 - passport #
@@ -8775,7 +8723,7 @@ not applicable
 - passportnumbers
 - passport numbers
 
-#### Keywords_netherlands_eu_passport_number
+##### Keywords_netherlands_eu_passport_number
 
 - paspoort nummer
 - paspoortnummers
@@ -8784,29 +8732,23 @@ not applicable
 
 -------------------------------------
 
-## Netherlands tax identification number
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
+### Netherlands tax identification number
 
-### Format
+#### Format
 
 nine digits without spaces or delimiters
 
-### Pattern
+#### Pattern
 
 nine digits
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keywords_netherlands_eu_tax_file_number
+##### Keywords_netherlands_eu_tax_file_number
 
 - btw nummer
 - hollânske tax identification
@@ -8847,19 +8789,13 @@ Yes
 
 -------------------------------------
 
-## Netherlands value added tax number
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
+### Netherlands value added tax number
 
-### Format
+#### Format
 
 14 character alphanumeric pattern
 
-### Pattern
+#### Pattern
 
 14-character alphanumeric pattern:
 
@@ -8871,13 +8807,13 @@ This sensitive information type is only available for use in:
 - B or b
 - two digits
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keyword_netherlands_value_added_tax_number
+##### Keyword_netherlands_value_added_tax_number
 
 - vat number
 - vat no
@@ -8889,19 +8825,13 @@ Yes
 
 -------------------------------------
 
-## New Zealand bank account number
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
+### New Zealand bank account number
 
-### Format
+#### Format
 
 14-digit to 16-digit pattern with optional delimiter
 
-### Pattern
+#### Pattern
 
 14-digit to 16-digit pattern with optional delimiter:
 
@@ -8914,13 +8844,13 @@ This sensitive information type is only available for use in:
 - two to three digits
 - an options hyphen or space
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keyword_new_zealand_bank_account_number
+##### Keyword_new_zealand_bank_account_number
 
 - account number
 - bank account
@@ -8931,32 +8861,26 @@ Yes
 
 -------------------------------------
 
-## New Zealand driver's license number
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
+### New Zealand driver's license number
 
-### Format
+#### Format
 
 eight character alphanumeric pattern
 
-### Pattern
+#### Pattern
 
 eight character alphanumeric pattern
 
 - two letters
 - six digits
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keyword_new_zealand_drivers_license_number
+##### Keyword_new_zealand_drivers_license_number
 
 - driverlicence
 - driverlicences
@@ -9026,19 +8950,13 @@ Yes
 
 -------------------------------------
 
-## New Zealand inland revenue number
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
+### New Zealand inland revenue number
 
-### Format
+#### Format
 
 eight or nine digits with optional delimiters
 
-### Pattern
+#### Pattern
 
 eight or nine digits with optional delimiters
 
@@ -9048,13 +8966,13 @@ eight or nine digits with optional delimiters
 - an optional space or hyphen
 - three digits
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keyword_new_zealand_inland_revenue_number
+##### Keyword_new_zealand_inland_revenue_number
 
 - ird no.
 - ird no#
@@ -9066,25 +8984,25 @@ Yes
 
 -------------------------------------
 
-## New Zealand ministry of health number
+### New Zealand ministry of health number
 
-### Format
+#### Format
 
 three letters, a space (optional), and four digits
 
-### Pattern
+#### Pattern
 
 - three letters (not case-sensitive) except 'I' and 'O'
 - a space (optional)
 - four digits
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keyword_nz_terms
+##### Keyword_nz_terms
 
 - NHI
 - New Zealand
@@ -9100,20 +9018,13 @@ Yes
 
 -------------------------------------
 
-## New Zealand social welfare number
+### New Zealand social welfare number
 
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
-
-### Format
+#### Format
 
 nine digits
 
-### Pattern
+#### Pattern
 
 nine digits
 
@@ -9123,13 +9034,13 @@ nine digits
 - an optional hyphen
 - three digits
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keyword_new_zealand_social_welfare_number
+##### Keyword_new_zealand_social_welfare_number
 
 - social welfare #
 - social welfare#
@@ -9140,26 +9051,26 @@ Yes
 
 -------------------------------------
 
-## Norway identification number
+### Norway identification number
 
-### Format
+#### Format
 
 11 digits
 
-### Pattern
+#### Pattern
 
 11 digits:
 - six digits in the format DDMMYY, which are the date of birth
 - three-digit individual number
 - two check digits
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keyword_norway_id_number
+##### Keyword_norway_id_number
 
 - Personal identification number
 - Norwegian ID Number
@@ -9171,13 +9082,13 @@ Yes
 
 -------------------------------------
 
-## Philippines unified multi-purpose identification number
+### Philippines unified multi-purpose identification number
 
-### Format
+#### Format
 
 12 digits separated by hyphens
 
-### Pattern
+#### Pattern
 
 12 digits:
 - four digits
@@ -9186,13 +9097,13 @@ Yes
 - a hyphen
 - one digit
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keyword_philippines_id
+##### Keyword_philippines_id
 
 - Unified Multi-Purpose ID
 - UMID
@@ -9201,13 +9112,13 @@ No
 
 -------------------------------------
 
-## Poland driver's license number
+### Poland driver's license number
 
-### Format
+#### Format
 
 14 digits containing two forward slashes
 
-### Pattern
+#### Pattern
 
 14 digits and two forward slashes:
 
@@ -9217,13 +9128,13 @@ No
 - a forward slash
 - seven digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keywords_eu_driver's_license_number
+##### Keywords_eu_driver's_license_number
 
 - driverlic
 - driverlics
@@ -9345,30 +9256,30 @@ No
 - dl number
 
 
-#### Keywords_poland_eu_driver's_license_number
+##### Keywords_poland_eu_driver's_license_number
 
 - prawo jazdy
 - prawa jazdy
 
 -------------------------------------
 
-## Poland identity card
+### Poland identity card
 
-### Format
+#### Format
 
 three letters and six digits
 
-### Pattern
+#### Pattern
 
 three letters (not case-sensitive) followed by six digits
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keyword_poland_national_id_passport_number
+##### Keyword_poland_national_id_passport_number
 
 - Dowód osobisty
 - Numer dowodu osobistego
@@ -9381,25 +9292,25 @@ Yes
 
 -------------------------------------
 
-## Poland national ID (PESEL)
+### Poland national ID (PESEL)
 
-### Format
+#### Format
 
 11 digits
 
-### Pattern
+#### Pattern
 
 - six digits representing date of birth in the format YYMMDD
 - four digits
 - one check digit
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keyword_pesel_identification_number
+##### Keyword_pesel_identification_number
 
 - dowód osobisty
 - dowódosobisty
@@ -9414,24 +9325,24 @@ Yes
 
 -------------------------------------
 
-## Poland passport number
+### Poland passport number
 This sensitive information type entity is included in the EU Passport Number sensitive information type. It's also available as a stand-alone sensitive information type entity.
 
-### Format
+#### Format
 
 two letters and seven digits
 
-### Pattern
+#### Pattern
 
 Two letters (not case-sensitive) followed by seven digits
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keywords_eu_passport_number
+##### Keywords_eu_passport_number
 
 - passport#
 - passport #
@@ -9444,7 +9355,7 @@ Yes
 - passportnumbers
 - passport numbers
 
-#### Keyword_polish_national_passport_number
+##### Keyword_polish_national_passport_number
 
 - numer paszportu
 - numery paszportów
@@ -9455,7 +9366,7 @@ Yes
 - n° passeport
 - passeport n°
 
-#### Keywords_eu_passport_date
+##### Keywords_eu_passport_date
 
 - date of issue
 - date of expiry
@@ -9463,19 +9374,13 @@ Yes
 
 -------------------------------------
 
-## Poland REGON number
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
+### Poland REGON number
 
-### Format
+#### Format
 
 9-digit or 14-digit number
 
-### Pattern
+#### Pattern
 
 nine digit or 14-digit number:
 
@@ -9487,13 +9392,13 @@ nine digit or 14-digit number:
 - hyphen
 - five digits
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keywords_poland_regon_number
+##### Keywords_poland_regon_number
 
 - regon id
 - statistical number
@@ -9513,29 +9418,23 @@ Yes
 
 -------------------------------------
 
-## Poland tax identification number
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
+### Poland tax identification number
 
-### Format
+#### Format
 
 11 digits with no spaces or delimiters
 
-### Pattern
+#### Pattern
 
 11 digits
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keywords_poland_eu_tax_file_number
+##### Keywords_poland_eu_tax_file_number
 
 - nip#
 - nip
@@ -9568,23 +9467,23 @@ Yes
 
 -------------------------------------
 
-## Portugal citizen card number
+### Portugal citizen card number
 
-### Format
-
-eight digits
-
-### Pattern
+#### Format
 
 eight digits
 
-### Checksum
+#### Pattern
+
+eight digits
+
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keyword_portugal_citizen_card
+##### Keyword_portugal_citizen_card
 
 - bilhete de identidade
 - cartão de cidadão
@@ -9607,13 +9506,13 @@ No
 
 -------------------------------------
 
-## Portugal driver's license number
+### Portugal driver's license number
 
-### Format
+#### Format
 
 two patterns - two letters followed by 5-8 digits with special characters
 
-### Pattern
+#### Pattern
 
 Pattern 1:
 Two letters followed by 5/6 with special characters:
@@ -9632,13 +9531,13 @@ One letter followed by 6/8 digits with special characters:
 - One digit
 
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keywords_eu_driver's_license_number
+##### Keywords_eu_driver's_license_number
 
 - driverlic
 - driverlics
@@ -9760,7 +9659,7 @@ No
 - dl number
 
 
-#### Keywords_portugal_eu_driver's_license_number
+##### Keywords_portugal_eu_driver's_license_number
 
 - carteira de motorista
 - carteira motorista
@@ -9775,26 +9674,26 @@ No
 
 -------------------------------------
 
-## Portugal passport number
+### Portugal passport number
 
-### Format
+#### Format
 
 one letter followed by six digits with no spaces or delimiters
 
-### Pattern
+#### Pattern
 
 one letter followed by six digits:
 
 - one letter (not case-sensitive)
 - six digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keywords_eu_passport_number
+##### Keywords_eu_passport_number
 
 - passport#
 - passport #
@@ -9807,7 +9706,7 @@ No
 - passportnumbers
 - passport numbers
 
-#### Keywords_portugal_eu_passport_number
+##### Keywords_portugal_eu_passport_number
 
 - número do passaporte
 - portuguese passport
@@ -9820,7 +9719,7 @@ No
 - número passaporte
 - números passaporte
 
-#### Keywords_eu_passport_date
+##### Keywords_eu_passport_date
 
 - date of issue
 - date of expiry
@@ -9828,13 +9727,13 @@ No
 
 -------------------------------------
 
-## Portugal tax identification number
+### Portugal tax identification number
 
-### Format
+#### Format
 
 nine digits with optional spaces
 
-### Pattern
+#### Pattern
 
 - three digits
 - an optional space
@@ -9842,13 +9741,13 @@ nine digits with optional spaces
 - an optional space
 - three digits
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keywords_portugal_eu_tax_file_number
+##### Keywords_portugal_eu_tax_file_number
 
 - cpf#
 - cpf
@@ -9876,25 +9775,25 @@ Yes
 
 -------------------------------------
 
-## Romania driver's license number
+### Romania driver's license number
 
-### Format
+#### Format
 
 one character followed by eight digits
 
-### Pattern
+#### Pattern
 
 one character followed by eight digits:
 - one letter (not case-sensitive) or digit
 - eight digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keywords_eu_driver's_license_number
+##### Keywords_eu_driver's_license_number
 
 - driverlic
 - driverlics
@@ -10016,7 +9915,7 @@ No
 - dl number
 
 
-#### Keywords_romania_eu_driver's_license_number
+##### Keywords_romania_eu_driver's_license_number
 
 - permis de conducere
 - permisului de conducere
@@ -10027,32 +9926,26 @@ No
 
 -------------------------------------
 
-## Romania personal numeric code (CNP)
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
+### Romania personal numeric code (CNP)
 
-### Format
+#### Format
 
 13 digits without spaces and delimiters
 
-### Pattern
+#### Pattern
 
 - one digit from 1-9
 - six digits representing date of birth (YYMMDD)
 - two digits, which can be 01-52 or 99
 - four digits
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keywords_romania_eu_national_id_card
+##### Keywords_romania_eu_national_id_card
 
 - cnp#
 - cnp
@@ -10105,23 +9998,23 @@ Yes
 
 -------------------------------------
 
-## Romania passport number
+### Romania passport number
 
-### Format
+#### Format
 
 eight or nine digits without spaces and delimiters
 
-### Pattern
+#### Pattern
 
 eight or nine digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keywords_eu_passport_number
+##### Keywords_eu_passport_number
 
 - passport#
 - passport #
@@ -10134,14 +10027,14 @@ No
 - passportnumbers
 - passport numbers
 
-#### Keywords_romania_eu_passport_number
+##### Keywords_romania_eu_passport_number
 
 - numărul pașaportului
 - numarul pasaportului
 - numerele pașaportului
 - Pașaport nr
 
-#### Keywords_eu_passport_date
+##### Keywords_eu_passport_date
 
 - date of issue
 - date of expiry
@@ -10149,19 +10042,13 @@ No
 
 -------------------------------------
 
-## Russia passport number domestic
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
+### Russia passport number domestic
 
-### Format
+#### Format
 
 10-digit number
 
-### Pattern
+#### Pattern
 
 10-digit number:
 
@@ -10171,13 +10058,13 @@ This sensitive information type is only available for use in:
 - an optional space
 - six digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keyword_russia_passport_number_domestic
+##### Keyword_russia_passport_number_domestic
 
 - passport number
 - passport no
@@ -10197,19 +10084,13 @@ No
 
 -------------------------------------
 
-## Russia passport number international
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
+### Russia passport number international
 
-### Format
+#### Format
 
 nine-digit number
 
-### Pattern
+#### Pattern
 
 nine-digit number:
 
@@ -10217,13 +10098,13 @@ nine-digit number:
 - an optional space or hyphen
 - seven digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keywords_russia_passport_number_international
+##### Keywords_russia_passport_number_international
 
 - passport number
 - passport no
@@ -10243,23 +10124,23 @@ No
 
 -------------------------------------
 
-## Saudi Arabia National ID
+### Saudi Arabia National ID
 
-### Format
+#### Format
 
 10 digits
 
-### Pattern
+#### Pattern
 
 10 consecutive digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keyword_saudi_arabia_national_id
+##### Keyword_saudi_arabia_national_id
 
 - Identification Card
 - I card number
@@ -10269,26 +10150,26 @@ No
 
 -------------------------------------
 
-## Singapore national registration identity card (NRIC) number
+### Singapore national registration identity card (NRIC) number
 
-### Format
+#### Format
 
 nine letters and digits
 
-### Pattern
+#### Pattern
 
 - nine letters and digits:
 - the letter "F", "G", "S", or "T" (not case-sensitive)
 - seven digits
 - an alphabetic check digit
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keyword_singapore_nric
+##### Keyword_singapore_nric
 
 - National Registration Identity Card
 - Identity Card Number
@@ -10301,26 +10182,26 @@ Yes
 
 -------------------------------------
 
-## Slovakia driver's license number
+### Slovakia driver's license number
 
-### Format
+#### Format
 
 one character followed by seven digits
 
-### Pattern
+#### Pattern
 
 one character followed by seven digits
 
 - one letter (not case-sensitive) or digit
 - seven digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keywords_eu_driver's_license_number
+##### Keywords_eu_driver's_license_number
 
 - driverlic
 - driverlics
@@ -10442,7 +10323,7 @@ No
 - dl number
 
 
-#### Keywords_slovakia_eu_driver's_license_number
+##### Keywords_slovakia_eu_driver's_license_number
 
 - vodičský preukaz
 - vodičské preukazy
@@ -10451,32 +10332,26 @@ No
 
 -------------------------------------
 
-## Slovakia personal number
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
+### Slovakia personal number
 
-### Format
+#### Format
 
-nine or 10 digits containing optional backslash
+nine or ten digits containing optional backslash
 
-### Pattern
+#### Pattern
 
 - six digits representing date of birth
 - optional slash (/)
 - three digits
 - one optional check digit
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keywords_slovakia_eu_national_id_card
+##### Keywords_slovakia_eu_national_id_card
 
 - azonosító szám
 - birth number
@@ -10525,23 +10400,23 @@ Yes
 
 -------------------------------------
 
-## Slovakia passport number
+### Slovakia passport number
 
-### Format
+#### Format
 
 one digit or letter followed by seven digits with no spaces or delimiters
 
-### Pattern
+#### Pattern
 
 one digit or letter (not case-sensitive) followed by seven digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keywords_eu_passport_number
+##### Keywords_eu_passport_number
 
 - passport#
 - passport #
@@ -10554,7 +10429,7 @@ No
 - passportnumbers
 - passport numbers
 
-#### Keywords_slovakia_eu_passport_number
+##### Keywords_slovakia_eu_passport_number
 
 - číslo pasu
 - čísla pasov
@@ -10562,7 +10437,7 @@ No
 - Passeport n°
 - n° Passeport
 
-#### Keywords_eu_passport_date
+##### Keywords_eu_passport_date
 
 - date of issue
 - date of expiry
@@ -10570,23 +10445,23 @@ No
 
 -------------------------------------
 
-## Slovenia driver's license number
+### Slovenia driver's license number
 
-### Format
+#### Format
 
 nine digits without spaces and delimiters
 
-### Pattern
+#### Pattern
 
 nine digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keywords_eu_driver's_license_number
+##### Keywords_eu_driver's_license_number
 
 - driverlic
 - driverlics
@@ -10708,7 +10583,7 @@ No
 - dl number
 
 
-#### Keywords_slovenia_eu_driver's_license_number
+##### Keywords_slovenia_eu_driver's_license_number
 
 - vozniško dovoljenje
 - vozniška številka licence
@@ -10718,19 +10593,13 @@ No
 
 -------------------------------------
 
-## Slovenia Unique Master Citizen Number
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
+### Slovenia Unique Master Citizen Number
 
-### Format
+#### Format
 
 13 digits without spaces or delimiters
 
-### Pattern
+#### Pattern
 
 13 digits in the specified pattern:
 
@@ -10739,13 +10608,13 @@ This sensitive information type is only available for use in:
 - three digits that correspond to a combination of gender and serial number for persons born on the same day. 000-499 for male and 500-999 for female.
 - one check digit
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keywords_slovenia_eu_national_id_card
+##### Keywords_slovenia_eu_national_id_card
 
 - edinstvena številka glavnega državljana
 - emšo
@@ -10775,13 +10644,13 @@ Yes
 
 -------------------------------------
 
-## Slovenia passport number
+### Slovenia passport number
 
-### Format
+#### Format
 
 two letters followed by seven digits with no spaces or delimiters
 
-### Pattern
+#### Pattern
 
 two letters followed by seven digits:
 
@@ -10789,13 +10658,13 @@ two letters followed by seven digits:
 - one uppercase letter
 - seven digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keywords_eu_passport_number
+##### Keywords_eu_passport_number
 
 - passport#
 - passport #
@@ -10808,7 +10677,7 @@ No
 - passportnumbers
 - passport numbers
 
-#### Keywords_slovenia_eu_passport_number
+##### Keywords_slovenia_eu_passport_number
 
 - številka potnega lista
 - potek veljavnosti
@@ -10817,7 +10686,7 @@ No
 - potni list
 - številke potnih listov
 
-#### Keywords_eu_passport_date
+##### Keywords_eu_passport_date
 
 - date of issue
 - date of expiry
@@ -10825,31 +10694,25 @@ No
 
 -------------------------------------
 
-## Slovenia tax identification number
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
+### Slovenia tax identification number
 
-### Format
+#### Format
 
 eight digits with no spaces or delimiters
 
-### Pattern
+#### Pattern
 
 - one digit from 1-9
 - six digits
 - one check digit
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keywords_slovenia_eu_tax_file_number
+##### Keywords_slovenia_eu_tax_file_number
 
 - davčna številka
 - identifikacijska številka davka
@@ -10876,13 +10739,13 @@ Yes
 
 -------------------------------------
 
-## South Africa identification number
+### South Africa identification number
 
-### Format
+#### Format
 
 13 digits that may contain spaces
 
-### Pattern
+#### Pattern
 
 13 digits:
 - six digits in the format YYMMDD, which are the date of birth
@@ -10891,13 +10754,13 @@ Yes
 - the digit "8" or "9"
 - one digit, which is a checksum digit
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keyword_south_africa_identification_number
+##### Keyword_south_africa_identification_number
 
 - Identity card
 - ID
@@ -10905,13 +10768,13 @@ Yes
 
 -------------------------------------
 
-## South Korea resident registration number
+### South Korea resident registration number
 
-### Format
+#### Format
 
 13 digits containing a hyphen
 
-### Pattern
+#### Pattern
 
 13 digits:
 - six digits in the format YYMMDD, which are the date of birth
@@ -10921,13 +10784,13 @@ Yes
 - one digit used to differentiate people for whom the preceding numbers are identical
 - a check digit.
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keyword_south_korea_resident_number
+##### Keyword_south_korea_resident_number
 
 - National ID card
 - Citizen's Registration Number
@@ -10937,26 +10800,26 @@ Yes
 
 -------------------------------------
 
-## Spain driver's license number
+### Spain driver's license number
 
-### Format
+#### Format
 
 eight digits followed by one character
 
-### Pattern
+#### Pattern
 
 eight digits followed by one character:
 
 - eight digits
 - one digit or letter (not case-sensitive)
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keywords_eu_driver's_license_number
+##### Keywords_eu_driver's_license_number
 
 - driverlic
 - driverlics
@@ -11078,7 +10941,7 @@ Yes
 - dl number
 
 
-#### Keywords_spain_eu_driver's_license_number
+##### Keywords_spain_eu_driver's_license_number
 
 - permiso de conducción
 - permiso conducción
@@ -11095,19 +10958,13 @@ Yes
 
 -------------------------------------
 
-## Spain DNI
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
+### Spain DNI
 
-### Format
+#### Format
 
 eight digits followed by one character
 
-### Pattern
+#### Pattern
 
 seven digits followed by one character
 
@@ -11115,13 +10972,13 @@ seven digits followed by one character
 - An optional space or hyphen
 - one check letter (not case-sensitive)
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keywords_spain_eu_national_id_card
+##### Keywords_spain_eu_national_id_card
 
 - carné de identidad
 - dni#
@@ -11147,13 +11004,13 @@ Yes
 
 -------------------------------------
 
-## Spain passport number
+### Spain passport number
 
-### Format
+#### Format
 
 an eight- or nine-character combination of letters and numbers with no spaces or delimiters
 
-### Pattern
+#### Pattern
 
 an eight- or nine-character combination of letters and numbers:
 
@@ -11161,13 +11018,13 @@ an eight- or nine-character combination of letters and numbers:
 - one digit or letter (optional)
 - six digits
 
-### Checksum
+#### Checksum
 
 Not applicable
 
-### Keywords
+#### Keywords
 
-#### Keywords_eu_passport_number
+##### Keywords_eu_passport_number
 
 - passport#
 - passport #
@@ -11180,7 +11037,7 @@ Not applicable
 - passportnumbers
 - passport numbers
 
-#### Keywords_spain_eu_passport_number
+##### Keywords_spain_eu_passport_number
 
 - libreta pasaporte
 - número pasaporte
@@ -11195,7 +11052,7 @@ Not applicable
 - pasaporte n°
 - spain passport
 
-#### Keywords_eu_passport_date
+##### Keywords_eu_passport_date
 
 - date of issue
 - date of expiry
@@ -11203,14 +11060,13 @@ Not applicable
 
 -------------------------------------
 
-## Spain social security number (SSN)
+### Spain social security number (SSN)
 
-
-### Format
+#### Format
 
 11-12 digits
 
-### Pattern
+#### Pattern
 
 11-12 digits:
 - two digits
@@ -11219,13 +11075,13 @@ Not applicable
 - a forward slash (optional)
 - two digits
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keywords_spain_eu_passport_number
+##### Keywords_spain_eu_passport_number
 
 - ssn
 - ssn#
@@ -11236,19 +11092,13 @@ Yes
 
 -------------------------------------
 
-## Spain tax identification number
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
+### Spain tax identification number
 
-### Format
+#### Format
 
 seven or eight digits and one or two letters in the specified pattern
 
-### Pattern
+#### Pattern
 
 Spanish Natural Persons with a Spain National Identity Card:
 
@@ -11279,13 +11129,13 @@ Foreigners without a Foreigner's Identification Number
 - seven digits
 - one uppercase letter (case-sensitive)
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keywords_spain_eu_tax_file_number
+##### Keywords_spain_eu_tax_file_number
 
 - cif
 - cifid#
@@ -11318,13 +11168,13 @@ Yes
 
 -------------------------------------
 
-## Sweden driver's license number
+### Sweden driver's license number
 
-### Format
+#### Format
 
 10 digits containing a hyphen
 
-### Pattern
+#### Pattern
 
 10 digits containing a hyphen:
 
@@ -11332,13 +11182,13 @@ Yes
 - a hyphen
 - four digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keywords_eu_driver's_license_number
+##### Keywords_eu_driver's_license_number
 
 - driverlic
 - driverlics
@@ -11460,7 +11310,7 @@ No
 - dl number
 
 
-#### Keywords_sweden_eu_driver's_license_number
+##### Keywords_sweden_eu_driver's_license_number
 
 - ajokortti
 - permis de conducere
@@ -11476,13 +11326,13 @@ No
 
 -------------------------------------
 
-## Sweden national ID
+### Sweden national ID
 
-### Format
+#### Format
 
 10 or 12 digits and an optional delimiter
 
-### Pattern
+#### Pattern
 
 10 or 12 digits and an optional delimiter:
 - two digits (optional)
@@ -11490,13 +11340,13 @@ No
 - delimiter of "-" or "+" (optional)
 - four digits
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keywords_swedish_national_identifier
+##### Keywords_swedish_national_identifier
 
 - id no
 - id number
@@ -11517,23 +11367,23 @@ Yes
 
 -------------------------------------
 
-## Sweden passport number
+### Sweden passport number
 
-### Format
+#### Format
 
 eight digits
 
-### Pattern
+#### Pattern
 
 eight consecutive digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keywords_eu_passport_number
+##### Keywords_eu_passport_number
 
 - passport#
 - passport #
@@ -11546,7 +11396,7 @@ No
 - passportnumbers
 - passport numbers
 
-#### Keyword_sweden_passport
+##### Keyword_sweden_passport
 
 - alien registration card
 - g3 processing fees
@@ -11568,7 +11418,7 @@ No
 - visa processing
 - visa type
 
-#### Keywords_eu_passport_date
+##### Keywords_eu_passport_date
 
 - date of issue
 - date of expiry
@@ -11576,19 +11426,13 @@ No
 
 -------------------------------------
 
-## Sweden tax identification number
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
+### Sweden tax identification number
 
-### Format
+#### Format
 
 10 digits and a symbol in the specified pattern
 
-### Pattern
+#### Pattern
 
 10 digits and a symbol:
 
@@ -11599,13 +11443,13 @@ This sensitive information type is only available for use in:
   - the digit in the ninth position indicates gender by either odd for male or even for female
 - one check digit
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keywords_sweden_eu_tax_file_number
+##### Keywords_sweden_eu_tax_file_number
 
 - personal id number
 - personnummer
@@ -11634,13 +11478,13 @@ Yes
 
 -------------------------------------
 
-## SWIFT code
+### SWIFT code
 
-### Format
+#### Format
 
 four letters followed by 5-31 letters or digits
 
-### Pattern
+#### Pattern
 
 four letters followed by 5-31 letters or digits:
 - four-letter bank code (not case-sensitive)
@@ -11649,13 +11493,13 @@ four letters followed by 5-31 letters or digits:
 - an optional space
 - one to three letters or digits (remainder of the BBAN)
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keyword_swift
+##### Keyword_swift
 
 - international organization for standardization 9362
 - iso 9362
@@ -11694,19 +11538,13 @@ No
 
 -------------------------------------
 
-## Switzerland SSN AHV number
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
+### Switzerland SSN AHV number
 
-### Format
+#### Format
 
 13-digit number
 
-### Pattern
+#### Pattern
 
 13-digit number:
 
@@ -11718,13 +11556,13 @@ This sensitive information type is only available for use in:
 - an optional dot
 - two digits
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keyword_swiss_ssn_AHV_number
+##### Keyword_swiss_ssn_AHV_number
 
 - ahv
 - ssn
@@ -11748,26 +11586,26 @@ Yes
 
 -------------------------------------
 
-## Taiwan national identification number
+### Taiwan national identification number
 
-### Format
+#### Format
 
 one letter (in English) followed by nine digits
 
-### Pattern
+#### Pattern
 
 one letter (in English) followed by nine digits:
 - one letter (in English, not case-sensitive)
 - the digit "1" or "2"
 - eight digits
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keyword_taiwan_national_id
+##### Keyword_taiwan_national_id
 
 - 身份證字號
 - 身份證
@@ -11786,14 +11624,14 @@ Yes
 
 -------------------------------------
 
-## Taiwan passport number
+### Taiwan passport number
 
-### Format
+#### Format
 
 - biometric passport number: nine digits
 - non-biometric passport number: nine digits
 
-### Pattern
+#### Pattern
 biometric passport number:
 - the character "3"
 - eight digits
@@ -11801,13 +11639,13 @@ biometric passport number:
 non-biometric passport number:
 - nine digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keyword_taiwan_passport
+##### Keyword_taiwan_passport
 
 - ROC passport number
 - Passport number
@@ -11820,25 +11658,25 @@ No
 
 -------------------------------------
 
-## Taiwan-resident certificate (ARC/TARC) number
+### Taiwan-resident certificate (ARC/TARC) number
 
-### Format
+#### Format
 
 10 letters and digits
 
-### Pattern
+#### Pattern
 
 10 letters and digits:
 - two letters (not case-sensitive)
 - eight digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keyword_taiwan_resident_certificate
+##### Keyword_taiwan_resident_certificate
 
 - Resident Certificate
 - Resident Cert
@@ -11854,13 +11692,13 @@ No
 
 -------------------------------------
 
-## U.K. driver's license number
+### U.K. driver's license number
 
-### Format
+#### Format
 
 Combination of 18 letters and digits in the specified format
 
-### Pattern
+#### Pattern
 
 18 letters and digits:
 - Five letters (not case-sensitive) or the digit "9" in place of a letter.
@@ -11869,13 +11707,13 @@ Combination of 18 letters and digits in the specified format
 - Two letters (not case-sensitive) or the digit "9" in place of a letter.
 - Five digits.
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keywords_eu_driver's_license_number
+##### Keywords_eu_driver's_license_number
 
 - driverlic
 - driverlics
@@ -11999,23 +11837,23 @@ Yes
 
 -------------------------------------
 
-## U.K. electoral roll number
+### U.K. electoral roll number
 
-### Format
+#### Format
 
 two letters followed by 1-4 digits
 
-### Pattern
+#### Pattern
 
 two letters (not case-sensitive) followed by 1-4 numbers
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keyword_uk_electoral
+##### Keyword_uk_electoral
 
 - council nomination
 - nomination form
@@ -12025,13 +11863,13 @@ No
 
 -------------------------------------
 
-## U.K. national health service number
+### U.K. national health service number
 
-### Format
+#### Format
 
 10-17 digits separated by spaces
 
-### Pattern
+#### Pattern
 
 10-17 digits:
 - either 3 or 10 digits
@@ -12040,27 +11878,27 @@ No
 - a space
 - four digits
 
-### Checksum
+#### Checksum
 
 Yes
 
-### Keywords
+#### Keywords
 
-#### Keyword_uk_nhs_number
+##### Keyword_uk_nhs_number
 
 - national health service
 - nhs
 - health services authority
 - health authority
 
-#### Keyword_uk_nhs_number1
+##### Keyword_uk_nhs_number1
 
 - patient id
 - patient identification
 - patient no
 - patient number
 
-#### Keyword_uk_nhs_number_dob
+##### Keyword_uk_nhs_number_dob
 
 - GP
 - DOB
@@ -12070,14 +11908,14 @@ Yes
 
 -------------------------------------
 
-## U.K. national insurance number (NINO)
+### U.K. national insurance number (NINO)
 This sensitive information type entity is included in the EU National Identification Number sensitive information type. It's also available as a stand-alone sensitive information type entity.
 
-### Format
+#### Format
 
 seven characters or nine characters separated by spaces or dashes
 
-### Pattern
+#### Pattern
 
 two possible patterns:
 
@@ -12097,13 +11935,13 @@ OR
 - a space or dash
 - either 'A', 'B', 'C', or 'D'
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keyword_uk_nino
+##### Keyword_uk_nino
 
 - national insurance number
 - national insurance contributions
@@ -12128,30 +11966,24 @@ No
 
 -------------------------------------
 
-## U.K. Unique Taxpayer Reference Number
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
+### U.K. Unique Taxpayer Reference Number
 
-### Format
+#### Format
 
 10 digits without spaces and delimiters
 
 
-### Pattern
+#### Pattern
 
 10 digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keywords_uk_eu_tax_file_number
+##### Keywords_uk_eu_tax_file_number
 
 - tax number
 - tax file
@@ -12173,23 +12005,23 @@ No
 
 -------------------------------------
 
-## U.S. bank account number
+### U.S. bank account number
 
-### Format
+#### Format
 
 6-17 digits
 
-### Pattern
+#### Pattern
 
 6-17 consecutive digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keyword_usa_Bank_Account
+##### Keyword_usa_Bank_Account
 
 - Checking Account Number
 - Checking Account
@@ -12221,25 +12053,25 @@ No
 
 -------------------------------------
 
-## U.S. driver's license number
+### U.S. driver's license number
 
-### Format
+#### Format
 
 Depends on the state
 
-### Pattern
+#### Pattern
 
 depends on the state - for example, New York:
 - nine digits formatted like ddd ddd ddd will match.
-- nine digits like ddddddddd will not match.
+- nine digits like ddddddddd won't match.
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keyword_us_drivers_license_abbreviations
+##### Keyword_us_drivers_license_abbreviations
 
 - DL
 - DLS
@@ -12258,7 +12090,7 @@ No
 - LIC
 - LIC#
 
-#### Keyword_us_drivers_license
+##### Keyword_us_drivers_license
 
 - DriverLic
 - DriverLics
@@ -12337,20 +12169,20 @@ No
 - identification cards#
 
 
-#### Keyword_[state_name]_drivers_license_name
+##### Keyword_[state_name]_drivers_license_name
 
 - state abbreviation (for example, "NY")
 - state name (for example, "New York")
 
 -------------------------------------
 
-## U.S. individual taxpayer identification number (ITIN)
+### U.S. individual taxpayer identification number (ITIN)
 
-### Format
+#### Format
 
 nine digits that start with a "9" and contain a "7" or "8" as the fourth digit, optionally formatted with spaces or dashes
 
-### Pattern
+#### Pattern
 
 formatted:
 - the digit "9"
@@ -12367,13 +12199,13 @@ unformatted:
 - a "7" or "8"
 - five digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keyword_itin
+##### Keyword_itin
 
 - taxpayer
 - tax id
@@ -12389,23 +12221,23 @@ No
 - individual taxpayer
 -------------------------------------
 
-## U.S. phone number
+### U.S. phone number
 
-### Pattern
-- 10 digit number, for e.g., +1 nxx-nxx-xxxx
+#### Pattern
+- 10 digit number, for example, +1 nxx-nxx-xxxx
 - Optional area code: +1
 - n can be any digit between 2-9
 - x can be any digit between 0-9
 - Optional paranthesis around the area code
 - Optional space or - between area code, exchange code, and the last four digits
-- Optional 4 digit extension
+- Optional four digit extension
 
-### Checksum
+#### Checksum
 Not applicable
 
-### Keywords
+#### Keywords
 
-#### Keywords_us_phone_number
+##### Keywords_us_phone_number
 - cell
 - cellphone
 - contact
@@ -12420,16 +12252,16 @@ Not applicable
 
 -------------------------------------
 
-## U.S. social security number (SSN)
+### U.S. social security number (SSN)
 
-### Format
+#### Format
 
 nine digits, which may be in a formatted or unformatted pattern
 
 > [!NOTE]
 > If issued before mid-2011, an SSN has strong formatting where certain parts of the number must fall within certain ranges to be valid (but there's no checksum).
 
-### Pattern
+#### Pattern
 
 four functions look for SSNs in four different patterns:
 - Func_ssn finds SSNs with pre-2011 strong formatting that are formatted with dashes or spaces (ddd-dd-dddd OR ddd dd dddd)
@@ -12437,13 +12269,13 @@ four functions look for SSNs in four different patterns:
 - Func_randomized_formatted_ssn finds post-2011 SSNs that are formatted with dashes or spaces (ddd-dd-dddd OR ddd dd dddd)
 - Func_randomized_unformatted_ssn finds post-2011 SSNs that are unformatted as nine consecutive digits (ddddddddd)
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keyword_ssn
+##### Keyword_ssn
 
 - SSA Number
 - social security number
@@ -12460,32 +12292,32 @@ No
 
 -------------------------------------
 
-## U.S. states
+### U.S. states
 
-### Format
+#### Format
 Includes all 50 U.S. state names and the two digit short codes.
 
-### Checksum
+#### Checksum
 Not applicable
 
-### Keywords
+#### Keywords
 
-#### Keywords_us_states
+##### Keywords_us_states
 - State
 
 -------------------------------------
 
-## U.S. zipcode
+### U.S. zipcode
 
-### Format
-Five digit U.S. Zip code and an optional 4 digit code separated by a hyphen (-).
+#### Format
+Five digit U.S. Zip code and an optional four digit code separated by a hyphen (-).
 
-### Checksum
+#### Checksum
 Not applicable
 
-### Keywords
+#### Keywords
 
-#### Keywords_us_zip_code
+##### Keywords_us_zip_code
 - zip
 - zipcode
 - postal
@@ -12493,23 +12325,23 @@ Not applicable
 
 -------------------------------------
 
-## U.S. / U.K. passport number
+### U.S. / U.K. passport number
 
-### Format
+#### Format
 
 nine digits
 
-### Pattern
+#### Pattern
 
 nine consecutive digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keywords_eu_passport_number
+##### Keywords_eu_passport_number
 
 - passport#
 - passport #
@@ -12522,7 +12354,7 @@ No
 - passportnumbers
 - passport numbers
 
-#### Keywords_uk_eu_passport_number
+##### Keywords_uk_eu_passport_number
 
 - british passport
 - uk passport
@@ -12530,29 +12362,23 @@ No
 
 -------------------------------------
 
-## Ukraine passport domestic
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
+### Ukraine passport domestic
 
-### Format
+#### Format
 
 nine digits
 
-### Pattern
+#### Pattern
 
 nine digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keyword_ukraine_passport_domestic
+##### Keyword_ukraine_passport_domestic
 
 - ukraine passport
 - passport number
@@ -12564,31 +12390,25 @@ No
 
 -------------------------------------
 
-## Ukraine passport international
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
+### Ukraine passport international
 
-### Format
+#### Format
 
 eight-character alphanumeric pattern
 
-### Pattern
+#### Pattern
 
 eight-character alphanumeric pattern:
 - two letters or digits
 - six digits
 
-### Checksum
+#### Checksum
 
 No
 
-### Keywords
+#### Keywords
 
-#### Keyword_ukraine_passport_international
+##### Keyword_ukraine_passport_international
 
 - ukraine passport
 - passport number

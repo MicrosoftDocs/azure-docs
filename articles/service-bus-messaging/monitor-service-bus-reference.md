@@ -3,12 +3,15 @@ title: Monitoring Azure Service Bus data reference
 description: Important reference material needed when you monitor Azure Service Bus. 
 ms.topic: reference
 ms.custom: subject-monitoring
-ms.date: 10/29/2021
+ms.date: 10/11/2022
 ---
 
 
 # Monitoring Azure Service Bus data reference
 See [Monitoring Azure Service Bus](monitor-service-bus.md) for details on collecting and analyzing monitoring data for Azure Service Bus.
+
+> [!NOTE]
+> Azure Monitor doesn't include dimensions in the exported metrics data sent to a destination like Azure Storage, Azure Event Hubs, Log Analytics, etc.
 
 ## Metrics
 This section lists all the automatically collected platform metrics collected for Azure Service Bus. The resource provider for these metrics is **Microsoft.ServiceBus/namespaces**.
@@ -37,17 +40,17 @@ The following two types of errors are classified as **user errors**:
 
 | Metric Name |  Exportable via diagnostic settings | Unit | Aggregation type |  Description | Dimensions | 
 | ---------- | ---------- | ----- | --- | --- | --- | 
-|Incoming Messages| Yes | Count | Total | The number of events or messages sent to Service Bus over a specified period. This metric doesn't include messages that are auto forwarded. | Entity name|
-|Outgoing Messages| Yes | Count | Total | The number of events or messages received from Service Bus over a specified period. | Entity name|
-| Messages| No | Count | Average | Count of messages in a queue/topic. | Entity name |
-| Active Messages| No | Count | Average | Count of active messages in a queue/topic. | Entity name |
+|Incoming Messages| Yes | Count | Total | The number of events or messages sent to Service Bus over a specified period. For basic and standard tiers, incoming auto-forwarded messages are included in this metric. And, for the premium tier, they aren't included.  | Entity name|
+|Outgoing Messages| Yes | Count | Total | The number of events or messages received from Service Bus over a specified period. The outgoing auto-forwarded messages aren't included in this metric. | Entity name|
+| Messages | No | Count | Average | Count of messages in a queue/topic. This metric includes messages in all the different states like active, dead-lettered, scheduled, etc. | Entity name |
+| Active Messages| No | Count | Average | Count of active messages in a queue/topic. Active messages are the messages in the queue or subscription that are in the active state and ready for delivery. The messages are available to be received. | Entity name |
 | Dead-lettered messages| No | Count | Average | Count of dead-lettered messages in a queue/topic.  | Entity name |
 | Scheduled messages| No | Count | Average | Count of scheduled messages in a queue/topic. | Entity name |
 |Completed Messages| Yes | Count | Total | The number of messages completed over a specified period. | Entity name|
 | Abandoned Messages| Yes | Count | Total | The number of messages abandoned over a specified period. | Entity name|
 | Size | No | Bytes | Average | Size of an entity (queue or topic) in bytes. | Entity name | 
 
-> [!NOTE]
+> [!IMPORTANT]
 > Values for messages, active, dead-lettered, scheduled, completed, and abandoned messages are point-in-time values. Incoming messages that were consumed immediately after that point-in-time may not be reflected in these metrics. 
 
 ### Connection metrics
@@ -55,8 +58,8 @@ The following two types of errors are classified as **user errors**:
 | Metric Name |  Exportable via diagnostic settings | Unit | Aggregation type |  Description | Dimensions | 
 | ---------- | ---------- | ----- | --- | --- | --- | 
 |Active Connections| No | Count | Total | The number of active connections on a namespace and on an entity in the namespace. Value for this metric is a point-in-time value. Connections that were active immediately after that point-in-time may not be reflected in the metric. | |
-|Connections Opened | No | Count | Average | The number of open connections. | Entity name|
-|Connections Closed | No | Count | Average | The number of closed connections. | Entity name|
+|Connections Opened | No | Count | Average | The number of connections opened. Value for this metric is an aggregation, and includes all connections that were opened in the aggregation time window. | Entity name|
+|Connections Closed | No | Count | Average | The number of connections closed. Value for this metric is an aggregation, and includes all connections that were opened in the aggregation time window. | Entity name|
 
 ### Resource usage metrics
 
@@ -65,7 +68,7 @@ The following two types of errors are classified as **user errors**:
 > 
 > The important metrics to monitor for any outages for a premium tier namespace are: **CPU usage per namespace** and **memory size per namespace**. [Set up alerts](../azure-monitor/alerts/alerts-metric.md) for these metrics using Azure Monitor.
 > 
-> The other metric you could monitor is: **throttled requests**. It shouldn't be an issue though as long as the namespace stays within its memory, CPU, and brokered connections limits. For more information, see [Throttling in Azure Service Bus Premium tier](service-bus-throttling.md#throttling-in-azure-service-bus-premium-tier)
+> The other metric you could monitor is: **throttled requests**. It shouldn't be an issue though as long as the namespace stays within its memory, CPU, and brokered connections limits. For more information, see [Throttling in Azure Service Bus Premium tier](service-bus-throttling.md#throttling-in-premium-tier)
 
 | Metric Name |  Exportable via diagnostic settings | Unit | Aggregation type |  Description | Dimensions | 
 | ---------- | ---------- | ----- | --- | --- | --- | 
@@ -97,15 +100,15 @@ Operational log entries include elements listed in the following table:
 
 | Name | Description |
 | ------- | ------- |
-| ActivityId | Internal ID, used to identify the specified activity |
-| EventName | Operation name |
-| ResourceId | Azure Resource Manager resource ID |
-| SubscriptionId | Subscription ID |
-| EventTimeString | Operation time |
-| EventProperties | Operation properties |
-| Status | Operation status |
-| Caller | Caller of operation (the Azure portal or management client) |
-| Category | OperationalLogs |
+| `ActivityId` | Internal ID, used to identify the specified activity |
+| `EventName` | Operation name |
+| `ResourceId` | Azure Resource Manager resource ID |
+| `SubscriptionId` | Subscription ID |
+| `EventTimeString` | Operation time |
+| `EventProperties` | Operation properties |
+| `Status` | Operation status |
+| `Caller` | Caller of operation (the Azure portal or management client) |
+| `Category` | OperationalLogs |
 
 Here's an example of an operational log JSON string:
 
@@ -133,17 +136,92 @@ The following management operations are captured in operational logs:
 
 | Scope | Operation|
 |-------| -------- |
-| Namespace | <ul> <li> Create Namespace</li> <li> Update Namespace </li> <li> Delete Namespace </li> <li> Update Namespace SharedAccess Policy </li> </ul> | 
-| Queue | <ul> <li> Create Queue</li> <li> Update Queue</li> <li> Delete Queue </li> <li> AutoDelete Delete Queue </li> </ul> | 
-| Topic | <ul> <li> Create Topic </li> <li> Update Topic </li> <li> Delete Topic </li> <li> AutoDelete Delete Topic </li> </ul> |
-| Subscription | <ul> <li> Create Subscription </li> <li> Update Subscription </li> <li> Delete Subscription </li> <li> AutoDelete Delete Subscription </li> </ul> |
+| `Namespace` | <ul> <li> Create Namespace</li> <li> Update Namespace </li> <li> Delete Namespace </li> <li> Update Namespace SharedAccess Policy </li> </ul> | 
+| `Queue` | <ul> <li> Create Queue</li> <li> Update Queue</li> <li> Delete Queue </li> <li> AutoDelete Delete Queue </li> </ul> | 
+| `Topic` | <ul> <li> Create Topic </li> <li> Update Topic </li> <li> Delete Topic </li> <li> AutoDelete Delete Topic </li> </ul> |
+| `Subscription` | <ul> <li> Create Subscription </li> <li> Update Subscription </li> <li> Delete Subscription </li> <li> AutoDelete Delete Subscription </li> </ul> |
 
 > [!NOTE]
 > Currently, *Read* operations aren't tracked in the operational logs.
 
+### Virtual network and IP filtering logs
+Service Bus virtual network (VNet) connection event JSON includes elements listed in the following table:
+
+| Name | Description |
+| ---  | ----------- | 
+| `SubscriptionId` | Azure subscription ID |
+| `NamespaceName` | Namespace name |
+| `IPAddress` | IP address of a client connecting to the Service Bus service |
+| `Action` | Action done by the Service Bus service when evaluating connection requests. Supported actions are **Accept Connection** and **Deny Connection**. |
+| `Reason` | Provides a reason why the action was done |
+| `Count` | Number of occurrences for the given action |
+| `ResourceId` | Azure Resource Manager resource ID. |
+| `Category` | ServiceBusVNetConnectionEvent |
+
+> [!NOTE] 
+> Virtual network logs are generated only if the namespace allows access from selected networks or from specific IP addresses (IP filter rules).
+
+Here's an example of a virtual network log JSON string:
+
+```json
+{
+    "SubscriptionId": "0000000-0000-0000-0000-000000000000",
+    "NamespaceName": "namespace-name",
+    "IPAddress": "1.2.3.4",
+    "Action": "Accept Connection",
+    "Reason": "IP is accepted by IPAddress filter.",
+    "Count": 1,
+    "ResourceId": "/SUBSCRIPTIONS/<AZURE SUBSCRPTION ID>/RESOURCEGROUPS/<RESOURCE GROUP NAME>/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/<SERVICE BUS NAMESPACE NAME>",
+    "Category": "ServiceBusVNetConnectionEvent"
+}
+```
+
+## Runtime audit logs
+Runtime audit logs capture aggregated diagnostic information for various data plane access operations (such as send or receive messages) in Service Bus.  
+
+> [!NOTE] 
+> Runtime audit logs are currently available only in the **premium** tier.  
+
+Runtime audit logs include the elements listed in the following table:
+
+Name | Description
+------- | -------
+`ActivityId` | A randomly generated UUID that ensures uniqueness for the audit activity. 
+`ActivityName` | Runtime operation name.  
+`ResourceId` | Resource associated with the activity. 
+`Timestamp` | Aggregation time.
+`Status` | Status of the activity (success or failure).
+`Protocol` | Type of the protocol associated with the operation.
+`AuthType` | Type of authentication (Azure Active Directory or SAS Policy).
+`AuthKey` | Azure Active Directory application ID or SAS policy name that's used to authenticate to a resource.
+`NetworkType` | Type of the network access: `Public` or`Private`.
+`ClientIP` | IP address of the client application.
+`Count` | Total number of operations performed during the aggregated period of 1 minute. 
+`Properties` | Metadata that is specific to the data plane operation. 
+`Category` | Log category
+
+Here's an example of a runtime audit log entry:
+
+```json
+{
+    "ActivityId": "<activity id>",
+    "ActivityName": "ConnectionOpen | Authorization | SendMessage | ReceiveMessage",
+    "ResourceId": "/SUBSCRIPTIONS/xxx/RESOURCEGROUPS/<Resource Group Name>/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/<Service Bus namespace>/servicebus/<service bus name>",
+    "Time": "1/1/2021 8:40:06 PM +00:00",
+    "Status": "Success | Failure",
+    "Protocol": "AMQP | HTTP | SBMP", 
+    "AuthType": "SAS | AAD", 
+    "AuthId": "<AAD Application Name| SAS policy name>",
+    "NetworkType": "Public | Private", 
+    "ClientIp": "x.x.x.x",
+    "Count": 1, 
+    "Category": "RuntimeAuditLogs"
+ }
+
+```
+
 ## Azure Monitor Logs tables
 Azure Service Bus uses Kusto tables from Azure Monitor Logs. You can query these tables with Log Analytics. For a list of Kusto tables the service uses, see [Azure Monitor Logs table reference](/azure/azure-monitor/reference/tables/tables-resourcetype#service-bus).
-
 
 ## Next steps
 - For details on monitoring Azure Service Bus, see [Monitoring Azure Service Bus](monitor-service-bus.md).

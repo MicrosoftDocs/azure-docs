@@ -1,16 +1,13 @@
 ---
-title: Manage access to Microsoft Sentinel data by resource | Microsoft Docs
+title: Manage access to Microsoft Sentinel data by resource
 description: This article explains you can manage access to Microsoft Sentinel data by the resources a user can access. Managing access by resource enables you to provide access to specific data only, without the entire Microsoft Sentinel experience. This method is also known as resource-context RBAC.
-author: batamig
+author: limwainstein
 ms.topic: conceptual
-ms.date: 11/09/2021
-ms.author: bagol
-ms.custom: ignite-fall-2021
+ms.date: 01/09/2023
+ms.author: lwainstein
 ---
 
 # Manage access to Microsoft Sentinel data by resource
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Typically, users who have access to a Microsoft Sentinel workspace also have access to all the workspace data, including security content. Administrators can use [Azure roles](roles.md) to configure access to specific features in Microsoft Sentinel, depending on the access requirements in their team.
 
@@ -41,7 +38,7 @@ The following table highlights the scenarios where resource-context RBAC is most
 |**Permissions**     | The entire workspace        |   Specific resources only      |
 |**Data access**     |  All data in the workspace       | Only data for resources that the team is authorized to access        |
 |**Experience**     |  The full Microsoft Sentinel experience, possibly limited by the [functional permissions](roles.md) assigned to the user       |  Log queries and Workbooks only       |
-|     |         |         |
+
 
 If your team has similar access requirements to the non-SOC team described in the table above, resource-context RBAC may be a good solution for your organization.
 
@@ -56,7 +53,7 @@ The following list describes scenarios where other solutions for data access may
 |**A subsidiary has a SOC team that requires a full Microsoft Sentinel experience**.     |  In this case, use a multi-workspace architecture to separate your data permissions. <br><br>For more information, see: <br>- [Extend Microsoft Sentinel across workspaces and tenants](extend-sentinel-across-workspaces-tenants.md)<br>    - [Work with incidents in many workspaces at once](multiple-workspace-view.md)          |
 |**You want to provide access to a specific type of event**.     |  For example, provide a Windows administrator with access to Windows Security events in all systems. <br><br>In such cases, use [table-level RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043) to define permissions for each table.       |
 | **Limit access to a more granular level, either not based on the resource, or to only a subset of the fields in an event**   |   For example, you might want to limit access to Office 365 logs based on a user's subsidiary. <br><br>In this case, provide access to data using built-in integration with [Power BI dashboards and reports](../azure-monitor/logs/log-powerbi.md).      |
-| | |
+
 
 ## Explicitly configure resource-context RBAC
 

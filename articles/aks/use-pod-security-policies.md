@@ -1,55 +1,54 @@
 ---
 title: Use pod security policies in Azure Kubernetes Service (AKS)
 description: Learn how to control pod admissions by using PodSecurityPolicy in Azure Kubernetes Service (AKS)
-services: container-service
 ms.topic: article
 ms.date: 03/25/2021
 ---
 
 # Preview - Secure your cluster using pod security policies in Azure Kubernetes Service (AKS)
 
-> [!WARNING]
-> **The feature described in this document, pod security policy (preview), will begin [deprecation](https://kubernetes.io/blog/2021/04/06/podsecuritypolicy-deprecation-past-present-and-future/) with Kubernetes version 1.21, with its removal in version 1.25.** You can now [Migrate Pod Security Policy to Pod Security Admission Controller](https://kubernetes.io/docs/tasks/configure-pod-container/migrate-from-psp/) ahead of the deprecation.
->
-> After pod security policy (preview) is deprecated, you must have already migrated to Pod Security Admission controller or disabled the feature on any existing clusters using the deprecated feature to perform future cluster upgrades and stay within Azure support.
+> [!Important]
+> The feature described in this article, pod security policy (preview), will be deprecated starting with Kubernetes version 1.21, and it will be removed in version 1.25. AKS will mark the pod security policy as Deprecated with the AKS API on 06-01-2023 and remove it in version 1.25. You can migrate pod security policy to pod security admission controller before the deprecation deadline.
 
-To improve the security of your AKS cluster, you can limit what pods can be scheduled. Pods that request resources you don't allow can't run in the AKS cluster. You define this access using pod security policies. This article shows you how to use pod security policies to limit the deployment of pods in AKS.
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+After pod security policy (preview) is deprecated, you must have already migrated to Pod Security Admission controller or disabled the feature on any existing clusters using the deprecated feature to perform future cluster upgrades and stay within Azure support.
 
 ## Before you begin
 
-This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
+This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][aks-quickstart-powershell], or [using the Azure portal][aks-quickstart-portal].
 
-You need the Azure CLI version 2.0.61 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+You need the Azure CLI version 2.0.61 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
-### Install aks-preview CLI extension
+## Install the aks-preview Azure CLI extension
 
-To use pod security policies, you need the *aks-preview* CLI extension version 0.4.1 or higher. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] command:
+[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
 
-```azurecli-interactive
-# Install the aks-preview extension
+To install the aks-preview extension, run the following command:
+
+```azurecli
 az extension add --name aks-preview
+```
 
-# Update the extension to make sure you have the latest version installed
+Run the following command to update to the latest version of the extension released:
+
+```azurecli
 az extension update --name aks-preview
 ```
 
-### Register pod security policy feature provider
+## Register the 'PodSecurityPolicyPreview' feature flag
 
-To create or update an AKS cluster to use pod security policies, first enable a feature flag on your subscription. To register the *PodSecurityPolicyPreview* feature flag, use the [az feature register][az-feature-register] command as shown in the following example:
-
-```azurecli-interactive
-az feature register --name PodSecurityPolicyPreview --namespace Microsoft.ContainerService
-```
-
-It takes a few minutes for the status to show *Registered*. You can check on the registration status using the [az feature list][az-feature-list] command:
+Register the `PodSecurityPolicyPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
 
 ```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/PodSecurityPolicyPreview')].{Name:name,State:properties.state}"
+az feature register --namespace "Microsoft.ContainerService" --name "PodSecurityPolicyPreview"
 ```
 
-When ready, refresh the registration of the *Microsoft.ContainerService* resource provider using the [az provider register][az-provider-register] command:
+It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature show][az-feature-show] command:
+
+```azurecli-interactive
+az feature show --namespace "Microsoft.ContainerService" --name "PodSecurityPolicyPreview"
+```
+
+When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -80,7 +79,7 @@ Below is a summary of behavior changes between pod security policy and Azure Pol
 | Default policies | When pod security policy is enabled in AKS, default Privileged and Unrestricted policies are applied. | No default policies are applied by enabling the Azure Policy Add-on. You must explicitly enable policies in Azure Policy.
 | Who can create and assign policies | Cluster admin creates a pod security policy resource | Users must have a minimum role of 'owner' or 'Resource Policy Contributor' permissions on the AKS cluster resource group. - Through API, users can assign policies at the AKS cluster resource scope. The user should have minimum of 'owner' or 'Resource Policy Contributor' permissions on AKS cluster resource. - In the Azure portal, policies can be assigned at the Management group/subscription/resource group level.
 | Authorizing policies| Users and Service Accounts require explicit permissions to use pod security policies. | No additional assignment is required to authorize policies. Once policies are assigned in Azure, all cluster users can use these policies.
-| Policy applicability | The admin user bypasses the enforcement of pod security policies. | All users (admin & non-admin) sees the same policies. There is no special casing based on users. Policy application can be excluded at the namespace level.
+| Policy applicability | The admin user bypasses the enforcement of pod security policies. | All users (admin & non-admin) see the same policies. There is no special casing based on users. Policy application can be excluded at the namespace level.
 | Policy scope | Pod security policies are not namespaced | Constraint templates used by Azure Policy are not namespaced.
 | Deny/Audit/Mutation action | Pod security policies support only deny actions. Mutation can be done with default values on create requests. Validation can be done during update requests.| Azure Policy supports both audit & deny actions. Mutation is not supported yet, but planned.
 | Pod security policy compliance | There is no visibility on compliance of pods that existed before enabling pod security policy. Non-compliant pods created after enabling pod security policies are denied. | Non-compliant pods that existed before applying Azure policies would show up in policy violations. Non-compliant pods created after enabling Azure policies are denied if policies are set with a deny effect.
@@ -449,13 +448,14 @@ For more information about limiting pod network traffic, see [Secure traffic bet
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [kubernetes-policy-reference]: https://kubernetes.io/docs/concepts/policy/pod-security-policy/#policy-reference
 <!-- LINKS - internal -->
-[aks-quickstart-cli]: kubernetes-walkthrough.md
-[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
+[aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
+[aks-quickstart-powershell]: ./learn/quick-kubernetes-deploy-powershell.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [network-policies]: use-network-policies.md
-[az-feature-register]: /cli/azure/feature#az_feature_register
-[az-feature-list]: /cli/azure/feature#az_feature_list
-[az-provider-register]: /cli/azure/provider#az_provider_register
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-show]: /cli/azure/feature#az-feature-show
+[az-provider-register]: /cli/azure/provider#az-provider-register
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [az-aks-update]: /cli/azure/aks#az_aks_update
 [az-extension-add]: /cli/azure/extension#az_extension_add

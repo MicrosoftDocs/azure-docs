@@ -4,8 +4,7 @@ description: This is the Azure AD Connect Health page that will discuss how to m
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
-editor: curtand
+manager: amycolannino
 
 ms.assetid: 19e3cf15-f150-46a3-a10c-2990702cd700
 ms.service: active-directory
@@ -13,7 +12,7 @@ ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 07/18/2017
+ms.date: 01/26/2023
 ms.author: billmath
 
 ms.collection: M365-identity-device-management

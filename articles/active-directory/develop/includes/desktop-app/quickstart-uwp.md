@@ -1,18 +1,18 @@
 ---
-title: "Quickstart: Sign in users and call Microsoft Graph in a Universal Windows Platform app | Azure"
-titleSuffix: Microsoft identity platform
+title: "Quickstart: Sign in users and call Microsoft Graph in a Universal Windows Platform app"
 description: In this quickstart, learn how a Universal Windows Platform (UWP) application can get an access token and call an API protected by Microsoft identity platform.
 services: active-directory
-author: jmprieur
+author: OwenRichards1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: include
 ms.workload: identity
-ms.date: 01/14/2022
-ms.author: jmprieur
+ms.date: 05/19/2022
+ms.author: owenrichards
+ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "languages:UWP", mode-api
-#Customer intent: As an application developer, I want to learn how my Universal Windows Platform (XAML) application can get an access token and call an API that's protected by the Microsoft identity platform.
+#Customer intent: As an application developer, I want to learn how my Universal Windows Platform (UWP) application can get an access token and call an API that's protected by the Microsoft identity platform.
 ---
 
 In this quickstart, you download and run a code sample that demonstrates how a Universal Windows Platform (UWP) application can sign in users and get an access token to call the Microsoft Graph API. 
@@ -22,7 +22,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)
+* [Visual Studio](https://visualstudio.microsoft.com/vs/)
 
 ## Register and download your quickstart app
 
@@ -34,7 +34,7 @@ You have two options to start your quickstart application:
 
 1. Go to the [Azure portal - App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/UwpQuickstartPage/sourceType/docs) quickstart experience.
 1. Enter a name for your application and select **Register**.
-1. Follow the instructions to download and automatically configure your new application for you in one click.
+1. Follow the instructions to download and automatically configure your new application.
 
 ### Option 2: Register and manually configure your application and code sample
 
@@ -53,13 +53,13 @@ To register your application and add the app's registration information to your 
 1. Under **Redirect URIs**, select `https://login.microsoftonline.com/common/oauth2/nativeclient`.
 1. Select **Configure**.
 
-#### Step 2: Download the Visual Studio project
+#### Step 2: Download the project
 
-[Download the Visual Studio project](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)
+[Download the UWP sample application](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)
 
 [!INCLUDE [active-directory-develop-path-length-tip](../../../../../includes/active-directory-develop-path-length-tip.md)]
 
-#### Step 3: Configure the Visual Studio project
+#### Step 3: Configure the project
 
 1. Extract the .zip archive to a local folder close to the root of your drive. For example, into **C:\Azure-Samples**.
 1. Open the project in Visual Studio. Install the **Universal Windows Platform development** workload and any individual SDK components if prompted.
@@ -95,7 +95,7 @@ When the app's window appears, you can select the **Call Microsoft Graph API** b
 
 ### MSAL.NET
 
-MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) is the library used to sign in users and request security tokens. The security tokens are used to access an API protected by the Microsoft Identity platform. You can install MSAL by running the following command in Visual Studio's *Package Manager Console*:
+MSAL ([Microsoft.Identity.Client](/dotnet/api/microsoft.identity.client?)) is the library used to sign in users and request security tokens. The security tokens are used to access an API protected by the Microsoft Identity platform. You can install MSAL by running the following command in Visual Studio's *Package Manager Console*:
 
 ```powershell
 Install-Package Microsoft.Identity.Client
@@ -122,7 +122,7 @@ The value of `ClientId` is the **Application (client) ID** of the app you regist
 
 ### Requesting tokens
 
-MSAL has two methods for acquiring tokens in a UWP app: `AcquireTokenInteractive` and `AcquireTokenSilent`.
+MSAL has two methods for acquiring tokens in a UWP app: [`AcquireTokenInteractive`](/dotnet/api/microsoft.identity.client.acquiretokeninteractiveparameterbuilder?) and [`AcquireTokenSilent`](/dotnet/api/microsoft.identity.client.acquiretokensilentparameterbuilder).
 
 #### Get a user token interactively
 
@@ -134,7 +134,7 @@ Some situations require forcing users to interact with the Microsoft identity pl
 - When two factor authentication is required
 
 ```csharp
-authResult = await App.PublicClientApp.AcquireTokenInteractive(scopes)
+authResult = await PublicClientApp.AcquireTokenInteractive(scopes)
                       .ExecuteAsync();
 ```
 
@@ -145,9 +145,9 @@ The `scopes` parameter contains the scopes being requested, such as `{ "user.rea
 Use the `AcquireTokenSilent` method to obtain tokens to access protected resources after the initial `AcquireTokenInteractive` method. You don’t want to require the user to validate their credentials every time they need to access a resource. Most of the time you want token acquisitions and renewal without any user interaction
 
 ```csharp
-var accounts = await App.PublicClientApp.GetAccountsAsync();
+var accounts = await PublicClientApp.GetAccountsAsync();
 var firstAccount = accounts.FirstOrDefault();
-authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
+authResult = await PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
                                       .ExecuteAsync();
 ```
 

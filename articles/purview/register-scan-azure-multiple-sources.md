@@ -1,46 +1,42 @@
 ---
-title: Connect to and manage multiple Azure sources
-description: This guide describes how to connect to multiple Azure sources in Azure Purview at once, and use Azure Purview's features to scan and manage your sources.
-author: viseshag
-ms.author: viseshag
+title: Discover and govern multiple Azure sources
+description: This guide describes how to connect to multiple Azure sources in Microsoft Purview at once, and use Microsoft Purview's features to scan and manage your sources.
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 11/02/2021
-ms.custom: template-how-to, ignite-fall-2021
+ms.date: 02/27/2023
+ms.custom: template-how-to
 ---
 
-# Connect to and manage multiple Azure sources in Azure Purview
+# Discover and govern multiple Azure sources in Microsoft Purview
 
-This article outlines how to register multiple Azure sources and how to authenticate and interact with them in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
+This article outlines how to register multiple Azure sources and how to authenticate and interact with them in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
 
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
-|---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan) | [Yes](#scan) | [Yes](#scan)| [Yes](#scan)| No| [Source Dependant](catalog-lineage-user-guide.md)|
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|
+| [Yes](#register) | [Yes](#scan) | [Yes](#scan) | [Yes](#scan)| [Yes](#scan)| [Yes](#access-policy) | [Source Dependant](catalog-lineage-user-guide.md)| No |
 
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* An active [Azure Purview resource](create-catalog-portal.md).
+* An active [Microsoft Purview account](create-catalog-portal.md).
 
-* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
+* You'll need to be a Data Source Administrator and Data Reader to register a source and manage it in the Microsoft Purview governance portal. See our [Microsoft Purview Permissions page](catalog-permissions.md) for details.
 
 ## Register
 
-This section describes how to register multiple Azure sources in Azure Purview using the [Azure Purview Studio](https://web.purview.azure.com/).
+This section describes how to register multiple Azure sources in Microsoft Purview using the [Microsoft Purview governance portal](https://web.purview.azure.com/).
 
 ### Prerequisites for registration
 
-You need to set up some authentication to be able to enumerate resources under a subscription or resource group.
+Microsoft Purview needs permissions to be able to list resources under a subscription or resource group.
 
-1. Go to the subscription or the resource group in the Azure portal.  
-1. Select **Access Control (IAM)** from the left menu.
-1. Select **+Add**.
-1. In the **Select input** box, select the **Reader** role and enter your Azure Purview account name (which represents its MSI file name). 
-1. Select **Save** to finish the role assignment.
+[!INCLUDE [Permissions to list resources](./includes/authentication-to-enumerate-resources.md)]
 
 ### Authentication for registration
 
@@ -56,13 +52,13 @@ To learn how to add permissions on each resource type within a subscription or r
 - [Azure Blob Storage](register-scan-azure-blob-storage-source.md#authentication-for-a-scan)
 - [Azure Data Lake Storage Gen1](register-scan-adls-gen1.md#authentication-for-a-scan)
 - [Azure Data Lake Storage Gen2](register-scan-adls-gen2.md#authentication-for-a-scan)
-- [Azure SQL Database](register-scan-azure-sql-database.md#authentication-for-a-scan)
-- [Azure SQL Managed Instance](register-scan-azure-sql-database-managed-instance.md#authentication-for-registration)
+- [Azure SQL Database](register-scan-azure-sql-database.md#configure-authentication-for-a-scan)
+- [Azure SQL Managed Instance](register-scan-azure-sql-managed-instance.md#authentication-for-registration)
 - [Azure Synapse Analytics](register-scan-azure-synapse-analytics.md#authentication-for-registration)
 
 ### Steps to register
 
-1. Go to your Azure Purview account.
+1. Go to your Microsoft Purview account.
 1. Select **Data Map** on the left menu.
 1. Select **Register**.
 1. On **Register sources**, select **Azure (multiple)**.
@@ -83,13 +79,16 @@ To learn how to add permissions on each resource type within a subscription or r
 
 ## Scan
 
+>[!IMPORTANT]
+> Currently, scanning multiple Azure sources is only supported using Azure integration runtime. 
+
 Follow the steps below to scan multiple Azure sources to automatically identify assets and classify your data. For more information about scanning in general, see our [introduction to scans and ingestion](concept-scans-and-ingestion.md).
 
 ### Create and run scan
 
 To create and run a new scan, do the following:
 
-1. Select the **Data Map** tab on the left pane in the Azure Purview Studio.
+1. Select the **Data Map** tab on the left pane in the Microsoft Purview governance portal.
 1. Select the data source that you registered.
 1. Select **View details** > **+ New scan**, or use the **Scan** quick-action icon on the source tile.
 1. For **Name**, fill in the name.
@@ -107,14 +106,14 @@ To create and run a new scan, do the following:
     Each credential will be considered as the method of authentication for all the resources under a particular type. You must set the chosen credential on the resources in order to successfully scan them, as described [earlier in this article](#authentication-for-registration).
 1. Within each type, you can select to either scan all the resources or scan a subset of them by name:
     - If you leave the option as **All**, then future resources of that type will also be scanned in future scan runs.
-    - If you select specific storage accounts or SQL databases, then future resources of that type created within this subscription or resource group will not be included for scans, unless the scan is explicitly edited in the future.
+    - If you select specific storage accounts or SQL databases, then future resources of that type created within this subscription or resource group won't be included for scans, unless the scan is explicitly edited in the future.
 
-1. Select **Test connection**. This will first test access to check if you've applied the Azure Purview MSI file as a reader on the subscription or resource group. If you get an error message, follow [these instructions](#prerequisites-for-registration) to resolve it. Then it will test your authentication and connection to each of your selected sources and generate a report. The number of sources selected will impact the time it takes to generate this report. If failed on some resources, hovering over the **X** icon will display the detailed error message.
+1. Select **Test connection**. This will first test access to check if you've applied the Microsoft Purview MSI file as a reader on the subscription or resource group. If you get an error message, follow [these instructions](#prerequisites-for-registration) to resolve it. Then it will test your authentication and connection to each of your selected sources and generate a report. The number of sources selected will impact the time it takes to generate this report. If failed on some resources, hovering over the **X** icon will display the detailed error message.
 
-    :::image type="content" source="media/register-scan-azure-multiple-sources/test-connection.png" alt-text="Screenshot showing the scan set up slider, with the Test Connection button highlighted.":::
+    :::image type="content" source="media/register-scan-azure-multiple-sources/test-connection.png" alt-text="Screenshot showing the scan setup slider, with the Test Connection button highlighted.":::
     :::image type="content" source="media/register-scan-azure-multiple-sources/test-connection-report.png" alt-text="Screenshot showing an example test connection report, with some connections passing and some failing. Hovering over one of the failed connections shows a detailed error report.":::
 
-1. After you test connection has passed, select **Continue** to proceed.
+1. After your test connection has passed, select **Continue** to proceed.
 
 1. Select scan rule sets for each resource type that you chose in the previous step. You can also create scan rule sets inline.
   
@@ -156,10 +155,41 @@ To manage a scan, do the following:
    - You can delete the scan by selecting **Delete**.
    - If the scan is running, you can cancel it by selecting **Cancel**.
 
+## Access Policy
+
+### Supported policies
+The following types of policies are supported on this data resource from Microsoft Purview:
+- [DevOps policies](concept-policies-devops.md)
+- [Data owner policies](concept-policies-data-owner.md)
+
+
+### Access policy pre-requisites on Azure Storage accounts
+To be able to enforce policies from Microsoft Purview, data sources under a resource group or subscription need to be configured first. Instructions vary based on the data source type.
+Please review whether they support Microsoft Purview policies, and if so, the specific instructions to enable them, under the Access Policy link in the [Microsoft Purview connector document](./microsoft-purview-connector-overview.md).
+
+### Configure the Microsoft Purview account for policies
+[!INCLUDE [Access policies generic configuration](./includes/access-policies-configuration-generic.md)]
+
+### Register the data source in Microsoft Purview for Data Use Management
+The Azure subscription or resource group needs to be registered first with Microsoft Purview before you can create access policies.
+To register your resource, follow the **Prerequisites** and **Register** sections of this guide:
+-   [Register multiple sources in Microsoft Purview](register-scan-azure-multiple-sources.md#prerequisites)
+
+After you've registered the data resource, you'll need to enable Data Use Management. This is a pre-requisite before you can create policies on the data resource. Data Use Management can impact the security of your data, as it delegates to certain Microsoft Purview roles managing access to the data sources. **Go through the secure practices related to Data Use Management in this guide**: [How to enable Data Use Management](./how-to-enable-data-use-management.md) 
+
+Once your data source has the  **Data Use Management** option set to **Enabled**, it will look like this screenshot:
+![Screenshot shows how to register a data source for policy with the option Data use management set to enable.](./media/how-to-policies-data-owner-resource-group/register-resource-group-for-policy.png)
+
+### Create a policy
+To create an access policy on an entire Azure subscription or resource group, follow these guides:
+* [DevOps policy covering all sources in a subscription or resource group](./how-to-policies-devops-resource-group.md#create-a-new-devops-policy)
+* [Data owner policy covering all sources in a subscription or resource group](./how-to-policies-data-owner-resource-group.md#create-and-publish-a-data-owner-policy) 
+
+
 ## Next steps
 
-Now that you have registered your source, follow the below guides to learn more about Azure Purview and your data.
-
-- [Data insights in Azure Purview](concept-insights.md)
-- [Lineage in Azure Purview](catalog-lineage-user-guide.md)
+Now that you've registered your source, follow the below guides to learn more about Microsoft Purview and your data.
+- [Devops policies in Microsoft Purview](concept-policies-devops.md)
+- [Data Estate Insights in Microsoft Purview](concept-insights.md)
+- [Lineage in Microsoft Purview](catalog-lineage-user-guide.md)
 - [Search Data Catalog](how-to-search-catalog.md)

@@ -2,10 +2,9 @@
 title: Manage Azure Cache for Redis with Azure PowerShell
 description: Learn how to perform administrative tasks for Azure Cache for Redis using Azure PowerShell.
 author: flang-msft
-
 ms.service: cache
 ms.topic: conceptual
-ms.date: 07/13/2017
+ms.date: 06/03/2021
 ms.author: franlanglois 
 ms.custom: devx-track-azurepowershell
 
@@ -167,8 +166,8 @@ The following table contains Azure PowerShell properties and descriptions for co
 | rdb-backup-enabled |Whether [Redis data persistence](cache-how-to-premium-persistence.md) is enabled |Premium only |
 | rdb-storage-connection-string |The connection string to the storage account for [Redis data persistence](cache-how-to-premium-persistence.md) |Premium only |
 | rdb-backup-frequency |The backup frequency for [Redis data persistence](cache-how-to-premium-persistence.md) |Premium only |
-| maxmemory-reserved |Configures the [memory reserved](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) for non-cache processes |Standard and Premium |
-| maxmemory-policy |Configures the [eviction policy](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) for the cache |All pricing tiers |
+| maxmemory-reserved |Configures the [memory reserved](cache-configure.md#memory-policies) for non-cache processes |Standard and Premium |
+| maxmemory-policy |Configures the [eviction policy](cache-configure.md#memory-policies) for the cache |All pricing tiers |
 | notify-keyspace-events |Configures [keyspace notifications](cache-configure.md#keyspace-notifications-advanced-settings) |Standard and Premium |
 | hash-max-ziplist-entries |Configures [memory optimization](https://redis.io/topics/memory-optimization) for small aggregate data types |Standard and Premium |
 | hash-max-ziplist-value |Configures [memory optimization](https://redis.io/topics/memory-optimization) for small aggregate data types |Standard and Premium |

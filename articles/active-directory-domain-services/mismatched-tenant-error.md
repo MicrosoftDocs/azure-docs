@@ -3,14 +3,14 @@ title: Fix mismatched directory errors in Azure AD Domain Services | Microsoft D
 description: Learn what a mismatched directory error means and how to resolve it in Azure AD Domain Services
 services: active-directory-ds
 author: justinha
-manager: karenhoran
+manager: amycolannino
 
 ms.assetid: 40eb75b7-827e-4d30-af6c-ca3c2af915c7
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 07/09/2020
+ms.date: 01/29/2023
 ms.author: justinha
 
 ---

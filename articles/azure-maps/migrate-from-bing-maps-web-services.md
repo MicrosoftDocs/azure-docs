@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Migrate web services from Bing Maps to Microsoft Azure Maps'
 description: Tutorial on how to migrate web services from Bing Maps to Microsoft Azure Maps.
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 10/28/2021
 ms.topic: tutorial
 ms.service: azure-maps
@@ -52,8 +52,8 @@ Azure Maps has several additional REST web services that may be of interest;
 * [Map Tiles](/rest/api/maps/render/getmaptile) – Access road and imagery tiles from Azure Maps as raster and vector tiles.
 * [Batch routing](/rest/api/maps/route/postroutedirectionsbatchpreview) – Allows up to 1,000 route requests to be made in a single batch over a period of time. Routes are calculated in parallel on the server for faster processing.
 * [Traffic](/rest/api/maps/traffic) Flow – Access real-time traffic flow data as both raster and vector tiles.
-* [Geolocation API (Preview)](/rest/api/maps/geolocation/get-ip-to-location) – Get the location of an IP address.
-* [Weather Services](/rest/api/maps/weather) – Gain access to real-time and forecast weather data.
+* [Geolocation API](/rest/api/maps/geolocation/get-ip-to-location) – Get the location of an IP address.
+* [Weather services](/rest/api/maps/weather) – Gain access to real-time and forecast weather data.
 
 Be sure to also review the following best practices guides:
 
@@ -266,7 +266,7 @@ Azure Maps can snap coordinates to roads by using the [route directions](/rest/a
 There are two different ways to use the route directions API to snap coordinates to roads.
 
 * If there are 150 coordinates or less, they can be passed as waypoints in the GET route directions API. Using this approach two different types of snapped data can be retrieved; route instructions will contain the individual snapped waypoints, while the route path will have an interpolated set of coordinates that fill the full path between the coordinates.
-* If there are more than 150 coordinates, the POST route directions API can be used. The coordinates start and end coordinates have to be passed into the query parameter, but all coordinates can be passed into the `supportingPoints` parameter in the body of the POST request and formatted a GeoJSON geometry collection of points. The only snapped data available using this approach will be the route path that is an interpolated set of coordinates that fill the full path between the coordinates. [Here is an example](https://azuremapscodesamples.azurewebsites.net/?sample=Snap%20points%20to%20logical%20route%20path) of this approach using the services module in the Azure Maps Web SDK.
+* If there are more than 150 coordinates, the POST route directions API can be used. The coordinates start and end coordinates have to be passed into the query parameter, but all coordinates can be passed into the `supportingPoints` parameter in the body of the POST request and formatted a GeoJSON geometry collection of points. The only snapped data available using this approach will be the route path that is an interpolated set of coordinates that fill the full path between the coordinates. [Here is an example](https://samples.azuremaps.com/?sample=snap-points-to-logical-route-path) of this approach using the services module in the Azure Maps Web SDK.
 
 The following table cross-references the Bing Maps API parameters with the comparable API parameters in Azure Maps.
 
@@ -310,11 +310,11 @@ The Azure Maps route directions API does not currently return speed limit data, 
 
 The Azure Maps Web SDK uses vector tiles to render the maps. These vector tiles contain the raw road geometry information and can be used to calculate the nearest road to a coordinate for simple snapping of individual coordinates. This is useful when you want the coordinates to visually appear over roads and you are already using the Azure Maps Web SDK to visualize the data.
 
-This approach however will only snap to the road segments that are loaded within the map view. When zoomed out at country level there may be no road data, so snapping can’t be done, however at that zoom level a single pixel can represent the area of several city blocks so snapping isn’t needed. To address this, the snapping logic can be applied every time the map has finished moving. [Here is a code sample](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Basic%20snap%20to%20road%20logic) that demonstrates this.
+This approach however will only snap to the road segments that are loaded within the map view. When zoomed out at country level there may be no road data, so snapping can’t be done, however at that zoom level a single pixel can represent the area of several city blocks so snapping isn’t needed. To address this, the snapping logic can be applied every time the map has finished moving. [Here is a code sample](https://samples.azuremaps.com/?sample=basic-snap-to-road-logic) that demonstrates this.
 
 **Using the Azure Maps vector tiles directly to snap coordinates**
 
-The Azure Maps vector tiles contain the raw road geometry data that can be used to calculate the nearest point on a road to a coordinate to do basic snapping of individual coordinates. All road segments appear in the sectors at zoom level 15, so you will want to retrieve tiles from there. You can then use the [quadtree tile pyramid math](./zoom-levels-and-tile-grid.md) to determine that tiles are needed and convert the tiles to geometries. From there a spatial math library, such as [turf js](http://turfjs.org/) or [NetTopologySuite](https://github.com/NetTopologySuite/NetTopologySuite) can be used to calculate the closest line segments.
+The Azure Maps vector tiles contain the raw road geometry data that can be used to calculate the nearest point on a road to a coordinate to do basic snapping of individual coordinates. All road segments appear in the sectors at zoom level 15, so you will want to retrieve tiles from there. You can then use the [quadtree tile pyramid math](./zoom-levels-and-tile-grid.md) to determine that tiles are needed and convert the tiles to geometries. From there a spatial math library, such as [turf js](https://turfjs.org/) or [NetTopologySuite](https://github.com/NetTopologySuite/NetTopologySuite) can be used to calculate the closest line segments.
 
 ## Retrieve a map image (Static Map)
 
@@ -656,7 +656,7 @@ Here are some useful resources around hosting and querying spatial data in Azure
 
 Azure Maps provides client libraries for the following programming languages;
 
-* JavaScript, TypeScript, Node.js – [documentation](./how-to-use-services-module.md) \| [NPM package](https://www.npmjs.com/package/azure-maps-rest)
+* JavaScript, TypeScript, Node.js – [documentation](./how-to-use-services-module.md) \| [npm package](https://www.npmjs.com/package/azure-maps-rest)
 
 Open-source client libraries for other programming languages;
 

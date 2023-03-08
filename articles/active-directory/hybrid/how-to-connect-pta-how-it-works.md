@@ -5,13 +5,13 @@ services: active-directory
 keywords: Azure AD Connect Pass-through Authentication, install Active Directory, required components for Azure AD, SSO, Single Sign-on
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 07/19/2018
+ms.date: 01/26/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -47,11 +47,12 @@ The following diagram illustrates all the components and the steps involved:
 ## Next steps
 - [Current limitations](how-to-connect-pta-current-limitations.md): Learn which scenarios are supported and which ones are not.
 - [Quick Start](how-to-connect-pta-quick-start.md): Get up and running on Azure AD Pass-through Authentication.
-- [Migrate from AD FS to Pass-through Authentication](https://aka.ms/adfstoPTADP) - A detailed guide to migrate from AD FS (or other federation technologies) to Pass-through Authentication.
+- [Migrate your apps to Azure AD](../manage-apps/migration-resources.md): Resources to help you migrate application access and authentication to Azure AD.
 - [Smart Lockout](../authentication/howto-password-smart-lockout.md): Configure the Smart Lockout capability on your tenant to protect user accounts.
 - [Frequently Asked Questions](how-to-connect-pta-faq.yml): Find answers to frequently asked questions.
 - [Troubleshoot](tshoot-connect-pass-through-authentication.md): Learn how to resolve common problems with the Pass-through Authentication feature.
 - [Security Deep Dive](how-to-connect-pta-security-deep-dive.md): Get deep technical information on the Pass-through Authentication feature.
+- [Hybrid Azure AD join](../devices/howto-hybrid-azure-ad-join.md): Configure Hybrid Azure AD join capability on your tenant for SSO across your cloud and on-premises resources.    
 - [Azure AD Seamless SSO](how-to-connect-sso.md): Learn more about this complementary feature.
 - [UserVoice](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789): Use the Azure Active Directory Forum to file new feature requests.
 

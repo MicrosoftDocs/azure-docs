@@ -4,13 +4,13 @@ description: Edge Secured-core Certification program requirements
 author: cbroad
 ms.author: cbroad
 ms.topic: conceptual 
-ms.date: 05/15/2021
+ms.date: 06/21/2021
 ms.custom: Edge Secured-core Certification Requirements
 ms.service: certification
 zone_pivot_groups: app-service-platform-windows-linux
 ---
 
-# Azure Certified Device - Edge Secured-core (Preview) #
+# Azure Certified Device - Edge Secured-core #
 
 ## Edge Secured-Core certification requirements ##
 
@@ -25,13 +25,14 @@ Edge Secured-core is an incremental certification in the Azure Certified Device 
 6. Built in security agent and hardening
 
 ## Preview Program Support
-While in public preview, we are supporting a small number of partners to pre-validate devices against the Edge Secured-core program requirements.  If you would like participate in the Edge Secured-core public preview, please contact iotcert@microsoft.com
+While in public preview, we are supporting a small number of partners to pre-validate devices against the Edge Secured-core program requirements.  If you would like to participate in the Edge Secured-core public preview, please contact iotcert@microsoft.com
 
 Overview content
 ::: zone pivot="platform-windows"
 
 ## Windows IoT OS Support
-Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 1903
+Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 1903 or greater
+* [Windows 10 IoT Enterprise Lifecycle](/lifecycle/products/windows-10-iot-enterprise)
 > [!Note]
 > The Windows secured-core tests require you to download and run the following package (https://aka.ms/Scforwiniot) from an Administrator Command Prompt on the IoT device being validated.
 
@@ -97,6 +98,19 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 |Resources||
 
 ---
+</br>
+
+|Name|SecuredCore.Firmware.Attestation|
+|:---|:---|
+|Status|Required|
+|Description|The purpose of the test is to ensure the device can remotely attest to the Microsoft Azure Attestation service.|
+|Target Availability|2022|
+|Requirements dependency|Azure Attestation Service|
+|Validation Type|Manual/Tools|
+|Validation|Device to be validated through toolset to ensure that platform boot logs and measurements of boot activity can be collected and remotely attested to the Microsoft Azure Attestation service.|
+|Resources| [Microsoft Azure Attestation](../attestation/index.yml) |
+
+---
 
 ## Windows IoT configuration requirements
 ---
@@ -135,7 +149,7 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Requirements dependency|HVCI is enabled on the device.|
 |Validation Type|Manual/Tools|
 |Validation|Device to be validated through [Edge Secured-core Agent](https://aka.ms/Scforwiniot) toolset to ensure that HVCI is enabled on the device.|
-|Resources|https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-hvci-enablement|
+|Resources| [Hypervisor-protected Code Integrity enablement](/windows-hardware/design/device-experiences/oem-hvci-enablement) |
 
 ---
 </br>
@@ -163,32 +177,6 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Validation Type|Manual/Tools|
 |Validation	|Device must generate security logs and alerts. Device logs and alerts messages to Azure Security Center.<ol><li>Device must have the Azure Defender microagent running</li><li>Configuration_Certification_Check must report TRUE in the module twin</li><li>Validate alert messages from Azure Defender for IoT.</li></ol>|
 |Resources|[Azure Docs IoT Defender for IoT](../defender-for-iot/how-to-configure-agent-based-solution.md)|
-
----
-</br>
-
-|Name|SecuredCore.Update|
-|:---|:---|
-|Status|Required|
-|Description|The purpose of the test is to validate the device can receive and update its firmware and software.|
-|Target Availability|2022|
-|Requirements dependency||
-|Validation Type|Manual/Tools|
-|Validation|Partner confirmation that they were able to send an update to the device through Windows update and other approved services.|
-|Resources|[Device Update for IoT Hub](../iot-hub-device-update/index.yml)|
-
----
-</br>
-
-|Name|SecuredCore.Hardware.Attestation|
-|:---|:---|
-|Status|Required|
-|Description|The purpose of the test is to ensure the device can remotely attest to the Microsoft Azure Attestation service.|
-|Target Availability|2022|
-|Requirements dependency|Azure Attestation Service|
-|Validation Type|Manual/Tools|
-|Validation|Device to be validated through toolset to ensure that platform boot logs and measurements of boot activity can be collected and remotely attested to the Microsoft Azure Attestation service.|
-|Resources| [Microsoft Azure Attestation](../attestation/index.yml) |
 
 ---
 </br>
@@ -338,14 +326,26 @@ Edge Secured-core validation on Linux based devices is executed through a contai
 ---
 </br>
 
-|Name|SecuredCore.Protection.SignedUpdates|
+|Name|SecuredCore.Firmware.Attestation|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the test is to validate that updates must be signed.|
+|Description|The purpose of the test is to ensure the device can remotely attest to the Microsoft Azure Attestation service.|
 |Target Availability|2022|
 |Validation Type|Manual/Tools|
-|Validation|Device to be validated through toolset to ensure that updates to the operating system, drivers, application software, libraries, packages and firmware will not be applied unless properly signed and validated.
-|Resources||
+|Validation|Device to be validated through toolset to ensure that platform boot logs and measurements of boot activity can be collected and remotely attested to the Microsoft Azure Attestation service.|
+|Resources| [Microsoft Azure Attestation](../attestation/index.yml) |
+
+---
+</br>
+
+|Name|SecuredCore.Hardware.SecureEnclave|
+|:---|:---|
+|Status|Optional|
+|Description|The purpose of the test to validate the existence of a secure enclave and that the enclave is accessible from a secure agent.|
+|Target Availability|2022|
+|Validation Type|Manual/Tools|
+|Validation|Device to be validated through toolset to ensure the Azure Security Agent can communicate with the secure enclave|
+|Resources|https://github.com/openenclave/openenclave/blob/master/samples/BuildSamplesLinux.md|
 
 ## Linux Configuration Requirements
 
@@ -395,17 +395,6 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Validation|Device to be validated through toolset to ensure that services accepting network connections are not running with SYSTEM or root privileges.|
 |Resources||
 
----
-</br>
-
-|Name|SecuredCore.Hardware.SecureEnclave|
-|:---|:---|
-|Status|Optional|
-|Description|The purpose of the test to validate the existence of a secure enclave and that the enclave is accessible from a secure agent.|
-|Target Availability|2022|
-|Validation Type|Manual/Tools|
-|Validation|Device to be validated through toolset to ensure the Azure Security Agent can communicate with the secure enclave|
-|Resources|https://github.com/openenclave/openenclave/blob/master/samples/BuildSamplesLinux.md|
 
 ## Linux Software/Service Requirements
 ---
@@ -457,14 +446,16 @@ Validation|Device to be validated through toolset to ensure the device supports 
 ---
 </br>
 
-|Name|SecuredCore.Firmware.Attestation|
+|Name|SecuredCore.Protection.SignedUpdates|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the test is to ensure the device can remotely attest to the Microsoft Azure Attestation service.|
+|Description|The purpose of the test is to validate that updates must be signed.|
 |Target Availability|2022|
 |Validation Type|Manual/Tools|
-|Validation|Device to be validated through toolset to ensure that platform boot logs and measurements of boot activity can be collected and remotely attested to the Microsoft Azure Attestation service.|
-|Resources| [Microsoft Azure Attestation](../attestation/index.yml) |
+|Validation|Device to be validated through toolset to ensure that updates to the operating system, drivers, application software, libraries, packages and firmware will not be applied unless properly signed and validated.
+|Resources||
+
+
 
 ## Linux Policy Requirements
 ---

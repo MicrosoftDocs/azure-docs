@@ -8,7 +8,7 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/24/2019
 ms.author: pafarley
 ms.custom: devx-track-csharp
@@ -35,7 +35,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Sign up for Content Moderator services
 
-Before you can use Content Moderator services through the REST API or the SDK, you'll need a subscription key. Subscribe to Content Moderator service in the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) to obtain one.
+Before you can use Content Moderator services through the REST API or the SDK, you'll need a subscription key. Subscribe to Content Moderator service in the [Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) to obtain one.
 
 ## Create your Visual Studio project
 
@@ -106,6 +106,9 @@ public static class Clients
     }
 }
 ```
+
+> [!IMPORTANT]
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../key-vault/general/overview.md). See the Cognitive Services [security](../cognitive-services-security.md) article for more information.
 
 ### Add private properties
 

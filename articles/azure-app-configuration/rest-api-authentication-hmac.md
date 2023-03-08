@@ -1,8 +1,8 @@
 ---
 title: Azure App Configuration REST API - HMAC authentication
 description: Use HMAC to authenticate to Azure App Configuration by using the REST API
-author: AlexandraKemperMS
-ms.author: alkemper
+author: maud-lv
+ms.author: malev
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.devlang: csharp, golang, java, javascript, powershell, python
@@ -428,7 +428,7 @@ def sign_request(host,
                 secret):    # Access Key Value
     verb = method.upper()
 
-    utc_now = str(datetime.utcnow().strftime("%b, %d %Y %H:%M:%S ")) + "GMT"
+    utc_now = str(datetime.utcnow().strftime("%a, %d %b %Y %H:%M:%S ")) + "GMT"
 
     if six.PY2:
         content_digest = hashlib.sha256(bytes(body)).digest()

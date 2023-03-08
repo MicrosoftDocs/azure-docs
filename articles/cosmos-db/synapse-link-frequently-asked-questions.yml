@@ -5,14 +5,12 @@ metadata:
   author: Rodrigossz
   ms.author: rosouz
   ms.service: cosmos-db
-  ms.topic: conceptual
-  ms.date: 11/02/2021
-  ms.custom: synapse-cosmos-db
-  
-    
+  ms.topic: faq
+  ms.date: 01/05/2023
+  ms.custom: synapse-cosmos-db, ignite-2022
 title: Frequently asked questions about Azure Synapse Link for Azure Cosmos DB
 summary: |
-  [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
+  [!INCLUDE[NoSQL, MongoDB, Gremlin](includes/appliesto-nosql-mongodb-gremlin.md)]
   
   Azure Synapse Link for Azure Cosmos DB creates a tight integration between Azure Cosmos DB and Azure Synapse Analytics. It enables customers to run near real-time analytics over their operational data with full performance isolation from their transactional workloads and without an ETL pipeline. This article answers commonly asked questions about Synapse Link for Azure Cosmos DB.
   
@@ -23,12 +21,12 @@ sections:
       - question: |
           Is Azure Synapse Link supported for all Azure Cosmos DB APIs?
         answer: |
-          Azure Synapse Link is supported for the Azure Cosmos DB SQL (Core) API and for the Azure Cosmos DB API for MongoDB. 
+          Azure Synapse Link is supported for the Azure Cosmos DB API for NoSQL and for the Azure Cosmos DB API for MongoDB. The support for Azure Cosmos DB API for Gremlin is now in preview.
 
       - question: |
           Is Azure Synapse Link supported for multi-region Azure Cosmos DB accounts?
         answer: |
-          Yes, for multi-region Azure Cosmos accounts, the data stored in the analytical store is also globally distributed. Regardless of single write region or multiple write regions, analytical queries performed from Azure Synapse Analytics can be served from the closest local region.
+          Yes, for multi-region Azure Cosmos DB accounts, the data stored in the analytical store is also globally distributed. Regardless of single write region or multiple write regions, analytical queries performed from Azure Synapse Analytics can be served from the closest local region.
           
           When planning to configure a multi-region Azure Cosmos DB account with analytical store support, it is recommended to have all the necessary regions added at time of account creation.
           
@@ -45,31 +43,43 @@ sections:
       - question: |
           Can I disable the Azure Synapse Link feature for my Azure Cosmos DB account?
         answer: |
-          Currently, after the Synapse Link capability is enabled at the account level, you cannot disable it. Understand that you will not have any billing implications if the Synapse Link capability is enabled at the account level and there is no analytical store enabled containers.
+          Currently, after the Synapse Link capability is enabled at the account level, you cannot disable it. Please note that you will not have any billing implications if the Synapse Link capability is enabled at the account level and there is no analytical store enabled containers.
           
           If you need to turn off the capability, you have 2 options. The first one is to delete and re-create a new Azure Cosmos DB account, migrating the data if necessary. The second option is to open a support ticket, to get help on a data migration to another account.
           
       - question: |
-          Does analytical store have any impact on Cosmos DB transactional SLAs?
+          Does analytical store have any impact on Azure Cosmos DB transactional SLAs?
         answer: |
           No, there is no impact.
 
       - question: |
           Can I use Synapse Link in Azure Cosmos DB serverless accounts?
         answer: |
-          Yes, for both MongoDB and SQL APIs database accounts. Currently, MongoDB API accounts are only supported through Azure CLI or PowerShell.
+          Yes, for both the APIs for MongoDB and NoSQLs database accounts. Currently, API for MongoDB accounts are only supported through Azure CLI or PowerShell.
+          
+      - question: |
+          What permissions do I need to enable Synapse Link in my database account?
+        answer: |
+          You need [Contributor role](role-based-access-control.md) to enable Synapse Link at account level.
+                    
 
   - name: Azure Cosmos DB analytical store
     questions:
       - question: |
           Can I enable analytical store on existing containers?
         answer: |
-          Currently you can only enable analytical store for existing SQL API containers.
+          Currently you can only enable analytical store for existing API for NoSQL containers.
 
       - question: |
-          Can I disable analytical store on my Azure Cosmos DB containers after enabling it during container creation?
+          Can I see analytical store files using Azure Data Explorer?
         answer: |
-          Currently, the analytical store cannot be disabled on an Azure Cosmos DB container.
+          No. Analytical store is persisted in a storage account, in an internal subscription, that is fully managed by Azure Cosmos DB. Customers don't have access to this storage account and have to use Azure Synapse runtimes to read the data.
+
+      - question: |
+          Can I disable analytical store on my Azure Cosmos DB containers?
+        answer: |
+          Analytical store can be disabled in API for NoSQL containers using PowerShell, by updating `-AnalyticalStorageTtl` (analytical Time-To-Live) to `0`. Please note that currently this action can't be undone. If analytical store is disabled in a container, it can never be re-enabled.
+          Currently you can't be disabled in API for MongoDB collections.
 
       - question: |
           Is analytical store supported for Azure Cosmos DB containers with autoscale provisioned throughput?
@@ -136,11 +146,27 @@ sections:
           Can I customize or override the way transactional data is transformed into columnar format in the analytical store?
         answer: |
           Currently you can’t transform the data items when they are automatically propagated from the transactional store to analytical store. If you have scenarios blocked by this limitation, email the [Azure Cosmos DB team](mailto:cosmosdbsynapselink@microsoft.com).
+      
+      - question: |
+          Can I access analytical store with Azure Cosmos DB SDKs?
+        answer: |
+          No, you can't access analytical store with the Azure Cosmos DB SDKs. You need to use Azure Synapse Analytics, Spark or SQL serverless pools.
+      
+      - question: |
+          Can I access analytical store with Azure Cosmos DB REST APIs?
+        answer: |
+          No, you can't access analytical store with the Azure Cosmos DB REST APIs. You need to use Azure Synapse Analytics, Spark or SQL serverless pools.       
           
       - question: |
           Is analytical store supported by Terraform?
         answer: |
           Currently Terraform doesn’t support analytical store containers. Please check [Terraform GitHub Issues](https://github.com/hashicorp/terraform/issues) for more information.
+
+      - question: |
+          What permissions do I need to enable Synapse Link in my containers or collections?
+        answer: |
+          You need at least [Operator role](role-based-access-control.md) to enable Synapse Link, for consequence to enable analytical store, at container or collection level.
+
           
   - name: Analytical Time to live (TTL)
     questions:
@@ -187,9 +213,14 @@ sections:
           Yes, Azure Synapse Link supports configuring customer-managed keys using your Azure Cosmos DB account's managed identity. You can seamlessly encrypt the data across transactional and analytical stores using the same customer-managed keys in an automatic and transparent manner. To learn more, see  [configuring customer-managed keys using Azure Cosmos DB accounts' managed identities](how-to-setup-cmk.md#using-managed-identity) article.
       
       - question: |
-           Does Azure Synapse link provide network isolation with Azure Synapse managed virtual networks?
+           Does Azure Synapse Link provide network isolation with Azure Synapse managed virtual networks?
         answer: |
            Yes, You can control network access to the data in the transactional and analytical stores independently. Network isolation is done using separate managed private endpoints for each store, within managed virtual networks in Azure Synapse workspaces. To learn more, see how to [Configure private endpoints for analytical store](analytical-store-private-endpoints.md) article.
+           
+      - question: |
+           I'm getting error 403 (Could not retrieve Analytical Store status for one or more containers Response status code does not indicate success: 403 (Forbidden)) after Azure Private Link was enabled for my database account. What's happening?
+        answer: |
+           Usually, 403's are due to network/firewall settings that prevent users from accessing specific data, even from the portal. The most common cause for this problem is that step 1 of the enable Network isolation process using private endpoints has not been performed. You need to use Azure CLI or PowerShell for this. More details [here](analytical-store-private-endpoints.md).
        
   - name: Synapse run-times
     questions:

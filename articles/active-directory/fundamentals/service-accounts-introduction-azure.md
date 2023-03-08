@@ -2,34 +2,31 @@
 title: Introduction to securing Azure Active Directory service accounts
 description: Explanation of the types of service accounts available in Azure Active Directory.
 services: active-directory
-author: BarbaraSelden
+author: janicericketts
 manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 3/1/2021
-ms.author: baselden
+ms.date: 08/26/2022
+ms.author: jricketts
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
-
-# Introduction to securing Azure service accounts
+# Securing cloud-based service accounts
 
 There are three types of service accounts native to Azure Active Directory: Managed identities, service principals, and user-based service accounts. Service accounts are a special type of account that is intended to represent a non-human entity such as an application, API, or other service. These entities operate within the security context provided by the service account. 
 
 ## Types of Azure Active Directory service accounts
 
 For services hosted in Azure, we recommend using a managed identity if possible, and a service principal if not. Managed identities can’t be used for services hosted outside of Azure. In that case, we recommend a service principal. If you can use a managed identity or a service principal, do so. We recommend that you not use an Azure Active Directory user account as a service account. See the following table for a summary.
- 
 
 | Service hosting| Managed identity| Service principal| Azure user account |
 | - | - | - | - |
 |Service is hosted in Azure.| Yes. <br>Recommended if the service <br>supports a Managed Identity.| Yes.| Not recommended. |
 | Service is not hosted in Azure.| No| Yes. Recommended.| Not recommended. |
 | Service is multi-tenant| No| Yes. Recommended.| No. |
-
 
 ## Managed identities
 
@@ -50,10 +47,8 @@ A service principal is the local representation of an application object in a si
 There are two mechanisms for authentication using service principals—client certificates and client secrets. Certificates are more secure: use client certificates if possible. Unlike client secrets, client certificates cannot accidentally be embedded in code.
 
 For information on securing service principals, see [Securing service principals](service-accounts-principal.md).
-
  
 ## Next steps
-
 
 For more information on securing Azure service accounts, see:
 

@@ -4,12 +4,12 @@ description: Hybrid identity is having a common user identity for authentication
 keywords: introduction to Azure AD Connect, Azure AD Connect overview, what is Azure AD Connect, install active directory
 services: active-directory
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.assetid: 59bd209e-30d7-4a89-ae7a-e415969825ea
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 05/17/2019
+ms.date: 01/19/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -46,7 +46,6 @@ Here are some common hybrid identity and access management scenarios with recomm
 |Enable cloud-based multi-factor authentication solutions.|![Recommended](./media/whatis-hybrid-identity/ic195031.png)|![Recommended](./media/whatis-hybrid-identity/ic195031.png)|![Recommended](./media/whatis-hybrid-identity/ic195031.png)| 
 |Enable on-premises multi-factor authentication solutions.| | |![Recommended](./media/whatis-hybrid-identity/ic195031.png)| 
 |Support smartcard authentication for my users.<sup>4</sup>| | |![Recommended](./media/whatis-hybrid-identity/ic195031.png)| 
-|Display password expiry notifications in the Office Portal and on the Windows 10 desktop.| | |![Recommended](./media/whatis-hybrid-identity/ic195031.png)| 
 
 > <sup>1</sup> Password hash synchronization with single sign-on. 
 > 

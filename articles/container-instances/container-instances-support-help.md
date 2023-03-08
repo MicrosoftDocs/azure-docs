@@ -1,11 +1,12 @@
 ---
 title: Azure Container Instances support and help options 
 description: How to obtain help and support for questions or problems when you create solutions using Azure Container Instances. 
-author: mimckitt
-ms.author: mimckitt
+author: tomvcassidy
+ms.author: tomcassidy
 ms.service: container-instances
+services: container-instances
 ms.topic: troubleshooting
-ms.date: 6/4/2021
+ms.date: 06/17/2022
 ms.custom: support-help-page
 ---
 

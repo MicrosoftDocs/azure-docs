@@ -1,13 +1,14 @@
 ---
 title: Specify Marketplace purchase plan information using Azure PowerShell 
 description: Learn how to specify Azure Marketplace purchase plan details when creating images in an Azure Compute Gallery (formerly known as Shared Image Gallery).
-author: cynthn
+author: sandeepraichura
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 07/07/2020
-ms.author: cynthn
+ms.date: 12/5/2022
+ms.author: saraic
+ms.reviewer: mattmcinnes
 ms.custom: devx-track-azurepowershell
  
 ---
@@ -16,7 +17,7 @@ ms.custom: devx-track-azurepowershell
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-If you are creating an image in a shared gallery, using a source that was originally created from an Azure Marketplace image, you may need to keep track of purchase plan information. This article shows how to find purchase plan information for a VM, then use that information when creating an image definition. We also cover using the information from the image definition to simplify supplying the purchase plan information when creating a VM for an image.
+If you're creating an image in a shared gallery using an Azure Marketplace image source, you'll likely need to track purchase plan information. This article shows you how to find purchase plan information for a VM when creating an image definition. We also cover using this information to simplify supplying the purchase plan information when creating a VM for an image.
 
 For more information about finding and using Marketplace images, see [Find and use Azure Marketplace images](./windows/cli-ps-findimage.md).
 
@@ -39,7 +40,7 @@ Get the gallery you want to use to store the image. You can list all of the gall
 Get-AzResource -ResourceType Microsoft.Compute/galleries | Format-Table
 ```
 
-Then create variables for the gallery you want to use. In this example, we are creating a variable named `$gallery` for *myGallery* in the *myGalleryRG* resource group.
+Then create variables for the gallery you want to use. In this example, we're creating a variable named `$gallery` for *myGallery* in the *myGalleryRG* resource group.
 
 ```azurepowershell-interactive
 $gallery = Get-AzGallery `

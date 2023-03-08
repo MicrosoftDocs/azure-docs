@@ -5,7 +5,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 11/24/2020
+ms.date: 02/23/2022
 ms.author: danlep
 ---
 # Get API analytics in Azure API Management
@@ -22,7 +22,8 @@ Azure API Management provides built-in analytics for your APIs. Analyze the usag
 * Requests
 
 > [!NOTE]
-> Geography values are approximate based on IP address mapping.
+> * API analytics provides data on requests (including failed and unauthorized requests) that are matched with an API and operation. Other calls aren't reported.
+> * Geography values are approximate based on IP address mapping.
 
 :::image type="content" source="media/howto-use-analytics/analytics-report-portal.png" alt-text="Timeline analytics in portal":::
 

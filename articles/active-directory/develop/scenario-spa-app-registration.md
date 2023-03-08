@@ -1,16 +1,15 @@
 ---
-title: Register single-page applications (SPA) | Azure
-titleSuffix: Microsoft identity platform
+title: Register single-page applications (SPA)
 description: Learn how to build a single-page application (app registration)
 services: active-directory
-author: mmacy
+author: OwenRichards1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/12/2021
-ms.author: marsma
+ms.date: 05/10/2022
+ms.author: owenrichards
 ms.custom: aaddev
 # Customer intent: As an application developer, I want to know how to write a single-page application by using the Microsoft identity platform.
 ---
@@ -24,7 +23,7 @@ To register a single-page application (SPA) in the Microsoft identity platform, 
 For both MSAL.js 1.0- and 2.0-based applications, start by completing the following steps to create the initial app registration.
 
 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
-1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations** > **New registration**.
 1. Enter a **Name** for your application. Users of your app might see this name, and you can change it later.

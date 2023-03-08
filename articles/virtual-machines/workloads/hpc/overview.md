@@ -1,14 +1,13 @@
 ---
 title: High-performance computing on InfiniBand enabled H-series and N-series VMs - Azure Virtual Machines
 description: Learn about the features and capabilities of InfiniBand enabled H-series and N-series VMs optimized for HPC.
-author: vermagit
-ms.author: amverma
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: overview
-ms.date: 04/09/2021
+ms.date: 03/04/2023
 ms.reviewer: cynthn
-
+ms.author: mamccrea
+author: mamccrea
 ---
 
 # High-performance computing on InfiniBand enabled H-series and N-series VMs
@@ -38,12 +37,12 @@ See [Set up MPI](setup-mpi.md) to learn more about installing various supported 
 The first step is to select the [H-series](../../sizes-hpc.md) and [N-series](../../sizes-gpu.md) VM type optimal for the workload based on the VM specifications and [RDMA capability](../../sizes-hpc.md#rdma-capable-instances).
 Second, configure the VM by enabling InfiniBand. There are various methods to doing this including using optimized VM images with drivers baked-in; see [Optimization for Linux](configure.md) and [Enable InfiniBand](enable-infiniband.md) for details.
 Third, for distributed node workloads, choosing and configuring MPI appropriately is critical. See [Set up MPI](setup-mpi.md) for details.
-Fourth, for performance and scalability, optimally configure the workloads by following guidance specific to the VM family, such as for [HBv3-series overview](hbv3-series-overview.md) and [HC-series overview](hc-series-overview.md).
+Fourth, for performance and scalability, optimally configure the workloads by following guidance specific to the VM family, such as for [HBv3-series overview](../../hbv3-series-overview.md) and [HC-series overview](../../hc-series-overview.md).
 
 ## Next steps
 
 - Learn about [configuring and optimizing](configure.md) the InfiniBand enabled [H-series](../../sizes-hpc.md) and [N-series](../../sizes-gpu.md) VMs.
-- Review the [HBv3-series overview](hb-series-overview.md) and [HC-series overview](hc-series-overview.md) to learn about optimally configuring workloads for performance and scalability.
+- Review the [HBv3-series overview](../../hb-series-overview.md) and [HC-series overview](../../hc-series-overview.md) to learn about optimally configuring workloads for performance and scalability.
 - Read about the latest announcements, HPC workload examples, and performance results at the [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
-- Test your knowledge with a [learning module on optimizing HPC applications on Azure](/learn/modules/optimize-tightly-coupled-hpc-apps/).
+- Test your knowledge with a [learning module on optimizing HPC applications on Azure](/training/modules/optimize-tightly-coupled-hpc-apps/).
 - For a higher level architectural view of running HPC workloads, see [High Performance Computing (HPC) on Azure](/azure/architecture/topics/high-performance-computing/).

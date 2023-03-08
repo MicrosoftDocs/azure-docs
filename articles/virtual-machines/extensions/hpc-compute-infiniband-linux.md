@@ -3,7 +3,6 @@ title: InfiniBand driver extension - Azure Linux VMs
 description: Microsoft Azure Extension for installing InfiniBand Drivers on H- and N-series compute VMs running Linux.
 services: virtual-machines
 documentationcenter: ''
-author: vermagit
 editor: ''
 ms.assetid:
 ms.service: virtual-machines
@@ -13,9 +12,9 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 1/13/2022
-ms.author: amverma 
 ms.custom: devx-track-azurepowershell
-
+ms.author: mamccrea
+author: mamccrea
 ---
 
 # InfiniBand Driver Extension for Linux
@@ -34,7 +33,7 @@ This extension supports the following OS distros, depending on driver support fo
 
 | Distribution | Version | InfiniBand NIC drivers |
 |---|---|---|
-| Ubuntu | 16.04 LTS, 18.04 LTS, 20.04 LTS | CX3-Pro, CX5, CX6 |
+| Ubuntu | 18.04 LTS, 20.04 LTS | CX3-Pro, CX5, CX6 |
 | CentOS | 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 8.1, 8,2 | CX3-Pro, CX5, CX6 |
 | Red Hat Enterprise Linux | 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 8.1, 8,2 | CX3-Pro, CX5, CX6 |
 

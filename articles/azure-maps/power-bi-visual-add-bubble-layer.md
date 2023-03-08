@@ -1,11 +1,11 @@
 ---
 title: Add a bubble layer to an Azure Maps Power BI visual
 titleSuffix: Microsoft Azure Maps
-description: In this article, you will learn how to use the bubble layer in an Azure Maps Power BI visual.
-author: stevemunk
-ms.author: v-munksteve
-ms.date: 11/29/2021
-ms.topic: conceptual
+description: In this article, you'll learn how to use the bubble layer in an Azure Maps Power BI visual.
+author: eriklindeman
+ms.author: eriklind
+ms.date: 11/14/2022
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 ---
@@ -20,16 +20,16 @@ Initially all bubbles have the same fill color. If a field is passed into the **
 
 | Setting               | Description    |
 |-----------------------|----------------|
-| Size                  | The size of each bubble. This option is hidden when a field is passed into the **Size** bucket of the **Fields** pane. Additional options will appear as outlined in the [Bubble size scaling](#bubble-size-scaling) topic further down in this article. |
+| Size                  | The size of each bubble. This option is hidden when a field is passed into the **Size** bucket of the **Fields** pane. More options will appear as outlined in the [Bubble size scaling](#bubble-size-scaling) section further down in this article. |
 | Fill color            | Color of each bubble. This option is hidden when a field is passed into the **Legend** bucket of the **Fields** pane and a separate **Data colors** section will appear in the **Format** pane. |
 | Fill transparency     | Transparency of each bubble. |
 | High-contrast outline | Makes the outline color contrast with the fill color for better accessibility by using a high-contrast variant of the fill color. |
 | Outline color         | Color that outlines the bubble. This option is hidden when the **High-contrast outline** option is enabled. |
 | Outline transparency  | Transparency of the outline. |
 | Outline width         | Width of the outline in pixels. |
-| Blur                  | Amount of blur applied to the outline. A value of 1 blurs the bubbles such that only the center point has no transparency. A value of 0 apply any blur effect. |
+| Blur                  | Amount of blur applied to the outline. A value of one blurs the bubbles such that only the center point has no transparency. A value of 0 apply any blur effect. |
 | Pitch alignment       | Specifies how the bubbles look when the map is pitched. <br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;• Viewport - Bubbles appear on their edge on the map relative to viewport. (default)<br/>&nbsp;&nbsp;&nbsp;&nbsp;• Map - Bubbles are rendered flat on the surface of the map. |
-| Zoom scale            | Amount the bubbles should scale relative to the zoom level. A zoom scale of one means no scaling. Large values will make bubbles smaller when zoomed out and larger when zoomed in. This helps to reduce the clutter on the map when zoomed out, yet ensures points stand out more when zoomed in. A value of 1 does not apply any scaling. |
+| Zoom scale            | Amount the bubbles should scale relative to the zoom level. A zoom scale of one means no scaling. Large values will make bubbles smaller when zoomed out and larger when zoomed in. This helps to reduce the clutter on the map when zoomed out, yet ensures points stand out more when zoomed in. A value of 1 doesn't apply any scaling. |
 | Min zoom              | Minimum zoom level tiles are available. |
 | Max zoom              | Maximum zoom level tiles are available. |
 | Layer position        | Specifies the position of the layer relative to other map layers. |
@@ -42,7 +42,7 @@ If a field is passed into the **Size** bucket of the **Fields** pane, the bubble
 |---------------------|--------------|
 | Min size            | Minimum bubble size when scaling the data.|
 | Max size            | Maximum bubble size when scaling the data.|
-| Size scaling method | Scaling algorithm used to determine relative bubble size.<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;• Linear - Range of input data linearly mapped to the min and max size. (default)<br/>&nbsp;&nbsp;&nbsp;&nbsp;• Log - Range of input data logarithmically mapped to the min and max size.<br/>&nbsp;&nbsp;&nbsp;&nbsp;• Cubic-Bezier - Specify X1, Y1, X2, Y2 values of a Cubic-Bezier curve to create a custom scaling method. |
+| Size scaling method | Scaling algorithm used to determine relative bubble size.<br/><br/>&nbsp;• Linear: Range of input data linearly mapped to the min and max size. (default)<br/>&nbsp;• Log: Range of input data logarithmically mapped to the min and max size.<br/>&nbsp;• Cubic-Bezier: Specify X1, Y1, X2, Y2 values of a Cubic-Bezier curve to create a custom scaling method. |
 
 When the **Size scaling method** is set to **Log**, the following options will be made available.
 
@@ -61,6 +61,16 @@ When the **Size scaling method** is set to **Cubic-Bezier**, the following optio
 
 > [!TIP]
 > [https://cubic-bezier.com/](https://cubic-bezier.com/) has a handy tool for creating the parameters for Cubic-Bezier curves.
+
+## Category labels
+
+When displaying a **bubble layer** map, the **Category labels** settings will become active in the **Format visual** pane.
+
+:::image type="content" source="./media/power-bi-visual/category-labels.png" alt-text="A screenshot showing the category labels settings in the format visual section of Power BI." lightbox="./media/power-bi-visual/category-labels.png":::
+
+The **Category labels** settings enable you to customize font setting such as font type, size and color as well as the category labels background color and transparency.
+
+:::image type="content" source="./media/power-bi-visual/category-labels-example.png" alt-text="A screenshot showing the category labels on an Azure Maps map in Power BI." lightbox="./media/power-bi-visual/category-labels-example.png":::
 
 ## Next steps
 

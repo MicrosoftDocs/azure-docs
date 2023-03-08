@@ -75,7 +75,7 @@ In this section, you add code that writes a message to the output queue. The mes
 
     # [JavaScript](#tab/nodejs)
 
-    Add code that uses the output binding on the `context.bindings` object to create a queue message. Add this code before the`context.done` statement.
+    Add code that uses the output binding on the `context.bindings` object to create a queue message.
 
     ```javascript
     context.bindings.outputQueueItem = "Name passed to the function: " + 

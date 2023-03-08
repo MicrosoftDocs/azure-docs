@@ -2,13 +2,13 @@
 title: Use Azure Monitor Workbooks with Azure AD Domain Services | Microsoft Docs
 description: Learn how to use Azure Monitor Workbooks to review security audits and understand issues in an Azure Active Directory Domain Services managed domain.
 author: justinha
-manager: karenhoran
+manager: amycolannino
 
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/09/2020
+ms.date: 06/16/2022
 ms.author: justinha
 
 ---

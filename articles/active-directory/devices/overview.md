@@ -6,12 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: overview
-ms.date: 06/09/2021
+ms.date: 01/24/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
-ms.reviewer: sandeo, ravenn, spunukol, jogro, jploegert
+manager: amycolannino
+ms.reviewer: sandeo, jogro, jploegert
 
 ms.collection: M365-identity-device-management
 ---
@@ -27,7 +27,7 @@ There are three ways to get a device identity:
 - Azure AD join
 - Hybrid Azure AD join
 
-Device identities are a prerequisite for scenarios like [device-based Conditional Access policies](../conditional-access/require-managed-devices.md) and [Mobile Device Management with Microsoft Endpoint Manager](/mem/endpoint-manager-overview).
+Device identities are a prerequisite for scenarios like [device-based Conditional Access policies](../conditional-access/require-managed-devices.md) and [Mobile Device Management with the Microsoft Intune family of products](/mem/endpoint-manager-overview).
 
 ## Modern device scenario
 
@@ -37,7 +37,7 @@ The modern device scenario focuses on two of these methods:
    - Bring your own device (BYOD)
    - Mobile device (cell phone and tablet)
 - [Azure AD join](concept-azure-ad-join.md)
-   - Windows 10 devices owned by your organization
+   - Windows 11 and Windows 10 devices owned by your organization
    - [Windows Server 2019 and newer servers in your organization running as VMs in Azure](howto-vm-sign-in-azure-ad-windows.md)
 
 [Hybrid Azure AD join](concept-azure-ad-join-hybrid.md) is seen as an interim step on the road to Azure AD join. Hybrid Azure AD join provides organizations support for downlevel Windows versions back to Windows 7 and Server 2008. All three scenarios can coexist in a single organization.

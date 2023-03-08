@@ -2,8 +2,8 @@
 title: 'Tutorial: Find multiple routes by mode of travel'
 titleSuffix: Microsoft Azure Maps
 description: Tutorial on how to use Azure Maps to find routes for specific travel modes to points of interest. See how to display multiple routes on maps.
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 12/29/2021
 ms.topic: tutorial
 ms.service: azure-maps
@@ -27,7 +27,10 @@ In this tutorial, you learn how to:
 
 1. An [Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account).
 
-1. An [Azure Maps primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key. For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](how-to-manage-authentication.md).
+1. A [subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account).
+
+> [!NOTE]
+> For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](how-to-manage-authentication.md).
 
 ## Create a new web page using the map control API
 
@@ -85,15 +88,15 @@ The following steps show you how to create and display the Map control in a web 
    * The `onload` event in the body of the page calls the `GetMap` function when the body of the page has loaded.
    * The `GetMap` function will contain the inline JavaScript code used to access the Azure Maps API.
 
-3. Next, add the following JavaScript code to the `GetMap` function, just beneath the code added in the last step. This code creates a map control and initializes it using your Azure Maps primary subscription keys that you provide. Make sure and replace the string `<Your Azure Maps Key>` with the Azure Maps primary key that you copied from your Maps account.
+3. Next, add the following JavaScript code to the `GetMap` function, just beneath the code added in the last step. This code creates a map control and initializes it using your Azure Maps subscription keys that you provide. Make sure and replace the string `<Your Azure Maps Subscription Key>` with the Azure Maps subscription key that you copied from your Maps account.
 
     ```JavaScript
     //Instantiate a map object
     var map = new atlas.Map("myMap", {
-        // Replace <Your Azure Maps Key> with your Azure Maps primary subscription key. https://aka.ms/am-primaryKey
+        // Replace <Your Azure Maps Subscription Key> with your Azure Maps subscription key. https://aka.ms/am-primaryKey
         authOptions: {
             authType: 'subscriptionKey',
-            subscriptionKey: '<Your Azure Maps Key>'
+            subscriptionKey: '<Your Azure Maps Subscription Key>'
         }
     });
     ```
@@ -104,9 +107,9 @@ The following steps show you how to create and display the Map control in a web 
    * [atlas](/javascript/api/azure-maps-control/atlas) is the namespace that contains the Azure Maps API and related visual components.
    * [atlas.Map](/javascript/api/azure-maps-control/atlas.map) provides the control for a visual and interactive web map.
 
-4. Save the file and open it in your browser. The browser will display a basic map by calling `atlas.Map` using your Azure Maps primary subscription key.
+4. Save the file and open it in your browser. The browser will display a basic map by calling `atlas.Map` using your Azure Maps subscription key.
 
-    :::image type="content" source="./media/tutorial-prioritized-routes/basic-map.png" alt-text="A screenshot that shows the most basic map you can make by calling the atlas Map API, using your Azure Maps primary subscription key.":::
+    :::image type="content" source="./media/tutorial-prioritized-routes/basic-map.png" alt-text="A screenshot that shows the most basic map you can make by calling the atlas Map API, using your Azure Maps subscription key.":::
 
 ## Render real-time traffic data on a map
 
@@ -306,8 +309,8 @@ This section shows you how to use the Azure Maps Route service to get directions
     * The truck route is displayed using a thick blue line and the car route is displayed using a thin purple line.
     * The car route goes across Lake Washington via I-90, passing through tunnels beneath residential areas. Because the tunnels are in residential areas, hazardous waste cargo is restricted. The truck route, which specifies a `USHazmatClass2` cargo type, is directed to use a different route that doesn't have this restriction.
 
-* For the completed code used in this tutorial, see [truckRoute.html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/truckRoute.html) on GitHub.
-* To view this sample live, see [Multiple routes by mode of travel](https://azuremapscodesamples.azurewebsites.net/?sample=Multiple%20routes%20by%20mode%20of%20travel) on the **Azure Maps Code Samples** site.
+* For the completed code used in this tutorial, see the [Truck Route](https://samples.azuremaps.com/?sample=car-vs-truck-route) tutorial on GitHub.
+* To view this sample live, see [Multiple routes by mode of travel](https://samples.azuremaps.com/?sample=multiple-routes-by-mode-of-travel) on the **Azure Maps Code Samples** site.
 * You can also use [Data-driven style expressions](data-driven-style-expressions-web-sdk.md)
 
 ## Next steps

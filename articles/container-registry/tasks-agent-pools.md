@@ -2,7 +2,9 @@
 title: Use dedicated pool to run task - Tasks
 description: Set up a dedicated compute pool (agent pool) in your registry to run an Azure Container Registry task.
 ms.topic: article
-ms.date: 10/12/2020
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ms.custom: references_regions, devx-track-azurecli
 ---
 
@@ -65,6 +67,7 @@ Create an agent pool by using the [az acr agentpool create][az-acr-agentpool-cre
 
 ```azurecli
 az acr agentpool create \
+    --registry MyRegistry \
     --name myagentpool \
     --tier S2
 ```
@@ -78,6 +81,7 @@ Scale the pool size up or down with the [az acr agentpool update][az-acr-agentpo
 
 ```azurecli
 az acr agentpool update \
+    --registry MyRegistry \
     --name myagentpool \
     --count 2
 ```
@@ -112,6 +116,7 @@ subnetId=$(az network vnet subnet show \
         --query id --output tsv)
 
 az acr agentpool create \
+    --registry MyRegistry \
     --name myagentpool \
     --tier S2 \
     --subnet-id $subnetId
@@ -131,6 +136,7 @@ Queue a quick task on the agent pool by using the [az acr build][az-acr-build] c
 
 ```azurecli
 az acr build \
+    --registry MyRegistry \
     --agent-pool myagentpool \
     --image myimage:mytag \
     --file Dockerfile \
@@ -143,6 +149,7 @@ For example, create a scheduled task on the agent pool with [az acr task create]
 
 ```azurecli
 az acr task create \
+    --registry MyRegistry \
     --name mytask \
     --agent-pool myagentpool \
     --image myimage:mytag \
@@ -156,6 +163,7 @@ To verify task setup, run [az acr task run][az-acr-task-run]:
 
 ```azurecli
 az acr task run \
+    --registry MyRegistry \
     --name mytask
 ```
 
@@ -165,6 +173,7 @@ To find the number of runs currently scheduled on the agent pool, run [az acr ag
 
 ```azurecli
 az acr agentpool show \
+    --registry MyRegistry \
     --name myagentpool \
     --queue-count
 ```

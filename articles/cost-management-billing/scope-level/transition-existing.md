@@ -4,7 +4,7 @@ description: This article describes the changes and several transition scenarios
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 09/30/2021
+ms.date: 12/06/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: ahb

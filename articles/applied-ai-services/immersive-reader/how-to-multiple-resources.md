@@ -2,14 +2,14 @@
 title: "Integrate multiple Immersive Reader resources"
 titleSuffix: Azure Applied AI Services
 description: In this tutorial, you'll create a Node.js application that launches the Immersive Reader using multiple Immersive Reader resources.
-author: nitinme
+author: rwallerms
 manager: nitinme
 
 ms.service: applied-ai-services
 ms.subservice: immersive-reader
 ms.topic: how-to
 ms.date: 01/14/2020
-ms.author: nitinme
+ms.author: rwaller
 ms.custom: devx-track-js
 #Customer intent: As a developer, I want to learn more about the Immersive Reader SDK so that I can fully utilize all that the SDK has to offer.
 ---
@@ -220,7 +220,7 @@ The **getimmersivereaderlaunchparams** API endpoint should be secured behind som
                 .then(function (response) {
                     const token = response["token"];
                     const subdomain = response["subdomain"];
-                    // Learn more about chunk usage and supported MIME types https://docs.microsoft.com/azure/cognitive-services/immersive-reader/reference#chunk
+                    // Learn more about chunk usage and supported MIME types https://learn.microsoft.com/azure/cognitive-services/immersive-reader/reference#chunk
                     const data = {
                         title: $("#ir-title").text(),
                         chunks: [{
@@ -228,7 +228,7 @@ The **getimmersivereaderlaunchparams** API endpoint should be secured behind som
                             mimeType: "text/html"
                         }]
                     };
-                    // Learn more about options https://docs.microsoft.com/azure/cognitive-services/immersive-reader/reference#options
+                    // Learn more about options https://learn.microsoft.com/azure/cognitive-services/immersive-reader/reference#options
                     const options = {
                         "onExit": exitCallback,
                         "uiZIndex": 2000

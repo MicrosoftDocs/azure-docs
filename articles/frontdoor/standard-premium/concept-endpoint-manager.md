@@ -10,12 +10,12 @@ ms.date: 02/18/2021
 ms.author: qixwang
 ---
 
-# What is Azure Front Door Standard/Premium (Preview) Endpoint Manager?
+# What is Azure Front Door Standard/Premium Endpoint Manager?
 
 > [!NOTE]
-> * This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [Azure Front Door Docs](../front-door-overview.md).
+> * This documentation is for Azure Front Door Standard/Premium. Looking for information on Azure Front Door? View [Azure Front Door Docs](../front-door-overview.md).
 
-Endpoint Manager provides an overview of endpoints you've configured for your Azure Front Door. An endpoint is a logical grouping of a domains and their associated configurations. Endpoint Manager helps you manage your collection of endpoints for CRUD (create, read, update, and delete) operation. You can manage the following elements for your endpoints through Endpoint Manager:
+Endpoint Manager provides an overview of endpoints you've configured for your Azure Front Door. An endpoint is a logical grouping of domains and their associated configuration. Endpoint Manager helps you manage your collection of endpoints for CRUD (create, read, update, and delete) operation. You can manage the following elements for your endpoints through Endpoint Manager:
 
 * Domains
 * Origin Groups
@@ -25,11 +25,6 @@ Endpoint Manager provides an overview of endpoints you've configured for your Az
 :::image type="content" source="../media/concept-endpoint-manager/endpoint-manager-1.png" alt-text="Screenshot of Endpoint Manager without configurations." lightbox="../media/concept-endpoint-manager/endpoint-manager-1-expanded.png":::
 
 Endpoint Manager list how many instances of each element are created within an endpoint. The association status for each element will also be displayed. For example, you may create multiple domains and origin groups, and assign the association between them with different routes.
-
-> [!IMPORTANT]
-> * Azure Front Door Standard/Premium (Preview) is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [**Supplemental Terms of Use for Microsoft Azure Previews**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Linked view
 
