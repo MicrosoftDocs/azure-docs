@@ -61,7 +61,7 @@ Availability zone support is a property of the App Service plan. The following a
 
 ### Create a resource with availability zone enabled
 
-#### To deploy a multi-tenant zone-redundant App Service:
+#### To deploy a multi-tenant zone-redundant App Service
 
 # [Azure CLI](#tab/cli)
 
@@ -119,7 +119,7 @@ The Azure Resource Manager template snippet below shows the new ***zoneRedundant
 ```
 ---
 
-#### To deploy a zone-redundant App Service using a dedicated environment:
+#### To deploy a zone-redundant App Service using a dedicated environment
 
 To learn how to create the App Service Environment v3 on Isolated v2 plan, see [Create an App Service Environment](/azure/app-service/environment/creation).
 
