@@ -33,10 +33,7 @@ This service is currently in preview, and the API may change in the future.
 The following example images illustrate what the Image Analysis service returns when removing the background of an image and creating an alpha matte. 
 
 
-|Original image  |With background removed  |Alpha matte  |
-|---------|---------|---------|
-
-| | | |
+|Original image  <img width=500/> |With background removed <img width=500/> |Alpha matte <img width=500/> |
 |---------|---------|---------|
 | :::image type="content" source="media/background-removal/building-1.png" alt-text="Photo of a city near water.":::    |  :::image type="content" source="media/background-removal/building-1-result.png" alt-text="Photo of a city near water; sky is transparent.":::       |   :::image type="content" source="media/background-removal/building-1-matte.png" alt-text="Alpha matte of a city skyline.":::      |
 |   :::image type="content" source="media/background-removal/person-5.png" alt-text="Photo of a group of people using a tablet.":::  |    :::image type="content" source="media/background-removal/person-5-result.png" alt-text="Photo of a group of people using a tablet; background is transparent.":::     |   :::image type="content" source="media/background-removal/person-5-matte.png" alt-text="Alpha matte of a group of people.":::      |
