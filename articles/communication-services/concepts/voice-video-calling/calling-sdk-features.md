@@ -47,8 +47,8 @@ The following list presents the set of features that are currently available in 
 |                   | Show state of a call<br/>*Early Media, Incoming, Connecting, Ringing, Connected, Hold, Disconnecting, Disconnected* | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Show if a participant is muted                                                                                      | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Show the reason why a participant left a call                                                                       | ✔️   | ✔️       | ✔️              | ✔️                 |
-| Screen sharing    | Share the entire screen from within the application                                                                 | ✔️    | ✔️*      | ✔️*              | ✔️*                |
-|                   | Share a specific application (from the list of running applications)                                                | ✔️   | ✔️*      | ❌              | ❌                 |
+| Screen sharing    | Share the entire screen from within the application                                                                 | ✔️  | ✔️<sup>1</sup>  | ✔️<sup>1</sup>   | ✔️<sup>1</sup>               |
+|                   | Share a specific application (from the list of running applications)                                                | ✔️   | ✔️<sup>1</sup>     | ❌              | ❌                 |
 |                   | Share a web browser tab from the list of open tabs                                                                  | ✔️   | ❌       | ❌              | ❌                 |
 |                   | Share system audio during screen sharing                                                                            | ❌   | ❌       | ❌              | ❌                 |
 |                   | Participant can view remote screen share                                                                            | ✔️   | ✔️       | ✔️              | ✔️                 |
@@ -64,17 +64,18 @@ The following list presents the set of features that are currently available in 
 |                   | Get camera list                                                                                                     | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Set camera                                                                                                          | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Get selected camera                                                                                                 | ✔️   | ✔️       | ✔️              | ✔️                 |
-|                   | Get microphone list                                                                                                 | ✔️   | ✔️       | ✔️              | ✔️                 |
-|                   | Set microphone                                                                                                      | ✔️   | ✔️       | ✔️              | ✔️                 |
-|                   | Get selected microphone                                                                                             | ✔️   | ✔️       | ✔️              | ✔️                 |
-|                   | Get speakers list                                                                                                   | ✔️   | ✔️       | ✔️              | ✔️                 |
-|                   | Set speaker                                                                                                         | ✔️   | ✔️       | ✔️              | ✔️                 |
-|                   | Get selected speaker                                                                                                | ✔️   | ✔️       | ✔️              | ✔️                 |
+|                   | Get microphone list                                                                                                 | ✔️   | ✔️       | ❌ <sup>2</sup>             | ❌<sup>2</sup>                 |
+|                   | Set microphone                                                                                                      | ✔️   | ✔️       | ❌ <sup>2</sup>             | ❌    <sup>2</sup>             |
+|                   | Get selected microphone                                                                                             | ✔️   | ✔️       | ❌   <sup>2</sup>           | ❌          <sup>2</sup>       |
+|                   | Get speakers list                                                                                                   | ✔️   | ✔️       | ❌     <sup>2</sup>         | ❌     <sup>2</sup>            |
+|                   | Set speaker                                                                                                         | ✔️   | ✔️       | ❌ <sup>2</sup>             | ❌   <sup>2</sup>              |
+|                   | Get selected speaker                                                                                                | ✔️   | ✔️       | ❌  <sup>2</sup>            | ❌     <sup>2</sup>            |
 | Video Rendering   | Render single video in many places (local camera or remote stream)                                                  | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Set / update scaling mode                                                                                           | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Render remote video stream                                                                                          | ✔️   | ✔️       | ✔️              | ✔️                 |
 
-- The Share Screen capability can be achieved using Raw Media (this feature is in Public Preview), if you want to learn, **how  to add Raw Media**, visit [the quickstart guide](../../quickstarts/voice-video-calling/get-started-raw-media-access.md).
+1. The Share Screen capability can be achieved using Raw Media (this feature is in Public Preview), if you want to learn, **how  to add Raw Media**, visit [the quickstart guide](../../quickstarts/voice-video-calling/get-started-raw-media-access.md).
+2. The Calling SDK don't have an explicit API, you need to use the OS (android & iOS) API to achieve it.
 
 ## UI Library
 

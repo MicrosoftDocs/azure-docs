@@ -131,7 +131,7 @@ Call and chat client libraries must have the context for the call they join. Lik
 
 When troubleshooting happens for voice or video calls, you may be asked to provide a **CallID**; this ID is used to identify Communication Services calls.
 
-This CallID can be retrieved via the action bar on the bottom of the call screen; you'll see an ellipsis button; once the user performs the tap action an option of ***"Share diagnostics info"***; the user will have the capability to share **the diagnostics info** that will be required to track  any issues by the support team.
+This CallID can be retrieved via the action bar on the bottom of the call screen; you see an ellipsis button; once the user performs the tap action an option of ***"Share diagnostics info"***; the user have the capability to share **the diagnostics info** that are required to track any issues by the support team.
 
 For programmatic access to **CallID**, see ["How to get debug information programmatically"](../../../how-tos/ui-library-sdk/troubleshooting.md).
 

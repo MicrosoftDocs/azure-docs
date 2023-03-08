@@ -29,7 +29,7 @@ In Visual Studio, create a new project with the **Blank App (Universal Windows)*
 
 #### Install the package
 
-Right click your project and go to `Manage Nuget Packages` to install `Azure.Communication.Calling` [1.0.0-beta.33](https://www.nuget.org/packages/Azure.Communication.Calling/1.0.0-beta.33) or above. Make sure Include Preleased is checked.
+Right click your project and go to `Manage Nuget Packages` to install `Azure.Communication.Calling` [1.0.0-beta.33](https://www.nuget.org/packages/Azure.Communication.Calling/1.0.0-beta.33) or superior version. Make sure Include Preleased is checked.
 
 #### Request access
 
@@ -373,7 +373,7 @@ await this.call.HangUpAsync(new HangUpOptions());
 
 ### Run the code
 
-You can build and run the code on Visual Studio. Note that for solution platforms we support `ARM64`, `x64` and `x86`. 
+You can build and run the code on Visual Studio. For solution platforms, we support `ARM64`, `x64` and `x86`. 
 
 You can make an outbound video call by providing a user ID in the text field and clicking the `Start Call` button. 
 
@@ -409,7 +409,7 @@ In Visual Studio, create a new project with the **Blank App, Packaged (WinUI 3 i
 
 #### Install the package
 
-Right click your project and go to `Manage Nuget Packages` to install `Azure.Communication.Calling` [1.0.0-beta.33](https://www.nuget.org/packages/Azure.Communication.Calling/1.0.0-beta.33) or above. Make sure Include Preleased is checked.
+Right click your project and go to `Manage Nuget Packages` to install `Azure.Communication.Calling` [1.0.0-beta.33](https://www.nuget.org/packages/Azure.Communication.Calling/1.0.0-beta.33) or superior version. Make sure Include Preleased is checked.
 
 #### Request access
 
@@ -741,7 +741,7 @@ await this.call.HangUpAsync(new HangUpOptions());
 
 ### Run the code
 
-You can build and run the code on Visual Studio. Note that for solution platforms we support `ARM64`, `x64` and `x86`. 
+You can build and run the code on Visual Studio. For solution platforms we support `ARM64`, `x64` and `x86`. 
 
 You can make an outbound video call by providing a user ID in the text field and clicking the `Start Call` button. 
 
