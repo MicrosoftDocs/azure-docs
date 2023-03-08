@@ -50,13 +50,7 @@ OpenID Connect (OIDC) is an authentication protocol that's built on OAuth 2.0. Y
 
 1. Select **Register** to complete the app registration.
 
-    The following screenshot shows you how to register a SPA app.
-
-<!--   :::image type="content" source="./media/ciam-pp1/register-spa-app.png" alt-text="Screenshot that shows how to register a single page application in Azure portal.":::-->
-
 1. When registration finishes, the Azure portal displays the app registration's **Overview** pane. Record the **Application (client) ID**, and the **Directory (tenant) ID** to use later, when you configure the SPA application. The client ID uniquely identifies your application in the Microsoft identity platform. 
-
- <!--   :::image type="content" source="./media/ciam-pp1/app-registration-overview.png" alt-text="Screenshot that shows how to copy the application ID.":::-->   
 
 ## Get the SPA sample code
 
