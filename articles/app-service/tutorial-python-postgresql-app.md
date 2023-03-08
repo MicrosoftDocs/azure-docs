@@ -67,19 +67,7 @@ The Azure Developer CLI also enables you to configure your application to use a 
 
 ## Explore the azd template and workflow
 
-The sections ahead review the workflow steps the Azure Developer CLI completed for you in more detail for added context. The `azd up` command you ran wraps and streamlines the following individual commands and workflow steps:
-
-* `azd init`: Clone and initialize the project.
-* `azd provision`: Create the necessary Azure resources.
-* `azd deploy`: Deploy the application code to Azure.
-
-You could also run these commands one at a time instead of using `azd up` if you prefer more granular control. Additional information about what each workflow stage handled for you is provided below.
-
-### Project initialization
-
-When you ran `azd up`, the Azure Developer CLI cloned the template repository down to your local machine. You can also run the project initialization in isolation using the `azd init` command. The initialize step prompts you for essential configuration information such as the name of the environment and the Azure location to deploy to.
-
-The cloned sample application template includes the source code for a Flask or Django web application written in Python that connects to a Azure Database for PostgresSQL. The template also includes the necessary infrastructure folders and configuration files for the project to work correctly as an AZD template.
+The sections ahead review the workflow steps the Azure Developer CLI completed for you in more detail for added context. When you ran `azd up`, the Azure Developer CLI cloned the template repository down to your local machine. The cloned sample application template includes the source code for a Flask or Django web application written in Python that connects to a Azure Database for PostgresSQL. The template also includes the necessary infrastructure folders and configuration files for the project to work correctly as an AZD template.
 
 ### Resource provisioning
 
