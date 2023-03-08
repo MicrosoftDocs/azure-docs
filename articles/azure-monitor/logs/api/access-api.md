@@ -52,7 +52,7 @@ where:
  
 The query is passed in the request body.
  
-For example,
+For example:
  ```
     https://api.loganalytics.azure.com/v1/workspaces/1234abcd-def89-765a-9abc-def1234abcde
     
