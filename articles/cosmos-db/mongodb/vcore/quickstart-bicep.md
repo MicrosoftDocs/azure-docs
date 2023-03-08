@@ -257,7 +257,7 @@ When you're done with your Azure Cosmos DB for MongoDB vCore cluster, you can de
 
 ### [Azure CLI](#tab/azure-cli)
 
-1. TODO
+1. Use [`az group delete`](/cli/azure/group#az-group-delete) to remove the resource group from your subscription.
 
     ```azurecli
     az group delete \
@@ -266,7 +266,7 @@ When you're done with your Azure Cosmos DB for MongoDB vCore cluster, you can de
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-1. TODO
+1. Use [`Remove-AzResourceGroup`](/powershell/module/az.resources/remove-azresourcegroup) to remove the resource group from your subscription.
 
     ```azurepowershell
     $parameters = @{
