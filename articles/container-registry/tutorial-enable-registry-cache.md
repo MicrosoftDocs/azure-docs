@@ -78,7 +78,7 @@ Follow the steps to create cache rule in the [Azure portal](https://portal.azure
 
 11. Pull the image from your cache using the Docker command `docker pull myregistry.azurecr.io/hello-world`
 
-## Cleanup the resources
+## Clean up the resources
 
 1. Run [az acr cache list][az-acr-cache-list] command to list the cache rules in the Azure Container Registry.
 

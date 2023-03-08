@@ -67,7 +67,7 @@ Implementing Caching for ACR provides the following benefits:
 
 ## Next steps
 
-* To enable Caching for ACR (preview) using the Azure CLI and Azure Portal advance to the next article: [Enable Caching for ACR](tutorial-enable-registry-cache.md).
+* To enable Caching for ACR (preview) using the Azure CLI and Azure portal advance to the next article: [Enable Caching for ACR](tutorial-enable-registry-cache.md).
 
 <!-- LINKS - External -->
 
