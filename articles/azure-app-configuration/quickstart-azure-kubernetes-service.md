@@ -1,6 +1,6 @@
 ---
 title: Quickstart for Azure App Configuration with Azure Kubernetes Service | Microsoft Docs
-description: "In this quickstart, make an Azure Kubernetes Service with an Asp.net core web app workload. Create an AzureAppConfigurationProvider to connect App Configuration store, the app can load the configurations from App Configuration store. "
+description: "In this quickstart, make an Azure Kubernetes Service with an ASP.NET core web app workload. Create an AzureAppConfigurationProvider to connect App Configuration store, the app can load the configurations from App Configuration store. "
 services: azure-app-configuration
 author: junbchen
 ms.service: azure-app-configuration
@@ -52,9 +52,9 @@ export AKS_Resource_Group='resource-group-of-aks-you-just-created'
 
 Restart the command prompt to allow the change to take effect. Print the value of the environment variable to validate that it's set properly.
 
-## Enable System Assigned Managed Identity of AKS VMSS NodePool
+## Enable System Assigned Managed Identity of AKS NodePool
 
-Go to the corresponding Virtual Machine Scale Sets (VMSS) resource of AKS, and enable system-assigned managed identity on the VMSS by following this [doc](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmss#enable-system-assigned-managed-identity-on-an-existing-virtual-machine-scale-set)
+Go to the corresponding Virtual Machine Scale Sets resource of AKS, and enable system-assigned managed identity on the Virtual Machine Scale Sets by following this [doc](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmss#enable-system-assigned-managed-identity-on-an-existing-virtual-machine-scale-set)
 
 ## System Assigned Managed Identity role assignment
 
