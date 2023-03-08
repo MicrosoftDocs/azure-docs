@@ -68,24 +68,24 @@ landingContent:
     linkLists:
       - linkListType: learn
         links:
-         - text: Connection resilience
-           url: cache-best-practices-connection.md
-         - text: Server load management
-           url: cache-best-practices-server-load.md
-         - text: Memory management
-           url: cache-best-practices-memory-management.md
-         - text: Development
-           url: cache-best-practices-development.md
          - text: Client libraries
            url: cache-best-practices-client-libraries.md
-         - text: Scaling
-           url: cache-best-practices-scale.md
-         - text: Kubernetes-hosted client applications
-           url: cache-best-practices-kubernetes.md
-         - text:  Performance testing
-           url: cache-best-practices-performance.md
+         - text: Connection resilience
+           url: cache-best-practices-connection.md
+         - text: Development
+           url: cache-best-practices-development.md
          - text: Enterprise and Enterprise Flash
            url: cache-best-practices-enterprise-tiers.md
+         - text: Kubernetes-hosted client applications
+           url: cache-best-practices-kubernetes.md
+         - text: Memory management
+           url: cache-best-practices-memory-management.md
+         - text:  Performance testing
+           url: cache-best-practices-performance.md
+         - text: Scaling
+           url: cache-best-practices-scale.md
+         - text: Server load management
+           url: cache-best-practices-server-load.md
   - title: SDKs and command-lines
     linkLists:
       - linkListType: reference
