@@ -36,9 +36,12 @@ The Notebooks section in your workspace is a good place to start learning about 
 1. Select your workspace if it isn't already open.
 1. On the left navigation, select **Notebooks**.
 
-## Set up a new environment for prototyping
+## Set up a new environment for prototyping (optional)
 
 In order for your script to run, you need to be working in an environment configured with the dependencies and libraries the code expects. This section helps you create an environment tailored to your code. To create the new Jupyter kernel your notebook connects to, you'll use a YAML file that defines the dependencies.
+
+> [!TIP]
+> The code in this tutorial works in the default kernel the notebook connects to. You'll find that the pre-configured kernels often have what you need for your machine learning tasks. If you prefer not to create a new kernel, skip to [Create a notebook](#create-a-notebook).
 
 * **Upload a file.**
     Files you upload are stored in an Azure file share, and these files are mounted to each compute instance and shared within the workspace.
@@ -110,7 +113,7 @@ You have a new kernel.  Next you open a notebook and use this kernel.
 
 1. Name your new notebook **develop-tutorial.ipynb** (or enter your preferred name).
 
-1. You'll see the notebook connect to the default kernel in the top right. Switch to the kernel you created, **Tutorial Workstation Env**.
+1. You'll see the notebook connect to the default kernel in the top right. If you created the new **Tutorial Workstation Env** kernel, switch to it now.
 
 ## Develop a training script
 
@@ -163,7 +166,7 @@ This code uses `sklearn` for training and MLflow for logging the metrics.
     X_test = test_df.values
     ```
 
-1. Add code to start an MLflow run, so that you can track the metrics and results. With the iterative nature of model development, MLflow helps you log model parameters and results.  Refer back to those runs to compare and understand how your model performs. The logs also provide context when you're ready to move from the development to training phase of your workflows within Azure Machine Learning.
+1. Add code to start autologging with `MLflow`, so that you can track the metrics and results. With the iterative nature of model development, `MLflow` helps you log model parameters and results.  Refer back to those runs to compare and understand how your model performs. The logs also provide context when you're ready to move from the development to training phase of your workflows within Azure Machine Learning.
 
     ```python
     # enable autologging with MLflow
@@ -198,8 +201,6 @@ Now that you have model results, you may want to change something and try again.
 
 ```python
 # Train  AdaBoost Classifier
-# Start a second run
-mlflow.start_run()
 
 from sklearn.ensemble import AdaBoostClassifier
 
@@ -239,33 +240,19 @@ Now that you've tried two different models, which one do you like best?  Since y
 
 1. Go back and review the metrics and images for the other model.
 
-## Simplify notebook
-
-Once you're satisfied with the model code and results, you're ready to create a Python script from the notebook.  But first, you want to gather together only the cells that are useful for creating your preferred model.  You could look through the notebook and delete cells you don't want in your training script.  Or, you could use the **Gather** function in notebooks to create a new notebook for you with just the cells that you need.  
-
-Use these steps to gather just the cells that you need:
-
-1. Go back to the **Notebooks** section of your workspace.
-1. Click inside the code cell for the model you wish to use.  For this tutorial, let's select the first model, GradientBoostingClassifier.
-1. On the toolbar that appears on the right at the top of the cell, select the **Gather tool** 
-
-    :::image type="content" source="media/tutorial-cloud-workstation/gather-tool.png" alt-text="Screenshot shows the gather tool above a code cell.":::
-
-1. On the **Create new Gather file** form, shorten the file name to **train**.
-1. Select **Create**.
-
-The new gathered notebook opens.  This new notebook contains only cells needed to run the selected model.  Notice the other model cell doesn't appear here.  If you've done other things in the notebook, such as exploring and visualizing data, those cells wouldn't appear here either.
-
 ## Create a Python script
 
-Now use your new gathered notebook to create a Python script for training your model.
+Now create a Python script from your notebook for model training.
 
 1. On the notebook toolbar, select the menu.
 1. Select **Export as> Python**.
 
     :::image type="content" source="media/tutorial-cloud-workstation/export-python-file.png" alt-text="Screenshot shows exporting a Python file from the notebook.":::
 
-You now have a Python script to use for training.  You may wish to add in some comments to this file.
+1. Look through this file and delete the code you don't want in the training script.  For example, keep the code for the model you wish to use, and delete code for the model you don't want.  Make sure you keep the code that starts autologging (`mlflow.sklearn.autolog()`).
+1. You may also wish to delete the auto-generated comments and add in more of your own comments.
+
+You now have a Python script to use for training your preferred model.  
 
 ## Run the Python script
 
@@ -278,7 +265,7 @@ For now, you're running this code on your compute instance, which is your Azure 
     conda env list
     ```
 
-1. Activate the kernel you created for this job:
+1. If you created a new kernel, activate it now:
 
     ```bash
     conda activate workstation_env
@@ -293,14 +280,7 @@ For now, you're running this code on your compute instance, which is your Azure 
 
 ## Examine script results
 
-Go back to **Jobs** to see the results of your training script. There isn't a third training run. 
-
-When you used **Gather** to create the trimmed notebook, the `MLflow` cell is not included, since `MLflow` isn't a direct dependency of the training code.  While the `.start_run()` and `.stop_run()` aren't needed when you train just one model, `.autolog()` is necessary to create logging.  Add the `.autolog()` back into the Python script, prior to the training.
-
-```python
-    # enable autologging
-    mlflow.sklearn.autolog()
-```
+Go back to **Jobs** to see the results of your training script. Keep in mind that the training data changes with each split, so the results differ between runs as well.
 
 ## Clean up resources
 

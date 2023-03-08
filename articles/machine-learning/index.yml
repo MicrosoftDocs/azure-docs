@@ -40,6 +40,16 @@ landingContent:
           url: tutorial-azure-ml-in-a-day.md
 
   # Card
+  - title: "Manage the ML lifecycle (MLOps)"
+    linkLists:
+    - linkListType: how-to-guide
+      links:
+      - text: Track, monitor, analyze training runs
+        url: how-to-track-monitor-analyze-runs.md
+      - text: Model management, deployment & monitoring
+        url: concept-model-management-and-deployment.md
+
+  # Card
   - title: Work with data
     linkLists:
       - linkListType: how-to-guide
@@ -86,16 +96,7 @@ landingContent:
         - text: Deploy R models
           url: how-to-r-deploy-r-model.md
 
-  # Card
-  - title: "Manage the ML lifecycle (MLOps)"
-    linkLists:
-    - linkListType: how-to-guide
-      links:
-      - text: Track, monitor, analyze training runs
-        url: how-to-track-monitor-analyze-runs.md
-      - text: Model management, deployment & monitoring
-        url: concept-model-management-and-deployment.md
-
+  
   # Card
   - title: "Security for ML projects"
     linkLists:
