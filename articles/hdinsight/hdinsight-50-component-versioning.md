@@ -18,7 +18,7 @@ The Open-source component versions associated with HDInsight 5.0 are listed in t
 
 | Component        | HDInsight 5.0 | HDInsight 4.0 |
 |------------------|---------------|---------------|
-| Apache Spark     | 3.1.2         | 2.4.4         |
+| Apache Spark     | 3.1.3         | 2.4.4         |
 | Apache Hive      | 3.1.2         | 3.1.2         |
 | Apache Kafka     | 2.4.1         | 2.1.1         |
 | Apache Hadoop    | 3.1.1         | 3.1.1         |
@@ -47,7 +47,7 @@ Apache Spark versions supported in Azure HDIinsight
 |--|--|--|--|--|--|
 |2.4|July 8, 2019|End of Life Announced (EOLA)| Feb10,2023| Aug 10,2023|Feb 10,2024|
 |3.1|March 11,2022|GA |-|-|-|
-|3.3|March 22,2023|Public Preview|-|-|-|
+|3.3|To be announced for Public Preview|-|-|-|-|
 
 ## Apache Spark 2.4 to Spark 3.x Migration Guides 
 

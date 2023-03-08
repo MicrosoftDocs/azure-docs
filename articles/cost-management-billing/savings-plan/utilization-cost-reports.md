@@ -120,11 +120,19 @@ You can charge back savings plan use to other organizations by subscription, res
 
 ### Determine savings resulting from savings plan
 
-Get the Amortized costs data and filter the data for a savings plan instance. Then:
+Get the Amortized costs data and filter the data for a `PricingModel` = `SavingsPlan`. Then:
 
-1. Get estimated pay-as-you-go costs. Multiply the `UnitPrice` value with `Quantity` values to get estimated pay-as-you-go costs if the savings plan discount didn't apply to the usage.
+1. Get estimated pay-as-you-go costs or customer discounted cost. Multiply the `UnitPrice` value with `Quantity` values to get estimated pay-as-you-go costs if the savings plan discount didn't apply to the usage.
 2. Get the savings plan costs. Sum the `Cost` values to get the monetary value of what you paid for the savings plan. It includes the used and unused costs of the savings plan.
-3. Subtract savings plan costs from estimated pay-as-you-go costs to get the estimated savings.
+3. Subtract estimated pay-as-you-go costs from savings plan costs to get the estimated savings.
+
+- To know the Savings made out of public list price:
+   - Get public or list price cost.  Multiply the `PayGPrice` value with `Quantity` values to get public-list-price costs.
+   - Get Savings made out of savings plan against public list price. Subtract estimated public-list-price costs from `Cost`.
+
++ To know the % savings made out of discounted price for customer:
+   + Get Savings made out of savings plan against discounts given to customer. Subtract estimated pay-as-you-go from `Cost`.
+   + Get % discount applied on each line item. Divide `Cost` with public-list-price and then divide by 100.
 
 Keep in mind that if you have an underutilized savings plan, the `UnusedBenefit` entry for `ChargeType` becomes a factor to consider. When you have a fully utilized savings plan, you receive the maximum savings possible. Any `UnusedBenefit` quantity reduces savings.
 

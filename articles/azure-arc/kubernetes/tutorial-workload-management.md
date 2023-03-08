@@ -32,10 +32,12 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 In order to successfully deploy the sample, you need:
 
-- [Azure CLI](/cli/azure/install-azure-cli).
+- [Azure CLI](/cli/azure/install-azure-cli)
 - [GitHub CLI](https://cli.github.com)
 - [Helm](https://helm.sh/docs/helm/helm_install/)
 - [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl)
+- [jq](https://stedolan.github.io/jq/download/)
+- GitHub token with the following scopes: `repo`, `workflow`, `write:packages`, `delete:packages`, `read:org`, `delete_repo`.
 
 ## 1 - Deploy the sample
 

@@ -37,6 +37,11 @@ Your current cloud service session is not immediately affected by a synchronized
 
 A user must enter their corporate credentials a second time to authenticate to Azure AD, regardless of whether they're signed in to their corporate network. This pattern can be minimized, however, if the user selects the Keep me signed in (KMSI) check box at sign-in. This selection sets a session cookie that bypasses authentication for 180 days. KMSI behavior can be enabled or disabled by the Azure AD administrator. In addition, you can reduce password prompts by configuring [Azure AD join](../devices/concept-azure-ad-join.md) or [Hybrid Azure AD join](../devices/concept-azure-ad-join-hybrid.md), which automatically signs users in when they are on their corporate devices connected to your corporate network.
 
+### Additional advantages
+
+- Generally, password hash synchronization is simpler to implement than a federation service. It doesn't require any additional servers, and eliminates dependence on a highly available federation service to authenticate users.
+- Password hash synchronization can also be enabled in addition to federation. It may be used as a fallback if your federation service experiences an outage.
+
 > [!NOTE]
 > Password sync is only supported for the object type user in Active Directory. It is not supported for the iNetOrgPerson object type.
 
@@ -142,6 +147,8 @@ To support temporary passwords in Azure AD for synchronized users, you can enabl
 > Forcing a user to change their password on next logon requires a password change at the same time.  Azure AD Connect will not pick up the force password change flag by itself; it is supplemental to the detected password change that occurs during password hash sync.
 > 
 > If the user has the option "Password never expires" set in Active Directory (AD), the force password change flag will not be set in Active Directory (AD), so the user will not be prompted to change the password during the next sign-in.
+>
+> A new user created in Active Directory with "User must change password at next logon" flag will always be provisioned in Azure AD with a password policy to "Force change password on next sign-in", irrespective of the *ForcePasswordChangeOnLogOn* feature being true or false. This is an Azure AD internal logic since the new user is provisioned without a password, whereas *ForcePasswordChangeOnLogOn* feature only affects admin password reset scenarios.
 
 > [!CAUTION]
 > You should only use this feature when SSPR and Password Writeback are enabled on the tenant.  This is so that if a user changes their password via SSPR, it will be synchronized to Active Directory.
@@ -152,18 +159,13 @@ If your organization uses the accountExpires attribute as part of user account m
 
 ### Overwrite synchronized passwords
 
-An administrator can manually reset your password by using Windows PowerShell.
+An administrator can manually reset your password directly in Azure AD by using Windows PowerShell (unless the user is in a Federated Domain).
 
 In this case, the new password overrides your synchronized password, and all password policies defined in the cloud are applied to the new password.
 
 If you change your on-premises password again, the new password is synchronized to the cloud, and it overrides the manually updated password.
 
 The synchronization of a password has no impact on the Azure user who is signed in. Your current cloud service session is not immediately affected by a synchronized password change that occurs while you're signed in to a cloud service. KMSI extends the duration of this difference. When the cloud service requires you to authenticate again, you need to provide your new password.
-
-### Additional advantages
-
-- Generally, password hash synchronization is simpler to implement than a federation service. It doesn't require any additional servers, and eliminates dependence on a highly available federation service to authenticate users.
-- Password hash synchronization can also be enabled in addition to federation. It may be used as a fallback if your federation service experiences an outage.
 
 ## Password hash sync process for Azure AD Domain Services
 

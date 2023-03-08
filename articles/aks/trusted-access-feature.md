@@ -3,7 +3,7 @@ title: Enable Azure resources to access Azure Kubernetes Service (AKS) clusters 
 description: Learn how to use the Trusted Access feature to enable Azure resources to access Azure Kubernetes Service (AKS) clusters.
 author: schaffererin
 ms.topic: article
-ms.date: 02/23/2023
+ms.date: 03/03/2023
 ms.author: schaffererin
 ---
 
@@ -89,7 +89,7 @@ az aks trustedaccess rolebinding create  --resource-group <AKS resource group> -
 az aks trustedaccess rolebinding create \
 -g myResourceGroup \
 --cluster-name myAKSCluster -n test-binding \
--s /subscriptions/000-000-000-000-000/resourceGroups/myResourceGroup/providers/Microsoft.MachineLearningServices/workspaces/MyMachineLearning \
+--source-resource-id /subscriptions/000-000-000-000-000/resourceGroups/myResourceGroup/providers/Microsoft.MachineLearningServices/workspaces/MyMachineLearning \
 --roles Microsoft.Compute/virtualMachineScaleSets/test-node-reader,Microsoft.Compute/virtualMachineScaleSets/test-admin
 ```
 

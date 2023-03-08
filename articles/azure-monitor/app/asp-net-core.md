@@ -751,6 +751,12 @@ This SDK requires `HttpContext`. It doesn't work in any non-HTTP applications, i
 
 For the latest updates and bug fixes, see the [release notes](./release-notes.md).
 
+## Release Notes
+
+For version 2.12 and newer: [.NET SDKs (Including ASP.NET, ASP.NET Core, and Logging Adapters)](https://github.com/Microsoft/ApplicationInsights-dotnet/releases) 
+
+Our [Service Updates](https://azure.microsoft.com/updates/?service=application-insights) also summarize major Application Insights improvements.
+
 ## Next steps
 
 * [Explore user flows](./usage-flows.md) to understand how users move through your app.
