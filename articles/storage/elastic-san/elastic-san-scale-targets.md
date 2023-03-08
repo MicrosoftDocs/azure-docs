@@ -1,5 +1,5 @@
 ---
-title: Elastic SAN (preview) scalability and performance targets
+title: Elastic SAN Preview scalability and performance targets
 description: Learn about the capacity, IOPS, and throughput rates for Azure Elastic SAN.
 author: roygara
 ms.service: storage
@@ -10,13 +10,13 @@ ms.subservice: elastic-san
 ms.custom: references_regions, ignite-2022
 ---
 
-# Elastic SAN (preview) scale targets
+# Elastic SAN Preview scale targets
 
 There are three main components to an elastic storage area network (SAN): the SAN itself, volume groups, and volumes.
 
 ## The Elastic SAN
 
-An Elastic SAN (preview) has three attributes that determine its performance: total capacity, IOPS, and throughput.
+An Elastic SAN Preview has three attributes that determine its performance: total capacity, IOPS, and throughput.
 
 ### Capacity
 
@@ -78,4 +78,4 @@ The performance of an individual volume is determined by its capacity. The maxim
 
 ## Next steps
 
-[Plan for deploying an Elastic SAN (preview)](elastic-san-planning.md)
+[Plan for deploying an Elastic SAN Preview](elastic-san-planning.md)
