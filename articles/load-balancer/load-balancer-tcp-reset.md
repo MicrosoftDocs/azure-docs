@@ -56,13 +56,12 @@ It is important to take into account how the idle timeout values set for differe
 | Public IP (attached to load balancer frontend) | 1 | 4 |
 | Load Balancer Inbound Rule | 2 | N/A |
 | Load Balancer Outbound Rule | N/A | 3 |
-| Inbound NAT Rule | 2 | N/A |
 | NAT Gateway | N/A | 1 |
 
 ### Inbound
 
-- If there is an (inbound) load balancer rule with an idle timeout value set differently than the idle timeout of the frontend IP it references, the load balancer idle timeout will take precedence.
-- If there is an inbound NAT rule with an idle timeout value set differently than the idle timeout of the frontend IP it references, the load balancer idle timeout will take precedence.
+- If there is an (inbound) load balancer rule with an idle timeout value set differently than the idle timeout of the frontend IP it references, the load balancer frontend IP idle timeout will take precedence.
+- If there is an inbound NAT rule with an idle timeout value set differently than the idle timeout of the frontend IP it references, the load balancer frontend IP idle timeout will take precedence.
 
 ### Outbound
 
