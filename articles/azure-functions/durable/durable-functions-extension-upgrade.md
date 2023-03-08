@@ -17,7 +17,7 @@ Many issues users experience with Durable Functions can be resolved simply by up
 * [.NET in-process worker](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask)
 * [.NET isolated worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask)
 
-If you're using the Netherite or Microsoft SQL [storage providers](durable-functions-storage-providers.md) (instead of Azure Storage), you need to reference the following:
+If you're using the Netherite or MSSQL [storage providers](durable-functions-storage-providers.md) (instead of Azure Storage), you need to reference the following:
 
 * [Netherite, in-process worker](https://www.nuget.org/packages/Microsoft.Azure.DurableTask.Netherite.AzureFunctions)
 * [Netherite, isolated worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask.Netherite)
