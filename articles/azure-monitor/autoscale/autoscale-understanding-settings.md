@@ -103,7 +103,7 @@ The table below describes the elements in the above autoscale setting's JSON.
 | Setting | name | |The autoscale setting name. |
 | Setting | location | |The location of the autoscale setting. This location can be different from the location of the resource being scaled. |
 | properties | targetResourceUri | |The resource ID of the resource being scaled. You can only have one autoscale setting per resource. |
-| properties | profiles | Scale condition |An autoscale setting is composed of one or more profiles. Each time the autoscale engine runs, it executes one profile. |
+| properties | profiles | Scale condition |An autoscale setting is composed of one or more profiles. Each time the autoscale engine runs, it executes one profile. Configure up to 20 profiles per autoscale setting. |
 | profiles | name | |The name of the profile. You can choose any name that helps you identify the profile. |
 | profiles | capacity.maximum | Instance limits - Maximum |The maximum capacity allowed. It ensures that autoscale doesn't scale your resource above this number when executing the profile. |
 | profiles | capacity.minimum | Instance limits - Minimum  |The minimum capacity allowed. It ensures that autoscale doesn't scale your resource below this number when executing the profile |
