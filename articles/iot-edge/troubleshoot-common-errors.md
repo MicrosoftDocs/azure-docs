@@ -115,6 +115,29 @@ You can set DNS server for each module's *createOptions* in the IoT Edge deploym
 
 Be sure to set this configuration for the *edgeAgent* and *edgeHub* modules as well.
 
+### Edge Agent module with LTE connection reports 'empty edge agent config' and throws 'transient network error' 
+
+#### Symptoms
+
+The LTE modem configured with LTE connection is having trouble starting modules defined in the deployment. The *edgeAgent* is not able to connect to the IoT Hub and continually reporting 'empty edge agent config' and 'transient network error occurred.'
+
+#### Cause
+
+In some cases, it was found that the mismatch between the MTU on the docker network and the LTE devices is causing connectivity issues, instability, performance issue, and unreachable websites.
+
+#### Solution
+1. Check the MTU setting for your device and ensure it is appropriately set based on your network setting. Contact your ISP for more information.
+2. In some cases, the workaround below also worked:
+> - Create a new network by using the command 
+   `docker network create --opt com.docker.network.driver.mtu=1429 test-mtu`
+
+   In this example, the MTU setting for the device was 1430 hence the MTU for the docker network was set to 1430 or lower i.e.,1429
+> - Stop and remove the azure network 
+   `docker network rm azure-iot-edge`
+> - Recreate the azure network using the command below
+   `docker network create --opt com.docker.network.driver.mtu=1429 azure-iot-edge`
+> - Remove all images and restart the aziot-edged service
+
 ### IoT Edge agent can't access a module's image (403)
 
 #### Symptoms
