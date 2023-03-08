@@ -40,12 +40,23 @@ The scenario outlined in this tutorial assumes that you already have the followi
 1. Determine what data to [map between Azure AD and Ardoq](../app-provisioning/customize-application-attributes.md).
 
 ## Step 2. Configure Ardoq to support provisioning with Azure AD
+* Provisioning is gated by a feature toggle in Ardoq.  If you intend to configure SSO or have already done so, Ardoq will automatically recognize that Azure AD is in use, and the provisioning feature will be automatically enabled.
 
-1. Log in to [Ardoq](https://aad.ardoq.com/). 
+* If you don't intend to use the provisioning features of Azure AD along with SSO, please reach out to Ardoq customer support and they'll manually enable support for provisioning.
+
+Before we proceed we need to obtain a *Tenant Url* and a *Secret Token*, to configure secure communcation between Azure AD and Ardoq.
+
+
+
+
+1. Log in to Ardoq admin console. 
 1. In the left menu click on profile logo and, navigate to **Organization Settings->Manage Organization->Manage SCIM Token**.
 1. Click on **Generate new**.
 1. Copy and save the **Token**.This value will be entered in the **Secret Token** field in the Provisioning tab of your Ardoq application in the Azure portal. 
-1. And `https://aad.ardoq.com/api/scim/v2` will be entered in the **Tenant Url** field in the Provisioning tab of your Ardoq application in the Azure portal.
+1. To create your *tenant URL*, use this template: `https://<YOUR-SUBDOMAIN>.ardoq.com/api/scim/v2` by replacing the placeholder text `<YOUR-SUBDOMAIN>`.This value will be entered in the **Tenant Url** field in the Provisioning tab of your Ardoq application in the Azure portal.
+
+	>[!NOTE]
+	>`<YOUR-SUBDOMAIN>` is the subdomain your organization has chosen to access Ardoq. This is the same URL segment you use when you access the Ardoq app. For example, if your organization accesses Ardoq at `https://acme.ardoq.com` you'd fill in `acme`.  If you're in the US and access Ardoq at `https://piedpiper.us.ardoq.com`  then you'd fill in `piedpiper.us`.
 
 ## Step 3. Add Ardoq from the Azure AD application gallery
 

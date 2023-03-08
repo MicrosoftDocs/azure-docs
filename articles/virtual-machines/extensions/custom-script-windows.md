@@ -6,8 +6,9 @@ ms.service: virtual-machines
 ms.subservice: extensions
 ms.author: gabsta
 author: GabstaMSFT
+ms.reviewer: erd
 ms.collection: windows
-ms.date: 08/31/2020 
+ms.date: 03/06/2023 
 ms.custom: devx-track-azurepowershell
 
 ---
@@ -68,6 +69,7 @@ If your script is on a local server, you might still need to open additional fir
 * Be aware of non-default directory locations that your scripts or commands might rely on. Have logic to handle this situation.
 * The Custom Script Extension runs under the LocalSystem account.
 * If you plan to use the `storageAccountName` and `storageAccountKey` properties, these properties must be collocated in `protectedSettings`.
+* You can have only one version of an extension applied to the VM. To run a second custom script, you can update the existing extension with a new configuration. Alternatively, you can remove the custom script extension and reapply it with the updated script
 
 ## Extension schema
 

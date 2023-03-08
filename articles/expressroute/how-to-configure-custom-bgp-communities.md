@@ -4,6 +4,7 @@ description: Learn how to apply or update BGP community value for a new or an ex
 services: expressroute
 author: duongau
 ms.service: expressroute
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 12/27/2022
 ms.author: duau

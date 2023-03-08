@@ -5,7 +5,7 @@ author: joharder
 ms.author: joharder
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
-ms.date: 02/06/2023
+ms.date: 03/01/2023
 ---
 
 # Support lifecycle for Azure Red Hat OpenShift 4
@@ -78,7 +78,7 @@ For new patch versions of Red Hat OpenShift Container Platform:
 
 ## Supported versions policy exceptions
 
-The Azure Red Hat OpenShift SRE team reserves the right to add or remove new/existing versions, or delay upcoming minor release versions, that have been identified to have one or more critical production impacting bugs or security issues without advance notice.
+The Azure Red Hat OpenShift SRE team reserves the right to add or remove new/existing versions or delay upcoming minor release versions that has been identified to have one or more critical production impacting bugs or security issues without advance notice.
 
 Specific patch releases may be skipped, or rollout may be accelerated depending on the severity of the bug or security issue.
 
@@ -99,12 +99,16 @@ See the following guide for the [past Red Hat OpenShift Container Platform (upst
 |4.8|July 2021| Sept 15 2021|4.10 GA|
 |4.9|November 2021| February 1 2022|4.11 GA|
 |4.10|March 2022| June 21 2022|4.12 GA|
+|4.11|August 2022| March 2 2023|4.13 GA|
 
 ## FAQ
 
 **What happens when a user upgrades an OpenShift cluster with a minor version that is not supported?**
 
-If you're on the N-2 version or older, it means you are outside of support and will be asked to upgrade to continue receiving support. When your upgrade from version N-2 to N-1 succeeds, you're back within support. Upgrading from version N-3 version or older to a supported version can be challenging, and in some cases not possible. We recommend you keep your cluster on the latest OpenShift version to avoid potential upgrade issues. 
+Azure Red Hat OpenShift supports installing two minor versions at install time. A version is supported as soon as an upgrade path to that version is available. If you are running a version past the EOL date above, you are outside of support and will be asked to upgrade to continue receiving support. Upgrading from an older version to a supported version can be challenging, and in some cases not possible. We recommend you keep your cluster on the latest OpenShift version to avoid potential upgrade issues.
+
+<!--If you're on the N-2 version or older, it means you are outside of support and will be asked to upgrade to continue receiving support. When your upgrade from version N-2 to N-1 succeeds, you're back within support. Upgrading from version N-3 version or older to a supported version can be challenging, and in some cases not possible. We recommend you keep your cluster on the latest OpenShift version to avoid potential upgrade issues.-->
+
 For example:
 * If the oldest supported Azure Red Hat OpenShift version is 4.9.z and you are on 4.8.z or older, you are outside of support.
 * When the upgrade from 4.8.z to 4.9.z or higher succeeds, you're back within our support policies. 
@@ -113,8 +117,8 @@ Reverting your cluster to a previous version, or a rollback, isn't supported. On
 
 **What does "Outside of Support" mean?**
 
-If your ARO cluster is running an OpenShift version that is not on the supported versions list, or is using an [unsupported cluster configuration](./support-policies-v4.md), your cluster is "outside of support". As a result:
-- When opening a support ticket for your cluster, you will be asked to upgrade the cluster to a supported version before receiving support, unless you are within the 30-day grace period after version support ends. 
+If your ARO cluster is running an OpenShift version that isn't on the supported versions list, or is using an [unsupported cluster configuration](./support-policies-v4.md), your cluster is "outside of support". As a result:
+- When opening a support ticket for your cluster, you'll be asked to upgrade the cluster to a supported version before receiving support, unless you are within the 30-day grace period after version support ends. 
 - Any runtime or SLA guarantees for clusters outside of support are voided.
 - Clusters outside of support will be patched only on a best effort basis.
-- Clusters outside of support will not be monitored.
+- Clusters outside of support won't be monitored.
