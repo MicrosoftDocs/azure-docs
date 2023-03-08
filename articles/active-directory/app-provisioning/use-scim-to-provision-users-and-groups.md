@@ -275,7 +275,7 @@ This article provides example SCIM requests emitted by the Azure Active Director
 
 ### User Operations
 
-* Users can be queried by `userName` or `emails[type eq "work"]` attributes.  
+* Use `userName` or `emails[type eq "work"]` attributes to query users.  
 
 #### Create User
 
@@ -606,8 +606,8 @@ This article provides example SCIM requests emitted by the Azure Active Director
 
 ### Group Operations
 
-* Groups shall always be created with an empty members list.
-* Groups can be queried by the `displayName` attribute.
+* Groups are created with an empty members list.
+* Use the `displayName` attribute to query groups.
 * Update to the group PATCH request should yield an *HTTP 204 No Content* in the response. Returning a body with a list of all the members isn't advisable.
 * It isn't necessary to support returning all the members of the group.
 
