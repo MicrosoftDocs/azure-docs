@@ -6,7 +6,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/03/2023
+ms.date: 03/07/2023
 ms.author: alkohli
 ---
 # Use a config file to deploy an Azure Stack Edge device
@@ -189,6 +189,8 @@ Once a config.json file has been created, as shown in the previous example, with
 > [!NOTE]
 > Use a config.json file that meets the needs of your organization. [Sample JSON files are available here](https://github.com/Azure-Samples/azure-stack-edge-deploy-vms/tree/master/PowerShellBasedConfiguration/).
 
+### Configure a single-node device
+
 This sequence of PowerShell cmdlets signs in to the device, applies device configuration settings from a JSON file, verifies completion of the operation, and then fetches the new device configuration.
 
 Run the following cmdlets in PowerShell:
@@ -256,6 +258,7 @@ Run the following cmdlets in PowerShell:
    ```azurepowershell
    Get-DeviceConfiguration | To-json
    ```
+### Configure a two-node device
 
 This sequence of PowerShell cmdlets signs in to a two-node device, applies device configuration settings from a JSON file, verifies completion of the operation, and then fetches the new device configuration.
 
@@ -1035,13 +1038,13 @@ Use the following steps to sign in to the device and run device diagnostics to v
 > [!NOTE]
 > Two-node configurations are only supported on Azure Stack Edge Pro GPU and Azure Stack Edge Pro 2 devices.
 
-For Azure consistent services and NFS, define a virtual IP that allows you to connect to a clustered device as opposed to a specific node. A virtual IP is an available IP in the cluster network and any client connecting to the cluster network on the two-node device should be able to access this IP. 
+For Azure consistent services and NFS, define a virtual IP that allows you to connect to a clustered device instead of a specific node. A virtual IP is an available IP in the cluster network. Any client connecting to the cluster network on the two-node device should be able to access this IP. 
 
 You can set either an ACS or an NFS configuration. Additional options include static or DHCP network settings. For more information about setting virtual IPs, see [Configure virtual IPs](azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy.md#configure-virtual-ips).
 
 Use the following steps to set the `DeviceVIP` configuration on a two-node Azure Stack Edge device.
 
-The example below shows a static ACS configuration, followed by an example that shows a DHCP configuration. 
+The example below shows a static ACS configuration, followed by an example that shows a configuration with DHCP enabled. 
 
 1. Sign in to the device.
 
@@ -1131,7 +1134,7 @@ The example below shows a static ACS configuration, followed by an example that 
 
 Use the following steps to set the `DeviceVIP` configuration on a two-node Azure Stack Edge device.
 
-The example below shows a DHCP configuration.
+The example below shows a sequence of steps to enable DHCP.
 
 1.	Sign in to the device.
 
@@ -1151,7 +1154,7 @@ The example below shows a DHCP configuration.
     Get-DeviceVip | to-json
     ```
 
-    Here's sample output showing **nfsVIP setting "isDhcpEnabled":  false** on the device:
+    Here's sample output showing the initial state of **acsVIP setting "isDhcpEnabled":  false** on the device:
 
     ```output
     {
@@ -1163,7 +1166,7 @@ The example below shows a DHCP configuration.
                                    "name":  "Cluster Network 1",
                                    "address":  "192.168.0.0",
                                    "subnet":  "255.255.0.0",
-                                   "dhcpEnabled":  true
+                                   "dhcpEnabled":  false
                                },
                    "isDhcpEnabled":  false
                },
@@ -1179,7 +1182,7 @@ The example below shows a DHCP configuration.
                                 "name":  "Cluster Network 1",
                                 "address":  "192.168.0.0",
                                 "subnet":  "255.255.0.0",
-                                "dhcpEnabled":  true
+                                "dhcpEnabled":  false
                             },
                             {
                                 "name":  "Cluster Network 2",
@@ -1191,7 +1194,7 @@ The example below shows a DHCP configuration.
                                 "name":  "Cluster Network 3",
                                 "address":  "10.126.72.0",
                                 "subnet":  "255.255.248.0",
-                                "dhcpEnabled":  true
+                                "dhcpEnabled":  false
                             }
                         ]
     }
@@ -1200,13 +1203,13 @@ The example below shows a DHCP configuration.
 1. Set the `DeviceVIP` property to enable DHCP.
 
     ```azurepowershell
-    $nfsVip = New-Object PSObject  -Property @{ Type = "NFS"; VipAddress = "192.168.181.10"; ClusterNetworkAddress = "192.168.0.0"; IsDhcpEnabled = $true }
+    $acsVip = New-Object PSObject  -Property @{ Type = "ACS"; VipAddress = "192.168.181.10"; ClusterNetworkAddress = "192.168.0.0"; IsDhcpEnabled = $true }
     ```
 
 1. Update the device with the `DeviceVIP` property.
 
     ```azurepowershell
-    Set-DeviceVip -vip $nfsVip
+    Set-DeviceVip -vip $acsVip
     ```	
 
     Here's sample output:
@@ -1214,7 +1217,7 @@ The example below shows a DHCP configuration.
     ```output
     acsVIP                                                                                             nfsVIP
     ------                                                                                             ------
-    @{type=ACS; name=Azure Consistent Services; address=192.168.181.10; network=; isDhcpEnabled=False} @{type=NFS; name=Network File System; address=192.168.3.63; network=; ...
+    @{type=ACS; name=Azure Consistent Services; address=192.168.181.10; network=; isDhcpEnabled=True} @{type=NFS; name=Network File System; address=192.168.3.63; network=; ...
     }
     ```
 
@@ -1224,7 +1227,7 @@ The example below shows a DHCP configuration.
     Get-DeviceVip | to-json
     ```
 
-    Here's sample output showing **nfsVIP setting "isDhcpEnabled":  true** on the device::
+    Here's sample output showing the updated **acsVIP setting "isDhcpEnabled":  true** on the device:
 
     ```output
     {
@@ -1238,7 +1241,7 @@ The example below shows a DHCP configuration.
                                    "subnet":  "255.255.0.0",
                                    "dhcpEnabled":  true
                                },
-                   "isDhcpEnabled":  false
+                   "isDhcpEnabled":  true
                },
     "nfsVIP":  {
                    "type":  "NFS",
@@ -1263,7 +1266,7 @@ The example below shows a DHCP configuration.
                                 "name":  "Cluster Network 2",
                                 "address":  "10.139.218.0",
                                 "subnet":  "255.255.255.0",
-                                "dhcpEnabled":  false
+                                "dhcpEnabled":  true
                             },
                             {
                                 "name":  "Cluster Network 3",
