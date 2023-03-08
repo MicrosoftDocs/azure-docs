@@ -18,7 +18,7 @@ You must also have a [kubeconfig file](https://kubernetes.io/docs/concepts/confi
 The cluster must have at least one node with operating system and architecture type `linux/amd64` and/or `linux/arm64`.
 
 > [!IMPORTANT]
-> Many Arc-enabled Kubernetes features and scenarios are supported on ARM64 nodes, such as [cluster connect](cluster-connect.md) and [viewing Kubernetes resources in the Azure portal](kubernetes-resource-view.md). However, if using Azure CLI to enable these scenarios, note that [Azure CLI must be installed](/cli/azure/install-azure-cli) and run from an AMD64 machine.
+> Many Arc-enabled Kubernetes features and scenarios are supported on ARM64 nodes, such as [cluster connect](cluster-connect.md) and [viewing Kubernetes resources in the Azure portal](kubernetes-resource-view.md). However, if using Azure CLI to enable these scenarios, [Azure CLI must be installed](/cli/azure/install-azure-cli) and run from an AMD64 machine.
 >
 > Currently, Azure Arc-enabled Kubernetes [cluster extensions](conceptual-extensions.md) aren't supported on ARM64-based clusters. To [install and use cluster extensions](extensions.md), the cluster must have at least one node of operating system and architecture type `linux/amd64`.
 
