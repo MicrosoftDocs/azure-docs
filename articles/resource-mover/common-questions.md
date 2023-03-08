@@ -3,7 +3,7 @@ title: Common questions about Azure Resource Mover?
 description: Get answers to common questions about  Azure Resource Mover
 author: rayne-wiselman
 manager: evansma
-ms.service: resource-move
+ms.service: resource-mover
 ms.topic: conceptual
 ms.date: 02/21/2021
 ms.author: raynew
