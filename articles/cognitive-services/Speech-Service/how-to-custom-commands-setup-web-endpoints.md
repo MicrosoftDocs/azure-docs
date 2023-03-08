@@ -16,6 +16,8 @@ ms.custom: cogserv-non-critical-speech
 
 # Set up web endpoints
 
+[!INCLUDE [deprecation notice](./includes/custom-commands-retire.md)]
+
 In this article, you will learn how to setup web endpoints in a Custom Commands application that allow you to make HTTP requests from a client application. You will complete the following tasks:
 
 - Set up web endpoints in Custom Commands application

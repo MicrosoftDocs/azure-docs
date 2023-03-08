@@ -15,6 +15,8 @@ ms.custom: cogserv-non-critical-speech
 
 # Custom Commands encryption of data at rest
 
+[!INCLUDE [deprecation notice](./includes/custom-commands-retire.md)]
+
 Custom Commands automatically encrypts your data when it is persisted to the cloud. The Custom Commands service encryption protects your data and to help you to meet your organizational security and compliance commitments.
 
 > [!NOTE]

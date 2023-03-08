@@ -15,6 +15,8 @@ ms.custom: cogserv-non-critical-speech
 
 # Troubleshoot a Custom Commands application at runtime
 
+[!INCLUDE [deprecation notice](./includes/custom-commands-retire.md)]
+
 This article describes how to debug when you see errors while running Custom Commands application. 
 
 ## Connection failed
