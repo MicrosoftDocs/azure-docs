@@ -2,6 +2,7 @@
 author: erhopf
 ms.author: erhopf
 ms.service: cognitive-services
+ms.custom: devx-track-azurepowershell
 ms.topic: include
 ms.date: 08/24/2022
 ---

@@ -7,8 +7,6 @@ ms.author: erd
 ms.date: 11/03/2022
 ms.topic: how-to  
 ms.reviewer: erd
-ms.custom: devx-track-azurepowershell
-
 ---
 
 # Run scripts in your VM by using Run Command
