@@ -165,7 +165,7 @@ When monitoring time to connect, keep in mind the following things:
 
   - Begins: [WVDConnection](/azure/azure-monitor/reference/tables/wvdconnections) state = started
 
-  - Ends: [WVDCheckpoints](/azure/azure-monitor/reference/tables/wvdcheckpoints) Name = ShellReady (desktops); Name = RdpShellAppExecuted (RemoteApp, for timing consider the first app launch only)
+  - Ends: [WVDCheckpoints](/azure/azure-monitor/reference/tables/wvdcheckpoints) Name = ShellReady (desktops); Name = RdpShellAppExecuted (RemoteApp. For timing, consider the first app launch only)
 
   For example, the time for a desktop experience to launch would be measured based on how long it takes to launch Windows Explorer (explorer.exe). The time for a remote application to launch would be measured based on the time taken to launch the first instance of the shell app for a connection.
   
