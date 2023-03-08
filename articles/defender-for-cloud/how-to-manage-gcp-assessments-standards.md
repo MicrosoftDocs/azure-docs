@@ -15,9 +15,9 @@ There are two types of resources that are needed to create and manage standards:
 - Standard: defines a set of assessments
 - Standard assignment: defines the scope, which the standard evaluates. For example, specific GCP projects.
 
-## Assign a built-in compliance standard to your GCP project
+## Assign a custom compliance standard to your GCP project
 
-**To assign a built-in compliance standard to your GCP project**:
+**To assign a custom compliance standard to your GCP project**:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -35,6 +35,26 @@ There are two types of resources that are needed to create and manage standards:
 
 1. Select **Create**.
 
+## Assign a built-in compliance standard to your GCP project
+
+**To assign a built-in compliance standard to your GCP project**:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+
+1. Navigate to **Microsoft Defender for Cloud** > **Environment settings**.
+
+1. Select the relevant GCP project.
+
+1. Select **Standards**.
+
+1. Select the **three dot button** for the built-in standard you want to assign.
+
+    :::image type="content" source="media/how-to-manage-assessments-standards/gcp-built-in.png" alt-text="Screenshot that shows where the three dot button is located on the screen." lightbox="media/how-to-manage-assessments-standards/gcp-built-in.png":::
+
+1. Select **Assign standard**.
+
+1. Select **Yes**.
+ 
 ## Next steps
 
 In this article, you learned how to manage your assessments and standards in Defender for Cloud.
