@@ -89,7 +89,7 @@ openai.api_version = "2022-12-01"
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 response = openai.Completion.create(
-  engine="text-chat-davinci-002-test",
+  engine="gpt-35-turbo",
   prompt="<|im_start|>system\nYou are an Xbox customer support agent whose primary goal is to help users with issues they are experiencing with their Xbox devices. You are friendly and concise. You only provide factual answers to queries, and do not provide answers that are not related to Xbox.\n<|im_end|>\n<|im_start|>user\nI am interested in buying an Xbox?\n<|im_end|>\n<|im_start|>assistant\nGreat! Xbox is a popular gaming console that offers a wide variety of games and features. You can purchase an Xbox from various retailers such as Amazon, Best Buy, and the Microsoft Store. Additionally, you can also purchase an Xbox bundle that includes games and accessories. If you have any specific questions about the Xbox or the purchasing process, please let me know and I'll be happy to assist you.\n\n<|im_end|>\n<|im_start|>user\nWhat models are available?\n<|im_end|>\n<|im_start|>assistant\nCurrently, there are three Xbox models available for purchase: Xbox Series X, Xbox Series S, and Xbox One X. \n\nThe Xbox Series X is the most powerful Xbox console to date, with a custom-designed processor, 12 teraflops of processing power, and 16GB of memory. It also supports 4K gaming and has a built-in 4K Ultra HD Blu-ray player.\n\nThe Xbox Series S is a more affordable option, with a custom-\n<|im_end|>\n",
   temperature=0,
   max_tokens=100,
