@@ -74,7 +74,21 @@ When the provider settings validation operation fails with the code ‘Prometheu
 1. Try to restart the node exporter agent:
     1. Go to the folder where you installed the node exporter (the file name resembles `node_exporter-*.*-amd64`).
     1. Run `./node_exporter`.
+    1. Adding nohup and & to aboe command decouples the node_exporter from linux machine commandline. If not included node_exporter would stop when the commandline is closed.
 1. Verify that the Prometheus endpoint is reachable from the subnet that you provided while creating the Azure Monitor for SAP solutions resource.
+
+## Suggestions
+
+### Enabling Node Exporter
+
+1. Run `nohup ./node_exporter &` command to enable node_exporter.
+1. Adding nohup and & to aboe command decouples the node_exporter from linux machine commandline. If not included node_exporter would stop when the commandline is closed.
+
+### Setting up cron job to start Node exporter on VM restart
+
+1. If the target virual machine is restarted/stopped, node exporter is also stopped, and needs to be manually started again to continue monitoring.
+1. Run `sudo crontab -e` command to open cron file.
+1. Add the command `@reboot cd /path/to/node/exporter && nohup ./node_exporter &` at the end of cron file. This will start node exporter on VM reboot.
 
 ## Next steps
 
