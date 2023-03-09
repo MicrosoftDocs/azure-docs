@@ -138,7 +138,7 @@ Follow these instructions to provision the Device Update agent on your IoT Linux
     ```shell
    	sudo nano /etc/adu/du-config.json
     ```
-   Change the connectionType to "AIS" for agents who will be using the IoT Identity Service for provisioning. The ConnectionData field must be a empty string. Please note that all values with the 'Place value here' tag must be set. See [Configuring a DU agent](./device-update-configuration-file.md#example-du-configjson-file-contents).
+   Change the connectionType to "AIS" for agents who will be using the IoT Identity Service for provisioning. The ConnectionData field must be an empty string. Please note that all values with the 'Place value here' tag must be set. See [Configuring a DU agent](./device-update-configuration-file.md#example-du-configjson-file-contents).
 
 5. You are now ready to start the Device Update agent on your IoT device. 
 
@@ -172,7 +172,7 @@ The Device Update agent can also be configured without the IoT Identity service 
 
 This section describes how to start and verify the Device Update agent as a module identity running successfully on your IoT device.
 
-1. Log into the machine or device that has the Device Update agent installed.
+1. Log in to the machine or device that has the Device Update agent installed.
 
 1. Open a Terminal window, and enter the command below.
 
