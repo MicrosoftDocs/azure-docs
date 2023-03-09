@@ -180,21 +180,21 @@ Two configuration files must be on the device so that Device Update for IoT Hub 
      
 1. Use the following command to show the files located in the `/adu/` directory. You should see both of your configuration files.du-diagnostics-config.json files for editing by using:
 
-        ```bash
-          ls -la /adu/
-        ```
+      ```bash
+        ls -la /adu/
+      ```
 
 1. Restart the Device Update system daemon to make sure that the configurations were applied. Use the following command within the terminal logged in to the `raspberrypi`:
 
-       ```bash
+      ```bash
         systemctl start deviceupdate-agent
-       ```
+      ```
 
 1. Check that the agent is live by using the following command:
   
-       ```bash
+      ```bash
         systemctl status deviceupdate-agent
-       ```
+      ```
 
    You should see the status appear as alive and green.
 
