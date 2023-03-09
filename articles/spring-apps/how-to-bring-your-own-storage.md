@@ -21,7 +21,7 @@ In addition, you can your can mount your own persistent storage to not only Azur
 
 ## Prerequisites
 
-- Read the following articles:
+- Read and complete each scenario prior to proceeding:
   - [Create Azure Spring Apps Consumption Plan (Standard Gen2)](./create-asa-standard-gen2.md)
   - [Build and deploy Spring apps](./create-and-deploy-apps.md)
 
@@ -30,11 +30,11 @@ In addition, you can your can mount your own persistent storage to not only Azur
 Set the following variables to the names of your resources.
 
 ```bash
-    RESOURCE_GROUP="<resource-group-name>"
-    LOCATION="eastus"
-    MANAGED_ENVIRONMENT="<azure-container-apps-environment-name>"
-    SPRING_APPS_NAME="<azure-spring-apps-instance-name>"
-    APP_NAME="<spring-app-name>"
+RESOURCE_GROUP="<resource-group-name>"
+LOCATION="<location>"
+MANAGED_ENVIRONMENT="<azure-container-apps-environment-name>"
+SPRING_APPS_NAME="<azure-spring-apps-instance-name>"
+APP_NAME="<spring-app-name>"
 ```
 
 ## Step 2: Set up a storage account
@@ -45,9 +45,9 @@ Create a storage account and establish a file share to mount to the spring app.
 
    This command generates a random suffix to the storage account name to ensure uniqueness.
 
-    ```azurecli
-    STORAGE_ACCOUNT_NAME="myacastorageaccount$RANDOM"
-    ```
+   ```azurecli
+   STORAGE_ACCOUNT_NAME="myasastorageaccount$RANDOM"
+   ```
 
 1. Create an Azure Storage account.
 
@@ -67,7 +67,7 @@ Create a storage account and establish a file share to mount to the spring app.
 1. Define a file share name.
 
    ```bash
-    FILE_SHARE_NAME="<file-share-name>"
+   FILE_SHARE_NAME="<file-share-name>"
    ```
 
 1. Create the Azure Storage file share.
