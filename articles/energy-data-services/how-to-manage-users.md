@@ -89,9 +89,9 @@ Copy the `access_token` value from the response. You'll need it to pass as one o
 
 ## User management activities
 
-You can manage users' access to your Microsoft Energy Data Services instance or data partitions. As a prerequisite for this step, you need to find the 'object-id' (OID) of the user(s) first. If you are managing an application's access to your instance or data partition, then you must find and use the application ID (or client ID) instead of the OID.
+You can manage users' access to your Azure Data Manager for Energy Preview instance or data partitions. As a prerequisite for this step, you need to find the 'object-id' (OID) of the user(s) first. If you are managing an application's access to your instance or data partition, then you must find and use the application ID (or client ID) instead of the OID.
 
-You'll need to input the `object-id` (OID) of the users (or the application or client ID if managing access for an application) as parameters in the calls to the Entitlements API of your Microsoft Energy Data Services Preview Instance. `object-id` (OID) is the Azure Active Directory User Object ID.
+You'll need to input the `object-id` (OID) of the users (or the application or client ID if managing access for an application) as parameters in the calls to the Entitlements API of your Azure Data Manager for Energy Preview Instance. `object-id` (OID) is the Azure Active Directory User Object ID.
 
 :::image type="content" source="media/how-to-manage-users/azure-active-directory-object-id.png" alt-text="Screenshot of finding the object-id from Azure Active Directory.":::
 
