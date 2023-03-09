@@ -21,11 +21,11 @@ A virtual network is the fundamental building block for private networks in Azur
 
 - An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-### Azure Cloud Shell and Azure PowerShell
+- Azure Cloud Shell or Azure PowerShell
 
-The steps in this article run the Azure PowerShell cmdlets interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in the Cloud Shell, select **Open Cloudshell** at the upper-right corner of each code block. Select **Copy** to copy the code and then paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
+  The steps in this quickstart run the Azure PowerShell cmdlets interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in the Cloud Shell, select **Open Cloudshell** at the upper-right corner of each code block. Select **Copy** to copy the code and then paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
 
-You can also [install Azure PowerShell locally](/powershell/azure/install-Az-ps) to run the cmdlets. The steps in this article require Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find your installed version. If you need to upgrade, see [Update the Azure PowerShell module](/powershell/azure/install-Az-ps#update-the-azure-powershell-module). If you run PowerShell locally, you also need to run `Connect-AzAccount` to connect to Azure.
+  You can also [install Azure PowerShell locally](/powershell/azure/install-Az-ps) to run the cmdlets. The steps in this article require Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find your installed version. If you need to upgrade, see [Update the Azure PowerShell module](/powershell/azure/install-Az-ps#update-the-azure-powershell-module). If you run PowerShell locally, you need to run `Connect-AzAccount` to connect to Azure.
 
 ## Create a virtual network
 
@@ -78,7 +78,7 @@ Azure Bastion uses your browser to connect to VMs in your virtual network over s
    $subnet = @{
        Name = 'AzureBastionSubnet'
        VirtualNetwork = $virtualNetwork
-       AddressPrefix = '10.1.1.0/26'
+       AddressPrefix = '10.0.1.0/26'
    }
    $subnetConfig = Add-AzVirtualNetworkSubnetConfig @subnet
    ```
@@ -86,13 +86,13 @@ Azure Bastion uses your browser to connect to VMs in your virtual network over s
 1. Set the configuration.
 
    ```azurepowershell-interactive
-      $virtualNetwork | Set-AzVirtualNetwork
+   $virtualNetwork | Set-AzVirtualNetwork
    ```
 
 1. Create a public IP address for Azure Bastion. The bastion host uses the public IP to access secure shell (SSH) and remote desktop protocol (RDP) over port 443.
 
    ```azurepowershell-interactive
-      $publicip = New-AzPublicIpAddress -ResourceGroupName "TestRG" -name "VNet-ip" -location "EastUS" -AllocationMethod Static -Sku Standard
+   $publicip = New-AzPublicIpAddress -ResourceGroupName "TestRG" -name "VNet-ip" -location "EastUS" -AllocationMethod Static -Sku Standard
    ```
 
 1. Use the [New-AzBastion](/powershell/module/az.network/new-azbastion) command to create a new Standard SKU Azure Bastion host in the AzureBastionSubnet.
@@ -152,31 +152,17 @@ Azure takes a few minutes to create the VMs. When Azure finishes creating the VM
 
 ## Connect to a VM
 
-1. Use [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) to get the public IP address of VM1.
+## Connect to a VM
 
-   ```azurepowershell-interactive
-   $ip = @{
-       Name = 'VM1'
-       ResourceGroupName = 'TestRG'
-   }
-   Get-AzPublicIpAddress @ip | select IpAddress
-   ```
+1. In the portal, search for and select **Virtual machines**.
 
-1. Open a command prompt on your local computer and run the `mstsc` command to connect via Remote Desktop. Replace `<publicIpAddress>` with the public IP address for VM1.
+1. On the **Virtual machines** page, select **VM1**.
 
-   ```cmd
-   mstsc /v:<publicIpAddress>
-   ```
-1. If prompted, select **Connect**.
+1. At the top of the **VM1** page, select the dropdown arrow next to **Connect**, and then select **Bastion**.
 
-1. Enter the user name and password you specified when creating the VM.
+   :::image type="content" source="./media/quick-create-portal/connect-to-virtual-machine.png" alt-text="Screenshot of connecting to myVM1 with Azure Bastion." border="true":::
 
-   > [!NOTE]
-   > You might need to select **More choices** > **Use a different account** to specify the credentials you entered when you created the VM.
-
-1. Select **OK**.
-
-1. You might receive a certificate warning. If you do, select **Yes** or **Continue**.
+1. On the **Bastion** page, enter the username and password you created for the VM, and then select **Connect**.
 
 ## Communicate between VMs
 
@@ -242,6 +228,6 @@ Remove-AzResourceGroup -Name 'TestRG' -Force
 
 In this quickstart, you created a virtual network with a default subnet that contains two VMs. You connected to the VMs from the internet through remote desktop, and securely communicated between the VMs. To learn more about virtual network settings, see [Create, change, or delete a virtual network](manage-virtual-network.md).
 
-Private communication between VMs in a virtual network is unrestricted. Advance to the next article to learn more about configuring different types of VM network communications.
+Private communication between VMs in a virtual network is unrestricted. Continue to the next article to learn more about configuring different types of VM network communications.
 > [!div class="nextstepaction"]
 > [Filter network traffic](tutorial-filter-network-traffic.md)

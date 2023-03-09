@@ -43,11 +43,11 @@ A virtual network is the fundamental building block for private networks in Azur
 
 1. Select **Next**.
 
-1. On the **Security** tab, select the checkbox next to **Enable Azure Bastion**.
+1. On the **Security** tab, select **Enable Azure Bastion**.
 
    Azure Bastion uses your browser to connect to VMs in your virtual network over secure shell (SSH) or remote desktop protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration. For more information about Azure Bastion, see [Azure Bastion](~/articles/bastion/bastion-overview.md).
 
-   Select **Next** to accept the defaults for **Azure Bastion host name** and **Azure Bastion public IP address**.
+1. Select **Next** to accept the defaults for **Azure Bastion host name** and **Azure Bastion public IP address**.
 
    :::image type="content" source="./media/quick-create-portal/example-security-tab.png" alt-text="Screenshot of the Security tab of the Create virtual network screen.":::
 
@@ -57,9 +57,9 @@ A virtual network is the fundamental building block for private networks in Azur
 
 1. Select **Review + create** to accept the following defaults:
 
-   - A virtual network IPv4 address space of **10.1.0.0/16**.
-   - A resource subnet named **default** with address range **10.1.0.0/24**.
-   - Another subnet named **AzureBastionSubnet** with address space **10.1.1.0/24**.
+   - A virtual network IPv4 address space of **10.0.0.0/16**.
+   - A resource subnet named **default** with address range **10.0.0.0/24**.
+   - Another subnet named **AzureBastionSubnet** with address space **10.0.1.0/26**.
 
    :::image type="content" source="./media/quick-create-portal/example-review-create.png" alt-text="Screenshot of the completed IP Addresses tab of the Create virtual network screen.":::
 
@@ -67,7 +67,7 @@ A virtual network is the fundamental building block for private networks in Azur
 
 ## Create virtual machines
 
-Create two VMs named *VM1* and *VM2* in the virtual network.
+Create two VMs named VM1 and VM2 in the virtual network.
 
 1. In the portal, search for and select **Virtual machines**.
 
@@ -114,8 +114,6 @@ Create two VMs named *VM1* and *VM2* in the virtual network.
    :::image type="content" source="./media/quick-create-portal/connect-to-virtual-machine.png" alt-text="Screenshot of connecting to myVM1 with Azure Bastion." border="true":::
 
 1. On the **Bastion** page, enter the username and password you created for the VM, and then select **Connect**.
-
-For more information about Azure Bastion, see [Azure Bastion](~/articles/bastion/bastion-overview.md).
 
 ## Communicate between VMs
 
@@ -187,6 +185,6 @@ When you're done using the virtual network and VMs, you can delete the resource 
 
 In this quickstart, you created a virtual network with two subnets, one containing two VMs and the other for Azure Bastion. You deployed Azure Bastion and used it to connect to the VMs, and securely communicated between the VMs. To learn more about virtual network settings, see [Create, change, or delete a virtual network](manage-virtual-network.md).
 
-Private communication between VMs is unrestricted in a virtual network. Advance to the next article to learn more about configuring different types of VM network communications.
+Private communication between VMs is unrestricted in a virtual network. Continue to the next article to learn more about configuring different types of VM network communications.
 > [!div class="nextstepaction"]
 > [Filter network traffic](tutorial-filter-network-traffic.md)

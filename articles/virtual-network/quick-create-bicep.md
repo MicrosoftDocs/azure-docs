@@ -21,27 +21,27 @@ A virtual network is the fundamental building block for private networks in Azur
 
 ## Prerequisites
 
-An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-To deploy the Bicep files, either PowerShell or Azure CLI installed.
+- To deploy the Bicep files, either PowerShell or Azure CLI installed.
 
-# [CLI](#tab/azure-cli)
+  # [CLI](#tab/azure-cli)
 
-[Install Azure CLI locally](/cli/azure/install-azure-cli) to run the commands. You need Azure CLI version 2.0.28 or later. Run [az version](/cli/azure/reference-index?#az-version) to find your installed version and dependent libraries, and run [az upgrade](/cli/azure/reference-index?#az-upgrade) to upgrade.
+  1. [Install Azure CLI locally](/cli/azure/install-azure-cli) to run the commands. You need Azure CLI version 2.0.28 or later. Run [az version](/cli/azure/reference-index?#az-version) to find your installed version and dependent libraries, and run [az upgrade](/cli/azure/reference-index?#az-upgrade) to upgrade.
 
-Sign in to Azure by using the [az login](/cli/azure/reference-index#az-login) command.
+  1. Sign in to Azure by using the [az login](/cli/azure/reference-index#az-login) command.
 
-# [PowerShell](#tab/azure-powershell)
+  # [PowerShell](#tab/azure-powershell)
 
-[Install Azure PowerShell locally](/powershell/azure/install-Az-ps) to run the cmdlets. You need Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find your installed version. If you need to upgrade, see [Update the Azure PowerShell module](/powershell/azure/install-Az-ps#update-the-azure-powershell-module).
+  1. [Install Azure PowerShell locally](/powershell/azure/install-Az-ps) to run the cmdlets. You need Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find your installed version. If you need to upgrade, see [Update the Azure PowerShell module](/powershell/azure/install-Az-ps#update-the-azure-powershell-module).
 
-Run `Connect-AzAccount` to connect to Azure.
+  1. Run `Connect-AzAccount` to connect to Azure.
 
-# [Portal](#tab/azure-portal)
+  # [Portal](#tab/azure-portal)
 
-To create and deploy the resources in the Azure portal, see [Quickstart: Use the Azure portal to create a virtual network](quick-create-portal.md).
+  To create and deploy the resources in the Azure portal, see [Quickstart: Use the Azure portal to create a virtual network](quick-create-portal.md).
 
----
+  ---
 
 ## Create the virtual network and VMs
 
@@ -88,7 +88,7 @@ When the deployment finishes, a message indicates that the deployment succeeded.
 
 ## Deploy Azure Bastion
 
-Azure Bastion lets you use your browser to connect to VMs in your virtual network over secure shell (SSH) or remote desktop protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration. For more information about Azure Bastion, see [Azure Bastion](~/articles/bastion/bastion-overview.md).
+Azure Bastion uses your browser to connect to VMs in your virtual network over secure shell (SSH) or remote desktop protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration. For more information about Azure Bastion, see [Azure Bastion](~/articles/bastion/bastion-overview.md).
 
 Use the [Azure Bastion as a service](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.network/azure-bastion/main.bicep) Bicep template from [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates) to deploy and configure Azure Bastion in your virtual network. This Bicep template defines the following Azure resources:
 
@@ -281,6 +281,6 @@ Remove-AzResourceGroup -Name TestRG
 
 In this quickstart, you created a virtual network with two subnets, one containing two VMs and the other for Azure Bastion. You deployed Azure Bastion and used it to connect to the VMs, and securely communicated between the VMs. To learn more about virtual network settings, see [Create, change, or delete a virtual network](manage-virtual-network.md).
 
-Private communication between VMs is unrestricted in a virtual network. Advance to the next article to learn more about configuring different types of VM network communications.
+Private communication between VMs is unrestricted in a virtual network. Continue to the next article to learn more about configuring different types of VM network communications.
 > [!div class="nextstepaction"]
 > [Filter network traffic](tutorial-filter-network-traffic.md)
