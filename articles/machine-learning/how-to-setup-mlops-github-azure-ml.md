@@ -19,13 +19,13 @@ ms.custom: cli-v2, sdk-v2, github-actions-azure
 
 Azure Machine Learning allows you to integrate with [GitHub Actions](https://docs.github.com/actions) to automate the machine learning lifecycle. Some of the operations you can automate are:
 
-* Deployment of Azure Machine Learning infrastructure
-* Data preparation (extract, transform, load operations)
-* Training machine learning models with on-demand scale-out and scale-up
-* Deployment of machine learning models as public or private web services
-* Monitoring deployed machine learning models (such as for performance analysis)
+* Deployment of Azure Machine Learning infrastructure.
+* Data preparation (extract, transform, load operations).
+* Training machine learning models with on-demand scale-out and scale-up.
+* Deployment of machine learning models as public or private web services.
+* Monitoring deployed machine learning models (such as for performance analysis).
 
-In this article, you learn about using Azure Machine Learning to set up an end-to-end MLOps pipeline that runs a linear regression to predict taxi fares in NYC. The pipeline is made up of components, each serving  different functions, which can be registered with the workspace, versioned, and reused with various inputs and outputs. you're going to be using the [recommended Azure architecture for MLOps](/azure/architecture/data-guide/technology-choices/machine-learning-operations-v2) and [Azure MLOps (v2) solution accelerator](https://github.com/Azure/mlops-v2) to quickly setup an MLOps project in Azure Machine Learning.
+In this article, you learn about using Azure Machine Learning to set up an end-to-end MLOps pipeline that runs a linear regression to predict taxi fares in NYC. The pipeline is made up of components, each serving  different functions, which can be registered with the workspace, versioned, and reused with various inputs and outputs. You'll be using the [recommended Azure architecture for MLOps](/azure/architecture/data-guide/technology-choices/machine-learning-operations-v2) and [Azure MLOps (v2) solution accelerator](https://github.com/Azure/mlops-v2) to quickly setup an MLOps project in Azure Machine Learning.
 
 > [!TIP]
 > We recommend you understand some of the [recommended Azure architectures](/azure/architecture/data-guide/technology-choices/machine-learning-operations-v2) for MLOps before implementing any solution. You'll need to pick the best architecture for your given Machine learning project.
@@ -144,10 +144,10 @@ Before you can set up an MLOps project with Machine Learning, you need to set up
       ![GitHub Secrets String 1](./media/how-to-setup-mlops-azureml/github-secrets-string.png)
 
 1. Add each of the following additional GitHub secrets using the corresponding values from the service principal output as the content of the secret:  
-      > **ARM_CLIENT_ID**  
-      > **ARM_CLIENT_SECRET**  
-      > **ARM_SUBSCRIPTION_ID**  
-      > **ARM_TENANT_ID**  
+      - **ARM_CLIENT_ID**  
+      - **ARM_CLIENT_SECRET**  
+      - **ARM_SUBSCRIPTION_ID**  
+      - **ARM_TENANT_ID**  
 
       ![GitHub Secrets String 2](./media/how-to-setup-mlops-azureml/github-secrets-string-2.png)
 
@@ -161,7 +161,7 @@ This step deploys the training pipeline to the Machine Learning workspace create
 > [!TIP]
 > Make sure you understand the [Architectural Patterns](/azure/architecture/data-guide/technology-choices/machine-learning-operations-v2) of the solution accelerator before you checkout the MLOps v2 repo and deploy the infrastructure. In examples you'll use the [classical ML project type](/azure/architecture/data-guide/technology-choices/machine-learning-operations-v2#classical-machine-learning-architecture).
 
-### Configure Machine Learning environment parameters
+### Configure machine learning environment parameters
  1. Go to your repository and select the `config-infra-prod.yml` file in the root. Change the following parameters to your liking, and then **commit** the changes.
 
     This config file uses the namespace and postfix values the names of the artifacts to ensure uniqueness. Update the following section in the config to your liking. Default values and settings in the files are show below:
@@ -177,20 +177,20 @@ This step deploys the training pipeline to the Machine Learning workspace create
       enable_monitoring: false
     ```
     > [!NOTE]
-    > If you are running a Deep Learning workload such as CV or NLP, ensure your GPU compute is available in your deployment zone.
-    > The enable_monitoring flag in these files defaults to False. Enabling this flag will add additional elements to the deployment to support Azure ML monitoring based on https://github.com/microsoft/AzureML-Observability. This will include an ADX cluster and increase the deployment time and cost of the MLOps solution.
+    > If you are running a deep learning workload such as CV or NLP, ensure your GPU compute is available in your deployment zone.
+    > The enable_monitoring flag in these files defaults to False. Enabling this flag will add additional elements to the deployment to support Azure Machine Learning monitoring based on https://github.com/microsoft/AzureML-Observability. This will include an ADX cluster and increase the deployment time and cost of the MLOps solution.
    
-### Deploy Machine Learning infrastructure
+### Deploy machine learning infrastructure
 
 1. In your GitHub project repository (ex: taxi-fare-regression), select **Actions**
 
    ![GitHub actions](./media/how-to-setup-mlops-azureml/github-actions.png)
 
-This displays the pre-defined GitHub workflows associated with your project. For a classical machine learning project, the available workflows look similar to this:
+    This displays the pre-defined GitHub workflows associated with your project. For a classical machine learning project, the available workflows look similar to this:
 
    ![GitHub workflows](./media/how-to-setup-mlops-azureml/github-workflows.png)
 
-1. Select would be **tf-gha-deploy-infra.yml**. This would deploy the Azure ML infrastructure using GitHub Actions and Terraform.
+1. Select would be **tf-gha-deploy-infra.yml**. This would deploy the Azure Machine Learning infrastructure using GitHub Actions and Terraform.
 
    ![GitHub deploy-infra](./media/how-to-setup-mlops-azureml/github-deploy-infrastructure.png)
 
@@ -198,10 +198,10 @@ This displays the pre-defined GitHub workflows associated with your project. For
 
    ![GitHub infra pipeline](./media/how-to-setup-mlops-azureml/github-infrastructure-pipeline.png)
 
-1. When the pipeline has complete successfully, you can find your Azure ML Workspace and associated resources by logging in to the Azure Portal. Next, a model training and scoring pipelines will be deployed into the new Machine Learning environment.
+1. When the pipeline has complete successfully, you can find your Azure ML Workspace and associated resources by logging in to the Azure portal. Next, a model training and scoring pipelines will be deployed into the new machine learning environment.
 
 
-## Sample Training and Deployment Scenario      
+## Sample training and deployment scenario      
 
 The solution accelerator includes code and data for a sample end-to-end machine learning pipeline which runs a linear regression to predict taxi fares in NYC. The pipeline is made up of components, each serving different functions, which can be registered with the workspace, versioned, and reused with various inputs and outputs. Sample pipelines and workflows for the Computer Vision and NLP scenarios will have different steps and deployment steps.
 
@@ -209,28 +209,28 @@ This training pipeline contains the following steps:
 
 **Prepare Data**
    - This component takes multiple taxi datasets (yellow and green) and merges/filters the data, and prepare the train/val and evaluation datasets.
-   - Input: Local data under `./data/` (multiple .csv files)
-   - Output: Single prepared dataset (.csv) and train/val/test datasets.
+   - **Input:** Local data under `./data/` (multiple .csv files).
+   - **Output:** Single prepared dataset (.csv) and train/val/test datasets.
 
 **Train Model**
    - This component trains a Linear Regressor with the training set.
-   - Input: Training dataset
-   - Output: Trained model (pickle format)
+   - **Input:** Training dataset.
+   - **Output:** Trained model (pickle format).
    
 **Evaluate Model**
    - This component uses the trained model to predict taxi fares on the test set.
-   - Input: ML model and Test dataset
-   - Output: Performance of model and a deploy flag whether to deploy or not.
+   - **Input:** ML model and Test dataset.
+   - **Output:** Performance of model and a deploy flag whether to deploy or not.
    - This component compares the performance of the model with all previous deployed models on the new test dataset and decides whether to promote or not model into production. Promoting model into production happens by registering the model in AML workspace.
 
 **Register Model**
    - This component scores the model based on how accurate the predictions are in the test set.
-   - Input: Trained model and the deploy flag.
-   - Output: Registered model in Machine Learning.
+   - **Input:** Trained model and the deploy flag.
+   - **Output:** Registered model in Machine Learning.
 
-## Deploying the Model Training Pipeline
+## Deploying the model training pipeline
 
-Next, you will deploy the model training pipeline to your new Machine Learning workspace. This pipeline will create a compute cluster instance, register a training environment defining the necessary Docker image and python packages, register a training dataset, then start the training pipeline described in the last section. When the job is complete, the trained model will be registered in the Azure ML workspace and be available for deployment.
+Next, you will deploy the model training pipeline to your new machine learning workspace. This pipeline will create a compute cluster instance, register a training environment defining the necessary Docker image and python packages, register a training dataset, then start the training pipeline described in the last section. When the job is complete, the trained model will be registered in the Azure Machine Learning workspace and be available for deployment.
 
 1. In your GitHub project repository (example: taxi-fare-regression), select **Actions**  
  
@@ -240,44 +240,44 @@ Next, you will deploy the model training pipeline to your new Machine Learning w
 
    ![Pipeline Run](./media/how-to-setup-mlops-azureml/github-training-pipeline.png)
    
-1. Once completed, a successful run will register the model in the Machine Learning workspace. 
+1. Once completed, a successful run will register the model in the machine learning workspace. 
    
     ![Training Step](./media/how-to-setup-mlops-azureml/github-training-step.png)
 
 > [!NOTE] 
 > If you want to check the output of each individual step, for example to view output of a failed run, click a job output, and then click each step in the job to view any output of that step. 
 
-With the trained model registered in the Machine learning workspace, you are ready to deploy the model for scoring.
+With the trained model registered in the machine learning workspace, you are ready to deploy the model for scoring.
 
-### Deploying the Trained Model
+### Deploying the trained model
 
-This scenario includes prebuilt workflows for two approaches to deploying a trained model, batch scoring or a deploying a model to an endpoint for real-time scoring. You may run either or both of these workflows to test the performance of the model in your Azure ML workspace.
+This scenario includes prebuilt workflows for two approaches to deploying a trained model, batch scoring or a deploying a model to an endpoint for real-time scoring. You may run either or both of these workflows to test the performance of the model in your Azure Machine Learning workspace.
 
 1. In your GitHub project repository (ex: taxi-fare-regression), select **Actions**  
  
    ![GitHub actions pages](./media/how-to-setup-mlops-azureml/github-actions.png)
 
-### Online Endpoint  
+### Online endpoint  
       
-1. Select the **deploy-online-endpoint-pipeline** from the workflows listed on the left and click **Run workflow** to execute the online endpoint deployment pipeline workflow. The steps in this pipeline will create an online endpoint in your Machine Learning workspace, create a deployment of your model to this endpoint, then allocate traffic to the endpoint.
+1. Select the **deploy-online-endpoint-pipeline** from the workflows listed on the left and click **Run workflow** to execute the online endpoint deployment pipeline workflow. The steps in this pipeline will create an online endpoint in your machine learning workspace, create a deployment of your model to this endpoint, then allocate traffic to the endpoint.
 
    ![GitHub online endpoint](./media/how-to-setup-mlops-azureml/github-online-endpoint.png)
    
-    Once completed, you will find the online endpoint deployed in the Azure ML workspace and available for testing.
+    Once completed, you will find the online endpoint deployed in the Azure Machine Learning workspace and available for testing.
 
    ![Machine Learning taxi online endpoint](./media/how-to-setup-mlops-azureml/azure-ml-taxi-online-endpoint.png)
 
-1. To test this deployment, go to the **Endpoints** tab in your Machine Learning workspace, select the endpoint and click the **Test** Tab. You can use the sample input data located in the cloned repo at `/data/taxi-request.json` to test the endpoint.
+1. To test this deployment, go to the **Endpoints** tab in your machine learning workspace, select the endpoint and click the **Test** Tab. You can use the sample input data located in the cloned repo at `/data/taxi-request.json` to test the endpoint.
    
     ![AzureML taxi Online endpoint test](./media/how-to-setup-mlops-azureml/azure-ml-online-endpoint-test.png)
 
-### Batch Endpoint
+### Batch endpoint
       
-1. Select the **deploy-batch-endpoint-pipeline** from the workflows and click **Run workflow** to execute the batch endpoint deployment pipeline workflow. The steps in this pipeline will create a new AmlCompute cluster on which to execute batch scoring, create the batch endpoint in your Machine Learning workspace, then create a deployment of your model to this endpoint.
+1. Select the **deploy-batch-endpoint-pipeline** from the workflows and click **Run workflow** to execute the batch endpoint deployment pipeline workflow. The steps in this pipeline will create a new Azure Machine Learning compute cluster on which to execute batch scoring, create the batch endpoint in your machine learning workspace, then create a deployment of your model to this endpoint.
 
 ![GitHub batch endpoint](./media/how-to-setup-mlops-azureml/github-batch-endpoint.png)
 
-2. Once completed, you will find the batch endpoint deployed in the Azure ML workspace and available for testing.
+2. Once completed, you will find the batch endpoint deployed in the Azure Machine Learning workspace and available for testing.
 
 ![Machine Learning taxi batch endpoint](./media/how-to-setup-mlops-azureml/azure-ml-taxi-batch-endpoint.png)
    
@@ -285,12 +285,12 @@ This scenario includes prebuilt workflows for two approaches to deploying a trai
 
 Example scenarios can be trained and deployed both for Dev and Prod branches and environments. When you are satisfied with the performance of the model training pipeline, model, and deployment in Testing, Dev pipelines and models can be replicated and deployed in the Production environment.
 
-The sample training and deployment Machine Learning pipelines and GitHub workflows can be used as a starting point to adapt your own modeling code and data.
+The sample training and deployment machine learning pipelines and GitHub workflows can be used as a starting point to adapt your own modeling code and data.
 
 ## Clean up resources
 
 1. If you're not going to continue to use your pipeline, delete your Azure DevOps project. 
-1. In Azure portal, delete your resource group and Machine Learning instance.
+1. In Azure portal, delete your resource group and Azure Machine Learning instance.
 
 ## Next steps
 
