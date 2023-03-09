@@ -4,7 +4,7 @@ description: Learn how to set up an alert for new recommendations from Azure Adv
 author: orspod
 ms.topic: quickstart
 ms.author: orspodek
-ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
+ms.custom: subject-armqs, mode-arm
 ms.date: 04/26/2022
 ---
 
