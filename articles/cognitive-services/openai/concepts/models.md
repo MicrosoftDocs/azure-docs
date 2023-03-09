@@ -161,8 +161,9 @@ When using our embeddings models, keep in mind their limitations and risks.
 ## Model Summary table and region availability
 
 ### GPT-3 Models
+
 |  Model ID  | Supports Completions | Supports Embeddings |  Base model Regions   | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
-|  --- | --- | --- | --- | --- | --- | -- | 
+|  --------- | -------------------- | ------------------- | --------------------- | ------------------- | -------------------- | ---------------------- |
 | ada | 	Yes	| No	|	N/A	| East US<sup>2</sup>, South Central US, West Europe | 2,049 | Oct 2019|
 | text-ada-001 | Yes | No | East US<sup>2</sup>, South Central US, West Europe | N/A | 2,049 | Oct 2019|
 | babbage | Yes | No | N/A | East US<sup>2</sup>, South Central US, West Europe | 2,049 | Oct 2019 |
@@ -172,7 +173,7 @@ When using our embeddings models, keep in mind their limitations and risks.
 | davinci<sup>1</sup> | Yes | No | N/A | East US<sup>2</sup>, South Central US, West Europe | 2,049 | Oct 2019|
 | text-davinci-001 | Yes | No | South Central US, West Europe | N/A |  |  |
 | text-davinci-002 | Yes | No | East US, South Central US, West Europe | N/A | 4,097 | Jun 2021 |
-| text-davinci-003 | Yes | No | East US | N/A | 4,097 | Jun 2021 | 4,097 | Jun 2021 |
+| text-davinci-003 | Yes | No | East US | N/A | 4,097 | Jun 2021 |
 | text-davinci-fine-tune-002<sup>1</sup> | Yes | No | N/A | East US, West Europe |  |  |
 | gpt-35-turbo<sup>3</sup> (ChatGPT) | Yes | No | N/A | East US, South Central US | 4,096 | Sep 2021
 
