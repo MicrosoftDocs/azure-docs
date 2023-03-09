@@ -68,6 +68,9 @@ For more information about pricing, see [Azure Active Directory pricing](https:/
 
 * An account with Global Administrator privileges.
 
+### Guided walkthrough
+
+For a guided walkthrough of many of the recommendations in this article, see the [Plan your self-service password reset deployment](https://go.microsoft.com/fwlink/?linkid=2221600) guide.
 
 ### Training resources
 
