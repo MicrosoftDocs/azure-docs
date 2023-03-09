@@ -143,8 +143,6 @@ The source code to complete this step is provided for you. Use the following ste
 
 This tutorial demonstrates an API app authenticated to **Microsoft Graph**, however, the same general steps can be applied to access any Azure service on behalf of the user. The exchange for a new token must include the scope for that service.
 
-[!INCLUDE [second-part](./includes/tutorial-connect-app-access-microsoft-graph-as-user/end.md)]
-
-
-
 ## Next steps
+
+* [TBD]()
