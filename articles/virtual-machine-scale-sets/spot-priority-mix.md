@@ -7,7 +7,7 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: spot
 ms.workload: infrastructure-services
 ms.topic: conceptual
-ms.date: 02/28/2023
+ms.date: 03/09/2023
 ms.reviewer: cynthn
 ms.custom: engagement-fy23
 ---
@@ -106,19 +106,19 @@ The following examples have scenario assumptions, a table of actions, and walk-t
 
 Some important terminology to notice before referring to these examples:
 - **sku.capacity** is the total number of VMs in the Virtual Machine Scale Set
-- **Base (Regular priority) VMs** are the number of Regular priority non-Spot VMs, akin to a minimum VM number
+- **Base (standard) VMs** are the number of standard non-Spot VMs, akin to a minimum VM number
 
 ### Scenario 1
 
 The following scenario assumptions apply to this example:
 - **sku.capacity** is variable, as the autoscaler will add or remove VMs from the scale set
-- **Base (Regular priority) VMs:** 10
+- **Base (standard) VMs:** 10
 - **Additional Regular priority VMs:** 0
 - **Spot priority VMs:** 0
 - **regularPriorityPercentageAboveBase:** 50%
 - **Eviction policy:** Delete
 
-| Action | sku.capacity | Base (Regular priority) VMs | Additional Regular priority VMs | Spot priority VMs |
+| Action | sku.capacity | Base (standard) VMs | Additional Regular priority VMs | Spot priority VMs |
 |---|---|---|---|---|
 | Create | 10 | 10 | 0 | 0 |
 | Scale out | 20 | 10 | 5 | 5 |
@@ -133,7 +133,7 @@ The following scenario assumptions apply to this example:
 
 Example walk-through:
 1. You start out with a Virtual Machine Scale Set with 10 VMs.
-    - The `sku.capacity` is variable and doesn't set a starting number of VMs. The Base VMs is set at 10, thus your total starting VMs is just 10 Base (Regular priority) VMs.
+    - The `sku.capacity` is variable and doesn't set a starting number of VMs. The Base VMs is set at 10, thus your total starting VMs is just 10 Base (standard) VMs.
 1. You then scale out 5 times, with 50% Regular priority VMs and 50% Spot VMs.
     - Note, because there's a 50/50 split, in the fourth scale out, there is one more Spot VM than Regular priority. Once it's scaled out again (5th scale out), the 50/50 balance is restored with another Regular priority VM.
 1. You then scale in your scale set with the eviction policy being delete. This will delete all the Spot VMs.
@@ -144,13 +144,13 @@ Example walk-through:
 
 The following scenario assumptions apply to this example:
 - **sku.capacity** is variable, defined by autoscaler; starting with 20
-- **Base (Regular priority) VMs:** 10
+- **Base (standard) VMs:** 10
 - **Additional Regular priority VMs:** 2
 - **Spot priority VMs:** 8
 - **regularPriorityPercentageAboveBase:** 25%
 - **Eviction policy:** Deallocate
 
-| Action | sku.capacity | Base (Regular priority) VMs | Additional Regular priority VMs | Spot priority VMs |
+| Action | sku.capacity | Base (standard) VMs | Additional Regular priority VMs | Spot priority VMs |
 |---|---|---|---|---|
 | Create | 20 | 10 | 2 | 8 |
 | Scale out | 50 | 10 | 10 | 30 |
@@ -160,7 +160,7 @@ The following scenario assumptions apply to this example:
 
 Example walk-through:
 1. With the initial creation of the Virtual Machine Scale Set and Spot Priority Mix, you have 20 VMs.
-    - 10 of those VMs are the Base (Regular priority) VMs, 2 Additional Regular priority VMs, and 8 Spot priority VMs for your 25% *regularPriorityPercentageAboveBase*. 
+    - 10 of those VMs are the Base (standard) VMs, 2 Additional Regular priority VMs, and 8 Spot priority VMs for your 25% *regularPriorityPercentageAboveBase*. 
     - Another way to look at this is you have 1 Regular priority VM for every 4 Spot VMs in the scale set. 
 1. You then scale out twice to create 90 more VMs; 23 Regular priority VMs and 67 Spot VMs.
 1. When you scale in by 10 VMs, 10 Spot VMs are *stop-deallocated*, creating an imbalance in your scale set.
