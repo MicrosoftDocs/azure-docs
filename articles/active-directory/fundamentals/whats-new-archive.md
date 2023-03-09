@@ -3361,10 +3361,10 @@ Customers can work around this requirement for testing purposes by using a featu
 **Service category:** Device Registration and Management  
 **Product capability:** Identity Security & Protection
  
-Azure AD and Microsoft Endpoint Manager teams have combined to bring the capability to customize, scale, and secure your frontline worker devices.
+Azure AD and Microsoft Intune teams have combined to bring the capability to customize, scale, and secure your frontline worker devices.
 
 The following preview capabilities will allow you to:
-- Provision Android shared devices at scale with Microsoft Endpoint Manager
+- Provision Android shared devices at scale with Microsoft Intune
 - Secure your access for shift workers using device-based conditional access
 - Customize sign-in experiences for the shift workers with Managed Home Screen
 

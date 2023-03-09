@@ -28,6 +28,9 @@ In this article, you'll learn how to:
 * Use the component from registry to submit a model training job in a workspace.
 * Register the trained model in the registry.
 * Deploy the model from the registry to an online-endpoint in the workspace, then submit an inference request.
+
+[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
 ## Prerequisites
 
 Before following the steps in this article, make sure you have the following prerequisites:
@@ -111,8 +114,9 @@ ml_client_workspace = MLClient( credential=credential,
     workspace_name = "<workspace-name>")
 print(ml_client_workspace)
 
-ml_client_registry = MLClient ( credential=credential,
-        registry_name = "<registry-name>")
+ml_client_registry = MLClient(credential=credential,
+                        registry_name="<REGISTRY_NAME>",
+                        registry_location="<REGISTRY_REGION>")
 print(ml_client_registry)
 ```
 

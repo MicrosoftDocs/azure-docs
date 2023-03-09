@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 02/23/2023
+ms.date: 02/28/2023
 ms.author: jricketts
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
@@ -27,7 +27,7 @@ This article is number 9 in a series of 10 articles. We recommend you review the
 
 Sharing in Microsoft 365 is partially governed by the **External Identities, External collaboration settings** in Azure Active Directory (Azure AD). If external sharing is disabled or restricted in Azure AD, it overrides sharing settings configured in Microsoft 365. An exception is if Azure AD B2B integration isn't enabled. You can configure SharePoint and OneDrive to support ad-hoc sharing via one-time password (OTP). The following screenshot shows the External Identities, External collaboration settings dialog. 
 
-   ![Screenshot of options and entries under External Identities, External collaboration settings.](media/secure-external-access/9-external-collaboration-settings.png)
+:::image type="content" source="media/secure-external-access/9-external-collaboration-settings-new.png" alt-text="Screenshot of options and entries under External Identities, External collaboration settings.":::
 
 Learn more:
 
@@ -43,9 +43,8 @@ Guest users are invited to have access to resources.
 3. Under **Categories**, select **Identity**.
 4. From the list, select **External Identities**.
 5. Select **External collaboration settings**.
-6. Find the **Guest user access** option. 
-
-To prevent guest-user access to other guest-user details, and to prevent enumeration of group membership, select **Guest users have limited access to properties and memberships of directory objects**.
+6. Find the **Guest user access** options. 
+7. To prevent guest-user access to other guest-user details, and to prevent enumeration of group membership, select **Guest users have limited access to properties and memberships of directory objects**.
 
 ### Guest invite settings
 
@@ -64,16 +63,16 @@ Guest invite settings determine who invites guests and how guests are invited. T
   * Confirms access reviews occur
   * Removes users added to SharePoint
 
-1. Select **Email one-time passcodes for guests**. 
+1. Select the banner for **Email one-time passcodes for guests**. 
 2. For **Enable guest self-service sign up via user flows**, select **Yes**. 
 
 ### Collaboration restrictions
 
 For the Collaboration restrictions option, the organization's business requirements dictate the choice of invitation.
 
-* **Allow invitations to be sent to any domain** - any user can be invited
+* **Allow invitations to be sent to any domain (most inclusive)** - any user can be invited
 * **Deny invitations to the specified domains** - any user outside those domains can be invited
-* **Allow invitations only to the specified domains** - any user outside those domains can't be invited 
+* **Allow invitations only to the specified domains (most restrictive)** - any user outside those domains can't be invited 
 
 ## External users and guest users in Teams
 

@@ -3,6 +3,7 @@ title: Install the Kubernetes Event-driven Autoscaling (KEDA) add-on by using an
 description: Use an ARM template to deploy the Kubernetes Event-driven Autoscaling (KEDA) add-on to Azure Kubernetes Service (AKS).
 author: jahabibi
 ms.topic: article
+ms.custom: devx-track-azurecli
 ms.date: 10/10/2022
 ms.author: jahabibi
 ---

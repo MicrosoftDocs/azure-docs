@@ -44,12 +44,10 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-           - text: Before you start deployment
-             url: quickstart-network-fabric-controller-cluster-manager-create.md       
+           - text: Before you start NFC/CM deployment
+             url: howto-azure-operator-nexus-prerequisites.md      
            - text: Before you start platform deployment
-             url: quickstarts-platform-prerequisites.md
-           - text: Platform deployment
-             url: quickstarts-platform-deployment.md
+             url: howto-platform-prerequisites.md
       - linkListType: quickstart
         links:
            - text: Before you start tenant workload deployment
