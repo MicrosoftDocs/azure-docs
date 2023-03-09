@@ -72,6 +72,7 @@ To get started, you need:
 * Your business web application registered in Azure AD B2C tenant. 
   * For testing, configure https://jwt.ms, a Microsoft-owned web application with decoded token contents.
 
+
    >[!NOTE]
    >The token contents never leave your browser.
 
@@ -165,18 +166,18 @@ Set client_id to the application ID from the application registration.
 
 |Property | Description|
 |---|---|
-|Scope| For OpenID Connect (OIDC) the minimum requirement is scope parameter is set to **openid**. Append more scopes as a space-delimited list.|
+|Scope| For OpenID Connect (OIDC), the minimum requirement is set scope parameter to **openid**. Append more scopes as a space-delimited list.|
 |redirect_uri | This location is where the user agent sends the authorization code to Azure AD B2C.|
-|response_type| For the authorization code flow, this is set to **code**|
+|response_type| For the authorization code flow, select **code**|
 |acr_values| This parameter controls the authentication methods the user must perform during authentication. |
 
 Select one of the following values:
 
 |Parameter value| Effect on user authentication process |
 |---|---|
-|`loa-2`| Crypto-based Azure AD Multi-Factor Authentication only|
-|`loa-3`| Crypto-based Azure AD Multi-Factor Authentication plus one additional factor|
-|`loa-4`| Crypto-based Azure AD Multi-Factor Authentication with the requirement the user must perform PIN-based and biometric authentication |
+|`loa-2`| Crypto-based Azure AD Multi-Factor Authentication (MFA) only|
+|`loa-3`| Crypto-based MFA, plus an additional factor|
+|`loa-4`| Crypto-based MFA, plus the user performs PIN and biometric authentication |
 
 The **/userinfo** endpoint provides the claims for the scope(s) requested in the authorization request. For the **<mt_scope>** this includes claims like First Name, Last Name, and Driver's License Number, among other items.
 The claims set for a scope are published in the **scope_to_claims_mapping** section of the discovery API.
@@ -195,25 +196,25 @@ Azure AD B2C requests claims from the claims endpoint and returns them in the Ou
 
 ### Add a user journey
 
-At this point, the IdP has been set up, but it's not yet available in any of the sign-in pages. If you don't have your own custom user journey, create a duplicate of an existing template user journey, otherwise continue to the next step.
+The IdP is set up, but it's not in any sign-in page. If you don't have a custom user journey, copy a template user journey.
 
-1. Open the `TrustFrameworkBase.xml` file from the starter pack.
+1. From the starter pack, open the `TrustFrameworkBase.xml` file.
+2. Locate and copy the contents of the `UserJourneys` element, which includes `ID=SignUpOrSignIn`.
+3. Open the `TrustFrameworkExtensions.xml`.
+4. Locate the **UserJourneys** element. If there is no element, add one.
+5. Paste the contents of the **UserJourney** element as a child of the UserJourneys element.
+6. Rename the user journey ID. For example, `ID=CustomSignUpSignIn`.
 
-2. Find and copy the entire contents of the **UserJourneys** element that includes `ID=SignUpOrSignIn`.
+### Add the IdP to a user journey
 
-3. Open the `TrustFrameworkExtensions.xml` and find the **UserJourneys** element. If the element doesn't exist, add one.
+If there's a user journey, add the new IdP to it. First add a sign-in button, then link it to an action, which is the technical profile you created.
 
-4. Paste the entire content of the **UserJourney** element that you copied as a child of the UserJourneys element.
-
-5. Rename the ID of the user journey. For example, `ID=CustomSignUpSignIn`.
-
-### Part 5 - Add the IdP to a user journey
-
-Now that you have a user journey, add the new IdP to the user journey. First add a sign-in button, then link the button to an action. The action is the technical profile you created earlier.
-
-1. Find the orchestration step element that includes Type=`CombinedSignInAndSignUp`, or Type=`ClaimsProviderSelection` in the user journey. It's usually the first orchestration step. The **ClaimsProviderSelections** element contains a list of IdPs that a user can sign in with. The order of the elements controls the order of the sign-in buttons presented to the user. Add a **ClaimsProviderSelection** XML element. Set the value of **TargetClaimsExchangeId** to a friendly name.
-
-2. In the next orchestration step, add a **ClaimsExchange** element. Set the **Id** to the value of the target claims exchange ID. Update the value of **TechnicalProfileReferenceId** to the ID of the technical profile you created earlier.
+1. In the user journey, locate the orchestration step element with Type=`CombinedSignInAndSignUp`, or Type=`ClaimsProviderSelection`. It's usually the first orchestration step. The **ClaimsProviderSelections** element has an IdP list users sign in with. The order of the elements controls is the order of the sign-in buttons the user sees. 
+2. Add a **ClaimsProviderSelection** XML element. 
+3. Set the **TargetClaimsExchangeId** value to a friendly name.
+4. Add a **ClaimsExchange** element. 
+5. Set the **Id** to the value of the target claims exchange ID. 
+6. Update the **TechnicalProfileReferenceId** value to the technical profile ID you created.
 
 The following XML demonstrates the first two orchestration steps of a user journey with the IdP:
 
@@ -234,9 +235,12 @@ The following XML demonstrates the first two orchestration steps of a user journ
 </OrchestrationStep>
 ```
 
-### Part 6 - Configure the relying party policy
+### Configure the relying party policy
 
-The relying party policy, for example [SignUpSignIn.xml](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/blob/master/SocialAndLocalAccounts/SignUpOrSignin.xml), specifies the user journey which Azure AD B2C will execute. Find the **DefaultUserJourney** element within relying party. Update the **ReferenceId** to match the user journey ID, in which you added the IdP.
+The relying party policy, for example [SignUpSignIn.xml](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/blob/master/SocialAndLocalAccounts/SignUpOrSignin.xml), specifies the user journey tkhe Azure AD B2C executes. 
+
+1. Find the **DefaultUserJourney** element in relying party. 
+2. Update the **ReferenceId** to match the user journey ID, in which you added the IdP.
 
 In the following example, for the `CustomSignUpOrSignIn` user journey, the **ReferenceId** is set to `CustomSignUpOrSignIn`.
  
@@ -247,39 +251,36 @@ In the following example, for the `CustomSignUpOrSignIn` user journey, the **Ref
 </RelyingParty>
 ```
 
-### Part 7 - Upload the custom policy
+### Upload the custom policy
+
+For the following instructions, use the directory with your Azure AD B2C tenant.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/#home).
+2. In the portal toolbar, select the **Directories + subscriptions**.
+3. On the **Portal settings, Directories + subscriptions** page, in the **Directory name** list, find your Azure AD B2C directory. 
+4. Select **Switch**.
+5. In the Azure portal, search for and select **Azure AD B2C**.
+6. Under **Policies**, select **Identity Experience Framework**.
+7. Select **Upload Custom Policy**.
+8. Upload the two policy files you changed, in the following order: 
 
-2. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+* The extension policy, for example `TrustFrameworkExtensions.xml`
+* The relying party policy, such as `SignUpSignIn.xml`
 
-3. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
-
-4. In the [Azure portal](https://portal.azure.com/#home), search for and select **Azure AD B2C**.
-
-5. Under Policies, select **Identity Experience Framework**.
-
-Select **Upload Custom Policy**, and then upload the two policy files that you changed, in the following order: the extension policy, for example `TrustFrameworkExtensions.xml`, then the relying party policy, such as `SignUpSignIn.xml`.
-
-### Part 8 - Test your custom policy
+### Test your custom policy
 
 1. Select your relying party policy, for example `B2C_1A_signup_signin`.
+2. For **Application**, select a web application you registered. 
+3. `https://jwt.ms`appears for **Reply URL**.
+4. Select **Run now**.
+5. From the sign-up or sign-in page, select **IDEMIA**.
+6. The browser is redirected to `https://jwt.ms`. See the token contents returned by Azure AD B2C.
 
-2. For **Application**, select a web application that you [previously registered](./tutorial-register-applications.md). The **Reply URL** should show `https://jwt.ms`.
-
-3. Select the **Run now** button.
-
-4. From the sign-up or sign-in page, select **IDEMIA** to sign in with an IDEMIA - US State issued mID (Mobile ID Credential).
-
-If the sign-in process is successful, your browser is redirected to `https://jwt.ms`, which displays the contents of the token returned by Azure AD B2C.
+Learn more: [Tutorial: Register a web application in Azure AD B2C](./tutorial-register-applications.md)
 
 
 ## Next steps
 
-For additional information, review the following articles:
-
-- [Custom policies in Azure AD B2C](custom-policy-overview.md)
-
-- [Get started with custom policies in Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)
-
-- [Learn more about IDEMIA mID](https://www.idemia.com/mobile-id)
+* [Azure AD B2C custom policy overview](custom-policy-overview.md)
+* [Tutorial: Create user flows and custom policies in Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)
+* Go to idemia.com for [Mobile ID: Proving your identity with greater privacy](https://www.idemia.com/mobile-id)
