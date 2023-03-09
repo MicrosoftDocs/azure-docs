@@ -78,10 +78,10 @@ In this article, you learn how to:
     echo "$(terraform output resource_group_name)"
     ```
 
-1. Get the server name.
+1. Get the service name.
 
     ```console
-    echo "$(terraform output azurerm_analysis_services_server_name)"
+    echo "$(terraform output api_management_service_name)"
     ```
 
 1. Run [Get-AzApiManagement](/powershell/module/az.apimanagement/get-azapimanagement) to display information about the new service.
