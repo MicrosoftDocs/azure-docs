@@ -43,7 +43,7 @@ Virtual machine disk traffic (including mount and unmount operations, and disk I
 
 Classic storage accounts do not support firewalls and virtual networks.
 
-You can use unmanaged disks in storage accounts with network rules applied to back up and restore VMs by creating an exception. This process is documented in the [Manage Exceptions](#manage-exceptions) section of this article. Firewall exceptions aren't applicable with managed disks as they're already managed by Azure.
+You can use unmanaged disks in storage accounts with network rules applied to back up and restore VMs by creating an exception. This process is documented in the [Manage Exceptions](#manage-exceptions) section of this article. Firewall exceptions aren't applicable with managed disks as they're already managed by Azure. Also, firewall applies only to the [data plane](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/control-plane-and-data-plane#data-plane) such as Storage Explorer, etc. Operations on the [control plane](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/control-plane-and-data-plane#control-plane) such as Azure Portal list containers and such are not subject to the restrictions specified in the storage firewall. Blob container operations can be accessed through both the control plane and the data plane. So operations will continue to succeed from outside the restricted network when invoked through the control plane.
 
 ## Change the default network access rule
 
