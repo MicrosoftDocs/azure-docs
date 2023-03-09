@@ -174,10 +174,11 @@ When using our embeddings models, keep in mind their limitations and risks.
 | text-davinci-002 | Yes | No | East US, South Central US, West Europe | N/A |
 | text-davinci-003 | Yes | No | East US | N/A |
 | text-davinci-fine-tune-002<sup>1</sup> | Yes | No | N/A | East US, West Europe |
-| gpt-35-turbo (ChatGPT); version "0301" of this model will be available until 8/1/2023 | Yes | No | N/A | East US, South Central US |
+| gpt-35-turbo<sup>3</sup> (ChatGPT) | Yes | No | N/A | East US, South Central US |
 
 <sup>1</sup> The model is available by request only. Currently we aren't accepting new requests to use the model.
 <br><sup>2</sup> East US is currently unavailable for new customers to fine-tune due to high demand. Please use US South Central region for US based training.
+<br><sup>3</sup> Currently, only version `"0301"` of this model is available. This version of the model will be deprecated on 8/1/2023 in favor of newer version of the gpt-35-model. See [ChatGPT model versioning](../how-to/chatgpt.md#model-versioning) for more details.
 
 ### Codex Models
 |  Model ID  | Supports Completions | Supports Embeddings |  Base model Regions   | Fine-Tuning Regions |	
