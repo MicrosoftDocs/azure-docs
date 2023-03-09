@@ -77,7 +77,7 @@ In this screenshot, you can see the data shown when the first line is selected i
 
 :::image type="content" source="media/sap-audit-log-workbook/anomalous-logon-failures-table.png" alt-text="Screenshot of data shown when a line is selected in the Anomalous login failures table." lightbox="media/sap-audit-log-workbook/anomalous-logon-failures-table.png":::
 
-In this screenshot, the **Azure audit and signin risks for user** table shows data the sign in risk related to this user.
+In this screenshot, the **Azure audit and signin risks for user** table shows data for the sign in risk related to this user.
 
 :::image type="content" source="media/sap-audit-log-workbook/azure-audit-signin-risks.png" alt-text="Screenshot of audit and sign in risk data shown when a line is selected in the Anomalous login failures table." lightbox="media/sap-audit-log-workbook/azure-audit-signin-risks.png":::
 
