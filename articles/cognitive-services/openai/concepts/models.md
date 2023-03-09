@@ -4,7 +4,7 @@ titleSuffix: Azure OpenAI
 description: Learn about the different model capabilities that are available with Azure OpenAI. 
 ms.service: cognitive-services
 ms.topic: conceptual 
-ms.date: 03/01/2023
+ms.date: 03/09/2023
 ms.custom: event-tier1-build-2022, references_regions
 manager: nitinme
 author: ChrisHMSFT
@@ -161,56 +161,57 @@ When using our embeddings models, keep in mind their limitations and risks.
 ## Model Summary table and region availability
 
 ### GPT-3 Models
-|  Model ID  | Supports Completions | Supports Embeddings |  Base model Regions   | Fine-Tuning Regions |	
-|  --- | --- | --- | --- | --- |
-| ada | 	Yes	| No	|	N/A	| East US<sup>2</sup>, South Central US, West Europe |
-| text-ada-001 | Yes | No | East US<sup>2</sup>, South Central US, West Europe | N/A |
-| babbage | Yes | No | N/A | East US<sup>2</sup>, South Central US, West Europe |
-| text-babbage-001 | Yes | No | East US<sup>2</sup>, South Central US, West Europe | N/A |
-| curie | Yes | No | N/A | East US<sup>2</sup>, South Central US, West Europe |
-| text-curie-001 | Yes | No | East US<sup>2</sup>, South Central US, West Europe | N/A |
-| davinci<sup>1</sup> | Yes | No | N/A | East US<sup>2</sup>, South Central US, West Europe |
-| text-davinci-001 | Yes | No | South Central US, West Europe | N/A |
-| text-davinci-002 | Yes | No | East US, South Central US, West Europe | N/A |
-| text-davinci-003 | Yes | No | East US | N/A |
-| text-davinci-fine-tune-002<sup>1</sup> | Yes | No | N/A | East US, West Europe |
-| gpt-35-turbo<sup>3</sup> (ChatGPT) | Yes | No | N/A | East US, South Central US |
+
+|  Model ID  | Supports Completions | Supports Embeddings |  Base model Regions   | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
+|  --------- | -------------------- | ------------------- | --------------------- | ------------------- | -------------------- | ---------------------- |
+| ada | 	Yes	| No	|	N/A	| East US<sup>2</sup>, South Central US, West Europe | 2,049 | Oct 2019|
+| text-ada-001 | Yes | No | East US<sup>2</sup>, South Central US, West Europe | N/A | 2,049 | Oct 2019|
+| babbage | Yes | No | N/A | East US<sup>2</sup>, South Central US, West Europe | 2,049 | Oct 2019 |
+| text-babbage-001 | Yes | No | East US<sup>2</sup>, South Central US, West Europe | N/A | 2,049 | Oct 2019 |
+| curie | Yes | No | N/A | East US<sup>2</sup>, South Central US, West Europe | 2,049 | Oct 2019 |
+| text-curie-001 | Yes | No | East US<sup>2</sup>, South Central US, West Europe | N/A | 2,049 | Oct 2019 |
+| davinci<sup>1</sup> | Yes | No | N/A | East US<sup>2</sup>, South Central US, West Europe | 2,049 | Oct 2019|
+| text-davinci-001 | Yes | No | South Central US, West Europe | N/A |  |  |
+| text-davinci-002 | Yes | No | East US, South Central US, West Europe | N/A | 4,097 | Jun 2021 |
+| text-davinci-003 | Yes | No | East US | N/A | 4,097 | Jun 2021 |
+| text-davinci-fine-tune-002<sup>1</sup> | Yes | No | N/A | East US, West Europe |  |  |
+| gpt-35-turbo<sup>3</sup> (ChatGPT) | Yes | No | N/A | East US, South Central US | 4,096 | Sep 2021
 
 <sup>1</sup> The model is available by request only. Currently we aren't accepting new requests to use the model.
 <br><sup>2</sup> East US is currently unavailable for new customers to fine-tune due to high demand. Please use US South Central region for US based training.
 <br><sup>3</sup> Currently, only version `"0301"` of this model is available. This version of the model will be deprecated on 8/1/2023 in favor of newer version of the gpt-35-model. See [ChatGPT model versioning](../how-to/chatgpt.md#model-versioning) for more details.
 
 ### Codex Models
-|  Model ID  | Supports Completions | Supports Embeddings |  Base model Regions   | Fine-Tuning Regions |	
-|  --- | --- | --- | --- | --- |
-| code-cushman-001<sup>1</sup> | Yes | No | South Central US, West Europe | East US<sup>2</sup> , South Central US, West Europe |
-| code-davinci-002 | Yes | No | East US,  West Europe |  N/A |
-| code-davinci-fine-tune-002<sup>1</sup> | Yes | No | N/A | East US<sup>2</sup> , West Europe |
+|  Model ID  | Supports Completions | Supports Embeddings |  Base model Regions   | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
+|  --- | --- | --- | --- | --- | --- | --- |
+| code-cushman-001<sup>1</sup> | Yes | No | South Central US, West Europe | East US<sup>2</sup> , South Central US, West Europe | 2,048 | |
+| code-davinci-002 | Yes | No | East US,  West Europe |  N/A | 8,001 | Jun 2021 |
+| code-davinci-fine-tune-002<sup>1</sup> | Yes | No | N/A | East US<sup>2</sup> , West Europe | | |
 
 <sup>1</sup> The model is available for fine-tuning by request only. Currently we aren't accepting new requests to fine-tune the model.
 <br><sup>2</sup> East US is currently unavailable for new customers to fine-tune due to high demand. Please use US South Central region for US based training.
 
 ### Embeddings Models
-|  Model ID  | Supports Completions | Supports Embeddings |  Base model Regions   | Fine-Tuning Regions |	
-|  --- | --- | --- | --- | --- |
-| text-ada-embeddings-002 | No | Yes | East US, South Central US, West Europe | N/A |
-| text-similarity-ada-001 | No | Yes | East US, South Central US, West Europe | N/A |
-| text-similarity-babbage-001 | No | Yes | South Central US, West Europe | N/A |
-| text-similarity-curie-001 | No | Yes | East US, South Central US, West Europe | N/A |
-| text-similarity-davinci-001 | No | Yes | South Central US, West Europe | N/A |
-| text-search-ada-doc-001 | No | Yes | South Central US, West Europe | N/A |
-| text-search-ada-query-001 | No | Yes | South Central US, West Europe | N/A |
-| text-search-babbage-doc-001 | No | Yes | South Central US, West Europe | N/A |
-| text-search-babbage-query-001 | No | Yes | South Central US, West Europe | N/A |
-| text-search-curie-doc-001 | No | Yes | South Central US, West Europe | N/A |
-| text-search-curie-query-001 | No | Yes | South Central US, West Europe | N/A |
-| text-search-davinci-doc-001 | No | Yes | South Central US, West Europe | N/A |
-| text-search-davinci-query-001 | No | Yes | South Central US, West Europe | N/A |
-| code-search-ada-code-001 | No | Yes | South Central US, West Europe | N/A |
-| code-search-ada-text-001 | No | Yes | South Central US, West Europe | N/A |
-| code-search-babbage-code-001 | No | Yes | South Central US, West Europe | N/A |
-| code-search-babbage-text-001 | No | Yes | South Central US, West Europe | N/A |
- 	
+|  Model ID  | Supports Completions | Supports Embeddings |  Base model Regions   | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
+|  --- | --- | --- | --- | --- | --- | --- |
+| text-ada-embeddings-002 | No | Yes | East US, South Central US, West Europe | N/A | 8,191 | Sep 2021 |
+| text-similarity-ada-001 | No | Yes | East US, South Central US, West Europe | N/A | 2,046 | Aug 2020 |
+| text-similarity-babbage-001 | No | Yes | South Central US, West Europe | N/A | 2,046 | Aug 2020 |
+| text-similarity-curie-001 | No | Yes | East US, South Central US, West Europe | N/A |  2046 | Aug 2020 |
+| text-similarity-davinci-001 | No | Yes | South Central US, West Europe | N/A | 2,046 | Aug 2020 |
+| text-search-ada-doc-001 | No | Yes | South Central US, West Europe | N/A | 2,046 | Aug 2020 |
+| text-search-ada-query-001 | No | Yes | South Central US, West Europe | N/A | 2,046 | Aug 2020 |
+| text-search-babbage-doc-001 | No | Yes | South Central US, West Europe | N/A | 2,046 | Aug 2020 |
+| text-search-babbage-query-001 | No | Yes | South Central US, West Europe | N/A | 2,046 | Aug 2020 |
+| text-search-curie-doc-001 | No | Yes | South Central US, West Europe | N/A | 2,046 | Aug 2020 |
+| text-search-curie-query-001 | No | Yes | South Central US, West Europe | N/A | 2,046 | Aug 2020 |
+| text-search-davinci-doc-001 | No | Yes | South Central US, West Europe | N/A | 2,046 | Aug 2020 |
+| text-search-davinci-query-001 | No | Yes | South Central US, West Europe | N/A | 2,046 | Aug 2020 |
+| code-search-ada-code-001 | No | Yes | South Central US, West Europe | N/A | 2,046 | Aug 2020 |
+| code-search-ada-text-001 | No | Yes | South Central US, West Europe | N/A | 2,046 | Aug 2020 |
+| code-search-babbage-code-001 | No | Yes | South Central US, West Europe | N/A | 2,046 | Aug 2020 |
+| code-search-babbage-text-001 | No | Yes | South Central US, West Europe | N/A | 2,046 | Aug 2020 |
+
 ## Next steps
 
 [Learn more about Azure OpenAI](../overview.md)
