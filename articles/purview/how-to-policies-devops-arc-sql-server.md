@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 02/10/2023
+ms.date: 03/03/2023
 ms.custom:
 ---
 # Provision access to system metadata in Azure Arc-enabled SQL Server 2022
@@ -105,7 +105,7 @@ SELECT * FROM sys.dm_server_external_policy_principal_assigned_actions
 
 This section contains a reference of how actions in Microsoft Purview data policies map to specific actions in Azure Arc-enabled SQL Server.
 
-| **Microsoft Purview policy action** | **Data source specific actions**     |
+| **DevOps role definition** | **Data source specific actions**     |
 |-------------------------------------|--------------------------------------|
 |                                     |                                      |
 | *SQL Performance Monitor* |Microsoft.Sql/sqlservers/Connect |

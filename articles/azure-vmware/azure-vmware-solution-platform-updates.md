@@ -4,14 +4,17 @@ description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
 ms.custom: "references_regions, engagement-fy23"
 ms.service: azure-vmware
-ms.date: 2/03/2023
+ms.date: 2/27/2023
 ---
 
 # What's new in Azure VMware Solution
 
 Microsoft will regularly apply important updates to the Azure VMware Solution for new features and software lifecycle management. You'll receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](concepts-private-clouds-clusters.md#host-maintenance-and-lifecycle-management).
 
+
 ## February 2023
+
+All new Azure VMware Solution private clouds are being deployed with NSX-T Data Center version 3.2.2. NSX-T Data Center versions in existing private clouds will be upgraded to NSX-T Data Center version 3.2.2 through April 2023.
 
 VMware HCX Enterprise is now available and supported on Azure VMware Solution at no extra cost. HCX Enterprise brings valuable [services](https://docs.vmware.com/en/VMware-HCX/4.5/hcx-user-guide/GUID-32AF32BD-DE0B-4441-95B3-DF6A27733EED.html) like, Replicated Assisted vMotion (RAV), Mobility Optimized Networking (MON). HCX Enterprise is now automatically installed for all new HCX add-on requests, and existing HCX Advanced customers can upgrade to HCX Enterprise using the Azure portal. Learn more on how to [Install and activate VMware HCX in Azure VMware Solution](https://learn.microsoft.com/azure/azure-vmware/install-vmware-hcx).
 

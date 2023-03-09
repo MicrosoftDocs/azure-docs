@@ -5,14 +5,17 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 1/20/2023
+ms.date: 02/27/2023
 ms.author: jasteppe
 ms.custom: mode-api
 ---
 
 # Get started with the MedTech service in the Azure Health Data Services
 
-This article will show you how to get started with the Azure MedTech service in the [Azure Health Data Services](../healthcare-apis-overview.md). There are six steps you need to follow to be able to deploy and process MedTech service to ingest data from a device using Azure Event Hubs service, persist the data to Azure Fast Healthcare Interoperability Resources (FHIR&#174;) service as Observation resources, and link FHIR service Observations to user and device resources. This article provides an architecture overview to help you follow the six steps of the implementation process.
+> [!NOTE]
+> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
+
+This article will show you how to get started with the Azure MedTech service in the [Azure Health Data Services](../healthcare-apis-overview.md). There are six steps you need to follow to be able to deploy and process MedTech service to ingest data from a device using Azure Event Hubs service, persist the data to Azure FHIR service as Observation resources, and link FHIR service Observations to user and device resources. This article provides an architecture overview to help you follow the six steps of the implementation process.
 
 ## Architecture overview of the MedTech service
 

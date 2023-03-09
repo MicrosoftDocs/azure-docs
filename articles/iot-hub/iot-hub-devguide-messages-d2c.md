@@ -1,5 +1,6 @@
 ---
 title: Understand Azure IoT Hub message routing
+titleSuffix: Azure IoT Hub
 description: This article describes how to use message routing to send device-to-cloud messages. Includes information about sending both telemetry and non-telemetry data.
 author: kgremban
 ms.service: iot-hub
@@ -108,6 +109,12 @@ You can configure the synthetic partition key value by specifying a template in 
 
 > [!CAUTION]
 > If you're using the system assigned managed identity for authenticating to Cosmos DB, you must use Azure CLI or Azure PowerShell to assign the Cosmos DB Built-in Data Contributor built-in role definition to the identity. Role assignment for Cosmos DB isn't currently supported from the Azure portal. For more information about the various roles, see [Configure role-based access for Azure Cosmos DB](../cosmos-db/how-to-setup-rbac.md). To understand assigning roles via CLI, see [Manage Azure Cosmos DB SQL role resources.](/cli/azure/cosmosdb/sql/role)
+
+## Route to an endpoint in another subscription
+
+If the endpoint resource is in a different subscription than your IoT hub, you need to configure your IoT hub as a trusted Microsoft service before creating a custom endpoint. When you do create the custom endpoint, set the **Authentication type** to user-assigned identity.
+
+For more information, see [Egress connectivity from IoT Hub to other Azure resources](./iot-hub-managed-identity.md#egress-connectivity-from-iot-hub-to-other-azure-resources).
 
 ## Routing queries
 

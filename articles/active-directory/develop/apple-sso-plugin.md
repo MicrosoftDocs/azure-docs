@@ -105,7 +105,7 @@ The SSO plug-in is installed automatically by devices that have:
 * Downloaded the Authenticator app on iOS or iPadOS, or downloaded the Intune Company Portal app on macOS.
 * Registered their device with your organization. 
 
-Your organization likely uses the Authenticator app for scenarios like multifactor authentication (MFA), passwordless authentication, and conditional access. By using an MDM provider, you can turn on the SSO plug-in for your applications. Microsoft has made it easy to configure the plug-in inside the Microsoft Endpoint Manager in Intune. An allowlist is used to configure these applications to use the SSO plug-in.
+Your organization likely uses the Authenticator app for scenarios like multifactor authentication (MFA), passwordless authentication, and conditional access. By using an MDM provider, you can turn on the SSO plug-in for your applications. Microsoft has made it easy to configure the plug-in using Microsoft Intune. An allowlist is used to configure these applications to use the SSO plug-in.
 
 >[!IMPORTANT]
 > The Microsoft Enterprise SSO plug-in supports only apps that use native Apple network technologies or webviews. It doesn't support applications that ship their own network layer implementation.  

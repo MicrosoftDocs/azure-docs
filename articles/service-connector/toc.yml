@@ -128,3 +128,5 @@ items:
       href: /rest/api/serviceconnector?toc=/azure/service-connector/TOC.json&bc=/azure/service-connector/breadcrumb/toc.json
     - name: Python SDK
       href: /python/api/azure-mgmt-servicelinker?toc=/azure/service-connector/TOC.json&bc=/azure/service-connector/breadcrumb/toc.json
+    - name: Known limitations
+      href: known-limitations.md

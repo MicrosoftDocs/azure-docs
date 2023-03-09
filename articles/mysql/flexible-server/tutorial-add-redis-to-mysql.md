@@ -13,7 +13,7 @@ ms.date: 12/07/2022
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-This article demonstrates how to boost the performance of an Azure Database for MySQL flexible server using [Azure cache for Redis](../../azure-cache-for-redis/cache-overview.md). Azure cache for Redis is a secure data cache and messaging broker that provides high throughput and low-latency access to data for applications.
+This article demonstrates how to boost the performance of an Azure Database for MySQL flexible server using [Azure Cache for Redis](../../azure-cache-for-redis/cache-overview.md). Azure Cache for Redis is a secure data cache and messaging broker that provides high throughput and low-latency access to data for applications.
 
 ## Prerequisites
 

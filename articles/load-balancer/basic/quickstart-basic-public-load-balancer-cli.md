@@ -188,7 +188,7 @@ Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vn
     --resource-group CreatePubLBQS-rg \
     --name AzureBastionSubnet \
     --vnet-name myVNet \
-    --address-prefixes 10.1.1.0/27
+    --address-prefixes 10.1.1.0/26
 ```
 
 ### Create bastion host

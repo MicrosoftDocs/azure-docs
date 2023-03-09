@@ -5,7 +5,7 @@ author: athenads
 ms.author: athenadsouza
 ms.service: purview
 ms.topic: how-to
-ms.date: 10/04/2022
+ms.date: 02/16/2023
 ms.custom: template-how-to, ignite-fall-2021, references_regions
 ---
 # Connect to Azure Data Lake Storage in Microsoft Purview
@@ -290,39 +290,46 @@ It's important to give your service principal the permission to scan the ADLS Ge
 [!INCLUDE [view and manage scans](includes/view-and-manage-scans.md)]
 
 ## Data sharing
-Microsoft Purview Data Sharing (preview) enables sharing of data in-place from ADLS Gen2 to ADLS Gen2. This section provides details about the ADLS Gen2 specific requirements for sharing and receiving data in-place. Refer to [How to share data](how-to-share-data.md) and [How to receive share](how-to-receive-share.md) for step by step guide on how to use data share.
+
+Microsoft Purview Data Sharing (preview) enables sharing of data in-place from ADLS Gen2 to ADLS Gen2. This section provides details about the ADLS Gen2 specific requirements for sharing and receiving data in-place. Refer to [How to share data](how-to-share-data.md) and [How to receive share](how-to-receive-share.md) for step by step guide on how to use data sharing.
 
 ### Storage accounts supported for in-place data sharing
+
 The following storage accounts are supported for in-place data sharing:
 
 * Regions: Canada Central, Canada East, UK South, UK West, Australia East, Japan East, Korea South, and South Africa North
 * Redundancy options: LRS, GRS, RA-GRS
 * Tiers: Hot, Cool
 
-Only use storage account without production workload for the preview.
+Only use storage accounts without production workload for the preview.
 
 >[!NOTE]
 > Source and target storage accounts must be in the same region as each other. They don't need to be in the same region as the Microsoft Purview account.
 
 ### Storage account permissions required to share data
+
 To add or update a storage account asset to a share, you need ONE of the following permissions:
 
-* **Microsoft.Authorization/roleAssignments/write** - This permission is available in the *Owner* role.
-* **Microsoft.Storage/storageAccounts/blobServices/containers/blobs/modifyPermissions/** - This permission is available in the *Blob Storage Data Owner* role.
+* **Microsoft.Authorization/roleAssignments/write** - This permission is available in the _Owner_ role.
+* **Microsoft.Storage/storageAccounts/blobServices/containers/blobs/modifyPermissions/** - This permission is available in the _Blob Storage Data Owner_ role.
 
 ### Storage account permissions required to receive shared data
+
 To map a storage account asset in a received share, you need ONE of the following permissions:
 
-* **Microsoft.Storage/storageAccounts/write** - This permission is  available in the *Contributor* and *Owner* role.
-* **Microsoft.Storage/storageAccounts/blobServices/containers/write** - This permission is available in the *Contributor*, *Owner*, *Storage Blob Data Contributor* and *Storage Blob Data Owner* role.
+* **Microsoft.Storage/storageAccounts/write** - This permission is  available in the _Contributor_ and _Owner_ role.
+* **Microsoft.Storage/storageAccounts/blobServices/containers/write** - This permission is available in the _Contributor_, _Owner_, _Storage Blob Data Contributor_ and _Storage Blob Data Owner_ role.
 
 ### Update shared data in source storage account
+
 Updates you make to shared files or data in the shared folder from source storage account will be made available to recipient in target storage account in near real time. When you delete subfolder or files within the shared folder, they'll disappear for recipient. To delete the shared folder, file or parent folders or containers, you need to first revoke access to all your shares from the source storage account.
 
 ### Access shared data in target storage account
-The target storage account enables recipient to access the shared data read-only in near real time. You can connect analytics tools such as Synapse Workspace and Databricks to the shared data to perform analytics. Cost of accessing the shared data is charged to the target storage account. 
+
+The target storage account enables recipient to access the shared data read-only in near real time. You can connect analytics tools such as Synapse Workspace and Databricks to the shared data to perform analytics. Cost of accessing the shared data is charged to the target storage account.
 
 ### Service limit
+
 Source storage account can support up to 20 targets, and target storage account can support up to 100 sources. If you require an increase in limit, contact Support.
 
 ## Access policy

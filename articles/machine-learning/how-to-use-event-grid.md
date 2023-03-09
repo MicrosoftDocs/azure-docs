@@ -25,6 +25,8 @@ When to use Event Grid for event driven actions:
 * Streaming events from Azure Machine Learning to various of endpoints
 * Trigger an ML pipeline when drift is detected
 
+[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
 ## Prerequisites
 
 To use Event Grid, you need contributor or owner access to the Azure Machine Learning workspace you will create events for.
@@ -183,7 +185,7 @@ Use [Azure Logic Apps](../logic-apps/index.yml) to configure emails for all your
 ### Example: Data drift triggers retraining
 
 > [!IMPORTANT]
-> This example relies on a feature (data drift) that is only available when using Azure Machine Learning SDK v1 or Azure CLI extension v1 for Azure Machine Learning. For more information, see [What is Azure ML CLI & SDK v2](concept-v2.md).
+> This example relies on a feature (data drift) that is only available when using Azure Machine Learning SDK v1 or Azure CLI extension v1 for Azure Machine Learning. For more information, see [What is Azure Machine Learning CLI & SDK v2](concept-v2.md).
 
 Models go stale over time, and not remain useful in the context it is running in. One way to tell if it's time to retrain the model is detecting data drift. 
 
