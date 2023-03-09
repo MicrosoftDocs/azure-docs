@@ -23,7 +23,7 @@ Currently, the following dynamic content options are available for a workflow co
 |Prerequisite connector  |Built-in dynamic content  |Functionality  |
 |---------|---------|---------|
 |When data access request is submitted |Workflow.Requestor |The requestor of the workflow |
-| |Workflow.RequestRecepient |The request recipient of the workflow |
+| |Workflow.Request Recepient |The request recipient of the workflow |
 | |Asset.Name  |The name of the asset  |
 | |Asset.Description |The description of the asset |
 | |Asset.Type	|The type of the asset  |
