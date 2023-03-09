@@ -82,12 +82,12 @@ format setting to **Persistent**. For that you can use **user.objectid** attribu
     > From the list of default attributes, please edit the following claims manually:
     > 1. Click the **givenname** (user.givenname) claim, change the Name setting to **given_name** and click **Save**.
     > 1. Click the **name** (user.userprincipalname) claim, change the Source setting to **Transformation** and edit the Manage transformation settings as follows:
-        
-            1. Select Transformation, choose Join().
-            1. Select Parameter 1 and choose user.givenname.
-            1. Select Separator and add a single whitespace.
-            1. Select Parameter 2 and choose user.surname.
-            1. Click Add and Save to complete the   configuration.
+
+        1. Select Transformation, choose Join().
+        1. Select Parameter 1 and choose user.givenname.
+        1. Select Separator and add a single whitespace.
+        1. Select Parameter 2 and choose user.surname.
+        1. Click Add and Save to complete the   configuration.
 
 1. In addition to above, Island application expects few more attributes to be passed back in SAML response, which are shown below. These attributes are also pre populated but you can review them as per your requirements.
 
