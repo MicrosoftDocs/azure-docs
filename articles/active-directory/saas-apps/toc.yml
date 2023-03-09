@@ -3122,7 +3122,7 @@
         href: netpresenter-provisioning-tutorial.md
       - name: Netskope User Authentication
         href: netskope-administrator-console-provisioning-tutorial.md
-      - name: Netsparker Enterprise
+      - name: NetsparkerEnterprise
         href: netsparker-enterprise-provisioning-tutorial.md
       - name: New Relic by Organization
         href: new-relic-by-organization-provisioning-tutorial.md
@@ -3278,6 +3278,8 @@
         href: theorgwiki-provisioning-tutorial.md
       - name: Thrive LXP
         href: thrive-lxp-provisioning-tutorial.md
+      - name: Torii
+        href: torii-provisioning-tutorial.md
       - name: TravelPerk
         href: travelperk-provisioning-tutorial.md
       - name: Tribeloo
