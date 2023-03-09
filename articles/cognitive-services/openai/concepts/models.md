@@ -4,7 +4,7 @@ titleSuffix: Azure OpenAI
 description: Learn about the different model capabilities that are available with Azure OpenAI. 
 ms.service: cognitive-services
 ms.topic: conceptual 
-ms.date: 03/01/2023
+ms.date: 03/09/2023
 ms.custom: event-tier1-build-2022, references_regions
 manager: nitinme
 author: ChrisHMSFT
@@ -162,7 +162,7 @@ When using our embeddings models, keep in mind their limitations and risks.
 
 ### GPT-3 Models
 |  Model ID  | Supports Completions | Supports Embeddings |  Base model Regions   | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
-|  --- | --- | --- | --- | --- |
+|  --- | --- | --- | --- | --- | --- | -- | 
 | ada | 	Yes	| No	|	N/A	| East US<sup>2</sup>, South Central US, West Europe | 2,049 | Oct 2019|
 | text-ada-001 | Yes | No | East US<sup>2</sup>, South Central US, West Europe | N/A | 2,049 | Oct 2019|
 | babbage | Yes | No | N/A | East US<sup>2</sup>, South Central US, West Europe | 2,049 | Oct 2019 |
@@ -172,7 +172,7 @@ When using our embeddings models, keep in mind their limitations and risks.
 | davinci<sup>1</sup> | Yes | No | N/A | East US<sup>2</sup>, South Central US, West Europe | 2,049 | Oct 2019|
 | text-davinci-001 | Yes | No | South Central US, West Europe | N/A |  |  |
 | text-davinci-002 | Yes | No | East US, South Central US, West Europe | N/A | 4,097 | Jun 2021 |
-| text-davinci-003 | Yes | No | East US | N/A | 4,097 tokens | Jun 2021 | 4,097 | Jun 2021 |
+| text-davinci-003 | Yes | No | East US | N/A | 4,097 | Jun 2021 | 4,097 | Jun 2021 |
 | text-davinci-fine-tune-002<sup>1</sup> | Yes | No | N/A | East US, West Europe |  |  |
 | gpt-35-turbo<sup>3</sup> (ChatGPT) | Yes | No | N/A | East US, South Central US | 4,096 | Sep 2021
 
@@ -182,7 +182,7 @@ When using our embeddings models, keep in mind their limitations and risks.
 
 ### Codex Models
 |  Model ID  | Supports Completions | Supports Embeddings |  Base model Regions   | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
-|  --- | --- | --- | --- | --- |
+|  --- | --- | --- | --- | --- | --- | --- |
 | code-cushman-001<sup>1</sup> | Yes | No | South Central US, West Europe | East US<sup>2</sup> , South Central US, West Europe | 2,048 | |
 | code-davinci-002 | Yes | No | East US,  West Europe |  N/A | 8,001 | Jun 2021 |
 | code-davinci-fine-tune-002<sup>1</sup> | Yes | No | N/A | East US<sup>2</sup> , West Europe | | |
@@ -192,25 +192,25 @@ When using our embeddings models, keep in mind their limitations and risks.
 
 ### Embeddings Models
 |  Model ID  | Supports Completions | Supports Embeddings |  Base model Regions   | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
-|  --- | --- | --- | --- | --- |
-| text-ada-embeddings-002 | No | Yes | East US, South Central US, West Europe | N/A | 8191 | Sep 2021 |
-| text-similarity-ada-001 | No | Yes | East US, South Central US, West Europe | N/A | 2046 | Aug 2020 |
-| text-similarity-babbage-001 | No | Yes | South Central US, West Europe | N/A | 2046 | Aug 2020 |
+|  --- | --- | --- | --- | --- | --- | --- |
+| text-ada-embeddings-002 | No | Yes | East US, South Central US, West Europe | N/A | 8,191 | Sep 2021 |
+| text-similarity-ada-001 | No | Yes | East US, South Central US, West Europe | N/A | 2,046 | Aug 2020 |
+| text-similarity-babbage-001 | No | Yes | South Central US, West Europe | N/A | 2,046 | Aug 2020 |
 | text-similarity-curie-001 | No | Yes | East US, South Central US, West Europe | N/A |  2046 | Aug 2020 |
-| text-similarity-davinci-001 | No | Yes | South Central US, West Europe | N/A | 2046 | Aug 2020 |
-| text-search-ada-doc-001 | No | Yes | South Central US, West Europe | N/A | 2046 | Aug 2020 |
-| text-search-ada-query-001 | No | Yes | South Central US, West Europe | N/A | 2046 | Aug 2020 |
-| text-search-babbage-doc-001 | No | Yes | South Central US, West Europe | N/A | 2046 | Aug 2020 |
-| text-search-babbage-query-001 | No | Yes | South Central US, West Europe | N/A | 2046 | Aug 2020 |
-| text-search-curie-doc-001 | No | Yes | South Central US, West Europe | N/A | 2046 | Aug 2020 |
-| text-search-curie-query-001 | No | Yes | South Central US, West Europe | N/A | 2046 | Aug 2020 |
-| text-search-davinci-doc-001 | No | Yes | South Central US, West Europe | N/A | 2046 | Aug 2020 |
-| text-search-davinci-query-001 | No | Yes | South Central US, West Europe | N/A | 2046 | Aug 2020 |
-| code-search-ada-code-001 | No | Yes | South Central US, West Europe | N/A | 2046 | Aug 2020 |
-| code-search-ada-text-001 | No | Yes | South Central US, West Europe | N/A | 2046 | Aug 2020 |
-| code-search-babbage-code-001 | No | Yes | South Central US, West Europe | N/A | 2046 | Aug 2020 |
-| code-search-babbage-text-001 | No | Yes | South Central US, West Europe | N/A | 2046 | Aug 2020 |
- 	
+| text-similarity-davinci-001 | No | Yes | South Central US, West Europe | N/A | 2,046 | Aug 2020 |
+| text-search-ada-doc-001 | No | Yes | South Central US, West Europe | N/A | 2,046 | Aug 2020 |
+| text-search-ada-query-001 | No | Yes | South Central US, West Europe | N/A | 2,046 | Aug 2020 |
+| text-search-babbage-doc-001 | No | Yes | South Central US, West Europe | N/A | 2,046 | Aug 2020 |
+| text-search-babbage-query-001 | No | Yes | South Central US, West Europe | N/A | 2,046 | Aug 2020 |
+| text-search-curie-doc-001 | No | Yes | South Central US, West Europe | N/A | 2,046 | Aug 2020 |
+| text-search-curie-query-001 | No | Yes | South Central US, West Europe | N/A | 2,046 | Aug 2020 |
+| text-search-davinci-doc-001 | No | Yes | South Central US, West Europe | N/A | 2,046 | Aug 2020 |
+| text-search-davinci-query-001 | No | Yes | South Central US, West Europe | N/A | 2,046 | Aug 2020 |
+| code-search-ada-code-001 | No | Yes | South Central US, West Europe | N/A | 2,046 | Aug 2020 |
+| code-search-ada-text-001 | No | Yes | South Central US, West Europe | N/A | 2,046 | Aug 2020 |
+| code-search-babbage-code-001 | No | Yes | South Central US, West Europe | N/A | 2,046 | Aug 2020 |
+| code-search-babbage-text-001 | No | Yes | South Central US, West Europe | N/A | 2,046 | Aug 2020 |
+
 ## Next steps
 
 [Learn more about Azure OpenAI](../overview.md)
