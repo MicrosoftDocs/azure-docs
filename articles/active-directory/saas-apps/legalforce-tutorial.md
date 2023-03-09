@@ -16,13 +16,13 @@ ms.author: jeedes
 
 # Azure Active Directory SSO integration with LegalForce
 
-In this article, you learn how to integrate LegalForce with Azure Active Directory (Azure AD). LegalForce automatically checks checklists and contracts for each contract type using technologies such as natural language processing, instantly presents omissions in terms and excesses in clauses, and prevents omissions and omissions. It is equipped with functions that simultaneously improve the quality and efficiency of contract work. When you integrate LegalForce with Azure AD, you can:
+In this article, you learn how to integrate LegalForce with Azure Active Directory (Azure AD). LegalForce automatically checks checklists and contracts for each contract type using technologies such as natural language processing, instantly presents omissions in terms and excesses in clauses, and prevents omissions and omissions. It's equipped with functions that simultaneously improve the quality and efficiency of contract work. When you integrate LegalForce with Azure AD, you can:
 
 * Control in Azure AD who has access to LegalForce.
 * Enable your users to be automatically signed-in to LegalForce with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-You'll configure and test Azure AD single sign-on for LegalForce in a test environment. LegalForce supports **SP** initiated single sign-on.
+You'll configure and test Azure AD single sign-on for LegalForce in a test environment. LegalForce supports only **SP** initiated single sign-on.
 
 ## Prerequisites
 
