@@ -12,7 +12,7 @@ ms.custom: "include file"
 
 ## Revoke access to a storage account that uses customer-managed keys
 
-To temporarily revoke access to a storage account that is using customer-managed keys, disable the key currently being used in the key vault. Disabling the key will cause attempts to access data in the storage account to fail with error code 403 (Forbidden). For a list of storage account operations that will be affected, see [Revoke access with customer-managed keys](../articles/storage/common/customer-managed-keys-overview.md#revoke-access-with-customer-managed-keys).
+To temporarily revoke access to a storage account that is using customer-managed keys, disable the key currently being used in the key vault. Disabling the key will cause attempts to access data in the storage account to fail with error code 403 (Forbidden).
 
 # [Azure portal](#tab/azure-portal)
 
