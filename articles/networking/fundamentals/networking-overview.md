@@ -30,10 +30,10 @@ Azure Virtual Network (VNet) is the fundamental building block for your private 
 - **Communicate to the internet**: All resources in a VNet can communicate outbound to the internet, by default. You can communicate inbound to a resource by assigning a public IP address or a public Load Balancer. You can also use [Public IP addresses](../../virtual-network/ip-services/virtual-network-public-ip-address.md) or public [Load Balancer](../../load-balancer/load-balancer-overview.md) to manage your outbound connections.
 - **Communicate with on-premises networks**: You can connect your on-premises computers and networks to a virtual network using [VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoute](../../expressroute/expressroute-introduction.md).
 
-For more information, see [What is Azure Virtual Network?](../../virtual-network/virtual-networks-overview.md).
+For more information, see [What is Azure Virtual Network?](../../virtual-network/virtual-networks-overview.md)
 
 ### <a name="expressroute"></a>ExpressRoute
-ExpressRoute enables you to extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. This connection is private. Traffic doesn't go over the internet. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure, Microsoft 365, and Dynamics 365.  For more information, see [What is ExpressRoute?](../../expressroute/expressroute-introduction.md).
+ExpressRoute enables you to extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. This connection is private. Traffic doesn't go over the internet. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure, Microsoft 365, and Dynamics 365.  For more information, see [What is ExpressRoute?](../../expressroute/expressroute-introduction.md)
 
 :::image type="content" source="./media/networking-overview/expressroute-connection-overview.png" alt-text="Azure ExpressRoute" border="false":::
 
@@ -64,7 +64,7 @@ For more information, see [What is Azure Virtual WAN?](../../virtual-wan/virtual
 :::image type="content" source="../../virtual-wan/media/virtual-wan-about/virtual-wan-diagram.png" alt-text="Virtual WAN diagram." lightbox="../../virtual-wan/media/virtual-wan-about/virtual-wan-diagram.png":::
 
 ### <a name="dns"></a>Azure DNS
-Azure DNS is a hosting service for DNS domains that provides name resolution by using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records by using the same credentials, APIs, tools, and billing as your other Azure services. For more information, see [What is Azure DNS?](../../dns/dns-overview.md).
+Azure DNS is a hosting service for DNS domains that provides name resolution by using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records by using the same credentials, APIs, tools, and billing as your other Azure services. For more information, see [What is Azure DNS?](../../dns/dns-overview.md)
 
 ### <a name="bastion"></a>Azure Bastion
 
@@ -74,16 +74,16 @@ Azure Bastion is a service that you can deploy to let you connect to a virtual m
 
 ### <a name="nat"></a>Virtual network NAT Gateway
 Virtual Network NAT (network address translation) simplifies outbound-only Internet connectivity for virtual networks. When configured on a subnet, all outbound connectivity uses your specified static public IP addresses. Outbound connectivity is possible without load balancer or public IP addresses directly attached to virtual machines. 
-For more information, see [What is virtual network NAT gateway?](../../virtual-network/nat-gateway/nat-overview.md).
+For more information, see [What is virtual network NAT gateway?](../../virtual-network/nat-gateway/nat-overview.md)
 
 :::image type="content" source="./media/networking-overview/flow-map.png" alt-text="Virtual network NAT gateway":::
 
 ### <a name="routeserver"></a>Route Server
 
-Azure Route Server simplifies dynamic routing between your network virtual appliance (NVA) and your virtual network. It allows you to exchange routing information directly through Border Gateway Protocol (BGP) routing protocol between any NVA that supports the BGP routing protocol and the Azure Software Defined Network (SDN) in the Azure Virtual Network (VNet) without the need to manually configure or maintain route tables. For more information, see [What is Azure Route Server?](../../route-server/overview.md).
+Azure Route Server simplifies dynamic routing between your network virtual appliance (NVA) and your virtual network. It allows you to exchange routing information directly through Border Gateway Protocol (BGP) routing protocol between any NVA that supports the BGP routing protocol and the Azure Software Defined Network (SDN) in the Azure Virtual Network (VNet) without the need to manually configure or maintain route tables. For more information, see [What is Azure Route Server?](../../route-server/overview.md)
 
 ### <a name="azurepeeringservice"></a>Peering Service
-Azure Peering service enhances customer connectivity to Microsoft cloud services such as Microsoft 365, Dynamics 365, software as a service (SaaS) services, Azure, or any Microsoft services accessible via the public internet. For more information, see [What is Azure Peering Service?](../../peering-service/about.md).
+Azure Peering service enhances customer connectivity to Microsoft cloud services such as Microsoft 365, Dynamics 365, software as a service (SaaS) services, Azure, or any Microsoft services accessible via the public internet. For more information, see [What is Azure Peering Service?](../../peering-service/about.md)
 
 ## <a name="protect"></a>Application protection services
 
@@ -152,7 +152,7 @@ The following picture shows an Internet-facing multi-tier application that utili
 :::image type="content" source="./media/networking-overview/load-balancer.png" alt-text="Azure Load Balancer example":::
 
 ### <a name="applicationgateway"></a>Application Gateway
-Azure Application Gateway is a web traffic load balancer that enables you to manage traffic to your web applications. It's an Application Delivery Controller (ADC) as a service, offering various layer 7 load-balancing capabilities for your applications. For more information, see [What is Azure Application Gateway?](../../application-gateway/overview.md).
+Azure Application Gateway is a web traffic load balancer that enables you to manage traffic to your web applications. It's an Application Delivery Controller (ADC) as a service, offering various layer 7 load-balancing capabilities for your applications. For more information, see [What is Azure Application Gateway?](../../application-gateway/overview.md)
 
 The following diagram shows url path-based routing with Application Gateway.
 
@@ -165,14 +165,13 @@ Azure Content Delivery Network (CDN) offers developers a global solution for rap
 :::image type="content" source="./media/networking-overview/cdn-overview.png" alt-text="Azure CDN":::
 
 ## <a name="monitor"></a>Network monitoring services
-This section describes networking services in Azure that help monitor your network resources - Azure Network Watcher, Azure Monitor Network Insights, Azure Monitor, ExpressRoute Monitor, and Virtual Network TAP.
+This section describes networking services in Azure that help monitor your network resources - Azure Network Watcher, Azure Monitor Network Insights, Azure Monitor, and ExpressRoute Monitor.
+
+### <a name="networkwatcher"></a>Azure Network Watcher
+Azure Network Watcher provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network. For more information, see [What is Network Watcher?](../../network-watcher/network-watcher-monitoring-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 ### <a name="azuremonitor"></a>Azure Monitor
 Azure Monitor maximizes the availability and performance of your applications by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. It helps you understand how your applications are performing and proactively identifies issues affecting them and the resources they depend on. For more information, see [Azure Monitor Overview](../../azure-monitor/overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
-
-### <a name="networkwatcher"></a>Azure Network Watcher
-Azure Network Watcher provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network. For more information, see [What is Network Watcher?](../../network-watcher/network-watcher-monitoring-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
-
 
 ### <a name="expressroutemonitor"></a>ExpressRoute Monitor
 To learn about how to view ExpressRoute circuit metrics, resource logs and alerts, see [ExpressRoute monitoring, metrics, and alerts](../../expressroute/expressroute-monitoring-metrics-alerts.md?toc=%2fazure%2fnetworking%2ftoc.json).
