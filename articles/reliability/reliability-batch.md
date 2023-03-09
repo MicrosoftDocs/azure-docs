@@ -50,11 +50,13 @@ Learn more about creating Batch accounts with the [Azure portal](../batch/batch-
 
 ### Zone down experience
 
-When a zone goes down, the nodes within that zone become unavailable.
+During a zone down outage, the nodes within that zone become unavailable. Any nodes within that same node pool from other zone(s) aren't impacted and continue to be available. 
 
-### Availability zone redeployment and migration
+Azure Batch account doesn't reallocate or create new nodes to compensate for nodes that have gone down due to the outage. Users are required to add additional nodes to the node pool. These nodes will be allocated from other healthy zone(s). 
 
-<!-- Placeholder for more information -->
+### Fault tolerance
+
+To prepare for availability zone failure, you should over-provision capacity of service to ensure that the solution can tolerate 1/3 loss of capacity and continue to function without degraded performance during zone-wide outages. Since the platform spreads VMs across three zones and you need to account for at least the failure of one zone, multiply peak workload instance count by a factor of zones/(zones-1), or 3/2. For example, if your typical peak workload requires four instances, you should provision six instances: (2/3 * 6 instances) = 4 instances.
 
 
 ## Disaster recovery: cross region failover
