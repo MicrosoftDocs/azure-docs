@@ -48,8 +48,6 @@ Operational backup of blobs uses blob point-in-time restore, blob versioning, so
 
 # [Vaulted backup](#tab/vaulted-backup)
 
-The vaulted backup is currently in preview in the following regions: France Central, Canada Central, Canada East, US East, US South.
-
 - You can back up only block blobs in a *standard general-purpose v2 storage account* using the vaulted backup solution for blobs.
 - HNS-enabled storage accounts are currently not supported. This includes *ADLS Gen2 accounts*, *accounts using NFS 3.0*, and *SFTP protocols* for blobs.
 - You can back up storage accounts with *up to 100 containers*. You can also select a subset of containers to back up (up to 100 containers).
