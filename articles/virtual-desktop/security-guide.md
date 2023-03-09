@@ -12,9 +12,9 @@ manager: femila
 ---
 # Security best practices
 
-Azure Virtual Desktop is a managed virtual desktop service that includes many security capabilities for keeping your organization safe. In a Azure Virtual Desktop deployment, Microsoft manages portions of the services on the customer’s behalf. The service has many built-in advanced security features, such as Reverse Connect, which reduce the risk involved with having remote desktops accessible from anywhere.
+Azure Virtual Desktop is a managed virtual desktop service that includes many security capabilities for keeping your organization safe. In an Azure Virtual Desktop deployment, Microsoft manages portions of the services on the customer’s behalf. The service has many built-in advanced security features, such as Reverse Connect, which reduce the risk involved with having remote desktops accessible from anywhere.
 
-This article describes additional steps you can take as an admin to keep your customers' Azure Virtual Desktop deployments secure.
+This article describes steps you can take as an admin to keep your customers' Azure Virtual Desktop deployments secure.
 
 ## Security responsibilities
 
