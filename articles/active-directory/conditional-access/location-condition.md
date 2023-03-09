@@ -21,6 +21,9 @@ Conditional Access policies are at their most basic an if-then statement combini
 
 ![Conceptual Conditional signal plus decision to get enforcement](./media/location-condition/conditional-access-signal-decision-enforcement.png)
 
+> [!IMPORTANT]
+> [IPv6 is coming to Azure Active Directory (Azure AD)](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/ipv6-coming-to-azure-ad/ba-p/2967451). We will begin introducing IPv6 support into Azure AD services in a phased approach, starting April 3, 2023. Organizations that use named locations in Conditional Access or Identity Protection must [take action to avoid possible service impact](/troubleshoot/azure/active-directory/azure-ad-ipv6-support#what-does-my-organization-have-to-do).
+
 Organizations can use this location for common tasks like: 
 
 - Requiring multifactor authentication for users accessing a service when they're off the corporate network.
@@ -75,7 +78,7 @@ To define a named location by country, you need to provide:
 
 ![Country as a location in the Azure portal](./media/location-condition/new-named-location-country-region.png)
 
-If you select **Determine location by IP address**, the system collects the IP address of the device the user is signing into. When a user signs in, Azure AD resolves the user's IPv4 or [IPv6](/troubleshoot/azure/active-directory/azure-ad-ipv6-support) address to a country or region, and the mapping updates periodically. Organizations can use named locations defined by countries to block traffic from countries where they don't do business. 
+If you select **Determine location by IP address**, the system collects the IP address of the device the user is signing into. When a user signs in, Azure AD resolves the user's IPv4 or [IPv6](/troubleshoot/azure/active-directory/azure-ad-ipv6-support) address (starting April 3, 2023) to a country or region, and the mapping updates periodically. Organizations can use named locations defined by countries to block traffic from countries where they don't do business. 
 
 If you select **Determine location by GPS coordinates**, the user needs to have the Microsoft Authenticator app installed on their mobile device. Every hour, the system contacts the user’s Microsoft Authenticator app to collect the GPS location of the user’s mobile device.
 
@@ -130,7 +133,7 @@ With this option, you can select one or more named locations. For a policy with 
 
 ## IPv6 traffic
 
-Conditional Access policies apply to all IPv4 **and** IPv6 traffic.
+Conditional Access policies apply to all IPv4 **and** [IPv6](/troubleshoot/azure/active-directory/azure-ad-ipv6-support) traffic (starting April 3, 2023).
 
 ### Identifying IPv6 traffic with Azure AD Sign-in activity reports
 

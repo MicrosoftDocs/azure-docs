@@ -16,7 +16,7 @@ ms.custom: devx-track-js, ignite-2022
 
 [!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
-The following document contains the custom action commands that are specific to Azure Cosmos DB for MongoDB. These commands can be used to create and obtain database resources that are specific to the [Azure Cosmos DB capacity model](../account-databases-containers-items.md).
+The following document contains the custom action commands that are specific to Azure Cosmos DB for MongoDB. These commands can be used to create and obtain database resources that are specific to the [Azure Cosmos DB capacity model](../resource-model.md).
 
 By using Azure Cosmos DB for MongoDB, you can enjoy the shared benefits of Azure Cosmos DB. These benefits include, but aren't limited to:
 

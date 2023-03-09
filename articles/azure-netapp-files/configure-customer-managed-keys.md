@@ -13,13 +13,23 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.custom: references_regions 
-ms.date: 02/21/2023
+ms.date: 03/07/2023
 ms.author: anfdocs
 ---
 
 # Configure customer-managed keys for Azure NetApp Files volume encryption
 
 Customer-managed keys in Azure NetApp Files volume encryption enable you to use your own keys rather than a Microsoft-managed key when creating a new volume. With customer-managed keys, you can fully manage the relationship between a key's life cycle, key usage permissions, and auditing operations on keys. 
+
+The following diagram demonstrates how customer-managed keys work with Azure NetApp Files:
+
+:::image type="content" source="../media/azure-netapp-files/customer-managed-keys-diagram.png" alt-text="Conceptual diagram of customer-managed keys." lightbox="../media/azure-netapp-files/customer-managed-keys-diagram.png":::
+
+1. Azure NetApp Files grants permissions to encryption keys to a managed identity. The managed identity is either a user-assigned managed identity that you create and manage or a system-assigned managed identity associated with the NetApp account.
+2. You configure encryption with a customer-managed key for the NetApp account.
+3. You use the managed identity to which the Azure Key Vault admin granted permissions in step one to authenticate access to Azure Key Vault via Azure Active Directory.
+4. Azure NetApp Files wraps the account encryption key with the customer-managed key in Azure Key Vault.
+5. For read/write operations, Azure NetApp Files sends requests to Azure Key Vault to unwrap the account encryption key to perform encryption and decryption operations.
 
 ## Considerations
 
@@ -46,9 +56,39 @@ Customer-managed keys in Azure NetApp Files volume encryption enable you to use 
 
 Azure NetApp Files customer-managed keys is supported for the following regions: 
 
+* Australia Central
+* Australia Central 2
+* Australia East
+* Australia Southeast
+* Brazil South
+* Canada Central 
+* Central US
 * East Asia
+* East US
 * East US 2
+* France Central 
+* Germany North
+* Germany West Central
+* Japan East
+* Japan West
+* Korea Central
+* North Central US
+* North Europe
+* Norway East
+* Norway West
+* South Africa North
+* South Central US
+* South India
+* Southeast Asia
+* Sweden Central
+* Switzerland North
+* UAE Central
+* UAE North
+* UK South
 * West Europe
+* West US
+* West US 2
+* West US 3
 
 ## Requirements
 

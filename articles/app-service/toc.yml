@@ -71,7 +71,7 @@
     - name: N-tier app
       href: tutorial-secure-ntier-app.md
     - name: Authenticate users
-      href: tutorial-auth-aad.md
+      href: scenario-secure-app-authentication-app-service-as-user.md
     - name: Connect to Azure resource as app
       items:
         - name: Overview
@@ -116,14 +116,16 @@
       items:
         - name: Set up App Service authentication
           href: scenario-secure-app-authentication-app-service-as-user.md
-        - name: Connect to Microsoft Graph
+        - name: App to Microsoft Graph authentication
           items: 
             - name: .NET
               href: scenario-secure-app-access-microsoft-graph-as-user.md
             - name: JavaScript
               href: tutorial-connect-app-access-microsoft-graph-as-user-javascript.md
-        - name: Connect to another App Service
+        - name: App to app authentication
           href: tutorial-auth-aad.md
+
+
     - name: Isolate network traffic
       href: tutorial-networking-isolate-vnet.md
     - name: Host a RESTful API
@@ -229,7 +231,7 @@
         - name: OS and runtime patching
           href: overview-patch-os-runtime.md
         - name: Subdomain takeover
-          href: reference-dangling-subdomain-prevention.md                
+          href: reference-dangling-subdomain-prevention.md
         - name: Security baseline
           href: /security/benchmark/azure/baselines/app-service-security-baseline?toc=/azure/app-service/toc.json
         - name: Security controls by Azure Policy
@@ -251,6 +253,8 @@
           href: app-service-hybrid-connections.md
         - name: Virtual network integration
           href: overview-vnet-integration.md
+        - name: Name resoulution (DNS)
+          href: overview-name-resolution.md
     - name: Local cache
       href: overview-local-cache.md
     - name: Diagnostics

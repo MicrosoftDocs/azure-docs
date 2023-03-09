@@ -198,7 +198,7 @@ az k8s-extension upgrade --cluster-type managedClusters \
 
 ## Meet network requirements
 
-The Dapr extension for AKS and Arc for Kubernetes requires outbound URLs on `https://:443` to function. In addition to the `https://mcr.microsoft.com/daprio` URL for pulling Dapr artifacts, verify you've included the [outbound URLs required for AKS or Arc for Kubernetes](../azure-arc/kubernetes/quickstart-connect-cluster.md#meet-network-requirements). 
+The Dapr extension for AKS and Arc for Kubernetes requires outbound URLs on `https://:443` to function. In addition to the `https://mcr.microsoft.com/daprio` URL for pulling Dapr artifacts, verify you've included the [outbound URLs required for AKS or Arc for Kubernetes](../azure-arc/kubernetes/network-requirements.md). 
 
 ## Next Steps
 

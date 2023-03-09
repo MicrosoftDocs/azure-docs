@@ -10,7 +10,7 @@ ms.custom: references_regions
 # RDP Shortpath for Azure Virtual Desktop
 
 > [!IMPORTANT]
-> RDP Shortpath for public networks using TURN for Azure Virtual Desktop is currently in PREVIEW. See the Supplemental Terms of Use for Microsoft Azure Previews for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Using RDP Shortpath for public networks with TURN for Azure Virtual Desktop is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Connections to Azure Virtual Desktop use Transmission Control Protocol (TCP) or User Datagram Protocol (UDP). RDP Shortpath is a feature of Azure Virtual Desktop that establishes a direct UDP-based transport between a supported Windows Remote Desktop client and session host. By default, Remote Desktop Protocol (RDP) tries to establish connection using UDP and uses a TCP-based reverse connect transport as a fallback connection mechanism. TCP-based reverse connect transport provides the best compatibility with various networking configurations and has a high success rate for establishing RDP connections. UDP-based transport offers better connection reliability and more consistent latency.
 

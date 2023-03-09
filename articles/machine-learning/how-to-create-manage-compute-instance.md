@@ -25,6 +25,11 @@ Learn how to create and manage a [compute instance](concept-compute-instance.md)
 
 Use a compute instance as your fully configured and managed development environment in the cloud. For development and testing, you can also use the instance as a [training compute target](concept-compute-target.md#training-compute-targets).   A compute instance can run multiple jobs in parallel and has a job queue. As a development environment, a compute instance can't be shared with other users in your workspace.
 
+> [!IMPORTANT]
+> Items marked (preview) in this article are currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 In this article, you learn how to:
 
 * [Create](#create) a compute instance
@@ -51,11 +56,6 @@ Compute instances can run jobs securely in a [virtual network environment](how-t
 
 
 ## Create
-
-> [!IMPORTANT]
-> Items marked (preview) below are currently in public preview.
-> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 **Time estimate**: Approximately 5 minutes.
 

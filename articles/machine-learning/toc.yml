@@ -62,16 +62,14 @@
 - name: Quickstart
   expanded: true
   items:
+    - name: "Apache Spark - Environment Configuration"
+      href: apache-spark-environment-configuration.md
     - name: Create ML resources to get started
       href: quickstart-create-resources.md
-    - name: "Quickstart: Interactive Data Wrangling with Apache Spark (preview)"
-      href: quickstart-spark-data-wrangling.md
     - name: "Quickstart: Submit Apache Spark jobs in Azure Machine Learning (preview)"
       href: quickstart-spark-jobs.md
     - name: Run Jupyter notebooks
       href: quickstart-run-notebooks.md
-    - name: Apache Spark in Azure Machine Learning (preview)
-      href: apache-spark-azure-ml-concepts.md
 - name: Tutorials
   expanded: true
   items:
@@ -123,6 +121,8 @@
       href: concept-v2.md
     - name: Work with Data
       items:
+        - name: Apache Spark in Azure Machine Learning (preview)
+          href: apache-spark-azure-ml-concepts.md
         - name: Data concepts in Azure Machine Learning
           href: concept-data.md
         - name: Sourcing human data responsibly

@@ -599,7 +599,7 @@ For more information on the services and DNS resolution, see [Azure Private Endp
 
 ## Troubleshooting
 
-If after running through the above steps you are unable to access the workspace from a virtual machine or jobs fail on compute resources in the Virtual Network containing the Private Endpoint to the Azure Machine learning workspace, follow the below steps to try to identify the cause.
+If after running through the above steps you are unable to access the workspace from a virtual machine or jobs fail on compute resources in the Virtual Network containing the Private Endpoint to the Azure Machine Learning workspace, follow the below steps to try to identify the cause.
 
 1. **Locate the workspace FQDNs on the Private Endpoint**:
 
