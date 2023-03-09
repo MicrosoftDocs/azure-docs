@@ -108,7 +108,7 @@ See [Form Recognizer Studio: labeling as tables](../quickstarts/try-v3-form-reco
 
 Training with labels leads to better performance in some scenarios. To train with labels, you need to have special label information files (*\<filename\>.pdf.labels.json*) in your blob storage container alongside the training documents.
 
-Label files contain key-value associations that a user has entered manually. They're needed for labeled data training, but not every source file needs to have a corresponding label file. Source files without labels will be treated as ordinary training documents. We recommend five or more labeled files for reliable training. You can use a UI tool like [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects) to generate these files.
+Label files contain key-value associations that a user has entered manually. They're needed for labeled data training, but not every source file needs to have a corresponding label file. Source files without labels are treated as ordinary training documents. We recommend five or more labeled files for reliable training. You can use a UI tool like [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects) to generate these files.
 
 Once you have your label files, you can include them with by calling the training method with the *useLabelFile* parameter set to `true`.
 
@@ -347,9 +347,9 @@ Form Recognizer uses the [Layout](../concept-layout.md) API to learn the expecte
 > [!NOTE]
 > **Model Compose is only available for custom models trained *with* labels.** Attempting to compose unlabeled models will produce an error.
 
-With the Model Compose operation, you can assign up to 200 trained custom models to a single model ID. When you call Analyze with the composed model ID, Form Recognizer will first classify the form you submitted, choose the best matching assigned model, and then return results for that model. This operation is useful when incoming forms may belong to one of several templates.
+With the Model Compose operation, you can assign up to 200 trained custom models to a single model ID. When you call Analyze with the composed model ID, Form Recognizer classifies the form you submitted first, chooses the best matching assigned model, and then returns results for that model. This operation is useful when incoming forms may belong to one of several templates.
 
-Using the Form Recognizer Sample Labeling tool, the REST API, or the Client-library SDKs, follow the steps below to set up a composed model:
+Using the Form Recognizer Sample Labeling tool, the REST API, or the Client-library SDKs, follow the steps to set up a composed model:
 
 1. [**Gather your custom model IDs**](#gather-your-custom-model-ids)
 1. [**Compose your custom models**](#compose-your-custom-models)
@@ -413,7 +413,7 @@ Using the **REST API**, you can make a  [**Compose Custom Model**](https://westu
 
 ### [**Client-library SDKs**](#tab/sdks)
 
-Use the programming language code of your choice to create a composed model that will be called with a single model ID. Below are links to code samples that demonstrate how to create a composed model from existing custom models:
+Use the programming language code of your choice to create a composed model that is called with a single model ID. The following links are code samples that demonstrate how to create a composed model from existing custom models:
 
 * [**C#/.NET**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/Sample_ModelCompose.md).
 
@@ -438,7 +438,7 @@ Use the programming language code of your choice to create a composed model that
 
 1. Select the **Run Analysis** button.
 
-1. The tool applies tags in bounding boxes and report the confidence percentage for each tag.
+1. The tool applies tags in bounding boxes and reports the confidence percentage for each tag.
 
 :::image type="content" source="../media/analyze.png" alt-text="Screenshot: Form Recognizer tool analyze-a-custom-form window.":::
 

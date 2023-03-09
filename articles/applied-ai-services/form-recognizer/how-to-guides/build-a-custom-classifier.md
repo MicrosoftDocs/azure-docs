@@ -17,7 +17,7 @@ recommendations: false
 
 [!INCLUDE [applies to v3.0](../includes/applies-to-v3-0.md)]
 
-Custom classifier models can classify each page in a input file to identify the document(s) within. Classifier models can also identify multiple documents or multiple instances of a single document in the input file. Form Recognizer custom models require as few as five training documents per document class to get started. to get started training a custom classifier model you need at least **five documents** for each class and **two classes** of documents.
+Custom classifier models can classify each page in an input file to identify the document(s) within. Classifier models can also identify multiple documents or multiple instances of a single document in the input file. Form Recognizer custom models require as few as five training documents per document class to get started. To get started training a custom classifier model, you need at least **five documents** for each class and **two classes** of documents.
 
 ## Custom classifier model input requirements
 
@@ -41,7 +41,7 @@ Once you've put together the set of forms or documents for training, you need to
 
 The Form Recognizer Studio provides and orchestrates all the API calls required to complete your dataset and train your model.
 
-1. Start by navigating to the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio). The first time you use the Studio, you'll need to [initialize your subscription, resource group, and resource](../quickstarts/try-v3-form-recognizer-studio.md). Then, follow the [prerequisites for custom projects](../quickstarts/try-v3-form-recognizer-studio.md#additional-prerequisites-for-custom-projects) to configure the Studio to access your training dataset.
+1. Start by navigating to the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio). The first time you use the Studio, you need to [initialize your subscription, resource group, and resource](../quickstarts/try-v3-form-recognizer-studio.md). Then, follow the [prerequisites for custom projects](../quickstarts/try-v3-form-recognizer-studio.md#additional-prerequisites-for-custom-projects) to configure the Studio to access your training dataset.
 
 1. In the Studio, select the **Custom classifier models** tile, on the custom models section of the page and select the **Create a project** button.
 
@@ -60,7 +60,7 @@ The Form Recognizer Studio provides and orchestrates all the API calls required 
 
     :::image type="content" source="../media/how-to/studio-select-storage.png" alt-text="Screenshot showing how to select the Form Recognizer resource.":::
 
-1. Training a custom classifiers requires the output from the Layout model for each document in your dataset. Run layout on all documents as an optional step to speed up the model training process.
+1. Training a custom classifier requires the output from the Layout model for each document in your dataset. Run layout on all documents as an optional step to speed up the model training process.
 
 1. Finally, review your project settings and select **Create Project** to create a new project. You should now be in the labeling window and see the files in your dataset listed.
 
@@ -70,15 +70,15 @@ In your project, you only need to label each document with the appropriate class
 
 :::image type="content" source="../media/how-to/studio-create-label.png" alt-text="Screenshot showing elect the Form Recognizer resource.":::
 
-You'll see the files you uploaded to storage in the file list, ready to be labeled. You have a few options to label your dataset.
+You see the files you uploaded to storage in the file list, ready to be labeled. You have a few options to label your dataset.
 
-1. If the documents are organized in folders, the Studio will prompt you to use the folder names as labels. This will simplify your labeling down to a single click.
+1. If the documents are organized in folders, the Studio prompts you to use the folder names as labels. This step simplifies your labeling down to a single select.
 
-1. To assign a label to a document, click on the add label selection mark to assign a label.
+1. To assign a label to a document, select on the add label selection mark to assign a label.
 
-1. Control click to  multi-select documents to assign a label
+1. Control select to  multi-select documents to assign a label
 
-You should now have all the documents in your dataset labeled. If you look at the storage account, you'll find a *.ocr.json* files that correspond to each document in your training dataset and a new **class-name.jsonl** file for each class labeled. This training dataset will be submitted to train the model.
+You should now have all the documents in your dataset labeled. If you look at the storage account, you find  *.ocr.json* files that correspond to each document in your training dataset and a new **class-name.jsonl** file for each class labeled. This training dataset is submitted to train the model.
 
 ## Train your model
 
