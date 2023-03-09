@@ -290,7 +290,7 @@ View the frontend app's source code:
 
 ## <a name="call-api-securely-from-server-code"></a>7. Backend returns profile to frontend
 
-The App service rejects the request with a 401 HTTP error code before the request reaches your application code. When your application code is reached, extract the bearerToken to get the accessToken. 
+If the request from the frontend isn't authorized, the backend App service rejects the request with a 401 HTTP error code _before_ the request reaches your application code. When the backend code is reached (because it including an authorized token), extract the bearerToken to get the accessToken. 
 
 View the backend app's source code:
 
@@ -418,4 +418,4 @@ What you learned:
 Advance to the next tutorial to learn how to use this user's identity to access an Azure service.
 
 > [!div class="nextstepaction"]
-> [Access Microsoft Graph from a secured JavaScript app as the user](tutorial-connect-app-access-microsoft-graph-as-user-javascript.md)
+> [Create a secure n-tier app in Azure App Service](tutorial-secure-ntier-app.md)
