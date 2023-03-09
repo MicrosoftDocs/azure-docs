@@ -7,7 +7,7 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 03/09/2023
 ms.author: franlanglois
-
+ms.custom: references_regions
 ---
 # High availability and disaster recovery
 
@@ -82,7 +82,7 @@ Azure Cache for Redis distributes nodes in a zone redundant cache in a round-rob
 
 #### Zone Down Experience for Premium tier
 
-A zone redundant cache provides automatic failover. When the current primary node is unavailable, one of the replicas take over. Your application may experience higher cache response time if the new primary node is located in a different AZ. Availability Zones are geographically separated. Switching from one AZ to another alters the physical distance between where your application and cache are hosted. This change impacts round-trip network latencies from your application to the cache. The extra latency is expected to fall within an acceptable range for most applications. We recommend you test your application to ensure it does well with a zone-redundant cache.
+A zone redundant cache provides automatic failover. When the current primary node is unavailable, one of the replicas takes over. Your application may experience higher cache response time if the new primary node is located in a different AZ. Availability Zones are geographically separated. Switching from one AZ to another alters the physical distance between where your application and cache are hosted. This change impacts round-trip network latencies from your application to the cache. The extra latency is expected to fall within an acceptable range for most applications. We recommend you test your application to ensure it does well with a zone-redundant cache.
 
 ### Enterprise and Enterprise Flash tiers
 
