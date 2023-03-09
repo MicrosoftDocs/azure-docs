@@ -49,6 +49,11 @@ EmailSendResult returns the following status on the email operation performed.
 - An Azure Email Communication Services Resource created and ready with a provisioned domain [Get started with Creating Email Communication Resource](../create-email-communication-resource.md)
 - An active Communication Services resource connected with Email Domain and a Connection String. [Get started by Connecting Email Resource with a Communication Resource](../connect-email-communication-resource.md)
 
+### Prerequisite check
+
+- In a terminal or command window, run the `dotnet` command to check that the .NET client library is installed.
+- To view the subdomains associated with your Email Communication Services resource, sign in to the [Azure portal](https://portal.azure.com/), locate your Email Communication Services resource and open the **Provision domains** tab from the left navigation pane.
+
 Completing this quick start incurs a small cost of a few USD cents or less in your Azure account.
 
 ### Create a new C# application
@@ -71,11 +76,6 @@ While still in the application directory, install the Azure Communication Servic
 ```console
 dotnet add package Azure.Communication.Email --prerelease
 ```
-
-### Prerequisite check
-
-- In a terminal or command window, run the `dotnet` command to check that the .NET client library is installed.
-- To view the subdomains associated with your Email Communication Services resource, sign in to the [Azure portal](https://portal.azure.com/), locate your Email Communication Services resource and open the **Provision domains** tab from the left navigation pane.
 
 ## Creating the email client with authentication
 
