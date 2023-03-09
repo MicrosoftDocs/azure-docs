@@ -11,13 +11,11 @@ ms.custom: devx-track-java
 
 # Set up autoscale for Standard Consumption plan applications
 
-This article describes how to set up autoscale rules for your applications in Azure Spring Standard Consumption plan.
-
-The Azure Spring Standard Consumption plan uses Azure Container Apps to host your spring applications, and provides the following management and support:
+This article describes how to set up autoscale rules for your applications in Azure Spring Apps Standard consumption plan. The plan uses Azure Container Apps to host your spring applications, and provides the following management and support:
 
 - Manages automatic horizontal scaling through a set of declarative scaling rules.
 
-- Support all the scaling rules which Azure Container App supports.
+- Support all the scaling rules that Azure Container Apps supports.
 
 For more information see [Azure Container Apps documentation](/azure/container-apps/)
 
@@ -70,15 +68,15 @@ You can set up autoscale settings for your application using the Azure portal or
 
 ### [Azure CLI](#tab/azure-cli)
 
-The following commands show an example to create an Azure Spring application deployment with an autoscaling rule using the Azure CLI.
+The following commands show an example to create an Azure Spring Apps application deployment with an autoscaling rule using the Azure CLI.
 
 ```azurecli-interactive
 az spring app deployment create 
---resource-group <resource group> 
---service <azure spring apps service instance name> 
---app <app name> 
---name <deployment name> 
---secrets "connection-string-secret=<SERVICE_BUS_CONNECTION_STRING>" 
+--resource-group <resource-group> 
+--service <azure-spring-apps-service-instance-name> 
+--app <app-name> 
+--name <deployment-name> 
+--secrets "connection-string-secret=<service-bus-connection-string>" 
 --scale-rule-name azure-servicebus-queue-rule 
 --scale-rule-type azure-servicebus 
 --scale-rule-metadata "queueName=my-queue" 
