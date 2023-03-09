@@ -23,12 +23,12 @@ For example:
 
 The Defender for IoT device inventory is available in the Azure portal, OT network sensor consoles, and the on-premises management console.
 
-While you can view device details from any of these locations, each location also offers extra device inventory support. The following table describes the device inventory visible supported for each location and the extra actions available from that location only:
+While you can view device details from any of these locations, each location also offers extra device inventory support. The following table describes the device inventory support for each location and the extra actions available from that location only:
 
 |Location  |Description   | Extra inventory support |
 |---------|---------|---------|
 |**Azure portal**     | Devices detected from all cloud-connected OT sensors and Enterprise IoT sensors. <br><br>      |     - If you have an [Enterprise IoT plan](eiot-defender-for-endpoint.md) on your Azure subscription, the device inventory also includes devices detected by Microsoft Defender for Endpoint agents.  <br><br>- If you also use [Microsoft Sentinel](iot-solution.md), incidents in Microsoft Sentinel are linked to related devices in Defender for IoT. <br><br>- Use Defender for IoT [workbooks](workbooks.md) for visibility into all cloud-connected device inventory, including related alerts and vulnerabilities.     |
-|**OT network sensor consoles**     |   Devices detected by that OT sensor      |    - View all detected devices across a network device map<br>- View related events on the **Event timeline** |
+|**OT network sensor consoles**     |   Devices detected by that OT sensor      |    - View all detected devices across a network device map<br><br>- View related events on the **Event timeline** |
 |**An on-premises management console**     |  Devices detected across all connected OT sensors          | Enhance device data by importing data manually or via script  |
 
 For more information, see:
@@ -51,7 +51,7 @@ Defender for IoT's device inventory supports device types across a variety of in
 |Devices  |For example ... |
 |---------|---------|
 |**Manufacturing**| Industrial and operational devices, such as pneumatic devices,  packaging systems, industrial packaging systems, industrial robots        |
-|**Building**     | Access panels,  surveillance devices, HVAC systems, elevators , smart lighting systems    |
+|**Building**     | Access panels,  surveillance devices, HVAC systems, elevators, smart lighting systems    |
 |**Health care**     |  Glucose meters, monitors       |
 |**Transportation / Utilities**     |  Turnstiles, people counters, motion sensors, fire and safety systems, intercoms       |
 |**Energy and resources**     |  DCS controllers, PLCs, historian devices, HMIs      |
@@ -70,7 +70,7 @@ When you're first working with Defender for IoT, during the learning period just
 
 After the learning period is over, any new devices detected are considered to be  *unauthorized* and *new* devices. We recommend checking these devices carefully for risks and vulnerabilities. For example, in the Azure portal, filter the device inventory for `Authorization == **Unauthorized**`. On the device details page, drill down and check for related vulnerabilities, alerts, and recommendations.
 
-The *new* status is removed as soon as you edit any of the device details move the device on an OT sensor device map. In contrast, the *unauthorized* label remains until you manually edit the device details and mark it as *authorized*.
+The *new* status is removed as soon as you edit any of the device details or move the device on an OT sensor device map. In contrast, the *unauthorized* label remains until you manually edit the device details and mark it as *authorized*.
 
 On an OT sensor, unauthorized devices are also included in the following reports:
 
@@ -84,7 +84,7 @@ Mark OT devices as *important* to highlight them for extra tracking. On an OT se
 
 - [Attack vector reports](how-to-create-attack-vector-reports.md): Devices marked as *important* are included in an attack vector simulation as possible attack targets.
 
-- [Risk assessment reports](how-to-create-risk-assessment-reports.md): Devices marked as *important* are counted in risk assessment reports when calculating security scores
+- [Risk assessment reports](how-to-create-risk-assessment-reports.md): Devices marked as *important* are counted in risk assessment reports when calculating security scores.
 
 ## Device inventory column data
 
@@ -97,7 +97,7 @@ The following table lists the columns available in the Defender for IoT device i
 | **Class** | Editable. The device's class. <br>Default: `IoT` |
 |**Data source** | The source of the data, such as a micro agent, OT sensor, or Microsoft Defender for Endpoint. <br>Default: `MicroAgent`|
 |**Description** * | Editable. The device's description.  |
-| **Device Id** | The device's Azure-assigned ID number|
+| **Device Id** | The device's Azure-assigned ID number. |
 |  **Firmware model** |  The device's firmware model.|
 | **Firmware vendor** | Editable. The vendor of the device's firmware. |
 | **Firmware version** * |Editable.  The device's firmware version. |

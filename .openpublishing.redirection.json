@@ -6314,16 +6314,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/batch/batch-custom-image-pools-to-azure-compute-gallery-migration-guide.md",
-            "redirect_url": "/azure/batch",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/batch/batch-pools-to-simplified-compute-node-communication-model-migration-guide.md",
-            "redirect_url": "/azure/batch",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/batch/big-compute-resources.md",
             "redirect_url": "/azure/architecture/topics/high-performance-computing/",
             "redirect_document_id": false

@@ -8,7 +8,7 @@ ms.devlang: javascript
 ms.topic: conceptual
 ms.date: 02/17/2023
 ms.author: kgremban
-ms.custom: mqtt, devx-track-js, devx-track-azurecli
+ms.custom: mqtt, devx-track-js
 ---
 
 # Get started with device twins (Node.js)

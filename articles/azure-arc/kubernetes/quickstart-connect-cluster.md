@@ -15,6 +15,8 @@ For a conceptual look at connecting clusters to Azure Arc, see [Azure Arc-enable
 
 ## Prerequisites
 
+In addition to the prerequisites below, be sure to meet all [network requirements for Azure Arc-enabled Kubernetes](network-requirements.md).
+
 ### [Azure CLI](#tab/azure-cli)
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -132,14 +134,6 @@ For a conceptual look at connecting clusters to Azure Arc, see [Azure Arc-enable
     Once registered, you should see the `RegistrationState` state for these namespaces change to `Registered`.
 
 ---
-
-## Meet network requirements
-
-[!INCLUDE [network-requirement-principles](../includes/network-requirement-principles.md)]
-
-[!INCLUDE [network-requirements](includes/network-requirements.md)]
-
-For a complete list of network requirements for Azure Arc features and Azure Arc-enabled services, see [Azure Arc network requirements (Consolidated)](../network-requirements-consolidated.md).
 
 ## Create a resource group
 

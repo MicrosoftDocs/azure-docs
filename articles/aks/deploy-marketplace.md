@@ -21,12 +21,15 @@ Included among these solutions are Kubernetes application-based container offers
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-> [!NOTE]
-> This feature is currently supported only in the following regions:
->
-> - West Central US
-> - West Europe
-> - East US
+## Limitations
+
+This feature is currently supported only in the following regions:
+
+- West Central US
+- West Europe
+- East US
+
+Kubernetes application-based container offers cannot be deployed on AKS for Azure Stack HCI or AKS Edge Essentials.
 
 ## Register resource providers
 

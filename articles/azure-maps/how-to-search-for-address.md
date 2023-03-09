@@ -12,28 +12,28 @@ services: azure-maps
 
 # Search for a location using Azure Maps Search services
 
-The [Azure Maps Search Service](/rest/api/maps/search) is a set of RESTful APIs designed to help developers search addresses, places, and business listings by name, category, and other geographic information. In addition to supporting traditional geocoding, services can also reverse geocode addresses and cross streets based on latitudes and longitudes. Latitude and longitude values returned by the search can be used as parameters in other Azure Maps services, such as [Route](/rest/api/maps/route) and [Weather](/rest/api/maps/weather) services.
+The [Search service] is a set of RESTful APIs designed to help developers search addresses, places, and business listings by name, category, and other geographic information. In addition to supporting traditional geocoding, services can also reverse geocode addresses and cross streets based on latitudes and longitudes. Latitude and longitude values returned by the search can be used as parameters in other Azure Maps services, such as [Route] and [Weather] services.
 
 In this article, you'll learn how to:
 
-* Request latitude and longitude coordinates for an address (geocode address location) by using the [Search Address API](/rest/api/maps/search/getsearchaddress).
-* Search for an address or Point of Interest (POI) using the [Fuzzy Search API](/rest/api/maps/search/getsearchfuzzy).
-* Make a [Reverse Address Search](/rest/api/maps/search/getsearchaddressreverse) to translate coordinate location to street address.
-* Translate coordinate location into a human understandable cross street by using [Search Address Reverse Cross Street API](/rest/api/maps/search/getsearchaddressreversecrossstreet).  Most often, this is needed in tracking applications that receive a GPS feed from a device or asset, and wish to know where the coordinate is located.
+* Request latitude and longitude coordinates for an address (geocode address location) by using [Search Address].
+* Search for an address or Point of Interest (POI) using [Fuzzy Search].
+* Use [Reverse Address Search] to translate coordinate location to street address.
+* Translate coordinate location into a human understandable cross street using [Search Address Reverse Cross Street].  Most often, this is needed in tracking applications that receive a GPS feed from a device or asset, and wish to know where the coordinate is located.
 
 ## Prerequisites
 
-1. [Make an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account)
-2. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key.
+1. An [Azure Maps account]
+2. A [subscription key]
 
-This tutorial uses the [Postman](https://www.postman.com/) application, but you may choose a different API development environment.
+This tutorial uses the [Postman] application, but you may choose a different API development environment.
 
 ## Request latitude and longitude for an address (geocoding)
 
-In this example, we'll use the Azure Maps [Get Search Address API](/rest/api/maps/search/getsearchaddress) to convert an address into latitude and longitude coordinates. This process is also called *geocoding*. In addition to returning the coordinates, the response will also return detailed address properties such as street, postal code, municipality, and country/region information.
+In this example, we'll use [Get Search Address] to convert an address into latitude and longitude coordinates. This process is also called *geocoding*. In addition to returning the coordinates, the response will also return detailed address properties such as street, postal code, municipality, and country/region information.
 
 >[!TIP]
->If you have a set of addresses to geocode, you can use the [Post Search Address Batch API](/rest/api/maps/search/postsearchaddressbatch) to send a batch of queries in a single API call.
+>If you have a set of addresses to geocode, you can use [Post Search Address Batch] to send a batch of queries in a single request.
 
 1. In the Postman app, select **New** to create the request. In the **Create New** window, select **HTTP Request**. Enter a **Request name** for the request.
 
@@ -53,19 +53,19 @@ In this example, we'll use the Azure Maps [Get Search Address API](/rest/api/map
 
 6. Click the **Send** button. You can now see that the response includes responses from multiple countries. To geobias results to the relevant area for your users, always add as many location details as possible to the request.
 
-## Using Fuzzy Search API
+## Fuzzy Search
 
-The Azure Maps [Fuzzy Search API](/rest/api/maps/search/getsearchfuzzy) supports standard single line and free-form searches. We recommend that you use the Azure Maps Search Fuzzy API when you don't know your user input type for a search request.  The query input can be a full or partial address. It can also be a Point of Interest (POI) token, like a name of POI, POI category or name of brand. Furthermore, to improve the relevance of your search results, the query results can be constrained by a coordinate location and radius, or by defining a bounding box.
+[Fuzzy Search] supports standard single line and free-form searches. We recommend that you use the Azure Maps Search Fuzzy API when you don't know your user input type for a search request.  The query input can be a full or partial address. It can also be a Point of Interest (POI) token, like a name of POI, POI category or name of brand. Furthermore, to improve the relevance of your search results, the query results can be constrained by a coordinate location and radius, or by defining a bounding box.
 
 >[!TIP]
->Most Search queries default to maxFuzzyLevel=1 to gain performance and reduce unusual results. You can adjust fuzziness levels by using the `maxFuzzyLevel` or `minFuzzyLevel` parameters. For more information on `maxFuzzyLevel` and a complete list of all optional parameters, see [Fuzzy Search URI Parameters](/rest/api/maps/search/getsearchfuzzy#uri-parameters)
+>Most Search queries default to maxFuzzyLevel=1 to gain performance and reduce unusual results. You can adjust fuzziness levels by using the `maxFuzzyLevel` or `minFuzzyLevel` parameters. For more information on `maxFuzzyLevel` and a complete list of all optional parameters, see [Fuzzy Search URI Parameters].
 
 ### Search for an address using Fuzzy Search
 
 In this example, we'll use Fuzzy Search to search the entire world for `pizza`.  Then, we'll show you how to search over the scope of a specific country. Finally, we'll show you how to use a coordinate location and radius to scope a search over a specific area, and limit the number of returned results.
 
 >[!IMPORTANT]
->To geobias results to the relevant area for your users, always add as many location details as possible. To learn more, see [Best Practices for Search](how-to-use-best-practices-for-search.md#geobiased-search-results).
+>To geobias results to the relevant area for your users, always add as many location details as possible. To learn more, see [Best Practices for Search].
 
 1. In the Postman app, select **New** to create the request. In the **Create New** window, select **HTTP Request**. Enter a **Request name** for the request.
 
@@ -76,13 +76,13 @@ In this example, we'll use Fuzzy Search to search the entire world for `pizza`. 
     ```
 
     >[!NOTE]
-    >The _json_ attribute in the URL path determines the response format. This article uses json for ease of use and readability. To find other supported response formats, see the `format` parameter definition in the [URI Parameter reference documentation](/rest/api/maps/search/getsearchfuzzy#uri-parameters).
+    >The _json_ attribute in the URL path determines the response format. This article uses json for ease of use and readability. To find other supported response formats, see the `format` parameter definition in the [URI Parameter reference] documentation.
 
 3. Click **Send** and review the response body.
 
-    The ambiguous query string for "pizza" returned 10 [point of interest result](/rest/api/maps/search/getsearchpoi#searchpoiresponse) (POI) in both the "pizza" and "restaurant" categories. Each result includes details such as street address, latitude and longitude values, view port, and entry points for the location. The results are now varied for this query, and are not tied to any reference location.
+    The ambiguous query string for "pizza" returned 10 [point of interest result] (POI) in both the "pizza" and "restaurant" categories. Each result includes details such as street address, latitude and longitude values, view port, and entry points for the location. The results are now varied for this query, and are not tied to any reference location.
   
-    In the next step, we'll use the `countrySet` parameter to specify only the countries/regions for which your application needs coverage. For a complete list of supported countries/regions, see [Search Coverage](./geocoding-coverage.md).
+    In the next step, we'll use the `countrySet` parameter to specify only the countries/regions for which your application needs coverage. For a complete list of supported countries/regions, see [Search Coverage].
 
 4. The default behavior is to search the entire world, potentially returning unnecessary results. Next, we’ll search for pizza only the United States. Add the `countrySet` key to the **Params** section, and set its value to `US`. Setting the `countrySet` key to `US` will bound the results to the United States.
 
@@ -105,15 +105,15 @@ In this example, we'll use Fuzzy Search to search the entire world for `pizza`. 
 
 ## Search for a street address using Reverse Address Search
 
-The Azure Maps [Get Search Address Reverse API](/rest/api/maps/search/getsearchaddressreverse) translates coordinates into human readable street addresses. This API is often used for applications that consume GPS feeds and want to discover addresses at specific coordinate points.
+[Get Search Address Reverse] translates coordinates into human readable street addresses. This API is often used for applications that consume GPS feeds and want to discover addresses at specific coordinate points.
 
 >[!IMPORTANT]
->To geobias results to the relevant area for your users, always add as many location details as possible. To learn more, see [Best Practices for Search](how-to-use-best-practices-for-search.md#geobiased-search-results).
+>To geobias results to the relevant area for your users, always add as many location details as possible. To learn more, see [Best Practices for Search].
 
 >[!TIP]
->If you have a set of coordinate locations to reverse geocode, you can use [Post Search Address Reverse Batch API](/rest/api/maps/search/postsearchaddressreversebatch) to send a batch of queries in a single API call.
+>If you have a set of coordinate locations to reverse geocode, you can use [Post Search Address Reverse Batch] to send a batch of queries in a single request.
 
-In this example, we'll be making reverse searches using a few of the optional parameters that are available. For the full list of optional parameters, see [Reverse Search Parameters](/rest/api/maps/search/getsearchaddressreverse#uri-parameters).
+In this example, we'll be making reverse searches using a few of the optional parameters that are available. For the full list of optional parameters, see [Reverse Search Parameters].
 
 1. In the Postman app, select **New** to create the request. In the **Create New** window, select **HTTP Request**. Enter a **Request name** for the request.
 
@@ -131,21 +131,21 @@ In this example, we'll be making reverse searches using a few of the optional pa
     |-----|------------|------|
     | number | 1 |The response may include the side of the street (Left/Right) and also an offset position for the number.|
     | returnSpeedLimit | true | Returns the speed limit at the address.|
-    | returnRoadUse | true | Returns road use types at the address. For all possible road use types, see [Road Use Types](/rest/api/maps/search/getsearchaddressreverse#uri-parameters).|
-    | returnMatchType | true| Returns the type of match. For all possible values, see [Reverse Address Search Results](/rest/api/maps/search/getsearchaddressreverse#searchaddressreverseresult)
+    | returnRoadUse | true | Returns road use types at the address. For all possible road use types, see [Road Use Types].|
+    | returnMatchType | true| Returns the type of match. For all possible values, see [Reverse Address Search Results].
 
    :::image type="content" source="./media/how-to-search-for-address/search-reverse.png" alt-text="Search reverse.":::
 
 5. Click **Send**, and review the response body.
 
-6. Next, we'll add the `entityType` key, and set its value to `Municipality`. The `entityType` key will override the `returnMatchType` key in the previous step. We'll also need to remove `returnSpeedLimit` and `returnRoadUse` since we're requesting information about the municipality.  For all possible entity types, see [Entity Types](/rest/api/maps/search/getsearchaddressreverse#entitytype).
+6. Next, we'll add the `entityType` key, and set its value to `Municipality`. The `entityType` key will override the `returnMatchType` key in the previous step. We'll also need to remove `returnSpeedLimit` and `returnRoadUse` since we're requesting information about the municipality.  For all possible entity types, see [Entity Types].
 
     :::image type="content" source="./media/how-to-search-for-address/search-reverse-entity-type.png" alt-text="Search reverse entityType.":::
 
-7. Click **Send**. Compare the results to the results returned in step 5.  Because the requested entity type is now `municipality`, the response does not include street address information. Also, the returned `geometryId` can be used to request boundary polygon through Azure Maps Get [Search Polygon API](/rest/api/maps/search/getsearchpolygon).
+7. Click **Send**. Compare the results to the results returned in step 5.  Because the requested entity type is now `municipality`, the response does not include street address information. Also, the returned `geometryId` can be used to request boundary polygon through Azure Maps Get [Search Polygon API].
 
 >[!TIP]
->To get more information on these parameters, as well as to learn about others, see the [Reverse Search Parameters section](/rest/api/maps/search/getsearchaddressreverse#uri-parameters).
+>To get more information on these parameters, as well as to learn about others, see [Reverse Search Parameters].
 
 ## Search for cross street using Reverse Address Cross Street Search
 
@@ -166,7 +166,32 @@ In this example, we'll search for a cross street based on the coordinates of an 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Azure Maps Search Service REST API](/rest/api/maps/search)
+> [Azure Maps Search service](/rest/api/maps/search)
 
 > [!div class="nextstepaction"]
-> [Azure Maps Search Service Best Practices](how-to-use-best-practices-for-search.md)
+> [Best practices for Azure Maps Search service](how-to-use-best-practices-for-search.md)
+
+[Search service]: /rest/api/maps/search
+[Route]: /rest/api/maps/route
+[Weather]: /rest/api/maps/weather
+[Search Address]: /rest/api/maps/search/getsearchaddress
+[Fuzzy Search]: /rest/api/maps/search/getsearchfuzzy
+[Reverse Address Search]: /rest/api/maps/search/getsearchaddressreverse
+[Search Address Reverse Cross Street]: /rest/api/maps/search/getsearchaddressreversecrossstreet
+[Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
+[subscription key]: quick-demo-map-app.md#get-the-primary-key-for-your-account
+[Postman]: https://www.postman.com/
+[Get Search Address]: /rest/api/maps/search/getsearchaddress
+[Post Search Address Batch]: /rest/api/maps/search/postsearchaddressbatch
+[Fuzzy Search URI Parameters]: /rest/api/maps/search/getsearchfuzzy#uri-parameters
+[Get Search Address Reverse]: /rest/api/maps/search/getsearchaddressreverse
+[point of interest result]: /rest/api/maps/search/getsearchpoi#searchpoiresponse
+[Post Search Address Reverse Batch]: /rest/api/maps/search/postsearchaddressreversebatch
+[Reverse Search Parameters]: /rest/api/maps/search/getsearchaddressreverse#uri-parameters
+[Best Practices for Search]: how-to-use-best-practices-for-search.md#geobiased-search-results
+[Road Use Types]: /rest/api/maps/search/getsearchaddressreverse#uri-parameters
+[Reverse Address Search Results]: /rest/api/maps/search/getsearchaddressreverse#searchaddressreverseresult
+[URI Parameter reference]: /rest/api/maps/search/getsearchfuzzy#uri-parameters
+[Search Coverage]: geocoding-coverage.md
+[Search Polygon API]: /rest/api/maps/search/getsearchpolygon
+[Entity Types]: /rest/api/maps/search/getsearchaddressreverse#entitytype
