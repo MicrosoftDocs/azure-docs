@@ -1,12 +1,12 @@
 ---
 title: Reliability in Azure Batch
-description: Find out about reliability in Azure Batch
+description: Learn about reliability in Azure Batch
 author: anaharris-ms
 ms.author: anaharris
 ms.topic: overview
 ms.custom: subject-reliability
-ms.prod: non-product-specific
-ms.date: 02/27/2022
+ms.prod: batch
+ms.date: 03/09/2023
 ---
 
 <!--#Customer intent:  I want to understand reliability support in Azure Batch so that I can respond to and/or avoid failures in order to minimize downtime and data loss. -->
@@ -19,10 +19,11 @@ This article describes reliability support in Azure Batch and covers both intra-
 
 ## Availability zone support
 
-Azure regions which support availability zones have a minimum of three separate zones, each with their own independent power source, network, and cooling system. When you create an Azure Batch pool using Virtual Machine Configuration, you can choose to provision your Batch pool across availability zones. Creating your pool with this zonal policy helps protect your Batch compute nodes from Azure datacenter-level failures.
+Azure availability zones are at least three physically separate groups of datacenters within each Azure region. Datacenters within each zone are equipped with independent power, cooling, and networking infrastructure. In the case of a local zone failure, availability zones are designed so that if one zone is affected, regional services, capacity, and high availability are supported by the remaining two zones.  Failures can range from software and hardware failures to events such as earthquakes, floods, and fires. Tolerance to failures is achieved with redundancy and logical isolation of Azure services. For more detailed information on availability zones in Azure, see [Availability zone service and regional support](availability-zones-service-support.md).
 
-For example, you could create your pool with zonal policy in an Azure region that supports three availability zones. If an Azure datacenter in one availability zone has an infrastructure failure, your Batch pool will still have healthy nodes in the other two availability zones. For that reason, the pool remains available for task scheduling.
+There are three types of Azure services that support availability zones: zonal, zone-redundant, and always-available services. You can learn more about these types of services and how they promote resiliency in the [Azure services with availability zone support](availability-zones-service-support.md#azure-services-with-availability-zone-support).
 
+Batch maintains parity with Azure on supporting availability zones.
 
 ### Prerequisites
 
@@ -30,68 +31,26 @@ For example, you could create your pool with zonal policy in an Azure region tha
 
 - Because InfiniBand doesn't support inter-zone communication, you can't create a pool with a zonal policy if it has inter-node communication enabled and uses a [VM SKU that supports InfiniBand](../virtual-machines/workloads/hpc/enable-infiniband.md).
 
-- Batch maintains parity with Azure on supporting availability zones. To use the zonal option, your pool must be created in a supported Azure region. To use the zonal option, your pool must be created in an [Azure region with availability zone support](az-service-support.md#azure-regions-with-availability-zone-support).
+- Batch maintains parity with Azure on supporting availability zones. To use the zonal option, your pool must be created in an [Azure region with availability zone support](availability-zones-service-support.md#azure-regions-with-availability-zone-support).
 
-- To allocate your Batch pool across availability zones, the Azure region in which the pool was created must support the requested VM SKU in more than one zone. You can validate this by calling the [Resource Skus List API](/rest/api/compute/resource-skus/list?tabs=HTTP) and check the `locationInfo` field of `resourceSku`. Be sure that more than one zone is supported for the requested VM SKU.
+- To allocate your Batch pool across availability zones, the Azure region in which the pool was created must support the requested VM SKU in more than one zone. You can validate this by calling the [Resource Skus List API](/rest/api/compute/resource-skus/list?tabs=HTTP) and check the `locationInfo` field of `resourceSku`. Ensure that more than one zone is supported for the requested VM SKU. You can also use the [Azure CLI](/rest/api/compute/resource-skus/list?tabs=CLI) to list all available Resource SKUs with the following command:
+
+    ```azurecli
+    
+        az vm list-skus
+    
+    ```
 
 
 ### Create an Azure Batch pool across availability zones
 
-The following examples show how to create a Batch pool across availability zones.
+For examples on how to create a Batch pool across availability zones, see [Create an Azure Batch pool across Availability Zones](/azure/batch/create-pool-availability-zones).
 
-> [!NOTE]
-> When creating your pool with a zonal policy, the Batch service will try to allocate your pool across all availability zones in the selected region; you can't specify a particular allocation across the zones.
-
-#### Batch Management Client .NET SDK
-
-```csharp
-pool.DeploymentConfiguration.VirtualMachineConfiguration.NodePlacementConfiguration = new NodePlacementConfiguration()
-    {
-        Policy = NodePlacementPolicyType.Zonal
-    };
-
-```
-
-#### Batch REST API
-
-REST API URL
-
-```
-POST {batchURL}/pools?api-version=2021-01-01.13.0
-client-request-id: 00000000-0000-0000-0000-000000000000
-```
-
-Request body
-
-```
-"pool": {
-    "id": "pool2",
-    "vmSize": "standard_a1",
-    "virtualMachineConfiguration": {
-        "imageReference": {
-            "publisher": "Canonical",
-            "offer": "UbuntuServer",
-            "sku": "18.04-lts"
-        },
-        "nodePlacementConfiguration": {
-            "policy": "Zonal"
-        }
-        "nodeAgentSKUId": "batch.node.ubuntu 18.04"
-    },
-    "resizeTimeout": "PT15M",
-    "targetDedicatedNodes": 5,
-    "targetLowPriorityNodes": 0,
-    "maxTasksPerNode": 3,
-    "enableAutoScale": false,
-    "enableInterNodeCommunication": false
-}
-```
-
- Learn more about creating Batch accounts with the [Azure portal](batch-account-create-portal.md), the [Azure CLI](./scripts/batch-cli-sample-create-account.md), [PowerShell](batch-powershell-cmdlets-get-started.md), or the [Batch management API](batch-management-dotnet.md).
+Learn more about creating Batch accounts with the [Azure portal](../batch/batch-account-create-portal.md), the [Azure CLI](../batch/scripts/batch-cli-sample-create-account.md), [PowerShell](../batch/batch-powershell-cmdlets-get-started.md), or the [Batch management API](../batch/batch-management-dotnet.md).
 
 ### Zone down experience
 
-When a zone is done, the nodes within that zone will become unavailable.
+When a zone goes down, the nodes within that zone become unavailable.
 
 ### Availability zone redeployment and migration
 
