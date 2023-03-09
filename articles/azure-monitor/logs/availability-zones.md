@@ -18,6 +18,7 @@ ms.custom: references_regions
 Azure Monitor currently supports the following regions:
 - East US 2
 - West US 2
+- North Europe
 - Canada Central
 - France Central
 - Japan East
