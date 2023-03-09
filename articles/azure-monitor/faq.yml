@@ -709,7 +709,7 @@ sections:
           2. Recreate all unique customizations specific to the original resource in the new resource.
           3. Modify your application to use the new region resource's [instrumentation key](app/create-new-resource.md#copy-the-instrumentation-key) or [connection string](app/sdk-connection-string.md).
           4. Test to confirm that everything is continuing to work as expected with your new Application Insights resource.
-          5. At this point you can either delete the original resource, which will result in **all historical data being lost**. Or retain the original resource for historical reporting purposes during its data retention settings.
+          5. At this point you can either keep or delete the original Application Insights resource. Deleting a classic Application Insights resource will result in **all historical data being lost**. If the original resource was workspace-based, its data will remain in the Log Analytics. Keeping the original Application Insights resource will allow you to access its historical data until its data retention settings run out.
           
           Unique customizations that commonly need to be manually recreated or updated for the resource in the new region include but aren't limited to:
           
