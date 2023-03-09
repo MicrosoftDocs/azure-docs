@@ -1,6 +1,6 @@
 ---
 title: Four steps to a strong identity foundation - Azure AD
-description: This topic describes four steps hybrid identity customers can take to build a strong identity foundation.
+description: This article describes four steps hybrid identity customers can take to build a strong identity foundation.
 services: active-directory
 author: martincoetzer
 manager: travisgr
@@ -20,7 +20,7 @@ Managing access to apps and data can no longer rely on the traditional network s
 
 In adopting an Azure Active Directory (Azure AD) hybrid identity solution, organizations gain access to premium features that unlock productivity through automation, delegation, self-service, and single sign-on capabilities. It allows employees to access company resources from wherever they need to do their work while allowing IT teams to govern that access and ensure that the right people have the right access to the right resources for the right time to establish secure productivity.
 
-Based on our learnings, this checklist of best practices will help you quickly deploy recommended actions to build a *strong* identity foundation in your organization:
+Based on our learnings, this checklist of best practices helps you quickly deploy recommended actions to build a *strong* identity foundation in your organization:
 
 * Connect to apps easily
 * Establish one identity for every user automatically
@@ -44,7 +44,7 @@ Once applications are integrated into Azure AD gallery, users can see apps that 
 * Direct sign-on to federated apps
 * Direct sign-on links
 
-To learn more about user access to apps, see **Step 3 -- Empower Your Users** in this article.
+To learn more about user access to apps, see [Step 3](#step-3---empower-your-users-securely).
 
 ### Migrate apps from Active Directory Federation Services to Azure AD
 
@@ -81,9 +81,9 @@ In addition to detecting shadow IT, Microsoft Defender for Cloud Apps can also d
 
 ## Step 2 - Establish one identity for every user automatically
 
-Bringing on-premises and cloud-based directories together in an Azure AD hybrid identity solution will allow you to reuse your existing on-premises Active Directory investment by provisioning your existing identities in the cloud. The solution synchronizes on-premises identities with Azure AD, while IT keeps the on-premises Active Directory running with any existing governance solutions as the primary source of truth for identities. Microsoft's Azure AD hybrid identity solution spans on-premises and cloud-based capabilities, creating a common user identity for authentication and authorization to all resources regardless of their location.
+Bringing on-premises and cloud-based directories together in an Azure AD hybrid identity solution allows you to reuse your existing on-premises Active Directory investment by provisioning your existing identities in the cloud. The solution synchronizes on-premises identities with Azure AD, while IT keeps the on-premises Active Directory running with any existing governance solutions as the primary source of truth for identities. Microsoft's Azure AD hybrid identity solution spans on-premises and cloud-based capabilities, creating a common user identity for authentication and authorization to all resources regardless of their location.
 
-Integrating your on-premises directories with Azure AD makes your users more productive and prevents users from using multiple accounts across apps and services by providing a common identity to access both cloud and on-premises resources. Using multiple accounts is a pain point for end users and IT alike. From an end-user perspective, having multiple accounts means having to remember multiple passwords. To avoid this, many users reuse the same password for each account, which is bad from a security perspective. From an IT perspective, reuse often leads to more password resets and helpdesk costs along with the end-user complaints.
+Integrate your on-premises directories with Azure AD to make your users more productive. Prevent users from using multiple accounts across apps and services by providing a common identity to access both cloud and on-premises resources. Using multiple accounts is a pain point for end users and IT alike. From an end-user perspective, having multiple accounts means having to remember multiple passwords. To avoid this, many users reuse the same password for each account, which is bad from a security perspective. From an IT perspective, reuse often leads to more password resets and helpdesk costs along with the end-user complaints.
 
 Azure AD Connect is the tool that is used to synchronize your on-premises identities to Azure AD, which can then be used to access integrated applications. Once the identities are in Azure AD, they can be provisioned to SaaS applications like Salesforce or Concur.
 
@@ -96,7 +96,7 @@ In this section, we list recommendations for providing high availability, modern
 
 Azure AD Connect plays a key role in the provisioning process. If the Server running Azure AD Connect goes offline for any reason, changes to on-premises won't be updated in the cloud and cause access issues to users. It's important to define a failover strategy that allows administrators to quickly resume synchronization after the Azure AD Connect server goes offline.
 
-To provide high availability in the event your primary Azure AD Connect server goes offline, it's recommended that you deploy a separate [staging server](./how-to-connect-sync-staging-server.md) for Azure AD Connect. With a server in staging mode, you can make changes to the configuration and preview the changes before you make the server active. It also allows you to run full import and full synchronization to verify that all changes are expected before you make these changes into your production environment. Deploying a stagging server allows the administrator to "promote" it to production by a simple configuration switch. Having a standby server configured in staging mode also allows you to introduce a new server if decommissioning the old one.
+To provide high availability in the event your primary Azure AD Connect server goes offline, it's recommended that you deploy a separate [staging server](./how-to-connect-sync-staging-server.md) for Azure AD Connect. With a server in staging mode, you can make changes to the configuration and preview the changes before you make the server active. It also allows you to run full import and full synchronization to verify that all changes are expected before you make these changes into your production environment. Deploying a staging server allows the administrator to "promote" it to production by a simple configuration switch. Having a standby server configured in staging mode also allows you to introduce a new server if decommissioning the old one.
 
 > [!TIP]
 > Azure AD Connect is updated on a regular basis. Therefore, it's strongly recommended that you keep the staging server current in order to take advantage of the performance improvements, bug fixes, and new capabilities that each new version provides.
@@ -107,13 +107,13 @@ Organizations with on-premises Active Directory should extend their directory to
 
 The simplest and recommended method to enable cloud authentication for on-premises directory objects in Azure AD is [Password Hash Synchronization](./how-to-connect-password-hash-synchronization.md) (PHS). Alternatively, some organizations may consider enabling [Pass-through Authentication](./how-to-connect-pta-quick-start.md) (PTA).
 
-Whether you choose PHS or PTA, don't forget to consider [SSO](./how-to-connect-sso.md) to allow users to access apps without constantly entering their username and password. SSO can be acheived by leveraging [Hybrid Azure AD joined](../devices/concept-azure-ad-join-hybrid) or [Azure AD joined](../devices/concept-azure-ad-join) devices while keeping access to on-premises resources. For devices that can’t be Azure AD joined,  [Seamless single sign-on (Seamless SSO)](how-to-connect-sso-quick-start.md) will help provide those capabilities. Without single sign-on, users must remember application-specific passwords and sign into each application. Likewise, IT staff needs to create and update user accounts for each application such as Microsoft 365, Box, and Salesforce. Users need to remember their passwords, plus spend the time to sign into each application. Providing a standardized single sign-on mechanism to the entire enterprise is crucial for best user experience, reduction of risk, ability to report, and governance.
+Whether you choose PHS or PTA, don't forget to consider [SSO](./how-to-connect-sso.md) to allow users to access apps without constantly entering their username and password. SSO can be achieved by using [Hybrid Azure AD joined](../devices/concept-azure-ad-join-hybrid) or [Azure AD joined](../devices/concept-azure-ad-join) devices while keeping access to on-premises resources. For devices that can’t be Azure AD joined,  [Seamless single sign-on (Seamless SSO)](how-to-connect-sso-quick-start.md) helps provide those capabilities. Without single sign-on, users must remember application-specific passwords and sign into each application. Likewise, IT staff needs to create and update user accounts for each application such as Microsoft 365, Box, and Salesforce. Users need to remember their passwords, plus spend the time to sign into each application. Providing a standardized single sign-on mechanism to the entire enterprise is crucial for best user experience, reduction of risk, ability to report, and governance.
 
-For organizations already using AD FS or another on-premises authentication provider, moving to Azure AD as your identity provider can reduce complexity and improve availability. Unless you have specific use cases for using federation, we recommend migrating from federated authentication to either PHS or PTA to enjoy the benefits of a reduced on-premises footprint and the flexibility the cloud offers with improved user experiences. For more information, see [Migrate from federation to password hash synchronization for Azure Active Directory](./migrate-from-federation-to-cloud-authentication.md).
+For organizations already using AD FS or another on-premises authentication provider, moving to Azure AD as your identity provider can reduce complexity and improve availability. Unless you have specific use cases for using federation, we recommend migrating from federated authentication to either PHS or PTA. Doing this you can enjoy the benefits of a reduced on-premises footprint, and the flexibility the cloud offers with improved user experiences. For more information, see [Migrate from federation to password hash synchronization for Azure Active Directory](./migrate-from-federation-to-cloud-authentication.md).
 
 ### Enable automatic deprovisioning of accounts
 
-Enabling automated provisioning and deprovisioning to your applications is the best strategy for governing the lifecycle of identities across multiple systems. Azure AD supports [automated, policy-based provisioning and deprovisioning](../app-provisioning/configure-automatic-user-provisioning-portal.md) of user accounts to a variety of popular SaaS applications such as ServiceNow and Salesforce, and others that implement the [SCIM 2.0 protocol](../app-provisioning/use-scim-to-provision-users-and-groups.md). Unlike traditional provisioning solutions, which require custom code or manual uploading of CSV files, the provisioning service is hosted in the cloud, and features pre-integrated connectors that can be set up and managed using the Azure portal. A key benefit of automatic deprovisioning is that it helps secure your organization by instantly removing users' identities from key SaaS apps when they leave the organization.
+Enabling automated provisioning and deprovisioning to your applications is the best strategy for governing the lifecycle of identities across multiple systems. Azure AD supports [automated, policy-based provisioning and deprovisioning](../app-provisioning/configure-automatic-user-provisioning-portal.md) of user accounts to various popular SaaS applications such as ServiceNow and Salesforce, and others that implement the [SCIM 2.0 protocol](../app-provisioning/use-scim-to-provision-users-and-groups.md). Unlike traditional provisioning solutions, which require custom code or manual uploading of CSV files, the provisioning service is hosted in the cloud, and features pre-integrated connectors that can be set up and managed using the Azure portal. A key benefit of automatic deprovisioning is that it helps secure your organization by instantly removing users' identities from key SaaS apps when they leave the organization.
 
 To learn more about automatic user account provisioning and how it works, see [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
 
@@ -127,11 +127,11 @@ This section lists recommendations for removing friction from your organization 
 
 Azure's [self-service password reset](../authentication/tutorial-enable-sspr.md) (SSPR) offers a simple means for IT administrators to allow users to reset and unlock their passwords or accounts without administrator intervention. The system includes detailed reporting that tracks when users access the system, along with notifications to alert you to misuse or abuse.
 
-By default, Azure AD unlocks accounts when it performs a password reset. However, when you enable Azure AD Connect [integration on-premises](../authentication/concept-sspr-howitworks.md#on-premises-integration), you also have the option to separate those two operations, which enable users to unlock their account without having to reset the password.
+By default, Azure AD unlocks accounts when it performs a password reset. However, when you enable Azure AD Connect [integration on-premises](../authentication/concept-sspr-howitworks.md#on-premises-integration), you can also separate those two operations, which enable users to unlock their account without having to reset the password.
 
 ### Ensure all users are registered for MFA and SSPR
 
-Azure provides reports that can be used by you and your organization to ensure users are registered for MFA and SSPR. Users who haven't registered may need to be educated on the process.
+Azure provides reports that are used by organizations to ensure users are registered for MFA and SSPR. Users who haven't registered may need to be educated on the process.
 
 The MFA [sign-ins report](../authentication/howto-mfa-reporting.md) includes information about MFA usage and gives you insights into how MFA is working in your organization. Having access to sign-in activity (and audits and risk detections) for Azure AD is crucial for troubleshooting, usage analytics, and forensics investigations.
 
@@ -148,7 +148,7 @@ Assigning users to applications is best mapped when using groups, because they a
 * Attribute-based using dynamic group membership
 * Delegation to app owners
 
-Azure AD provides the ability to manage access to resources using security groups and Microsoft 365 groups. These groups can be managed by a group owner who can approve or deny membership requests and delegate control of group membership. Known as [self-service group management](../enterprise-users/groups-self-service-management.md), this feature saves time by allowing group owners who aren't assigned an administrative role to create and manage groups without having to rely on administrators to handle their requests.
+Azure AD provides the ability to manage access to resources using security groups and Microsoft 365 groups. These groups are managed by a group owner who can approve or deny membership requests and delegate control of group membership. The [self-service group management](../enterprise-users/groups-self-service-management.md) feature, saves time by allowing group owners who aren't assigned an administrative role to create and manage groups without having to rely on administrators to handle their requests.
 
 ## Step 4 - Operationalize your insights
 
@@ -162,7 +162,7 @@ Security logs and reports provide you with an electronic record of activities an
 
 ### Assign least privileged admin roles for operations
 
-As you think about your approach to operations, there are a couple levels of administration to consider. The first level places the burden of administration on your Hybrid Identity Administrator(s). Always using the Hybrid Identity Administrator role, might be appropriate for smaller companies. But for larger organizations with help desk personnel and administrators responsible for specific tasks, assigning the role of Hybrid Identity Administrator can be a security risk since it provides those individuals with the ability to manage tasks that are above and beyond what they should be capable of doing.
+As you think about your approach to operations, there are a couple levels of administration to consider. The first level places the burden of administration on your Hybrid Identity Administrator(s). Always using the Hybrid Identity Administrator role, might be appropriate for smaller companies. But for larger organizations with help desk personnel and administrators responsible for specific tasks, assigning the role of Hybrid Identity Administrator can be a security risk since it provides those individuals with the ability to manage tasks that are beyond their capabilities. 
 
 In this case, you should consider the next level of administration. Using Azure AD, you can designate end users as "limited administrators" who can manage tasks in less-privileged roles. For example, you might assign your help desk personnel the [security reader](../roles/permissions-reference.md#security-reader) role to provide them with the ability to manage security-related features with read-only access. Or perhaps it makes sense to assign the [authentication administrator](../roles/permissions-reference.md#authentication-administrator) role to individuals to give them the ability to reset non-password credentials or read and configure Azure Service Health.
 
@@ -188,7 +188,7 @@ Organizations that don't have a SIEM solution can use Azure Monitor workbooks fo
 
 When you implement a hybrid identity solution as outlined in this article, you should ultimately notice a reduction in your support calls. Common issues such as forgotten passwords and account lockouts are mitigated by implementing Azure's self-service password reset, while enabling self-service application access allows users to self-discover and request access to applications without relying on your IT staff.
 
-If you don't observe a reduction in support calls, we recommend that you analyze your support call drivers in an attempt to confirm if SSPR or self-service application access has been configured correctly or if there are any other new issues that can be systematically addressed.
+If you don't observe a reduction in support calls, we recommend that you analyze your support call drivers in an attempt to confirm if SSPR, or self-service application access has been configured correctly or if there are any other new issues that can be systematically addressed.
 
 *"In our digital transformation journey, we needed a reliable identity and access management provider to facilitate seamless yet secure integration between us, partners and cloud service providers, for an effective ecosystem; Azure AD was the best option offering us the needed capabilities and visibility that enabled us to detect and respond to risks."* --- [Yazan Almasri, Global Information Security Director, Aramex](https://customers.microsoft.com/story/aramex-azure-active-directory-travel-transportation-united-arab-emirates-en)
 
@@ -204,7 +204,7 @@ In addition to discovering Shadow IT, monitoring app usage across your organizat
 
 ## Summary
 
-There are many aspects to implementing a hybrid Identity solution, but this four-step checklist will help you quickly accomplish an identity infrastructure that will enable users to be more productive and secure.
+There are many aspects to implementing a hybrid Identity solution, but this four-step checklist helps you quickly accomplish an identity infrastructure that enables users to be more productive and secure.
 
 * Connect to apps easily
 * Establish one identity for every user automatically
@@ -259,4 +259,4 @@ We recommend that you print the following checklist for reference as you begin y
 
 Learn how you can increase your secure posture using the capabilities of Azure Active Directory and this five-step checklist - [Five steps to securing your identity infrastructure](../../security/fundamentals/steps-secure-identity.md).
 
-Learn how the identity features in Azure AD can help you accelerate your transition to cloud governed management by providing the solutions and capabilities that allow organizations to quickly adopt and move more of their identity management from traditional on-premises systems to Azure AD - [How Azure AD Delivers Cloud Governed Management for On-Premises Workloads](./cloud-governed-management-for-on-premises.md).
+Learn how the identity features in Azure AD can help you accelerate your transition to cloud governed management by providing the solutions and capabilities that allow organizations to quickly adopt and move more of their identity management from traditional on-premises systems to Azure AD - [How Azure AD Delivers Cloud Governed Management for on-premises Workloads](./cloud-governed-management-for-on-premises.md).
