@@ -19,8 +19,6 @@ items:
         href: quickstarts/access-tokens.md
       - name: Authenticate with Azure AD
         href: quickstarts/identity/service-principal.md
-      - name: Authenticate with Azure AD (Azure CLI)
-        href: quickstarts/identity/service-principal-from-cli.md
       - name: Quick-create identities for testing
         href: quickstarts/identity/quick-create-identity.md
       - name: Create identities and tokens in Azure Logic Apps
@@ -50,7 +48,9 @@ items:
       - name: Handle Email events
         href: quickstarts/email/handle-email-events.md
       - name: Send an Email in Azure Logic Apps
-        href: quickstarts/email/logic-app.md            
+        href: quickstarts/email/logic-app.md
+      - name: Enable User Engagement Tracking
+        href: quickstarts/email/enable-user-engagement-tracking.md
   - name: Telephony and phone numbers
     items:
       - name: Get and manage phone numbers
@@ -65,8 +65,8 @@ items:
     items:
       - name: Send an SMS message
         href: quickstarts/sms/send.md
-      - name: Handle SMS events
-        href: quickstarts/sms/handle-sms-events.md
+      - name: Receive and reply to SMS
+        href: quickstarts/sms/receive-sms.md
       - name: Send an SMS in Azure Logic Apps
         href: quickstarts/sms/logic-app.md
       - name: Apply for a Short Code
@@ -148,6 +148,16 @@ items:
     href: quickstarts/telemetry-application-insights.md
   - name: Add file sharing to your application with UI Library
     href: tutorials/file-sharing-tutorial.md
+  - name: Get users ready for their call with UI Library
+    items:
+      - name: Call Readiness Overview
+        href: tutorials/call-readiness/call-readiness-overview.md
+      - name: 1. Ensure user is on a supported browser
+        href: tutorials/call-readiness/call-readiness-tutorial-part-1-browser-support.md
+      - name: 2. Request camera and microphone permissions
+        href: tutorials/call-readiness/call-readiness-tutorial-part-2-requesting-device-access.md
+      - name: 3. Microphone and camera setup before a call
+        href: tutorials/call-readiness/call-readiness-tutorial-part-3-camera-microphone-setup.md
   - name: Enable Push Notifications in your chat app
     href: tutorials/add-chat-push-notifications.md
 - name: Concepts
@@ -156,7 +166,7 @@ items:
   - name: SDKs and REST APIs
     href: concepts/sdk-options.md
   - name: Client and server architecture
-    href: concepts/client-and-server-architecture.md
+    href: https://learn.microsoft.com/azure/architecture/guide/mobile/azure-communication-services-architecture
   - name: Identity and authentication
     items:
     - name: Identity 
@@ -233,6 +243,8 @@ items:
         href: concepts/voice-video-calling/user-facing-diagnostics.md
       - name: Media quality statistics
         href: concepts/voice-video-calling/media-quality-sdk.md
+      - name: Video constraints
+        href: concepts/voice-video-calling/video-constraints.md
       - name: Customizing the video background
         href: concepts/voice-video-calling/video-effects.md
       - name: Pre-Call diagnostics
@@ -327,6 +339,8 @@ items:
             href: concepts/interop/guest/privacy.md
           - name: Government clouds
             href: concepts/interop/guest/government-cloud.md
+          - name: Security
+            href: concepts/interop/guest/security.md
           - name: Known issues
             href: concepts/interop/guest/limitations.md            
       - name: Communication as Teams user
@@ -353,6 +367,8 @@ items:
             href: concepts/interop/custom-teams-endpoint-firewall-configuration.md
           - name: Government clouds
             href: concepts/interop/teams-user/government-cloud.md
+          - name: Security
+            href: concepts/interop/teams-user/security.md
   - name: Network Traversal (TURN)
     href: concepts/network-traversal.md    
   - name: Developer Tools
@@ -435,10 +451,18 @@ items:
       href: how-tos/call-automation/play-action.md
     - name: Gather user input with Recognize action 
       href: how-tos/call-automation/recognize-action.md
+    - name: Record every call in the resource
+      href: how-tos/call-automation/record-every-call.md
   - name: Using the Chat SDK
     items: 
     - name: Integrate with Data Loss Prevention policies
       href: how-tos/chat-sdk/data-loss-prevention.md
+  - name: Using Azure Event Grid
+    items:
+    - name: Validate events
+      href: how-tos/event-grid/view-events-request-bin.md
+    - name: Local testing events
+      href: how-tos/event-grid/local-testing-event-grid.md
 - name: Samples
   items:
   - name: Overview

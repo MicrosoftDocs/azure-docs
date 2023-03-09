@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: multi-tenant-organizations
 ms.topic: how-to
-ms.date: 02/01/2023
+ms.date: 02/06/2023
 ms.author: rolyon
 ms.custom: it-pro
 
@@ -35,10 +35,17 @@ By the end of this article, you'll be able to:
 
 ## Prerequisites
 
-- A source [Azure AD tenant](../develop/quickstart-create-new-tenant.md) with a Premium P1 or P2 license
-- A target [Azure AD tenant](../develop/quickstart-create-new-tenant.md) with a Premium P1 or P2 license
-- An account in the source tenant with the [Hybrid Identity Administrator](../roles/permissions-reference.md#hybrid-identity-administrator) role to configure cross-tenant provisioning
-- An account in the target tenant with the [Hybrid Identity Administrator](../roles/permissions-reference.md#hybrid-identity-administrator) role to configure the cross-tenant synchronization policy
+![Icon for the source tenant.](./media/common/icon-tenant-source.png)<br/>**Source tenant**
+
+- Azure AD Premium P1 or P2 license
+- [Security Administrator](../roles/permissions-reference.md#security-administrator) role to configure cross-tenant access settings
+- [Hybrid Identity Administrator](../roles/permissions-reference.md#hybrid-identity-administrator) role to configure cross-tenant synchronization
+- [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator) or [Application Administrator](../roles/permissions-reference.md#application-administrator) role to assign users to a configuration and to delete a configuration
+
+![Icon for the target tenant.](./media/common/icon-tenant-target.png)<br/>**Target tenant**
+
+- Azure AD Premium P1 or P2 license
+- [Security Administrator](../roles/permissions-reference.md#security-administrator) role to configure cross-tenant access settings
 
 ## Step 1: Plan your provisioning deployment
 
@@ -118,7 +125,7 @@ In this step, you automatically redeem invitations in the source tenant.
 
 1. Select **Save**. 
 
-## Step 5: Create a configuration application in the source tenant
+## Step 5: Create a configuration in the source tenant
 
 ![Icon for the source tenant.](./media/common/icon-tenant-source.png)<br/>**Source tenant**
 
@@ -453,6 +460,26 @@ Restoring a previously soft-deleted user in the target tenant isn't supported.
 **Solution**
 
 Manually restore the soft-deleted user in the target tenant. For more information, see [Restore or remove a recently deleted user using Azure Active Directory](../fundamentals/active-directory-users-restore.md).
+
+#### Symptom - Unable to delete a configuration
+
+On the **Configurations** page, there isn't a way to delete a configuration.
+
+**Cause**
+
+Currently, there isn't a way to delete a configuration on the **Configurations** page. Instead, you must delete the configuration in **Enterprise applications**.
+
+**Solution**
+
+1. In the source tenant, select **Azure Active Directory** > **Enterprise applications**.
+
+1. In the list of all applications, find the name of your configuration. If necessary, you can search by the configuration name.
+
+1. Select the configuration and then select **Properties**.
+
+1. Select **Delete** and then **Yes** to delete the configuration.
+
+    :::image type="content" source="./media/cross-tenant-synchronization-configure/enterprise-applications-configuration-delete.png" alt-text="Screenshot of the Enterprise applications Properties page showing how to delete a configuration." lightbox="./media/cross-tenant-synchronization-configure/enterprise-applications-configuration-delete.png":::
 
 ## Next steps
 

@@ -4,10 +4,10 @@ description: Access a summary of marketplace web analytics in Partner Center, wh
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: smannepalle
-ms.author: smannepalle
+author: saurabhsharmaa
+ms.author: saurasharma
 ms.reviewer: sroy
-ms.date: 08/09/2022
+ms.date: 02/20/2023
 ---
 
 # Marketplace Insights dashboard in commercial marketplace analytics
@@ -31,68 +31,13 @@ The Marketplace Insights dashboard provides clickstream data, which shouldn't be
 > [!NOTE]
 > The maximum latency between users visiting offers on Azure Marketplace or AppSource and reporting in Partner Center is 48 hours.
 
-## Access the Marketplace insights dashboard
-
-1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
-1. On the Home page, select the **Insights** tile.
-
-    [ ![Illustrates the Insights tile on the Partner Center Home page.](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
-
-1. In the left menu, select **[Marketplace insights](https://partner.microsoft.com/dashboard/insights/commercial-marketplace/analytics/marketplaceinsights)**.
-
-    [ ![Screenshot of the Marketplace insights link in the left-nav.](./media/insights-dashboard/marketplace-insights.png) ](./media/insights-dashboard/marketplace-insights.png#lightbox)
-
-## Elements of the Marketplace Insights dashboard
-
-The following sections describe how to use the Marketplace Insights dashboard and how to read the data.
-
-### Download
-
-To download data for this dashboard, select **Download as PDF** from the **Download** list.
-
-[ ![Screenshot of the Download as PDF link in the Download list.](./media/insights-dashboard/download-as-pdf.png) ](./media/insights-dashboard/download-as-pdf.png#lightbox)
-
-Alternatively, you can go to the [Downloads dashboard](https://partner.microsoft.com/dashboard/insights/commercial-marketplace/analytics/downloads) to download the report.
-
-### Share
-
-To share the dashboard widgets data via email, in the top menu, select **Share**.
-
-In the dialog box that appears, provide the recipient email address and message. To share the report URL, select the **Copy link** or **Share to Teams** button. To take a snapshot of charts data, select the **Copy as image** button.
-
-[ ![Screenshot of the Share button in the top menu.](./media/insights-dashboard/share.png) ](./media/insights-dashboard/share.png#lightbox)
-
-### What's new
-
-To learn about changes and enhancements that were made to the dashboard, select **What’s new**. The _What’s new_ side panel appears.
-
-[ ![Screenshot of the What's new button in the top menu.](./media/insights-dashboard/whats-new.png) ](./media/insights-dashboard/whats-new.png#lightbox)
-
-### About data refresh
-
-To view the data source and the data refresh details, such as the frequency of the data refresh, select the ellipsis (three dots) and then select **Data refresh details**.
-
-[ ![Screenshot of the Data refresh details option in the ellipsis menu.](./media/insights-dashboard/data-refresh-details.png) ](./media/insights-dashboard/data-refresh-details.png#lightbox)
-
-### Got feedback?
-
-To provide instant feedback about the report/dashboard, select the ellipsis (three dots), and then select the **Got feedback?** link.
-
-[ ![Screenshot of the Got feedback link in the ellipsis menu.](./media/insights-dashboard/got-feedback.png) ](./media/insights-dashboard/got-feedback.png#lightbox)
-
-### Month range
-
-You can find a month range selection at the top-right corner of each page. Customize the output of the *Marketplace Insights* page graphs by selecting a month range based on the past 6 or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range is six months.
-
-[ ![Screenshot of the month filters on the Marketplace Insights dashboard.](./media/insights-dashboard/dashboard-time-range.png) ](./media/insights-dashboard/dashboard-time-range.png#lightbox)
-
 ### Marketplace Insights dashboard filters
 
 Filter the data by offer names. Filter options are dynamic and based on the selected date range.
 
 To select the filters, in the top-right of the page, select **Filters**.
 
-:::image type="content" source="./media/insights-dashboard/dashboard-filters.png" alt-text="Screenshot of the Filters button in the top menu..":::
+:::image type="content" source="./media/insights-dashboard/dashboard-filters.png" alt-text="Screenshot of the Filters button in the top menu.":::
 
 In the panel that appears on the right, select the offer names you want, and then select **Apply**.
 
@@ -172,9 +117,11 @@ Note the following:
 
 ### Marketplace Insights details table
 
+> [!IMPORTANT]
+> To download the data in CSV, please use the Download data option available on top of page.
+
 This table provides a list view of the page visits and the calls to action of your selected offers' pages sorted by date.
 
-- The data can be extracted to a .TSV or .CSV file if the count of records is less than 1,000.
 - If the count of records is over 1,000, exported data will be asynchronously placed in a downloads page for the next 30 days.
 - Filter data by Offer names and Campaign names to display the data you are interested in.
 

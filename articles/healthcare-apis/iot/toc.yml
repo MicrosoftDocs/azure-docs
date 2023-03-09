@@ -46,8 +46,8 @@ items:
       items:
       - name: Device mappings
         href: how-to-configure-device-mappings.md
-      - name: CalculatedContentTemplate mappings
-        href: how-to-use-calculatedcontenttemplate-mappings.md
+      - name: CalculatedContent mappings
+        href: how-to-use-calculatedcontent-mappings.md
       - name: IotJsonPathContentTemplate mappings
         href: how-to-use-iotjsonpathcontenttemplate-mappings.md
       - name: Custom functions
@@ -71,8 +71,10 @@ items:
   - name: Troubleshoot
     expanded: false
     items:
-    - name: Errors
-      href: troubleshoot-errors.md
+    - name: Deployment errors
+      href: troubleshoot-errors-deployment.md
+    - name: Error logs
+      href: troubleshoot-errors-logs.md   
 - name: Concepts
   expanded: false
   items:

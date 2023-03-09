@@ -31,7 +31,7 @@ When **Assign Endpoint** on applications in an Azure Spring Apps service instanc
 
 3. In the filtered result, find the **Device** connected to the service runtime **Subnet** of the service instance, and copy its **IP Address**. In this sample, the IP Address is *10.1.0.7*.
 
-    [ ![Create DNS record](media/spring-cloud-access-app-vnet/create-dns-record.png) ](media/spring-cloud-access-app-vnet/create-dns-record.png#lightbox)
+   :::image type="content" source="media/spring-cloud-access-app-vnet/create-dns-record.png" alt-text="Screenshot of the Azure portal showing the Connected devices page for a virtual network, filtered for kubernetes-internal devices, with the IP Address for the service runtime subnet highlighted." lightbox="media/spring-cloud-access-app-vnet/create-dns-record.png":::
 
 #### [CLI](#tab/azure-CLI)
 

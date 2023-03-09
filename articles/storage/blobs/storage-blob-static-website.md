@@ -69,7 +69,7 @@ For example, if you change the public access level of the **$web** container fro
 
 However, the public access to the primary blob service endpoint `https://contosoblobaccount.blob.core.windows.net/$web/index.html` does change from private to public. Now users can open that file by using either of these two endpoints.
 
-Disabling public access on a storage account doesn't affect static websites that are hosted in that storage account. For more information, see [Remediate anonymous public read access to blob data (Azure Resource Manager deployments)](anonymous-read-access-prevent.md).
+Disabling public access on a storage account by using the [public access setting](anonymous-read-access-prevent.md#set-the-storage-accounts-allowblobpublicaccess-property-to-false) of the storage account doesn't affect static websites that are hosted in that storage account. For more information, see [Remediate anonymous public read access to blob data (Azure Resource Manager deployments)](anonymous-read-access-prevent.md).
 
 ## Mapping a custom domain to a static website URL
 

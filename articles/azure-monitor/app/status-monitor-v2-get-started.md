@@ -95,7 +95,7 @@ Enable-ApplicationInsightsMonitoring -ConnectionString 'InstrumentationKey=00000
 
  Add more telemetry:
 
-- [Create web tests](monitor-web-app-availability.md) to make sure your site stays live.
+- [Availability overview](availability-overview.md)
 - [Add web client telemetry](./javascript.md) to see exceptions from webpage code and to enable trace calls.
 - [Add the Application Insights SDK to your code](./asp-net.md) so that you can insert trace and log calls.
 

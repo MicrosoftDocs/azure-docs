@@ -21,6 +21,7 @@ You can create host pools in the following Azure regions:
 - Australia East
 - Canada Central
 - Canada East
+- Central India
 - Central US
 - East US
 - East US 2
@@ -34,6 +35,7 @@ You can create host pools in the following Azure regions:
 - West Europe
 - West US
 - West US 2
+- West US 3
 
 ## Create a host pool
 
@@ -142,7 +144,7 @@ To successfully domain-join, do the following things on each virtual machine:
 
 ## Register the virtual machines to the Azure Virtual Desktop host pool
 
-Registering the virtual machines to a Azure Virtual Desktop host pool is as simple as installing the Azure Virtual Desktop agents.
+Registering the virtual machines to an Azure Virtual Desktop host pool is as simple as installing the Azure Virtual Desktop agents.
 
 To register the Azure Virtual Desktop agents, do the following on each virtual machine:
 
@@ -181,7 +183,6 @@ To update the agent:
      - Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\RDAgentBootLoader
 
 6. Once you've uninstalled these items, this should remove all associations with the old host pool. If you want to reregister this host to the service, follow the instructions in [Register the virtual machines to the Azure Virtual Desktop host pool](create-host-pools-powershell.md#register-the-virtual-machines-to-the-azure-virtual-desktop-host-pool).
-
 
 ## Next steps
 

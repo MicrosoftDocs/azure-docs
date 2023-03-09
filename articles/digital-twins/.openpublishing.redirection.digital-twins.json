@@ -1,6 +1,16 @@
 {
   "redirections": [
     {
+      "source_path": "how-to-manage-routes.md",
+      "redirect_url": "/azure/digital-twins/how-to-create-routes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "how-to-route-with-managed-identity.md",
+      "redirect_url": "/azure/digital-twins/how-to-create-endpoints#endpoint-options-identity-based-authentication",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "how-to-integrate-logic-apps.md",
       "redirect_url": "/azure/digital-twins/how-to-use-power-platform-logic-apps-connector",
       "redirect_document_id": false
@@ -24,6 +34,11 @@
       "source_path": "how-to-monitor-alerts.md",
       "redirect_url": "/azure/digital-twins/how-to-monitor",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "how-to-use-data-history.md",
+      "redirect_url": "/azure/digital-twins/how-to-create-data-history-connection",
+      "redirect_document_id": true
     },
     {
       "source_path": "how-to-create-app-registration-portal.md",
@@ -112,12 +127,12 @@
     },
     {
       "source_path": "how-to-enable-managed-identities-portal.md",
-      "redirect_url": "/azure/digital-twins/how-to-route-with-managed-identity",
+      "redirect_url": "/azure/digital-twins/how-to-set-up-instance-portal#enable-disable-managed-identity-for-the-instance",
       "redirect_document_id": false
     },
     {
       "source_path": "how-to-enable-managed-identities-cli.md",
-      "redirect_url": "/azure/digital-twins/how-to-route-with-managed-identity",
+      "redirect_url": "/azure/digital-twins/how-to-set-up-instance-cli#enable-disable-managed-identity-for-the-instance",
       "redirect_document_id": false
     },
     {
@@ -143,12 +158,12 @@
 
     {
       "source_path": "how-to-manage-routes-apis-cli.md",
-      "redirect_url": "/azure/digital-twins/how-to-manage-routes",
+      "redirect_url": "/azure/digital-twins/how-to-create-routes",
       "redirect_document_id": false
     },
     {
       "source_path": "how-to-manage-routes-portal.md",
-      "redirect_url": "/azure/digital-twins/how-to-manage-routes",
+      "redirect_url": "/azure/digital-twins/how-to-create-routes",
       "redirect_document_id": false
     },
 
@@ -234,7 +249,7 @@
     },
     {
       "source_path": "how-to-egress-endpoints.md",
-      "redirect_url": "/azure/digital-twins/how-to-manage-routes",
+      "redirect_url": "/azure/digital-twins/how-to-create-routes",
       "redirect_document_id": false
     },
     {

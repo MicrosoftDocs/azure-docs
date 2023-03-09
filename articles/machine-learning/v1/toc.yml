@@ -266,7 +266,7 @@
         items:
         - name: Auto-train a forecast model
           displayName: time series
-          href: ../how-to-auto-train-forecast.md
+          href: how-to-auto-train-forecast-v1.md
         - name: Frequently asked questions
           displayName: auto ML, time series, forecasting, FAQ
           href: ../how-to-automl-forecasting-faq.md
@@ -311,8 +311,6 @@
     - name: Prepare data for computer vision with AutoML
       displayName: nlp, auto ML, automl, SDK
       href: how-to-prepare-datasets-for-automl-images-v1.md
-    - name: Reinforcement learning
-      href: how-to-use-reinforcement-learning.md
     - name: Explain automated ML models
       displayName: SDK, interpret, interpret, explain, explainability, interpretability, automated ML, automl, auto ml
       href: how-to-machine-learning-interpretability-automl.md

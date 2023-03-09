@@ -44,7 +44,7 @@ To complete this walk through, you'll require:
 An Event Hubs namespace is required to send and receive from any Event Hubs service. See [Creating an event hub](event-hubs-create.md) for instructions to create a namespace and an event hub. Get the Event Hubs connection string and fully qualified domain name (FQDN) for later use. For instructions, see [Get an Event Hubs connection string](event-hubs-get-connection-string.md). 
 
 ## Set up and configure Azure Database for PostgreSQL
-[Azure Database for PostgreSQL](../postgresql/overview.md) is a relational database service based on the community version of open-source PostgreSQL database engine, and is available in two deployment options: Single Server and Hyperscale (Citus). [Follow these instructions](../postgresql/quickstart-create-server-database-portal.md) to create an Azure Database for PostgreSQL server using the Azure portal. 
+[Azure Database for PostgreSQL](../postgresql/overview.md) is a relational database service based on the community version of open-source PostgreSQL database engine, and is available in three deployment options: Single Server, Flexible Server and Cosmos DB for PostgreSQL. [Follow these instructions](../postgresql/quickstart-create-server-database-portal.md) to create an Azure Database for PostgreSQL server using the Azure portal. 
 
 ## Setup and run Kafka Connect
 This section will cover the following topics:
@@ -64,7 +64,7 @@ Follow the latest instructions in the [Debezium documentation](https://debezium.
 Minimal reconfiguration is necessary when redirecting Kafka Connect throughput from Kafka to Event Hubs.  The following `connect-distributed.properties` sample illustrates how to configure Connect to authenticate and communicate with the Kafka endpoint on Event Hubs:
 
 > [!IMPORTANT]
-> - Debezium will auto-create a topic per table and a bunch of metadata topics. Kafka **topic** corresponds to an Event Hubs instance (event hub). For Apache Kafka to Azure Event Hubs mappings, see [Kafka and Event Hubs conceptual mapping](azure-event-hubs-kafka-overview.md#kafka-and-event-hubs-conceptual-mapping). 
+> - Debezium will auto-create a topic per table and a bunch of metadata topics. Kafka **topic** corresponds to an Event Hubs instance (event hub). For Apache Kafka to Azure Event Hubs mappings, see [Kafka and Event Hubs conceptual mapping](azure-event-hubs-kafka-overview.md#apache-kafka-and-azure-event-hubs-conceptual-mapping). 
 > - There are different **limits** on number of event hubs in an Event Hubs namespace depending on the tier (Basic, Standard, Premium, or Dedicated). For these limits, See [Quotas](compare-tiers.md#quotas).
 
 ```properties

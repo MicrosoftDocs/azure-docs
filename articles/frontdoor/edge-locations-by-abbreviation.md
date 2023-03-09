@@ -4,7 +4,7 @@ description: This article lists Azure Front Door edge locations, sorted by edge 
 services: frontdoor
 author: duongau
 ms.service: frontdoor
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 11/10/2021
 ms.author: duau

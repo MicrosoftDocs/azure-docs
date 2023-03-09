@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Configure Network Watcher network security group flow logs by using a Bicep file'
-description: Learn how to enable network security group (NSG) flow logs programmatically by using Bicep and Azure PowerShell.
+title: 'Quickstart: Configure Network Watcher network security group flow logs using a Bicep file'
+description: Learn how to enable network security group (NSG) flow logs programmatically using Bicep and Azure PowerShell.
 services: network-watcher
 author: halkazwini
 ms.author: halkazwini
@@ -11,7 +11,7 @@ ms.custom: devx-track-azurepowershell, subject-bicepqs, mode-arm
 #Customer intent: I need to enable the network security group flow logs by using a Bicep file.
 ---
 
-# Quickstart: Configure network security group flow logs by using a Bicep file
+# Quickstart: Configure network security group flow logs using a Bicep file
 
 In this quickstart, you learn how to enable [network security group (NSG) flow logs](network-watcher-nsg-flow-logging-overview.md) by using a Bicep file
 

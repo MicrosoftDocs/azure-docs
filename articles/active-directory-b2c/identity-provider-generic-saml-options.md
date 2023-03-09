@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/13/2022
+ms.date: 02/17/2023
 ms.custom: project-no-code
 ms.author: godonnell
 ms.subservice: B2C
@@ -294,7 +294,7 @@ The following SAML authorization request contains the authentication context cla
 
 ## Include custom data in the authorization request
 
-You can optionally include protocol message extension elements that are agreed to by both Azure AD BC and your identity provider. The extension is presented in XML format. You include extension elements by adding XML data inside the CDATA element `<![CDATA[Your Custom XML]]>`. Check your identity provider’s documentation to see if the extensions element is supported.
+You can optionally include protocol message extension elements that are agreed to by both Azure AD B2C and your identity provider. The extension is presented in XML format. You include extension elements by adding XML data inside the CDATA element `<![CDATA[Your Custom XML]]>`. Check your identity provider’s documentation to see if the extensions element is supported.
 
 The following example illustrates the use of extension data:
 

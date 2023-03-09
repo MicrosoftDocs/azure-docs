@@ -68,7 +68,7 @@ Request payload format:
 Example userAssignedIdentities and userAssignedIdentityResourceId: 
 /subscriptions/ xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testUserAssignedIdentity 
 
-Example keyEncryptionKeyUrl: https://test-key-vault.vault.azure.net/keys/testKey/testKeyVersionGuid 
+Example keyEncryptionKeyUrl: `https://test-key-vault.vault.azure.net/keys/testKey/testKeyVersionGuid`
 
 Notes:
 - Identity.type must be UserAssigned. It is the identity type of the managed identity that is assigned to the Fluid Relay resource.

@@ -3,12 +3,12 @@ title: Azure Virtual Desktop personal desktop assignment type - Azure
 description: How to configure automatic or direct assignment for an Azure Virtual Desktop personal desktop host pool.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 07/09/2020
+ms.date: 03/02/2023
 ms.author: helohr 
 ms.custom: devx-track-azurepowershell
 manager: femila
 ---
-# Configure the personal desktop host pool assignment type
+# Configure personal desktop host pool assignment
 
 >[!IMPORTANT]
 >This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/configure-host-pool-personal-desktop-assignment-type-2019.md).
@@ -21,6 +21,18 @@ You can configure the assignment type of your personal desktop host pool to adju
 ## Prerequisites
 
 This article assumes you've already downloaded and installed the Azure Virtual Desktop PowerShell module. If you haven't, follow the instructions in [Set up the PowerShell module](powershell-module.md).
+
+### Define variables
+
+The PowerShell commands listed in this article require defining the following variables:
+
+```powershell
+#Define variables
+$subscriptionId = '00000000-0000-0000-0000-000000000000'
+$resourceGroupName = 'MyResourceGroupName'
+$hostPoolName = 'MyHostPoolName'
+$sessionHostName = 'SessionHostName'
+```
 
 ## Personal host pools overview
 
@@ -83,22 +95,10 @@ To directly assign a user to a session host in the Azure portal:
 11. Select the user you want to assign the session host to from the list of available users.
 12. When you're done, select **Select**.
 
-
-## How to unassign a personal desktop
-
-To unassign a personal desktop, run the following PowerShell cmdlet:
-
-```powershell
-Update-AzWvdSessionHost -HostPoolName <hostpoolname> -Name <sessionhostname> -ResourceGroupName <resourcegroupname> -AssignedUser "" -Force
-```
-
->[!IMPORTANT]
-> - Azure Virtual Desktop will not delete any VHD or profile data for unassigned personal desktops.
-> - You must include the _-Force_ parameter when running the PowerShell cmdlet to unassign a personal desktop. If you don't include the _-Force_ parameter, you'll receive an error message.
-> - There must be no existing user sessions on the session host when you unassign the user from the personal desktop. If there's an existing user session on the session host while you're unassigning it, you won't be able to unassign the personal desktop successfully.
-> - If the session host has no user assignment, nothing will happen when you run this cmdlet.
+## Unassign a personal desktop using the Azure portal
 
 To unassign a personal desktop in the Azure portal:
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Enter **Azure Virtual Desktop** into the search bar.
 3. Under **Services**, select **Azure Virtual Desktop**.
@@ -115,20 +115,23 @@ To unassign a personal desktop in the Azure portal:
 
 8. Select **Unassign** when prompted with the warning.
 
-## How to reassign a personal desktop
+## Unassign a personal desktop using PowerShell
 
-To reassign a personal desktop, run the following PowerShell cmdlet:
+To unassign a personal desktop in PowerShell, run the following command:
 
 ```powershell
-Update-AzWvdSessionHost -HostPoolName <hostpoolname> -Name <sessionhostname> -ResourceGroupName <resourcegroupname> -AssignedUser <userupn> -Force
+$unassignDesktopParams = @{
+  Path = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.DesktopVirtualization/hostPools/$hostPoolName/sessionHosts/$($sessionHostName)?api-version=2022-02-10-preview&force=true"
+  Payload = @{
+    properties = @{
+      assignedUser = ''
+    }} | ConvertTo-Json
+  Method = 'PATCH'
+}
+Invoke-AzRestMethod @unassignDesktopParams
 ```
 
->[!IMPORTANT]
-> - Azure Virtual Desktop will not delete any VHD or profile data for reassigned personal desktops.
-> - You must include the _-Force_ parameter when running the PowerShell cmdlet to reassign a personal desktop. If you don't include the _-Force_ parameter, you'll receive an error message.
-> - There must be no existing user sessions on the session host when you reassign a personal desktop. If there's an existing user session on the session host while you're reassigning it, you won't be able to reassign the personal desktop successfully.
-> - If the user principal name (UPN) you enter for the _-AssignedUser_ parameter is the same as the UPN currently assigned to the personal desktop, the cmdlet won't do anything.
-> - If the session host currently has no user assignment, the personal desktop will be assigned to the provided UPN.
+## Reassign a personal desktop using the Azure portal
 
 To reassign a personal desktop in the Azure portal:
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -147,6 +150,57 @@ To reassign a personal desktop in the Azure portal:
 
 8. Select the user you want to assign the session host to from the list of available users.
 9. When you're done, select **Select**.
+
+## Reassign a personal desktop using PowerShell
+
+To reassign a personal desktop, run this command:
+
+```powershell
+$reassignDesktopParams = @{
+  Path = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.DesktopVirtualization/hostPools/$hostPoolName/sessionHosts/$($sessionHostName)?api-version=2022-02-10-preview&force=true"
+  Payload = @{
+    properties = @{
+      assigneduser = 'UPN of new user'
+    }} | ConvertTo-Json
+  Method = 'PATCH'
+}
+Invoke-AzRestMethod @reassignDesktopParams
+```
+
+## Give session hosts within a personal host pools a friendly name
+
+You can give personal desktops you create *friendly names* to help users distinguish them in their feeds.
+
+To give a host pool a friendly name, run the following command in PowerShell:
+
+```powershell
+$body = '{ "properties": {
+"friendlyName": "friendlyName"
+} }'
+
+$parameters = @{
+    Method = 'Patch'
+    Path = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.DesktopVirtualization/hostPools/$hostPoolName?api-version=2022-02-10-preview"
+    Payload = $body
+}
+
+Invoke-AzRestMethod @parameters
+```
+
+>[!NOTE]
+>You can also set the friendly name by using a [REST API](/rest/api/desktopvirtualization/session-hosts/update?tabs=HTTP).
+
+### Get the session host friendly name
+
+To get the session host friendly name, run this command in PowerShell
+
+```powershell
+$getParams = @{
+  Path = '/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.DesktopVirtualization/hostPools/$hostPoolName/sessionHosts/$($sessionHostName)?api-version=2022-02-10-preview'
+  Method = 'GET'
+}
+Invoke-AzRestMethod @getParams
+```
 
 ## Next steps
 

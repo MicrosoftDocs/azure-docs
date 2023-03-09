@@ -335,6 +335,8 @@ groups:
     title: C#
   - id: programming-language-javascript
     title: JavaScript
+  - id: programming-language-python
+    title: Python
 - id: programming-languages-set-functions-full
   title: Programming languages
   prompt: Choose a programming language
@@ -734,19 +736,19 @@ groups:
   pivots:
   - id: speech-studio
     title: Speech Studio
-  - id: speech-cli
-    title: CLI
   - id: rest-api
     title: REST
+  - id: speech-cli
+    title: CLI
 - id: speech-cli-rest
 # Owner: eur
   title: Programming languages
   prompt: Choose a tool or API
   pivots:
-  - id: speech-cli
-    title: CLI
   - id: rest-api
     title: REST
+  - id: speech-cli
+    title: CLI
 - id: programming-languages-set-nineteen
   title: Programming languages
   prompt: Choose a programming language
@@ -919,6 +921,17 @@ groups:
     title: Linux
   - id: platform-windows
     title: Windows
+- id: app-service-platform-windows-linux-sphere-rtos
+  #CBroad
+  title: App Service platform
+  prompt: Choose a hosting platform
+  pivots:
+  - id: platform-sphere
+    title: Sphere
+  - id: platform-linux
+    title: Linux
+  - id: platform-windows
+    title: Windows
 - id: app-service-platform-environment
   title: App Service platform and development tool
   prompt: Choose a hosting platform and development tool
@@ -1002,6 +1015,14 @@ groups:
     title: JavaScript
   - id: programming-language-csharp
     title: C#
+- id: acs-js-power
+  title: JS and Power Platform pivots
+  prompt: Choose a platform
+  pivots:
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: platform-power
+    title: Power Platform
 - id: acs-js-csharp-python
   title: Programming languages
   prompt: Choose a programming language
@@ -1993,10 +2014,12 @@ groups:
   - id: programming-language-python
     title: Python
 # Owner: jorgegarc
-- id: acs-xamarin-react
+- id: acs-maui-xamarin-react
   title: Cross-platform pivots
   prompt: Choose a platform
   pivots:
+  - id: platform-maui
+    title: .NET MAUI
   - id: platform-xamarin
     title: Xamarin
   - id: platform-react
