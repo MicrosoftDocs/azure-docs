@@ -4,10 +4,10 @@ description: 'Tutorial: learn how to set up Azure Container Apps in your Azure A
 services: container-apps
 author: cebundy
 ms.service: container-apps
+ms.custom: devx-track-azurecli
 ms.topic: tutorial
 ms.date: 12/16/2022
 ms.author: v-bcatherine
-
 ---
 ---
 # Tutorial: Enable Azure Container Apps on Azure Arc-enabled Kubernetes (Preview)

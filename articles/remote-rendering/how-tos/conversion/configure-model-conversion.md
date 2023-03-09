@@ -13,9 +13,7 @@ In this article, learn how to configure parameters for a model conversion.
 
 ## Settings file
 
-If a file called *\<modelName\>.ConversionSettings.json* is found in the input container beside the input model *\<modelName\>.\<ext\>*, then the file is used to provide extra configuration for the model conversion process.
-
-For example, when you convert *box.gltf*, you'd use *box.ConversionSettings.json* to set parameters for the model conversion.
+If a file called *\<modelName\>.ConversionSettings.json* is found in the input container beside the input model *\<modelName\>.\<ext\>*, then the file is used to provide extra configuration for the model conversion process. For example, when you convert *box.gltf*, you'd use *box.ConversionSettings.json* to set parameters for the model conversion.
 
 The contents of the JSON conversion settings file should have this schema:
 
@@ -96,11 +94,10 @@ When you convert a triangular mesh, like from an *.fbx* file, all parameters in 
 
 ### Geometry parameters
 
-* `scaling`: This parameter scales a model uniformly. Scaling can be used to grow or shrink a model, for example, to display a building model on a table top. Scaling is also important when a model is defined in units other than meters because the rendering engine expects meters. For example, if a model is defined in centimeters, then applying a scale of 0.01 renders the model at the correct size.
+* `scaling`: This parameter scales a model uniformly. Scaling can be used to grow or shrink a model, for example, to display a building model on a table top. Scaling is also important when a model is defined in units other than meters because the rendering engine expects meters. For example, if a model is defined in centimeters, then applying a scale of 0.01 renders the model at the correct size. Some source data formats (for example, *.fbx* files) provide a unit scaling hint. In this case, the conversion implicitly scales the model to meter units. The implicit scaling that's provided by the source format is applied on top of the `scaling` parameter. The final scaling factor is applied to the geometry vertices and the local transforms of the scene graph nodes. The scaling for the root entity's transform remains unmodified.
 
-   Some source data formats (for example, *.fbx* files) provide a unit scaling hint. In this case, the conversion implicitly scales the model to meter units. The implicit scaling that's provided by the source format is applied on top of the `scaling` parameter.
-
-   The final scaling factor is applied to the geometry vertices and the local transforms of the scene graph nodes. The scaling for the root entity's transform remains unmodified.
+  > [!IMPORTANT]
+  > Showcase and Quickstart might compensate for any conversion-time scaling because they each have a built-in auto-scaling feature. For more information, see the [troubleshooting guide](../../resources/troubleshoot.md#scaling-value-in-the-conversion-settings-isnt-applied-to-the-model).
 
 * `recenterToOrigin`: This parameter states that a model should be converted so that its bounding box is centered at the origin. If a source model is displaced far from the origin, floating-point precision issues might cause rendering artifacts. Centering the model can help in this scenario.
 
@@ -231,7 +228,7 @@ The following table describes the memory footprints of supported component forma
 * `normal`, `tangent`, and `binormal`: Typically, these values are changed together. Unless there are noticeable lighting artifacts that result from normal quantization, there's no reason to increase their accuracy. In some cases, though, these components can be set to `NONE`:
   * `normal`, `tangent`, and `binormal` are needed only when at least one material in the model should be lit. In Azure Remote Rendering, this scenario occurs when a [PBR material](../../overview/features/pbr-materials.md) is used on the model at any time.
   * `tangent` and `binormal` are needed only when any of the lit materials use a normal map texture.
-* `texcoord0`, `texcoord1` : Texture coordinates can use reduced accuracy (`16_16_FLOAT`) when their values stay in the `[0; 1]` range and when the addressed textures have a maximum size of 2,048 × 2,048 pixels. If those limits are exceeded, the quality of texture mapping decreases.
+* `texcoord0` and `texcoord1` : Texture coordinates can use reduced accuracy (`16_16_FLOAT`) when their values stay in the `[0; 1]` range and when the addressed textures have a maximum size of 2,048 × 2,048 pixels. If those limits are exceeded, the quality of texture mapping decreases.
 
 #### Example
 

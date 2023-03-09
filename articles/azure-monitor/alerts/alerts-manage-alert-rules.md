@@ -4,7 +4,7 @@ description: Manage your alert rules in the Azure portal, or using the CLI or Po
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: conceptual
-ms.date: 02/20/2023
+ms.date: 03/05/2023
 ms.reviewer: harelbr
 ---
 # Manage your alert rules

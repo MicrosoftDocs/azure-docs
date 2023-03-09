@@ -16,6 +16,32 @@ ms.author: pafarley
 
 Learn what's new in the service. These items may be release notes, videos, blog posts, and other types of information. Bookmark this page to stay up to date with new features, enhancements, fixes, and documentation updates.
 
+## March 2023
+
+### Computer Vision Image Analysis 4.0 SDK public preview
+
+Image Analysis 4.0 is now available through client library SDKs in C#, C++, and Python. This update also includes the Florence-powered image captioning model that achieved human parity performance.
+
+### Image Analysis V4.0 Captioning and Dense Captioning (public preview):
+
+"Caption" replaces "Describe" in V4.0 as the significantly improved image captioning feature rich with details and sematic understanding. Dense Captions provides more detail by generating one sentence descriptions of up to 10 regions of the image in addition to describing the whole image. Dense Captions also returns bounding box coordinates of the described image regions. There's also a new gender-neutral parameter to allow customers to choose whether to enable probabilistic gender inference for alt-text and Seeing AI applications. Automatically deliver rich captions, accessible alt-text, SEO optimization, and intelligent photo curation to support digital content. [Image captions](./concept-describe-images-40.md).
+
+### Video summary and frame locator (public preview): 
+Search and interact with video content in the same intuitive way you think and write. Locate relevant content without the need for additional metadata. Available only in [Vision Studio](https://aka.ms/VisionStudio).
+
+
+### Image Analysis 4.0 model customization (public preview)
+
+You can now create and train your own [custom image classification and object detection models](./concept-model-customization.md), using Vision Studio or the v4.0 REST APIs.
+
+### Image Retrieval APIs (public preview)
+
+The [Image Retrieval APIs](./how-to/image-retrieval.md), part of the Image Analysis 4.0 API, enable the _vectorization_ of images and text queries. They let you convert images and text to coordinates in a multi-dimensional vector space. You can now search with natural language and find relevant images using vector similarity search.
+
+### Background removal APIs (public preview)
+
+As part of the Image Analysis 4.0 API, the [Background removal API](./concept-background-removal.md) lets you remove the background of an image. This operation can either output an image of the detected foreground object with a transparent background, or a grayscale alpha matte image showing the opacity of the detected foreground object.
+
 ## October 2022
 
 ### Computer Vision Image Analysis 4.0 public preview
