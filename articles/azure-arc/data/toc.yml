@@ -160,7 +160,7 @@ items:
               href: reserved-capacity-overview.md
             - name: Rotate certificates
               href: rotate-user-tls-certificate.md
-            - name: Rotate system managed credentials
+            - name: Rotate service managed credentials
               href: rotate-sql-managed-instance-credentials.md  
             - name: Resize persistent volume (PVC)
               href: resize-persistent-volume-claim.md

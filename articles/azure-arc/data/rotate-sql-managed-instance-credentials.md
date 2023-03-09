@@ -70,7 +70,6 @@ kubectl patch sqlmi <sqlmi-name> --namespace <namespace> --type merge --patch '{
 
 Triggering rollback is the same as triggering a rotation of service-managed credentials except that the target generation is previous generation and doesn't generate a new generation or credentials.
 
-Rollback is same as triggering rotation of credentials that would lead to a rollback of credentials to previous generation without generating a new one.
 
 ## Next steps
 
