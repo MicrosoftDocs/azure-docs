@@ -912,7 +912,7 @@ sections:
       - question: |
           Can OpenTelemetry be used for web browsers?
         answer: |
-          Yes but it’s not recommended or supported by Azure. OpenTelemetry Javascript is heavily optimized for Node.js. Instead, we recommend using the Application Insights JavaScript SDK.
+          Yes but it’s not recommended or supported by Azure. OpenTelemetry JavaScript is heavily optimized for Node.js. Instead, we recommend using the Application Insights JavaScript SDK.
 
       - question: |
           When can we expect the OpenTelemetry SDK to be available for use in web browsers?
