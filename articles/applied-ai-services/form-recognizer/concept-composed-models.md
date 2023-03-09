@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 12/15/2022
+ms.date: 03/08/2023
 ms.author: lajanuar
 recommendations: false
 ---
@@ -29,13 +29,20 @@ recommendations: false
 With composed models, you can assign multiple custom models to a composed model called with a single model ID. It's useful when you've trained several models and want to group them to analyze similar form types. For example, your composed model might include custom models trained to analyze your supply, equipment, and furniture purchase orders. Instead of manually trying to select the appropriate model, you can use a composed model to determine the appropriate custom model for each analysis and extraction.
 
 * ```Custom form``` and ```Custom template``` models can be composed together into a single composed model.
+
 * With the model compose operation, you can assign up to 200 trained custom models to a single composed model. To analyze a document with a composed model, Form Recognizer first classifies the submitted form, chooses the best-matching assigned model, and returns results.
+
 * For **_custom template models_**, the composed model can be created using variations of a custom template or different form types. This operation is useful when incoming forms may belong to one of several templates.
+
 * The response will include a ```docType``` property to indicate which of the composed models was used to analyze the document.
+
 * For ```Custom neural``` models the best practice is to add all the different variations of a single document type into a single training dataset and train on custom neural model. Model compose is best suited for scenarios when you have documents of different types being submitted for analysis.
 
+::: moniker-end
+
 ::: moniker range="form-recog-3.0.0"
-With the introduction of custom classification models, you now have the option to continue to use composed models or use the classification model as an explicit step before analysis. This might be useful in some scenarios, for a deeper understanding of why you might want to use classification or compose, see [classification models](concept-custom-classification.md)
+
+With the introduction of [****custom classifier models****](./concept-custom-classifier.md), you have the option to continue to use [**composed models**](./concept-composed-models.md) or the classifier model as an explicit step before analysis. For a deeper understanding  of when to use a classifier or composed model, _see_ [**Custom classifier models**](concept-custom-classifier.md).
 ::: moniker-end
 
 ## Compose model limits

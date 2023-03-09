@@ -1,19 +1,20 @@
 ---
-title: Form Recognizer analyze API response
+title: Form Recognizer analyze document API response
 titleSuffix: Azure Applied AI Services
-description: Description of the different objects returned as part of the analyze document response and how to use the document analysis response in your applications.
-author: vkurpad
+description: Description of the different objects returned as part of the analyze document API response and how to use the document analysis response in your applications.
+author: laujan
 manager: netahw
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 08/15/2022
+ms.date: 03/08/2023
 ms.author: vikurpad
 recommendations: false
 ---
-# Form Recognizer analyze document response
 
-Form Recognizer analyzes images, PDFs, and other document files to extract and detect various content, layout, style, and semantic elements. The analyze operation is an async API, submitting a document returns a operation location header, that contains the URL to poll for completion. When a analysis request completes successfully, the response contains the the elements described in the [model data extraction](concept-model-overview#model-data-extraction).
+# Analyze document API response
+
+Form Recognizer analyzes images, PDFs, and other document files to extract and detect various content, layout, style, and semantic elements. The analyze operation is an async API, submitting a document returns a operation location header, that contains the URL to poll for completion. When a analysis request completes successfully, the response contains the the elements described in the [model data extraction](concept-model-overview.md#model-data-extraction).
 
 Content elements are the basic components that make up a document.  Layout elements groups content elements into structural units.  Style elements describe the font and language of content elements.  Semantic elements assign meaning to the specified elements.
 

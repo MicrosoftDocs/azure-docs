@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 12/15/2022
+ms.date: 03/08/2023
 ms.author: lajanuar
 ms.custom: references_regions
 monikerRange: 'form-recog-3.0.0'
@@ -50,12 +50,12 @@ Neural models now support additional languages in the ```2023-02-28-preview``` A
 
 | Languages | API version |
 |:--:|:--:|
-| English | 2022-08-31 (GA) , 2023-02-28-preview|
-| German |  2023-02-28-preview|
-| Italian |  2023-02-28-preview|
-| French |  2023-02-28-preview|
-| Spanish |  2023-02-28-preview|
-| Dutch |  2023-02-28-preview|
+| English | `2022-08-31` (GA) , `2023-02-28-preview`|
+| German |  `2023-02-28-preview`|
+| Italian |  `2023-02-28-preview`|
+| French |  `2023-02-28-preview`|
+| Spanish |  `2023-02-28-preview`|
+| Dutch |  `2023-02-28-preview`|
 
 ## Tabular fields
 

@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 12/02/2022
+ms.date: 03/08/2023
 monikerRange: '>=form-recog-2.1.0'
 ms.author: lajanuar
 recommendations: false
@@ -22,11 +22,9 @@ recommendations: false
 [!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
 ::: moniker-end
 
-Form Recognizer uses advanced machine learning technology to identify documents, detect and extract information from forms and documents and returns the extracted data in a structured JSON output. With Form Recognizer, you can use general models, pre-built or pre-trained models or you can train standalone custom models.
+Form Recognizer uses advanced machine learning technology to identify documents, detect and extract information from forms and documents, and return the extracted data in a structured JSON output. With Form Recognizer, you can use document analysis models, pre-built/pre-trained, or your trained standalone custom models.
 
-Custom models now include custom classification models for scenarios where you need to identify the document type. Classification models are available starting with the ```2023-02-28-preview``` API. Classification models can be paired with custom extraction models to analyze and extract fields from forms and documents specific to your business to create a document processing solution. Standalone custom extraction models can be combined to create [composed models](concept-composed-models.md).
-
-To create a custom extraction model, you label a dataset of documents with the values you want extracted and train the model on the labeled dataset. You only need five examples of the same form or document type to get started.
+Custom models now include [custom classifier models](./concept-custom-classifier.md) for scenarios where you need to identify the document type prior to invoking the extraction model. Classifier models are available starting with the ```2023-02-28-preview``` API. A classifier model can be paired with a custom extraction model to analyze and extract fields from forms and documents specific to your business to create a document processing solution. Standalone custom extraction models can be combined to create [composed models](concept-composed-models.md).
 
 ::: moniker range="form-recog-3.0.0"
 
@@ -34,9 +32,11 @@ To create a custom extraction model, you label a dataset of documents with the v
 
 Custom document models can be one of two types, [**custom template**](concept-custom-template.md ) or custom form and [**custom neural**](concept-custom-neural.md)  or custom document models. The labeling and training process for both models is identical, but the models differ as follows:
 
-### Custom extraction model
+### Custom extraction models
 
-#### Custom template model
+To create a custom extraction model, label a dataset of documents with the values you want extracted and train the model on the labeled dataset. You only need five examples of the same form or document type to get started.
+
+### Custom template model
 
 The custom template or custom form model relies on a consistent visual template to extract the labeled data. The accuracy of your model is affected by variances in the visual structure of your documents. Structured  forms such as questionnaires or applications are examples of consistent visual templates.
 
@@ -48,11 +48,11 @@ Your training set will consist of structured documents where the formatting and 
 >
 > For more information, *see* [Interpret and improve accuracy and confidence for custom models](concept-accuracy-confidence.md).
 
-#### Custom neural model
+### Custom neural model
 
 The custom neural (custom document) model uses deep learning models and  base model trained on a large collection of documents. This model is then fine-tuned or adapted to your data when you train the model with a labeled dataset. Custom neural models support structured, semi-structured, and unstructured documents to extract fields. Custom neural models currently support English-language documents. When you're choosing between the two model types, start with a neural model to determine if it meets your functional needs. See [neural models](concept-custom-neural.md) to learn more about custom document models.
 
-#### Build mode
+### Build mode
 
 The build custom model operation has added support for the *template* and *neural* custom models. Previous versions of the REST API and SDKs only supported a single build mode that is now known as the *template* mode.
 
@@ -81,10 +81,9 @@ The table below compares custom template and custom neural features:
 |Document variations | Requires a model per each variation | Uses a single model for all variations |
 |Language support | Multiple [language support](language-support.md#read-layout-and-custom-form-template-model)  | English, with preview support for Spanish, French, German, Italian and Dutch [language support](language-support.md#custom-neural-model) |
 
-### Custom classification model
+### Custom classifier model
 
-Document classification is a new scenario supported by Form Recognizer with the ```2023-02-28-preview``` API. Document classification supports the classification and splitting scenarios. Train a classifier model to identify the different types of documents your application supports. The input file to the classifier model can contain multiple documents, the classifier will classify each document and associated page range. See [custom classification](concept-custom-classification.md) models to learn more.
-
+Document classification is a new scenario supported by Form Recognizer with the ```2023-02-28-preview``` API. Document classifier supports classification and splitting scenarios. Train a classifier model to identify the different types of documents your application supports. The input file for the classifier model can contain multiple documents, the classifier will classify each document within an associated page range. See [custom classification](concept-custom-classifier.md) models to learn more.
 
 ## Custom model tools
 
@@ -93,8 +92,6 @@ The following tools are supported by Form Recognizer v3.0:
 | Feature | Resources | Model ID|
 |---|---|:---|
 |Custom model| <ul><li>[Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)</li><li>[REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</li><li>[C# SDK](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[Python SDK](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li></ul>|***custom-model-id***|
-
-
 
 ::: moniker-end
 
@@ -108,7 +105,6 @@ The following tools are supported by Form Recognizer v2.1:
 | Feature | Resources |
 |---|---|
 |Custom model| <ul><li>[Form Recognizer labeling tool](https://fott-2-1.azurewebsites.net)</li><li>[REST API](./how-to-guides/use-sdk-rest-api.md?pivots=programming-language-rest-api&preserve-view=true&tabs=windows&view=form-recog-2.1.0#analyze-forms-with-a-custom-model)</li><li>[Client library SDK](/azure/applied-ai-services/form-recognizer/how-to-guides/v2-1-sdk-rest-api)</li><li>[Form Recognizer Docker container](containers/form-recognizer-container-install-run.md?tabs=custom#run-the-container-with-the-docker-compose-up-command)</li></ul>|
-
 
 ::: moniker-end
 
@@ -162,8 +158,7 @@ Extract data from your specific or unique documents using custom models. You nee
     > [!div class="nextstepaction"]
     > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)
 
-For a detailed walkthrough of creating your first custom extraction model, see [how to create a custom extraction model](how-to-guides/build-a-custom-model.md)
-
+For a detailed walkthrough to create your first custom extraction model, see [how to create a custom extraction model](how-to-guides/build-a-custom-model.md)
 
 ### [Custom classification](#tab/classification)
 
@@ -189,12 +184,12 @@ Extract data from your specific or unique documents using custom models. You nee
 
 1. Review and create your project.
 
-1. Label your documents to build and test your custom classification model.
+1. Label your documents to build and test your custom classifier model.
 
     > [!div class="nextstepaction"]
     > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/document-classifier/projects)
 
-For a detailed walkthrough of creating your first custom extraction model, see [how to create a custom extraction model](how-to-guides/build-a-custom-classifier.md)
+For a detailed walkthrough to create your first custom extraction model, see [how to create a custom extraction model](how-to-guides/build-a-custom-classifier.md)
 
 ---
 
@@ -207,9 +202,9 @@ This table compares the supported data extraction areas:
 |Custom template| ✔ | ✔ | ✔ | ✔ | ✔ |
 |Custom neural| ✔| ✔ | ✔ | **n/a** | * |
 
-**Table symbols**: 
-✔—supported; 
-**n/a—currently unavailable; 
+**Table symbols**:
+✔—supported;
+**n/a—currently unavailable;
 *-behaves differently. With template models, synthetic data is generated at training time. With neural models, exiting text recognized in he region is selected.
 
 > [!TIP]

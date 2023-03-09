@@ -7,23 +7,21 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 03/01/2023
+ms.date: 03/08/2023
 ms.author: lajanuar
+monikerRange: 'form-recog-3.0.0'
 recommendations: false
 ---
 
 # Build and train a custom classifier model
 
-::: moniker range="form-recog-3.0.0"
 [!INCLUDE [applies to v3.0](../includes/applies-to-v3-0.md)]
-::: moniker-end
 
-::: moniker range="form-recog-3.0.0"
-Custom classifier models can classify each page in a input file to identify the document(s) within. Classifier models can also identify multiple documents or multiple instances of a single document in the input file. Form Recognizer models require as few as five training documents per document class to get started. If you have at least five documents, for each class and two classes of documents, you can get started training a custom classifier model.
+Custom classifier models can classify each page in a input file to identify the document(s) within. Classifier models can also identify multiple documents or multiple instances of a single document in the input file. Form Recognizer custom models require as few as five training documents per document class to get started. to get started training a custom classifier model you need at least **five documents** for each class and **two classes** of documents.
 
 ## Custom classifier model input requirements
 
-First, make sure your training data set follows the input requirements for Form Recognizer.
+Make sure your training data set follows the input requirements for Form Recognizer.
 
 [!INCLUDE [input requirements](../includes/input-requirements.md)]
 
@@ -32,11 +30,12 @@ First, make sure your training data set follows the input requirements for Form 
 Follow these tips to further optimize your data set for training:
 
 * If possible, use text-based PDF documents instead of image-based documents. Scanned PDFs are handled as images.
+
 * If your form images are of lower quality, use a larger data set (10-15 images, for example).
 
 ## Upload your training data
 
-Once you've put together the set of forms or documents for training, you'll need to upload it to an Azure blob storage container. If you don't know how to create an Azure storage account with a container, following the [Azure Storage quickstart for Azure portal](../../../storage/blobs/storage-quickstart-blobs-portal.md). You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production. If your dataset is organized as folders, preserve that structure as the Studio can use your folder names for labels to simplify the labeling process.
+Once you've put together the set of forms or documents for training, you need to upload it to an Azure blob storage container. If you don't know how to create an Azure storage account with a container, follow the [Azure Storage quickstart for Azure portal](../../../storage/blobs/storage-quickstart-blobs-portal.md). You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production. If your dataset is organized as folders, preserve that structure as the Studio can use your folder names for labels to simplify the labeling process.
 
 ## Create a classification project in the Form Recognizer Studio
 
@@ -44,23 +43,22 @@ The Form Recognizer Studio provides and orchestrates all the API calls required 
 
 1. Start by navigating to the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio). The first time you use the Studio, you'll need to [initialize your subscription, resource group, and resource](../quickstarts/try-v3-form-recognizer-studio.md). Then, follow the [prerequisites for custom projects](../quickstarts/try-v3-form-recognizer-studio.md#additional-prerequisites-for-custom-projects) to configure the Studio to access your training dataset.
 
-1. In the Studio, select the **Custom classification models** tile, on the custom models section of the page and select the **Create a project** button.
+1. In the Studio, select the **Custom classifier models** tile, on the custom models section of the page and select the **Create a project** button.
 
-    :::image type="content" source="../media/how-to/studio-create-classifier-project.png" alt-text="Screenshot: Create a classifier project in the Form Recognizer Studio.":::
+    :::image type="content" source="../media/how-to/studio-create-classifier-project.png" alt-text="Screenshot of how to create a classifier project in the Form Recognizer Studio.":::
 
     1. On the create project dialog, provide a name for your project, optionally a description, and select continue.
 
-    1. On the next step in the workflow, choose or create a Form Recognizer resource before you select continue.
+    1. Next, choose or create a Form Recognizer resource before you select continue.
 
-    :::image type="content" source="../media/how-to/studio-select-resource.png" alt-text="Screenshot: Select the Form Recognizer resource.":::
+    :::image type="content" source="../media/how-to/studio-select-resource.png" alt-text="Screenshot showing the project setup dialog window.":::
 
 1. Next select the storage account you used to upload your custom model training dataset. The **Folder path** should be empty if your training documents are in the root of the container. If your documents are in a subfolder, enter the relative path from the container root in the **Folder path** field. Once your storage account is configured, select continue.
 
-> [!IMPORTANT]
-    > You can either organize the training dataset by folders where the folder name is the label or class for documents or create a flat list of documents that you can assign a label to in the Studio.
+   > [!IMPORTANT]
+   > You can either organize the training dataset by folders where the folder name is the label or class for documents or create a flat list of documents that you can assign a label to in the Studio.
 
-:::image type="content" source="../media/how-to/studio-select-storage.png" alt-text="Screenshot: Select the Form Recognizer resource.":::
-
+    :::image type="content" source="../media/how-to/studio-select-storage.png" alt-text="Screenshot showing how to select the Form Recognizer resource.":::
 
 1. Training a custom classifiers requires the output from the Layout model for each document in your dataset. Run layout on all documents as an optional step to speed up the model training process.
 
@@ -69,7 +67,8 @@ The Form Recognizer Studio provides and orchestrates all the API calls required 
 ## Label your data
 
 In your project, you only need to label each document with the appropriate class label.
-:::image type="content" source="../media/how-to/studio-classifier-label.png" alt-text="Screenshot: Select the Form Recognizer resource.":::
+
+:::image type="content" source="../media/how-to/studio-create-label.png" alt-text="Screenshot showing elect the Form Recognizer resource.":::
 
 You'll see the files you uploaded to storage in the file list, ready to be labeled. You have a few options to label your dataset.
 
@@ -116,5 +115,3 @@ Congratulations you've trained a custom classifier model in the Form Recognizer 
 
 > [!div class="nextstepaction"]
 > [Learn about accuracy and confidence with custom models](../concept-accuracy-confidence.md)
-
-::: moniker-end

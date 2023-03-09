@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 10/20/2022
+ms.date: 03/08/2023
 ms.author: lajanuar
 recommendations: false
 ---
@@ -80,7 +80,7 @@ The Layout analysis model analyzes and extracts text, tables, selection marks, a
 
 [:::image type="icon" source="media/studio/general-document.png":::](https://formrecognizer.appliedai.azure.com/studio/document)
 
-The general document model is ideal for extracting common key-value pairs from forms and documents. It’s a pre-trained model and can be directly invoked via the REST API and the SDKs. You can use the general document model as an alternative to training a custom model.
+The general document model is ideal for extracting common key-value pairs from forms and documents. It's a pre-trained model and can be directly invoked via the REST API and the SDKs. You can use the general document model as an alternative to training a custom model.
 
 ***Sample document processed using the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/document)***:
 

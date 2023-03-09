@@ -216,12 +216,12 @@ Use the parameter `api-version=2022-06-30-preview` when using the REST API or th
 
 Language| API Version |
 |:-----|:----:|
-|English | 2022-08-31 (GA), 2023-02-28-preview|
-|Spanish | 2023-02-28-preview|
-|German | 2023-02-28-preview|
-|French | 2023-02-28-preview|
-|Italian | 2023-02-28-preview|
-|Dutch | 2023-02-28-preview|
+|English | `2022-08-31` (GA), `2023-02-28-preview`|
+|Spanish | `2023-02-28-preview`|
+|German | `2023-02-28-preview`|
+|French | `2023-02-28-preview`|
+|Italian | `2023-02-28-preview`|
+|Dutch | `2023-02-28-preview`|
 
 ## Receipt model
 
@@ -235,7 +235,7 @@ Receipt supports all English receipts and the following locales:
 |English |`en-au`|
 |English (Canada)|`en-ca`|
 |English (United Kingdom)|`en-gb`|
-|English (India|`en-in`|
+|English (India)|`en-in`|
 |English (United States)| `en-us`|
 |French | `fr` |
 | Spanish | `es` |

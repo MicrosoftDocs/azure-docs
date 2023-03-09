@@ -38,4 +38,4 @@ ms.author: lajanuar
 
 * For custom extraction model training, the total size of training data is 50 MB for template model and 1G-MB for the neural model.
 
-* For custom classification model training, the total size of training data is 1GB  with a maximum of 10000 pages.
+* For custom classifier model training, the total size of training data is 1GB  with a maximum of 10000 pages.
