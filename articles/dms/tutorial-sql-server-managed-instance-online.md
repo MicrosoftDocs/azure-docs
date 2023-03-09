@@ -1,17 +1,16 @@
 ---
 title: "Tutorial: Migrate SQL Server online to SQL Managed Instance"
 titleSuffix: Azure Database Migration Service
-description: Learn to perform an online migration from SQL Server to an Azure SQL Managed Instance by using Azure Database Migration Service (classic) 
-services: dms
+description: Learn to perform an online migration from SQL Server to an Azure SQL Managed Instance by using Azure Database Migration Service (classic)
 author: croblesm
 ms.author: roblescarlos
-manager: craigg
 ms.reviewer: craigg
-ms.service: dms
-ms.workload: data-services
-ms.custom: seo-lt-2019, ignite-2022
-ms.topic: tutorial
 ms.date: 02/08/2023
+ms.service: dms
+ms.topic: tutorial
+ms.custom:
+  - seo-lt-2019
+  - ignite-2022
 ---
 
 # Tutorial: Migrate SQL Server to an Azure SQL Managed Instance online using DMS (classic)

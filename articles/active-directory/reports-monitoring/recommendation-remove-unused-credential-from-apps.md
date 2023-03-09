@@ -36,8 +36,14 @@ Applications that the recommendation identified appear in the list of **Impacted
 
 1. Take note of the application name and ID that the recommendation identified.
 
-1. Go to **Azure AD** > **App registration** and locate the application that was surfaced as part of this recommendation.
+1. Go to **Azure AD** > **App registration** and select the application that was surfaced as part of this recommendation.
+
+    ![Screenshot of the Azure AD app registration page.](media/recommendation-remove-unused-credential-from-apps/app-registrations-list.png)
+
 1. Navigate to the **Certificates & Secrets** section of the app registration.
+
+    ![Screenshot of the Certificates and secrets section of Azure AD.](media/recommendation-remove-unused-credential-from-apps/app-certificates-secrets.png)
+
 1. Locate the unused credential and remove it.
 
 ## Next steps

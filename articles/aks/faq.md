@@ -173,6 +173,10 @@ Moving or renaming your AKS cluster and its associated resources isn't supported
 
 Most clusters are deleted upon user request; in some cases, especially where customers are bringing their own Resource Group, or doing cross-RG tasks deletion can take more time or fail. If you have an issue with deletes, double-check that you do not have locks on the RG, that any resources outside of the RG are disassociated from the RG, and so on.
 
+## Can I restore my cluster after deleting it?
+
+No, you're unable to restore your cluster after deleting it. When you delete your cluster, the associated resource group and all its resources will also be deleted. If you want to keep any of your resources, move them to another resource group before deleting your cluster. If you have the **Owner** or **User Access Administrator** built-in role, you can lock Azure resources to protect them from accidental deletions and modifications. For more information, see [Lock your resources to protect your infrastructure][lock-azure-resources].
+
 ## If I have pod / deployments in state 'NodeLost' or 'Unknown' can I still upgrade my cluster?
 
 You can, but we don't recommend it. Upgrades should be performed when the state of the cluster is known and healthy.
@@ -342,3 +346,4 @@ Any patch, including security patches, is automatically applied to the AKS clust
 [private-clusters-github-issue]: https://github.com/Azure/AKS/issues/948
 [csi-driver]: https://github.com/Azure/secrets-store-csi-driver-provider-azure
 [vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines/
+[lock-azure-resources]: ../azure-resource-manager/management/lock-resources.md
