@@ -77,7 +77,7 @@ Use the following steps to create a dev center so that you can manage your dev b
 
 1. On the **Review** tab, select **Create**.
 
-1. Monitor the progress of the dev center creation from any page in the Azure portal by opening the **Notifications** pane.
+1. Track the progress of the dev center creation from any page in the Azure portal by opening the **Notifications** pane.
 
    :::image type="content" source="./media/quickstart-configure-dev-box-service/notifications-pane.png" alt-text="Screenshot that shows the Notifications pane in the Azure portal.":::
 
