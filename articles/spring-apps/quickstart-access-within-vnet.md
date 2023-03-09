@@ -13,7 +13,7 @@ ms.custom: devx-track-java
 
 This article describes how to access your application in a virtual network using Azure Spring Apps Standard Consumption plan.
 
-When you an Azure Container Apps environment in an existing virtual network, all the apps inside the environment can be accessed only within that virtual network. For more information see [Provide a virtual network to an internal Azure Container Apps environments](/azure/container-apps/vnet-custom-internal?tabs=bash&pivots=azure-portal).
+When you create an Azure Container Apps Environment in an existing virtual network, all the apps inside the environment can be accessed only within that virtual network. In addition, when you create an instance of Azure Spring Apps inside the Azure Container Apps Environment, the applications in the Azure Spring Apps instance can be accessed only from the virtual network. For more information see [Provide a virtual network to an internal Azure Container Apps environments](/azure/container-apps/vnet-custom-internal?tabs=bash&pivots=azure-portal).
 
 ## Create a private DNS zone
 
@@ -40,7 +40,7 @@ az network private-dns zone create \
 
 Create an A record that contains the name `<DNS Suffix>` and the static IP address of the Azure Container Apps Environment.
 
-Get the static IP address for an Azure Container Apps Environment.
+Use the following command to get the static IP address for an Azure Container Apps Environment.
 
 ```azurecli
 az containerapp env show \
@@ -49,7 +49,7 @@ az containerapp env show \
     --query 'properties.staticIp'
 ```
 
-Get the A record:
+Use the following command to get the A record:
 
 ```azurecli
 az network private-dns record-set a add-record \
@@ -61,7 +61,7 @@ az network private-dns record-set a add-record \
 
 ## Link the virtual network
 
-Create a virtual network link to link to the private DNS zone of the virtual network.
+Use the following command to create a virtual network link to link to the private DNS zone of the virtual network.
 
 ```azurecli
 az network private-dns link vnet create \
@@ -74,6 +74,6 @@ az network private-dns link vnet create \
 
 ## Access the application
 
-Now you can access the spring application within your virtual network, using the url of the spring application.
+Now you can access an application in an Azure Spring Apps instance within your virtual network, using the url of the application.
 
 ## Next steps
