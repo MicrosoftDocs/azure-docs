@@ -38,7 +38,7 @@ The logs for this update are under *var/log/sapcon-sentinel-register-autoupdate.
 
 ### Enable automatic updates on a specific container
 
-To enable automatic updates on a specific container, run the following command on the relevant container:
+To enable automatic updates on a specific container or containers, run the following command:
 
 ```
 wget -O sapcon-sentinel-auto-update.sh https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-sentinel-auto-update.sh && bash ./sapcon-sentinel-auto-update.sh --containername <containername> [--containername <containername>]...
