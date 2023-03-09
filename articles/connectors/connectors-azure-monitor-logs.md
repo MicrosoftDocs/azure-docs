@@ -187,14 +187,18 @@ For technical information about this connector's operations, see the [connector'
 
 1. When the workflow completes, check your email.
 
-   The email that you received has a body that looks similar to the following example:
-
-   ![Screenshot that shows the data report in an example email.](media/connectors-azure-monitor-logs/sample-mail.png)
-
    > [!NOTE]
    >
    > The workflow generates an email with a JPG file that shows the query result set. 
    > If your query doesn't return any results, the workflow won't create a JPG file.
+
+   For the Log Analytics workspace example, the email that you receive has a body that looks similar to the following example:
+
+   ![Screenshot that shows the data report from a Log Analytics workspace in an example email.](media/connectors-azure-monitor-logs/sample-mail-log-analytics-workspace.png)
+
+   For an Application Insights resource, the email that you receive has a body that looks similar to the following example:
+
+   ![Screenshot that shows the data report from an Application Insights resource in an example email.](media/connectors-azure-monitor-logs/sample-email-application-insights-resource.png)
 
 ## Next steps
 
