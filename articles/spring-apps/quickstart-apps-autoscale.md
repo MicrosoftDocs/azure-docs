@@ -54,6 +54,8 @@ You can set up autoscale settings for your application using the Azure portal or
 
 ### [Azure portal](#tab/azure-portal)
 
+Use the following steps to define autoscale settings and rules.
+
 1. Sign in to the Azure portal.
 1. Select **Azure Spring Apps** under **Azure services**.
 1. In the **Name** column, select the Azure Spring Apps instance that you want to autoscale.
@@ -68,23 +70,23 @@ You can set up autoscale settings for your application using the Azure portal or
 
 ### [Azure CLI](#tab/azure-cli)
 
-The following commands show an example to create an Azure Spring Apps application deployment with an autoscaling rule using the Azure CLI.
+The following commands show how to create an Azure Spring Apps application deployment with an autoscaling rule.
 
 ```azurecli-interactive
 az spring app deployment create 
---resource-group <resource-group> 
---service <azure-spring-apps-service-instance-name> 
---app <app-name> 
---name <deployment-name> 
---secrets "connection-string-secret=<service-bus-connection-string>" 
---scale-rule-name azure-servicebus-queue-rule 
---scale-rule-type azure-servicebus 
---scale-rule-metadata "queueName=my-queue" 
-                      "namespace=service-bus-namespace" 
-                      "messageCount=5" 
---scale-rule-auth "connection=connection-string-secret" 
---min-instance-count 0
---min-instance-count 5 
+    --resource-group <resource-group> 
+    --service <azure-spring-apps-service-instance-name> 
+    --app <app-name> 
+    --name <deployment-name> 
+    --secrets "connection-string-secret=<service-bus-connection-string>" 
+    --scale-rule-name azure-servicebus-queue-rule 
+    --scale-rule-type azure-servicebus 
+    --scale-rule-metadata "queueName=my-queue" 
+                          "namespace=service-bus-namespace" 
+                          "messageCount=5" 
+    --scale-rule-auth "connection=connection-string-secret" 
+    --min-instance-count 0
+    --min-instance-count 5 
 ```
 
 ---
