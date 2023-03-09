@@ -4,7 +4,7 @@ description: Learn how to use token protection in Conditional Access policies.
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/24/2023
+ms.date: 03/09/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -42,7 +42,6 @@ This preview supports the following configurations:
    - Extensions to Visual Studio Code which access Exchange or SharePoint
    - Visual Studio
 - The following Windows client devices aren't supported:
-   - Microsoft Azure Virtual Desktop
    - Windows Server 
    - Surface Hub
 
