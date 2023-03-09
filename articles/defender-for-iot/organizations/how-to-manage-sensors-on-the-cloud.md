@@ -119,7 +119,7 @@ In such cases, do the following steps:
 
 1. [Delete your existing sensor](#sensor-management-options-from-the-azure-portal).
 1. [Onboard the sensor again](onboard-sensors.md#onboard-an-ot-sensor), registering it with any new settings.
-1. [Upload your new activation file](how-to-manage-individual-sensors.md#upload-new-activation-files).
+1. [Upload your new activation file](how-to-manage-individual-sensors.md#upload-a-new-activation-file).
 
 ### Reactivate an OT sensor for upgrades to version 22.x from a legacy version
 

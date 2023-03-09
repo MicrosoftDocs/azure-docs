@@ -240,9 +240,6 @@
     tocHref: /azure/iot-fundamentals/
     topicHref: /azure/iot-fundamentals/
     items:
-      - name: Azure Percept
-        tocHref: /azure/azure-percept/
-        topicHref: /azure/azure-percept/
       - name: Device Development
         tocHref: /azure/iot-develop/
         topicHref: /azure/iot-develop/

@@ -21,7 +21,7 @@ You can create a computer group in Azure Monitor using any of the methods in the
 | Log query |Create a log query that returns a list of computers. |
 | Log Search API |Use the Log Search API to programmatically create a computer group based on the results of a log query. |
 | Active Directory |Automatically scan the group membership of any agent computers that are members of an Active Directory domain and create a group in Azure Monitor for each security group. (Windows machines only)|
-| Configuration Manager | Import collections from Microsoft Endpoint Configuration Manager and create a group in Azure Monitor for each. |
+| Configuration Manager | Import collections from Microsoft Configuration Manager and create a group in Azure Monitor for each. |
 | Windows Server Update Services |Automatically scan WSUS servers or clients for targeting groups and create a group in Azure Monitor for each. |
 
 ### Log query

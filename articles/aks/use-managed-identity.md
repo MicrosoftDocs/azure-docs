@@ -57,7 +57,7 @@ AKS uses several managed identities for built-in services and add-ons.
 | Add-on | Ingress application gateway | Manages required network resources| Contributor role for node resource group | No
 | Add-on | omsagent | Used to send AKS metrics to Azure Monitor | Monitoring Metrics Publisher role | No
 | Add-on | Virtual-Node (ACIConnector) | Manages required network resources for Azure Container Instances (ACI) | Contributor role for node resource group | No
-| OSS project | aad-pod-identity | Enables applications to access cloud resources securely with Microsoft Azure Active Directory (Azure AD) | NA | Steps to grant permission at https://github.com/Azure/aad-pod-identity#role-assignment.
+| OSS project | aad-pod-identity | Enables applications to access cloud resources securely with Microsoft Azure Active Directory (Azure AD) | NA | Steps to grant permission at [Azure AD Pod Identity Role Assignment configuration](https://azure.github.io/aad-pod-identity/docs/getting-started/role-assignment/).
 
 ## Create an AKS cluster using a managed identity
 
@@ -160,7 +160,7 @@ az role assignment create --assignee 22222222-2222-2222-2222-222222222222 --role
 For user-assigned kubelet identity which is outside the default worker node resource group, you need to assign the `Managed Identity Operator`on kubelet identity.
 
 ```azurecli-interactive
-az role assignment create --assignee <control-plane-identity-principal-id> --role "Managed Identity Operator" --scope "<kubelet-identity-resource-id>"
+az role assignment create --assignee <kubelet-identity-principal-id> --role "Managed Identity Operator" --scope "<kubelet-identity-resource-id>"
 ```
 
 Example:

@@ -3,6 +3,8 @@ title: Azure user roles and permissions for Microsoft Defender for IoT
 description: Learn about the Azure user roles and permissions available for OT and Enterprise IoT monitoring with Microsoft Defender for IoT on the Azure portal.
 ms.date: 09/19/2022
 ms.topic: concept-article
+ms.collection:
+  -       zerotrust-services
 ---
 
 # Azure user roles and permissions for Defender for IoT

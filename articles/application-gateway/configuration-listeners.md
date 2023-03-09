@@ -51,8 +51,6 @@ Associate a frontend port. You can select an existing port or create a new one. 
 > 
 > **Outbound Rule**: (no specific requirement)
 
-**Limitation**: The portal currently supports private and public listeners creation only for the Public clouds.
-
 ## Protocol
 
 Choose HTTP or HTTPS:

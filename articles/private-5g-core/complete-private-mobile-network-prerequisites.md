@@ -108,6 +108,20 @@ You must set these up in addition to the [ports required for Azure Stack Edge (A
 | UDP 2152 In/Outbound | Port 5 (Access network) | Access network user plane data (N3 interface for 5G, S1-U for 4G). |
 | All IP traffic       | Port 6 (Data networks)   | Data network user plane data (N6 interface for 5G, SGi for 4G). |
 
+### Outbound firewall ports required
+
+Review and apply the firewall recommendations for the following services:
+
+- [Azure Stack Edge](/azure/databox-online/azure-stack-edge-gpu-system-requirements#url-patterns-for-firewall-rules)
+- [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/quickstart-connect-cluster?tabs=azure-cli%2Cazure-cloud#meet-network-requirements)
+- [Azure Network Function Manager](/azure/network-function-manager/requirements)
+
+The following table contains the URL patterns for Azure Private 5G Core's outbound traffic.
+
+| URL pattern | Description|
+|--|--|
+| `https://*.azurecr.io` | Required to pull container images for Azure Private 5G Core workloads. |
+| `https://*.microsoftmetrics.com` </br> `https://*.hot.ingestion.msftcloudes.com`| Required for monitoring and telemetry for the Azure Private 5G Core service. |
 
 ## Register resource providers and features
 

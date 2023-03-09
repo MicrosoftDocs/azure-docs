@@ -125,7 +125,7 @@ You can prevent unwanted system access by configuring Azure Virtual Desktop to l
 
 ### Establish tiered admin access
 
-We recommend you don't grant your users admin access to virtual desktops. If you need software packages, we recommend you make them available through configuration management utilities like Microsoft Endpoint Manager. In a multi-session environment, we recommend you don't let users install software directly.
+We recommend you don't grant your users admin access to virtual desktops. If you need software packages, we recommend you make them available through configuration management utilities like Microsoft Intune. In a multi-session environment, we recommend you don't let users install software directly.
 
 ### Consider which users should access which resources
 

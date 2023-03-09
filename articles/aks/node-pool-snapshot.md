@@ -23,7 +23,7 @@ This article assumes that you have an existing AKS cluster. If you need an AKS c
 ### Limitations
 
 - Any node pool or cluster created from a snapshot must use a VM from the same virtual machine family as the snapshot, for example, you can't create a new N-Series node pool based of a snapshot captured from a D-Series node pool because the node images in those cases are structurally different.
-- Snapshots must be created and used in the same region as the source node pool.
+- Snapshots must be created in the same region as the source node pool.
 
 ## Take a node pool snapshot
 

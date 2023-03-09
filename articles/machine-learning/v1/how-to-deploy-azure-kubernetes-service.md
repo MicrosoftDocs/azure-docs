@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: how-to
-ms.custom: contperf-fy21q1, deploy, cliv1, sdkv1
+ms.custom: UpdateFrequency5, contperf-fy21q1, deploy, cliv1, sdkv1
 author: bozhong68
 ms.author: bozhlin
 ms.reviewer: larryfr

@@ -10,7 +10,7 @@ ms.author: magoswam
 ms.reviewer: ssalgado
 ms.date: 11/04/2022
 ms.topic: how-to
-ms.custom: devx-track-python, automl, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, devx-track-python, automl, sdkv1, event-tier1-build-2022
 ---
 
 # Use automated ML in an Azure Machine Learning pipeline in Python

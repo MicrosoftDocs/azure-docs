@@ -1,9 +1,14 @@
 {
     "redirections": [
     {
-    "source_path_from_root": "/articles/machine-learning/how-to-train-with-custom-image.md",
-    "redirect_url": "/azure/machine-learning/v1/how-to-train-with-custom-image",
-    "redirect_document_id": true
+        "source_path_from_root": "/articles/machine-learning/quickstart-spark-data-wrangling.md",
+        "redirect_url": "/azure/machine-learning/apache-spark-environment-configuration",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/how-to-train-with-custom-image.md",
+        "redirect_url": "/azure/machine-learning/v1/how-to-train-with-custom-image",
+        "redirect_document_id": true
     },
     {
         "source_path_from_root": "/articles/machine-learning/how-to-monitor-tensorboard.md",

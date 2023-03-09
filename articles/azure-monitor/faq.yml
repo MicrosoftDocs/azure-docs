@@ -452,7 +452,7 @@ sections:
       - question: |
           How can I validate my XPATH queries on the AMA?
         answer: |
-          Use the [Get-WinEvent](/powershell/module/microsoft.powershell.diagnostics/get-winevent) PowerShell cmdlet **-FilterXPath** parameter to test the validity of an XPath query. For more information, see the tip provided in the [Windows agent-based connections](../sentinel/connect-azure-windows-microsoft-services.md#instructions-3) instructions.
+          Use the [Get-WinEvent](/powershell/module/microsoft.powershell.diagnostics/get-winevent) PowerShell cmdlet **-FilterXPath** parameter to test the validity of an XPath query. For more information, see the tip provided in the [Windows agent-based connections](../sentinel/connect-services-windows-based.md) instructions.
           The [Get-WinEvent](/powershell/module/microsoft.powershell.diagnostics/get-winevent) PowerShell cmdlet supports up to 23 expressions, which Azure Monitor DCRs support up to 20. Also `>` and `<` characters must be encoded as `&gt;` and `&lt;` in your DCR.        
 
 
@@ -908,6 +908,21 @@ sections:
           - :white_check_mark: : This feature is available to all customers with formal support.
           - :warning: : This feature is available as a public preview. [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
           - :x: : This feature is not available or not applicable.
+
+      - question: |
+          Can OpenTelemetry be used for web browsers?
+        answer: |
+          Yes but it’s not recommended or supported by Azure. OpenTelemetry Javascript is heavily optimized for Node.js. Instead, we recommend using the Application Insights JavaScript SDK.
+
+      - question: |
+          When can we expect the OpenTelemetry SDK to be available for use in web browsers?
+        answer: |
+          The availability timeline for the OpenTelemetry Web SDK hasn’t been determined yet, but we are likely several years away from a browser SDK that will be a viable alternative to the Application Insights JavaScript SDK.
+
+      - question: |
+          Can I test OpenTelemetry in a web browser today?
+        answer: |
+          The [OpenTelemetry Web Sandbox](https://github.com/open-telemetry/opentelemetry-sandbox-web-js) is a fork designed to make OpenTelemetry work in a browser, but it is not yet possible to send telemetry to Application Insights or 1DS Collector. Additionally, the SDK does not currently have defined general client events.
 
       - question: |
           How do I determine if OpenTelemetry is right for me?

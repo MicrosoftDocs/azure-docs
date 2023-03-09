@@ -4,7 +4,7 @@ description: In this quickstart, you create and test a private DNS resolver in A
 services: dns
 author: greg-lindsay
 ms.author: greglin
-ms.date: 09/27/2022
+ms.date: 03/02/2023
 ms.topic: quickstart
 ms.service: dns
 ms.custom: mode-ui, ignite-2022
@@ -126,6 +126,15 @@ To apply your forwarding ruleset to the second virtual network, you must create 
 3. Select **Add** and verify that the link was added successfully.  You might need to refresh the page.
 
     ![Screenshot of ruleset virtual network links.](./media/dns-resolver-getstarted-portal/ruleset-links.png)
+
+## Delete a virtual network link
+
+Later in this article a rule is created using the private resolver inbound endpoint as a destination. This can cause a DNS resolution loop if the VNet where the resolver is provisioned is also linked to the ruleset.  To fix this issue, remove the link to **myvnet**.
+
+1. Search for **DNS forwarding rulesets** in the Azure services list and select your ruleset (ex: **myruleset**).
+2. Select **Virtual Network Links**, choose **myvnet-link**, select **Remove** and select **OK**.
+
+    ![Screenshot of ruleset virtual network links after removing a link.](./media/dns-resolver-getstarted-portal/ruleset-links-remove.png)
 
 ## Configure a DNS forwarding ruleset
 

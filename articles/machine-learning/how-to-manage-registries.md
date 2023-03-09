@@ -26,6 +26,8 @@ Azure Machine Learning registries (preview) enable you to create and use those a
 
 :::image type="content" source="./media/how-to-manage-registries/machine-learning-registry-block-diagram.png" alt-text="Diagram of the relationships between assets in workspace and registry.":::
 
+[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
 ## Prerequisites
 
 [!INCLUDE [CLI v2 preres](../../includes/machine-learning-cli-prereqs.md)]

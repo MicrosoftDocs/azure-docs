@@ -804,6 +804,11 @@
             "source_path_from_root": "/articles/defender-for-cloud/supported-machines-endpoint-solutions-clouds-servers.md",
             "redirect_url": "/azure/defender-for-cloud/support-matrix-defender-for-servers",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/faq-azure-monitor-logs.yml",
+            "redirect_url": "/azure/defender-for-cloud/faq-data-collection-agents",
+            "redirect_document_id": true
         }
     ]
 }

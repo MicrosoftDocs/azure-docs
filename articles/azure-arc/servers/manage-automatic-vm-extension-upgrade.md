@@ -46,7 +46,7 @@ If you continue to have trouble upgrading an extension, you can [disable automat
 
 ### Timing of automatic extension upgrades
 
-When a new version of a VM extension is published, it becomes available for installation and manual upgrade on Arc-enabled servers. For servers that already have the extension installed and automatic extension upgrade enabled, it may take up to 5 weeks for every server with that extension to get the automatic upgrade. Upgrades are issued in batches across Azure regions and subscriptions, so you may see the extension get upgraded on some of your servers before others. If you need to upgrade an extension immediately, follow the guidance to manually upgrade extensions using the [Azure portal](manage-vm-extensions-portal.md#upgrade-extensions), [Azure PowerShell](manage-vm-extensions-cli.md#upgrade-extensions) or [Azure CLI](manage-vm-extensions-powershell.md#upgrade-extension).
+When a new version of a VM extension is published, it becomes available for installation and manual upgrade on Arc-enabled servers. For servers that already have the extension installed and automatic extension upgrade enabled, it may take up to 5 weeks for every server with that extension to get the automatic upgrade. Upgrades are issued in batches across Azure regions and subscriptions, so you may see the extension get upgraded on some of your servers before others. If you need to upgrade an extension immediately, follow the guidance to manually upgrade extensions using the [Azure portal](manage-vm-extensions-portal.md#upgrade-extensions), [Azure PowerShell](manage-vm-extensions-powershell.md#upgrade-extension) or [Azure CLI](manage-vm-extensions-cli.md#upgrade-extensions).
 
 ## Supported extensions
 
