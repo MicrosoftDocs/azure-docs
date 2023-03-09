@@ -18,7 +18,7 @@ Learn what's new in the service. These items may be release notes, videos, blog 
 
 ## March 2023
 
-### Microsoft Improves Computer Vision Services with groundbreaking foundation model
+### Computer Vision Image Analysis 4.0 SDK public preview
 The groundbreaking [Florence foundation model](https://www.microsoft.com/en-us/research/project/projectflorence/) has now been integrated into Azure Computer Vision. The improved Vision Services enable developers to create cutting-edge, market-ready, responsible computer vision applications across various industries. Customers can now seamlessly digitize, analyze, and connect their data to natural language interactions, unlocking powerful insights from their image and video content to support accessibility, drive acquisition through SEO, protect users from harmful content, enhance security, and improve incident response times. Learn more [here](https://aka.ms/florencemodel).
 
 ### Computer Vision Image Analysis 4.0 SDK (public preview)
