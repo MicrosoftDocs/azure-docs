@@ -11,13 +11,13 @@ ms.custom: devx-track-java
 
 # Set up autoscale for Standard Consumption plan applications
 
-This article describes how to set up autoscale rules for your applications in Azure Spring Apps Standard consumption plan. The plan uses Azure Container Apps to host your spring applications, and provides the following management and support:
+This article describes how to set up autoscale rules for your applications in Azure Spring Apps Standard consumption plan. The plan uses Azure Container Apps environment to host your Spring applications, and provides the following management and support:
 
 - Manages automatic horizontal scaling through a set of declarative scaling rules.
 
-- Support all the scaling rules that Azure Container Apps supports.
+- Supports all the scaling rules that Azure Container Apps supports.
 
-For more information see [Azure Container Apps documentation](/azure/container-apps/)
+For more information see [Azure Container Apps documentation](/azure/container-apps/).
 
 ## Prerequisites
 
