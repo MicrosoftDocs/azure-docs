@@ -52,6 +52,7 @@ In this tutorial, you'll:
 - [API-related limitations](/azure/azure-monitor/service-limits#la-query-api), which can be overcome as suggested later. 
 
 ## Prerequisites 
+In this tutorial, you'll need:
 
 - An [Azure Machine Learning workspace with a compute instance](../../machine-learning/quickstart-create-resources.md) with:
 
@@ -59,8 +60,9 @@ In this tutorial, you'll:
     - Kernel set to Python 3.8 or higher.
     - [A notebook](../../machine-learning/quickstart-run-notebooks#create-a-new-notebook). 
 - A Log Analytics workspace with data in the `AzureDiagnostics` table. 
+- An application, custom table, data collection endpoint, and data collection rule, as explained in [Send data to Azure Monitor Logs using REST API](../../logs/tutorial-logs-ingestion-api).
 - The following roles and permissions: Azure Machine Learning (???). 
-- Familiarity with data science concepts.  
+- Basic familiarity with data science concepts.  
 
  ## Install required Python tools
 
@@ -136,7 +138,7 @@ To train a machine learning model on data in your Log Analytics workspace:
     ```
     The resulting graph looks like this:
 
-    :::image type="content" source="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-historical-ingestion.png" alt-text="A graph that shows hourly usage data for six data types over the last three weeks" lightbox="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-historical-ingestion.png":::
+    :::image type="content" source="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-historical-ingestion.png" alt-text="A graph that shows hourly usage data for six data types over the last three weeks." lightbox="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-historical-ingestion.png":::
 
 
 1. Let's expand the timestamp information in the `TimeGenerated` field into `Year`, `Month`, `Day`, `Hour` columns using the Pandas [DatetimeIndex constructor](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#time-date-components).
@@ -209,10 +211,17 @@ To train a machine learning model on data in your Log Analytics workspace:
     > [!NOTE]
     > The KQL [series_decompse_anomalies](../../data-explorer/kusto/query/series-decompose-anomaliesfunction) function also uses the Tukey's fences method to detect anomalies.
     
-    As you can see, the DataFrame is now filtered based on a new **Anomalies** column, which is set to `1` for all ingestion values that the Tukey's fences method identified as anomolous.
-
+    As you can see, the DataFrame is now filtered based on a new **Anomalies** column, which is set to `1` for all ingestion values that the Tukey's fences method identified as anomalies.
+    :::image type="content" source="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-ingestion-anomalies" alt-text="Screenshot that shows a DataFrame that lists the ingestion values identified as anomalies." 
 
 ## Ingest anomalies into a custom table in your Log Analytics workspace
+
+
+1. Define variables you need to pass in the call to the Logs Ingestion API.
+1. Send anomalies to your Log Analytics workspace.
+1. Verify that the anomaly data now appear in your custom table.
+
+    :::image type="content" source="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-anomalies-in-azure-monitor-log-analytics-workspace.png" alt-text="Screenshot that shows a query in Log Analytics on a custom table into which the anomalies found in Jupyter Notebook were ingested." lightbox="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-anomalies-in-azure-monitor-log-analytics-workspace.png":::
 
 ## Next steps
 
