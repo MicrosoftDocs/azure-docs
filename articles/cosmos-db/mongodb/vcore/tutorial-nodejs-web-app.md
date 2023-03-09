@@ -45,7 +45,7 @@ For the most straightforward dev environment, we use GitHub Codespaces so that y
 1. Create a new GitHub Codespace on the `main` branch of the [`azure-samples/msdocs-azure-cosmos-db-mongodb-mern-web-app`](https://github.com/azure-samples/msdocs-azure-cosmos-db-mongodb-mern-web-app) GitHub repository.
 
     > [!div class="nextstepaction"]
-    > [Migrate your data](https://github.com/azure-samples/msdocs-azure-cosmos-db-mongodb-mern-web-app/codespaces)
+    > [Open this project in  :::image type="icon" source="media/tutorial-nodejs-web-app/github.svg"::: GitHub Codespaces](https://github.com/azure-samples/msdocs-azure-cosmos-db-mongodb-mern-web-app/codespaces)
 
 1. Wait for the Codespace to start. This startup process can take two to three minutes.
 
