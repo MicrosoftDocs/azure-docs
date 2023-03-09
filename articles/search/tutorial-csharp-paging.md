@@ -1,7 +1,7 @@
 ---
-title: C# tutorial on search results pagination
+title: Page results in search app
 titleSuffix: Azure Cognitive Search
-description: Add pagination and navigation buttons to search results, building on an existing hotels project to add first, next, previous, last, and numbered buttons. A second paging system uses infinite scrolling, triggered by moving a vertical scroll bar to its lower limit.
+description: In this tutorial for Azure Cognitive Search, add pagination and navigation buttons to search results.
 
 manager: nitinme
 author: HeidiSteen
