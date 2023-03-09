@@ -16,13 +16,13 @@ ms.author: jeedes
 
 # Azure Active Directory SSO integration with Proactis Rego Source-to-Pay
 
-In this article, you learn how to integrate Proactis Rego Source-to-Pay with Azure Active Directory (Azure AD). Proactis Rego is a powerful Source-to-Pay software platform designed for mid-market organisations. It is easy to use and integrate, giving you control over your spend and supply-chain risks. When you integrate Proactis Rego Source-to-Pay with Azure AD, you can:
+In this article, you learn how to integrate Proactis Rego Source-to-Pay with Azure Active Directory (Azure AD). Proactis Rego is a powerful Source-to-Pay software platform designed for mid-market organizations. It's easy to use and integrate, giving you control over your spend and supply-chain risks. When you integrate Proactis Rego Source-to-Pay with Azure AD, you can:
 
 * Control in Azure AD who has access to Proactis Rego Source-to-Pay.
 * Enable your users to be automatically signed-in to Proactis Rego Source-to-Pay with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-You'll configure and test Azure AD single sign-on for Proactis Rego Source-to-Pay in a test environment. Proactis Rego Source-to-Pay supports **SP** initiated single sign-on.
+You are able to configure and test Azure AD single sign-on for Proactis Rego Source-to-Pay in a test environment. Proactis Rego Source-to-Pay supports **SP** initiated single sign-on.
 
 ## Prerequisites
 
