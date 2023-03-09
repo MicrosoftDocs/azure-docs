@@ -13,6 +13,12 @@ summary: This article answers frequently asked questions (FAQs) about Microsoft 
 sections:
   - name: Installation and upgrade
     questions:
+      - question: Where can I find about pricing and service level agreements?
+        answer: |
+          For pricing information, see [Azure Red Hat OpenShift pricing](https://azure.microsoft.com/en-us/pricing/details/openshift/).
+
+          For Service Level Agreement (SLA) information, see [Service Level Agreements for online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
+
       - question: Which Azure regions are supported?
         answer: |
           For a list of supported regions for Azure Red Hat OpenShift 4.x, see [Available regions](https://azure.microsoft.com/global-infrastructure/services/?products=openshift&regions=all).
@@ -56,12 +62,6 @@ sections:
 
       - question: What’s the process to reboot the updated node?
         answer: Nodes are rebooted as a part of an upgrade.
-
-      - question: Where can I find about pricing and service level agreements?
-        answer: |
-          For pricing information, see [Azure Red Hat OpenShift pricing](https://azure.microsoft.com/en-us/pricing/details/openshift/).
-
-          For Service Level Agreement (SLA) information, see [Service Level Agreements for online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
   - name: Cluster operations
     questions:
