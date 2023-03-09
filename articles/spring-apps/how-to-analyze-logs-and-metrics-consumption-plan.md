@@ -11,6 +11,9 @@ ms.custom: devx-track-java
 
 # Analyze logs and metrics in the Azure Spring Apps Standard consumption plan
 
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+
 **This article applies to:** ✔️ Standard consumption (Preview) ❌ Basic/Standard ❌ Enterprise
 
 This article shows you how to analyze logs and metrics in the Azure Spring Apps Standard consumption plan.
