@@ -53,7 +53,7 @@ items:
       - name: Java Quarkus app to PostgreSQL
         href: ../container-apps/tutorial-java-quarkus-connect-managed-identity-postgresql-database.md?bc=%2fazure%2fservice-connector%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fservice-connector%2fTOC.json
       - name: ASP.NET Core app to App Configuration
-        href: /azure/zure-app-configuration/quickstart-container-apps?toc=/azure/service-connector/TOC.json&bc=/azure/service-connector/breadcrumb/toc.json
+        href: /azure/azure-app-configuration/quickstart-container-apps?toc=/azure/service-connector/TOC.json&bc=/azure/service-connector/breadcrumb/toc.json
     - name: Azure Spring Apps
       expanded: true
       items:
