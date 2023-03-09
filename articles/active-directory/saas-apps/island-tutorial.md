@@ -73,7 +73,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
     > [!NOTE]
     > These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Island Client support team](mailto:support@island.io) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1. Your Island application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this. The default value of **Unique User Identifier** is **user.userprincipalname** but Island expects this to be mapped with the user's object id and change the name identifier
+1. Your Island application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this. The default value of **Unique User Identifier** is **user.userprincipalname** but Island expects this to be mapped with the user's object ID and change the name identifier
 format setting to **Persistent**. For that you can use **user.objectid** attribute from the list or use the appropriate attribute value based on your organization configuration.
 
     ![Screenshot shows the image of attributes configuration.](common/default-attributes.png "Image")
