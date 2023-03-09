@@ -1,7 +1,7 @@
 ---
-title: C# tutorial on ordering results
+title: Order results in search app
 titleSuffix: Azure Cognitive Search
-description: This C# tutorial demonstrates how to order search results. It builds on a previous hotels project, sorting by primary property, secondary property, and includes a scoring profile to add boosting criteria.
+description: In this Azure Cognitive Search tutorial, learn how to sort results and influence search rank.
 
 manager: nitinme
 author: HeidiSteen
