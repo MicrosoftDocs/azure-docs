@@ -57,7 +57,7 @@ Availability zone support is a property of the App Service plan. The following a
 
 - Availability zones can only be specified when creating a **new** App Service plan. A pre-existing App Service plan can't be converted to use availability zones.
     
-- The following reg ions support Azure App Services running on multi-tenant environments:
+- The following regions support Azure App Services running on multi-tenant environments:
 
     - Australia East
     - Brazil South
@@ -105,7 +105,7 @@ az appservice plan create --resource-group MyResourceGroup --name MyPlan --sku P
 > Since the platform spreads VMs across three zones and you need to account for at least the failure of one zone, multiply peak workload instance count by a factor of zones/(zones-1), or 3/2. For example, if your typical peak workload requires four instances, you should provision six instances: (2/3 * 6 instances) = 4 instances.
 >
 
-# [Azure Portal](#tab/portal)
+# [Azure portal](#tab/portal)
 
 
 To create an App Service with availability zones using the Azure portal, enable the zone redundancy option during the "Create Web App" or "Create App Service Plan" experiences.

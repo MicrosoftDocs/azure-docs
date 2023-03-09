@@ -19,7 +19,7 @@ This guide describes how to migrate a multi-tenant App Service from non-availabi
 > [!NOTE]
 > This article is about availability zones support using multi-tenant environment with App Service Premium v2 or Premium v3 plans.
 
-Your App Service plans an be deployed across [availability zones (AZ)](../reliability/availability-zones-overview.md) to help you achieve resiliency and reliability for your business-critical workloads. This architecture is also known as zone-redundancy.
+Your App Service plans can be deployed across [availability zones (AZ)](../reliability/availability-zones-overview.md) to help you achieve resiliency and reliability for your business-critical workloads. This architecture is also known as zone-redundancy.
 
 When you configure to be zone-redundant, the platform automatically spreads the instances of the Azure App Service plan across three zones in the selected region. This means that the minimum App Service Plan instance count will always be three. If you specify a capacity larger than three, and the number of instances is divisible by three, the instances are spread evenly. Otherwise, instance counts beyond 3*N are spread across the remaining one or two zones.
 
