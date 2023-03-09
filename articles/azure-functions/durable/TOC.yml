@@ -117,18 +117,12 @@
     href: durable-functions-azure-storage-provider.md
 - name: How-to guides
   items:
-  - name: Best practices
-    items:
-    - name: Durable Functions diagnostic tools
-      href: durable-functions-best-practice-reference.md
-    - name: Upgrade Durable Functions extension version
-      href: durable-functions-extension-upgrade.md
-    - name: Durable Functions Rosyln Analyzer (C# only)
-      href: durable-functions-roslyn-analyzer.md
-    - name: Azure Functions app diagnostics 
-      href: function-app-diagnostics.md
   - name: Develop
     items:
+    - name: Durable Functions best practices and diagnostic tools
+      href: durable-functions-best-practice-reference.md
+    - name: Durable Functions Rosyln Analyzer (C# only)
+      href: durable-functions-roslyn-analyzer.md
     - name: Create in Azure portal
       href: durable-functions-create-portal.md
     - name: Manage connections
@@ -155,8 +149,14 @@
       href: durable-functions-diagnostics.md
     - name: Monitoring
       href: ../functions-monitoring.md?toc=/azure/azure-functions/durable/toc.json
+    - name: App diagnostics in Azure portal 
+      href: function-app-diagnostics.md
     - name: Pricing
       href: durable-functions-billing.md
+  - name: Debug
+    items:
+    - name: Upgrade Durable Functions extension version
+      href: durable-functions-extension-upgrade.md
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn training
