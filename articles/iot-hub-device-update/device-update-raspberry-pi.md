@@ -58,11 +58,11 @@ Now, add the device to IoT Hub. From within IoT Hub, a connection string is gene
 We provide base image and update files in **Assets** on the [Device Update GitHub releases page](https://github.com/Azure/iot-hub-device-update/releases). The Tutorial_RaspberryPi.zip has all the required files for the tutorial. 
 The .wic file is the base image that you can flash on to a Raspberry Pi 3 B+ board. The swUpdate(.swu) file, custom swupdate script and manifest are the update files you would import through Device Update for IoT Hub.
 
-This base image use a Yocto build(based on 3.4.4 release) with: 
+This base image uses a Yocto build(based on 3.4.4 release) with: 
 * SWUpdate which enables the dual partition update with DU
 * Device Update agent
 
-To learn more about the Yocto layers used, refer to [Device Update Yocto Github.](https://github.com/Azure/iot-hub-device-update-yocto).
+To learn more about the Yocto layers used, refer to [Device Update Yocto GitHub.](https://github.com/Azure/iot-hub-device-update-yocto).
 
 You can use your favorite OS flashing tool to install the Device Update base image (adu-base-image) on the SD card that will be used in the Raspberry Pi 3 B+ device. Below are the instructions for using bmaptool to flash to the SD card.
 
