@@ -39,18 +39,21 @@ If Maven isn't your preferred development tool, check out our similar tutorials 
 
 # [Java SE](#tab/javase)
 
-Clone the [Spring Boot Getting Started](https://github.com/spring-guides/gs-spring-boot) sample project and check out the source code that runs with this version of the article.
+Clone the [sample project](https://github.com/Azure-Samples/app-service-java-quickstart) and check out the source code that runs with this version of the article.
 
 ```azurecli-interactive
-git clone https://github.com/spring-guides/gs-spring-boot
-git checkout 05ffa84
+git clone https://github.com/Azure-Samples/app-service-java-quickstart
 ```
 
-Change directory to the completed project.
+Change directory to the completed project and build from the top level.
 
 ```azurecli-interactive
-cd gs-spring-boot/complete
+cd app-service-java-quickstart
+git checkout 20230308
+mvn clean install
 ```
+
+
 
 # [Tomcat](#tab/tomcat)
 
@@ -71,13 +74,15 @@ cd helloworld
 Clone the Pet Store demo application.
 
 ```azurecli-interactive
-git clone https://github.com/agoncal/agoncal-application-petstore-ee7.git
+git clone https://github.com/Azure-Samples/app-service-java-quickstart
 ```
 
-Change directory to the cloned project.
+Change directory to the completed project and build from the top level.
 
 ```azurecli-interactive
-cd agoncal-application-petstore-ee7
+cd app-service-java-quickstart
+git checkout 20230308
+mvn clean install
 ```
 
 ---
@@ -93,6 +98,7 @@ The deployment process to Azure App Service will use your Azure credentials from
 Run the Maven command below to configure the deployment. This command will help you to set up the App Service operating system, Java version, and Tomcat version.
 
 ```azurecli-interactive
+cd booty-duke-app-service
 mvn com.microsoft.azure:azure-webapp-maven-plugin:2.9.0:config
 ```
 
@@ -101,29 +107,29 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:2.9.0:config
 1. When prompted with **Subscription** option, select the proper `Subscription` by entering the number printed at the start of the line.
 1. When prompted with **Web App** option, select the default option, `<create>`, by pressing enter.
 1. When prompted with **OS** option, select **Linux** by pressing enter.
-1. When prompted with **javaVersion** option, select **Java 11**.
+1. When prompted with **javaVersion** option, select **Java 17**.
 1. When prompted with **Pricing Tier** option, select **P1v2**.
 1. Finally, press enter on the last prompt to confirm your selections.
 
     ```
     Please confirm webapp properties
-    Subscription Id : ********-****-****-****-************
-    AppName : spring-boot-1599007116351
-    ResourceGroup : spring-boot-1599007116351-rg
+    AppName : booty-duke-1678285507374
+    ResourceGroup : booty-duke-1678285507374-rg
     Region : centralus
     PricingTier : P1v2
     OS : Linux
-    Web server stack : Java SE
+    Java Version: Java 17
+    Web server stack: Java SE
     Deploy to slot : false
-    Confirm (Y/N)? : Y
+    Confirm (Y/N) [Y]: Y
     [INFO] Saving configuration to pom.
     [INFO] ------------------------------------------------------------------------
     [INFO] BUILD SUCCESS
     [INFO] ------------------------------------------------------------------------
-    [INFO] Total time: 20.925 s
-    [INFO] Finished at: 2020-09-01T17:38:51-07:00
+    [INFO] Total time:  01:03 min
+    [INFO] Finished at: 2023-03-08T15:25:47+01:00
     [INFO] ------------------------------------------------------------------------
-    ```
+```
 
 # [Tomcat](#tab/tomcat)
 
