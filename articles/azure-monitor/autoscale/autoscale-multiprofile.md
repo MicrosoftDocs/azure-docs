@@ -5,11 +5,10 @@ author: EdB-MSFT
 ms.author: edbaynash
 ms.service: azure-monitor
 ms.subservice: autoscale
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: conceptual
 ms.date: 01/10/2023
 ms.reviewer: akkumari
-
-
 # Customer intent: As a user or dev ops administrator, I want to understand how set up autoscale with more than one profile so I can scale my resources with more flexibility.
 ---
 
