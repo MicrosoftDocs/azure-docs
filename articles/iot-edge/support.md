@@ -46,9 +46,7 @@ Azure IoT Edge runs on most operating systems that can run containers; however, 
   * Microsoft has done informal testing on the platforms or knows of a partner successfully running Azure IoT Edge on the platform
   * Installation packages for other platforms may work on these platforms
 
-The family of the host OS must always match the family of the guest OS used inside a module's container.
-
-IoT Edge for Linux on Windows uses IoT Edge in a Linux virtual machine running on a Windows host. In this way, you can run Linux modules on a Windows device.
+The family of the host OS must always match the family of the guest OS used inside a module's container. In other words, you can only use Linux containers on Linux and Windows containers on Windows. When using Windows, only process isolated containers are supported, not Hyper-V isolated containers. IoT Edge for Linux on Windows uses IoT Edge in a Linux virtual machine running on a Windows host. In this way, you can run Linux modules on a Windows device.
 
 ### Tier 1
 
