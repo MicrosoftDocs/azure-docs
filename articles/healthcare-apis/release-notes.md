@@ -27,7 +27,7 @@ Azure Health Data Services is a set of managed API services based on open standa
 _till parameter is introduced as optional parameter and allows you to export resources that have been modified till the specified time. 
 This feature improvement is applicable to System export, for more information on export, visit [FHIR specification](https://hl7.org/fhir/uv/bulkdata/export/index.html)
 
-Also visit [Export your FHIR data by invoking the $export command on the FHIR service | Microsoft Learn](azure/healthcare-apis/fhir/export-data)
+Also visit [Export your FHIR data by invoking the $export command on the FHIR service | Microsoft Learn](https://learn.microsoft.com/en-us/azure/healthcare-apis/fhir/export-data)
 
 
 **Fixed issue for Chained search with :contains modifier results with no resources are returned**
@@ -43,7 +43,7 @@ For more details, visit  [#2990](https://github.com/microsoft/fhir-server/pull/2
 
 Previous to this change, during pagination Cosmos DB continuation token had a  default limit of 3Kb. With this change, customers can send Cosmos DB Continuation Token limit in the header. Valid range is set to 1-3 Kb. Header value to use to send this value is x-ms-documentdb-responsecontinuationtokenlimitinkb
 
-For more details, visit  [#2971](https://github.com/microsoft/fhir-server/pull/2971/files) and [Overview of search in Azure API for FHIR | Microsoft Learn](azure/healthcare-apis/azure-api-for-fhir/overview-of-search)
+For more details, visit  [#2971](https://github.com/microsoft/fhir-server/pull/2971/files) and [Overview of search in Azure API for FHIR | Microsoft Learn](https://learn.microsoft.com/en-us/azure/healthcare-apis/azure-api-for-fhir/overview-of-search)
 
 
 **Fixed issue related to HTTP Status code 500 was encountered when :not modifier was used with chained searches**
@@ -64,13 +64,13 @@ Bug fix addresses the issue and versioned policy at resource level does not requ
 
 The MedTech service's new Mapping Debugger is a self-service tool that is used for creating, updating, and troubleshooting the MedTech service device and FHIR destination mappings. It enables you to easily view and make inline adjustments in real-time, without ever having to leave the Azure portal. 
 
-For more information, visit [How to use the MedTech service Mapping debugger - Azure Health Data Services | Microsoft Learn](azure/healthcare-apis/iot/how-to-use-mapping-debugger)
+For more information, visit [How to use the MedTech service Mapping debugger - Azure Health Data Services | Microsoft Learn](https://learn.microsoft.com/en-us/azure/healthcare-apis/iot/how-to-use-mapping-debugger)
 
 
 
 **Error Message released**
 
-The MedTech service now has an error message feature that allows you to easily view any errors generated, as well as the message that caused each error. You can now understand the context behind any errors without manual effort. For more info on error logs, visit [Troubleshoot errors using the MedTech service logs - Azure Health Data Services | Microsoft Learn](azure/healthcare-apis/iot/troubleshoot-errors-logs)
+The MedTech service now has an error message feature that allows you to easily view any errors generated, as well as the message that caused each error. You can now understand the context behind any errors without manual effort. For more info on error logs, visit [Troubleshoot errors using the MedTech service logs - Azure Health Data Services | Microsoft Learn](https://learn.microsoft.com/en-us/azure/healthcare-apis/iot/troubleshoot-errors-logs)
 
 
 
@@ -572,47 +572,74 @@ Enabled DICOM service to work with workspaces that have names beginning with a l
 #### FHIR service
 
 
-|Enhancements |  |
-| :------------------- | :------------------------------- |
-|Added support for conditional patch | [Conditional patch](./././azure-api-for-fhir/fhir-rest-api-capabilities.md#patch-and-conditional-patch)|
-|Conditional patch | [#2163](https://github.com/microsoft/fhir-server/pull/2163) |
-|Added conditional patch audit event. | [#2213](https://github.com/microsoft/fhir-server/pull/2213) |
 
-|Allow JSON patch in bundles | |
-| :------------------- | :-------------------------------|
-|Allows for search history bundles with Patch requests. |[#2156](https://github.com/microsoft/fhir-server/pull/2156) | 
-|Enabled JSON patch in bundles using Binary resources. |[#2143](https://github.com/microsoft/fhir-server/pull/2143) |
-|Added new audit event [OperationName subtypes](./././azure-api-for-fhir/enable-diagnostic-logging.md#audit-log-details)| [#2170](https://github.com/microsoft/fhir-server/pull/2170) |
+**Added support for conditional patch**
 
-| Running a reindex job | |
-| :------------------- | :-------------------------------|
-|Added [boundaries for reindex](./././azure-api-for-fhir/how-to-run-a-reindex.md#performance-considerations) parameters. |[#2103](https://github.com/microsoft/fhir-server/pull/2103)|
-|Updated error message for reindex parameter boundaries. |[#2109](https://github.com/microsoft/fhir-server/pull/2109)|
-|Added final reindex count check. |[#2099](https://github.com/microsoft/fhir-server/pull/2099)|
+ 
+[Conditional patch](./././azure-api-for-fhir/fhir-rest-api-capabilities.md#patch-and-conditional-patch)
+[#2163](https://github.com/microsoft/fhir-server/pull/2163)
 
-|Bug fixes |  |
-| :------------------- | :-------------------------------- |
-| Wider catch for exceptions during applying patch | [#2192](https://github.com/microsoft/fhir-server/pull/2192)|
-|Fix history with PATCH in STU3 |[#2177](https://github.com/microsoft/fhir-server/pull/2177) |
+ 
+Added conditional patch audit event.  [#2213](https://github.com/microsoft/fhir-server/pull/2213) 
 
-|Custom search bugs |  |
-| :------------------- | :------------------------------- |
-|Addresses the delete failure with Custom Search parameters |[#2133](https://github.com/microsoft/fhir-server/pull/2133) |
-|Added retry logic while Deleting Search parameter | [#2121](https://github.com/microsoft/fhir-server/pull/2121)|
-|Set max item count in search options in SearchParameterDefinitionManager |[#2141](https://github.com/microsoft/fhir-server/pull/2141) |
-|Better exception if there's a bad expression in a search parameter |[#2157](https://github.com/microsoft/fhir-server/pull/2157) |
+**Allow JSON patch in bundles**
 
-|Resolved SQL batch reindex if one resource fails |  |
-| :------------------- | :------------------------------- |
-|Updates SQL batch reindex retry logic |[#2118](https://github.com/microsoft/fhir-server/pull/2118) |
 
-|GitHub issues closed |  |
-| :------------------- | :------------------------------- |
-|Unclear error message for conditional create with no ID |[#2168](https://github.com/microsoft/fhir-server/issues/2168) |
+Allows for search history bundles with Patch requests. [#2156](https://github.com/microsoft/fhir-server/pull/2156) 
+
+
+Enabled JSON patch in bundles using Binary resources. [#2143](https://github.com/microsoft/fhir-server/pull/2143) 
+
+
+Added new audit event [OperationName subtypes](./././azure-api-for-fhir/enable-diagnostic-logging.md#audit-log-details) [#2170](https://github.com/microsoft/fhir-server/pull/2170) 
+
+
+
+**Running a reindex job**
+
+ 
+Added [boundaries for reindex](./././azure-api-for-fhir/how-to-run-a-reindex.md#performance-considerations) parameters. 
+[#2103](https://github.com/microsoft/fhir-server/pull/2103)
+
+
+Updated error message for reindex parameter boundaries[#2109](https://github.com/microsoft/fhir-server/pull/2109)
+
+
+Added final reindex count check.[#2099](https://github.com/microsoft/fhir-server/pull/2099)
+
+**Bug fixes** 
+
+
+Wider catch for exceptions during applying patch [#2192](https://github.com/microsoft/fhir-server/pull/2192)
+
+
+Fix history with PATCH in STU3[#2177](https://github.com/microsoft/fhir-server/pull/2177) 
+
+**Custom search bugs** 
+
+
+Addresses the delete failure with Custom Search parameters [#2133](https://github.com/microsoft/fhir-server/pull/2133) 
+
+
+Added retry logic while Deleting Search parameter [#2121](https://github.com/microsoft/fhir-server/pull/2121)
+
+
+Set max item count in search options in SearchParameterDefinitionManager [#2141](https://github.com/microsoft/fhir-server/pull/2141)
+
+
+Better exception if there's a bad expression in a search parameter [#2157](https://github.com/microsoft/fhir-server/pull/2157)
+
+**Resolved SQL batch reindex if one resource fails** 
+Updates SQL batch reindex retry logic [#2118](https://github.com/microsoft/fhir-server/pull/2118) 
+
+**GitHub issues closed** 
+
+
+Unclear error message for conditional create with no ID [#2168](https://github.com/microsoft/fhir-server/issues/2168) 
 
 #### **DICOM service**
 
-**Implemented fix to resolve QIDO paging-ordering issues** |  [#989](https://github.com/microsoft/dicom-server/pull/989) |
+**Implemented fix to resolve QIDO paging-ordering issues**  [#989](https://github.com/microsoft/dicom-server/pull/989) 
 
 
 #### **MedTech service**
