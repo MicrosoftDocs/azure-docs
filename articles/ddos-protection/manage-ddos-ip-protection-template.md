@@ -50,14 +50,14 @@ In this example, the template creates a new resource group, a DDoS protection pl
     :::image type="content" source="media/manage-ddos-protection-template/ddos-template-ip.png" alt-text="Screenshot of DDoS IP Protection ARM quickstart template.":::
 
     - **Subscription**: Name of the Azure subscription where the resources will be deployed.
-    - **Resource group**: Select an existing resource group. In this example we will create a new *Resource group*. Select **Create new**, enter **MyResourceGroup**, then select **OK**.
-    - **Region**: The region where the resource group is deployed. In this example we will select **East US**.
-    - **Public Ip Name**: The name of the new Public IP Address. In this example we will enter **myStandardPublicIP**
-    - **Sku**: SKU of the Public IP Address. In this example we will select **Standard**.  
-    - **Public IP Allocation Method**: The Allocation Method used for the Public IP Address. In this example we will select **Static**. 
-    - **Tier**: SKU Tier of the Public IP Address. In this example we will select **Regional**.
-    - **Ddos Protection Mode**: DDoS Protection Mode of the Public IP Address. In this example we will select **Enabled**.
-    - **Location**: Specify a location for the resources. In this example we will leave as default.
+    - **Resource group**: Select an existing resource group. In this example, we'll create a new *Resource group*. Select **Create new**, enter **MyResourceGroup**, then select **OK**.
+    - **Region**: The region where the resource group is deployed. In this example, we'll select **East US**.
+    - **Public Ip Name**: The name of the new Public IP Address. In this example, we'll enter **myStandardPublicIP**
+    - **Sku**: SKU of the Public IP Address. In this example, we'll select **Standard**.  
+    - **Public IP Allocation Method**: The Allocation Method used for the Public IP Address. In this example, we'll select **Static**. 
+    - **Tier**: SKU Tier of the Public IP Address. In this example, we'll select **Regional**.
+    - **Ddos Protection Mode**: DDoS Protection Mode of the Public IP Address. In this example, we'll select **Enabled**.
+    - **Location**: Specify a location for the resources. In this example, we'll leave as default.
 
 1. Select **Review + create**.
 1. Verify that template validation passed and select **Create** to begin the deployment.
@@ -147,7 +147,7 @@ ExtendedLocation         : null
 
 ## Clean up resources
 
-When you're finished you can delete the resources. The command deletes the resource group and all the resources it contains.
+When you're finished, you can delete the resources. The command deletes the resource group and all the resources it contains.
 
 # [PowerShell](#tab/PowerShell)
 

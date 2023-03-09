@@ -33,7 +33,8 @@
     - name: CLI
       href: manage-ddos-protection-cli-ip.md
     - name: ARM template
-      href: manage-ddos-protection-ip-template.md           
+      displayName: Resource Manager
+      href: manage-ddos-ip-protection-template.md           
       expanded: true
 
 - name: Tutorials
