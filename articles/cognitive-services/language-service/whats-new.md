@@ -23,6 +23,7 @@ Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-
   * China East 2 (Authoring and Prediction)
   * China North 2 (Prediction)
 * New model evaluation updates for Conversational language understanding and Orchestration workflow.
+* New model version ('2023-01-01-preview') for Text Analytics for health featuring new [entity categories](./text-analytics-for-health/concepts/health-entity-categories.md) for social determinants of health
 
 ## December 2022
 

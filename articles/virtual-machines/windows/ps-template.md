@@ -6,8 +6,7 @@ ms.service: virtual-machines
 ms.topic: how-to
 ms.date: 02/24/2023
 ms.author: cynthn
-ms.custom: H1Hack27Feb2017, devx-track-azurepowershell
-
+ms.custom: H1Hack27Feb2017
 ---
 
 # Create a Windows virtual machine from a Resource Manager template
