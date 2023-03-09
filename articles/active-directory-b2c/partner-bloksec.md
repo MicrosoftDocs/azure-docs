@@ -88,7 +88,7 @@ In the account registration email from BlokSec, find the link to the BlokSec adm
 8. Select the created Azure AD B2C application to open the application configuration.
 9. Select **Generate App Secret**.
  
-Learn more: [Send a sign-out request](./openid-connect.md#send-a-sign-out-request).
+Learn more: [Send a sign out request](./openid-connect.md#send-a-sign-out-request).
 
 >[!NOTE]
 >You need application ID and application secret to configure the identity provider (IdP) in Azure AD B2C.
@@ -146,7 +146,7 @@ For the following instructions, ensure BlokSec is a new OIDC identity provider (
 3. Select **Sign up and sign in** > **Version** > **Create**.
 4. Enter a policy **Name**.
 5. In the identity providers section, select the created BlokSec identity provider.  
-6. For Local Account, select **None**. This disables email and password-based authentication.
+6. For Local Account, select **None**. This action disables email and password-based authentication.
 7. Select **Run user flow**
 8. In the form, enter the Replying URL, such as `https://jwt.ms`.
 9. The browser is redirected to the BlokSec sign-in page. 
@@ -179,7 +179,7 @@ Store the client secret you noted in your Azure AD B2C tenant. For the following
 
 ### Configure BlokSec as an identity provider
 
-To enable users to sign in using BlokSec decentralized identity, define BlokSec as a claims provider. This action ensure Azure AD B2C communicates with it through an endpoint. Azure AD B2C uses endpoint claims to verify users authenticate identity by using biometry, such as fingerprint or facial scan.
+To enable users to sign in using BlokSec decentralized identity, define BlokSec as a claims provider. This action ensures Azure AD B2C communicates with it through an endpoint. Azure AD B2C uses endpoint claims to verify users authenticate identity by using biometry, such as fingerprint or facial scan.
 
 To define BlokSec as a claims provider, add it to the **ClaimsProvider** element in the policy extension file.
 
