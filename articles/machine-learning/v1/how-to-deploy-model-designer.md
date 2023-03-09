@@ -10,7 +10,7 @@ author: likebupt
 ms.reviewer: lagayhar
 ms.date: 08/15/2022
 ms.topic: how-to
-ms.custom: deploy, studio, designer, event-tier1-build-2022
+ms.custom: UpdateFrequency5, deploy, studio, designer, event-tier1-build-2022
 ---
 
 # Use the studio to deploy models trained in the designer

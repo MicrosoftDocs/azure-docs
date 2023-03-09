@@ -337,4 +337,4 @@ In either approach, at the end, we should get properly saved embedded OrderDetai
 ## Next steps
 
 * Learn about [data modeling in Azure Cosmos DB](./modeling-data.md)
-* Learn [how to model and partition data on Azure Cosmos DB](./how-to-model-partition-example.md)
+* Learn [how to model and partition data on Azure Cosmos DB](./model-partition-example.md)

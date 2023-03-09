@@ -4,6 +4,7 @@ titleSuffix: Microsoft Dev Box Preview
 description: 'Learn how to create a custom image with Azure Image Builder, then create a Dev box with the image.'
 services: dev-box
 ms.service: dev-box
+ms.custom: devx-track-azurepowershell
 author: RoseHJM
 ms.author: rosemalcolm
 ms.date: 11/17/2022
@@ -97,7 +98,7 @@ The next step is to use Azure VM Image Builder and Azure PowerShell to create an
     Install-Module -Name Az.ManagedServiceIdentity 
      
     # Create an identity 
-    New-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName 
+    New-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName -Location $location
      
     $identityNameResourceId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName).Id 
     $identityNamePrincipalId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName).PrincipalId
