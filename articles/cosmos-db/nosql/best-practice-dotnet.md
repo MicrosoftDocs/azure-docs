@@ -53,7 +53,7 @@ Watch the video below to learn more about using the .NET SDK from an Azure Cosmo
 
 ## Best practices for HTTP connections
 
-The .NET SDK uses `HttpClient` to perform HTTP operations both data plane for Gateway mode and [metadata for Direct mode](sdk-connection-modes.md#direct-mode-connection-architecture). One of the [fundamentals of HttpClient](/dotnet/fundamentals/networking/http/httpclient-guidelines.md#dns-behavior) is to make sure the `HttpClient` can react to DNS changes on your account by **customizing the DNS cache timeout**. When the DNS cache is cleared, **connections are closed**. Our recommendation is that you customize this value according to your [connectivity mode](sdk-connection-modes.md) and workload to reduce potential impact of the DNS cache refresh to a minimum (a 5 minute value would be a good start for Direct mode clients).
+The .NET SDK uses `HttpClient` to perform HTTP operations both data plane for Gateway mode and [metadata for Direct mode](sdk-connection-modes.md#direct-mode). One of the [fundamentals of HttpClient](/dotnet/fundamentals/networking/http/httpclient-guidelines.md#dns-behavior) is to make sure the `HttpClient` can react to DNS changes on your account by **customizing the DNS cache timeout**. When the DNS cache is cleared, **connections are closed**. Our recommendation is that you customize this value according to your [connectivity mode](sdk-connection-modes.md) and workload to reduce potential impact of the DNS cache refresh to a minimum (a 5 minute value would be a good start for Direct mode clients).
 
 You can inject your custom HttpClient through `CosmosClientOptions.HttpClientFactory`, for example:
 
