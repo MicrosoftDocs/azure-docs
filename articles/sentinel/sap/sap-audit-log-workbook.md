@@ -21,7 +21,7 @@ You can use the workbook either for ongoing monitoring of your SAP systems, or t
 
 1. Select **View template** to use the workbook as is, or select **Save** to create an editable copy of the workbook. When the copy is created, select **View saved workbook**.
 
-    :::image type="content" source="media/sap-audit-log-workbook/workbook-overview.png" alt-text="Screenshot of the SAP Audit workbook top view." lightbox="media/sap-audit-log-workbook/workbook-overview.png":::
+    :::image type="content" source="media/sap-audit-log-workbook/workbook-overview.png" alt-text="Screenshot of the top of the SAP Audit workbook." lightbox="media/sap-audit-log-workbook/workbook-overview.png":::
 
      > [!IMPORTANT]
      >
@@ -57,7 +57,7 @@ Shows different types of data regarding user sign-ins.
 
 |Area  |Description  |Options |
 |---------|---------|
-|**Unique user logons per system**     |Shows the number of unique sign ins for each SAP system, and a graph with the sign in trends over the selected time for each system. For example: the 012 system has 1.4-K unique logon attempts in the last 14 days, and in these 14 days the graph shows a relatively rising sign-in trend.         |
+|**Unique user logons per system**     |Shows the number of unique sign ins for each SAP system, and a graph with the sign-in trends over the selected time for each system. For example: the 012 system has 1.4-K unique logon attempts in the last 14 days, and in these 14 days the graph shows a relatively rising sign-in trend.         |
 |**Logon types trend**     |Shows a trend of the number of sign ins according to type, for example, login via dialog. |You can hover over the graph to show the number of logons for different dates.         |
 |**Logon failures Vs. success by unique users - trend**     |Shows a trend of successful and failed sign ins in the selected period. |You can hover over the graph to show the amount of successful and failed sign ins for different dates.         |
 
@@ -65,21 +65,21 @@ Shows different types of data regarding user sign-ins.
 
 The areas under **Anomaly detection - filtering out noisy failed login attempts** show login failure data for SAP systems and users. To see only data flagged by [anomaly detection](configure-audit-log-rules.md#anomaly-detection), select **Anomalous only** next to **Failed logons** on the right. 
 
-:::image type="content" source="media/sap-audit-log-workbook/logon-failures.png" alt-text="Screenshot of the sections in the Logon failures area of the SAP Audit workbook that can be filtered by anomaly detection." lightbox="media/sap-audit-log-workbook/logon-failures.png":::
+:::image type="content" source="media/sap-audit-log-workbook/logon-failures.png" alt-text="Screenshot of the sections in the Logon failures area of the SAP Audit workbook that you can filter by anomalous data." lightbox="media/sap-audit-log-workbook/logon-failures.png":::
 
 |Area  |Description  |Specific data |Options/notes |
 |---------|---------|---------|---------|
 | **Logon failure rate** > **Logon failure anomalies** > **Unique User failed logons per SAP system** | Shows the number of unique failed sign ins for each SAP system. | | |
-|**SAP and Active Directory are better together** | The **Anomalous login failures** table shows a combination of Microsoft Sentinel and Azure Active Directory data. The list is organized by risk, where users that indicate the most risk are at the top of the list, and the users with less security risk are at the bottom. |For each user, shows:<br>• A timeline of failed sign-in attempts<br>• A timeline showing at which point an anomalous failed attempt occurred<br>• The type of anomaly<br>• The user's email address<br>• The Azure Active directory risk indicator<br>• The number of incidents and alerts in Microsoft Sentinel |• When you select a row, you can see a list of alerts and incidents for that user under **Incidents/alerts overview for user**. Below this list, you can also see of Azure Active Directory risk events under **Azure audit and signin risks for user**.<br>• If your Azure Active Directory data is in a different Log Analytics workspace, make sure you select the relevant subscriptions and workspaces at the top of the workbook, under **Azure audit and activities**. |
+|**SAP and Active Directory are better together** | The **Anomalous login failures** table shows a combination of Microsoft Sentinel and Azure Active Directory data. The workbook displays the users according to risk: Users that indicate the most risk are at the top of the list, and the users with less security risk are at the bottom. |For each user, shows:<br>• A timeline of failed sign-in attempts<br>• A timeline showing at which point an anomalous failed attempt occurred<br>• The type of anomaly<br>• The user's email address<br>• The Azure Active directory risk indicator<br>• The number of incidents and alerts in Microsoft Sentinel |• When you select a row, you can see a list of alerts and incidents for that user under **Incidents/alerts overview for user**. Below this list, you can also see of Azure Active Directory risk events under **Azure audit and signin risks for user**.<br>• If your Azure Active Directory data is in a different Log Analytics workspace, make sure you select the relevant subscriptions and workspaces at the top of the workbook, under **Azure audit and activities**. |
 |**Logon failure rate per system** |Visually represents the selected SAP systems. |• For each system, shows the number of failures in the selected period<br>• Systems are grouped by type.<br>• The color of the system indicates the number of failed attempts: Green indicates a few suspicious logon attempts, where red indicates more suspicious logon attempts. |You can select a system to see a list of failed sign ins with details about the failures. |
 
 In this screenshot, you can see the data shown when the first line is selected in the **Anomalous login failures** table. The specific alerts and incident URLs are shown in the **Incidents/alerts overview for user** table.
 
 :::image type="content" source="media/sap-audit-log-workbook/anomalous-logon-failures-table.png" alt-text="Screenshot of data shown when a line is selected in the Anomalous login failures table." lightbox="media/sap-audit-log-workbook/anomalous-logon-failures-table.png":::
 
-In this screenshot, the **Azure audit and signin risks for user** table shows data for the sign in risk related to this user.
+In this screenshot, the **Azure audit and signin risks for user** table shows data for the sign-in risk related to this user.
 
-:::image type="content" source="media/sap-audit-log-workbook/azure-audit-signin-risks.png" alt-text="Screenshot of audit and sign in risk data shown when a line is selected in the Anomalous login failures table." lightbox="media/sap-audit-log-workbook/azure-audit-signin-risks.png":::
+:::image type="content" source="media/sap-audit-log-workbook/azure-audit-signin-risks.png" alt-text="Screenshot of audit and sign-in risk data shown when a line is selected in the Anomalous login failures table." lightbox="media/sap-audit-log-workbook/azure-audit-signin-risks.png":::
 
 In this screenshot, you can see the **Login failure rate per system** area, where the **84e** system under the **Test** group is selected. The **Failed logons for system** area on the right shows failure events for this system.
 
@@ -93,8 +93,8 @@ The **Logon failures trends** area shows the trends and number of failed sign-in
 
 |Area  |Description  |
 |---------|---------| 
-|**Login failure by cause** | Shows a trend of the number of sign-in failures according to cause, for example: incorrect sign-in data. |
-|**Login failure by type** | Shows a trend of the number of sign-in failures according to type, for example: the sign-in triggered a background job, or the sign in was via HTTP. |
+|**Login failure by cause** | Shows a trend of the number of sign-in failures according to the cause of failure, for example: incorrect sign-in data. |
+|**Login failure by type** | Shows a trend of the number of sign-in failures according to type, for example: the sign-in triggered a background job, or the sign-in was via HTTP. |
 |**Login failure by method** | Shows a trend of the number of sign-in failures according to method, for example: SNC or a sign-in ticket. |
 
 ## Audit log alerts report tab
@@ -106,10 +106,10 @@ This tab shows severity and audit trends for each SAP system and user. All areas
 |Area  |Description  |Specific data |Options/notes |
 |---------|---------|---------|---------| 
 |**Alert severity trends per System ID** |Shows a list of systems, with a graph of medium and high severity event trends per system. For example, the 012 system had many high severity events over the entire period, and a few medium severity events with a spike that shows more medium severity events in the middle of the period. | | |
-|**Audit trend per user** |Shows a combination of Microsoft Sentinel and Azure Active Directory data. The list is organized by risk, where users that indicate the most risk are at the top of the list, and the users with less security risk are at the bottom. |For each user, shows:<br>• A timeline of high and medium severity events<br>• The user's email address<br>• The Azure Active directory risk indicator<br>• The number of incidents and alerts in Microsoft Sentinel |When you select a row, you can see a list of alerts and incidents for that user under **Incidents/alerts overview for user**. Below this list, you can also see of Azure Active Directory risk events under **Azure audit and signin risks for user**. |
+|**Audit trend per user** |Shows a combination of Microsoft Sentinel and Azure Active Directory data. The workbook displays the users according to risk: Users that indicate the most risk are at the top of the list, and users with less security risk are at the bottom. |For each user, shows:<br>• A timeline of high and medium severity events<br>• The user's email address<br>• The Azure Active directory risk indicator<br>• The number of incidents and alerts in Microsoft Sentinel |When you select a row, you can see a list of alerts and incidents for that user under **Incidents/alerts overview for user**. Below this list, you can also see of Azure Active Directory risk events under **Azure audit and signin risks for user**. |
 |**Risk score per system** | Visually represents each system in a cell shape. |• Shows the risk score for each system.<br>• Systems are grouped by type.<br>• The color of the system indicates the risk: Green indicates a system with a lower risk score, where red indicates a higher risk score. |You can select a system to see a list of SAP events per system. |
 |**Events by MITRE ATT&CK® tactics** |Shows a list of SAP events grouped by MITRE ATT&CK® tactics, like Initial Access or Defense Evasion. | |You can hover over the graph to show the number of sign-ins for different dates. |
-|**Events by category** |Shows a list of SAP event trends grouped by category, like RFC Start or Logon. | |You can hover over the graph to show the sign in number for different dates. |
+|**Events by category** |Shows a list of SAP event trends grouped by category, like RFC Start or Logon. | |You can hover over the graph to show the sign-in number for different dates. |
 |**Events by authorization group** |Shows a list of SAP event trends grouped by the SAP authorization group, like USER or SUPER. | |You can hover over the graph to show the number of sign-ins for different dates. |
 |**Events by user type** |Shows a list of SAP event trends grouped by the SAP user type, like Dialog or system. | |You can hover over the graph to show the number of sign-ins for different dates. |
 
