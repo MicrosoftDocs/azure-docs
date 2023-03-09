@@ -45,10 +45,10 @@ items:
     href: concepts-contact.md
   - name: Contact profile
     href: concepts-contact-profile.md
-  - name: Geospatial reference architecture
-    href: geospatial-reference-architecture.md
   - name: Spacecraft object
     href: spacecraft-object.md
+  - name: Geospatial reference architecture
+    href: geospatial-reference-architecture.md          
   - name: Organize spaceborne geospatial data with STAC
     href: organize-stac-data.md
   - name: Process Synthetic Aperture Radar (SAR) data
