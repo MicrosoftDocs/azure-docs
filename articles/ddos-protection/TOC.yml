@@ -31,7 +31,7 @@
     - name: PowerShell
       href: manage-ddos-protection-powershell-ip.md
     - name: CLI
-      href: manage-ddos-protection-cli-ip.md
+      href: manage-ddos-ip-protection-cli.md
     - name: ARM template
       displayName: Resource Manager
       href: manage-ddos-ip-protection-template.md           
