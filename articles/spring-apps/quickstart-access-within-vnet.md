@@ -1,5 +1,5 @@
 ---
-title: Access applications using Azure Spring Apps Standard consumption plan im a virtual network
+title: Access applications using Azure Spring Apps Standard consumption plan in a virtual network
 description: Learn how to access applications in a virtual network that are using the Azure Spring Apps Standard consumption plan.
 author: karlerickson
 ms.author: haojianzhong
