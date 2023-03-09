@@ -113,9 +113,7 @@ This tab shows severity and audit trends for each SAP system and user. All areas
 |**Events by authorization group** |Shows a list of SAP event trends grouped by the SAP authorization group, like USER or SUPER. | |You can hover over the graph to show the number of sign-ins for different dates. |
 |**Events by user type** |Shows a list of SAP event trends grouped by the SAP user type, like Dialog or system. | |You can hover over the graph to show the number of sign-ins for different dates. |
 
-In this screenshot, you can see the data shown when the first line is selected in the **Audit trends per user** table. 
-- The specific alerts and incident URLs are shown in the **Incidents/alerts overview for user** table.
-- The **Azure audit and signin risks for user** table doesn't show data, because Microsoft Sentinel didn't find anomalies related to Azure Active Directory audit and sign in events related to this user.
+In this screenshot, you can see the data shown when the first line is selected in the **Audit trends per user** table. The specific alerts and incident URLs are shown in the **Incidents/alerts overview for user** table.
 
 :::image type="content" source="media/sap-audit-log-workbook/audit-trend-per-user.png" alt-text="Screenshot of data shown when a line is selected in the Audit trends per user table." lightbox="media/sap-audit-log-workbook/audit-trend-per-user.png":::
 
