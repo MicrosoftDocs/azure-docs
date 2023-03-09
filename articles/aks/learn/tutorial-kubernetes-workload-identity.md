@@ -231,7 +231,18 @@ az identity federated-credential create --name ${FICID} --identity-name ${UAID} 
 > [!NOTE]
 > It takes a few seconds for the federated identity credential to be propagated after being initially added. If a token request is made immediately after adding the federated identity credential, it might lead to failure for a couple of minutes as the cache is populated in the directory with old data. To avoid this issue, you can add a slight delay after adding the federated identity credential.
 
+## Install Mutating Admission Webhook
+Follow [mutating admission webhook installation][mutating-admission-webhook-installation] to set-up the mutating admission webhook which projects signed service account tokens to a well-known path (`/var/run/secrets/azure/tokens/azure-identity-token`) and injects authentication-related environment variables to your pods based on annotated service account.
+
 ## Deploy the workload
+
+Set the following environment variables.
+
+```bash
+export AZURE_TENANT_ID="$(az account show -s ${SUBSCRIPTION} --query tenantId -otsv)"
+export AZURE_FEDERATED_TOKEN_FILE="/var/run/secrets/azure/tokens/azure-identity-token"
+export AZURE_AUTHORITY_HOST="https://login.microsoftonline.com/"
+```
 
 Run the following to deploy a pod that references the service account created in the previous step.
 
@@ -254,6 +265,14 @@ spec:
         value: ${KEYVAULT_URL}
       - name: SECRET_NAME
         value: ${KEYVAULT_SECRET_NAME}
+      - name: AZURE_CLIENT_ID
+        value: ${USER_ASSIGNED_CLIENT_ID}
+      - name: AZURE_TENANT_ID
+        value: ${AZURE_TENANT_ID}
+      - name: AZURE_FEDERATED_TOKEN_FILE
+        value: ${AZURE_FEDERATED_TOKEN_FILE}
+      - name: AZURE_AUTHORITY_HOST
+        value: ${AZURE_AUTHORITY_HOST}
   nodeSelector:
     kubernetes.io/os: linux
 EOF
@@ -313,6 +332,7 @@ This tutorial is for introductory purposes. For guidance on a creating full solu
 <!-- EXTERNAL LINKS -->
 [kubelet-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
 [kubelet-logs]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs
+[mutating-admission-webhook-installation]: https://azure.github.io/azure-workload-identity/docs/installation/mutating-admission-webhook.html
 
 <!-- INTERNAL LINKS -->
 [kubernetes-concepts]: ../concepts-clusters-workloads.md
