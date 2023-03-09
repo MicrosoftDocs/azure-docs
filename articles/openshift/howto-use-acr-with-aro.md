@@ -50,7 +50,7 @@ oc create secret docker-registry \
 
 ## Link the secret to the service account
 
-Next, link the secret to the service account used by the pod, so the pod can reach the container registry. The name of the service account should match the name of the service account used by the pod. `default` is the default service account:
+Next, link the secret to the service account that will be used by the pod, so the pod can reach the container registry. The name of the service account should match the name of the service account used by the pod. `default` is the default service account:
 
 ```
 oc secrets link default <pull_secret_name> --for=pull
