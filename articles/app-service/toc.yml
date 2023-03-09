@@ -124,8 +124,8 @@
               href: tutorial-connect-app-access-microsoft-graph-as-user-javascript.md
         - name: App to app authentication
           href: tutorial-auth-aad.md
-
-
+        - name: App to app to another Azure service
+          href: tutorial-auth-aad-graph.md
     - name: Isolate network traffic
       href: tutorial-networking-isolate-vnet.md
     - name: Host a RESTful API
