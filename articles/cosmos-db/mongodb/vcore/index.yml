@@ -32,8 +32,6 @@ landingContent:
             url: how-to-scale-cluster.md
           - text: Restore cluster
             url: how-to-restore-cluster.md
-          - text: Migrate data
-            url: how-to-migrate-data.md
       - linkListType: concept
         links:
           - text: MongoDB feature support
