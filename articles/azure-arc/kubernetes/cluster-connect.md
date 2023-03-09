@@ -2,6 +2,7 @@
 title: "Use cluster connect to securely connect to Azure Arc-enabled Kubernetes clusters."
 ms.date: 01/18/2023
 ms.topic: how-to
+ms.custom: devx-track-azurecli
 description: "With cluster connect, you can securely connect to Azure Arc-enabled Kubernetes clusters without requiring any inbound port to be enabled on the firewall."
 ---
 
