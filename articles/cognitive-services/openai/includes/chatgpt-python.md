@@ -99,14 +99,13 @@ echo export OPENAI_API_BASE="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/environmen
     openai.api_key = os.getenv("OPENAI_API_KEY")
 
     response = openai.Completion.create(
-        engine="text-chat-davinci-002-test",
+        engine="gpt-35-turbo",
         prompt="<|im_start|>system\nThe system is an AI assistant that helps people find information.\n<|im_end|>\n<|im_start|>user\nDoes Azure OpenAI support customer managed keys?\n<|im_end|>\n<|im_start|>assistant",
         temperature=1,
         max_tokens=800,
         top_p=0.95,
         frequency_penalty=0,
         presence_penalty=0,
-        best_of=1,
         stop=["<|im_end|>"])
 
     print(response['choices'][0]['text'])
