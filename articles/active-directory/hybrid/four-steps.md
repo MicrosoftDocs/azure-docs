@@ -107,9 +107,9 @@ Organizations with on-premises Active Directory should extend their directory to
 
 The simplest and recommended method to enable cloud authentication for on-premises directory objects in Azure AD is [Password Hash Synchronization](./how-to-connect-password-hash-synchronization.md) (PHS). Alternatively, some organizations may consider enabling [Pass-through Authentication](./how-to-connect-pta-quick-start.md) (PTA).
 
-Whether you choose PHS or PTA, don't forget to consider [SSO](./how-to-connect-sso.md) to allow users to access apps without constantly entering their username and password sso can be Without single sign-on, users must remember application-specific passwords and sign into each application. Likewise, IT staff needs to create and update user accounts for each application such as Microsoft 365, Box, and Salesforce. Users need to remember their passwords, plus spend the time to sign into each application. Providing a standardized single sign-on mechanism to the entire enterprise is crucial for best user experience, reduction of risk, ability to report, and governance.
+Whether you choose PHS or PTA, don't forget to consider [SSO](./how-to-connect-sso.md) to allow users to access apps without constantly entering their username and password. SSO can be acheived by leveraging [Hybrid Azure AD joined](../devices/concept-azure-ad-join-hybrid) or [Azure AD joined](../devices/concept-azure-ad-join) devices while keeping access to on-premises resources. For devices that can’t be Azure AD joined,  [Seamless single sign-on (Seamless SSO)](how-to-connect-sso-quick-start.md) will help provide those capabilities. Without single sign-on, users must remember application-specific passwords and sign into each application. Likewise, IT staff needs to create and update user accounts for each application such as Microsoft 365, Box, and Salesforce. Users need to remember their passwords, plus spend the time to sign into each application. Providing a standardized single sign-on mechanism to the entire enterprise is crucial for best user experience, reduction of risk, ability to report, and governance.
 
-For organizations already using AD FS or another on-premises authentication provider, moving to Azure AD as your identity provider can reduce complexity and improve availability. Unless you have specific use cases for using federation, we recommend migrating from federated authentication to either PHS and Seamless SSO or PTA and Seamless SSO to enjoy the benefits of a reduced on-premises footprint and the flexibility the cloud offers with improved user experiences. For more information, see [Migrate from federation to password hash synchronization for Azure Active Directory](./migrate-from-federation-to-cloud-authentication.md).
+For organizations already using AD FS or another on-premises authentication provider, moving to Azure AD as your identity provider can reduce complexity and improve availability. Unless you have specific use cases for using federation, we recommend migrating from federated authentication to either PHS or PTA to enjoy the benefits of a reduced on-premises footprint and the flexibility the cloud offers with improved user experiences. For more information, see [Migrate from federation to password hash synchronization for Azure Active Directory](./migrate-from-federation-to-cloud-authentication.md).
 
 ### Enable automatic deprovisioning of accounts
 
@@ -119,7 +119,7 @@ To learn more about automatic user account provisioning and how it works, see [A
 
 ## Step 3 - Empower your users securely
 
-In today's digital workplace, it's important to balance security with productivity. However, end users often push back on security measures that slow their productivity and access to cloud apps. To help address this, Azure AD provides self-service capabilities that enable users to remain productive while minimizing administrative overhead.
+In today's digital workplace, it's important to balance security with productivity. However, end users often push back on security measures that slow their productivity and access to apps. To help address this, Azure AD provides self-service capabilities that enable users to remain productive while minimizing administrative overhead.
 
 This section lists recommendations for removing friction from your organization by empowering your users while remaining vigilant.
 
@@ -139,7 +139,7 @@ Likewise, the [Self-service Password Management report](../authentication/howto-
 
 ### Self-service app management
 
-Before your users can self-discover applications from their access panel, you need to enable [self-service application access](../manage-apps/access-panel-manage-self-service-access.md) to any applications that you wish to allow users to self-discover and request access to. Self-service application access is a great way to allow users to self-discover applications and optionally allow the business group to approve access to those applications. You can allow the business group to manage the credentials assigned to those users for [Password Single-Sign On Applications](../manage-apps/troubleshoot-password-based-sso.md#automatically-capture-sign-in-fields-for-an-app) right from their access panels.
+Before your users can self-discover applications from their access panel, you need to enable [self-service application access](../manage-apps/access-panel-manage-self-service-access.md) to any applications that you wish to allow users to self-discover and request access to them. The request can optionally require approval before access being granted. 
 
 ### Self-service group management
 
@@ -158,7 +158,7 @@ Auditing and logging of security-related events and related alerts are essential
 * Is there anything suspicious or malicious happening in my tenant?
 * Who was impacted during a security incident?
 
-Security logs and reports provide you with an electronic record of suspicious activities and help you detect patterns that may indicate attempted or successful external penetration of the network, and internal attacks. You can use auditing to monitor user activity, document regulatory compliance, do forensic analysis, and more. Alerts provide notifications of security events.
+Security logs and reports provide you with an electronic record of activities and help you detect patterns that may indicate attempted or successful attacks. You can use auditing to monitor user activity, document regulatory compliance, do forensic analysis, and more. Alerts provide notifications of security events.
 
 ### Assign least privileged admin roles for operations
 
@@ -182,9 +182,7 @@ To learn more, go read [Monitor AD FS using Azure AD Connect Health](./how-to-co
 
 ### Create custom dashboards for your leadership and your day to day
 
-Organizations that don't have a SIEM solution can download the [Power BI Content Pack](../reports-monitoring/howto-use-azure-monitor-workbooks.md) for Azure AD. The Power BI content pack contains pre-built reports to help you understand how your users adopt and use Azure AD features, which allows you to gain insights into all the activities within your directory. You can also create your own [custom dashboard](/power-bi/service-dashboards) and share with your leadership team to report on day-to-day activities. Dashboards are a great way to monitor your business and see all of your most important metrics at a glance. The visualizations on a dashboard may come from one underlying dataset or many, and from one underlying report or many. A dashboard combines on-premises and cloud data, providing a consolidated view regardless of where the data lives.
-
-![Power BI custom dashboard](./media/four-steps/image2.png)
+Organizations that don't have a SIEM solution can use Azure Monitor workbooks for Azure AD(../reports-monitoring/howto-use-azure-monitor-workbooks). The integration contains pre-built workbooks and templates to help you understand how your users adopt and use Azure AD features, which allows you to gain insights into all the activities within your directory. You can also create your own workbooks and share with your leadership team to report on day-to-day activities. Workbooks are a great way to monitor your business and see all of your most important metrics at a glance. 
 
 ### Understand your support call drivers
 
