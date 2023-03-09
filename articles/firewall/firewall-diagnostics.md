@@ -134,4 +134,4 @@ Now that you've configured your firewall to collect logs, you can explore Azure 
 
 - [Monitor logs using Azure Firewall Workbook](firewall-workbook.md)
 
-- [Networking monitoring solutions in Azure Monitor logs](../azure-monitor/insights/azure-networking-analytics.md)
+- [Networking monitoring solutions in Azure Monitor logs](/previous-versions/azure/azure-monitor/insights/azure-networking-analytics)

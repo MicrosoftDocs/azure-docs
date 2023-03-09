@@ -57,7 +57,7 @@ The services and [older monitoring solutions](/previous-versions/azure/azure-mon
 | [Visual Studio App Center](/appcenter/) | Build, test, and distribute applications and then monitor their status and usage. See [Start analyzing your mobile app with App Center and Application Insights](https://github.com/Microsoft/appcenter). |
 | Windows | [Windows Update Compliance](/windows/deployment/update/update-compliance-get-started) - Assess your Windows desktop upgrades.<br>[Desktop Analytics](/configmgr/desktop-analytics/overview) - Integrates with Configuration Manager to provide insight and intelligence to make more informed decisions about the update readiness of your Windows clients. |
 | **The following solutions also integrate with parts of Azure Monitor. Note that solutions, which are based on Azure Monitor Logs and Log Analytics, are no longer under active development. Use [Insights](insights/insights-overview.md) instead.**  | |
-| Network - [Network Performance Monitor solution](insights/network-performance-monitor.md) |
+| Network - [Network Performance Monitor solution](/previous-versions/azure/azure-monitor/insights/network-performance-monitor) |
 | Network - [Azure Application Gateway solution](/previous-versions/azure/azure-monitor/insights/azure-networking-analytics#application-gateway-analytics) | 
 | [Office 365 solution](/previous-versions/azure/azure-monitor/insights/solution-office-365) | Monitor your Office 365 environment. Updated version with improved onboarding available through Microsoft Sentinel. |
 | [SQL Analytics solution](/previous-versions/azure/azure-monitor/insights/azure-sql) | Use SQL Insights instead. |

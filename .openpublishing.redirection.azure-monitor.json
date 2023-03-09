@@ -5980,6 +5980,26 @@
             "source_path_from_root": "/articles/azure-monitor/visualize/view-designer-filters.md",
             "redirect_url": "/previous-versions/azure/azure-monitor/visualize/view-designer-filters",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/export-telemetry.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/app/export-telemetry",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/sharepoint.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/app/sharepoint",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/monitor-web-app-availability.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/app/monitor-web-app-availability",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/availability-multistep.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/app/availability-multistep",
+            "redirect_document_id": false
         }
     ]
 }

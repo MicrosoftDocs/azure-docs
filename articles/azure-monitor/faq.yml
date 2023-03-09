@@ -494,7 +494,7 @@ sections:
           * [Web apps on Azure](app/azure-web-apps.md)
           * [Cloud Services on Azure](app/azure-web-apps-net-core.md)
           * [Single-page web apps](app/javascript.md)
-          * [SharePoint](app/sharepoint.md)
+          * [SharePoint](/previous-versions/azure/azure-monitor/app/sharepoint)
           * [Windows desktop app](https://github.com/Microsoft/appcenter)
           * [Other platforms](app/app-insights-overview.md#supported-languages)
           
@@ -680,7 +680,7 @@ sections:
         answer: |
           | What you should see | How to get it | Why you want it |
           | --- | --- | --- |
-          | Availability charts |[Web tests](app/monitor-web-app-availability.md) |Know your web app is up |
+          | Availability charts |[Web tests](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability) |Know your web app is up |
           | Server app perf: response times, ... |[Add Application Insights to your project](app/asp-net.md) or [Install Azure Monitor Application Insights Agent on server](app/status-monitor-v2-overview.md) (or write your own code to [track dependencies](app/api-custom-events-metrics.md#trackdependency)) |Detect perf issues |
           | Dependency telemetry |[Install Azure Monitor Application Insights Agent on server](app/status-monitor-v2-overview.md) |Diagnose issues with databases or other external components |
           | Get stack traces from exceptions |[Insert TrackException calls in your code](app/asp-net-exceptions.md) (but some are reported automatically) |Detect and diagnose exceptions |
@@ -705,9 +705,9 @@ sections:
         answer: |
           Moving existing Application Insights resources from one region to another is **currently not supported**. Historical data that you have collected **can't be migrated** to a new region. The only partial workaround is to:
           
-          1. Create a brand new Application Insights resource ([classic](app/create-new-resource.md) or [workspace-based](./app/create-workspace-resource.md)) in the new region.
+          1. Create a brand new Application Insights resource ([classic](/previous-versions/azure/azure-monitor/app/create-new-resource) or [workspace-based](./app/create-workspace-resource.md)) in the new region.
           2. Recreate all unique customizations specific to the original resource in the new resource.
-          3. Modify your application to use the new region resource's [instrumentation key](app/create-new-resource.md#copy-the-instrumentation-key) or [connection string](app/sdk-connection-string.md).
+          3. Modify your application to use the new region resource's [instrumentation key](/previous-versions/azure/azure-monitor/app/create-new-resource#copy-the-instrumentation-key) or [connection string](app/sdk-connection-string.md).
           4. Test to confirm that everything is continuing to work as expected with your new Application Insights resource.
           5. At this point you can either delete the original resource, which will result in **all historical data being lost**. Or retain the original resource for historical reporting purposes during its data retention settings.
           
@@ -825,7 +825,7 @@ sections:
       - question: |
           Can I run Availability web tests on an intranet server?
         answer: |
-          Our [web tests](app/monitor-web-app-availability.md) run on points of presence that are distributed around the globe. There are two solutions:
+          Our [web tests](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability) run on points of presence that are distributed around the globe. There are two solutions:
           
           * Firewall door - Allow requests to your server from [the long and changeable list of web test agents](app/ip-addresses.md).
           * Write your own code to send periodic requests to your server from inside your intranet. You could run Visual Studio web tests for this purpose. The tester could send the results to Application Insights using the TrackAvailability() API.
