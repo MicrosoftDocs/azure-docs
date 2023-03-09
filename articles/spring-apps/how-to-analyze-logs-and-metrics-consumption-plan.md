@@ -44,10 +44,8 @@ You can configure logging options in the Azure Container Apps environment where 
 
 You can enable logs in Azure Spring Apps in the following ways:
 
-- When you select Log Analytics as the logging option.
-- When you select Azure Monitor as the logging option, with the following categories selected in the Diagnostic setting:
-  - Spring App console logs
-  - Spring App system logs
+- When you select **Log Analytics** as the logging option.
+- When you select **Azure Monitor** as the logging option, with the **Spring App console logs** category selected in the **Diagnostic** setting.
 
 For more information, see [Log storage and monitoring options in Azure Container Apps](../container-apps/log-options.md).
 
