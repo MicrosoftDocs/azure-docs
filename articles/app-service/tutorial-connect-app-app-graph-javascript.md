@@ -55,8 +55,6 @@ This tutorial doesn't:
 
 In the previous tutorial, when the user signs in to the frontend app, a pop-up displayed asking for user consent to the authentication app. 
 
-:::image type="content" source="{source}" alt-text="{alt-text}":::
-
 In this tutorial, the backend needs to exchange the user's token for a new token with an audience for **Microsoft Graph** with a scope of **User.Read** in order to get the user's profile. Because the user isn't directly connected to the backend app, the backend authentication app needs to change to _not require_ user consent for Microsoft Graph. 
 
 This is a setting change typically done by an Active Directory administrator. For this tutorial, you change that setting as though you're that role in your organization. If you don't change this setting, the backend app logs an error such as `AADSTS65001: The user or administrator has not consented to use the application with ID \<backend-authentication-id>. Send an interactive authorization request for this user and resource`. Because the error shows up in the log, the user doesn't know why they didn't see their profile in the frontend app.
@@ -70,8 +68,13 @@ Configure the [user consent](#understand-user-consent) for the backend app.
 1. Select the identity provider to go to the authentication app.
 1. In the authentication app, select **Manage -> API permissions**.
 1. Select **Grant admin consent for Default Directory**.
+
+    :::image type="content" source="./media/tutorial-connect-app-app-graph-javascript/azure-portal-authentication-app-api-permission-admin-consent-area.png" alt-text="Screenshot of Azure portal authentication app with admin consent button highlighted.":::
+
 1. In the pop-up window, select **Yes** to confirm the consent. 
 1. Verify the **Status** column says **Granted for Default Directory**.
+
+    :::image type="content" source="./media/tutorial-connect-app-app-graph-javascript/azure-portal-authentication-app-api-permission-admin-consent-granted.png" alt-text="Screenshot of Azure portal authentication app with admin consent granted in status column.":::
 
 ## Install npm packages
 
