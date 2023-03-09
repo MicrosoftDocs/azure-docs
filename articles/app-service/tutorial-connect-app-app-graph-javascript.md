@@ -129,7 +129,7 @@ The source code to complete this step is provided for you. Use the following ste
     az webapp up --resource-group myAuthResourceGroup --name <back-end-app-name> 
 ## Clean up 
 
-[!INCLUDE [tutorial-connect-app-app-clean.md](../includes/tutorial-connect-app-app-clean.md)]
+[!INCLUDE [tutorial-connect-app-app-clean.md](./includes/tutorial-connect-app-app-clean.md)]
 
 
 ## Frequently asked questions

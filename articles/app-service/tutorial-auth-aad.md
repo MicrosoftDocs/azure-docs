@@ -331,7 +331,7 @@ if (bearerToken) {
 
 ## 9. Clean up resources
 
-[!INCLUDE [tutorial-connect-app-app-clean.md](../includes/tutorial-connect-app-app-clean.md)]
+[!INCLUDE [tutorial-connect-app-app-clean.md](./includes/tutorial-connect-app-app-clean.md)]
 
 ## Frequently asked questions
 
