@@ -57,7 +57,7 @@ This table provides a brief description of each alert type. For more information
 
 ## Recommended alert rules
 
-If you don't have alert rules defined for the selected resource, you can [enable recommended out-of-the-box alert rules in the Azure portal](alerts-manage-alert-rules.md#enable-recommended-alert-rules-in-the-azure-portal-preview).
+If you don't have alert rules defined for the selected resource, you can [enable recommended out-of-the-box alert rules in the Azure portal](alerts-manage-alert-rules.md#enable-recommended-alert-rules-in-the-azure-portal).
 
 > [!NOTE]
 > The alert rule recommendations feature is currently in preview and is only enabled for:
