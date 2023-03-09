@@ -1,11 +1,11 @@
 ---
-title: Customize a speech model with Azure Video Indexer API
+title: Customize a speech model with the Azure Video Indexer API
 description: Learn how to customize a speech model with the Azure Video Indexer API.
 ms.topic: how-to
 ms.date: 03/06/2023
 ---
 
-# Customize a speech model with API
+# Customize a speech model with the API
 
 [!INCLUDE [speech model](./includes/speech-model.md)]
 
@@ -28,7 +28,21 @@ The following are descriptions of some of the parameters:
 
 ## Create a speech dataset 
 
-The [create speech dataset](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Create-Speech-Dataset) API creates a dataset for training a speech model. You upload a file that is used to create a dataset with this call. The content of a dataset can't be modified after its created. 
+The [create speech dataset](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Create-Speech-Dataset) API creates a dataset for training a speech model. You upload a file that is used to create a dataset with this call. The content of a dataset can't be modified after it's created. 
+To upload a file to a dataset, you must update parameters in the Body, including a URL to the text file to be uploaded. The description and custom properties fiels are  optional. The following is a sample of the body:
+
+```json
+{
+    "displayName": "Pronunciation Dataset",
+    "locale": "en-US",
+    "kind": "Pronunciation",
+    "description": "This is a pronunciation dataset.",
+    "contentUrl": https://contoso.com/location,
+    "customProperties": {
+        "tag": "Pronunciation Dataset Example"
+    }
+}
+```
 
 ### Response 
 
@@ -57,6 +71,20 @@ The response provides metadata on the newly created dataset following the format
 ## Create a speech model 
 
 The [create a speech model](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Create-Speech-Model) API creates and trains a custom speech model that could then be used to improve the transcription accuracy of your videos. It must contain at least one plain text dataset and can optionally have pronunciation datasets. Create it with all of the relevant dataset files as a model’s datasets can't be added or updated after its creation. 
+
+When creating a speech model, you must update parameters in the Body, including a list of strings where the strings are the dataset/s the model will include. The description and custom properties fiels are optional. The following is a sample of the body:
+
+```json
+{
+    "displayName": "Contoso Speech Model",
+    "locale": "en-US",
+    "datasets": ["ff3d2bc4-ab5a-4522-b599-b3d5ba768c75", "87c8962d-1d3c-44e5-a2b2-c696fddb9bae"],
+    "description": "Contoso ads example model",
+    "customProperties": {
+        "tag": "Example Model"
+    }
+}
+```
 
 ### Response 
 
@@ -110,7 +138,7 @@ The response provides metadata on the specified dataset following the format of 
 } 
 ```
 
-## Get speech dataset files 
+## Get speech datasets files 
 
 The [get speech dataset files](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Speech-Dataset-Files) API returns the files and metadata of the specified dataset. 
 
@@ -240,7 +268,7 @@ The response provides metadata on all of the speech models in the specified acco
 
 ## Delete speech dataset 
 
-The [delete speech dataset](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Delete-Speech-Dataset) API deletes the specified dataset. Any model that was trained with the deleted dataset continues to be available until the model is deleted. 
+The [delete speech dataset](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Delete-Speech-Dataset) API deletes the specified dataset. Any model that was trained with the deleted dataset continues to be available until the model is deleted. You cannot delete a dateset while it is in use for indexing or training.
 
 ### Response 
 
@@ -248,7 +276,7 @@ There's no returned content when the dataset is deleted successfully.
 
 ## Delete a speech model 
 
-The [delete speech model](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Delete-Speech-Model) API deletes the specified speech model.  
+The [delete speech model](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Delete-Speech-Model) API deletes the specified speech model. You cannot delete a model while it is in use for indexing or training. 
 
 ### Response 
 
