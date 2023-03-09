@@ -25,7 +25,7 @@ Once enabled, the IOPS and throughput limits for an eligible disk increase to th
 
 ## Prerequisites
 
-Either use the Azure Cloud Shell to run your commands or install the latest [Azure PowerShell module](/powershell/azure/install-az-ps) or [Azure CLI](/cli/azure/install-azure-cli) locally.
+Either use the Azure Cloud Shell to run your commands or install a version of the [Azure PowerShell module](/powershell/azure/install-az-ps) 9.5 or newer, or the latest [Azure CLI](/cli/azure/install-azure-cli) locally.
 
 
 ## Enable performance plus
@@ -94,10 +94,11 @@ $region=desiredRegion
 $sku=desiredSKU
 #Size must be 1024 or larger
 $size=1024
+$sourceURI=diskOrSnapshotURI
 
 Set-AzContext -SubscriptionName <<yourSubscriptionName>> 
 
-$diskConfig = New-AzDiskConfig -Location $region -CreateOption Empty -DiskSizeGB $size -SkuName $sku -PerfromancePlus $true 
+$diskConfig = New-AzDiskConfig -Location $region -CreateOption Copy -DiskSizeGB $size -SkuName $sku -PerfromancePlus $true -SourceResourceID $sourceURI
 
 $dataDisk = New-AzDisk -ResourceGroupName $myRG  -DiskName $myDisk 
 ```
