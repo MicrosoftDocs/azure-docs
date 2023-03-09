@@ -12,18 +12,16 @@ ms.author: amgowda
 
 # Secure Key Release feature with AKV and Azure Confidential Computing (ACC)
 
-Secure Key Release (SKR) is a functionality of Azure Key Vault (AKV) Managed HSM and Premium offering. Secure key release enables the release of an HSM protected key from AKV to an attested Trusted Execution Environment (TEE), such as a secure enclave, VM based TEE's etc. This added another layer of access protection to your data decryption/encryption keys where you can target an application + TEE runtime environment with known configuration get access to the key material. The SKR policies defined at the time of exportable key creation govern the access to these keys.
+Secure Key Release (SKR) is a functionality of Azure Key Vault (AKV) Managed HSM and Premium offering. Secure key release enables the release of an HSM protected key from AKV to an attested Trusted Execution Environment (TEE), such as a secure enclave, VM based TEEs etc. SKR adds another layer of access protection to your data decryption/encryption keys where you can target an application + TEE runtime environment with known configuration get access to the key material. The SKR policies defined at the time of exportable key creation govern the access to these keys.
 
 ## SKR Support with AKV Offerings
-
-Secure Key Release is supported by Azure Key Vault offerings with HSM keys:
 
 1. [Azure Key Vault Premium](../security/fundamentals/key-management.md)
 1. [Azure Key Vault Managed HSM](../key-vault/managed-hsm/overview.md)
 
 ## Overall Secure Key Release Flow with TEE
 
-SKR can only release keys based on the Microsoft Azure Attestation (MAA) generated claims. There is a tight integration on the SKR policy definition to MAA claims.
+SKR can only release keys based on the Microsoft Azure Attestation (MAA) generated claims. There's a tight integration on the SKR policy definition to MAA claims.
 
 ![SKR E2E Flow](media/skr-flow-cvm-sevsnp-attestation/skr-e2e-flow.png)
 
@@ -39,9 +37,9 @@ Make sure to set the value of [--sku] to "premium".
 
 A Secure Key Release Policy is a json format release policy as defined [here](/rest/api/keyvault/keys/create-key/create-key?tabs=HTTP#keyreleasepolicy) that specifies a set of claims required in addition to authorization to release the key. The claims here are MAA based claims as referenced [here for SGX](/azure/attestation/attestation-token-examples#sample-jwt-generated-for-sgx-attestation) and here for [AMD SEV-SNP CVM](/azure/attestation/attestation-token-examples#sample-jwt-generated-for-sev-snp-attestation).
 
-Please visit the TEE specific [examples page for more details](/skr-flow-confidentialcontainers-aci.md)
+Visit the TEE specific [examples page for more details](/skr-flow-confidentialcontainers-aci.md)
 
-Before you set a SKR policy make sure to run your TEE application through the remote attestation flow . Remote attestation is not covered as part of this tutorial.
+Before, you set an SKR policy make sure to run your TEE application through the remote attestation flow. Remote attestation isn't covered as part of this tutorial.
 
 Example
 
@@ -78,7 +76,7 @@ az keyvault key create --exportable true --vault-name "vault name from step 1" -
 
 ### Step 4: Application running within a TEE doing a remote attestation
 
-This step can be specific to the the type of TEE you are running your application Intel SGX Enclaves or AMD SEV-SNP based Confidential Virtual Machines (CVM) or Confidential Containers running in CVM Enclaves with AMD SEV-SNP etc.
+This step can be specific to the type of TEE you're running your application Intel SGX Enclaves or AMD SEV-SNP based Confidential Virtual Machines (CVM) or Confidential Containers running in CVM Enclaves with AMD SEV-SNP etc.
 
 Follow these references examples for various TEE types offering with Azure:
 
@@ -96,7 +94,7 @@ No. The policy attached to SKR only understands MAA claims that are associated t
 
 No. AKV only understands and integrates with MAA today.
 
-### Can I use AKV SDK's to get perform key RELEASE?
+### Can I use AKV SDKs to get perform key RELEASE?
 
 Yes. Latest SDK integrated with 7.3 AKV API's support key RELEASE.
 
@@ -118,4 +116,4 @@ No. Not at this time.
 
 [AKV REST API With SKR Details](https://learn.microsoft.com/rest/api/keyvault/keys/create-key/create-key?tabs=HTTP)
 
-[AKV SDK's](https://learn.microsoft.com/azure/key-vault/general/client-libraries)
+[AKV SDKs](https://learn.microsoft.com/azure/key-vault/general/client-libraries)
