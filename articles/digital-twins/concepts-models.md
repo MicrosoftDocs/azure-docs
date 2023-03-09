@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how Azure Digital Twins uses custom models to describe entities in your environment and how to define these models using the Digital Twin Definition Language (DTDL).
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 02/06/2023
+ms.date: 03/09/2023
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -280,6 +280,15 @@ This extension includes the `Historized` adjunct type, which can be added as a c
 
 For more details and examples of this extension, see [Historization extension in the DTDL v3 Language Description](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.historization.v1.md).
 
+### Overriding extension
+
+The *overriding extension* is used to override a property in a DTDL V3 model with an instance value. It's used in combination with the [annotation extension](#annotation-extension), and its context specifier is `dtmi:dtdl:extension:overriding;1`.
+
+This extension includes the `Override` adjunct type, which can be added to a DTDL Property that is *also* co-typed with `ValueAnnotation` (from the annotation extension). The `Override` type adds one field to the element, `overrides`, which allows you to name a field on the annotated element to be overridden by the current element's value.
+
+For more details and examples of this extension, see [Overriding extension in the DTDL v3 Language Description](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.overriding.v1.md).
+
+
 ### QuantitativeTypes extension
 
 The *QuantitativeTypes extension* is used to enable semantic types, unit types, and units in a DTDL v3 model. Its context specifier is `dtmi:dtdl:extension:quantitativeTypes;1`. 
@@ -287,14 +296,6 @@ The *QuantitativeTypes extension* is used to enable semantic types, unit types, 
 This extension enables the use of many semantic types as adjunct types, which can be added to a CommandRequest, a Field, a MapValue, a Property, or a Telemetry in DTDL v3. Semantic types add one field to the element, `unit`, which accepts a valid unit that corresponds to the semantic type.
 
 For more details about the extension, including examples and a full list of supported semantic types and units, see [QuantitativeTypes extension in the DTDL v3 Language Description](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.quantitativeTypes.v1.md).
-
-### Streaming extension
-
-The *Streaming extension* is used to designate a Property in a DTDL v3 model as a streaming property, which indicates reduced durability guarantees, lowers storage cost, and increases data ingestion. Its context specifier is `dtmi:dtdl:extension:streaming;1`.
-
-This extension includes the `Streaming` adjunct type, which can be added as a co-type to a DTDL Property. If a Property is co-typed with `Streaming`, it must **not** have a `writable` field set to `true`. The `Streaming` adjunct type doesn't add any fields to the element.
-
-For more details and examples of this extension, see [Streaming extension in the DTDL v3 Language Description](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.streaming.v1.md).
 
 ## Service-specific DTDL notes
 
