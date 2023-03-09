@@ -74,9 +74,9 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
     | **Sign on URL** |
     |--------|
-    `https://app.wayleadr.com/users/sign_in`
-    `https://app.wayleadr.com/`
-    `https://app.wayleadr.com/users/sign_in_sso`
+    | `https://app.wayleadr.com/users/sign_in` |
+    | `https://app.wayleadr.com/` |
+    | `https://app.wayleadr.com/users/sign_in_sso` |
 
     > [!NOTE]
     > This value is not real. Update this value with the actual Reply URL. Contact [Wayleadr Client support team](mailto:support@wayleadr.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
