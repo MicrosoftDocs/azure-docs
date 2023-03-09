@@ -4,7 +4,7 @@ description: Use Microsoft Defender for Cloud to identify sensitive data in your
 author: bmansheim
 ms.author: benmansheim
 ms.topic: how-to
-ms.date: 
+ms.date: 03/09/2023
 ---
 # Identify and protect sensitive data in Azure Storage
 
