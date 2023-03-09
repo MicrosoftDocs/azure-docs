@@ -96,21 +96,25 @@ During Mobile ID integration, the following information is provided.
 Store the noted IDEMIA Client Secret in your Azure AD B2C tenant. For the following instructions, use the directory with your Azure AD B2C tenant. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. In the portal toolbar, select the **Directories + subscriptions**.
-3. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
-4. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
-5. On the **Overview** page, select **Identity Experience Framework**.
-6. Select **Policy Keys** and then select **Add**.
-7. For **Options**, choose **Manual**.
-8. Enter a **Name** for the policy key. For example, IdemiaAppSecret. The prefix B2C_1A_ is added automatically to the name of your key.
-9. In **Secret**, enter your client secret that you previously recorded.
-10. For **Key** usage, select **Signature**.
-11. Select **Create**.
+2. In the portal toolbar, select **Directories + subscriptions**.
+3. On the **Portal settings, Directories + subscriptions** page, in the **Directory name** list find your Azure AD B2C directory
+4. Select **Switch**.
+5. In the top-left corner of Azure portal, select **All services**.
+6. Search for and select **Azure AD B2C**.
+7. On the **Overview** page, select **Identity Experience Framework**.
+8. Select **Policy Keys**.
+9. Select **Add**.
+10. For **Options**, choose **Manual**.
+11. Enter a **Name** for the policy key. For example, `IdemiaAppSecret`. The prefix `B2C_1A_` is added to the key name.
+12. In **Secret**, enter the Client Secret you noted.
+13. For **Key** usage, select **Signature**.
+14. Select **Create**.
 
-### Configure IDEMIA as an External IdP
+### Configure Mobile ID as an External IdP
 
-To enable users to sign in using IDEMIA mobile ID passwordless identity, you need to define IDEMIA as a claims provider that Azure AD B2C can communicate with through an endpoint. The endpoint provides a set of claims that are used by Azure AD B2C to verify a specific user has authenticated using biometry such as fingerprint or facial scan as available on their device, proving the user’s identity.
-You can define IDEMIA as a claims provider by adding it to the **ClaimsProvider** element in the extension file of your policy.
+To enable users to sign in with Mobile ID, define IDEMIA as a claims provider. This action ensures Azure AD B2C communicates through an endpoint, which provides claims Azure AD B2C uses to verify user authentication with biometry. 
+
+To define IDEMIA as a claims provider, add it to the **ClaimsProvider** element in the policy extension file.
 
 ```PowerShell
      <TechnicalProfile Id="Idemia-Oauth2">
@@ -160,23 +164,23 @@ You can define IDEMIA as a claims provider by adding it to the **ClaimsProvider*
 Set client_id to the application ID from the application registration.
 
 |Property | Description|
-|:------|:-------|
-|Scope| For OpenID Connect (OIDC) the minimum requirement is that the scope parameter be set to **openid**. Additional scopes may be appended as a space-delimited list.|
-|redirect_uri | This defines where the user agent sends the authorization code back to Azure AD B2C.|
+|---|---|
+|Scope| For OpenID Connect (OIDC) the minimum requirement is scope parameter is set to **openid**. Append more scopes as a space-delimited list.|
+|redirect_uri | This location is where the user agent sends the authorization code to Azure AD B2C.|
 |response_type| For the authorization code flow, this is set to **code**|
-|acr_values| This parameter controls the authentication methods that the user is required to perform during the authentication process. |
+|acr_values| This parameter controls the authentication methods the user must perform during authentication. |
 
-One of the following values must be selected:
+Select one of the following values:
 
 |Parameter value| Effect on user authentication process |
-|:------|:-------|
+|---|---|
 |`loa-2`| Crypto-based Azure AD Multi-Factor Authentication only|
 |`loa-3`| Crypto-based Azure AD Multi-Factor Authentication plus one additional factor|
-|`loa-4`| Crypto-based Azure AD Multi-Factor Authentication with the requirement that the user must also perform pin-based and biometric authentication |
+|`loa-4`| Crypto-based Azure AD Multi-Factor Authentication with the requirement the user must perform PIN-based and biometric authentication |
 
-The **/userinfo** endpoint provides the claims for the scope(s) requested in the authorization request. For the **<mt_scope>** this includes such claims as First Name, Last Name, and Driver's License Number, among other items.
-The claims set for any given scope are published in the **scope_to_claims_mapping** section of the discovery API.
-Azure AD B2C requests claims from the claims endpoint and returns those claims in the OutputClaims element. You may need to map the name of the claim defined in your policy to the name defined in the IdP making sure to define the claim type in the [ClaimSchema element](claimsschema.md):
+The **/userinfo** endpoint provides the claims for the scope(s) requested in the authorization request. For the **<mt_scope>** this includes claims like First Name, Last Name, and Driver's License Number, among other items.
+The claims set for a scope are published in the **scope_to_claims_mapping** section of the discovery API.
+Azure AD B2C requests claims from the claims endpoint and returns them in the OutputClaims element. You might need to map the claim name in your policy to the name in the IdP. Define the claim type in the [ClaimSchema element](claimsschema.md):
 
 ```PowerShell
 <ClaimType Id="documentId">
@@ -189,7 +193,7 @@ Azure AD B2C requests claims from the claims endpoint and returns those claims i
 </ClaimType>
 ```
 
-### Part 4 - Add a user journey
+### Add a user journey
 
 At this point, the IdP has been set up, but it's not yet available in any of the sign-in pages. If you don't have your own custom user journey, create a duplicate of an existing template user journey, otherwise continue to the next step.
 
