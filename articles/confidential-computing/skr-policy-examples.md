@@ -14,7 +14,7 @@ ms.author: amgowda
 
 SKR can only release exportable marked keys based on the Microsoft Azure Attestation (MAA) generated claims. There is a tight integration on the SKR policy definition to MAA claims. MAA claims by trusted execution environment (TEE)can be found [here](../attestation/attestation-token-examples.md)
 
-Please follow the policy [grammer](../azure/key-vault/keys/policy-grammar) for more examples on how you can customize the SKR policies. 
+Please follow the policy [grammer](../azure/key-vault/keys/policy-grammar.md) for more examples on how you can customize the SKR policies. 
 
 ## Intel SGX Application Enclaves SKR policy examples
 
