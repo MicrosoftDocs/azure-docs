@@ -12,9 +12,13 @@ ms.author: franlanglois
 
 # Configure disk encryption for Azure Cache for Redis instances using customer managed keys
 
-The Enterprise and Enterprise Flash tiers of Azure Cache for Redis offer the ability to encrypt the OS and data persistence disks. Platform-managed keys (PMKs), which are also know an Microsof-managed keys (MMKs) are used to encrypt the data. However, customer managed keys (CMK) can also be used to wrap the MMKs to control access to these keys. This makes the CMK a _key encryption key_ or KEK. See here for more information about [key management in azure](../security/fundamentals/key-management.md) 
+The Enterprise and Enterprise Flash tiers of Azure Cache for Redis offer the ability to encrypt the OS and data persistence disks with customer-managed key encryption at rest. Platform-managed keys (PMKs), which are also know as Microsoft-managed keys (MMKs), are used to encrypt the data. However, customer managed keys (CMK) can also be used to wrap the MMKs to control access to these keys. This makes the CMK a _key encryption key_ or KEK. See here for more information about [key management in azure](../security/fundamentals/key-management.md) 
 
-Data in Redis is stored in memory by default. This data is not encrypted, although you can implement your own encryption on the data before writing it to the cache. In some cases, data can reside on-disk, either due to the operations of the operating system or because of deliberate actions to persist data through the [export](cache-how-to-import-export-data.md) or [data persistence](cache-how-to-premium-persistence.md) features.
+Data in Redis is stored in memory by default. This data is not encrypted, although you can implement your own encryption on the data before writing it to the cache. In some cases, data can reside on-disk, either due to the operations of the operating system or because of deliberate actions to persist data through the [export](cache-how-to-import-export-data.md) or [data persistence](cache-how-to-premium-persistence.md) features. 
+
+> [!NOTE]
+> OS disk encryption is more important on the Premium tier, because open-source Redis can page cache data to disk. Redis Enterprise does not do this, which is an advantage of the Enterprise and Enterprise Flash tiers.
+>
 
 In this article, you learn how to configure disk encryption using Customer Managed Keys (CMK). 
 
@@ -54,10 +58,19 @@ In the **Basic, Standard, and Premium** tiers, the OS disk is encrypted using MM
 
 ## Prerequisites and Limitations
 
+### General prerequisites and limitations
+
 - Disk encryption is not available in the Basic and Standard tiers for the C0 or C1 SKUs
 - Only user-assigned managed identity is supported to connect to Azure Key Vault
-- You cannot switch between MMK and CMK encryption at runtime. This will trigger a patching-like operation that will provision new disks and VMs.
+- Changing between MMK and CMK on an existing cache instance triggers a long-running maintenance operation. This is not recommended for production use as service disruption will occur. 
+
+### Azure Key Vault prerequisites and limitations
+
 - The Azure Key Vault resource containing the customer managed key must be in the same region as the cache resource.
+- [Purge protection and soft-delete](../key-vault/general/soft-delete-overview.md) must be enabled in the Azure Key Vault instance. Note that purge protection is not enabled by default.
+- When using firewall rules in the Azure Key Vault, the Key Vault instance must be configured to [allow trusted services](../key-vault/general/network-security.md).
+- Only RSA keys are supported
+- The user-assigned managed identity must be given the permissions _Get_, _Unwrap Key_, and _Wrap Key_ in the Key Vault access policies, or the equivalent permissions within Azure Role Based Access Control. 
 
 ## How to configure CMK encryption on Enterprise caches
 
@@ -78,7 +91,7 @@ In the **Basic, Standard, and Premium** tiers, the OS disk is encrypted using MM
 > [!NOTE]
 > For instructions on how to set up an Azure Key Vault instance, see the [Azure Key Vault quickstart guide](../key-vault/secrets/quick-create-portal.md). You can also select the _Create a key vault_ link beneath the Key Vault selection to create a new Key Valut instance.  
 
-1. Choose the specific key using the **Customer-managed key (RSA)** drop-down. If there are multiple versions of the key to choose from, use the **Version** drop-down.
+1. Choose the specific key and version using the **Customer-managed key (RSA)** and **Version** drop-downs.
 
   **[FRAN] Need a screen shot for the above steps--can probably all be in one screenshot**
 
