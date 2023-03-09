@@ -888,7 +888,7 @@ organization.",
 
 **TLS Protocol Versions**
 
-The only acceptable TLS protocol versions are TLS 1.2 and TLS 1.3. No other versions of TLS are permitted. No version of SSL is permitted. 
+The only acceptable protocol versions are TLS 1.2 and TLS 1.3. No other SSL/TLS versions are permitted.
 
 - RSA keys must be at least 2,048 bits.
 - ECC keys must be at least 256 bits, generated using an approved elliptic curve
