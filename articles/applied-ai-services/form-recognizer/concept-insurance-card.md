@@ -44,7 +44,7 @@ See how data is extracted from health insurance cards using the Form Recognizer 
 #### Form Recognizer Studio
 
 > [!NOTE]
-> Form Recognizer studio is available with v3.0 preview API.
+> Form Recognizer studio is available with API version v3.0.
 
 1. On the [Form Recognizer Studio home page](https://formrecognizer.appliedai.azure.com/studio), select **Health insurance cards**.
 
@@ -115,12 +115,18 @@ See how data is extracted from health insurance cards using the Form Recognizer 
 
 ## Next steps
 
-* Complete a Form Recognizer quickstart:
+::: moniker range="form-recog-3.0.0"
 
-> [!div class="checklist"]
->
-> * [**REST API**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)
-> * [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true#prebuilt-model)
-> * [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true#prebuilt-model)
-> * [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true#prebuilt-model)
-> * [**JavaScript**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true#prebuilt-model)</li></ul>
+* Try processing your own forms and documents with the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)
+
+* Complete a [Form Recognizer quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
+
+::: moniker-end
+
+::: moniker range="form-recog-2.1.0"
+
+* Try processing your own forms and documents with the [Form Recognizer Sample Labeling tool](https://fott-2-1.azurewebsites.net/)
+
+* Complete a [Form Recognizer quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-2.1.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
+
+::: moniker-end
