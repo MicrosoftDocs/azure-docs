@@ -6,10 +6,10 @@ services: virtual-wan
 author: cherylmc
 
 ms.service: virtual-wan
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 08/04/2022
 ms.author: cherylmc
-
 ---
 # Create a site-to-site connection to Azure Virtual WAN using PowerShell
 

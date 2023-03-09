@@ -32,6 +32,9 @@ Applications that the recommendation identified appear in the list of **Impacted
 
 1. Take note of the application name and ID that the recommendation identified.
 1. Go to **Azure AD** > **App registration** and locate the application that was surfaced as part of this recommendation.
+
+    ![Screenshot of the Azure AD app registration page.](media/recommendation-remove-unused-apps/app-registrations-list.png)
+
 1. Determine if the identified application is needed.
     - If the application is no longer needed, remove it from your tenant.
     - If the application is needed, we suggest you take appropriate steps to ensure the application is used in intervals of less than 30 days.

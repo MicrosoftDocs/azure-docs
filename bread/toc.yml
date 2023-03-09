@@ -596,7 +596,7 @@
   - name: Dedicated HSM
     tocHref: /azure/dedicated-hsm/
     topicHref: /azure/dedicated-hsm/
-  - name: Microsoft Energy Data Services
+  - name: Azure Data Manager for Energy
     tocHref: /azure/energy-data-services
     topicHref: /azure/energy-data-services
   - name: Azure DevTest Labs
