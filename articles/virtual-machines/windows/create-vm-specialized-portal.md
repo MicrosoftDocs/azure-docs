@@ -7,7 +7,7 @@ ms.subservice: imaging
 ms.collection: windows
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 02/24/2023
+ms.date: 03/08/2023
 ms.author: cynthn
 
 ---
@@ -16,27 +16,22 @@ ms.author: cynthn
 **Applies to:** :heavy_check_mark: Windows VMs 
 
 
-> [!NOTE]
+> [!IMPORTANT]
 > Customers are encouraged to use Azure Compute Gallery as all new features like ARM64, Trusted Launch, and Confidential VM,are only supported through Azure Compute Gallery.  If you have an existing VHD or managed image, you can use it as a source and create an Azure Compute Gallery image. For more information, see [Create an image definition and image version](../image-version.md).
 > 
-> Creating an image instead of just attaching a disk means you can create multiple VMs from the same sounrce disk.
+> Creating an image instead of just attaching a disk means you can create multiple VMs from the same source disk.
 
 
-There are several ways to create a virtual machine (VM) in Azure:
+If you already have a virtual hard disk (VHD) to use or you want to copy the VHD from an existing VM to use, you can create a new VM by *attaching* the VHD to the new VM as an OS disk.
 
-- If you already have a virtual hard disk (VHD) to use or you want to copy the VHD from an existing VM to use, you can create a new VM by *attaching* the VHD to the new VM as an OS disk.
-
-- You can create a new VM from the VHD of a VM that has been deleted. For example, if you have an Azure VM that isn't working correctly, you can delete the VM and use its VHD to create a new VM. You can either reuse the same VHD or create a copy of the VHD by creating a snapshot and then creating a new managed disk from the snapshot. Although creating a snapshot takes a few more steps, it preserves the original VHD and provides you with a fallback.
-
-- You can create an Azure VM from an on-premises VHD by uploading the on-premises VHD and attaching it to a new VM. You use PowerShell or another tool to upload the VHD to a storage account, and then you create a managed disk from the VHD. For more information, see [Upload a specialized VHD](create-vm-specialized.md#option-2-upload-a-specialized-vhd).
+You can also create a new VM from the VHD of a VM that has been deleted. For example, if you have an Azure VM that isn't working correctly, you can delete the VM and use its VHD to create a new VM. 
 
 
 
 > [!IMPORTANT]
 >
 > When you use a [specialized](shared-image-galleries.md#generalized-and-specialized-images) disk to create a new VM, the new VM retains the computer name of the original VM. Other computer-specific information (e.g. CMID) is also kept and, in some cases, this duplicate information could cause issues. When copying a VM, be aware of what types of computer-specific information your applications rely on.  
-> Don't use a specialized disk if you want to create multiple VMs. Instead, for larger deployments, create an image and then use that image to create multiple VMs. 
-> For more information, see [Store and share images in an Azure Compute Gallery](shared-image-galleries.md).
+> For larger deployments, create an image and then use that image to create multiple VMs. For more information, see [Store and share images in an Azure Compute Gallery](shared-image-galleries.md).
 
 We recommend that you limit the number of concurrent deployments to 20 VMs from a single snapshot or VHD.
 
@@ -66,7 +61,7 @@ Create a snapshot and then create a disk from the snapshot. This strategy allows
 
 ## Create a VM from a disk
 
-After you have the managed disk VHD that you want to use, you can create the VM in the portal:
+After you have the disk that you want to use, you can create the VM in the portal:
 
 1. In the search box, enter **disks** and then select **Disks** to display the list of available disks.
 3. Select the disk that you would like to use. The **Disk** page for that disk opens.
