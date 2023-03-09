@@ -7,10 +7,11 @@ author: jimmart-dev
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/07/2022
+ms.date: 03/09/2023
 ms.author: jammart
 ms.reviewer: jamesbak
 ms.devlang: python
+ms.custom: engagement-fy23
 ---
 
 # Access control lists (ACLs) in Azure Data Lake Storage Gen2
@@ -95,7 +96,7 @@ The following table shows you the ACL entries required to enable a security prin
 This table shows a column that represents each level of a fictitious directory hierarchy. There's a column for the root directory of the container (`/`), a subdirectory named **Oregon**, a subdirectory of the Oregon directory named **Portland**, and a text file in the Portland directory named **Data.txt**.
 
 > [!IMPORTANT]
-> This table assumes that you are using **only** ACLs without any Azure role assignments. To see a similar table that combines Azure RBAC together with ACLs, see [Permissions table: Combining Azure RBAC and ACL](data-lake-storage-access-control-model.md#permissions-table-combining-azure-rbac-and-acl).
+> This table assumes that you are using **only** ACLs without any Azure role assignments. To see a similar table that combines Azure RBAC together with ACLs, see [Permissions table: Combining Azure RBAC and ACL](data-lake-storage-access-control-model.md#permissions-table-combining-azure-rbac-abac-and-acls).
 
 |    Operation             |    /    | Oregon/ | Portland/ | Data.txt     |
 |--------------------------|---------|----------|-----------|--------------|
