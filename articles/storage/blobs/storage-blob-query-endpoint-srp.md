@@ -175,13 +175,15 @@ from azure.mgmt.storage import StorageManagementClient
 
 ## Query for the blob service endpoint
 
-The following code sample gets a blob service endpoint for a specified storage account:
+The following code samples get a blob service endpoint for a specified storage account:
 
 ## [.NET](#tab/dotnet)
 
 To get the properties for a specified storage account, use the following method from a [StorageAccountCollection](/dotnet/api/azure.resourcemanager.storage.storageaccountcollection) object:
 
 - [GetAsync](/dotnet/api/azure.resourcemanager.storage.storageaccountcollection.getasync)
+
+This method returns a [StorageAccountResource](/dotnet/api/azure.resourcemanager.storage.storageaccountresource) object, which represents the storage account.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobQueryEndpoint/QueryEndpoint.cs" id="Snippet_QueryEndpoint" highlight="26,29":::
 
@@ -195,11 +197,9 @@ To get the properties for a specified storage account, use the following method 
 
 ## Create a client object using the service endpoint
 
-Once you have the blob service endpoint for a storage account, you can instantiate a client object to work with the data resources.
+Once you have the blob service endpoint for a storage account, you can instantiate a client object to work with data resources. The following code sample creates a `BlobServiceClient` object using the endpoint we retrieved in the earlier example:
 
 ## [.NET](#tab/dotnet)
-
-The following code sample creates a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) object using the endpoint we retrieved in the earlier example:
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobQueryEndpoint/Program.cs" id="Snippet_CreateClientWithEndpoint" highlight="12":::
 
