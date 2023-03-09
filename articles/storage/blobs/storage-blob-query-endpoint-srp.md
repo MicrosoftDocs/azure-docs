@@ -98,6 +98,10 @@ npm install @azure/storage-blob
 npm install @azure/arm-storage
 ```
 
+- [@azure/identity](/javascript/api/overview/azure/identity-readme): Provides Azure Active Directory (Azure AD) token authentication support across the Azure SDK, and is needed for passwordless connections to Azure services.
+- [@azure/storage-blob](/javascript/api/overview/azure/storage-blob-readme): Contains the primary classes that you can use to work with Blob Storage data resources.
+- [@azure/arm-storage](/javascript/api/overview/azure/arm-storage-readme): Supports management of Azure Storage resources, including resource groups and storage accounts.
+
 ## [Python](#tab/python)
 
 Install the following packages using `pip install`:
@@ -107,6 +111,10 @@ pip install azure-identity
 pip install azure-storage-blob
 pip install azure-mgmt-storage
 ```
+
+- [azure-identity](/python/api/overview/azure/identity-readme): Provides Azure Active Directory (Azure AD) token authentication support across the Azure SDK, and is needed for passwordless connections to Azure services.
+- [azure-storage-blob](/python/api/overview/azure/storage-blob-readme): Contains the primary classes that you can use to work with Blob Storage data resources.
+- [azure-mgmt-storage](/python/api/azure-mgmt-storage/azure.mgmt.storage.storagemanagementclient): Supports management of Azure Storage resources, including resource groups and storage accounts.
 
 ---
 
@@ -147,10 +155,7 @@ import com.azure.core.management.profile.*;
 Add the following `require` statements to load the modules:
 
 ```javascript
-const {
-  BlobServiceProperties,
-  StorageManagementClient,
-} = require("@azure/arm-storage");
+const { StorageManagementClient } = require("@azure/arm-storage");
 const { DefaultAzureCredential } = require("@azure/identity");
 const { BlobServiceClient } = require("@azure/storage-blob");
 ```
