@@ -5,7 +5,7 @@ author: AbdullahBell
 ms.author: abell
 ms.service: ddos-protection
 ms.topic: quickstart 
-ms.date: 03/01/2023
+ms.date: 03/09/2023
 ms.workload: infrastructure-services
 ms.custom: template-quickstart 
 # Customer intent As an IT admin, I want to learn how to enable DDoS IP Protection on my public IP address.
@@ -40,7 +40,7 @@ To create a resource group, use [az group create](/cli/azure/group#az-group-crea
 
 ## Enable DDoS IP Protection on a public IP address
 
-### Enable DDoS IP Protection on a new public IP address
+### New public IP address
 
 You can enable DDoS IP Protection when creating a public IP address. In this example, we'll name our public IP address _myStandardPublicIP_: 
 
@@ -54,7 +54,7 @@ You can enable DDoS IP Protection when creating a public IP address. In this exa
         --ddos-protection-mode Enabled
 ```
 
-### Enable DDoS protection for an existing public IP address
+### Existing public IP address
 
 You can enable DDoS IP Protection on an existing public IP address.
 
@@ -65,7 +65,7 @@ You can enable DDoS IP Protection on an existing public IP address.
         --ddos-protection-mode Enabled
 ```
 
-### Update a public IP address to disable DDoS IP Protection:
+### Disable DDoS IP Protection:
 
 You can disable DDoS IP Protection on an existing public IP address.
 
@@ -112,5 +112,4 @@ In this quickstart, you created:
 To learn how to configure telemetry for DDoS Protection, continue to the how-to guides.
 
 > [!div class="nextstepaction"]
-> [Configure DDoS protection telemetry](telemetry.md)
 > [Configure diagnostic logging alerts](ddos-diagnostic-alert-templates.md)
