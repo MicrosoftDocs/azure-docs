@@ -142,14 +142,11 @@ You can create the Azure Container Apps environment in one of two ways:
 
 1. Set the following environment variables.
 
-   ```bash
+   ```azurecli
    RESOURCE_GROUP="<resource-group-name>"
    SPRING_APPS_NAME="<azure-spring-apps-instance-name>"
    MANAGED_ENVIRONMENT="<azure-container-apps-environment-name>"
    LOCATION="eastus"
-   ```
-
-   ```azurecli
    MANAGED_ENV_RESOURCE_ID=$(az containerapp env show \
        --name $AZURE_CONTAINER_APPS_ENVIRONMENT_NAME" \
        --resource-group $RESOURCE_GROUP \

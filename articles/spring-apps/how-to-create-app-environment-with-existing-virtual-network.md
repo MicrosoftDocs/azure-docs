@@ -157,7 +157,7 @@ An Azure Container Apps environment creates a secure boundary around a group of 
 
 1. Get the ID for the infrastructure subnet.
 
-   ```bash
+   ```azurecli
    INFRASTRUCTURE_SUBNET=$(az network vnet subnet show \
        --resource-group $RESOURCE_GROUP \
        --vnet-name $VNET_NAME \
