@@ -348,6 +348,8 @@
         href: boxcryptor-tutorial.md
       - name: Brandfolder
         href: brandfolder-tutorial.md
+      - name: BrainStorm Platform
+        href: brainstorm-platform-tutorial.md
       - name: Braze
         href: braze-tutorial.md
       - name: Bridge
@@ -1269,6 +1271,8 @@
         href: iserver-portal-tutorial.md
       - name: i-Sight
         href: isight-tutorial.md
+      - name: Island
+        href: island-tutorial.md
       - name: IT-Conductor
         href: it-conductor-tutorial.md
       - name: ITRP
@@ -1895,6 +1899,8 @@
         href: printix-tutorial.md
       - name: Prisma Cloud SSO
         href: prisma-cloud-tutorial.md
+      - name: Proactis Rego Source-to-Pay
+        href: proactis-rego-source-to-pay-tutorial.md
       - name: Procaire
         href: procaire-tutorial.md
       - name: ProcessUnity
@@ -2643,6 +2649,8 @@
         href: watch-by-colors-tutorial.md
       - name: Wandera
         href: wandera-tutorial.md
+      - name: Wayleadr
+        href: wayleadr-tutorial.md
       - name: Way We Do
         href: waywedo-tutorial.md
       - name: Wdesk
@@ -2741,6 +2749,8 @@
         href: yodeck-tutorial.md
       - name: Yonyx Interactive Guides
         href: yonyx-tutorial.md
+      - name: YOU at College
+        href: you-at-college-tutorial.md
       - name: YouEarnedIt
         href: youearnedit-tutorial.md
       - name: Yuhu Property Management Platform
