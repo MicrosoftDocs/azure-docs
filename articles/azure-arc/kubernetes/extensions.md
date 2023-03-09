@@ -39,7 +39,7 @@ Before you begin, read the [conceptual overview of Arc-enabled Kubernetes cluste
     az extension update --name k8s-extension
     ```
 
-* An existing Azure Arc-enabled Kubernetes connected cluster with at least  one node of operating system and architecture type `linux/amd64`
+* An existing Azure Arc-enabled Kubernetes connected cluster, with at least  one node of operating system and architecture type `linux/amd64`.
   * If you haven't connected a cluster yet, use our [quickstart](quickstart-connect-cluster.md).
   * [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to the latest version.
 
