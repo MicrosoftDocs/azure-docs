@@ -5,7 +5,7 @@ description: Learn how to build a Bicep file or an Azure Resource Manager templa
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 08/30/2022
-ms.custom: fasttrack-edit, devx-track-azurepowershell
+ms.custom: fasttrack-edit
 ---
 
 # Automate resource deployment for your function app in Azure Functions

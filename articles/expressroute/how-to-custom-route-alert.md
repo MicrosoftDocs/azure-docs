@@ -5,10 +5,10 @@ services: expressroute
 author: duongau
 
 ms.service: expressroute
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: duau
-
 ---
 # Configure custom alerts to monitor advertised routes
 

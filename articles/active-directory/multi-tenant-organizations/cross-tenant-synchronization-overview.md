@@ -51,7 +51,7 @@ With cross-tenant synchronization, you can do the following:
 
 ## Teams and Microsoft 365
 
-Users created by cross-tenant synchronization will have the same experience when accessing Microsoft Teams and other Microsoft 365 services as B2B collaboration users created through a manual invitation. The [userType](../external-identities/user-properties.md) property on the B2B user, whether guest or member, does change the end user experience. Over time, the member userType will be used by the various Microsoft 365 services to provide differentiated end user experiences for users in a multi-tenant organization. 
+Users created by cross-tenant synchronization will have the same experience when accessing Microsoft Teams and other Microsoft 365 services as B2B collaboration users created through a manual invitation. The [userType](../external-identities/user-properties.md) property on the B2B user, whether guest or member, does not change the end user experience. Over time, the member userType will be used by the various Microsoft 365 services to provide differentiated end user experiences for users in a multi-tenant organization. 
 
 ## Properties
 
