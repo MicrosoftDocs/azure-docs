@@ -14,16 +14,6 @@ ms.subservice: sms
 
 # Send shortener links through SMS with Azure Communication Services
 
-[2:44 PM] Regina Liang
-
-
-
-
-Amazing, thank you David de Matheu! I passed along the link to Chad Voeler and David Ginn directly for their feedback. 
-
- 
-
-Some quick edits for readability: 
 
 SMS messages are limited to 160 characters. This can pose limitations when sending links to customers and truncate the message for many reasons; the link can exceed 160 characters and/or contain query parameters for the user profile and cookie information, etc. Leverage the Azure URL shortener to help stay within the 160 character limit. 
 
