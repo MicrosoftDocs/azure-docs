@@ -34,6 +34,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [azure-cli-prepare-your-environment-h3](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
+### Development machine prerequisites
+
 If you're using Windows:
 
 1. Install [Visual Studio (Community, Professional, or Enterprise)](https://visualstudio.microsoft.com/downloads). Be sure to enable the **Desktop development with C++** workload.
@@ -228,13 +230,13 @@ Got message for devices/mqtt-dev-01/messages/# topic
 
 The following snippets are taken from the _mosquitto/src/mosquitto_subscribe.cpp_ file.
 
-The following statement defines the topic the device uses to receive cloud to device messages:
+The following statement defines the topic filter the device uses to receive cloud to device messages. The `#` is a multi-level wildcard:
 
 ```c
 #define DEVICEMESSAGE "devices/" DEVICEID "/messages/#"
 ```
 
-The `main` function uses the `mosquitto_message_callback_set` function to set a callback to handle messages sent from your IoT hub and uses the `mosquitto_subscribe` function to subscribe to the `#` topic. The following snippet shows the callback function:
+The `main` function uses the `mosquitto_message_callback_set` function to set a callback to handle messages sent from your IoT hub and uses the `mosquitto_subscribe` function to subscribe to all messages. The following snippet shows the callback function:
 
 ```c
 void message_callback(struct mosquitto* mosq, void* obj, const struct mosquitto_message* message)
@@ -309,7 +311,7 @@ void connect_callback(struct mosquitto* mosq, void* obj, int result)
 }
 ```
 
-The device subscribes to the `$iothub/twin/res/#` topic and when it receives a message from your IoT hub, the `message_callback` function handles it. When you run the sample, the `message_callback` function gets called twice. The first time, the device receives a response from the IoT hub to the reported property update and then requests the device twin. The second time, the device receives the requested device twin. The following snippet shows the `message_callback` function:
+The device subscribes to the `$iothub/twin/res/#` topic and when it receives a message from your IoT hub, the `message_callback` function handles it. When you run the sample, the `message_callback` function gets called twice. The first time, the device receives a response from the IoT hub to the reported property update. The device then requests the device twin. The second time, the device receives the requested device twin. The following snippet shows the `message_callback` function:
 
 ```c
 void message_callback(struct mosquitto* mosq, void* obj, const struct mosquitto_message* message)
