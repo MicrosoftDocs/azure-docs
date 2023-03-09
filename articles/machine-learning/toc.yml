@@ -62,10 +62,10 @@
 - name: Quickstart
   expanded: true
   items:
+    - name: "Apache Spark - Environment Configuration"
+      href: apache-spark-environment-configuration.md
     - name: Create ML resources to get started
       href: quickstart-create-resources.md
-    - name: "Quickstart: Interactive Data Wrangling with Apache Spark (preview)"
-      href: quickstart-spark-data-wrangling.md
     - name: "Quickstart: Submit Apache Spark jobs in Azure Machine Learning (preview)"
       href: quickstart-spark-jobs.md
     - name: Run Jupyter notebooks

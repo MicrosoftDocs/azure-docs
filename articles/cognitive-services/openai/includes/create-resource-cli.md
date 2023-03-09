@@ -6,6 +6,7 @@ services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
+ms.custom: devx-track-azurecli
 ms.topic: include
 ms.date: 6/30/2022
 keywords: 

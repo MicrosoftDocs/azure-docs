@@ -73,6 +73,46 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 * Prebuilt ID model - added document types supported. The ID model now supports these added document types
     * US Military ID
 
+> [!TIP]
+> All January 2023 updates are available with [REST API version **2022-08-31 (GA)**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument).
+
+* **[Prebuilt receipt model](concept-receipt.md#supported-languages-and-locales)—additional language support**:
+
+   The **prebuilt receipt model** now has added support for the following languages:
+
+  * English - United Arab Emirates (en-AE)
+  * Dutch - Netherlands (nl-NL)
+  * French - Canada (fr-CA)
+  * German - (de-DE)
+  * Italian - (it-IT)
+  * Japanese - Japan (ja-JP)
+  * Portuguese - Brazil (pt-BR)
+
+* **[Prebuilt invoice model](concept-invoice.md)—additional language support and field extractions**
+
+  The **prebuilt invoice model** now has added support for the following languages:
+
+  * English - Australia (en-AU), Canada (en-CA), Great Britain (en-GB), India (en-IN)
+  * Portuguese - Brazil (pt-BR)
+
+  The **prebuilt invoice model** now has added support for the following field extractions:
+
+  * Currency code
+  * Payment options
+  * Total discount
+  * Tax items (en-IN only)
+
+* **[Prebuilt ID document model](concept-id-document.md#document-types)—additional document types support**
+
+  The **prebuilt ID document model** now has added support for the following document types:
+
+  * Driver's license expansion supporting India, Canada, United Kingdom and Australia
+  * US military ID cards and documents
+  * India ID cards and documents (PAN and Aadhaar)
+  * Australia ID cards and documents (photo card, Key-pass ID)
+  * Canada ID cards and documents (identification card, Maple card)
+  * United Kingdom ID cards and documents (national identity card)
+
 ## December 2022
 
 * [**Form Recognizer Studio updates**](https://formrecognizer.appliedai.azure.com/studio)
