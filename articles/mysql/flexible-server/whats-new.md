@@ -25,6 +25,25 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 
 ## February 2023
 
+- **Enhanced metrics workbook is now available**
+
+  Monitor system's performance with our recently added [Enhanced Metrics](./concepts-monitoring.md#enhanced-metrics) workbook. With all enhanced metrics consolidated in one place, you'll be able to easily monitor and track your system's health and make informed decisions to improve its overall performance.
+
+
+- **Major version upgrade is now back and available for use**
+
+  Major Version upgrade feature was temporarily disabled in the portal due to technical issues and is now back again for use.
+  If you are encountering any issues with the upgrade feature please open a [support ticket](https://azure.microsoft.com/support/create-ticket/) and we will assist you.
+
+
+- **Redo logs management in MySQL version 8.0**
+
+  Starting from [MySQL version 8.0.30 and above](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-30.html), there has been a change in the way the redo log is configured. Instead of using the [innodb_log_file_size](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_file_size) variable, the redo log can now be easily adjusted from the available values using the [innodb_redo_log_capacity](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_redo_log_capacity) variable. [Learn more](https://dev.mysql.com/doc/refman/8.0/en/innodb-redo-log.html). 
+
+- **Unsupported Server Parameters**
+
+  The ability to modify the [thread_handling](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html) parameter in the Azure Database for MySQL Flexible Server is discontinued considering the underlying architecture and performance.
+
 - **Minor version upgrade for Azure Database for MySQL - Flexible server to 8.0.31**
 
   After this month's deployment, Azure Database for MySQL - Flexible Server 8.0  will be running on minor version 8.0.31*, to learn more about changes coming in this minor version [visit Changes in MySQL 8.0.31 (2022-10-11, General Availability)](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-31.html)

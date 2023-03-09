@@ -33,7 +33,7 @@ The standard tier of IoT Hub enables all features, and is required for any IoT s
 | ---------- | ---------- | ------------- |
 | [Device-to-cloud telemetry](iot-hub-devguide-messaging.md) | Yes | Yes |
 | [Per-device identity](iot-hub-devguide-identity-registry.md) | Yes | Yes |
-| [Message routing](iot-hub-devguide-messages-read-custom.md), [message enrichments](iot-hub-message-enrichments-overview.md), and [Event Grid integration](iot-hub-event-grid.md) | Yes | Yes |
+| [Message routing](iot-hub-devguide-messages-d2c.md), [message enrichments](iot-hub-message-enrichments-overview.md), and [Event Grid integration](iot-hub-event-grid.md) | Yes | Yes |
 | [HTTP, AMQP, and MQTT protocols](iot-hub-devguide-protocols.md) | Yes | Yes |
 | [Device Provisioning Service](../iot-dps/about-iot-dps.md) | Yes | Yes |
 | [Monitoring and diagnostics](monitor-iot-hub.md) | Yes | Yes |

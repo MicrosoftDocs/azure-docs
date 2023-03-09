@@ -52,6 +52,7 @@ To grant tenant-wide admin consent to an app listed in **Enterprise applications
 1. Select the application to which you want to grant tenant-wide admin consent, and then select **Permissions**.
    :::image type="content" source="media/grant-tenant-wide-admin-consent/grant-tenant-wide-admin-consent.png" alt-text="Screenshot shows how to grant tenant-wide admin consent.":::
 
+1. Add the redirect **URI** (https://entra.microsoft.com/TokenAuthorize) as permitted redirect **URI** to the app.
 1. Carefully review the permissions that the application requires. If you agree with the permissions the application requires, select **Grant admin consent**.
 
 ## Grant admin consent in App registrations
@@ -73,13 +74,13 @@ When granting tenant-wide admin consent using either method described above, a w
 The tenant-wide admin consent URL follows the following format:
 
 ```http
-https://login.microsoftonline.com/{tenant-id}/adminconsent?client_id={client-id}
+https://login.microsoftonline.com/{organization}/adminconsent?client_id={client-id}
 ```
 
 where:
 
 - `{client-id}` is the application's client ID (also known as app ID).
-- `{tenant-id}` is your organization's tenant ID or any verified domain name.
+- `{organization}` is the tenant ID or any verified domain name of the tenant you want to consent the application in. You can use the value `common`, which will cause the consent to happen in the home tenant of the user you sign in with.
 
 As always, carefully review the permissions an application requests before granting consent.
 

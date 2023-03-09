@@ -3,6 +3,7 @@ title: Manage Enterprise IoT plans on Azure subscriptions
 description: Manage Defender for IoT plans for Enterprise IoT monitoring on your Azure subscriptions.
 ms.date: 07/06/2022
 ms.topic: how-to
+ms.custom: enterprise-iot
 ---
 
 # Manage Defender for IoT plans for Enterprise IoT security monitoring
@@ -85,7 +86,7 @@ This procedure describes how to add an Enterprise IoT plan to your Azure subscri
 
     :::image type="content" source="media/enterprise-iot/defender-for-endpoint-onboard.png" alt-text="Screenshot of the Enterprise IoT tab in Defender for Endpoint." lightbox="media/enterprise-iot/defender-for-endpoint-onboard.png":::
 
-After you've onboarded your plan, you'll see it listed in Defender for IoT in the Azure portal. Go to the Defender for IoT **Plans and pricing** page and find your subscription with the new **Enterprise IoT** plan listed. For example:
+After you've onboarded your plan, you'll see it listed in [Defender for IoT](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) in the Azure portal. Go to the Defender for IoT **Plans and pricing** page and find your subscription with the new **Enterprise IoT** plan listed. For example:
 
 :::image type="content" source="media/enterprise-iot/eiot-plan-in-azure.png" alt-text="Screenshot of an Enterprise IoT plan showing in the Defender for IoT Plans and pricing page.":::
 

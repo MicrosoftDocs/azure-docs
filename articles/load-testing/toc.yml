@@ -79,15 +79,27 @@ items:
 
 - name: Reference
   items:
+    - name: Azure CLI
+      href: /cli/azure/load
+    - name: Azure PowerShell
+      href: /powershell/module/az.loadtesting/
+    - name: .NET
+      href: /dotnet/api/overview/azure/load-testing
+    - name: Java
+      href: /java/api/overview/azure/load-testing
+    - name: Node.js
+      href: /javascript/api/overview/azure/load-testing
+    - name: Python
+      href: /python/api/overview/azure/load-testing
     - name: REST API
       href: /rest/api/loadtesting/
-    - name: Test configuration YAML
-      href: reference-test-config-yaml.md
     - name: Resource Manager template
       displayName: ARM
       href: /azure/templates/microsoft.loadtestservice/allversions
     - name: Monitor data reference
       href: monitor-load-testing-reference.md
+    - name: Test configuration YAML
+      href: reference-test-config-yaml.md
 
 - name: Resources
   items: 

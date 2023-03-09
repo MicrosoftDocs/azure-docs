@@ -240,9 +240,6 @@
     tocHref: /azure/iot-fundamentals/
     topicHref: /azure/iot-fundamentals/
     items:
-      - name: Azure Percept
-        tocHref: /azure/azure-percept/
-        topicHref: /azure/azure-percept/
       - name: Device Development
         tocHref: /azure/iot-develop/
         topicHref: /azure/iot-develop/
@@ -322,7 +319,7 @@
         topicHref: /azure/partner-solutions/nginx/nginx-overview
       - name: Qumulo
         tocHref: /azure/partner-solutions/qumulo/
-        topicHref: /azure/partner-solutions/nginx/qumulo-overview
+        topicHref: /azure/partner-solutions/qumulo/qumulo-overview
       - name: New Relic
         tocHref: /azure/partner-solutions/new-relic/
         topicHref: /azure/partner-solutions/new-relic/new-relic-overview
@@ -599,7 +596,7 @@
   - name: Dedicated HSM
     tocHref: /azure/dedicated-hsm/
     topicHref: /azure/dedicated-hsm/
-  - name: Microsoft Energy Data Services
+  - name: Azure Data Manager for Energy
     tocHref: /azure/energy-data-services
     topicHref: /azure/energy-data-services
   - name: Azure DevTest Labs
@@ -1145,3 +1142,6 @@
   - name: Azure Deployment Environments
     tocHref: /azure/deployment-environments/
     topicHref: /azure/deployment-environments/index
+  - name: Operator Nexus
+    tocHref: /azure/operator-nexus/
+    topicHref: /azure/operator-nexus/index

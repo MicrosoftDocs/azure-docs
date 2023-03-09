@@ -62,7 +62,7 @@ ResourceId        : /subscriptions/00000000-0000-0000-0000-000000000000/resource
 
 ## Workflow definition
 
-Before you [create a new logic app](#create-logic-apps-from-powershell) or [update an existing logic app](#update-logic-apps-from-powershell) by using Azure PowerShell, you need a workflow definition for your logic app. In the Azure portal, you can view your logic app's underlying workflow definition in JSON format by switching from **Designer** view to **Code view**.
+Before you [create a new logic app](#create-logic-apps-from-powershell) or [update an existing logic app](#update-logic-apps-from-powershell) by using Azure PowerShell, you need a workflow definition for your logic app. To see an example workflow definition, in the Azure portal, open any existing logic app workflow in the designer. On the **Designer** toolbar, select **Code view**, which shows the workflow's underlying definition in JSON format.
 
 When you run the commands to create or update your logic app, your workflow definition is uploaded as a required parameter (`Definition`) or (`DefinitionFilePath`) depending on the parameter set. You must create your workflow definition as a JSON file that follows the [Workflow Definition Language schema](./logic-apps-workflow-definition-language.md).
 

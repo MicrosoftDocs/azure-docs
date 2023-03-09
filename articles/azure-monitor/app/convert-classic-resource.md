@@ -66,7 +66,7 @@ If you don't need to migrate an existing resource, and instead want to create a 
     > * Diagnostic settings use a different export format/schema than continuous export. Migrating breaks any existing integrations with Azure Stream Analytics.
     > * Diagnostic settings export might increase costs. For more information, see [Export telemetry from Application Insights](export-telemetry.md#diagnostic-settings-based-export).
 
-- Check your current retention settings under **General** > **Usage and estimated costs** > **Data Retention** for your Log Analytics workspace. This setting affects how long any new ingested data is stored after you migrate your Application Insights resource.
+- Check your current retention settings under **Settings** > **Usage and estimated costs** > **Data Retention** for your Log Analytics workspace. This setting affects how long any new ingested data is stored after you migrate your Application Insights resource.
 
     > [!NOTE]
     > -  If you currently store Application Insights data for longer than the default 90 days and want to retain this longer retention period after migration, adjust your [workspace retention settings](../logs/data-retention-archive.md?tabs=portal-1%2cportal-2#set-retention-and-archive-policy-by-table).
@@ -327,7 +327,7 @@ The legacy **Continuous export** functionality isn't supported for workspace-bas
 
 You don't have to make any changes prior to migrating. This message alerts you that your current Application Insights retention settings aren't set to the default 90-day retention period. This warning message means you might want to modify the retention settings for your Log Analytics workspace prior to migrating and starting to ingest new data.
 
-You can check your current retention settings for Log Analytics under **General** > **Usage and estimated costs** > **Data Retention** in the Log Analytics UI. This setting affects how long any new ingested data is stored after you migrate your Application Insights resource.
+You can check your current retention settings for Log Analytics under **Settings** > **Usage and estimated costs** > **Data Retention** in the Log Analytics UI. This setting affects how long any new ingested data is stored after you migrate your Application Insights resource.
 
 ## Workspace-based resource changes
 
@@ -401,7 +401,7 @@ Legacy table: availability
 |operation_ParentId|string|OperationParentId|string|
 |operation_SyntheticSource|string|OperationSyntheticSource|string|
 |performanceBucket|string|PerformanceBucket|string|
-|sdkVersion|string|SdkVersion|string|
+|sdkVersion|string|SDKVersion|string|
 |session_Id|string|SessionId|string|
 |size|real|Size|real|
 |success|string|Success|Bool|
@@ -444,7 +444,7 @@ Legacy table: browserTimings
 |performanceBucket|string|PerformanceBucket|string|
 |processingDuration|real|ProcessingDurationMs|real|
 |receiveDuration|real|ReceiveDurationMs|real|
-|sdkVersion|string|SdkVersion|string|
+|sdkVersion|string|SDKVersion|string|
 |sendDuration|real|SendDurationMs|real|
 |session_Id|string|SessionId|string|
 |timestamp|datetime|TimeGenerated|datetime|
@@ -489,7 +489,7 @@ Legacy table: dependencies
 |operation_SyntheticSource|string|OperationSyntheticSource|string|
 |performanceBucket|string|PerformanceBucket|string|
 |resultCode|string|ResultCode|string|
-|sdkVersion|string|SdkVersion|string|
+|sdkVersion|string|SDKVersion|string|
 |session_Id|string|SessionId|string|
 |success|string|Success|Bool|
 |target|string|Target|string|
@@ -529,7 +529,7 @@ Legacy table: customEvents
 |operation_Name|string|OperationName|string|
 |operation_ParentId|string|OperationParentId|string|
 |operation_SyntheticSource|string|OperationSyntheticSource|string|
-|sdkVersion|string|SdkVersion|string|
+|sdkVersion|string|SDKVersion|string|
 |session_Id|string|SessionId|string|
 |timestamp|datetime|TimeGenerated|datetime|
 |user_AccountId|string|UserAccountId|string|
@@ -564,7 +564,7 @@ Legacy table: customMetrics
 |operation_Name|string|OperationName|string|
 |operation_ParentId|string|OperationParentId|string|
 |operation_SyntheticSource|string|OperationSyntheticSource|string|
-|sdkVersion|string|SdkVersion|string|
+|sdkVersion|string|SDKVersion|string|
 |session_Id|string|SessionId|string|
 |timestamp|datetime|TimeGenerated|datetime|
 |user_AccountId|string|UserAccountId|string|
@@ -612,7 +612,7 @@ Legacy table: pageViews
 |operation_ParentId|string|OperationParentId|string|
 |operation_SyntheticSource|string|OperationSyntheticSource|string|
 |performanceBucket|string|PerformanceBucket|string|
-|sdkVersion|string|SdkVersion|string|
+|sdkVersion|string|SDKVersion|string|
 |session_Id|string|SessionId|string|
 |timestamp|datetime|TimeGenerated|datetime|
 |url|string|Url|string|
@@ -651,7 +651,7 @@ Legacy table: performanceCounters
 |operation_Name|string|OperationName|string|
 |operation_ParentId|string|OperationParentId|string|
 |operation_SyntheticSource|string|OperationSyntheticSource|string|
-|sdkVersion|string|SdkVersion|string|
+|sdkVersion|string|SDKVersion|string|
 |session_Id|string|SessionId|string|
 |timestamp|datetime|TimeGenerated|datetime|
 |user_AccountId|string|UserAccountId|string|
@@ -693,7 +693,7 @@ Legacy table: requests
 |operation_SyntheticSource|string|OperationSyntheticSource|string|
 |performanceBucket|string|PerformanceBucket|String|
 |resultCode|string|ResultCode|String|
-|sdkVersion|string|SdkVersion|string|
+|sdkVersion|string|SDKVersion|string|
 |session_Id|string|SessionId|string|
 |source|string|Source|String|
 |success|string|Success|Bool|
@@ -746,7 +746,7 @@ Legacy table: exceptions
 |outerMethod|string|OuterMethod|string|
 |outerType|string|OuterType|string|
 |problemId|string|ProblemId|string|
-|sdkVersion|string|SdkVersion|string|
+|sdkVersion|string|SDKVersion|string|
 |session_Id|string|SessionId|string|
 |severityLevel|int|SeverityLevel|int|
 |timestamp|datetime|TimeGenerated|datetime|
@@ -785,7 +785,7 @@ Legacy table: traces
 |operation_Name|string|OperationName|string|
 |operation_ParentId|string|OperationParentId|string|
 |operation_SyntheticSource|string|OperationSyntheticSource|string|
-|sdkVersion|string|SdkVersion|string|
+|sdkVersion|string|SDKVersion|string|
 |session_Id|string|SessionId|string|
 |severityLevel|int|SeverityLevel|int|
 |timestamp|datetime|TimeGenerated|datetime|

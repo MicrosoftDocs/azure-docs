@@ -284,11 +284,11 @@ When you use the **Set modules** wizard to create deployments for IoT Edge devic
 
 To configure the IoT Edge agent and IoT Edge hub modules, select **Runtime Settings** on the first step of the wizard.
 
-![Configure advanced Edge Runtime settings](./media/how-to-configure-proxy-support/configure-runtime.png)
+:::image type="content" source="./media/how-to-configure-proxy-support/configure-runtime.png" alt-text="Screenshot of how to configure advanced Edge Runtime settings.":::
 
 Add the **https_proxy** environment variable to both the IoT Edge agent and IoT Edge hub module definitions. If you included the **UpstreamProtocol** environment variable in the config file on your IoT Edge device, add that to the IoT Edge agent module definition too.
 
-![Set https_proxy environment variable](./media/how-to-configure-proxy-support/edgehub-environmentvar.png)
+:::image type="content" source="./media/how-to-configure-proxy-support/edgehub-environment-var.png" alt-text="Screenshot of how to set the https_proxy environment variable.":::
 
 All other modules that you add to a deployment manifest follow the same pattern. Select **Apply** to save your changes.
 
