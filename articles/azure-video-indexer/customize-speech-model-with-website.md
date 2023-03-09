@@ -79,9 +79,8 @@ Keep in mind the following when creating and using custom speech models:
 * If you deleted a dataset that was used to train a custom model, as the speech model was already trained by the dataset, it continues to use it until the speech model is deleted. 
 * If you delete a custom model, it has no impact of the transcription of videos that were already indexed using the model. 
 
-The following are instructions to create and manage custom speech models.  
 
-There are two ways to train a model – through the dataset tab and through the model tab. 
+**The following are instructions to create and manage custom speech models.  There are two ways to train a model – through the dataset tab and through the model tab.**
 
 ## Train a model through the Datasets tab 
 
