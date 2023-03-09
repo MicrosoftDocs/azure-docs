@@ -19,7 +19,7 @@ zone_pivot_groups: b2c-policy-type
 
 ## Before you begin
 
-Use the **Choose a policy type** selector for policy type. Azure Active Directory B2C has two methods to define users interaction with applications: predefined user flows or configurable custom policies.  
+Azure Active Directory B2C has two methods to define users interaction with applications: predefined user flows or configurable custom policies.  
 
 >[!NOTE]
 >In Azure Active Directory B2C, custom policies primarily address complex scenarios. For most scenarios, we recommend built-in user flows.</br> See, [User flows and custom policies overview](./user-flow-overview.md)
