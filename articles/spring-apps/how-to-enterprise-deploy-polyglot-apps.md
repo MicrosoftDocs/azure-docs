@@ -82,7 +82,7 @@ az spring app deploy \
     --artifact-path <path-to-your-JAR-file>
 ```
 
-The default build CPU/memory resource is `1 vCPU, 2 Gi`. If your app needs a smaller or larger amount of memory, then use `--build-memory` to specify the memory resources; for example, `500Mi`, `1Gi`, `2Gi`, and so on. If your app needs a smaller or larger amount of CPU resources, then use `--build-cpu` to specify the CPU resources; for example, `500m`, `1`, `2`, and so on.
+The default build CPU/memory resource is `1 vCPU, 2 Gi`. If your app needs a smaller or larger amount of memory, then use `--build-memory` to specify the memory resources; for example, `500Mi`, `1Gi`, `2Gi`, and so on. If your app needs a smaller or larger amount of CPU resources, then use `--build-cpu` to specify the CPU resources; for example, `500m`, `1`, `2`, and so on. The maximum CPU/memory resource limit for a build is "8 vCPU, 16Gi".
 
 The CPU and memory resources are limited by the build service agent pool size. For more information, see the [Build agent pool](how-to-enterprise-build-service.md#build-agent-pool) section of [Use Tanzu Build Service](how-to-enterprise-build-service.md). The sum of the processing build resource quota can't exceed the agent pool size.
 
