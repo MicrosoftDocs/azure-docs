@@ -92,7 +92,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-monitor/app/legacy-pricing.md",
-            "redirect_url": "/azure/azure-monitor/best-practices-cost",
+            "redirect_url": "/previous-versions/azure/azure-monitor/app/legacy-pricing",
             "redirect_document_id": false
         },
         {
@@ -608,7 +608,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-monitor/app/cloudservices.md" ,
-            "redirect_url": "/azure/azure-monitor/app/azure-web-apps-net-core",
+            "redirect_url": "/previous-versions/azure/azure-monitor/app/cloudservices",
             "redirect_document_id": false
         },
         {
@@ -5785,6 +5785,200 @@
       {
             "source_path_from_root": "/articles/azure-monitor/app/java-in-process-agent.md",
             "redirect_url": "/azure/azure-monitor/app/opentelemetry-enable",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/solutions.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/insights/solutions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/solution-targeting.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/insights/solution-targeting",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/ad-assessment.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/insights/ad-assessment",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/ad-replication-status.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/insights/ad-replication-status",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/capacity-performance.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/insights/capacity-performance",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/containers/containers.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/containers/containers",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/solution-office-365.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/insights/solution-office-365",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/vm/service-map.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/vm/service-map",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/vm/service-map-scom.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/vm/service-map-scom",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/azure-sql.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/insights/azure-sql",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/sql-assessment.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/insights/sql-assessment",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/surface-hubs.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/insights/surface-hubs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/vmware.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/insights/vmware",
+            "redirect_document_id": false
+        },{
+            "source_path_from_root": "/articles/azure-monitor/insights/wire-data.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/insights/wire-data",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/alert-management-solution.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/insights/alert-management-solution",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/azure-networking-analytics.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/insights/azure-networking-analytics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/dns-analytics.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/insights/dns-analytics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/network-performance-monitor.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/insights/network-performance-monitor",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/network-performance-monitor-performance-monitor.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/insights/network-performance-monitor-performance-monitor",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/network-performance-monitor-service-connectivity.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/insights/network-performance-monitor-service-connectivity",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/network-performance-monitor-expressroute.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/insights/network-performance-monitor-expressroute",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/network-performance-monitor-pricing-faq.yml",
+            "redirect_url": "/previous-versions/azure/azure-monitor/insights/network-performance-monitor-pricing-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/network-performance-monitor-faq.yml",
+            "redirect_url": "/previous-versions/azure/azure-monitor/insights/network-performance-monitor-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/azure-web-apps-analytics.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/insights/azure-web-apps-analytics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/logs/app-insights-connector.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/logs/app-insights-connector",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/logs/oms-portal-transition.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/logs/oms-portal-transition",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/azure-key-vault-deprecated.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/insights/azure-key-vault-deprecated.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/deprecated-java-2x.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/app/deprecated-java-2x",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/create-new-resource.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/app/create-new-resource",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/essentials/classic-api-retirement-metrics-autoscale.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/essentials/classic-api-retirement-metrics-autoscale",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/essentials/metrics-supported-export-diagnostic-settings.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/essentials/metrics-supported-export-diagnostic-settings",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/essentials/portal-disk-metrics-deprecation.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/essentials/portal-disk-metrics-deprecation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/essentials/resource-logs-blob-format.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/essentials/resource-logs-blob-format",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/alerts/monitoring-classic-retirement.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/alerts/monitoring-classic-retirement",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-log-api-switch.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/alerts/alerts-log-api-switch",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/visualize/view-designer.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/visualize/view-designer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/visualize/view-designer-tiles.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/visualize/view-designer-tiles",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/visualize/view-designer-parts.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/visualize/view-designer-parts",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/visualize/view-designer-filters.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/visualize/view-designer-filters",
             "redirect_document_id": false
         }
     ]
