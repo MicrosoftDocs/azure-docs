@@ -93,6 +93,9 @@ This section provides information about how to run your function app from a pack
 + When running on a Dedicated plan, make sure you've enabled [Always On](dedicated-plan.md#always-on).
 + You can use the [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to upload package files to blob containers in your storage account.
 
+> [!NOTE]
+> If a SAS expires and the azure functions is unable to retrieve a new SAS, then the functions functionality may be hindered. [Best practices when using SAS](https://learn.microsoft.com/en-us/azure/storage/common/storage-sas-overview#best-practices-when-using-sas)
+
 ### Manually uploading a package to Blob Storage
 
 To deploy a zipped package when using the URL option, you must create a .zip compressed deployment package and upload it to the destination. This example deploys to a container in Blob Storage.
