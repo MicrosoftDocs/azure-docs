@@ -5,7 +5,7 @@ author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: conceptual
 ms.custom: ignite-2022
-ms.date: 12/27/2022
+ms.date: 03/05/2023
 ms.reviewer: harelbr
 ---
 # Create a new alert rule
@@ -30,23 +30,20 @@ Then you define these elements for the resulting alert actions by using:
 
 1. On the **Select a resource** pane, set the scope for your alert rule. You can filter by **subscription**, **resource type**, or **resource location**.
 
-    The **Available signal types** for your selected resources are at the bottom right of the pane.
-
     > [!NOTE]
     > If you select a Log analytics workspace resource, keep in mind that if the workspace receives telemetry from resources in more than one subscription, alerts are sent about those resources from different subscriptions.
 
     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-select-resource.png" alt-text="Screenshot that shows the select resource pane for creating a new alert rule.":::
 
-1. Select **Include all future resources** to include any future resources added to the selected scope.
-1. Select **Done**.
+1. Select **Apply**.
 1. Select **Next: Condition** at the bottom of the page.
-1. On the **Select a signal** pane, filter the list of signals by using the signal type and monitor service:
+1. On the **Select a signal** pane, you can search for the signal name or you can filter the list of signals by:
     - **Signal type**: The [type of alert rule](alerts-overview.md#types-of-alerts) you're creating.
-    - **Monitor service**: The service sending the signal. This list is pre-populated based on the type of alert rule you selected.
+    - **Signal source**: The service sending the signal. The list is pre-populated based on the type of alert rule you selected.
 
     This table describes the services available for each type of alert rule:
 
-    |Signal type  |Monitor service  |Description  |
+    |Signal type  |Signal source  |Description  |
     |---------|---------|---------|
     |Metrics|Platform   |For metric signals, the monitor service is the metric namespace. "Platform" means the metrics are provided by the resource provider, namely, Azure.|
     |       |Azure.ApplicationInsights|Customer-reported metrics, sent by the Application Insights SDK. |
@@ -60,7 +57,8 @@ Then you define these elements for the resulting alert actions by using:
     |Resource health|Resource health|The service that provides the resource-level health status. |
     |Service health|Service health|The service that provides the subscription-level health status.         |
 
-1. Select the **Signal name**, and follow the steps in the following tab that corresponds to the type of alert you're creating.
+1. Select the **Signal name** and **Apply**.
+1. Follow the steps in the tab that corresponds to the type of alert you're creating.
 
     ### [Metric alert](#tab/metric)
 
@@ -73,9 +71,9 @@ Then you define these elements for the resulting alert actions by using:
 
     1. (Optional) Depending on the signal type, you might see the **Split by dimensions** section.
 
-        Dimensions are name-value pairs that contain more data about the metric value. By using dimensions, you can filter the metrics and monitor specific time-series, instead of monitoring the aggregate of all the dimensional values. Dimensions can be either number or string columns.
+        Dimensions are name-value pairs that contain more data about the metric value. By using dimensions, you can filter the metrics and monitor specific time-series, instead of monitoring the aggregate of all the dimensional values.
 
-        If you select more than one dimension value, each time series that results from the combination will trigger its own alert and be charged separately. For example, the transactions metric of a storage account can have an API name dimension that contains the name of the API called by each transaction (for example, GetBlob, DeleteBlob, and PutPage). You can choose to have an alert fired when there's a high number of transactions in a specific API (the aggregated data). Or you can use dimensions to alert only when the number of transactions is high for specific APIs.
+        If you select more than one dimension value, each time series that results from the combination triggers its own alert and is charged separately. For example, the transactions metric of a storage account can have an API name dimension that contains the name of the API called by each transaction (for example, GetBlob, DeleteBlob, and PutPage). You can choose to have an alert fired when there's a high number of transactions in a specific API (the aggregated data). Or you can use dimensions to alert only when the number of transactions is high for specific APIs.
 
         |Field  |Description  |
         |---------|---------|
@@ -88,14 +86,31 @@ Then you define these elements for the resulting alert actions by using:
 
         |Field |Description |
         |---------|---------|
-        |Threshold|Select if the threshold should be evaluated based on a static value or a dynamic value.<br>A static threshold evaluates the rule by using the threshold value that you configure.<br>Dynamic thresholds use machine learning algorithms to continuously learn the metric behavior patterns and calculate the appropriate thresholds for unexpected behavior. You can learn more about using [dynamic thresholds for metric alerts](alerts-types.md#dynamic-thresholds). |
-        |Operator|Select the operator for comparing the metric value against the threshold. |
+        |Threshold|Select if the threshold should be evaluated based on a static value or a dynamic value.<br>A **static threshold** evaluates the rule by using the threshold value that you configure.<br>**Dynamic thresholds** use machine learning algorithms to continuously learn the metric behavior patterns and calculate the appropriate thresholds for unexpected behavior. You can learn more about using [dynamic thresholds for metric alerts](alerts-types.md#dynamic-thresholds). |
+        |Operator|Select the operator for comparing the metric value against the threshold. <br>If you're using dynamic thresholds, alert rules can use tailored thresholds based on metric behavior for both upper and lower bounds in the same alert rule. Select one of these operators: <br> - Greater than the upper threshold or lower than the lower threshold (default) <br> - Greater than the upper threshold <br> - Lower than the lower threshold|
         |Aggregation type|Select the aggregation function to apply on the data points: Sum, Count, Average, Min, or Max. |
         |Threshold value|If you selected a **static** threshold, enter the threshold value for the condition logic. |
         |Unit|If the selected metric signal supports different units, such as bytes, KB, MB, and GB, and if you selected a **static** threshold, enter the unit for the condition logic.|
-        |Threshold sensitivity| If you selected a **dynamic** threshold, enter the sensitivity level. The sensitivity level affects the amount of deviation from the metric series pattern that's required to trigger an alert. |
+        |Threshold sensitivity| If you selected a **dynamic** threshold, enter the sensitivity level. The sensitivity level affects the amount of deviation from the metric series pattern that's required to trigger an alert. <br> - **High**: Thresholds are tight and close to the metric series pattern. An alert rule is triggered on the smallest deviation, resulting in more alerts. <br> - **Medium**: Thresholds are less tight and more balanced. There will be fewer alerts than with high sensitivity (default). <br> - **Low**: Thresholds are loose, allowing greater deviation from the metric series pattern. Alert rules are only triggered on large deviations, resulting in fewer alerts. |
         |Aggregation granularity| Select the interval that's used to group the data points by using the aggregation type function. Choose an **Aggregation granularity** (period) that's greater than the **Frequency of evaluation** to reduce the likelihood of missing the first evaluation period of an added time series.|
         |Frequency of evaluation|Select how often the alert rule is to be run. Select a frequency that's smaller than the aggregation granularity to generate a sliding window for the evaluation.|
+
+    1. (Optional) In the **When to evaluate** section: 
+
+        |Field |Description |
+        |---------|---------|
+        |Check every|Select how often the alert rule checks if the condition is met.    |
+        |Lookback period|Select how far back to look each time the data is checked. For example, every 1 minute, look back 5 minutes.|
+
+    1. (Optional) In the **Advanced options** section, you can specify how many failures within a specific time period trigger an alert. For example, you can specify that you only want to trigger an alert if there were three failures in the last hour. Your application business policy should determine this setting. 
+
+        Select values for these fields:
+
+        |Field  |Description  |
+        |---------|---------|
+        |Number of violations|The number of violations within the configured time frame that trigger the alert.|
+        |Evaluation period|The time period within which the number of violations occur. |
+        |Ignore data before|Use this setting to select the date from which to start using the metric historical data for calculating the dynamic thresholds. For example, if a resource was running in testing mode and is moved to production, you may want to disregard the metric behavior while the resource was in testing.|
 
     1. Select **Done**.
 
@@ -104,7 +119,7 @@ Then you define these elements for the resulting alert actions by using:
     > [!NOTE]
     > If you're creating a new log alert rule, note that the current alert rule wizard is different from the earlier experience. For more information, see [Changes to the log alert rule creation experience](#changes-to-the-log-alert-rule-creation-experience).
 
-    1. On the **Logs** pane, write a query that will return the log events for which you want to create an alert.
+    1. On the **Logs** pane, write a query that returns the log events for which you want to create an alert.
         To use one of the predefined alert rule queries, expand the **Schema and filter** pane on the left of the **Logs** pane. Then select the **Queries** tab, and select one of the queries.
 
         :::image type="content" source="media/alerts-create-new-alert-rule/alerts-log-rule-query-pane.png" alt-text="Screenshot that shows the Query pane when creating a new log alert rule.":::
@@ -119,7 +134,7 @@ Then you define these elements for the resulting alert actions by using:
 
         |Field  |Description  |
         |---------|---------|
-        |Measure|Log alerts can measure two different things, which can be used for different monitoring scenarios:<br> **Table rows**: The number of rows returned can be used to work with events such as Windows event logs, Syslog, and application exceptions. <br>**Calculation of a numeric column**: Calculations based on any numeric column can be used to include any number of resources. An example is CPU percentage.      |
+        |Measure|Log alerts can measure two different things, which can be used for different monitoring scenarios:<br> **Table rows**: The number of rows returned can be used to work with events such as Windows event logs, Syslog, and application exceptions. <br> **Calculation of a numeric column**: Calculations based on any numeric column can be used to include any number of resources. An example is CPU percentage.      |
         |Aggregation type| The calculation performed on multiple records to aggregate them to one numeric value by using the aggregation granularity. Examples are Total, Average, Minimum, or Maximum.    |
         |Aggregation granularity| The interval for aggregating multiple records to one numeric value.|
 
@@ -132,6 +147,9 @@ Then you define these elements for the resulting alert actions by using:
         If you select more than one dimension value, each time series that results from the combination triggers its own alert and is charged separately. The alert payload includes the combination that triggered the alert.
 
         You can select up to six more splittings for any columns that contain text or numbers.
+        
+        > [!NOTE]
+        > Dimensions can **only** be number or string columns. If for example you want to use a dynamic column as a dimension, you need to convert it to a string first.
 
         You can also decide *not* to split when you want a condition applied to multiple resources in the scope. An example would be if you want to fire an alert if at least five machines in the resource group scope have CPU usage over 80 percent.
 
@@ -157,7 +175,7 @@ Then you define these elements for the resulting alert actions by using:
 
         :::image type="content" source="media/alerts-create-new-alert-rule/alerts-create-log-rule-logic.png" alt-text="Screenshot that shows the Alert logic section of a new log alert rule.":::
 
-    1. (Optional) In the **Advanced options** section, you can specify the number of failures and the alert evaluation period required to trigger an alert. For example, if you set **Aggregation granularity** to 5 minutes, you can specify that you only want to trigger an alert if there were three failures (15 minutes) in the last hour. This setting is defined by your application business policy.
+    1. (Optional) In the **Advanced options** section, you can specify the number of failures and the alert evaluation period required to trigger an alert. For example, if you set **Aggregation granularity** to 5 minutes, you can specify that you only want to trigger an alert if there were three failures (15 minutes) in the last hour. Your application business policy determines this setting.
 
         Select values for these fields under **Number of violations to trigger the alert**:
 
@@ -267,6 +285,9 @@ Then you define these elements for the resulting alert actions by using:
 
     1. (Optional) If you've configured action groups for this alert rule, you can add custom properties to the alert payload to add more information to the payload. In the **Custom properties** section, add the property **Name** and **Value** for the custom property you want included in the payload.
 
+        > [!NOTE]
+        > The [common schema](alerts-common-schema.md) overwrites custom configurations. Therefore, you can't use both custom properties and the common schema for log alerts.
+
         :::image type="content" source="media/alerts-create-new-alert-rule/alerts-log-rule-details-tab.png" alt-text="Screenshot that shows the Details tab when creating a new log alert rule.":::
 
     ### [Activity log alert](#tab/activity-log)
@@ -276,32 +297,49 @@ Then you define these elements for the resulting alert actions by using:
     1. (Optional) In the **Advanced options** section, select **Enable upon creation** for the alert rule to start running as soon as you're done creating it.
     1. (Optional) If you've configured action groups for this alert rule, you can add custom properties to the alert payload to add more information to the payload. In the **Custom properties** section, add the property **Name** and **Value** for the custom property you want included in the payload.
 
+        > [!NOTE]
+        > The [common schema](alerts-common-schema.md) overwrites custom configurations. Therefore, you can't use both custom properties and the common schema for activity log alerts.
+
         :::image type="content" source="media/alerts-create-new-alert-rule/alerts-activity-log-rule-details-tab.png" alt-text="Screenshot that shows the Actions tab when creating a new activity log alert rule.":::
 
     ### [Resource Health alert](#tab/resource-health)
 
-     1. Enter values for the **Alert rule name** and the **Alert rule description**.
-     1. (Optional) In the **Advanced options** section, select **Enable upon creation** for the alert rule to start running as soon as you're done creating it.
+    1. Enter values for the **Alert rule name** and the **Alert rule description**.
+    1. Select the **Region**.
+    1. (Optional) In the **Advanced options** section, select **Enable upon creation** for the alert rule to start running as soon as you're done creating it.
+    1. (Optional) If you've configured action groups for this alert rule, you can add custom properties to the alert payload to add more information to the payload. In the **Custom properties** section, add the property **Name** and **Value** for the custom property you want included in the payload.
+
+        > [!NOTE]
+        > The [common schema](alerts-common-schema.md) overwrites custom configurations. Therefore, you can't use both custom properties and the common schema for resource health alerts.
+
+        :::image type="content" source="media/alerts-create-new-alert-rule/alerts-activity-log-rule-details-tab.png" alt-text="Screenshot that shows the Actions tab when creating a new activity log alert rule.":::
     
     ### [Service Health alert](#tab/service-health)
     
     1. Enter values for the **Alert rule name** and the **Alert rule description**.
+    1. Select the **Region**.
     1. (Optional) In the **Advanced options** section, select **Enable upon creation** for the alert rule to start running as soon as you're done creating it.
+    1. (Optional) If you've configured action groups for this alert rule, you can add custom properties to the alert payload to add more information to the payload. In the **Custom properties** section, add the property **Name** and **Value** for the custom property you want included in the payload.
 
+        > [!NOTE]
+        > The [common schema](alerts-common-schema.md) overwrites custom configurations. Therefore, you can't use both custom properties and the common schema for service health alerts.
+
+        :::image type="content" source="media/alerts-create-new-alert-rule/alerts-activity-log-rule-details-tab.png" alt-text="Screenshot that shows the Actions tab when creating a new activity log alert rule.":::
+        
     ---
 
 1. On the **Tags** tab, set any required tags on the alert rule resource.
 
     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-rule-tags-tab.png" alt-text="Screenshot that shows the Tags tab when creating a new alert rule.":::
 
-1. On the **Review + create** tab, a validation will run and inform you of any issues.
+1. On the **Review + create** tab, the rule is validated, and lets you know about any issues.
 1. When validation passes and you've reviewed the settings, select the **Create** button.
 
     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-rule-review-create.png" alt-text="Screenshot that shows the Review and create tab when creating a new alert rule.":::
 
-## Create a new alert rule by using the CLI
+## Create a new alert rule using the CLI
 
-You can create a new alert rule by using the [Azure CLI](/cli/azure/get-started-with-azure-cli). The following code examples use [Azure Cloud Shell](../../cloud-shell/overview.md). You can see the full list of the [Azure CLI commands for Azure Monitor](/cli/azure/azure-cli-reference-for-monitor#azure-monitor-references).
+You can create a new alert rule using the [Azure CLI](/cli/azure/get-started-with-azure-cli). The following code examples use [Azure Cloud Shell](../../cloud-shell/overview.md). You can see the full list of the [Azure CLI commands for Azure Monitor](/cli/azure/azure-cli-reference-for-monitor#azure-monitor-references).
 
 1. In the [portal](https://portal.azure.com/), select **Cloud Shell**. At the prompt, use the commands that follow.
 
@@ -353,11 +391,54 @@ You can create a new alert rule by using the [Azure CLI](/cli/azure/get-started-
 
    ---
 
-## Create a new alert rule by using PowerShell
+## Create a new alert rule with PowerShell
 
-- To create a metric alert rule by using PowerShell, use the [Add-AzMetricAlertRuleV2](/powershell/module/az.monitor/add-azmetricalertrulev2) cmdlet.
-- To create a log alert rule by using PowerShell, use the [New-AzScheduledQueryRule](/powershell/module/az.monitor/new-azscheduledqueryrule) cmdlet.
-- To create an activity log alert rule by using PowerShell, use the [Set-AzActivityLogAlert](/powershell/module/az.monitor/set-azactivitylogalert) cmdlet.
+- To create a metric alert rule using PowerShell, use the [Add-AzMetricAlertRuleV2](/powershell/module/az.monitor/add-azmetricalertrulev2) cmdlet.
+- To create a log alert rule using PowerShell, use the [New-AzScheduledQueryRule](/powershell/module/az.monitor/new-azscheduledqueryrule) cmdlet.
+- To create an activity log alert rule using PowerShell, use the [Set-AzActivityLogAlert](/powershell/module/az.monitor/set-azactivitylogalert) cmdlet.
+
+## Create a new alert rule using an ARM template
+
+You can use an [Azure Resource Manager template (ARM template)](../../azure-resource-manager/templates/syntax.md) to configure alert rules consistently in all of your environments.
+
+1. Create a new resource, using the following resource types:
+    - For metric alerts: `Microsoft.Insights/metricAlerts`
+    - For log alerts: `Microsoft.Insights/scheduledQueryRules`
+    - For activity log, service health, and resource health alerts: `microsoft.Insights/activityLogAlerts`
+    > [!NOTE]
+    > - Metric alerts for an Azure Log Analytics workspace resource type (`Microsoft.OperationalInsights/workspaces`) are configured differently than other metric alerts. For more information, see [Resource Template for Metric Alerts for Logs](alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
+    > - We recommend that you create the metric alert using the same resource group as your target resource.
+1. Copy one of the templates from these sample ARM templates.
+    - For metric alerts: [Resource Manager template samples for metric alert rules](resource-manager-alerts-metric.md)
+    - For log alerts: [Resource Manager template samples for log alert rules](resource-manager-alerts-log.md)
+    - For activity log alerts: [Resource Manager template samples for activity log alert rules](resource-manager-alerts-activity-log.md)
+    - For resource health alerts: [Resource Manager template samples for resource health alert rules](resource-manager-alerts-resource-health.md)
+1. Edit the template file to contain appropriate information for your alert, and save the file as \<your-alert-template-file\>.json.
+1. Edit the corresponding parameters file to customize the alert, and save as \<your-alert-template-file\>.parameters.json.
+1. Set the `metricName` parameter, using one of the values in [Azure Monitor supported metrics](../essentials/metrics-supported.md).
+1. Deploy the template using [PowerShell](../../azure-resource-manager/templates/deploy-powershell.md#deploy-local-template) or the [CLI](../../azure-resource-manager/templates/deploy-cli.md#deploy-local-template).
+
+### Additional properties for activity log alert ARM templates
+> [!NOTE]
+> - Activity log alerts are defined at the subscription level. You can't define a single alert rule on more than one subscription.
+> - It may take up to five minutes for a new activity log alert rule to become active.
+
+ARM templates for activity log alerts contain additional properties for the conditions fields. The **Resource Health**, **Advisor** and **Service Health** fields have extra properties fields.
+
+|Field  |Description  |
+|---------|---------|
+|resourceId|The resource ID of the affected resource in the activity log event on which the alert is generated.|
+|category|The category of the activity log event. Possible values are `Administrative`, `ServiceHealth`, `ResourceHealth`, `Autoscale`, `Security`, `Recommendation`, or `Policy`.        |
+|caller|The email address or Azure Active Directory identifier of the user who performed the operation of the activity log event.        |
+|level     |Level of the activity in the activity log event for the alert. Possible values are `Critical`, `Error`, `Warning`, `Informational`, or `Verbose`.|
+|operationName     |The name of the operation in the activity log event. Possible values are `Microsoft.Resources/deployments/write`.        |
+|resourceGroup     |Name of the resource group for the affected resource in the activity log event.        |
+|resourceProvider     |For more information, see [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md). For a list that maps resource providers to Azure services, see [Resource providers for Azure services](../../azure-resource-manager/management/resource-providers-and-types.md).         |
+|status     |String describing the status of the operation in the activity event. Possible values are `Started`, `In Progress`, `Succeeded`, `Failed`, `Active`, or `Resolved`.         |
+|subStatus     |Usually, this field is the HTTP status code of the corresponding REST call. This field can also include other strings describing a sub-status. Examples of HTTP status codes include `OK` (HTTP Status Code: 200), `No Content` (HTTP Status Code: 204), and `Service Unavailable` (HTTP Status Code: 503), among many others.         |
+|resourceType     |The type of the resource that was affected by the event. An example is `Microsoft.Resources/deployments`.         |
+
+For more information about the activity log fields, see [Azure activity log event schema](../essentials/activity-log-schema.md).
 
 ## Create an activity log alert rule from the Activity log pane
 
@@ -373,137 +454,6 @@ You can also create an activity log alert on future events similar to an activit
    If you want to make the alert rule more general, modify the scope and condition accordingly. See steps 3-9 in the section "Create a new alert rule in the Azure portal."
 
 1. Follow the rest of the steps from [Create a new alert rule in the Azure portal](#create-a-new-alert-rule-in-the-azure-portal).
-
-## Create an activity log alert rule by using an ARM template
-
-To create an activity log alert rule by using an Azure Resource Manager template (ARM template), create a `microsoft.insights/activityLogAlerts` resource. Then fill in all related properties.
-
-> [!NOTE]
->The highest level that activity log alerts can be defined is the subscription level. Define the alert to alert per subscription. You can't define an alert on two subscriptions.
-
-The following fields are the options in the ARM template for the conditions fields. The **Resource Health**, **Advisor** and **Service Health** fields have extra properties fields.
-
-|Field  |Description  |
-|---------|---------|
-|resourceId|The resource ID of the affected resource in the activity log event on which the alert is generated.|
-|category|The category of the activity log event. Possible values are `Administrative`, `ServiceHealth`, `ResourceHealth`, `Autoscale`, `Security`, `Recommendation`, or `Policy`.        |
-|caller|The email address or Azure Active Directory identifier of the user who performed the operation of the activity log event.        |
-|level     |Level of the activity in the activity log event for the alert. Possible values are `Critical`, `Error`, `Warning`, `Informational`, or `Verbose`.|
-|operationName     |The name of the operation in the activity log event. Possible values are `Microsoft.Resources/deployments/write`.        |
-|resourceGroup     |Name of the resource group for the affected resource in the activity log event.        |
-|resourceProvider     |For more information, see [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md). For a list that maps resource providers to Azure services, see [Resource providers for Azure services](../../azure-resource-manager/management/resource-providers-and-types.md).         |
-|status     |String describing the status of the operation in the activity event. Possible values are `Started`, `In Progress`, `Succeeded`, `Failed`, `Active`, or `Resolved`.         |
-|subStatus     |Usually, this field is the HTTP status code of the corresponding REST call. This field can also include other strings describing a substatus. Examples of HTTP status codes include `OK` (HTTP Status Code: 200), `No Content` (HTTP Status Code: 204), and `Service Unavailable` (HTTP Status Code: 503), among many others.         |
-|resourceType     |The type of the resource that was affected by the event. An example is `Microsoft.Resources/deployments`.         |
-
-This example sets the condition to the **Administrative** category:
-
-```json
-"condition": {
-          "allOf": [
-            {
-              "field": "category",
-              "equals": "Administrative"
-            },
-            {
-              "field": "resourceType",
-              "equals": "Microsoft.Resources/deployments"
-            }
-          ]
-        }
-
-```
-
-This example template creates an activity log alert rule by using the **Administrative** condition:
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "activityLogAlertName": {
-      "type": "string",
-      "metadata": {
-        "description": "Unique name (within the Resource Group) for the Activity log alert."
-      }
-    },
-    "activityLogAlertEnabled": {
-      "type": "bool",
-      "defaultValue": true,
-      "metadata": {
-        "description": "Indicates whether or not the alert is enabled."
-      }
-    },
-    "actionGroupResourceId": {
-      "type": "string",
-      "metadata": {
-        "description": "Resource Id for the Action group."
-      }
-    }
-  },
-  "resources": [   
-    {
-      "type": "Microsoft.Insights/activityLogAlerts",
-      "apiVersion": "2017-04-01",
-      "name": "[parameters('activityLogAlertName')]",      
-      "location": "Global",
-      "properties": {
-        "enabled": "[parameters('activityLogAlertEnabled')]",
-        "scopes": [
-            "[subscription().id]"
-        ],        
-        "condition": {
-          "allOf": [
-            {
-              "field": "category",
-              "equals": "Administrative"
-            },
-            {
-              "field": "operationName",
-              "equals": "Microsoft.Resources/deployments/write"
-            },
-            {
-              "field": "resourceType",
-              "equals": "Microsoft.Resources/deployments"
-            }
-          ]
-        },
-        "actions": {
-          "actionGroups":
-          [
-            {
-              "actionGroupId": "[parameters('actionGroupResourceId')]"
-            }
-          ]
-        }
-      }
-    }
-  ]
-}
-```
-
-This sample JSON can be saved as, for example, *sampleActivityLogAlert.json*. You can deploy the sample by using [Azure Resource Manager in the Azure portal](../../azure-resource-manager/templates/deploy-portal.md).
-
-For more information about the activity log fields, see [Azure activity log event schema](../essentials/activity-log-schema.md).
-
-> [!NOTE]
-> It might take up to five minutes for the new activity log alert rule to become active.
-
-## Create a new activity log alert rule by using the REST API
-
-The Azure Monitor Activity Log Alerts API is a REST API. It's fully compatible with the Azure Resource Manager REST API. You can use it with PowerShell by using the Resource Manager cmdlet or the Azure CLI.
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
-### Deploy the ARM template with PowerShell
-
-To use PowerShell to deploy the sample ARM template shown in the [previous section](#create-an-activity-log-alert-rule-by-using-an-arm-template), use the following command:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile sampleActivityLogAlert.json -TemplateParameterFile sampleActivityLogAlert.parameters.json
-```
-
-The *sampleActivityLogAlert.parameters.json* file contains values for the parameters that you need for alert rule creation.
 
 ## Changes to the log alert rule creation experience
 

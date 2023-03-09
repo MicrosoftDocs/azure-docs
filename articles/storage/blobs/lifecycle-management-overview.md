@@ -5,12 +5,12 @@ description: Use Azure Storage lifecycle management policies to create automated
 author: normesta
 
 ms.author: normesta
-ms.date: 12/21/2022
+ms.date: 02/01/2023
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.custom: "devx-track-azurepowershell, references_regions"
+ms.custom: "devx-track-azurepowershell, references_regions, engagement-fy23"
 ---
 
 # Optimize costs by automatically managing the data lifecycle
@@ -138,7 +138,7 @@ Filters include:
 | Filter name | Filter type | Notes | Is Required |
 |-------------|-------------|-------|-------------|
 | blobTypes   | An array of predefined enum values. | The current release supports `blockBlob` and `appendBlob`. Only delete is supported for `appendBlob`, set tier isn't supported. | Yes |
-| prefixMatch | An array of strings for prefixes to be matched. Each rule can define up to 10 case-sensitive prefixes. A prefix string must start with a container name. For example, if you want to match all blobs under `https://myaccount.blob.core.windows.net/sample-container/blob1/...` for a rule, the prefixMatch is `sample-container/blob1`. | If you don't define prefixMatch, the rule applies to all blobs within the storage account. | No |
+| prefixMatch | An array of strings for prefixes to be matched. Each rule can define up to 10 case-sensitive prefixes. A prefix string must start with a container name. For example, if you want to match all blobs under `https://myaccount.blob.core.windows.net/sample-container/blob1/...` for a rule, the prefixMatch is `sample-container/blob1`.<br /><br />To match the container or blob name exactly, include the trailing forward slash ('/'), *e.g.*, `sample-container/` or `sample-container/blob1/`. To match the container or blob name pattern, omit the trailing forward slash, *e.g.*, `sample-container` or `sample-container/blob1`. | If you don't define prefixMatch, the rule applies to all blobs within the storage account. | No |
 | blobIndexMatch | An array of dictionary values consisting of blob index tag key and value conditions to be matched. Each rule can define up to 10 blob index tag condition. For example, if you want to match all blobs with `Project = Contoso` under `https://myaccount.blob.core.windows.net/` for a rule, the blobIndexMatch is `{"name": "Project","op": "==","value": "Contoso"}`. | If you don't define blobIndexMatch, the rule applies to all blobs within the storage account. | No |
 
 To learn more about the blob index feature together with known issues and limitations, see [Manage and find data on Azure Blob Storage with blob index](storage-manage-find-blobs.md).
@@ -152,14 +152,18 @@ Lifecycle management supports tiering and deletion of current versions, previous
 > [!NOTE]
 > Tiering is not yet supported in a premium block blob storage account. For all other accounts, tiering is allowed only on block blobs and not for append and page blobs.
 
-| Action                      | Current Version                            | Snapshot      | Previous Versions
-|-----------------------------|--------------------------------------------|---------------|---------------|
-| tierToCool                  | Supported for `blockBlob`                  | Supported     | Supported     |
-| enableAutoTierToHotFromCool | Supported for `blockBlob`                  | Not supported | Not supported |
-| tierToArchive               | Supported for `blockBlob`                  | Supported     | Supported     |
-| delete<sup>1</sup>          | Supported for `blockBlob` and `appendBlob` | Supported     | Supported     |
+| Action                                  | Current Version                            | Snapshot      | Previous Versions |
+|-----------------------------------------|--------------------------------------------|---------------|-------------------|
+| tierToCool                              | Supported for `blockBlob`                  | Supported     | Supported         |
+| enableAutoTierToHotFromCool<sup>1</sup> | Supported for `blockBlob`                  | Not supported | Not supported     |
+| tierToArchive                           | Supported for `blockBlob`                  | Supported     | Supported         |
+| delete<sup>2,3</sup>                    | Supported for `blockBlob` and `appendBlob` | Supported     | Supported         |
 
-<sup>1</sup> When applied to an account with a hierarchical namespace enabled, a delete action removes empty directories. If the directory isn't empty, then the delete action removes objects that meet the policy conditions within the first 24-hour cycle. If that action results in an empty directory that also meets the policy conditions, then that directory will be removed within the next 24-hour cycle, and so on.
+<sup>1</sup> The `enableAutoTierToHotFromCool` action is available only when used with the `daysAfterLastAccessTimeGreaterThan` run condition. That condition is described in the next table.
+
+<sup>2</sup> When applied to an account with a hierarchical namespace enabled, a `delete` action removes empty directories. If the directory isn't empty, then the `delete` action removes objects that meet the policy conditions within the first 24-hour cycle. If that action results in an empty directory that also meets the policy conditions, then that directory will be removed within the next 24-hour cycle, and so on.
+
+<sup>3</sup> A lifecycle management policy will not delete the current version of a blob until any previous versions or snapshots associated with that blob have been deleted. If blobs in your storage account have previous versions or snapshots, then you must include previous versions and snapshots when you specify a delete action as part of the policy.
 
 > [!NOTE]
 > If you define more than one action on the same blob, lifecycle management applies the least expensive action to the blob. For example, action `delete` is cheaper than action `tierToArchive`. Action `tierToArchive` is cheaper than action `tierToCool`.
@@ -169,11 +173,54 @@ The run conditions are based on age. Current versions use the last modified time
 | Action run condition | Condition value | Description |
 |--|--|--|
 | daysAfterModificationGreaterThan | Integer value indicating the age in days | The condition for actions on a current version of a blob |
-| daysAfterCreationGreaterThan | Integer value indicating the age in days | The condition for actions on a previous version of a blob or a blob snapshot |
+| daysAfterCreationGreaterThan | Integer value indicating the age in days | The condition for actions on the current version or previous version of a blob or a blob snapshot |
 | daysAfterLastAccessTimeGreaterThan<sup>1</sup> | Integer value indicating the age in days | The condition for a current version of a blob when access tracking is enabled |
 | daysAfterLastTierChangeGreaterThan | Integer value indicating the age in days after last blob tier change time | This condition applies only to `tierToArchive` actions and can be used only with the `daysAfterModificationGreaterThan` condition. |
 
 <sup>1</sup> If [last access time tracking](#move-data-based-on-last-accessed-time) is not enabled for a blob, **daysAfterLastAccessTimeGreaterThan** uses the date the lifecycle policy was enabled instead of the `LastAccessTime` property of the blob.
+
+## Lifecycle policy completed event
+
+The `LifecyclePolicyCompleted` event is generated when the actions defined by a lifecycle management policy are performed. The following json shows an example `LifecyclePolicyCompleted` event.
+
+```json
+{
+    "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/contosoresourcegroup/providers/Microsoft.Storage/storageAccounts/contosostorageaccount",
+    "subject": "BlobDataManagement/LifeCycleManagement/SummaryReport",
+    "eventType": "Microsoft.Storage.LifecyclePolicyCompleted",
+    "eventTime": "2022-05-26T00:00:40.1880331",    
+    "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "data": {
+        "scheduleTime": "2022/05/24 22:57:29.3260160",
+        "deleteSummary": {
+            "totalObjectsCount": 16,
+            "successCount": 14,
+            "errorList": ""
+        },
+        "tierToCoolSummary": {
+            "totalObjectsCount": 0,
+            "successCount": 0,
+            "errorList": ""
+        },
+        "tierToArchiveSummary": {
+            "totalObjectsCount": 0,
+            "successCount": 0,
+            "errorList": ""
+        }
+    },
+    "dataVersion": "1",
+    "metadataVersion": "1"
+}
+```
+
+The following table describes the schema of the `LifecyclePolicyCompleted` event.
+
+|Field|Type|Description|
+|---|---|---|
+|scheduleTime|string|The time that the lifecycle policy was scheduled|
+|deleteSummary|vector\<byte\>|The results summary of blobs scheduled for delete operation|
+|tierToCoolSummary|vector\<byte\>|The results summary of blobs scheduled for tier-to-cool operation|
+|tierToArchiveSummary|vector\<byte\>|The results summary of blobs scheduled for tier-to-archive operation|
 
 ## Examples of lifecycle policies
 
@@ -276,7 +323,7 @@ Some data stays idle in the cloud and is rarely, if ever, accessed. The followin
 ```
 
 > [!NOTE]
-> Microsoft recommends that you upload your blobs directly the archive tier for greater efficiency. You can specify the archive tier in the *x-ms-access-tier* header on the [Put Blob](/rest/api/storageservices/put-blob) or [Put Block List](/rest/api/storageservices/put-block-list) operation. The *x-ms-access-tier* header is supported with REST version 2018-11-09 and newer or the latest blob storage client libraries.
+> Microsoft recommends that you upload your blobs directly to the archive tier for greater efficiency. You can specify the archive tier in the *x-ms-access-tier* header on the [Put Blob](/rest/api/storageservices/put-blob) or [Put Block List](/rest/api/storageservices/put-block-list) operation. The *x-ms-access-tier* header is supported with REST version 2018-11-09 and newer or the latest blob storage client libraries.
 
 ### Expire data based on age
 
@@ -368,7 +415,7 @@ For data that is modified and accessed regularly throughout its lifetime, you ca
             "blockBlob"
           ],
           "prefixMatch": [
-            "activedata"
+            "activedata/"
           ]
         }
       }
@@ -401,6 +448,14 @@ The platform runs the lifecycle policy once a day. Once you configure a policy, 
 
 The updated policy takes up to 24 hours to go into effect. Once the policy is in effect, it could take up to 24 hours for the actions to run. Therefore, the policy actions may take up to 48 hours to complete. If the update is to disable or delete a rule, and enableAutoTierToHotFromCool was used, auto-tiering to Hot tier will still happen. For example, set a rule including enableAutoTierToHotFromCool based on last access. If the rule is disabled/deleted, and a blob is currently in cool and then accessed, it will move back to Hot as that is applied on access outside of lifecycle management. The blob won't then move from Hot to Cool given the lifecycle management rule is disabled/deleted. The only way to prevent autoTierToHotFromCool is to turn off last access time tracking.
 
+### The run completes but doesn't move or delete some blobs
+
+Depending on the size and the number of objects that are in a storage account, more than one run might be required to process all of the objects. You can also check the storage resource logs to see if the operations are being performed by the lifecycle management policy. 
+
+### I don't see capacity changes even though the policy is executing and deleting the blobs
+
+Check to see if data protection features such as soft delete or versioning are enabled on the storage account. Even if the policy is deleting the blobs, those blobs might still exist in a soft deleted state or as an older version depending on how these features are configured. 
+
 ### I rehydrated an archived blob. How do I prevent it from being moved back to the Archive tier temporarily?
 
 If there's a lifecycle management policy in effect for the storage account, then rehydrating a blob by changing its tier can result in a scenario where the lifecycle policy moves the blob back to the archive tier. This can happen if the last modified time, creation time, or last access time is beyond the threshold set for the policy. There are three ways to prevent this from happening:
@@ -432,3 +487,4 @@ Unfortunately, there's no way to track the time at which the policy will be exec
 - [Configure a lifecycle management policy](lifecycle-management-policy-configure.md)
 - [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md)
 - [Manage and find data on Azure Blob Storage with blob index](storage-manage-find-blobs.md)
+- [Best practices for using blob access tiers](access-tiers-best-practices.md)

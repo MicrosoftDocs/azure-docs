@@ -304,7 +304,7 @@ Once your changes are done, run the app and test your authentication scenario:
 npm start
 ```
 
-## Example: Securing web apps with ADAL Node vs. MSAL Node
+## Example: Securing a SPA with ADAL.js vs. MSAL.js
 
 The snippets below demonstrates the minimal code required for a single-page application authenticating users with the Microsoft identity platform and getting an access token for Microsoft Graph using first ADAL.js and then MSAL.js:
 

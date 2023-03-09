@@ -9,7 +9,7 @@ ms.author: erd
 ms.date: 10/25/2022
 ms.topic: how-to  
 ms.reviewer: erd
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ---
 # Run scripts in your Linux VM by using action Run Commands
@@ -120,6 +120,8 @@ If needing to remove your action run command Linux extension, refer to the below
 ```azurecli-interactive
 az vm run-command invoke  --command-id RemoveRunCommandLinuxExtension --name vmname -g rgname
 ```
+> [!NOTE]
+> When you apply a Run Command again, the extension will get installed automatically. You can use the extension removal command to troubleshoot any issues related to the extension.
 
 ## Next steps
 

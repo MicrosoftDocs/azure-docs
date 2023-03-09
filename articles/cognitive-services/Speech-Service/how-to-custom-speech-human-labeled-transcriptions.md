@@ -18,11 +18,11 @@ Human-labeled transcriptions are word-by-word transcriptions of an audio file. Y
 
 A large sample of transcription data is required to improve recognition. We suggest providing between 1 and 20 hours of audio data. The Speech service will use up to 20 hours of audio for training. This guide is broken up by locale, with sections for US English, Mandarin Chinese, and German.
 
-The transcriptions for all WAV files are contained in a single plain-text file. Each line of the transcription file contains the name of one of the audio files, followed by the corresponding transcription. The file name and transcription are separated by a tab (`\t`).
+The transcriptions for all WAV files are contained in a single plain-text file (.txt or .tsv). Each line of the transcription file contains the name of one of the audio files, followed by the corresponding transcription. The file name and transcription are separated by a tab (`\t`).
 
 For example:
 
-```tsv
+```txt
 speech01.wav	speech recognition is awesome
 speech02.wav	the quick brown fox jumped all over the place
 speech03.wav	the lazy dog was not amused

@@ -1,24 +1,24 @@
 ---
-title: Connect to an Azure Elastic SAN (preview) volume - Linux.
-description: Learn how to connect to an Azure Elastic SAN (preview) volume from a Linux client.
+title: Connect to an Azure Elastic SAN Preview volume - Linux.
+description: Learn how to connect to an Azure Elastic SAN Preview volume from a Linux client.
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/07/2022
+ms.date: 02/22/2023
 ms.author: rogarana
 ms.subservice: elastic-san
 ms.custom: references_regions, ignite-2022
 ---
 
-# Connect to Elastic SAN (preview) volumes - Linux
+# Connect to Elastic SAN Preview volumes - Linux
 
-This article explains how to connect to an Elastic storage area network (SAN) volume from a Linux client. For details on connecting from a Windows client, see [Connect to Elastic SAN (preview) volumes - Windows](elastic-san-connect-windows.md).
+This article explains how to connect to an Elastic storage area network (SAN) volume from a Linux client. For details on connecting from a Windows client, see [Connect to Elastic SAN Preview volumes - Windows](elastic-san-connect-windows.md).
 
 In this article, you'll add the Storage service endpoint to an Azure virtual network's subnet, then you'll configure your volume group to allow connections from your subnet. Finally, you'll configure your client environment to connect to an Elastic SAN volume and establish a connection.
 
 ## Prerequisites
 
-- Complete [Deploy an Elastic SAN (preview)](elastic-san-create.md)
+- Complete [Deploy an Elastic SAN Preview](elastic-san-create.md)
 - An Azure Virtual Network, which you'll need to establish a connection from compute clients in Azure to your Elastic SAN volumes.
 
 ## Limitations
@@ -117,17 +117,17 @@ You'll need to make some modifications to **/etc/multipath.conf**. You'll need t
 
 ```
 defaults {
-    user_friendly_names yes		# To create ‘mpathn’ names for multipath devices
-    path_grouping_policy multibus	# To place all the paths in one priority group
-    path_selector "round-robin 0"	# To use round robin algorithm to determine path for next I/O operation
-    failback immediate			# For immediate failback to highest priority path group with active paths
-    no_path_retry 1			# To disable I/O queueing after retrying once when all paths are down
+    user_friendly_names yes		# To create ‘mpathn’ names for multipath devices
+    path_grouping_policy multibus	# To place all the paths in one priority group
+    path_selector "round-robin 0"	# To use round robin algorithm to determine path for next I/O operation
+    failback immediate			# For immediate failback to highest priority path group with active paths
+    no_path_retry 1			# To disable I/O queueing after retrying once when all paths are down
 }
 devices {
-  device {
-    vendor "MSFT"
-    product "Virtual HD"
-  }
+  device {
+    vendor "MSFT"
+    product "Virtual HD"
+  }
 }
 ```
 
@@ -206,4 +206,4 @@ iscsiadm -m node --targetname yourTargetIQN -p yourTargetPortalHostName:yourTarg
 
 ## Next steps
 
-[Configure Elastic SAN networking (preview)](elastic-san-networking.md)
+[Configure Elastic SAN networking Preview](elastic-san-networking.md)

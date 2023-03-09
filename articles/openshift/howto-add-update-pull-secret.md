@@ -1,8 +1,8 @@
 ---
 title: Add or update your Red Hat pull secret on an Azure Red Hat OpenShift 4 cluster
 description: Add or update your Red Hat pull secret on existing 4.x ARO clusters
-author: konghot
-ms.author: pkonghot
+author: johnmarco
+ms.author: johnmarc
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 05/21/2020
@@ -131,10 +131,17 @@ This section walks through updating that pull secret with additional values from
 Run the following command to update your pull secret.
 
 > [!NOTE]
-> Running this command will cause your cluster nodes to restart one by one as they're updated. 
+> In ARO 4.9 or older, running this command will cause your cluster nodes to restart one by one as they're updated.
+> In ARO 4.10 version or later a restart will not be triggered.
 
 ```console
 oc set data secret/pull-secret -n openshift-config --from-file=.dockerconfigjson=./pull-secret.json
+```
+
+### Verify that pull secret is in place
+
+```
+oc exec -n openshift-apiserver $(oc get pod -n openshift-apiserver -o jsonpath="{.items[0].metadata.name}") -- cat /var/lib/kubelet/config.json
 ```
 
 After the secret is set, you're ready to enable Red Hat Certified Operators.
@@ -149,7 +156,7 @@ First, modify the Samples Operator configuration file. Then, you can run the fol
 oc edit configs.samples.operator.openshift.io/cluster -o yaml
 ```
 
-Change the `spec.architectures.managementState` value from `Removed` to `Managed`. 
+Change the `spec.managementState` value from `Removed` to `Managed`.
 
 The following YAML snippet shows only the relevant sections of the edited YAML file:
 
@@ -166,7 +173,7 @@ spec:
   managementState: Managed
 ```
 
-Second, run the following command to edit the Operator Hub configuration file:  
+Second, run the following command to edit the Operator Hub configuration file:
 
 ```console
 oc edit operatorhub cluster -o yaml

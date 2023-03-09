@@ -5,7 +5,7 @@ ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
 ms.author: gabsta
-author: MsGabsta
+author: GabstaMSFT
 ms.collection: linux
 ms.date: 02/05/2021 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
@@ -67,7 +67,7 @@ Supported distributions and versions:
 - OpenSUSE 13.1+
 - SUSE Linux Enterprise Server 12
 - Debian 9, 8, 7
-- Red Hat Enterprise Linux (RHEL) 8, 7, 6.7+
+- Red Hat Enterprise Linux (RHEL) 7, 6.7+
 - Alma Linux 8
 - Rocky Linux 8
 

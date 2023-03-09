@@ -4,9 +4,9 @@ description: In this article, learn how to recover files and folders from an Azu
 ms.topic: how-to
 ms.date: 11/04/2022
 ms.custom: references_regions
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 # Recover files from Azure virtual machine backup
 

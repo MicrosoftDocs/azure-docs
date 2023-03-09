@@ -107,7 +107,7 @@ Use the following steps to get the restore details from Azure portal:
 
 ## <a id="restore-account-powershell"></a>Restore an account using Azure PowerShell
 
-Before restoring the account, install the [latest version of Azure PowerShell](/powershell/azure/install-az-ps?view=azps-6.2.1&preserve-view=true) or version higher than 6.2.0. Next connect to your Azure account and select the required subscription with the following commands:
+Before restoring the account, install the [latest version of Azure PowerShell](/powershell/azure/install-az-ps) or version higher than 6.2.0. Next connect to your Azure account and select the required subscription with the following commands:
 
 1. Sign into Azure using the following command:
 
@@ -194,7 +194,7 @@ Restore-AzCosmosDBAccount `
 ```
 ### To restore a continuous account that is configured with managed identity using CLI
 
-To restore Customer Managed Key (CMK) continuous account please refer to the steps provided [here](./how-to-setup-customer-managed-keys.md#to-restore-a-continuous-account-that-is-configured-with-managed-identity-using-cli)
+To restore Customer Managed Key (CMK) continuous account please refer to the steps provided [here](./how-to-setup-customer-managed-keys.md)
 
 ### <a id="get-the-restore-details-powershell"></a>Get the restore details from the restored account
 
@@ -806,7 +806,7 @@ Use the following ARM template to restore an account for the Azure Cosmos DB API
     {
       "name": "vinhpitrarmrestore-kal3",
       "type": "Microsoft.DocumentDB/databaseAccounts",
-      "apiVersion": "2016-03-31",
+      "apiVersion": "2022-02-15-preview",
       "location": "West US",
       "properties": {
         "locations": [
@@ -837,7 +837,7 @@ Use the following ARM template to restore an account for the Azure Cosmos DB API
     {
       "name": "ademo-pitr1",
       "type": "Microsoft.DocumentDB/databaseAccounts",
-      "apiVersion": "2016-03-31",
+      "apiVersion": "2022-02-15-preview",
       "location": "West US",
       "properties": {
         "locations": [
@@ -877,7 +877,7 @@ Use the following ARM template to restore an account for the Azure Cosmos DB API
     {
       "name": "ademo-pitr1",
       "type": "Microsoft.DocumentDB/databaseAccounts",
-      "apiVersion": "2016-03-31",
+      "apiVersion": "2022-02-15-preview",
       "location": "West US",
       "properties": {
         "locations": [

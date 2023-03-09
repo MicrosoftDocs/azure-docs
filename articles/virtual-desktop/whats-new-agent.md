@@ -3,7 +3,7 @@ title: What's new in the Azure Virtual Desktop Agent? - Azure
 description: New features and product updates for the Azure Virtual Desktop Agent.
 author: Heidilohr
 ms.topic: overview
-ms.date: 12/08/2022
+ms.date: 02/23/2023
 ms.author: helohr
 manager: femila
 ms.custom: references_regions
@@ -25,10 +25,30 @@ New versions of the Azure Virtual Desktop Agent are installed automatically. Whe
 
 | Release | Latest version |
 |---|---|
-| Generally available | 1.0.5555.1008 |
-| In-flight | 1.0.5555.1010 |
+| Generally available | 1.0.6028.2200 |
+| In-flight | N/A |
 
-## Version 1.0.5555.1010 (in-flight)
+## Version 1.0.6028.2200
+
+This update was released in February 2023 and includes the following changes:
+
+- Domain Trust health check is now enabled. When virtual machines (VMs) fail the Domain Trust health check, they're now given the *Unavailable* status.
+- General improvements and bug fixes.
+
+## Version 1.0.5739.9000/1.0.5739.9800
+
+>[!NOTE]
+>You may see version 1.0.5739.9000 or 1.0.5739.9800 installed on session hosts depending on whether the host pool is configured to be a [validation environment](create-validation-host-pool.md). Version 1.0.5739.9000 was released to validation environments and version 1.0.5739.9800 was released to all other environments.
+>
+>Normally, all environments receive the same version. However, for this release, we had to adjust certain parameters unrelated to the Agent to allow this version to roll out to non-validation environments, which is why the non-validation version number is higher than the validation version number. Besides those changes, both versions are the same.
+
+This update was released in January 2023 and includes the following changes:
+
+- Added the RDGateway URL to URL Access Check.
+- Introduced RD Agent provisioning state for new installations.
+- Fixed error reporting in MSIX App Attach for apps with expired signatures.
+
+## Version 1.0.5555.1010
 
 This update was released in December 2022. There are no changes to the agent in this version.
 

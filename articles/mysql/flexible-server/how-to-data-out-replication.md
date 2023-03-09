@@ -7,12 +7,12 @@ ms.reviewer: maghan
 ms.date: 12/30/2022
 ms.service: mysql
 ms.subservice: flexible-server
-ms.topic: how-to
+ms.topic: how-to 
 ---
 
 # How to configure Azure Database for MySQL Flexible Server data-out replication
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]  
 
 This article describes how to set up Data-out replication in Azure Database for MySQL Flexible Server by configuring the source and replica servers. This article assumes that you have some prior experience with MySQL servers and databases.
 
@@ -111,10 +111,6 @@ The results should appear similar to the following. Make sure to note the binary
 
 :::image type="content" source="media/how-to-data-out-replication/mysql-workbench-result.png" alt-text="Screenshot of results.":::
 
-#### [Azure Data Studio](#tab/azure-data-studio)
-
-<-----------Content here----------->
-
 ---
 
 ## Dump and restore the source server.
@@ -132,6 +128,7 @@ Follow the below steps if the source server has existing data to migrate to the 
 You can use mysqldump to dump databases from your primary server. For more details, visit [Dump & Restore](../single-server/concepts-migrate-dump-restore.md). It's unnecessary to dump the MySQL library and test library.
 
 1. Set the source server to read/write mode.
+
 After dumping the database, change the source MySQL server to read/write mode.
 
    ```sql
@@ -149,16 +146,18 @@ Restore the dump file to the server created in the Azure Database for MySQL Flex
 
 1. Filtering
 
-   Suppose data-out replication is being set up between Azure MySQL and an external MySQL on other cloud providers or on-premises. In that case, you must use the replication filter to filter out Azure custom tables. This can be achieved by setting Replicate_Wild_Ignore_Table = "mysql.\_\_%" to filter the Azure mysql internal tables. To modify this parameter from the Azure portal, navigate to Azure Database for MySQL Flexible server used as source and select "Server parameters" to view/edit the "Replicate_Wild_Ignore_Table" parameter. Refer to [MySQL :: MySQL 5.7 Reference Manual :: 13.4.2.2 CHANGE REPLICATION FILTER Statement](https://dev.mysql.com/doc/refman/5.7/en/change-replication-filter.html) for more details on modifying this server parameter.
+   Suppose data-out replication is being set up between Azure MySQL and an external MySQL on other cloud providers or on-premises. In that case, you must use the replication filter to filter out Azure custom tables on the replica server. This can be achieved by setting Replicate_Wild_Ignore_Table = "mysql.\_\_%" to filter the Azure mysql internal tables. Refer to [MySQL :: MySQL 5.7 Reference Manual :: 13.4.2.2 CHANGE REPLICATION FILTER Statement](https://dev.mysql.com/doc/refman/5.7/en/change-replication-filter.html) for more details on modifying this server parameter.
 
 1. Set the replica server by connecting to it and opening the MySQL shell on the replica server. From the prompt, run the following operation, which configures several MySQL replication settings at the same time:
 
+   ```sql
    CHANGE THE REPLICATION SOURCE TO
    SOURCE_HOST='<master_host>',
    SOURCE_USER='<master_user>',
    SOURCE_PASSWORD='<master_password>',
    SOURCE_LOG_FILE='<master_log_file>,
    SOURCE_LOG_POS=<master_log_pos>
+   ```
 
    - master_host: hostname of the source server (example – 'source.mysql.database.Azure.com')
    - master_user: username for the source server (example - 'syncuser'@'%')
@@ -190,7 +189,7 @@ Restore the dump file to the server created in the Azure Database for MySQL Flex
    If the replica server is hosted in an Azure VM, set **Allow access to Azure services** to **ON** on the source to allow the source and replica servers to communicate. This setting can be changed from the connection security options. For more information, visit [Manage firewall rules using the portal](how-to-manage-firewall-portal.md).
    
    If you used mydumper/myloader to dump the database, you could get the master_log_file and master_log_pos from the /backup/metadata file.
-   
+
 ## Next step
 
 - Learn more about [Data-out replication](concepts-data-out-replication.md)

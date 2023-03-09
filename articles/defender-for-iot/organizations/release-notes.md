@@ -1,8 +1,8 @@
 ---
 title: OT monitoring software versions - Microsoft Defender for IoT
 description: This article lists Microsoft Defender for IoT on-premises OT monitoring software versions, including release and support dates and highlights for new features.
-ms.topic: overview
-ms.date: 11/22/2022
+ms.topic: release-notes
+ms.date: 1/02/2023
 ---
 
 # OT monitoring software versions
@@ -35,10 +35,13 @@ For more information, see [Update Defender for IoT OT monitoring software](updat
 
 Cloud features may be dependent on a specific sensor version. Such features are listed below for the relevant software versions, and are only available for data coming from sensors that have the required version installed, or higher.
 
-
 | Version / Patch |  Release date | Scope     | Supported until |
 | ------- |  ------------ | ----------- | ------------------- |
+| **22.3** | | | |
+| 22.3.5 | 01/2023 | Patch | 12/2023 |
+| 22.3.4 | 01/2023 | Major | 12/2023 |
 | **22.2** | | | |
+| 22.2.9 | 01/2023 | Patch | 12/2023 |
 | 22.2.8 | 11/2022 | Patch | 10/2023 |
 | 22.2.7| 10/2022   | Patch | 09/2023          |
 | 22.2.6|09/2022 |Patch | 04/2023|
@@ -88,8 +91,25 @@ Version numbers are listed only in this article and in the [What's new in Micros
 
 To understand whether a feature is supported in your sensor version, check the relevant version section below and its listed features.
 
-## Versions 22.2.x
+## Versions 22.3.x
 
+### 22.3.5
+
+**Release date**: 01/2023
+
+**Supported until**: 12/2023
+
+This version includes bug fixes for stability improvements.
+
+### 22.3.4
+
+**Release date**: 01/2021
+
+**Supported until**: 12/2023
+
+- [Azure connectivity status shown on OT sensors](how-to-manage-individual-sensors.md#validate-connectivity-status)
+
+## Versions 22.2.x
 
 To update to 22.2.x versions:
 
@@ -97,6 +117,14 @@ To update to 22.2.x versions:
 - **From version 10.x**, first update to the latest **22.1.x** version, and then update again to the latest **22.2.x** version.
 
 For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
+
+### 22.2.9
+
+**Release date**: 01/2023
+
+**Supported until**: 12/2023
+
+This version includes bug fixes for stability improvements.
 
 ### 22.2.8
 
@@ -143,8 +171,8 @@ This version includes the following new updates and fixes:
 
 - [Device inventory enhancements in the sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md):
 
-    - Merge duplicate devices, delete single devices, and delete inactive devices by admin users
-    - **Last seen** value in the device details pane is replaced by **Last activity**
+  - Merge duplicate devices, delete single devices, and delete inactive devices by admin users
+  - **Last seen** value in the device details pane is replaced by **Last activity**
 
 - [New parameters for the *devicecves* API](api/management-integration-apis.md): `sensorId`, `score`, and `deviceIds`
 
@@ -158,11 +186,13 @@ This version includes the following new updates and fixes:
 
 This version includes the following new updates and fixes:
 
+- [Define and view OT sensor settings from the Azure portal](configure-sensor-settings-portal.md)
+- [Update your sensors from the Azure portal](update-ot-software.md#update-ot-sensors)
 - [New naming convention for hardware profiles](ot-appliance-sizing.md)
 - [PCAP access from the Azure portal](how-to-manage-cloud-alerts.md)
-- [Bi-directional alert synch between sensors and the Azure portal](how-to-manage-cloud-alerts.md#managing-alerts-in-a-hybrid-deployment)
+- [Bi-directional alert synch between OT sensors and the Azure portal](alerts.md#managing-ot-alerts-in-a-hybrid-environment)
 - [Sensor connections restored after certificate rotation](how-to-deploy-certificates.md)
-- [Upload diagnostic logs for support tickets from the Azure portal](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support-public-preview)
+- [Upload diagnostic logs for support tickets from the Azure portal](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support)
 - [Improved security for uploading protocol plugins](resources-manage-proprietary-protocols.md)
 - [Sensor names shown in browser tabs](how-to-manage-individual-sensors.md)
 - [Site-based access control on the Azure portal](manage-users-portal.md#manage-site-based-access-control-public-preview)
@@ -218,7 +248,7 @@ This version includes the following new updates and fixes:
 - [Diagnostic logs automatically available to support for cloud-connected sensors](how-to-manage-individual-sensors.md#download-a-diagnostics-log-for-support)
 - [Rockwell protocol: Device inventory shows PLC operating mode key state, run state, and security mode](how-to-manage-device-inventory-for-organizations.md)
 - [Automatic CLI session timeouts](references-work-with-defender-for-iot-cli-commands.md)
-- [Sensor health widgets in the Azure portal](how-to-manage-sensors-on-the-cloud.md#understand-sensor-health-public-preview)
+- [Sensor health widgets in the Azure portal](how-to-manage-sensors-on-the-cloud.md#understand-sensor-health)
 
 ### 22.1.1
 
@@ -227,7 +257,6 @@ This version includes the following new updates and fixes:
 **Supported until**: 10/2022
 
 This version includes the following new updates and fixes:
-
 
 - [New sensor installation wizard](how-to-install-software.md)
 
@@ -239,19 +268,19 @@ This version includes the following new updates and fixes:
 
 - [Alert updates](how-to-view-alerts.md):
 
-    - Contextual data for each alert
-    - Refreshed alert statuses
-    - Alert storage updates
-    - A new **Backup Activity with Antivirus Signatures** alert
-    - Alert management changes during software updates
+  - Contextual data for each alert
+  - Refreshed alert statuses
+  - Alert storage updates
+  - A new **Backup Activity with Antivirus Signatures** alert
+  - Alert management changes during software updates
 
-- [Enhancements for creating custom alerts on the sensor](how-to-accelerate-alert-incident-response.md#customize-alert-rules): Hit count data, advanced scheduling options, and more supported fields and protocols
+- [Enhancements for creating custom alerts on the sensor](how-to-accelerate-alert-incident-response.md#create-custom-alert-rules-on-an-ot-sensor): Hit count data, advanced scheduling options, and more supported fields and protocols
 
-- [Modified CLI commands](references-work-with-defender-for-iot-cli-commands.md): Including the following new commands:
+- [Modified CLI commands](cli-ot-sensor.md): Including the following new commands:
 
-    - `sudo dpkg-reconfigure iot-sensor`
-    - `sudo dpkg-reconfigure iot-sensor`
-    - `sudo dpkg-reconfigure iot-sensor`
+  - `sudo dpkg-reconfigure iot-sensor`
+  - `sudo dpkg-reconfigure iot-sensor`
+  - `sudo dpkg-reconfigure iot-sensor`
 
 - [Refreshed update process and update log](update-ot-software.md)
 
@@ -302,7 +331,7 @@ This version includes the following new updates and fixes:
 - [New integration APIs](api/management-integration-apis.md)
 - [Network traffic analysis enhancements for multiple OT and ICS protocols](concept-supported-protocols.md)
 - [Automatic deletion for older, archived alerts](how-to-view-alerts.md)
-- [Export alert enhancements](how-to-work-with-alerts-on-premises-management-console.md#export-alert-information)
+- [Export alert enhancements](how-to-work-with-alerts-on-premises-management-console.md#export-alerts-to-a-csv-file)
 
 ### 10.5.2
 
@@ -317,7 +346,6 @@ This version includes the following new updates and fixes:
 - [Export logs from the on-premises management console for troubleshooting](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md#export-logs-from-the-on-premises-management-console-for-troubleshooting)
 - [Support for Webhook extended to send data to endpoints](how-to-forward-alert-information-to-partners.md#webhook-extended)
 - [Unicode support for certificate passphrases](how-to-deploy-certificates.md)
-
 
 ## Next steps
 

@@ -81,7 +81,7 @@ You may experience outbound connectivity failure if your NAT gateway resource is
 
 ### Can't delete NAT gateway
 
-NAT gateway must be detached from all subnets within a virtual network before the resource can be removed or deleted. See [Remove NAT gateway from an existing subnet and delete the resource](/azure/virtual-network/nat-gateway/manage-nat-gateway?tabs=manage-nat-portal#remove-a-nat-gateway-from-an-existing-subnet-and-delete-the-resource) for step by step guidance.
+NAT gateway must be detached from all subnets within a virtual network before the resource can be removed or deleted. See [Remove NAT gateway from an existing subnet and delete the resource](./manage-nat-gateway.md?tabs=manage-nat-portal#remove-a-nat-gateway-from-an-existing-subnet-and-delete-the-resource) for step by step guidance.
 
 ## Add or remove subnet 
 
@@ -171,7 +171,7 @@ NAT gateway is a standard SKU resource and can't be used with basic SKU resource
 
 ### Can't mismatch zones of public IP addresses and NAT gateway 
 
-NAT gateway is a [zonal resource](/azure/virtual-network/nat-gateway/nat-availability-zones) and can either be designated to a specific zone or to ‘no zone’. When NAT gateway is placed in ‘no zone’, Azure places the NAT gateway into a zone for you, but you don't have visibility into which zone the NAT gateway is located. 
+NAT gateway is a [zonal resource](./nat-availability-zones.md) and can either be designated to a specific zone or to ‘no zone’. When NAT gateway is placed in ‘no zone’, Azure places the NAT gateway into a zone for you, but you don't have visibility into which zone the NAT gateway is located. 
 
 NAT gateway can be used with public IP addresses designated to a specific zone, no zone, all zones (zone-redundant) depending on its own availability zone configuration. Follow guidance below: 
 
@@ -193,6 +193,6 @@ To learn more about NAT gateway, see:
 
 * [NAT gateway resource](nat-gateway-resource.md)
 
-* [Manage NAT gateway](/azure/virtual-network/nat-gateway/manage-nat-gateway)
+* [Manage NAT gateway](./manage-nat-gateway.md)
 
 * [Metrics and alerts for NAT gateway resources](nat-metrics.md).

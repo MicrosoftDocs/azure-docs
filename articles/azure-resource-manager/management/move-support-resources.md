@@ -2,14 +2,14 @@
 title: Move operation support by resource type
 description: Lists the Azure resource types that can be moved to a new resource group, subscription, or region.
 ms.topic: conceptual
-ms.date: 12/02/2022
+ms.date: 01/30/2023
 ---
 
 # Move operation support for resources
 
 This article lists whether an Azure resource type supports the move operation. It also provides information about special conditions to consider when moving a resource.
 
-Before starting your move operation, review the [checklist](./move-resource-group-and-subscription.md#checklist-before-moving-resources) to make sure you have satisfied prerequisites.
+Before starting your move operation, review the [checklist](./move-resource-group-and-subscription.md#checklist-before-moving-resources) to make sure you have satisfied prerequisites. Moving resources across [Azure Active Directory tenants](../../active-directory/develop/quickstart-create-new-tenant.md) isn't supported.
 
 > [!IMPORTANT]
 > In most cases, a child resource can't be moved independently from its parent resource. Child resources have a resource type in the format of `<resource-provider-namespace>/<parent-resource>/<child-resource>`. For example, `Microsoft.ServiceBus/namespaces/queues` is a child resource of `Microsoft.ServiceBus/namespaces`. When you move the parent resource, the child resource is automatically moved with it. If you don't see a child resource in this article, you can assume it is moved with the parent resource. If the parent resource doesn't support move, the child resource can't be moved.
@@ -453,6 +453,21 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | virtualmachines | **Yes** | **Yes** | **Yes** <br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move Azure VMs. |
 > | virtualmachines / extensions | **Yes** | **Yes** | No |
 > | virtualmachinescalesets | **Yes** | **Yes** | No |
+
+
+> [!IMPORTANT]
+> See [Cloud Services (extended support) deployment move guidance](./move-limitations/classic-model-move-limitations.md). Cloud Services (extended support) deployment resources can be moved across subscriptions with an operation specific to that scenario.
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Resource group | Subscription | Region move |
+> | ------------- | ----------- | ---------- | ----------- |
+> | capabilities | No | No | No |
+> | domainnames | **Yes** | No | No |
+> | quotas | No | No | No |
+> | resourcetypes | No | No | No |
+> | validatesubscriptionmoveavailability | No | No | No |
+> | virtualmachines | **Yes** | **Yes** | No |
+
 
 ## Microsoft.Confluent
 
@@ -1249,6 +1264,24 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | remoterenderingaccounts | **Yes** | **Yes** | No |
 > | spatialanchorsaccounts | **Yes** | **Yes** | No |
 
+## Microsoft.MobileNetwork
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Resource group | Subscription | Region move |
+> | ------------- | ----------- | ---------- | ---------- |
+> | mobileNetworks | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
+> | mobileNetworks / dataNetworks | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
+> | mobileNetworks / simPolicies | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
+> | mobileNetworks / sites | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
+> | mobileNetworks / slices | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
+> | packetCoreControlPlanes | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
+> | packetCoreControlPlanes / packetCoreDataPlanes | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
+> | packetCoreControlPlanes / packetCoreDataPlanes / attachedDataNetworks | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
+> | sims | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
+> | simGroups | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
+> | simGroups / sims | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
+> | packetCoreControlPlaneVersions | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
+
 ## Microsoft.NetApp
 
 > [!div class="mx-tableFixed"]
@@ -1293,7 +1326,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | networkinterfaces | **Yes** | **Yes** | **Yes** <br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move NICs. |
 > | networkprofiles | No | No | No |
 > | networksecuritygroups | **Yes** | **Yes** | **Yes** <br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move network security groups (NSGs). |
-> | networkwatchers | No | No | No |
+> | networkwatchers | **Yes** | No | No |
 > | networkwatchers / connectionmonitors | **Yes** | No | No |
 > | networkwatchers / flowlogs | **Yes** | No | No |
 > | networkwatchers / pingmeshes | **Yes** | No | No |

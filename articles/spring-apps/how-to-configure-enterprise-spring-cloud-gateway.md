@@ -3,7 +3,7 @@ title: How to configure VMware Spring Cloud Gateway with Azure Spring Apps Enter
 description: Shows you how to configure VMware Spring Cloud Gateway with Azure Spring Apps Enterprise tier.
 author: karlerickson
 ms.author: xiading
-ms.service: spring-cloud
+ms.service: spring-apps
 ms.topic: how-to
 ms.date: 11/04/2022
 ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
@@ -122,6 +122,38 @@ You can also view or edit those properties in the Azure portal, as shown in the 
 >
 > After configuring SSO, remember to set `ssoEnabled: true` for the Spring Cloud Gateway routes.
 
+## Configure single sign-on (SSO) logout
+
+VMware Spring Cloud Gateway service instances provide a default API endpoint to log out of the current SSO session. The path to this endpoint is `/scg-logout`. You can accomplish one of the following two outcomes depending on how you call the logout endpoint:
+
+- Logout of session and redirect to IdP logout.
+- Just logout the service instance session.
+
+### Logout of IdP and SSO session
+
+If you send a GET request to the `/scg-logout` endpoint, then the endpoint will send a 302 redirect response to the IdP logout URL. To get the endpoint to return the user back to a path on the gateway service instance, add a redirect parameter to the GET `/scg-logout` request. For example, `${serverUrl}/scg-logout?redirect=/home`.
+
+The following steps describe an example of how to implement the function in your microservices.
+
+1. You need [a route config](https://github.com/Azure-Samples/animal-rescue/blob/0e343a27f44cc4a4bfbf699280476b0517854d7b/frontend/azure/api-route-config.json#L32) to route the logout request to your application.
+
+1. In that application, you can add whatever logout logic you need. At the end, you need to [send a get request](https://github.com/Azure-Samples/animal-rescue/blob/0e343a27f44cc4a4bfbf699280476b0517854d7b/frontend/src/App.js#L84) to the gateway's `/scg-logout` endpoint.
+
+> [!NOTE]
+> The value of the redirect parameter is a valid path on the gateway service instance. You can't redirect to an external URL.
+
+### Log out just the SSO session
+
+If you send the GET request to the `/scg-logout` endpoint using a `XMLHttpRequest` (XHR), then the 302 redirect could be swallowed and not handled in the response handler. In this case, the user would only be logged out of the SSO session on the gateway service instance and would still have a valid IdP session. The behavior typically seen in this case is that if the user attempts to log in again, they are automatically sent back to the gateway as authenticated from IdP.
+
+You need to have a route configuration to route the logout request to your application, as shown in the following example. This code will make a gateway-only logout SSO session.
+
+```java
+const req = new XMLHttpRequest();
+req.open("GET", "/scg-logout);
+req.send();
+```
+
 ## Configure cross-origin resource sharing (CORS)
 
 Cross-origin resource sharing (CORS) allows restricted resources on a web page to be requested from another domain outside the domain from which the first resource was served. The available CORS configuration options are described in the following table.
@@ -151,6 +183,43 @@ The following table describes the default resource usage:
 |----------------------------------------------|----------------|-------------------|---------------------|
 | VMware Spring Cloud Gateway                  | 2              | 1 core            | 2Gi                 |
 | VMware Spring Cloud Gateway operator         | 2              | 1 core            | 2Gi                 |
+
+## Configure application performance monitoring
+
+There are several types of application performance monitoring (APM) Java agents provided by Spring Cloud Gateway to monitor a gateway managed by Azure Spring Apps.
+
+### [Azure portal](#tab/Azure-portal)
+
+Use the following steps to set up APM using the Azure portal:
+
+1. Open the **Spring Cloud Gateway** page and select the **Configuration** tab.
+
+1. Choose the APM type in the **APM** list to monitor a gateway.
+
+1. Fill in the key-value pairs for the APM environment variables in the **Properties** or **Secrets** sections. You can put variables with sensitive information in **Secrets**.
+
+1. When you've provided all the configurations, select **Save** to save your changes.
+
+Updating the configuration can take a few minutes. You should get a notification when the configuration is complete.
+
+### [Azure CLI](#tab/Azure-CLI)
+
+Use the following command to set up APM using Azure CLI:
+
+```azurecli
+az spring gateway update \
+    --apm-types <APM-type> \
+    --properties <key=value> \
+    --secrets <key=value>
+```
+
+---
+
+The supported APM types are `ApplicationInsights`, `AppDynamics`, `Dynatrace`, `NewRelic`, and `ElasticAPM`. For more information about the functions provided and which environment variables are exposed, see the public documentation for the APM Java agent you're using. Azure Spring Apps will upgrade the APM agent with the same cadence as deployed apps to keep compatibility of agents between Spring Cloud Gateway and apps.
+
+> [!NOTE]
+> By default, Azure Spring Apps prints the logs of the APM Java agent to `STDOUT`. These logs are mixed with the Spring Cloud Gateway logs. You can check the version of the APM agent used in the logs. You can query these logs in Log Analytics to troubleshoot.
+> To make the APM agents work correctly, increase the CPU and memory of Spring Cloud Gateway.
 
 ## Next steps
 

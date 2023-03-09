@@ -5,15 +5,12 @@ author: anaharris-ms
 ms.author: anaharris
 ms.topic: overview
 ms.custom: subject-reliability
-ms.prod: non-product-specific
+ms.service: container-instances
 ms.date: 11/29/2022
+#Customer intent: I want to understand reliability support in Azure Container Instances so that I can respond to and/or avoid failures in order to minimize downtime and data loss.
 ---
 
-<!--#Customer intent:  I want to understand reliability support in Azure Container Instances so that I can respond to and/or avoid failures in order to minimize downtime and data loss. -->
-
-
-# What is reliability in Azure Container Instances?
-
+# Reliability in Azure Container Instances
 
 > [!IMPORTANT]
 > This feature is currently in preview. Previews are made available to you on the condition that you agree to the supplemental terms of use.
@@ -34,7 +31,8 @@ Azure Container Instances supports *zonal* container group deployments, meaning 
 > [!IMPORTANT]
 > This feature is currently not available for Azure portal.
 
-- Zonal container group deployments are supported in most regions where ACI is available for Linux and Windows Server 2019 container groups. For details, see [Regions and resource availability][container-regions].
+- Zonal container group deployments are supported in most regions where ACI is available for Linux and Windows Server 2019 container groups. For details, see [Regions and resource availability](/azure/container-instances/container-instances-region-availability).
+
 - Availability zone support is only available on ACI API version 09-01-2021 or later. 
 - For Azure CLI, version 2.30.0 or later must be installed.
 - For PowerShell, version 2.1.1-preview or later must be installed.
@@ -54,8 +52,12 @@ To change your container group's availability zone, you must delete the containe
 
 ### Create a resource with availability zone enabled
 
+To create a Container Instance resource with availability zone enabled, you'll need to deploy a container group using an Azure Resource Manager (ARM) template.
 
-#### Deploy a container group using an Azure Resource Manager (ARM) template
+>[!NOTE]
+>Examples in this article are formatted for the Bash shell. If you prefer another shell, adjust the line continuation characters accordingly.
+
+**To deploy a container with ARM:**
 
 1. Copy-paste the following JSON into a new file named `azuredeploy.json`. This example template deploys a container group with a single container into availability zone 1 in East US.
 
@@ -193,14 +195,11 @@ To change your container group's availability zone, you must delete the containe
       --resource-group myResourceGroup \
       --template-file azuredeploy.json
     ```
-
-## Get container group details
-
-To verify the container group deployed successfully into an availability zone, view the container group details with the [az container show][az-container-show] command:
-
-```azurecli
-az containershow --name acilinuxcontainergroup --resource-group myResourceGroup
-```
+4. To verify the container group deployed successfully into an availability zone, view the container group details with the [az container show][az-container-show] command:
+    
+    ```azurecli
+    az containershow --name acilinuxcontainergroup --resource-group myResourceGroup
+    ```
 
 ### Zonal failover support
 
@@ -218,10 +217,7 @@ When an entire Azure region or datacenter experiences downtime, your mission-cri
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Azure Cache for Redis Premium service tiers](../container-instances/availability-zones.md#next-steps)
+[Azure Architecture Center's guide on availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability).
 
 > [!div class="nextstepaction"]
-> [Reliability in Azure](/azure/reliability/overview.md)
-
-
-
+> [Reliability in Azure](./overview.md)

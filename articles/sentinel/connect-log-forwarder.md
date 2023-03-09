@@ -3,9 +3,8 @@ title: Deploy a log forwarder to ingest Syslog and CEF logs to Microsoft Sentine
 description: Learn how to deploy a log forwarder, consisting of a Syslog daemon and the Log Analytics agent, as part of the process of ingesting Syslog and CEF logs to Microsoft Sentinel.
 author: limwainstein
 ms.topic: how-to
-ms.date: 12/23/2021
+ms.date: 01/09/2023
 ms.author: lwainstein
-ms.custom: ignite-fall-2021
 ---
 
 # Deploy a log forwarder to ingest Syslog and CEF logs to Microsoft Sentinel
@@ -56,7 +55,7 @@ Your machine must meet the following requirements:
     - Syslog-ng: 2.1 - 3.22.1
 
 - **Packages**
-    - You must have **python 2.7** or **3** installed on the Linux machine.<br>Use the `python --version` or `python3 --version` command to check.
+    - You must have **Python 2.7** or **3** installed on the Linux machine.<br>Use the `python --version` or `python3 --version` command to check.
 
 - **Syslog RFC support**
   - Syslog RFC 3164

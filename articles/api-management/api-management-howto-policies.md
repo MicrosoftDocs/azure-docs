@@ -119,14 +119,14 @@ Example policy definition at API scope:
 
 In the example policy definition above:
 * The `cross-domain` statement would execute first.
-* The [`find-and-replace` policy](api-management-transformation-policies.md#Findandreplacestringinbody) would execute after any policies at a broader scope. 
+* The [`find-and-replace` policy](find-and-replace-policy.md) would execute after any policies at a broader scope. 
 
 >[!NOTE]
 > If you remove the `base` element at the API scope, only policies configured at the API scope will be applied. Neither product nor global scope policies would be applied.
 
 ### Use policy expressions to modify requests
 
-The following example uses [policy expressions][Policy expressions] and the [`set-header`](api-management-transformation-policies.md#SetHTTPheader) policy to add user data to the incoming request. The added header includes the user ID associated with the subscription key in the request, and the region where the gateway processing the request is hosted.
+The following example uses [policy expressions][Policy expressions] and the [`set-header`](set-header-policy.md) policy to add user data to the incoming request. The added header includes the user ID associated with the subscription key in the request, and the region where the gateway processing the request is hosted.
 
 ```xml
 <policies>
@@ -149,7 +149,7 @@ The following example uses [policy expressions][Policy expressions] and the [`se
 [Operation]: ./mock-api-responses.md
 
 [Advanced policies]: ./api-management-advanced-policies.md
-[Control flow]: ./api-management-advanced-policies.md#choose
-[Set variable]: ./api-management-advanced-policies.md#set-variable
+[Control flow]: choose-policy.md
+[Set variable]: set-variable-policy.md
 [Policy expressions]: ./api-management-policy-expressions.md
 

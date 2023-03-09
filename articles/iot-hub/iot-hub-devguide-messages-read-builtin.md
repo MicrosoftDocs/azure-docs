@@ -106,4 +106,4 @@ You can use the Event Hubs SDKs to read from the built-in endpoint in environmen
 
 For more information, see the [Process IoT Hub device-to-cloud messages using routes](tutorial-routing.md) tutorial.
 
-* If you want to route your device-to-cloud messages to custom endpoints, see [Use message routes and custom endpoints for device-to-cloud messages](iot-hub-devguide-messages-read-custom.md).
+* If you want to route your device-to-cloud messages to custom endpoints, see [Use message routes and custom endpoints for device-to-cloud messages](iot-hub-devguide-messages-d2c.md).

@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 10/28/2022
+ms.date: 02/27/2023
 ms.custom: template-how-to
 ---
 
@@ -52,7 +52,7 @@ To learn how to add permissions on each resource type within a subscription or r
 - [Azure Blob Storage](register-scan-azure-blob-storage-source.md#authentication-for-a-scan)
 - [Azure Data Lake Storage Gen1](register-scan-adls-gen1.md#authentication-for-a-scan)
 - [Azure Data Lake Storage Gen2](register-scan-adls-gen2.md#authentication-for-a-scan)
-- [Azure SQL Database](register-scan-azure-sql-database.md#authentication-for-a-scan)
+- [Azure SQL Database](register-scan-azure-sql-database.md#configure-authentication-for-a-scan)
 - [Azure SQL Managed Instance](register-scan-azure-sql-managed-instance.md#authentication-for-registration)
 - [Azure Synapse Analytics](register-scan-azure-synapse-analytics.md#authentication-for-registration)
 
@@ -78,6 +78,9 @@ To learn how to add permissions on each resource type within a subscription or r
    1. Select **Register** to register the data sources.
 
 ## Scan
+
+>[!IMPORTANT]
+> Currently, scanning multiple Azure sources is only supported using Azure integration runtime. 
 
 Follow the steps below to scan multiple Azure sources to automatically identify assets and classify your data. For more information about scanning in general, see our [introduction to scans and ingestion](concept-scans-and-ingestion.md).
 

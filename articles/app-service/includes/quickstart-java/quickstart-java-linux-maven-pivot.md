@@ -7,7 +7,7 @@ ms.date: 06/30/2022
 ms.author: cephalin
 ---
 
-[Azure App Service](../../overview.md) provides a highly scalable, self-patching web hosting service. This quickstart shows how to use the [Azure CLI](/cli/azure/get-started-with-azure-cli) with the [Azure Web App Plugin for Maven](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) to deploy a .jar file, or .war file. Use the tabs to switch between Java SE and Tomcat instructions.
+[Azure App Service](../../overview.md) provides a highly scalable, self-patching web app hosting service. This quickstart shows how to use the [Azure CLI](/cli/azure/get-started-with-azure-cli) with the [Azure Web App Plugin for Maven](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) to deploy a .jar, .war or .ear file. Use the tabs to switch between Java SE, Tomcat, and JBoss EAP instructions.
 
 # [Java SE](#tab/javase)
 
@@ -39,10 +39,11 @@ If Maven isn't your preferred development tool, check out our similar tutorials 
 
 # [Java SE](#tab/javase)
 
-Clone the [Spring Boot Getting Started](https://github.com/spring-guides/gs-spring-boot) sample project.
+Clone the [Spring Boot Getting Started](https://github.com/spring-guides/gs-spring-boot) sample project and check out the source code that runs with this version of the article.
 
 ```azurecli-interactive
 git clone https://github.com/spring-guides/gs-spring-boot
+git checkout 05ffa84
 ```
 
 Change directory to the completed project.
@@ -92,12 +93,12 @@ The deployment process to Azure App Service will use your Azure credentials from
 Run the Maven command below to configure the deployment. This command will help you to set up the App Service operating system, Java version, and Tomcat version.
 
 ```azurecli-interactive
-mvn com.microsoft.azure:azure-webapp-maven-plugin:2.5.0:config
+mvn com.microsoft.azure:azure-webapp-maven-plugin:2.9.0:config
 ```
 
 # [Java SE](#tab/javase)
 
-1. When prompted with **Subscription** option, select the proper `Subscription` by entering the number printed at the line start.
+1. When prompted with **Subscription** option, select the proper `Subscription` by entering the number printed at the start of the line.
 1. When prompted with **Web App** option, select the default option, `<create>`, by pressing enter.
 1. When prompted with **OS** option, select **Linux** by pressing enter.
 1. When prompted with **javaVersion** option, select **Java 11**.
@@ -201,10 +202,9 @@ Property | Required | Description | Version
 `<runtime>` | false | The runtime environment configuration. For more information, see [Configuration Details](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details). | 0.1.0+
 `<deployment>` | false | The deployment configuration. For more information, see [Configuration Details](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details). | 0.1.0+
 
-Be careful about the values of `<appName>` and `<resourceGroup>` (`helloworld-1590394316693` and `helloworld-1590394316693-rg` accordingly in the demo), they'll be used later.
+For the complete list of configurations, see the plugin reference documentation. All the Azure Maven Plugins share a common set of configurations. For these configurations see [Common Configurations](https://github.com/microsoft/azure-maven-plugins/wiki/Common-Configuration). For configurations specific to App Service, see [Azure Web App: Configuration Details](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details).
 
-> [!div class="nextstepaction"]
-> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=quickstart-java&step=config)
+Be careful about the values of `<appName>` and `<resourceGroup>` (`helloworld-1590394316693` and `helloworld-1590394316693-rg` accordingly in the demo), they'll be used later.
 
 ## 4 - Deploy the app
 

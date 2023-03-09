@@ -1,15 +1,12 @@
 ---
 title: Migrate databases by using the Azure SQL Migration extension for Azure Data Studio
 description: Learn how to use the Azure SQL Migration extension in Azure Data Studio to migrate databases with Azure Database Migration Service.
-services: database-migration
 author: croblesm
 ms.author: roblescarlos
-manager: 
 ms.reviewer: randolphwest
-ms.service: dms
-ms.workload: data-services
-ms.topic: conceptual
 ms.date: 09/28/2022
+ms.service: dms
+ms.topic: conceptual
 ms.custom: references_regions
 ---
 
@@ -30,9 +27,11 @@ The Azure SQL Migration extension for Azure Data Studio offers these key benefit
 
 - A reliable Azure service powered by Azure Database Migration Service that orchestrates data movement activities to deliver a seamless migration experience.
 
-- You can run your migration online (for migrations that require minimal downtime) or offline (for migrations where downtime persists through the migration) depending on your business requirements.
+- You can run your migration online (for migrations that require minimal downtime) or offline (for migrations where downtime persists throughout the migration) depending on your business requirements.
 
-- You can create and configure a self-hosted integration runtime to use your own compute resources to access the source SQL Server instance and backups in your on-premises environment.
+- You can configure a self-hosted integration runtime to use your own compute resources to access the source SQL Server instance backup files in your on-premises environment.
+
+- Provides a secure and improved user experience for migrating TDE databases and SQL/Windows logins to Azure SQL.
 
 For information about specific migration scenarios and Azure SQL targets, see the list of tutorials in the following table:
 
@@ -83,6 +82,8 @@ The following list describes each step in the workflow:
 > If your migration target is Azure SQL Database, you don't need backups for this migration. Database migration to Azure SQL Database is considered a logical migration that involves the database's pre-creation and data movement (performed by Database Migration Service).
 
 > [!IMPORTANT]
+> The Azure SQL Migration extension for Azure Data Studio doesn't take database backups, or neither initiate any database backups on your behalf. Instead, the service uses existing database backup files for the migration.
+>
 > In online migration mode, Database Migration Service continuously uploads the backup source files to your Azure storage account and restores them to the target until you complete the final step of cutting over to the target.
 >
 > In offline migration mode, Database Migration Service uploads the backup source files to Azure storage and restores them to the target without requiring a cutover.
@@ -123,7 +124,7 @@ The following sections walk through the prerequisites for each supported Azure S
 
 ## Monitor database migration progress in the Azure portal
 
-When you migrate databases by using the Azure SQL Migration extension for Azure Data Studio, the migrations are orchestrated by the Database Migration Service instance that you selected in the migration wizard.
+The Azure SQL Migration extension for Azure Data Studio orchestrates all migration tasks through the Database Migration Service selected in the migration wizard when migrating databases.
 
 To monitor database migrations in the Azure portal:
 
@@ -137,26 +138,26 @@ To monitor database migrations in the Azure portal:
 
 ## Known issues and limitations
 
-- Overwriting existing databases by using Database Migration Service in your target instance of Azure SQL Managed Instance or SQL Server on Azure Virtual Machines isn't supported.
+- Database Migration Service doesn't support overwriting existing databases in your target instance of Azure SQL Managed Instance, Azure SQL Database, or SQL Server on Azure Virtual Machines.
 
-- Configuring high availability and disaster recovery on your target to match source topology isn't supported by Database Migration Service.
+- Database Migration Service doesn't support configuring high availability and disaster recovery on your target to match the source topology.
 
 - The following server objects aren't supported:
 
-  - Logins
   - SQL Server Agent jobs
   - Credentials
   - SQL Server Integration Services packages
-  - Server roles
   - Server audit
 
-  For a complete list of metadata and server objects that you need to move, refer to the detailed information available in [Manage Metadata When Making a Database Available on Another Server](https://learn.microsoft.com/sql/relational-databases/databases/manage-metadata-when-making-a-database-available-on-another-server).
+  For a complete list of metadata and server objects that you need to move, refer to the detailed information available in [Manage Metadata When Making a Database Available on Another Server](/sql/relational-databases/databases/manage-metadata-when-making-a-database-available-on-another-server).
 
 - SQL Server 2008 and earlier as target versions aren't supported for migrations to SQL Server on Azure Virtual Machines.
 
 - If you use SQL Server 2014 or SQL Server 2012, you must store your source database backup files in an Azure storage blob container instead of by using the network share option. Store the backup files as page blobs. Block blobs are supported only in SQL Server 2016 and later versions.
 
 - You can't use an existing self-hosted integration runtime that was created in Azure Data Factory for database migrations with Database Migration Service. Initially, create the self-hosted integration runtime by using the Azure SQL Migration extension for Azure Data Studio. You can reuse that self-hosted integration runtime in future database migrations.
+
+- Azure Data Studio currently supports both Azure Active Directory (Azure AD)/Windows authentication and SQL logins for connecting to the source SQL Server instance. For the Azure SQL targets, only SQL logins are supported.
 
 ## Pricing
 

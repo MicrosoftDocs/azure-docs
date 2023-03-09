@@ -1,8 +1,12 @@
 items:
 - name: Service Connector documentation
   href: index.yml
-- name: Service Connector overview
-  href: overview.md
+- name: Overview
+  items:
+    - name: About Service Connector
+      href: overview.md
+    - name: FAQ
+      href: faq.yml
 - name: Quickstarts
   expanded: true
   items: 
@@ -38,21 +42,21 @@ items:
       - name: ASP.NET core app to Blob Storage
         href: tutorial-csharp-webapp-storage-cli.md
       - name: ASP.NET core app to SQL Database
-        href: /azure/app-service/tutorial-dotnetcore-sqldb-app?toc=/azure/service-connector/TOC.json&bc=/azure/service-connector/breadcrumb/toc.json
+        href: ../app-service/tutorial-dotnetcore-sqldb-app.md?bc=%2fazure%2fservice-connector%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fservice-connector%2fTOC.json
       - name: Java Tomcat app to PostgreSQL
-        href: /azure/app-service/tutorial-java-tomcat-connect-managed-identity-postgresql-database?toc=/azure/service-connector/TOC.json&bc=/azure/service-connector/breadcrumb/toc.json
+        href: ../app-service/tutorial-java-tomcat-connect-managed-identity-postgresql-database.md?bc=%2fazure%2fservice-connector%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fservice-connector%2fTOC.json
       - name: Python app to PostgreSQL
         href: tutorial-django-webapp-postgres-cli.md
     - name: Azure Container Apps
       expanded: true
       items:
       - name: Java Quarkus app to PostgreSQL
-        href: /azure/container-apps/tutorial-java-quarkus-connect-managed-identity-postgresql-database?toc=/azure/service-connector/TOC.json&bc=/azure/service-connector/breadcrumb/toc.json
+        href: ../container-apps/tutorial-java-quarkus-connect-managed-identity-postgresql-database.md?bc=%2fazure%2fservice-connector%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fservice-connector%2fTOC.json
     - name: Azure Spring Apps
       expanded: true
       items:
       - name: Java app to PostgreSQL
-        href: /azure/spring-apps/how-to-bind-postgres?tabs=Passwordlessflex&toc=/azure/service-connector/TOC.json&bc=/azure/service-connector/breadcrumb/toc.json
+        href: ../spring-apps/how-to-bind-postgres.md?bc=%2fazure%2fservice-connector%2fbreadcrumb%2ftoc.json&tabs=Passwordlessflex&toc=%2fazure%2fservice-connector%2fTOC.json
       - name: Spring Boot app to Kafka on Confluent Cloud
         href: tutorial-java-spring-confluent-kafka.md
       - name: Spring app to MySQL
@@ -72,7 +76,7 @@ items:
     - name: Store secrets in Key Vault
       href: tutorial-portal-key-vault.md
     - name: Connect a container app to Blob Storage
-      href: /azure/container-apps/service-connector?toc=/azure/service-connector/TOC.json&bc=/azure/service-connector/breadcrumb/toc.json
+      href: ../container-apps/service-connector.md?bc=%2fazure%2fservice-connector%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fservice-connector%2fTOC.json
     - name: Troubleshoot
       href: how-to-troubleshoot-front-end-error.md
     - name: Integrate
@@ -124,3 +128,5 @@ items:
       href: /rest/api/serviceconnector?toc=/azure/service-connector/TOC.json&bc=/azure/service-connector/breadcrumb/toc.json
     - name: Python SDK
       href: /python/api/azure-mgmt-servicelinker?toc=/azure/service-connector/TOC.json&bc=/azure/service-connector/breadcrumb/toc.json
+    - name: Known limitations
+      href: known-limitations.md

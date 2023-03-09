@@ -36,6 +36,9 @@ Because subdomains inherit the authentication type of the root domain by default
 
 1. Use the following example to GET the domain. Because the domain isn't a root domain, it inherits the root domain authentication type. Your command and results might look as follows, using your own tenant ID:
 
+> [!Note]
+> Issuing this request can be performed directly in [Graph Explorer](https://aka.ms/ge).
+
    ```http
    GET https://graph.microsoft.com/v1.0/domains/foo.contoso.com/
    
@@ -63,7 +66,7 @@ Because subdomains inherit the authentication type of the root domain by default
 Use the following command to promote the subdomain:
 
 ```http
-POST https://graph.windows.net/{tenant-id}/domains/foo.contoso.com/promote
+POST https://graph.microsoft.com/{tenant-id}/domains/foo.contoso.com/promote
 ```
 
 ### Promote command error conditions

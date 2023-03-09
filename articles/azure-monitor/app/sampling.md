@@ -2,7 +2,7 @@
 title: Telemetry sampling in Azure Application Insights | Microsoft Docs
 description: How to keep the volume of telemetry under control.
 ms.topic: conceptual
-ms.date: 11/15/2022
+ms.date: 02/14/2023
 ms.custom: fasttrack-edit
 ms.reviewer: mmcc
 ---
@@ -127,11 +127,11 @@ In [`ApplicationInsights.config`](./configuration-with-applicationinsights-confi
 
 * `<ExcludedTypes>type;type</ExcludedTypes>`
   
-    A semi-colon delimited list of types that you don't want to be subject to sampling. Recognized types are: `Dependency`, `Event`, `Exception`, `PageView`, `Request`, `Trace`. All telemetry of the specified types is transmitted; the types that aren't specified will be sampled.
+    A semi-colon delimited list of types that you don't want to be subject to sampling. Recognized types are: [`Dependency`](data-model-dependency-telemetry.md), [`Event`](data-model-event-telemetry.md), [`Exception`](data-model-exception-telemetry.md), [`PageView`](data-model-pageview-telemetry.md), [`Request`](data-model-request-telemetry.md), [`Trace`](data-model-trace-telemetry.md). All telemetry of the specified types is transmitted; the types that aren't specified will be sampled.
 
 * `<IncludedTypes>type;type</IncludedTypes>`
   
-    A semi-colon delimited list of types that you do want to subject to sampling. Recognized types are: `Dependency`, `Event`, `Exception`, `PageView`, `Request`, `Trace`. The specified types will be sampled; all telemetry of the other types will always be transmitted.
+    A semi-colon delimited list of types that you do want to subject to sampling. Recognized types are: [`Dependency`](data-model-dependency-telemetry.md), [`Event`](data-model-event-telemetry.md), [`Exception`](data-model-exception-telemetry.md), [`PageView`](data-model-pageview-telemetry.md), [`Request`](data-model-request-telemetry.md), [`Trace`](data-model-trace-telemetry.md). The specified types will be sampled; all telemetry of the other types will always be transmitted.
 
 **To switch off** adaptive sampling, remove the `AdaptiveSamplingTelemetryProcessor` node(s) from `ApplicationInsights.config`.
 
@@ -515,7 +515,7 @@ Like other types of sampling, the algorithm retains related telemetry items. For
 
 Data points that are discarded by sampling aren't available in any Application Insights feature such as [Continuous Export](./export-telemetry.md).
 
-Ingestion sampling doesn't operate while adaptive or fixed-rate sampling is in operation. Adaptive sampling is enabled by default when the ASP.NET SDK or the ASP.NET Core SDK is being used, or when Application Insights is enabled in [Azure App Service ](azure-web-apps.md) or by using Status Monitor. When telemetry is received by the Application Insights service endpoint, it examines the telemetry and if the sampling rate is reported to be less than 100% (which indicates that telemetry is being sampled) then the ingestion sampling rate that you set is ignored.
+Ingestion sampling doesn't operate while adaptive or fixed-rate sampling is in operation. Adaptive sampling is enabled by default when the ASP.NET SDK or the ASP.NET Core SDK is being used, or when Application Insights is enabled in [Azure App Service ](azure-web-apps.md) or by using Application Insights Agent. When telemetry is received by the Application Insights service endpoint, it examines the telemetry and if the sampling rate is reported to be less than 100% (which indicates that telemetry is being sampled) then the ingestion sampling rate that you set is ignored.
 
 > [!WARNING]
 > The value shown on the portal tile indicates the value that you set for ingestion sampling. It doesn't represent the actual sampling rate if any sort of SDK sampling (adaptive or fixed-rate sampling) is in operation.

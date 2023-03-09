@@ -15,9 +15,9 @@ items:
     - name: Create an account - PowerShell/CLI
       href: create-catalog-powershell.md
     - name: Create an account - .NET SDK
-      href: create-azure-purview-dotnet.md
+      href: create-microsoft-purview-dotnet.md
     - name: Create an account - Python
-      href: create-azure-purview-python.md
+      href: create-microsoft-purview-python.md
     - name: Create an account - Bicep
       href: quickstart-bicep-create-azure-purview.md
     - name: Create an account - ARM
@@ -124,7 +124,7 @@ items:
       href: concept-asset-normalization.md
     - name: Workflows
       href: concept-workflow.md
-  - name: Data Sharing
+  - name: Data sharing
     href: concept-data-share.md
   - name: Data policies
     items:
@@ -134,6 +134,10 @@ items:
       href: concept-policies-devops.md
     - name: Self-service data access policy
       href: concept-self-service-data-access-policy.md
+    - name: Impact of deleting Microsoft Purview account on access policies
+      href: concept-policies-purview-account-delete.md
+    - name: Update on Data owner policies actions
+      href: concept-policies-data-owner-action-update.md
   - name: Data Estate Insights
     items:
     - name: Data Estate Insights
@@ -154,7 +158,11 @@ items:
       href: manage-credentials.md
       displayName: Create and manage credentials
     - name: Manage integration runtimes
-      href: manage-integration-runtimes.md
+      items:
+        - name: Create and manage a self-hosted integration runtime
+          href: manage-integration-runtimes.md
+        - name: Self-hosted integration runtime auto-update and expiration
+          href: self-hosted-integration-runtime-version.md
     - name: Manage assets with Metamodel
       href: how-to-metamodel.md
     - name: Create Service Principal
@@ -175,16 +183,18 @@ items:
       href: register-scan-azure-files-storage-source.md
     - name: Azure Cosmos DB
       href: register-scan-azure-cosmos-database.md
-    - name: Azure Database for MySQL
-      href: register-scan-azure-mysql-database.md
-    - name: Azure Database for PostgreSQL
-      href: register-scan-azure-postgresql.md
     - name: Azure Data Explorer
       href: register-scan-azure-data-explorer.md
     - name: Azure Data Lake Storage Gen 1
       href: register-scan-adls-gen1.md
     - name: Azure Data Lake Storage Gen 2
       href: register-scan-adls-gen2.md
+    - name: Azure Database for MySQL
+      href: register-scan-azure-mysql-database.md
+    - name: Azure Database for PostgreSQL
+      href: register-scan-azure-postgresql.md
+    - name: Azure Databricks
+      href: register-scan-azure-databricks.md
     - name: Azure SQL Database
       href: register-scan-azure-sql-database.md
     - name: Azure SQL Managed Instance
@@ -243,13 +253,15 @@ items:
       href: register-scan-amazon-s3.md
   - name: Scan
     items:
+    - name: Scan a registered source
+      href: scan-data-sources.md
     - name: Create a scan rule set
       href: create-a-scan-rule-set.md
     - name: Resource set pattern rules
       href: how-to-resource-set-pattern-rules.md
     - name: Monitor data map population
       href: how-to-monitor-data-map-population.md
-    - name: Troubleshoot connection issues
+    - name: Troubleshoot scans & connections
       href: troubleshoot-connections.md
   - name: Data catalog
     items:
@@ -275,6 +287,8 @@ items:
       href: how-to-link-azure-data-share.md
     - name: Azure Synapse Analytics lineage
       href: how-to-lineage-azure-synapse-analytics.md
+    - name: Microsoft Purview Data Sharing lineage
+      href: how-to-lineage-purview-data-sharing.md
     - name: Power BI lineage
       href: how-to-lineage-powerbi.md
     - name: Spark lineage
@@ -293,10 +307,14 @@ items:
       href: how-to-manage-term-templates.md
   - name: Classify
     items:
+    - name: Automatically apply classifications
+      href: apply-classifications.md
+    - name: Manually apply classifications
+      href: manually-apply-classifications.md
+    - name: System classifications
+      href: supported-classifications.md
     - name: Create custom classifications
       href: create-a-custom-classification-and-classification-rule.md
-    - name: Apply classifications
-      href: apply-classifications.md
   - name: Label
     items:
     - name: Labeling in Microsoft Purview
@@ -335,6 +353,8 @@ items:
       items:
       - name: Private endpoints overview
         href: catalog-private-link.md
+      - name: Network firewall settings
+        href: catalog-firewall.md        
       - name: End-to-end network isolation
         href: catalog-private-link-end-to-end.md
       - name: Isolate network for account and portal
@@ -355,8 +375,6 @@ items:
     items:
     - name: Register data sources for "Data use management"
       href: how-to-enable-data-use-management.md
-    - name: Impact of deleting Microsoft Purview account on access policies
-      href: how-to-policies-purview-account-delete.md
     - name: DevOps policies
       items:
       - name: DevOps policies - Create, list, update and delete policies
@@ -395,6 +413,8 @@ items:
       href: how-to-workflow-self-service-data-access-hybrid.md
     - name: Approval for business terms
       href: how-to-workflow-business-terms-approval.md
+    - name: Approval for data asset curation
+      href: how-to-workflow-asset-curation.md
     - name: Manage requests and approvals
       href: how-to-workflow-manage-requests-approvals.md
     - name: Manage workflow runs
@@ -429,8 +449,6 @@ items:
       href: available-metadata.md
     - name: Supported browsers
       href: supported-browsers.md
-    - name: Supported classifications
-      href: supported-classifications.md
     - name: Limits
       href: how-to-manage-quotas.md
     - name: Java

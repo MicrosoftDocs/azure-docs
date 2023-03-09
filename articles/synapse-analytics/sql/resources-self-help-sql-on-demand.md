@@ -57,7 +57,7 @@ If you have a shared access signature key that you should use to access files, m
 
 ### Can't read, list, or access files in Azure Data Lake Storage
 
-If you use an Azure AD login without explicit credentials, make sure that your Azure AD identity can access the files in storage. To access the files, your Azure AD identity must have the **Blob Data Reader** permission, or permissions to **List** and **Read** [access control lists (ACL) in ADLS](/storage/blobs/data-lake-storage-access-control-model). For more information, see [Query fails because file cannot be opened](#query-fails-because-file-cant-be-opened).
+If you use an Azure AD login without explicit credentials, make sure that your Azure AD identity can access the files in storage. To access the files, your Azure AD identity must have the **Blob Data Reader** permission, or permissions to **List** and **Read** [access control lists (ACL) in ADLS](../../storage/blobs/data-lake-storage-access-control-model.md). For more information, see [Query fails because file cannot be opened](#query-fails-because-file-cant-be-opened).
 
 If you access storage by using [credentials](develop-storage-files-storage-access-control.md#credentials), make sure that your [managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity) or [SPN](develop-storage-files-storage-access-control.md?tabs=service-principal) has the **Data Reader** or **Contributor role** or specific ACL permissions. If you used a [shared access signature token](develop-storage-files-storage-access-control.md?tabs=shared-access-signature), make sure that it has `rl` permission and that it hasn't expired.
 
@@ -678,7 +678,7 @@ If your query returns NULL values instead of partitioning columns or can't find 
 
 The error `Inserting value to batch for column type DATETIME2 failed` indicates that the serverless pool can't read the date values from the underlying files. The datetime value stored in the Parquet or Delta Lake file can't be represented as a `DATETIME2` column.
 
-Inspect the minimum value in the file by using Spark, and check that some dates are less than 0001-01-03. If you stored the files by using Spark 2.4, the datetime values before are written by using the Julian calendar that isn't aligned with the proleptic Gregorian calendar used in serverless SQL pools.
+Inspect the minimum value in the file by using Spark, and check that some dates are less than 0001-01-03. If you stored the files by using the Spark 2.4 version or with the higher Spark version that still uses legacy datetime storage format, the datetime values before are written by using the Julian calendar that isn't aligned with the proleptic Gregorian calendar used in serverless SQL pools.
 
 There might be a two-day difference between the Julian calendar used to write the values in Parquet (in some Spark versions) and the proleptic Gregorian calendar used in serverless SQL pool. This difference might cause conversion to a negative date value, which is invalid.
 
@@ -695,7 +695,7 @@ deltaTable.update(col("MyDateTimeColumn") < '0001-02-02', { "MyDateTimeColumn": 
 
 This change removes the values that can't be represented. The other date values might be properly loaded but incorrectly represented because there's still a difference between Julian and proleptic Gregorian calendars. You might see unexpected date shifts even for the dates before `1900-01-01` if you use Spark 3.0 or older versions.
 
-Consider [migrating to Spark 3.1 or higher](https://spark.apache.org/docs/latest/sql-migration-guide.html). It uses a proleptic Gregorian calendar that's aligned with the calendar in serverless SQL pool. Reload your legacy data with the higher version of Spark, and use the following setting to correct the dates:
+Consider [migrating to Spark 3.1 or higher](https://spark.apache.org/docs/latest/sql-migration-guide.html) and switching to the proleptic Gregorian calendar. The latest Spark versions use by default a proleptic Gregorian calendar that's aligned with the calendar in serverless SQL pool. Reload your legacy data with the higher version of Spark, and use the following setting to correct the dates:
 
 ```spark
 spark.conf.set("spark.sql.legacy.parquet.int96RebaseModeInWrite", "CORRECTED")
@@ -706,6 +706,21 @@ spark.conf.set("spark.sql.legacy.parquet.int96RebaseModeInWrite", "CORRECTED")
 This error might indicate that some internal process issue happened in serverless SQL pool. File a support ticket with all necessary details that could help the Azure support team investigate the issue.
 
 Describe anything that might be unusual compared to the regular workload. For example, perhaps there was a large number of concurrent requests or a special workload or query started executing before this error happened.
+
+### Wildcard expansion timed out
+
+As described in the [Query folders and multiple files](../sql/query-folders-multiple-csv-files.md) section, Serverless SQL pool supports reading multiple files/folders by using wildcards. There is a maximum limit of 10 wildcards per query. You must be aware that  this functionality comes at a cost. It takes time for the serverless pool to list all the files that can match the wildcard. This introduces latency and this latency can increase if the number of files you are trying to query is high. In this case you can run into the following error:
+
+```
+"Wildcard expansion timed out after X seconds." 
+```
+
+There are several mitigation steps that you can do to avoid this:
+- Apply best practices described in [Best Practices Serverless SQL Pool](../sql/best-practices-serverless-sql-pool.md).
+- Try to reduce the number of files you are trying to query, by compacting files into larger ones.  Try to keep your file sizes above 100MB. 
+- Make sure that filters over partitioning columns are used wherever possible. 
+- If you are using delta file format, use the optimize write feature in Spark.  This can improve the performance of queries by reducing the amount of data that needs to be read and processed. How to use optimize write is described in [Using optimize write on Apache Spark](../spark/optimize-write-for-apache-spark.md). 
+- To avoid some of the top-level wildcards by effectively hardcoding the implicit filters over partitioning columns use [dynamic SQL](../sql/develop-dynamic-sql.md). 
 
 ## Configuration
 
@@ -1084,6 +1099,7 @@ Some general system constraints might affect your workload:
 | Maximum query duration | 30 minutes. |
 | Maximum size of the result set | Up to 400 GB shared between concurrent queries. |
 | Maximum concurrency | Not limited and depends on the query complexity and amount of data scanned. One serverless SQL pool can concurrently handle 1,000 active sessions that are executing lightweight queries. The numbers will drop if the queries are more complex or scan a larger amount of data. |
+| Maximum size of External Table name | 100 characters. |
 
 ### Can't create a database in serverless SQL pool
 

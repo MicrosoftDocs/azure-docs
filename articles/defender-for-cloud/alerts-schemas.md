@@ -9,7 +9,7 @@ ms.date: 11/09/2021
 
 # Security alerts schemas
 
-If your subscription has enhanced security features enabled, you'll receive security alerts when Defender for Cloud detects threats to their resources.
+If your subscription has Defender for Cloud [Defender plans](defender-for-cloud-introduction.md#protect-cloud-workloads) enabled, you'll receive security alerts when Defender for Cloud detects threats to their resources.
 
 You can view these security alerts in Microsoft Defender for Cloud's pages - [overview dashboard](overview-page.md), [alerts](tutorial-security-incident.md), [resource health pages](investigate-resource-health.md), or [workload protections dashboard](workload-protections-dashboard.md) - and through external tools such as:
 

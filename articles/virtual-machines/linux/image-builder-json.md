@@ -8,12 +8,12 @@ ms.date: 09/06/2022
 ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.custom: devx-track-azurepowershell, references_regions
+ms.custom: references_regions
 ---
 
 # Create an Azure Image Builder Bicep or ARM JSON template
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets
 
 Azure Image Builder uses a Bicep file or an ARM JSON template file to pass information into the Image Builder service. In this article we'll go over the sections of the files, so you can build your own. For latest API versions, see [template reference](/azure/templates/microsoft.virtualmachineimages/imagetemplates?tabs=bicep&pivots=deployment-language-bicep). To see examples of full .json files, see the [Azure Image Builder GitHub](https://github.com/Azure/azvmimagebuilder/tree/main/quickquickstarts).
 
@@ -683,8 +683,8 @@ customize: [
     type: 'WindowsUpdate'
     searchCriteria: 'IsInstalled=0'
     filters: [
-      exclude:$_.Title -like '*Preview*''
-      include:$true'
+     'exclude:$_.Title -like \'*Preview*\''
+     'include:$true'
     ]
     updateLimit: 20
   }
@@ -760,7 +760,7 @@ Image Builder will read these commands, these commands are written out to the AI
 
 Azure Image Builder supports three distribution targets:
 
-- **managedImage** - managed image.
+- **ManagedImage** - Managed image.
 - **sharedImage** - Azure Compute Gallery.
 - **VHD** - VHD in a storage account.
 

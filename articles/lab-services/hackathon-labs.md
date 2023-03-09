@@ -7,8 +7,6 @@ ms.date: 11/19/2021
 
 # Use Azure Lab Services for your next hackathon
 
-[!INCLUDE [preview note](./includes/lab-services-new-update-note.md)]
-
 Azure Lab Services is designed to be lightweight and easy to use so that you can quickly spin up a new lab of virtual machines (VMs) for your hackathon.  Use the following checklist to ensure that your hackathon goes as smoothly as possible. This checklist should be completed by your IT department or faculty who are responsible for creating and managing your hackathon lab.
 
 To use Lab Services for your hackathon, ensure that both lab plan and your lab are created at least a few days before the start of your hackathon. Also, follow the guidance below:

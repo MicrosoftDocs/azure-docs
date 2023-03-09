@@ -18,6 +18,9 @@ ms.author: eur
 |French (Canada)|`fr-CA`<sup>1</sup> | 
 |French (France)|`fr-FR`|  
 |German (Germany)|`de-DE`<sup>1</sup>|
+|Japanese (Japan)|`ja-JP`<sup>1</sup>|
+|Norwegian Bokmål (Norway)|`nb-NO`<sup>1</sup>|
+|Spanish (Mexico)|`es-MX`<sup>1</sup> | 
 |Spanish (Spain)|`es-ES` | 
 |Vietnamese (Vietnam)|`vi-VN`<sup>1</sup> |
 

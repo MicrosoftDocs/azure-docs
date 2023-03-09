@@ -6,7 +6,7 @@
       href: intro-kubernetes.md
     - name: Quotas and regional limits
       href: quotas-skus-regions.md
-    - name: Supported Kubernetes version
+    - name: Supported Kubernetes versions
       href: supported-kubernetes-versions.md
     - name: Add-ons, extensions, and other integrations
       href: integrations.md
@@ -25,6 +25,9 @@
           href: learn/quick-kubernetes-deploy-powershell.md
         - name: Use the Azure portal
           href: learn/quick-kubernetes-deploy-portal.md
+        - name: Use Bicep Kubernetes provider
+          displayName: Resource Manager,arm,template
+          href: learn/quick-kubernetes-deploy-bicep-extensibility-kubernetes-provider.md
         - name: Use Bicep
           displayName: Resource Manager,arm,template
           href: learn/quick-kubernetes-deploy-bicep.md
@@ -72,6 +75,8 @@
       href: concepts-clusters-workloads.md
     - name: Security
       items:
+        - name: Vulnerability management
+          href: concepts-vulnerability-management.md
         - name: Security Baseline
           href: /security/benchmark/azure/baselines/aks-security-baseline?context=/azure/aks/context/aks-context
         - name: Container Security
@@ -94,7 +99,7 @@
       href: concepts-network.md
     - name: Storage
       href: concepts-storage.md
-    - name: Scale
+    - name: Scaling
       href: concepts-scale.md
     - name: Node auto-repair
       href: node-auto-repair.md
@@ -184,6 +189,8 @@
           href: manage-abort-operations.md
         - name: Automatically upgrade an AKS cluster
           href: auto-upgrade-cluster.md
+        - name: Automatically upgrade AKS cluster node operating system images (preview)
+          href: auto-upgrade-node-image.md
         - name: Configure an AKS cluster
           href: cluster-configuration.md
         - name: Custom node configuration
@@ -200,7 +207,7 @@
           href: scale-down-mode.md
         - name: Stop an AKS cluster
           href: start-stop-cluster.md
-        - name: Use planned maintenance (preview)
+        - name: Use planned maintenance to schedule and control upgrades (preview)
           href: planned-maintenance.md
         - name: Planned Maintenance for AKS weekly releases (preview)
           href: aks-planned-maintenance-weekly-releases.md
@@ -208,8 +215,8 @@
           href: out-of-tree.md
         - name: Upgrade an AKS cluster
           href: upgrade-cluster.md
-        - name: Use Uptime SLA
-          href: uptime-sla.md
+        - name: Free and Standard pricing tiers for AKS
+          href: free-standard-pricing-tiers.md
         - name: Use Draft (preview)
           href: draft.md
         - name: Use proximity placement groups
@@ -220,6 +227,14 @@
           href: node-upgrade-github-actions.md
         - name: Process node OS updates
           href: node-updates-kured.md
+        - name: Configure an AKS cluster
+          href: cluster-configuration.md
+        - name: Custom node configuration
+          href: custom-node-configuration.md
+        - name: Integrate ACR with an AKS cluster
+          href: cluster-container-registry-integration.md
+        - name: Enable Azure resources to access AKS clusters using Trusted Access (preview)
+          href: trusted-access-feature.md
         - name: Connect to cluster nodes
           href: node-access.md
         - name: Create virtual nodes
@@ -238,23 +253,21 @@
           items:
             - name: Node pool snapshot
               href: node-pool-snapshot.md
-            - name: Use Dedicated Hosts with AKS
-              href: use-azure-dedicated-hosts.md
             - name: Use multiple node pools
               href: use-multiple-node-pools.md
             - name: Use spot node pools
               href: spot-node-pool.md
-            - name: Use Confidential Virtual Machines
-              href: use-cvm.md
             - name: Use system node pools
               href: use-system-pools.md
+            - name: Use instance-level public IP addresses
+              href: use-node-public-ips.md
             - name: Use WebAssembly System Interface (WASI) node pools
               href: use-wasi-node-pools.md
             - name: Start/stop node pools
               href: start-stop-nodepools.md
             - name: Resize node pools
               href: resize-node-pool.md
-        - name: Use the Mariner container host
+        - name: Use the Mariner container host (preview)
           href: use-mariner.md
         - name: Deploy AKS with Terraform
           href: /azure/developer/terraform/create-k8s-cluster-with-tf-and-aks
@@ -322,6 +335,10 @@
               maintainContext: true
         - name: Node security
           items:
+            - name: Use Confidential Virtual Machines
+              href: use-cvm.md
+            - name: Use Dedicated Hosts with AKS
+              href: use-azure-dedicated-hosts.md
             - name: BYOK for disks
               href: azure-disk-customer-managed-keys.md
             - name: Enable host-based encryption
@@ -330,6 +347,8 @@
               href: enable-fips-nodes.md
         - name: Application security
           items:
+            - name: Create an OIDC Issuer for your cluster
+              href: use-oidc-issuer.md
             - name: Workload identity (preview)
               items:
                 - name: Overview
@@ -340,6 +359,8 @@
                   href: workload-identity-migrate-from-pod-identity.md
             - name: Use Azure AD pod identity (preview)
               href: use-azure-ad-pod-identity.md
+            - name: Use Pod Sandboxing
+              href: use-pod-sandboxing.md
             - name: Secure pod traffic with network policies
               href: use-network-policies.md
             - name: Use pod security policies (preview)
@@ -374,9 +395,11 @@
               href: use-byo-cni.md
             - name: Use Azure CNI Powered by Cilium (Preview)
               href: azure-cni-powered-by-cilium.md
-            - name: Use Azure-CNI
+            - name: Use Azure CNI
               href: configure-azure-cni.md
-            - name: Use Azure-CNI Overlay (Preview)
+            - name: Use Azure CNI for dynamic IP allocation and enhanced subnet support
+              href: configure-azure-cni-dynamic-ip-allocation.md
+            - name: Use Azure CNI Overlay (Preview)
               href: azure-cni-overlay.md
         - name: DNS
           items:
@@ -388,8 +411,10 @@
           items:
             - name: Restrict and control cluster egress traffic
               href: limit-egress-traffic.md
-            - name: Use a user defined route for egress
+            - name: Configure outbound type for AKS
               href: egress-outboundtype.md
+            - name: Use a user defined route for egress
+              href: egress-udr.md
             - name: Managed NAT Gateway
               href: nat-gateway.md
             - name: Use an HTTP proxy
@@ -416,7 +441,7 @@
             - name: Use a Standard Load Balancer
               href: load-balancer-standard.md
             - name: Use kube-proxy configuration (IPVS)
-              href: configure-kube-proxy.md   
+              href: configure-kube-proxy.md
         - name: Security
           items:
             - name: Use API Server VNet Integration
@@ -429,30 +454,34 @@
           items:
             - name: CSI storage drivers overview
               href: csi-storage-drivers.md
+            - name: Migrate from in-tree to CSI driver
+              href: csi-migrate-in-tree-volumes.md
+        - name: Shared file storage
+          items:
+            - name: On Azure Blob storage
+              items:
+                - name: Azure Blob CSI driver
+                  href: azure-blob-csi.md
+                - name: Provision Azure Blob storage
+                  href: azure-csi-blob-storage-provision.md
+            - name: On Azure Files
+              items:
+                - name: Azure Files CSI driver
+                  href: azure-files-csi.md
+                - name: Provision Azure Files storage
+                  href: azure-csi-files-storage-provision.md
+            - name: Provision Azure NetApp Files storage
+              href: azure-netapp-files.md
+        - name: Block storage
+          items:
             - name: Azure Disks CSI driver
               href: azure-disk-csi.md
-            - name: Azure Files CSI driver
-              href: azure-files-csi.md
-            - name: Azure Blob CSI driver
-              href: azure-blob-csi.md
-            - name: Azure NetApp Files
-              href: azure-netapp-files.md
-            - name: Use Azure Ultra Disks
+            - name: Provision Azure Disks storage
+              href: azure-csi-disk-storage-provision.md
+            - name: Use Azure ultra disks
               href: use-ultra-disks.md
-        - name: Configure storage
+        - name: Other storage options
           items:
-            - name: Azure Blob - dynamic
-              href: azure-csi-blob-storage-dynamic.md
-            - name: Azure Blob - static
-              href: azure-csi-blob-storage-static.md
-            - name: Azure Disks - dynamic
-              href: azure-disks-dynamic-pv.md
-            - name: Azure Disks - static
-              href: azure-disk-volume.md
-            - name: Azure Files - dynamic
-              href: azure-files-dynamic-pv.md
-            - name: Azure Files - static
-              href: azure-files-volume.md
             - name: Azure HPC Cache
               href: azure-hpc-cache.md
             - name: NFS Server - static
@@ -477,7 +506,7 @@
         - name: Windows Server containers FAQ
           href: windows-faq.md
         - name: Upgrade from Windows Server 2019 to 2022
-          href: upgrade-windows-2019-2022.md          
+          href: upgrade-windows-2019-2022.md
         - name: Create Dockerfiles for Windows Server containers
           href: /virtualization/windowscontainers/manage-docker/manage-windows-dockerfile?context=/azure/aks/context/aks-context
         - name: Optimize Dockerfiles for Windows Server containers
@@ -505,9 +534,11 @@
           href: ../api-management/api-management-kubernetes.md
         - name: Use Dapr
           items:
-            - name: How to use the Dapr extension
+            - name: Create the Dapr extension
               href: dapr.md
-            - name: Migrate from Dapr OSS
+            - name: Configure the Dapr extension
+              href: dapr-settings.md
+            - name: Migrate from Dapr OSS to the Dapr extension
               href: dapr-migration.md
             - name: Troubleshoot the Dapr extension
               href: dapr-troubleshooting.md

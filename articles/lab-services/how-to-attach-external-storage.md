@@ -1,7 +1,6 @@
 ---
 title: Use external file storage in Azure Lab Services | Microsoft Docs
 description: Learn how to set up a lab that uses external file storage in Lab Services. 
-author: emaher
 ms.topic: how-to
 ms.date: 03/30/2021
 ms.service: lab-services

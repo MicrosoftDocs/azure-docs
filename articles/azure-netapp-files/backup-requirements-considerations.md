@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/03/2022
+ms.date: 02/23/2023
 ms.author: anfdocs
 ---
 # Requirements and considerations for Azure NetApp Files backup 
@@ -24,15 +24,15 @@ This article describes the requirements and considerations you need to be aware 
 You need to be aware of several requirements and considerations before using Azure NetApp Files backup: 
 
 * Azure NetApp Files backup is available in the regions associated with your Azure NetApp Files subscription. 
-Azure NetApp Files backup in a region can only protect an Azure NetApp Files volume that is located in that same region. For example, backups created by the service in West US 2 for a volume located in West US 2 are sent to Azure storage that is located also in West US 2. Azure NetApp Files does not support backups or backup replication to a different region.  
+Azure NetApp Files backup in a region can only protect an Azure NetApp Files volume located in that same region. For example, backups created by the service in West US 2 for a volume located in West US 2 are sent to Azure storage also located in West US 2. Azure NetApp Files doesn't support backups or backup replication to a different region.  
 
 * There can be a delay of up to 5 minutes in displaying a backup after the backup is actually completed.
 
-* For large volumes (greater than 10 TB), it can take multiple hours to transfer all the data from the backup media.
+* For volumes larger than 10 TB, it can take multiple hours to transfer all the data from the backup media.
 
-* The Azure NetApp Files backup feature supports backing up the daily, weekly, and monthly local snapshots created by the associated snapshot policy to the Azure storage. Hourly backups are not currently supported.
+* The Azure NetApp Files backup feature supports backing up the daily, weekly, and monthly local snapshots created by the associated snapshot policy to the Azure storage. Hourly backups aren't currently supported.
 
-* Azure NetApp Files backup uses the [Zone-Redundant storage](../storage/common/storage-redundancy.md#redundancy-in-the-primary-region) (ZRS) account that replicates the data synchronously across three Azure availability zones in the region, except for the regions listed below where only [Locally Redundant Storage](../storage/common/storage-redundancy.md#redundancy-in-the-primary-region) (LRS) storage is supported:   
+* Azure NetApp Files backup uses the [Zone-Redundant storage](../storage/common/storage-redundancy.md#redundancy-in-the-primary-region) (ZRS) account that replicates the data synchronously across three Azure availability zones in the region, except for the regions listed where only [Locally Redundant Storage](../storage/common/storage-redundancy.md#redundancy-in-the-primary-region) (LRS) storage is supported:   
 
     * West US   
 
@@ -40,14 +40,13 @@ Azure NetApp Files backup in a region can only protect an Azure NetApp Files vol
 
 * Policy-based (scheduled) Azure NetApp Files backup is independent from [snapshot policy configuration](azure-netapp-files-manage-snapshots.md).
 
-* In a cross-region replication setting, Azure NetApp Files backup can be configured on a source volume only. It is not supported on a cross-region replication *destination* volume.
+* In a cross-region replication setting, Azure NetApp Files backup can be configured on a source volume only. Azure NetApp Files backup isn't supported on a cross-region replication *destination* volume.
 
 * See [Restore a backup to a new volume](backup-restore-new-volume.md) for additional considerations related to restoring backups.
 
 * [Disabling backups](backup-disable.md) for a volume will delete all the backups stored in the Azure storage for that volume. If you delete a volume, the backups will remain. If you no longer need the backups, you should [manually delete the backups](backup-delete.md).
 
-* If you need to delete a parent resource group or subscription that contains backups, you should delete any backups first. Deleting the resource group or subscription will not delete the backups. You can remove backups by [disabling backups](backup-disable.md) or [manually deleting the backups](backup-disable.md).
-
+* If you need to delete a parent resource group or subscription that contains backups, you should delete any backups first. Deleting the resource group or subscription won't delete the backups. You can remove backups by [disabling backups](backup-disable.md) or [manually deleting the backups](backup-disable.md).
 
 ## Next steps
 

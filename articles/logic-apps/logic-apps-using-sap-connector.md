@@ -1,13 +1,13 @@
 ---
 title: Connect to SAP
-description: Connect to SAP resources from workflows in Azure Logic Apps.
+description: Connect to an SAP server from a workflow in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, azla
 ms.topic: how-to
-ms.date: 08/22/2022
+ms.date: 02/28/2023
 tags: connectors
 ---
 
@@ -15,40 +15,43 @@ tags: connectors
 
 [!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
-This article explains how you can access your SAP resources from Azure Logic Apps using the [SAP connector](/connectors/sap/).
+This how-to guide shows how to access your SAP server from a workflow in Azure Logic Apps using the [SAP connector](/connectors/sap/).
 
 ## Prerequisites
 
 * An Azure account and subscription. If you don't have an Azure subscription yet, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* A logic app workflow from which you want to access your SAP resources. If you're new to Azure Logic Apps, review the [Azure Logic Apps overview](logic-apps-overview.md) and the [quickstart for creating your first logic app workflow in the Azure portal](quickstart-create-first-logic-app-workflow.md).
+* The logic app workflow from where you want to access your SAP server.
 
-  * If you've used a previous version of the SAP connector that has been deprecated, you must [migrate to the current connector](#migrate-to-current-connector) before you can connect to your SAP server.
+  * If you're using a deprecated version of the SAP connector, you have to [migrate to the current connector](#migrate-to-current-connector) before you can connect to your SAP server.
 
   * If you're running your logic app workflow in multi-tenant Azure, review the [multi-tenant prerequisites](#multi-tenant-azure-prerequisites).
 
   * If you're running your logic app workflow in a Premium-level [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md), review the [ISE prerequisites](#ise-prerequisites).
 
-* An [SAP Application server](https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server) or [SAP Message server](https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm) that you want to access from Azure Logic Apps. For information about the SAP servers that support this connector, review [SAP compatibility](#sap-compatibility).
+* The [SAP Application server](https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server) or [SAP Message server](https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm) that you want to access from Azure Logic Apps.
 
-  > [!IMPORTANT]
-  > Make sure that you set up your SAP server and user account to allow using RFC. For more information, which includes the supported 
-  > user account types and the minimum required authorization for each action type (RFC, BAPI, IDOC), review the following SAP note: 
-  > [460089 - Minimum authorization profiles for external RFC programs](https://launchpad.support.sap.com/#/notes/460089). 
-  >
-  > * For RFC actions, the user account additionally needs access to function modules `RFC_GROUP_SEARCH` and `DD_LANGU_TO_ISOLA`.
-  > * For BAPI actions, the user account also needs access to the following function modules: `BAPI_TRANSACTION_COMMIT`, 
-  >   `BAPI_TRANSACTION_ROLLBACK`, `RPY_BOR_TREE_INIT`, `SWO_QUERY_METHODS` and `SWO_QUERY_API_METHODS`.
-  > * For IDOC actions, the user account also needs access to the following function modules: `IDOCTYPES_LIST_WITH_MESSAGES`, 
-  >   `IDOCTYPES_FOR_MESTYPE_READ`, `INBOUND_IDOCS_FOR_TID`, `OUTBOUND_IDOCS_FOR_TID`, `GET_STATUS_FROM_IDOCNR`, and `IDOC_RECORD_READ`.
-  > * For the **Read Table** action, the user account also needs access to *either* following function module: 
-  >   `RFC BBP_RFC_READ_TABLE` or `RFC_READ_TABLE`.
+  For information about the SAP servers that support this connector, review [SAP compatibility](#sap-compatibility).
 
-* Message content to send to your SAP server, such as a sample IDoc file. This content must be in XML format and include the namespace of the [SAP action](#actions) you want to use. You can [send IDocs with a flat file schema by wrapping them in an XML envelope](#send-flat-file-idocs).
+* Set up your SAP server and user account to allow using RFC.
 
-* If you want to use the **When a message is received from SAP** trigger, you must also do the following tasks:
+  For more information, which includes the supported user account types and the minimum required authorization for each action type (RFC, BAPI, IDOC), review the following SAP note: [460089 - Minimum authorization profiles for external RFC programs](https://launchpad.support.sap.com/#/notes/460089).
 
-  * Set up your SAP gateway security permissions or Access Control List (ACL). In the **secinfo** and **reginfo** files, which are visible in the Gateway Monitor dialog box, T-Code SMGW, follow **Goto > Expert Functions > External Security > Maintenance of ACL Files**. The following permission setting is required:
+* Your SAP user account needs access to the `RFC_METADATA` function group and the respective function modules for the following operations:
+
+  | Operations | Access to function modules |
+  |------------|----------------------------|
+  | RFC actions | `RFC_GROUP_SEARCH` and `DD_LANGU_TO_ISOLA` |
+  | BAPI actions | `BAPI_TRANSACTION_COMMIT`, `BAPI_TRANSACTION_ROLLBACK`, `RPY_BOR_TREE_INIT`, `SWO_QUERY_METHODS`, and `SWO_QUERY_API_METHODS` |
+  | IDOC actions | `IDOCTYPES_LIST_WITH_MESSAGES`, `IDOCTYPES_FOR_MESTYPE_READ`, `INBOUND_IDOCS_FOR_TID`, `OUTBOUND_IDOCS_FOR_TID`, `GET_STATUS_FROM_IDOCNR`, and `IDOC_RECORD_READ` |
+  | **Read Table** action | Either `RFC BBP_RFC_READ_TABLE` or `RFC_READ_TABLE` |
+  | Grant strict minimum access to SAP server for your SAP connection | `RFC_METADATA_GET` and `RFC_METADATA_GET_TIMESTAMP` |
+
+* To use the **When a message is received from SAP** trigger, complete the following tasks:
+
+  * Set up your SAP gateway security permissions or Access Control List (ACL). In the **Gateway Monitor** (T-Code SMGW) dialog box, which shows the **secinfo** and **reginfo** files, open the **Goto** menu, and select **Expert Functions** > **External Security** > **Maintenance of ACL Files**.
+
+    The following permission setting is required:
 
     `P TP=LOGICAPP HOST=<on-premises-gateway-server-IP-address> ACCESS=*`
 
@@ -56,7 +59,7 @@ This article explains how you can access your SAP resources from Azure Logic App
 
     `P TP=<trading-partner-identifier-(program-name)-or-*-for-all-partners> HOST=<comma-separated-list-with-external-host-IP-or-network-names-that-can-register-the-program> ACCESS=<*-for-all-permissions-or-a-comma-separated-list-of-permissions>`
 
-    If you don't configure the SAP gateway security permissions, you might receive this error:
+    If you don't configure the SAP gateway security permissions, you might receive the following error:
 
     `Registration of tp Microsoft.PowerBI.EnterpriseGateway from host <host-name> not allowed`
 
@@ -64,17 +67,20 @@ This article explains how you can access your SAP resources from Azure Logic App
 
   * Set up your SAP gateway security logging to help find Access Control List (ACL) issues. For more information, review the [SAP help topic for setting up gateway logging](https://help.sap.com/viewer/62b4de4187cb43668d15dac48fc00732/7.31.25/en-US/48b2a710ca1c3079e10000000a42189b.html).
 
-  * In the **Configuration of RFC Connections** (T-Code SM59) dialog box, create an RFC connection with the **TCP/IP** type. The **Activation Type** must be **Registered Server Program**. Set the RFC connection's **Communication Type with Target System** value to **Unicode**.
+  * In the **Configuration of RFC Connections** (T-Code SM59) dialog box, create an RFC connection with the **TCP/IP** type. Make sure that the **Activation Type** is set to **Registered Server Program**. Set the RFC connection's **Communication Type with Target System** value to **Unicode**.
 
   * If you use this SAP trigger with the **IDOC Format** parameter set to **FlatFile** along with the [Flat File Decode action](logic-apps-enterprise-integration-flatfile.md), you have to use the `early_terminate_optional_fields` property in your flat file schema by setting the value to `true`.
 
     This requirement is necessary because the flat file IDoc data record that's sent by SAP on the tRFC call `IDOC_INBOUND_ASYNCHRONOUS` isn't padded to the full SDATA field length. Azure Logic Apps provides the flat file IDoc original data without padding as received from SAP. Also, when you combine this SAP trigger with the Flat File Decode action, the schema that's provided to the action must match.
 
   > [!NOTE]
+  >
   > This SAP trigger uses the same URI location to both renew and unsubscribe from a webhook subscription. The renewal 
   > operation uses the HTTP `PATCH` method, while the unsubscribe operation uses the HTTP `DELETE` method. This behavior 
   > might make a renewal operation appear as an unsubscribe operation in your trigger's history, but the operation is 
   > still a renewal because the trigger uses `PATCH` as the HTTP method, not `DELETE`.
+
+* The message content to send to your SAP server, such as a sample IDoc file. This content must be in XML format and include the namespace of the [SAP action](#actions) you want to use. You can [send IDocs with a flat file schema by wrapping them in an XML envelope](#send-flat-file-idocs).
 
 ### SAP compatibility
 
@@ -519,7 +525,7 @@ Next, create an action to send your IDoc message to SAP when your [Request trigg
 
         ![Screenshot that shows how to create SAP Message server connection.](./media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)
 
-        In SAP, the Logon Group is maintained by opening the **CCMS: Maintain Logon Groups** (T-Code SMLG) dialog box. For more information, review [SAP Note 26317 - Set up for LOGON group for automatic load balancing](https://service.sap.com/sap/support/notes/26317).
+        In the SAP server, the Logon Group is maintained by opening the **CCMS: Maintain Logon Groups** (T-Code SMLG) dialog box. For more information, review [SAP Note 26317 - Set up for LOGON group for automatic load balancing](https://service.sap.com/sap/support/notes/26317).
 
       By default, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. The **Safe Typing** option is available for backward compatibility and only checks the string length. Learn more about the [Safe Typing option](#safe-typing).
 
@@ -576,7 +582,7 @@ For example, review the following example XML payload:
 
 ```xml
 <SendIdoc xmlns="http://Microsoft.LobServices.Sap/2007/03/Idoc/">
-<idocData>EDI_DC 3000000001017945375750 30INVOIC011BTSVLINV30KUABCABCFPPC LDCA X004010810 4 SAPMSX LSEDI ABCABCFPPC 000d3ae4-723e-1edb-9ca4-cc017365c9fd 20210217054521INVOICINVOIC01ZINVOIC2RE 20210217054520
+  <idocData>EDI_DC 3000000001017945375750 30INVOIC011BTSVLINV30KUABCABCFPPC LDCA X004010810 4 SAPMSX LSEDI ABCABCFPPC 000d3ae4-723e-1edb-9ca4-cc017365c9fd 20210217054521INVOICINVOIC01ZINVOIC2RE 20210217054520
 E2EDK010013000000001017945375000001E2EDK01001000000010 ABCABC1.00000 0060 INVO9988298128 298.000 298.000 LB Z4LR EN 0005065828 L
 E2EDKA1 3000000001017945375000002E2EDKA1 000000020 RS ABCABCFPPC 0005065828 ABCABCABC ABCABC Inc. Limited Risk Distributor ABCABC 1950 ABCABCABCA Blvd ABCABAABCAB L5N8L9 CA ABCABC E ON V-ABCABC LDCA
 E2EDKA1 3000000001017945375000003E2EDKA1 000000020 AG 0005065828 ABCABCFPPC ABCABC ABCABC ABCABC - FPP ONLY 88 ABCABC Crescent ABCABAABCAB L5R 4A2 CA ABCABC 111 111 1111 E ON ABCABCFPPC EN
@@ -723,6 +729,7 @@ In the following example, a request and response pattern is generated from the `
 <STFC_CONNECTIONResponse xmlns="http://Microsoft.LobServices.Sap/2007/03/Rfc/">
   <ECHOTEXT>@{first(xpath(xml(triggerBody()?['Content']), '/*[local-name()="STFC_CONNECTION"]/*[local-name()="REQUTEXT"]/text()'))}</ECHOTEXT>
   <RESPTEXT>Azure Logic Apps @{utcNow()}</RESPTEXT>
+</STFC_CONNECTIONResponse>
 ```
 
 ### Test your logic app workflow
@@ -738,9 +745,9 @@ In the following example, a request and response pattern is generated from the `
    ```xml
    <?xml version="1.0" encoding="UTF-8" ?>
    <Send xmlns="http://Microsoft.LobServices.Sap/2007/03/Idoc/2/ORDERS05//720/Send">
-   <idocData>
-   <...>
-   </idocData>
+     <idocData>
+       <...>
+     </idocData>
    </Send>
    ```
 
@@ -1060,7 +1067,7 @@ To send IDocs from SAP to your logic app workflow, you need the following minimu
 
     1. On the **Technical Settings** tab, for **Activation Type**, select **Registered Server Program**.
 
-    1. For your **Program ID**, enter a value. In SAP, your logic app workflow's trigger is registered by using this identifier.
+    1. For your **Program ID**, enter a value. In the SAP server, your logic app workflow's trigger is registered by using this identifier.
 
        > [!IMPORTANT]
        > The SAP **Program ID** is case-sensitive. Make sure you consistently use the same case format for your **Program ID** 
@@ -1184,7 +1191,7 @@ For production environments, you must create two partner profiles. The first pro
 
 1. Select **Standard Outbound Processing**.
 
-1. To start outbound IDoc processing, select **Continue**. When processing finishes, the **IDoc sent to SAP system or external program** message appears.
+1. To start outbound IDoc processing, select **Continue**. When the tool finishes processing, the **IDoc sent to SAP system or external program** message appears.
 
 1. To check for processing errors, use the **sm58** transaction code (T-Code) with the **/n** prefix.
 
@@ -1877,13 +1884,13 @@ The SAP connection parameters for a logic app workflow don't have a language pro
 
 ### Confirm transaction explicitly
 
-When you send transactions to SAP from Logic Apps, this exchange happens in two steps as described in the SAP document, [Transactional RFC Server Programs](https://help.sap.com/doc/saphelp_nwpi71/7.1/22/042ad7488911d189490000e829fbbd/content.htm?no_cache=true). By default, the **Send to SAP** action handles both the steps for the function transfer and for the transaction confirmation in a single call. The SAP connector gives you the option to decouple these steps. You can send an IDoc and rather than automatically confirm the transaction, you can use the explicit **\[IDOC] Confirm transaction ID** action.
+When you send transactions to SAP from Azure Logic Apps, this exchange happens in two steps as described in the SAP document, [Transactional RFC Server Programs](https://help.sap.com/doc/saphelp_nwpi71/7.1/22/042ad7488911d189490000e829fbbd/content.htm?no_cache=true). By default, the **Send to SAP** action handles both the steps for the function transfer and for the transaction confirmation in a single call. The SAP connector gives you the option to decouple these steps. You can send an IDoc and rather than automatically confirm the transaction, you can use the explicit **\[IDOC] Confirm transaction ID** action.
 
-This capability to decouple the transaction ID confirmation is useful when you don't want to duplicate transactions in SAP, for example, in scenarios where failures might happen due to causes such as network issues. By confirming the transaction ID separately, the transaction is only completed one time in your SAP system.
+This capability to decouple the transaction ID confirmation is useful when you don't want to duplicate transactions in SAP, for example, in scenarios where failures might happen due to causes such as network issues. When the **Send to SAP** action separately confirms the transaction ID, the SAP system completes the transaction only once.
 
 Here's an example that shows this pattern:
 
-1. Create a blank logic app and add the Request trigger.
+1. Create a blank logic app workflow, and add the Request trigger.
 
 1. From the SAP connector, add the **\[IDOC] Send document to SAP** action. Provide the details for the IDoc that you send to your SAP system.
 

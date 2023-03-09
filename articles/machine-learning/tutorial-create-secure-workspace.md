@@ -70,14 +70,23 @@ To create a virtual network, use the following steps:
 
     :::image type="content" source="./media/tutorial-create-secure-workspace/create-vnet-basics.png" alt-text="Image of the basic virtual network config":::
 
-1. Select __IP Addresses__ tab. The default settings should be similar to the following image:
+1. Select __Security__. Select to __Enable Azure Bastion__. [Azure Bastion](../bastion/bastion-overview.md) provides a secure way to access the VM jump box you'll create inside the VNet in a later step. Use the following values for the remaining fields:
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace/create-vnet-ip-address-default.png" alt-text="Default IP Address screen":::
+    * __Bastion name__: A unique name for this Bastion instance
+    * __Public IP address__: Create a new public IP address.
+
+    Leave the other fields at the default values.
+
+    :::image type="content" source="./media/tutorial-create-secure-workspace/create-bastion.png" alt-text="Screenshot of Bastion config.":::
+
+1. Select __IP Addresses__. The default settings should be similar to the following image:
+
+    :::image type="content" source="./media/tutorial-create-secure-workspace/create-vnet-ip-address-default.png" alt-text="Default IP Address screen.":::
 
     Use the following steps to configure the IP address and configure a subnet for training and scoring resources:
 
     > [!TIP]
-    > While you can use a single subnet for all Azure ML resources, the steps in this article show how to create two subnets to separate the training & scoring resources.
+    > While you can use a single subnet for all Azure Machine Learning resources, the steps in this article show how to create two subnets to separate the training & scoring resources.
     >
     > The workspace and other dependency services will go into the training subnet. They can still be used by resources in other subnets, such as the scoring subnet.
 
@@ -88,45 +97,28 @@ To create a virtual network, use the following steps:
 
     1. Select the __Default__ subnet and then select __Remove subnet__.
     
-        :::image type="content" source="./media/tutorial-create-secure-workspace/delete-default-subnet.png" alt-text="Screenshot of deleting default subnet":::
+        :::image type="content" source="./media/tutorial-create-secure-workspace/delete-default-subnet.png" alt-text="Screenshot of deleting default subnet.":::
 
-    1. To create a subnet to contain the workspace, dependency services, and resources used for training, select __+ Add subnet__ and set the subnet name and address range. The following are the values used in this tutorial:
-        * __Subnet name__: Training
-        * __Subnet address range__: 172.16.0.0/24
+    1. To create a subnet to contain the workspace, dependency services, and resources used for _training_, select __+ Add subnet__ and set the subnet name, starting address, and subnet size. The following are the values used in this tutorial:
+        * __Name__: Training
+        * __Starting address__: 172.16.0.0
+        * __Subnet size__: /24 (256 addresses)
 
-        :::image type="content" source="./media/tutorial-create-secure-workspace/vnet-add-training-subnet.png" alt-text="Screenshot of Training subnet":::
+        :::image type="content" source="./media/tutorial-create-secure-workspace/vnet-add-training-subnet.png" alt-text="Screenshot of Training subnet.":::
 
-        > [!TIP]
-        > If you plan on using a _service endpoint_ to add your Azure Storage Account, Azure Key Vault, and Azure Container Registry to the VNet, select the following under __Services__:
-        > * __Microsoft.Storage__
-        > * __Microsoft.KeyVault__
-        > * __Microsoft.ContainerRegistry__
-        >
-        > If you plan on using a _private endpoint_ to add these services to the VNet, you do not need to select these entries. The steps in this article use a private endpoint for these services, so you do not need to select them when following these steps.
-
-    1. To create a subnet for compute resources used to score your models, select __+ Add subnet__ again, and set the name and address range:
+    1. To create a subnet for compute resources used to _score_ your models, select __+ Add subnet__ again, and set the name and address range:
         * __Subnet name__: Scoring
-        * __Subnet address range__: 172.16.1.0/24
+        * __Starting address__: 172.16.1.0
+        * __Subnet size__: /24 (256 addresses)
 
-        :::image type="content" source="./media/tutorial-create-secure-workspace/vnet-add-scoring-subnet.png" alt-text="Screenshot of Scoring subnet":::
+        :::image type="content" source="./media/tutorial-create-secure-workspace/vnet-add-scoring-subnet.png" alt-text="Screenshot of Scoring subnet.":::
 
-        > [!TIP]
-        > If you plan on using a _service endpoint_ to add your Azure Storage Account, Azure Key Vault, and Azure Container Registry to the VNet, select the following under __Services__:
-        > * __Microsoft.Storage__
-        > * __Microsoft.KeyVault__
-        > * __Microsoft.ContainerRegistry__
-        >
-        > If you plan on using a _private endpoint_ to add these services to the VNet, you do not need to select these entries. The steps in this article use a private endpoint for these services, so you do not need to select them when following these steps.
+    1. To create a subnet for _Azure Bastion_, select __+ Add subnet__ and set the template, starting address, and subnet size:
+        * __Subnet template__: Azure Bastion
+        * __Starting address__: 172.16.2.0
+        * __Subnet size__: /26 (64 addresses)
 
-1. Select __Security__. For __BastionHost__, select __Enable__. [Azure Bastion](../bastion/bastion-overview.md) provides a secure way to access the VM jump box you'll create inside the VNet in a later step. Use the following values for the remaining fields:
-
-    * __Bastion name__: A unique name for this Bastion instance
-    * __AzureBastionSubnetAddress space__: 172.16.2.0/27
-    * __Public IP address__: Create a new public IP address.
-
-    Leave the other fields at the default values.
-
-    :::image type="content" source="./media/tutorial-create-secure-workspace/create-bastion.png" alt-text="Screenshot of Bastion config":::
+        :::image type="content" source="./media/tutorial-create-secure-workspace/vnet-add-azure-bastion-subnet.png" alt-text="Screenshot of Azure Bastion subnet.":::
 
 1. Select __Review + create__.
 
@@ -330,6 +322,48 @@ Azure Machine Learning studio is a web-based application that lets you easily ma
     1. On the __Members__ tab, select __User, group, or service principal__ in the __Assign access to__ area and then select __+ Select members__. In the __Select members__ dialog, enter the name as your Azure Machine Learning workspace. Select the service principal for the workspace, and then use the __Select__ button.
 
     1. On the **Review + assign** tab, select **Review + assign** to assign the role.
+
+## Secure Azure Monitor and Application Insights
+
+> [!NOTE]
+> For more information on securing Azure Monitor and Application Insights, see the following links:
+> * [Migrate to workspace-based Application Insights resources](/azure/azure-monitor/app/convert-classic-resource).
+> * [Configure your Azure Monitor private link](/azure/azure-monitor/logs/private-link-configure).
+
+1. In the [Azure portal](https://portal.azure.com), select your Azure Machine Learning workspace. From __Overview__, select the __Application Insights__ link.
+
+    :::image type="content" source="./media/tutorial-create-secure-workspace/workspace-application-insight.png" alt-text="Screenshot of the Application Insights link.":::
+
+1. In the __Properties__ for Application Insights, check the __WORKSPACE__ entry to see if it contains a value. If it _doesn't_, select __Migrate to Workspace-based__, select the __Subscription__ and __Log Analytics Workspace__ to use, then select __Apply__.
+
+    :::image type="content" source="./media/tutorial-create-secure-workspace/migrate-workspace-based.png" alt-text="Screenshot of the link to migrate to workspace-based.":::
+
+1. In the Azure portal, select __Home__, and then search for __Private link__. Select the __Azure Monitor Private Link Scope__ result and then select __Create__.
+1. From the __Basics__ tab, select the same __Subscription__, __Resource Group__, and __Resource group region__ as your Azure Machine Learning workspace. Enter a __Name__ for the instance, and then select __Review + Create__. To create the instance, select __Create__.
+1. Once the Azure Monitor Private Link Scope instance has been created, select the instance in the Azure portal. From the __Configure__ section, select __Azure Monitor Resources__ and then select __+ Add__.
+
+    :::image type="content" source="./media/tutorial-create-secure-workspace/add-monitor-resources.png" alt-text="Screenshot of the add button.":::
+
+1. From __Select a scope__, use the filters to select the Application Insights instance for your Azure Machine Learning workspace. Select __Apply__ to add the instance.
+1. From the __Configure__ section, select __Private Endpoint connections__ and then select __+ Private Endpoint__.
+
+    :::image type="content" source="./media/tutorial-create-secure-workspace/private-endpoint-connections.png" alt-text="Screenshot of the add private endpoint button.":::
+
+1. Select the same __Subscription__, __Resource Group__, and __Region__ that contains your VNet. Select __Next: Resource__.
+
+    :::image type="content" source="./media/tutorial-create-secure-workspace/monitor-private-endpoint-basics.png" alt-text="Screenshot of the Azure Monitor private endpoint basics.":::
+
+1. Select `Microsoft.insights/privateLinkScopes` as the __Resource type__. Select the Private Link Scope you created earlier as the __Resource__. Select `azuremonitor` as the __Target sub-resource__. Finally, select __Next: Virtual Network__ to continue.
+
+    :::image type="content" source="./media/tutorial-create-secure-workspace/monitor-private-endpoint-resource.png" alt-text="Screenshot of the Azure Monitor private endpoint resources.":::
+
+1. Select the __Virtual network__ you created earlier, and the __Training__ subnet. Select __Next__ until you arrive at __Review + Create__. Select __Create__ to create the private endpoint.
+
+    :::image type="content" source="./media/tutorial-create-secure-workspace/monitor-private-endpoint-network.png" alt-text="Screenshot of the Azure Monitor private endpoint network.":::
+
+1. After the private endpoint has been created, return to the __Azure Monitor Private Link Scope__ resource in the portal. From the __Configure__ section, select __Access modes__. Select __Private only__ for __Ingestion access mode__ and __Query access mode__, then select __Save__.
+
+    :::image type="content" source="./media/tutorial-create-secure-workspace/access-modes.png" alt-text="Screenshot of the private link scope access modes.":::
 
 ## Connect to the workspace
 
