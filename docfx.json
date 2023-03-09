@@ -190,6 +190,7 @@
       "uhfHeaderId": "azure",
       "ms.suite": "office",
       "contributors_to_exclude": [
+        "alexbuckgit",
         "atookey",
         "chbain",
         "Court72",

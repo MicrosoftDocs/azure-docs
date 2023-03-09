@@ -1,15 +1,11 @@
 ---
 title: Get Azure recommendations for your SQL Server migration
 description: Learn how to use the Azure SQL Migration extension in Azure Data Studio to get SKU recommendation when you migrate SQL Server databases to the Azure SQL Managed Instance, SQL Server on Azure Virtual Machines, or Azure SQL Database.
-services: database-migration
 author: croblesm
 ms.author: roblescarlos
-manager: 
-ms.reviewer: 
-ms.service: dms
-ms.workload: data-services
-ms.topic: conceptual
 ms.date: 02/22/2022
+ms.service: dms
+ms.topic: conceptual
 ms.custom: references_regions
 ---
 

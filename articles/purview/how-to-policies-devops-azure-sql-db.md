@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 02/10/2023
+ms.date: 03/03/2023
 ms.custom:
 ---
 # Provision access to system metadata in Azure SQL Database (preview)

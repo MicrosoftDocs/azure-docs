@@ -1,11 +1,11 @@
 ---
 title: Write stored procedures, triggers, and UDFs in Azure Cosmos DB
-description: Learn how to define stored procedures, triggers, and user-defined functions in Azure Cosmos DB
+description: Learn how to define stored procedures, triggers, and user-defined functions by using the API for NoSQL in Azure Cosmos DB.
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
-ms.date: 10/05/2021
+ms.date: 03/01/2023
 ms.author: sidandrews
 ms.reviewer: jucocchi
 ms.devlang: javascript
@@ -13,28 +13,30 @@ ms.custom: devx-track-js
 ---
 
 # How to write stored procedures, triggers, and user-defined functions in Azure Cosmos DB
+
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
-Azure Cosmos DB provides language-integrated, transactional execution of JavaScript that lets you write **stored procedures**, **triggers**, and **user-defined functions (UDFs)**. When using the API for NoSQL in Azure Cosmos DB, you can define the stored procedures, triggers, and UDFs in JavaScript language. You can write your logic in JavaScript and execute it inside the database engine. You can create and execute triggers, stored procedures, and UDFs by using [Azure portal](https://portal.azure.com/), the [JavaScript language integrated query API in Azure Cosmos DB](javascript-query-api.md) and the [Azure Cosmos DB for NoSQL client SDKs](samples-dotnet.md). 
+Azure Cosmos DB provides language-integrated, transactional execution of JavaScript that lets you write *stored procedures*, *triggers*, and *user-defined functions (UDFs)*. When you use the API for NoSQL in Azure Cosmos DB, you can define the stored procedures, triggers, and UDFs using JavaScript. You can write your logic in JavaScript and execute it inside the database engine. You can create and execute triggers, stored procedures, and UDFs by using the [Azure portal](https://portal.azure.com/), the [JavaScript query API in Azure Cosmos DB](javascript-query-api.md), and the [Azure Cosmos DB for NoSQL SDKs](samples-dotnet.md). 
 
-To call a stored procedure, trigger, and user-defined function, you need to register it. For more information, see [How to work with stored procedures, triggers, user-defined functions in Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md).
-
-> [!NOTE]
-> For partitioned containers, when executing a stored procedure, a partition key value must be provided in the request options. Stored procedures are always scoped to a partition key. Items that have a different partition key value will not be visible to the stored procedure. This also applied to triggers as well.
+To call a stored procedure, trigger, or UDF, you need to register it. For more information, see [How to work with stored procedures, triggers, and user-defined functions in Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md).
 
 > [!NOTE]
-> Server-side JavaScript features including stored procedures, triggers, and user-defined functions do not support importing modules.
+> For partitioned containers, when executing a stored procedure, a partition key value must be provided in the request options. Stored procedures are always scoped to a partition key. Items that have a different partition key value aren't visible to the stored procedure. This also applies to triggers.
+
+> [!NOTE]
+> Server-side JavaScript features, including stored procedures, triggers, and UDFs, don't support importing modules.
 
 > [!TIP]
-> Azure Cosmos DB supports deploying containers with stored procedures, triggers and user-defined functions. For more information see [Create an Azure Cosmos DB container with server-side functionality.](./manage-with-templates.md#create-sproc)
+> Azure Cosmos DB supports deploying containers with stored procedures, triggers, and UDFs. For more information, see [Create an Azure Cosmos DB container with server-side functionality.](./manage-with-templates.md#create-sproc)
 
 ## <a id="stored-procedures"></a>How to write stored procedures
 
-Stored procedures are written using JavaScript, they can create, update, read, query, and delete items inside an Azure Cosmos DB container. Stored procedures are registered per collection, and can operate on any document or an attachment present in that collection.
-> [Note]
-> When it comes to stored procedure, Cosmos DB has different charging policy. Since, stored can essentially execute code and consume any number of RUs, we do upfront charging for each stored procedure execution. This is a defense mechanism in backend to ensure  stored procedure scripts do not impact out backend services. The amount which is charged upfront is the average charge consumed by the script in previous invocations. If the stored procedure has varied RUs per invocation i.e., lot of variance around the mean then the client may not be able to fully utilize the budget as we always reserve the average RU per operations before we start the execution. As an alternative we would suggest the client to use batch or bulk requests instead of stored procedures to avoid the variance around the RU charging.  
-> 
-Here is a simple stored procedure that returns a "Hello World" response.
+Stored procedures are written using JavaScript, and they can create, update, read, query, and delete items inside an Azure Cosmos DB container. Stored procedures are registered per collection, and can operate on any document or an attachment present in that collection.
+
+> [!NOTE]
+> Azure Cosmos DB has a different charging policy for stored procedures. Because stored procedures can execute code and consume any number of request units (RUs), each execution requires an upfront charge. This ensures that stored procedure scripts don't impact backend services. The amount charged upfront equals the average charge consumed by the script in previous invocations. The average RUs per operation is reserved before execution. If the invocations have a lot of variance in RUs, your budget utilization might be affected. As an alternative, you should use batch or bulk requests instead of stored procedures to avoid variance around RU charges.  
+
+Here's a simple stored procedure that returns a "Hello World" response.
 
 ```javascript
 var helloWorldStoredProc = {
@@ -50,15 +52,15 @@ var helloWorldStoredProc = {
 
 The context object provides access to all operations that can be performed in Azure Cosmos DB, as well as access to the request and response objects. In this case, you use the response object to set the body of the response to be sent back to the client.
 
-Once written, the stored procedure must be registered with a collection. To learn more, see [How to use stored procedures in Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md#how-to-run-stored-procedures) article.
+Once written, the stored procedure must be registered with a collection. To learn more, see [How to use stored procedures in Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md#how-to-run-stored-procedures).
 
-### <a id="create-an-item"></a>Create an item using stored procedure
+### <a id="create-an-item"></a>Create items using stored procedures
 
-When you create an item by using stored procedure, the item is inserted into the Azure Cosmos DB container and an ID for the newly created item is returned. Creating an item is an asynchronous operation and depends on the JavaScript callback functions. The callback function has two parameters - one for the error object in case the operation fails and another for a return value; in this case, the created object. Inside the callback, you can either handle the exception or throw an error. In case a callback is not provided and there is an error, the Azure Cosmos DB runtime will throw an error.
+When you create an item by using a stored procedure, the item is inserted into the Azure Cosmos DB container and an ID for the newly created item is returned. Creating an item is an asynchronous operation and depends on the JavaScript callback functions. The callback function has two parameters: one for the error object in case the operation fails, and another for a return value, in this case, the created object. Inside the callback, you can either handle the exception or throw an error. If a callback isn't provided and there's an error, the Azure Cosmos DB runtime throws an error.
 
-The stored procedure also includes a parameter to set the description, it's a boolean value. When the parameter is set to true and the description is missing, the stored procedure will throw an exception. Otherwise, the rest of the stored procedure continues to run.
+The stored procedure also includes a parameter to set the description as a boolean value. When the parameter is set to true and the description is missing, the stored procedure throws an exception. Otherwise, the rest of the stored procedure continues to run.
 
-The following example stored procedure takes an array of new Azure Cosmos DB items as input, inserts it into the Azure Cosmos DB container and returns the count of the items inserted. In this example, we are leveraging the ToDoList sample from the [Quickstart .NET API for NoSQL](quickstart-dotnet.md)
+The following example of a stored procedure takes an array of new Azure Cosmos DB items as input, inserts it into the Azure Cosmos DB container and returns the count of the items inserted. In this example, we're using the ToDoList sample from the [Quickstart .NET API for NoSQL](quickstart-dotnet.md).
 
 ```javascript
 function createToDoItems(items) {
@@ -99,7 +101,7 @@ function createToDoItems(items) {
 
 ### Arrays as input parameters for stored procedures
 
-When defining a stored procedure in Azure portal, input parameters are always sent as a string to the stored procedure. Even if you pass an array of strings as an input, the array is converted to string and sent to the stored procedure. To work around this, you can define a function within your stored procedure to parse the string as an array. The following code shows how to parse a string  input parameter as an array:
+When you define a stored procedure in Azure portal, input parameters are always sent as a string to the stored procedure. Even if you pass an array of strings as an input, the array is converted to a string and sent to the stored procedure. To work around this, you can define a function within your stored procedure to parse the string as an array. The following code shows how to parse a string input parameter as an array:
 
 ```javascript
 function sample(arr) {
@@ -114,7 +116,7 @@ function sample(arr) {
 
 ### <a id="transactions"></a>Transactions within stored procedures
 
-You can implement transactions on items within a container by using a stored procedure. The following example uses transactions within a fantasy football gaming app to trade players between two teams in a single operation. The stored procedure attempts to read the two Azure Cosmos DB items each corresponding to the player IDs passed in as an argument. If both players are found, then the stored procedure updates the items by swapping their teams. If any errors are encountered along the way, the stored procedure throws a JavaScript exception that implicitly aborts the transaction.
+You can implement transactions on items within a container by using a stored procedure. The following example uses transactions within a fantasy football gaming app to trade players between two teams in a single operation. The stored procedure attempts to read the two Azure Cosmos DB items, each corresponding to the player IDs passed in as an argument. If both players are found, then the stored procedure updates the items by swapping their teams. If any errors are encountered along the way, the stored procedure throws a JavaScript exception that implicitly aborts the transaction.
 
 ```javascript
 // JavaScript source code
@@ -235,9 +237,9 @@ function bulkImport(items) {
 }
 ```
 
-### <a id="async-promises"></a>Async await with stored procedures
+### <a id="async-promises"></a>Async/await with stored procedures
 
-The following is an example of a stored procedure that uses async-await with Promises using a helper function. The stored procedure queries for an item and replaces it.
+The following stored procedure example uses `async/await` with *Promises* using a helper function. The stored procedure queries for an item and replaces it.
 
 ```javascript
 function async_sample() {
@@ -287,11 +289,11 @@ function async_sample() {
 
 ## <a id="triggers"></a>How to write triggers
 
-Azure Cosmos DB supports pre-triggers and post-triggers. Pre-triggers are executed before modifying a database item and post-triggers are executed after modifying a database item. Triggers are not automatically executed, they must be specified for each database operation where you want them to execute. After you define a trigger, you should [register and call a pre-trigger](how-to-use-stored-procedures-triggers-udfs.md#how-to-run-pre-triggers) by using the Azure Cosmos DB SDKs.
+Azure Cosmos DB supports pre-triggers and post-triggers. Pre-triggers are executed before modifying a database item, and post-triggers are executed after modifying a database item. Triggers aren't automatically executed. They must be specified for each database operation where you want them to execute. After you define a trigger, you should [register and call a pre-trigger](how-to-use-stored-procedures-triggers-udfs.md#how-to-run-pre-triggers) by using the Azure Cosmos DB SDKs.
 
 ### <a id="pre-triggers"></a>Pre-triggers
 
-The following example shows how a pre-trigger is used to validate the properties of an Azure Cosmos DB item that is being created. In this example, we are leveraging the ToDoList sample from the [Quickstart .NET API for NoSQL](quickstart-dotnet.md), to add a timestamp property to a newly added item if it doesn't contain one.
+The following example shows how a pre-trigger is used to validate the properties of an Azure Cosmos DB item that's being created. This example uses the ToDoList sample from the [Quickstart .NET API for NoSQL](quickstart-dotnet.md) to add a timestamp property to a newly added item if it doesn't contain one.
 
 ```javascript
 function validateToDoItemTimestamp() {
@@ -312,11 +314,11 @@ function validateToDoItemTimestamp() {
 }
 ```
 
-Pre-triggers cannot have any input parameters. The request object in the trigger is used to manipulate the request message associated with the operation. In the previous example, the pre-trigger is run when creating an Azure Cosmos DB item, and the request message body contains the item to be created in JSON format.
+Pre-triggers can't have any input parameters. The request object in the trigger is used to manipulate the request message associated with the operation. In the previous example, the pre-trigger is run when creating an Azure Cosmos DB item, and the request message body contains the item to be created in JSON format.
 
-When triggers are registered, you can specify the operations that it can run with. This trigger should be created with a `TriggerOperation` value of `TriggerOperation.Create`, which means using the trigger in a replace operation as shown in the following code is not permitted.
+When triggers are registered, you can specify the operations that it can run with. This trigger should be created with a `TriggerOperation` value of `TriggerOperation.Create`, which means that using the trigger in a replace operation isn't permitted.
 
-For examples of how to register and call a pre-trigger, see [pre-triggers](how-to-use-stored-procedures-triggers-udfs.md#how-to-run-pre-triggers) and [post-triggers](how-to-use-stored-procedures-triggers-udfs.md#how-to-run-post-triggers) articles. 
+For examples of how to register and call a pre-trigger, see [pre-triggers](how-to-use-stored-procedures-triggers-udfs.md#how-to-run-pre-triggers) and [post-triggers](how-to-use-stored-procedures-triggers-udfs.md#how-to-run-post-triggers). 
 
 ### <a id="post-triggers"></a>Post-triggers
 
@@ -359,23 +361,23 @@ function updateMetadata() {
 }
 ```
 
-One thing that is important to note is the transactional execution of triggers in Azure Cosmos DB. The post-trigger runs as part of the same transaction for the underlying item itself. An exception during the post-trigger execution will fail the whole transaction. Anything committed will be rolled back and an exception returned.
+One thing that's important to note is the transactional execution of triggers in Azure Cosmos DB. The post-trigger runs as part of the same transaction for the underlying item itself. An exception during the post-trigger execution fails the whole transaction. Anything committed is rolled back and an exception is returned.
 
-For examples of how to register and call a pre-trigger, see [pre-triggers](how-to-use-stored-procedures-triggers-udfs.md#how-to-run-pre-triggers) and [post-triggers](how-to-use-stored-procedures-triggers-udfs.md#how-to-run-post-triggers) articles. 
+For examples of how to register and call a pre-trigger, see [pre-triggers](how-to-use-stored-procedures-triggers-udfs.md#how-to-run-pre-triggers) and [post-triggers](how-to-use-stored-procedures-triggers-udfs.md#how-to-run-post-triggers). 
 
 ## <a id="udfs"></a>How to write user-defined functions
 
-The following sample creates a UDF to calculate income tax for various income brackets. This user-defined function would then be used inside a query. For the purposes of this example assume there is a container called "Incomes" with properties as follows:
+The following sample creates a UDF to calculate income tax for various income brackets. This user-defined function would then be used inside a query. For the purposes of this example, assume there's a container called *Incomes* with properties as follows:
 
 ```json
 {
-   "name": "Satya Nadella",
+   "name": "Daniel Elfyn",
    "country": "USA",
    "income": 70000
 }
 ```
 
-The following is a function definition to calculate income tax for various income brackets:
+The following function definition calculates income tax for various income brackets:
 
 ```javascript
 function tax(income) {
@@ -391,11 +393,11 @@ function tax(income) {
 }
 ```
 
-For examples of how to register and use a user-defined function, see [How to use user-defined functions in Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md#how-to-work-with-user-defined-functions) article.
+For examples of how to register and use a UDF, see [How to work with user-defined functions in Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md#how-to-work-with-user-defined-functions).
 
 ## Logging
 
-When using stored procedure, triggers or user-defined functions, you can log the steps by enabling the script logging. A string for debugging is generated when `EnableScriptLogging` is set to true as shown in the following examples:
+When using stored procedure, triggers, or UDFs, you can log the steps by enabling script logging. A string for debugging is generated when `EnableScriptLogging` is set to *true*, as shown in the following examples:
 
 # [JavaScript](#tab/javascript)
 
@@ -419,12 +421,12 @@ Console.WriteLine(response.ScriptLog);
 
 ## Next steps
 
-Learn more concepts and how-to write or use stored procedures, triggers, and user-defined functions in Azure Cosmos DB:
+Learn more concepts and how to write or use stored procedures, triggers, and UDFs in Azure Cosmos DB:
 
-* [How to register and use stored procedures, triggers, and user-defined functions in Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md)
+* [How to register and use stored procedures, triggers, and UDFs in Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md)
 
 * [How to write stored procedures and triggers using JavaScript Query API in Azure Cosmos DB](how-to-write-javascript-query-api.md)
 
-* [Working with Azure Cosmos DB stored procedures, triggers, and user-defined functions in Azure Cosmos DB](stored-procedures-triggers-udfs.md)
+* [Working with Azure Cosmos DB stored procedures, triggers, and UDFs in Azure Cosmos DB](stored-procedures-triggers-udfs.md)
 
 * [Working with JavaScript language integrated query API in Azure Cosmos DB](javascript-query-api.md)

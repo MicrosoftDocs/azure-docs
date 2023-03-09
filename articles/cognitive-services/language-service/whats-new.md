@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 02/28/2023
+ms.date: 03/09/2023
 ms.author: aahi
 ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
@@ -17,12 +17,17 @@ ms.custom: ignite-fall-2021, event-tier1-build-2022
 
 Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
 
+## March 2023
+
+* New model version ('2023-01-01-preview') for Personally Identifiable Information (PII) detection with quality updates and new [language support](./personally-identifiable-information/language-support.md)
+
 ## February 2023
 
 * Conversational language understanding and Orchestration workflow is now available in the following regions in the sovereign cloud for China:
   * China East 2 (Authoring and Prediction)
   * China North 2 (Prediction)
 * New model evaluation updates for Conversational language understanding and Orchestration workflow.
+* New model version ('2023-01-01-preview') for Text Analytics for health featuring new [entity categories](./text-analytics-for-health/concepts/health-entity-categories.md) for social determinants of health
 
 ## December 2022
 
