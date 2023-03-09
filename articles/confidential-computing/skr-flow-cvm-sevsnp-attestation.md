@@ -749,7 +749,7 @@ The `key_hsm` property base64 decoded value looks like this:
 ```
 
 ## Next steps
-
+- [SKR Policy Examples](skr-policy-examples.md)
 - [Full working end to end sample](https://github.com/azure-samples/confidential-computing-examples)
 - [Learn how to use Microsoft Defender for Cloud integration with confidential VMs with guest attestation installed](guest-attestation-defender-for-cloud.md)
 - [Learn more about the guest attestation feature](guest-attestation-confidential-vms.md)
