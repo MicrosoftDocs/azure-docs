@@ -173,9 +173,9 @@ The Azure IoT Edge extension offers project templates for all supported IoT Edge
 
 ::: zone pivot="iotedge-dev-cli"
 
-The [IoT Edge Dev Tool](https://github.com/Azure/iotedgedev) simplifies Azure IoT Edge development to simple commands driven by environment variables. It gets you started with IoT Edge development with the IoT Edge Dev Container and IoT Edge solution scaffolding that contains a default module and all the required configuration files.
+The [IoT Edge Dev Tool](https://github.com/Azure/iotedgedev) simplifies Azure IoT Edge development to commands driven by environment variables. It gets you started with IoT Edge development with the IoT Edge Dev Container and IoT Edge solution scaffolding that has a default module and all the required configuration files.
 
-1. Create a directory for your solution with the filepath of your choice. Change into your `iotedgesolution` directory.
+1. Create a directory for your solution with the path of your choice. Change into your `iotedgesolution` directory.
 
     ```bash
     mkdir c:\dev\iotedgesolution
@@ -317,19 +317,40 @@ Check to see if your credentials exist. If not, add them now:
 > [!NOTE]
 > This tutorial uses administrator login credentials for Azure Container Registry that are convenient for development and test scenarios. When you're ready for production scenarios, we recommend a least-privilege authentication option like service principals or repository-scoped tokens. For more information, see [Manage access to your container registry](production-checklist.md#manage-access-to-your-container-registry).
 
-### Select your target architecture
+### Target architecture
 
-Currently, Visual Studio Code can develop C# modules for Linux AMD64 and ARM32v7 devices. You need to select which architecture you're targeting with each solution, because that affects how the container is built and runs. The default is Linux AMD64.
+You need to select which architecture you're targeting with each solution, because that affects how the container is built and runs. The default is Linux AMD64. For this tutorial, we're using an Ubuntu virtual machine as the IoT Edge device and keep the default **amd64**.
 
-1. Open the command palette and search for **Azure IoT Edge: Set Default Target Platform for Edge Solution**, or select the shortcut icon at the bottom of the window.
+If you need to change the target architecture for your solution, use the following steps.
 
-   :::image type="content" source="./media/tutorial-develop-for-linux/select-architecture.png" alt-text="Screenshot showing the location of the architecture icon at the bottom of the Visual Studio Code window." lightbox="./media/tutorial-develop-for-linux/select-architecture.png":::
+::: zone pivot="iotedge-dev-ext"
 
-2. In the command palette, select the target architecture from the list of options. For this tutorial, we're using an Ubuntu virtual machine as the IoT Edge device, so will keep the default **amd64**.
+1. Open the command palette and search for **Azure IoT Edge: Set Default Target Platform for Edge Solution**, or select the shortcut icon in the side bar at the bottom of the window.
+
+1. In the command palette, select the target architecture from the list of options.
+
+::: zone-end
+
+::: zone pivot="iotedge-dev-cli"
+
+1. Open or create *settings.json* in the *.vscode* directory of your solution.
+
+1. Change the *platform* value to `amd64`, `arm32v7`, `arm64v8`, or `windows-amd64`. For example:
+
+   ```json
+   {
+      "azure-iot-edge.defaultPlatform": {
+         "platform": "amd64",
+         "alias": null
+      }
+   }
+   ```
+
+::: zone-end
 
 ### Review the sample code
 
-The solution template that you created includes sample code for an IoT Edge module. This sample module simply receives messages and then passes them on. The pipeline functionality demonstrates an important concept in IoT Edge, which is how modules communicate with each other.
+The solution template that you created includes sample code for an IoT Edge module. This sample module receives messages and then passes them on. The pipeline functionality demonstrates an important concept in IoT Edge, which is how modules communicate with each other.
 
 Each module can have multiple *input* and *output* queues declared in their code. The IoT Edge hub running on the device routes messages from the output of one module into the input of one or more modules. The specific code for declaring inputs and outputs varies between languages, but the concept is the same across all modules. For more information about routing between modules, see [Declare routes](module-composition.md#declare-routes).
 
