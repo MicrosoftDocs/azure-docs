@@ -13,9 +13,9 @@ ms.custom: devx-track-java
 
 **This article applies to:** ✔️ Standard consumption (Preview) ❌ Basic/Standard ❌ Enterprise
 
- This article shows how to map a custom web site domain, such as such as [www.contoso.com](https://www.contoso.com/), to your app in Azure Spring Apps. This mapping is accomplished by using a CNAME record that is made known to the Domain Name Service (DNS) that stores node names throughout the network.
+ This article shows how to map a custom web site domain, such as such as [www.contoso.com](https://www.contoso.com/), to your app in Azure Spring Apps. This mapping is accomplished by using a CNAME record that the Domain Name Service (DNS) uses to store node names throughout the network.
 
-The mapping secures the custom domain with a certificate and enforces Transport Layer Security (TLS), also known as Secure Sockets Layer (SSL).
+The mapping secures the custom domain with a certificate and enforces Transport Layer Security (TLS), also known as the Secure Sockets Layer (SSL).
 
 ## Prerequisites
 
@@ -27,17 +27,19 @@ The mapping secures the custom domain with a certificate and enforces Transport 
 
 To map the custom domain, you create the CNAME record and then use the Azure CLI to bind the domain to an app in Azure Spring Apps.
 
-## Create the CNAME record
+### Create the CNAME record
 
-* Contact your DNS provider to request a CNAME record to map your domain to the Full Qualified Domain Name (FQDN) of your spring app.
-* Add a TXT record with the name `asuid.{subdomain}`, with the value being the verification ID of your Azure Container Apps Environment. You can find this value using the following command.
+Use the following steps to create the CNAME record:
 
-```azurecli
-az containerapp env show \
---name <managed environment name> \
---resource-group <resource group> \
---query 'properties.customDomainConfiguration.customDomainVerificationId'
-```
+1. Contact your DNS provider to request a CNAME record to map your domain to the Full Qualified Domain Name (FQDN) of your spring app.
+1. Add a TXT record with the name `asuid.{subdomain}` with the value being the verification ID of your Azure Container Apps Environment. You can obtain this value with the following command.
+
+   ```azurecli
+       az containerapp env show \
+       --name <managed environment name> \
+       --resource-group <resource group> \
+       --query 'properties.customDomainConfiguration.customDomainVerificationId'
+    ```
 
 After you add the CNAME and TXT record, the DNS records page will resemble the following table.
 
@@ -46,17 +48,17 @@ After you add the CNAME and TXT record, the DNS records page will resemble the f
 | {subdomain}       | CNAME | testapp.agreeablewater-4c8480b3.eastus.azurecontainerapps.io     |
 | asuid.{subdomain} | A     | 6K861CL04CATKUCFF604024064D57PB52F5DF7B67BC3033BA9808BDA8998U270 |
 
-## Bind the custom domain
+### Bind the custom domain
 
 Bind the custom domain to your app using the following Azure CLI command.
 
 ```azurecli
 az spring app custom-domain bind \
---resource-group <resource group> \
---service <service name> \
---app <app name> \
---domain-name <your custom domain name> \
---certificate <name of your certificate under managed environment>
+    --resource-group <resource group> \
+    --service <service name> \
+    --app <app name> \
+    --domain-name <your custom domain name> \
+    --certificate <name of your certificate under managed environment>
 ```
 
 ## Next steps
