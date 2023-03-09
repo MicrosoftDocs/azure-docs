@@ -55,11 +55,7 @@ After you've installed ITSMC, and prepped your ITSM tool, create an ITSM connect
    ![Screenshot that shows the ITSM Connections menu item.](media/itsmc-overview/add-new-itsm-connection.png)
 
 1. Select **Add Connection**.
-
 1. Specify the ServiceNow connection settings.
-
-    - [ServiceNow](./itsmc-connections-servicenow.md)
-
 1. By default, ITSMC refreshes the connection's configuration data once every 24 hours. To refresh your connection's data instantly to reflect any edits or template updates that you make, select the **Sync** button on your connection's pane.
 
     ![Screenshot that shows the Sync button on the connection's pane.](media/itsmc-overview/itsmc-connections-refresh.png)
@@ -108,7 +104,7 @@ To create an action group:
     
        If you do not select the **Create individual work items for each Configuration Item** checkbox, ITSMC will create a single work item for each alert rule and append to it all affected configuration items. A new work item will be created if the previous one is closed. Some of the fired alerts won't generate new work items in the ITSM tool. For example, an alert that has three configuration items will create one work item. If an alert for the same alert rule as the previous example has one configuration item, that configuration item will be attached to the list of affected configuration items in the created work item. An alert for a different alert rule that has one configuration item will create one work item.
     
-       ![Screenshot that shows the I T S M Ticket area with Incident selected as a work item.](media/itsmc-overview/itsm-action-configuration.png)
+       ![Screenshot that shows the ITSM ticket section with an incident selected as a work item.](media/itsmc-overview/itsm-action-configuration.png)
 
     - If the work item type is **Event**:
 
