@@ -6,7 +6,7 @@ metadata:
   ms.author: johnmarc
   ms.service: azure-redhat-openshift
   ms.topic: faq
-  ms.date: 01/12/2023
+  ms.date: 03/09/2023
 title: Azure Red Hat OpenShift FAQ
 summary: This article answers frequently asked questions (FAQs) about Microsoft Azure Red Hat OpenShift.
 
@@ -56,6 +56,12 @@ sections:
 
       - question: What’s the process to reboot the updated node?
         answer: Nodes are rebooted as a part of an upgrade.
+
+      - question: Where can I find about pricing and service level agreements?
+        answer: |
+          For pricing information, see [Azure Red Hat OpenShift pricing](https://azure.microsoft.com/en-us/pricing/details/openshift/).
+
+          For Service Level Agreement (SLA) information, see [Service Level Agreements for online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
   - name: Cluster operations
     questions:
