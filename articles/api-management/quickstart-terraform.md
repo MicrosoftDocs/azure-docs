@@ -70,9 +70,28 @@ In this article, you learn how to:
 
 #### [Azure CLI](#tab/azure-cli)
 
+1. Get the Azure resource group name.
+
+    ```console
+    echo "$(terraform output resource_group_name)"
+    ```
+
+1. Get the service name.
+
+    ```console
+    echo "$(terraform output api_management_service_name)"
+    ```
+
+1. Run [az apim show](/cli/azure/apim#az-apim-show) to display information about the new service.
+
+    ```azurepowershell
+    az apim show --resource-group <resource_group_name> \
+                 --name <api_management_service_name>
+    ```
+
 #### [Azure PowerShell](#tab/azure-powershell)
 
-1. Get the Azure resource name in which the lab was created.
+1. Get the Azure resource group name.
 
     ```console
     echo "$(terraform output resource_group_name)"
@@ -88,7 +107,7 @@ In this article, you learn how to:
 
     ```azurepowershell
     Get-AzApiManagement -ResourceGroupName <resource_group_name> `
-                        -Name azurerm_analysis_services_server_name
+                        -Name <api_management_service_name>
     ```
 
 ---
