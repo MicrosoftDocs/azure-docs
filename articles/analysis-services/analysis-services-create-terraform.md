@@ -19,21 +19,22 @@ This article shows how to use [Terraform](/azure/terraform) to create an [Azure 
 In this article, you learn how to:
 
 > [!div class="checklist"]
-
 > * Create a random pet name for the Azure resource group name using [random_pet](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/resource_group/pet)
 > * Create an Azure resource group using [azurerm_resource_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group)
-> * Create an Azure Analysis Services server using [azurerm_analysis_services_server](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/analysis_services_server)
+> * Create an Azure Analysis Services Server using [azurerm_analysis_services_server](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/analysis_services_server)
+
+[!INCLUDE [AI attribution](../../../includes/ai-generated-attribution.md)]
 
 ## Prerequisites
 
 - [Install and configure Terraform](/azure/developer/terraform/quickstart-configure)
 
-<!-- TODO: Add bullets for any article-specific includes or download/install URLs and commands. -->
-
 ## Implement the Terraform code
 
 > [!NOTE]
-> The example code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-analysis-services-create). See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform)
+> The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-analysis-services-create). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/101-analysis-services-create/TestRecord.md).
+> 
+> See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform)
 
 1. Create a directory in which to test and run the sample Terraform code and make it the current directory.
 
@@ -84,7 +85,7 @@ In this article, you learn how to:
     ```azurepowershell
     Get-AzAnalysisServicesServer -ResourceGroupName <resource_group> -Name <analysis_service_server_name>
     ```
-    
+
 ## Clean up resources
 
 [!INCLUDE [terraform-plan-destroy.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-plan-destroy.md)]
