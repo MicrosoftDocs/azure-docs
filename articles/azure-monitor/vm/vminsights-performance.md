@@ -34,7 +34,7 @@ To access from Azure Monitor:
 1. In the **Solutions** section, select **Virtual Machines**.
 1. Select the **Performance** tab.
 
-   ![Screenshot that shows a VM insights Performance Top N List view.](media/vminsights-performance/vminsights-performance-aggview-01.png)
+![Screenshot that shows a VM insights Performance Top N List view.](media/vminsights-performance/vminsights-performance-aggview-01.png)
 
 On the **Top N Charts** tab, if you have more than one Log Analytics workspace, select the workspace enabled with the solution from the **Workspace** selector at the top of the page. The **Group** selector returns subscriptions, resource groups, [computer groups](../logs/computer-groups.md), and virtual machine scale sets of computers related to the selected workspace that you can use to further filter results presented in the charts on this page and across the other pages. Your selection only applies to the Performance feature and doesn't carry over to Health or Map.
 
@@ -50,15 +50,15 @@ Five capacity utilization charts are shown on the page:
 
 Selecting the pushpin icon in the upper-right corner of a chart pins it to the last Azure dashboard you viewed. From the dashboard, you can resize and reposition the chart. Selecting the chart from the dashboard redirects you to VM insights and loads the correct scope and view.
 
-Select the icon to the left of the pushpin icon on a chart to open the **Top N List** view. This list view shows the resource utilization for a performance metric by individual VM. It also shows which machine is trending highest.
+Select the icon to the left of the pushpin icon on a chart to open the **Top N List** view. This list view shows the resource utilization for a performance metric by individual VM. It also shows which machine is trending the highest.
 
 ![Screenshot that shows a Top N List view for a selected performance metric.](media/vminsights-performance/vminsights-performance-topnlist-01.png)
 
-When you select the virtual machine, the **Properties** pane opens on the right. It shows properties like system information reported by the operating system and the properties of the Azure VM. Selecting an option under the **Quick Links** section redirects you to that feature directly from the selected VM.
+When you select the virtual machine, the **Properties** pane opens on the right side. It shows properties like system information reported by the operating system and the properties of the Azure VM. Selecting an option under the **Quick Links** section redirects you to that feature directly from the selected VM.
 
 ![Screenshot that shows a virtual machine Properties pane.](./media/vminsights-performance/vminsights-properties-pane-01.png)
 
-Switch to the **Aggregated Charts** tab to view the performance metrics filtered by average or percentiles measured.
+You can switch to the **Aggregated Charts** tab to view the performance metrics filtered by average or percentiles measured.
 
 ![Screenshot that shows a VM insights Performance Aggregate view.](./media/vminsights-performance/vminsights-performance-aggview-02.png)
 
@@ -119,11 +119,11 @@ To access directly from an Azure virtual machine scale set:
 1. From the list, select a VM.
 1. In the **Monitoring** section, select **Insights** to view the **Performance** tab.
 
-This page loads the Azure Monitor performance view scoped to the selected scale set. This view enables you to see the top N instances in the scale set across the set of monitored metrics. You can also view the aggregate performance across the scale set. And you can see the trends for selected metrics across the individual instances in the scale set. Selecting an instance from the list view lets you load its map or move into a detailed performance view for that instance.
+This page loads the Azure Monitor performance view scoped to the selected scale set. This view enables you to see the Top N instances in the scale set across the set of monitored metrics. You can also view the aggregate performance across the scale set. And you can see the trends for selected metrics across the individual instances in the scale set. Selecting an instance from the list view lets you load its map or move into a detailed performance view for that instance.
 
 Selecting the pushpin icon in the upper-right corner of a chart pins it to the last Azure dashboard you viewed. From the dashboard, you can resize and reposition the chart. Selecting the chart from the dashboard redirects you to VM insights and loads the performance detail view for the VM.
 
-![Screenshot that shows VM insights Performance directly from virtual machine scale set view.](./media/vminsights-performance/vminsights-performance-directvmss-01.png)
+![Screenshot that shows VM insights Performance directly from the virtual machine scale set view.](./media/vminsights-performance/vminsights-performance-directvmss-01.png)
 
 >[!NOTE]
 >You can also access a detailed performance view for a specific instance from the **Instances** view for your scale set. Under the **Settings** section, go to **Instances** and select **Insights**.
