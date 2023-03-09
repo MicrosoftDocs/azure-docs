@@ -11,10 +11,6 @@ ms.date: 01/23/2023
 
 This article describes the SAP Audit workbook, used for monitoring and tracking user audit activity across your SAP systems. You can use the workbook to get a bird's eye view of user audit activity, to better secure your SAP systems and gain quick visibility into suspicious actions. You can drill down into suspicious events as needed.
 
-> [!IMPORTANT]
->
-> The SAP Audit workbook is in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 You can use the workbook either for ongoing monitoring of your SAP systems, or to review the systems following a security incident or other suspicious activity. 
 
 ## Start using the workbook
@@ -29,9 +25,9 @@ You can use the workbook either for ongoing monitoring of your SAP systems, or t
 
      > [!IMPORTANT]
      >
-     > The SAP Audit workbook is located in the workspace used by SAP personnel in your organization, and not the workspace used by the SOC. Therefore, the SAP workspace is selected by default under **Subscriptions** and **Workbook**. The workbook data is based on content that is already in the workspace. 
-     > 
-     > If the Azure audit and sign in logs are on a different workspace, you can select the workspace under **Azure audit and activities**. When you select another workspace, the workbook shows data from both workspaces. 
+     > The SAP Audit workbook is hosted by the workspace where the Microsoft Sentinel solution for SAP® applications were installed. By default, both the SAP and the SOC data is assumed to be on the workspace that hosts the workbook. 
+     >
+     > If the SOC data is on a different workspace than the workspace hosting the workbook, make sure to include the subscription for that workspace, and select the SOC workspace from **Azure audit and activity workspace**. 
 
 1. Select the following fields to filter the data according to your needs:
 
@@ -77,11 +73,13 @@ The areas under **Anomaly detection - filtering out noisy failed login attempts*
 |**SAP and Active Directory are better together** | The **Anomalous login failures** table shows a combination of Microsoft Sentinel and Azure Active Directory data. The list is organized by risk, where users that indicate the most risk are at the top of the list, and the users with less security risk are at the bottom. |For each user, shows:<br>• A timeline of failed sign-in attempts<br>• A timeline showing at which point an anomalous failed attempt occurred<br>• The type of anomaly<br>• The user's email address<br>• The Azure Active directory risk indicator<br>• The number of incidents and alerts in Microsoft Sentinel |• When you select a row, you can see a list of alerts and incidents for that user under **Incidents/alerts overview for user**. Below this list, you can also see of Azure Active Directory risk events under **Azure audit and signin risks for user**.<br>• If your Azure Active Directory data is in a different Log Analytics workspace, make sure you select the relevant subscriptions and workspaces at the top of the workbook, under **Azure audit and activities**. |
 |**Logon failure rate per system** |Visually represents the selected SAP systems. |• For each system, shows the number of failures in the selected period<br>• Systems are grouped by type.<br>• The color of the system indicates the number of failed attempts: Green indicates a few suspicious logon attempts, where red indicates more suspicious logon attempts. |You can select a system to see a list of failed sign ins with details about the failures. |
 
-In this screenshot, you can see the data shown when the first line is selected in the **Anomalous login failures** table. 
-- The specific alerts and incident URLs are shown in the **Incidents/alerts overview for user** table.
-- The **Azure audit and signin risks for user** table doesn't show data, because Azure Active Directory didn't find specific audit and sign in risks related to this user.
+In this screenshot, you can see the data shown when the first line is selected in the **Anomalous login failures** table. The specific alerts and incident URLs are shown in the **Incidents/alerts overview for user** table.
 
 :::image type="content" source="media/sap-audit-log-workbook/anomalous-logon-failures-table.png" alt-text="Screenshot of data shown when a line is selected in the Anomalous login failures table." lightbox="media/sap-audit-log-workbook/anomalous-logon-failures-table.png":::
+
+In this screenshot, the **Azure audit and signin risks for user** table shows data the sign in risk related to this user.
+
+:::image type="content" source="media/sap-audit-log-workbook/azure-audit-signin-risks.png" alt-text="Screenshot of audit and sign in risk data shown when a line is selected in the Anomalous login failures table." lightbox="media/sap-audit-log-workbook/azure-audit-signin-risks.png":::
 
 In this screenshot, you can see the **Login failure rate per system** area, where the **84e** system under the **Test** group is selected. The **Failed logons for system** area on the right shows failure events for this system.
 
