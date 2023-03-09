@@ -23,7 +23,7 @@ In this article, you learn how to:
 > * Create an Azure resource group using [azurerm_resource_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group)
 > * Create an Azure Analysis Services Server using [azurerm_analysis_services_server](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/analysis_services_server)
 
-[!INCLUDE [AI attribution](../../../includes/ai-generated-attribution.md)]
+[!INCLUDE [AI attribution](../../includes/ai-generated-attribution.md)]
 
 ## Prerequisites
 
