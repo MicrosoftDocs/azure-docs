@@ -26,8 +26,6 @@ ms.subservice: calling
 > User-facing diagnostics is currently supported only for our JavaScript / Web SDK.
 
 
-TODO – any regional restrictions? EU?
-
 The End of Call Survey provides you with a tool to understand how your end users perceive the overall quality and reliability of your **WebJS SDK? Only** calling solution. 
 
 ## Purpose of the End of Call Survey
@@ -49,19 +47,7 @@ The End of Call Survey APIs can be accessed through….. the Calling SDK.
 
 -	An active Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md). Survey results are tied to single Communication Services resources.
 
--	An active Log Analytics Workspace, also known as Azure Monitor Logs, to analyze your survey results. [Enable logging in Diagnostic Settings](../analytics/enable-logging.md) 
-
-
-
--	A User Access Token to instantiate the call client. Learn how to create and manage user access tokens. You can also use the Azure CLI and run the following command with your connection string to create a user and an access token. (Need to grab connection string from the resource through Azure portal.)
-
-Azure CLICopy
-Open Cloudshell
-az communication identity token issue --scope voip --connection-string "yourConnectionString"
-For details, see Use Azure CLI to Create and Manage Access Tokens.
-
-
-
+-	An active Log Analytics Workspace, also known as Azure Monitor Logs, to analyze your survey results. [Enable logging in Diagnostic Settings](../analytics/enable-logging.md).
 
 
 
@@ -69,9 +55,9 @@ For details, see Use Azure CLI to Create and Manage Access Tokens.
 
 The survey is designed to answer two questions from a user’s point of view. 
 
--	Question 1: How did the users perceive their overall call quality experience?
+-	**Question 1:** How did the users perceive their overall call quality experience?
 
--	Question 2: Did the user perceive any Audio, Video, or Screen Share issues in the call?
+-	**Question 2:** Did the user perceive any Audio, Video, or Screen Share issues in the call?
 
 The API allows applications to gather data points that describe user perceived ratings of their Overall Call, Audio, Video, and Screen Share experiences. Microsoft analyzes survey API results according to the following goals.
 
@@ -95,14 +81,14 @@ The API allows applications to gather data points that describe user perceived r
 
 | API Values | Cutoff Value* | Input Range | Comments |
 | ----------- | ----------- | -------- | -------- | 
-| Overall Call | 2 | 1-5 | Survey’s a calling participant’s overall quality experience on a scale of 1-5 where 1 indicates an imperfect call experience and 5 indicates a perfect call. The cutoff value of 2 means that a customer response of 1 or 2 indicates a less than perfect call experience.  |
-| Audio |   0 |  0-1  | A response of 0 indicates an imperfect audio experience and 1 indicates no audio issues were experienced.  |
-| Video |   0 |   0-1 |  A response of 0 indicates an imperfect video experience and 1 indicates no video issues were experienced. |
-| ScreenShare | 0   |0-1   |  A response of 0 indicates an imperfect screen share experience and 1 indicates no screen share issues were experienced. |
+| Overall Call | 2 | 1 - 5 | Survey’s a calling participant’s overall quality experience on a scale of 1-5 where 1 indicates an imperfect call experience and 5 indicates a perfect call. The cutoff value of 2 means that a customer response of 1 or 2 indicates a less than perfect call experience.  |
+| Audio |   0 |  0 - 1  | A response of 0 indicates an imperfect audio experience and 1 indicates no audio issues were experienced.  |
+| Video |   0 |   0 - 1 |  A response of 0 indicates an imperfect video experience and 1 indicates no video issues were experienced. |
+| ScreenShare | 0   |0 - 1   |  A response of 0 indicates an imperfect screen share experience and 1 indicates no screen share issues were experienced. |
 
 
 
--	***Note**: A question’s indicated cutoff value in the API is the threshold that Microsoft uses when analyzing your survey data. When you customize the cutoff value or Input Range, Microsoft analyzes your survey data according to your customization.
+-	***Note:** A question’s indicated cutoff value in the API is the threshold that Microsoft uses when analyzing your survey data. When you customize the cutoff value or Input Range, Microsoft analyzes your survey data according to your customization.
 
 ### API Tags by Value
 | API Values | Optional Tags |
@@ -150,10 +136,10 @@ You can choose to collect each of the four API values or only the ones you find 
 
 | API Values | Cutoff Value* | Input Range |
 | ----------- | ----------- | -------- |  
-| Overall Call   |   0-100    |  0-100     |     
-|  Audio  |   0-100    |   0-100    |     
-|  Video  |    0-100   |   0-100    |     
-|  ScreenShare  |   0-100    |   0-100    |     
+| Overall Call   |   0 - 100    |  0 - 100     |     
+|  Audio  |   0 - 100    |   0 - 100    |     
+|  Video  |    0 - 100   |   0 - 100    |     
+|  ScreenShare  |   0 - 100    |   0 - 100    |     
 
 -	***Note**: A question’s indicated cutoff value in the API is the threshold that Microsoft uses when analyzing your survey data. When you customize the cutoff value or Input Range, Microsoft analyzes your survey data according to your customization.
 
@@ -161,6 +147,9 @@ You can choose to collect each of the four API values or only the ones you find 
 
 TODO – are there any privacy things to note?
 
+
+
+sample, I'm adding all sorts of who where what and long runon sentences that aren't thought about well. look above, look below.
 
 ## View Survey Data:
 
