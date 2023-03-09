@@ -30,6 +30,7 @@ Application-Insights|[Enable Azure Monitor OpenTelemetry for .NET, Node.js, Pyth
 Application-Insights|[Application Monitoring for Azure App Service and Java](app/azure-web-apps-java.md)|We updated and separated out the instructions to manually deploy the latest Application Insights Java version.|
 Containers|[Enable Container insights for Azure Kubernetes Service (AKS) cluster](containers/container-insights-enable-aks.md)|Added section for enabling private link without managed identity authentication.|
 Containers|[Syslog collection with Container Insights (preview)](containers/container-insights-syslog.md)|Added use of ARM templates for enabling syslog collection|
+Containers|[Enable cost optimization settings (preview)](containers/container-insights-cost-config.md)|New Article: Enable cost optimization settings|
 Essentials|[Data collection transformations in Azure Monitor](essentials/data-collection-transformations.md)|Added section and sample for using transformations to send to multiple destinations.|
 Essentials|[Custom metrics in Azure Monitor (preview)](essentials/metrics-custom-overview.md)|Added reference to the limit of 64 KB on the combined length of all custom metrics names|
 Essentials|[Azure monitoring REST API walkthrough](essentials/rest-api-walkthrough.md)|Refresh REST API walkthrough|

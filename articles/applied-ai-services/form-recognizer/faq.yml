@@ -81,6 +81,14 @@ sections:
           Learn more about [Form Recognizer and Applied AI Services](../what-are-applied-ai-services.md).
 
       - question: |
+          How long is my custom model available for use?
+        answer: |
+
+          Models have the same lifecycle as the API version used to train the model. Custom models trained with a generally available (GA) version of the API have the same lifecycle as the API version. When the API version is deprecated, the model is no longer available for inference. Models trained with a preview version of the API also have the same lifecycle as the preview API. 
+          
+          Expect that preview APIs will be deprecated within three months of an updated preview API version or newer generally available API version.
+          
+      - question: |
            What is the accuracy score and how is it calculated?
         answer: |
            The output of a `build` (v3.0) or `train` (v2.1) custom model operation includes the estimated accuracy score. This score represents the model's ability to accurately predict the labeled value on a visually similar document.
@@ -162,7 +170,7 @@ sections:
 
           - [C#/.NET](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.0.0)
 
-          - [Java](https://oss.sonatype.org/#nexus-search;quick~azure-ai-formrecognizer)
+          - [Java](https://oss.sonatype.org/#nexus-search;quick-azure-ai-formrecognizer)
 
           - [JavaScript/TypeScript](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/4.0.0-beta.4)
 
@@ -386,7 +394,7 @@ sections:
       - question: |
             How can I move my trained models from one environment (like beta) to another (like production)?
         answer: |
-            The Copy API enables this scenario by allowing you to copy custom models from one Form Recognizer account or into others, which can exist in any supported geographical region. Follow [this document](disaster-recovery.md) for detailed instructions. The copy operation is limited to copying models within the specific cloud environment the model was trained in. For instance, copying models from the public cloud to the Azure Government cloud isn't supported.
+            The Copy API enables this scenario by allowing you to copy custom models from one Form Recognizer account or into others, which can exist in any supported geographical region. Follow [this document](disaster-recovery.md) for detailed instructions. The copy operation is limited to copying models within the specific cloud environment the model was trained in. For instance, copying models from the public cloud to the Azure Government clod isn't supported.
 
   - name: Storage account
     questions:
