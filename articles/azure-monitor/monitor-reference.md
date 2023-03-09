@@ -42,7 +42,7 @@ Some services have curated monitoring experiences call "insights". Insights are 
 
 ## Product integrations
 
-The services and [older monitoring solutions](insights/solutions.md) in the following table store their data in Azure Monitor Logs so that it can be analyzed with other log data collected by Azure Monitor.
+The services and [older monitoring solutions](/previous-versions/azure/azure-monitor/insights/solutions) in the following table store their data in Azure Monitor Logs so that it can be analyzed with other log data collected by Azure Monitor.
 
 | Product/Service | Description |
 |:---|:---|

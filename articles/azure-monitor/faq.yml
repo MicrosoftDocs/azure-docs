@@ -105,7 +105,7 @@ sections:
       - question: |
           What is a solution in Azure Monitor?
         answer: |
-          Monitoring solutions are packaged sets of logic for monitoring a particular application or service based on Azure Monitor features. They collect log data in Azure Monitor and provide log queries and views for their analysis using a common experience in the Azure portal. See [Monitoring solutions in Azure Monitor](insights/solutions.md).
+          Monitoring solutions are packaged sets of logic for monitoring a particular application or service based on Azure Monitor features. They collect log data in Azure Monitor and provide log queries and views for their analysis using a common experience in the Azure portal. See [Monitoring solutions in Azure Monitor](/previous-versions/azure/azure-monitor/insights/solutions).
           
           To view solutions in the Azure portal, click **More** in the **Insights** section of the **Monitor** menu. Click **Add** to add more solutions to the workspace.
           
