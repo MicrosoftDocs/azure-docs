@@ -17,6 +17,12 @@ See these [important announcements](#announcements) about recent changes to feat
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
+## March 2023
+
+### Automatically update the SAP data connector agent (Preview)
+
+You can now [enable automatic updates for the SAP data connector agent](sap/update-sap-data-connector.md#automatically-update-the-sap-data-connector-agent-preview). You can choose to apply automatic updates to all existing containers or to a specific container.
+
 ## February 2023
 
 - [Out-of-the-box content centralization changes](#out-of-the-box-content-centralization-changes) (in [Announcements](#announcements) section below)
@@ -54,17 +60,11 @@ To give you more flexibility in scheduling your analytics rule execution times a
 
 [Learn more about advanced scheduling](detect-threats-custom.md#query-scheduling-and-alert-threshold).
 
-
 ## January 2023
 
-- [Automatically update the SAP data connector agent (Preview)](#automatically-update-the-sap-data-connector-agent-preview)
 - [New incident investigation experience (Preview)](#new-incident-investigation-experience-preview)
 - [Monitor SAP system health (Preview)](#monitor-sap-system-health-and-role-preview)
 - [Microsoft Purview Information Protection connector (Preview)](#microsoft-purview-information-protection-connector-preview)
-
-### Automatically update the SAP data connector agent (Preview)
-
-You can now [enable automatic updates for the SAP data connector agent](sap/update-sap-data-connector.md#automatically-update-the-sap-data-connector-agent-preview). You can choose to apply automatic updates to all existing containers or to a specific container.
 
 ### New incident investigation experience (Preview)
 
