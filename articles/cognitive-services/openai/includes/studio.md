@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: include
-ms.date: 02/02/2023
+ms.date: 03/01/2023
 keywords: 
 ---
 
@@ -31,7 +31,7 @@ Go to the [Playground](#playground) for experimentation and fine-tuning workflow
 
 ## Playground
 
-Start exploring OpenAI capabilities with a no-code approach through the GPT-3 Playground. It's simply a text box where you can submit a prompt to generate a completion. From this page, you can quickly iterate and experiment with the capabilities. 
+Start exploring Azure OpenAI capabilities with a no-code approach through the GPT-3 Playground. It's simply a text box where you can submit a prompt to generate a completion. From this page, you can quickly iterate and experiment with the capabilities. 
 
 :::image type="content" source="../media/quickstarts/playground-load.png" alt-text="Screenshot of the playground page of the Azure OpenAI Studio with sections highlighted." lightbox="../media/quickstarts/playground-load.png":::
 
@@ -49,7 +49,7 @@ In the GPT-3 playground you can also view Python and curl code samples pre-fille
 
 ## Try text summarization
 
-To use the OpenAI service for text summarization in the GPT-3 Playground, follow these steps:
+To use the Azure OpenAI for text summarization in the GPT-3 Playground, follow these steps:
 
 1. Sign in to [Azure OpenAI Studio](https://oai.azure.com).
 1. Select the subscription and OpenAI resource to work with. 
@@ -59,7 +59,7 @@ To use the OpenAI service for text summarization in the GPT-3 Playground, follow
 
     :::image type="content" source="../media/quickstarts/summarize-text.png" alt-text="Screenshot of the playground page of the Azure OpenAI Studio with the Summarize Text dropdown selection visible" lightbox="../media/quickstarts/summarize-text.png":::
 
-1. Select `Generate`. OpenAI will grasp the context of text and rephrase it succinctly. You should get a result that resembles the following text:
+1. Select `Generate`. Azure OpenAI will attempt to capture the context of text and rephrase it succinctly. You should get a result that resembles the following text:
 
     ```
     Tl;dr A neutron star is the collapsed core of a supergiant star. These incredibly dense objects are incredibly fascinating due to their strange properties and their potential for phenomena such as extreme gravitational forces and a strong magnetic field.
