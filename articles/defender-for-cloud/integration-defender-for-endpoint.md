@@ -78,8 +78,7 @@ Before you can enable the Microsoft Defender for Endpoint integration with Defen
 
 - Enable **Microsoft Defender for Servers**. See [Quickstart: Enable Defender for Cloud's enhanced security features](enable-enhanced-security.md).
 
-    > [!IMPORTANT]
-    > Defender for Cloud's integration with Microsoft Defender for Endpoint is enabled by default. So when you enable enhanced security features, you give consent for Microsoft Defender for Servers to access the Microsoft Defender for Endpoint data related to vulnerabilities, installed software, and alerts for your endpoints.
+
 
 - For Windows servers, make sure that your servers meet the requirements for [onboarding Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/configure-server-endpoints#windows-server-2012-r2-and-windows-server-2016).
 
