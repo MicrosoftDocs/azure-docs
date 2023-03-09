@@ -403,4 +403,4 @@ If you created an OpenAI resource solely for completing this tutorial and want t
 
 Learn more about Azure OpenAI's models:
 > [!div class="nextstepaction"]
-> [Next steps button](../concepts/models.md)
+> [Azure OpenAI Service models](../concepts/models.md)
