@@ -8,7 +8,7 @@ ms.author: tejaswikolli
 
 # Enable Caching for ACR (Preview) 
 
-This article is part two of a four-part tutorial series. [Part one](tutorial-registry-cache.md) provides an overview of Caching for ACR, its features, benefits, and preview limitations. This article walks you through the steps of enabling Caching for ACR by using the Azure CLI and Azure portal.
+This article is part two of a four-part tutorial series. [Part one](tutorial-registry-cache.md) provides an overview of Caching for ACR, its features, benefits, and preview limitations. This article walks you through the steps of enabling Caching for ACR by using the Azure CLI and Azure portal without authentication.
 
 ## Prerequisites
 
@@ -16,7 +16,9 @@ This article is part two of a four-part tutorial series. [Part one](tutorial-reg
 >* You have an existing Key Vault to store credentials. Learn more about [creating and storing credentials in a Key Vault.][create-and-store-keyvault-credentials]
 >* Sign in to the [Azure portal](https://ms.portal.azure.com/). 
 
-## Configure Caching for ACR (preview) without a Credential set  - Azure CLI
+## Configure Caching for ACR (preview)  - Azure CLI
+
+Follow the steps to create a cache rule without using a Credential set.
 
 1. Run [az acr cache create][az-acr-cache-create] command to create a cache rule.
 
@@ -98,7 +100,7 @@ Follow the steps to create cache rule in the [Azure portal](https://portal.azure
 
 ## Next steps
 
-* Advance to the [next article](tutorial-enable-registry-cache-auth.md) to enable the Caching for ACR (preview) with authentication using Azure portal.
+* Advance to the [next article](tutorial-enable-registry-cache-auth.md) to enable the Caching for ACR (preview) with authentication using Azure CLI and Azure portal.
 
 <!-- LINKS - External -->
 [create-and-store-keyvault-credentials]:../key-vault/secrets/quick-create-portal.md
