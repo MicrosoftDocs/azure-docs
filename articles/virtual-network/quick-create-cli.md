@@ -5,7 +5,7 @@ description: Learn how to use Azure CLI to create and connect through an Azure v
 author: asudbring
 ms.service: virtual-network
 ms.topic: quickstart
-ms.date: 03/06/2023
+ms.date: 03/09/2023
 ms.author: allensu
 ms.custom: devx-track-azurecli, mode-api
 #Customer intent:  I want to use Azure CLI to create a virtual network so that virtual machines can communicate privately with each other and with the internet.
@@ -21,7 +21,7 @@ A virtual network is the fundamental building block for private networks in Azur
 
 - An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- Azure Cloud Shell or Azure CLI
+- Azure Cloud Shell or Azure CLI.
 
   The steps in this quickstart run the Azure CLI commands interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in the Cloud Shell, select **Open Cloudshell** at the upper-right corner of each code block. Select **Copy** to copy the code, and paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
 

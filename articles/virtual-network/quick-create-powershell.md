@@ -5,7 +5,7 @@ description: Learn how to use Azure PowerShell to create and connect through an 
 author: asudbring
 ms.service: virtual-network
 ms.topic: quickstart
-ms.date: 03/06/2023
+ms.date: 03/09/2023
 ms.author: allensu
 ms.custom: devx-track-azurepowershell, mode-api
 #Customer intent: I want to use PowerShell to create a virtual network so that virtual machines can communicate privately with each other and with the internet.
@@ -21,7 +21,7 @@ A virtual network is the fundamental building block for private networks in Azur
 
 - An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- Azure Cloud Shell or Azure PowerShell
+- Azure Cloud Shell or Azure PowerShell.
 
   The steps in this quickstart run the Azure PowerShell cmdlets interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in the Cloud Shell, select **Open Cloudshell** at the upper-right corner of each code block. Select **Copy** to copy the code and then paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
 
@@ -149,8 +149,6 @@ Azure takes a few minutes to create the VMs. When Azure finishes creating the VM
 
 >[!NOTE]
 >VMs in a virtual network with a Bastion host don't need public IP addresses. Bastion provides the public IP, and the VMs use private IPs to communicate within the network. You can remove the public IPs from any VMs in Bastion-hosted virtual networks. For more information, see [Dissociate a public IP address from an Azure VM](ip-services/remove-public-ip-address-vm.md).
-
-## Connect to a VM
 
 ## Connect to a VM
 

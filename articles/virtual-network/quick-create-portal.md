@@ -4,7 +4,7 @@ titleSuffix: Azure Virtual Network
 description: Learn how to use the Azure portal to create and connect through an Azure virtual network and virtual machines.
 author: asudbring
 ms.author: allensu
-ms.date: 03/02/2023
+ms.date: 03/09/2023
 ms.topic: quickstart
 ms.service: virtual-network
 ms.workload: infrastructure
@@ -55,7 +55,7 @@ A virtual network is the fundamental building block for private networks in Azur
 
    :::image type="content" source="./media/quick-create-portal/example-ip-address-tab.png" alt-text="Screenshot of the IP Addresses tab of the Create virtual network screen.":::
 
-1. Select **Review + create** to accept the following defaults:
+1. On the next screen, select **Review + create** to accept the following defaults:
 
    - A virtual network IPv4 address space of **10.0.0.0/16**.
    - A resource subnet named **default** with address range **10.0.0.0/24**.
@@ -96,7 +96,7 @@ Create two VMs named VM1 and VM2 in the virtual network.
 
    :::image type="content" source="./media/quick-create-portal/azure-virtual-machine-networking.png" alt-text="Screenshot of the networking settings for a VM.":::
 
-1. Leave the other settings at their defaults, and select **Review + create**. Review the settings, and then select **Create**.
+1. Accept the other settings, and select **Review + create**. Review the settings, and then select **Create**.
 
 1. After the VM creation finishes, you can select **Create another VM** to create the second VM. Name the VM *VM2*, with all the same settings.
 

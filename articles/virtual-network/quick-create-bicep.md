@@ -6,7 +6,7 @@ services: virtual-network
 author: asudbring
 ms.service: virtual-network
 ms.topic: quickstart
-ms.date: 03/08/2023
+ms.date: 03/09/2023
 ms.author: allensu
 ms.custom: mode-arm
 ---
