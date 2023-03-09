@@ -84,7 +84,7 @@ If the delivery driver doesn't know the correct apartment complex (physical part
 
 If the delivery driver knows that all package recipients live within a certain few apartment complexes, they don't need to drive to every single one. While driving to a few apartment complexes still requires more work than visiting just a single building, the delivery driver still saves significant time and effort. If a query has the partition key in its filter with the `IN` keyword, it only checks the relevant physical partition's indexes for data.
 
-## Avoiding cross-partition queries
+## Avoid cross-partition queries
 
 For most containers, having some cross-partition queries is inevitable, which is okay! Nearly all query operations are supported across partitions, both for logical partition keys and physical partitions. Azure Cosmos DB also has many optimizations in the query engine and client SDKs to parallelize query execution across physical partitions.
 
