@@ -58,7 +58,7 @@ This article describes how to set up agent-based dependency analysis in Azure Mi
 On each server you want to analyze, install the agents.
 
 > [!NOTE]
-> For servers monitored by System Center Operations Manager 2012 R2 or later, you don't need to install the MMA agent. Service Map integrates with Operations Manager. [Follow](../azure-monitor/vm/service-map-scom.md#prerequisites) integration guidance.
+> For servers monitored by System Center Operations Manager 2012 R2 or later, you don't need to install the MMA agent. Service Map integrates with Operations Manager. [Follow](/previous-versions/azure/azure-monitor/vm/service-map-scom#prerequisites) integration guidance.
 
 1. In **Azure Migrate: Discovery and assessment**, click **Discovered servers**.
 1. Click **Columns** to select **Dependencies (Agent-based)** to see the column on the Discovered servers page.

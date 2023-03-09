@@ -105,4 +105,4 @@ To remove the *VMInsights*solution, use the same process as [removing any other 
 
 ## Next steps
 - See [Onboard agents to VM insights](vminsights-enable-overview.md) to connect agents to VM insights.
-- See [Targeting monitoring solutions in Azure Monitor (Preview)](/azure/azure-monitor/insights/solution-targeting) to limit the amount of data sent from a solution to the workspace.
+- See [Targeting monitoring solutions in Azure Monitor (Preview)](/previous-versions/azure/azure-monitor/insights/solution-targeting) to limit the amount of data sent from a solution to the workspace.

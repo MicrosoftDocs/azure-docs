@@ -249,7 +249,7 @@ To install the agent on a Linux machine:
 
 ### Install the MMA agent on a machine monitored by Operations Manager
 
-For machines monitored by System Center Operations Manager 2012 R2 or later, there is no need to install the MMA agent. Service Map integrates with the Operations Manager MMA to gather the necessary dependency data. [Learn more](../azure-monitor/vm/service-map-scom.md#prerequisites). The Dependency agent needs to be installed.
+For machines monitored by System Center Operations Manager 2012 R2 or later, there is no need to install the MMA agent. Service Map integrates with the Operations Manager MMA to gather the necessary dependency data. [Learn more](/previous-versions/azure/azure-monitor/vm/service-map-scom#prerequisites). The Dependency agent needs to be installed.
 
 ### Install the Dependency agent
 
