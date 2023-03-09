@@ -38,9 +38,9 @@ To create a custom extraction model, label a dataset of documents with the value
 
 ### Custom template model
 
-The custom template or custom form model relies on a consistent visual template to extract the labeled data. The accuracy of your model is affected by variances in the visual structure of your documents. Structured  forms such as questionnaires or applications are examples of consistent visual templates.
+The custom template or custom form model relies on a consistent visual template to extract the labeled data. Variances in the visual structure of your documents affect the accuracy of your model. Structured  forms such as questionnaires or applications are examples of consistent visual templates.
 
-Your training set will consist of structured documents where the formatting and layout are static and constant from one document instance to the next. Custom template models support key-value pairs, selection marks, tables, signature fields, and regions. Template models and can be trained on documents in any of the [supported languages](language-support.md). For more information, *see* [custom template models](concept-custom-template.md ).
+Your training set consists of structured documents where the formatting and layout are static and constant from one document instance to the next. Custom template models support key-value pairs, selection marks, tables, signature fields, and regions. Template models and can be trained on documents in any of the [supported languages](language-support.md). For more information, *see* [custom template models](concept-custom-template.md ).
 
 > [!TIP]
 >
@@ -71,7 +71,7 @@ This table provides links to the build mode programming language SDK references 
 
 ## Compare model features
 
-The table below compares custom template and custom neural features:
+The following table compares custom template and custom neural features:
 
 |Feature|Custom template (form) | Custom neural (document) |
 |---|---|---|
@@ -83,11 +83,11 @@ The table below compares custom template and custom neural features:
 
 ### Custom classifier model
 
-Document classification is a new scenario supported by Form Recognizer with the ```2023-02-28-preview``` API. Document classifier supports classification and splitting scenarios. Train a classifier model to identify the different types of documents your application supports. The input file for the classifier model can contain multiple documents, the classifier will classify each document within an associated page range. See [custom classification](concept-custom-classifier.md) models to learn more.
+ Document classification is a new scenario supported by Form Recognizer with the ```2023-02-28-preview``` API. Document classifier supports classification and splitting scenarios. Train a classifier model to identify the different types of documents your application supports. The input file for the classifier model can contain multiple documents and classifies each document within an associated page range. See [custom classification](concept-custom-classifier.md) models to learn more.
 
 ## Custom model tools
 
-The following tools are supported by Form Recognizer v3.0:
+Form Recognizer v3.0 supports the following tools:
 
 | Feature | Resources | Model ID|
 |---|---|:---|
@@ -97,7 +97,7 @@ The following tools are supported by Form Recognizer v3.0:
 
 ::: moniker range="form-recog-2.1.0"
 
-The following tools are supported by Form Recognizer v2.1:
+Form Recognizer v2.1 supports the following tools:
 
 > [!NOTE]
 > Custom model types [custom neural](concept-custom-neural.md) and [custom template](concept-custom-template.md) are only available with Form Recognizer version v3.0.
@@ -205,7 +205,7 @@ This table compares the supported data extraction areas:
 **Table symbols**:
 ✔—supported;
 **n/a—currently unavailable;
-*-behaves differently. With template models, synthetic data is generated at training time. With neural models, exiting text recognized in he region is selected.
+*-behaves differently. With template models, synthetic data is generated at training time. With neural models, exiting text recognized in the region is selected.
 
 > [!TIP]
 > When choosing between the two model types, start with a custom neural model if it meets your functional needs. See [custom neural](concept-custom-neural.md ) to learn more about custom neural models.

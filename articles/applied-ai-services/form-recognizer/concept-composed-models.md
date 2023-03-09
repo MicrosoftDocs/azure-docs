@@ -34,7 +34,7 @@ With composed models, you can assign multiple custom models to a composed model 
 
 * For **_custom template models_**, the composed model can be created using variations of a custom template or different form types. This operation is useful when incoming forms may belong to one of several templates.
 
-* The response will include a ```docType``` property to indicate which of the composed models was used to analyze the document.
+* The response includes a ```docType``` property to indicate which of the composed models was used to analyze the document.
 
 * For ```Custom neural``` models the best practice is to add all the different variations of a single document type into a single training dataset and train on custom neural model. Model compose is best suited for scenarios when you have documents of different types being submitted for analysis.
 
@@ -42,7 +42,7 @@ With composed models, you can assign multiple custom models to a composed model 
 
 ::: moniker range="form-recog-3.0.0"
 
-With the introduction of [****custom classifier models****](./concept-custom-classifier.md), you have the option to continue to use [**composed models**](./concept-composed-models.md) or the classifier model as an explicit step before analysis. For a deeper understanding  of when to use a classifier or composed model, _see_ [**Custom classifier models**](concept-custom-classifier.md).
+With the introduction of [****custom classifier models****](./concept-custom-classifier.md), you can choose to use [**composed models**](./concept-composed-models.md) or the classifier model as an explicit step before analysis. For a deeper understanding  of when to use a classifier or composed model, _see_ [**Custom classifier models**](concept-custom-classifier.md).
 ::: moniker-end
 
 ## Compose model limits
@@ -60,9 +60,9 @@ With the introduction of [****custom classifier models****](./concept-custom-cla
 |**Custom neural models v3.0 (preview)**|Not Supported|Not Supported|Supported|Not Supported|
 |**Custom Neural models v3.0 (GA)**|Not Supported|Not Supported|Not Supported|Supported|
 
-* To compose a model trained with a prior version of the API (v2.1 or earlier), train a model with the v3.0 API using the same labeled dataset. That addition will ensure that the v2.1 model can be composed with other models.
+* To compose a model trained with a prior version of the API (v2.1 or earlier), train a model with the v3.0 API using the same labeled dataset. That addition ensures that the v2.1 model can be composed with other models.
 
-* Models composed with v2.1 of the API will continue to be supported, requiring no updates.
+* Models composed with v2.1 of the API continues to be supported, requiring no updates.
 
 * The limit for maximum number of custom models that can be composed is 100.
 
@@ -81,7 +81,7 @@ The following resources are supported by Form Recognizer **v3.0** :
 
 ::: moniker range="form-recog-2.1.0"
 
-The following resources are supported by Form Recognizer v2.1:
+Form Recognizer v2.1 supports the following resources:
 
 | Feature | Resources |
 |----------|-------------------------|

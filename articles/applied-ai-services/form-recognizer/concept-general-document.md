@@ -41,17 +41,17 @@ The General document v3.0 model combines powerful Optical Character Recognition 
 
 ## Key-value pair extraction
 
-The general document API supports most form types and will analyze your documents and extract keys and associated values. It's ideal for extracting common key-value pairs from documents. You can use the general document model as an alternative to training a custom model without labels.
+The general document API supports most form types and analyzes your documents and extract keys and associated values. It's ideal for extracting common key-value pairs from documents. You can use the general document model as an alternative to training a custom model without labels.
 
 ### Key normalization (common name)
 
-When analyzing documents with variations in key names like ```Social Security Number```, ```Social Security Nbr```, ```SSN```, the output normalizes the key variations to a single common name, ```SocialSecurityNumber```. This simplifies downstream processing for documents where you no longer need to account for variations in the key name.
+When the service analyzes documents with variations in key names like ```Social Security Number```, ```Social Security Nbr```, ```SSN```, the output normalizes the key variations to a single common name, ```SocialSecurityNumber```. This normalization simplifies downstream processing for documents where you no longer need to account for variations in the key name.
 
 :::image type="content" source="media/common-name.png" alt-text="Screenshot of general document processing in the Form Recognizer Studio.":::
 
 ## Development options
 
-The following tools are supported by Form Recognizer v3.0:
+Form Recognizer v3.0 supports the following tools:
 
 | Feature | Resources | Model ID
 |----------|----------|---------------|
@@ -61,7 +61,7 @@ The following tools are supported by Form Recognizer v3.0:
 
 Try extracting data from forms and documents using the Form Recognizer Studio.
 
-You'll need the following resources:
+You need the following resources:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
@@ -89,7 +89,7 @@ You'll need the following resources:
 
 Key-value pairs are specific spans within the document that identify a label or key and its associated response or value. In a structured form, these pairs could be the label and the value the user entered for that field. In an unstructured  document, they could be the date a contract was executed on based on the text in a paragraph.  The AI model is trained to extract identifiable keys and values based on a wide variety of document types, formats, and structures.
 
-Keys can also exist in isolation when the model detects that a key exists, with no associated value or when processing optional fields. For example, a middle name field may be left blank on a form in some instances. Key-value pairs are spans of text contained in the document. For documents where the same value is described in different ways, for example, customer/user, the associated key will be either customer or user (based on context).
+Keys can also exist in isolation when the model detects that a key exists, with no associated value or when processing optional fields. For example, a middle name field may be left blank on a form in some instances. Key-value pairs are spans of text contained in the document. For documents where the same value is described in different ways, for example, customer/user, the associated key is either customer or user (based on context).
 
 ## Data extraction
 

@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 10/10/2022
+ms.date: 03/08/2023
 ms.author: lajanuar
 recommendations: false
 ---
@@ -27,11 +27,11 @@ A composed model is created by taking a collection of custom models and assignin
 
 To learn more, see [Composed custom models](../concept-composed-models.md).
 
-In this article, you'll learn how to create and use composed custom models to analyze your forms and documents.
+In this article, you learn how to create and use composed custom models to analyze your forms and documents.
 
 ## Prerequisites
 
-To get started, you'll need the following resources:
+To get started, you need the following resources:
 
 * **An Azure subscription**. You can [create a free Azure subscription](https://azure.microsoft.com/free/cognitive-services/).
 
@@ -39,7 +39,7 @@ To get started, you'll need the following resources:
 
   1. After the resource deploys, select **Go to resource**.
 
-  1. Copy the **Keys and Endpoint** values from the Azure portal and paste them in a convenient location, such as *Microsoft Notepad*. You'll need the key and endpoint values to connect your application to the Form Recognizer API.
+  1. Copy the **Keys and Endpoint** values from the Azure portal and paste them in a convenient location, such as *Microsoft Notepad*. You need the key and endpoint values to connect your application to the Form Recognizer API.
 
     :::image type="content" source="../media/containers/keys-and-endpoint.png" alt-text="Still photo showing how to access resource key and endpoint URL.":::
 
@@ -50,7 +50,7 @@ To get started, you'll need the following resources:
 
 ## Create your custom models
 
-First, you'll need a set of custom models to compose. You can use the Form Recognizer Studio, REST API, or client-library SDKs. The steps are as follows:
+First, you need a set of custom models to compose. You can use the Form Recognizer Studio, REST API, or client-library SDKs. The steps are as follows:
 
 * [**Assemble your training dataset**](#assemble-your-training-dataset)
 * [**Upload your training set to Azure blob storage**](#upload-your-training-dataset)
@@ -58,7 +58,7 @@ First, you'll need a set of custom models to compose. You can use the Form Recog
 
 ## Assemble your training dataset
 
-Building a custom model begins with establishing your training dataset. You'll need a minimum of five completed forms of the same type for your sample dataset. They can be of different file types (jpg, png, pdf, tiff) and contain both text and handwriting. Your forms must follow the [input requirements](../how-to-guides/build-a-custom-model.md?view=form-recog-2.1.0&preserve-view=true#custom-model-input-requirements) for Form Recognizer.
+Building a custom model begins with establishing your training dataset. You need a minimum of five completed forms of the same type for your sample dataset. They can be of different file types (jpg, png, pdf, tiff) and contain both text and handwriting. Your forms must follow the [input requirements](../how-to-guides/build-a-custom-model.md?view=form-recog-2.1.0&preserve-view=true#custom-model-input-requirements) for Form Recognizer.
 
 >[!TIP]
 > Follow these tips to optimize your data set for training:
@@ -72,9 +72,9 @@ See [Build a training data set](../how-to-guides/build-a-custom-model.md?view=fo
 
 ## Upload your training dataset
 
-When you've gathered a set of training documents, you'll need to [upload your training data](../how-to-guides/build-a-custom-model.md?view=form-recog-2.1.0&preserve-view=true#upload-your-training-data) to an Azure blob storage container.
+When you've gathered a set of training documents, you need to [upload your training data](../how-to-guides/build-a-custom-model.md?view=form-recog-2.1.0&preserve-view=true#upload-your-training-data) to an Azure blob storage container.
 
-If you want to use manually labeled data, you'll also have to upload the *.labels.json* and *.ocr.json* files that correspond to your training documents.
+If you want to use manually labeled data, you have to upload the *.labels.json* and *.ocr.json* files that correspond to your training documents.
 
 ## Train your custom model
 
@@ -161,7 +161,7 @@ When you train models using the [**Form Recognizer Studio**](https://formrecogni
 
 1. In the pop-up window, name your newly composed model and select **Compose**.
 
-1. When the operation completes, your newly composed model will appear in the list.
+1. When the operation completes, your newly composed model appears in the list.
 
 1. Once the model is ready, use the **Test** command to validate it with your test documents and observe the results.
 
@@ -285,11 +285,11 @@ Form Recognizer uses advanced machine-learning technology to detect and extract 
 
 * **Composed models**. A composed model is created by taking a collection of custom models and assigning them to a single model that encompasses your form types. When a document is submitted to a composed model, the service performs a classification step to decide which custom model accurately represents the form presented for analysis.
 
-In this article, you'll learn how to create Form Recognizer custom and composed models using our [Form Recognizer Sample Labeling tool](../label-tool.md), [REST APIs](../how-to-guides/use-sdk-rest-api.md?view=form-recog-2.1.0&preserve-view=true#train-a-custom-model), or [client-library SDKs](../how-to-guides/use-sdk-rest-api.md?view=form-recog-2.1.0&preserve-view=true#train-a-custom-model).
+In this article, you learn how to create Form Recognizer custom and composed models using our [Form Recognizer Sample Labeling tool](../label-tool.md), [REST APIs](../how-to-guides/use-sdk-rest-api.md?view=form-recog-2.1.0&preserve-view=true#train-a-custom-model), or [client-library SDKs](../how-to-guides/use-sdk-rest-api.md?view=form-recog-2.1.0&preserve-view=true#train-a-custom-model).
 
 ## Sample Labeling tool
 
-Try extracting data from custom forms using our Sample Labeling tool. You'll need the following resources:
+Try extracting data from custom forms using our Sample Labeling tool. You need the following resources:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
@@ -323,11 +323,11 @@ The steps for building, training, and using custom and composed models are as fo
 
 ## Assemble your training dataset
 
-Building a custom model begins with establishing your training dataset. You'll need a minimum of five completed forms of the same type for your sample dataset. They can be of different file types (jpg, png, pdf, tiff) and contain both text and handwriting. Your forms must follow the [input requirements](build-a-custom-model.md?view=form-recog-2.1.0&preserve-view=true#custom-model-input-requirements) for Form Recognizer.
+Building a custom model begins with establishing your training dataset. You need a minimum of five completed forms of the same type for your sample dataset. They can be of different file types (jpg, png, pdf, tiff) and contain both text and handwriting. Your forms must follow the [input requirements](build-a-custom-model.md?view=form-recog-2.1.0&preserve-view=true#custom-model-input-requirements) for Form Recognizer.
 
 ## Upload your training dataset
 
-You'll need to [upload your training data](build-a-custom-model.md?view=form-recog-2.1.0&preserve-view=true#upload-your-training-data)
+You need to [upload your training data](build-a-custom-model.md?view=form-recog-2.1.0&preserve-view=true#upload-your-training-data)
 to an Azure blob storage container. If you don't know how to create an Azure storage account with a container, *see* [Azure Storage quickstart for Azure portal](../../../storage/blobs/storage-quickstart-blobs-portal.md). You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production.
 
 ## Train your custom model
@@ -356,7 +356,7 @@ Using the Form Recognizer Sample Labeling tool, the REST API, or the Client-libr
 
 ### Gather your custom model IDs
 
-Once the training process has successfully completed, your custom model will be assigned a model ID. You can retrieve a model ID as follows:
+Once the training process has successfully completed, your custom model is assigned a model ID. You can retrieve a model ID as follows:
 
 <!-- Applies to FOTT but labeled studio to eliminate tab grouping warning -->
 ### [**Form Recognizer Sample Labeling tool**](#tab/studio)
@@ -367,7 +367,7 @@ When you train models using the [**Form Recognizer Sample Labeling tool**](https
 
 ### [**REST API**](#tab/rest)
 
-The [**REST API**](build-a-custom-model.md?view=form-recog-2.1.0&preserve-view=true#train-your-model) will return a `201 (Success)` response with a **Location** header. The value of the last parameter in this header is the model ID for the newly trained model:
+The [**REST API**](build-a-custom-model.md?view=form-recog-2.1.0&preserve-view=true#train-your-model) returns a `201 (Success)` response with a **Location** header. The value of the last parameter in this header is the model ID for the newly trained model:
 
 :::image type="content" source="../media/model-id.png" alt-text="Screenshot: the returned location header containing the model ID.":::
 
@@ -403,7 +403,7 @@ After you have completed training, compose your models as follows:
 
 1. In the pop-up window, name your newly composed model and select **Compose**.
 
-When the operation completes, your newly composed model will appear in the list.
+When the operation completes, your newly composed model appears in the list.
 
   :::image type="content" source="../media/custom-model-compose.png" alt-text="Screenshot of the model compose window." lightbox="../media/custom-model-compose-expanded.png":::
 
@@ -438,7 +438,7 @@ Use the programming language code of your choice to create a composed model that
 
 1. Select the **Run Analysis** button.
 
-1. The tool will apply tags in bounding boxes and report the confidence percentage for each tag.
+1. The tool applies tags in bounding boxes and report the confidence percentage for each tag.
 
 :::image type="content" source="../media/analyze.png" alt-text="Screenshot: Form Recognizer tool analyze-a-custom-form window.":::
 
@@ -448,7 +448,7 @@ Using the REST API, you can make an [Analyze Document](https://westus.dev.cognit
 
 ### [**Client-library SDKs**](#tab/sdks)
 
-Using the programming language of your choice to analyze a form or document with a custom or composed model. You'll need your Form Recognizer endpoint, key, and model ID.
+Using the programming language of your choice to analyze a form or document with a custom or composed model. You need your Form Recognizer endpoint, key, and model ID.
 
 * [**C#/.NET**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/Sample_ModelCompose.md)
 

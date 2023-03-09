@@ -18,7 +18,7 @@ recommendations: false
 
 **This article applies to:** ![Form Recognizer v3.0 checkmark](media/yes-icon.png) **Form Recognizer v3.0**.
 
-Custom classifier models are deep-learning-model types that combines layout and language features to accurately detect and identify documents you process within your application. Custom classifier models can classify each page in a input file to identify the document(s) within and can also identify multiple documents or multiple instances of a single document within an input file.
+Custom classifier models are deep-learning-model types that combine layout and language features to accurately detect and identify documents you process within your application. Custom classifier models can classify each page in an input file to identify the document(s) within and can also identify multiple documents or multiple instances of a single document within an input file.
 
 ## Model capabilities
 
@@ -30,7 +30,7 @@ Custom classifier models can analyze a single- or multi-file documents to identi
 
 * A single file containing multiple instances of the same document. For instance, a collection of scanned invoices.
 
-Training a custom classifier model requires at least 2 distinct classes and a minimum of 5 samples per class.
+Training a custom classifier model requires at least two distinct classes and a minimum of five samples per class.
 
 ### Compare custom classifier and composed models
 
@@ -39,8 +39,8 @@ A custom classifier model can replace [a composed model](concept-composed-models
 | Capability | Custom classifier process | Composed model process |
 |--|--|--|
 |Analyze a single document of unknown type belonging to one of the types trained for extraction model processing.| &#9679; Requires multiple calls. </br> &#9679; Call the classifier models based on the document class. This step allows for a confidence-based check before invoking the extraction model analysis.</br> &#9679; Invoke the extraction model. | &#9679; Requires a single call to a composed model containing the model corresponding to the input document type. |
-|Analyze a single document of unknown type belonging to several types trained for extraction model processing.| &#9679;Requires multiple calls.</br> &#9679; Make a call to the classifier that ignores documents not matching a designated type for extraction.</br> &#9679; Invoke the extraction model. | &#9679;  Requires a single call to a composed model. The service will always pick a custom model within the composed model with the highest match.</br> &#9679; A composed model cannot ignore documents.|
-|Analyze a file containing multiple documents of known or unknown type belonging to one of the types trained for extraction model processing.| &#9679; Requires multiple calls. </br> &#9679; Call the extraction model for each identified document in the input file.</br> &#9679; Invoke the extraction model. | &#9679;  Requires a single call to a composed model.</br> &#9679; The composed model will only invoke the component model once on the first instance of the document. </br> &#9679;The remaining documents are ignored. |
+ |Analyze a single document of unknown type belonging to several types trained for extraction model processing.| &#9679;Requires multiple calls.</br> &#9679; Make a call to the classifier that ignores documents not matching a designated type for extraction.</br> &#9679; Invoke the extraction model. | &#9679;  Requires a single call to a composed model. The service selects a custom model within the composed model with the highest match.</br> &#9679; A composed model can't ignore documents.|
+|Analyze a file containing multiple documents of known or unknown type belonging to one of the types trained for extraction model processing.| &#9679; Requires multiple calls. </br> &#9679; Call the extraction model for each identified document in the input file.</br> &#9679; Invoke the extraction model. | &#9679;  Requires a single call to a composed model.</br> &#9679; The composed model invokes the component model once on the first instance of the document. </br> &#9679;The remaining documents are ignored. |
 
 ## Language support
 
@@ -48,13 +48,13 @@ Classifier models currently only support English language documents.
 
 ## Best practices
 
-Custom classifier models require a minimum of five samples per class to train. If the classes are very similar, adding additional training samples will improve model accuracy.
+Custom classifier models require a minimum of five samples per class to train. If the classes are similar, adding extra training samples improves model accuracy.
 
 ## Training a model
 
 Custom classifier models are only available in the [v3.0 API](v3-migration-guide.md) starting with API version ```2023-02-28-preview```. [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio) provides a no-code user interface to interactively train a custom classifier.
 
-When using the REST API, if your documents are organized by folders, you can use the ```azureBlobSource``` property of the request to train a classifier model.
+When using the REST API, if you've organized your documents by folders, you can use the ```azureBlobSource``` property of the request to train a classifier model.
 
 ```rest
 https://{endpoint}/formrecognizer/documentClassifiers:build?api-version=2023-02-28-preview
@@ -86,7 +86,7 @@ https://{endpoint}/formrecognizer/documentClassifiers:build?api-version=2023-02-
 
 ```
 
-Alternatively, if you have a flat list of files or only plan to use a few select files within each folder to train the model, you can use the ```azureBlobFileListSource``` property to train the model. This requires an additional ```file list``` in [JSON Lines](https://jsonlines.org/) format. For each class, add a new file with a list of files to be submitted for training.
+Alternatively, if you have a flat list of files or only plan to use a few select files within each folder to train the model, you can use the ```azureBlobFileListSource``` property to train the model. This step requires a ```file list``` in [JSON Lines](https://jsonlines.org/) format. For each class, add a new file with a list of files to be submitted for training.
 
 ```rest
 {
