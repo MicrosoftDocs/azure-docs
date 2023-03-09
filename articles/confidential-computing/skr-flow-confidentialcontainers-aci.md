@@ -75,3 +75,5 @@ On success of the key fetch from AKV, you can consume the key for decrypting the
 [AKV SKR with Confidential VM's AMD SEV-SNP](skr-flow-cvm-sevsnp-attestation.md)
 
 [Microsoft Azure Attestation (MAA)](../attestation)
+
+[SKR Policy Examples](skr-policy-examples.md)
