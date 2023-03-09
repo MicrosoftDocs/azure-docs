@@ -281,7 +281,7 @@ If the new key is in a different key vault, you must [grant the managed identity
 
 [!INCLUDE [storage-customer-managed-keys-revoke-include](../../../includes/storage-customer-managed-keys-revoke-include.md)]
 
-Disabling the key will cause attempts to access data in the storage account to fail with error code 403 (Forbidden). For a list of operations that will be affected by disabling the key, see [Revoke access to a storage account that uses customer-managed keys](customer-managed-keys-overview.md#revoke-access-to-a-storage-account-that-uses-customer-managed-keys).
+Disabling the key will cause attempts to access data in the storage account to fail with error code 403 (Forbidden). For a list of storage account operations that will be affected by disabling the key, see [Revoke access to a storage account that uses customer-managed keys](customer-managed-keys-overview.md#revoke-access-to-a-storage-account-that-uses-customer-managed-keys).
 
 [!INCLUDE [storage-customer-managed-keys-disable-include](../../../includes/storage-customer-managed-keys-disable-include.md)]
 
