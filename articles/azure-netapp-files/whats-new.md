@@ -19,6 +19,10 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+* [Standard storage with cool access in Azure NetApp Files](cool-access-about.md) (Preview)
+
+
+
 ## March 2023
 
 * [Active Directory support improvement](create-active-directory-connections.md#preferred-server-ldap) (Preview)

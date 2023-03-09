@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 12/09/2022
+ms.date: 03/09/2023
 ms.author: anfdocs
 ---
 
@@ -29,6 +29,18 @@ You can configure the Standard service level with cool access on a volume by spe
 After inactive data is moved to the cool tier and if it's read randomly again, it becomes “warm” and is moved back to the standard tier. Sequential reads (such as index and antivirus scans) on inactive data in the cool tier don't "warm" the data and won't trigger inactive data to be moved back to the standard tier. 
 
 Metadata is never cooled and will always remain in the standard tier. As such, the activities of metadata-intensive workloads (for example, high file-count environments like chip design, VCS, and home directories) aren't impacted by tiering.
+
+## Supported regions 
+
+Standard storage with cool access is supported for the following regions: 
+
+* East US
+* East US 2
+* Japan East
+* North Europe
+* South Central US
+* West Europe
+* West US
 
 ## Effects of cool access on data
 
