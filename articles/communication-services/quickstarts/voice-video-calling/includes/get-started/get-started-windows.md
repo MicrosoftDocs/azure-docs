@@ -40,11 +40,11 @@ In Visual Studio, create a new project with the **Blank App (Universal Windows)*
 
 #### Install the package
 
-Right click your project and go to `Manage Nuget Packages` to install `Azure.Communication.Calling` [1.0.0-beta.33](https://www.nuget.org/packages/Azure.Communication.Calling/1.0.0-beta.33) or superior. Make sure Include Preleased is checked.
+Right select your project and go to `Manage Nuget Packages` to install `Azure.Communication.Calling` [1.0.0-beta.33](https://www.nuget.org/packages/Azure.Communication.Calling/1.0.0-beta.33) or superior. Make sure Include Preleased is checked.
 
 #### Request access
 
-Go to `Package.appxmanifest` and click `Capabilities`.
+Go to `Package.appxmanifest` and select `Capabilities`.
 Check `Internet (Client & Server)` to gain inbound and outbound access to the Internet. Check `Microphone` to access the audio feed of the microphone. 
 
 :::image type="content" source="../../media/windows/request-access.png" alt-text="Screenshot showing requesting access to Internet and Microphone in Visual Studio.":::
@@ -82,7 +82,7 @@ Open the `MainPage.xaml` of your project and add the `Grid` node to your `Page`:
 </Page>
 ```
 
-Open to `App.xaml.cs` (right click and choose View Code) and add this line to the top:
+Open to `App.xaml.cs` (right click over the file and choose View Code) and add this line to the top:
 ```C#
 using CallingQuickstart;
 ```
@@ -139,7 +139,7 @@ namespace CallingQuickstart
 
 ### Object model
 
-In the table is listed, the classes and interfaces handle some of the major features of the Azure Communication Services Calling SDK:
+The next table listed the classes and interfaces handle some of the major features of the Azure Communication Services Calling SDK:
 
 | Name                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
@@ -241,7 +241,7 @@ In Visual Studio, create a new project with the **Blank App, Packaged (WinUI 3 i
 
 #### Install the package
 
-Right click your project and go to `Manage Nuget Packages` to install `Azure.Communication.Calling` [1.0.0-beta.33](https://www.nuget.org/packages/Azure.Communication.Calling/1.0.0-beta.33) or superior. Make sure Include Preleased is checked.
+Right click over your project and go to `Manage Nuget Packages` to install `Azure.Communication.Calling` [1.0.0-beta.33](https://www.nuget.org/packages/Azure.Communication.Calling/1.0.0-beta.33) or superior. Make sure Include Preleased is checked.
 
 #### Request access
 
