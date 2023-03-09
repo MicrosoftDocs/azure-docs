@@ -16,13 +16,13 @@ ms.author: jeedes
 
 # Azure Active Directory SSO integration with BrainStorm Platform
 
-In this article, you learn how to integrate BrainStorm Platform with Azure Active Directory (Azure AD). The BrainStorm Platform empowers end users to personalize their experience, empowering them to embrace long-term behavioural change. When you integrate BrainStorm Platform with Azure AD, you can:
+In this article, you learn how to integrate BrainStorm Platform with Azure Active Directory (Azure AD). The BrainStorm Platform empowers end users to personalize their experience, empowering them to embrace long-term behavioral change. When you integrate BrainStorm Platform with Azure AD, you can:
 
 * Control in Azure AD who has access to BrainStorm Platform.
 * Enable your users to be automatically signed-in to BrainStorm Platform with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-You'll be able to configure and test Azure AD single sign-on for BrainStorm Platform in your BrainStorm environment. BrainStorm Platform supports only **SP** initiated single sign-on and **Just In Time** user provisioning.
+You are able to configure and test Azure AD single sign-on for BrainStorm Platform in your BrainStorm environment. BrainStorm Platform supports only **SP** initiated single sign-on and **Just In Time** user provisioning.
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
