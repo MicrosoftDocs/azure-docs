@@ -12,6 +12,7 @@ ms.author: jammart
 ms.reviewer: nachakra
 ms.custom: devx-track-azurecli, engagement-fy23
 ms.devlang: azurecli
+---
 
 # Prevent Shared Key authorization for an Azure Storage account
 
