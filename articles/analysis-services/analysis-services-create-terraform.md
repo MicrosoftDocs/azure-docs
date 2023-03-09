@@ -3,7 +3,7 @@ title: 'Quickstart: Create an Azure Analysis Services server using Terraform'
 description: 'In this article, you create an Azure Analysis Services server using Terraform'
 ms.topic: quickstart
 ms.service: azure-analysis-services
-ms.date: 2/15/2023
+ms.date: 3/9/2023
 ms.custom: devx-track-terraform
 author: TomArcherMsft
 ms.author: tarcher
@@ -67,12 +67,24 @@ In this article, you learn how to:
 
 ## Verify the results
 
-Use [terraform state show](https://developer.hashicorp.com/terraform/cli/commands/state/show) to display the current state of the specified resource.
+1. Get the Azure resource name in which the lab was created.
 
-```console
-terraform state show azurerm_analysis_services_server.server
-```
+    ```azurecli
+    echo "$(terraform output resource_group_name)"
+    ```
 
+1. Get the server name.
+
+    ```azurecli
+    echo "$(terraform output azurerm_analysis_services_server_name)"
+    ```
+
+1. Run [Get-AzAnalysisServicesServer](/powershell/module/az.analysisservices/get-azanalysisservicesserver) to display information about the new server.
+
+    ```azurepowershell
+    Get-AzAnalysisServicesServer -ResourceGroupName <resource_group> -Name <analysis_service_server_name>
+    ```
+    
 ## Clean up resources
 
 [!INCLUDE [terraform-plan-destroy.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-plan-destroy.md)]
