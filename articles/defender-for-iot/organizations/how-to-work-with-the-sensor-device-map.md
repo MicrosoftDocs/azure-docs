@@ -200,13 +200,6 @@ The following table lists available responses for each notification, and when we
 | **New subnets** | New subnets were discovered. |-  **Learn**: Automatically add the subnet.<br />- **Open Subnet Configuration**: Add all missing subnet information.<br />- **Dismiss**<br />Remove the notification. |**Dismiss** |
 | **Device type changes** | A new device type has been associated with the device. | - **Set as {…}**: Associate the new type with the device.<br />- **Dismiss**: Remove the notification. |No automatic handling|
 
-The following legacy notifications were removed in version 22.3.6. If you have an earlier OT sensor version installed, you may still have these notifications to resolve:
-
-| Type | Description | Available responses |
-|--|--|--|
-| **Inactive devices** | Traffic wasn't detected on a specific device for more than 60 days. | We recommend removing the device from your network if it's no longer needed. <br><br>**Dismiss**: If the device is part of your network but currently inactive, such as if it's mistakenly disconnected from the network, dismiss the notification and reconnect the device. |
-| **New OT devices** | 	A subnet includes an OT device that's not defined in an ICS subnet. <br><br> Each subnet that contains at least one OT device can be defined as an ICS subnet. This helps differentiate between OT and IT devices on the map. |	**Set as ICS Subnet** <br><br>**Dismiss**: Remove the notification if the device isn't part of the subnet.
-
 ## View a device map for a specific zone
 
 If you're working with an on-premises management console with sites and zones configured, device maps are also available for each zone.

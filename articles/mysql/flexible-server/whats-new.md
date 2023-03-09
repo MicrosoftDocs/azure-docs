@@ -40,6 +40,9 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 
   Starting from [MySQL version 8.0.30 and above](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-30.html), there has been a change in the way the redo log is configured. Instead of using the [innodb_log_file_size](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_file_size) variable, the redo log can now be easily adjusted from the available values using the [innodb_redo_log_capacity](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_redo_log_capacity) variable. [Learn more](https://dev.mysql.com/doc/refman/8.0/en/innodb-redo-log.html). 
 
+- **Unsupported Server Parameters**
+
+  The ability to modify the [thread_handling](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html) parameter in the Azure Database for MySQL Flexible Server is discontinued considering the underlying architecture and performance.
 
 - **Minor version upgrade for Azure Database for MySQL - Flexible server to 8.0.31**
 
