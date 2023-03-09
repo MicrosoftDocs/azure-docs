@@ -3,7 +3,6 @@ title: Manage OT plans on Azure subscriptions
 description: Manage Microsoft Defender for IoT plans for OT monitoring on your Azure subscriptions.
 ms.date: 11/07/2022
 ms.topic: how-to
-ms.custom: enterprise-iot
 ---
 
 # Manage OT plans on Azure subscriptions
