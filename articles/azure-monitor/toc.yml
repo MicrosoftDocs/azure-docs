@@ -564,8 +564,6 @@ items:
     items:
     - name: Application Insights overview
       href: app/app-insights-overview.md
-    - name: FAQ
-      href: /azure/azure-monitor/faq#application-insights
     - name: Create a resource (workspace-based)
       href: app/create-workspace-resource.md
     - name: Enable Application Insights
@@ -724,11 +722,14 @@ items:
       - name: Telemetry correlation
         href: app/correlation.md
         displayName: correlation headers, w3c, distributed tracing, tracing
-    - name: Live Metric stream
-      displayName: live, quickpulse, quick pulse, live metrics
-      href: app/live-stream.md
     - name: Metrics
       items:
+      - name: Live Metric stream
+        displayName: live, quickpulse, quick pulse, live metrics
+        href: app/live-stream.md
+      - name: GetMetric
+        displayName: get metric, custom metrics, metrics, TrackMetric
+        href: app/get-metric.md
       - name: Log-based & pre-aggregated metrics
         href: app/pre-aggregated-metrics-log-metrics.md
       - name: Log-based metrics definitions
@@ -883,9 +884,6 @@ items:
         href: app/configuration-with-applicationinsights-config.md
       - name: Connection strings
         href: app/sdk-connection-string.md
-      - name: GetMetric
-        displayName: get metric, custom metrics, metrics, TrackMetric
-        href: app/get-metric.md
       - name: Statsbeat
         href: app/statsbeat.md
       - name: Special topics
@@ -910,6 +908,18 @@ items:
         href: app/tutorial-users.md
       - name: Dashboard with application data
         href: app/tutorial-app-dashboards.md
+    - name: Help and support
+      items:
+      - name: Application Insights FAQ
+        href: /azure/azure-monitor/faq#application-insights
+      - name: Q&A forum (general questions)
+        href: /answers/topics/24223/azure-monitor
+      - name: Stack Overflow (coding questions)
+        href: https://stackoverflow.com/questions/tagged/azure-application-insights
+      - name: User Voice (product feedback)
+        href: https://feedback.azure.com/d365community/forum/3887dc70-2025-ec11-b6e6-000d3a4f09d0
+      - name: Troubleshooting articles
+        href: /troubleshoot/azure/azure-monitor/welcome-azure-monitor
   - name: Container insights
     items:
     - name: Overview
