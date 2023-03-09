@@ -36,7 +36,7 @@ The following diagram shows how communications flow through private endpoints to
 
 * You must have an Azure Resource Group, in which you (or the service principal you use) need to have `Contributor` access. You'll have such a resource group if you configured your `ml` extension per the above article.
 
-* You must have an Azure Machine Learning workspace, and the workspace must use a private endpoint. If you don't have one, the steps in this article create an example workspace, VNet, and VM. For more information, see [Configure a private endpoint for Azure Machine Learning workspace](./how-to-configure-private-link.md).
+* You must have an Azure Machine Learning workspace, and the workspace must use a private endpoint. If you don't have one, the steps in this article create an example workspace, virtual network (VNet), and VM. For more information, see [Configure a private endpoint for Azure Machine Learning workspace](./how-to-configure-private-link.md).
 
     The workspace configuration can either allow or disallow public network access. If you plan on using managed online endpoint deployments that use __public outbound__, then you must also [configure the workspace to allow public access](how-to-configure-private-link.md#enable-public-access).
 
@@ -112,7 +112,7 @@ endpoint = ManagedOnlineEndpoint(name='my-online-endpoint',
 
 ---
 
-When `public_network_access` is `Disabled`, inbound scoring requests are received using the [private endpoint of the Azure Machine Learning workspace](./how-to-configure-private-link.md), and the endpoint can't be reached from public networks.
+When `public_network_access` is `disabled`, inbound scoring requests are received using the [private endpoint of the Azure Machine Learning workspace](./how-to-configure-private-link.md), and the endpoint can't be reached from public networks.
 
 > [!NOTE]
 > You can update (enable or disable) the `public_network_access` flag of an online endpoint after creating it.
@@ -166,12 +166,12 @@ The deployment communicates with these resources over the private endpoint:
 * The Azure Storage blob that is associated with the workspace
 * The Azure Container Registry for the workspace
 
-When you configure the `egress_public_network_access` to `disabled`, a new private endpoint is created per deployment, per service. For example, if you set the flag to `disabled` for three deployments to an online endpoint, a total of nine private endpoints are created. Each deployment would have three private endpoints to communicate with the workspace, blob, and container registry. To confirm the creation of the private endpoints, first check the storage account and container registry associated with the workspace (see [Download a configuration file](how-to-manage-workspace.md#download-a-configuration-file)), find each resource from Azure Portal and check `Private endpoint connections` tab under the `Networking` menu.
+When you configure the `egress_public_network_access` to `disabled`, a new private endpoint is created per deployment, per service. For example, if you set the flag to `disabled` for three deployments to an online endpoint, a total of nine private endpoints are created. Each deployment would have three private endpoints to communicate with the workspace, blob, and container registry. To confirm the creation of the private endpoints, first check the storage account and container registry associated with the workspace (see [Download a configuration file](how-to-manage-workspace.md#download-a-configuration-file)), find each resource from Azure portal and check `Private endpoint connections` tab under the `Networking` menu.
 
 > [!IMPORTANT]
 > - Outbound communication from managed online endpoint deployment is to the _workspace API_. When the endpoint is configured to use __public outbound__ (in other words, `public_network_access` flag for the endpoint is set to `enabled`), then the workspace must be able to accept that public communication (`public_network_access` flag for the workspace set to `enabled`).
 > - When online deployments are created with `egress_public_network_access` flag set to `disabled`, they will have access to above secured resources only. For instance, if the deployment uses model assets uploaded to other storage accounts, the model download will fail. Ensure model assets are on the storage account associated with the workspace.
-> - When `egress_public_network_access` is set to `disabled`, the deployment can only access the workspace-associated resources secured in the VNET. On the contrary, when `egress_public_network_access` is set to `enabled`, the deployment can only access the resources with public access, which means it cannot access the resources secured in the VNET.
+> - When `egress_public_network_access` is set to `disabled`, the deployment can only access the workspace-associated resources secured in the virtual network. On the contrary, when `egress_public_network_access` is set to `enabled`, the deployment can only access the resources with public access, which means it cannot access the resources secured in the virtual network.
 
 
 ## Scenarios
@@ -191,7 +191,7 @@ The following table lists the supported configurations when configuring inbound 
 Use the information in this section to create an example configuration that uses private endpoints to secure online endpoints.
 
 > [!TIP]
-> In this example, and Azure Virtual Machine is created inside the VNet. You connect to the VM using SSH, and run the deployment from the VM. This configuration is used to simplify the steps in this example, and does not represent a typical secure configuration. For example, in a production environment you would most likely use a VPN client or Azure ExpressRoute to directly connect clients to the virtual network.
+> In this example, an Azure Virtual Machine is created inside the virtual network. You connect to the VM using SSH, and run the deployment from the VM. This configuration is used to simplify the steps in this example, and does not represent a typical secure configuration. For example, in a production environment you would most likely use a VPN client or Azure ExpressRoute to directly connect clients to the virtual network.
 
 ### Create workspace and secured resources
 
@@ -203,7 +203,7 @@ The steps in this section use an Azure Resource Manager template to create the f
 * Azure Key Vault
 * Azure Storage account (blob & file storage)
 
-Public access is disabled for all the services. While the Azure Machine Learning workspace is secured behind a vnet, it's configured to allow public network access. For more information, see [CLI 2.0 secure communications](how-to-configure-cli.md#secure-communications). A scoring subnet is created, along with outbound rules that allow communication with the following Azure services:
+Public access is disabled for all the services. While the Azure Machine Learning workspace is secured behind a virtual network, it's configured to allow public network access. For more information, see [CLI 2.0 secure communications](how-to-configure-cli.md#secure-communications). A scoring subnet is created, along with outbound rules that allow communication with the following Azure services:
 
 * Azure Active Directory
 * Azure Resource Manager
@@ -237,7 +237,7 @@ az deployment group create --template-file endpoints/online/managed/vnet/setup_w
 ```
 ### Create the virtual machine jump box
 
-To create an Azure Virtual Machine that can be used to connect to the VNet, use the following command. Replace `<your-new-password>` with the password you want to use when connecting to this VM:
+To create an Azure Virtual Machine that can be used to connect to the virtual network, use the following command. Replace `<your-new-password>` with the password you want to use when connecting to this VM:
 
 ```azurecli
 # create vm
@@ -311,7 +311,7 @@ When prompted, enter the password you used when creating the VM.
     :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/online/managed/vnet/setup_vm/scripts/build_image.sh" id="build_image":::
 
     > [!TIP]
-    > In this example, we build the Docker image before pushing it to Azure Container Registry. Alternatively, you can build the image in your vnet by using an Azure Machine Learning compute cluster and environments. For more information, see [Secure Azure Machine Learning workspace](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr).
+    > In this example, we build the Docker image before pushing it to Azure Container Registry. Alternatively, you can build the image in your virtual network by using an Azure Machine Learning compute cluster and environments. For more information, see [Secure Azure Machine Learning workspace](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr).
 
 ### Create a secured managed online endpoint
 
