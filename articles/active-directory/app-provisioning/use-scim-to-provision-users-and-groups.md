@@ -973,7 +973,7 @@ The .NET Core SDK includes an HTTPS development certificate that is used during 
 * Microsoft.SCIM.WebHostSample: `https://localhost:5001`
 * IIS Express: `https://localhost:44359`
 
-For more information on HTTPS in ASP.NET Core use the following link:
+For more information on HTTPS in ASP.NET Core, use the following link:
 [Enforce HTTPS in ASP.NET Core](/aspnet/core/security/enforcing-ssl)
 
 ### Handling endpoint authentication
