@@ -40,7 +40,7 @@ response = openai.Completion.create(
 print(response['choices'][0]['text'])
 ```
 > [!NOTE]  
-> The following parameters aren't available with the gpt-35-turbo model: `logprobs`, `best_of`, and `echo`. If you set any of these parameters to a value other than their default, you'll get an error.
+> The following parameters aren't available with the gpt-35-turbo model: `logprobs`, `best_of`, and `echo`. If you set any of these parameters, you'll get an error.
 
 The `<|im_end|>` token indicates the end of a message. We recommend including `<|im_end|>` token as a stop sequence to ensure that the model stops generating text when it reaches the end of the message. You can read more about the special tokens in the [Chat Markup Language (ChatML)](#chatml) section.
 
