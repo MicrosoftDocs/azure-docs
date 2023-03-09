@@ -1,8 +1,8 @@
 ---
 title: Sensitivity label reporting on your data in Microsoft Purview using Microsoft Purview Data Estate Insights
 description: This how-to guide describes how to view and use sensitivity label reporting on your data.
-author: batamig
-ms.author: bagol
+author: ajaykar
+ms.author: ajaykar
 ms.service: purview
 ms.subservice: purview-insights
 ms.topic: how-to
