@@ -41,7 +41,7 @@ Azure Cosmos DB for MongoDB vCore supports the following database commands:
 | `find` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `findAndModify` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `getLastError` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
-| `getMore` | Partial |
+| `getMore` | :::image type="icon" source="media/compatibility/no-icon.svg"::: Partial |
 | `insert` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `resetError` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
 | `update` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
@@ -104,10 +104,10 @@ Azure Cosmos DB for MongoDB vCore supports the following database commands:
 | `getDefaultRWConcern` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
 | `getClusterParameter` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
 | `getParameter` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
-| `killCursors`  | Yes |
+| `killCursors`  | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `killOp` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
 | `listCollections` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
-| `listDatabases`  | Yes |
+| `listDatabases`  | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `listIndexes` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `logRotate` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
 | `reIndex` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
@@ -207,7 +207,7 @@ Azure Cosmos DB for MongoDB vCore supports the following database commands:
 | Command | Supported |
 |---------|---------|
 | `availableQueryOptions` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
-| `buildInfo`| Yes |
+| `buildInfo`| :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `collStats` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
 | `connPoolStats` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
 | `connectionStatus` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
@@ -216,22 +216,22 @@ Azure Cosmos DB for MongoDB vCore supports the following database commands:
 | `dbHash` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
 | `dbStats` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
 | `driverOIDTest` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
-| `explain`| Yes |
+| `explain`| :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `features` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
 | `getCmdLineOpts` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
-| `getLog`| Yes |
+| `getLog`| :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `hostInfo` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
 | `_isSelf` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
 | `listCommands` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
 | `lockInfo` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
 | `netstat` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
-| `ping`| Yes |
+| `ping`| :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `profile` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
 | `serverStatus` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
 | `shardConnPoolStats` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
 | `top` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
-| `validate`| Yes |
-| `whatsmyuri`| Yes |
+| `validate`| :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
+| `whatsmyuri`| :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 
 ### Free Monitoring Commands
 
