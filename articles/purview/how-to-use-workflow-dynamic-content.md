@@ -6,7 +6,7 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-workflows
 ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 02/27/2023
+ms.date: 03/09/2023
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
@@ -27,41 +27,41 @@ In the dynamic content menu, the currently available options are:
 
 Currently, the following variables are available for a workflow connector in Microsoft Purview:
 
-|Prerequisite connector  |Built-in variable  |Functionality  |
-|---------|---------|---------|
-|When data access request is submitted |Workflow.Requestor |The requestor of the workflow |
-| |Workflow.Request Recipient |The request recipient of the workflow |
-| |Asset.Name  |The name of the asset  |
-| |Asset.Description |The description of the asset |
-| |Asset.Type	|The type of the asset  |
-| |Asset.Fully Qualified Name |The fully qualified name of the asset |
-| |Asset.Owner	|The owner of the asset  |
-| |Asset.Classification	|The display names of classifications of the asset |
-| |Asset.Certified	|The indicator of whether the asset meets your organization's quality standards and can be regarded as reliable  |
-|Start and wait for an approval |Approval.Outcome |The outcome of the approval  |
-| |Approval.Assigned To  |The IDs of the approvers |
-| |Approval.Comments |The IDs of the approvers |
-|Check data source registration for data use governance |Data Use Governance |The result of the data use governance check|
-|When term creation request is submitted  |Workflow.Requestor |The requestor of the workflow  |
-| |Term.Name |The name of the term |
-| |Term.Formal Name  |The formal name of the term |
-| |Term.Definition	|The definition of the term  |
-| |Term.Experts	|The experts of the term |
-| |Term.Stewards |The stewards of the term  |
-| |Term.Parent.Name	|The name of parent term if exists |
-| |Term.Parent.Formal Name |The formal name of parent term if exists  |
-|When term update request is submitted <br> When term deletion request is submitted |	Workflow.Requestor  |The requestor of the workflow  |
-| |Term.Name |The name of the term  |
-| |Term.Formal Name	|The formal name of the term |
-| |Term.Definition	|The definition of the term  |
-| |Term.Experts	|The experts of the term |
-| |Term.Stewards	|The stewards of the term  |
-| |Term.Parent.Name	|The name of parent term if exists |
-| |Term.Parent.Formal Name	|The formal name of parent term if exists  |
-| |Term.Created By	|The creator of the term |
-| |Term.Last Updated By	|The last updater of the term  |
-|When term import request is submitted	|Workflow.Requestor	|The requestor of the workflow |
-| |Import File.Name  |The name of the file to import  |
+|Prerequisite connector  |Built-in variable  |Functionality  | Type | Possible Values |
+|---------|---------|---------|---------|---------|
+|When data access request is submitted |Workflow.Requestor |The requestor of the workflow |string||
+| |Workflow.Request Recipient |The request recipient of the workflow |string||
+| |Asset.Name  |The name of the asset  |string||
+| |Asset.Description |The description of the asset |string||
+| |Asset.Type	|The type of the asset  |string||
+| |Asset.Fully Qualified Name |The fully qualified name of the asset |string||
+| |Asset.Owner	|The owner of the asset  |array of strings||
+| |Asset.Classification	|The display names of classifications of the asset |array of strings||
+| |Asset.Certified	|The indicator of whether the asset meets your organization's quality standards and can be regarded as reliable  |string|'true' or 'false'|
+|Start and wait for an approval |Approval.Outcome |The outcome of the approval  |string|'Approved' or 'Rejected'|
+| |Approval.Assigned To  |The IDs of the approvers |array of strings||
+| |Approval.Comments |The IDs of the approvers and their comments |string||
+|Check data source registration for data use governance |Data Use Governance |The result of the data use governance check|string|'true' or 'false'|
+|When term creation request is submitted  |Workflow.Requestor |The requestor of the workflow  |string||
+| |Term.Name |The name of the term |string||
+| |Term.Formal Name  |The formal name of the term |string||
+| |Term.Definition	|The definition of the term  |string||
+| |Term.Experts	|The experts of the term |array of strings||
+| |Term.Stewards |The stewards of the term  |array of strings||
+| |Term.Parent.Name	|The name of parent term if exists |string||
+| |Term.Parent.Formal Name |The formal name of parent term if exists  |string||
+|When term update request is submitted <br> When term deletion request is submitted |	Workflow.Requestor  |The requestor of the workflow  |string||
+| |Term.Name |The name of the term  |string||
+| |Term.Formal Name	|The formal name of the term |string||
+| |Term.Definition	|The definition of the term  |string||
+| |Term.Experts	|The experts of the term |array of strings||
+| |Term.Stewards	|The stewards of the term  |array of strings||
+| |Term.Parent.Name	|The name of parent term if exists |string||
+| |Term.Parent.Formal Name	|The formal name of parent term if exists  |string||
+| |Term.Created By	|The creator of the term |string||
+| |Term.Last Updated By	|The last updater of the term  |string||
+|When term import request is submitted	|Workflow.Requestor	|The requestor of the workflow |string||
+| |Import File.Name  |The name of the file to import  |string||
 
 ## Expressions
 
