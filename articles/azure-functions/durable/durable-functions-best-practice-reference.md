@@ -9,7 +9,7 @@ ms.author: azfuncdf
 
 # Durable Functions best practices and diagnostic tools
 
-This article details some best practices when using Durable Functions. It also describes various tools to help diagnose problems during development, testing, production use.
+This article details some best practices when using Durable Functions. It also describes various tools to help diagnose problems during development, testing, and production use.
 
 ## Best practices
 
