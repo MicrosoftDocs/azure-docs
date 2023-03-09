@@ -2,7 +2,7 @@
 title: Provisioning Device Update for Azure IoT Hub Agent| Microsoft Docs
 description: Provisioning Device Update for Azure IoT Hub Agent
 author: eshashah-msft
-ms.author: eshashah
+ms.author: eshashah-msft
 ms.date: 8/26/2022
 ms.topic: how-to
 ms.service: iot-hub-device-update
@@ -119,7 +119,7 @@ Follow these instructions to provision the Device Update agent on [IoT Edge enab
     ```shell
    	sudo nano /etc/adu/du-config.json
     ```
-   Change the connectionType to "AIS" for agents who will be using the IoT Identity Service for provisioning. The ConnectionData field must be a empty string. Please note that all values with the 'Place value here' tag must be set. See [Configuring a DU agent](./device-update-configuration-file.md#example-du-configjson-file-contents).
+   Change the connectionType to "AIS" for agents who will be using the IoT Identity Service for provisioning. The ConnectionData field must be an empty string. Please note that all values with the 'Place value here' tag must be set. See [Configuring a DU agent](./device-update-configuration-file.md#example-du-configjson-file-contents).
 	
 5. You are now ready to start the Device Update agent on your IoT device. 
 
@@ -195,17 +195,11 @@ This section describes how to start and verify the Device Update agent as a modu
 
 ## How to build and run Device Update Agent
 
-You can also build and modify your own customer Device Update agent.
-
-Follow the instructions to [build](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-build-agent-code.md) the Device Update Agent
-from source.
+You can also build and modify your own customer Device Update agent. Follow the instructions to [build](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-build-agent-code.md) the Device Update Agent from source.
 
 Once the agent is successfully building, it's time to [run](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-run-agent.md)
-the agent.
-
-Now, make the changes needed to incorporate the agent into your image.  Look at how to
+the agent. Now, make the changes needed to incorporate the agent into your image.  Look at how to
 [modify](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-modify-the-agent-code.md) the Device Update Agent for guidance.
-
 
 ## Troubleshooting guide
 
@@ -216,7 +210,7 @@ If you run into issues, review the Device Update for IoT Hub [Troubleshooting Gu
 
 You can use the following tutorials for a simple demonstration of Device Update for IoT Hub:
 
-- [Image Update: Getting Started with Raspberry Pi 3 B+ Reference Yocto Image](device-update-raspberry-pi.md) extensible via open source to build you own images for other architecture as needed.
+- [Image Update: Getting Started with Raspberry Pi 3 B+ Reference Yocto Image](device-update-raspberry-pi.md) extensible via open source to build your own images for other architecture as needed.
 	
 - [Package Update: Getting Started using Ubuntu Server 18.04 x64 Package agent](device-update-ubuntu-agent.md)
 	
