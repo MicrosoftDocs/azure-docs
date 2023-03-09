@@ -45,7 +45,7 @@ To download and set up the Remote Desktop client for Windows:
 
    :::image type="content" source="./media/quickstart-connect-to-dev-box-with-remote-desktop-app/download-windows-desktop.png" alt-text="Screenshot of the option to download the Windows Desktop client.":::
 
-1. Monitor the progress of the download in the developer portal. After the client is installed, you'll use the developer portal to connect to your dev box.
+1. Track the progress of the download in the developer portal. After the client is installed, you'll use the developer portal to connect to your dev box.
 
    :::image type="content" source="./media/quickstart-connect-to-dev-box-with-remote-desktop-app/install-complete-return-prompt.png" alt-text="Screenshot of the notification that the client download is in progress.":::
 
