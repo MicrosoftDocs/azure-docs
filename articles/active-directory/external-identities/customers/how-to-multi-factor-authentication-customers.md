@@ -33,53 +33,52 @@ This article describes how to enforce MFA by creating an Azure AD Conditional Ac
 First, create a Conditional Access policy in your customer tenant that prompts users for MFA when they sign up or sign in to your app. (For more information, see [Common Conditional Access policy: Require MFA for all users](/conditional-access/howto-conditional-access-policy-all-users-mfa)).
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a Conditional Access Administrator, Security Administrator, or Global Administrator.
-1. Make sure you're using the directory that contains your Azure AD customer tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD customer tenant in the **Directory name** list, and then select **Switch**.
-1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
-1. Select **New policy**.
-1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
-1. Under **Assignments**, select **Users or workload identities**.
-   1. Under **Include**, select **All users**
-   1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts.
-1. Under **Cloud apps or actions** > **Include**, select **All cloud apps**.
-   1. Under **Exclude**, select any applications that don't require multifactor authentication.
-1. Under **Access controls** > **Grant**, select **Grant access**, **Require multifactor authentication**, and select **Select**.
-1. Confirm your settings and set **Enable policy** to **Report-only**.
-1. Select **Create** to create to enable your policy.
 
-After you confirm your settings using [report-only mode](/conditional-access/howto-conditional-access-insights-reporting), you can move the **Enable policy** toggle from **Report-only** to **On**.
+1. Make sure you're using the directory that contains your Azure AD customer tenant: Select the **Directories + subscriptions** icon in the portal toolbar and find your customer tenant in the list. If it's not the current directory, select **Switch**.
+
+1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
+
+1. Select **New policy**.
+
+1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
+
+1. Under **Assignments**, select the link under **Users**.
+
+    a. On the **Include** tab, select **All users**.
+
+    b. On the **Exclude** tab, select **Users and groups** and choose your organization's emergency access or break-glass accounts.
+
+1. Select the link under **Cloud apps or actions**. On the Include tab, do one of the following:
+
+   - Choose **All cloud apps**.
+
+   - Choose **Select apps** and click the link under **Select**. Find your app, select it, and then choose **Select**.
+
+1. Under **Exclude**, select any applications that don't require multifactor authentication.
+
+1. Under **Access controls** select the link under **Grant**. Select **Grant access**, select **Require multifactor authentication**, and then choose **Select**.
+
+1. Confirm your settings and set **Enable policy** to **On**.
+
+1. Select **Create** to create to enable your policy.
 
 ## Enable email one-time passcode
 
 Enable the email one-time passcode authentication method in your customer tenant for all users.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a Conditional Access Administrator, Security Administrator, or Global Administrator.
-1. Make sure you're using the directory that contains your Azure AD customer tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD customer tenant in the **Directory name** list, and then select **Switch**.
-1. Browse to **Azure Active Directory** > **Security** > **Authentication Methods** > **Email OTP**.
-1. Under **Enable and Target**, turn on the **Enable** toggle.
+1. Sign in to your customer tenant in the [Azure portal](https://portal.azure.com).
+
+1. Browse to **Azure Active Directory** > **Security** > **Authentication Methods**.
+
+1. In the **Method** list, select **Email OTP (Preview)**.
+
+1. Under **Enable and Target**, turn the **Enable** toggle on.
+
 1. Under **Include**, next to **Target**, select **All users**.
 
-## Enforce multifactor authentication in your user flow
+1. Select **Save**.
 
-1. Sign in to the [Azure portal](https://portal.azure.com)
-1. Make sure you're using the directory that contains your Azure AD customer tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD customer tenant in the **Directory name** list, and then select **Switch**.
-1. In the left menu, select **Azure Active Directory**
-2. Select **External Identities**.
-3. Select **User flows**.
-4. Select the user flow for which you want to enable MFA.
-5. Select **Properties**.
-6. In the **Multifactor authentication** section, select the desired **Type of method**. Then under **MFA enforcement** select an option:
+## Test the sign-in
 
-   - **Off** - MFA is never enforced during sign-in, and users aren't prompted to enroll in MFA during sign-up or sign-in.
-   - **Always on** - MFA is always required, regardless of your Conditional Access setup. During sign-up, users are prompted to enroll in MFA. During sign-in, if users aren't already enrolled in MFA, they're prompted to enroll.
-   - **Conditional** - During sign-up and sign-in, users are prompted to enroll in MFA (both new users and existing users who aren't enrolled in MFA). During sign-in, MFA is enforced only when an active Conditional Access policy evaluation requires it:
-
-        - If the result is an MFA challenge with no risk, MFA is enforced. If the user isn't already enrolled in MFA, they're prompted to enroll.
-        - If the result is an MFA challenge due to risk *and* the user isn't enrolled in MFA, sign-in is blocked.
-
-   > [!NOTE]
-   > If you select **Conditional**, you'll also need to [add Conditional Access to user flows](/conditional-access/conditional-access-user-flow) and specify the apps you want the policy to apply to.
-
-1. Select **Save**. MFA is now enabled for this user flow.
+In a private browser, open your application and select **Sign-in**. You should be prompted for an additional authentication method.
+ 
