@@ -145,8 +145,8 @@ items:
   - name: Layout model
     displayName: tables, selection marks, structure, paragraph roles, text, headers, page numbers
     href: concept-layout.md
-  - name: Query fields
-    href: concept-query-fields.md  
+  - name: 🆕 Query field extraction
+    href: concept-query-field-extraction.md (preview)
   - name: 🆕 Health insurance card model (preview)
     displayName: health, proof, hospital
     href: concept-insurance-card.md

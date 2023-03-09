@@ -18,11 +18,32 @@ recommendations: false
 
 **This article applies to:** ![Form Recognizer v3.0 checkmark](media/yes-icon.png) **Form Recognizer v3.0**.
 
-With query field extraction, you can easily extract any fields from your documents without the need for training. Simply specify the fields you want to extract and Form Recognizer will analyze the document accordingly. For instance, if you're dealing with a contract, you could pass a list of labels like "Party1, Party2, TermsOfUse, PaymentTerms, PaymentDate, TermEndDate" to Form Recognizer as part of the analyze document request. Form Recognizer will leverage the capabilities of both Azure Open AI and Form Recognizer to extract the information in the document and return the values in a structured JSON output. In addition to the query fields, the response will include text, tables, selection marks, general document key-value pairs, and other relevant data. 
+> [!IMPORTANT]
+>
+> * The Form Recognizer Studio query fields extraction feature is currently in gated preview. Features, approaches and processes may change, prior to General Availability (GA), based on user feedback.
+> * Complete and submit the [**Form Recognizer private preview request form**](https://aka.ms/form-recognizer/preview/survey) to request access.
 
-To get access to this new capability request access [here](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUQTRDQUdHMTBWUDRBQ01QUVNWNlNYMVFDViQlQCN0PWcu) 
+Form Recognizer now supports query field extractions using Azure OpenAI capabilities. With query field extraction, you can add fields to the extraction process using a query request without the need for added training.
 
-<<Image 1>>
+> [!NOTE]
+>
+> Form Recognizer Studio query field extraction is currently available with the general document model for the `2023-02-28-preview` release.
 
-<<Image 2>>
+## Select query fields
 
+For query field extraction, specify the fields you want to extract and Form Recognizer will analyze the document accordingly. Here's an example:
+
+* If you're processing a contract in the Form Recognizer Studio, you can pass a list of field labels like `Party1`, `Party2`, `TermsOfUse`, `PaymentTerms`, `PaymentDate`, and `TermEndDate`" as part of the analyze document request.
+
+   :::image type="content" source="media/studio/query-field-select.png" alt-text="Screenshot of query fields selection window in Form Recognizer Studio.":::
+
+* Form Recognizer will utilize the capabilities of both Azure OpenAI and and extraction model to analyze and extract the field data and return the values in a structured JSON output.
+
+* In addition to the query fields, the response will include text, tables, selection marks, general document key-value pairs, and other relevant data.
+
+   :::image type="content" source="media/studio/query-field-analyze.png" alt-text="Screenshot of query field analysis in Form Recognizer Studio.":::
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Try the Form Recognizer Studio quickstart](./quickstarts/try-form-recognizer-studio.md)
