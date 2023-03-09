@@ -1,6 +1,6 @@
 ---
-title: Reliability in Azure App Service and Azure App Service Environment
-description: Find out about reliability in Azure App Service and Azure App Service Environment
+title: Reliability in Azure App Service
+description: Find out about reliability in Azure App Service
 author: anaharris-ms 
 ms.author: anaharris
 ms.topic: overview
@@ -10,7 +10,7 @@ ms.date: 02/22/2022
 ---
 
 
-# Reliability in Azure App Service and Azure App Service Environment
+# Reliability in Azure App Service
 
 This article describes reliability support in [Azure App Service](/azure/app-service/overview), and covers intra-regional resiliency with availability zones. Azure App Service is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. 
 

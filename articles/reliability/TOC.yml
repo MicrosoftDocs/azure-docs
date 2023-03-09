@@ -149,7 +149,7 @@
         href: ../api-management/api-management-howto-disaster-recovery-backup-restore.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure App Configuration
         href: ../azure-app-configuration/faq.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-does-app-configuration-ensure-high-data-availability
-      - name: Azure App Service + Environment
+      - name: Azure App Service
         href: reliability-app-service.md
       - name: Azure Application Gateway (V2)
         href: ../application-gateway/application-gateway-autoscaling-zone-redundant.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
