@@ -8,7 +8,6 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/25/2022
 ms.author: greglin 
-ms.custom: devx-track-azurepowershell
 ---
 
 # Backend health and diagnostic logs for Application Gateway
