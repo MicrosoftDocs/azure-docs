@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/08/2023
+ms.date: 03/09/2023
 ms.author: alkohli
 ---
 
@@ -19,7 +19,7 @@ Your Azure Stack Edge device will need a power cord that will vary depending on 
 
 ## Supported power cords
 
-You can use the following table to find the correct cord specifications for your region:
+Use the following table to find the correct cord specifications for your region:
 
 | Country    | Rated Voltage (V)| Rated Current (A)| Cord Standard |Input Connector|Output Connector| Length mm |  
 |------------|---------------|------------|----|--|----|--|--|--|
@@ -156,4 +156,4 @@ You can use the following table to find the correct cord specifications for your
 
 ## Next steps
 
-- [Azure Stack Edge technical specifications](./azure-stack-edge-technical-specifications-compliance.md).
+- [Azure Stack Edge Pro GPU technical specifications](./azure-stack-edge-gpu-technical-specifications-compliance.md).
