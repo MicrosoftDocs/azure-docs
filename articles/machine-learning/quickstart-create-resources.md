@@ -52,10 +52,16 @@ If you don't yet have a workspace, create one now:
 
 ## Create a compute instance
 
-You'll use the *compute instance* to run Jupyter notebooks and Python scripts in the rest of the tutorials.
+You'll use the *compute instance* to run Jupyter notebooks and Python scripts in the rest of the tutorials. If you don't yet have a compute instance, create one now:
 
 1. On the left navigation, select **Notebooks**.
-1. Select **Create compute** in the middle of the page.  (You'll only see this option if you don't yet have a compute instance in your workspace.)
+1. Select **Create compute** in the middle of the page. 
+
+    :::image type="content" source="media/quickstart-create-resources/create-compute.png" alt-text="Screenshot shows create compute in the middle of the screen.":::
+
+    > [!TIP]
+    > You'll only see this option if you don't yet have a compute instance in your workspace.
+
 1. Supply a name. Keep all the defaults on the first page.
 1. Keep the default values for the rest of the page.
 1. Select **Create**.
