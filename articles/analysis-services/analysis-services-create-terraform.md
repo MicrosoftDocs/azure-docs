@@ -74,7 +74,7 @@ In this article, you learn how to:
 1. Get the server name.
 
     ```console
-    echo "$(terraform output azurerm_analysis_services_server_name)"
+    echo "$(terraform output analysis_services_server_name)"
     ```
 
 1. Run [Get-AzAnalysisServicesServer](/powershell/module/az.analysisservices/get-azanalysisservicesserver) to display information about the new server.
