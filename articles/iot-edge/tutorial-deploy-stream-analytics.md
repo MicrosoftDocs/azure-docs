@@ -3,7 +3,7 @@ title: 'Tutorial - Stream Analytics at the edge using Azure IoT Edge'
 description: 'In this tutorial, you deploy Azure Stream Analytics as a module to an IoT Edge device'
 author: PatAltimore
 ms.author: patricka
-ms.date: 9/22/2022
+ms.date: 3/8/2023
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
@@ -28,19 +28,15 @@ In this tutorial, you learn how to:
 > * Connect the new Azure Stream Analytics job with other IoT Edge modules.
 > * Deploy the Azure Stream Analytics job to an IoT Edge device from the Azure portal.
 
-<center>
-![Diagram - Tutorial architecture: stage and deploy ASA job](./media/tutorial-deploy-stream-analytics/asa-architecture.png)
-</center>
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+:::image type="content" source="./media/tutorial-deploy-stream-analytics/asa-architecture.png" alt-text="Diagram of stream architecture, showing the staging and deploying of an Azure Stream Analytics job.":::
 
 ## Prerequisites
 
-An Azure IoT Edge device:
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-* You can use an Azure virtual machine as an IoT Edge device by following the steps in the quickstart for [Linux](quickstart-linux.md) or [Windows devices](quickstart.md).
+* An Azure IoT Edge device
 
-Cloud resources:
+   You can use an Azure virtual machine as an IoT Edge device by following the steps in the quickstart for [Linux](quickstart-linux.md) or [Windows devices](quickstart.md).
 
 * A free or standard-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
 
@@ -73,29 +69,40 @@ When you create an Azure Stream Analytics job to run on an IoT Edge device, it n
 
 ### Create a new job
 
-1. In the Azure portal, go to **Create a resource** > **Internet of Things** > **Stream Analytics job**.
+1. In the [Azure portal](https://portal.azure.com/#home), select:
+    1. **Create a resource**
+    1. **Internet of Things** from the menu on the left
+    1. Type **Stream Analytics** in the search bar to find it in the Marketplace
+    1. Select **Create**, then **Stream Analytics job** from the dropdown menu
+   
+   :::image type="content" source="media/tutorial-deploy-stream-analytics/select-stream-analytics-job.png" alt-text="Screenshot showing where to find the Stream Analytics job service in the Marketplace and where to create a new job.":::
 
-1. Provide the following values to create your job:
+1. Provide the following values to create your new Stream Analytics job:
 
    | Field | Value |
    | ----- | ----- |
-   | Job name | Provide a name for your job. For example, **IoTEdgeJob** |
+   | Name | Provide a name for your job. For example, **IoTEdgeJob** |
    | Subscription | Choose the same subscription as your IoT hub. |
-   | Resource group | We recommend that you use the same resource group for all of the test resources that you create during the IoT Edge quickstarts and tutorials. For example, **IoTEdgeResources**. |
-   | Location | Choose a location close to you. |
-   | Hosting environment | Select **Edge**. This option indicates that the job is going to be deployed to an IoT Edge device instead of hosted in the cloud. |
+   | Resource group | We recommend to use the same resource group for all test resources you create during the IoT Edge quickstarts and tutorials. For example, a resource named **IoTEdgeResources**. |
+   | Region | Choose a location close to you. |
+   | Hosting environment | Select **Edge**. This option means deployment will go to an IoT Edge device instead of being hosted in the cloud. |
 
-1. Select **Create**.
+1. Select **Review + create**.
+
+1. Confirm your options, then select **Create**.
 
 ### Configure your job
 
-Once your Stream Analytics job is created in the Azure portal, you can configure it with an input, an output, and a query to run on the data that passes through.
+Once your Stream Analytics job is created in the Azure portal, you can configure it with an *input*, an *output*, and a *query* to run on the data that passes through.
 
-Using the three elements of input, output, and query, this section creates a job that receives temperature data from the IoT Edge device. It analyzes that data in a rolling 30-second window. If the average temperature in that window goes over 70 degrees, then an alert is sent to the IoT Edge device. You'll specify exactly where the data comes from and goes in the next section when you deploy the job.  
+This section creates a job that receives temperature data from an IoT Edge device. It analyzes that data in a rolling, 30-second window. If the average temperature in that window goes over 70 degrees, an alert is sent to the IoT Edge device. 
+
+> [!NOTE]
+> You specify exactly where the data comes from and goes to in the next section, [Configure IoT Edge settings](#configure-iot-edge-settings), when you deploy the job.  
 
 1. Navigate to your Stream Analytics job in the Azure portal.
 
-1. Under **Job topology**, select **Inputs** then **Add stream input**.
+1. Under **Job topology**, select **Inputs** then **Add input**.
 
    ![Azure Stream Analytics - add input](./media/tutorial-deploy-stream-analytics/asa-input.png)
 
