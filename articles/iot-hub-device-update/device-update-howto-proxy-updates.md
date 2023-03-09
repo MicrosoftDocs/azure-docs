@@ -87,7 +87,7 @@ This tutorial uses an Ubuntu Server 18.04 LTS virtual machine (VM) as an example
 5. Restart the Device Update agent:
 
    ```sh
-   sudo systemctl restart adu-agent
+   sudo systemctl restart deviceupdate-agent
    ```
 
 ### Set up mock components

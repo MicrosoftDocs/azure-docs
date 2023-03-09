@@ -7,13 +7,10 @@ ms.topic: overview
 ms.custom: subject-reliability
 ms.service: container-instances
 ms.date: 11/29/2022
+#Customer intent: I want to understand reliability support in Azure Container Instances so that I can respond to and/or avoid failures in order to minimize downtime and data loss.
 ---
 
-<!--#Customer intent:  I want to understand reliability support in Azure Container Instances so that I can respond to and/or avoid failures in order to minimize downtime and data loss. -->
-
-
 # Reliability in Azure Container Instances
-
 
 > [!IMPORTANT]
 > This feature is currently in preview. Previews are made available to you on the condition that you agree to the supplemental terms of use.

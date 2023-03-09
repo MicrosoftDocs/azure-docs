@@ -195,7 +195,7 @@
     - name: Plan and manage costs
       href: search-sku-manage-costs.md
     - name: Availability and recovery
-      href: search-performance-optimization.md
+      href: search-reliability.md
     - name: Availability migration guidance
       href: ../reliability/migrate-search-service.md
     - name: Multi-tenancy

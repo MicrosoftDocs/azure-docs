@@ -728,7 +728,7 @@ items:
       items:
         - name: Runtime for Apache Spark overview
           href: ./spark/apache-spark-version-support.md
-        - name: Azure Synapse Apache Spark 3.3 runtime (Preview)
+        - name: Azure Synapse Apache Spark 3.3 runtime (GA)
           href: ./spark/apache-spark-33-runtime.md
         - name: Azure Synapse Apache Spark 3.2 runtime (GA)
           href: ./spark/apache-spark-32-runtime.md
@@ -762,7 +762,7 @@ items:
         href: ./spark/apache-spark-troubleshoot-library-errors.md
       - name: Create a Conda private channel
         href: ./spark/apache-spark-custom-conda-channel.md
-      - name: Manage your package outside Synapse Studio portal
+      - name: Automate the library management process through Azure PowerShell cmdlets and REST APIs
         href: ./spark/apache-spark-manage-packages-outside-ui.md
     - name: Use notebooks and IDE tools
       items:

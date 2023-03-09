@@ -29,7 +29,7 @@ The following diagram shows how communications flow through private endpoints to
 
 * To use Azure machine learning, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
-* You must install and configure the Azure CLI and `ml` extension or the AzureML Python SDK v2. For more information, see the following articles:
+* You must install and configure the Azure CLI and `ml` extension or the Azure Machine Learning Python SDK v2. For more information, see the following articles:
 
     * [Install, set up, and use the CLI (v2)](how-to-configure-cli.md).
     * [Install the Python SDK v2](https://aka.ms/sdk-v2-install).
@@ -180,7 +180,8 @@ The following table lists the supported configurations when configuring inbound 
 | public inbound with public outbound | `public_network_access` is enabled</br>The workspace must also allow public access. | `egress_public_network_access` is enabled  | Yes |
 
 > [!IMPORTANT]
-> Outbound communication from managed online endpoint deployment is to the _workspace API_. When the endpoint is configured to use __public outbound__, then the workspace must be able to accept that public communication (allow public access).
+> - Outbound communication from managed online endpoint deployment is to the _workspace API_. When the endpoint is configured to use __public outbound__, then the workspace must be able to accept that public communication (allow public access).
+> - When `egress_public_network_access` is disabled, the deployment can only access the resources secured in the VNET. When `egress_public_network_access` is enabled, the deployment can only access the resources with public access, which means it cannot access the resources secured in the VNET.   
 
 ## End-to-end example
 

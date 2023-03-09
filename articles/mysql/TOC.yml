@@ -35,6 +35,9 @@
             href: flexible-server/quickstart-create-server-portal.md
           - name: Azure CLI
             href: flexible-server/quickstart-create-server-cli.md
+          - name: Bicep
+            displayName: Resource Manager
+            href: flexible-server/quickstart-create-bicep.md
           - name: ARM template
             displayName: Resource Manager
             href: flexible-server/quickstart-create-arm-template.md
@@ -106,16 +109,16 @@
         href: flexible-server/concepts-business-continuity.md
       - name: High availability
         href: flexible-server/concepts-high-availability.md
-    - name: Monitoring 
+    - name: Monitoring
       items:
       - name: Monitoring overview
         href: flexible-server/concepts-monitoring.md
       - name: Slow query Logs
         href: flexible-server/concepts-slow-query-logs.md
       - name: Audit logs
-        href: flexible-server/concepts-audit-logs.md 
+        href: flexible-server/concepts-audit-logs.md
       - name: Workbooks
-        href: flexible-server/concepts-workbooks.md 
+        href: flexible-server/concepts-workbooks.md
     - name: Replication
       items:
       - name: Data-in replication
@@ -131,11 +134,13 @@
     - name: Security
       items:
       - name: Azure AD Authentication
-        href: flexible-server/concepts-azure-ad-authentication.md     
+        href: flexible-server/concepts-azure-ad-authentication.md
       - name: Data encryption
-        href: flexible-server/concepts-customer-managed-key.md        
+        href: flexible-server/concepts-customer-managed-key.md
   - name: Integrations
     items:
+    - name: Power Apps
+      href: flexible-server/tutorial-create-power-app-with-mysql.md
     - name: Power Automate
       href: flexible-server/tutorial-power-automate-with-mysql.md
     - name: Power BI
@@ -163,7 +168,7 @@
       - name: Java Spring Boot app on AKS in VNet
         href: flexible-server/tutorial-deploy-springboot-on-aks-vnet.md
       - name: Connect with simple app using public access
-        href: flexible-server/tutorial-simple-php-mysql-app.md 
+        href: flexible-server/tutorial-simple-php-mysql-app.md
       - name: Connect with a private web app
         href: flexible-server/tutorial-webapp-server-vnet.md
       - name: Integrate with Service Connector
@@ -231,7 +236,7 @@
       - name: Auditing
         href: flexible-server/tutorial-configure-audit.md
       - name: Alerts
-        href: flexible-server/how-to-alert-on-metric.md  
+        href: flexible-server/how-to-alert-on-metric.md
       - name: Configuring Server logs
         items:
         - name: Azure portal
@@ -261,7 +266,7 @@
         - name: Azure CLI
           href: flexible-server/how-to-restore-server-cli.md
       - name: Restore a deleted server
-        href: flexible-server/how-to-restore-dropped-server.md 
+        href: flexible-server/how-to-restore-dropped-server.md
       - name: Trigger On-Demand Backup
         href: flexible-server/how-to-trigger-on-demand-backup.md
     - name: Troubleshooting
@@ -273,15 +278,15 @@
     - name: Security
       items:
       - name: Configure Azure AD Authentication
-        href: flexible-server/how-to-azure-ad.md      
+        href: flexible-server/how-to-azure-ad.md
       - name: Data encryption with Azure portal
         href: flexible-server/how-to-data-encryption-portal.md
       - name: Data encryption with Azure CLI
-        href: flexible-server/how-to-data-encryption-cli.md           
+        href: flexible-server/how-to-data-encryption-cli.md
   - name: Samples
     items:
     - name: Azure CLI samples
-      items: 
+      items:
       - name: Samples overview
         href: flexible-server/sample-scripts-azure-cli.md
       - name: Create server with public access
@@ -722,7 +727,7 @@
     href: single-server/how-to-troubleshoot-common-errors.md
     displayName: SUPER privilege, DBA role, Access is denied
   - name: Query performance
-    items: 
+    items:
     - name: Troubleshoot query performance
       href: single-server/how-to-troubleshoot-query-performance-new.md
       displayName: debug, performance issues, query performance
@@ -812,4 +817,4 @@
   - name: Partners
     href: single-server/partners-migration-mysql.md
   - name: Database Migration Guide
-    href: https://datamigration.microsoft.com/
+    href: /data-migration/

@@ -138,7 +138,7 @@ Follow the next steps to create a deployment using the previous scoring script:
 
    # [Azure CLI](#tab/cli)
    
-   No extra step is required for the Azure ML CLI. The environment definition will be included in the deployment file.
+   No extra step is required for the Azure Machine Learning CLI. The environment definition will be included in the deployment file.
    
    # [Python](#tab/sdk)
    

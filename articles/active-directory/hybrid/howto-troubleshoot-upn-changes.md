@@ -82,7 +82,7 @@ Read the following sections for known issues and workarounds during UPN change.
 
 ## Apps known issues and workarounds
 
-Software as a service (SaaS) and line of business (LoB) applications often rely on UPNs to find users and store user profile information, including roles. Applications potentially affected by UNP changes use just-in-time (JIT) provisioning to create a user profile when users initially sign in to the app.
+Software as a service (SaaS) and line of business (LoB) applications often rely on UPNs to find users and store user profile information, including roles. Applications potentially affected by UPN changes use just-in-time (JIT) provisioning to create a user profile when users initially sign in to the app.
 
 Learn more:
 

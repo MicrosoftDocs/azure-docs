@@ -144,13 +144,13 @@ Billing changes will take effect one hour after cancellation of the previous sub
 
 1. In the Azure portal, [onboard a new plan for OT networks](#onboard-a-defender-for-iot-plan-for-ot-networks) to the new subscription you want to use.
 
-1. Create a new activation file by [following the steps to onboard an OT sensor](onboard-sensors.md#onboard-ot-sensors).
+1. Create a new activation file by [following the steps to onboard an OT sensor](onboard-sensors.md#onboard-an-ot-sensor).
 
     - Replicate site and sensor hierarchy as is.
 
     - For sensors monitoring overlapping network segments, create the activation file under the same zone. Identical devices that are detected in more than one sensor in a zone, will be merged into one device.
 
-1. [Upload a new activation file](how-to-manage-individual-sensors.md#upload-new-activation-files) for your sensors under the new subscription.
+1. [Upload a new activation file](how-to-manage-individual-sensors.md#upload-a-new-activation-file) for your sensors under the new subscription.
 
 1. Delete the sensor identities from the previous subscription. For more information, see [Sensor management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal).
 
