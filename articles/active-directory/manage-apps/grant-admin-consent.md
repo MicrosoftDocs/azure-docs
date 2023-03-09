@@ -52,6 +52,7 @@ To grant tenant-wide admin consent to an app listed in **Enterprise applications
 1. Select the application to which you want to grant tenant-wide admin consent, and then select **Permissions**.
    :::image type="content" source="media/grant-tenant-wide-admin-consent/grant-tenant-wide-admin-consent.png" alt-text="Screenshot shows how to grant tenant-wide admin consent.":::
 
+1. Add the redirect **URI** (https://entra.microsoft.com/TokenAuthorize) as permitted redirect **URI** to the app.
 1. Carefully review the permissions that the application requires. If you agree with the permissions the application requires, select **Grant admin consent**.
 
 ## Grant admin consent in App registrations

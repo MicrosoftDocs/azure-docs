@@ -787,7 +787,7 @@
         },
         {
             "source_path_from_root": "/articles/defender-for-cloud/os-coverage.md",
-            "redirect_url": "/azure/defender-for-cloud/monitoring-components",
+            "redirect_url": "/azure/defender-for-cloud/support-matrix-defender-for-cloud#supported-operating-systems",
             "redirect_document_id": false
         },
         {
