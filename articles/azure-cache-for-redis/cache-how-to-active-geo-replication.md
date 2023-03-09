@@ -39,7 +39,7 @@ The Premium tier of Azure Cache for Redis offers a version of geo-replication ca
 
 There are a few restrictions when using active geo replication:
 - Only the [RediSearch](cache-redis-modules.md#redisearch) and [RedisJSON](cache-redis-modules.md#redisjson) modules are supported
-- On the _Enterprise Flash_ tier, only the _No Eviction_ eviction policy can be used. All eviction policies asre supported on the _Enterprise_ tier.
+- On the _Enterprise Flash_ tier, only the _No Eviction_ eviction policy can be used. All eviction policies are supported on the _Enterprise_ tier.
 - Data persistence isn't supported because active geo-replication provides a superior experience.
 - You can't add an existing (that is, running) cache to a geo-replication group. You can only add a cache to a geo-replication group when you create the cache.
 - All caches within a geo-replication group must have the same configuration. (for example, same SKU, capacity, eviction policy, clustering policy, modules, and TLS setting.) 
