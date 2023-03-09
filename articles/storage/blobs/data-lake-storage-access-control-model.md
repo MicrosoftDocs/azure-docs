@@ -7,8 +7,9 @@ author: jimmart-dev
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/07/2023
+ms.date: 03/09/2023
 ms.author: jammart
+ms.custom: engagement-fy23
 ---
 
 # Access control model in Azure Data Lake Storage Gen2
@@ -81,7 +82,7 @@ The following diagram shows the permission flow for three common operations: lis
 > [!div class="mx-imgBorder"]
 > ![data lake storage permission flow example](./media/control-access-permissions-data-lake-storage/data-lake-storage-permissions-example.png)
 
-## Permissions table: Combining Azure RBAC and ACL
+## Permissions table: Combining Azure RBAC, ABAC, and ACLs
 
 The following table shows you how to combine Azure roles, conditions, and ACL entries so that a security principal can perform the operations listed in the **Operation** column. This table shows a column that represents each level of a fictitious directory hierarchy. There's a column for the root directory of the container (`/`), a subdirectory named **Oregon**, a subdirectory of the Oregon directory named **Portland**, and a text file in the Portland directory named **Data.txt**. Appearing in those columns are [short form](data-lake-storage-access-control.md#short-forms-for-permissions) representations of the ACL entry required to grant permissions. **N/A** (_Not applicable_) appears in the column if an ACL entry is not required to perform the operation.
 
