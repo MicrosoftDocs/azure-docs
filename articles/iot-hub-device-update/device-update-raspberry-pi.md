@@ -107,97 +107,94 @@ Two configuration files must be on the device so that Device Update for IoT Hub 
 ## Configure the Device Update agent on Raspberry Pi
 
 1. Make sure that Raspberry Pi 3 is connected to the network.
-1. Follow these instructions to add the configuration details:
+1. SSH into the Raspberry Pi 3 by using the following command in the PowerShell window:
 
-   1. First, SSH in to the machine by using the following command in the PowerShell window:
+   ```shell
+     ssh raspberrypi3 -l root
+    ```
 
-      ```shell
-      ssh raspberrypi3 -l root
-      ```
-
-   1. The DU configuration files (du-config.json and du-diagnostics-config.json) must be on the device so that Device Update for IoT Hub configures properly. 
-      To create or open the `du-config.json` file for editing by using:
+1. The DU configuration files (du-config.json and du-diagnostics-config.json) must be on the device so that Device Update for IoT Hub configures properly. 
+    1. To create or open the `du-config.json` file for editing by using:
 
       ```bash
-      nano /adu/du-config.json
+        nano /adu/du-config.json
       ```
 
-   1. After you run the command, you should see an open editor with the file. If you've never created the file, it will be empty. Now copy the below du-config.json contents, and substitute the configurations required for your device. Then replace the example connection string with the one for the device you created in the preceding steps.
- 
-    ### du-config.json
+   2. After you run the command, you should see an open editor with the file. If you've never created the file, it will be empty. Now copy the below du-config.json contents, and substitute the configurations required for your device. Then replace the example connection string with the one for the device you created in the preceding steps.
 
-   ```JSON
-   {
-      "schemaVersion": "1.0",
-      "aduShellTrustedUsers": [
-         "adu",
-         "do"
-      ],
-      "manufacturer": "contoso",
-      "model": "virtual-vacuum-v2",
-      "agents": [
-         {
-         "name": "main",
-         "runas": "adu",
-         "connectionSource": {
-            "connectionType": "string",
-            "connectionData": "HostName=example-connection-string.azure-devices.net;DeviceId=example-device;SharedAccessKey=M5oK/rOP12aB5678YMWv5vFWHFGJFwE8YU6u0uTnrmU=" 
-         },
-         "manufacturer": "contoso",
-         "model": "virtual-vacuum-v2"
-         }
-      ]
-   }  
-   ```
+      ### du-config.json
+
+     ```JSON
+     {
+        "schemaVersion": "1.0",
+        "aduShellTrustedUsers": [
+           "adu",
+           "do"
+        ],
+        "manufacturer": "contoso",
+        "model": "virtual-vacuum-v2",
+        "agents": [
+           {
+           "name": "main",
+           "runas": "adu",
+           "connectionSource": {
+              "connectionType": "string",
+              "connectionData": "HostName=example-connection-string.azure-devices.net;DeviceId=example-device;SharedAccessKey=M5oK/rOP12aB5678YMWv5vFWHFGJFwE8YU6u0uTnrmU=" 
+           },
+           "manufacturer": "contoso",
+           "model": "virtual-vacuum-v2"
+           }
+        ]
+     }  
+     ```
   
-  
-   1. After you finish your changes, select `Ctrl+X` to exit the editor. Then enter `y` to save the changes.
-  
-   1. Now you need to create the `du-diagnostics-config.json` file by using similar commands. Start by creating or opening the `du-diagnostics-config.json` file for editing by using:
+      3. After you finish your changes, select `Ctrl+X` to exit the editor. Then enter `y` to save the changes.
+      
+1. Now you need to create the `du-diagnostics-config.json` file by using similar commands. 
+      1. Start by creating or opening the `du-diagnostics-config.json` file for editing by using:
 
       ```bash
-      nano /adu/du-diagnostics-config.json
+        nano /adu/du-diagnostics-config.json
       ```
 
-   1. Copy the du-diagnostics-config.json contents provided below, and substitute any configurations that differ from the default build. The example du-diagnostics-config.json file represents the default log locations for Device Update for IoT Hub. You only need to change these default values if your implementation differs.
+      2. Copy the du-diagnostics-config.json contents provided below, and substitute any configurations that differ from the default build. The example du-diagnostics-config.json file represents the default log locations for Device Update for IoT Hub. You only need to change these default values if your implementation differs.
 
    ### du-diagnostics-config.json
 
-   ```JSON
-   {
-      "logComponents":[
-         {
-            "componentName":"adu",
-            "logPath":"/adu/logs/"
-         },
-         {
-            "componentName":"do",
-            "logPath":"/var/log/deliveryoptimization-agent/"
-         }
-      ],
-      "maxKilobytesToUploadPerLogPath":50
-   }
-   ```
+     ```JSON
+     {
+        "logComponents":[
+           {
+              "componentName":"adu",
+              "logPath":"/adu/logs/"
+           },
+           {
+              "componentName":"do",
+              "logPath":"/var/log/deliveryoptimization-agent/"
+           }
+        ],
+        "maxKilobytesToUploadPerLogPath":50
+     }
+     ```
+      3. After you finish your changes, select `Ctrl+X` to exit the editor. Then enter `y` to save the changes.
+     
+1. Use the following command to show the files located in the `/adu/` directory. You should see both of your configuration files.du-diagnostics-config.json files for editing by using:
 
-
-   3. After you finish your changes, select `Ctrl+X` to exit the editor. Then enter `y` to save the changes.
-   4. Use the following command to show the files located in the `/adu/` directory. You should see both of your configuration files.du-diagnostics-config.json files for editing by using:
-
-      ```bash
-      ls -la /adu/
-      ```
+        ```bash
+          ls -la /adu/
+        ```
 
 1. Restart the Device Update system daemon to make sure that the configurations were applied. Use the following command within the terminal logged in to the `raspberrypi`:
 
-   ```bash
-   systemctl start deviceupdate-agent
-   ```
+       ```bash
+        systemctl start deviceupdate-agent
+       ```
 
 1. Check that the agent is live by using the following command:
   
-   ```bash
-   systemctl status deviceupdate-agent
-   ```
+       ```bash
+        systemctl status deviceupdate-agent
+       ```
 
    You should see the status appear as alive and green.
 
@@ -213,9 +210,8 @@ Two configuration files must be on the device so that Device Update for IoT Hub 
 1. The base and update image files have a version number in the file name.
 
    ```markdown
-   adu-<image type>-image-<machine>-<version number>.<extension>
+    adu-<image type>-image-<machine>-<version number>.<extension>
    ```
-
    Use that version number in the later "Import the update" section.
 
 ## Add a Device Update group tag to your device
