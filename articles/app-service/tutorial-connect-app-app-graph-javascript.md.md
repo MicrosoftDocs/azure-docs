@@ -127,13 +127,17 @@ The source code to complete this step is provided for you. Use the following ste
 
     ```azurecli-interactive
     az webapp up --resource-group myAuthResourceGroup --name <back-end-app-name> 
-    ```
+## Clean up 
+
+[!INCLUDE [tutorial-connect-app-app-clean.md](../includes/tutorial-connect-app-app-clean.md)]
+
 
 ## Frequently asked questions
 
 ### I got an error, what does it mean?
 
-* CompactToken parsing failed with error code: 80049217: the backend App service isn't authorized to return the Microsoft Graph token. 
+* `CompactToken parsing failed with error code: 80049217` means the backend App service isn't authorized to return the Microsoft Graph token. 
+*  `AADSTS65001: The user or administrator has not consented to use the application with ID \<backend-authentication-id>. Send an interactive authorization request for this user and resource` means the backend authentication app hasn't been configured for Admin consent. 
 
 ## Connecting to a different Azure service
 
@@ -141,6 +145,6 @@ This tutorial demonstrates an API app authenticated to **Microsoft Graph**, howe
 
 [!INCLUDE [second-part](./includes/tutorial-connect-app-access-microsoft-graph-as-user/end.md)]
 
-## Clean up 
+
 
 ## Next steps
