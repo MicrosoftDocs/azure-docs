@@ -5,7 +5,7 @@ author: MightySuz
 ms.service: sap-on-azure
 ms.subservice: sap-monitor
 ms.topic: how-to
-ms.date: 01/05/2023
+ms.date: 03/09/2023
 ms.author: sujaj
 #Customer intent: As a developer, I want to configure a Linux provider so that I can use Azure Monitor for SAP solutions for monitoring.
 ---
