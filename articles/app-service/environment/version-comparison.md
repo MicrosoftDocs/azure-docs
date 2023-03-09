@@ -2,7 +2,7 @@
 title: 'App Service Environment version comparison'
 description: This article provides an overview of the App Service Environment versions and feature differences between them.
 author: seligj95
-ms.date: 3/6/2023
+ms.date: 3/9/2023
 ms.author: jordanselig
 ms.topic: article
 ---
@@ -44,11 +44,12 @@ App Service Environment has three versions. App Service Environment v3 is the la
 
 ### Scaling
 
+App Service Environment v3 runs on the latest [Virtual Machine Scale Sets](../../virtual-machine-scale-sets/overview.md) infrastructure while App Service Environment v1 and v2 run on [Cloud Services (classic)](../../cloud-services/cloud-services-choose-me.md). Because of this, App Service Environment v3 has the best performing and fastest scaling times across all versions. 
+
 |Feature  |[App Service Environment v1](app-service-app-service-environment-intro.md)  |[App Service Environment v2](intro.md)  |[App Service Environment v3](overview.md)  |
 |---------|---------|---------|---------|
 |Front-end scaling management     |[Manual](app-service-web-scale-a-web-app-in-an-app-service-environment.md)         |[Manual](using-an-ase.md#front-end-scaling)         |Managed by platform         |
 |Scaling operations     |Blocks other scaling operations         |Blocks other scaling operations         |Doesn't block other scale operations         |
-|TODO: Scaling speed     |30+ minutes for Windows, 60+ minutes for Linux         |30+ minutes for Windows, 60+ minutes for Linux         |Less than 15 minutes for both Windows and Linux         |
 
 ### Pricing
 
