@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: First look at Azure Machine Learning"
+title: "Quickstart: Get started with Azure Machine Learning"
 titleSuffix: Azure Machine Learning
 description: Use Azure Machine Learning to train and deploy a model in a cloud-based Python Jupyter Notebook. 
 services: machine-learning
@@ -14,7 +14,7 @@ ms.custom: sdkv2, ignite-2022
 #Customer intent: As a professional data scientist, I want to know how to build and deploy a model with Azure Machine Learning by using Python in a Jupyter Notebook.
 ---
 
-# Quickstart: First look at Azure Machine Learning
+# Quickstart: Get started with Azure Machine Learning
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
