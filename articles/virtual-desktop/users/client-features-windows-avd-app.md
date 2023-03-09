@@ -1,15 +1,19 @@
 ---
-title: Use features of the Remote Desktop client for Windows - Azure Virtual Desktop
-description: Learn how to use features of the Remote Desktop client for Windows when connecting to Azure Virtual Desktop.
+title: Use features of the Azure Virtual Desktop app for Windows (preview) - Azure Virtual Desktop
+description: Learn how to use features of the Azure Virtual Desktop app for Windows (preview) when connecting to Azure Virtual Desktop.
 author: dknappettmsft
 ms.topic: how-to
 ms.date: 10/04/2022
 ms.author: daknappe
 ---
 
-# Use features of the Remote Desktop client for Windows when connecting to Azure Virtual Desktop
+# Use features of the Azure Virtual Desktop app for Windows (preview)
 
-Once you've connected to Azure Virtual Desktop using the Remote Desktop client, it's important to know how to use the features. This article shows you how to use the features available in the Remote Desktop client for Windows. If you want to learn how to connect to Azure Virtual Desktop, see [Connect to Azure Virtual Desktop with the Remote Desktop client for Windows](connect-windows.md).
+> [!IMPORTANT]
+> The Azure Virtual Desktop app for Windows is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+Once you've connected to Azure Virtual Desktop using the Azure Virtual Desktop app for Windows (preview), it's important to know how to use the features. This article shows you how to use the features available in the Azure Virtual Desktop app for Windows. If you want to learn how to connect to Azure Virtual Desktop, see [Connect to Azure Virtual Desktop with the Azure Virtual Desktop app for Windows](connect-windows-avd-app.md).
 
 You can find a list of all the Remote Desktop clients at [Remote Desktop clients overview](remote-desktop-clients-overview.md). For more information about the differences between the clients, see [Compare the Remote Desktop clients](../compare-remote-desktop-clients.md).
 
@@ -20,9 +24,9 @@ You can find a list of all the Remote Desktop clients at [Remote Desktop clients
 
 To refresh or unsubscribe from a workspace or see its details:
 
-1. Open the **Remote Desktop** application on your device.
+1. Open the **Azure Virtual Desktop** app on your device.
 
-1. Select the three dots to the right-hand side of the name of a workspace where you'll see a menu with options for **Details**, **Refresh**, and **Unsubscribe**. 
+1. Select the three dots to the right-hand side of the name of a workspace where you'll see a menu with options for **Details**, **Refresh**, and **Unsubscribe**.
 
    - **Details** shows you details about the workspace, such as:
      - The name of the workspace.
@@ -31,7 +35,15 @@ To refresh or unsubscribe from a workspace or see its details:
      - The date and time of the last refresh.
      - The status of the last refresh.
    - **Refresh** makes sure you have the latest desktops and apps and their settings provided by your admin.
-   - **Unsubscribe** removes the workspace from the Remote Desktop client.
+   - **Unsubscribe** removes the workspace from the Azure Virtual Desktop app.
+
+## Pin desktops and applications to the Start Menu
+
+You can pin your Azure Virtual Desktop desktops and applications to the Start Menu on your local device to make them easier to find and launch:
+
+1. Open the **Azure Virtual Desktop** app on your device.
+
+1. Right-click on a desktop or application, select **Pin to Start Menu**, then confirm the prompt.
 
 ## User accounts
 
@@ -43,7 +55,7 @@ User accounts are stored and managed in *Credential Manager* in Windows as a *ge
 
 To save a user account:
 
-1. Open the **Remote Desktop** app on your device.
+1. Open the **Azure Virtual Desktop** app on your device.
 
 1. Double-click one of the icons to launch a session to Azure Virtual Desktop. If you're prompted to enter the password for your user account again, enter the password and check the box **Remember me**, then select **OK**.
 
@@ -65,7 +77,7 @@ To edit or remove a saved user account:
 
 If you want to use different display settings to those specified by your admin, you can configure custom settings.
 
-1. Open the **Remote Desktop** application on your device.
+1. Open the **Azure Virtual Desktop** app on your device.
 
 1. Right-click the name of a desktop or app, for example **SessionDesktop**, then select **Settings**.
 
@@ -112,7 +124,7 @@ The following table shows which mouse operations map to which gestures:
 
 ### Keyboard
 
-There are several keyboard shortcuts you can use to help use some of the features. Some of these are for controlling how the Remote Desktop client displays the session. These are:
+There are several keyboard shortcuts you can use to help use some of the features. Some of these are for controlling how the Azure Virtual Desktop app displays the session. These are:
 
 | Key combination | Description |
 |--|--|
@@ -144,13 +156,13 @@ You can manually set which keyboard language to use in the remote session by fol
 
 ### Folder redirection
 
-The Remote Desktop client can make local folders available in your remote session. This is known as *folder redirection*. This means you can open files from and save files to your Windows PC with your remote session. Redirected folders appear as a network drive in Windows Explorer.
+The Azure Virtual Desktop app can make local folders available in your remote session. This is known as *folder redirection*. This means you can open files from and save files to your Windows PC with your remote session. Redirected folders appear as a network drive in Windows Explorer.
 
-Folder redirection can't be configured using the Remote Desktop client for Windows. This behavior is configured by your admin in Azure Virtual Desktop. By default, all local drives are redirected to a remote session.
+Folder redirection can't be configured using the Azure Virtual Desktop app. This behavior is configured by your admin in Azure Virtual Desktop. By default, all local drives are redirected to a remote session.
 
 ### Redirect devices, audio, and clipboard
 
-The Remote Desktop client can make your local clipboard and local devices available in your remote session where you can copy and paste text, images, and files. The audio from the remote session can also be redirected to your local device. However, redirection can't be configured using the Remote Desktop client for Windows. This behavior is configured by your admin in Azure Virtual Desktop. Here's a list of some of the devices and resources that can be redirected. For the full list, see [Compare the features of the Remote Desktop clients when connecting to Azure Virtual Desktop](../compare-remote-desktop-clients.md?toc=%2Fazure%2Fvirtual-desktop%2Fusers%2Ftoc.json#redirections-comparison).
+The Azure Virtual Desktop app can make your local clipboard and local devices available in your remote session where you can copy and paste text, images, and files. The audio from the remote session can also be redirected to your local device. However, redirection can't be configured using the Azure Virtual Desktop app. This behavior is configured by your admin in Azure Virtual Desktop. Here's a list of some of the devices and resources that can be redirected. For the full list, see [Compare the features of the Remote Desktop clients when connecting to Azure Virtual Desktop](../compare-remote-desktop-clients.md?toc=%2Fazure%2Fvirtual-desktop%2Fusers%2Ftoc.json#redirections-comparison).
 
 - Printers
 - USB devices
@@ -160,23 +172,27 @@ The Remote Desktop client can make your local clipboard and local devices availa
 - Microphones
 - Cameras
 
-## Update the client
+## Update the Azure Virtual Desktop app
 
-By default, you'll be notified whenever a new version of the client is available as long as your admin hasn't disabled notifications. The notification will appear in the client and the Windows Action Center. To update your client, just select the notification.
+Updates for the Azure Virtual Desktop app are available in the Microsoft Store. You can also check for updates through the app directly.
 
-You can also manually search for new updates for the client:
+To check for updates through the the app:
 
-1. Open the **Remote Desktop** application on your device.
+1. Open the **Azure Virtual Desktop** app on your device.
 
-1. Select the three dots at the top right-hand corner to show the menu, then select **About**. The client will automatically search for updates.
+1. Select the three dots in the top right-hand of the app to show a menu, then select **About**.
 
-1. If there's an update available, tap **Install update** to update the client. If the client is already up to date, you'll see a green check box, and the message **You're up to date**.
+1. For the section **App Update** select each link to open the Microsoft Store where you'll be prompted to install any updates once available.
+
+1. If there's an update to either app available, select **Update**. The apps can be updated in in any order.
+
+While installing an update, the Azure Virtual Desktop app may close. Once the update is complete, you can reopen the app and continue where you left off. For more information about how to get updates in the Microsoft Store, see [Get updates for apps and games in Microsoft Store](https://support.microsoft.com/account-billing/get-updates-for-apps-and-games-in-microsoft-store-a1fe19c0-532d-ec47-7035-d1c5a1dd464f) and [Turn on automatic app updates](https://support.microsoft.com/windows/turn-on-automatic-app-updates-70634d32-4657-dc76-632b-66048978e51b).
 
 ## App display modes
 
-You can configure the Remote Desktop client to be displayed in light or dark mode, or match the mode of your system:
+You can configure the Azure Virtual Desktop app to be displayed in light or dark mode, or match the mode of your system:
 
-1. Open the **Remote Desktop** application on your device.
+1. Open the **Azure Virtual Desktop** app on your device.
 
 1. Select **Settings**.
 
@@ -186,7 +202,7 @@ You can configure the Remote Desktop client to be displayed in light or dark mod
 
 You can view your remote desktops and apps as either a tile view (default) or list view:
 
-1. Open the **Remote Desktop** application on your device.
+1. Open the **Azure Virtual Desktop** app on your device.
 
 1. If you want to switch to List view, select **Tile**, then select **List view**.
 
@@ -199,90 +215,47 @@ If you want to help us test new builds before they're released, you should downl
 > [!NOTE]
 > Insider releases shouldn't be used in production.
 
-Insider releases are made available in the Remote Desktop client once you've configured the client to use Insider releases. To configure the client to use Insider releases:
+Insider releases are made available in the Azure Virtual Desktop app once you've configured the it to use Insider releases. To configure the app to use Insider releases:
 
-1. Add the following registry key and value:
+1. Open the **Azure Virtual Desktop** app on your device.
 
-   - **Key**: HKLM\\Software\\Microsoft\\MSRDC\\Policies
-   - **Type**: REG_SZ
-   - **Name**: ReleaseRing
-   - **Data**: insider
+1. Select the three dots in the top right-hand of the app to show a menu.
 
-   You can do this with PowerShell. On your local device, open PowerShell as an administrator and run the following commands:
-
-   ```powershell
-   New-Item -Path "HKLM:\SOFTWARE\Microsoft\MSRDC\Policies" -Force
-   New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\MSRDC\Policies" -Name ReleaseRing -PropertyType String -Value insider -Force
-   ```
+1. Select **Join the insider group**, then wait while the app is configured.
 
 1. Restart your local device.
 
-1. Open the Remote Desktop client. The title in the top left-hand corner should be **Remote Desktop (Insider)**:
+1. Open the **Azure Virtual Desktop** app. The title in the top left-hand corner should be **Azure Virtual Desktop (Insider)**:
 
-   :::image type="content" source="../media/remote-desktop-client-windows-insider.png" alt-text="A screenshot of the Remote Desktop client with Insider features enabled. The title is highlighted in a red box.":::
+   :::image type="content" source="../media/client-features-windows-avd-app/azure-virtual-desktop-app-windows-insider.png" alt-text="A screenshot of the Azure Virtual Desktop app with Insider features enabled. The title is highlighted in a red box.":::
 
-If you already have configured the Remote Desktop client to use Insider releases, you can check for updates to ensure you have the latest Insider release by checking for updates in the normal way. For more information, see [Update the client](#update-the-client).
+If you already have configured the Azure Virtual Desktop app to use Insider releases, you can check for updates to ensure you have the latest Insider release by checking for updates in the normal way. For more information, see [Update the Azure Virtual Desktop app](#update-the-azure-virtual-desktop-app).
 
 ## Admin management
 
 ### Enterprise deployment
 
-To deploy the Remote Desktop client in an enterprise, you can use `msiexec` to install the MSI file. You can install the client per-device or per-user by running the relevant command from Command Prompt as an administrator:
+To deploy the Azure Virtual Desktop app in an enterprise, you can use Microsoft Intune or Configuration Manager. For more information, see:
 
-- Per-device installation:
+- [Add Microsoft Store apps to Microsoft Intune](/mem/intune/apps/store-apps-microsoft).
 
-   ```cmd
-   msiexec /i <path to the MSI> /qn ALLUSERS=1
-   ```
-
-- Per-user installation:
-
-   ```cmd
-   msiexec /i <path to the MSI> /qn ALLUSERS=2 MSIINSTALLPERUSER=1
-   ```
-
-### Update behavior
-
-You can control notifications about updates and when updates are installed. The update behavior of the client depends on two factors:
-
-- Whether the app is installed for only the current user or for all users on the machine
-- The value of the following registry key:
-
-  - **Key:** HKLM\\Software\\Microsoft\\MSRDC\\Policies
-  - **Type:** REG_DWORD
-  - **Name:** AutomaticUpdates
-
-The Remote Desktop client offers three ways to update:
-
-- Notification-based updates, where the client shows the user a notification in the client UI or a pop-up message in the taskbar. The user can choose to update the client by selecting the notification.
-- Silent on-close updates, where the client automatically updates after the user has closed the Remote Desktop client.
-- Silent background updates, where a background process checks for updates a few times a day and will update the client if a new update is available.
-
-To avoid interrupting users, silent updates won't happen while users have the client open, have a remote connection active, or if you've disabled automatic updates. If the client is running while a silent background update occurs, the client will show a notification to let users know an update is available.
-
-You can set the *AutomaticUpdates* registry key to one of the following values:
-
-| Value | Update behavior (per user installation) | Update behavior (per machine installation) |
-|---|---|---|
-| 0 | Disable notifications and turn off auto-update. | Disable notifications and turn off auto-update. |
-| 1 | Notification-based updates. | Notification-based updates. |
-| 2 (default) | Notification-based updates when the app is running. Otherwise, silent on-close and background updates. | Notification-based updates. No support for silent update mechanisms, as users may not have administrator access rights on the client device. |
+- [Manage apps from the Microsoft Store for Business and Education with Configuration Manager](/mem/configmgr/apps/deploy-use/manage-apps-from-the-windows-store-for-business)
 
 ### URI to subscribe to a workspace
 
-The Remote Desktop client for Windows supports the *ms-rd* and *ms-avd* (preview) Uniform Resource Identifier (URI) schemes. This enables you to invoke the Remote Desktop client with specific commands, parameters, and values for use with Azure Virtual Desktop. For example, you can subscribe to a workspace or connect to a particular desktop or Remote App.
+The Azure Virtual Desktop app supports Uniform Resource Identifier (URI) schemes to invoke the Remote Desktop client with specific commands, parameters, and values for use with Azure Virtual Desktop. For example, you can subscribe to a workspace or connect to a particular desktop or Remote App.
 
-For more information and the available commands, see [Uniform Resource Identifier schemes with the Remote Desktop client for Azure Virtual Desktop](../uri-scheme.md?toc=%2Fazure%2Fvirtual-desktop%2Fusers%2Ftoc.json)
+For more information, see [Uniform Resource Identifier schemes with the Remote Desktop client for Azure Virtual Desktop](../uri-scheme.md).
 
 ## Azure Virtual Desktop (HostApp)
 
-The Azure Virtual Desktop (HostApp) is a platform component containing a set of predefined user interfaces and APIs that Azure Virtual Desktop developers can use to deploy and manage Remote Desktop connections to their Azure Virtual Desktop resources. If this application is required on a device for another application to work correctly, it will automatically be downloaded by the other application. There should be no need for user interaction.
+The Azure Virtual Desktop (HostApp) is a platform component containing a set of predefined user interfaces and APIs that Azure Virtual Desktop developers can use to deploy and manage Remote Desktop connections to their Azure Virtual Desktop resources. If this application is required on a device for another application to work correctly, it will automatically be downloaded by the Azure Virtual Desktop app. There should be no need for user interaction.
 
-The purpose of the Azure Virtual Desktop (HostApp) is to provide core functionality to other client apps in the Microsoft Store. This is known as the *Hosted App Model*. For more information, see [Hosted App Model](https://blogs.windows.com/windowsdeveloper/2020/03/19/hosted-app-model/).
+The purpose of the Azure Virtual Desktop (HostApp) is to provide core functionality to the Azure Virtual Desktop app in the Microsoft Store. This is known as the *Hosted App Model*. For more information, see [Hosted App Model](https://blogs.windows.com/windowsdeveloper/2020/03/19/hosted-app-model/).
 
 ## Provide feedback
 
-If you want to provide feedback to us on the Remote Desktop client for Windows, you can do so by selecting the button that looks like a smiley face emoji in the client app, as shown in the following image. This will open the **Feedback Hub**.
+If you want to provide feedback to us on the Azure Virtual Desktop app, you can do so by selecting the button that looks like a smiley face emoji in the app, as shown in the following image. This will open the **Feedback Hub**.
 
 :::image type="content" source="../media/smiley-face-icon.png" alt-text="A screenshot highlighting the feedback button in a red box":::
 
@@ -290,4 +263,4 @@ To best help you, we need you to give us as detailed information as possible. Al
 
 ## Next steps
 
-If you're having trouble with the Remote Desktop client, see [Troubleshoot the Remote Desktop client](../troubleshoot-client-windows.md).
+If you're having trouble with the Azure Virtual Desktop app, see [Troubleshoot the Azure Virtual Desktop app](../troubleshoot-client-windows-avd-app.md).
