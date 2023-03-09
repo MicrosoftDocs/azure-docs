@@ -1,6 +1,6 @@
 ---
 title: Get high availability and cost savings with Spot Priority Mix for Virtual Machine Scale Sets
-description: Learn how to run a mix of Spot VMs and uninterruptible regular VMs for Virtual Machine Scale Sets to achieve high availability and cost savings.
+description: Learn how to run a mix of Spot VMs and uninterruptible standard VMs for Virtual Machine Scale Sets to achieve high availability and cost savings.
 author: ju-shim
 ms.author: jushiman
 ms.service: virtual-machine-scale-sets
@@ -16,16 +16,16 @@ ms.custom: engagement-fy23
 
 **Applies to:** :heavy_check_mark: Flexible scale sets 
 
-Azure allows you to have the flexibility of running a mix of uninterruptible regular VMs and interruptible Spot VMs for Virtual Machine Scale Set deployments. You're able to deploy this Spot Priority Mix using Flexible orchestration to easily balance between high-capacity availability and lower infrastructure costs according to your workload requirements. This feature allows you to easily manage your scale set capability to achieve the following goals:
+Azure allows you to have the flexibility of running a mix of uninterruptible standard VMs and interruptible Spot VMs for Virtual Machine Scale Set deployments. You're able to deploy this Spot Priority Mix using Flexible orchestration to easily balance between high-capacity availability and lower infrastructure costs according to your workload requirements. This feature allows you to easily manage your scale set capability to achieve the following goals:
 
 - Reduce compute infrastructure costs by applying the deep discounts of Spot VMs
-- Maintain capacity availability through uninterruptible regular VMs in the scale set deployment
+- Maintain capacity availability through uninterruptible standard VMs in the scale set deployment
 - Provide reassurance that all your VMs won't be taken away simultaneously due to evictions before the infrastructure has time to react and recover the evicted capacity
-- Simplify the scale-out and scale-in of compute workloads that require both Spot and regular VMs by letting Azure orchestrate the creation and deletion of VMs
+- Simplify the scale-out and scale-in of compute workloads that require both Spot and standard VMs by letting Azure orchestrate the creation and deletion of VMs
 
 ## Configure your mix
 
-You can configure a custom percentage distribution across Spot and regular VMs. The platform automatically orchestrates each scale-out and scale-in operation to achieve the desired distribution by selecting an appropriate number of VMs to create or delete. You can also optionally configure the number of base regular uninterruptible VMs you would like to maintain in the Virtual Machine Scale Set during any scale operation.
+You can configure a custom percentage distribution across Spot and standard VMs. The platform automatically orchestrates each scale-out and scale-in operation to achieve the desired distribution by selecting an appropriate number of VMs to create or delete. You can also optionally configure the number of base standard VMs you would like to maintain in the Virtual Machine Scale Set during any scale operation.
 
 ### [Template](#tab/template-1)
 
@@ -39,7 +39,7 @@ You can set your Spot Priority Mix by using a template to add the following prop
 ```
 
 **Parameters:**
-- `baseRegularPriorityCount` – Specifies a base number of VMs that are *Regular* priority; if the Scale Set capacity is at or below this number, all VMs are *Regular* priority.
+- `baseRegularPriorityCount` – Specifies a base number of VMs that are standard, *Regular* priority; if the Scale Set capacity is at or below this number, all VMs are *Regular* priority.
 - `regularPriorityPercentageAboveBase` – Specifies the percentage split of *Regular* and *Spot* priority VMs that are used when the Scale Set capacity is above the *baseRegularPriorityCount*.
 
 You can refer to this [ARM template example](https://paste.microsoft.com/f84d2f83-f6bf-4d24-aa03-175b0c43da32) for more context.
@@ -168,7 +168,7 @@ Example walk-through:
 
 ## Troubleshooting 
 
-There's only one error that is specific to Spot Priority Mix. To avoid it, be sure to configure the `priorityMixPolicy` to specify a *Spot* priority in the `virtualMachineProfile`. All other potential errors are either the normal Virtual Machine Scale Set, Spot, or Autoscale errors.
+If Spot Priority Mix is not available to you, be sure to configure the `priorityMixPolicy` to specify a *Spot* priority in the `virtualMachineProfile`. Without that configuration, you will not be able to access this Spot feature.
 
 ## Next steps
 
