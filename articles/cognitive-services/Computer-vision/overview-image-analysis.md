@@ -132,6 +132,12 @@ These APIs are only available in the following geographic regions: East US, Fran
 
 Image Analysis 4.0 (preview) offers the ability to remove the background of an image. This feature can either output an image of the detected foreground object with a transparent background, or a grayscale alpha matte image showing the opacity of the detected foreground object. [Background removal](./concept-background-removal.md)
 
+|Original image  |With background removed  |Alpha matte  |
+|:---------:|:---------:|:---------:|
+
+| | | |
+|---------|---------|---------|
+|   :::image type="content" source="media/background-removal/person-5.png" alt-text="Photo of a group of people using a tablet.":::  |    :::image type="content" source="media/background-removal/person-5-result.png" alt-text="Photo of a group of people using a tablet; background is transparent.":::     |   :::image type="content" source="media/background-removal/person-5-matte.png" alt-text="Alpha matte of a group of people.":::      |
 
 ## Image requirements
 

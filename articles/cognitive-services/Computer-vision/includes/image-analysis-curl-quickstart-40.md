@@ -34,19 +34,18 @@ Use the Image Analysis REST API to read text and generate captions for the image
 
 To analyze an image for various visual features, do the following steps:
 
-1. Copy the following command into a text editor.
-1. Make the following changes in the command where needed:
-    1. Replace the value of `<subscriptionKey>` with your key.
-    1. Replace the first part of the request URL (`westcentralus`) with the text in your own endpoint URL.
-        [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
-    1. Optionally, change the image URL in the request body (`https://learn.microsoft.com/azure/cognitive-services/computer-vision/media/quickstarts/presentation.png`) to the URL of a different image to be analyzed.
-1. Open a command prompt window.
-1. Paste the command from the text editor into the command prompt window, and then run the command.
-
+1. Copy the following `curl` command into a text editor.
 
     ```bash
-    curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/computervision/imageanalysis:analyze?features=Caption,Text&model-version=latest&language=en&api-version=2023-02-01-preview" -d "{'url':'https://learn.microsoft.com/azure/cognitive-services/computer-vision/media/quickstarts/presentation.png'}"
+    curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://<endpoint>/computervision/imageanalysis:analyze?features=caption,read&model-version=latest&language=en&api-version=2023-02-01-preview" -d "{'url':'https://learn.microsoft.com/azure/cognitive-services/computer-vision/media/quickstarts/presentation.png'}"
     ```
+
+1. Make the following changes in the command where needed:
+    1. Replace the value of `<subscriptionKey>` with your Computer Vision resource key.
+    1. Replace the value of `<endpoint>` with your Computer Vision resource endpoint. For example: `https://YourResourceName.cognitiveservices.azure.com`.
+    1. Optionally, change the image URL in the request body (`https://learn.microsoft.com/azure/cognitive-services/computer-vision/media/quickstarts/presentation.png`) to the URL of a different image to be analyzed.
+1. Open a command prompt window.
+1. Paste your edited `curl` command from the text editor into the command prompt window, and then run the command.
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Vision&Product=Image-analysis&Page=quickstart4&Section=Analyze-image" target="_target">I ran into an issue</a>
@@ -58,134 +57,103 @@ A successful response is returned in JSON. The sample application parses and dis
 
 ```json
 {
-    "kind": "imageAnalysisResult",
-    "metadata": {
-        "height": 692,
-        "width": 1038
+    "captionResult":
+    {
+        "text": "a man pointing at a screen",
+        "confidence": 0.4891590476036072
     },
-    "describeResult": {
-    "description": {
-      "tags": [
-        "text",
-        "person",
-        "indoor",
-        "electronics",
-        "television",
-        "standing",
-        "display"
-      ],
-      "captions": [
-        {
-          "text": "a man pointing at a screen",
-          "confidence": 0.4891590476036072
-        }
-      ]
+    "modelVersion": "2023-02-01-preview",
+    "metadata":
+    {
+        "width": 1038,
+        "height": 692
+    },
+    "readResult":
+    {
+        "stringIndexType": "TextElements",
+        "content": "9:35 AM\nE Conference room 154584354\n#: 555-173-4547\nTown Hall\n9:00 AM - 10:00 AM\nAaron Buaion\nDaily SCRUM\n10:00 AM 11:00 AM\nChurlette de Crum\nQuarterly NI Hands\n11.00 AM-12:00 PM\nBebek Shaman\nWeekly stand up\n12:00 PM-1:00 PM\nDelle Marckre\nProduct review",
+        "pages":
+        [
+            {
+                "height": 692,
+                "width": 1038,
+                "angle": 0.3048,
+                "pageNumber": 1,
+                "words":
+                [
+                    {"content":"9:35","boundingBox":[131,130,171,130,171,149,130,149],"confidence":0.993,"span":{"offset":0,"length":4}},
+                    {"content":"AM","boundingBox":[179,130,204,130,203,149,178,149],"confidence":0.998,"span":{"offset":5,"length":2}},
+                    {"content":"E","boundingBox":[131,154,135,154,135,161,131,161],"confidence":0.104,"span":{"offset":8,"length":1}},
+                    {"content":"Conference","boundingBox":[142,154,174,154,173,161,141,161],"confidence":0.902,"span":{"offset":10,"length":10}},
+                    {"content":"room","boundingBox":[175,154,189,155,188,161,175,161],"confidence":0.796,"span":{"offset":21,"length":4}},
+                    {"content":"154584354","boundingBox":[192,155,224,154,223,162,191,161],"confidence":0.864,"span":{"offset":26,"length":9}},
+                    {"content":"#:","boundingBox":[131,163,139,164,139,171,131,171],"confidence":0.036,"span":{"offset":36,"length":2}},
+                    {"content":"555-173-4547","boundingBox":[142,164,182,165,181,171,142,171],"confidence":0.597,"span":{"offset":39,"length":12}},
+                    {"content":"Town","boundingBox":[547,181,568,181,568,190,546,191],"confidence":0.981,"span":{"offset":52,"length":4}},
+                    {"content":"Hall","boundingBox":[570,181,590,181,590,191,570,190],"confidence":0.991,"span":{"offset":57,"length":4}},
+                    {"content":"9:00","boundingBox":[546,192,555,192,555,200,546,200],"confidence":0.09,"span":{"offset":62,"length":4}},
+                    {"content":"AM","boundingBox":[557,192,565,192,565,200,557,200],"confidence":0.991,"span":{"offset":67,"length":2}},
+                    {"content":"-","boundingBox":[567,192,569,192,569,200,567,200],"confidence":0.691,"span":{"offset":70,"length":1}},
+                    {"content":"10:00","boundingBox":[570,192,585,193,584,200,570,200],"confidence":0.885,"span":{"offset":72,"length":5}},
+                    {"content":"AM","boundingBox":[586,193,593,194,593,200,586,200],"confidence":0.991,"span":{"offset":78,"length":2}},
+                    {"content":"Aaron","boundingBox":[545,202,560,202,559,208,544,208],"confidence":0.602,"span":{"offset":81,"length":5}},
+                    {"content":"Buaion","boundingBox":[561,202,580,202,579,208,560,208],"confidence":0.291,"span":{"offset":87,"length":6}},
+                    {"content":"Daily","boundingBox":[538,259,551,260,550,266,538,265],"confidence":0.175,"span":{"offset":94,"length":5}},
+                    {"content":"SCRUM","boundingBox":[552,260,570,260,570,266,551,266],"confidence":0.114,"span":{"offset":100,"length":5}},
+                    {"content":"10:00","boundingBox":[539,267,553,267,552,273,538,272],"confidence":0.857,"span":{"offset":106,"length":5}},
+                    {"content":"AM","boundingBox":[554,267,561,267,560,273,553,273],"confidence":0.998,"span":{"offset":112,"length":2}},
+                    {"content":"11:00","boundingBox":[564,267,578,267,577,273,563,273],"confidence":0.479,"span":{"offset":115,"length":5}},
+                    {"content":"AM","boundingBox":[579,267,586,267,585,273,578,273],"confidence":0.994,"span":{"offset":121,"length":2}},
+                    {"content":"Churlette","boundingBox":[539,274,562,274,561,279,538,279],"confidence":0.464,"span":{"offset":124,"length":9}},
+                    {"content":"de","boundingBox":[563,274,569,274,568,279,562,279],"confidence":0.81,"span":{"offset":134,"length":2}},
+                    {"content":"Crum","boundingBox":[570,274,582,273,581,279,569,279],"confidence":0.885,"span":{"offset":137,"length":4}},
+                    {"content":"Quarterly","boundingBox":[540,296,562,296,562,302,539,302],"confidence":0.523,"span":{"offset":142,"length":9}},
+                    {"content":"NI","boundingBox":[563,296,570,296,570,302,563,302],"confidence":0.303,"span":{"offset":152,"length":2}},
+                    {"content":"Hands","boundingBox":[572,296,588,296,588,302,571,302],"confidence":0.613,"span":{"offset":155,"length":5}},
+                    {"content":"11.00","boundingBox":[538,304,552,304,552,310,538,310],"confidence":0.618,"span":{"offset":161,"length":5}},
+                    {"content":"AM-12:00","boundingBox":[554,304,578,304,577,310,553,310],"confidence":0.27,"span":{"offset":167,"length":8}},
+                    {"content":"PM","boundingBox":[579,304,586,304,586,309,578,310],"confidence":0.662,"span":{"offset":176,"length":2}},
+                    {"content":"Bebek","boundingBox":[539,310,554,310,554,317,539,316],"confidence":0.611,"span":{"offset":179,"length":5}},
+                    {"content":"Shaman","boundingBox":[555,310,576,311,576,317,555,317],"confidence":0.605,"span":{"offset":185,"length":6}},
+                    {"content":"Weekly","boundingBox":[538,332,557,333,556,339,538,338],"confidence":0.606,"span":{"offset":192,"length":6}},
+                    {"content":"stand","boundingBox":[558,333,572,334,571,340,557,339],"confidence":0.489,"span":{"offset":199,"length":5}},
+                    {"content":"up","boundingBox":[574,334,580,334,580,340,573,340],"confidence":0.815,"span":{"offset":205,"length":2}},
+                    {"content":"12:00","boundingBox":[539,341,553,341,552,347,538,347],"confidence":0.826,"span":{"offset":208,"length":5}},
+                    {"content":"PM-1:00","boundingBox":[554,341,575,341,574,347,553,347],"confidence":0.209,"span":{"offset":214,"length":7}},
+                    {"content":"PM","boundingBox":[576,341,583,341,582,347,575,347],"confidence":0.039,"span":{"offset":222,"length":2}},
+                    {"content":"Delle","boundingBox":[540,348,559,347,558,353,539,353],"confidence":0.58,"span":{"offset":225,"length":5}},
+                    {"content":"Marckre","boundingBox":[560,347,582,348,582,353,559,353],"confidence":0.275,"span":{"offset":231,"length":7}},
+                    {"content":"Product","boundingBox":[539,370,559,371,558,376,539,376],"confidence":0.615,"span":{"offset":239,"length":7}},
+                    {"content":"review","boundingBox":[560,371,576,371,575,376,559,376],"confidence":0.04,"span":{"offset":247,"length":6}}
+                ],
+                "spans":
+                [
+                    {"offset":0,"length":253}
+                ],
+                "lines":
+                [
+                    {"content":"9:35 AM","boundingBox":[130,129,215,130,215,149,130,148],"spans":[{"offset":0,"length":7}]},
+                    {"content":"E Conference room 154584354","boundingBox":[130,153,224,154,224,161,130,161],"spans":[{"offset":8,"length":27}]},
+                    {"content":"#: 555-173-4547","boundingBox":[130,163,182,164,181,171,130,170],"spans":[{"offset":36,"length":15}]},
+                    {"content":"Town Hall","boundingBox":[546,180,590,180,590,190,546,190],"spans":[{"offset":52,"length":9}]},
+                    {"content":"9:00 AM - 10:00 AM","boundingBox":[546,191,596,192,596,200,546,199],"spans":[{"offset":62,"length":18}]},
+                    {"content":"Aaron Buaion","boundingBox":[543,201,581,201,581,208,543,208],"spans":[{"offset":81,"length":12}]},
+                    {"content":"Daily SCRUM","boundingBox":[537,259,575,260,575,266,537,265],"spans":[{"offset":94,"length":11}]},
+                    {"content":"10:00 AM 11:00 AM","boundingBox":[536,266,590,266,590,272,536,272],"spans":[{"offset":106,"length":17}]},
+                    {"content":"Churlette de Crum","boundingBox":[538,273,584,273,585,279,538,279],"spans":[{"offset":124,"length":17}]},
+                    {"content":"Quarterly NI Hands","boundingBox":[538,295,588,295,588,301,538,302],"spans":[{"offset":142,"length":18}]},
+                    {"content":"11.00 AM-12:00 PM","boundingBox":[536,304,588,303,588,309,536,310],"spans":[{"offset":161,"length":17}]},
+                    {"content":"Bebek Shaman","boundingBox":[538,310,577,310,577,316,538,316],"spans":[{"offset":179,"length":12}]},
+                    {"content":"Weekly stand up","boundingBox":[537,332,582,333,582,339,537,338],"spans":[{"offset":192,"length":15}]},
+                    {"content":"12:00 PM-1:00 PM","boundingBox":[537,340,583,340,583,347,536,346],"spans":[{"offset":208,"length":16}]},
+                    {"content":"Delle Marckre","boundingBox":[538,347,582,347,582,352,538,353],"spans":[{"offset":225,"length":13}]},
+                    {"content":"Product review","boundingBox":[538,370,577,370,577,376,538,375],"spans":[{"offset":239,"length":14}]}
+                ]
+            }
+        ],
+        "styles": [],
+        "modelVersion": "2022-04-30"
     }
-    },
-    "page": 1,
-    "angle": 0,
-    "width": 1038,
-    "height": 692,
-    "unit": "pixel",
-    "lines":
-    [
-        {
-            "boundingBox": [130,129,215,130,215,149,130,148],
-            "appearance": {"style":{"name":"other","confidence":0.972}},
-            "text": "9:35 AM",
-            "words": [{"boundingBox":[131,130,171,130,171,149,130,149],"text":"9:35","confidence":0.993},{"boundingBox":[179,130,204,130,203,149,178,149],"text":"AM","confidence":0.998}]
-        },
-        {
-            "boundingBox": [131,153,224,153,224,161,131,160],
-            "appearance": {"style":{"name":"other","confidence":0.972}},
-            "text": "Conference room 154584354",
-            "words": [{"boundingBox":[142,154,174,154,173,161,142,161],"text":"Conference","confidence":0.851},{"boundingBox":[175,154,189,154,188,161,174,161],"text":"room","confidence":0.891},{"boundingBox":[192,154,224,154,223,161,191,161],"text":"154584354","confidence":0.714}]
-        },
-        {
-            "boundingBox": [545,179,589,180,589,190,545,189],
-            "appearance": {"style":{"name":"other","confidence":0.972}},
-            "text": "Town Hall",
-            "words": [{"boundingBox":[546,180,568,180,568,190,546,190],"text":"Town","confidence":0.988},{"boundingBox":[570,180,590,180,589,190,570,190],"text":"Hall","confidence":0.987}]
-        },
-        {
-            "boundingBox": [545,192,596,193,596,200,545,199],
-            "appearance": {"style":{"name":"other","confidence":0.972}},
-            "text": "9:00 AM - 10:00 AM",
-            "words": [{"boundingBox":[545,193,556,193,556,200,545,200],"text":"9:00","confidence":0.379},{"boundingBox":[557,193,565,193,564,200,557,200],"text":"AM","confidence":0.993},{"boundingBox":[567,193,569,193,568,200,567,200],"text":"-","confidence":0.843},{"boundingBox":[570,193,584,193,584,200,570,200],"text":"10:00","confidence":0.854},{"boundingBox":[586,193,593,193,593,200,585,200],"text":"AM","confidence":0.998}]
-        },
-        {
-            "boundingBox": [545,201,581,202,581,208,545,208],
-            "appearance": {"style":{"name":"other","confidence":0.972}},
-            "text": "Aston Buien",
-            "words": [{"boundingBox":[545,202,560,202,559,208,546,208],"text":"Aston","confidence":0.341},{"boundingBox":[561,202,579,203,579,208,561,208],"text":"Buien","confidence":0.335}]
-        },
-        {
-            "boundingBox": [537,258,572,258,572,265,537,265],
-            "appearance": {"style":{"name":"other","confidence":0.972}},
-            "text": "Daily SCRUM",
-            "words": [{"boundingBox":[538,259,551,259,550,265,538,265],"text":"Daily","confidence":0.613},{"boundingBox":[552,259,570,259,570,265,552,265],"text":"SCRUM","confidence":0.947}]
-        },
-        {
-            "boundingBox": [537,266,590,266,590,272,537,272],
-            "appearance": {"style":{"name":"other","confidence":0.972}},
-            "text": "10:00 AM-11:00 AM",
-            "words": [{"boundingBox":[538,267,552,267,552,273,538,273],"text":"10:00","confidence":0.931},{"boundingBox":[553,267,577,266,578,272,554,273],"text":"AM-11:00","confidence":0.57},{"boundingBox":[579,266,586,266,586,272,579,272],"text":"AM","confidence":0.995}]
-        },
-        {
-            "boundingBox": [538,274,584,273,584,279,538,279],
-            "appearance": {"style":{"name":"other","confidence":0.972}},
-            "text": "Charlathe de Crum",
-            "words": [{"boundingBox":[538,274,562,274,562,280,538,280],"text":"Charlathe","confidence":0.345},{"boundingBox":[563,274,568,274,568,280,563,280],"text":"de","confidence":0.784},{"boundingBox":[570,274,582,274,582,280,570,280],"text":"Crum","confidence":0.905}]
-        },
-        {
-            "boundingBox": [538,296,589,296,589,302,538,302],
-            "appearance": {"style":{"name":"other","confidence":0.972}},
-            "text": "Quarterly NI Hands",
-            "words": [{"boundingBox":[539,296,562,296,562,302,539,302],"text":"Quarterly","confidence":0.655},{"boundingBox":[563,296,570,296,570,302,563,302],"text":"NI","confidence":0.127},{"boundingBox":[571,296,588,296,588,302,571,302],"text":"Hands","confidence":0.617}]
-        },
-        {
-            "boundingBox": [537,303,590,303,590,309,537,309],
-            "appearance": {"style":{"name":"other","confidence":0.972}},
-            "text": "11:00 AM-12:00 PM",
-            "words": [{"boundingBox":[538,304,552,304,552,309,538,310],"text":"11:00","confidence":0.649},{"boundingBox":[553,304,578,303,577,309,553,309],"text":"AM-12:00","confidence":0.781},{"boundingBox":[579,303,586,303,585,309,578,309],"text":"PM","confidence":0.788}]
-        },
-        {
-            "boundingBox": [538,310,577,310,577,317,538,316],
-            "appearance": {"style":{"name":"other","confidence":0.972}},
-            "text": "Bebek Shaman",
-            "words": [{"boundingBox":[539,311,554,311,554,317,539,317],"text":"Bebek","confidence":0.604},{"boundingBox":[555,311,576,311,575,317,555,317],"text":"Shaman","confidence":0.258}]
-        },
-        {
-            "boundingBox": [505,316,518,316,517,320,505,320],
-            "appearance": {"style":{"name":"other","confidence":0.972}},
-            "text": "Thuare",
-            "words": [{"boundingBox":[505,317,516,317,516,321,506,321],"text":"Thuare","confidence":0.097}]
-        },
-        {
-            "boundingBox": [538,333,582,332,582,339,538,339],
-            "appearance": {"style":{"name":"other","confidence":0.972}},
-            "text": "Weekly stand up",
-            "words": [{"boundingBox":[539,333,556,333,556,339,538,339],"text":"Weekly","confidence":0.611},{"boundingBox":[558,333,571,333,571,339,558,339],"text":"stand","confidence":0.221},{"boundingBox":[573,333,580,333,580,339,573,339],"text":"up","confidence":0.933}]
-        },
-        {
-            "boundingBox": [538,339,586,339,586,345,538,345],
-            "appearance": {"style":{"name":"other","confidence":0.972}},
-            "text": "12:00 PM-1:00 PM",
-            "words": [{"boundingBox":[539,340,552,340,552,346,539,346],"text":"12:00","confidence":0.919},{"boundingBox":[553,340,574,340,574,346,553,346],"text":"PM-1:00","confidence":0.901},{"boundingBox":[575,340,582,340,582,346,575,346],"text":"PM","confidence":0.997}]
-        },
-        {
-            "boundingBox": [537,347,584,346,584,353,537,353],
-            "appearance": {"style":{"name":"other","confidence":0.972}},
-            "text": "Delle Marckre",
-            "words": [{"boundingBox":[538,347,558,347,558,353,539,354],"text":"Delle","confidence":0.618},{"boundingBox":[559,347,583,347,583,353,560,353],"text":"Marckre","confidence":0.349}]
-        },
-        {
-            "boundingBox": [538,370,577,370,577,376,538,375],
-            "appearance": {"style":{"name":"other","confidence":0.972}},
-            "text": "Product review",
-            "words": [{"boundingBox":[539,370,559,371,558,376,539,376],"text":"Product","confidence":0.615},{"boundingBox":[560,371,576,371,575,376,559,376],"text":"review","confidence":0.04}]
-        }
-    ]
 }
 ```
 

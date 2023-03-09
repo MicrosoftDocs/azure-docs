@@ -175,7 +175,7 @@ do
 } while (DateTime.Now.Ticks - start < duration.Ticks);
 ```
 
-[!INCLUDE [Email Message Status](./email-message-status.md)]
+[!INCLUDE [Email Message Status](./email-operation-status.md)]
 
 ## Run the code
 

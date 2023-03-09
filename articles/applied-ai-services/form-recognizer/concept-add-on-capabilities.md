@@ -12,7 +12,7 @@ ms.author: lajanuar
 monikerRange: 'form-recog-3.0.0'
 recommendations: false
 ---
-<!-- markdownlint-disable MD033 -->
+<!-- markdownlint-disable MD033 -->
 
 # Azure Form Recognizer add-on capabilities
 
