@@ -3,17 +3,17 @@ title: Move from classic to modernized VMware disaster recovery.
 description: Learn about the architecture, necessary infrastructure, and FAQs about moving your VMware replications from classic to modernized protection architecture.
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/02/2023
+ms.date: 03/09/2023
 author: ankitaduttaMSFT
 ms.custom: engagement-fy23
 ---
 
 # Move from classic to modernized VMware disaster recovery   
 
-This article provides information about the architecture, necessary infrastructure, and FAQs about moving your VMware or Physical machine replications from [classic](./vmware-azure-architecture.md) to [modernized](./vmware-azure-architecture-modernized.md) protection architecture. With this capability to migrate, you can successfully transfer your replicated items from a configuration server to an Azure Site Recovery replication appliance. This migration is guided by a smart replication mechanism, which ensures that complete initial replication isn't performed again for non-critical replicated items, and only the differential data is transferred. 
+This article describes the architecture and necessary infrastructure about moving your VMware or physical machine replications from [classic](./vmware-azure-architecture.md) to [modernized](./vmware-azure-architecture-modernized.md) protection architecture. With this capability to migrate, you can successfully transfer your replicated items from a configuration server to an Azure Site Recovery replication appliance. This migration is guided by a smart replication mechanism, which ensures that complete initial replication isn't performed again for non-critical replicated items, and only the differential data is transferred. 
 
 > [!NOTE]
-> Recovery plans won't be migrated and will need to be created again in the modernized Recovery Services vault.  
+> Recovery plans aren't migrated, so you need to create them again in the modernized Recovery Services vault.  
 
 ## Architecture  
 
@@ -24,18 +24,18 @@ The components involved in the migration of replicated items of a VMware machine
 |Replicated items in a classic Recovery Services vault| One or more replicated items that are protected using the classic architecture and a healthy configuration server.<br></br>The replicated item should be in a non-critical state and must be replicated from on-premises to Azure with the mobility agent running on version 9.50 or later.|
 |Configuration server used by the replicated items|The configuration server, used by the replicated items, should be in a non-critical state and its components should be upgraded to the latest version (9.50 or later).|
 |A Recovery Services vault with modernized experience|A Recovery Services vault with modernized experience.|
-|A healthy Azure Site Recovery replication appliance|A non-critical Azure Site Recovery replication appliance, which can discover on-premises machines, with all its components upgraded to the latest version (9.50 or later). The exact required versions are as follows:<br></br>Process server: 9.50<br>Proxy server: 1.35.8419.34591<br>Recovery services agent: 2.0.9249.0<br>Replication service: 1.35.8433.24227|
+|A healthy Azure Site Recovery replication appliance|A non-critical Azure Site Recovery replication appliance, which can discover on-premises machines, with all its components upgraded to the latest version (9.50 or later). The required versions are as follows:<br></br>- Process server: 9.50<br>- Proxy server: 1.35.8419.34591<br>- Recovery services agent: 2.0.9249.0<br>- Replication service: 1.35.8433.24227|
 
-## Required infrastructure  
+## Infrastructure requirements 
 
-Ensure the following for a successful movement of replicated item: 
+For a successful movement of replicated item, ensure that you have: 
 - A Recovery Services vault using the modernized experience.   
   >[!NOTE] 
-  > Classic experience will be [deprecated](vmware-physical-azure-classic-deprecation.md) in March 2026 and its use is discouraged. Any newly created Recovery Services vaults will always have the modernized experience.
+  > Classic experience will be [deprecated](vmware-physical-azure-classic-deprecation.md) in March 2026 and its use is discouraged. Newly created Recovery Services vaults will always have the modernized experience.
    
-- An [Azure Site Recovery replication appliance](./deploy-vmware-azure-replication-appliance-modernized.md), which has been successfully registered to the vault, and all its components are in a non-critical state.   
-- The version of the appliance must be 9.50 or later. For a detailed version description, check [here](#architecture). 
-- The vCenter server or vSphere host’s details, where the existing replicated machines reside, are added to the appliance for the on-premises discovery to be successful.  
+- An [Azure Site Recovery replication appliance](./deploy-vmware-azure-replication-appliance-modernized.md), which is successfully registered to the vault, and all its components are in a non-critical state.   
+- The appliance version must be 9.50 or later. For a detailed version description, check [here](#architecture). 
+- The details of vCenter server or vSphere host, where the existing replicated machines reside, are added to the appliance for the on-premises discovery to be successful.  
 
 ## Prerequisites  
 
@@ -52,17 +52,17 @@ Ensure the following before you move from classic architecture to modernized arc
 Ensure the following for the replicated items you are planning to move: 
  
 - The replicated item is a VMware or Physcial machine replicating via a configuration server. 
-- Replication is not happening to an un-managed storage account but rather to managed disk. 
+- Replication doesn't happen to an un-managed storage account but to managed disk. 
 - Replication is happening from on-premises to Azure and the replicated item is not in a failed-over or in failed-back state. 
-- The replicated item is not replicating the data from Azure to on-premises.  
-- The initial replication is not under progress and has already been completed.   
+- The replicated item does not replicate the data from Azure to on-premises server.  
+- The initial replication must be completed.   
 - The replicated item is not in the ‘resynchronization’ state.  
 - The configuration server’s version is 9.50 or later and its health is in a non-critical state.  
-- The configuration server has a healthy heartbeat.  
+- The configuration server must be healthy.  
 - The mobility service agent’s version, installed on the source machine, is 9.50 or later.  
 - The Recovery Services vaults with MSI enabled are supported.  
 - The Recovery Services vaults with Private Endpoints enabled are supported.   
-- The replicated item’s health is in a non-critical state, or its recovery points are being created successfully.  
+- The replicated item’s health is in a non-critical state, or its recovery points are created successfully.  
 
 ### Prepare modernized Recovery Services vault   
 
@@ -77,16 +77,16 @@ For the modernized architecture setup, ensure that:  
 - The Linux distro version is supported by the modernized architecture. [Learn more](./vmware-physical-azure-support-matrix.md#for-linux). 
 - The Windows Server version is supported by the modernized architecture. [Learn more](./vmware-physical-azure-support-matrix.md#for-windows). 
 
-## Calculate total time to move  
+## Calculate the total time to move  
 
 The total time required to move any replicated item from classic vault to modernized vault depends on the item’s replication status and the disk size.  
 
 | State | Time to migrate to modernized vault |
 |-------|---------------------|
-| Replicated item’s protection status is **healthy** and the **last recovery point was created less than 50 minutes ago**|Migration will be complete in **1-2 hours**|
-| Replicated item’s protection status is **not healthy** or the **last recovery point was created more than 50 minutes ago**|Migration time will vary, and it will **depend on the disk size**|
+| Replicated item’s protection status is **healthy** and the **last recovery point was created less than 50 minutes ago**|Migration will complete in **1-2 hours**|
+| Replicated item’s protection status is **not healthy** or the **last recovery point was created more than 50 minutes ago**|Migration time will **depend on the disk size**|
 
-If your machines protection status is not healthy, then use the formula below to calculate the exact time for your machines: 
+If your machines protection status is not healthy, then use the formula below to calculate the time for your machines: 
 
 Time to migrate = 1 hour + 45 second/GiB  
 
@@ -97,7 +97,7 @@ Time to migrate = 1 hour + 45 second/GiB
 | 1 machine with 4 disks, all of size 512 GiB|~ 7 hours 30 mins<br></br>*[Both the disks will be migrated in parallel]*|
 | 10 machines with 4 disks each, all of size 512 GiB|~ 7 hours 30 mins<br></br>*[All the VMs and their disks will be migrated in parallel]*|
 
-The same formula will be used to calculate time for migration and is shown on the portal.   
+The same formula is used to calculate time for migration and appears on the portal.   
 
 ## How to define required infrastructure 
 
@@ -107,28 +107,28 @@ As a rule, you should set up the same number of replication appliances, as the n
 
 ## Pricing 
 
-Site Recovery license fee will continue to be charged on the classic vault till retention period of all recovery points has expired. Once all recovery points have been cleaned up, the pricing will also stop on the classic vault. Once the retention period of all the recovery points has expired, the replicated item will be automatically removed via a system triggered purge replication operation.  
+Azure Site Recovery license fee will continue to be charged on the classic vault until retention period of all recovery points has expired as per the retention policy. Once all recovery points are cleaned up, the pricing will also stop on the classic vault. Once the retention period of all the recovery points has expired, the replicated item will be automatically removed via a system triggered purge replication operation.  
 
-Site Recovery will start charging license fee on replicated items in the modernized vault, only after the first recovery point has been generated and older vault has been cleaned up. If there are any free trial usage days pending on the classic vault, then the same information will be passed on to the modernized vault. Pricing will start on the modernized vault only after this trial period has passed.  
+Azure Site Recovery will start charging license fee on replicated items in the modernized vault, only after the first recovery point is generated and older vault has been cleaned up. If there are any free trial usage days pending on the classic vault, then the same information will be passed on to the modernized vault. Pricing will start on the modernized vault only after this trial period has passed.  
 
 >[!Note]
 > At one point in time, pricing will only happen using one vault, either the classic or modernized vault.  
 
-## FAQs  
+## Frequently asked questions  
 
 ### Why should I migrate my machines to the modernized architecture?
 
-Ultimately, the classic architecture will be deprecated, so one must ensure that they are using the latest modernized architecture. The table below shows a comparison of the two architectures to enable you to select the correct option for enabling disaster recovery for your machines:  
+The classic architecture will be deprecated, so one must ensure that the machines are using the modernized architecture. The following table shows a comparison of the two architectures to enable you to select the correct option for enabling disaster recovery for your machines:  
 
 |Classic architecture| Modernized architecture [New]|
 |---------------------|-----------------------------|
 |Multiple setups required for discovering on-premises data.|**Central discovery** of on-premises data center using discovery service.| 
 |Extensive number of steps required for initial onboarding.|**Simplified the onboarding experience** by automating artifact creation and introduced defaults to reduce required inputs.|
-|Utilizes a manually downloaded file to obtain cloud context.|**Introduced replication key** for obtaining cloud context when setting up the appliance.|
+|Uses a manually downloaded file to obtain cloud context.|**Introduced replication key** for obtaining cloud context when setting up the appliance.|
 |Extensive number of steps required for a simple enable replication process.|**Simplified the enable replication experience** by reducing the number of required inputs and redefining each blade.|
 |Configuration server continues to be an on-premises infrastructure with extensive setup for various components.|Enhanced the appliance by converting all components into Azure hosted microservices. This **simplifies appliance scaling, monitoring, and troubleshooting.**|
 |Need for scale-out process server and master target server in Azure for Linux machines is a hindering requirement.|**Removed** the need to maintain separate **process server and master target server**.| 
-|Used a static passphrase for authentication, which interfered with customer’s business requirements of periodic password rotation.|Introduced **certificate-based authentication**, which is more secure and resolves customer’s security concerns.|
+|Used a static passphrase for authentication, which interfered with user’s business requirements of periodic password rotation.|Introduced **certificate-based authentication**, which is more secure and resolves user’s security concerns.|
 |Upgrading to an updated version should be done manually and is a cumbersome process.|Introduced **automatic upgrades** for both appliance components and Mobility service.|
 |The configuration server does not have high availability and might be at the risk of collapsing.|Implemented **high availability of appliance** to ensure resiliency.|
 |Root credentials should be regularly updated to ensure an error-free upgrade experience.|**Eliminated the requirement to maintain machine’s root credentials** for performing automatic upgrades.|
@@ -139,7 +139,7 @@ Ultimately, the classic architecture will be deprecated, so one must ensure that
 
 All VMware machines, which are replicated using a configuration server, should be migrated to the modernized architecture. As of now, we have released support for VMware machines.   
 
-### Where should my modernized Recovery Services vault be created?
+### Where should I create my modernized Recovery Services vault?
 
 The modernized Recovery Services vault should be present in the same region and tenant as the classic vault. It can be a part of any subscription or resource group.   
 
@@ -151,7 +151,7 @@ No, the replication will break for some time while the migration is in progress.
 
 Migration operation will only be marked complete once the first recovery point has been successfully created in the modernized Recovery Services vault.  
 
-### What operations can be performed from my classic Recovery Services vault, after migration is done?  
+### What operations can I perform from my classic Recovery Services vault, after migration is done?  
 
 You can only perform failover and disable replication from your classic vault after the migration. The failover operation is possible via the classic vault until the recovery points are available in the older vault.
 
