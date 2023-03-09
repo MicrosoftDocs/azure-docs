@@ -6,7 +6,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 03/08/2023
+ms.date: 03/09/2023
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
@@ -111,7 +111,7 @@ When you enable or disable customer-managed keys, or when you modify the key or 
 > [!NOTE]
 > To rotate a key, create a new version of the key in the key vault or managed HSM, according to your compliance policies. Azure Storage does not handle key rotation, so you will need to manage rotation of the key in the key vault. You can [rotate your keys manually](customer-managed-keys-configure-existing-account.md#configure-encryption-for-manual-updating-of-key-versions) or [configure them to rotate automatically](customer-managed-keys-configure-existing-account.md#configure-encryption-for-automatic-updating-of-key-versions).
 
-## Revoke access with customer-managed keys
+## Revoke access to a storage account that uses customer-managed keys
 
 To revoke access to a storage account that uses customer-managed keys, disable the key that is currently being used. To learn how to disable a key in the Azure key vault, see [The impact of changing customer-managed keys](customer-managed-keys-configure-existing-account.md#the-impact-of-changing-customer-managed-keys). After the key has been disabled, clients can't call operations that read from or write to a blob or its metadata. Attempts to call any of the following operations will fail with error code 403 (Forbidden) for all users:
 

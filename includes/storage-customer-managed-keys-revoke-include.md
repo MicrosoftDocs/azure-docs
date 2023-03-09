@@ -5,12 +5,12 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: "include"
-ms.date: 03/08/2023
+ms.date: 03/09/2023
 ms.author: tamram
 ms.custom: "include file"
 ---
 
-## Revoke access with customer-managed keys
+## Revoke access to a storage account that uses customer-managed keys
 
 To temporarily revoke access to a storage account that is using customer-managed keys, disable the key currently being used in the key vault. Disabling the key will cause attempts to access data in the storage account to fail with error code 403 (Forbidden). For a list of storage account operations that will be affected, see [Revoke access with customer-managed keys](../articles/storage/common/customer-managed-keys-overview.md#revoke-access-with-customer-managed-keys).
 
@@ -18,8 +18,8 @@ To temporarily revoke access to a storage account that is using customer-managed
 
 To disable a customer-managed key with the Azure portal, follow these steps:
 
-1. Navigate to the key vault that contains the CMK.
-1. Under **Objects** select **Keys**.
+1. Navigate to the key vault that contains the key.
+1. Under **Objects**, select **Keys**.
 1. Right-click the key and select **Disable**.
 
     :::image type="content" source="../articles/storage/common/media/customer-managed-keys-configure-common/portal-disable-CMK.png" alt-text="Screenshot showing how to disable a customer-managed key in the key vault.":::

@@ -5,7 +5,7 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: "include"
-ms.date: 03/01/2023
+ms.date: 03/09/2023
 ms.author: tamram
 ms.custom: "include file", engagement-fy23
 ---
@@ -13,8 +13,6 @@ ms.custom: "include file", engagement-fy23
 ## Change the key
 
 You can change the key that you are using for Azure Storage encryption at any time.
-
-If the new key is in a different key vault, you must [grant the managed identity access to the key in the new vault](../articles/storage/common/customer-managed-keys-configure-existing-account.md#choose-a-managed-identity-to-authorize-access-to-the-key-vault). If you choose manual updating of the key version, you will also need to [update the key vault URI](../articles/storage/common/customer-managed-keys-configure-existing-account.md#configure-encryption-for-manual-updating-of-key-versions).
 
 # [Azure portal](#tab/azure-portal)
 
