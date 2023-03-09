@@ -149,8 +149,6 @@ TODO – are there any privacy things to note?
 
 
 
-sample, I'm adding all sorts of who where what and long runon sentences that aren't thought about well. look above, look below.
-
 ## View Survey Data:
 
 > [!IMPORTANT]
