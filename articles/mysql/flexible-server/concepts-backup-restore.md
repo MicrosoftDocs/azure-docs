@@ -1,6 +1,6 @@
 ---
-title: Backup and restore in Azure Database for MySQL Flexible Server
-description: Learn about the concepts of backup and restore with Azure Database for MySQL Flexible Server
+title: Backup and restore in Azure Database for MySQL - Flexible Server
+description: Learn about the concepts of backup and restore with Azure Database for MySQL - Flexible Server
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -10,11 +10,11 @@ ms.custom: event-tier1-build-2022
 ms.date: 07/26/2022 
 ---
 
-# Backup and restore in Azure Database for MySQL Flexible Server
+# Backup and restore in Azure Database for MySQL - Flexible Server
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-Azure Database for MySQL Flexible Server, automatically creates server backups and securely stores them in local redundant storage within the region. Backups can be used to restore your server to a point-in-time. Backup and restore are an essential part of any business continuity strategy because they protect your data from accidental corruption or deletion.
+Azure Database for MySQL - Flexible Server, automatically creates server backups and securely stores them in local redundant storage within the region. Backups can be used to restore your server to a point-in-time. Backup and restore are an essential part of any business continuity strategy because they protect your data from accidental corruption or deletion.
 
 ## Backup overview
 
@@ -102,7 +102,7 @@ The estimated time for the recovery of the server depends on several factors:
 
 ## Point-in-time restore
 
-In Azure Database for MySQL Flexible Server, performing a point-in-time restore creates a new server from the flexible server's backups in the same region as your source server. It is created with the original server's configuration for the compute tier, number of vCores, storage size, backup retention period, and backup redundancy option. Also, tags and settings such as virtual network and firewall are inherited from the source server. The restored server's compute and storage tier, configuration and security settings can be changed after the restore is completed.
+In Azure Database for MySQL - Flexible Server, performing a point-in-time restore creates a new server from the flexible server's backups in the same region as your source server. It is created with the original server's configuration for the compute tier, number of vCores, storage size, backup retention period, and backup redundancy option. Also, tags and settings such as virtual network and firewall are inherited from the source server. The restored server's compute and storage tier, configuration and security settings can be changed after the restore is completed.
 
 > [!NOTE]
 > There are two server parameters which are reset to default values (and are not copied over from the primary server) after the restore operation

@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Connect using C# - Azure Database for MySQL Flexible Server'
-description: "This quickstart provides a C# (.NET) code sample you can use to connect and query data from Azure Database for MySQL Flexible Server."
+title: 'Quickstart: Connect using C# - Azure Database for MySQL - Flexible Server'
+description: "This quickstart provides a C# (.NET) code sample you can use to connect and query data from Azure Database for MySQL - Flexible Server."
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: quickstart
@@ -24,7 +24,7 @@ For this quickstart you need:
 - An Azure account with an active subscription. 
 
     [!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
-- Create an Azure Database for MySQL Flexible server using [Azure portal](./quickstart-create-server-portal.md) <br/> or [Azure CLI](./quickstart-create-server-cli.md) if you do not have one.
+- Create an Azure Database for MySQL - Flexible Server using [Azure portal](./quickstart-create-server-portal.md) <br/> or [Azure CLI](./quickstart-create-server-cli.md) if you do not have one.
 - Based on whether you are using public or private access, complete **ONE** of the actions below to enable connectivity.
 - [Create a database and non-admin user](../howto-create-users.md)
 - Install the [.NET SDK for your platform](https://dotnet.microsoft.com/download) (Windows, Ubuntu Linux, or macOS) for your platform.

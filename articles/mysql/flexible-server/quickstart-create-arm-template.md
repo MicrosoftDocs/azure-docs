@@ -497,9 +497,69 @@ az deployment group create --resource-group exampleRG --template-file azuredeplo
 
 # [PowerShell](#tab/PowerShell)
 
+<<<<<<< HEAD
+Follow these steps to verify if your server was created in Azure.
+
+### Azure portal
+
+1. In the [Azure portal](https://portal.azure.com), search for and select **Azure Database for MySQL servers**.
+1. In the database list, select your new server. The **Overview** page for your new Azure Database for MySQL server appears.
+
+### PowerShell
+
+You'll have to enter the name of the new server to view the details of your Azure Database for MySQL - Flexible Server.
+
+```azurepowershell-interactive
+$serverName = Read-Host -Prompt "Enter the name of your Azure Database for MySQL server"
+Get-AzResource -ResourceType "Microsoft.DBforMySQL/flexibleServers" -Name $serverName | ft
+Write-Host "Press [ENTER] to continue..."
+```
+
+### CLI
+
+You'll have to enter the name and the resource group of the new server to view details about your Azure Database for MySQL - Flexible Server.
+
+```azurecli-interactive
+echo "Enter your Azure Database for MySQL server name:" &&
+read serverName &&
+echo "Enter the resource group where the Azure Database for MySQL server exists:" &&
+read resourcegroupName &&
+az resource show --resource-group $resourcegroupName --name $serverName --resource-type "Microsoft.DbForMySQL/flexibleServers"
+```
+
+## Clean up resources
+
+Keep this resource group, server, and single database if you want to go to the [Next steps](#next-steps). The next steps show you how to connect and query your database using different methods.
+
+To delete the resource group:
+
+### Azure portal
+
+1. In the [Azure portal](https://portal.azure.com), search for and select **Resource groups**.
+1. In the resource group list, choose the name of your resource group.
+1. In the **Overview** page of your resource group, select **Delete resource group**.
+1. In the confirmation dialog box, type the name of your resource group, and then select **Delete**.
+
+### PowerShell
+
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+Remove-AzResourceGroup -Name $resourceGroupName
+Write-Host "Press [ENTER] to continue..."
+```
+
+### CLI
+
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+az group delete --name $resourceGroupName &&
+echo "Press [ENTER] to continue ..."
+=======
 ```azurepowershell
 New-AzResourceGroup -Name exampleRG -Location eastus
 New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile azuredeploy.json
+>>>>>>> 60651a3d247d2413e6b9c5a301d846ded7170aa7
 ```
 
 ---

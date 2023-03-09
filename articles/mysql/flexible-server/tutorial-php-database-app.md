@@ -15,7 +15,7 @@ ms.custom: mvc, devx-track-azurecli
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-[Azure App Service](../../app-service/overview.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a secure PHP app in Azure App Service that's connected to a MySQL database (using Azure Database for MySQL Flexible Server). When you're finished, you'll have a [Laravel](https://laravel.com/) app running on Azure App Service on Linux.
+[Azure App Service](../../app-service/overview.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a secure PHP app in Azure App Service that's connected to a MySQL database (using Azure Database for MySQL - Flexible Server). When you're finished, you'll have a [Laravel](https://laravel.com/) app running on Azure App Service on Linux.
 
 :::image type="content" source="./media/tutorial-php-database-app/azure-portal-browse-app-2.png" alt-text="Screenshot of the Azure app example titled Task List showing new tasks added.":::
 

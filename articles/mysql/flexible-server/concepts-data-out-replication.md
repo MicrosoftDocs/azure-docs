@@ -1,5 +1,5 @@
 ---
-title: Data-out replication - Azure Database for MySQL Flexible Server
+title: Data-out replication - Azure Database for MySQL - Flexible Server
 description: Learn about the concepts of data-out replication out of Azure Database for MySQL - Flexible Server to another MySQL server
 author: VandhanaMehta
 ms.author: vamehta
@@ -10,7 +10,7 @@ ms.subservice: flexible-server
 ms.topic: conceptual
 ---
 
-# Replicate data from Azure Database for MySQL Flexible Server
+# Replicate data from Azure Database for MySQL - Flexible Server
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
@@ -21,9 +21,9 @@ Data-out replication allows you to synchronize data out of Azure Database for My
 
 The main scenarios to consider about using Data-out replication are:
 
-- **Hybrid Data Synchronization:** Data-out replication can be used to keep the data synchronized between Azure Database for MySQL Flexible server and on-premises servers. This method will help to integrate seamlessly between cloud and on-premises systems in a hybrid solution. This solution can also be useful if you want to avoid vendor lock-in.
+- **Hybrid Data Synchronization:** Data-out replication can be used to keep the data synchronized between Azure Database for MySQL - Flexible Server and on-premises servers. This method will help to integrate seamlessly between cloud and on-premises systems in a hybrid solution. This solution can also be useful if you want to avoid vendor lock-in.
 
-- **Multi-Cloud Synchronization:** For complex cloud solutions, use Data-out replication to synchronize data between Azure Database for MySQL Flexible Server and different cloud providers, including virtual machines and database services hosted in those clouds.
+- **Multi-Cloud Synchronization:** For complex cloud solutions, use Data-out replication to synchronize data between Azure Database for MySQL - Flexible Server and different cloud providers, including virtual machines and database services hosted in those clouds.
 
 - **Migration:** Customers can do Minimal Time migration using open-source tools such as MyDumper/MyLoader with Data-out replication to migrate data out Azure MySQL Flexible server.
 
@@ -38,7 +38,7 @@ Data-out replication isn't supported on Azure Database for MySQL - Flexible Serv
 
 ### Filter
 
-You must use the replication filter to filter out Azure custom tables on the replica server. This can be achieved by setting Replicate_Wild_Ignore_Table = "mysql.\_\_%" to filter the Azure MySQL internal tables on the replica. To modify this parameter from the Azure portal, navigate to Azure Database for MySQL Flexible server and select "Server parameters" to view/edit the Replicate_Wild_Ignore_Table parameter.
+You must use the replication filter to filter out Azure custom tables on the replica server. This can be achieved by setting Replicate_Wild_Ignore_Table = "mysql.\_\_%" to filter the Azure MySQL internal tables on the replica. To modify this parameter from the Azure portal, navigate to Azure Database for MySQL - Flexible Server and select "Server parameters" to view/edit the Replicate_Wild_Ignore_Table parameter.
 
 Refer to the following general guidance on the replication filter in MySQL Manual:
 - MySQL 5.7 Reference Manual - [13.4.2.2 CHANGE REPLICATION FILTER Statement](https://dev.mysql.com/doc/refman/5.7/en/change-replication-filter.html)
