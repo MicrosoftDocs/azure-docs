@@ -4,7 +4,7 @@ description: Azure Database for PostgreSQL Flexible server data encryption with 
 author: gennadNY
 ms.author: gennadyk
 ms.reviewer: maghan
-ms.date: 11/03/2022
+ms.date: 1/24/2023
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -16,15 +16,15 @@ ms.topic: conceptual
 
 
 
-Azure PostgreSQL uses [Azure Storage encryption](../../storage/common/storage-service-encryption.md) to encrypt data at-rest by default using Microsoft-managed keys. For Azure PostgreSQL users, it's similar to Transparent Data Encryption (TDE) in other databases such as SQL Server. Many organizations require full control of access to the data using a customer-managed key. Data encryption with customer-managed keys for Azure Database for PostgreSQL Flexible server - Preview enables you to bring your key (BYOK) for data protection at rest. It also allows organizations to implement separation of duties in the management of keys and data. With customer-managed encryption, you're responsible for, and in full control of, a key's lifecycle, key usage permissions, and auditing of operations on keys.
+Azure PostgreSQL uses [Azure Storage encryption](../../storage/common/storage-service-encryption.md) to encrypt data at-rest by default using Microsoft-managed keys. For Azure PostgreSQL users, it's similar to Transparent Data Encryption (TDE) in other databases such as SQL Server. Many organizations require full control of access to the data using a customer-managed key. Data encryption with customer-managed keys for Azure Database for PostgreSQL Flexible server enables you to bring your key (BYOK) for data protection at rest. It also allows organizations to implement separation of duties in the management of keys and data. With customer-managed encryption, you're responsible for, and in full control of, a key's lifecycle, key usage permissions, and auditing of operations on keys.
 
-Data encryption with customer-managed keys for Azure Database for PostgreSQL Flexible server - Preview is set at the server level. For a given server, a customer-managed key, called the key encryption key (KEK), is used to encrypt the service's data encryption key (DEK). The KEK is an asymmetric key stored in a customer-owned and customer-managed [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)) instance. The Key Encryption Key (KEK) and Data Encryption Key (DEK) are described in more detail later in this article.
+Data encryption with customer-managed keys for Azure Database for PostgreSQL Flexible server  is set at the server level. For a given server, a customer-managed key, called the key encryption key (KEK), is used to encrypt the service's data encryption key (DEK). The KEK is an asymmetric key stored in a customer-owned and customer-managed [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)) instance. The Key Encryption Key (KEK) and Data Encryption Key (DEK) are described in more detail later in this article.
 
 Key Vault is a cloud-based, external key management system. It's highly available and provides scalable, secure storage for RSA cryptographic keys, optionally backed by FIPS 140-2 Level 2 validated hardware security modules (HSMs). It doesn't allow direct access to a stored key but provides encryption and decryption services to authorized entities. Key Vault can generate the key, import it, or have it transferred from an on-premises HSM device.
 
 ## Benefits
 
-Data encryption with customer-managed keys for Azure Database for PostgreSQL - Flexible Server (Preview) provides the following benefits:
+Data encryption with customer-managed keys for Azure Database for PostgreSQL - Flexible Server  provides the following benefits:
 
 - You fully control data-access by the ability to remove the key and make the database inaccessible.
 
@@ -103,7 +103,7 @@ When you're using data encryption by using a customer-managed key, here are reco
     :::image type="content" source="media/concepts-data-encryption/key-vault-trusted-service.png" alt-text="Screenshot of an image of networking screen with trusted-service-with-AKV setting." lightbox="media/concepts-data-encryption/key-vault-trusted-service.png":::
 
 > [!NOTE]
->Important to note, that after choosing **disable public access** option in Azure Key Vault networking and allowing only *trusted Microsoft* services you may see error similar to following : *You have enabled the network access control. Only allowed networks will have access to this key vault* while attempting to administer Azure Key Vault via portal through public access, since portal is not considered to be trusted service.
+>Important to note, that after choosing **disable public access** option in Azure Key Vault networking and allowing only *trusted Microsoft* services you may see error similar to following : *You have enabled the network access control. Only allowed networks will have access to this key vault* while attempting to administer Azure Key Vault via portal through public access. This doesn't preclude ability to provide key during CMK setup or fetch keys from Azure Key Vault during server operations. 
 
 Here are recommendations for configuring a customer-managed key:
 
@@ -158,7 +158,7 @@ Some of the reasons why server state can become *Inaccessible* are:
 
 
 > [!NOTE]  
-> CLI examples below are based on 2.43.0 version of Azure Database for PostgreSQL - Flexible Server CLI libraries, which are in preview and may be subject to changes.  
+> CLI examples below are based on 2.45.0 version of Azure Database for PostgreSQL - Flexible Server CLI libraries
 
 ## Setup Customer Managed Key during Server Creation
 
@@ -176,11 +176,11 @@ Follow the steps below to enable CMK while creating Postgres Flexible Server usi
 
 1. Provide required information on Basics and Networking tabs
 
-1. Navigate to Security(preview) tab. On the screen, provide Azure Active Directory (Azure AD)  identity that has access to the Key Vault and Key in Key Vault in the same region where you're creating this server
+1. Navigate to Security tab. On the screen, provide Azure Active Directory (Azure AD)  identity that has access to the Key Vault and Key in Key Vault in the same region where you're creating this server
 
 1. On Review Summary tab, make sure that you provided correct information in Security section and press Create button
 
-1. Once it's finished, you should be able to navigate to Data Encryption (preview) screen for the server and update identity or key if necessary
+1. Once it's finished, you should be able to navigate to Data Encryption  screen for the server and update identity or key if necessary
 
 
 ### CLI:
@@ -229,7 +229,7 @@ Follow the steps below to update CMK on CMK enabled Flexible Server using Azure 
 
 1. Navigate to Azure Database for PostgreSQL - Flexible Server create a page via the Azure portal.
 
-1. Navigate to Data Encryption (preview) screen under Security tab
+1. Navigate to Data Encryption screen under Security tab
 
 1. Select different identity to connect to Azure Key Vault, remembering that this identity needs to have proper access rights to the Key Vault
 
@@ -255,13 +255,9 @@ Follow the steps below to change\rotate key or identity after creation of server
 
 The following are current limitations for configuring the customer-managed key in Flexible Server:
 
-- CMK encryption can only be configured during creation of a new server, not as an update to the existing Flexible Server.
+- CMK encryption can only be configured during creation of a new server, not as an update to the existing Flexible Server. You can [restore PITR backup to new server with CMK encryption](./concepts-backup-restore.md#point-in-time-recovery) instead. 
 
-- Once enabled, CMK encryption can't be removed. If customer desires to remove this feature, it can only be done via restore of the server to non-CMK server.
-
-- CMK encryption isn't available on Burstable SKU.
-
-- No support for Geo backup enabled servers
+- Once enabled, CMK encryption can't be removed. If customer desires to remove this feature, it can only be done via [restore of the server to non-CMK server](./concepts-backup-restore.md#point-in-time-recovery).
 
 - No support for Azure HSM Key Vault 
 

@@ -2,6 +2,7 @@
 title: 'Set up Azure Arc for App Service, Functions, and Logic Apps'
 description: For your Azure Arc-enabled Kubernetes clusters, learn how to enable App Service apps, function apps, and logic apps.
 ms.topic: article
+ms.custom: devx-track-azurecli
 ms.date: 11/02/2021
 ---
 # Set up an Azure Arc-enabled Kubernetes cluster to run App Service, Functions, and Logic Apps (Preview)
@@ -248,8 +249,8 @@ While a [Log Analytic workspace](../azure-monitor/logs/quick-create-workspace.md
         --configuration-settings "customConfigMap=${namespace}/kube-environment-config" \
         --configuration-settings "envoy.annotations.service.beta.kubernetes.io/azure-load-balancer-resource-group=${aksClusterGroupName}" \
         --configuration-settings "logProcessor.appLogs.destination=log-analytics" \
-        --configuration-protected-settings "logProcessor.appLogs.logAnalyticsConfig.customerId=${logAnalyticsWorkspaceIdEnc}" \
-        --configuration-protected-settings "logProcessor.appLogs.logAnalyticsConfig.sharedKey=${logAnalyticsKeyEnc}"
+        --config-protected-settings "logProcessor.appLogs.logAnalyticsConfig.customerId=${logAnalyticsWorkspaceIdEnc}" \
+        --config-protected-settings "logProcessor.appLogs.logAnalyticsConfig.sharedKey=${logAnalyticsKeyEnc}"
     ```
 
     # [PowerShell](#tab/powershell)
@@ -274,8 +275,8 @@ While a [Log Analytic workspace](../azure-monitor/logs/quick-create-workspace.md
         --configuration-settings "customConfigMap=${namespace}/kube-environment-config" `
         --configuration-settings "envoy.annotations.service.beta.kubernetes.io/azure-load-balancer-resource-group=${aksClusterGroupName}" `
         --configuration-settings "logProcessor.appLogs.destination=log-analytics" `
-        --configuration-protected-settings "logProcessor.appLogs.logAnalyticsConfig.customerId=${logAnalyticsWorkspaceIdEnc}" `
-        --configuration-protected-settings "logProcessor.appLogs.logAnalyticsConfig.sharedKey=${logAnalyticsKeyEnc}"
+        --config-protected-settings "logProcessor.appLogs.logAnalyticsConfig.customerId=${logAnalyticsWorkspaceIdEnc}" `
+        --config-protected-settings "logProcessor.appLogs.logAnalyticsConfig.sharedKey=${logAnalyticsKeyEnc}"
     ```
 
     ---

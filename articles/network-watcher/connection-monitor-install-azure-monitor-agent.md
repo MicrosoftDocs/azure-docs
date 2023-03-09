@@ -1,13 +1,13 @@
 ---
-title: Install Azure Monitor Agent for Connection Monitor
+title: Install Azure Monitor Agent for connection monitor
 description: This article describes how to install Azure Monitor Agent.
 services: network-watcher
-author: v-ksreedevan
+author: halkazwini
 ms.service: network-watcher
 ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 10/25/2022
-ms.author: v-ksreedevan
+ms.author: halkazwini
 #Customer intent: I need to monitor a connection by using Azure Monitor Agent.
 ---
 

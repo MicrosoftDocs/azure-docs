@@ -8,7 +8,7 @@ ms.date: 06/27/2022
 
 # Logs Ingestion API in Azure Monitor
 
-The Logs Ingestion API in Azure Monitor lets you send data to a Log Analytics workspace from any REST API client. By using this API, you can send data from almost any source to [supported built-in tables](#supported-tables) or to custom tables that you create. You can even extend the schema of built-in tables with custom columns.
+The Logs Ingestion API in Azure Monitor lets you send data to a Log Analytics workspace from any REST API client. By using this API, you can send data from almost any source to [supported Azure tables](#supported-tables) or to [custom tables that you create](../logs/create-custom-table.md#create-a-custom-table). You can even [extend the schema of Azure tables with custom columns](../logs/create-custom-table.md#add-or-delete-a-custom-column).
 
 > [!NOTE]
 > The Logs Ingestion API was previously referred to as the custom logs API.
@@ -32,18 +32,19 @@ You can modify the target table and workspace by modifying the DCR without any c
 
 ### Custom tables
 
-The Logs Ingestion API can send data to any custom table that you create and to certain built-in tables in your Log Analytics workspace. The target table must exist before you can send data to it. Custom tables must have the `_CL` suffix.
+The Logs Ingestion API can send data to any custom table that you create and to certain Azure tables in your Log Analytics workspace. The target table must exist before you can send data to it. Custom tables must have the `_CL` suffix.
 
-### Built-in tables
+### Azure tables
 
-The Logs Ingestion API can send data to the following built-in tables. Other tables may be added to this list as support for them is implemented. Columns extended on top of built-in tables must have the suffix `_CF`. Columns in a custom table don't need this suffix. Column names can consist of alphanumeric characters and the characters `_` and `-`, and they must start with a letter. 
+The Logs Ingestion API can send data to the following Azure tables. Other tables may be added to this list as support for them is implemented. 
 
 - [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog)
 - [SecurityEvents](/azure/azure-monitor/reference/tables/securityevent)
 - [Syslog](/azure/azure-monitor/reference/tables/syslog)
 - [WindowsEvents](/azure/azure-monitor/reference/tables/windowsevent)
 
-
+> [!NOTE]
+> Column names must start with a letter and can consist of up to 45 alphanumeric characters and the characters `_` and `-`. The following are reserved column names: `Type`, `TenantId`, `resource`, `resourceid`, `resourcename`, `resourcetype`, `subscriptionid`, `tenanted`. Custom columns you add to an Azure table must have the suffix `_CF`.
 
 ## Authentication
 

@@ -11,7 +11,7 @@ ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 01/21/2022
+ms.date: 01/26/2023
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
@@ -53,7 +53,7 @@ The diagnose feature supports user objects with the following duplicated attribu
 | OnPremiseSecurityIdentifier |  AttributeValueMustBeUnique |
 
 >[!IMPORTANT]
-> To access this feature, **Global Admin** permission, or **Contributor** permission from Azure RBAC, is required.
+> To access this feature, **Global Administrator** permission, or **Contributor** permission from Azure RBAC, is required.
 >
 
 Follow the steps from the Azure portal to narrow down the sync error details and provide more specific solutions:
@@ -148,7 +148,7 @@ The specific settings such as [UserWriteback in Azure AD Connect](./how-to-conne
 
 
 **Q.** What permission does a user need to apply the fix?  
-**A.** **Global Admin**, or **Contributor** from Azure RBAC, has permission to access the diagnostic and troubleshooting process.
+**A.** **Global Administrator**, or **Contributor** from Azure RBAC, has permission to access the diagnostic and troubleshooting process.
 
 
 **Q.** Do I have to configure Azure AD Connect or update the Azure AD Connect Health agent for this feature?  

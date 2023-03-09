@@ -10,12 +10,10 @@ ms.subservice: flexible-server
 ms.topic: conceptual
 ---
 
-# Azure Active Directory Authentication with PostgreSQL Flexible Server Preview
+# Azure Active Directory Authentication with PostgreSQL Flexible Server
 
 [!INCLUDE [applies-to-postgresql-Flexible-server](../includes/applies-to-postgresql-Flexible-server.md)]
 
-> [!NOTE]  
-> Azure Active Directory Authentication for PostgreSQL Flexible Server is currently in preview.
 
 Microsoft Azure Active Directory (Azure AD) authentication is a mechanism of connecting to Azure Database for PostgreSQL using identities defined in Azure AD.
 With Azure AD authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
@@ -43,7 +41,7 @@ The following table provides a list of high-level Azure AD features and capabili
 | Disable Password Authentication | Not Available | Available |
 | Service Principal can act as group member | No | Yes |
 | Audit Azure AD Logins | No | Yes |
-| PG bouncer support | No | Planned for GA |
+| PG bouncer support | No | Yes  (New Servers) |
 
 ## How Azure AD Works In Flexible Server
 
@@ -83,7 +81,6 @@ Once you've authenticated against the Active Directory, you then retrieve a toke
 
 - Multiple Azure AD principals (a user, group, service principal or managed identity) can be configured as Azure AD Administrator for an Azure Database for PostgreSQL server at any time.
 - Azure AD groups must be a mail enabled security group for authentication to work.
-- In preview, `Azure Active Directory Authentication only`  is supported post server creation, this option is currently disabled during server creation experience
 - Only an Azure AD administrator for PostgreSQL can initially connect to the Azure Database for PostgreSQL using an Azure Active Directory account. The Active Directory administrator can configure subsequent Azure AD database users.
 -  If an Azure AD principal is deleted from Azure AD, it still remains as PostgreSQL role, but it will no longer be able to acquire new access token. In this case, although the matching role still exists in the database it won't be able to authenticate to the server. Database administrators need to transfer ownership and drop roles manually.
 
@@ -91,6 +88,12 @@ Once you've authenticated against the Active Directory, you then retrieve a toke
 > Login with the deleted Azure AD user can still be done till the token expires (up to 60 minutes from token issuing).  If you also remove the user from Azure Database for PostgreSQL this access will be revoked immediately.
 
 - Azure Database for PostgreSQL Flexible Server matches access tokens to the database role using the user’s unique Azure Active Directory user ID, as opposed to using the username. If an Azure AD user is deleted and a new user is created with the same name, Azure Database for PostgreSQL Flexible Server considers that a different user. Therefore, if a user is deleted from Azure AD and a new user is added with the same name the new user won't be able to connect with the existing role.
+
+## Limitations
+
+- PG bouncer is currently supported for newly created servers and we are going to support existing servers very soon..
+
+
 
 ## Next steps
 

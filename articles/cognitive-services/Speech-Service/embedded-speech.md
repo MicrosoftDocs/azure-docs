@@ -58,13 +58,34 @@ The Speech SDK for Java doesn't support Windows on ARM64.
 
 Embedded speech is only available with C#, C++, and Java SDKs. The other Speech SDKs, Speech CLI, and REST APIs don't support embedded speech.
 
-Embedded speech recognition only supports mono 16 bit, 16-kHz PCM-encoded WAV audio. 
+Embedded speech recognition only supports mono 16 bit, 8-kHz or 16-kHz PCM-encoded WAV audio.
 
 Embedded neural voices only support 24-kHz sample rate.
 
 ## Models and voices
 
 For embedded speech, you'll need to download the speech recognition models for [speech-to-text](speech-to-text.md) and voices for [text-to-speech](text-to-speech.md). Instructions will be provided upon successful completion of the [limited access review](https://aka.ms/csgate-embedded-speech) process.
+
+The following [speech-to-text](speech-to-text.md) models are available: de-DE, en-AU, en-CA, en-GB, en-IE, en-IN, en-NZ, en-US, es-ES, es-MX, fr-CA, fr-FR, hi-IN, it-IT, ja-JP, ko-KR, nl-NL, pt-BR, ru-RU, sv-SE, tr-TR, zh-CN, zh-HK, and zh-TW.
+
+The following [text-to-speech](text-to-speech.md) locales and voices are available:
+
+| Locale (BCP-47) | Language | Text-to-speech voices |
+| ----- | ----- | ----- |
+| `de-DE` | German (Germany) | `de-DE-KatjaNeural` (Female)<br/>`de-DE-ConradNeural` (Male)|
+| `en-AU` | English (Australia) | `en-AU-AnnetteNeural` (Female)<br/>`en-AU-WilliamNeural` (Male)|
+| `en-CA` | English (Canada) | `en-CA-ClaraNeural` (Female)<br/>`en-CA-LiamNeural` (Male)|
+| `en-GB` | English (United Kingdom) | `en-GB-LibbyNeural` (Female)<br/>`en-GB-RyanNeural` (Male)|
+| `en-US` | English (United States) | `en-US-AriaNeural` (Female)<br/>`en-US-GuyNeural` (Male)<br/>`en-US-JennyNeural` (Female)|
+| `es-ES` | Spanish (Spain) | `es-ES-ElviraNeural` (Female)<br/>`es-ES-AlvaroNeural` (Male)|
+| `es-MX` | Spanish (Mexico) | `es-MX-DaliaNeural` (Female)<br/>`es-MX-JorgeNeural` (Male)|
+| `fr-CA` | French (Canada) | `fr-CA-SylvieNeural` (Female)<br/>`fr-CA-JeanNeural` (Male)|
+| `fr-FR` | French (France) | `fr-FR-DeniseNeural` (Female)<br/>`fr-FR-HenriNeural` (Male)|
+| `it-IT` | Italian (Italy) | `it-IT-IsabellaNeural` (Female)<br/>`it-IT-DiegoNeural` (Male)|
+| `ja-JP` | Japanese (Japan) | `ja-JP-NanamiNeural` (Female)<br/>`ja-JP-KeitaNeural` (Male)|
+| `ko-KR` | Korean (Korea) | `ko-KR-SunHiNeural` (Female)<br/>`ko-KR-InJoonNeural` (Male)|
+| `pr-BR` | Portuguese (Brazil) | `pt-BR-FranciscaNeural` (Female)<br/>`pt-BR-AntonioNeural` (Male)|
+| `zh-CN` | Chinese (Mandarin, Simplified) | `zh-CN-XiaoxiaoNeural` (Female)<br/>`zh-CN-YunxiNeural` (Male)|
 
 ## Embedded speech configuration
 
@@ -93,10 +114,10 @@ embeddedSpeechConfig.SetSpeechSynthesisVoice(
 embeddedSpeechConfig.SetSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat.Riff24Khz16BitMonoPcm);
 ```
 
-You can find ready to use embedded speech samples at [GitHub](https://aka.ms/csspeech/samples).
+You can find ready to use embedded speech samples at [GitHub](https://aka.ms/embedded-speech-samples). For remarks on projects from scratch, see samples specific documentation:
 
-- [C# (.NET 6.0)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/csharp/dotnetcore/embedded-speech)
-- [C# for Unity](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/csharp/unity/embedded-speech)
+- [C# (.NET 6.0)](https://aka.ms/embedded-speech-samples-csharp)
+- [C# for Unity](https://aka.ms/embedded-speech-samples-csharp-unity)
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
@@ -123,7 +144,8 @@ embeddedSpeechConfig->SetSpeechSynthesisVoice(
 embeddedSpeechConfig->SetSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat::Riff24Khz16BitMonoPcm);
 ```
 
-You can find ready to use embedded speech samples at [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/cpp/embedded-speech)
+You can find ready to use embedded speech samples at [GitHub](https://aka.ms/embedded-speech-samples). For remarks on projects from scratch, see samples specific documentation:
+- [C++](https://aka.ms/embedded-speech-samples-cpp)
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
@@ -147,9 +169,9 @@ embeddedSpeechConfig.setSpeechSynthesisVoice(
 embeddedSpeechConfig.setSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat.Riff24Khz16BitMonoPcm);
 ```
 
-You can find ready to use embedded speech samples at [GitHub](https://aka.ms/csspeech/samples).
-- [Java (JRE)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/java/jre/embedded-speech)
-- [Java for Android](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/java/android/embedded-speech)
+You can find ready to use embedded speech samples at [GitHub](https://aka.ms/embedded-speech-samples). For remarks on projects from scratch, see samples specific documentation:
+- [Java (JRE)](https://aka.ms/embedded-speech-samples-java)
+- [Java for Android](https://aka.ms/embedded-speech-samples-java-android)
 ::: zone-end
 
 

@@ -2,7 +2,6 @@
 title: Customize cluster egress with outbound types in Azure Kubernetes Service (AKS)
 description: Learn how to define a custom egress route in Azure Kubernetes Service (AKS)
 author: asudbring
-ms.service: azure-kubernetes-service
 ms.subservice: aks-networking
 ms.author: allensu
 ms.topic: how-to
@@ -49,7 +48,7 @@ For more information, see [using a standard load balancer in AKS](load-balancer-
 
 ### Outbound type of `managedNatGateway` or `userAssignedNatGateway`
 
-If `managedNatGateway` or `userAssignedNatGateway` are selected for `outboundType`, AKS relies on [Azure Networking NAT gateway](/azure/virtual-network/nat-gateway/manage-nat-gateway) for cluster egress. 
+If `managedNatGateway` or `userAssignedNatGateway` are selected for `outboundType`, AKS relies on [Azure Networking NAT gateway](../virtual-network/nat-gateway/manage-nat-gateway.md) for cluster egress. 
 
 - `managedNatGateway` is used when using managed virtual networks, and tells AKS to provision a NAT gateway and attach it to the cluster subnet.
 - `userAssignedNatGateway` is used when using bring-your-own virtual networking, and requires that a NAT gateway has been provisioned before cluster creation.
@@ -129,7 +128,7 @@ az aks update -g <resourceGroup> -n <clusterName> --outbound-type <loadBalancer|
 - [Configure standard load balancing in an AKS cluster](load-balancer-standard.md)
 - [Configure NAT gateway in an AKS cluster](nat-gateway.md)
 - [Configure user-defined routing in an AKS cluster](egress-udr.md)
-- [NAT gateway documentation](/azure/aks/nat-gateway)
+- [NAT gateway documentation](./nat-gateway.md)
 - [Azure networking UDR overview](../virtual-network/virtual-networks-udr-overview.md).
 - [Manage route tables](../virtual-network/manage-route-table.md).
 

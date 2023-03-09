@@ -27,7 +27,7 @@ The infrastructure requirements for the supported SBCs, domains, and other netwo
 |:--- |:--- |
 |Session Border Controller (SBC)|A supported SBC. For more information, see [Supported SBCs](#supported-session-border-controllers-sbcs).|
 |Telephony trunks connected to the SBC|One or more telephony trunks connected to the SBC. On one end, the SBC connects to the Azure Communication Service via direct routing. The SBC can also connect to third-party telephony entities, such as PBXs, Analog Telephony Adapters. Any Public Switched Telephony Network (PSTN) connectivity option connected to the SBC works. (For configuration of the PSTN trunks to the SBC, refer to the SBC vendors or trunk providers.)|
-|Azure subscription|An Azure subscription that you use to create Communication Services resource, and the configuration and connection to the SBC.|
+|Azure subscription|An Azure subscription that you use to [create Communication Services resource](../../quickstarts/create-communication-resource.md), and the configuration and connection to the SBC.|
 |Communication Services Access Token|To make calls, you need a valid Access Token with `voip` scope. See [Access Tokens](../identity-model.md#access-tokens)|
 |Public IP address for the SBC|A public IP address that can be used to connect to the SBC. Based on the type of SBC, the SBC can use NAT.|
 |Fully Qualified Domain Name (FQDN) for the SBC|For more information, see [SBC certificates and domain names](#sbc-certificates-and-domain-names).|

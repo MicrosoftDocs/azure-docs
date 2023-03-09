@@ -53,7 +53,7 @@ Learn more in [Connect alerts from Microsoft Defender for Cloud](../sentinel/con
 Another alternative for investigating Defender for Cloud alerts in Microsoft Sentinel is to stream your audit logs into Microsoft Sentinel:
 - [Connect Windows security events](../sentinel/connect-windows-security-events.md)
 - [Collect data from Linux-based sources using Syslog](../sentinel/connect-syslog.md)
-- [Connect data from Azure Activity log](../sentinel/data-connectors-reference.md#azure-activity)
+- [Connect data from Azure Activity log](../sentinel/data-connectors/azure-activity.md)
 
 > [!TIP]
 > Microsoft Sentinel is billed based on the volume of data that it ingests for analysis in Microsoft Sentinel and stores in the Azure Monitor Log Analytics workspace. Microsoft Sentinel offers a flexible and predictable pricing model. [Learn more at the Microsoft Sentinel pricing page](https://azure.microsoft.com/pricing/details/azure-sentinel/).

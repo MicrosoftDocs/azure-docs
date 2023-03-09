@@ -61,7 +61,6 @@ None.
 None.
 
 ---
-
 Next, sign in to Azure.
 
 # [Portal](#tab/azure-portal)
@@ -95,7 +94,6 @@ N/A
 N/A
 
 ---
-
 ## Create a storage account
 
 A storage account is an Azure Resource Manager resource. Resource Manager is the deployment and management service for Azure. For more information, see [Azure Resource Manager overview](../../azure-resource-manager/management/overview.md).
@@ -151,7 +149,7 @@ The following table describes the fields on the **Advanced** tab.
 | Security | Permitted scope for copy operations (preview) | Required | Select the scope of storage accounts from which data can be copied to the new account. The default value is `From any storage account`. When set to the default value, users with the appropriate permissions can copy data from any storage account to the new account.<br /><br />Select `From storage accounts in the same Azure AD tenant` to only allow copy operations from storage accounts within the same Azure AD tenant.<br />Select `From storage accounts that have a private endpoint to the same virtual network` to only allow copy operations from storage accounts with private endpoints on the same virtual network.<br /><br /> For more information, see [Restrict the source of copy operations to a storage account](security-restrict-copy-operations.md). |
 | Data Lake Storage Gen2 | Enable hierarchical namespace | Optional | To use this storage account for Azure Data Lake Storage Gen2 workloads, configure a hierarchical namespace. For more information, see [Introduction to Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md). |
 | Blob storage | Enable SFTP | Optional | Enable the use of Secure File Transfer Protocol (SFTP) to securely transfer of data over the internet. For more information, see [Secure File Transfer (SFTP) protocol support in Azure Blob Storage](../blobs/secure-file-transfer-protocol-support.md). |
-| Blob storage | Enable network file share (NFS) v3 | Optional | NFS v3 provides Linux file system compatibility at object storage scale enables Linux clients to mount a container in Blob storage from an Azure Virtual Machine (VM) or a computer on-premises. For more information, see [Network File System (NFS) 3.0 protocol support in Azure Blob Storage](../blobs/network-file-system-protocol-support.md). |
+| Blob storage | Enable network file system (NFS) v3 | Optional | NFS v3 provides Linux file system compatibility at object storage scale enables Linux clients to mount a container in Blob storage from an Azure Virtual Machine (VM) or a computer on-premises. For more information, see [Network File System (NFS) 3.0 protocol support in Azure Blob Storage](../blobs/network-file-system-protocol-support.md). |
 | Blob storage | Allow cross-tenant replication | Required | By default, users with appropriate permissions can configure object replication across Azure AD tenants. To prevent replication across tenants, deselect this option. For more information, see [Prevent replication across Azure AD tenants](../blobs/object-replication-overview.md#prevent-replication-across-azure-ad-tenants). |
 | Blob storage | Access tier | Required | Blob access tiers enable you to store blob data in the most cost-effective manner, based on usage. Select the hot tier (default) for frequently accessed data. Select the cool tier for infrequently accessed data. For more information, see [Hot, Cool, and Archive access tiers for blob data](../blobs/access-tiers-overview.md). |
 | Azure Files | Enable large file shares | Optional | Available only for standard file shares with the LRS or ZRS redundancies. |
@@ -436,7 +434,6 @@ To learn how to modify this template or create new ones, see:
 - [Additional storage account template samples](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Storage).
 
 ---
-
 ## Delete a storage account
 
 Deleting a storage account deletes the entire account, including all data in the account. Be sure to back up any data you want to save before you delete the account.
@@ -503,7 +500,6 @@ az storage account delete --name storageAccountName --resource-group resourceGro
 ```
 
 ---
-
 Alternately, you can delete the resource group, which deletes the storage account and any other resources in that resource group. For more information about deleting a resource group, see [Delete resource group and resources](../../azure-resource-manager/management/delete-resource-group.md).
 
 ## Next steps
@@ -512,3 +508,6 @@ Alternately, you can delete the resource group, which deletes the storage accoun
 - [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md)
 - [Move a storage account to another region](storage-account-move.md)
 - [Recover a deleted storage account](storage-account-recover.md)
+- [Migrate a classic storage account](storage-account-migrate-classic.md)
+   
+

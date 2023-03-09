@@ -39,7 +39,7 @@ The following table summarizes the supported connected sources with Update Manag
 | Linux |Yes |Update Management collects information about system updates from Linux machines with the Log Analytics agent and installation of required updates on supported distributions.<br> Machines need to report to a local or remote repository. |
 | Operations Manager management group |Yes |Update Management collects information about software updates from agents in a connected management group.<br/><br/>A direct connection from the Operations Manager agent to Azure Monitor logs isn't required. Log data is forwarded from the management group to the Log Analytics workspace. |
 
-The machines assigned to Update Management report how up to date they are based on what source they are configured to synchronize with. Windows machines need to be configured to report to either [Windows Server Update Services](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus) or [Microsoft Update](https://www.update.microsoft.com), and Linux machines need to be configured to report to a local or public repository. You can also use Update Management with Microsoft Endpoint Configuration Manager, and to learn more see [Integrate Update Management with Windows Endpoint Configuration Manager](mecmintegration.md). 
+The machines assigned to Update Management report how up to date they are based on what source they are configured to synchronize with. Windows machines need to be configured to report to either [Windows Server Update Services](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus) or [Microsoft Update](https://www.update.microsoft.com), and Linux machines need to be configured to report to a local or public repository. You can also use Update Management with Microsoft Configuration Manager, and to learn more see [Integrate Update Management with Windows Configuration Manager](mecmintegration.md). 
 
 If the Windows Update Agent (WUA) on the Windows machine is configured to report to WSUS, depending on when WSUS last synchronized with Microsoft Update, the results might differ from what Microsoft Update shows. This behavior is the same for Linux machines that are configured to report to a local repo instead of a public repo. On a Windows machine, the compliance scan is run every 12 hours by default. For a Linux machine, the compliance scan is performed every hour by default. If the Log Analytics agent is restarted, a compliance scan is started within 15 minutes. When a machine completes a scan for update compliance, the agent forwards the information in bulk to Azure Monitor Logs. 
 
@@ -164,11 +164,25 @@ sudo yum -q --security check-update
 
 ## Integrate Update Management with Configuration Manager
 
-Customers who have invested in Microsoft Endpoint Configuration Manager for managing PCs, servers, and mobile devices also rely on the strength and maturity of Configuration Manager to help manage software updates. To learn how to integrate Update Management with Configuration Manager, see [Integrate Update Management with Windows Endpoint Configuration Manager](mecmintegration.md).
+Customers who have invested in Microsoft Configuration Manager for managing PCs, servers, and mobile devices also rely on the strength and maturity of Configuration Manager to help manage software updates. To learn how to integrate Update Management with Configuration Manager, see [Integrate Update Management with Windows Configuration Manager](mecmintegration.md).
 
 ## Third-party updates on Windows
 
 Update Management relies on the locally configured update repository to update supported Windows systems, either WSUS or Windows Update. Tools such as [System Center Updates Publisher](/configmgr/sum/tools/updates-publisher) allow you to import and publish custom updates with WSUS. This scenario allows Update Management to update machines that use Configuration Manager as their update repository with third-party software. To learn how to configure Updates Publisher, see [Install Updates Publisher](/configmgr/sum/tools/install-updates-publisher).
+
+
+## Update Windows Log Analytics agent to latest version 
+
+Update Management requires [Log Analytics agent](../../azure-monitor/agents/log-analytics-agent.md)  for its functioning. We recommend you to update Windows Log Analytics agent (also known as Windows Microsoft Monitoring Agent (MMA)) to the latest version to reduce security vulnerabilities and benefit from bug fixes. Log Analytics agent versions prior to [10.20.18053 (bundle) and 1.0.18053.0 (extension)](../../virtual-machines/extensions/oms-windows.md#agent-and-vm-extension-version) use an older method of certificate handling and hence it is not recommended. Older Windows Log Analytics agents would not be able to connect to Azure and Update Management would stop working on them. 
+
+You must update Log Analytics agent to the latest version, by following below steps:  
+
+1. Check the current version of Log Analytics agent for your machine:  Go to the installation path - *C:\ProgramFiles\Microsoft Monitoring Agent\Agent* and right-click on *HealthService.exe* to check **Properties**. In the **Details** tab, the field **Product version** provides version number of the Log Analytics agent. 
+
+1. If your Log Analytics agent version is prior to [10.20.18053 (bundle) and 1.0.18053.0 (extension)](../../virtual-machines/extensions/oms-windows.md#agent-and-vm-extension-version), upgrade to the latest version of the Windows Log Analytics agent, following these [guidelines](../../azure-monitor/agents/agent-manage.md).  
+
+>[!NOTE]
+> During the upgrade process, update management schedules might fail. Ensure to do this when there is no planned schedule. 
 
 ## Next steps
 

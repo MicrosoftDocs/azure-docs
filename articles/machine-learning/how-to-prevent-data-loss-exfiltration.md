@@ -9,7 +9,8 @@ ms.topic: how-to
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 08/26/2022
+ms.date: 01/20/2023
+ms.custom: engagement-fy23
 ---
 
 # Azure Machine Learning data exfiltration prevention
@@ -18,13 +19,13 @@ ms.date: 08/26/2022
 
 Azure Machine Learning has several inbound and outbound dependencies. Some of these dependencies can expose a data exfiltration risk by malicious agents within your organization. This document explains how to minimize data exfiltration risk by limiting inbound and outbound requirements.
 
-* __Inbound__: Azure Machine Learning compute instance and compute cluster have two inbound requirements: the `batchnodemanagement` (ports 29876-29877) and `azuremachinelearning` (port 44224) service tags. You can control this inbound traffic by using a network security group (NSG) and service tags. It's difficult to disguise Azure service IPs, so there's low data exfiltration risk. You can also configure the compute to not use a public IP, which removes inbound requirements.
+* __Inbound__: If your compute instance or cluster uses a public IP address, you have an inbound on `azuremachinelearning` (port 44224) service tag. You can control this inbound traffic by using a network security group (NSG) and service tags. It's difficult to disguise Azure service IPs, so there's low data exfiltration risk. You can also configure the compute to not use a public IP, which removes inbound requirements.
 
 * __Outbound__: If malicious agents don't have write access to outbound destination resources, they can't use that outbound for data exfiltration. Azure Active Directory, Azure Resource Manager, Azure Machine Learning, and Microsoft Container Registry belong to this category. On the other hand, Storage and AzureFrontDoor.frontend can be used for data exfiltration.
 
     * __Storage Outbound__: This requirement comes from compute instance and compute cluster. A malicious agent can use this outbound rule to exfiltrate data by provisioning and saving data in their own storage account. You can remove data exfiltration risk by using an Azure Service Endpoint Policy and Azure Batch's simplified node communication architecture.
 
-    * __AzureFrontDoor.frontend outbound__: Azure Front Door is used by the Azure Machine Learning studio UI and AutoML. Instead of allowing outbound to the service tag (AzureFrontDoor.frontend), switch to the following fully qulified domain names (FQDN). Switching to these FQDNs removes unnecessary outbound traffic included in the service tag and allows only what is needed for Azure Machine Learning studio UI and AutoML.
+    * __AzureFrontDoor.frontend outbound__: Azure Front Door is used by the Azure Machine Learning studio UI and AutoML. Instead of allowing outbound to the service tag (AzureFrontDoor.frontend), switch to the following fully qualified domain names (FQDN). Switching to these FQDNs removes unnecessary outbound traffic included in the service tag and allows only what is needed for Azure Machine Learning studio UI and AutoML.
 
         - `ml.azure.com`
         - `automlresources-prod.azureedge.net`
@@ -41,7 +42,7 @@ Azure Machine Learning has several inbound and outbound dependencies. Some of th
 
 ## Why do I need to use the service endpoint policy
 
-Service endpoint policies allow you to filter egress virtual network traffic to Azure Storage accounts over service endpoint and allow data exfiltration to only specific Azure Storage accounts. Azure Machine Learning compute instance and compute cluster requires access to Microsoft-managed storage accounts for its provisioning. The Azure Machine learning alias in service endpoint policies includes Microsoft-managed storage accounts. We use service endpoint policies with the Azure Machine Learning alias to prevent data exfiltration or control the destination storage accounts. You can learn more in [Service Endpoint policy documentation](../virtual-network/virtual-network-service-endpoint-policies-overview.md).
+Service endpoint policies allow you to filter egress virtual network traffic to Azure Storage accounts over service endpoint and allow data exfiltration to only specific Azure Storage accounts. Azure Machine Learning compute instance and compute cluster requires access to Microsoft-managed storage accounts for its provisioning. The Azure Machine Learning alias in service endpoint policies includes Microsoft-managed storage accounts. We use service endpoint policies with the Azure Machine Learning alias to prevent data exfiltration or control the destination storage accounts. You can learn more in [Service Endpoint policy documentation](../virtual-network/virtual-network-service-endpoint-policies-overview.md).
 
 ## 1. Create the service endpoint policy
 
@@ -78,9 +79,9 @@ Service endpoint policies allow you to filter egress virtual network traffic to 
 ### Inbound
 
 > [!IMPORTANT]
-> The following information __modifies__ the guidance provided in the [Inbound traffic](how-to-secure-training-vnet.md#inbound-traffic) section of the "Secure training environment with virtual networks" article.
+> The following information __modifies__ the guidance provided in the [How to secure training environment](how-to-secure-training-vnet.md) article.
 
-When using Azure Machine Learning __compute instance__ _with a public IP address_, allow inbound traffic from Azure Batch management (service tag `BatchNodeManagement.<region>`). A compute instance _with no public IP_ (preview) __doesn't__ require this inbound communication.
+When using Azure Machine Learning __compute instance__ _with a public IP address_, allow inbound traffic from Azure Batch management (service tag `BatchNodeManagement.<region>`). A compute instance _with no public IP_ __doesn't__ require this inbound communication.
 
 ### Outbound 
 
@@ -103,12 +104,12 @@ __Allow__ outbound traffic over __TCP port 443__ to the following FQDNs. Replace
 
 * `<region>.batch.azure.com`
 * `<region>.service.batch.com`
-* `*.blob.core.windows.net` - A Service Endpoint Policy will be applied in a later step to limit outbound traffic. 
-* `*.queue.core.windows.net` - A Service Endpoint Policy will be applied in a later step to limit outbound traffic. 
-* `*.table.core.windows.net` - A Service Endpoint Policy will be applied in a later step to limit outbound traffic. 
 
-> [!IMPORTANT]
-> If you use one firewall for multiple Azure services, having outbound storage rules impacts other services. In this case, limit thee source IP of the outbound storage rule to the address space of the subnet that contains your compute instance and compute cluster resources. This limits the rule to the compute resources in the subnet.
+> [!WARNING]
+> If you enable the service endpoint on the subnet used by your firewall, you must open outbound traffic to the following hosts:
+> * `*.blob.core.windows.net`
+> * `*.queue.core.windows.net`
+> * `*.table.core.windows.net`
 
 ---
 
@@ -116,7 +117,7 @@ For more information, see [How to secure training environments](how-to-secure-tr
 
 ## 3. Enable storage endpoint for the subnet
 
-1. From the [Azure portal](https://portal.azure.com), select the __Azure Virtual Network__ for your Azure ML workspace.
+1. From the [Azure portal](https://portal.azure.com), select the __Azure Virtual Network__ for your Azure Machine Learning workspace.
 1. From the left of the page, select __Subnets__ and then select the subnet that contains your compute cluster/instance resources.
 1. In the form that appears, expand the __Services__ dropdown and then enable __Microsoft.Storage__. Select __Save__ to save these changes.
 1. Apply the service endpoint policy to your workspace subnet.
@@ -125,9 +126,9 @@ For more information, see [How to secure training environments](how-to-secure-tr
 
 ## 4. Curated environments
 
-When using Azure ML curated environments, make sure to use the latest environment version. The container registry for the environment must also be `mcr.microsoft.com`. To check the container registry, use the following steps:
+When using Azure Machine Learning curated environments, make sure to use the latest environment version. The container registry for the environment must also be `mcr.microsoft.com`. To check the container registry, use the following steps:
 
-1. From [Azure ML studio](https://ml.azure.com), select your workspace and then select __Environments__.
+1. From [Azure Machine Learning studio](https://ml.azure.com), select your workspace and then select __Environments__.
 1. Verify that the __Azure container registry__ begins with a value of `mcr.microsoft.com`.
 
     > [!IMPORTANT]
@@ -150,10 +151,6 @@ When using Azure ML curated environments, make sure to use the latest environmen
     * `*.data.mcr.microsoft.com`
 
     ---
-
-## Limitations
-
-If you want to have data exfiltration with **No Public IP option**, you need to opt in to this Azure Machine Learning preview. Microsoft will contact you once your subscription has been allowlisted to the preview. It may take one to two weeks to allowlist your subscription. Use the form at [https://forms.office.com/r/0Rw6mXTT07](https://forms.office.com/r/0Rw6mXTT07) to opt in to this Azure Machine Learning preview.
 
 ## Next steps
 

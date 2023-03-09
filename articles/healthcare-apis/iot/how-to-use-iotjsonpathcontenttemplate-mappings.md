@@ -1,23 +1,23 @@
 ---
-title: How to use IotJsonPathContentTemplate mappings in the MedTech service device mapping - Azure Health Data Services
-description: This article describes how to use IotJsonPathContentTemplate mappings with the MedTech service device mapping. 
+title: How to use IotJsonPathContentTemplate mappings in the MedTech service device mappings - Azure Health Data Services
+description: This article describes how to use IotJsonPathContentTemplate mappings with the MedTech service device mappings. 
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 1/12/2023
+ms.date: 02/02/2023
 ms.author: jasteppe
 ---
 
 # How to use IotJsonPathContentTemplate mappings
 
-This article describes how to use IoTJsonPathContentTemplate mappings with the MedTech service [device mapping](how-to-configure-device-mappings.md).
+This article describes how to use IoTJsonPathContentTemplate mappings with the MedTech service [device mappings](how-to-configure-device-mappings.md).
 
 ## IotJsonPathContentTemplate
 
 The IotJsonPathContentTemplate is similar to the JsonPathContentTemplate except the `DeviceIdExpression` and `TimestampExpression` aren't required.
 
-The assumption, when using this template, is the messages being evaluated were sent using the [Azure IoT Hub Device SDKs](../../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks) or  [Export Data (legacy)](../../iot-central/core/howto-export-data-legacy.md) feature of [Azure IoT Central](../../iot-central/core/overview-iot-central.md). 
+The assumption, when using this template, is the device messages being evaluated were sent using the [Azure IoT Hub Device SDKs](../../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks) or  [Export Data (legacy)](../../iot-central/core/howto-export-data-legacy.md) feature of [Azure IoT Central](../../iot-central/core/overview-iot-central.md). 
 
 When you're using these SDKs, the device identity and the timestamp of the message are known.
 
@@ -32,20 +32,20 @@ If you're using Azure IoT Hub Device SDKs, you can still use the JsonPathContent
 ### Examples
 
 With each of these examples, you're provided with:
- * A valid IoT device message.
- * An example of what the IoT device message will look like after being received and processed by the IoT Hub.
- * A valid MedTech service device mapping for normalizing the IoT device message after IoT Hub processing.
+ * A valid device message.
+ * An example of what the device message will look like after being received and processed by the IoT hub.
+ * Conforming and valid MedTech service device mappings for normalizing the device message after IoT hub processing.
  * An example of what the MedTech service device message will look like after normalization.
 
 > [!IMPORTANT]
 > To avoid device spoofing in device-to-cloud messages, Azure IoT Hub enriches all messages with additional properties. To learn more about these properties, see [Anti-spoofing properties](../../iot-hub/iot-hub-devguide-messages-construct.md#anti-spoofing-properties).
 
 > [!TIP]
-> [Visual Studio Code with the Azure IoT Hub extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) is a recommended method for sending IoT device messages to your IoT Hub for testing and troubleshooting.
+> [Visual Studio Code with the Azure IoT Hub extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) is a recommended method for sending IoT device messages to your IoT Hub for testing and troubleshooting.
 
 **Heart rate**
 
-**A valid IoT device message to send to your IoT Hub.**
+**A valid device message to send to your IoT hub.**
 
 ```json
 
@@ -53,7 +53,7 @@ With each of these examples, you're provided with:
 
 ```
 
-**An example of what the IoT device message will look like after being received and processed by the IoT Hub.**
+**An example of what the device message will look like after being received and processed by the IoT hub.**
 
 > [!NOTE]
 > The IoT Hub enriches the device message before sending it to the MedTech service device event hub with all properties starting with `iothub`. For example: `iothub-creation-time-utc`.
@@ -76,7 +76,7 @@ With each of these examples, you're provided with:
 
 ```
 
-**A valid MedTech service device mapping for normalizing the IoT device message after IoT Hub processing.**
+**Conforming and valid MedTech service device mappings for normalizing device message data after IoT Hub processing.**
 
 ```json
 
@@ -123,7 +123,7 @@ With each of these examples, you're provided with:
 
 **Blood pressure**
 
-**A valid IoT device message to send to your IoT Hub.**
+**A valid IoT device message to send to your IoT hub.**
 
 ```json
 
@@ -134,10 +134,10 @@ With each of these examples, you're provided with:
 
 ```
 
-**An example of what the IoT device message will look like after being received and processed by the IoT Hub.**
+**An example of what the device message will look like after being received and processed by the IoT hub.**
 
 > [!NOTE]
-> The IoT Hub enriches the device message before sending it to the MedTech service device event hub with all properties starting with `iothub`. For example: `iothub-creation-time-utc`.
+> The IoT hyub enriches the device message before sending it to the MedTech service device event hub with all properties starting with `iothub`. For example: `iothub-creation-time-utc`.
 >
 > `patientIdExpression` is only required for MedTech services in the **Create** mode, however, if **Lookup** is being used, a Device resource with a matching Device Identifier must exist in the FHIR service. These examples assume your MedTech service is in a **Create** mode. For more information on the **Create** and **Lookup** **Destination properties**, see [Configure Destination properties](deploy-05-new-config.md#destination-properties).
 
@@ -158,7 +158,7 @@ With each of these examples, you're provided with:
 
 ```
 
-**A valid MedTech service device mapping for normalizing the IoT device message after IoT Hub processing.**
+**Conforming and valid MedTech service device mappings for normalizing the device message after IoT hub processing.**
 
 ```json
 
@@ -213,11 +213,11 @@ With each of these examples, you're provided with:
 ```
 
 > [!TIP]
-> The IotJsonPathTemplate device mapping examples provided in this article may be combined into a single MedTech service device mapping as shown below.
+> The IotJsonPathContentTemplate device mapping examples provided in this article may be combined into a single MedTech service device mappings as shown.
 >
-> Additionally, the IotJasonPathTemplates can also be combined with with other template types such as [JasonPathContentTemplate mappings](how-to-use-jsonpath-content-mappings.md) to further expand your MedTech service device mapping. 
+> Additionally, the IotJasonPathContentTemplate can also be combined with with other template types such as [JsonPathContentTemplate mappings](how-to-use-jsonpath-content-mappings.md) to further expand your MedTech service device mapping. 
 
-**Combined heart rate and blood pressure MedTech service device mapping example.**
+**Combined heart rate and blood pressure MedTech service device mappings example.**
 
 ```json
 
