@@ -21,25 +21,25 @@ A virtual network is the fundamental building block for private networks in Azur
 
 ## Prerequisites
 
-- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- To deploy the Bicep files, either PowerShell or Azure CLI installed.
+To deploy the Bicep files, either PowerShell or Azure CLI installed.
 
-  # [CLI](#tab/azure-cli)
+# [CLI](#tab/azure-cli)
 
-  [Install Azure CLI locally](/cli/azure/install-azure-cli) to run the commands. You need Azure CLI version 2.0.28 or later. Run [az version](/cli/azure/reference-index?#az-version) to find your installed version and dependent libraries, and run [az upgrade](/cli/azure/reference-index?#az-upgrade) to upgrade.
+[Install Azure CLI locally](/cli/azure/install-azure-cli) to run the commands. You need Azure CLI version 2.0.28 or later. Run [az version](/cli/azure/reference-index?#az-version) to find your installed version and dependent libraries, and run [az upgrade](/cli/azure/reference-index?#az-upgrade) to upgrade.
 
-- Sign in to Azure by using the [az login](/cli/azure/reference-index#az-login) command.
+Sign in to Azure by using the [az login](/cli/azure/reference-index#az-login) command.
 
-  # [PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/azure-powershell)
 
-  [Install Azure PowerShell locally](/powershell/azure/install-Az-ps) to run the cmdlets. You need Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find your installed version. If you need to upgrade, see [Update the Azure PowerShell module](/powershell/azure/install-Az-ps#update-the-azure-powershell-module).
+[Install Azure PowerShell locally](/powershell/azure/install-Az-ps) to run the cmdlets. You need Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find your installed version. If you need to upgrade, see [Update the Azure PowerShell module](/powershell/azure/install-Az-ps#update-the-azure-powershell-module).
 
-- Run `Connect-AzAccount` to connect to Azure.
+Run `Connect-AzAccount` to connect to Azure.
 
-  # [Portal](#tab/azure-portal)
+# [Portal](#tab/azure-portal)
 
-   To create and deploy the resources in the Azure portal, see [Quickstart: Use the Azure portal to create a virtual network](quick-create-portal.md).
+To create and deploy the resources in the Azure portal, see [Quickstart: Use the Azure portal to create a virtual network](quick-create-portal.md).
 
 ---
 

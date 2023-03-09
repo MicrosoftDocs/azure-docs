@@ -43,8 +43,8 @@ You can also [install Azure CLI locally](/cli/azure/install-azure-cli) to run th
    az network vnet create \
      --name VNet \
      --resource-group TestRG \
-     --address-prefix 10.0.0.0/16
-     --subnet-name default
+     --address-prefix 10.0.0.0/16 \
+     --subnet-name default \
      --subnet-prefixes 10.0.0.0/24
    ```
 
@@ -52,14 +52,15 @@ You can also [install Azure CLI locally](/cli/azure/install-azure-cli) to run th
 
 Azure Bastion uses your browser to connect to VMs in your virtual network over secure shell (SSH) or remote desktop protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration. For more information about Azure Bastion, see [Azure Bastion](~/articles/bastion/bastion-overview.md).
 
-1. Use [az network vnet subnet create](/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-create) to create an Azure Bastion subnet for your virtual network. This subnet is reserved exclusively for Azure Bastion resources and must be named `AzureBastionSubnet`.
+1. Use [az network vnet subnet create](/azure/network/vnet/subnet#az-network-vnet-subnet-create) to create an Azure Bastion subnet for your virtual network. This subnet is reserved exclusively for Azure Bastion resources and must be named `AzureBastionSubnet`.
 
    ```azurecli-interactive
    az network vnet subnet create \
      --name AzureBastionSubnet \
      --resource-group TestRG \
-     --vnet-name VNet
-     --address-prefix 10.1.1.0/26 \
+     --vnet-name VNet \
+     --address-prefix 10.0.1.0/26 \
+     --location eastus
    ```
 
 1. Create a public IP address for Azure Bastion. The bastion host uses the public IP to access secure shell (SSH) and remote desktop protocol (RDP) over port 443.
@@ -71,7 +72,11 @@ Azure Bastion uses your browser to connect to VMs in your virtual network over s
 1. Create an Azure Bastion host in the AzureBastionSubnet of your virtual network. It takes about 10 minutes for the Bastion resource to create and deploy.
 
    ```azurecli-interactive
-   az network bastion create --name VNet-bastion --public-ip-address VNet-ip --resource-group TestRG --vnet-name VNet --location eastus
+   az network bastion create \
+     --name VNet-bastion \
+     --public-ip-address VNet-ip \
+     --resource-group TestRG \
+     --vnet-name VNet --location eastus
    ```
 
 1. It takes about 10 minutes for the Bastion resources to deploy. You can create VMs in the next section while Bastion deploys to your virtual network.
@@ -86,7 +91,7 @@ Use [az vm create](/cli/azure/vm#az-vm-create) to create two VMs named `VM1` and
    az vm create \
      --resource-group TestRG \
      --name VM1 \
-     --image Win2019Datacenter \
+     --image Win2019Datacenter
    ```
 
 1. To create the second VM, run the following code:
@@ -95,7 +100,7 @@ Use [az vm create](/cli/azure/vm#az-vm-create) to create two VMs named `VM1` and
    az vm create \
      --resource-group TestRG \
      --name VM2 \
-     --image Win2019Datacenter \
+     --image Win2019Datacenter
    ```
 
 >[!TIP]
