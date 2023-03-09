@@ -199,7 +199,7 @@
             href: app-attach-azure-portal.md
           - name: Set up MSIX app attach with PowerShell
             href: app-attach-powershell.md
-          - name: Create PowerShell scripts
+          - name: Test and troubleshoot MSIX packages
             href: app-attach.md
           - name: Prepare an MSIX image
             href: app-attach-image-prep.md
