@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: gahl-levy
 ms.author: gahllevy
 ms.reviewer: nayakshweta
-ms.date: 03/07/2023
+ms.date: 03/09/2023
 ---
 
 # Tutorial: Connect a Node.js web app with Azure Cosmos DB for MongoDB vCore
@@ -31,21 +31,59 @@ To complete this tutorial, you need the following resources:
 - An existing Azure Cosmos DB for MongoDB vCore cluster.
   - If you don't have an Azure subscription, [create an account for free](https://azure.microsoft.com/free).
   - If you have an existing Azure subscription, [create a new Azure Cosmos DB for MongoDB vCore cluster](quickstart-portal.md?tabs=azure-cli).
-- [Node.js](https://nodejs.org/)
-- [Docker](https://www.docker.com/)
-- [MongoDB Shell](https://www.mongodb.com/)
+- A [Github account](https://github.com/join).
+  - GitHub comes with free Codespaces hours for all users. For more information, see [GitHub Codespaces free utilization](https://github.com/features/codespaces#pricing).
 
-## Clone and test the MERN application with a MongoDB container
+## Setup your environment
 
-Start by taking the [sample application](https://github.com/azure-samples/msdocs-azure-cosmos-db-mongodb-mern-web-app) published to GitHub, cloning it to your local machine, and running it with a local MongoDB container.
 
-1. Run a MongoDB container on your local machine
+
+Use GitHub Codespaces so that you have the correct developer tools and dependencies pre-installed on your machine.
+
+1. Create a new GitHub Codespace on the `main` branch of the [`azure-samples/msdocs-azure-cosmos-db-mongodb-mern-web-app`](https://github.com/azure-samples/msdocs-azure-cosmos-db-mongodb-mern-web-app) GitHub repository.
+
+    > [!div class="nextstepaction"]
+    > [Migrate your data](https://github.com/azure-samples/msdocs-azure-cosmos-db-mongodb-mern-web-app/codespaces)
+
+1. Wait for the Codespace to start. This can take two to three minutes.
+
+1. Open a new terminal in the codespace.
+
+    > [!TIP]
+    > You can use the main menu to navigate to the **Terminal** menu option and then select the **New Terminal** option.
+
+1. Check the versions of the tools you will use in this tutorial.
 
     ```bash
-    docker run --detach --publish 65000:27017 mongo
+    node --version
+    npm --version
+    mongosh --version
+    az --version
     ```
 
-1. TODO
+    > [!NOTE]
+    > This tutorial requires the following versions of each tool which are preinstalled in your environment:
+    >
+    > | Tool | Version |
+    > | --- | --- |
+    > | Node.js | &ge; 18.0150 |
+    > | NPM | &ge; 9.5.0 |
+    > | Mongo shell | &ge; 1.8.0 |
+    > | Azure CLI | &ge; 2.46.0 |
+    >
+
+## Test the MERN application with the MongoDB container
+
+Start by running the sample application with the local MongoDB container to validate that the application works.
+
+1. Run a MongoDB container using Docker and publish the typical MongoDB port (`27017`) as a custom port (`65000`).
+
+    ```bash
+    docker pull mongo:6.0
+    docker run --detach --publish 65000:27017 mongo:6.0
+    ```
+
+1. Connect to the MongoDB container using the mongo shell.
 
     ```bash
     mongosh "mongodb://127.0.0.1:65000"
