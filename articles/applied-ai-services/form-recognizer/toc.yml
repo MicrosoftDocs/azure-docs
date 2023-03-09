@@ -58,7 +58,7 @@ items:
     href:  create-sas-tokens.md
   - name: Custom models
     items:
-    - name: Build a custom extraction model
+    - name: 🆕 Build a custom extraction model (preview)
       displayName: tables, labels, ocr, input, train, training, sets, testing
       href: how-to-guides/build-a-custom-model.md
     - name: Compose custom extraction models
@@ -186,7 +186,7 @@ items:
     - name: Custom neural model
       displayName: selection, structure, tables, tabular, train, template, neural, build mode, signatures, custom
       href: concept-custom-neural.md
-    - name: Custom classifier model
+    - name: 🆕 Custom classifier model (preview)
       displayName: custom, train, classification, splitting
       href: concept-custom-classifier.md
     - name: Custom labels
