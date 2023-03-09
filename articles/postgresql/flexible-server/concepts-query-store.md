@@ -18,6 +18,9 @@ The Query Store feature in Azure Database for PostgreSQL provides a way to track
 > Do not modify the **azure_sys** database or its schema. Doing so will prevent Query Store and related performance features from functioning correctly.
 ## Enabling Query Store
 Query Store is an opt-in feature, so it isn't enabled by default on a server. Query store is enabled or disabled globally for all databases on a given server and cannot be turned on or off per database.
+> [!IMPORTANT]
+> Do not enable Query Store on Burstable pricing tier as it would cause performance impact.
+## Enabling Query Store
 ### Enable Query Store using the Azure portal
 1. Sign in to the Azure portal and select your Azure Database for PostgreSQL server.
 2. Select **Server Parameters** in the **Settings** section of the menu.
