@@ -206,7 +206,7 @@ az keyvault set-policy --name myKeyVaultName --object-id myObjID --secret-permis
 [az-acr-cache-delete]:/cli/azure/acr/cache#az-acr-cache-delete
 [az-acr-cache-update]:/cli/azure/acr/cache#az-acr-cache-update
 [az-acr-credential-set-create]:/cli/azure/acr/credential-set#az-acr-credential-set-create
-[az-acr-credential-set-update]:cli/azure/acr/credential-set#az-acr-credential-set-update
+[az-acr-credential-set-update]:/cli/azure/acr/credential-set#az-acr-credential-set-update
 [az-acr-credential-set-show]: /cli/azure/acr/credential-set#az-acr-credential-set-show
 [az-acr-credential-set-list]: /cli/azure/acr/credential-set#az-acr-credential-set-list
 [az-acr-credential-set-delete]: /cli/azure/acr/credential-set#az-acr-credential-set-delete
