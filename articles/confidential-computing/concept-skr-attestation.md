@@ -110,6 +110,8 @@ No. Not at this time.
 
 ## References
 
+[SKR Policy Examples](skr-policy-examples.md)
+
 [Azure Container Instance with confidential containers Secure Key Release with container side-cars](skr-flow-confidentialcontainers-aci.md)
 
 [CVM on AMD SEV-SNP Applications with Secure Key Release Example](skr-flow-cvm-sevsnp-attestation.md)
