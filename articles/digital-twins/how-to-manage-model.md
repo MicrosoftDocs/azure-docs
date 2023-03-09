@@ -320,9 +320,6 @@ Azure Digital Twins supports [DTDL versions 2 and 3](concepts-models.md#supporte
 1. **If needed, update semantic types.** In DTDL v2, [semantic types](concepts-models.md#dtdl-v2-semantic-type-example) are natively supported. In DTDL v3, they are included with the [QuantitativeTypes feature extension](concepts-models.md#quantitativetypes-extension). So, if your v2 model used semantic types, you'll need to add the feature extension when converting the model to v3. To do this, first change the `@context` field on the interface from a single value to an array of values, then add the value `dtmi:dtdl:extension:quantitativeTypes;1`.
     1. Value in v2: `"@context": "dtmi:dtdl:context;2"` 
     1. Value in v3: `"@context": ["dtmi:dtdl:context;3", "dtmi:dtdl:extension:quantitativeTypes;1"]`
-1. **If needed, update CommandPayload type.** If your DTDL v2 model happened to have a value of `CommandPayload` in an optional `@type` field, this value will need to be replaced with `CommandRequest` or `CommandResponse` in v3.
-    1. Value in v2: `"@type": "CommandPayload"` 
-    1. Value in v3: `"@type": "CommandRequest"` or `"@type": "CommandResponse"` 
 1. **If needed, consider size limits**. V2 and v3 have different size limits, so if your interface is very large, you may want to review the limits in the [differences between DTDL v2 and v3](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md#changes-from-version-2). 
 
 After these changes, a former DTDL v2 model has been converted to a DTDL v3 model.
