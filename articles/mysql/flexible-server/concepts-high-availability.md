@@ -78,12 +78,17 @@ Azure Database for MySQL - Flexible Server forced failover enables you to manual
 Forced failover triggers a failover that activates the standby replica to become the primary server with the same database server name by updating the DNS record. The original primary server is restarted and switched to the standby replica. Client connections are disconnected and need to be reconnected to resume their operations. 
 
 The overall failover time depends on the current workload and the last checkpoint. In general, it's expected to take between 60 and 120 seconds.
+
+[!Note]Azure Resource Health event is generated in the event of planned failover, representing the failover time during which server was unavailable. The triggered events can be seen when clicked on "Resource Health" in the left pane. User initiated/ Manual failover is represented by status as **"Unavailable"** and tagged as **"Planned"**. Example - "A failover operation was triggered by an authorized user (Planned)". If your resource remains in this state for an extended period of time, please open a [support ticket](https://azure.microsoft.com/support/create-ticket/) and we will assist you.
+
  
 ### Unplanned: Automatic failover 
  
 Unplanned service downtime can be caused by software bugs or infrastructure faults like compute, network, or storage failures, or power outages that affect the availability of the database. If the database becomes unavailable, replication to the standby replica is severed and the standby replica is activated as the primary database. DNS is updated, and clients reconnect to the database server and resume their operations. 
 
 The overall failover time is expected to be between 60 and 120 seconds. But, depending on the activity in the primary database server at the time of the failover (like large transactions and recovery time), the failover might take longer.
+
+[!Note]Azure Resource Health event is generated in the event of unplanned failover, representing the failover time during which server was unavailable. The triggered events can be seen when clicked on "Resource Health" in the left pane. Automatic failover is represented by status as **"Unavailable"** and tagged as **"Unplanned"**. Example - "Unavailable : A failover operation was triggered automatically (Unplanned)". If your resource remains in this state for an extended period of time, please open a [support ticket](https://azure.microsoft.com/support/create-ticket/) and we will assist you.
 
 #### How automatic failover detection works in HA enabled servers
 
@@ -139,7 +144,7 @@ Logs in ZRS are accessible even when the primary server is unavailable. This ava
 Failovers are fully transparent from the client application. You don't need to take any action. Applications should just use the retry logic for their connections. </br>
 
 - **What happens when I don't choose a specific zone for my standby replica? Can I change the zone later?**</br>
-If you don't choose a zone, one will be randomly selected. It won't be the one used for the primary server. To change the zone later, you can set **High Availability** to **Disabled** on the **High Availability** pane, and then set it back to **Zone Redundant** and choose a zone.</br>
+If you don't choose a zone, one will be randomly selected. It will be the one used for the primary server. To change the zone later, you can set **High Availability** to **Disabled** on the **High Availability** pane, and then set it back to **Zone Redundant** and choose a zone.</br>
 
 - **Is replication between the primary and standby replicas synchronous?**</br>
  The replication between the primary and the standby is similar to [semisynchronous mode](https://dev.mysql.com/doc/refman/5.7/en/replication-semisync.html) in MySQL. When a transaction is committed, it doesn't necessarily commit to the standby. But when the primary is unavailable, the standby does replicate all data changes from the primary to make sure there's no data loss.</br> 
