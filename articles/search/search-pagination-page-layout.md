@@ -298,6 +298,6 @@ To quickly generate a search page for your client, consider these options:
 
 + [Application Generator](search-create-app-portal.md), in the portal, creates an HTML page with a search bar, faceted navigation, and results area that includes images.
 
-+ [Create your first app in C#](tutorial-csharp-create-first-app.md) is a tutorial and code sample that builds a functional client. Sample code demonstrates paginated queries, hit highlighting, and sorting.
++ [Add search to an ASP.NET Core (MVC) app](tutorial-csharp-create-mvc-app.md) is a tutorial and code sample that builds a functional client.
 
 + [Add search to web apps](tutorial-csharp-overview.md) is a tutorial and code sample that uses the React JavaScript libraries for the user experience. The app is deployed using Azure Static Web Apps.
