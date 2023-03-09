@@ -58,7 +58,7 @@ To enable Container insights for the hybrid Kubernetes cluster:
 
 1. Enable the Container insights Helm chart with a Log Analytics workspace.
 
-For more information on monitoring solutions in Azure Monitor, see [Monitoring solutions in Azure Monitor](../../azure-monitor/insights/solutions.md).
+For more information on monitoring solutions in Azure Monitor, see [Monitoring solutions in Azure Monitor](/previous-versions/azure/azure-monitor/insights/solutions).
 
 ### Add the Azure Monitor Containers solution
 

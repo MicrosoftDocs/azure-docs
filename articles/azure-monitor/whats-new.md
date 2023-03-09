@@ -70,7 +70,7 @@ Application-Insights|[Live Metrics: Monitor and diagnose with 1-second latency](
 Application-Insights|[Application Insights for Azure VMs and Virtual Machine Scale Sets](app/azure-vm-vmss-apps.md)|Easily monitor your IIS-hosted .NET Framework and .NET Core applications running on Azure VMs and Virtual Machine Scale Sets using a new App Insights Extension.|
 Application-Insights|[Sampling in Application Insights](app/sampling.md)|We've added embedded links to assist with looking up type definitions. (Dependency, Event, Exception, PageView, Request, Trace)|
 Application-Insights|[Configuration options: Azure Monitor Application Insights for Java](app/java-standalone-config.md)|Instructions are now available on how to set the http proxy using an environment variable, which overrides the JSON configuration. We've also provided a sample to configure connection string at runtime.|
-Application-Insights|[Application Insights for Java 2.x](app/deprecated-java-2x.md)|The Java 2.x retirement notice is available at https://azure.microsoft.com/updates/application-insights-java-2x-retirement.|
+Application-Insights|[Application Insights for Java 2.x](/previous-versions/azure/azure-monitor/app/deprecated-java-2x)|The Java 2.x retirement notice is available at https://azure.microsoft.com/updates/application-insights-java-2x-retirement.|
 Autoscale|[Diagnostic settings in Autoscale](autoscale/autoscale-diagnostics.md)|Updated and expanded content|
 Autoscale|[Overview of common autoscale patterns](autoscale/autoscale-common-scale-patterns.md)|Clarification of weekend profiles|
 Autoscale|[Autoscale with multiple profiles](autoscale/autoscale-multiprofile.md)|Added clarifications for profile end times|

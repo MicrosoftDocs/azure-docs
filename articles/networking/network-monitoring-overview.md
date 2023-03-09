@@ -115,7 +115,7 @@ Built for DNS Administrators, this solution collects, analyzes, and correlates D
 ![DNS Analytics Dashboard](./media/network-monitoring-overview/dns-analytics-overview.png) 
 
 Related links:
-* [Blog post](/archive/blogs/msoms/introducing-oms-dns-analytics), [Documentation](../azure-monitor/insights/dns-analytics.md)
+* [Blog post](/archive/blogs/msoms/introducing-oms-dns-analytics), [Documentation](/previous-versions/azure/azure-monitor/insights/dns-analytics)
 
 ## Miscellaneous
 

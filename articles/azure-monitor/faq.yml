@@ -35,7 +35,7 @@ sections:
       - question: |
           How do I enable Azure Monitor?
         answer: |
-          Azure Monitor is enabled the moment that you create a new Azure subscription, and [Activity log](./essentials/platform-logs-overview.md) and platform [metrics](essentials/data-platform-metrics.md) are automatically collected. Create [diagnostic settings](essentials/diagnostic-settings.md) to collect more detailed information about the operation of your Azure resources, and add [monitoring solutions](insights/solutions.md) and [insights](./monitor-reference.md) to provide extra analysis on collected data for particular services.
+          Azure Monitor is enabled the moment that you create a new Azure subscription, and [Activity log](./essentials/platform-logs-overview.md) and platform [metrics](essentials/data-platform-metrics.md) are automatically collected. Create [diagnostic settings](essentials/diagnostic-settings.md) to collect more detailed information about the operation of your Azure resources, and add [monitoring solutions](/previous-versions/azure/azure-monitor/insights/solutions) and [insights](./monitor-reference.md) to provide extra analysis on collected data for particular services.
           
       - question: |
           How do I access Azure Monitor?
@@ -478,7 +478,7 @@ sections:
           
           * [Set firewall exceptions](app/ip-addresses.md)
           * [Set up an ASP.NET server](app/status-monitor-v2-overview.md)
-          * [Set up a Java server](app/deprecated-java-2x.md#monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps)
+          * [Set up a Java server](/previous-versions/azure/azure-monitor/app/deprecated-java-2x#monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps)
           
           *How many Application Insights resources should I deploy:*
           
@@ -569,7 +569,7 @@ sections:
           * HTTP requests
           * [Dependencies](app/asp-net-dependencies.md). Calls to: SQL Databases; HTTP calls to external services; Azure Cosmos DB, table, blob storage, and queue.
           * [Exceptions](app/asp-net-exceptions.md) and stack traces.
-          * [Performance Counters](app/performance-counters.md) - If you use [Azure Monitor Application Insights Agent](app/status-monitor-v2-overview.md), [Azure monitoring for VM or Virtual Machine Scale Set](app/azure-vm-vmss-apps.md), or the [Application Insights collectd writer](app/deprecated-java-2x.md#collectd-linux-performance-metrics-in-application-insights-deprecated).
+          * [Performance Counters](app/performance-counters.md) - If you use [Azure Monitor Application Insights Agent](app/status-monitor-v2-overview.md), [Azure monitoring for VM or Virtual Machine Scale Set](app/azure-vm-vmss-apps.md), or the [Application Insights collectd writer](/previous-versions/azure/azure-monitor/app/deprecated-java-2x#collectd-linux-performance-metrics-in-application-insights-deprecated).
           * [Custom events and metrics](app/api-custom-events-metrics.md) that you code.
           * [Trace logs](app/asp-net-trace-logs.md) if you configure the appropriate collector.
           
@@ -597,7 +597,7 @@ sections:
           * Telemetry Processor to filter or add properties to selected telemetry items before they are sent from your app.
           * Telemetry Initializer to add properties to all items of telemetry.
           
-          Learn more for [ASP.NET](app/api-filtering-sampling.md) or [Java](app/deprecated-java-2x.md#filter-telemetry-in-your-java-web-app).
+          Learn more for [ASP.NET](app/api-filtering-sampling.md) or [Java](/previous-versions/azure/azure-monitor/app/deprecated-java-2x#filter-telemetry-in-your-java-web-app).
           
       - question: |
           How are city, country/region, and other geo location data calculated?
