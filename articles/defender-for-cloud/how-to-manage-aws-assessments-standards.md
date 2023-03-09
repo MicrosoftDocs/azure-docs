@@ -3,7 +3,7 @@ title: Manage AWS assessments and standards
 titleSuffix: Defender for Cloud
 description: Learn how to create custom security assessments and standards for your AWS environment.
 ms.topic: how-to
-ms.date: 03/08/2023
+ms.date: 03/09/2023
 ---
 
 # Manage AWS assessments and standards
@@ -15,9 +15,9 @@ There are two types of resources that are needed to create and manage assessment
 - Standard: defines a set of assessments
 - Standard assignment: defines the scope, which the standard evaluates. For example, specific AWS account(s).
 
-## Assign a custom compliance standard to your AWS account
+## Create a custom compliance standard to your AWS account
 
-**To assign a custom compliance standard to your AWS account**:
+**To create a custom compliance standard to your AWS account**:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 

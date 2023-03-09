@@ -15,9 +15,9 @@ There are two types of resources that are needed to create and manage standards:
 - Standard: defines a set of assessments
 - Standard assignment: defines the scope, which the standard evaluates. For example, specific GCP projects.
 
-## Assign a custom compliance standard to your GCP project
+## Create a custom compliance standard to your GCP project
 
-**To assign a custom compliance standard to your GCP project**:
+**To create a custom compliance standard to your GCP project**:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
