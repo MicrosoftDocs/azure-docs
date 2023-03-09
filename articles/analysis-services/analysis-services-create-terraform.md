@@ -65,7 +65,7 @@ In this article, you learn how to:
 
 ## Verify the results
 
-1. Get the Azure resource name in which the lab was created.
+1. Get the Azure resource name.
 
     ```console
     echo "$(terraform output resource_group_name)"
