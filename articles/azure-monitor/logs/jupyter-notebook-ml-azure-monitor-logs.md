@@ -31,8 +31,7 @@ In this tutorial, you'll:
 > * Explore and visualize data from your Log Analytics workspace in Jupyter Notebook
 > * Prepare data for model training 
 > * Train and test regression models on historical data
-> * Score new data using a trained model
-> * Identify ingestion anomalies
+> * Score new data using a trained model and identify anomalies
 > * Ingest anomalies into a custom table in your Log Analytics workspace. 
 
 ## Tools you'll use
@@ -178,7 +177,7 @@ To train a machine learning model on data in your Log Analytics workspace:
 1. Save the trained gradient boosting regression model as a [pickle file](https://docs.python.org/library/pickle.html).
 
 
-## Score new data using the trained model
+## Score new data using the trained model and identify anomalies
 
 1. Query data ingestion information for the six data types we selected over the past week.
 
@@ -199,9 +198,18 @@ To train a machine learning model on data in your Log Analytics workspace:
 
     :::image type="content" source="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-scoring-new-data.png" alt-text="Screenshot that shows a DataFrame with information about the predicted and actual ingestion into the six tables we're exploring in this tutorial." 
 
-    As you can see, our DataFrame now includes a new **PredictedUsage** column.
+    As you can see, the DataFrame now includes a new **PredictedUsage** column.
 
-## Identify ingestion anomalies
+1. Identify ingestion anomalies.
+
+    There are multiple methods of detecting anomalies, including the [elliptic envelope model](https://scikit-learn.org/stable/modules/generated/sklearn.covariance.EllipticEnvelope.html), [one-class support vector machine (SVM) model](https://scikit-learn.org/stable/modules/generated/sklearn.svm.OneClassSVM.html) and [isolation forest model](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.IsolationForest.html).
+    
+    In this tutorial, we'll use our example we'll use a method called [Tukey's fences method](https://en.wikipedia.org/wiki/Outlier#Tukey%27s_fences) to identify anomalies. 
+    
+    > [!NOTE]
+    > The KQL [series_decompse_anomalies](../../data-explorer/kusto/query/series-decompose-anomaliesfunction) function also uses the Tukey's fences method to detect anomalies.
+    
+    As you can see, the DataFrame is now filtered based on a new **Anomalies** column, which is set to `1` for all ingestion values that the Tukey's fences method identified as anomolous.
 
 
 ## Ingest anomalies into a custom table in your Log Analytics workspace
