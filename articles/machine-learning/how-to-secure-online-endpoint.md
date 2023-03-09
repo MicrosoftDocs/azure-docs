@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.reviewer: mopeakande
 author: dem108
 ms.author: sehan
-ms.date: 01/06/2023
+ms.date: 03/08/2023
 ms.custom: event-tier1-build-2022
 ---
 
@@ -163,10 +163,16 @@ ml_client.begin_create_or_update(blue_deployment)
 The deployment communicates with these resources over the private endpoint:
 
 * The Azure Machine Learning workspace
-* The Azure Storage blob that is the default storage for the workspace
+* The Azure Storage blob that is associated with the workspace
 * The Azure Container Registry for the workspace
 
-When you configure the `egress_public_network_access` to `disabled`, a new private endpoint is created per deployment, per service. For example, if you set the flag to `disabled` for three deployments to an online endpoint, nine private endpoints are created. Each deployment would have three private endpoints to communicate with the workspace, blob, and container registry.
+When you configure the `egress_public_network_access` to `disabled`, a new private endpoint is created per deployment, per service. For example, if you set the flag to `disabled` for three deployments to an online endpoint, a total of nine private endpoints are created. Each deployment would have three private endpoints to communicate with the workspace, blob, and container registry. To confirm the creation of the private endpoints, first check the storage account and container registry associated with the workspace (see [Download a configuration file](how-to-manage-workspace.md#download-a-configuration-file)), find each resource from Azure Portal and check `Private endpoint connections` tab under the `Networking` menu.
+
+> [!IMPORTANT]
+> - Outbound communication from managed online endpoint deployment is to the _workspace API_. When the endpoint is configured to use __public outbound__ (in other words, `public_network_access` flag for the endpoint is set to `enabled`), then the workspace must be able to accept that public communication (`public_network_access` flag for the workspace set to `enabled`).
+> - When online deployments are created with `egress_public_network_access` flag set to `disabled`, they will have access to above secured resources only. For instance, if the deployment uses model assets uploaded to other storage accounts, the model download will fail. Ensure model assets are on the storage account associated with the workspace.
+> - When `egress_public_network_access` is set to `disabled`, the deployment can only access the workspace-associated resources secured in the VNET. On the contrary, when `egress_public_network_access` is set to `enabled`, the deployment can only access the resources with public access, which means it cannot access the resources secured in the VNET.
+
 
 ## Scenarios
 
@@ -179,9 +185,6 @@ The following table lists the supported configurations when configuring inbound 
 | public inbound with secure outbound | `public_network_access` is enabled | `egress_public_network_access` is disabled    | Yes |
 | public inbound with public outbound | `public_network_access` is enabled</br>The workspace must also allow public access. | `egress_public_network_access` is enabled  | Yes |
 
-> [!IMPORTANT]
-> - Outbound communication from managed online endpoint deployment is to the _workspace API_. When the endpoint is configured to use __public outbound__, then the workspace must be able to accept that public communication (allow public access).
-> - When `egress_public_network_access` is disabled, the deployment can only access the resources secured in the VNET. When `egress_public_network_access` is enabled, the deployment can only access the resources with public access, which means it cannot access the resources secured in the VNET.   
 
 ## End-to-end example
 
