@@ -8,7 +8,7 @@ ms.subservice: automl
 ms.topic: tutorial
 author: swatig007
 ms.author: swatig
-ms.reviewer: nibaccam
+ms.reviewer: ssalgado
 ms.date: 05/26/2022
 ms.custom: devx-track-python, automl, event-tier1-build-2022, ignite-2022
 ---
@@ -63,12 +63,12 @@ This tutorial is also available in the [azureml-examples repository on GitHub](h
 
 This tutorial is also available in the [azureml-examples repository on GitHub](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items). If you wish to run it in your own local environment, setup using the following instructions
 
-* Use the following commands to install Azure ML Python SDK v2:
+* Use the following commands to install Azure Machine Learning Python SDK v2:
    * Uninstall previous preview version:
    ```python
    pip uninstall azure-ai-ml
    ```
-   * Install the Azure ML Python SDK v2:
+   * Install the Azure Machine Learning Python SDK v2:
    ```python
    pip install azure-ai-ml
    ```
@@ -137,7 +137,7 @@ This compute is used later while creating the task specific `automl` job.
 
 ## Experiment setup
 
-You can use an Experiment to track your model training runs.
+You can use an Experiment to track your model training jobs.
 
 # [Azure CLI](#tab/cli)
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
@@ -236,7 +236,7 @@ plot_ground_truth_boxes_jsonl(image_file, jsonl_file)
 ```
 
 ## Upload data and create MLTable
-In order to use the data for training, upload data to default Blob Storage of your Azure ML Workspace and register it as an asset. The benefits of registering data are:
+In order to use the data for training, upload data to default Blob Storage of your Azure Machine Learning Workspace and register it as an asset. The benefits of registering data are:
 - Easy to share with other members of the team
 - Versioning of the metadata (location, description, etc.)
 - Lineage tracking
@@ -309,7 +309,7 @@ You can create data inputs from training and validation MLTable with the followi
 
 ## Configure your object detection experiment
 
-To configure automated ML runs for image-related tasks, create a task specific AutoML job.
+To configure automated ML jobs for image-related tasks, create a task specific AutoML job.
 
 # [Azure CLI](#tab/cli)
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
@@ -377,7 +377,7 @@ When you've configured your AutoML Job to the desired settings, you can submit t
 
 ### Manual hyperparameter sweeping for image tasks
 
-In your AutoML job, you can specify the model algorithms by using `model_name` parameter and configure the settings to perform a hyperparameter sweep over a defined search space to find the optimal model.
+In your AutoML job, you can specify the model architectures by using `model_name` parameter and configure the settings to perform a hyperparameter sweep over a defined search space to find the optimal model.
 
 In this example, we will train an object detection model with `yolov5` and `fasterrcnn_resnet50_fpn`, both of which are pretrained on COCO, a large-scale object detection, segmentation, and captioning dataset that contains over thousands of labeled images with over 80 label categories.
 
@@ -403,11 +403,11 @@ limits:
 
 ---
 
-The following code defines the search space in preparation for the hyperparameter sweep for each defined algorithm, `yolov5` and `fasterrcnn_resnet50_fpn`.  In the search space, specify the range of values for `learning_rate`, `optimizer`, `lr_scheduler`, etc., for AutoML to choose from as it attempts to generate a model with the optimal primary metric. If hyperparameter values are not specified, then default values are used for each algorithm.
+The following code defines the search space in preparation for the hyperparameter sweep for each defined architecture, `yolov5` and `fasterrcnn_resnet50_fpn`.  In the search space, specify the range of values for `learning_rate`, `optimizer`, `lr_scheduler`, etc., for AutoML to choose from as it attempts to generate a model with the optimal primary metric. If hyperparameter values are not specified, then default values are used for each architecture.
 
 For the tuning settings, use random sampling to pick samples from this parameter space by using the `random` sampling_algorithm. The job limits configured above, tells automated ML to try a total of 10 trials with these different samples, running two trials at a time on our compute target, which was set up using four nodes. The more parameters the search space has, the more trials you need to find optimal models.
 
-The Bandit early termination policy is also used. This policy terminates poor performing configurations; that is, those configurations that are not within 20% slack of the best performing configuration, which significantly saves compute resources.
+The Bandit early termination policy is also used. This policy terminates poor performing trials; that is, those trials that are not within 20% slack of the best performing trial, which significantly saves compute resources.
 
 # [Azure CLI](#tab/cli)
 
@@ -482,9 +482,9 @@ When you've configured your AutoML Job to the desired settings, you can submit t
 
 ---
 
-When doing a hyperparameter sweep, it can be useful to visualize the different configurations that were tried using the HyperDrive UI. You can navigate to this UI by going to the 'Child runs' tab in the UI of the main automl_image_run from above, which is the HyperDrive parent run. Then you can go into the 'Child runs' tab of this one.
+When doing a hyperparameter sweep, it can be useful to visualize the different trials that were tried using the HyperDrive UI. You can navigate to this UI by going to the 'Child jobs' tab in the UI of the main automl_image_job from above, which is the HyperDrive parent job. Then you can go into the 'Child jobs' tab of this one.
 
-Alternatively, here below you can see directly the HyperDrive parent run and navigate to its 'Child runs' tab:
+Alternatively, here below you can see directly the HyperDrive parent job and navigate to its 'Child jobs' tab:
 
 # [Azure CLI](#tab/cli)
 
@@ -506,9 +506,9 @@ hd_job
 
 ## Register and deploy model
 
-Once the run completes, you can register the model that was created from the best run (configuration that resulted in the best primary metric). You can either register the model after downloading or by specifying the azureml path with corresponding jobid.  
+Once the job completes, you can register the model that was created from the best trial (configuration that resulted in the best primary metric). You can either register the model after downloading or by specifying the azureml path with corresponding jobid.  
 
-### Get the best run
+### Get the best trial
 
 
 # [Azure CLI](#tab/cli)

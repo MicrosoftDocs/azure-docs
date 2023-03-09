@@ -1,16 +1,12 @@
 ---
 title: Migrate databases at scale using Azure PowerShell / CLI (Preview)
 description: Learn how to use Azure PowerShell or CLI to migrate databases at scale with the Azure SQL migration extension in Azure Data Studio
-services: database-migration
 author: croblesm
 ms.author: roblescarlos
-manager: 
 ms.reviewer: randolph.west
-ms.service: dms
-ms.workload: data-services
-ms.topic: conceptual
 ms.date: 04/26/2022
-ms.custom: 
+ms.service: dms
+ms.topic: conceptual
 ---
 
 # Migrate databases at scale using automation (Preview)
@@ -64,11 +60,10 @@ Pre-requisites that are common across all supported migration scenarios using Az
     > - If your database backup files are provided in an SMB network share, [Create an Azure storage account](../storage/common/storage-account-create.md) that allows the DMS service to upload the database backup files.  Make sure to create the Azure Storage Account in the same region as the Azure Database Migration Service instance is created.
     > - Make sure the Azure storage account blob container is used exclusively to store backup files only. Any other type of files (txt, png, jpg, etc.) will interfere with the restore process leading to a failure.
     > - Azure Database Migration Service does not initiate any backups, and instead uses existing backups, which you may already have as part of your disaster recovery plan, for the migration.
-    > - You should take [backups using the `WITH CHECKSUM` option](/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server). 
     > - Each backup can be written to either a separate backup file or multiple backup files. However, appending multiple backups (i.e. full and t-log) into a single backup media is not supported. 
     > - Use compressed backups to reduce the likelihood of experiencing potential issues associated with migrating large backups.
 * Ensure that the service account running the source SQL Server instance has read and write permissions on the SMB network share that contains database backup files.
-* The source SQL Server instance certificate from a database protected by Transparent Data Encryption (TDE) must be migrated to the target Azure SQL Managed Instance or SQL Server on Azure Virtual Machine before migrating data. To learn more, see [Migrate a certificate of a TDE-protected database to Azure SQL Managed Instance](/azure/azure-sql/managed-instance/tde-certificate-migrate) and [Move a TDE Protected Database to Another SQL Server](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server).
+* The source SQL Server instance certificate from a database protected by Transparent Data Encryption (TDE) must be migrated to the target Azure SQL Managed Instance or SQL Server on Azure Virtual Machine before migrating data. For more information about migrating TDE-enabled databases, see [Tutorial: Migrate TDE-enabled databases (preview) to Azure SQL in Azure Data Studio](/azure/dms/tutorial-transparent-data-encryption-migration-ads).
     > [!TIP]
     > If your database contains sensitive data that is protected by [Always Encrypted](/sql/relational-databases/security/encryption/configure-always-encrypted-using-sql-server-management-studio), migration process using Azure Data Studio with DMS will automatically migrate your Always Encrypted keys to your target Azure SQL Managed Instance or SQL Server on Azure Virtual Machine.
 

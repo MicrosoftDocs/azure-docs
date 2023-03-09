@@ -74,7 +74,7 @@ Microsoft doesn't provide specific details about how risk is calculated. Each le
 
 Data from Identity Protection can be exported to other tools for archive and further investigation and correlation. The Microsoft Graph based APIs allow organizations to collect this data for further processing in a tool such as their SIEM. Information about how to access the Identity Protection API can be found in the article, [Get started with Azure Active Directory Identity Protection and Microsoft Graph](howto-identity-protection-graph-api.md)
 
-Information about integrating Identity Protection information with Microsoft Sentinel can be found in the article, [Connect data from Azure AD Identity Protection](../../sentinel/data-connectors-reference.md#azure-active-directory-identity-protection).
+Information about integrating Identity Protection information with Microsoft Sentinel can be found in the article, [Connect data from Azure AD Identity Protection](../../sentinel/data-connectors/azure-active-directory-identity-protection.md).
 
 Organizations can choose to store data for longer periods by changing diagnostic settings in Azure AD. They can choose to send data to a Log Analytics workspace, archive data to a storage account, stream data to Event Hubs, or send data to a partner solution. Detailed information about how to do so can be found in the article, [How To: Export risk data](howto-export-risk-data.md).
 
@@ -100,8 +100,7 @@ Conditional Access administrators can create policies that factor in user or sig
 
 | Capability | Details | Azure AD Free / Microsoft 365 Apps | Azure AD Premium P1 | Azure AD Premium P2 |
 | --- | --- | --- | --- | --- |
-| Risk policies | User risk policy (via Identity Protection) | No | No | Yes | 
-| Risk policies | Sign-in risk policy (via Identity Protection or Conditional Access) | No | No | Yes |
+| Risk policies | Sign-in and user risk policies (via Identity Protection or Conditional Access) | No | No | Yes |
 | Security reports | Overview | No | No | Yes |
 | Security reports | Risky users | Limited Information. Only users with medium and high risk are shown. No details drawer or risk history. | Limited Information. Only users with medium and high risk are shown. No details drawer or risk history. | Full access|
 | Security reports | Risky sign-ins | Limited Information. No risk detail or risk level is shown. | Limited Information. No risk detail or risk level is shown. | Full access |

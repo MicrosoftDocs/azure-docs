@@ -4,7 +4,6 @@ description: Learn the foundational concepts and scenarios around consent and pe
 services: active-directory
 author: omondiatieno
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
@@ -30,7 +29,7 @@ As an application developer, you must identify how your application will access 
 
 In this access scenario, a user has signed into a client application. The client application accesses the resource on behalf of the user. Delegated access requires delegated permissions. Both the client and the user must be authorized separately to make the request. For more information about the delegated access scenario, see [delegated access scenario](delegated-access-primer.md).
 
-For the client app, the correct delegated permissions must be granted. Delegated permissions can also be referred to as scopes. Scopes are permissions for a given resource that represent what a client application can access on behalf of the user.For more information about scopes, see [scopes and permissions](v2-permissions-and-consent.md#scopes-and-permissions).
+For the client app, the correct delegated permissions must be granted. Delegated permissions can also be referred to as scopes. Scopes are permissions for a given resource that represent what a client application can access on behalf of the user. For more information about scopes, see [scopes and permissions](scopes-oidc.md).
 
 For the user, the authorization relies on the privileges that the user has been granted for them to access the resource. For example, the user could be authorized to access directory resources by [Azure Active Directory (Azure AD) role-based access control (RBAC)](../roles/custom-overview.md) or to access mail and calendar resources by Exchange Online RBAC. For more information on RBAC for applications, see [RBAC for applications](custom-rbac-for-developers.md).
 
@@ -52,11 +51,12 @@ There are other ways in which applications can be granted authorization for app-
 
 ### Comparison of delegated and application permissions
 
-| <!-- No header--> | Delegated permissions | Application permissions |
+| Permission types | Delegated permissions | Application permissions |
 |--|--|--|
 | Types of apps | Web / Mobile / single-page app (SPA) | Web / Daemon |
 | Access context | Get access on behalf of a user | Get access without a user |
 | Who can consent | - Users can consent for their data <br> - Admins can consent for all users | Only admin can consent |
+| Consent methods | - Static: configured list on app registration <br> - Dynamic: request individual permissions at login | - Static ONLY: configured list on app registration |
 | Other names | - Scopes <br> - OAuth2 permission scopes | - App roles <br> - App-only permissions |
 | Result of consent (specific to Microsoft Graph)  | [oAuth2PermissionGrant](/graph/api/resources/oauth2permissiongrant) | [appRoleAssignment](/graph/api/resources/approleassignment) |
 
@@ -65,7 +65,7 @@ One way that applications are granted permissions is through consent. Consent is
 
 - When previously granted consent is revoked.
 - When the application is coded to specifically prompt for consent during every sign-in.
-- When the application uses incremental or dynamic consent to ask for some permissions upfront and more permission later as needed. 
+- When the application uses dynamic consent to ask for new permissions as needed at run time. 
 
 The key details of a consent prompt are the list of permissions the application requires and the publisher information. For more information about the consent prompt and the consent experience for both admins and end-users, see [application consent experience](application-consent-experience.md).
 

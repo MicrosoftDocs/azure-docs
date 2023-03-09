@@ -6,9 +6,8 @@ ms.service: active-directory
 ms.subservice: B2C
 ms.topic: how-to
 ms.date: 12/20/2022
-
-ms.author: kengaderdus
-author: kengaderdus
+author: garrodonnell
+ms.author: godonnell
 manager: CelesteDG
 ms.custom: "it-pro"
 zone_pivot_groups: b2c-policy-type
@@ -147,7 +146,7 @@ Content-type: application/json
  "displayName": "John Smith",
  "objectId": "11111111-0000-0000-0000-000000000000",
  "givenName":"John",
- "lastName":"Smith",
+ "surname":"Smith",
  "step": "PostFederationSignup",
  "client_id":"<guid>",
  "ui_locales":"en-US"
@@ -332,7 +331,7 @@ Content-type: application/json
 {
     "version": "1.0.0",
     "action": "ShowBlockPage",
-    "userMessage": "There was a problem with your request. You are not able to sign up at this time.",
+    "userMessage": "There was a problem with your request. You are not able to sign up at this time. Please contact your system administrator",
 }
 
 ```

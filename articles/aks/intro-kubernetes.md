@@ -1,7 +1,6 @@
 ---
 title: Introduction to Azure Kubernetes Service
 description: Learn the features and benefits of Azure Kubernetes Service to deploy and manage container-based applications in Azure.
-services: container-service
 ms.topic: overview
 ms.date: 11/18/2022
 ms.custom: mvc, ignite-2022
@@ -172,8 +171,8 @@ Learn more about deploying and managing AKS.
 [aks-scale]: ./tutorial-kubernetes-scale.md
 [aks-upgrade]: ./upgrade-cluster.md
 [azure-devops]: ../devops-project/overview.md
-[azure-disk]: ./azure-disks-dynamic-pv.md
-[azure-files]: ./azure-files-dynamic-pv.md
+[azure-disk]: ./azure-disk-csi.md
+[azure-files]: ./azure-files-csi.md
 [container-health]: ../azure-monitor/containers/container-insights-overview.md
 [aks-master-logs]: monitor-aks-reference.md#resource-logs
 [aks-supported versions]: supported-kubernetes-versions.md
@@ -186,5 +185,5 @@ Learn more about deploying and managing AKS.
 [aks-monitor]: monitor-aks.md
 [azure-monitor]: ../azure-monitor/containers/containers.md
 [azure-logs]: ../azure-monitor/logs/log-analytics-overview.md
-[helm]: /quickstart-helm.md
-[aks-best-practices]: /best-practices.md
+[helm]: quickstart-helm.md
+[aks-best-practices]: best-practices.md

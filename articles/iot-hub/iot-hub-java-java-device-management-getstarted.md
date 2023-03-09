@@ -9,12 +9,14 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.custom: mqtt, devx-track-java, devx-track-azurecli
+ms.custom: mqtt, devx-track-java
 ---
 
 # Get started with device management (Java)
 
 [!INCLUDE [iot-hub-selector-dm-getstarted](../../includes/iot-hub-selector-dm-getstarted.md)]
+
+[!INCLUDE [iot-hub-include-dm-getstarted](../../includes/iot-hub-include-dm-getstarted.md)]
 
 This article shows you how to create:
 

@@ -3,6 +3,7 @@ title: Enhance security posture with security recommendations - Microsoft Defend
 description: Learn about how to find security recommendations for devices detected by Microsoft Defender for IoT.
 ms.date: 12/12/2022
 ms.topic: how-to
+ms.custom: enterprise-iot
 ---
 
 # Enhance security posture with security recommendations
@@ -76,10 +77,9 @@ The following recommendations are displayed for devices detected by OT and Enter
 | **Enterprise IoT network sensors** | |
 | **Disable insecure administration protocol**| Devices with this recommendation are exposed to malicious threats because they use Telnet, which isn't a secured and encrypted communication protocol. <br><br>We recommend that you switch to a more secure protocol, such as SSH, disable the server altogether, or apply network access restrictions.|
 
-Other recommendations you may see in the **Recommendations** page are relevant for the  [Defender for IoT micro agent](/azure/defender-for-iot/device-builders/).
+Other recommendations you may see in the **Recommendations** page are relevant for the  [Defender for IoT micro agent](../device-builders/index.yml).
 
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [View the device inventory](how-to-manage-device-inventory-for-organizations.md#view-the-device-inventory)
-

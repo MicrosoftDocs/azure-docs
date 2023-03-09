@@ -8,8 +8,7 @@ ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 08/24/2022
-ms.custom: template-how-to
-ms.devlang:
+ms.custom: template-how-to, devx-track-azurepowershell
 ---
 
 # Add a dual-stack network to an existing virtual machine using Azure PowerShell

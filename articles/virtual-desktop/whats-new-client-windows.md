@@ -1,30 +1,69 @@
 ---
-title: What's new in the Remote Desktop client for Windows
+title: What's new in the Remote Desktop client for Windows - Azure Virtual Desktop
 description: Learn about recent changes to the Remote Desktop client for Windows
 ms.topic: conceptual
 author: heidilohr
-manager: femila
 ms.author: helohr
-ms.date: 12/14/2022
+ms.date: 03/07/2023
 ---
+
 # What's new in the Remote Desktop client for Windows
 
-You can find more detailed information about the Windows Desktop client at [Connect to Azure Virtual Desktop with the Remote Desktop client for Windows](users/connect-windows.md) and [Use features of the Remote Desktop client for Windows when connecting to Azure Virtual Desktop](users/client-features-windows.md). You'll find the latest updates for the available clients in this article.
+In this article you'll learn about the latest updates for the Remote Desktop client for Windows. To learn more about using the Remote Desktop client for Windows with Azure Virtual Desktop, see [Connect to Azure Virtual Desktop with the Remote Desktop client for Windows](users/connect-windows.md) and [Use features of the Remote Desktop client for Windows when connecting to Azure Virtual Desktop](users/client-features-windows.md).
 
 ## Supported client versions
 
-The client can be configured to enable Windows Insider releases. The following table lists the current versions available for each release:
+The following table lists the current versions available for the public and Insider releases. To enable Insider releases, see [Enable Windows Insider releases](users/client-features-windows.md#enable-windows-insider-releases).
 
-| Release | Latest version | Minimum supported version |
-|---------|----------------|---------------------------|
-| Public  | 1.2.3770       | 1.2.1672                  |
-| Insider | 1.2.3770       | 1.2.1672                  |
+| Release | Latest version | Download |
+|---------|----------------|----------|
+| Public  | 1.2.4065       | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
+| Insider | 1.2.4065       | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
+
+## Updates for version 1.2.4065
+
+*Date published: March 7, 2023*
+
+Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370)
+
+In this release, we've made the following changes:
+
+- General improvements to Narrator experience.
+- Fixed a bug that caused the client to stop responding when disconnecting from the session early.
+- Fixed a bug that caused duplicate error messages to appear while connected to an Azure Active Directory-joined host using the new Remote Desktop Services (RDS) Azure Active Directory (Azure AD) Auth protocol.
+- Fixed a bug that caused scale resolution options to not display in display settings for session desktops.
+- Added support for Universal Plug and Play (UPnP) for improved User Datagram Protocol (UDP) connectivity.
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
+- Updates to MMR for Azure Virtual Desktop, including the following:
+   - Fixed an issue that caused multimedia redirection (MMR) for Azure Virtual Desktop to not load for the ARM64 version of the client.
+- Updates to Teams for Azure Virtual Desktop, including the following:
+   - Fixed an issue that caused the application window sharing to freeze or show a black screen in scenarios with Topmost window occlusions.
+   - Fixed an issue that caused Teams media optimizations for Azure Virtual Desktop to not load for the ARM64 version of the client.
+
+## Updates for version 1.2.3918
+
+*Date published: February 7, 2023*
+
+Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWWHz3), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWWzLu), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWWPlp)
+
+In this release, we've made the following changes:
+
+- Fixed a bug where refreshes increased memory usage.
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
+- Updates to Teams for Azure Virtual Desktop, including the following:
+   - Bug fix for Background Effects persistence between Teams sessions.
+- Updates to MMR for Azure Virtual Desktop, including the following:
+   - Various bug fixes for multimedia redirection (MMR) video playback redirection.
+   - [Multimedia redirection for Azure Virtual Desktop](multimedia-redirection.md) is now generally available. 
+
+>[!IMPORTANT]
+>This is the final version of the Remote Desktop client with Windows 7 support. After this version, if you try to use the Remote Desktop client with Windows 7, it may not work as expected. For more information about which versions of Windows the Remote Desktop client currently supports, see [Prerequisites](./users/connect-windows.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&tabs=subscribe#prerequisites).
 
 ## Updates for version 1.2.3770
 
-*Date published: 12/14/2022*
+*Date published: December 14, 2022*
 
-Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370)
+In this release, we've made the following changes:
 
 - Fixed an issue where the app sometimes entered an infinite loop while disconnecting.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
@@ -33,11 +72,11 @@ Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Wi
 
 ## Updates for version 1.2.3667
 
-*Date published: 11/30/2022*
+*Date published: November 30, 2022*
 
-Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE5axvS), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE5axvR), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE5aCCE)
+In this release, we've made the following changes:
 
-- Added User Datagram Protocol (UDP) support to the client's ARM64 platform.
+- Added User Datagram Protocol support to the client's ARM64 platform.
 - Fixed an issue where the tooltip didn't disappear when the user moved the mouse cursor away from the tooltip area.
 - Fixed an issue where the application crashes when calling reset manually from the command line.
 - Fixed an issue where the client stops responding when disconnecting, which prevents the user from launching another connection.
@@ -46,36 +85,46 @@ Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/bi
 
 ## Updates for version 1.2.3577
 
-*Date published: 10/10/2022*
+*Date published: October 10, 2022*
 
-Fixed a bug related to tracing that was blocking reconnections.
+In this release, we've made the following change:
+
+- Fixed a bug related to tracing that was blocking reconnections.
 
 ## Updates for version 1.2.3576
 
-*Date published: 10/6/2022*
+*Date published: October 6, 2022*
 
-Fixed a bug that affected users of some third-party plugins.
+In this release, we've made the following change:
+
+- Fixed a bug that affected users of some third-party plugins.
 
 ## Updates for version 1.2.3575
 
-*Date published: 10/4/2022*
+*Date published: October 4, 2022*
 
-Fixed an issue that caused unexpected disconnects in certain RemoteApp scenarios.
+In this release, we've made the following change:
+
+- Fixed an issue that caused unexpected disconnects in certain RemoteApp scenarios.
 
 ## Updates for version 1.2.3574
 
-*Date published: 10/4/2022*
+*Date published: October 4, 2022*
+
+In this release, we've made the following changes:
 
 - Added banner warning users running client on Windows 7 that support for Windows 7 will end starting January 10, 2023.
 - Added page to installer warning users running client on Windows 7 that support for Windows 7 will end starting January 10, 2023.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 - Updates to multimedia redirection (MMR) for Azure Virtual Desktop, including the following:
    - MMR now works on remote app browser and supports up to 30 sites. For more information, see [Understanding multimedia redirection for Azure Virtual Desktop](./multimedia-redirection-intro.md).
-   - MMR introduces better diagnostic tools with the new status icon and one-click Tracelog. For more information, see [Multimedia redirection for Azure Virtual Desktop (preview)](./multimedia-redirection.md).
+   - MMR introduces better diagnostic tools with the new status icon and one-click Tracelog. For more information, see [Multimedia redirection for Azure Virtual Desktop](./multimedia-redirection.md).
 
 ## Updates for version 1.2.3497
 
-*Date published: 9/20/2022*
+*Date published: September 20, 2022*
+
+In this release, we've made the following changes:
 
 - Accessibility improvements through increased color contrast in the virtual desktop connection blue bar.
 - Updated connection information dialog to distinguish between Websocket (renamed from TCP), RDP Shortpath for managed networks, and RDP Shortpath for public networks.
@@ -87,13 +136,17 @@ Fixed an issue that caused unexpected disconnects in certain RemoteApp scenarios
 
 ## Updates for version 1.2.3496
 
-*Date published: 9/08/2022*
+*Date published: September 8, 2022*
+
+In this release, we've made the following change:
 
 - Reverted to version 1.2.3401 build to avoid a connectivity issue with older RDP stacks.
 
 ## Updates for version 1.2.3401
 
-*Date published: 8/02/2022*
+*Date published: August 2, 2022*
+
+In this release, we've made the following changes:
 
 - Fixed an issue where the narrator was announcing the Tenant Expander button as "on" or "off" instead of "expanded" or “collapsed."
 - Fixed an issue where the text size didn't change when the user adjusted the text size system setting.
@@ -101,13 +154,17 @@ Fixed an issue that caused unexpected disconnects in certain RemoteApp scenarios
 
 ## Updates for version 1.2.3317
 
-*Date published: 7/12/2022*
+*Date published: July 12, 2022*
+
+In this release, we've made the following change:
 
 - Fixed the vulnerability known as [CVE-2022-30221](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2022-30221).
 
 ## Updates for version 1.2.3316
 
-*Date published: 7/06/2022*
+*Date published: July 6, 2022*
+
+In this release, we've made the following changes:
 
 - Fixed an issue where the service couldn't render RemoteApp windows while RemoteFX Advanced Graphics were disabled.
 - Fixed an issue that happened when a user tried to connect to an Azure Virtual Desktop endpoint while using the Remote Desktop Services Transport Layer Security protocol (RDSTLS) with CredSSP disabled, which caused the Windows Desktop client to not prompt the user for credentials. Because the client couldn't authenticate, it would get stuck in an infinite loop of failed connection attempts.
@@ -119,7 +176,9 @@ Fixed an issue that caused unexpected disconnects in certain RemoteApp scenarios
 
 ## Updates for version 1.2.3213
 
-*Date published: 6/02/2022*
+*Date published: June 2, 2022*
+
+In this release, we've made the following changes:
 
 - Reduced flicker when application is restored to full-screen mode from minimized state in single-monitor configuration.
 - The client now shows an error message when the user tries to open a connection from the UI, but the connection doesn't launch.
@@ -129,7 +188,9 @@ Fixed an issue that caused unexpected disconnects in certain RemoteApp scenarios
 
 ## Updates for version 1.2.3130
 
-*Date published: 05/10/2022*
+*Date published: May 10, 2022*
+
+In this release, we've made the following changes:
 
 - Fixed the vulnerability known as [CVE-2022-22017](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2022-22017).
 - Fixed the vulnerability known as [CVE-2022-26940](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2022-26940).
@@ -138,7 +199,9 @@ Fixed an issue that caused unexpected disconnects in certain RemoteApp scenarios
 
 ## Updates for version 1.2.3128
 
-*Date published: 5/03/2022*
+*Date published: May 3, 2022*
+
+In this release, we've made the following changes:
 
 - Improved Narrator application experience.
 - Accessibility improvements.
@@ -150,25 +213,31 @@ Fixed an issue that caused unexpected disconnects in certain RemoteApp scenarios
 
 ## Updates for version 1.2.3004
 
-*Date published: 3/29/2022*
+*Date published: March 29, 2022*
+
+In this release, we've made the following changes:
 
 - Fixed an issue where Narrator didn't announce grid or list views correctly.
 - Fixed an issue where the msrdc.exe process might take a long time to exit after closing the last Azure Virtual Desktop connection if customers have set a very short token expiration policy.
 - Updated the error message that appears when users are unable to subscribe to their feed.
 - Updated the disconnect dialog boxes that appear when the user locks their remote session or puts their local computer in sleep mode to be only informational.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
-- [Multimedia redirection for Azure Virtual Desktop (preview)](./multimedia-redirection.md) now has an update that gives it more site and media control compatibility.
+- [Multimedia redirection for Azure Virtual Desktop](./multimedia-redirection.md) now has an update that gives it more site and media control compatibility.
 - Improved connection reliability for Teams on Azure Virtual Desktop.
 
 ## Updates for version 1.2.2927
 
-*Date published: 3/15/2022*
+*Date published: March 15, 2022*
 
-Fixed an issue where the number pad didn't work on initial focus.
+In this release, we've made the following change:
+
+- Fixed an issue where the number pad didn't work on initial focus.
 
 ## Updates for version 1.2.2925
 
-*Date published: 03/08/2022*
+*Date published: March 8, 2022*
+
+In this release, we've made the following changes:
 
 - Fixed the vulnerability known as [CVE-2022-21990](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2022-21990).
 - Fixed the vulnerability known as [CVE-2022-24503](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2022-24503).
@@ -176,7 +245,9 @@ Fixed an issue where the number pad didn't work on initial focus.
 
 ## Updates for version 1.2.2924
 
-*Date published: 02/23/2022*
+*Date published: February 23, 2022*
+
+In this release, we've made the following changes:
 
 - The Desktop client now supports Ctrl+Alt+arrow key keyboard shortcuts during desktop sessions.
 - Improved graphics performance with certain mouse types.
@@ -188,14 +259,18 @@ Fixed an issue where the number pad didn't work on initial focus.
 
 ## Updates for version 1.2.2860
 
-*Date published: 02/15/2022*
+*Date published: February 15, 2022*
+
+In this release, we've made the following changes:
 
 - Improved stability of Azure Active Directory authentication.
 - Fixed an issue that was preventing users from opening multiple .RDP files from different host pools.
 
 ## Updates for version 1.2.2851
 
-*Date published: 01/25/2022*
+*Date published: January 25, 2022*
+
+In this release, we've made the following changes:
 
 - Fixed an issue that caused a redirected camera to give incorrect error codes when camera access was restricted in the Privacy settings on the client device. This update should give accurate error messages in apps using the redirected camera.
 - Fixed an issue where the Azure Active Directory credential prompt appeared in the wrong monitor.
@@ -206,7 +281,9 @@ Fixed an issue where the number pad didn't work on initial focus.
 
 ## Updates for version 1.2.2691
 
-*Date published: 01/12/2022*
+*Date published: January 12, 2022*
+
+In this release, we've made the following changes:
 
 - Fixed the vulnerability known as [CVE-2019-0887](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2019-0887).
 - Fixed the vulnerability known as [CVE-2022-21850](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2022-21850).
@@ -215,13 +292,17 @@ Fixed an issue where the number pad didn't work on initial focus.
 
 ## Updates for version 1.2.2688
 
-*Date published: 12/09/2021*
+*Date published: December 9, 2021*
 
-- Fixed an issue where some users were unable to subscribe using the "subscribe with URL" option after updating to version 1.2.2687.0.
+In this release, we've made the following change:
+
+- Fixed an issue where some users were unable to subscribe using the **subscribe with URL** option after updating to version 1.2.2687.0.
 
 ## Updates for version 1.2.2687
 
-*Date published: 12/02/2021*
+*Date published: December 2, 2021*
+
+In this release, we've made the following changes:
 
 - Improved manual refresh functionality to acquire new user tokens, which ensures the service can accurately update user access to resources.
 - Fixed an issue where the service sometimes pasted empty frames when a user tried to copy an image from a remotely running Internet Explorer browser to a locally running Word document.
@@ -243,7 +324,9 @@ Fixed an issue where the number pad didn't work on initial focus.
 
 ## Updates for version 1.2.2606
 
-*Date published: 11/9/2021*
+*Date published: November 9, 2021*
+
+In this release, we've made the following changes:
 
 - Fixed the vulnerability known as [CVE-2021-38665](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-38665).
 - Fixed the vulnerability known as [CVE-2021-38666](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-38666).
@@ -251,14 +334,18 @@ Fixed an issue where the number pad didn't work on initial focus.
 
 ## Updates for version 1.2.2600
 
-*Date published: 10/26/2021*
+*Date published: October 26, 2021*
+
+In this release, we've made the following changes:
 
 - Updates to Teams for Azure Virtual Desktop, including improvements to camera performance during video calls.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 
 ## Updates for version 1.2.2459
 
-*Date published: 09/28/2021*
+*Date published: September 28, 2021*
+
+In this release, we've made the following changes:
 
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 - Fixed an issue that caused the client to prompt for credentials a second time after closing a credential prompt window while subscribing.
@@ -268,7 +355,9 @@ Fixed an issue where the number pad didn't work on initial focus.
 
 ## Updates for version 1.2.2322
 
-*Date published: 08/24/2021*
+*Date published: August 24, 2021*
+
+In this release, we've made the following changes:
 
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 - Added updates to Teams on Azure Virtual Desktop, including:
@@ -278,13 +367,17 @@ Fixed an issue where the number pad didn't work on initial focus.
 
 ## Updates for version 1.2.2223
 
-*Date published: 08/10/2021*
+*Date published: August 10, 2021*
+
+In this release, we've made the following change:
 
 - Fixed the security vulnerability known as [CVE-2021-34535](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-34535).
 
 ## Updates for version 1.2.2222
 
-*Date published: 07/27/2021*
+*Date published: July 27, 2021*
+
+In this release, we've made the following changes:
 
 - The client also updates in the background when the auto-update feature is enabled, no remote connection is active, and MSRDCW.exe isn't running.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
@@ -292,7 +385,9 @@ Fixed an issue where the number pad didn't work on initial focus.
 
 ## Updates for version 1.2.2130
 
-*Date published: 06/22/2021*
+*Date published: June 22, 2021*
+
+In this release, we've made the following changes:
 
 - Windows Virtual Desktop has been renamed to Azure Virtual Desktop. Learn more about the name change at [our announcement on our blog](https://azure.microsoft.com/blog/azure-virtual-desktop-the-desktop-and-app-virtualization-platform-for-the-hybrid-workplace/).
 - Fixed an issue where the client would ask for authentication after the user ended their session and closed the window.
@@ -301,7 +396,9 @@ Fixed an issue where the number pad didn't work on initial focus.
 
 ## Updates for version 1.2.2061
 
-*Date published: 05/25/2021*
+*Date published: May 25, 2021*
+
+In this release, we've made the following changes:
 
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 - Updates to Teams on Azure Virtual Desktop, including the following:
@@ -310,13 +407,17 @@ Fixed an issue where the number pad didn't work on initial focus.
 
 ## Updates for version 1.2.1954
 
-*Date published: 05/13/2021*
+*Date published: May 13, 2021*
+
+In this release, we've made the following change:
 
 - Fixed the vulnerability known as [CVE-2021-31186](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-31186).
 
 ## Updates for version 1.2.1953
 
-*Date published: 05/06/2021*
+*Date published: May 6, 2021*
+
+In this release, we've made the following changes:
 
 - Fixed an issue that caused the client to crash when users selected "Disconnect all sessions" in the system tray.
 - Fixed an issue where the client wouldn't switch to full screen on a single monitor with a docking station.
@@ -330,7 +431,9 @@ Fixed an issue where the number pad didn't work on initial focus.
 
 ## Updates for version 1.2.1844
 
-*Date published: 03/23/2021*
+*Date published: March 23, 2021*
+
+In this release, we've made the following changes:
 
 - Updated background installation functionality to perform silently for the client auto-update feature.
 - Fixed an issue where the client forwarded multiple attempts to launch a desktop to the same session. Depending on your group policy configuration, the session host can now allow the creation of multiple sessions for the same user on the same session host or disconnect the previous connection by default. This behavior wasn't consistent before version 1.2.1755.
@@ -344,7 +447,9 @@ Fixed an issue where the number pad didn't work on initial focus.
 
 ## Updates for version 1.2.1755
 
-*Date published: 02/23/2021*
+*Date published: February 23, 2021*
+
+In this release, we've made the following changes:
 
 - Added the Experience Monitor access point to the system tray icon.
 - Fixed an issue where entering an email address into the "Subscribe to a Workplace" tab caused the application to stop responding.
@@ -357,7 +462,9 @@ Fixed an issue where the number pad didn't work on initial focus.
 
 ## Updates for version 1.2.1672
 
-*Date published: 01/26/2021*
+*Date published: January 26, 2021*
+
+In this release, we've made the following changes:
 
 - Added support for the screen capture protection feature for Windows 10 endpoints. To learn more, see [Session host security best practices](./security-guide.md#session-host-security-best-practices).
 - Added support for proxies that require authentication for feed subscription.
@@ -366,14 +473,18 @@ Fixed an issue where the number pad didn't work on initial focus.
 
 ## Updates for version 1.2.1525
 
-*Date published: 12/01/2020*
+*Date published: December 1, 2020*
+
+In this release, we've made the following changes:
 
 - Added List view for remote resources so that longer app names are readable.
 - Added a notification icon that appears when an update for the client is available.
 
 ## Updates for version 1.2.1446
 
-*Date published: 10/27/2020*
+*Date published: October 27, 2020*
+
+In this release, we've made the following changes:
 
 - Added the auto-update feature, which allows the client to install the latest updates automatically.
 - The client now distinguishes between different feeds in the Connection Center.
@@ -383,7 +494,9 @@ Fixed an issue where the number pad didn't work on initial focus.
 
 ## Updates for version 1.2.1364
 
-*Date published: 09/22/2020*
+*Date published: September 22, 2020*
+
+In this release, we've made the following changes:
 
 - Fixed an issue where single sign-on (SSO) didn't work on Windows 7.
 - Fixed the connection failure that happened when calling or joining a Teams call while another app has an audio stream opened in exclusive mode and when media optimization for Teams is enabled.
@@ -393,7 +506,9 @@ Fixed an issue where the number pad didn't work on initial focus.
 
 ## Updates for version 1.2.1275
 
-*Date published: 08/25/2020*
+*Date published: August 25, 2020*
+
+In this release, we've made the following changes:
 
 - Added functionality to auto-detect sovereign clouds from the user’s identity.
 - Added functionality to enable custom URL subscriptions for all users.
@@ -404,7 +519,9 @@ Fixed an issue where the number pad didn't work on initial focus.
 
 ## Updates for version 1.2.1186
 
-*Date published: 07/28/2020*
+*Date published: July 28, 2020*
+
+In this release, we've made the following changes:
 
 - You can now be subscribed to Workspaces with multiple user accounts, using the overflow menu (**...**) option on the command bar at the top of the client. To differentiate Workspaces, the Workspace titles now include the username, as do all app shortcuts titles.
 - Added additional information to subscription error messages to improve troubleshooting.
@@ -414,7 +531,9 @@ Fixed an issue where the number pad didn't work on initial focus.
 
 ## Updates for version 1.2.1104
 
-*Date published: 06/23/2020*
+*Date published: June 23, 2020*
+
+In this release, we've made the following changes:
 
 - Updated the automatic discovery logic for the **Subscribe** option to support the Azure Resource Manager-integrated version of Azure Virtual Desktop. Customers with only Azure Virtual Desktop resources should no longer need to provide consent for Azure Virtual Desktop (classic).
 - Improved support for high-DPI devices with scale factor up to 400%.
@@ -425,7 +544,9 @@ Fixed an issue where the number pad didn't work on initial focus.
 
 ## Updates for version 1.2.1026
 
-*Date published: 05/27/2020*
+*Date published: May 27, 2020*
+
+In this release, we've made the following changes:
 
 - When subscribing, you can now choose your account instead of typing your email address.
 - Added a new **Subscribe with URL** option that allows you to specify the URL of the Workspace you are subscribing to or leverage email discovery when available in cases where we can't automatically find your resources. This is similar to the subscription process in the other Remote Desktop clients. This can be used to subscribe directly to Azure Virtual Desktop workspaces.
@@ -444,7 +565,9 @@ Fixed an issue where the number pad didn't work on initial focus.
 
 ## Updates for version 1.2.945
 
-*Date published: 04/28/2020*
+*Date published: April 28, 2020*
+
+In this release, we've made the following changes:
 
 - Added new display settings options for desktop connections available when right-clicking a desktop icon on the Connection Center.
   - There are now three display configuration options: **All displays**, **Single display** and **Select displays**.
@@ -464,7 +587,9 @@ Fixed an issue where the number pad didn't work on initial focus.
 
 ## Updates for version 1.2.790
 
-*Date published: 03/24/2020*
+*Date published: March 24, 2020*
+
+In this release, we've made the following changes:
 
 - Renamed the "Update" action for Workspaces to "Refresh" for consistency with other Remote Desktop clients.
 - You can now refresh a Workspace directly from its context menu.
@@ -476,7 +601,9 @@ Fixed an issue where the number pad didn't work on initial focus.
 
 ## Updates for version 1.2.675
 
-*Date published: 02/25/2020*
+*Date published: February 25, 2020*
+
+In this release, we've made the following changes:
 
 - Connections to Azure Virtual Desktop are now blocked if the RDP file is missing the signature or one of the signscope properties has been modified.
 - When a Workspace is empty or has been removed, the Connection Center no longer appears to be empty.
@@ -487,7 +614,9 @@ Fixed an issue where the number pad didn't work on initial focus.
 
 ## Updates for version 1.2.605
 
-*Date published: 01/29/2020*
+*Date published: January 29, 2020*
+
+In this release, we've made the following changes:
 
 - You can now select which displays to use for desktop connections. To change this setting, right-click the icon of the desktop connection and select **Settings**.
 - Fixed an issue where the connection settings didn't display the correct available scale factors.
@@ -498,7 +627,9 @@ Fixed an issue where the number pad didn't work on initial focus.
 
 ## Updates for version 1.2.535
 
-*Date published: 12/04/2019*
+*Date published: December 4, 2019*
+
+In this release, we've made the following changes:
 
 - You can now access information about updates directly from the more options button on the command bar at the top of the client.
 - You can now report feedback from the command bar of the client.
@@ -509,7 +640,9 @@ Fixed an issue where the number pad didn't work on initial focus.
 
 ## Updates for version 1.2.431
 
-*Date published: 11/12/2019*
+*Date published: November 12, 2019*
+
+In this release, we've made the following changes:
 
 - The 32-bit and ARM64 versions of the client are now available!
 - The client now saves any changes you make to the connection bar (such as its position, size, and pinned state) and applies those changes across sessions.
@@ -527,7 +660,9 @@ Fixed an issue where the number pad didn't work on initial focus.
 
 ## Updates for version 1.2.247
 
-*Date published: 09/17/2019*
+*Date published: September 17, 2019*
+
+In this release, we've made the following changes:
 
 - Improved the fallback languages for localized version. (For example, FR-CA will properly display in French instead of English.)
 - When removing a subscription, the client now properly removes the saved credentials from Credential Manager.

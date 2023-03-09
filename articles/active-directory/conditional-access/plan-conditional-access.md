@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 02/10/2023
+ms.date: 03/09/2023
 
 ms.author: gasinh
 author: gargi-sinha
@@ -74,7 +74,7 @@ Will this policy apply to any application, user action, or authentication contex
 
 *	What application(s) or services will the policy apply to?
 *	What user actions will be subject to this policy?
-*	What authentication contexts does this policy will be applied to?
+*	What authentication contexts will this policy be applied to?
 
 #### Conditions
 
@@ -203,7 +203,7 @@ In addition to your active policies, implement disabled policies that act as sec
 
 ### Block countries from which you never expect a sign-in.
 
-Azure Active Directory allows you to create [named locations](location-condition.md). Create the list of countries that are allowed, and then create a network block policy with these "allowed countries" as an exclusion. This practice creates less overhead for customers who are based in smaller geographic locations.**Be sure to exempt your emergency access accounts from this policy**.
+Azure active directory allows you to create [named locations](location-condition.md). Create the list of countries that are allowed, and then create a network block policy with these "allowed countries" as an exclusion. This is less overhead for customers who are based in smaller geographic locations. **Be sure to exempt your emergency access accounts from this policy**.
 
 ## Deploy Conditional Access policies
 

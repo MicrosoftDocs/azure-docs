@@ -29,5 +29,4 @@ To disable the auto logout feature,
   
 **Next steps**
   
-* [Optimize clusters with Apache Ambari in Azure HDInsight](/azure/hdinsight/hdinsight-changing-configs-via-ambari)
-
+* [Optimize clusters with Apache Ambari in Azure HDInsight](./hdinsight-changing-configs-via-ambari.md)

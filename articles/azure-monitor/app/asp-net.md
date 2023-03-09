@@ -2,7 +2,7 @@
 title: Configure monitoring for ASP.NET with Azure Application Insights | Microsoft Docs
 description: Configure performance, availability, and user behavior analytics tools for your ASP.NET website hosted on-premises or in Azure.
 ms.topic: conceptual
-ms.date: 11/15/2022
+ms.date: 02/14/2023
 ms.devlang: csharp
 ms.custom: contperf-fy21q1
 ---
@@ -195,7 +195,7 @@ This section will guide you through manually adding Application Insights to a te
             <Add Type="Microsoft.ApplicationInsights.Extensibility.AutocollectedMetricsExtractor, Microsoft.ApplicationInsights" />
             <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.AdaptiveSamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
               <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
-              <ExcludedTypes>Trace</ExcludedTypes>
+              <ExcludedTypes>Event</ExcludedTypes>
             </Add>
             <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.AdaptiveSamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
               <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
@@ -377,7 +377,13 @@ There's a known issue in the current version of Visual Studio 2019: storing the 
 
 For the latest updates and bug fixes, [consult the release notes](./release-notes.md).
 
+## Release Notes
+
+For version 2.12 and newer: [.NET SDKs (Including ASP.NET, ASP.NET Core, and Logging Adapters)](https://github.com/Microsoft/ApplicationInsights-dotnet/releases) 
+
+Our [Service Updates](https://azure.microsoft.com/updates/?service=application-insights) also summarize major Application Insights improvements.
+
 ## Next steps
 
-* Add synthetic transactions to test that your website is available from all over the world with [availability monitoring](monitor-web-app-availability.md).
+* Add synthetic transactions to test that your website is available from all over the world with [availability monitoring](availability-overview.md).
 * [Configure sampling](sampling.md) to help reduce telemetry traffic and data storage costs.

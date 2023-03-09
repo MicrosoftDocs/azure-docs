@@ -2,7 +2,7 @@
 title: Troubleshoot the sensor and on-premises management console
 description: Troubleshoot your sensor and on-premises management console to eliminate any problems you might be having.
 ms.date: 06/15/2022
-ms.topic: article
+ms.topic: troubleshooting
 ---
 # Troubleshoot the sensor and on-premises management console
 
@@ -52,6 +52,8 @@ System health checks include the following:
 ### Check system health by using the CLI
 
 Verify that the system is up and running prior to testing the system's sanity.
+
+For more information, see [CLI command reference from OT network sensors](cli-ot-sensor.md).
 
 **To test the system's sanity**:
 
@@ -226,7 +228,7 @@ You can configure a standalone sensor and a management console, with the sensors
 
 To connect a standalone sensor to NTP:
 
-- [See the CLI documentation](/azure/defender-for-iot/organizations/references-work-with-defender-for-iot-cli-commands#sync-time-from-the-ntp-server).
+- [See the CLI documentation](./references-work-with-defender-for-iot-cli-commands.md).
 
 To connect a sensor controlled by the management console to NTP:
 
@@ -286,7 +288,7 @@ If you don't see an expected alert on the on-premises **Alerts** page, do the fo
 
 - Verify whether the alert is already listed as a reaction to a different security instance. If it has, and that alert hasn't yet been handled, a new alert isn't shown elsewhere.
 
-- Verify that the alert isn't being excluded by **Alert Exclusion** rules. For more information, see [Create alert exclusion rules](how-to-work-with-alerts-on-premises-management-console.md#create-alert-exclusion-rules).
+- Verify that the alert isn't being excluded by **Alert Exclusion** rules. For more information, see [Create alert exclusion rules on an on-premises management console](how-to-accelerate-alert-incident-response.md#create-alert-exclusion-rules-on-an-on-premises-management-console).
 
 ### Tweak the Quality of Service (QoS)
 

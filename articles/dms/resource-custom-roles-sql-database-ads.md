@@ -2,16 +2,11 @@
 title: "Custom roles for SQL Server to Azure SQL Database (preview) migrations in Azure Data Studio"
 titleSuffix: Azure Database Migration Service
 description: Learn how to use custom roles for SQL Server to Azure SQL Database (preview) migrations in Azure Data Studio.
-services: database-migration
 author: croblesm
 ms.author: roblescarlos
-manager: 
-ms.reviewer: 
-ms.service: dms
-ms.workload: data-services
-ms.custom: ""
-ms.topic: conceptual
 ms.date: 09/28/2022
+ms.service: dms
+ms.topic: conceptual
 ---
 
 # Custom roles for SQL Server to Azure SQL Database (preview) migrations in Azure Data Studio
@@ -107,4 +102,4 @@ To assign a role to a user or an app ID:
 
 ## Next steps
 
-- Review the [migration guidance for your scenario](https://datamigration.microsoft.com/).
+- Review the [migration guidance for your scenario](/data-migration/).

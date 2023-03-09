@@ -1,24 +1,24 @@
 ---
-title: Connect to an Azure Elastic SAN (preview) volume - Windows
-description: Learn how to connect to an Azure Elastic SAN (preview) volume from a Windows client.
+title: Connect to an Azure Elastic SAN Preview volume - Windows
+description: Learn how to connect to an Azure Elastic SAN Preview volume from a Windows client.
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/07/2022
+ms.date: 02/22/2023
 ms.author: rogarana
 ms.subservice: elastic-san
 ms.custom: references_regions, ignite-2022
 ---
 
-# Connect to Elastic SAN (preview) volumes - Windows
+# Connect to Elastic SAN Preview volumes - Windows
 
-This article explains how to connect to an Elastic storage area network (SAN) volume from a Windows client. For details on connecting from a Linux client, see [Connect to Elastic SAN (preview) volumes - Linux](elastic-san-connect-linux.md).
+This article explains how to connect to an Elastic storage area network (SAN) volume from a Windows client. For details on connecting from a Linux client, see [Connect to Elastic SAN Preview volumes - Linux](elastic-san-connect-linux.md).
 
 In this article, you'll add the Storage service endpoint to an Azure virtual network's subnet, then you'll configure your volume group to allow connections from your subnet. Finally, you'll configure your client environment to connect to an Elastic SAN volume and establish a connection.
 
 ## Prerequisites
 
-- Complete [Deploy an Elastic SAN (preview)](elastic-san-create.md)
+- Complete [Deploy an Elastic SAN Preview](elastic-san-create.md)
 - An Azure Virtual Network, which you'll need to establish a connection from compute clients in Azure to your Elastic SAN volumes.
 
 ## Limitations
@@ -122,7 +122,7 @@ Install Multipath I/O, enable multipath support for iSCSI devices, and set a def
 
 ```powershell
 # Install Multipath-IO
-Add-WindowsFeature -Name 'Multipath-IO'
+Add-WindowsFeature -Name 'Multipath-IO'
 
 # Verify if the installation was successful
 Get-WindowsFeature -Name 'Multipath-IO'
@@ -168,22 +168,22 @@ To script multi-session configurations, use two files. An XML configuration file
 The following example shows you how to format your XML file for the script, for each volume, create a new `<Target>` section:
 
 ```xml
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Targets>
-  <Target>
-     <Iqn>Volume 1 Storage Target Iqn</Iqn>
-     <Hostname>Volume 1 Storage Target Portal Hostname</Hostname>
-     <Port>Volume 1 Storage Target Portal Port</Port>
-     <NumSessions>Number of sessions</NumSessions>
-     <EnableMultipath>true</EnableMultipath>
-  </Target>
-  <Target>
-     <Iqn>Volume 2 Storage Target Iqn</Iqn>
-     <Hostname>Volume 2 Storage Target Portal Hostname</Hostname>
-     <Port>Volume 2 Storage Target Portal Port</Port>
-     <NumSessions>Number of sessions</NumSessions>
-     <EnableMultipath>true</EnableMultipath>
-  </Target>
+  <Target>
+     <Iqn>Volume 1 Storage Target Iqn</Iqn>
+     <Hostname>Volume 1 Storage Target Portal Hostname</Hostname>
+     <Port>Volume 1 Storage Target Portal Port</Port>
+     <NumSessions>Number of sessions</NumSessions>
+     <EnableMultipath>true</EnableMultipath>
+  </Target>
+  <Target>
+     <Iqn>Volume 2 Storage Target Iqn</Iqn>
+     <Hostname>Volume 2 Storage Target Portal Hostname</Hostname>
+     <Port>Volume 2 Storage Target Portal Port</Port>
+     <NumSessions>Number of sessions</NumSessions>
+     <EnableMultipath>true</EnableMultipath>
+  </Target>
 </Targets>
 ```
 
@@ -191,39 +191,39 @@ Use the following script to create the connections, to run the script use `.\Log
 
 ```
 param(
-  [string] $TargetConfigPath
+  [string] $TargetConfigPath
 )
-$TargetConfig = New-Object XML
+$TargetConfig = New-Object XML
 $TargetConfig.Load($TargetConfigPath)
-foreach ($Target in $TargetConfig.Targets.Target)
+foreach ($Target in $TargetConfig.Targets.Target)
 {
-  $TargetIqn = $Target.Iqn
-  $TargetHostname = $Target.Hostname
-  $TargetPort = $Target.Port
-  $NumSessions = $Target.NumSessions
-  $succeeded = 1
-  iscsicli AddTarget $TargetIqn * $TargetHostname $TargetPort * 0 * * * * * * * * * 0
-  while ($succeeded -le $NumSessions)
-  {
-    Write-Host "Logging session ${succeeded}/${NumSessions} into ${TargetIqn}"
-    $LoginOptions = '*'
-    if ($Target.EnableMultipath)
-    {
-        Write-Host "Enabled Multipath"
-        $LoginOptions = '0x00000002'
-    }
-    # PersistentLoginTarget will not establish login to the target until after the system is rebooted.
-    # Use LoginTarget if the target is needed before rebooting. Using just LoginTarget will not persist the
-    # session(s).
-    iscsicli PersistentLoginTarget $TargetIqn t $TargetHostname $TargetPort Root\ISCSIPRT\0000_0 -1 * $LoginOptions * * * * * * * * * 0
-    #iscsicli LoginTarget $TargetIqn t $TargetHostname $TargetPort Root\ISCSIPRT\0000_0 -1 * $LoginOptions * * * * * * * * * 0
-    if ($LASTEXITCODE -eq 0)
-    {
-        $succeeded += 1
-    }
-    Start-Sleep -s 1
-    Write-Host ""
-  }
+  $TargetIqn = $Target.Iqn
+  $TargetHostname = $Target.Hostname
+  $TargetPort = $Target.Port
+  $NumSessions = $Target.NumSessions
+  $succeeded = 1
+  iscsicli AddTarget $TargetIqn * $TargetHostname $TargetPort * 0 * * * * * * * * * 0
+  while ($succeeded -le $NumSessions)
+  {
+    Write-Host "Logging session ${succeeded}/${NumSessions} into ${TargetIqn}"
+    $LoginOptions = '*'
+    if ($Target.EnableMultipath)
+    {
+        Write-Host "Enabled Multipath"
+        $LoginOptions = '0x00000002'
+    }
+    # PersistentLoginTarget will not establish login to the target until after the system is rebooted.
+    # Use LoginTarget if the target is needed before rebooting. Using just LoginTarget will not persist the
+    # session(s).
+    iscsicli PersistentLoginTarget $TargetIqn t $TargetHostname $TargetPort Root\ISCSIPRT\0000_0 -1 * $LoginOptions * * * * * * * * * 0
+    #iscsicli LoginTarget $TargetIqn t $TargetHostname $TargetPort Root\ISCSIPRT\0000_0 -1 * $LoginOptions * * * * * * * * * 0
+    if ($LASTEXITCODE -eq 0)
+    {
+        $succeeded += 1
+    }
+    Start-Sleep -s 1
+    Write-Host ""
+  }
 }
 ```
 
@@ -248,4 +248,4 @@ iscsicli PersistentLoginTarget yourStorageTargetIQN t yourStorageTargetPortalHos
 
 ## Next steps
 
-[Configure Elastic SAN networking (preview)](elastic-san-networking.md)
+[Configure Elastic SAN networking Preview](elastic-san-networking.md)

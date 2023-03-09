@@ -16,8 +16,8 @@ Azure Virtual Desktop supports two load-balancing algorithms. Each algorithm det
 
 The following load-balancing algorithms are available in Azure Virtual Desktop:
 
-- Breadth-first load balancing allows you to evenly distribute user sessions across the session hosts in a host pool.
-- Depth-first load balancing allows you to saturate a session host with user sessions in a host pool. Once the first session host reaches its session limit threshold, the load balancer directs any new user connections to the next session host in the host pool until it reaches its limit, and so on.
+- Breadth-first load balancing allows you to evenly distribute user sessions across the session hosts in a host pool. You don't have to specify a maximum session limit for the number of sessions.
+- Depth-first load balancing allows you to saturate a session host with user sessions in a host pool. You have to specify a maximum session limit for the number of sessions. Once the first session host reaches its session limit threshold, the load balancer directs any new user connections to the next session host in the host pool until it reaches its limit, and so on.
 
 Each host pool can only configure one type of load-balancing specific to it. However, both load-balancing algorithms share the following behaviors no matter which host pool they're in:
 
@@ -37,5 +37,7 @@ The depth-first load-balancing algorithm allows you to saturate one session host
 
 The depth-first algorithm first queries session hosts that allow new connections and haven't gone over their maximum session limit. The algorithm then selects the session host with highest number of sessions. If there's a tie, the algorithm selects the first session host in the query.
 
->[!IMPORTANT]
->The depth-first load balancing algorithm distributes sessions to session hosts based on the maximum session host limit. This parameter is required when you use the depth-first load balancing algorithm. For the best possible user experience, make sure to change the maximum session host limit parameter to a number that best suits your environment.
+> [!IMPORTANT]
+> The maximum session limit parameter is required when you use the depth-first load balancing algorithm. For the best possible user experience, make sure to change the maximum session host limit parameter to a number that best suits your environment.
+>
+> Once all session hosts have reached the maximum session limit, you will need to increase the limit or deploy more session hosts.

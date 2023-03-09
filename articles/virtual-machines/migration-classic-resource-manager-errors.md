@@ -9,8 +9,6 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 10/10/2022
 ms.author: tagore 
-ms.custom: devx-track-azurepowershell
-
 ---
 
 # Errors that commonly occur during Classic to Azure Resource Manager migration
@@ -18,7 +16,7 @@ ms.custom: devx-track-azurepowershell
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs
 
 > [!IMPORTANT]
-> Today, about 90% of IaaS VMs are using [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). As of February 28, 2020, classic VMs have been deprecated and will be fully retired on March 1, 2023. [Learn more]( https://aka.ms/classicvmretirement) about this deprecation and [how it affects you](classic-vm-deprecation.md#how-does-this-affect-me).
+> Today, about 90% of IaaS VMs are using [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). As of February 28, 2020, classic VMs have been deprecated and will be fully retired on September 1, 2023. [Learn more]( https://aka.ms/classicvmretirement) about this deprecation and [how it affects you](classic-vm-deprecation.md#how-does-this-affect-me).
 
 This article catalogs the most common errors and mitigations during the migration of IaaS resources from Azure classic deployment model to the Azure Resource Manager stack.
 

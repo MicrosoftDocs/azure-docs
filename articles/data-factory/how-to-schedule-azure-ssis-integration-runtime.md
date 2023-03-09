@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 02/15/2022
 author: chugugrace
 ms.author: chugu
-ms.custom: subject-rbac-steps
+ms.custom: subject-rbac-steps, devx-track-azurepowershell
 ---
 # How to start and stop Azure-SSIS Integration Runtime on a schedule
 
-[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article describes how to schedule the starting and stopping of Azure-SSIS Integration Runtime (IR) by using Azure Data Factory (ADF) and Azure Synapse. Azure-SSIS IR is compute resource dedicated for executing SQL Server Integration Services (SSIS) packages. Running Azure-SSIS IR has a cost associated with it. Therefore, you typically want to run your IR only when you need to execute SSIS packages in Azure and stop your IR when you do not need it anymore. You can use ADF or Synapse Pipelines portal or Azure PowerShell to [manually start or stop your IR](manage-azure-ssis-integration-runtime.md)).
 

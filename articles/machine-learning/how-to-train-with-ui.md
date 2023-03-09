@@ -10,12 +10,14 @@ ms.custom: devplatv2, event-tier1-build-2022
 author: wenxwei
 ms.author: wenxwei
 ms.date: 11/04/2022
-ms.reviewer: laobri
+ms.reviewer: ssalgado
 ---
 
 # Create a training job with the job creation UI (preview)
 
 There are many ways to create a training job with Azure Machine Learning. You can use the CLI (see [Train models (create jobs)](how-to-train-model.md)), the REST API (see [Train models with REST (preview)](how-to-train-with-rest.md)), or you can use the UI to directly create a training job. In this article, you'll learn how to use your own data and code to train a machine learning model with the job creation UI in Azure Machine Learning studio.
+
+[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## Prerequisites
 

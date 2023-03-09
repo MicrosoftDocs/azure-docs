@@ -1,10 +1,10 @@
 ---
 title: 'Monitoring Azure DDoS Protection'
-description: Important reference material needed when you monitor DDoS Protection 
+description: Important reference material needed when you monitor DDoS Protection.
 author: AbdullahBell
 ms.author: abell
 ms.service: ddos-protection
-ms.topic: conceptual 
+ms.topic: conceptual
 ms.date: 12/19/2022
 ms.custom: template-concept
 ---
@@ -126,8 +126,8 @@ The following table lists the field names and descriptions:
 | **TrafficOverview** |  Breakdown of attack traffic. Keys include `Total packets`, `Total packets dropped`, `Total TCP packets`, `Total TCP packets dropped`, `Total UDP packets`, `Total UDP packets dropped`, `Total Other packets`, `Total Other packets dropped`. |
 | **Protocols** | Breakdown of protocols involved. Keys include `TCP`, `UDP`, `Other`. |
 | **DropReasons** | Breakdown of reasons for dropped packets. Keys include `Protocol violation invalid TCP syn`, `Protocol violation invalid TCP`, `Protocol violation invalid UDP`, `UDP reflection`, `TCP rate limit exceeded`, `UDP rate limit exceeded`, `Destination limit exceeded`, `Other packet flood`, `Rate limit exceeded`, `Packet was forwarded to service`. |
-| **TopSourceCountries** | Breakdown of top 10 source countries of incoming traffic. |
-| **TopSourceCountriesForDroppedPackets** | Breakdown of top 10 source countries of attack traffic that is/was mitigated. |
+| **TopSourceCountries** | Breakdown of top 10 source countries/regions of incoming traffic. |
+| **TopSourceCountriesForDroppedPackets** | Breakdown of top 10 source countries/regions of attack traffic that is/was mitigated. |
 | **TopSourceASNs** | Breakdown of top 10 source autonomous system numbers (ASN) of the incoming traffic.  |
 | **SourceContinents** | Breakdown of the source continents of incoming traffic. |
 ***

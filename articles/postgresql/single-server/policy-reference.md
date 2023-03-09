@@ -7,7 +7,7 @@ ms.topic: reference
 ms.author: jonels
 author: jonels-msft
 ms.custom: subject-policy-reference
-ms.date: 11/28/2022
+ms.date: 02/21/2023
 ---
 
 # Azure Policy built-in definitions for Azure Database for PostgreSQL

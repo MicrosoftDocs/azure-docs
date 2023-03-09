@@ -36,7 +36,7 @@ Yes, you can use different virtual machine sizes in your AKS cluster by creating
 
 ## Are security updates applied to AKS agent nodes?
 
-AKS patches CVE’s that have a "vendor fix" every week. CVE's without a fix are waiting on a "vendor fix" before it can be remediated.  The AKS images will get automatically updated inside of 30 days and it recommended that customer apply an updated Node Image on a regular cadence to ensure that latest patched images and OS patches are all applied and current:
+AKS patches CVEs that have a "vendor fix" every week. CVEs without a fix are waiting on a "vendor fix" before it can be remediated.  The AKS images will get automatically updated inside of 30 days. We recommend you apply an updated Node Image on a regular cadence to ensure that latest patched images and OS patches are all applied and current. You can do this using one of the following methods:
 
 - Manually, through the Azure portal or the Azure CLI.
 - By upgrading your AKS cluster. The cluster upgrades [cordon and drain nodes][cordon-drain] automatically and then bring a new node online with the latest Ubuntu image and a new patch version or a minor Kubernetes version. For more information, see [Upgrade an AKS cluster][aks-upgrade].
@@ -44,7 +44,7 @@ AKS patches CVE’s that have a "vendor fix" every week. CVE's without a fix are
 
 ## What is the size limit on a container image in AKS?
 
-AKS does not set a limit on the container image size. However, it is important to understand that the larger the image, the higher the memory demand. This could potentially exceed resource limits or the overall available memory of worker nodes. By default, memory for VM size Standard_DS2_v2 for an AKS cluster is set to 7 GiB.
+AKS does not set a limit on the container image size. However, it is important to understand that the larger the image, the higher the memory demand. A larger size could potentially exceed resource limits or the overall available memory of worker nodes. By default, memory for VM size Standard_DS2_v2 for an AKS cluster is set to 7 GiB.
 
 When a container image is excessively large, as in the Terabyte (TBs) range, kubelet might not be able to pull it from your container registry to a node due to lack of disk space.
 
@@ -64,18 +64,18 @@ AKS uses a secure tunnel communication to allow the api-server and individual no
 
 ## Why are two resource groups created with AKS?
 
-AKS builds upon many Azure infrastructure resources, including virtual machine scale sets, virtual networks, and managed disks. This enables you to apply many of the core capabilities of the Azure platform within the managed Kubernetes environment provided by AKS. For example, most Azure virtual machine types can be used directly with AKS and Azure Reservations can be used to receive discounts on those resources automatically.
+AKS builds upon many Azure infrastructure resources, including Virtual Machine Scale Sets, virtual networks, and managed disks, which enables you to apply many of the core capabilities of the Azure platform within the managed Kubernetes environment provided by AKS. For example, most Azure virtual machine types can be used directly with AKS and Azure Reservations can be used to receive discounts on those resources automatically.
 
 To enable this architecture, each AKS deployment spans two resource groups:
 
 1. You create the first resource group. This group contains only the Kubernetes service resource. The AKS resource provider automatically creates the second resource group during deployment. An example of the second resource group is *MC_myResourceGroup_myAKSCluster_eastus*. For information on how to specify the name of this second resource group, see the next section.
-1. The second resource group, known as the *node resource group*, contains all of the infrastructure resources associated with the cluster. These resources include the Kubernetes node VMs, virtual networking, and storage. By default, the node resource group has a name like *MC_myResourceGroup_myAKSCluster_eastus*. AKS automatically deletes the node resource group whenever the cluster is deleted, so it should only be used for resources that share the cluster's lifecycle.
+2. The second resource group, known as the *node resource group*, contains all of the infrastructure resources associated with the cluster. These resources include the Kubernetes node VMs, virtual networking, and storage. By default, the node resource group has a name like *MC_myResourceGroup_myAKSCluster_eastus*. AKS automatically deletes the node resource group whenever the cluster is deleted, so it should only be used for resources that share the cluster's lifecycle.
 
 ## Can I provide my own name for the AKS node resource group?
 
 Yes. By default, AKS will name the node resource group *MC_resourcegroupname_clustername_location*, but you can also provide your own name.
 
-To specify your own resource group name, install the [aks-preview][aks-preview-cli] Azure CLI extension version *0.3.2* or later. When you create an AKS cluster by using the [az aks create][az-aks-create] command, use the `--node-resource-group` parameter and specify a name for the resource group. If you [use an Azure Resource Manager template][aks-rm-template] to deploy an AKS cluster, you can define the resource group name by using the *nodeResourceGroup* property.
+To specify your own resource group name, install the [aks-preview][aks-preview-cli] Azure CLI extension version *0.3.2* or later. When you create an AKS cluster by using the [`az aks create`][az-aks-create] command, use the `--node-resource-group` parameter and specify a name for the resource group. If you [use an Azure Resource Manager template][aks-rm-template] to deploy an AKS cluster, you can define the resource group name by using the *nodeResourceGroup* property.
 
 * The secondary resource group is automatically created by the Azure resource provider in your own subscription.
 * You can specify a custom resource group name only when you're creating the cluster.
@@ -90,7 +90,7 @@ As you work with the node resource group, keep in mind that you can't:
 
 ## Can I modify tags and other properties of the AKS resources in the node resource group?
 
-If you modify or delete Azure-created tags and other resource properties in the node resource group, you could get unexpected results such as scaling and upgrading errors. AKS allows you to create and modify custom tags created by end users, and you can add those tags when [creating a node pool](use-multiple-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool). You might want to create or modify custom tags, for example, to assign a business unit or cost center. This can also be achieved by creating Azure Policies with a scope on the managed resource group.
+If you modify or delete Azure-created tags and other resource properties in the node resource group, you could get unexpected results, such as scaling and upgrading errors. AKS allows you to create and modify custom tags created by end users, and you can add those tags when [creating a node pool](use-multiple-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool). You might want to create or modify custom tags, for example, to assign a business unit or cost center. Another option is to create Azure Policies with a scope on the managed resource group.
 
 However, modifying any **Azure-created tags** on resources under the node resource group in the AKS cluster is an unsupported action, which breaks the service-level objective (SLO). For more information, see [Does AKS offer a service-level agreement?](#does-aks-offer-a-service-level-agreement)
 
@@ -114,7 +114,7 @@ Currently, you can't modify the list of admission controllers in AKS.
 
 ## Can I use admission controller webhooks on AKS?
 
-Yes, you may use admission controller webhooks on AKS. It's recommended you exclude internal AKS namespaces, which are marked with the **control-plane label.** For example, by adding the below to the webhook configuration:
+Yes, you may use admission controller webhooks on AKS. It's recommended you exclude internal AKS namespaces, which are marked with the **control-plane label.** For example:
 
 ```
 namespaceSelector:
@@ -129,7 +129,7 @@ AKS firewalls the API server egress so your admission controller webhooks need t
 
 To protect the stability of the system and prevent custom admission controllers from impacting internal services in the kube-system, namespace AKS has an **Admissions Enforcer**, which automatically excludes kube-system and AKS internal namespaces. This service ensures the custom admission controllers don't affect the services running in kube-system.
 
-If you have a critical use case for deploying something on kube-system (not recommended) in support of your custom admission webhook, you may add the below label or annotation so that Admissions Enforcer ignores it.
+If you have a critical use case for deploying something on kube-system (not recommended) in support of your custom admission webhook, you may add the following label or annotation so that Admissions Enforcer ignores it.
 
 Label: ```"admissions.enforcer/disabled": "true"``` or Annotation: ```"admissions.enforcer/disabled": true```
 
@@ -145,9 +145,9 @@ Windows Server support for node pool includes some limitations that are part of 
 
 ## Does AKS offer a service-level agreement?
 
-AKS provides SLA guarantees as an optional feature with [Uptime SLA][uptime-sla]. 
+AKS provides SLA guarantees in the [Standard pricing tier with the Uptime SLA feature][pricing-tiers].
 
-The Free SKU offered by default doesn't have a associated Service Level *Agreement*, but has a Service Level *Objective* of 99.5%. Transient connectivity issues are observed if there was an upgrade, unhealthy underlay nodes, platform maintenance, or an application overwhelms the API Server with requests, etc. If your workload doesn't tolerate API Server restarts, then we suggest using Uptime SLA.
+The Free pricing tier doesn't have an associated Service Level *Agreement*, but has a Service Level *Objective* of 99.5%. Transient connectivity issues are observed if there was an upgrade, unhealthy underlay nodes, platform maintenance, or an application overwhelms the API Server with requests, etc. For mission-critical and production workloads, or if your workload doesn't tolerate API Server restarts, we recommend using the Standard tier, which includes Uptime SLA.
 
 ## Can I apply Azure reservation discounts to my AKS agent nodes?
 
@@ -173,9 +173,13 @@ Moving or renaming your AKS cluster and its associated resources isn't supported
 
 Most clusters are deleted upon user request; in some cases, especially where customers are bringing their own Resource Group, or doing cross-RG tasks deletion can take more time or fail. If you have an issue with deletes, double-check that you do not have locks on the RG, that any resources outside of the RG are disassociated from the RG, and so on.
 
+## Can I restore my cluster after deleting it?
+
+No, you're unable to restore your cluster after deleting it. When you delete your cluster, the associated resource group and all its resources will also be deleted. If you want to keep any of your resources, move them to another resource group before deleting your cluster. If you have the **Owner** or **User Access Administrator** built-in role, you can lock Azure resources to protect them from accidental deletions and modifications. For more information, see [Lock your resources to protect your infrastructure][lock-azure-resources].
+
 ## If I have pod / deployments in state 'NodeLost' or 'Unknown' can I still upgrade my cluster?
 
-You can, but AKS doesn't recommend this. Upgrades should be performed when the state of the cluster is known and healthy.
+You can, but we don't recommend it. Upgrades should be performed when the state of the cluster is known and healthy.
 
 ## If I have a cluster with one or more nodes in an Unhealthy state or shut down, can I perform an upgrade?
 
@@ -198,13 +202,13 @@ Confirm your service principal hasn't expired.  See: [AKS service principal](./k
 You can completely [stop a running AKS cluster](start-stop-cluster.md), saving on the respective compute costs. Additionally, you may also choose to [scale or autoscale all or specific `User` node pools](scale-cluster.md#scale-user-node-pools-to-0) to 0, maintaining only the necessary cluster configuration.
 You can't directly scale [system node pools](use-system-pools.md) to zero.
 
-## Can I use the virtual machine scale set APIs to scale manually?
+## Can I use the Virtual Machine Scale Set APIs to scale manually?
 
-No, scale operations by using the virtual machine scale set APIs aren't supported. Use the AKS APIs (`az aks scale`).
+No, scale operations by using the Virtual Machine Scale Set APIs aren't supported. Use the AKS APIs (`az aks scale`).
 
-## Can I use virtual machine scale sets to manually scale to zero nodes?
+## Can I use Virtual Machine Scale Sets to manually scale to zero nodes?
 
-No, scale operations by using the virtual machine scale set APIs aren't supported. You can use the AKS API to scale to zero non-system node pools or [stop your cluster](start-stop-cluster.md) instead.
+No, scale operations by using the Virtual Machine Scale Set APIs aren't supported. You can use the AKS API to scale to zero non-system node pools or [stop your cluster](start-stop-cluster.md) instead.
 
 ## Can I stop or de-allocate all my VMs?
 
@@ -233,11 +237,11 @@ Starting with version 1.2.0, Azure CNI sets Transparent mode as default for sing
 
 ### Bridge mode
 
-As the name suggests, bridge mode Azure CNI, in a "just in time" fashion, will create a L2 bridge named "azure0". All the host side pod `veth` pair interfaces will be connected to this bridge. So Pod-Pod intra VM communication and the remaining traffic goes through this bridge. The bridge in question is a layer 2 virtual device that on its own cannot receive or transmit anything unless you bind one or more real devices to it. For this reason, eth0 of the Linux VM has to be converted into a subordinate to "azure0" bridge. This creates a complex network topology within the Linux VM and as a symptom CNI had to take care of other networking functions like DNS server update and so on.
+As the name suggests, bridge mode Azure CNI, in a "just in time" fashion, will create an L2 bridge named "azure0". All the host side pod `veth` pair interfaces will be connected to this bridge. So Pod-Pod intra VM communication and the remaining traffic goes through this bridge. The bridge in question is a layer 2 virtual device that on its own cannot receive or transmit anything unless you bind one or more real devices to it. For this reason, eth0 of the Linux VM has to be converted into a subordinate to "azure0" bridge. This creates a complex network topology within the Linux VM and as a symptom CNI had to take care of other networking functions like DNS server update and so on.
 
 :::image type="content" source="media/faq/bridge-mode.png" alt-text="Bridge mode topology":::
 
-Below is an example of how the ip route setup looks like in Bridge mode. Regardless of how many pods the node has, there will only ever be two routes. The first one saying, all traffic excluding local on azure0 will go to the default gateway of the subnet through the interface with ip "src 10.240.0.4" (which is Node primary IP) and the second one saying "10.20.x.x" Pod space to kernel for kernel to decide.
+The following example shows what the ip route setup looks like in Bridge mode. Regardless of how many pods the node has, there will only ever be two routes. The first one saying, all traffic excluding local on azure0 will go to the default gateway of the subnet through the interface with ip "src 10.240.0.4" (which is Node primary IP) and the second one saying "10.20.x.x" Pod space to kernel for kernel to decide.
 
 ```bash
 default via 10.240.0.1 dev azure0 proto dhcp src 10.240.0.4 metric 100
@@ -252,7 +256,7 @@ Transparent mode takes a straight forward approach to setting up Linux networkin
 
 :::image type="content" source="media/faq/transparent-mode.png" alt-text="Transparent mode topology":::
 
-Below is an example ip route setup of transparent mode, each Pod's interface will get a static route attached so that traffic with dest IP as the Pod will be sent directly to the Pod's host side `veth` pair interface.
+The following example shows a ip route setup of transparent mode. Each Pod's interface will get a static route attached so that traffic with dest IP as the Pod will be sent directly to the Pod's host side `veth` pair interface.
 
 ```bash
 10.240.0.216 dev azv79d05038592 proto static
@@ -295,15 +299,15 @@ The issue has been resolved with Kubernetes version 1.20. For more information, 
 
 ## Can I use FIPS cryptographic libraries with deployments on AKS?
 
-FIPS-enabled nodes are currently are now supported on Linux-based node pools. For more information, see [Add a FIPS-enabled node pool](use-multiple-node-pools.md#add-a-fips-enabled-node-pool).
+FIPS-enabled nodes are now supported on Linux-based node pools. For more information, see [Add a FIPS-enabled node pool](use-multiple-node-pools.md#add-a-fips-enabled-node-pool).
 
 ## Can I configure NSGs with AKS?
 
 AKS doesn't apply Network Security Groups (NSGs) to its subnet and doesn't modify any of the NSGs associated with that subnet. AKS only modifies the network interfaces NSGs settings. If you're using CNI, you also must ensure the security rules in the NSGs allow traffic between the node and pod CIDR ranges. If you're using kubenet, you must also ensure the security rules in the NSGs allow traffic between the node and pod CIDR. For more information, see [Network security groups](concepts-network.md#network-security-groups).
 
-## How does Time syncronization work in AKS?
+## How does Time synchronization work in AKS?
 
-AKS nodes run the "chrony" service which pulls time from the localhost.  Containers running on pods get the time from the AKS nodes.  Applications launched inside a container use time from the container of the pod.
+AKS nodes run the "chrony" service, which pulls time from the localhost.  Containers running on pods get the time from the AKS nodes.  Applications launched inside a container use time from the container of the pod.
 
 ## How are AKS addons updated?
 
@@ -318,7 +322,7 @@ Any patch, including security patches, is automatically applied to the AKS clust
 [node-updates-kured]: node-updates-kured.md
 [aks-preview-cli]: /cli/azure/aks
 [az-aks-create]: /cli/azure/aks#az-aks-create
-[aks-rm-template]: /azure/templates/microsoft.containerservice/2019-06-01/managedclusters
+[aks-rm-template]: /azure/templates/microsoft.containerservice/2022-09-01/managedclusters
 [aks-cluster-autoscaler]: cluster-autoscaler.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [aks-windows-cli]: windows-container-cli.md
@@ -331,7 +335,7 @@ Any patch, including security patches, is automatically applied to the AKS clust
 [bcdr-bestpractices]: ./operator-best-practices-multi-region.md#plan-for-multiregion-deployment
 [availability-zones]: ./availability-zones.md
 [az-regions]: ../availability-zones/az-region.md
-[uptime-sla]: ./uptime-sla.md
+[pricing-tiers]: ./free-standard-pricing-tiers.md
 [aks-keyvault-provider]: ./csi-secrets-store-driver.md
 
 <!-- LINKS - external -->
@@ -342,3 +346,4 @@ Any patch, including security patches, is automatically applied to the AKS clust
 [private-clusters-github-issue]: https://github.com/Azure/AKS/issues/948
 [csi-driver]: https://github.com/Azure/secrets-store-csi-driver-provider-azure
 [vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines/
+[lock-azure-resources]: ../azure-resource-manager/management/lock-resources.md

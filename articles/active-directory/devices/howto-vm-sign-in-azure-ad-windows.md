@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 06/16/2022
+ms.date: 01/05/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -32,7 +32,7 @@ There are many security benefits of using Azure AD-based authentication to log i
    - When users join or leave your team, you can update the Azure RBAC policy for the VM to grant access as appropriate. 
    - When employees leave your organization and their user accounts are disabled or removed from Azure AD, they no longer have access to your resources.
 - Configure Conditional Access policies to require multifactor authentication (MFA) and other signals, such as user sign-in risk, before you can RDP into Windows VMs. 
-- Use Azure deploy and audit policies to require Azure AD login for Windows VMs and to flag the use of unapproved local accounts on the VMs.
+- Use Azure Policy to deploy and audit policies to require Azure AD login for Windows VMs and to flag the use of unapproved local accounts on the VMs.
 - Use Intune to automate and scale Azure AD join with mobile device management (MDM) auto-enrollment of Azure Windows VMs that are part of your virtual desktop infrastructure (VDI) deployments. 
   
   MDM auto-enrollment requires Azure AD Premium P1 licenses. Windows Server VMs don't support MDM enrollment.
@@ -166,6 +166,9 @@ Now that you've created the VM, you need to configure an Azure RBAC policy to de
 - **Virtual Machine User Login**: Users who have this role assigned can log in to an Azure virtual machine with regular user privileges.
 
 To allow a user to log in to the VM over RDP, you must assign the Virtual Machine Administrator Login or Virtual Machine User Login role to the resource group that contains the VM and its associated virtual network, network interface, public IP address, or load balancer resources. 
+
+> [!NOTE]
+> Manually elevating a user to become a local administrator on the VM by adding the user to a member of the local administrators group or by running `net localgroup administrators /add "AzureAD\UserUpn"` command is not supported. You need to use Azure roles above to authorize VM login.
 
 An Azure user who has the Owner or Contributor role assigned for a VM does not automatically have privileges to log in to the VM over RDP. The reason is to provide audited separation between the set of people who control virtual machines and the set of people who can access virtual machines.
 
@@ -399,7 +402,7 @@ Another MFA-related error message is the one described previously: "Your credent
 
 ![Screenshot of the message that says your credentials didn't work.](./media/howto-vm-sign-in-azure-ad-windows/your-credentials-did-not-work.png)
 
-If you've configured a legacy per-user **Enabled/Enforced Azure AD Multi-Factor Authentication** setting and you see the error above, you can resolve the problem by removing the per-user MFA setting through these commands:
+If you've configured a legacy per-user **Enabled/Enforced Azure AD Multifactor Authentication** setting and you see the error above, you can resolve the problem by removing the per-user MFA setting through these commands:
 
 ```
 # Get StrongAuthenticationRequirements configure on a user
@@ -416,7 +419,7 @@ Set-MsolUser -UserPrincipalName username@contoso.com -StrongAuthenticationRequir
 If you haven't deployed Windows Hello for Business and if that isn't an option for now, you can configure a Conditional Access policy that excludes the Azure Windows VM Sign-In app from the list of cloud apps that require MFA. To learn more about Windows Hello for Business, see [Windows Hello for Business overview](/windows/security/identity-protection/hello-for-business/hello-identity-verification).
 
 > [!NOTE]
-> Windows Hello for Business PIN authentication with RDP has been supported for several versions of Windows 10. Support for biometric authentication with RDP was added in Windows 10 version 1809. Using Windows Hello for Business authentication during RDP is available only for deployments that use a certificate trust model. It's currently not available for a key trust model.
+> Windows Hello for Business PIN authentication with RDP has been supported for several versions of Windows 10. Support for biometric authentication with RDP was added in Windows 10 version 1809. Using Windows Hello for Business authentication during RDP is available for deployments that use a certificate trust model or key trust model.
  
 Share your feedback about this feature or report problems with using it on the [Azure AD feedback forum](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789).
 
@@ -432,7 +435,7 @@ Another way to verify it is via Graph PowerShell:
 
 1. [Install the Graph PowerShell SDK](/powershell/microsoftgraph/installation) if you haven't already done so. 
 1. Run `Connect-MgGraph -Scopes "ServicePrincipalEndpoint.ReadWrite.All"`, followed by `"Application.ReadWrite.All"`.
-1. Sign in with a Global Admin account.
+1. Sign in with a Global Administrator account.
 1. Consent to the permission prompt.
 1. Run `Get-MgServicePrincipal -ConsistencyLevel eventual -Search '"DisplayName:Azure Windows VM Sign-In"'`.
    - If this command results in no output and returns you to the PowerShell prompt, you can create the service principal with the following Graph PowerShell command:

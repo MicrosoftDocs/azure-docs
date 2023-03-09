@@ -5,7 +5,7 @@ services: azure-netapp-files, virtual-wan
 author: rambk
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 12/19/2022
+ms.date: 01/05/2023
 ms.author: rambala
 ---
 # Configure Virtual WAN for Azure NetApp Files (preview)
@@ -24,7 +24,6 @@ This article will explain how to deploy and access an Azure NetApp Files volume 
 
 ## Considerations
 
-* Inter-region secure hub connectivity is not supported. A spoke VNet containing Azure NetApp Files in region A cannot connect to a secure virtual hub in region B.
 * You should be familiar with network policies for Azure NetApp Files [private endpoints](../private-link/disable-private-endpoint-network-policy.md). Refer to [Route Azure NetApp Files traffic from on-premises via Azure Firewall](#route-azure-netapp-files-traffic-from-on-premises-via-azure-firewall) for further information.
 
 ## Before you begin

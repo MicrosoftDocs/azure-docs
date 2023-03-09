@@ -8,7 +8,7 @@ ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
 ms.date: 10/18/2021
-ms.custom: sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, sdkv1, event-tier1-build-2022
 ---
 
 # Make predictions with ONNX on computer vision models from AutoML (v1)
@@ -43,7 +43,7 @@ In this guide, you'll learn how to use [Python APIs for ONNX Runtime](https://on
 
 ## Prerequisites
 
-* Get an AutoML-trained computer vision model for any of the supported image tasks: classification, object detection, or instance segmentation. [Learn more about AutoML support for computer vision tasks](../how-to-auto-train-image-models.md).
+* Get an AutoML-trained computer vision model for any of the supported image tasks: classification, object detection, or instance segmentation. [Learn more about AutoML support for computer vision tasks](how-to-auto-train-image-models-v1.md).
 
 * Install the [onnxruntime](https://onnxruntime.ai/docs/get-started/with-python.html) package. The methods in this article have been tested with versions 1.3.0 to 1.8.0.
 
@@ -62,7 +62,7 @@ Within the best child run, go to **Outputs+logs** > **train_artifacts**. Use the
 - *labels.json*: File that contains all the classes or labels in the training dataset.
 - *model.onnx*: Model in ONNX format. 
 
-![Screenshot that shows selections for downloading O N N X model files.](.././media/how-to-inference-onnx-automl-image-models/onnx-files-manual-download.png)
+![Screenshot that shows selections for downloading ONNX model files.](.././media/how-to-inference-onnx-automl-image-models/onnx-files-manual-download.png)
 
 Save the downloaded model files in a directory. The example in this article uses the *./automl_models* directory. 
 
@@ -124,7 +124,7 @@ automl_image_run = AutoMLRun(experiment=experiment, run_id=run_id)
 best_child_run = automl_image_run.get_best_child()
 ```
 
-Use the following model specific arguments to submit the script. For more details on arguments, refer to [model specific hyperparameters](../how-to-auto-train-image-models.md#configure-experiments) and for supported object detection model names refer to the [supported model algorithm section](../how-to-auto-train-image-models.md#supported-model-algorithms).
+Use the following model specific arguments to submit the script. For more details on arguments, refer to [model specific hyperparameters](reference-automl-images-hyperparameters-v1.md#model-specific-hyperparameters) and for supported object detection model names refer to the [supported model algorithm section](how-to-auto-train-image-models-v1.md#supported-model-algorithms).
 
 To get the argument values needed to create the batch scoring model, refer to the scoring scripts generated under the outputs folder of the AutoML training runs. Use the hyperparameter values available in the model settings variable inside the scoring file for the best child run.
 
@@ -216,7 +216,7 @@ onnx_model_path = 'automl_models/model.onnx'  # local path to save the model
 remote_run.download_file(name='outputs/model_'+str(batch_size)+'.onnx', output_file_path=onnx_model_path)
 ```
 
-After the model downloading step, you use the ONNX Runtime Python package to perform inferencing by using the *model.onnx* file. For demonstration purposes, this article uses the datasets from [How to prepare image datasets](../how-to-prepare-datasets-for-automl-images.md) for each vision task. 
+After the model downloading step, you use the ONNX Runtime Python package to perform inferencing by using the *model.onnx* file. For demonstration purposes, this article uses the datasets from [How to prepare image datasets](how-to-prepare-datasets-for-automl-images-v1.md) for each vision task. 
 
 We've trained the models for all vision tasks with their respective datasets to demonstrate ONNX model inference.
  
@@ -411,7 +411,7 @@ Perform the following preprocessing steps for the ONNX model inference:
 5. Convert to float type.
 6. Normalize with ImageNet's `mean` = `[0.485, 0.456, 0.406]` and `std` = `[0.229, 0.224, 0.225]`.
 
-If you chose different values for the [hyperparameters](../how-to-auto-train-image-models.md#configure-experiments) `valid_resize_size` and `valid_crop_size` during training, then those values should be used.
+If you chose different values for the [hyperparameters](reference-automl-images-hyperparameters-v1.md) `valid_resize_size` and `valid_crop_size` during training, then those values should be used.
 
 Get the input shape needed for the ONNX model.
 
@@ -560,7 +560,7 @@ Perform the following preprocessing steps for the ONNX model inference. These st
 5. Convert to float type.
 6. Normalize with ImageNet's `mean` = `[0.485, 0.456, 0.406]` and `std` = `[0.229, 0.224, 0.225]`.
 
-If you chose different values for the [hyperparameters](../how-to-auto-train-image-models.md#configure-experiments) `valid_resize_size` and `valid_crop_size` during training, then those values should be used.
+If you chose different values for the [hyperparameters](reference-automl-images-hyperparameters-v1.md) `valid_resize_size` and `valid_crop_size` during training, then those values should be used.
 
 Get the input shape needed for the ONNX model.
 
@@ -822,7 +822,7 @@ Perform the following preprocessing steps for the ONNX model inference:
 4. Convert to float type.
 5. Normalize with ImageNet's `mean` = `[0.485, 0.456, 0.406]` and `std` = `[0.229, 0.224, 0.225]`.
 
-For `resize_height` and `resize_width`, you can also use the values that you used during training, bounded by the `min_size` and `max_size` [hyperparameters](../how-to-auto-train-image-models.md#configure-experiments) for Mask R-CNN.
+For `resize_height` and `resize_width`, you can also use the values that you used during training, bounded by the `min_size` and `max_size` [hyperparameters](reference-automl-images-hyperparameters-v1.md) for Mask R-CNN.
 
 ```python
 import glob
@@ -1437,5 +1437,5 @@ display_detections(img, boxes.copy(), labels, scores, masks.copy(),
 ---
 
 ## Next steps
-* [Learn more about computer vision tasks in AutoML](../how-to-auto-train-image-models.md)
+* [Learn more about computer vision tasks in AutoML](how-to-auto-train-image-models-v1.md)
 * [Troubleshoot AutoML experiments](../how-to-troubleshoot-auto-ml.md)

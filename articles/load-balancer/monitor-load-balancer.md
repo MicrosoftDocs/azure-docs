@@ -5,9 +5,9 @@ author: mbender-ms
 ms.author: mbender
 ms.service: load-balancer
 ms.topic: how-to
-ms.custom: subject-monitoring, FY 23 content-maintenance
-ms.date: 11/16/2022 
+ms.date: 11/16/2022
 ms.devlang: azurecli
+ms.custom: template-how-to, subject-monitoring, engagement-fy23
 ---
 
 # Monitoring load balancer
@@ -287,14 +287,14 @@ For a list of the tables used by Azure Monitor Logs and queryable by Log Analyti
 
 Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](../azure-monitor/alerts/alerts-metric-overview.md), [logs](../azure-monitor/alerts/alerts-unified-log.md), and the [activity log](../azure-monitor/alerts/activity-log-alerts.md). Different types of alerts have benefits and drawbacks
 
-If you're creating or running an application, which run on Load Balancer [Azure Monitor Application Insights](../azure-monitor/overview.md#application-insights) may offer other types of alerts.
+If you're creating or running an application, which run on Load Balancer [Azure Monitor Application Insights](../azure-monitor/app/app-insights-overview.md) may offer other types of alerts.
 
 
 The following table lists common and recommended alert rules for Load Balancer.
 
 | Alert type | Condition | Description  |
 |:---|:---|:---|
-| Load balancing rule unavailable due to unavailable VMs | If data path availability split by Frontend IP address and Frontend Port (all known and future values) is equal to zero and health probe status is equal to zero, then fire alerts | This alert determines if the data path availability for any configured load balancing rules isn't servicing traffic due to all VMs in the associated backend pool being probed down by the configured health probe. Review load balancer [troubleshooting guide](load-balancer-troubleshoot.md) to investigate the potential root cause. |
+| Load balancing rule unavailable due to unavailable VMs | If data path availability split by Frontend IP address and Frontend Port (all known and future values) is equal to zero, and in a secondary alert, if health probe status is equal to zero, then fire alerts | These alerts help determine if the data path availability for any configured load balancing rules isn't servicing traffic due to all VMs in the associated backend pool being probed down by the configured health probe. Review load balancer [troubleshooting guide](load-balancer-troubleshoot.md) to investigate the potential root cause. |
 | VM availability significantly low | If health probe status split by Backend IP and Backend Port is equal to user defined probed-up percentage of total pool size (that is, 25% are probed up), then fire alert | This alert determines if there are less than needed VMs available to serve traffic |
 | Outbound connections to internet endpoint failing | If SNAT Connection Count filtered to Connection State = Failed is greater than zero, then fire alert | This alert fires when SNAT ports are exhausted and VMs are failing to initiate outbound connections. |
 | Approaching SNAT exhaustion | If Used SNAT Ports is greater than user defined number, then fire alert | This alert requires a static outbound configuration where the same number of ports are always allocated. It then fires when a percentage of the allocated ports is used. |

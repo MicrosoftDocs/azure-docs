@@ -81,7 +81,7 @@ The following permissions are required to allow the UMI to read from the Microso
 
 For guidance about how to grant and use the permissions, refer to [Overview of Microsoft Graph permissions](/graph/permissions-overview)
 
-After you grant the permissions to the UMI, they're enabled for all servers or instances created with the UMI assigned as a server identity.
+After you grant the permissions to the UMI, they're enabled for all servers created with the UMI assigned as a server identity.
 
 ## Token Validation
 
@@ -124,6 +124,9 @@ Once you authenticate against the Active Directory, you retrieve a token. This t
 - If the Azure AD admin is removed from the server, the server is no longer associated with an Azure AD tenant, and therefore all Azure AD logins are disabled for the server. Adding a new Azure AD admin from the same tenant re-enables Azure AD logins.
 
 - Azure Database for MySQL flexible server matches access tokens to the Azure Database for MySQL users using the user's unique Azure AD user ID instead of the username. This means that if an Azure AD user is deleted in Azure AD and a new user is created with the same name, Azure Database for MySQL considers that a different user. Therefore, if a user is deleted from Azure AD and then a new user with the same name is added, the new user isn't able to connect with the existing user.
+
+> [!NOTE]  
+> The subscriptions of an Azure MySQL flexible server with Azure AD authentication enabled cannot be transferred to another tenant or directory.
 
 ## Next steps
 

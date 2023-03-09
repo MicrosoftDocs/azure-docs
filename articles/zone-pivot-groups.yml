@@ -335,6 +335,8 @@ groups:
     title: C#
   - id: programming-language-javascript
     title: JavaScript
+  - id: programming-language-python
+    title: Python
 - id: programming-languages-set-functions-full
   title: Programming languages
   prompt: Choose a programming language
@@ -506,6 +508,18 @@ groups:
     title: REST API
   - id: vision-studio
     title: Vision Studio
+- id: programming-languages-computer-vision-40
+  title: Programming languages
+  prompt: Choose a programming language.
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-rest-api
+    title: REST API
 - id: programming-languages-ocr
   title: Programming languages
   prompt: Choose a programming language.
@@ -734,19 +748,19 @@ groups:
   pivots:
   - id: speech-studio
     title: Speech Studio
-  - id: speech-cli
-    title: CLI
   - id: rest-api
     title: REST
+  - id: speech-cli
+    title: CLI
 - id: speech-cli-rest
 # Owner: eur
   title: Programming languages
   prompt: Choose a tool or API
   pivots:
-  - id: speech-cli
-    title: CLI
   - id: rest-api
     title: REST
+  - id: speech-cli
+    title: CLI
 - id: programming-languages-set-nineteen
   title: Programming languages
   prompt: Choose a programming language
@@ -919,6 +933,17 @@ groups:
     title: Linux
   - id: platform-windows
     title: Windows
+- id: app-service-platform-windows-linux-sphere-rtos
+  #CBroad
+  title: App Service platform
+  prompt: Choose a hosting platform
+  pivots:
+  - id: platform-sphere
+    title: Sphere
+  - id: platform-linux
+    title: Linux
+  - id: platform-windows
+    title: Windows
 - id: app-service-platform-environment
   title: App Service platform and development tool
   prompt: Choose a hosting platform and development tool
@@ -1002,6 +1027,14 @@ groups:
     title: JavaScript
   - id: programming-language-csharp
     title: C#
+- id: acs-js-power
+  title: JS and Power Platform pivots
+  prompt: Choose a platform
+  pivots:
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: platform-power
+    title: Power Platform
 - id: acs-js-csharp-python
   title: Programming languages
   prompt: Choose a programming language
@@ -1091,6 +1124,24 @@ groups:
     title: Java
   - id: programming-language-python
     title: Python
+- id: acs-azcli-js-csharp-java-python-portal-nocode
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: platform-azportal
+    title: Azure Portal
+  - id: platform-azcli
+    title: Azure CLI
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: platform-nocode
+    title: Power Platform
 - id: acs-web-ios-android
   title: Platform
   prompt: Choose a platform
@@ -1762,6 +1813,17 @@ groups:
     title: Azure portal
   - id: azure-cli
     title: Azure CLI
+# Owner: cshoe
+- id: arm-azure-cli-portal
+  title: Interaction type
+  prompt: Select how you want to interact with Azure
+  pivots:
+  - id: azure-cli
+    title: Azure CLI
+  - id: azure-portal
+    title: Azure portal
+  - id: azure-resource-manager
+    title: ARM template
 # Owner: cebundy
 - id: container-apps-interface-types
   title: Interaction type
@@ -1832,6 +1894,15 @@ groups:
   pivots:
   - id: aad-powershell
     title: Azure AD PowerShell
+  - id: ms-powershell
+    title: Microsoft Graph PowerShell
+  - id: ms-graph
+    title: Microsoft Graph
+## Template without portal and Azure AD Graph
+- id: enterprise-apps-minus-portal-aad
+  title: Manage Enterprise apps
+  prompt: Choose an option
+  pivots:
   - id: ms-powershell
     title: Microsoft Graph PowerShell
   - id: ms-graph
@@ -1973,10 +2044,12 @@ groups:
   - id: programming-language-python
     title: Python
 # Owner: jorgegarc
-- id: acs-xamarin-react
+- id: acs-maui-xamarin-react
   title: Cross-platform pivots
   prompt: Choose a platform
   pivots:
+  - id: platform-maui
+    title: .NET MAUI
   - id: platform-xamarin
     title: Xamarin
   - id: platform-react
@@ -2003,3 +2076,21 @@ groups:
     title: Recovery Services vault
   - id: vaults-backup-vault
     title: Backup vault
+# Owner: rolyon
+- id: app-provisioning-cross-tenant-synchronization
+  title: Application provisioning or cross-tenant synchronization
+  prompt: Choose an option
+  pivots:
+  - id: app-provisioning
+    title: Application provisioning
+  - id: cross-tenant-synchronization
+    title: Cross-tenant synchronization
+# Owner: daknappe (Azure Virtual Desktop)
+- id: azure-virtual-desktop-host-pool-types
+  title: Azure Virtual Desktop host pool management type
+  prompt: Choose a host pool management type
+  pivots:
+  - id: host-pool-automated
+    title: Automated host pool
+  - id: host-pool-standard
+    title: Standard host pool

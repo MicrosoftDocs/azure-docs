@@ -21,13 +21,13 @@ To complete this tutorial, you’ll need the following prerequisites:
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - Install [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) with Universal Windows Platform development workload. 
 - A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md). You'll need to **record your connection string** for this quickstart.
-- A [User Access Token](../../../access-tokens.md) for your Azure Communication Service. You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
+- A [User Access Token](../../../identity/access-tokens.md) for your Azure Communication Service. You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
 
   ```azurecli-interactive
   az communication identity token issue --scope voip --connection-string "yourConnectionString"
   ```
 
-  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../../access-tokens.md?pivots=platform-azcli).
+  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../../identity/access-tokens.md?pivots=platform-azcli).
   
 ### Setting up
 
@@ -151,7 +151,7 @@ The following classes and interfaces handle some of the major features of the Az
 
 Initialize a `CallAgent` instance with a User Access Token which will enable us to make and receive calls, and optionally obtain a DeviceManager instance to query for client device configurations.
 
-In the following code, replace `<AUTHENTICATION_TOKEN>` with a User Access Token. Refer to the [user access token](../../../access-tokens.md) documentation if you don't already have a token available.
+In the following code, replace `<AUTHENTICATION_TOKEN>` with a User Access Token. Refer to the [user access token](../../../identity/access-tokens.md) documentation if you don't already have a token available.
 
 Add the following code to the `InitCallAgentAndDeviceManagerAsync` function. 
 
@@ -222,13 +222,13 @@ To complete this tutorial, you’ll need the following prerequisites:
 - Install [Visual Studio 2022](https://visualstudio.microsoft.com/downloads/) and [Windows App SDK version 1.2 preview 2](https://learn.microsoft.com/windows/apps/windows-app-sdk/preview-channel#version-12-preview-2-120-preview2). 
 - Basic understanding of how to create a WinUI 3 app. [Create your first WinUI 3 (Windows App SDK) project](https://learn.microsoft.com/windows/apps/winui/winui3/create-your-first-winui3-app?pivots=winui3-packaged-csharp) is a good resource to start with.
 - A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md). You'll need to **record your connection string** for this quickstart.
-- A [User Access Token](../../../access-tokens.md) for your Azure Communication Service. You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
+- A [User Access Token](../../../identity/access-tokens.md) for your Azure Communication Service. You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
 
   ```azurecli-interactive
   az communication identity token issue --scope voip --connection-string "yourConnectionString"
   ```
 
-  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../../access-tokens.md?pivots=platform-azcli).
+  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../../identity/access-tokens.md?pivots=platform-azcli).
   
 ### Setting up
 
@@ -341,7 +341,7 @@ The following classes and interfaces handle some of the major features of the Az
 
 Initialize a `CallAgent` instance with a User Access Token which will enable us to make and receive calls, and optionally obtain a DeviceManager instance to query for client device configurations.
 
-In the following code, replace `<AUTHENTICATION_TOKEN>` with a User Access Token. Refer to the [user access token](../../../access-tokens.md) documentation if you don't already have a token available.
+In the following code, replace `<AUTHENTICATION_TOKEN>` with a User Access Token. Refer to the [user access token](../../../identity/access-tokens.md) documentation if you don't already have a token available.
 
 Add the following code to the `InitCallAgentAndDeviceManagerAsync` function. 
 

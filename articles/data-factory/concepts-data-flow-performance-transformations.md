@@ -8,7 +8,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
-ms.date: 09/29/2021
+ms.date: 01/11/2023
 ---
 
 # Optimizing transformations
@@ -37,7 +37,7 @@ Unlike merge join in tools like SSIS, the join transformation isn't a mandatory 
 
 ## Window transformation performance
 
-The [Window transformation in mapping data flow](data-flow-window.md) partitions your data by value in columns that you select as part of the ```over()``` clause in the transformation settings. There are a number of very popular aggregate and analytical functions that are exposed in the Windows transformation. However, if your use case is to generate a window over your entire dataset for the purpose of ranking ```rank()``` or row number ```rowNumber()```, it is recommended that you instead use the [Rank transformation](data-flow-rank.md) and the [Surrogate Key transformation](data-flow-surrogate-key.md). Those transformation will perform better again full dataset operations using those functions.
+The [Window transformation in mapping data flow](data-flow-window.md) partitions your data by value in columns that you select as part of the ```over()``` clause in the transformation settings. There are a number of very popular aggregate and analytical functions that are exposed in the Windows transformation. However, if your use case is to generate a window over your entire dataset for the purpose of ranking ```rank()``` or row number ```rowNumber()```, it is recommended that you instead use the [Rank transformation](data-flow-rank.md) and the [Surrogate Key transformation](data-flow-surrogate-key.md). Those transformations will perform better again full dataset operations using those functions.
 
 ## Repartitioning skewed data
 

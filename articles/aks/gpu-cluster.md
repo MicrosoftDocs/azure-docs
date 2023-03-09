@@ -1,7 +1,6 @@
 ---
 title: Use GPUs on Azure Kubernetes Service (AKS)
 description: Learn how to use GPUs for high performance compute or graphics-intensive workloads on Azure Kubernetes Service (AKS)
-services: container-service
 ms.topic: article
 ms.custom: event-tier1-build-2022
 ms.date: 08/06/2021
@@ -45,34 +44,36 @@ There are two options for adding the NVIDIA device plugin:
 
 AKS provides a fully configured AKS image that already contains the [NVIDIA device plugin for Kubernetes][nvidia-github].
 
-Register the `GPUDedicatedVHDPreview` feature:
+[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
 
-```azurecli
-az feature register --name GPUDedicatedVHDPreview --namespace Microsoft.ContainerService
-```
-
-It might take several minutes for the status to show as **Registered**. You can check the registration status by using the [az feature list](/cli/azure/feature#az-feature-list) command:
-
-```azurecli
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/GPUDedicatedVHDPreview')].{Name:name,State:properties.state}"
-```
-
-When the status shows as registered, refresh the registration of the `Microsoft.ContainerService` resource provider by using the [az provider register](/cli/azure/provider#az-provider-register) command:
-
-```azurecli
-az provider register --namespace Microsoft.ContainerService
-```
-
-To install the aks-preview CLI extension, use the following Azure CLI commands:
+First, install the aks-preview Azure CLI extension by running the following command:
 
 ```azurecli
 az extension add --name aks-preview
 ```
 
-To update the aks-preview CLI extension, use the following Azure CLI commands:
+Run the following command to update to the latest version of the extension released:
 
 ```azurecli
 az extension update --name aks-preview
+```
+
+Then, register the `GPUDedicatedVHDPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
+
+```azurecli-interactive
+az feature register --namespace "Microsoft.ContainerService" --name "GPUDedicatedVHDPreview"
+```
+
+It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature show][az-feature-show] command:
+
+```azurecli-interactive
+az feature show --namespace "Microsoft.ContainerService" --name "GPUDedicatedVHDPreview"
+```
+
+When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
 ```
 
 ## Add a node pool for GPU nodes
@@ -440,4 +441,7 @@ For information on using Azure Kubernetes Service with Azure Machine Learning, s
 [azureml-deploy]: ../machine-learning/how-to-deploy-managed-online-endpoints.md
 [azureml-triton]: ../machine-learning/how-to-deploy-with-triton.md
 [aks-container-insights]: monitor-aks.md#container-insights
-[advanced-scheduler-aks]: /aks/operator-best-practices-advanced-scheduler.md
+[advanced-scheduler-aks]: operator-best-practices-advanced-scheduler.md
+[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-show]: /cli/azure/feature#az-feature-show

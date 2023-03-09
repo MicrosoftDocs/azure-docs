@@ -1,8 +1,8 @@
 ---
 title: Data-driven style Expressions in Android maps | Microsoft Azure Maps
 description: Learn about data-driven style expressions. See how to use these expressions in the Azure Maps Android SDK to adjust styles in maps.
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
@@ -930,7 +930,7 @@ The following image demonstrates how the colors are chosen for the above express
 
 ### Step expression
 
-A `step` expression can be used to calculate discrete, stepped result values by evaluating a [piecewise-constant function](http://mathworld.wolfram.com/PiecewiseConstantFunction.html) defined by stops.
+A `step` expression can be used to calculate discrete, stepped result values by evaluating a [piecewise-constant function](https://mathworld.wolfram.com/PiecewiseConstantFunction.html) defined by stops.
 
 The `interpolate` expression has the following formats:
 

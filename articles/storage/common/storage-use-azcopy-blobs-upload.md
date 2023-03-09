@@ -222,7 +222,7 @@ For detailed reference, see the [azcopy copy](storage-ref-azcopy-copy.md) refere
 
 ## Upload with index tags
 
-You can upload a file and add [blob index tags(preview)](../blobs/storage-manage-find-blobs.md) to the target blob.
+You can upload a file and add [blob index tags](../blobs/storage-manage-find-blobs.md) to the target blob.
 
 If you're using Azure AD authorization, your security principal must be assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role, or it must be given permission to the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) via a custom Azure role. If you're using a Shared Access Signature (SAS) token, that token must provide access to the blob's tags via the `t` SAS permission.
 

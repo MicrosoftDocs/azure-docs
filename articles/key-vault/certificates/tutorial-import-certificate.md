@@ -8,11 +8,10 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: tutorial
-ms.custom: mvc, devx-track-azurecli
+ms.custom: mvc
 ms.date: 03/16/2022
 ms.author: sebansal 
 ms.devlang: azurecli
-#Customer intent:As a security admin who is new to Azure, I want to use Key Vault to securely store certificates in Azure
 ---
 # Tutorial: Import a certificate in Azure Key Vault
 
@@ -66,6 +65,15 @@ In this case, we will create a certificate called **ExampleCertificate**, or imp
 4. Click **Create**.
 
 :::image type="content" source="../media/certificates/tutorial-import-cert/cert-import.png" alt-text="Importing a certificate through the Azure portal":::
+
+When importing a .pem file, check if the format is the following:
+
+-----BEGIN CERTIFICATE-----<br>
+MIID2TCCAsGg...<br>
+-----END CERTIFICATE-----<br>
+-----BEGIN PRIVATE KEY-----<br>
+MIIEvQIBADAN...<br>
+-----END PRIVATE KEY-----<br>
 
 When importing a certificate, Azure Key vault will automatically populate certificate parameters (i.e. validity period, Issuer name, activation date etc.).
 

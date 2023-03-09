@@ -3,11 +3,11 @@ title: How to manage linked IoT hubs with Device Provisioning Service (DPS)
 description: This article shows how to link and manage IoT hubs with the Device Provisioning Service (DPS).
 author: kgremban
 ms.author: kgremban
-ms.date: 10/24/2022
+ms.date: 01/18/2023
 ms.topic: how-to
 ms.service: iot-dps
 services: iot-dps
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 
 # How to link and manage IoT hubs
@@ -37,6 +37,12 @@ When you link an IoT hub to your DPS instance, it becomes available to participa
 * For enrollments that don't explicitly set the IoT hubs to apply allocation policy to, a newly linked IoT hub immediately begins participating in allocation.
 
 * For enrollments that do explicitly set the IoT hubs to apply allocation policy to, you'll need to manually or programmatically add the new IoT hub to the enrollment settings for it to participate in allocation.
+
+### Limitations
+
+* There are some limitations when working with linked IoT hubs and private endpoints. For more information, see [Private endpoint limitations](virtual-network-support.md#private-endpoint-limitations).
+
+* The linked IoT Hub must have [Connect using shared access policies](../iot-hub/iot-hub-dev-guide-azure-ad-rbac.md#azure-ad-access-and-shared-access-policies) set to **Allow**.
 
 ### Use the Azure portal to link an IoT hub
 
@@ -214,10 +220,6 @@ To update symmetric keys for a linked IoT hub with Azure CLS:
     ```azurecli
     az iot dps update --name MyExampleDps --set properties.iotHubs[0].connectionString="HostName=MyExampleHub-2.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=NewTokenValue"
     ```
-
-## Limitations
-
-There are some limitations when working with linked IoT hubs and private endpoints. For more information, see [Private endpoint limitations](virtual-network-support.md#private-endpoint-limitations).
 
 ## Next steps
 

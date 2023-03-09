@@ -3,7 +3,7 @@ title: Overview of features - Azure Event Hubs | Microsoft Docs
 description: This article provides details about features and terminology of Azure Event Hubs. 
 ms.topic: overview
 ms.custom: event-tier1-build-2022
-ms.date: 08/25/2022
+ms.date: 02/09/2023
 ---
 
 # Features and terminology in Azure Event Hubs
@@ -13,7 +13,7 @@ Azure Event Hubs is a scalable event processing service that ingests and process
 This article builds on the information in the [overview article](./event-hubs-about.md), and provides technical and implementation details about Event Hubs components and features.
 
 > [!TIP]
-> [The protocol support for **Apache Kafka** clients](event-hubs-for-kafka-ecosystem-overview.md)  (versions >=1.0) provides network endpoints that enable applications built to use Apache Kafka with any client to use Event Hubs. Most existing Kafka applications can simply be reconfigured to point to an Event Hub namespace instead of a Kafka cluster bootstrap server. 
+> [The protocol support for **Apache Kafka** clients](azure-event-hubs-kafka-overview.md)  (versions >=1.0) provides network endpoints that enable applications built to use Apache Kafka with any client to use Event Hubs. Most existing Kafka applications can simply be reconfigured to point to an Event Hub namespace instead of a Kafka cluster bootstrap server. 
 >
 >From the perspective of cost, operational effort, and reliability, Azure Event Hubs is a great alternative to deploying and operating your own Kafka and Zookeeper clusters and to Kafka-as-a-Service offerings not native to Azure. 
 >
@@ -27,7 +27,7 @@ An Event Hubs namespace is a management container for event hubs (or topics, in 
 
 ## Event publishers
 
-Any entity that sends data to an event hub is an *event publisher* (synonymously used with *event producer*). Event publishers can publish events using HTTPS or AMQP 1.0 or the Kafka protocol. Event publishers use Azure Active Directory based authorization with OAuth2-issued JWT tokens or an Event Hub-specific Shared Access Signature (SAS) token gain publishing access.
+Any entity that sends data to an event hub is an *event publisher* (synonymously used with *event producer*). Event publishers can publish events using HTTPS or AMQP 1.0 or the Kafka protocol. Event publishers use Azure Active Directory based authorization with OAuth2-issued JWT tokens or an Event Hub-specific Shared Access Signature (SAS) token to gain publishing access.
 
 ### Publishing an event
 
@@ -47,14 +47,14 @@ Event Hubs ensures that all events sharing a partition key value are stored toge
 
 Published events are removed from an event hub based on a configurable, timed-based retention policy. Here are a few important points:
 
-- The **default** value and **shortest** possible retention period is **1 day (24 hours)**.
+- The **default** value and **shortest** possible retention period is **1 hour**. Currently, you can set the retention period in hours only in the Azure portal. Resource Manager template, PowerShell, and CLI allow this property to be set only in days. 
 - For Event Hubs **Standard**, the maximum retention period is **7 days**. 
 - For Event Hubs  **Premium** and **Dedicated**, the maximum retention period is **90 days**.
 - If you change the retention period, it applies to all events including events that are already in the event hub. 
 
 Event Hubs retains events for a configured retention time that applies across
 all partitions. Events are automatically removed when the retention period has
-been reached. If you specify a retention period of one day, the event will
+been reached. If you specify a retention period of one day (24 hours), the event will
 become unavailable exactly 24 hours after it has been accepted. You can't
 explicitly delete events. 
 
@@ -166,7 +166,7 @@ If a reader disconnects from a partition, when it reconnects it begins reading a
 
 ### Log compaction 
 
-Azure Event Hubs supports compacting event log to retain the latest events of a given event key. With compacted event hubs/Kafka topic, you can use key-baesd retention rather than using the coarser-grained time-based retention. 
+Azure Event Hubs supports compacting event log to retain the latest events of a given event key. With compacted event hubs/Kafka topic, you can use key-based retention rather than using the coarser-grained time-based retention. 
 
 For more information on log compaction, see [Log compaction](log-compaction.md). 
 

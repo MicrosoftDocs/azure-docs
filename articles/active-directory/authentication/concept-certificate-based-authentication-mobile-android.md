@@ -6,10 +6,10 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 10/27/2022
+ms.date: 01/29/2023
 
 ms.author: justinha
-author: vimrang
+author: justinha
 manager: amycolannino
 ms.reviewer: vimrang
 

@@ -3,10 +3,10 @@ title: Move Azure VMs across regions with Azure Resource Mover
 description: Learn how to move Azure VMs to another region with Azure Resource Mover
 manager: evansma
 author: ankitaduttaMSFT 
-ms.service: resource-move
+ms.service: resource-mover
 ms.topic: tutorial
-ms.date: 12/21/2022
-ms.author: raynew
+ms.date: 02/10/2023
+ms.author: ankitadutta
 ms.custom: mvc, engagement-fy23
 #Customer intent: As an Azure admin, I want to move Azure VMs to a different Azure region.
 
@@ -101,7 +101,7 @@ To select the resources you want to move, follow these steps:
 
 To resolve dependencies before the move, follow these steps:
 
-1. If any resources show a *Validate dependencies* message in the **Issues** column, select the **Validate dependencies** button. Doing so starts the validation process.
+1. Dependencies are automatically validated in the background when you add the resources. If  you still see the **Validate dependencies** option, select it to trigger the validation manually.
 2. If dependencies are found, select **Add dependencies** to add them. 
 3. On **Add dependencies**, retain the default **Show all dependencies** option. 
 
@@ -112,7 +112,7 @@ To resolve dependencies before the move, follow these steps:
 
     :::image type="content" source="./media/tutorial-move-region-virtual-machines/add-dependencies.png" alt-text="Screenshot displays add dependencies page." lightbox="./media/tutorial-move-region-virtual-machines/add-dependencies.png":::
 
-4. Validate the dependencies again. 
+4. Dependencies are automatically validated in the background once you add them. If you see a **Validate dependencies** button, select it to trigger the manual validation. 
     :::image type="content" source="./media/tutorial-move-region-virtual-machines/add-additional-dependencies.png" alt-text="Screenshot displays page to add additional dependencies." lightbox="./media/tutorial-move-region-virtual-machines/add-additional-dependencies.png":::
 
 

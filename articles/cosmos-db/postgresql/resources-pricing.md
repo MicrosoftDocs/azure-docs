@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: postgresql
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 09/26/2022
+ms.date: 02/02/2022
 ---
 
 # Pricing for Azure Cosmos DB for PostgreSQL
@@ -15,9 +15,9 @@ ms.date: 09/26/2022
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 For the most up-to-date general pricing information, see the service
-[pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/).
+[pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/postgresql/).
 To see the cost for the configuration you want, the
-[Azure portal](https://portal.azure.com/#create/Microsoft.PostgreSQLServer)
+[Azure portal](https://portal.azure.com/#create/Microsoft.DocumentDB)
 shows the monthly cost on the **Configure** tab based on the options you
 select. If you don't have an Azure subscription, you can use the Azure pricing
 calculator to get an estimated price. On the
@@ -32,7 +32,7 @@ Azure Cosmos DB for PostgreSQL now helps you save money by prepaying for compute
 
 You don't need to assign the reservation to specific clusters. An already running cluster or ones that are newly deployed automatically get the benefit of reserved pricing. By purchasing a reservation, you're prepaying for the compute costs for one year or three years. As soon as you buy a reservation, the Azure Cosmos DB for PostgreSQL compute charges that match the reservation attributes are no longer charged at the pay-as-you-go rates. 
 
-A reservation doesn't cover software, networking, or storage charges associated with the clusters. At the end of the reservation term, the billing benefit expires, and the clusters are billed at the pay-as-you go price. Reservations don't autorenew. For pricing information, see the [Azure Cosmos DB for PostgreSQL reserved capacity offering](https://azure.microsoft.com/pricing/details/cosmos-db/).
+A reservation doesn't cover software, networking, or storage charges associated with the clusters. At the end of the reservation term, the billing benefit expires, and the clusters are billed at the pay-as-you go price. Reservations don't autorenew. For pricing information, see the [Azure Cosmos DB for PostgreSQL reserved capacity offering](https://azure.microsoft.com/pricing/details/cosmos-db/postgresql/).
 
 You can buy Azure Cosmos DB for PostgreSQL reserved capacity in the [Azure portal](https://portal.azure.com/). Pay for the reservation [up front or with monthly payments](../../cost-management-billing/reservations/prepare-buy-reservation.md). To buy the reserved capacity:
 

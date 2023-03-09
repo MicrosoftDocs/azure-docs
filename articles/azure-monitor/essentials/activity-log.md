@@ -184,9 +184,12 @@ Each event is stored in the PT1H.json file with the following format. This forma
 
 ## Legacy collection methods
 
+> [!NOTE]
+> * Azure Activity logs solution was used to forward Activity Logs to Azure Log Analytics. This solution is being retired on the 15th of Sept 2026 and will be automatically converted to Diagnostic settings.
+
 If you're collecting activity logs using the legacy collection method, we recommend you [export activity logs to your Log Analytics workspace](#send-to-log-analytics-workspace) and disable the legacy collection using the [Data Sources - Delete API](/rest/api/loganalytics/data-sources/delete?tabs=HTTP) as follows:
 
-1. List all data sources connected to the workspace using the [Data Sources - List By Workspace API](/rest/api/loganalytics/data-sources/list-by-workspace?tabs=HTTP#code-try-0) and filter for activity logs by setting `filter=kind='AzureActivityLog'`.
+1. List all data sources connected to the workspace using the [Data Sources - List By Workspace API](/rest/api/loganalytics/data-sources/list-by-workspace?tabs=HTTP#code-try-0) and filter for activity logs by setting `kind eq 'AzureActivityLog'`.
 
     :::image type="content" source="media/activity-log/data-sources-list-by-workspace-api.png" alt-text="Screenshot showing the configuration of the Data Sources - List By Workspace API." lightbox="media/activity-log/data-sources-list-by-workspace-api.png":::    
 

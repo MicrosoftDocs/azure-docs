@@ -66,7 +66,7 @@ After your Azure Synapse workspace is created, you have two ways to open Synapse
 > To sign into your workspace, there are two **Account selection methods**. One is from **Azure subscription**, the other is from **Enter manually**. If you have the Synapse Azure role or higher level Azure roles, you can use both methods to log into the workspace. If you don't have the related Azure roles, and you were granted as the Synapse RBAC role, **Enter manually** is the only way to log into the workspace. To learn more about the Synapse RBAC, refer to [What is Synapse role-based access control (RBAC)](./security/synapse-workspace-synapse-rbac.md).
 
 ## Place sample data into the primary storage account
-We are going to use a small 100K row sample dataset of NYX Taxi Cab data for many examples in this getting started guide. We begin by placing it in the primary storage account you created for the workspace.
+We are going to use a small 100K row sample dataset of NYC Taxi Cab data for many examples in this getting started guide. We begin by placing it in the primary storage account you created for the workspace.
 
 * Download the [NYC Taxi - green trip dataset](../open-datasets/dataset-taxi-green.md?tabs=azureml-opendatasets#additional-information) to your computer. Navigate to the [original dataset location](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page) from the above link, choose a specific year and download the Green taxi trip records in Parquet format.
 * Rename the downloaded file to *NYCTripSmall.parquet*.

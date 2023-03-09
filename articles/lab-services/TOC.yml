@@ -56,6 +56,8 @@
     href: classroom-labs-concepts.md    
   - name: Labs architecture fundamentals
     href: classroom-labs-fundamentals.md
+  - name: Nested virtualization on a template VM
+    href: concept-nested-virtualization-template-vm.md
   - name: Capacity limits
     href: capacity-limits.md  
   - name: Cost management for labs
@@ -115,7 +117,7 @@
     - name: SolidWorks computer-aided design (CAD)
       displayName: SolidWorks CAD
       href: class-type-solidworks.md
-    - name: Sql database management and development
+    - name: SQL database management and development
       href: class-type-sql-server.md
 - name: How-tos
   items:
@@ -194,13 +196,7 @@
     - name: Control Windows shutdown behavior
       href: how-to-windows-shutdown.md
     - name: Enable nested virtualization on a template VM
-      items:
-      - name: Enable nested virtualization on a template VM overview
-        href: how-to-enable-nested-virtualization-template-vm.md
-      - name: Enable nested virtualization on a template VM using the UI
-        href: how-to-enable-nested-virtualization-template-vm-ui.md 
-      - name: Enable nested virtualization on a template VM using a script
-        href: how-to-enable-nested-virtualization-template-vm-using-script.md
+      href: how-to-enable-nested-virtualization-template-vm-using-script.md
     - name: Use external file storage
       href: how-to-attach-external-storage.md
     - name: Create and manage schedules
@@ -215,8 +211,6 @@
       href: how-to-enable-shutdown-disconnect.md      
     - name: View support information
       href: lab-creator-support-information.md
-    - name: Troubleshooting lab creation
-      href: troubleshoot.md
   - name: Connect to VMs in labs (student)
     items:        
     - name: Access labs
@@ -291,8 +285,10 @@
       href: reference-powershell-module.md     
 - name: Troubleshoot & debug
   items:
-  - name: Troubleshoot lab VM Access
-    href: troubleshoot-access-lab-vm.md
+    - name: Troubleshoot lab creation
+      href: troubleshoot-lab-creation.md
+    - name: Troubleshoot lab VM Access
+      href: troubleshoot-access-lab-vm.md
 - name: Reference
   items:
   - name: .NET
@@ -314,6 +310,8 @@
     href: https://aka.ms/azlabs-blog
   - name: Azure updates
     href: https://azure.microsoft.com/updates/?product=lab-services
+  - name: Regional availability
+    href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=lab-services
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/lab-services/
   - name: Q & A

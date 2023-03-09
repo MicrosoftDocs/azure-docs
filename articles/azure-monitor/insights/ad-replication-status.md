@@ -115,7 +115,7 @@ You can also click **Export** to export the results to Excel. Exporting the data
 
 ![exported AD replication status errors in Excel](./media/ad-replication-status/oms-ad-replication-export.png)
 
-## AD Replication Status FAQ
+## Frequently asked questions
 **Q: How often is AD replication status data updated?**
 A: The information is updated every five days.
 

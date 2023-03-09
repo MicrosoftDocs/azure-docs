@@ -1,7 +1,6 @@
 ---
 title: Use Windows HostProcess containers
 description: Learn how to use HostProcess & Privileged containers for Windows workloads on AKS
-services: container-service
 ms.topic: article
 ms.date: 4/6/2022
 ms.author: juda
@@ -71,7 +70,6 @@ spec:
         - name: powershell
           image: mcr.microsoft.com/powershell:lts-nanoserver-1809
           securityContext:
-            privileged: true
             windowsOptions:
               hostProcess: true
               runAsUserName: "NT AUTHORITY\\SYSTEM"

@@ -3,18 +3,17 @@ title: Move from classic to modernized VMware disaster recovery.
 description: Learn about the architecture, necessary infrastructure, and FAQs about moving your VMware replications from classic to modernized protection architecture.
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/04/2022
+ms.date: 01/13/2023
 author: ankitaduttaMSFT
+ms.custom: engagement-fy23
 ---
 
 # Move from classic to modernized VMware disaster recovery   
 
-This article provides information about the architecture, necessary infrastructure, and FAQs about moving your VMware replications from [classic](./vmware-azure-architecture.md) to [modernized](./vmware-azure-architecture-modernized.md) protection architecture. With this capability to migrate, you can successfully transfer your replicated items from a configuration server to an Azure Site Recovery replication appliance. This migration is guided by a smart replication mechanism, which ensures that complete initial replication isn't performed again for non-critical replicated items, and only the differential data is transferred. 
+This article provides information about the architecture, necessary infrastructure, and FAQs about moving your VMware or Physical machine replications from [classic](./vmware-azure-architecture.md) to [modernized](./vmware-azure-architecture-modernized.md) protection architecture. With this capability to migrate, you can successfully transfer your replicated items from a configuration server to an Azure Site Recovery replication appliance. This migration is guided by a smart replication mechanism, which ensures that complete initial replication isn't performed again for non-critical replicated items, and only the differential data is transferred. 
 
 > [!Note]
-> - Movement of physical servers to modernized architecture is not yet supported.   
-> - Movement of machines replicated in a Private Endpoint enabled Recovery Services vault is not supported yet.    
-> - Recovery plans won't be migrated and will need to be created again in the modernized Recovery Services vault.  
+> Recovery plans won't be migrated and will need to be created again in the modernized Recovery Services vault.  
 
 ## Architecture  
 
@@ -50,9 +49,8 @@ Ensure the following before you move from classic architecture to modernized arc
 ### Prepare classic Recovery Services vault   
 
 Ensure the following for the replicated items you are planning to move: 
-
-- The Recovery Services vault does not have MSI enabled on it.   
-- The replicated item is a VMware machine replicating via a configuration server. 
+ 
+- The replicated item is a VMware or Physcial machine replicating via a configuration server. 
 - Replication is not happening to an un-managed storage account but rather to managed disk. 
 - Replication is happening from on-premises to Azure and the replicated item is not in a failed-over or in failed-back state. 
 - The replicated item is not replicating the data from Azure to on-premises.  
@@ -61,7 +59,8 @@ Ensure the following for the replicated items you are planning to move:
 - The configuration server’s version is 9.50 or later and its health is in a non-critical state.  
 - The configuration server has a healthy heartbeat.  
 - The mobility service agent’s version, installed on the source machine, is 9.50 or later.  
-- The replicated item does not use Private Endpoint.   
+- The Recovery Services vaults with MSI enabled are supported.  
+- The Recovery Services vaults with Private Endpoints enabled are supported.   
 - The replicated item’s health is in a non-critical state, or its recovery points are being created successfully.  
 
 ### Prepare modernized Recovery Services vault   

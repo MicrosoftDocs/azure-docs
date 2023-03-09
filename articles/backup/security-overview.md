@@ -3,6 +3,8 @@ title: Overview of security features
 description: Learn about security capabilities in Azure Backup that help you protect your backup data and meet the security needs of your business.
 ms.topic: conceptual
 ms.date: 03/12/2020
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Overview of security features in Azure Backup

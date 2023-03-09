@@ -1,6 +1,6 @@
 ---
 title: "Troubleshoot common Azure Arc-enabled Kubernetes issues"
-ms.date: 11/04/2022
+ms.date: 01/23/2023
 ms.topic: how-to
 description: "Learn how to resolve common issues with Azure Arc-enabled Kubernetes clusters and GitOps."
 ---
@@ -78,13 +78,13 @@ For more information, see [Debugging DNS Resolution](https://kubernetes.io/docs/
 
 ### Outbound network connectivity issues
 
-Issues with outbound network connectivity from the cluster may arise for different reasons. First make sure all of the [network requirements](quickstart-connect-cluster.md#meet-network-requirements) have been met.
+Issues with outbound network connectivity from the cluster may arise for different reasons. First make sure all of the [network requirements](network-requirements.md) have been met.
 
 If you encounter this issue, and your cluster is behind an outbound proxy server, make sure you have passed proxy parameters during the onboarding of your cluster and that the proxy is configured correctly. For more information, see [Connect using an outbound proxy server](quickstart-connect-cluster.md#connect-using-an-outbound-proxy-server).
 
 ### Unable to retrieve MSI certificate
 
-Problems retrieving the MSI certificate are usually due to network issues. Check to make sure all of the [network requirements](quickstart-connect-cluster.md#meet-network-requirements) have been met, then try again.
+Problems retrieving the MSI certificate are usually due to network issues. Check to make sure all of the [network requirements](network-requirements.md) have been met, then try again.
 
 ### Azure CLI is unable to download Helm chart for Azure Arc agents
 
@@ -183,7 +183,7 @@ To resolve this issue, try the following steps.
    name: azure-identity-certificate
    ```
 
-   To resolve this issue, try deleting the Arc deployment by running the `az connectedk8s delete` command and reinstalling it. If the issue continues to happen, it could be an issue with your proxy settings. In that case, [try connecting your cluster to Azure Arc via a proxy](./quickstart-connect-cluster.md#connect-using-an-outbound-proxy-server) to connect your cluster to Arc via a proxy. Please also verify if all the [network prerequisites](quickstart-connect-cluster.md#meet-network-requirements) have been met.
+   To resolve this issue, try deleting the Arc deployment by running the `az connectedk8s delete` command and reinstalling it. If the issue continues to happen, it could be an issue with your proxy settings. In that case, [try connecting your cluster to Azure Arc via a proxy](./quickstart-connect-cluster.md#connect-using-an-outbound-proxy-server) to connect your cluster to Arc via a proxy. Please also verify if all the [network prerequisites](network-requirements.md) have been met.
 
 4. If the `clusterconnect-agent` and the `config-agent` pods are running, but the `kube-aad-proxy` pod is missing, check your pod security policies. This pod uses the `azure-arc-kube-aad-proxy-sa` service account, which doesn't have admin permissions but requires the permission to mount host path.
 
@@ -424,7 +424,7 @@ The extension status also returns as "Failed".
 
 The extension-agent pod is trying to get its token from IMDS on the cluster in order to talk to the extension service in Azure, but the token request is intercepted by the [pod identity](../../aks/use-azure-ad-pod-identity.md)).
 
-The workaround is to create an `AzurePodIdentityException` that will tell Azure AD Pod Identity to ignore the token requests from flux-extension pods.
+You can fix this issue by upgrading to the latest version of the `microsoft.flux` extension. For version 1.6.1 or earlier, the workaround is to create an `AzurePodIdentityException` that will tell Azure AD Pod Identity to ignore the token requests from flux-extension pods.
 
 ```console
 apiVersion: aadpodidentity.k8s.io/v1
@@ -439,7 +439,9 @@ spec:
 
 ### Flux v2 - Installing the `microsoft.flux` extension in a cluster with Kubelet Identity enabled
 
-When working with Azure Kubernetes clusters, one of the authentication options to use is kubelet identity. In order to let Flux use this, add a parameter --config useKubeletIdentity=true at the time of Flux extension installation.
+When working with Azure Kubernetes clusters, one of the authentication options is *kubelet identity* using a user-assigned managed identity. Using kubelet identity can reduce operational overhead and increases security when connecting to Azure resources such as Azure Container Registry.
+
+To let Flux use kubelet identity, add the parameter `--config useKubeletIdentity=true` when installing the Flux extension. This option is supported starting with version 1.6.1 of the extension.
 
 ```console
 az k8s-extension create --resource-group <resource-group> --cluster-name <cluster-name> --cluster-type managedClusters --name flux --extension-type microsoft.flux --config useKubeletIdentity=true
@@ -447,7 +449,7 @@ az k8s-extension create --resource-group <resource-group> --cluster-name <cluste
 
 ### Flux v2 - `microsoft.flux` extension installation CPU and memory limits
 
-The controllers installed in your Kubernetes cluster with the Microsoft.Flux extension require the following CPU and memory resource limits to properly schedule on Kubernetes cluster nodes.
+The controllers installed in your Kubernetes cluster with the Microsoft Flux extension require the following CPU and memory resource limits to properly schedule on Kubernetes cluster nodes.
 
 | Container Name | CPU limit | Memory limit |
 | -------------- | ----------- | -------- |
@@ -456,13 +458,12 @@ The controllers installed in your Kubernetes cluster with the Microsoft.Flux ext
 | fluent-bit | 20m | 150Mi |
 | helm-controller | 1000m | 1Gi |
 | source-controller | 1000m | 1Gi |
-| kustomize-controller | 1000m | 1Gi | 
+| kustomize-controller | 1000m | 1Gi |
 | notification-controller | 1000m | 1Gi |
 | image-automation-controller | 1000m | 1Gi |
 | image-reflector-controller | 1000m | 1Gi |
 
 If you have enabled a custom or built-in Azure Gatekeeper Policy, such as `Kubernetes cluster containers CPU and memory resource limits should not exceed the specified limits`, that limits the resources for containers on Kubernetes clusters, you will need to either ensure that the resource limits on the policy are greater than the limits shown above or the `flux-system` namespace is part of the `excludedNamespaces` parameter in the policy assignment.
-
 
 ## Monitoring
 
@@ -486,7 +487,7 @@ az connectedk8s proxy -n AzureArcTest -g AzureArcTest
 Hybrid connection for the target resource does not exist. Agent might not have started successfully.
 ```
 
-Be sure to use the `connectedk8s` Azure CLI extension with version >= 1.2.0, then [connect your cluster again](quickstart-connect-cluster.md) to Azure Arc. Also, verify that you've met all the [network prerequisites](quickstart-connect-cluster.md#meet-network-requirements) needed for Arc-enabled Kubernetes.
+Be sure to use the `connectedk8s` Azure CLI extension with version >= 1.2.0, then [connect your cluster again](quickstart-connect-cluster.md) to Azure Arc. Also, verify that you've met all the [network prerequisites](network-requirements.md) needed for Arc-enabled Kubernetes.
 
 If your cluster is behind an outbound proxy or firewall, verify that websocket connections are enabled for `*.servicebus.windows.net`, which is required specifically for the [Cluster Connect](cluster-connect.md) feature.
 
@@ -569,7 +570,7 @@ osm-controller-b5bd66db-wglzl   0/1     Evicted   0          61m
 osm-controller-b5bd66db-wvl9w   1/1     Running   0          31m
 ```
 
-Even though one controller was _evicted_ at some point, there's another which is `READY 1/1` and `Running` with `0` restarts. If the column `READY` is anything other than `1/1`, the service mesh would be in a broken state. Column `READY` with `0/1` indicates the control plane container is crashing. Use the following command to inspect controller logs:
+Even though one controller was *Evicted* at some point, there's another which is `READY 1/1` and `Running` with `0` restarts. If the column `READY` is anything other than `1/1`, the service mesh would be in a broken state. Column `READY` with `0/1` indicates the control plane container is crashing. Use the following command to inspect controller logs:
 
 ```bash
 kubectl logs -n arc-osm-system -l app=osm-controller
@@ -659,7 +660,7 @@ kubectl get endpoints -n arc-osm-system osm-injector
 
 If the OSM Injector is healthy, you'll see output similar to the following:
 
-```
+```output
 NAME           ENDPOINTS           AGE
 osm-injector   10.240.1.172:9090   75m
 ```
@@ -714,7 +715,8 @@ kubectl get MutatingWebhookConfiguration arc-osm-webhook-osm -o json | jq '.webh
 ```
 
 A well configured **Mutating** webhook configuration will have output similar to the following:
-```
+
+```output
 {
   "name": "osm-injector",
   "namespace": "arc-osm-system",
@@ -843,20 +845,21 @@ kubectl get namespace bookbuyer -o json | jq '.metadata.annotations'
 
 The following annotation must be present:
 
-```
+```bash
 {
   "openservicemesh.io/sidecar-injection": "enabled"
 }
 ```
 
 View the labels of the namespace `bookbuyer`:
+
 ```bash
 kubectl get namespace bookbuyer -o json | jq '.metadata.labels'
 ```
 
 The following label must be present:
 
-```
+```bash
 {
   "openservicemesh.io/monitored-by": "osm"
 }

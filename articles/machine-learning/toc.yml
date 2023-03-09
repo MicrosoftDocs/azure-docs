@@ -62,17 +62,21 @@
 - name: Quickstart
   expanded: true
   items:
+    - name: "Apache Spark - Environment Configuration"
+      href: apache-spark-environment-configuration.md
     - name: Create ML resources to get started
       href: quickstart-create-resources.md
+    - name: "Quickstart: Submit Apache Spark jobs in Azure Machine Learning (preview)"
+      href: quickstart-spark-jobs.md
     - name: Run Jupyter notebooks
       href: quickstart-run-notebooks.md
 - name: Tutorials
   expanded: true
   items:
-    - name: Azure ML in a day
+    - name: Azure Machine Learning in a day
       href: tutorial-azure-ml-in-a-day.md
     - name: Build models
-      items: 
+      items:
         - name: Create production ML pipelines
           href: tutorial-pipeline-python-sdk.md
         - name: Automated ML
@@ -95,7 +99,7 @@
               displayName: studio
               href: tutorial-designer-automobile-price-deploy.md
     - name: Visual Studio Code
-      items: 
+      items:
         - name: Train a TensorFlow image classification model
           href: tutorial-train-deploy-image-classification-model-vscode.md
 - name: Samples
@@ -115,6 +119,19 @@
   items:
     - name: What is v2?
       href: concept-v2.md
+    - name: Work with Data
+      items:
+        - name: Apache Spark in Azure Machine Learning (preview)
+          href: apache-spark-azure-ml-concepts.md
+        - name: Data concepts in Azure Machine Learning
+          href: concept-data.md
+        - name: Sourcing human data responsibly
+          href: concept-sourcing-human-data.md
+        - name: Compliance
+          items:
+            - name: Export and delete data
+              displayName: GDPR
+              href: how-to-export-delete-data.md
     - name: Train models
       items:
         - name: Model training
@@ -134,6 +151,23 @@
             - name: Automated ML overview
               displayName: automl, auto ml
               href: concept-automated-ml.md
+            - name: Time series forecasting
+              items:
+                - name: Forecasting methods
+                  displayName: auto ML, time series, forecasting, methods
+                  href: concept-automl-forecasting-methods.md
+                - name: Deep learning models
+                  displayName: auto ML, time series, forecasting, deep learning, TCN
+                  href: concept-automl-forecasting-deep-learning.md
+                - name: Model sweeping and selection
+                  displayName: auto ML, time series, forecasting, model selection, sweeping
+                  href: concept-automl-forecasting-sweeping.md
+                - name: Calendar features
+                  displayName: auto ML, time series, calendar features, holiday features
+                  href: concept-automl-forecasting-calendar-features.md
+                - name: Lag features
+                  displayName: auto ML, time series, lags
+                  href: concept-automl-forecasting-lags.md
             - name: Overfitting & imbalanced data
               displayName: automl, auto ml, risks
               href: concept-manage-ml-pitfalls.md
@@ -154,6 +188,13 @@
           href: concept-onnx.md
         - name: Prebuilt docker images for inference
           href: concept-prebuilt-docker-images-inference.md
+    - name: MLflow
+      items:
+        - name: MLflow and Azure Machine Learning
+          href: concept-mlflow.md
+        - name: MLflow models
+          displayName: tracking models, mlflow, custom, flavors
+          href: concept-mlflow-models.md
     - name: Manage the ML lifecycle (MLOps)
       items:
         - name: MLOps capabilities
@@ -166,8 +207,6 @@
           href: concept-ml-pipelines.md
         - name: ML components
           href: concept-component.md
-        - name: MLflow
-          href: concept-mlflow.md
         - name: Git integration
           displayName: github gitlab
           href: concept-train-model-git-integration.md
@@ -211,17 +250,6 @@
         - name: Compute target
           displayName: resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight
           href: concept-compute-target.md
-    - name: Work with Data
-      items:
-        - name: Access data
-          href: concept-data.md
-        - name: Sourcing human data responsibly
-          href: concept-sourcing-human-data.md
-        - name: Compliance
-          items:
-          - name: Export and delete data
-            displayName: GDPR
-            href: how-to-export-delete-data.md
     - name: Security
       items:
         - name: Enterprise security overview
@@ -259,6 +287,8 @@
           href: how-to-assign-roles.md
     - name: Network security
       items:
+        - name: Plan for network isolation
+          href: how-to-network-isolation-planning.md
         - name: Virtual network overview
           displayName: vnet, blob
           href: how-to-network-security-overview.md
@@ -293,6 +323,8 @@
           href: how-to-manage-workspace.md
         - name: Use Azure CLI
           href: how-to-manage-workspace-cli.md
+        - name: Use Azure PowerShell
+          href: how-to-manage-workspace-powershell.md
         - name: Use Resource Manager template
           displayName: arm
           href: how-to-create-workspace-template.md
@@ -334,7 +366,7 @@
         - name: What is Kubernetes compute target
           displayName: compute target, Azure Kuberentes Service, Azure Arc-enabled Kubernetes, AKS, on-premises, multi-cloud
           href: how-to-attach-kubernetes-anywhere.md
-        - name: Step 1 - Deploy AzureML extension
+        - name: Step 1 - Deploy Azure Machine Learning extension
           displayName: AKS, Arc Kubernetes, inference router
           href: how-to-deploy-kubernetes-extension.md
         - name: Step 2 - Attach cluster to workspace
@@ -343,7 +375,7 @@
         - name: Create and manage instance types
           displayName: compute target, instance types, AKS, Arc Kubernetes
           href: how-to-manage-kubernetes-instance-types.md
-        - name: Manage AzureML inference router
+        - name: Manage Azure Machine Learning inference router
           displayName: AKS, Arc Kubernetes, inference, compute target
           href: how-to-kubernetes-inference-routing-azureml-fe.md
         - name: Secure inferencing environment
@@ -352,12 +384,14 @@
         - name: Secure Kubernetes online endpoint
           displayName: AKS, Arc Kubernetes, HTTPS, TSL, SSL, Cname, DNS, Certificate, inference
           href: how-to-secure-kubernetes-online-endpoint.md
-        - name: Troubleshoot AzureML extension
-          displayName: AKS, Arc Kubernetes, AzureML extension, troubleshoot
+        - name: Troubleshoot Azure Machine Learning extension
+          displayName: AKS, Arc Kubernetes, Azure Machine Learning extension, troubleshoot
           href: how-to-troubleshoot-kubernetes-extension.md
         - name: Troubleshoot Kubernetes compute
           displayName: AKS, Arc Kubernetes, Kubernetes compute, training, online endpoint, troubleshoot
           href: how-to-troubleshoot-kubernetes-compute.md
+        - name: Reference for configuring Kubernetes cluster
+          href: reference-kubernetes.md
     - name: Plan and manage costs
       displayName: low priority VM
       href: concept-plan-manage-cost.md
@@ -370,7 +404,7 @@
       displayName: policy
       href: how-to-integrate-azure-policy.md
 - name: How-to guides
-  items: 
+  items:
     - name: Share components, environments, and models
       displayName: collaborate share
       href: how-to-share-models-pipelines-across-workspaces-with-registries.md
@@ -400,6 +434,9 @@
             - name: Use a terminal
               displayName: git, github, clone, kernel, package
               href: how-to-access-terminal.md
+            - name: Manage compute sessions
+              displayName: sessions, terminal, kernel
+              href: how-to-manage-compute-sessions.md
         - name: Set up VS Code extension
           displayName: Visual Studio Code, VSCode, debug, bugs, remote, compute, instance
           href: how-to-setup-vs-code.md
@@ -417,6 +454,9 @@
         - name: Create datastores
           displayName: Create datastores
           href: how-to-datastore.md
+        - name: Create data assets
+          displayName: Create data assets
+          href: how-to-create-data-assets.md
         - name: Access and explore your data
           items:
             - name: Access data during interactive development
@@ -452,11 +492,6 @@
             - name: Interactive Data Wrangling with Apache Spark
               displayName: Interactive Data Wrangling with Apache Spark
               href: interactive-data-wrangling-with-apache-spark-azure-ml.md
-        - name: Share and Version Data
-          items:
-            - name: Create data assets
-              displayName: Create data assets
-              href: how-to-create-data-assets.md
         - name: Data administration and authentication
           displayName: Data administration and authentication
           href: how-to-administrate-data-authentication.md
@@ -483,7 +518,7 @@
             - name: Keras
               href: how-to-train-keras.md
             - name: PyTorch
-              href: how-to-train-pytorch.md   
+              href: how-to-train-pytorch.md
             - name: Use Key Vault when training
               displayName: secrets keyvault job
               href: how-to-use-secrets-in-runs.md
@@ -501,22 +536,6 @@
               href: how-to-track-experiments-mlflow.md
             - name: Migrate from SDK v1 logging to MLflow
               href: reference-migrate-sdk-v1-mlflow-tracking.md
-        - name: Train and track with MLflow
-          items:
-            - name: Track experiments with MLflow
-              displayName: log, monitor, metrics, model registry, register
-              href: how-to-use-mlflow-cli-runs.md
-            - name: Track Azure Databricks runs with MLflow
-              displayName: log, monitor, deploy, metrics, databricks
-              href: how-to-use-mlflow-azure-databricks.md
-            - name: Track Azure Synapse Analytics runs with MLflow
-              displayName: log, monitor, deploy, metrics, synapse, analytics
-              href: how-to-use-mlflow-azure-synapse.md
-            - name: Train experiments with MLflow Projects
-              displayName: log, monitor, metrics, model registry, register
-              href: how-to-train-mlflow-projects.md
-            - name: Query & compare experiments and runs with MLflow
-              href: how-to-track-experiments-mlflow.md
         - name: Automated machine learning
           displayName: automl, auto ml
           items:
@@ -540,6 +559,14 @@
             - name: Auto-train a natural language processing model
               displayName: nlp, auto ML, automl, SDK
               href: how-to-auto-train-nlp-models.md
+            - name: Time series forecasting
+              items:
+                - name: Auto-train a forecasting model (Python)
+                  displayName: forecasting, time series, auto ML, automl, SDK
+                  href: how-to-auto-train-forecast.md
+                - name: Frequently asked questions
+                  displayName: auto ML, time series, forecasting, FAQ
+                  href: how-to-automl-forecasting-faq.md
             - name: Understand charts and metrics
               href: how-to-understand-automated-ml.md
             - name: Use ONNX model in .NET application
@@ -560,7 +587,7 @@
                 - name: Deploy a MLflow model with an online endpoint
                   displayName: ncd, no code deploy, no-code deployment
                   href: how-to-deploy-mlflow-models-online-endpoints.md
-                - name: Deploy a custom container with an online endpoint
+                - name: Use a custom container to deploy a model to an online endpoint
                   href: how-to-deploy-custom-container.md
                 - name: Use online endpoints in studio
                   href: how-to-use-managed-online-endpoint-studio.md
@@ -589,13 +616,15 @@
               href: how-to-monitor-online-endpoints.md
             - name: Debug online endpoints locally VS Code
               href: how-to-debug-managed-online-endpoints-visual-studio-code.md
+            - name: Debug scoring script with inference HTTP server
+              href: how-to-inference-server-http.md
             - name: Troubleshoot online endpoints
               href: how-to-troubleshoot-online-endpoints.md
         - name: Batch endpoints
           items:
             - name: Batch scoring with batch endpoints
               href: how-to-use-batch-endpoint.md
-            - name: Input data for batch endpoints jobs
+            - name: Create jobs and input data for batch endpoints
               href: how-to-access-data-batch-endpoints-jobs.md
             - name: Author scoring scripts for batch scoring
               href: how-to-batch-scoring-script.md
@@ -623,13 +652,44 @@
                   href: how-to-nlp-processing-batch.md
             - name: Integrations
               items:
-                - name: Invoke batch endpoints from Azure Data Factory
+                - name: Run batch endpoints from Azure Data Factory
                   href: how-to-use-batch-azure-data-factory.md
-                - name: Invoke batch endpoints from Event Grid events in storage
+                - name: Run batch endpoints from Event Grid events in storage
                   href: how-to-use-event-grid-batch.md
                 - name: Use REST to deploy a model as batch endpoints
                   href: how-to-deploy-batch-with-rest.md
-        - name: MLflow guide
+    - name: Work with MLflow
+      items:
+        - name: Configure MLflow for Azure Machine Learning
+          href: how-to-use-mlflow-configure-tracking.md
+        - name: Train & track
+          items:
+            - name: Track experiments with MLflow
+              displayName: log, monitor, metrics, model registry, register
+              href: how-to-use-mlflow-cli-runs.md
+            - name: Track Azure Databricks runs with MLflow
+              displayName: log, monitor, deploy, metrics, databricks
+              href: how-to-use-mlflow-azure-databricks.md
+            - name: Track Azure Synapse Analytics runs with MLflow
+              displayName: log, monitor, deploy, metrics, synapse, analytics
+              href: how-to-use-mlflow-azure-synapse.md
+            - name: Train with MLflow Projects
+              displayName: log, monitor, metrics, model registry, register
+              href: how-to-train-mlflow-projects.md
+            - name: Log metrics, parameters and files
+              displayName: troubleshoot, log, files, tracing, metrics
+              href: how-to-log-view-metrics.md
+            - name: Log MLflow models
+              href: how-to-log-mlflow-models.md
+            - name: Query & compare experiments and runs with MLflow
+              href: how-to-track-experiments-mlflow.md
+        - name: Manage
+          items:
+            - name: Manage models with MLflow
+              href: how-to-manage-models-mlflow.md
+            - name: Manage experiments and runs with MLflow
+              href: how-to-track-experiments-mlflow.md
+        - name: Deploy & consume models
           items:
             - name: Guidelines for deploying MLflow models
               displayName: mlflow models deployment plugin
@@ -640,21 +700,20 @@
               items:
                 - name: Deploy MLflow models to Online Endpoints
                   href: how-to-deploy-mlflow-models-online-endpoints.md
-                - name: Progressive rollout of MLflow models
-                  href: how-to-deploy-mlflow-models-online-progressive.md 
+                - name: Progressive rollout of MLflow models to Online Endpoints
+                  href: how-to-deploy-mlflow-models-online-progressive.md
             - name: Batch inference
               items:
                 - name: Deploy MLflow models to Batch Endpoints
                   href: how-to-mlflow-batch.md
-        - name: Inference HTTP server
-          displayName: local debug
-          href: how-to-inference-server-http.md
-    - name: Manage the ML lifecycle
+                - name: Deploy and run MLflow models in Spark jobs
+                  href: how-to-deploy-mlflow-model-spark-jobs.md
+    - name: Manage the ML lifecycle (MLOps)
       items:
+        - name: Setup MLOps with Azure DevOps
+          href: how-to-setup-mlops-azureml.md
         - name: Manage models
           href: how-to-manage-models.md
-        - name: Manage models with MLflow
-          href: how-to-manage-models-mlflow.md
         - name: Automation
           items:
             - name: Azure Pipelines for CI/CD
@@ -709,6 +768,7 @@
           displayName: vscode,resources
           href: how-to-manage-resources-vscode.md
     - name: Implement Responsible AI in Practice
+
       items:
         - name: Generate Responsible AI insights
           items:
@@ -724,6 +784,18 @@
         - name: Using the Responsible AI scorecard in studio
           displayName: explanations, interpretability, fairness, bias, model performance, disparity metrics, unfairness, causal analysis, causal inference, exploratory data analysis, EDA, dataset explorer
           href: how-to-responsible-ai-scorecard.md
+    - name: Use R with Azure Machine Learning
+      items:
+        - name: Bring R workloads
+          href: how-to-r-overview-r-capabilities.md
+        - name: Interactive R development
+          href: how-to-r-interactive-development.md
+        - name: Adapt R scripts for production
+          href: how-to-r-modify-script-for-production.md
+        - name: Train R model
+          href: how-to-r-train-model.md
+        - name: Deploy R model
+          href: how-to-r-deploy-r-model.md
 - name: Troubleshoot & debug
   items:
     - name: Troubleshoot secure workspace connectivity
@@ -736,6 +808,8 @@
     - name: How to troubleshoot data access
       displayName: troubleshoot, data, debug, image
       href: how-to-troubleshoot-data-access.md
+    - name: Troubleshoot validation for schema failed error
+      href: how-to-troubleshoot-validation-for-schema-failed-error.md
 - name: Reference
   items:
     - name: Python SDK v1
@@ -794,6 +868,12 @@
               href: reference-automl-images-cli-multilabel-classification.md
             - name: AutoML Image Object Detection
               href: reference-automl-images-cli-object-detection.md
+            - name: AutoML NLP Text Classification
+              href: reference-automl-nlp-cli-text-classification.md
+            - name: AutoML NLP Multilabel Classification
+              href: reference-automl-nlp-cli-multilabel-classification.md
+            - name: AutoML NLP NER
+              href: reference-automl-nlp-cli-ner.md
         - name: Datastore
           items:
             - name: Azure Blob
@@ -822,7 +902,7 @@
           items:
             - name: Command
               href: reference-yaml-component-command.md
-    - name: PowerShell
+    - name: Azure PowerShell
       href: /powershell/module/az.machinelearningservices/
     - name: Service limits
       href: resource-limits-capacity.md
@@ -832,8 +912,6 @@
     - name: Hyperparameters for AutoML computer vision tasks
       displayName: automl, yolo-5, image, image model
       href: reference-automl-images-hyperparameters.md
-    - name: Kubernetes cluster configuration
-      href: reference-kubernetes.md
     - name: Designer component reference
       displayName: module, component, reference, algorithm, studio
       href: algorithm-module-reference/module-reference.md

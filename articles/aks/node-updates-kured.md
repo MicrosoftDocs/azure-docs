@@ -2,7 +2,6 @@
 title: Handle Linux node reboots with kured
 titleSuffix: Azure Kubernetes Service
 description: Learn how to update Linux nodes and automatically reboot them with kured in Azure Kubernetes Service (AKS)
-services: container-service
 ms.topic: article
 ms.date: 02/28/2019
 
@@ -27,7 +26,7 @@ You need the Azure CLI version 2.0.59 or later installed and configured. Run `az
 
 ## Understand the AKS node update experience
 
-In an AKS cluster, your Kubernetes nodes run as Azure virtual machines (VMs). These Linux-based VMs use an Ubuntu image, with the OS configured to automatically check for updates every day. If security or kernel updates are available, they are automatically downloaded and installed.
+In an AKS cluster, your Kubernetes nodes run as Azure virtual machines (VMs). These Linux-based VMs use an Ubuntu or Mariner image, with the OS configured to automatically check for updates every day. If security or kernel updates are available, they are automatically downloaded and installed.
 
 ![AKS node update and reboot process with kured](media/node-updates-kured/node-reboot-process.png)
 
@@ -67,7 +66,7 @@ helm repo update
 kubectl create namespace kured
 
 # Install kured in that namespace with Helm 3 (only on Linux nodes, kured is not working on Windows nodes)
-helm install my-release kubereboot/kured --namespace kured --set nodeSelector."kubernetes.io/os"=linux
+helm install my-release kubereboot/kured --namespace kured --set nodeSelector."kubernetes\.io/os"=linux
 ```
 
 You can also configure additional parameters for `kured`, such as integration with Prometheus or Slack. For more information about additional configuration parameters, see the [kured Helm chart][kured-install].

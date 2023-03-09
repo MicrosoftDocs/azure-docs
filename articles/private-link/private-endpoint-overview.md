@@ -8,9 +8,10 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 08/10/2022
 ms.author: allensu
-ms.custom: references_regions, ignite-2022
+ms.custom: references_regions, template-concept, ignite-2022
 #Customer intent: As someone who has a basic network background but is new to Azure, I want to understand the capabilities of private endpoints so that I can securely connect to my Azure PaaS services within the virtual network.
 ---
+
 # What is a private endpoint?
 
 A private endpoint is a network interface that uses a private IP address from your virtual network. This network interface connects you privately and securely to a service that's powered by Azure Private Link. By enabling a private endpoint, you're bringing the service into your virtual network.
@@ -98,7 +99,7 @@ A private-link resource is the destination target of a specified private endpoin
 | Power BI | Microsoft.PowerBI/privateLinkServicesForPowerBI | Power BI |
 | Microsoft Purview | Microsoft.Purview/accounts | account |
 | Microsoft Purview | Microsoft.Purview/accounts | portal |
-| Azure Backup | Microsoft.RecoveryServices/vaults | vault |
+| Azure Backup | Microsoft.RecoveryServices/vaults | AzureBackup, AzureSiteRecovery |
 | Azure Relay | Microsoft.Relay/namespaces | namespace |
 | Azure Cognitive Search | Microsoft.Search/searchServices | searchService |
 | Azure Service Bus | Microsoft.ServiceBus/namespaces | namespace |
@@ -113,6 +114,9 @@ A private-link resource is the destination target of a specified private endpoin
 | Azure App Service | Microsoft.Web/sites | sites |
 | Azure Static Web Apps | Microsoft.Web/staticSites | staticSites |
 | Azure Media Services | Microsoft.Media/mediaservices | keydelivery, liveevent, streamingendpoint |
+| Resource Management Private Links | Microsoft.Authorization/resourceManagementPrivateLinks | ResourceManagement |
+| Azure Databricks | Microsoft.Databricks/workspaces | databricks_ui_api, browser_authentication |
+| Azure Monitor Private Link Scope | Microsoft.Insights/privatelinkscopes | azuremonitor |
 
 > [!NOTE]
 > You can create private endpoints only on a General Purpose v2 (GPv2) storage account.

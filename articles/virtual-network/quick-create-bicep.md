@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create a virtual network using Bicep'
+title: 'Quickstart: Create a virtual network - Bicep'
 titleSuffix: Azure Virtual Network
 description: Learn how to use Bicep to create an Azure virtual network.
 services: virtual-network
@@ -8,7 +8,7 @@ ms.service: virtual-network
 ms.topic: quickstart
 ms.date: 06/24/2022
 ms.author: allensu
-ms.custom: devx-track-azurepowershell, mode-arm
+ms.custom: mode-arm
 ---
 
 # Quickstart: Create a virtual network - Bicep

@@ -58,6 +58,14 @@
       href: tutorial-query.md
     - name: 3 - Distribute data globally
       href: tutorial-global-distribution.md
+    - name: Aggregation pipeline
+      href: tutorial-aggregation.md
+    - name: Inserting data
+      href: tutorial-insert.md
+    - name: Updating data
+      href: tutorial-update.md
+    - name: Deleting data
+      href: tutorial-delete.md
     - name: Create Jupyter notebooks
       href: ../nosql/tutorial-create-notebook.md
 - name: Samples
@@ -124,7 +132,7 @@
   items:
     - name: Azure Cosmos DB resource model
       displayName: collection, document
-      href: ../account-databases-containers-items.md
+      href: ../resource-model.md
     - name: Partitioning (sharding)
       items:
         - name: Partitioning overview

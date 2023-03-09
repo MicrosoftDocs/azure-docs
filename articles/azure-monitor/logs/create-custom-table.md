@@ -13,7 +13,7 @@ ms.date: 11/09/2022
 
 # Add or delete tables and columns in Azure Monitor Logs
 
-[Data collection rules](../essentials/data-collection-rule-overview.md) let you [filter and transform log data](../essentials/data-collection-transformations.md) before sending the data to an [Azure table or a custom table](../logs/manage-logs-tables.md#table-type). This article explains how to create custom tables and add custom columns to tables in your Log Analytics workspace.  
+[Data collection rules](../essentials/data-collection-rule-overview.md) let you [filter and transform log data](../essentials/data-collection-transformations.md) before sending the data to an [Azure table or a custom table](../logs/manage-logs-tables.md#table-type-and-schema). This article explains how to create custom tables and add custom columns to tables in your Log Analytics workspace.  
 
 ## Prerequisites
 
@@ -33,6 +33,7 @@ To create a custom table, you need:
     ``` 
     
     For information about the `TimeGenerated` format, see [supported datetime formats](/azure/data-explorer/kusto/query/scalar-data-types/datetime#supported-formats).
+
 ## Create a custom table
 
 Azure tables have predefined schemas. To store log data in a different schema, use data collection rules to define how to collect, transform, and send the data to a custom table in your Log Analytics workspace.
@@ -40,7 +41,7 @@ Azure tables have predefined schemas. To store log data in a different schema, u
 > [!NOTE]
 > For information about creating a custom table for logs you ingest with the deprecated Log Analytics agent, also known as MMA or OMS, see [Collect text logs with the Log Analytics agent](../agents/data-sources-custom-logs.md#define-a-custom-log).
 
-### [Portal](#tab/portal-1)
+# [Portal](#tab/azure-portal-1)
 
 To create a custom table in the Azure portal:
 
@@ -58,7 +59,7 @@ To create a custom table in the Azure portal:
 
     :::image type="content" source="media/tutorial-logs-ingestion-portal/new-data-collection-rule.png" lightbox="media/tutorial-logs-ingestion-portal/new-data-collection-rule.png" alt-text="Screenshot showing new data collection rule.":::
 
-4. Select a [data collection endpoint](../essentials/data-collection-endpoint-overview.md#create-a-data-collection-endpoint) and select **Next**.
+1. Select a [data collection endpoint](../essentials/data-collection-endpoint-overview.md#create-a-data-collection-endpoint) and select **Next**.
 
     :::image type="content" source="media/tutorial-logs-ingestion-portal/custom-log-table-name.png" lightbox="media/tutorial-logs-ingestion-portal/custom-log-table-name.png" alt-text="Screenshot showing custom log table name.":::
 
@@ -88,7 +89,14 @@ To create a custom table in the Azure portal:
 
     :::image type="content" source="media/tutorial-logs-ingestion-portal/custom-log-create.png" lightbox="media/tutorial-logs-ingestion-portal/custom-log-create.png" alt-text="Screenshot showing custom log create.":::
 
-### [PowerShell](#tab/powershell-1)
+# [API](#tab/api-1)
+
+To create a custom table, call the [Tables - Create Or Update API](/rest/api/loganalytics/tables/create-or-update). 
+
+# [CLI](#tab/azure-cli-1)
+
+To create a custom table, run the [az monitor log-analytics workspace table create](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-table-create) command.
+# [PowerShell](#tab/azure-powershell-1)
 
 Use the [Tables - Update PATCH API](/rest/api/loganalytics/tables/update) to create a custom table with the PowerShell code below. This code creates a table called *MyTable_CL* with two columns. Modify this schema to collect a different table. 
 
@@ -99,7 +107,7 @@ Use the [Tables - Update PATCH API](/rest/api/loganalytics/tables/update) to cre
 
     :::image type="content" source="../logs/media/tutorial-workspace-transformations-api/open-cloud-shell.png" lightbox="../logs/media/tutorial-workspace-transformations-api/open-cloud-shell.png" alt-text="Screenshot of opening Cloud Shell in the Azure portal.":::
 
-2. Copy the following PowerShell code and replace the **Path** parameter with the appropriate values for your workspace in the `Invoke-AzRestMethod` command. Paste it into the Cloud Shell prompt to run it. 
+1. Copy the following PowerShell code and replace the **Path** parameter with the appropriate values for your workspace in the `Invoke-AzRestMethod` command. Paste it into the Cloud Shell prompt to run it. 
 
     ```PowerShell
     $tableParams = @'
@@ -129,12 +137,12 @@ Use the [Tables - Update PATCH API](/rest/api/loganalytics/tables/update) to cre
 
 ## Delete a table
 
-You can delete any table in your Log Analytics workspace that's not an [Azure table](../logs/manage-logs-tables.md#table-type). 
+You can delete any table in your Log Analytics workspace that's not an [Azure table](../logs/manage-logs-tables.md#table-type-and-schema). 
 
 > [!NOTE]
 > Deleting a restored table doesn't delete the data in the source table.
 
-### [Portal](#tab/portal-2)
+# [Portal](#tab/azure-portal-2)
 
 To delete a table from the Azure portal:
 
@@ -147,26 +155,38 @@ To delete a table from the Azure portal:
 
     :::image type="content" source="media/search-job/delete-table.png" alt-text="Screenshot that shows the Delete Table screen for a table in a Log Analytics workspace." lightbox="media/search-job/delete-table.png":::
     
-### [API](#tab/api-2)
+# [API](#tab/api-2)
 
-To delete a table, call the **Tables - Delete** API: 
+To delete a table, call the [Tables - Delete API](/rest/api/loganalytics/tables/delete). 
 
-```http
-DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/<TableName>_SRCH?api-version=2021-12-01-preview
-```
-
-### [CLI](#tab/cli-2)
+# [CLI](#tab/azure-cli-2)
 
 To delete a table, run the [az monitor log-analytics workspace table delete](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-table-delete) command.
 
-For example:
+# [PowerShell](#tab/azure-powershell-2)
 
-```azurecli
-az monitor log-analytics workspace table delete --subscription ContosoSID --resource-group ContosoRG --workspace-name ContosoWorkspace --name HeartbeatByIp_SRCH
-```
+To delete a table using PowerShell:
 
+1. Select the **Cloud Shell** button in the Azure portal and ensure the environment is set to **PowerShell**.
+
+    :::image type="content" source="../logs/media/tutorial-workspace-transformations-api/open-cloud-shell.png" lightbox="../logs/media/tutorial-workspace-transformations-api/open-cloud-shell.png" alt-text="Screenshot of opening Cloud Shell in the Azure portal.":::
+
+1. Copy the following PowerShell code and replace the **Path** parameter with the appropriate values for your workspace in the `Invoke-AzRestMethod` command. Paste it into the Cloud Shell prompt to run it. 
+
+
+    ```PowerShell
+    Invoke-AzRestMethod -Path "/subscriptions/{subscription}/resourcegroups/{resourcegroup}/providers/microsoft.operationalinsights/workspaces/{workspace}/tables/NewCustom_CL?api-version=2021-12-01-preview" -Method DELETE
+    ```
+    
 ---
 ## Add or delete a custom column
+
+You can modify the schema of custom tables and add custom columns to, or delete columns from, a standard table.  
+
+> [!NOTE]
+> Column names must start with a letter and can consist of up to 45 alphanumeric characters and the characters `_` and `-`. The following are reserved column names: `Type`, `TenantId`, `resource`, `resourceid`, `resourcename`, `resourcetype`, `subscriptionid`, `tenanted`. 
+
+# [Portal](#tab/azure-portal-3)
 
 To add a custom column to a table in your Log Analytics workspace, or delete a column:
 
@@ -182,6 +202,114 @@ To add a custom column to a table in your Log Analytics workspace, or delete a c
     1. Set the column name and description (optional), and select the expected value type from the **Type** dropdown.
     1. Select **Save** to save the new column.
 1. To delete a column, select the **Delete** icon to the left of the column you want to delete.
+
+# [API](#tab/api-3)
+
+To add or delete a custom column, call the [Tables - Create Or Update API](/rest/api/loganalytics/tables/create-or-update). 
+
+# [CLI](#tab/azure-cli-3)
+
+To add or delete a custom column, run the [az monitor log-analytics workspace table update](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-table-update) command.
+
+# [PowerShell](#tab/azure-powershell-3)
+
+To add a new column to an Azure or custom table, run: 
+
+```powershell
+$tableParams = @'
+{
+    "properties": {
+        "schema": {
+            "name": "<TableName>",
+            "columns": [
+                {
+                    "name": ""<ColumnName>",
+                    "description": "First custom column",
+                    "type": "string",
+                    "isDefaultDisplay": true,
+                    "isHidden": false
+                }
+            ]
+        }
+    }
+}
+'@
+
+Invoke-AzRestMethod -Path "/subscriptions/{subscription}/resourcegroups/{resourcegroup}/providers/microsoft.operationalinsights/workspaces/{workspace}/tables/<TableName>?api-version=2021-12-01-preview" -Method PUT -payload $tableParams
+```
+
+The `PUT` call returns the updated table properties, which should include the newly added column.
+
+**Example**
+
+Run this command to add a custom column, called `Custom1_CF`, to the Azure `Heartbeat` table: 
+
+```powershell
+$tableParams = @'
+{
+    "properties": {
+        "schema": {
+            "name": "Heartbeat",
+            "columns": [
+                {
+                    "name": "Custom1_CF",
+                    "description": "The second custom column",
+                    "type": "datetime",
+                    "isDefaultDisplay": true,
+                    "isHidden": false
+                }
+            ]
+        }
+    }
+}
+'@
+
+Invoke-AzRestMethod -Path "/subscriptions/{subscription}/resourcegroups/{resourcegroup}/providers/microsoft.operationalinsights/workspaces/{workspace}/tables/Heartbeat?api-version=2021-12-01-preview" -Method PUT -payload $tableParams
+```
+
+Now, to delete the newly added column and add another one instead, run:
+
+```powershell
+$tableParams = @'
+{
+    "properties": {
+        "schema": {
+            "name": "Heartbeat",
+            "columns": [
+                {
+                    "name": "Custom2_CF",
+                    "description": "The second custom column",
+                    "type": "datetime",
+                    "isDefaultDisplay": true,
+                    "isHidden": false
+                }
+            ]
+        }
+    }
+}
+'@
+
+Invoke-AzRestMethod -Path "/subscriptions/{subscription}/resourcegroups/{resourcegroup}/providers/microsoft.operationalinsights/workspaces/{workspace}/tables/Heartbeat?api-version=2021-12-01-preview" -Method PUT -payload $tableParams
+```
+
+To delete all custom columns in the table, run:
+
+```powershell
+$tableParams = @'
+{
+    "properties": {
+        "schema": {
+            "name": "Heartbeat",
+            "columns": [
+            ]
+        }
+    }
+}
+'@
+
+Invoke-AzRestMethod -Path "/subscriptions/{subscription}/resourcegroups/{resourcegroup}/providers/microsoft.operationalinsights/workspaces/{workspace}/tables/Heartbeat?api-version=2021-12-01-preview" -Method PUT -payload $tableParams
+```
+---
 
 ## Next steps
 

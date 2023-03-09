@@ -6,11 +6,10 @@ author: normesta
 ms.service: storage
 ms.subservice: blobs
 ms.topic: tutorial
-ms.date: 04/04/2022
-ms.author: normesta
-ms.reviewer: dineshm
+ms.date: 02/09/2023
+ms.author: spelluru
 ms.devlang: csharp, javascript
-ms.custom: "devx-track-js, devx-track-csharp, devx-track-azurecli"
+ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Step 1: Upload image data in the cloud with Azure Storage
@@ -246,11 +245,13 @@ az webapp config appsettings set --name $webapp --resource-group myResourceGroup
 ```
 
 ```powershell
-az webapp config appsettings set --name $webapp --resource-group myResourceGroup `
-  --settings AzureStorageConfig__AccountName=$blobStorageAccount `
-    AzureStorageConfig__ImageContainer=images `
-    AzureStorageConfig__ThumbnailContainer=thumbnails `
-    AzureStorageConfig__AccountKey=$blobStorageAccountKey
+New-AzStaticWebAppSetting -ResourceGroupName myResourceGroup -Name $webapp `
+  -AppSetting @{ `
+    AzureStorageConfig__AccountName = $blobStorageAccount `
+    AzureStorageConfig__ImageContainer = images `
+    AzureStorageConfig__ThumbnailContainer = thumbnails `
+    AzureStorageConfig__AccountKey = $blobStorageAccountKey `
+  }
 ```
 
 # [JavaScript v12 SDK](#tab/javascript)

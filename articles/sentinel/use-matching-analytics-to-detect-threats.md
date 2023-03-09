@@ -92,7 +92,7 @@ Part of the Microsoft Threat Intelligence available through matching analytics i
 
 :::image type="content" source="media/use-matching-analytics-to-detect-threats/mdti-article-link.png" alt-text="Screenshot of an incident with a link to the reference MDTI article.":::
 
-For more information, see the [MDTI portal](https://ti.defender.microsoft.com) and [What is Microsoft Defender Threat Intelligence?](/../../defender/threat-intelligence/what-is-microsoft-defender-threat-intelligence-defender-ti.md)
+For more information, see the [MDTI portal](https://ti.defender.microsoft.com) and [What is Microsoft Defender Threat Intelligence?](/defender/threat-intelligence/what-is-microsoft-defender-threat-intelligence-defender-ti)
 
 ## Next steps
 

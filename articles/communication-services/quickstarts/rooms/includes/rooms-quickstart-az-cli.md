@@ -8,7 +8,7 @@ ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 12/01/2022
 ms.topic: include
-ms.custom: include file
+ms.custom: include file, devx-track-azurecli
 ms.author: JoannaJiang
 ---
 
@@ -32,7 +32,7 @@ az extension add --name communication
 You'll need to [sign in to Azure CLI](/cli/azure/authenticate-azure-cli). You can sign in running the ```az login``` command from the terminal and providing your credentials.
 
 
-### Store your connection string in an envrionment variable 
+### Store your connection string in an environment variable 
 
 You can configure the `AZURE_COMMUNICATION_CONNECTION_STRING` environment variable to use Azure CLI keys operations without having to use `--connection_string` to pass in the connection string. To configure an environment variable, open a console window and select your operating system from the below tabs. Replace `<connectionString>` with your actual connection string.
 
@@ -42,7 +42,7 @@ You can configure the `AZURE_COMMUNICATION_CONNECTION_STRING` environment variab
 setx AZURE_COMMUNICATION_STRING "<yourConnectionString>"
 ```
 
-After you add the environment variable, you may need to restart any running programs that will need to read the environment variable, including the console window. For example, if you are using Visual Studio as your editor, restart Visual Studio before running the example. 
+After you add the environment variable, you may need to restart any running programs that will need to read the environment variable, including the console window. For example, if you're using Visual Studio as your editor, restart Visual Studio before running the example. 
 
 ##### [macOS](#tab/unix)
 
@@ -56,7 +56,7 @@ After you add the environment variable, run `source ~/.zshrc` from your console 
 
 ##### [Linux](#tab/linux)
 
-Edit your **`.bash_profile`**, and add the environment vairable:
+Edit your **`.bash_profile`**, and add the environment variable:
 
 ```bash
 export AZURE_COMMUNICATION_STRING="<connectionString>"
@@ -82,7 +82,7 @@ az communication rooms create --presenter-participants "<participantId>" --consu
 - Use `<validFrom>` optionally to specify the timestamp when the room is open for joining, in ISO8601 format, ex: 2022-07-14T10:21. 
 - Use `<validUntil>` optionally to specify the timestamp when the room can no longer be joined, in ISO8601 format, ex: 2022-07-14T10:21. 
 
-If you have stored the connection string in environment variables as stated above, you won't need to pass them to the command.
+If you've stored the connection string in environment variables as stated above, you won't need to pass them to the command.
 
 ```azurecli-interactive
 az communication rooms create 
@@ -93,7 +93,7 @@ az communication rooms create
 
 ### Get the rooms 
 
-The `rooms get` command returns the attributes of an exisiting room.
+The `rooms get` command returns the attributes of an existing room.
 
 ```azurecli-interactive
 az communication rooms get --room "<roomId>" 
@@ -129,8 +129,8 @@ You can update the timestamp of a room. Before calling the `room update` command
 az communication rooms update --validFrom "<validFrom>" --validUntil "<validUntil>" --room "<roomId>"
 ```
 
-- Replace `<validFrom>` with the timestamp in ISO8601 format, ex: 2022-07-14T10:21, to specify when the room is open for joining. Should be used together with --valid-until.
-- Replace `<validUntil>` with the timestamp in ISO8601 format, ex: 2022-07-14T10:21, to specify when the room can no longer be joined. Should be used together with --valid-from.
+- Replace `<validFrom>` with the timestamp in ISO8601 format, ex: 2022-07-14T10:21, to specify when the room is open for joining. Should be used together with `--valid-until`.
+- Replace `<validUntil>` with the timestamp in ISO8601 format, ex: 2022-07-14T10:21, to specify when the room can no longer be joined. Should be used together with `--valid-from`.
 - Replace `<roomId>` with your room ID. 
 
 

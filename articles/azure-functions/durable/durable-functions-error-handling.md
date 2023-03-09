@@ -17,7 +17,7 @@ Any exception that is thrown in an activity function is marshaled back to the or
 
 For example, consider the following orchestrator function that transfers funds from one account to another:
 
-# [C#](#tab/csharp)
+# [C# (InProc)](#tab/csharp-inproc)
 
 ```csharp
 [FunctionName("TransferFunds")]
@@ -57,6 +57,43 @@ public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext
 
 > [!NOTE]
 > The previous C# examples are for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+
+# [C# (Isolated)](#tab/csharp-isolated)
+
+```csharp
+[FunctionName("TransferFunds")]
+public static async Task Run(
+    [OrchestrationTrigger] TaskOrchestrationContext context, TransferOperation transferDetails)
+{
+    await context.CallActivityAsync("DebitAccount",
+        new
+        {
+            Account = transferDetails.SourceAccount,
+            Amount = transferDetails.Amount
+        });
+
+    try
+    {
+        await context.CallActivityAsync("CreditAccount",
+            new
+            {
+                Account = transferDetails.DestinationAccount,
+                Amount = transferDetails.Amount
+            });
+    }
+    catch (Exception)
+    {
+        // Refund the source account.
+        // Another try/catch could be used here based on the needs of the application.
+        await context.CallActivityAsync("CreditAccount",
+            new
+            {
+                Account = transferDetails.SourceAccount,
+                Amount = transferDetails.Amount
+            });
+    }
+}
+```
 
 # [JavaScript](#tab/javascript)
 
@@ -176,7 +213,7 @@ If the first **CreditAccount** function call fails, the orchestrator function co
 
 When you call activity functions or sub-orchestration functions, you can specify an automatic retry policy. The following example attempts to call a function up to three times and waits 5 seconds between each retry:
 
-# [C#](#tab/csharp)
+# [C# (InProc)](#tab/csharp-inproc)
 
 ```csharp
 [FunctionName("TimerOrchestratorWithRetry")]
@@ -194,6 +231,22 @@ public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext
 
 > [!NOTE]
 > The previous C# examples are for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+
+# [C# (Isolated)](#tab/csharp-isolated)
+
+```csharp
+[FunctionName("TimerOrchestratorWithRetry")]
+public static async Task Run([OrchestrationTrigger] TaskOrchestrationContext context)
+{
+    var options = TaskOptions.FromRetryPolicy(new RetryPolicy(
+        maxNumberOfAttempts: 3,
+        firstRetryInterval: TimeSpan.FromSeconds(5)));
+
+    await context.CallActivityAsync("FlakyFunction", options: options);
+
+    // ...
+}
+```
 
 # [JavaScript](#tab/javascript)
 
@@ -269,9 +322,32 @@ The activity function call in the previous example takes a parameter for configu
 
 ## Custom retry handlers
 
-When using the .NET isolated worker or Java, you also have the option to implement retry handlers in code. This is useful when declarative retry policies are not expressive enough. For languages that don't support custom retry handlers, you still have the option of implementing retry policies using loops, exception handling, and timers for injecting delays between retries.
+When using the .NET or Java, you also have the option to implement retry handlers in code. This is useful when declarative retry policies are not expressive enough. For languages that don't support custom retry handlers, you still have the option of implementing retry policies using loops, exception handling, and timers for injecting delays between retries.
 
-# [C#](#tab/csharp)
+# [C# (InProc)](#tab/csharp-inproc)
+
+```csharp
+RetryOptions retryOptions = new RetryOptions(
+    firstRetryInterval: TimeSpan.FromSeconds(5),
+    maxNumberOfAttempts: int.MaxValue)
+    {
+        Handle = exception =>
+        {
+            // True to handle and try again, false to not handle and throw.
+            if (exception is TaskFailedException failure)
+            {
+                // Exceptions from TaskActivities are always this type. Inspect the
+                // inner Exception to get more details.
+            }
+
+            return false;
+        };
+    }
+
+await ctx.CallActivityWithRetryAsync("FlakeyActivity", retryOptions, null);
+```
+
+# [C# (Isolated)](#tab/csharp-isolated)
 
 ```csharp
 TaskOptions retryOptions = TaskOptions.FromRetryHandler(retryContext =>
@@ -335,7 +411,7 @@ try {
 
 You might want to abandon a function call within an orchestrator function if it's taking too long to complete. The proper way to do this today is by creating a [durable timer](durable-functions-timers.md) with an "any" task selector, as in the following example:
 
-# [C#](#tab/csharp)
+# [C# (InProc)](#tab/csharp-inproc)
 
 ```csharp
 [FunctionName("TimerOrchestrator")]
@@ -367,6 +443,36 @@ public static async Task<bool> Run([OrchestrationTrigger] IDurableOrchestrationC
 
 > [!NOTE]
 > The previous C# examples are for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+
+# [C# (Isolated)](#tab/csharp-isolated)
+
+```csharp
+[Function("TimerOrchestrator")]
+public static async Task<bool> Run([OrchestrationTrigger] TaskOrchestrationContext context)
+{
+    TimeSpan timeout = TimeSpan.FromSeconds(30);
+    DateTime deadline = context.CurrentUtcDateTime.Add(timeout);
+
+    using (var cts = new CancellationTokenSource())
+    {
+        Task activityTask = context.CallActivityAsync("FlakyFunction");
+        Task timeoutTask = context.CreateTimer(deadline, cts.Token);
+
+        Task winner = await Task.WhenAny(activityTask, timeoutTask);
+        if (winner == activityTask)
+        {
+            // success case
+            cts.Cancel();
+            return true;
+        }
+        else
+        {
+            // timeout case
+            return false;
+        }
+    }
+}
+```
 
 # [JavaScript](#tab/javascript)
 

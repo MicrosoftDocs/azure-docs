@@ -7,7 +7,7 @@ ms.date: 01/27/2021
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-ms.custom: mvc, subject-armqs, devx-track-azurecli, mode-arm
+ms.custom: mvc, subject-armqs, mode-arm
 ---
 
 # Quickstart: Set up the IoT Hub Device Provisioning Service (DPS) with an ARM template
@@ -24,7 +24,7 @@ If your environment meets the prerequisites, and you're already familiar with us
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Review the template
 

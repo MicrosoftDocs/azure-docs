@@ -7,12 +7,11 @@ ms.topic: conceptual
 ms.date: 02/15/2022
 author: chugugrace
 ms.author: chugu 
-ms.custom: devx-track-azurepowershell
 ---
 
 # Create an Azure-SSIS integration runtime via Azure portal 
 
-[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article shows you how to create an Azure-SQL Server Integration Services (SSIS) integration runtime (IR) in Azure Data Factory (ADF) or Synapse Pipelines via Azure portal.
 

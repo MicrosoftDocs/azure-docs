@@ -1,7 +1,6 @@
 ---
 title: Use Azure Active Directory pod-managed identities in Azure Kubernetes Service (Preview)
 description: Learn how to use Azure AD pod-managed identities in Azure Kubernetes Service (AKS)
-services: container-service
 ms.topic: article
 ms.date: 11/01/2022
 
@@ -17,50 +16,61 @@ Azure Active Directory (Azure AD) pod-managed identities use Kubernetes primitiv
 > Kubernetes native capabilities to federate with any external identity providers on behalf of the
 > application.
 >
-> The open source Azure AD pod-managed identity (preview) in Azure Kubernetes Service has been deprecated as of 10/24/2022, the AKS Managed add-on is still supported at this time.
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+> The open source Azure AD pod-managed identity (preview) in Azure Kubernetes Service has been deprecated as of 10/24/2022. The AKS Managed add-on is still supported.
 
 ## Before you begin
 
-You must have the following resource installed:
+You must have the Azure CLI version 2.20.0 or later installed.
 
-* The Azure CLI, version 2.20.0 or later
-* The `aks-preview` extension version 0.5.5 or later
-
-### Limitations
+## Limitations
 
 * A maximum of 200 pod-managed identities are allowed for a cluster.
 * A maximum of 200 pod-managed identity exceptions are allowed for a cluster.
 * Pod-managed identities are available on Linux node pools only.
 * This feature is only supported for Virtual Machine Scale Sets backed clusters.
 
-### Register the `EnablePodIdentityPreview`
+## Install the aks-preview Azure CLI extension
 
-Register the `EnablePodIdentityPreview` feature:
+[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
+
+To install the aks-preview extension, run the following command:
 
 ```azurecli
-az feature register --name EnablePodIdentityPreview --namespace Microsoft.ContainerService
+az extension add --name aks-preview
 ```
 
-### Install the `aks-preview` Azure CLI
+Run the following command to update to the latest version of the extension released:
 
-You also need the *aks-preview* Azure CLI extension version 0.5.5 or later. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
+```azurecli
 az extension update --name aks-preview
 ```
 
-### Operation mode options
+## Register the 'EnablePodIdentityPreview' feature flag
+
+Register the `EnablePodIdentityPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
+
+```azurecli-interactive
+az feature register --namespace "Microsoft.ContainerService" --name "EnablePodIdentityPreview"
+```
+
+It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature show][az-feature-show] command:
+
+```azurecli-interactive
+az feature show --namespace "Microsoft.ContainerService" --name "EnablePodIdentityPreview"
+```
+
+When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
+## Operation mode options
 
 Azure AD pod-managed identity supports two modes of operation:
 
 * **Standard Mode**: In this mode, the following two components are deployed to the AKS cluster: 
-  * [Managed Identity Controller (MIC)](https://azure.github.io/aad-pod-identity/docs/concepts/mic/): An MIC is a Kubernetes controller that watches for changes to pods, [AzureIdentity](https://azure.github.io/aad-pod-identity/docs/concepts/azureidentity/) and [AzureIdentityBinding](https://azure.github.io/aad-pod-identity/docs/concepts/azureidentitybinding/) through the Kubernetes API Server. When it detects a relevant change, the MIC adds or deletes [AzureAssignedIdentity](https://azure.github.io/aad-pod-identity/docs/concepts/azureassignedidentity/) as needed. Specifically, when a pod is scheduled, the MIC assigns the managed identity on Azure to the underlying virtual machine scale set used by the node pool during the creation phase. When all pods using the identity are deleted, it removes the identity from the virtual machine scale set of the node pool, unless the same managed identity is used by other pods. The MIC takes similar actions when AzureIdentity or AzureIdentityBinding are created or deleted.
+  * [Managed Identity Controller (MIC)](https://azure.github.io/aad-pod-identity/docs/concepts/mic/): An MIC is a Kubernetes controller that watches for changes to pods, [AzureIdentity](https://azure.github.io/aad-pod-identity/docs/concepts/azureidentity/) and [AzureIdentityBinding](https://azure.github.io/aad-pod-identity/docs/concepts/azureidentitybinding/) through the Kubernetes API Server. When it detects a relevant change, the MIC adds or deletes [AzureAssignedIdentity](https://azure.github.io/aad-pod-identity/docs/concepts/azureassignedidentity/) as needed. Specifically, when a pod is scheduled, the MIC assigns the managed identity on Azure to the underlying Virtual Machine Scale Set used by the node pool during the creation phase. When all pods using the identity are deleted, it removes the identity from the Virtual Machine Scale Set of the node pool, unless the same managed identity is used by other pods. The MIC takes similar actions when AzureIdentity or AzureIdentityBinding are created or deleted.
   * [Node Managed Identity (NMI)](https://azure.github.io/aad-pod-identity/docs/concepts/nmi/): NMI is a pod that runs as a DaemonSet on each node in the AKS cluster. NMI intercepts security token requests to the [Azure Instance Metadata Service](../virtual-machines/linux/instance-metadata-service.md?tabs=linux) on each node, redirect them to itself and validates if the pod has access to the identity it's requesting a token for and fetch the token from the Azure AD tenant on behalf of the application.
 * **Managed Mode**: This mode offers only NMI. When installed via the AKS cluster add-on, Azure manages creation of Kubernetes primitives (AzureIdentity and AzureIdentityBinding) and identity assignment in response to CLI commands by the user. Otherwise, if installed via Helm chart, the identity needs to be manually assigned and managed by the user. For more information, see [Pod identity in managed mode](https://azure.github.io/aad-pod-identity/docs/configure/pod_identity_in_managed_mode/).
 
@@ -168,7 +178,7 @@ export IDENTITY_RESOURCE_ID="$(az identity show -g ${IDENTITY_RESOURCE_GROUP} -n
 
 The managed identity that will be assigned to the pod needs to be granted permissions that align with the actions it will be taking.
 
-To run the demo, the *IDENTITY_CLIENT_ID* managed identity must have Virtual Machine Contributor permissions in the resource group that contains the virtual machine scale set of your AKS cluster.
+To run the demo, the *IDENTITY_CLIENT_ID* managed identity must have Virtual Machine Contributor permissions in the resource group that contains the Virtual Machine Scale Set of your AKS cluster.
 
 ```azurecli-interactive
 NODE_GROUP=$(az aks show -g myResourceGroup -n myAKSCluster --query nodeResourceGroup -o tsv)
@@ -319,6 +329,9 @@ For more information on managed identities, see [Managed identities for Azure re
 [az-group-create]: /cli/azure/group#az_group_create
 [az-identity-create]: /cli/azure/identity#az_identity_create
 [az-managed-identities]: ../active-directory/managed-identities-azure-resources/overview.md
+[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-show]: /cli/azure/feature#az-feature-show
 
 <!-- LINKS - external -->
 [RFC 1123]: https://tools.ietf.org/html/rfc1123

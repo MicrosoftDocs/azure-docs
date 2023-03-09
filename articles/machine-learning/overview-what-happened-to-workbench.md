@@ -9,6 +9,7 @@ ms.topic: reference
 ms.custom: sdkv1, event-tier1-build-2022, ignite-2022
 ms.author: larryfr
 author: BlackMist
+ms.reviewer: sgilley
 ms.date: 11/04/2022
 ---
 # What happened to Azure Machine Learning Workbench?

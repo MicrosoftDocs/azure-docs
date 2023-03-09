@@ -23,6 +23,8 @@ You can access some of these logs through the portal. Logs can be sent to [Azure
 
 Before starting, you should read [Azure Firewall logs and metrics](logs-and-metrics.md) for an overview of the diagnostics logs and metrics available for Azure Firewall.
 
+Additionally, for an improved method to work with firewall logs, see [Azure Structured Firewall Logs (preview)](firewall-structured-logs.md).
+
 ## Enable diagnostic logging through the Azure portal
 
 It can take a few minutes for the data to appear in your logs after you complete this procedure to turn on diagnostic logging. If you don't see anything at first, check again in  a few more minutes.
@@ -108,7 +110,7 @@ You can view and analyze activity log data by using any of the following methods
 
 * **Azure tools**: Retrieve information from the activity log through Azure PowerShell, the Azure CLI, the Azure REST API, or the Azure portal. Step-by-step instructions for each method are detailed in the [Activity operations with Resource Manager](../azure-monitor/essentials/activity-log.md) article.
 * **Power BI**: If you don't already have a [Power BI](https://powerbi.microsoft.com/pricing) account, you can try it for free. By using the [Azure Activity Logs content pack for Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/), you can analyze your data with preconfigured dashboards that you can use as is or customize.
-* **Microsoft Sentinel**: You can connect Azure Firewall logs to Microsoft Sentinel, enabling you to view log data in workbooks, use it to create custom alerts, and incorporate it to improve your investigation. The Azure Firewall data connector in Microsoft Sentinel is currently in public preview. For more information, see [Connect data from Azure Firewall](../sentinel/data-connectors-reference.md#azure-firewall).
+* **Microsoft Sentinel**: You can connect Azure Firewall logs to Microsoft Sentinel, enabling you to view log data in workbooks, use it to create custom alerts, and incorporate it to improve your investigation. The Azure Firewall data connector in Microsoft Sentinel is currently in public preview. For more information, see [Connect data from Azure Firewall](../sentinel/data-connectors/azure-firewall.md).
 
    See the following video by Mohit Kumar for an overview:
    > [!VIDEO https://www.microsoft.com/videoplayer/embed/RWI4nn]

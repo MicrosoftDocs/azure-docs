@@ -1,13 +1,14 @@
 ---
-title: 'How-to - Create a resource and deploy a model using Azure OpenAI'
+title: 'How-to - Create a resource and deploy a model using Azure OpenAI Service'
 titleSuffix: Azure OpenAI
 description: Walkthrough on how to get started with Azure OpenAI and make your first resource and deploy your first model.
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
+ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 06/30/2022
+ms.date: 02/02/2023
 zone_pivot_groups: openai-create-resource
 author: ChrisHMSFT
 ms.author: chrhoder
@@ -16,17 +17,17 @@ recommendations: false
 
 # Create a resource and deploy a model using Azure OpenAI
 
-Use this article to get started with Azure OpenAI with step-by-step instructions to create a resource and deploy a model. While the steps for resource creation and model deployment can be completed in a few minutes, the actual deployment process itself can take more than hour. It is recommended to create your resource, start your deployment, and then check back in on your deployment later rather than actively waiting for the deployment to complete.
+Use this article to get started with Azure OpenAI with step-by-step instructions to create a resource and deploy a model. While the steps for resource creation and model deployment can be completed in a few minutes, the actual deployment process itself can take more than hour. You can create your resource, start your deployment, and then check back in on your deployment later rather than actively waiting for the deployment to complete.
 
 ::: zone pivot="web-portal"
 
-[!INCLUDE [Studio quickstart](../includes/create-resource-portal.md)]
+[!INCLUDE [Studio resource](../includes/create-resource-portal.md)]
 
 ::: zone-end
 
 ::: zone pivot="cli"
 
-[!INCLUDE [Python SDK quickstart](../includes/create-resource-cli.md)]
+[!INCLUDE [Azure CLI resource](../includes/create-resource-cli.md)]
 
 ::: zone-end
 

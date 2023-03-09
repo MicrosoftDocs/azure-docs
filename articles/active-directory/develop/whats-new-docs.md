@@ -5,7 +5,7 @@ services: active-directory
 author: henrymbuguakiarie
 manager: CelesteDG
 
-ms.date: 12/01/2022
+ms.date: 03/01/2023
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
@@ -18,55 +18,48 @@ ms.custom: has-adal-ref
 
 Welcome to what's new in the Microsoft identity platform documentation. This article lists new docs that have been added and those that have had significant updates in the last three months.
 
-## November 2022
+## February 2023
 
 ### New articles
 
-- [How to configure app instance property lock for your applications (Preview)](howto-configure-app-instance-property-locks.md)
+- [Frequently asked questions about workload identities license plans](workload-identities-faqs.md)
 
 ### Updated articles
 
-- [Configure SSO on macOS and iOS](single-sign-on-macos-ios.md)
-- [Developer guide to Conditional Access authentication context](developer-guide-conditional-access-authentication-context.md)
-- [Get a token from the token cache using MSAL.NET](msal-net-acquire-token-silently.md)
-- [How and why applications are added to Azure AD](active-directory-how-applications-are-added.md)
-- [How to migrate a Node.js app from ADAL to MSAL](msal-node-migration.md)
-- [Initialize client applications using MSAL.NET](msal-net-initializing-client-applications.md)
-- [Logging in MSAL.NET](msal-logging-dotnet.md)
-- [Logging in MSAL for Java](msal-logging-java.md)
-- [Migrate applications to the Microsoft Authentication Library (MSAL)](msal-migration.md)
-- [Shared device mode for iOS devices](msal-ios-shared-devices.md)
-- [Troubleshoot publisher verification](troubleshoot-publisher-verification.md)
-- [Tutorial: Use shared-device mode in your Android application](tutorial-v2-shared-device-mode.md)
+- [Configure the role claim issued in the SAML token](active-directory-enterprise-app-role-management.md)
+- [Microsoft identity platform and the OAuth 2.0 client credentials flow](v2-oauth2-client-creds-grant-flow.md)
+- [Overview of shared device mode](msal-shared-devices.md)
+- [Run automated integration tests](test-automate-integration-testing.md)
+- [Tutorial: Sign in users and call Microsoft Graph in Windows Presentation Foundation (WPF) desktop app](tutorial-v2-windows-desktop.md)
 
-## October 2022
+## January 2023
+
+### New articles
+
+- [Customize claims issued in the JSON web token (JWT) for enterprise applications](active-directory-jwt-claims-customization.md)
 
 ### Updated articles
 
 - [Access Azure AD protected resources from an app in Google Cloud](workload-identity-federation-create-trust-gcp.md)
-- [Configure an app to trust an external identity provider](workload-identity-federation-create-trust.md)
-- [Configure a user-assigned managed identity to trust an external identity provider (preview)](workload-identity-federation-create-trust-user-assigned-managed-identity.md)
-- [Configuration requirements and troubleshooting tips for Xamarin Android with MSAL.NET](msal-net-xamarin-android-considerations.md)
-- [Customize claims emitted in tokens for a specific app in a tenant](active-directory-claims-mapping.md)
-- [Desktop app that calls web APIs: Acquire a token using Device Code flow](scenario-desktop-acquire-token-device-code-flow.md)
-- [Desktop app that calls web APIs: Acquire a token using integrated Windows authentication](scenario-desktop-acquire-token-integrated-windows-authentication.md)
-- [Desktop app that calls web APIs: Acquire a token using Username and Password](scenario-desktop-acquire-token-username-password.md)
-- [Making your application multi-tenant](howto-convert-app-to-be-multi-tenant.md)
-- [Microsoft identity platform and OAuth 2.0 On-Behalf-Of flow](v2-oauth2-on-behalf-of-flow.md)
-- [Prompt behavior with MSAL.js](msal-js-prompt-behavior.md)
-- [Quickstart: Register an application with the Microsoft identity platform](quickstart-register-app.md)
-- [Tutorial: Sign in users and call the Microsoft Graph API from a JavaScript single-page application](tutorial-v2-javascript-spa.md)
-- [Tutorial: Sign in users and call the Microsoft Graph API from a React single-page app (SPA) using auth code flow](tutorial-v2-react.md)
+- [Configure SAML app multi-instancing for an application in Azure Active Directory](reference-app-multi-instancing.md)
+- [Customize browsers and WebViews for iOS/macOS](customize-webviews.md)
+- [Customize claims issued in the SAML token for enterprise applications](active-directory-saml-claims-customization.md)
+- [Enable cross-app SSO on Android using MSAL](msal-android-single-sign-on.md)
+- [Using redirect URIs with the Microsoft Authentication Library (MSAL) for iOS and macOS](redirect-uris-ios.md)
 
-## September 2022
+## December 2022
 
 ### New articles
 
-- [Configure a user-assigned managed identity to trust an external identity provider (preview)](workload-identity-federation-create-trust-user-assigned-managed-identity.md)
-- [Important considerations and restrictions for federated identity credentials](workload-identity-federation-considerations.md)
+- [Block workload identity federation on managed identities using a policy](workload-identity-federation-block-using-azure-policy.md)
+- [Troubleshooting the configured permissions limits](troubleshoot-required-resource-access-limits.md)
 
 ### Updated articles
 
-- [How to use Continuous Access Evaluation enabled APIs in your applications](app-resilience-continuous-access-evaluation.md)
-- [Run automated integration tests](test-automate-integration-testing.md)
-- [Tutorial: Sign in users and call the Microsoft Graph API from a JavaScript single-page application (SPA)](tutorial-v2-javascript-spa.md)
+- [A web API that calls web APIs: Code configuration](scenario-web-api-call-api-app-configuration.md)
+- [Quickstart: Get a token and call the Microsoft Graph API by using a console app's identity](quickstart-v2-netcore-daemon.md)
+- [Quickstart: Protect an ASP.NET Core web API with the Microsoft identity platform](quickstart-v2-aspnet-core-web-api.md)
+- [Tutorial: Create a Blazor Server app that uses the Microsoft identity platform for authentication](tutorial-blazor-server.md)
+- [Tutorial: Sign in users and call a protected API from a Blazor WebAssembly app](tutorial-blazor-webassembly.md)
+- [Web app that signs in users: App registration](scenario-web-app-sign-user-app-registration.md)
+- [Web app that signs in users: Code configuration](scenario-web-app-sign-user-app-configuration.md)

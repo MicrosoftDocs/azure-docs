@@ -2,16 +2,15 @@
 title: Azure DDoS Protection Overview
 description: Learn how the Azure DDoS Protection, when combined with application design best practices, provides defense against DDoS attacks.
 services: ddos-protection
-documentationcenter: na
 author: AbdullahBell
 ms.service: ddos-protection
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.custom: ignite-2022
 ms.workload: infrastructure-services
-ms.date: 11/14/2022
+ms.date: 01/17/2023
 ms.author: abell
+ms.custom: ignite-2022, references_regions
 ---
+
 # What is Azure DDoS Protection?
 
 Distributed denial of service (DDoS) attacks are some of the largest availability and security concerns facing customers that are moving their applications to the cloud. A DDoS attack attempts to exhaust an application's resources, making the application unavailable to legitimate users. DDoS attacks can be targeted at any endpoint that is publicly reachable through the internet.
@@ -19,6 +18,7 @@ Distributed denial of service (DDoS) attacks are some of the largest availabilit
 Azure DDoS Protection, combined with application design best practices, provides enhanced DDoS mitigation features to defend against DDoS attacks. It's automatically tuned to help protect your specific Azure resources in a virtual network. Protection is simple to enable on any new or existing virtual network, and it requires no application or resource changes.
 
 :::image type="content" source="./media/ddos-best-practices/ddos-protection-overview-architecture.png" alt-text="Diagram of the reference architecture for a DDoS protected PaaS web application.":::
+
 ## Key benefits
 
 ### Always-on traffic monitoring
@@ -51,7 +51,7 @@ When deployed with a web application firewall (WAF), Azure DDoS Protection prote
  All L3/L4 attack vectors can be mitigated, with global capacity, to protect against the largest known DDoS attacks.
 
 ### Attack analytics
-Get detailed reports in five-minute increments during an attack, and a complete summary after the attack ends. Stream mitigation flow logs to [Microsoft Sentinel](../sentinel/data-connectors-reference.md#azure-ddos-protection) or an offline security information and event management (SIEM) system for near real-time monitoring during an attack. See [View and configure DDoS diagnostic logging](diagnostic-logging.md) to learn more.
+Get detailed reports in five-minute increments during an attack, and a complete summary after the attack ends. Stream mitigation flow logs to [Microsoft Sentinel](../sentinel/data-connectors/azure-ddos-protection.md) or an offline security information and event management (SIEM) system for near real-time monitoring during an attack. See [View and configure DDoS diagnostic logging](diagnostic-logging.md) to learn more.
 
 ### Attack metrics
  Summarized metrics from each attack are accessible through Azure Monitor. See [View and configure DDoS protection telemetry](telemetry.md) to learn more.
@@ -70,7 +70,7 @@ Azure DDoS Protection is designed for [services that are deployed in a virtual n
 ## Pricing
 
 For DDoS Network Protection, under a tenant, a single DDoS protection plan can be used across multiple subscriptions, so there's no need to create more than one DDoS protection plan.
-For DDoS IP Protection, there's no need to create a DDoS protection plan. Customers can enable DDoS on any public IP resource.
+For DDoS IP Protection, there's no need to create a DDoS protection plan. Customers can enable DDoS IP protection on any public IP resource.
 
 To learn about Azure DDoS Protection pricing, see [Azure DDoS Protection pricing](https://azure.microsoft.com/pricing/details/ddos-protection/). 
 

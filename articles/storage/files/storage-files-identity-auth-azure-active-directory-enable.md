@@ -8,6 +8,7 @@ ms.date: 12/05/2022
 ms.author: kendownie
 ms.subservice: files
 ms.custom: engagement-fy23
+recommendations: false
 ---
 
 # Enable Azure Active Directory Kerberos authentication for hybrid identities on Azure Files
@@ -37,8 +38,8 @@ Before you enable Azure AD Kerberos authentication over SMB for Azure file share
 
 The Azure AD Kerberos functionality for hybrid identities is only available on the following operating systems:
 
-  - Windows 11 Enterprise single or multi-session.
-  - Windows 10 Enterprise single or multi-session, versions 2004 or later with the latest cumulative updates installed, especially the [KB5007253 - 2021-11 Cumulative Update Preview for Windows 10](https://support.microsoft.com/topic/november-22-2021-kb5007253-os-builds-19041-1387-19042-1387-19043-1387-and-19044-1387-preview-d1847be9-46c1-49fc-bf56-1d469fc1b3af).
+  - Windows 11 Enterprise/Pro single or multi-session.
+  - Windows 10 Enterprise/Pro single or multi-session, versions 2004 or later with the latest cumulative updates installed, especially the [KB5007253 - 2021-11 Cumulative Update Preview for Windows 10](https://support.microsoft.com/topic/november-22-2021-kb5007253-os-builds-19041-1387-19042-1387-19043-1387-and-19044-1387-preview-d1847be9-46c1-49fc-bf56-1d469fc1b3af).
   - Windows Server, version 2022 with the latest cumulative updates installed, especially the [KB5007254 - 2021-11 Cumulative Update Preview for Microsoft server operating system version 21H2](https://support.microsoft.com/topic/november-22-2021-kb5007254-os-build-20348-380-preview-9a960291-d62e-486a-adcc-6babe5ae6fc1).
 
 To learn how to create and configure a Windows VM and log in by using Azure AD-based authentication, see [Log in to a Windows virtual machine in Azure by using Azure AD](../../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md).
@@ -137,7 +138,7 @@ az storage account update --name <storageAccountName> --resource-group <resource
 ---
 
 > [!WARNING]
-> If you've previously enabled Azure AD Kerberos authentication through manual limited preview steps to store FSLogix profiles on Azure Files for Azure AD-joined VMs, the password for the storage account's service principal is set to expire every six months. Once the password expires, users won't be able to get Kerberos tickets to the file share. To mitigate this, see "Error - Service principal password has expired in Azure AD" under [Potential errors when enabling Azure AD Kerberos authentication for hybrid users](storage-troubleshoot-windows-file-connection-problems.md#potential-errors-when-enabling-azure-ad-kerberos-authentication-for-hybrid-users).
+> If you've previously enabled Azure AD Kerberos authentication through manual limited preview steps to store FSLogix profiles on Azure Files for Azure AD-joined VMs, the password for the storage account's service principal is set to expire every six months. Once the password expires, users won't be able to get Kerberos tickets to the file share. To mitigate this, see "Error - Service principal password has expired in Azure AD" under [Potential errors when enabling Azure AD Kerberos authentication for hybrid users](files-troubleshoot-smb-authentication.md#potential-errors-when-enabling-azure-ad-kerberos-authentication-for-hybrid-users).
 
 ## Grant admin consent to the new service principal
 
@@ -241,7 +242,7 @@ az storage account update --name <storageaccountname> --resource-group <resource
 
 For more information, see these resources:
 
-- [Potential errors when enabling Azure AD Kerberos authentication for hybrid users](storage-troubleshoot-windows-file-connection-problems.md#potential-errors-when-enabling-azure-ad-kerberos-authentication-for-hybrid-users)
+- [Potential errors when enabling Azure AD Kerberos authentication for hybrid users](files-troubleshoot-smb-authentication.md#potential-errors-when-enabling-azure-ad-kerberos-authentication-for-hybrid-users)
 - [Overview of Azure Files identity-based authentication support for SMB access](storage-files-active-directory-overview.md)
 - [Create a profile container with Azure Files and Azure Active Directory](../../virtual-desktop/create-profile-container-azure-ad.md)
 - [FAQ](storage-files-faq.md)

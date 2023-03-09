@@ -6,7 +6,7 @@ ms.author: shjia
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 08/18/2021
+ms.date: 02/14/2023
 ms.custom: ignite-fall-2021
 ---
 
@@ -38,7 +38,7 @@ Whenever possible, a Managed Identity is the preferred authentication method bec
 
 When scanning a source, you have a choice to scan the entire data source or choose only specific entities (folders/tables) to scan. Available options depend on the source you're scanning, and can be defined for both one-time and scheduled scans.
 
-For example, when [creating and running a scan for an Azure SQL Database](register-scan-azure-sql-database.md#creating-the-scan), you can choose which tables to scan, or select the entire database.
+For example, when [creating and running a scan for an Azure SQL Database](register-scan-azure-sql-database.md#create-the-scan), you can choose which tables to scan, or select the entire database.
 
 ### Scan rule set
 
@@ -74,5 +74,5 @@ The technical metadata or classifications identified by the scanning process are
 For more information, or for specific instructions for scanning sources, follow the links below.
 
 * To understand resource sets, see our [resource sets article](concept-resource-sets.md).
-* [How to govern an Azure SQL Database](register-scan-azure-sql-database.md#creating-the-scan)
+* [How to govern an Azure SQL Database](register-scan-azure-sql-database.md#create-the-scan)
 * [Lineage in Microsoft Purview](catalog-lineage-user-guide.md)

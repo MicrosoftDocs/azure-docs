@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/12/2022
+ms.date: 01/10/2023
 ms.author: tamram
 ms.subservice: common
 ms.custom: ignite-2022
@@ -35,15 +35,15 @@ The Azure Storage platform includes the following data services:
 - [Azure Elastic SAN](../elastic-san/elastic-san-introduction.md) (preview): A fully integrated solution that simplifies deploying, scaling, managing, and configuring a SAN in Azure.
 - [Azure Queues](../queues/storage-queues-introduction.md): A messaging store for reliable messaging between application components.
 - [Azure Tables](../tables/table-storage-overview.md): A NoSQL store for schemaless storage of structured data.
-- [Azure Disks](../../virtual-machines/managed-disks-overview.md): Block-level storage volumes for Azure VMs.
+- [Azure managed Disks](../../virtual-machines/managed-disks-overview.md): Block-level storage volumes for Azure VMs.
 
-Each service is accessed through a storage account. To get started, see [Create a storage account](storage-account-create.md).
+Each service is accessed through a storage account with a unique address. To get started, see [Create a storage account](storage-account-create.md).
 
 Additionally, Azure provides the following specialized storage:
 
-- [Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-introduction.md): Enterprise files storage, powered by NetApp: makes it easy for enterprise line-of-business (LOB) and storage professionals to migrate and run complex, file-based applications with no code change.
+- [Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-introduction.md): Enterprise files storage, powered by NetApp: makes it easy for enterprise line-of-business (LOB) and storage professionals to migrate and run complex, file-based applications with no code change. Azure NetApp Files is managed via NetApp accounts and can be accessed via NFS, SMB and dual-protocol volumes. To get started, see [Create a NetApp account](../../azure-netapp-files/azure-netapp-files-create-netapp-account.md).
 
-    Azure NetApp Files is managed via NetApp accounts and can be accessed via NFS, SMB and dual-protocol volumes. To get started, see [Create a NetApp account](../../azure-netapp-files/azure-netapp-files-create-netapp-account.md).
+For help in deciding which data services to use for your scenario, see [Review your storage options](/azure/cloud-adoption-framework/ready/considerations/storage-options) in the Microsoft Cloud Adoption Framework.
 
 ## Review options for storing data in Azure
 
@@ -201,7 +201,7 @@ You can access resources in a storage account by any language that can make HTTP
 ### Azure Storage management API and library references
 
 - [Storage Resource Provider REST API](/rest/api/storagerp/)
-- [Storage Resource Provider Client Library for .NET](/dotnet/api/overview/azure/storage/management)
+- [Storage Resource Provider Client Library for .NET](/dotnet/api/overview/azure/resourcemanager.storage-readme)
 - [Storage Service Management REST API (Classic)](/previous-versions/azure/reference/ee460790(v=azure.100))
 - [Azure NetApp Files REST API](../../azure-netapp-files/azure-netapp-files-develop-with-rest-api.md)
 

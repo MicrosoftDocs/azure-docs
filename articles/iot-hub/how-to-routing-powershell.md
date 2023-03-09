@@ -3,6 +3,7 @@ title: Create and delete routes and endpoints by using Azure PowerShell
 description: Learn how to create and delete routes and endpoints in Azure IoT Hub by using Azure PowerShell.
 author: kgremban
 ms.service: iot-hub
+ms.custom: devx-track-azurepowershell
 services: iot-hub
 ms.topic: how-to
 ms.date: 12/15/2022
@@ -13,7 +14,7 @@ ms.author: kgremban
 
 This article shows you how to create a route and endpoint in your hub in Azure IoT Hub and then delete your route and endpoint. Learn how to use Azure PowerShell to create routes and endpoints for Azure Event Hubs, Azure Service Bus queues and topics, and Azure Storage.
 
-To learn more about how routing works in IoT Hub, see [Use IoT Hub message routing to send device-to-cloud messages to different endpoints](/azure/iot-hub/iot-hub-devguide-messages-d2c). To walk through setting up a route that sends messages to storage and then testing on a simulated device, see [Tutorial: Send device data to Azure Storage by using IoT Hub message routing](/azure/iot-hub/tutorial-routing?tabs=portal).
+To learn more about how routing works in IoT Hub, see [Use IoT Hub message routing to send device-to-cloud messages to different endpoints](./iot-hub-devguide-messages-d2c.md). To walk through setting up a route that sends messages to storage and then testing on a simulated device, see [Tutorial: Send device data to Azure Storage by using IoT Hub message routing](./tutorial-routing.md?tabs=portal).
 
 ## Prerequisites
 
@@ -25,7 +26,7 @@ The procedures that are described in the article use the following resources:
 
 ### Azure PowerShell
 
-This article uses Azure PowerShell to work with IoT Hub and other Azure services. To use Azure PowerShell locally, install the [Azure PowerShell module](/powershell/azure/install-az-ps) on your computer. Alternatively, to use Azure PowerShell in a web browser, enable [Azure Cloud Shell](/azure/cloud-shell/overview).
+This article uses Azure PowerShell to work with IoT Hub and other Azure services. To use Azure PowerShell locally, install the [Azure PowerShell module](/powershell/azure/install-az-ps) on your computer. Alternatively, to use Azure PowerShell in a web browser, enable [Azure Cloud Shell](../cloud-shell/overview.md).
 
 ### IoT hub
 
@@ -33,7 +34,7 @@ To create an IoT hub route, you need an IoT hub that you created by using Azure 
 
 Be sure to have the following hub resource to use when you create your IoT hub route:
 
-* An IoT hub in your [Azure subscription](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). If you don't have a hub yet, you can follow the steps to [create an IoT hub by using the New-AzIotHub PowerShell cmdlet](/azure/iot-hub/iot-hub-create-using-powershell).
+* An IoT hub in your [Azure subscription](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). If you don't have a hub yet, you can follow the steps to [create an IoT hub by using the New-AzIotHub PowerShell cmdlet](./iot-hub-create-using-powershell.md).
 
 ### Endpoint service
 
@@ -41,13 +42,13 @@ To create an IoT hub route, you need at least one other Azure service to use as 
 
 Be sure to have *one* of the following resources to use when you create an endpoint your IoT hub route:
 
-* An Event Hubs resource (with container). If you need to create a new Event Hubs resource, see  [Quickstart: Create an event hub by using Azure PowerShell](/azure/event-hubs/event-hubs-quickstart-powershell).
+* An Event Hubs resource (with container). If you need to create a new Event Hubs resource, see  [Quickstart: Create an event hub by using Azure PowerShell](../event-hubs/event-hubs-quickstart-powershell.md).
 
-* A Service Bus queue resource. If you need to create a new Service Bus queue, see [Use Azure PowerShell to create a Service Bus namespace and queue](/azure/service-bus-messaging/service-bus-quickstart-powershell).
+* A Service Bus queue resource. If you need to create a new Service Bus queue, see [Use Azure PowerShell to create a Service Bus namespace and queue](../service-bus-messaging/service-bus-quickstart-powershell.md).
 
-* A Service Bus topic resource. If you need to create a new Service Bus topic, see the [New-AzServiceBusTopic](/powershell/module/az.servicebus/new-azservicebustopic) reference and the [Azure Service Bus messaging](/azure/service-bus-messaging/) documentation.
+* A Service Bus topic resource. If you need to create a new Service Bus topic, see the [New-AzServiceBusTopic](/powershell/module/az.servicebus/new-azservicebustopic) reference and the [Azure Service Bus messaging](../service-bus-messaging/index.yml) documentation.
 
-* An Azure Storage resource. If you need to create a new storage account in Azure, see [Create a storage account](/azure/storage/common/storage-account-create?tabs=azure-powershell).
+* An Azure Storage resource. If you need to create a new storage account in Azure, see [Create a storage account](../storage/common/storage-account-create.md?tabs=azure-powershell).
 
 ## Create resources and endpoints
 
@@ -88,7 +89,7 @@ To create a new Event Hubs resource that has an authorization rule:
    New-AzEventHubAuthorizationRule -ResourceGroupName MyResourceGroup -NamespaceName MyNamespace -EventHubName MyEventHub -Name MyAuthRule -Rights @('Manage', 'Send', 'Listen')
    ```
 
-   For more information about access, see [Authorize access to Azure Event Hubs](/azure/event-hubs/authorize-access-event-hubs).
+   For more information about access, see [Authorize access to Azure Event Hubs](../event-hubs/authorize-access-event-hubs.md).
 
 ### Create an Event Hubs endpoint
 
@@ -115,7 +116,7 @@ The commands in the following procedures use these references:
 
 ### Create a Service Bus namespace and queue
 
-To create a new [Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) queue resource:
+To create a new [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) queue resource:
 
 1. Create a new Service Bus namespace. For `Name`, use a unique value.
 
@@ -154,7 +155,7 @@ The commands in the following procedures use these references:
 * [Az.IotHub](/powershell/module/az.iothub/)
 * [Az.ServiceBus](/powershell/module/az.servicebus/)
 
-With [Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) topics, users can subscribe to one or more topics. To create a topic, you also create a Service Bus namespace and subscription.
+With [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) topics, users can subscribe to one or more topics. To create a topic, you also create a Service Bus namespace and subscription.
 
 ### Create a Service Bus namespace, topic, and subscription
 
@@ -209,7 +210,7 @@ To create an Azure Storage endpoint and route, you need a Storage account and co
    New-AzStorageAccount -ResourceGroupName MyResourceGroup -Name mystorageaccount -Location westus -SkuName Standard_GRS
    ```
 
-1. Create a new container in your storage account. You need to create a context to your storage account in a variable, and then add the variable to the `Context` parameter. To learn about your options when you create a container, see [Manage blob containers by using PowerShell](/azure/storage/blobs/blob-containers-powershell). For `Name`, use a unique value for the name of your container.
+1. Create a new container in your storage account. You need to create a context to your storage account in a variable, and then add the variable to the `Context` parameter. To learn about your options when you create a container, see [Manage blob containers by using PowerShell](../storage/blobs/blob-containers-powershell.md). For `Name`, use a unique value for the name of your container.
 
    ```powershell
    $ctx = New-AzStorageContext -StorageAccountName mystorageaccount -UseConnectedAccount `
@@ -301,4 +302,4 @@ Remove-AzIotHubRoute -ResourceGroupName MyResourceGroup -Name MyIotHub -RouteNam
 
 In this how-to article, you learned how to create a route and endpoint for Event Hubs, Service Bus queues and topics, and Azure Storage.
 
-To learn more about message routing, see [Tutorial: Send device data to Azure Storage by using IoT Hub message routing](/azure/iot-hub/tutorial-routing?tabs=portal). In the tutorial, you create a storage route and test it with a device in your IoT hub.
+To learn more about message routing, see [Tutorial: Send device data to Azure Storage by using IoT Hub message routing](./tutorial-routing.md?tabs=portal). In the tutorial, you create a storage route and test it with a device in your IoT hub.

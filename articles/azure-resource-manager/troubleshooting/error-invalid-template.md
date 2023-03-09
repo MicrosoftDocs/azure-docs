@@ -2,7 +2,7 @@
 title: Invalid template errors
 description: Describes how to resolve invalid template errors when deploying Bicep files or Azure Resource Manager templates (ARM templates).
 ms.topic: troubleshooting
-ms.date: 12/28/2022
+ms.date: 01/03/2023
 ---
 
 # Resolve errors for invalid template

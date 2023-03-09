@@ -1,7 +1,6 @@
 ---
 title: Custom certificate authority (CA) in Azure Kubernetes Service (AKS) (preview)
 description: Learn how to use a custom certificate authority (CA) in an Azure Kubernetes Service (AKS) cluster.
-services: container-service
 author: rayoef
 ms.author: rayoflores
 ms.topic: article
@@ -14,47 +13,49 @@ Custom certificate authorities (CAs) allow you to establish trust between your A
 
 This feature is applied per nodepool, so new and existing node pools must be configured to enable this feature.
 
-[!INCLUDE [preview features note](./includes/preview/preview-callout.md)]
-
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
 * [Azure CLI installed][azure-cli-install] (version 2.43.0 or greater).
 * A base64 encoded certificate string or a text file with certificate.
 
-### Limitations
+## Limitations
 
 This feature isn't currently supported for Windows node pools.
 
-### Install the `aks-preview` extension
+## Install the aks-preview Azure CLI extension
 
-You also need the *aks-preview* Azure CLI extensions version 0.5.119 or later. Install the *aks-preview* extension by using the [az extension add][az-extension-add] command, or install any available updates by using the [az extension update][az-extension-update] command.
+[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
+
+To install the aks-preview extension, run the following command:
 
 ```azurecli
-# Install the aks-preview extension
 az extension add --name aks-preview
+```
 
-# Update the extension to make sure you have the latest version installed
+Run the following command to update to the latest version of the extension released:
+
+```azurecli
 az extension update --name aks-preview
 ```
 
-### Register the `CustomCATrustPreview` preview feature
+## Register the 'CustomCATrustPreview' feature flag
 
-Register the `CustomCATrustPreview` feature flag by using the [az feature register][az-feature-register] command:
+Register the `CustomCATrustPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
 
 ```azurecli
 az feature register --namespace "Microsoft.ContainerService" --name "CustomCATrustPreview"
 ```
 
-It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature list][az-feature-list] command:
+It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature show][az-feature-show] command:
 
-```azurecli
-az feature list --query "[?contains(name, 'Microsoft.ContainerService/CustomCATrustPreview')].{Name:name,State:properties.state}" -o table
+```azurecli-interactive
+az feature show --namespace "Microsoft.ContainerService" --name "CustomCATrustPreview"
 ```
 
-Refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
+When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
 
-```azurecli
+```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
 ```
 
@@ -245,6 +246,6 @@ For more information on AKS security best practices, see [Best practices for clu
 [az-aks-nodepool-update]: /cli/azure/aks#az-aks-update
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
-[az-feature-list]: /cli/azure/feature#az-feature-list
+[az-feature-show]: /cli/azure/feature#az-feature-show
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-provider-register]: /cli/azure/provider#az-provider-register

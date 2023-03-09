@@ -7,7 +7,7 @@ author: normesta
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/06/2022
+ms.date: 01/23/2023
 ms.author: normesta
 ms.devlang: csharp
 ms.custom: "subject-monitoring, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell"
@@ -307,7 +307,7 @@ The following example shows how to read metric data on the metric supporting mul
 
 ## Analyzing logs
 
-You can access resource logs either as a blob in a storage account, as event data, or through Log Analytic queries. For information about how to find those logs, see [Azure resource logs](../../azure-monitor/essentials/resource-logs.md).
+You can access resource logs either as a blob in a storage account, as event data, or through Log Analytics queries. For information about how to find those logs, see [Azure resource logs](../../azure-monitor/essentials/resource-logs.md).
 
 All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](../../azure-monitor/essentials/resource-logs-schema.md). The schema for Azure Blob Storage resource logs is found in [Azure Blob Storage monitoring data reference](monitor-blob-storage-reference.md).
 
@@ -316,6 +316,8 @@ To get the list of SMB and REST operations that are logged, see [Storage logged 
 Log entries are created only if there are requests made against the service endpoint. For example, if a storage account has activity in its file endpoint but not in its table or queue endpoints, only logs that pertain to the Azure Blob Storage service are created. Azure Storage logs contain detailed information about successful and failed requests to a storage service. This information can be used to monitor individual requests and to diagnose issues with a storage service. Requests are logged on a best-effort basis.
 
 The [Activity log](../../azure-monitor/essentials/activity-log.md) is a type of platform log located in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
+
+When you view a storage account in the Azure portal, the operations called by the portal are also logged. For this reason, you may see operations logged in a storage account even though you have not written any data to the account.
 
 ### Log authenticated requests
 
@@ -329,7 +331,7 @@ The [Activity log](../../azure-monitor/essentials/activity-log.md) is a type of 
 Requests made by the Blob storage service itself, such as log creation or deletion, aren't logged. For a full list of the logged data, see [Storage logged operations and status messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) and [Storage log format](monitor-blob-storage-reference.md).
 
 > [!NOTE]
-> Azure Monitor currently filters out logs that describe activity in the `insights-` container. You can track activities in that container by using storage analytics (classic logs).
+> Azure Monitor currently filters out logs that describe activity in the "insights-logs-" container. You can track activities in that container by using storage analytics (classic logs).
 
 ### Log anonymous requests
 

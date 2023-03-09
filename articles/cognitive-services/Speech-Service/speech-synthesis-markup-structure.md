@@ -37,6 +37,7 @@ Here's a subset of the basic structure and syntax of an SSML document:
         <lang xml:lang="string"></lang>
         <lexicon uri="string"/>
         <math xmlns="http://www.w3.org/1998/Math/MathML"></math>
+        <mstts:audioduration value="string"/>
         <mstts:express-as style="string" styledegree="value" role="string"></mstts:express-as>
         <mstts:silence type="string" value="string"/>
         <mstts:viseme type="string"/>
@@ -58,6 +59,7 @@ Some examples of contents that are allowed in each element are described in the 
 - `lang`: This element can contain all other elements except `mstts:backgroundaudio`, `voice`, and `speak`.
 - `lexicon`: This element can't contain text or any other elements.
 - `math`: This element can only contain text and MathML elements.
+- `mstts:audioduration`: This element can't contain text or any other elements.
 - `mstts:backgroundaudio`: This element can't contain text or any other elements.
 - `mstts:express-as`: This element can contain text and the following elements: `audio`, `break`, `emphasis`, `lang`, `phoneme`, `prosody`, `say-as`, and `sub`.
 - `mstts:silence`: This element can't contain text or any other elements.
@@ -159,7 +161,7 @@ Usage of the `mstts:silence` element's attributes are described in the following
 
 | Attribute | Description | Required or optional |
 | ---------- | ---------- | ---------- |
-| `type` | Specifies where and how to add silence. The following silence types are supported:<br/><ul><li>`Leading` – Additional silence at the beginning of the text. The value that you set is added to the natural silence before the start of text.</li><li>`Leading-exact` – Silence at the beginning of the text. The value is an absolute silence length.</li><li>`Tailing` – Additional silence at the end of text. The value that you set is added to the natural silence after the last word.</li><li>`Tailing-exact` – Silence at the end of the text. The value is an absolute silence length.</li><li>`Sentenceboundary` – Additional silence between adjacent sentences. The actual silence length for this type includes the natural silence after the last word in the previous sentence, the value you set for this type, and the natural silence before the starting word in the next sentence.</li><li>`Sentenceboundary-exact` – Silence between adjacent sentences. The value is an absolute silence length.</li></ul><br/>An absolute silence type (with the `-exact` suffix) replaces any otherwise natural leading or trailing silence. Absolute silence types take precedence over the corresponding non-absolute type. For example, if you set both `Leading` and `Leading-exact` types, the `Leading-exact` type will take effect.| Required |
+| `type` | Specifies where and how to add silence. The following silence types are supported:<br/><ul><li>`Leading` – Additional silence at the beginning of the text. The value that you set is added to the natural silence before the start of text.</li><li>`Leading-exact` – Silence at the beginning of the text. The value is an absolute silence length.</li><li>`Tailing` – Additional silence at the end of text. The value that you set is added to the natural silence after the last word.</li><li>`Tailing-exact` – Silence at the end of the text. The value is an absolute silence length.</li><li>`Sentenceboundary` – Additional silence between adjacent sentences. The actual silence length for this type includes the natural silence after the last word in the previous sentence, the value you set for this type, and the natural silence before the starting word in the next sentence.</li><li>`Sentenceboundary-exact` – Silence between adjacent sentences. The value is an absolute silence length.</li><li>`Comma-exact` – Silence at the comma in half-width or full-width format. The value is an absolute silence length.</li><li>`Semicolon-exact` – Silence at the semicolon in half-width or full-width format. The value is an absolute silence length.</li><li>`Enumerationcomma-exact` – Silence at the enumeration comma in full-width format. The value is an absolute silence length.</li></ul><br/>An absolute silence type (with the `-exact` suffix) replaces any otherwise natural leading or trailing silence. Absolute silence types take precedence over the corresponding non-absolute type. For example, if you set both `Leading` and `Leading-exact` types, the `Leading-exact` type will take effect.| Required |
 | `Value`   | The duration of a pause in seconds (such as `2s`) or milliseconds (such as `500ms`). Valid values range from 0 to 5000 milliseconds. If you set a value greater than the supported maximum, the service will use `5000ms`.| Required |
 
 ###  mstts silence examples
@@ -174,6 +176,16 @@ In this example, `mstts:silence` is used to add 200 ms of silence between two se
 <mstts:silence  type="Sentenceboundary" value="200ms"/>
 If we're home schooling, the best we can do is roll with what each day brings and try to have fun along the way.
 A good place to start is by trying out the slew of educational apps that are helping children stay happy and smash their schooling at the same time.
+</voice>
+</speak>
+```
+
+In this example, `mstts:silence` is used to add 50 ms of silence at the comma, 100 ms of silence at the semicolon, and 150 ms of silence at the enumeration comma.
+
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xml:lang="zh-CN">
+<voice name="zh-CN-YunxiNeural">
+<mstts:silence type="comma-exact" value="50ms"/><mstts:silence type="semicolon-exact" value="100ms"/><mstts:silence type="enumerationcomma-exact" value="150ms"/>你好呀，云希、晓晓；你好呀。
 </voice>
 </speak>
 ```
@@ -259,4 +271,4 @@ This SSML snippet illustrates how to request blend shapes with your synthesized 
 
 - [SSML overview](speech-synthesis-markup.md)
 - [Voice and sound with SSML](speech-synthesis-markup-voice.md)
-- [Language support: Voices, locales, languages](language-support.md?tabs=stt-tts)
+- [Language support: Voices, locales, languages](language-support.md?tabs=tts)

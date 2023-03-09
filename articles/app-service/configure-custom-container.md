@@ -3,7 +3,7 @@ title: Configure a custom container
 description: Learn how to configure a custom container in Azure App Service. This article shows the most common configuration tasks. 
 
 ms.topic: how-to
-ms.date: 10/22/2021
+ms.date: 01/04/2023
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
 ---
@@ -25,6 +25,9 @@ This guide provides key concepts and instructions for containerization of Linux 
 ::: zone-end
 
 ::: zone pivot="container-windows"
+
+> [!NOTE]
+> Service Principal is no longer supported for Windows container image pull authentication. The recommended way is to use Managed Identity for both Windows and Linux containers
 
 ## Supported parent images
 
@@ -134,7 +137,7 @@ If the app changes compute instances for any reason, such as scaling up and down
 
 ## Configure port number
 
-By default, App Service assumes your custom container is listening on either port 80 or port 8080. If your container listens to a different port, set the `WEBSITES_PORT` app setting in your App Service app. You can set it via the [Cloud Shell](https://shell.azure.com). In Bash:
+By default, App Service assumes your custom container is listening on port 80. If your container listens to a different port, set the `WEBSITES_PORT` app setting in your App Service app. You can set it via the [Cloud Shell](https://shell.azure.com). In Bash:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITES_PORT=8000
@@ -363,13 +366,10 @@ Group Managed Service Accounts (gMSAs) are currently not supported in Windows co
 
 ## Enable SSH
 
-SSH enables secure communication between a container and a client. In order for a custom container to support SSH, you must add it into your Docker image itself.
+Secure Shell (SSH) is commonly used to execute administrative commands remotely from a command-line terminal. In order to enable the Azure portal SSH console feature with custom containers, the following steps are required:
 
-> [!TIP]
-> All built-in Linux containers in App Service have added the SSH instructions in their image repositories. You can go through the following instructions with the [Node.js 10.14 repository](https://github.com/Azure-App-Service/node/blob/master/10.14) to see how it's enabled there. The configuration in the Node.js built-in image is slightly different, but the same in principle.
-
-- Add [an sshd_config file](https://man.openbsd.org/sshd_config) to your repository, like the following example.
-
+1. Create a standard [sshd_config](https://man.openbsd.org/sshd_config) file with the following example contents and place it on the application project root directory:
+    
     ```
     Port 			2222
     ListenAddress 		0.0.0.0
@@ -384,54 +384,79 @@ SSH enables secure communication between a container and a client. In order for 
     PermitRootLogin 	yes
     Subsystem sftp internal-sftp
     ```
-
+    
     > [!NOTE]
-    > This file configures OpenSSH and must include the following items:
+    > This file configures OpenSSH and must include the following items in order to comply with the Azure portal SSH feature:
     > - `Port` must be set to 2222.
     > - `Ciphers` must include at least one item in this list: `aes128-cbc,3des-cbc,aes256-cbc`.
     > - `MACs` must include at least one item in this list: `hmac-sha1,hmac-sha1-96`.
-
-- Add an ssh_setup script file to create the SSH keys [using ssh-keygen](https://man.openbsd.org/ssh-keygen.1) to your repository.
-
-    ```
+    
+2. Create an entrypoint script with the name `entrypoint.sh` (or change any existing entrypoint file) and add the command to start the SSH service, along with the application startup command. The following example demonstrates starting a Python application. Please replace the last command according to the project language/stack:
+    
+    ### [Debian](#tab/debian)
+    
+    ```Bash
     #!/bin/sh
-
-    ssh-keygen -A
-
-    #prepare run dir
-    if [ ! -d "/var/run/sshd" ]; then
-        mkdir -p /var/run/sshd
-    fi
+    set -e
+    service ssh start
+    exec gunicorn -w 4 -b 0.0.0.0:8000 app:app
     ```
-
-- In your Dockerfile, add the following commands:
-
+    
+    ### [Alpine](#tab/alpine)
+    
+    ```Bash
+    #!/bin/sh
+    set -e
+    /usr/sbin/sshd
+    exec gunicorn -w 4 -b 0.0.0.0:8000 app:app
+    ```
+    ---
+    
+3. Add to the Dockerfile the following instructions according to the base image distribution. The same will copy the new files, install OpenSSH server, set proper permissions and configure the custom entrypoint, and expose the ports required by the application and SSH server, respectively:
+    
+    ### [Debian](#tab/debian)
+    
     ```Dockerfile
-    # Install OpenSSH and set the password for root to "Docker!". In this example, "apk add" is the install instruction for an Alpine Linux-based image.
-    RUN apk add openssh \
-         && echo "root:Docker!" | chpasswd 
-
-    # Copy the sshd_config file to the /etc/ssh/ directory
+    COPY entrypoint.sh ./
+    
+    # Start and enable SSH
+    RUN apt-get update \
+        && apt-get install -y --no-install-recommends dialog \
+        && apt-get install -y --no-install-recommends openssh-server \
+        && echo "root:Docker!" | chpasswd \
+        && chmod u+x ./entrypoint.sh
     COPY sshd_config /etc/ssh/
-
-    # Copy and configure the ssh_setup file
-    RUN mkdir -p /tmp
-    COPY ssh_setup.sh /tmp
-    RUN chmod +x /tmp/ssh_setup.sh \
-        && (sleep 1;/tmp/ssh_setup.sh 2>&1 > /dev/null)
-
-    # Open port 2222 for SSH access
-    EXPOSE 80 2222
+    
+    EXPOSE 8000 2222
+    
+    ENTRYPOINT [ "./entrypoint.sh" ] 
     ```
-
+    
+    ### [Alpine](#tab/alpine)
+    
+    ```Dockerfile
+    COPY sshd_config /etc/ssh/
+    COPY entrypoint.sh ./
+    
+    # Start and enable SSH
+    RUN apk add openssh \
+        && echo "root:Docker!" | chpasswd \
+        && chmod +x ./entrypoint.sh \
+        && cd /etc/ssh/ \
+        && ssh-keygen -A
+    
+    EXPOSE 8000 2222
+    
+    ENTRYPOINT [ "./entrypoint.sh" ]
+    ```
+    ---
+    
     > [!NOTE] 
     > The root password must be exactly `Docker!` as it is used by App Service to let you access the SSH session with the container. This configuration doesn't allow external connections to the container. Port 2222 of the container is accessible only within the bridge network of a private virtual network and is not accessible to an attacker on the internet.
 
-- In the start-up script for your container, start the SSH server.
+4. Rebuild and push the Docker image to the registry, and then test the Web App SSH feature on Azure portal.
 
-    ```bash
-    /usr/sbin/sshd
-    ```
+For further troubleshooting additional information is available at the Azure App Service OSS blog: [Enabling SSH on Linux Web App for Containers](https://azureossd.github.io/2022/04/27/2022-Enabling-SSH-on-Linux-Web-App-for-Containers/index.html#troubleshooting)
 
 ## Access diagnostic logs
 

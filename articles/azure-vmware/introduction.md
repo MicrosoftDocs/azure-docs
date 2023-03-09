@@ -3,13 +3,13 @@ title: Introduction
 description: Learn the features and benefits of Azure VMware Solution to deploy and manage VMware-based workloads in Azure. Azure VMware Solution SLA guarantees that Azure VMware management tools (vCenter Server and NSX Manager) will be available at least 99.9% of the time.
 ms.topic: overview
 ms.service: azure-vmware
-ms.date: 12/22/2022
+ms.date: 1/4/2023
 ms.custom: engagement-fy23
 ---
 
 # What is Azure VMware Solution?
 
-Azure VMware Solution provides you with private clouds that contain VMware vSphere clusters built from dedicated bare-metal Azure infrastructure. The minimum initial deployment is three hosts, but more hosts can be added one at a time, up to a maximum of 16 hosts per cluster. All provisioned private clouds have VMware vCenter Server, VMware vSAN, VMware vSphere, and VMware NSX-T Data Center. As a result, you can migrate workloads from your on-premises environments, deploy new virtual machines (VMs), and consume Azure services from your private clouds. For information about the SLA, see the [Azure service-level agreements](https://azure.microsoft.com/support/legal/sla/azure-vmware/v1_1/) page.
+Azure VMware Solution provides you with private clouds that contain VMware vSphere clusters built from dedicated bare-metal Azure infrastructure. Azure VMware Solution is available in Azure Commercial and in Public Preview in Azure Government.The minimum initial deployment is three hosts, but more hosts can be added one at a time, up to a maximum of 16 hosts per cluster. All provisioned private clouds have VMware vCenter Server, VMware vSAN, VMware vSphere, and VMware NSX-T Data Center. As a result, you can migrate workloads from your on-premises environments, deploy new virtual machines (VMs), and consume Azure services from your private clouds. For information about the SLA, see the [Azure service-level agreements](https://azure.microsoft.com/support/legal/sla/azure-vmware/v1_1/) page.
 
 Azure VMware Solution is a VMware validated solution with ongoing validation and testing of enhancements and upgrades. Microsoft manages and maintains the private cloud infrastructure and software. It allows you to focus on developing and running workloads in your private clouds to deliver business value.
 
@@ -25,7 +25,7 @@ The diagram shows the adjacency between private clouds and VNets in Azure, Azure
 
 - Runs on Intel® Xeon® Gold 6240 Processor with 36 Cores and a Base Frequency of 2.6Ghz and Turbo of 3.9Ghz.
 - 768 GB of DRAM Memory
-- 19.2 TB Storage Capacity with all NVMe based SSDs (With Random Read of 636500 IOPS and Random Write of 223300 IOPS)
+- 19.2 TB Storage Capacity with all NVMe based SSDs
 - 1.5TB of NVMe Cache
 
 **AV52 key highlights for Memory and Storage optimized Workloads:**
@@ -33,7 +33,7 @@ The diagram shows the adjacency between private clouds and VNets in Azure, Azure
 - Runs on Intel® Xeon® Platinum 8270 with 52 Cores and a Base
 Frequency of 2.7Ghz and Turbo of 4.0Ghz.
 - 1.5 TB of DRAM Memory
-- 38.4TB storage capacity with all NVMe based SSDs (With Random Read of 636500 IOPS and Random Write of 223300 IOPS)
+- 38.4TB storage capacity with all NVMe based SSDs
 - 1.5TB of NVMe Cache
 
 For pricing and region availability, see the [Azure VMware Solution pricing page](https://azure.microsoft.com/pricing/details/azure-vmware/) and see the [Products available by region page](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=azure-vmware&regions=all).

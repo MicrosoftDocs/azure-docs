@@ -1,5 +1,5 @@
 ---
-title: Monitor data from virtual machines with Azure Monitor Agent
+title: Collect events and performance counters from virtual machines with Azure Monitor Agent
 description: Describes how to collect events and performance data from virtual machines by using Azure Monitor Agent.
 ms.topic: conceptual
 ms.date: 12/11/2022
@@ -9,7 +9,7 @@ ms.reviewer: shseth
 
 ---
 
-# Collect data from virtual machines with Azure Monitor Agent
+# Collect events and performance counters from virtual machines with Azure Monitor Agent
 
 This article describes how to collect events and performance counters from virtual machines by using [Azure Monitor Agent](azure-monitor-agent-overview.md).
 
@@ -17,18 +17,15 @@ This article describes how to collect events and performance counters from virtu
 To complete this procedure, you need: 
 
 - Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#azure-rbac).
-- [Data collection endpoint](../essentials/data-collection-endpoint-overview.md#create-a-data-collection-endpoint).
 - [Permissions to create Data Collection Rule objects](../essentials/data-collection-rule-overview.md#permissions) in the workspace.
-- A VM, Virtual Machine Scale Set, or Arc-enabled on-premises server with the logs you want to collect. 
-    
-    - The log file must be stored on a local drive of the machine on which Azure Monitor Agent is running. 
-    - Each entry in the log file must be delineated with an end of line. 
-    - The log file must not allow circular logging, log rotation where the file is overwritten with new entries or renaming where a file is moved and a new file with the same name is opened. 
+- Associate the data collection rule to specific virtual machines.
 
 ## Create a data collection rule
 
-Create the data collection rule in the *same region* as your Log Analytics workspace. You can still associate the rule to machines in other supported regions.
+You can define a data collection rule to send data from multiple machines to multiple Log Analytics workspaces, including workspaces in a different region or tenant. Create the data collection rule in the *same region* as your Log Analytics workspace.
 
+> [!NOTE]
+> To send data across tenants, you must first enable [Azure Lighthouse](../../lighthouse/overview.md).
 ### [Portal](#tab/portal)
 
 1. On the **Monitor** menu, select **Data Collection Rules**.
@@ -76,9 +73,6 @@ Create the data collection rule in the *same region* as your Log Analytics works
 1. Select **Add data source** and then select **Review + create** to review the details of the data collection rule and association with the set of virtual machines.
 1. Select **Create** to create the data collection rule.
 
-> [!NOTE]
-> It might take up to 5 minutes for data to be sent to the destinations after you create the data collection rule and associations.
-
 ### [API](#tab/api)
 
 1. Create a DCR file by using the JSON format shown in [Sample DCR](data-collection-rule-sample-agent.md).
@@ -93,19 +87,19 @@ Create the data collection rule in the *same region* as your Log Analytics works
 
 | Action | Command |
 |:---|:---|
-| Get rules | [Get-AzDataCollectionRule](/powershell/module/az.monitor/get-azdatacollectionrule?view=azps-5.4.0&preserve-view=true) |
-| Create a rule | [New-AzDataCollectionRule](/powershell/module/az.monitor/new-azdatacollectionrule?view=azps-6.0.0&viewFallbackFrom=azps-5.4.0&preserve-view=true) |
-| Update a rule | [Set-AzDataCollectionRule](/powershell/module/az.monitor/set-azdatacollectionrule?view=azps-6.0.0&viewFallbackFrom=azps-5.4.0&preserve-view=true) |
-| Delete a rule | [Remove-AzDataCollectionRule](/powershell/module/az.monitor/remove-azdatacollectionrule?view=azps-6.0.0&viewFallbackFrom=azps-5.4.0&preserve-view=true) |
-| Update "Tags" for a rule | [Update-AzDataCollectionRule](/powershell/module/az.monitor/update-azdatacollectionrule?view=azps-6.0.0&viewFallbackFrom=azps-5.4.0&preserve-view=true) |
+| Get rules | [Get-AzDataCollectionRule](/powershell/module/az.monitor/get-azdatacollectionrule) |
+| Create a rule | [New-AzDataCollectionRule](/powershell/module/az.monitor/new-azdatacollectionrule) |
+| Update a rule | [Set-AzDataCollectionRule](/powershell/module/az.monitor/set-azdatacollectionrule) |
+| Delete a rule | [Remove-AzDataCollectionRule](/powershell/module/az.monitor/remove-azdatacollectionrule) |
+| Update "Tags" for a rule | [Update-AzDataCollectionRule](/powershell/module/az.monitor/update-azdatacollectionrule) |
 
 **Data collection rule associations**
 
 | Action | Command |
 |:---|:---|
-| Get associations | [Get-AzDataCollectionRuleAssociation](/powershell/module/az.monitor/get-azdatacollectionruleassociation?view=azps-6.0.0&viewFallbackFrom=azps-5.4.0&preserve-view=true) |
-| Create an association | [New-AzDataCollectionRuleAssociation](/powershell/module/az.monitor/new-azdatacollectionruleassociation?view=azps-6.0.0&viewFallbackFrom=azps-5.4.0&preserve-view=true) |
-| Delete an association | [Remove-AzDataCollectionRuleAssociation](/powershell/module/az.monitor/remove-azdatacollectionruleassociation?view=azps-6.0.0&viewFallbackFrom=azps-5.4.0&preserve-view=true) |
+| Get associations | [Get-AzDataCollectionRuleAssociation](/powershell/module/az.monitor/get-azdatacollectionruleassociation) |
+| Create an association | [New-AzDataCollectionRuleAssociation](/powershell/module/az.monitor/new-azdatacollectionruleassociation) |
+| Delete an association | [Remove-AzDataCollectionRuleAssociation](/powershell/module/az.monitor/remove-azdatacollectionruleassociation) |
 
 ### [Azure CLI](#tab/cli)
 
@@ -117,9 +111,12 @@ For sample templates, see [Azure Resource Manager template samples for data coll
 
 ---
 
+> [!NOTE]
+> It can take up to 5 minutes for data to be sent to the destinations after you create the data collection rule.
+
 ## Filter events using XPath queries
 
-Since you're charged for any data you collect in a Log Analytics workspace, you should limit data collection from your agent to only the event data that you need. The basic configuration in the Azure portal provides you with a limited ability to filter out events.
+You're charged for any data you collect in a Log Analytics workspace. Therefore, you should only collect the event data you need. The basic configuration in the Azure portal provides you with a limited ability to filter out events.
 
 [!INCLUDE [azure-monitor-cost-optimization](../../../includes/azure-monitor-cost-optimization.md)]
 
@@ -133,7 +130,6 @@ When you paste the XPath query into the field on the **Add data source** screen,
 
 [ ![Screenshot that shows the steps to create an XPath query in the Windows Event Viewer.](media/data-collection-rule-azure-monitor-agent/data-collection-rule-extract-xpath.png) ](media/data-collection-rule-azure-monitor-agent/data-collection-rule-extract-xpath.png#lightbox)
 
-For a list of limitations in the XPath supported by Windows event log, see [XPath 1.0 limitations](/windows/win32/wes/consuming-events#xpath-10-limitations).
 
 > [!TIP]
 > You can use the PowerShell cmdlet `Get-WinEvent` with the `FilterXPath` parameter to test the validity of an XPath query locally on your machine first. The following script shows an example:
@@ -157,6 +153,9 @@ Examples of using a custom XPath to filter events:
 | Collect all Critical, Error, Warning, and Information events from the System event log except for Event ID = 6 (Driver loaded) |  `System!*[System[(Level=1 or Level=2 or Level=3) and (EventID != 6)]]` |
 | Collect all success and failure Security events except for Event ID 4624 (Successful logon) |  `Security!*[System[(band(Keywords,13510798882111488)) and (EventID != 4624)]]` |
 
+> [!NOTE]
+> For a list of limitations in the XPath supported by Windows event log, see [XPath 1.0 limitations](/windows/win32/wes/consuming-events#xpath-10-limitations).  
+> For instance, you can use the "position", "Band", and "timediff" functions within the query but other functions like "starts-with" and "contains" are not currently supported.
 
 ## Next steps
 

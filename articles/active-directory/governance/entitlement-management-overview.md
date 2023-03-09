@@ -1,5 +1,5 @@
 ---
-title: What is entitlement management? - Microsoft Entra
+title: What is entitlement management? - Azure AD
 description: Get an overview of entitlement management and how you can use it to manage access to groups, applications, and SharePoint Online sites for internal and external users.
 services: active-directory
 documentationCenter: ''
@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: overview
 ms.subservice: compliance
-ms.date: 08/01/2022
+ms.date: 01/25/2023
 ms.author: owinfrey
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management

@@ -12,15 +12,16 @@ ms.custom: engagement-fy23
 
 # Quickstart: Create an Azure Managed Grafana instance using the Azure CLI
 
-Get started by creating an Azure Managed Grafana workspace using the Azure CLI. Creating a workspace will generate a Managed Grafana instance.
+Get started by creating an Azure Managed Grafana workspace using the Azure CLI. Creating a workspace will generate an Azure Managed Grafana instance.
 
-## Prerequisite
+## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
-- Minimum permission required to create a new instance: resource group Contributor.
-- Minimum permission required to access an instance: Grafana Viewer permission on the Azure Managed Grafana instance.
-  > [!NOTE]
-  > Permission to access Azure Managed Grafana instances can only be granted by subscription Owners or User Access Administrators. If you don't have this permission, ask someone with the right access to assist you.
+- An Azure account for work or school and an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- The [Azure CLI](/cli/azure/install-azure-cli).
+- Minimum required role to create an instance: resource group Contributor.
+- Minimum required role to access an instance: resource group Owner.
+    >[!NOTE]
+    > If you don't meet this requirement, once you've created a new Azure Managed Grafana instance, ask a User Access Administrator, subscription Owner or resource group Owner to grant you a Grafana Admin, Grafana Editor or Grafana Viewer role on the instance.
 
 ## Sign in to Azure
 
@@ -32,7 +33,7 @@ az login
 
 This command will prompt your web browser to launch and load an Azure sign-in page.
 
-The CLI experience for Azure Managed Grafana is part of the amg extension for the Azure CLI (version 2.30.0 or higher). The extension will automatically install the first time you run the `az grafana` command.
+The CLI experience for Azure Managed Grafana is part of the `amg` extension for the Azure CLI (version 2.30.0 or higher). The extension will automatically install the first time you run the `az grafana` command.
 
 ## Create a resource group
 

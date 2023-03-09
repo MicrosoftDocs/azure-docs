@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Migrate a web app from Bing Maps | Microsoft Azure Maps'
 description: Tutorial on how to migrate a web app from Bing Maps to Microsoft Azure Maps.
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 10/28/2021
 ms.topic: tutorial
 ms.service: azure-maps
@@ -97,7 +97,7 @@ The following are some of the key differences between the Bing Maps and Azure Ma
 > The Position class has a static helper function for importing coordinates that are in `latitude, longitude` format. The [atlas.data.Position.fromLatLng](/javascript/api/azure-maps-control/atlas.data.position)function can often be replace the `new Microsoft.Maps.Location` function in Bing Maps code.
 
 * Rather than specifying styling information on each shape that is added to the map, Azure Maps separates styles from the data. Data is stored in data sources and is connected to rendering layers that Azure Maps code uses to render the data. This approach provides enhanced performance benefit. Additionally, many layers support data-driven styling where business logic can be added to layer style options that will change how individual shapes are rendered within a layer based on properties defined in the shape.
-* Azure Maps provides a bunch of useful spatial math functions in the `atlas.math` namespace, however these differ from those in the Bing Maps spatial math module. The primary difference is that Azure Maps doesn’t provide built-in functions for binary operations such as union and intersection, however, since Azure Maps is based on GeoJSON that is an open standard, there are many open-source libraries available. One popular option that works well with Azure Maps and provides a ton of spatial math capabilities is [turf js](http://turfjs.org/).
+* Azure Maps provides a bunch of useful spatial math functions in the `atlas.math` namespace, however these differ from those in the Bing Maps spatial math module. The primary difference is that Azure Maps doesn’t provide built-in functions for binary operations such as union and intersection, however, since Azure Maps is based on GeoJSON that is an open standard, there are many open-source libraries available. One popular option that works well with Azure Maps and provides a ton of spatial math capabilities is [turf js](https://turfjs.org/).
 
 See also the [Azure Maps Glossary](./glossary.md) for an in-depth list of terminology associated with Azure Maps.
 

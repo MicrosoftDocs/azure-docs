@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 11/24/2022
+ms.date: 01/05/2023
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -133,10 +133,11 @@ You can further restrict permissions by assigning roles at smaller scopes or by 
 > [!div class="mx-tableFixed"]
 > | Task | Least privileged role | Additional roles |
 > | ---- | --------------------- | ---------------- |
-> | Disable device | [Cloud Device Administrator](permissions-reference.md#cloud-device-administrator) |  |
-> | Enable device | [Cloud Device Administrator](permissions-reference.md#cloud-device-administrator) |  |
+> | Delete device | [Cloud Device Administrator](permissions-reference.md#cloud-device-administrator) | [Intune Administrator](permissions-reference.md#intune-administrator) |
+> | Disable device | [Cloud Device Administrator](permissions-reference.md#cloud-device-administrator) | [Intune Administrator](permissions-reference.md#intune-administrator) |
+> | Enable device | [Cloud Device Administrator](permissions-reference.md#cloud-device-administrator) | [Intune Administrator](permissions-reference.md#intune-administrator) |
 > | Read basic configuration | [Default user role](../fundamentals/users-default-permissions.md) |  |
-> | Read BitLocker keys | [Security Reader](permissions-reference.md#security-reader) | [Password Administrator](permissions-reference.md#password-administrator)<br/>[Security Administrator](permissions-reference.md#security-administrator) |
+> | Read BitLocker keys | [Cloud Device Administrator](permissions-reference.md#cloud-device-administrator) | [Helpdesk Administrator](permissions-reference.md#helpdesk-administrator)<br/>[Intune Administrator](permissions-reference.md#intune-administrator)<br/>[Security Administrator](permissions-reference.md#security-administrator)<br/>[Security Reader](permissions-reference.md#security-reader) |
 
 ## Enterprise applications
 

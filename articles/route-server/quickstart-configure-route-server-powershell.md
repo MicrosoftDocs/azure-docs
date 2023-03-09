@@ -1,13 +1,13 @@
 ---
-title: 'Quickstart: Create and configure Route Server using Azure PowerShell'
-description: In this quickstart, you learn how to create and configure a Route Server using Azure PowerShell.
+title: 'Quickstart: Create and configure Route Server - Azure PowerShell'
+description: In this quickstart, you learn how to create and configure an Azure Route Server using Azure PowerShell.
 services: route-server
 author: halkazwini
 ms.author: halkazwini
 ms.date: 07/28/2022
 ms.topic: quickstart
 ms.service: route-server
-ms.custom: devx-track-azurepowershell, mode-api
+ms.custom: devx-track-azurepowershell, mode-api, template-quickstart
 ---
 
 # Quickstart: Create and configure Route Server using Azure PowerShell

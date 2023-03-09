@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 11/21/2022
+ms.date: 03/07/2023
 ms.author: banders
 ---
 
@@ -20,8 +20,9 @@ Although not required, Microsoft *recommends* that you take the following action
 * Back up your data. For example, if you're storing data in Azure storage or SQL, download a copy. If you have a virtual machine, save an image of it locally.
 * Shut down your services. Go to the [All resources](https://portal.azure.com/?flight=1#blade/HubsExtension/Resources/resourceType/Microsoft.Resources%2Fresources) page, and **Stop** any running virtual machines, applications, or other services.
 * Consider migrating your data. See [Move resources to new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
-* Delete all resources and all resource groups. 
-    * To later delete a subscription, you must first delete all resources associated with the subscription.
+* Delete all resources and all resource groups.
+    * To later manually delete a subscription, you must first delete all resources associated with the subscription.
+    * You may be unable to delete all resources, depending on your configuration. For example, if you have immutable blobs. For more information, see [Immutable Blobs](../../storage/blobs/immutable-storage-overview.md#scenarios-with-version-level-scope).
 * If you have any custom roles that reference this subscription in `AssignableScopes`, you should update those custom roles to remove the subscription. If you try to update a custom role after you cancel a subscription, you might get an error. For more information, see [Troubleshoot problems with custom roles](../../role-based-access-control/troubleshooting.md#custom-roles) and [Azure custom roles](../../role-based-access-control/custom-roles.md).
 
 > [!NOTE]
@@ -31,7 +32,7 @@ If you cancel an Azure Support plan, you're billed for the rest of the month. Ca
 
 ## Who can cancel a subscription?
 
-The table below describes the permission required to cancel a subscription.
+The following table describes the permission required to cancel a subscription.
 
 |Subscription type     |Who can cancel  |
 |---------|---------|
@@ -40,7 +41,6 @@ The table below describes the permission required to cancel a subscription.
 |[Azure plan](https://azure.microsoft.com/offers/ms-azr-0017g/) and [Azure plan for DevTest](https://azure.microsoft.com/offers/ms-azr-0148g/)     |  Owners of the subscription      |
 
 An account administrator without the service administrator or subscription owner role can’t cancel an Azure subscription. However, an account administrator can make themself the service administrator and then they can cancel a subscription. For more information, see [Change the Service Administrator](../../role-based-access-control/classic-administrators.md#change-the-service-administrator).
-
 
 ## Cancel a subscription in the Azure portal
 
@@ -67,7 +67,7 @@ A subscription owner can navigate in the Azure portal to **Subscriptions** and t
 1. Select **Cancel subscription**.  
     :::image type="content" source="./media/cancel-azure-subscription/cancel-subscription-final.png" alt-text="Screenshot showing the Cancel subscription window options." lightbox="./media/cancel-azure-subscription/cancel-subscription-final.png" :::
 
-After the subscription is canceled, you'll see a notification that the cancellation is complete. If you have any outstanding charges that haven't been invoiced yet, you'll see their estimated charges. If you have any outstanding credits that haven't been applied to your invoice, you'll see the estimated credits that will get applied to your invoice. For more information about data update frequency, see [Cost and usage data updates and retention](../costs/understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention).
+After the subscription is canceled, a notification shows that the cancellation is complete. If you have any outstanding charges that haven't been invoiced yet, their estimated charges are shown. If you have any outstanding credits that aren't yet applied to your invoice, the estimated credits that apply to your invoice are shown. For more information about data update frequency, see [Cost and usage data updates and retention](../costs/understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention).
 
 :::image type="content" source="./media/cancel-azure-subscription/cancel-complete.png" alt-text="Screenshot showing that subscription cancellation status." lightbox="./media/cancel-azure-subscription/cancel-complete.png" :::
 
@@ -82,7 +82,7 @@ After you cancel, your services are disabled. That means your virtual machines a
 
 :::image type="content" source="./media/cancel-azure-subscription/cancel-window.png" alt-text="Screenshot showing the cancellation window." lightbox="./media/cancel-azure-subscription/cancel-window.png" :::
 
-After your subscription is canceled, Microsoft waits 30 - 90 days before permanently deleting your data in case you need to access it, or if you change your mind. We don't charge you for keeping the data. To learn more, see [Microsoft Trust Center - How we manage your data](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
+After your subscription is canceled, Microsoft waits 30 - 90 days before permanently deleting your data in case you need to access it, or if you want to reactivate the subscription. We don't charge you for keeping the data. To learn more, see [Microsoft Trust Center - How we manage your data](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
 
 ## Delete subscriptions
 
@@ -93,15 +93,20 @@ Depending on your subscription type, you may not be able to delete a subscriptio
 1. Select your subscription on the [Subscriptions](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) page in the Azure portal.
 1. Select the subscription that you want to delete.
 1. At the top of the subscription page, select **Delete**.  
-    - When all required conditions are met, you can delete the subscription.
-    - If you have required deletion conditions that aren't met, you'll see the following page.  
+    :::image type="content" source="./media/cancel-azure-subscription/delete-option.png" alt-text="Screenshot showing the Delete option." lightbox="./media/cancel-azure-subscription/delete-option.png" :::
+1. If necessary, type the name of the subscription and then select **Delete**.
+    - When all required conditions are met, you can delete the subscription.  
+    :::image type="content" source="./media/cancel-azure-subscription/type-name-delete.png" alt-text="Screenshot showing where you type the subscription name and Delete." lightbox="./media/cancel-azure-subscription/type-name-delete.png" :::
+    - If you have required deletion conditions that aren't met, the following page is shown.  
       :::image type="content" source="./media/cancel-azure-subscription/manual-delete-subscription.png" alt-text="Screenshot showing the Delete your subscription page." lightbox="./media/cancel-azure-subscription/manual-delete-subscription.png" :::
       - If **Delete resources** doesn't display a green check mark, then you have resources that must be deleted in order to delete the subscription. You can select **View resources** to navigate to the Resources page to manually delete the resources. After resource deletion, you might need to wait 10 minutes for resource deletion status to update in order to delete the subscription.
       - If **Manual deletion date** doesn't display a green check mark, you must wait the required period before you can delete the subscription.  
 
-
 >[!NOTE]
-> 90 days after you cancel a subscription, the subscription is automatically deleted.
+> - 90 days after you cancel a subscription, the subscription is automatically deleted.
+> - If you have deleted all resources but the Delete your subscription page shows that you still have active resources, you might have active *hidden resources*. You can't delete a subscription if you have active hidden resources. To delete them, navigate to **Subscriptions** > select the subscription > **Resources**. At the top of the page, select **Manage view** and then select **Show hidden types**. Then, delete the resources.
+
+
 
 ## Reactivate a subscription
 

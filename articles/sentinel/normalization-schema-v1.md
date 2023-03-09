@@ -14,7 +14,7 @@ The network normalization schema is used to describe reported network events, an
 For more information, see [Normalization and the Advanced Security Information Model (ASIM)](normalization.md).
 
 > [!IMPORTANT]
-> This article relates to version 0.1 of the network normalization schema, which was released as a preview before ASIM was available. [Version 0.2](network-normalization-schema.md) of the network normalization schema aligns with ASIM and provides other enhancements.
+> This article relates to version 0.1 of the network normalization schema, which was released as a preview before ASIM was available. [Version 0.2.x](normalization-schema-network.md) of the network normalization schema aligns with ASIM and provides other enhancements.
 >
 > For more information, see [Differences between network normalization schema versions](#changes)
 >
@@ -185,16 +185,16 @@ Below is the schema of the network sessions table, versioned 1.0.0
 
 The original version of the Microsoft Sentinel Network session normalization schema, version 0.1, was released as a preview before ASIM was available.
 
-Differences between version 0.1, documented in this article, and [version 0.2](network-normalization-schema.md) include:
+Differences between version 0.1, documented in this article, and [version 0.2.x](normalization-schema-network.md) include:
 
 - In version 0.2, unifying and source-specific parser names have been changed to conform to a standard ASIM naming convention.
 - Version 0.2 adds specific guidelines and unifying parsers to accommodate specific device types.
 
-The following sections describe how [version 0.2](network-normalization-schema.md) differs for specific fields.
+The following sections describe how [version 0.2.x](normalization-schema-network.md) differs for specific fields.
 
 ### Added fields in version 0.2
 
-The following fields were added in [version 0.2](network-normalization-schema.md) and do not exist in version 0.1:
+The following fields were added in [version 0.2.x](normalization-schema-network.md) and do not exist in version 0.1:
 
 :::row:::
    :::column span="":::
@@ -239,7 +239,7 @@ The following fields were added in [version 0.2](network-normalization-schema.md
 
 ### Newly aliased fields in version 0.2
 
-The following fields are now aliased in [version 0.2](network-normalization-schema.md) with the introduction of ASIM:
+The following fields are now aliased in [version 0.2.x](normalization-schema-network.md) with the introduction of ASIM:
 
 |Field in version 0.1  |Alias in version 0.2  |
 |---------|---------|
@@ -253,7 +253,7 @@ The following fields are now aliased in [version 0.2](network-normalization-sche
 
 ### Modified fields in version 0.2
 
-The following fields are enumerated in [version 0.2](network-normalization-schema.md), and require a specific value from a provided list.
+The following fields are enumerated in [version 0.2.x](normalization-schema-network.md), and require a specific value from a provided list.
 
 - EventType
 - EventResultDetails
@@ -261,7 +261,7 @@ The following fields are enumerated in [version 0.2](network-normalization-schem
 
 ### Renamed fields in version 0.2
 
-The following fields were renamed in [version 0.2](network-normalization-schema.md):
+The following fields were renamed in [version 0.2.x](normalization-schema-network.md):
 
 - **In version 0.2, use the built-in Log Analytics fields:**
 
@@ -332,15 +332,15 @@ The following fields were renamed in [version 0.2](network-normalization-schema.
 
 ### Removed fields in version 0.2
 
-The following fields exist in version 0.1 only, and were removed in [version 0.2](network-normalization-schema.md):
+The following fields exist in version 0.1 only, and were removed in [version 0.2.x](normalization-schema-network.md):
 
 |Reason  |Removed fields  |
 |---------|---------|
 |**Removed because duplicates exist, without the `Dvc` string in the field name**     |  - DstDvcIpAddr<br> - DstDvcMacAddr<br>- SrcDvcIpAddr<br>- SrcDvcMacAddr       |
 |**Removed to align with ASIM handling of URLs**     |  - UrlHostname       |
-|**Removed because these fields are not typically provided as part of Network Session events.**<br><br>If an event includes these fields, use the [Process Event schema](process-events-normalization-schema.md) to understand how to describe device properties. |     - SrcDvcOs<br>-&nbsp;SrcDvcModelName<br>-&nbsp;SrcDvcModelNumber<br>- DvcMacAddr<br>- DvcOs         |
+|**Removed because these fields are not typically provided as part of Network Session events.**<br><br>If an event includes these fields, use the [Process Event schema](normalization-schema-process-event.md) to understand how to describe device properties. |     - SrcDvcOs<br>-&nbsp;SrcDvcModelName<br>-&nbsp;SrcDvcModelNumber<br>- DvcMacAddr<br>- DvcOs         |
 |**Removed to align with ASIM file representation guidance**     |   - FilePath<br>- FileExtension      |
-|**Removed as this field indicates that a different schema should be used, such as the [Authentication schema](authentication-normalization-schema.md).**     |  - CloudAppOperation       |
+|**Removed as this field indicates that a different schema should be used, such as the [Authentication schema](normalization-schema-authentication.md).**     |  - CloudAppOperation       |
 |**Removed as it duplicates `DstHostname`**     |  - DstDomainHostname         |
 
 
@@ -350,8 +350,8 @@ The following fields exist in version 0.1 only, and were removed in [version 0.2
 For more information, see:
 
 - [Normalization in Microsoft Sentinel](normalization.md)
-- [Microsoft Sentinel authentication normalization schema reference (Public preview)](authentication-normalization-schema.md)
-- [Microsoft Sentinel file event normalization schema reference (Public preview)](file-event-normalization-schema.md)
+- [Microsoft Sentinel authentication normalization schema reference (Public preview)](normalization-schema-authentication.md)
+- [Microsoft Sentinel file event normalization schema reference (Public preview)](normalization-schema-file-event.md)
 - [Microsoft Sentinel DNS normalization schema reference](normalization-schema-dns.md)
-- [Microsoft Sentinel process event normalization schema reference](process-events-normalization-schema.md)
-- [Microsoft Sentinel registry event normalization schema reference (Public preview)](registry-event-normalization-schema.md)
+- [Microsoft Sentinel process event normalization schema reference](normalization-schema-process-event.md)
+- [Microsoft Sentinel registry event normalization schema reference (Public preview)](normalization-schema-registry-event.md)

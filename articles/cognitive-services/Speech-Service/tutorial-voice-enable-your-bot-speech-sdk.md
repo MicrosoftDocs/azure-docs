@@ -432,9 +432,9 @@ In this section, you'll learn how to change the language that your bot will list
 
 ### Change the language
 
-You can choose from any of the languages mentioned in the [speech-to-text](language-support.md?tabs=stt-tts) table. The following example changes the language to German.
+You can choose from any of the languages mentioned in the [speech-to-text](language-support.md?tabs=stt) table. The following example changes the language to German.
 
-1. Open the Windows Voice Assistant Client app, select the **Settings** button (upper-right gear icon), and enter **de-de** in the **Language** field. This is the locale value mentioned in the [speech-to-text](language-support.md?tabs=stt-tts) table. 
+1. Open the Windows Voice Assistant Client app, select the **Settings** button (upper-right gear icon), and enter **de-de** in the **Language** field. This is the locale value mentioned in the [speech-to-text](language-support.md?tabs=stt) table. 
 
    This step sets the spoken language to be recognized, overriding the default **en-us**. It also instructs the Direct Line Speech channel to use a default German voice for the bot reply.
 1. Close the **Settings** page, and then select the **Reconnect** button to establish a new connection to your echo bot.
@@ -444,7 +444,7 @@ You can choose from any of the languages mentioned in the [speech-to-text](langu
 
 You can select the text-to-speech voice and control pronunciation if the bot specifies the reply in the form of a [Speech Synthesis Markup Language](speech-synthesis-markup.md) (SSML) instead of simple text. The echo bot doesn't use SSML, but you can easily modify the code to do that. 
 
-The following example adds SSML to the echo bot reply so that the German voice `de-DE-RalfNeural` (a male voice) is used instead of the default female voice. See the [list of standard voices](how-to-migrate-to-prebuilt-neural-voice.md) and [list of neural voices](language-support.md?tabs=stt-tts) that are supported for your language.
+The following example adds SSML to the echo bot reply so that the German voice `de-DE-RalfNeural` (a male voice) is used instead of the default female voice. See the [list of standard voices](how-to-migrate-to-prebuilt-neural-voice.md) and [list of neural voices](language-support.md?tabs=tts) that are supported for your language.
 
 1. Open **samples\csharp_dotnetcore\02.echo-bot\echo-bot.cs**.
 1. Find these lines:

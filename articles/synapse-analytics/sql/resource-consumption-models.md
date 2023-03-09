@@ -169,7 +169,7 @@ Content-Type: application/json; charset=UTF-8
 }
 ```
 
-For more REST API examples, see [REST APIs for Azure Synapse Analytics](/rest/api/synapse/?view=azps-6.1.0&preserve-view=true).
+For more REST API examples, see [REST APIs for Azure Synapse Analytics](/rest/api/synapse/).
 
 ### Check status of DWU changes
 

@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 10/05/2022
+ms.date: 01/29/2023
 
 ms.author: justinha
-author: vimrang
-manager: daveba
+author: justinha
+manager: amycolannino
 ms.reviewer: vimrang
 
 ms.collection: M365-identity-device-management
@@ -19,7 +19,7 @@ ms.custom: has-adal-ref
 
 # Certificate user IDs 
 
-You can add certificate user IDs to users in Azure AD can have certificate user IDs. a multivalued attribute named **certificateUserIds**. The attribute allows up to four values, and each value can be of 120-character length. It can store any value, and doesn't require email ID format. It can store non-routable User Principal Names (UPNs) like _bob@woodgrove_ or _bob@local_.
+Users in Azure AD can have a multivalued attribute named **certificateUserIds**. The attribute allows up to four values, and each value can be of 120-character length. It can store any value, and doesn't require email ID format. It can store non-routable User Principal Names (UPNs) like _bob@woodgrove_ or _bob@local_.
  
 ## Supported patterns for certificate user IDs
  
@@ -141,34 +141,28 @@ IIF(IsPresent([alternativeSecurityId]),
 
 ## Look up certificateUserIds using Microsoft Graph queries
 
-Tenant admins can run MS Graph queries to find all the users with a given certificateUserId value.
+Authorized callers can run Microsoft Graph queries to find all the users with a given certificateUserId value. On the Microsoft Graph [user](/graph/api/resources/user) object, the collection of certificateUserIds are stored in the **authorizationInfo** property.
           
-GET all user objects that have the value 'bob@contoso.com' value in certificateUserIds:
+To retrieve all user objects that have the value 'bob@contoso.com' in certificateUserIds:
 
-```http
-GET  https://graph.microsoft.com/v1.0/users?$filter=certificateUserIds/any(x:x eq 'bob@contoso.com')
-```
- 
-```http
-GET https://graph.microsoft.com/v1.0/users?$filter=startswith(certificateUserIds, 'bob@contoso.com')
+```msgraph-interactive
+GET https://graph.microsoft.com/v1.0/users?$filter=authorizationInfo/certificateUserIds/any(x:x eq 'bob@contoso.com')&$count=true
+ConsistencyLevel: eventual
 ```
 
-```http
-GET https://graph.microsoft.com/v1.0/users?$filter=certificateUserIds eq 'bob@contoso.com'
-```
+You can also use the `not` and `startsWith` operators to match the filter condition. To filter against the certificateUserIds object, the request must include the `$count=true` query string and the **ConsistencyLevel** header set to `eventual`.
             
-## Update certificate user IDs using Microsoft Graph queries
-PATCH the user object certificateUserIds value for a given userId
+## Update certificateUserIds using Microsoft Graph queries
+
+Run a PATCH request to update the certificateUserIds for a given user.
 
 #### Request body:
 
 ```http
-PATCH https://graph.microsoft.us/v1.0/users/{id}
+PATCH https://graph.microsoft.com/v1.0/users/{id}
 Content-Type: application/json
-{
 
-    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users(authorizationInfo,department)/$entity",
-    "department": "Accounting",
+{
     "authorizationInfo": {
         "certificateUserIds": [
             "X509:<PN>123456789098765@mil"

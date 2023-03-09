@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/14/2022
+ms.date: 01/02/2023
 ms.author: jeedes
 
 ---
@@ -77,17 +77,13 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
     ![Screenshot shows the Certificate download link.](common/metadataxml.png "Certificate")
 
-1. On the **Set up Tripwire Enterprise** section, copy the appropriate URL(s) based on your requirement.
-
-	![Screenshot shows to copy configuration appropriate URL.](common/copy-configuration-urls.png "Metadata")
-
 ## Configure Tripwire Enterprise SSO
 
-To configure single sign-on on **Tripwire Enterprise** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Tripwire Enterprise support team](mailto:support@tripwire.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on in Tripwire Enterprise, please see **Using Tripwire Enterprise with SAML Authentication** section in the Tripwire Enterprise Hardeing Guide, available for download on the [Tripwire Customer Center](https://tripwireinc.force.com/customers/home). If you require assistance, contact [Tripwire Enterprise support team](mailto:support@tripwire.com).
 
 ### Create Tripwire Enterprise test user
 
-In this section, you create a user called Britta Simon in Tripwire Enterprise. Work with [Tripwire Enterprise support team](mailto:support@tripwire.com) to add the users in the Tripwire Enterprise platform. Users must be created and activated before you use single sign-on.
+To create a Tripwire Enterprise user, please see **Creating a User Account** section in the Tripwire Enterprise User Guide, available for download on the [Tripwire Customer Center](https://tripwireinc.force.com/customers/home). If you require assistance, contact [Tripwire Enterprise support team](mailto:support@tripwire.com).
 
 ## Test SSO 
 

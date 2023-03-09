@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 12/15/2022
+ms.date: 1/5/2023
 ms.author: jasteppe
 ---
 
@@ -50,7 +50,7 @@ Deploy a DICOM service to bring medical imaging data into the cloud from any DIC
 
 ## MedTech service
 
-The MedTech service enables you to ingest high-frequency IoT device data into the FHIR Service in a scalable, secure, and compliant manner. For more information, see [the MedTech service documentation page]see [Overview of MedTech](../healthcare-apis/iot/overview.md).
+The MedTech service enables you to ingest high-frequency IoT device data into the FHIR service in a scalable, secure, and compliant manner. For more information, see [Overview of the MedTech service](../healthcare-apis/iot/overview.md).
  
 ## Workspace configuration settings
 

@@ -41,12 +41,11 @@ Internally, the tool uses Speech and Language services, and follows best practic
 
 :::image type="content" source="media/ingestion-client/architecture-1.png" alt-text="Diagram that shows the Ingestion Client Architecture.":::
 
-The following Speech service features are used by the Ingestion Client:
+The following Speech service feature is used by the Ingestion Client:
 
 - [Batch speech-to-text](./batch-transcription.md): Transcribe large amounts of audio files asynchronously including speaker diarization and is typically used in post-call analytics scenarios. Diarization is the process of recognizing and separating speakers in mono channel audio data.
-- [Speaker identification](./speaker-recognition-overview.md): Helps you determine an unknown speaker’s identity within a group of enrolled speakers and is typically used for call center customer verification scenarios or fraud detection.
 
-Language service features used by the Ingestion Client:
+Here are some Language service features that are used by the Ingestion Client:
 
 - [Personally Identifiable Information (PII) extraction and redaction](../language-service/personally-identifiable-information/how-to-call-for-conversations.md): Identify, categorize, and redact sensitive information in conversation transcription.
 - [Sentiment analysis and opinion mining](../language-service/sentiment-opinion-mining/overview.md): Analyze transcriptions and associate positive, neutral, or negative sentiment at the utterance and conversation-level.

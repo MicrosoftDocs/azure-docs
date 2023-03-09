@@ -3,11 +3,11 @@ title: Create an index alias
 titleSuffix: Azure Cognitive Search
 description: Create an alias to define a secondary name that can be used to refer to an index for querying, indexing, and other operations.
 
-author: dereklegenzoff
-ms.author: delegenz
+author: gmndrg
+ms.author: gimondra
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 03/01/2022
+ms.date: 01/05/2023
 ---
 
 # Create an index alias in Azure Cognitive Search
@@ -89,7 +89,7 @@ POST /indexes/my-alias/docs/search?api-version=2021-04-30-preview
 }
 ```
 
-If you expect that you may need to make updates to your index definition for your production indexes, you should use an alias rather than the index name for requests in your client-side application. Scenarios that require you to create a new index are outlined under these [rebuild conditions](search-howto-reindex.md#rebuild-conditions).
+If you expect to make updates to a production index, specify an alias rather than the index name in your client-side application. Scenarios that require an index rebuild are outlined in [Drop and rebuild an index](search-howto-reindex.md).
 
 > [!NOTE]
 > You can only use an alias with [document operations](/rest/api/searchservice/document-operations) or to get and update an index definition. Aliases can't be used to delete an index, can't be used with the Analyze Text API, and can't be used as the `targetIndexName` on an indexer.

@@ -24,7 +24,7 @@ See the following table for the outbound ports you need to open to use these pro
 | -------- | ----- | ------- | 
 | AMQP | 5671 and 5672 | See [AMQP protocol guide](../../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
 | HTTPS | 443 | This port is used for the HTTP/REST API and for AMQP-over-WebSockets. |
-| Kafka | 9093 | See [Use Event Hubs from Kafka applications](../event-hubs-for-kafka-ecosystem-overview.md)
+| Kafka | 9093 | See [Use Event Hubs from Kafka applications](../azure-event-hubs-kafka-overview.md)
 
 The HTTPS port is required for outbound communication also when AMQP is used over port 5671, because several management operations performed by the client SDKs and the acquisition of tokens from Azure Active Directory (when used) run over HTTPS. 
 

@@ -1,5 +1,6 @@
 ---
-title: Create a blob container with Java - Azure Storage 
+title: Create a blob container with Java
+titleSuffix: Azure Storage
 description: Learn how to create a blob container in your Azure Storage account using the Java client library.
 services: storage
 author: pauljewellmsft
@@ -13,7 +14,7 @@ ms.devlang: java
 ms.custom: devx-track-java, devguide-java
 ---
 
-# Create a container in Azure Storage using the Java client library
+# Create a blob container with Java
 
 Blobs in Azure Storage are organized into containers. Before you can upload a blob, you must first create a container. This article shows how to create containers with the [Azure Storage client library for Java](/java/api/overview/azure/storage-blob-readme).
 
@@ -59,9 +60,18 @@ The following example creates a new `BlobContainerClient` object with the contai
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-containers/src/main/java/com/blobs/devguide/containers/ContainerCreate.java" id="Snippet_CreateRootContainer":::
 
-## See also
+## Resources
 
-- [View code sample in GitHub](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/Java/blob-devguide/blob-devguide-containers/src/main/java/com/blobs/devguide/containers/ContainerCreate.java)
-- [Quickstart: Azure Blob Storage client library for Java](storage-quickstart-blobs-java.md)
+To learn more about creating a container using the Azure Blob Storage client library for Java, see the following resources.
+
+### REST API operations
+
+The Azure SDK for Java contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar Java paradigms. The client library methods for creating a container use the following REST API operation:
+
 - [Create Container](/rest/api/storageservices/create-container) (REST API)
-- [Delete Container](/rest/api/storageservices/delete-container) (REST API)
+
+### Code samples
+
+- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/Java/blob-devguide/blob-devguide-containers/src/main/java/com/blobs/devguide/containers/ContainerCreate.java)
+
+[!INCLUDE [storage-dev-guide-resources-java](../../../includes/storage-dev-guides/storage-dev-guide-resources-java.md)]

@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 11/23/2022
+ms.date: 02/27/2023
 ms.author: greglin 
 ms.custom: devx-track-azurepowershell
 ---
@@ -38,7 +38,18 @@ Choose the frontend IP address that you plan to associate with this listener. Th
 
 ## Frontend port
 
-Choose the frontend port. Select an existing port or create a new one. Choose any value from the [allowed range of ports](./application-gateway-components.md#ports). You can use not only well-known ports, such as 80 and 443, but any allowed custom port that's suitable. A port can be used for public-facing listeners or private-facing listeners, however the same port cannot be used for both at the same time.
+Associate a frontend port. You can select an existing port or create a new one. Choose any value from the [allowed range of ports](./application-gateway-components.md#ports). You can use not only well-known ports, such as 80 and 443, but any allowed custom port that's suitable. The same port can be used for public and private listeners (Preview feature). 
+
+>[!NOTE] 
+> When using private and public listeners with the same port number, your application gateway changes the "destination" of the inbound flow to the frontend IPs of your gateway. Hence, depending on your Network Security Group's configuration, you may need an inbound rule with **Destination IP addresses** as your application gateway's public and private frontend IPs.
+> 
+> **Inbound Rule**:
+> - Source: (as per your requirement)
+> - Destination IP addresses: Public and Private frontend IPs of your application gateway.
+> - Destination Port: (as per listener configuration)
+> - Protocol: TCP
+> 
+> **Outbound Rule**: (no specific requirement)
 
 ## Protocol
 
@@ -85,9 +96,9 @@ To configure a global custom error page, see [Azure PowerShell configuration](./
 
 ## TLS policy
 
-You can centralize TLS/SSL certificate management and reduce encryption-decryption overhead for a backend server farm. Centralized TLS handling also lets you specify a central TLS policy that's suited to your security requirements. You can choose *default*, *predefined*, or *custom* TLS policy.
+You can centralize TLS/SSL certificate management and reduce encryption-decryption overhead for a backend server farm. Centralized TLS handling also lets you specify a central TLS policy that's suited to your security requirements. You can choose *predefined* or *custom* TLS policy.
 
-You configure TLS policy to control TLS protocol versions. You can configure an application gateway to use a minimum protocol version for TLS handshakes from TLS1.0, TLS1.1, and TLS1.2. By default, SSL 2.0 and 3.0 are disabled and aren't configurable. For more information, see [Application Gateway TLS policy overview](./application-gateway-ssl-policy-overview.md).
+You configure TLS policy to control TLS protocol versions. You can configure an application gateway to use a minimum protocol version for TLS handshakes from TLS1.0, TLS1.1, TLS1.2, and TLS1.3. By default, SSL 2.0 and 3.0 are disabled and aren't configurable. For more information, see [Application Gateway TLS policy overview](./application-gateway-ssl-policy-overview.md).
 
 After you create a listener, you associate it with a request-routing rule. That rule determines how requests that are received on the listener are routed to the back end.
 

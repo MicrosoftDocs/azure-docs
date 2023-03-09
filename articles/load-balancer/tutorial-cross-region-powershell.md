@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Create a cross-region load balancer using Azure PowerShell'
+title: 'Tutorial: Create a cross-region load balancer - Azure PowerShell'
 titleSuffix: Azure Load Balancer
 description: Get started with this tutorial deploying a cross-region Azure Load Balancer using Azure PowerShell.
 author: mbender-ms
@@ -7,7 +7,7 @@ ms.author: mbender
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 02/10/2021 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, template-tutorial
 #Customer intent: As a administrator, I want to deploy a cross-region load balancer for global high availability of my application or service.
 ---
 

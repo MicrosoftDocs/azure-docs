@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2C global identity framework region-based design considerations 
+title: Build a global identity solution with region-based approach
 titleSuffix: Azure AD B2C
 description: Learn the region-based design consideration for Azure AD B2C to provide customer identity management for global customers.
 services: active-directory-b2c
@@ -108,9 +108,7 @@ This use case demonstrates how a user can reset their password when they are wit
 
 ![Screenshot shows the local user forgot password flow.](media/azure-ad-b2c-global-identity-regional-design/local-user-forgot-password.png)
 
-1. User from EMEA attempts to sign in at **myapp.fr**.
-
-   If the user isn't being sent to their local hostname, the traffic manager will enforce a redirect.
+1. User from EMEA attempts to sign in at **myapp.fr**. If the user isn't being sent to their local hostname, the traffic manager will enforce a redirect.
 
 1. The user arrives at the EMEA Azure AD B2C tenant and selects **forgot password**. The user enters and verifies their email.
 
@@ -128,9 +126,7 @@ This use case demonstrates how a user can reset their password when they're trav
 
 ![Screenshot shows the traveling user forgot password flow.](media/azure-ad-b2c-global-identity-regional-design/traveling-user-forgot-password.png)
 
-1. User from NOAM attempts to sign in at **myapp.fr**, since they are on holiday in France.
-
-   If the user isn't being sent to their local hostname, the traffic manager will enforce a redirect.
+1. User from NOAM attempts to sign in at **myapp.fr**, since they are on holiday in France. If the user isn't being sent to their local hostname, the traffic manager will enforce a redirect.
 
 1. The user arrives at the EMEA Azure AD B2C tenant and selects **forgot password**. The user enters and verifies their email.
 
@@ -204,9 +200,7 @@ This use case demonstrates how a user from their local region signs into the ser
 
 ![Screenshot shows the sign in flow.](media/azure-ad-b2c-global-identity-regional-design/social-account-sign-in.png)
 
-1. User from EMEA attempts to sign in at **myapp.fr**.
-
-   If the user isn't being sent to their local hostname, the traffic manager will enforce a redirect.
+1. User from EMEA attempts to sign in at **myapp.fr**. If the user isn't being sent to their local hostname, the traffic manager will enforce a redirect.
 
 1. User lands at the EMEA tenant.
 
@@ -222,15 +216,13 @@ This scenario demonstrates how a user located away from the region in which they
 
 ![Screenshot shows the sign in for traveling user flow.](media/azure-ad-b2c-global-identity-regional-design/traveling-user-social-account-sign-in.png)
 
-1. User from NOAM attempts to sign in at **myapp.fr**.
-
-   If the user isn't being sent to their local hostname, the traffic manager will enforce a redirect.
+1. User from NOAM attempts to sign in at **myapp.fr**. If the user isn't being sent to their local hostname, the traffic manager will enforce a redirect.
 
 1. User lands at the EMEA tenant.
 
 1. User selects to sign in with a federated identity provider.
 
-    >[!NOTE]
+   >[!NOTE]
    >Use the same App Id from the App Registration at the Social IdP across all Azure AD B2C regional tenants. This ensures that the ID coming back from the Social IdP is always the same.
 
 1. Perform a lookup into the global lookup table and determine the user's federated ID is registered in NOAM.
@@ -245,9 +237,7 @@ This scenario demonstrates how users will be able to perform account linking whe
 
 ![Screenshot shows the merge/link accounts flow.](media/azure-ad-b2c-global-identity-regional-design/merge-link-account.png)
 
-1. User from EMEA attempts to sign in at **myapp.fr**.
-
-   If the user isn't being sent to their local hostname, the traffic manager will enforce a redirect.
+1. User from EMEA attempts to sign in at **myapp.fr**. If the user isn't being sent to their local hostname, the traffic manager will enforce a redirect.
 
 1. User lands at the EMEA tenant.
 
@@ -269,15 +259,13 @@ This scenario demonstrates how users will be able to perform  account linking wh
 
 ![Screenshot shows the traveling user merge/link accounts flow.](media/azure-ad-b2c-global-identity-regional-design/traveling-user-merge-link-account.png)
 
-1. User from NOAM attempts to sign in at **myapp.fr**.
-
-   If the user isn't being sent to their local hostname, the traffic manager will enforce a redirect.
+1. User from NOAM attempts to sign in at **myapp.fr**. If the user isn't being sent to their local hostname, the traffic manager will enforce a redirect.
 
 1. User lands at the EMEA tenant.
 
 1. User selects to sign in with a federated identity provider/social IdP.
 
-1. A lookup is performed into the global lookup table for the ID     returned from the federated IdP.
+1. A lookup is performed into the global lookup table for the ID returned from the federated IdP.
 
 1. Where the ID doesn't exist, and the email from the federated IdP exists in another region, it's a traveling user account linking scenario.
 

@@ -19,7 +19,7 @@ This article shows how to use the [az container create][az-container-create] com
 For networking scenarios and limitations, see [Virtual network scenarios and resources for Azure Container Instances](container-instances-virtual-network-concepts.md).
 
 > [!IMPORTANT]
-> Container group deployment to a virtual network is generally available for Linux containers, in most regions where Azure Container Instances is available. For details, see [Regions and resource availability][container-regions]. 
+> Container group deployment to a virtual network is generally available for Linux and Windows containers, in most regions where Azure Container Instances is available. For details, see [available-regions][available-regions]. 
 
 [!INCLUDE [network profile callout](./includes/network-profile/network-profile-callout.md)]
 
@@ -213,8 +213,10 @@ az network vnet delete --resource-group $RES_GROUP --name aci-vnet
 
 ## Next steps
 
-To deploy a new virtual network, subnet, network profile, and container group using a Resource Manager template, see [Create an Azure container group with VNet](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.containerinstance/aci-vnet
+* To deploy a new virtual network, subnet, network profile, and container group using a Resource Manager template, see [Create an Azure container group with VNet](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.containerinstance/aci-vnet
 ).
+
+* To deploy Azure Container Instances that can pull images from an Azure Container Registry through a private endpoint, see [Deploy to Azure Container Instances from Azure Container Registry using a managed identity](../container-instances/using-azure-container-registry-mi.md).
 
 <!-- IMAGES -->
 [aci-vnet-01]: ./media/container-instances-vnet/aci-vnet-01.png
@@ -227,4 +229,4 @@ To deploy a new virtual network, subnet, network profile, and container group us
 [az-container-show]: /cli/azure/container#az_container_show
 [az-network-vnet-create]: /cli/azure/network/vnet#az_network_vnet_create
 [az-network-profile-list]: /cli/azure/network/profile#az_network_profile_list
-[container-regions]: container-instances-region-availability.md
+[available-regions]: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=container-instances
