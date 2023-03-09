@@ -22,7 +22,7 @@ In this article, you learn how to integrate YOU at College with Azure Active Dir
 * Enable your users to be automatically signed-in to YOU at College with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-You'll configure and test Azure AD single sign-on for YOU at College in a test environment. YOU at College supports only **SP** initiated single sign-on and **Just In Time** user provisioning..
+You'll configure and test Azure AD single sign-on for YOU at College in a test environment. YOU at College supports only **SP** initiated single sign-on and **Just In Time** user provisioning.
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
