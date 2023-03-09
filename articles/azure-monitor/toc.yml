@@ -693,6 +693,9 @@ items:
     - name: Application dashboard
       displayName: dashboard, Application Insights dashboard
       href: app/overview-dashboard.md
+    - name: Application Map
+      displayName: appmap, app map, dependency map, dependencies, hotspots, cloud role name, cloudrolename, cloud_rolename, cloud.rolename, cloud role instance, node
+      href: app/app-map.md
     - name: Availability
       items:
       - name: Overview
@@ -709,9 +712,6 @@ items:
         href: app/availability-alerts.md
       - name: SLA Report
         href: app/sla-report.md
-    - name: Application Map
-      displayName: appmap, app map, dependency map, dependencies, hotspots, cloud role name, cloudrolename, cloud_rolename, cloud.rolename, cloud role instance, node
-      href: app/app-map.md
     - name: Transaction diagnostics
       href: app/transaction-diagnostics.md
       displayName: e2e, end-to-end, component, dependency, cross-component transaction, operation ID, dependencies
