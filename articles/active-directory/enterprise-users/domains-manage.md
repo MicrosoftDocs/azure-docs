@@ -94,7 +94,7 @@ Keep your domain names current with your Registrar, and verify TXT records for a
 
 * If you purposefully are expiring your domain name or turning over ownership to someone else (separately from your Azure AD tenant), you should delete it from your Azure AD tenant prior to expiring or transferring.
 * If you do allow your domain name to expire, if you are able to reactivate it/regain control of it, carefully review all TXT records with the registrar to ensure no tampering of your domain name took place.
-* If you can't reactivate or regain control of your domain name immediately, you should delete it from your Azure AD tenant. Dom't readd/re-verify until you are able to resolve ownership of the domain name and verify the full TXT record for correctness.
+* If you can't reactivate or regain control of your domain name immediately, you should delete it from your Azure AD tenant. Don't read/re-verify until you are able to resolve ownership of the domain name and verify the full TXT record for correctness.
 
 >[!NOTE]
 > Microsoft will not allow a domain name to be verified with more than Azure AD tenant. Once you delete a domain name from your tenant, you will not be able to re-add/re-verify it with your Azure AD tenant if it is subsequently added and verified with another Azure AD tenant.
