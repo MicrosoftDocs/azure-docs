@@ -27,7 +27,7 @@
   - name: DDoS IP Protection
     items:
     - name: Portal
-      href: manage-ddos-protection-portal-ip.md
+      href: manage-ddos-ip-protection-portal.md
     - name: PowerShell
       href: manage-ddos-protection-powershell-ip.md
     - name: CLI
