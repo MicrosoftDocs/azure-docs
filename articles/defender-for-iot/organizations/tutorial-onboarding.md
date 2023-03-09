@@ -41,7 +41,7 @@ Before you start, make sure that you have the following:
     | **Maximum bandwidth** | 2.5 Gb/sec | 800 Mb/sec | 160 Mb/sec |
     | **Maximum protected devices** | 12,000 | 10,000 | 800 |
 
-- An understanding of [OT monitoring with virtual appliances](ot-virtual-appliances.md)
+- An understanding of [OT monitoring with virtual appliances](ot-virtual-appliances.md).
 
 - Details for the following network parameters to use for your sensor appliance:
 
