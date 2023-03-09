@@ -210,7 +210,7 @@ Resource naming and tagging is useful for resource management. It enables your o
 
 If you believe tagging would be useful for your organization, design your naming and tagging conventions following the information in the [Resource naming and tagging decision guide](/azure/cloud-adoption-framework/decision-guides/resource-tagging/).
 
-## 9. Get access to Azure Communications Gateway for your Azure subscription
+## 10. Get access to Azure Communications Gateway for your Azure subscription
 
 Access to Azure Communications Gateway is restricted. When you've completed the other steps in this article, contact your onboarding team and ask them to enable your subscription. If you don't already have an onboarding team, contact azcog-enablement@microsoft.com with your Azure subscription ID and contact details.
 
