@@ -23,8 +23,8 @@ The following sections provide you with a quick guide to the quotas and limits t
 | Limit Name | Limit Value |
 |--|--|
 | OpenAI resources per region | 2 | 
-| Requests per minute per model* | ChatGPT & Davinci-models (002 and later): 120  <br> All other models: 300 |
-| Tokens per minute per model* | ChatGPT & Davinci-models (002 and later): 40,000  <br> All other models: 120,000 |
+| Requests per minute per model* | Davinci-models (002 and later): 120  <br> ChatGPT model: 300 <br> All other models: 300|
+| Tokens per minute per model* | Davinci-models (002 and later): 40,000  <br> ChatGPT model: 120,000 <br> All other models: 120,000 |
 | Max fine-tuned model deployments* | 2 |
 | Ability to deploy same model to multiple deployments | Not allowed |
 | Total number of training jobs per resource | 100 |

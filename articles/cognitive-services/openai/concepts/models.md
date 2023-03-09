@@ -174,7 +174,7 @@ When using our embeddings models, keep in mind their limitations and risks.
 | text-davinci-002 | Yes | No | East US, South Central US, West Europe | N/A |
 | text-davinci-003 | Yes | No | East US | N/A |
 | text-davinci-fine-tune-002<sup>1</sup> | Yes | No | N/A | East US, West Europe |
-| gpt-35-turbo (ChatGPT) | Yes | No | N/A | East US, South Central US |
+| gpt-35-turbo (ChatGPT); version "0301" of this model will be available until 8/1/2023 | Yes | No | N/A | East US, South Central US |
 
 <sup>1</sup> The model is available by request only. Currently we aren't accepting new requests to use the model.
 <br><sup>2</sup> East US is currently unavailable for new customers to fine-tune due to high demand. Please use US South Central region for US based training.
