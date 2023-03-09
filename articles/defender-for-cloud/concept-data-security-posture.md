@@ -14,11 +14,17 @@ In today's fast-paced world of constant data migration and increasingly complex 
 
 With data sensitivity posture management (DSPM), you can automatically discover and assess your cloud data estate, identify your most critical assets and sensitive data, and prioritize remediation of potential attack paths for resources that are exposed to high risk. The result is greater visibility and insight into where critical data is located and how best to protect it, ensuring that your personal identification and financial information remains secure and protected.
 
-You can enable DSPM with the **Sensitive data discovery** option in Defender CSPM or Defender for Storage.
+You can [enable DSPM](link) with the **Sensitive data discovery** option in Defender CSPM or Defender for Storage.
 
 ## How data security posture management works
 
+Data security posture is an essential aspect of cloud security. Defender for Cloud uses smart sampling to scan a selected number of cloud files in your protected datastores. The results provide an accurate assessment of where sensitive data is stored while saving on scanning costs and time.
 
+The data security posture scans resources and annotates them with sensitive information types and labels based on sensitivity settings defined for your tenant.
+
+## Integration with Microsoft Purview
+
+Resources that are not scanned by data security posture are enriched with classifications and labels from Purview, but these classifications are considered to contain sensitive data regardless of the sensitivity settings. The enrichment from Purview does not provide details about the last scan time, sensitive information types, labels, or samples of files. To access this information, the user must launch the Purview catalog.
 
 ## FAQ
 
