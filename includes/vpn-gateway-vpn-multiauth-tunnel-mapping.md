@@ -5,12 +5,10 @@ ms.service: vpn-gateway
 ms.topic: include
 ---
 
-| Authentication | Tunnel type
+| Tunnel Type | Authentication Mechanism
 | --- | --- |
-| Azure Active Directory | OpenVPN |
-| Radius Authentication | OpenVPN , SSTP, IKEv2, IKEv2 and OpenVPN, IKEv2 and SSTP |
-| Azure certificate | OpenVPN, SSTP , IKEv2, IKEv2 and OpenVPN, IKEv2 and SSTP |
-| Azure Active Directory and Radius | OpenVPN, IKEv2 and OpenVPN |
-| Azure Active Directory and Azure Certificate | OpenVPN, IKEv2 and OpenVPN |
-| Radius and Azure Certificate | OpenVPN |
-| Azure Active Directory, Radius and Azure Certificate | OpenVPN |
+| OpenVPN | Any subset of Azure AD, Radius Auth and Azure Certificate | 
+| SSTP | Radius Auth/ Azure Certificate |
+| IKEv2 | Radius Auth/ Azure Certificate |
+| IKEv2 and OpenVPN | Radius Auth/ Azure Certificate/ Azure AD and Radius Auth/ Azure AD and Azure Certificate|
+| IKEv2 and SSTP | Radius Auth/ Azure Certificate |

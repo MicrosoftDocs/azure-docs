@@ -105,9 +105,11 @@ For **Authentication type**, select the desired types. Options are:
 * RADIUS
 * Azure Active Directory
 
-Depending on the authentication type(s) selected, you will see different configuration setting fields that will have to be filled in. See the below table to check what authentication mechanisms are compatible with corresponding tunnel types.
+See the below table to check what authentication mechanisms are compatible with selected tunnel types.
 
 [!INCLUDE [All client articles](../../includes/vpn-gateway-vpn-multiauth-tunnel-mapping.md)]
+
+Depending on the authentication type(s) selected, you will see different configuration setting fields that will have to be filled in. 
 
 Fill in the required information and select **Save** at the top of the page to save all of the configuration settings.
 
