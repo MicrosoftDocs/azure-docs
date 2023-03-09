@@ -1,5 +1,5 @@
 ---
-title: Microsoft Sentinel Solution for SAP - SAP audit log workbook overview
+title: Microsoft Sentinel solution for SAP® applications - SAP audit log workbook overview
 description: Learn about the SAP audit log workbook, used to monitor and track data across your SAP systems.
 author: limwainstein
 ms.author: lwainstein
@@ -7,7 +7,7 @@ ms.topic: reference
 ms.date: 01/23/2023
 ---
 
-# Microsoft Sentinel Solution for SAP - SAP audit log workbook overview
+# Microsoft Sentinel solution for SAP® applications - SAP audit log workbook
 
 This article describes the SAP Audit workbook, used for monitoring and tracking user audit activity across your SAP systems. You can use the workbook to get a bird's eye view of user audit activity, to better secure your SAP systems and gain quick visibility into suspicious actions. You can drill down into suspicious events as needed.
 
@@ -43,7 +43,7 @@ You can use the workbook either for ongoing monitoring of your SAP systems, or t
 The workbook is separated into two tabs:
 
 - [**Logon analysis report**](#logon-analysis-report-tab). Shows different types of data regarding sign-in failures. Data includes anomalous data, Azure Active Directory data, and more. The data is based on the ["SAP systems" watchlist](sap-solution-security-content.md#available-watchlists).
-- [**Audit log alerts report**](#audit-log-alerts-report-tab). Shows different types of data regarding the SAP Audit log events that the Microsoft Sentinel Solution for SAP watches. The data is based on the ["SAP_Dynamic_Audit_Log_Monitor_Configuration" watchlist](sap-solution-security-content.md#available-watchlists).
+- [**Audit log alerts report**](#audit-log-alerts-report-tab). Shows different types of data regarding the SAP Audit log events that the Microsoft Sentinel solution for SAP® applications watches. The data is based on the ["SAP_Dynamic_Audit_Log_Monitor_Configuration" watchlist](sap-solution-security-content.md#available-watchlists).
 
 ## Logon analysis report tab
 
@@ -129,9 +129,9 @@ In this screenshot, you can see areas with events and event trends grouped by di
 
 For more information, see:
 
-- [Deploying Microsoft Sentinel Solution for SAP](deployment-overview.md)
-- [Microsoft Sentinel Solution for SAP logs reference](sap-solution-log-reference.md)
-- [Deploy the Microsoft Sentinel Solution for SAP data connector with SNC](configure-snc.md)
+- [Deploying Microsoft Sentinel solution for SAP® applications](deployment-overview.md)
+- [Microsoft Sentinel solution for SAP® applications logs reference](sap-solution-log-reference.md)
+- [Deploy the Microsoft Sentinel solution for SAP® applications data connector with SNC](configure-snc.md)
 - [Configuration file reference](configuration-file-reference.md)
-- [Prerequisites for deploying the Microsoft Sentinel Solution for SAP](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
-- [Troubleshooting your Microsoft Sentinel Solution for SAP deployment](sap-deploy-troubleshoot.md)
+- [Prerequisites for deploying the Microsoft Sentinel solution for SAP® applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
+- [Troubleshooting your Microsoft Sentinel solution for SAP® applications deployment](sap-deploy-troubleshoot.md)
