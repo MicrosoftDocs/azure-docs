@@ -35,7 +35,7 @@ The iSCSI CSI driver for Kubernetes is [licensed under the Apache 2.0 license](h
 
 ## Limitations
 
-- Dynamic allocation isn't currently supported
+- Dynamic provisioning isn't currently supported
 - Only `ReadWriteOnce` access mode is currently supported
 
 ## Get started
