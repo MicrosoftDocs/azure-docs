@@ -348,6 +348,8 @@
         href: boxcryptor-tutorial.md
       - name: Brandfolder
         href: brandfolder-tutorial.md
+      - name: BrainStorm Platform
+        href: brainstorm-platform-tutorial.md
       - name: Braze
         href: braze-tutorial.md
       - name: Bridge
@@ -1895,6 +1897,8 @@
         href: printix-tutorial.md
       - name: Prisma Cloud SSO
         href: prisma-cloud-tutorial.md
+      - name: Proactis Rego Source-to-Pay
+        href: proactis-rego-source-to-pay-tutorial.md
       - name: Procaire
         href: procaire-tutorial.md
       - name: ProcessUnity
