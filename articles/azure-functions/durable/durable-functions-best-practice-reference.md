@@ -43,7 +43,7 @@ Multiple Durable Function apps can share the same storage account. By default, t
 
 The only exception is if you deploy *copies* of the same app in [multiple regions](durable-functions-disaster-recovery-geo-distribution.md); in this case, you can use the same task hub for the copies. 
 
-### Handle code changes correctly
+### Follow guidance when deploying code changes to running orchestrators
 
 It's inevitable that functions will be added, removed, and changed over the lifetime of an application. Examples of [common breaking changes](durable-functions-versioning.md) include changing activity or entity function signatures and changing orchestrator logic. These changes are a problem when they affect orchestrations that are still running. If deployed incorrectly, code changes could lead to orchestrations failing with a non-deterministic error, getting stuck indefinitely, performance degradation, etc. Refer to recommended [mitigation strategies](durable-functions-versioning.md#mitigation-strategies) when making code changes that may impact running orchestrations. 
 
