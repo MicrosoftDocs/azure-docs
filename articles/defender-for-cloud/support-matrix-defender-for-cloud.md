@@ -1,15 +1,15 @@
 ---
-title: Microsoft Defender for Cloud interoperability with Azure services and Azure clouds
-description: Learn about the Azure cloud environments where Defender for Cloud can be used and the Azure services that Defender for Cloud protects.
+title: Microsoft Defender for Cloud interoperability with Azure services, Azure clouds, and client operating systems
+description: Learn about the Azure cloud environments where Defender for Cloud can be used, the Azure services that Defender for Cloud protects, and the client operating systems that Defender for Cloud supports.
 ms.topic: limits-and-quotas
 author: bmansheim
 ms.author: benmansheim
-ms.date: 02/07/2023
+ms.date: 03/08/2023
 ---
 
-# Microsoft Defender for Cloud interoperability with Azure services and Azure clouds
+# Support matrices for Defender for Cloud
 
-This article indicates the Azure clouds and Azure services that are supported by Microsoft Defender for Cloud.
+This article indicates the Azure clouds, Azure services, and client operating systems that are supported by Microsoft Defender for Cloud.
 
 ## Security benefits for Azure services
 
@@ -106,6 +106,27 @@ Microsoft Defender for Cloud is available in the following Azure cloud environme
 <sup><a name="footnote6"></a>6</sup> Partially GA: Subset of alerts and vulnerability assessment for SQL servers. Behavioral threat protections aren't available.
 
 <sup><a name="footnote7"></a>7</sup> Partially GA: Support for Arc-enabled Kubernetes clusters (and therefore AWS EKS too) is in public preview and not available on Azure Government. Run-time visibility of vulnerabilities in container images is also a preview feature.
+
+## Supported operating systems
+
+Defender for Cloud depends on the [Azure Monitor Agent](/azure/azure-monitor/agents/agents-overview) or the [Log Analytics agent](/azure/azure-monitor/agents/log-analytics-agent). Make sure that your machines are running one of the supported operating systems as described on the following pages:
+
+- Azure Monitor Agent
+    - [Azure Monitor Agent for Windows supported operating systems](/azure/azure-monitor/agents/agents-overview#windows)
+    - [Azure Monitor Agent for Linux supported operating systems](/azure/azure-monitor/agents/agents-overview#linux)
+- Log Analytics agent
+    - [Log Analytics agent for Windows supported operating systems](/azure/azure-monitor/agents/agents-overview#windows)
+    - [Log Analytics agent for Linux supported operating systems](/azure/azure-monitor/agents/agents-overview#linux)
+
+Also ensure your Log Analytics agent is [properly configured to send data to Defender for Cloud](working-with-log-analytics-agent.md#manual-agent).
+
+To learn more about the specific Defender for Cloud features available on Windows and Linux, see:
+
+- Defender for Servers support for [Windows](support-matrix-defender-for-servers.md#windows-machines) and [Linux](support-matrix-defender-for-servers.md#linux-machines) machines
+- Defender for Containers [support for Windows and Linux containers](support-matrix-defender-for-containers.md#defender-for-containers-feature-availability)
+
+> [!NOTE]
+> Even though Microsoft Defender for Servers is designed to protect servers, most of its features are supported for Windows 10 machines. One feature that isn't currently supported is [Defender for Cloud's integrated EDR solution: Microsoft Defender for Endpoint](integration-defender-for-endpoint.md).
 
 ## Next steps
 

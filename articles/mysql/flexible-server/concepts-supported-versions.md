@@ -25,15 +25,15 @@ Azure Database for MySQL currently supports the following versions:
 
 ## MySQL Version 5.7
 
-Bug fix release: 5.7.37
+Bug fix release: 5.7.40
 
-Refer to the MySQL [release notes](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-37.html) to learn more about improvements and fixes in this version.
+Refer to the MySQL [release notes](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-40.html) to learn more about improvements and fixes in this version.
 
 ## MySQL Version 8
 
-Bug fix release: 8.0.28
+Bug fix release: 8.0.31
 
-Refer to the MySQL [release notes](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-28.html) to learn more about improvements and fixes in this version.
+Refer to the MySQL [release notes](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-31.html) to learn more about improvements and fixes in this version.
 
 
 The service performs automated patching of the underlying hardware, OS, and database engine. The patching includes security and software updates. For MySQL engine, minor version upgrades are also included as part of the planned maintenance release. Users can configure the patching schedule to be system managed or define their custom schedule. During the maintenance schedule, the patch is applied and server may require a restart as part of the patching process to complete the update. With the custom schedule, users can make their patching cycle predictable and choose a maintenance window with minimum impact to the business. In general, the service follows monthly release schedule as part of the continuous integration and release.

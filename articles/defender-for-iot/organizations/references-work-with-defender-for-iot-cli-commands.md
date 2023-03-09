@@ -7,7 +7,7 @@ ms.topic: concept-article
 
 # Defender for IoT CLI users and access
 
-This article provides an introduction to the Microsoft Defender for IoT command line interface (CLI). The CLI is a text-based user interface that allows you to access your OT and Enterprise IoT sensors, and the on-premises management console, for advanced configuration, troubleshooting, and support.
+This article provides an introduction to the Microsoft Defender for IoT command line interface (CLI). The CLI is a text-based user interface that allows you to access your OT sensors and the on-premises management console for advanced configuration, troubleshooting, and support.
 
 To access the Defender for IoT CLI, you'll need access to the sensor or on-premises management console.
 
