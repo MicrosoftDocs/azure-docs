@@ -916,7 +916,7 @@ items:
         href: /answers/topics/24223/azure-monitor
       - name: Stack Overflow (coding questions)
         href: https://stackoverflow.com/questions/tagged/azure-application-insights
-      - name: User Voice (product feedback)
+      - name: Application Insights product feedback
         href: https://feedback.azure.com/d365community/forum/3887dc70-2025-ec11-b6e6-000d3a4f09d0
       - name: Troubleshooting articles
         href: /troubleshoot/azure/azure-monitor/welcome-azure-monitor
