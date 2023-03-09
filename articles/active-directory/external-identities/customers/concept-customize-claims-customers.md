@@ -16,7 +16,7 @@ ms.custom: it-pro
 ---
 <!--   The content is mostly copied from https://learn.microsoft.com/en-us/azure/active-directory/external-identities/user-flow-add-custom-attributes and some are details added to it from articles in this branch. For now the text  is used as a placeholder in the release branch, until further notice. -->
 
-# Define custom attributes for user flows
+# Define custom attributes for user flows in CIAM
 
 For each application, you might have different requirements for the information you want to collect during sign-up from your customers. Azure AD comes with a built-in set of information stored in attributes, such as Given Name, Surname, City, and Postal Code. With CIAM, you can extend the set of attributes stored on a guest account when the cusrokomer signs up through a user flow.
 

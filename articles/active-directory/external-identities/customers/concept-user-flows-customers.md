@@ -16,7 +16,7 @@ ms.custom: it-pro
 ---
 <!--   The content is mostly copied from https://learn.microsoft.com/en-us/azure/active-directory/external-identities/self-service-sign-up-overview. For now the text  is used as a placeholder in the release branch, until further notice. -->
 
-# Self-service sign-up
+# Self-service sign-up for customers
 
 When sharing an application with customers, you might not always know in advance who will need access to the application. As an alternative to sending invitations directly to individuals, you can allow customers to sign up for specific applications themselves by enabling self-service sign-up user flows. You can create a personalized sign-up experience by customizing the self-service sign-up user flow. For example, you can provide options to sign up with a social identity provider and collect information about the user during the sign-up process.
 

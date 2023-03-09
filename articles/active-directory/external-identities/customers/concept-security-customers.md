@@ -16,7 +16,7 @@ ms.custom: it-pro
 ---
 <!--   The content is mostly copied from https://learn.microsoft.com/en-us/azure/active-directory/governance/identity-governance-overview. For now the text  is used as a placeholder in the release branch, until further notice. -->
 
-# What is Microsoft Entra Identity Governance?
+# Identity governance for CIAM
 
 CIAM Governance allows you to balance your organization's need for security and employee productivity with the right processes and visibility. It provides you with capabilities to ensure that the right people have the right access to the right resources. These and related Azure AD and Enterprise Mobility + Security features allows you to mitigate access risk by protecting, monitoring, and auditing access to critical assets while ensuring employee and business partner productivity.  
 

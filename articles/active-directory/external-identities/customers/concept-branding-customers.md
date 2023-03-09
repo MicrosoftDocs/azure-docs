@@ -29,4 +29,4 @@ Your Azure AD tenant supports Microsoft look and feel as a default state for aut
 Microsoft provides a neutral branding as the default for the CIAM tenant, which can be customized to meet the specific needs of your company. The default branding for the CIAM tenant is neutral and doesn't include any existing Microsoft branding. If the custom company branding fails to load for any reason, the sign-in page will revert to this neutral branding. It's also possible to add each custom branding property to the custom sign-in page individually.
 
 ## Next steps
-- [Customize the user experience for your customers](how-to-customize-branding-customers)
+- [Customize the user experience for your customers](how-to-customize-branding-customers.md)
