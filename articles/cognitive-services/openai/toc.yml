@@ -17,7 +17,11 @@ items:
     - name: Azure OpenAI FAQ
       href: faq.yml
 - name: Quickstarts
-  href: quickstart.md
+  items:
+    - name: GPT-3
+      href: quickstart.md
+    - name: ChatGPT
+      href: chatgpt-quickstart.md  
 - name: Concepts
   items:
     - name: Content filtering
@@ -28,6 +32,8 @@ items:
   items:
     - name: Create a resource
       href: ./how-to/create-resource.md
+    - name: Use Chat Markup Language (ChatML)
+      href: ./how-to/chatgpt.md
     - name: Completions
       href: ./how-to/completions.md
     - name: Work with code (Codex)
