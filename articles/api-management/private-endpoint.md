@@ -5,7 +5,7 @@ ms.service: api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 03/09/2023
 
 ---
 
@@ -235,7 +235,7 @@ To connect to 'Microsoft.ApiManagement/service/my-apim-service', please use the 
 ## Next steps
 
 * Use [policy expressions](api-management-policy-expressions.md#ref-context-request) with the `context.request` variable to identify traffic from the private endpoint.
-* Learn more about [private endpoints](../private-link/private-endpoint-overview.md) and [Private Link](../private-link/private-link-overview.md).
+* Learn more about [private endpoints](../private-link/private-endpoint-overview.md) and [Private Link](../private-link/private-link-overview.md), including [Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).
 * Learn more about [managing private endpoint connections](../private-link/manage-private-endpoint.md).
 * [Troubleshoot Azure private endpoint connectivity problems](../private-link/troubleshoot-private-endpoint-connectivity.md).
 * Use a [Resource Manager template](https://azure.microsoft.com/resources/templates/api-management-private-endpoint/) to create an API Management instance and a private endpoint with private DNS integration.
