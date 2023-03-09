@@ -29,7 +29,7 @@ To allow Azure Key Vault to release a key to an attested confidential virtual ma
 
 ## Deploying an Azure Key Vault
 
-Set up AKV Premium or AKV mHSM with a exportable key. Please follow the detailed instructions from here [setting up SKR exportable keys](./concept-skr-attestation.md#setting-up-secure-key-release-with-Azure-Key-Vault)
+Set up AKV Premium or AKV mHSM with a exportable key. Please follow the detailed instructions from here [setting up SKR exportable keys](concept-skr-attestation.md#setting-up-secure-key-release-with-Azure-Key-Vault)
 
 ### [Bicep](#tab/bicep)
 
@@ -73,13 +73,13 @@ resource keyVault 'Microsoft.KeyVault/vaults@2021-11-01-preview' = {
 
 ## Deploy a confidential virtual machine
 
-Follow the quickstart instructions on how to "[Deploy confidential VM with ARM template](<path-to-docs>/confidential-computing/quick-create-confidential-vm-arm-amd)"
+Follow the quickstart instructions on how to "[Deploy confidential VM with ARM template](quick-create-confidential-vm-arm-amd.md)"
 
 ## Enable system-assigned managed identity
 
-[Managed identities](<path-to-docs>/active-directory/managed-identities-azure-resources/) for Azure resources provide Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code.
+[Managed identities](../active-directory/managed-identities-azure-resources.md) for Azure resources provide Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code.
 
-To enable system-assigned managed identity on a CVM, your account needs the [Virtual Machine Contributor](<path-to-docs>/role-based-access-control/built-in-roles.md#virtual-machine-contributor) role assignment.  No other Azure AD directory role assignments are required.
+To enable system-assigned managed identity on a CVM, your account needs the [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role assignment.  No other Azure AD directory role assignments are required.
 
 ### [Bicep](#tab/bicep)
 
@@ -141,7 +141,7 @@ To enable system-assigned managed identity on a CVM, your account needs the [Vir
 Once you turn on a system-assigned managed identity for your CVM, you will have to provide it with access to the Azure Key Vault data plane where key objects are stored. To ensure that only our confidential virtual machine can execute the release operation, we will only grant it the specific permission required for that.
 
 > [!NOTE]
-> You can find the managed identity object ID in the virtual machine identity options, in the Azure Portal. Alternatively you can retrieve it with [PowerShell](<path-to-docs>/active-directory/managed-identities-azure-resources/how-to-assign-app-role-managed-identity-powershell), [Azure CLI](<path-to-docs>/active-directory/managed-identities-azure-resources/how-to-assign-app-role-managed-identity-cli), [Bicep](<path-to-docs>/templates/microsoft.compute/2021-11-01/virtualmachines?pivots=deployment-language-bicep#virtualmachineidentity) or [ARM templates](<path-to-docs>/azure-resource-manager/templates/template-functions-resource#get-managed-identity).
+> You can find the managed identity object ID in the virtual machine identity options, in the Azure Portal. Alternatively you can retrieve it with [PowerShell](../active-directory/managed-identities-azure-resources/how-to-assign-app-role-managed-identity-powershell.md), [Azure CLI](../active-directory/managed-identities-azure-resources/how-to-assign-app-role-managed-identity-cli.md), [Bicep](https://learn.microsoft.com/en-us/azure/templates/microsoft.compute/virtualmachines/templates/microsoft.compute/2021-11-01/virtualmachines?pivots=deployment-language-bicep#virtualmachineidentity) or [ARM templates](https://learn.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm).
 
 ### [Bicep](#tab/bicep)
 
@@ -196,12 +196,12 @@ resource keyVaultCvmAccessPolicy 'Microsoft.KeyVault/vaults/accessPolicies@2022-
 
 ## Prepare the release policy
 
-Key Vault Secure Key Release Policies are modeled after __Azure Policy__, with a [slightly different grammar](https://learn.microsoft.com/azure/key-vault/keys/policy-grammar).
+Key Vault Secure Key Release Policies are modeled after __Azure Policy__, with a [slightly different grammar](../key-vault/keys/policy-grammar.md).
 The idea here is that when we __pass the attested platform report__, in the form of a JSON Web Token (JWT), to Key Vault. It will, in turn, look at the JWT and check whether or not the attested platform report claims matches the claims of the policy.
 
 For example, let's say we want to release a key only when our attested platform report has:
 
-- Been attested by [Microsoft Azure Attestation (MAA)](https://learn.microsoft.com/en-us/azure/attestation/overview) service endpoint "https://sharedweu.weu.attest.azure.net".
+- Been attested by [Microsoft Azure Attestation (MAA)](../attestation/overview.md) service endpoint "https://sharedweu.weu.attest.azure.net".
   - This `authority` value from the policy is compared to the `iss` (issuer) property, in the token.
 - And that it also contains an object called `x-ms-isolation-tee` with a property called `x-ms-attestation-type`, which holds value `sevsnpvm`.
   - This tells us that MAA has attested that the CVM is running SEV-SNP.
@@ -369,7 +369,7 @@ Attestation helps us to _cryptographically assess_ that something is running in 
 Microsoft has [open sourced](https://github.com/Azure/confidential-computing-cvm-guest-attestation) a Windows and Linux client binary that utilizes the guest attestation library so we get more easily integrate the guest attestation process into our existing workloads. The client binary returns the attested platform report as a JSON Web Token, which is what is needed for Key Vault's `release` key operation.
 
 > [!NOTE]
-> A token from the Azure Attestation service is valid for [8 hours](https://learn.microsoft.com/en-us/azure/attestation/faq#how-long-is-an-attestation-token-valid-).
+> A token from the Azure Attestation service is valid for [8 hours](../attestation/faq.md#how-long-is-an-attestation-token-valid-).
 
 ### [Linux](#tab/linux)
 
@@ -414,7 +414,7 @@ Microsoft has [open sourced](https://github.com/Azure/confidential-computing-cvm
 
 1. Sign in to your VM.
 1. Clone the [sample Windows application](https://github.com/Azure/confidential-computing-cvm-guest-attestation/tree/main/cvm-platform-checker-exe/Windows).
-1. Navigate inside the unzipped folder and run `VC_redist.x64.exe`. This will install Microsoft C and C++ ([MSVC](https://docs.microsoft.com/en-US/cpp/windows/latest-supported-vc-redist?view=msvc-170)) runtime libraries on the machine.
+1. Navigate inside the unzipped folder and run `VC_redist.x64.exe`. This will install Microsoft C and C++ ([MSVC](https://docs.microsoft.com/cpp/windows/latest-supported-vc-redist?view=msvc-170)) runtime libraries on the machine.
 1. To run the sample client, navigate inside the unzipped folder and run the below command:
 
     ```sh
@@ -546,7 +546,7 @@ The body of the guest attestation reponse is what will be used by Key Vault as i
 }
 ```
 
-The documenation for Microsoft Azure Attestation service has an extensive list containing descriptions of all of these [SEV-SNP-related claims](https://learn.microsoft.com/en-us/azure/attestation/claim-sets#sev-snp-attestation).
+The documenation for Microsoft Azure Attestation service has an extensive list containing descriptions of all of these [SEV-SNP-related claims](../attestation/claim-sets.md#sev-snp-attestation).
 
 ## Performing the key release operation
 
