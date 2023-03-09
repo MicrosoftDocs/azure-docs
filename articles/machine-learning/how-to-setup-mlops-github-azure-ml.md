@@ -128,20 +128,20 @@ Before you can set up an MLOps project with Machine Learning, you need to set up
 
 1. Fork the [MLOps v2 Demo Template Repo](https://github.com/Azure/mlops-v2-gha-demo) in your GitHub organization
 
-1. Go to https://github.com/Azure/mlops-v2-gha-demo/fork to fork the MLOps v2 demo repo into your Github org. This repo has reusable MLOps code that can be used across multiple projects. 
+1. Go to https://github.com/Azure/mlops-v2-gha-demo/fork to fork the MLOps v2 demo repo into your GitHub org. This repo has reusable MLOps code that can be used across multiple projects. 
 
-   ![image](./media/how-to-setup-mlops-azureml/gh-fork.png)
+   ![image](./media/how-to-setup-mlops-azureml/github-fork.png)
 
 1. From your GitHub project, select **Settings**:
 
-      ![GitHub Settings](./media/how-to-setup-mlops-azureml/gh-settings.png)
+      ![GitHub Settings](./media/how-to-setup-mlops-azureml/github-settings.png)
 
 1. Then select **Secrets**, then **Actions**:
 
-      ![GitHub Secrets](./media/how-to-setup-mlops-azureml/gh-secrets.png)
+      ![GitHub Secrets](./media/how-to-setup-mlops-azureml/github-secrets.png)
 
 1. Select **New repository secret**. Name this secret **AZURE_CREDENTIALS** and paste the service principal output as the content of the secret.  Select **Add secret**.
-      ![GitHub Secrets String 1](./media/how-to-setup-mlops-azureml/gh-secrets-string.png)
+      ![GitHub Secrets String 1](./media/how-to-setup-mlops-azureml/github-secrets-string.png)
 
 1. Add each of the following additional GitHub secrets using the corresponding values from the service principal output as the content of the secret:  
       > **ARM_CLIENT_ID**  
@@ -149,7 +149,7 @@ Before you can set up an MLOps project with Machine Learning, you need to set up
       > **ARM_SUBSCRIPTION_ID**  
       > **ARM_TENANT_ID**  
 
-      ![GitHub Secrets String 2](./media/how-to-setup-mlops-azureml/gh-secrets-string2.png)
+      ![GitHub Secrets String 2](./media/how-to-setup-mlops-azureml/github-secrets-string-2.png)
 
 > [!NOTE]
 > This finishes the prerequisite section and the deployment of the solution accelerator can happen accordingly.
@@ -184,19 +184,19 @@ This step deploys the training pipeline to the Machine Learning workspace create
 
 1. In your GitHub project repository (ex: taxi-fare-regression), select **Actions**
 
-   ![GitHub actions](./media/how-to-setup-mlops-azureml/gh-actions.png)
+   ![GitHub actions](./media/how-to-setup-mlops-azureml/github-actions.png)
 
 This displays the pre-defined GitHub workflows associated with your project. For a classical machine learning project, the available workflows look similar to this:
 
-   ![GitHub workflows](./media/how-to-setup-mlops-azureml/gh-workflows.png)
+   ![GitHub workflows](./media/how-to-setup-mlops-azureml/github-workflows.png)
 
 1. Select would be **tf-gha-deploy-infra.yml**. This would deploy the Azure ML infrastructure using GitHub Actions and Terraform.
 
-   ![GitHub deploy-infra](./media/how-to-setup-mlops-azureml/gh-deploy-infra.png)
+   ![GitHub deploy-infra](./media/how-to-setup-mlops-azureml/github-deploy-infrastructure.png)
 
 1. On the right side of the page, select **Run workflow** and select the branch to run the workflow on. This may deploy Dev Infrastructure if you've created a dev branch or Prod infrastructure if deploying from main. Monitor the workflow for successful completion.
 
-   ![GitHub infra pipeline](./media/how-to-setup-mlops-azureml/gh-infra-pipeline.png)
+   ![GitHub infra pipeline](./media/how-to-setup-mlops-azureml/github-infrastructure-pipeline.png)
 
 1. When the pipeline has complete successfully, you can find your Azure ML Workspace and associated resources by logging in to the Azure Portal. Next, a model training and scoring pipelines will be deployed into the new Machine Learning environment.
 
@@ -234,15 +234,15 @@ Next, you will deploy the model training pipeline to your new Machine Learning w
 
 1. In your GitHub project repository (example: taxi-fare-regression), select **Actions**  
  
-   ![GitHub actions page](./media/how-to-setup-mlops-azureml/gh-actions.png)
+   ![GitHub actions page](./media/how-to-setup-mlops-azureml/github-actions.png)
       
 1. Select the **deploy-model-training-pipeline** from the workflows listed on the left and the click **Run Workflow** to execute the model training workflow. This will take several minutes to run, depending on the compute size. 
 
-   ![Pipeline Run](./media/how-to-setup-mlops-azureml/gh-training-pipeline.png)
+   ![Pipeline Run](./media/how-to-setup-mlops-azureml/github-training-pipeline.png)
    
 1. Once completed, a successful run will register the model in the Machine Learning workspace. 
    
-    ![Training Step](./media/how-to-setup-mlops-azureml/gh-training-step.png)
+    ![Training Step](./media/how-to-setup-mlops-azureml/github-training-step.png)
 
 > [!NOTE] 
 > If you want to check the output of each individual step, for example to view output of a failed run, click a job output, and then click each step in the job to view any output of that step. 
@@ -255,31 +255,31 @@ This scenario includes prebuilt workflows for two approaches to deploying a trai
 
 1. In your GitHub project repository (ex: taxi-fare-regression), select **Actions**  
  
-   ![GitHub actions pages](./media/how-to-setup-mlops-azureml/gh-actions.png)
+   ![GitHub actions pages](./media/how-to-setup-mlops-azureml/github-actions.png)
 
 ### Online Endpoint  
       
 1. Select the **deploy-online-endpoint-pipeline** from the workflows listed on the left and click **Run workflow** to execute the online endpoint deployment pipeline workflow. The steps in this pipeline will create an online endpoint in your Machine Learning workspace, create a deployment of your model to this endpoint, then allocate traffic to the endpoint.
 
-   ![GitHub online endpoint](./media/how-to-setup-mlops-azureml/gh-online-endpoint.png)
+   ![GitHub online endpoint](./media/how-to-setup-mlops-azureml/github-online-endpoint.png)
    
     Once completed, you will find the online endpoint deployed in the Azure ML workspace and available for testing.
 
-   ![Machine Learning taxi online endpoint](./media/how-to-setup-mlops-azureml/aml-taxi-oep.png)
+   ![Machine Learning taxi online endpoint](./media/how-to-setup-mlops-azureml/azure-ml-taxi-online-endpoint.png)
 
 1. To test this deployment, go to the **Endpoints** tab in your Machine Learning workspace, select the endpoint and click the **Test** Tab. You can use the sample input data located in the cloned repo at `/data/taxi-request.json` to test the endpoint.
    
-    ![AzureML taxi Online endpoint test](./media/how-to-setup-mlops-azureml/azureml-online-endpoint-test.png)
+    ![AzureML taxi Online endpoint test](./media/how-to-setup-mlops-azureml/azure-ml-online-endpoint-test.png)
 
 ### Batch Endpoint
       
 1. Select the **deploy-batch-endpoint-pipeline** from the workflows and click **Run workflow** to execute the batch endpoint deployment pipeline workflow. The steps in this pipeline will create a new AmlCompute cluster on which to execute batch scoring, create the batch endpoint in your Machine Learning workspace, then create a deployment of your model to this endpoint.
 
-![GitHub batch endpoint](./media/how-to-setup-mlops-azureml/gh-batch-endpoint.png)
+![GitHub batch endpoint](./media/how-to-setup-mlops-azureml/github-batch-endpoint.png)
 
 2. Once completed, you will find the batch endpoint deployed in the Azure ML workspace and available for testing.
 
-![Machine Learning taxi batch endpoint](./media/how-to-setup-mlops-azureml/aml-taxi-bep.png)
+![Machine Learning taxi batch endpoint](./media/how-to-setup-mlops-azureml/azure-ml-taxi-batch-endpoint.png)
    
 ## Moving to production
 
