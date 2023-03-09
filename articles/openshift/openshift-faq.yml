@@ -13,7 +13,7 @@ summary: This article answers frequently asked questions (FAQs) about Microsoft 
 sections:
   - name: Installation and upgrade
     questions:
-      - question: Where can I find about pricing and service level agreements?
+      - question: Where can I find information about pricing and service level agreements?
         answer: |
           For pricing information, see [Azure Red Hat OpenShift pricing](https://azure.microsoft.com/en-us/pricing/details/openshift/).
 
