@@ -91,7 +91,7 @@ When you're ready to delete your dev center, follow these steps:
 
 ## Attach a network connection
 
-You can attach existing network connections to a dev center. You must attach a network connection to a dev center before it can be used in projects to create dev box pools.
+You can attach existing network connections to a dev center. You must attach a network connection to a dev center before you can use it in projects to create dev box pools.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
