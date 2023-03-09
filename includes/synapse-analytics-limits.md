@@ -24,7 +24,7 @@ For other subscription offer types:
 
 | Resource | Default limit | Maximum limit | 
 | -------- | ------------- | ------------- |
-| Synapse workspaces in an Azure subscription per region | 20 | 250 |
+| Synapse workspaces in an Azure subscription per region | 20 | 100 |
 
 ### Azure Synapse limits for Apache Spark
 

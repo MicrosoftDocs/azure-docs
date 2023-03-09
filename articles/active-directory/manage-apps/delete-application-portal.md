@@ -69,7 +69,7 @@ To delete an enterprise application, you need:
 1. Delete the enterprise application.
    
    ```powershell
-   Remove-AzureADServicePrincipal $ObjectId 'd4142c52-179b-4d31-b5b9-08940873507b'
+   Remove-AzureADServicePrincipal -ObjectId 'd4142c52-179b-4d31-b5b9-08940873507b'
    ```
 :::zone-end
 

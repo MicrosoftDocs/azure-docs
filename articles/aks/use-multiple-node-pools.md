@@ -1,9 +1,8 @@
 ---
 title: Use multiple node pools in Azure Kubernetes Service (AKS)
 description: Learn how to create and manage multiple node pools for a cluster in Azure Kubernetes Service (AKS)
-services: container-service
 ms.topic: article
-ms.custom: event-tier1-build-2022, ignite-2022
+ms.custom: event-tier1-build-2022, ignite-2022, devx-track-azurecli
 ms.date: 05/16/2022
 ---
 
@@ -37,7 +36,7 @@ The following limitations apply when you create and manage AKS clusters that sup
 ## Create an AKS cluster
 
 > [!IMPORTANT]
-> If you run a single system node pool for your AKS cluster in a production environment, we recommend you use at least three nodes for the node pool.
+> If you run a single system node pool for your AKS cluster in a production environment, we recommend you use at least three nodes for the node pool. If one node goes down, you lose control plane resources and redundancy is compromised. You can mitigate this risk by having more control plane nodes.
 
 To get started, create an AKS cluster with a single node pool. The following example uses the [az group create][az-group-create] command to create a resource group named *myResourceGroup* in the *eastus* region. An AKS cluster named *myAKSCluster* is then created using the [`az aks create`][az-aks-create] command.
 
@@ -150,6 +149,7 @@ You can add a Mariner node pool into your existing cluster using the `az aks nod
 az aks nodepool add \
     --resource-group myResourceGroup \
     --cluster-name myAKSCluster \
+    --name marinerpool \
     --os-sku CBLMariner
 ```
 

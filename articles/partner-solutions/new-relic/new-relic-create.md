@@ -3,7 +3,7 @@ title: Create an instance of Azure Native New Relic Service Preview
 description: Learn how to create a resource by using Azure Native New Relic Service.
 
 ms.topic: quickstart
-ms.date: 01/16/2023
+ms.date: 02/21/2023
 ---
 
 # Quickstart: Get started with Azure Native New Relic Service Preview
@@ -70,9 +70,11 @@ Use the Azure portal to find the Azure Native New Relic Service application:
  
 ## Configure metrics and logs
 
-Your next step is to configure metrics and logs on the **Logs** tab. When you're creating the New Relic resource, you can set up automatic log forwarding for two types of logs:
+Your next step is to configure metrics and logs on the **Metrics and Logs** tab. When you're creating the New Relic resource, you can set up metrics monitoring and automatic log forwarding:
 
-1. To send subscription-level logs to New Relic, select **Subscription activity logs**. If you leave this option cleared, no subscription-level logs will be sent to New Relic.
+1. To set up monitoring of platform metrics for Azure resources by New Relic, select **Enable metrics collection**. If you leave this option cleared, metrics are not be pulled by New Relic.
+
+1. To send subscription-level logs to New Relic, select **Subscription activity logs**. If you leave this option cleared, no subscription-level logs are sent to New Relic.
 
    These logs provide insight into the operations on your resources at the [control plane](/azure/azure-resource-manager/management/control-plane-and-data-plane). These logs also include updates on service-health events. 
 
@@ -90,7 +92,7 @@ Your next step is to configure metrics and logs on the **Logs** tab. When you're
    - All Azure resources with tags defined in exclude rules don't send logs to New Relic.
    - If there's a conflict between inclusion and exclusion rules, the exclusion rule applies.
     
-   Azure charges for logs sent to New Relic. For more information, see the [pricing of platform logs](/azure.microsoft.com/pricing/details/monitor/) sent to Azure Marketplace partners.
+   Azure charges for logs sent to New Relic. For more information, see the [pricing of platform logs](https://azure.microsoft.com/pricing/details/monitor/) sent to Azure Marketplace partners.
 
    > [!NOTE]
    > You can collect metrics for virtual machines and app services by installing the New Relic agent after you create the New Relic resource.
@@ -113,6 +115,9 @@ You can also skip this step and go directly to the **Review and Create** tab.
 
 1. Ensure that you've passed validation, and then select **Create** to begin the resource deployment. 
 
+1. After creating resource, you must set up your account config to monitor other resources with Azure Native New Relic Service. For more information, see [Setting up your New Relic account config](https://docs.newrelic.com/docs/infrastructure/microsoft-azure-integrations/get-started/azure-native/#view-your-data-in-new-relic).
+
 ## Next steps
 
 - [Manage the New Relic resource](new-relic-how-to-manage.md)
+- [Setting up your New Relic account config](https://docs.newrelic.com/docs/infrastructure/microsoft-azure-integrations/get-started/azure-native/#view-your-data-in-new-relic)

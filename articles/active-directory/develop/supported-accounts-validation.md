@@ -2,15 +2,15 @@
 # required metadata
 title: Validation differences by supported account types
 description: Learn about the validation differences of various properties for different supported account types when registering your app with the Microsoft identity platform.
-author: SureshJa
-ms.author: sureshja
+author: cilwerner
+ms.author: cwerner
 manager: CelesteDG
 ms.date: 09/29/2021
 ms.topic: conceptual
 ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
-ms.reviewer: manrath
+ms.reviewer: manrath, sureshja
 ---
 
 # Validation differences by supported account types (signInAudience)

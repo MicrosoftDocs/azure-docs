@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 03/1/2022
+ms.date: 01/29/2023
 
 ms.author: justinha
 author: justinha
@@ -35,6 +35,9 @@ To enable combined registration, complete these steps:
 3. Under **Users can use the combined security information registration experience**, choose to enable for a **Selected** group of users or for **All** users.
 
    ![Enable the combined security info experience for users](media/howto-registration-mfa-sspr-combined/enable-the-combined-security-info.png)
+
+   > [!IMPORTANT]
+   > If your Azure tenant has already been enabled for combined registration, you might not see the configuration option for **Users can use the combined security information registration experience** or even see it grayed out.
 
 > [!NOTE]
 > After you enable combined registration, users who register or confirm their phone number or mobile app through the new experience can use them for Azure AD Multi-Factor Authentication and SSPR, if those methods are enabled in the Azure AD Multi-Factor Authentication and SSPR policies.

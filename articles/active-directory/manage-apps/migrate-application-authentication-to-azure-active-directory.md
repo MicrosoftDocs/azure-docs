@@ -2,14 +2,15 @@
 title: 'Migrate application authentication to Azure Active Directory'
 description: Describes in detail the benefits and what you need to do to migrate your application authentication to Azure Active Directory (Azure AD).
 services: active-directory
-author: AllisonAm
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
 ms.date: 01/06/2023
-ms.author: alamaral
+ms.author: jomondi
+ms.reviewer: alamaral
 ms.collection: M365-identity-device-management
 ---
 

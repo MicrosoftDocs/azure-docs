@@ -1,20 +1,20 @@
 ---
-title: Connection Monitor in Azure | Microsoft Docs
-description: Learn how to use Connection Monitor to monitor network communication in a distributed environment.
+title: Connection monitor
+titleSuffix: Azure Network Watcher
+description: Learn how to use Azure Network Watcher connection monitor to monitor network communication in a distributed environment.
 services: network-watcher
-documentationcenter: na
 author: halkazwini
 tags: azure-resource-manager
 ms.service: network-watcher
-ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload:  infrastructure-services
+ms.topic: conceptual
+ms.workload: infrastructure-services
 ms.date: 10/04/2022
 ms.author: halkazwini
 ms.custom: mvc, engagement-fy23
 #Customer intent: I need to monitor communication between one VM and another. If the communication fails, I need to know why so that I can resolve the problem. 
 ---
-# Monitor network connectivity by using Connection Monitor
+
+# Azure Network Watcher connection monitor
 
 > [!IMPORTANT]
 > As of July 1, 2021, you can no longer add new tests in an existing workspace or enable a new workspace in Network Performance Monitor (NPM). You're also no longer able to add new connection monitors in Connection Monitor (Classic). You can continue to use the tests and connection monitors that you've created prior to July 1, 2021. 

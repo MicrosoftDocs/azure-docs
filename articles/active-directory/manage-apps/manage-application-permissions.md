@@ -70,11 +70,11 @@ $spOAuth2PermissionsGrants | ForEach-Object {
 }
 
 # Get all application permissions for the service principal
-$spApplicationPermissions = Get-AzureADServicePrincipalAppRoleAssignedTo -ObjectId $sp.ObjectId -All $true | Where-Object { $_.PrincipalType -eq "ServicePrincipal" }
+$spApplicationPermissions = Get-AzureADServiceAppRoleAssignedTo-ObjectId $sp.ObjectId -All $true | Where-Object { $_.PrincipalType -eq "ServicePrincipal" }
 
 # Remove all application permissions
 $spApplicationPermissions | ForEach-Object {
-    Remove-AzureADServicePrincipalAppRoleAssignment -ObjectId $_.PrincipalId -AppRoleAssignmentId $_.objectId
+    Remove-AzureADServiceAppRoleAssignment -ObjectId $_.PrincipalId -AppRoleAssignmentId $_.objectId
 }
 ```
 
@@ -103,7 +103,7 @@ $assignments | ForEach-Object {
 Using the following Microsoft Graph PowerShell script revokes all permissions granted to an application.
 
 ```powershell
-Connect-MgGraph -Scopes "Application.ReadWrite.All", "Directory.ReadWrite.All", "DelegatedPermissionGrant.ReadWrite.All" "AppRoleAssignment.ReadWrite.All"
+Connect-MgGraph -Scopes "Application.ReadWrite.All", "Directory.ReadWrite.All", "DelegatedPermissionGrant.ReadWrite.All", "AppRoleAssignment.ReadWrite.All"
 
 # Get Service Principal using objectId
 $sp = Get-MgServicePrincipal -ServicePrincipalID "$ServicePrincipalID"
@@ -119,7 +119,7 @@ $spOauth2PermissionsGrants |ForEach-Object {
   }
 
 # Get all application permissions for the service principal
-$spApplicationPermissions = Get-MgServicePrincipalAppRoleAssignedTo -ServicePrincipalId $Sp.Id -All | Where-Object { $_.PrincipalType -eq "ServicePrincipal" }
+$spApplicationPermissions = Get-MgServicePrincipalAppRoleAssignment -ServicePrincipalId $Sp.Id -All | Where-Object { $_.PrincipalType -eq "ServicePrincipal" }
 
 # Remove all application permissions
 $spApplicationPermissions | ForEach-Object {

@@ -12,11 +12,7 @@ ms.collection:
 
 # Monitor Zero Trust (TIC 3.0) security architectures with Microsoft Sentinel
 
-[Zero Trust](/security/zero-trust/zero-trust-overview) is a security strategy for designing and implementing security principles that assumes breach, and verifies each request as though it originated from an uncontrolled network. A Zero Trust model implements the following security principles:
-
-- **Verify explicitly**: Always authenticate and authorize based on all available data points.
-- **Use least privilege access**: Limit user access with Just-In-Time and Just-Enough-Access (JIT/JEA), risk-based adaptive policies, and data protection.
-- **Assume breach**: Minimize blast radius and segment access. Verify end-to-end encryption and use analytics to get visibility, drive threat detection, and improve defenses.
+[!INCLUDE [zero-trust-principles](../../includes/security/zero-trust-principles.md)]
 
 This article describes how to use the Microsoft Sentinel **Zero Trust (TIC 3.0)** solution, which helps governance and compliance teams monitor and respond to Zero Trust requirements according to the [TRUSTED INTERNET CONNECTIONS (TIC) 3.0](https://www.cisa.gov/tic) initiative. 
 

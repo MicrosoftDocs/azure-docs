@@ -5,6 +5,7 @@ ms.author: ankitadutta
 author: ankitaduttaMSFT
 manager: gaggupta
 ms.topic: how-to
+ms.service: site-recovery
 ms.date: 02/11/2021
 
 ---

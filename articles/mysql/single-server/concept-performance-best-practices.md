@@ -9,7 +9,7 @@ ms.author: sisawant
 ms.date: 07/22/2022
 ---
 
-# Best practices for optimal performance of your Azure Database for MySQL server
+# Best practices for optimal performance of Azure Database for MySQL servers
 
 [!INCLUDE[applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
 
@@ -92,7 +92,7 @@ Vertically split load by functionally sharding the database - moving separate ap
 ## Data import configurations
 
 - You can temporarily scale your instance to higher SKU size before starting a data import operation and then scale it down when the import is successful.
-- You can import your data with minimal downtime by using [Azure Database Migration Service (DMS)](https://datamigration.microsoft.com/) for online or offline migrations.
+- You can import your data with minimal downtime by using [Azure Database Migration Service (DMS)](../migrate/mysql-on-premises-azure-db/01-mysql-migration-guide-intro.md) for online or offline migrations.
 
 ## Azure Database for MySQL memory recommendations
 

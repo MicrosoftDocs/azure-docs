@@ -25,11 +25,11 @@ Analyzed transactions of Azure Blob Storage include operation types such as `G
 **Defender for Storage doesn't access the Storage account data, doesn't require you to enable access logs, and has no impact on Storage performance.**
 
 > [!NOTE]
-> A new pricing is now available for Microsoft Defender for Cloud that charges you according to the number of storage accounts that you protect (per-storage account).
+> Microsoft Defender for Storage customers can now choose to move to a new predictable pricing plan. The pricing model is per-storage account, where high-volume transactions may incur additional overage charges. This new pricing plan will also include all new security features and detections.
 >
-> In the legacy pricing, the cost increases according to the number of analyzed transactions in the storage account (per-transaction). The new per-storage account fixes costs per storage account, but accounts with an exceptionally high transaction volume incur an overage charge.
+> Customers using the legacy per-transaction pricing plan need to migrate to the new per-storage account plan to access these new features and pricing. The legacy per-transaction pricing plan charges are based on the number of analyzed transactions in the storage account.
 >
-> For details about Defender for Storage pricing, see [Microsoft Defender for Cloud pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
+> For further details, please refer to the [Microsoft Defender for Storage FAQ](#faq---microsoft-defender-for-storage-pricing).
 
 Learn more about the [benefits, features, and limitations of Defender for Storage](../../defender-for-cloud/defender-for-storage-introduction.md). You can also learn more about Defender for Storage in the [Defender for Storage episode](../../defender-for-cloud/episode-thirteen.md) of the Defender for Cloud in the Field video series.
 
