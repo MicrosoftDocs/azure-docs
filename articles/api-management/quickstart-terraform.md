@@ -23,7 +23,7 @@ In this article, you learn how to:
 > * Create a random string for the Azure API Management service name using [random_string](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string)
 > * Create an Azure API Management service using [azurerm_api_management](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/api_management)
 
-[!INCLUDE [AI attribution](../../../includes/ai-generated-attribution.md)]
+[!INCLUDE [AI attribution](../../includes/ai-generated-attribution.md)]
 
 ## Prerequisites
 
