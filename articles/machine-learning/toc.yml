@@ -67,7 +67,7 @@
 - name: Quickstart
   expanded: true
   items:
-    - name: Get to know Azure ML
+    - name: Get started with Azure ML
       href: tutorial-azure-ml-in-a-day.md
 - name: Tutorials
   expanded: true
