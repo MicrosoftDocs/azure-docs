@@ -112,7 +112,7 @@ No. Not at this time.
 
 [Secure Key Release with container side-car on Azure Container Instance with confidential containers support.](https://github.com/microsoft/confidential-sidecar-containers)
 
-[CVM on AMD SEV-SNP Applications with Secure Key Release Example](./skr-flow-cvm-sevsnp-attestation.m)
+[CVM on AMD SEV-SNP Applications with Secure Key Release Example](skr-flow-cvm-sevsnp-attestation.md)
 
 [AKV REST API With SKR Details](https://learn.microsoft.com/rest/api/keyvault/keys/create-key/create-key?tabs=HTTP)
 
