@@ -2067,6 +2067,15 @@ groups:
     title: Azure CLI
   - id: bicep
     title: Bicep
+# Owner: robswain
+- id: ap5gc-portal-powershell
+  title: Deployment options
+  prompt: Choose how you deploy your resources
+  pivots:
+  - id: portal
+    title: Azure portal
+  - id: powershell
+    title: PowerShell
 # Owner: v-amallick
 - id: backup-vaults-recovery-services-vault-backup-vault
   title: Vaults
