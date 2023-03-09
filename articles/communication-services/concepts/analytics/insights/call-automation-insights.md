@@ -12,7 +12,7 @@ ms.service: azure-communication-services
 ms.subservice: data
 ---
 
-# SMS Insights
+# Call Automation Insights
 
 ## Overview
 Within your Communications Resource, we have provided an **Insights Preview** feature that displays a number of  data visualizations conveying insights from the Azure Monitor logs and metrics monitored for your Communications Services. The visualizations within Insights are made possible via [Azure Monitor Workbooks](../../../../azure-monitor/visualize/workbooks-overview.md). In order to take advantage of Workbooks, follow the instructions outlined in [Enable Azure Monitor in Diagnostic Settings](../enable-logging.md), and to enable Workbooks, you will need to send your logs to a [Log Analytics workspace](../../../../azure-monitor/logs/log-analytics-overview.md) destination. 
@@ -33,11 +33,17 @@ Within your Communications Resource, we have provided an **Insights Preview** fe
 
     :::image type="content" source="..\media\workbooks\acs-insights-tab.png" alt-text="Communication Services Insights tab":::
 
-## SMS Insights
+## Call Automation Insights
 
-The **SMS** tab displays the operations and results for SMS usage through an Azure Communication Services resource (we currently don’t have any data for this modality):
+The **Call Automation** tab displays data about calls placed or answered using Call Automation SDK, like active call count, operations executed and errors encountered by your resource over time. You can also examine a particular call by looking at the sequence of operations taken on that call using the SDK:
 
-:::image type="content" source="..\media\workbooks\sms.png" alt-text="SMS tab":::
+:::image type="content" source="..\media\workbooks\azure-communication-services-call-automation-insights.png" alt-text="Screenshot displays total call count, duration, and operation results details.":::
+
+## Recording Insights
+
+The **Recording** tab displays data relevant to total recordings, recording format, recording channel types and number of recording per call:
+
+:::image type="content" source="..\media\workbooks\azure-communication-services-recording-insights.png" alt-text="Screenshot displays recording count, duration, recording usage by format and type as well as number of recordings per call.":::
 
 ## More information about workbooks
 

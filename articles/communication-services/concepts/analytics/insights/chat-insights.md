@@ -12,7 +12,7 @@ ms.service: azure-communication-services
 ms.subservice: data
 ---
 
-# SMS Insights
+# Chat Insights
 
 ## Overview
 Within your Communications Resource, we have provided an **Insights Preview** feature that displays a number of  data visualizations conveying insights from the Azure Monitor logs and metrics monitored for your Communications Services. The visualizations within Insights are made possible via [Azure Monitor Workbooks](../../../../azure-monitor/visualize/workbooks-overview.md). In order to take advantage of Workbooks, follow the instructions outlined in [Enable Azure Monitor in Diagnostic Settings](../enable-logging.md), and to enable Workbooks, you will need to send your logs to a [Log Analytics workspace](../../../../azure-monitor/logs/log-analytics-overview.md) destination. 
@@ -33,11 +33,17 @@ Within your Communications Resource, we have provided an **Insights Preview** fe
 
     :::image type="content" source="..\media\workbooks\acs-insights-tab.png" alt-text="Communication Services Insights tab":::
 
-## SMS Insights
+## Authentication insights
 
-The **SMS** tab displays the operations and results for SMS usage through an Azure Communication Services resource (we currently don’t have any data for this modality):
+The **Authentication** tab shows authentication logs, which are created through operations such as issuing an access token or creating an identity. The data displayed includes the types of operations performed and the results of those operations:
 
-:::image type="content" source="..\media\workbooks\sms.png" alt-text="SMS tab":::
+:::image type="content" source="..\media\workbooks\auth.png" alt-text="Authentication tab":::
+
+## Chat insights
+
+The **Chat** tab displays the data for all chat-related operations and their result types:
+
+:::image type="content" source="..\media\workbooks\chat.png" alt-text="Chat tab":::
 
 ## More information about workbooks
 
