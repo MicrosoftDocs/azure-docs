@@ -1,7 +1,7 @@
 ---
-title: Configure IDEMIA with Azure Active Directory B2C (Preview) 
+title: Configure IDEMIA Mobile ID with Azure Active Directory B2C 
 titleSuffix: Azure AD B2C
-description: Learn how to integrate Azure AD B2C authentication with IDEMIA for relying party to consume IDEMIA or US State issued mobile IDs
+description: Learn to integrate Azure AD B2C authentication with IDEMIA Mobile ID for a relying party to consume Mobile ID, or US state-issued mobile IDs
 services: active-directory-b2c
 author: gargi-sinha
 manager: CelesteDG
@@ -15,118 +15,99 @@ ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
 
-# Tutorial: Configure IDEMIA with Azure Active Directory B2C for relying party to consume IDEMIA or US State issued mobile identity credentials (Preview)
-[!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
+# Tutorial: Configure IDEMIA Mobile ID with Azure Active Directory B2C 
 
-::: zone pivot="b2c-user-flow"
+## Before you begin
 
-This feature is available only for custom policies. For setup steps, select **Custom policy** in the preceding selector.
+Azure Active Directory B2C (Azure AD B2C) has two methods to define users interaction with applications: predefined user flows or configurable custom policies.  
 
-::: zone-end
+See, [User flows and custom policies overview](./user-flow-overview.md)
 
-::: zone pivot="b2c-custom-policy"
+## Integrate Azure AD B2C with IDEMIA Mobile ID
 
-In this sample tutorial, learn how to integrate Azure Active Directory (Azure AD) B2C with [IDEMIA](https://www.idemia.com/). IDEMIA is a passwordless authentication provider, which provides real-time consent-based services with biometric authentication like face ID and fingerprinting eliminating fraud and credential reuse. IDEMIA’s Mobile ID allows citizens to benefit from a government-issued trusted digital ID, as a complement to their physical ID. This application is used to verify identity by using a self-selected PIN or touch ID/face ID. Mobile ID allows citizens to control their identities by allowing them to share only the information needed for a transaction and enables fraud protection.
+IDEMIA provides biometric authentication services like face ID and fingerprinting, which reduces fraud and credential reuse. With Mobile ID, citizens benefit from a trusted, government-issued digital ID, as a complement to their physical ID. Mobile ID verifies identity by using a self-selected PIN, touch ID, or face ID. Citizens control their identities by sharing information needed for a transaction. Many state departments of motor vehicles (DMVs) use Mobile ID.
 
-
+To learn more, go to idemia.com: [IDEMIA](https://www.idemia.com/)
 
 ## Scenario description
 
-IDEMIA integration includes the following components:
+Mobile ID integration includes the following components:
 
-- **Azure AD B2C** – The authorization server, responsible for verifying the user’s credentials, also known as the Identity Provider (IdP).
+* **Azure AD B2C** – authorization server that verifies user credentials
+  * It's also known as the identity provider (IdP)
+* **IDEMIA Mobile ID** - OpenID Connect (OIDC) provider configured as an Azure AD B2C external provider
+  * See, [Add an identity provider to your Azure AD B2C tenant](add-identity-provider.md)
+* **[IDEMIA Mobile ID application]** - a digital version of a driver’s license, or state-issued ID, in an app on your phone
+  * See, [IDEMIA Mobile ID](https://idemia-mobile-id.com/)
 
-- **IDEMIA mID** - OpenID Connect (OIDC) provider configured as [Azure AD B2C external provider](add-identity-provider.md)
+Mobile ID is a digitized identification document, a portable mobile identity token that DMVs use to verify individual identities. The signed digitized ID is stored on user mobile phones as an identity on the edge. The signed credentials ease access to identity services such as proof of age, financial know your customer, account access, etc.
 
-- **[IDEMIA mID application](https://idemia-mobile-id.com/)** - A trusted, government-issued digital identity. Mobile ID is a digital version of your driver’s license or state-issued ID that lives in an app on your phone. [IDEMIA](https://idemia-mobile-id.com/).
+The following diagram illustrates the sign-up and sign-in user flows with Mobile ID.
 
-IDEMIA provides mID for many US State departments of motor vehicles (DMVs).
+![Diagram of the sign-up and sign-in user flows with Mobile ID.](./media/partner-idemia/idemia-architecture-diagram.png)
 
-The mID is a digitizing of an identification document into a strong mobile identity token that is highly portable for verification and that serves as an index for authorization **mID Services**. The mID Service allows the DMVs to proof identities of individuals by using credential document authentication using their issued drivers licenses and biometric **selfie**-to-credential facial recognition matching services.  
+1. User visits the Azure AD B2C sign-in page (the replying party), with their device and Mobile ID, to conduct a transaction.
+2. Azure AD B2C performs an ID check. It redirects the user to the IDEMIA router with an OIDC authorization code flow.
+3. The router sends a biometric challenge to the user’s mobile app with authentication and authorization request details.
+4. Depending on security, the user might be prompted provide additional details: input a PIN, take a live selfie, or both.
+5. The authentication response provides proof of possession, presence, and consent. The response returns to the router.
+6. The router verifies user information and replies to Azure AD B2C with the result.
+7. The user is granted or denied access.
 
-Once created, the mID is stored on the end user's mobile phone as a digitally signed **identity on the edge**. The end users are now able to use that signed credential for access to other identity sensitive services such as proof of age, financial know your customer, account access’s where security is paramount.
+## Enable Mobile ID
 
-The offer to Microsoft is the support of these services as the Relying party (RP) that will use a State issued mID to provide services using the attributes sent by the owner of the mID.
+To get started, go to the idemia.com [Get in touch](https://www.idemia.com/get-touch/) page to request a demo. In the request form text field, indicate your interest in Azure AD B2C integration.
 
-The following diagram shows the implementation for web or on-premises scenarios:
-
-![Screenshot shows the on-premises verification](./media/partner-idemia/idemia-architecture-diagram.png)
-
-| Step | Description |
-|:--------|:--------|
-| 1. | User visits the Azure AD B2C login page, which is the replying party in this case on their device to conduct a transaction and logs in via their mID app. |
-| 2. | Azure AD B2C requires an ID check and for that redirects the user to the IDEMIA router using the OIDC authorization code flow|
-| 3. | The IDEMIA router sends a biometric challenge to the user’s mobile app including all context details of the authentication and authorization request.|
-| 4. | Depending on the level of security needed, the user may require to provide additional details, input their PIN, take a live selfie, or both.|
-| 5. | Final authentication response provides proof of possession, presence, and consent. The response is returned to the IDEMIA router.|
-| 6. | IDEMIA router verifies the information provided by the user and replies to Azure AD B2C with the authentication result.|
-|7. | Based on the authentication result user is granted/denied access. |
-
-## Onboard with IDEMIA
-
-Get in touch with [IDEMIA](https://www.idemia.com/get-touch/) to request a demo. While filling out the request form, in the message field indicate that you want to onboard with Azure AD B2C.
-
-## Integrate IDEMIA with Azure AD B2C
+## Integrate Mobile ID with Azure AD B2C
 
 ## Prerequisites
 
-To get started, you'll need:
+To get started, you need:
 
-- Access to end users that have an IDEMIA - US state issued Mobile ID credential (mID) or during the test phase, the mID demo application provided by [IDEMIA](https://www.idemia.com/).
+* Access to users with an IDEMIA, US state issued Mobile ID credential (mID) 
+  * Or during the test phase, the mID demo application from IDEMIA
+* An Azure AD subscription
+  * If you don't have one, get an [Azure free account](https://azure.microsoft.com/free/)
+* An [Azure AD B2C tenant](tutorial-create-tenant.md) linked to the Azure subscription
+* Your business web application registered in Azure AD B2C tenant. 
+  * For testing, configure https://jwt.ms, a Microsoft-owned web application with decoded token contents.
 
-- An Azure AD subscription. If you don't have one, get a [free account](https://azure.microsoft.com/free/).
+   >[!NOTE]
+   >The token contents never leave your browser.
 
-- An [Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
+### Submit a relying party application for mID
 
-- Your business web application registered in Azure AD B2C tenant. For testing purposes you can configure https://jwt.ms, a Microsoft-owned web application that displays the decoded contents of a token.
-
->[!NOTE]
->The contents of the token never leave your browser.
-
-
-### Part 1 - Submit a Relying Party application on-boarding for mID
-
-As part of your integration with IDEMIA, you'll be provided with the following information:
+During Mobile ID integration, the following information is provided.
 
 | Property | Description |
 |:---------|:----------|
-| Application Name | Azure AD B2C or your desired application name |
-| Client_ID | This is the unique identifier provided by the IdP |
-| Client Secret | Password the relying party application will use to authenticate with the IDEMIA IdP |
-| Metadata endpoint | A URL that points to a token issuer configuration document, which is also known as an OpenID well-known configuration endpoint. |
-|Redirect URIs | `https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp`<br>For  example, `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`<br><br>If you use a custom domain, enter `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp`.<br>Replace your-domain-name with your custom domain, and your-tenant-name with the name of your tenant. |
+| Application Name | Azure AD B2C, or your an application name |
+| Client_ID | The unique identifier from the identity provider (IdP) |
+| Client Secret | Password the relying party application uses to authenticate with the IDEMIA IdP |
+| Metadata endpoint | A URL pointing to a token issuer configuration document, also known as an OpenID well-known configuration endpoint |
+|Redirect URIs | `https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp`<br>For  example, `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`<br><br>If you use a custom domain, enter `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp`.|
 |Post log out redirect URIs | `https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/{policy}/oauth2/v2.0/logout`<br>Send a sign-out request. |
 
 >[!NOTE]
->You'll need IDEMIA client ID and client secret later to configure the IdP in Azure AD B2C.
+>You need the Client ID and Client Secret later to configure the IdP in Azure AD B2C.
 
-### Part 2 - Create a policy key
+### Create a policy key
 
-Store the IDEMIA client secret that you previously recorded in your Azure AD B2C tenant.
+Store the noted IDEMIA Client Secret in your Azure AD B2C tenant. For the following instructions, use the directory with your Azure AD B2C tenant. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-
-2. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-
+2. In the portal toolbar, select the **Directories + subscriptions**.
 3. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
-
 4. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
-
 5. On the **Overview** page, select **Identity Experience Framework**.
-
 6. Select **Policy Keys** and then select **Add**.
-
 7. For **Options**, choose **Manual**.
-
 8. Enter a **Name** for the policy key. For example, IdemiaAppSecret. The prefix B2C_1A_ is added automatically to the name of your key.
-
 9. In **Secret**, enter your client secret that you previously recorded.
-
 10. For **Key** usage, select **Signature**.
-
 11. Select **Create**.
 
-### Part 3 - Configure IDEMIA as an External IdP
+### Configure IDEMIA as an External IdP
 
 To enable users to sign in using IDEMIA mobile ID passwordless identity, you need to define IDEMIA as a claims provider that Azure AD B2C can communicate with through an endpoint. The endpoint provides a set of claims that are used by Azure AD B2C to verify a specific user has authenticated using biometry such as fingerprint or facial scan as available on their device, proving the user’s identity.
 You can define IDEMIA as a claims provider by adding it to the **ClaimsProvider** element in the extension file of your policy.
@@ -298,5 +279,3 @@ For additional information, review the following articles:
 - [Get started with custom policies in Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)
 
 - [Learn more about IDEMIA mID](https://www.idemia.com/mobile-id)
-
-::: zone-end
