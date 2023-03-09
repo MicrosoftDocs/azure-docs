@@ -147,6 +147,9 @@ items:
     href: concept-layout.md
   - name: Query fields
     href: concept-query-fields.md  
+  - name: 🆕 Health insurance card model (preview)
+    displayName: health, proof, hospital
+    href: concept-insurance-card.md
   - name: 🆕 Add-on capabilities (preview)
     displayName: extract, formula, font, styles, fontStyle, ocr.highResolution, ocr.formula, high resolution, background color, inline, display
     href: concept-add-on-capabilities.md

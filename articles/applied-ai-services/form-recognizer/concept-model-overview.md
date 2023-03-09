@@ -7,13 +7,14 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 10/20/2022
+ms.date: 03/03/2023
 ms.author: lajanuar
 recommendations: false
 ---
 
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD033 -->
+<!-- markdownlint-disable MD011 -->
 
 # Document processing models
 
@@ -40,9 +41,10 @@ recommendations: false
 | [Layout analysis](#layout-analysis)  | Extract text and document layout elements like tables, selection marks, titles, section headings, and more.|
 | [General document](#general-document) | Extract key-value pairs in addition to text and document structure information.|
 |**Prebuilt models**||
+| [Health insurance card](#health-insurance-card) | Automate healthcare processes by extracting insurer, member, prescription, group number and other key information from US health insurance cards.|
 | [W-2](#w-2) | Process W2 forms to extract employee, employer, wage, and other information.  |
-| [Invoice](#invoice)  | Automate invoice processing for English and Spanish invoices. |
-| [Receipt](#receipt)  | Extract receipt data from English receipts.|
+| [Invoice](#invoice)  | Automate invoices. |
+| [Receipt](#receipt)  | Extract receipt data from receipts.|
 | [Identity document (ID)](#identity-document-id)  | Extract identity (ID) fields from US driver licenses and international passports. |
 | [Business card](#business-card)  | Scan business cards to extract key fields and data into your applications. |
 |**Custom models**||
@@ -80,17 +82,29 @@ The Layout analysis model analyzes and extracts text, tables, selection marks, a
 
 [:::image type="icon" source="media/studio/general-document.png":::](https://formrecognizer.appliedai.azure.com/studio/document)
 
-The general document model is ideal for extracting common key-value pairs from forms and documents. It’s a pre-trained model and can be directly invoked via the REST API and the SDKs. You can use the general document model as an alternative to training a custom model.
+The general document model is ideal for extracting common key-value pairs from forms and documents. It's a pre-trained model and can be directly invoked via the REST API and the SDKs. You can use the general document model as an alternative to training a custom model.
 
 ***Sample document processed using the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/document)***:
 
-:::image type="content" source="media/studio/general-document-analyze.png" alt-text="Screenshot: general document analysis in the Form Recognizer Studio.":::
+:::image type="content" source="media/studio/general-document-analyze.png" alt-text="Screenshot of general document analysis in the Form Recognizer Studio.":::
 
 > [!div class="nextstepaction"]
 > [Learn more: general document model](concept-general-document.md)
 
+### Health insurance card
 
-### W-2 
+:::image type="content" source="media/studio/health-insurance-logo.png" alt-text="Screenshot of insurance card analysis in Form Recognizer Studio.":::
+
+The health insurance card model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to analyze and extract key information from US health insurance cards.
+
+***Sample US health insurance card processed using [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=healthInsuranceCard.us)***:
+
+:::image type="content" source="./media/studio/analyze-health-card.png" alt-text="Screenshot of a sample US health insurance card analysis in Form Recognizer Studio." lightbox="./media/studio/analyze-health-card.png":::
+
+> [!div class="nextstepaction"]
+> [Learn more: Health insurance card model](concept-insurance-card.md)
+
+### W-2
 
 [:::image type="icon" source="media/studio/w2.png":::](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2)
 
@@ -159,7 +173,7 @@ Use the business card model to scan and extract key information from business ca
 
  [:::image type="icon" source="media/studio/custom.png":::](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects)
 
-Custom document models analyze and extract data from forms and documents specific to your business. They are trained to recognize form fields within your distinct content and extract key-value pairs and table data. You only need five examples of the same form type to get started.
+Custom document models analyze and extract data from forms and documents specific to your business. They're trained to recognize form fields within your distinct content and extract key-value pairs and table data. You only need five examples of the same form type to get started.
 
 Version v3.0 custom model supports signature detection in custom forms (template model) and cross-page tables in both template and neural models.
 
@@ -186,6 +200,7 @@ A composed model is created by taking a collection of custom models and assignin
 | **Model ID** | **Text extraction** | **Language detection** | **Selection Marks** | **Tables** | **Paragraphs** | **Structure** | **Key-Value pairs** | **Fields** |
 |:-----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
 | [prebuilt-read](concept-read.md#data-extraction) | ✓ | ✓ |  |  | ✓ |   |  |   |
+| [prebuilt-healthInsuranceCard.us](concept-insurance-card.md#field-extraction) | ✓  |   |  ✓  |  | ✓ |    |  | ✓ |
 | [prebuilt-tax.us.w2](concept-w2.md#field-extraction) | ✓  |   |  ✓  |  | ✓ |    |  | ✓ |
 | [prebuilt-document](concept-general-document.md#data-extraction)| ✓  |   |  ✓ | ✓ | ✓  |    | ✓  |  |
 | [prebuilt-layout](concept-layout.md#data-extraction)  | ✓  |   | ✓ | ✓ | ✓  | ✓  |  |  |

@@ -110,7 +110,7 @@ The page units in the model output are computed as shown:
 
 ### Extracting barcodes from documents
 
-The Read OCR model extracts all identified barcodes in the `barcodes` collection as a top level object under `content`. Inside the `content`, detected barcodes are represented as `:barcode:`. Each entry in this collection represents a barcode and includes the barcode type as `kind` and the embedded barcode content as `value` along with its `polygon` coordinates. Initially, barcodes appear at the end of each page. Here, the `confidence` is hard-coded for the public preview (`2023-03-06`) release.
+The Read OCR model extracts all identified barcodes in the `barcodes` collection as a top level object under `content`. Inside the `content`, detected barcodes are represented as `:barcode:`. Each entry in this collection represents a barcode and includes the barcode type as `kind` and the embedded barcode content as `value` along with its `polygon` coordinates. Initially, barcodes appear at the end of each page. Here, the `confidence` is hard-coded for the public preview (`2023-02-28`) release.
 
 #### Supported barcode types
 

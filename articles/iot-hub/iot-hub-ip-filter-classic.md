@@ -7,7 +7,6 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/16/2020
 ms.author: kgremban 
-ms.custom: devx-track-azurepowershell
 ---
 
 # IoT Hub classic IP filter and how to upgrade 
