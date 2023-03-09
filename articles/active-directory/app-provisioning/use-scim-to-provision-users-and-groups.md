@@ -978,7 +978,7 @@ For more information on HTTPS in ASP.NET Core, use the following link:
 
 ### Handling endpoint authentication
 
-Requests from Azure AD Provisioning Service include an OAuth 2.0 bearer token. The bearer token is a security token that's issued by an authorization server, such as Azure AD and is trusted by your application. You can configure the Azure AD provisions service to use one of the following tokens:
+Requests from Azure AD Provisioning Service include an OAuth 2.0 bearer token. An authorization server issues the bearer token. Azure AD is an example of a trusted  authorization server. Configure the Azure AD provisioning service to use one of the following tokens:
 
 - A long-lived bearer token. If the SCIM endpoint requires an OAuth bearer token from an issuer other than Azure AD, then copy the required OAuth bearer token into the optional **Secret Token** field. In a development environment, you can use the testing token from the `/scim/token` endpoint. Test tokens shouldn't be used in production environments.
 
