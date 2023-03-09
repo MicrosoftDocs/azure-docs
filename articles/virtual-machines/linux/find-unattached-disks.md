@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 03/30/2018
 ms.author: rogarana
 ms.subservice: disks
+ms.custom: devx-track-azurecli
 ---
 
 # Find and delete unattached Azure managed and unmanaged disks using the Azure CLI

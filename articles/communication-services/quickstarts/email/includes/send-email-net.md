@@ -279,7 +279,6 @@ catch (Exception ex)
 }
 ```
 
-### Run the code
 
 Run the application from your application directory with the `dotnet run` command.
 

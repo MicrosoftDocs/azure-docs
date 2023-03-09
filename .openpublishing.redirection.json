@@ -6314,16 +6314,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/batch/batch-custom-image-pools-to-azure-compute-gallery-migration-guide.md",
-            "redirect_url": "/azure/batch",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/batch/batch-pools-to-simplified-compute-node-communication-model-migration-guide.md",
-            "redirect_url": "/azure/batch",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/batch/big-compute-resources.md",
             "redirect_url": "/azure/architecture/topics/high-performance-computing/",
             "redirect_document_id": false
@@ -7784,13 +7774,23 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-maps/mobility-service-data-structure.md ",
+            "source_path_from_root": "/articles/azure-maps/mobility-service-data-structure.md",
             "redirect_url": "/azure/azure-maps",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-maps/power-bi-visual-getting-started.md ",
+            "source_path_from_root": "/articles/azure-maps/power-bi-visual-getting-started.md",
             "redirect_url": "/azure/azure-maps/power-bi-visual-get-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/tutorial-creator-wfs.md",
+            "redirect_url": "/azure/azure-maps/how-to-creator-wfs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/tutorial-creator-feature-stateset.md",
+            "redirect_url": "/azure/azure-maps/how-to-creator-feature-stateset",
             "redirect_document_id": false
         },
         {
@@ -20683,6 +20683,11 @@
         {
             "source_path_from_root": "/articles/migrate/tutorial-assessment-vmware.md",
             "redirect_url": "tutorial-prepare-vmware",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/migrate/tutorial-migrate-webapps.md",
+            "redirect_url": "/azure/migrate/tutorial-modernize-asp-net-appservice-code",
             "redirect_document_id": false
         },
         {
