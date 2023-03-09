@@ -31,33 +31,40 @@ To complete this tutorial, you need the following resources:
 - An existing Azure Cosmos DB for MongoDB vCore cluster.
   - If you don't have an Azure subscription, [create an account for free](https://azure.microsoft.com/free).
   - If you have an existing Azure subscription, [create a new Azure Cosmos DB for MongoDB vCore cluster](quickstart-portal.md?tabs=azure-cli).
-- A [Github account](https://github.com/join).
+- A [GitHub account](https://github.com/join).
   - GitHub comes with free Codespaces hours for all users. For more information, see [GitHub Codespaces free utilization](https://github.com/features/codespaces#pricing).
 
-## Setup your environment
+## Set up your environment
 
+Let's start by setting up your dev environment.
 
+### [GitHub Codespaces](#tab/github-codespaces)
 
-Use GitHub Codespaces so that you have the correct developer tools and dependencies pre-installed on your machine.
+For the most straightforward dev environment, we use GitHub Codespaces so that you have the correct developer tools and dependencies pre-installed on your machine. Codespaces also pre-configures your local MongoDB database for testing.
 
 1. Create a new GitHub Codespace on the `main` branch of the [`azure-samples/msdocs-azure-cosmos-db-mongodb-mern-web-app`](https://github.com/azure-samples/msdocs-azure-cosmos-db-mongodb-mern-web-app) GitHub repository.
 
     > [!div class="nextstepaction"]
     > [Migrate your data](https://github.com/azure-samples/msdocs-azure-cosmos-db-mongodb-mern-web-app/codespaces)
 
-1. Wait for the Codespace to start. This can take two to three minutes.
+1. Wait for the Codespace to start. This startup process can take two to three minutes.
 
 1. Open a new terminal in the codespace.
 
     > [!TIP]
     > You can use the main menu to navigate to the **Terminal** menu option and then select the **New Terminal** option.
 
-1. Check the versions of the tools you will use in this tutorial.
+    :::image type="content" source="media/tutorial-nodejs-web-app/open-terminal-option.png" lightbox="media/tutorial-nodejs-web-app/open-terminal-option.png" alt-text="Screenshot of the menu option to open a new terminal.":::
+
+1. Check the versions of the tools you use in this tutorial.
 
     ```bash
     node --version
+
     npm --version
+
     mongosh --version
+
     az --version
     ```
 
@@ -72,9 +79,51 @@ Use GitHub Codespaces so that you have the correct developer tools and dependenc
     > | Azure CLI | &ge; 2.46.0 |
     >
 
-## Test the MERN application with the MongoDB container
+1. In the side bar, select the MongoDB extension.
 
-Start by running the sample application with the local MongoDB container to validate that the application works.
+    :::image type="content" source="media/tutorial-nodejs-web-app/select-mongodb-option.png" alt-text="Screenshot of the MongoDB extension in the side bar.":::
+
+1. Add a new connection to the MongoDB extension using the connection string `mongodb://testdb`.
+
+    :::image type="content" source="media/tutorial-nodejs-web-app/select-mongodb-add-connection.png" alt-text="Screenshot of the add connection button in the MongoDB extension.":::
+
+1. Once the connection is successful, open the **data/products.mongodb** playground file.
+
+1. Select the **Run all** icon to execute the script.
+
+    :::image type="content" source="media/tutorial-nodejs-web-app/select-mongodb-playground-run-all.png" alt-text="Screenshot of the run all button in a playground for the MongoDB extension.":::
+
+1. The playground run should result in a list of documents in the local MongoDB collection. Here's a truncated example of the output.
+
+    ```output
+    [
+      {
+        "_id": { "$oid": "640a146e89286b79b6628eef" },
+        "name": "Confira Watch",
+        "category": "watches",
+        "price": 105
+      },
+      {
+        "_id": { "$oid": "640a146e89286b79b6628ef0" },
+        "name": "Diannis Watch",
+        "category": "watches",
+        "price": 98,
+        "sale": true
+      },
+      ...
+    ]
+    ```
+
+    > [!NOTE]
+    > The object ids (`_id`) are randomnly generated and will differ from this truncated example output.
+
+### [Visual Studio Code](#tab/visual-studio-code)
+
+Alternatively, you can complete this tutorial in [Visual Studio Code](https://code.visualstudio.com) with the following pre-requisites installed:
+
+- [Node.js](https://nodejs.org/)
+- [Docker](https://www.docker.com/)
+- [MongoDB Shell](https://www.mongodb.com/)
 
 1. Run a MongoDB container using Docker and publish the typical MongoDB port (`27017`) as a custom port (`65000`).
 
@@ -86,32 +135,57 @@ Start by running the sample application with the local MongoDB container to vali
 1. Connect to the MongoDB container using the mongo shell.
 
     ```bash
-    mongosh "mongodb://127.0.0.1:65000"
+    mongosh "mongodb://localhost:65000"
     ```
 
-1. TODO
+1. Run the following commands to create a database and collection. The command will then seed the collection with sample data and output a list of all documents in the collection.
 
     ```bash
-    use cosmicworks
-    ```
-
-1. TODO
-
-    ```bash
+    use('cosmicworks');
+    
+    db.products.drop();
+    
     db.products.insertMany([
       { name: "Confira Watch", category: "watches", price: 105.00 },
       { name: "Diannis Watch", category: "watches", price: 98.00, sale: true },
-      { name: "Peache Sunglasses", category: "sunglasses", price: 32.00, sale: false, sizes: [ "S", "M", "L" ] }
-    ])
+      { name: "Sterse Gloves", category: "gloves", price: 42.00 },
+      { name: "Peache Sunglasses", category: "eyewear", price: 32.00, sale: false, sizes: [ "S", "M", "L" ] },
+      { name: "Icento Pack", category: "bags", price: 58.00 },
+      { name: "Iroowl Bracelet", category: "watches", price: 66.00 },
+      { name: "Glaark Bag", category: "bags", price: 56.00, sale: true },
+      { name: "Windry Mittens", category: "gloves", price: 35.00 },
+      { name: "Tuvila Hat", category: "hats", price: 120.00 },
+      { name: "Klinto Hat", category: "hats", subcategory: "hats-beanies", price: 65.00 }
+    ]);
+    
+    db.products.find({});
     ```
 
-1. TODO
+1. The commands should result in a list of documents in the local MongoDB collection. Here's a truncated example of the output.
 
-    ```bash
-    db.products.find({})
+    ```output
+    [
+      {
+        "_id": { "$oid": "640a146e89286b79b6628eef" },
+        "name": "Confira Watch",
+        "category": "watches",
+        "price": 105
+      },
+      {
+        "_id": { "$oid": "640a146e89286b79b6628ef0" },
+        "name": "Diannis Watch",
+        "category": "watches",
+        "price": 98,
+        "sale": true
+      },
+      ...
+    ]
     ```
 
-1. TODO
+    > [!NOTE]
+    > The object ids (`_id`) are randomnly generated and will differ from this truncated example output.
+
+1. Exit the mongo shell.
 
     ```bash
     exit
@@ -122,6 +196,12 @@ Start by running the sample application with the local MongoDB container to vali
     ```bash
     git clone https://github.com/azure-samples/msdocs-azure-cosmos-db-mongodb-mern-web-app.git .
     ```
+
+---
+
+## Test the MERN application with the MongoDB container
+
+Start by running the sample application with the local MongoDB container to validate that the application works.
 
 1. TODO
 
