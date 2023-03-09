@@ -92,7 +92,7 @@ On the **Enterprise** and **Enterprise Flash** tiers, data is persisted to a man
    | Setting      | Suggested value  | Description |
    | ------------ |  ------- | -------------------------------------------------- |
    | **Backup Frequency** | Drop-down and select a backup interval. Choices include **15 Minutes**, **30 minutes**, **60 minutes**, **6 hours**, **12 hours**, and **24 hours**. | This interval starts counting down after the previous backup operation successfully completes. When it elapses, a new backup starts. |
-   | **Storage Account** | Drop-down and select your storage account. | Choose a storage account in the same region and subscription as the cache. A **Premium Storage** account is recommended because it has higher throughput. Also, we recommend that you avoid using the soft delete feature on the storage account as it leads to increased storage costs. For more information, see [Pricing and billing](../storage/blobs/soft-delete-blob-overview.md). |
+   | **Storage Account** | Drop-down and select your storage account. | Choose a storage account in the same region and subscription as the cache. A **Premium Storage** account is recommended because it has higher throughput. Also, we _strongly_ recommend that you disable the soft delete feature on the storage account as it leads to increased storage costs. For more information, see [Pricing and billing](../storage/blobs/soft-delete-blob-overview.md). |
    | **Storage Key** | Drop-down and choose either the **Primary key** or **Secondary key** to use. | If the storage key for your persistence account is regenerated, you must reconfigure the key from the **Storage Key** drop-down. |
 
     The first backup starts once the backup frequency interval elapses.
@@ -104,7 +104,7 @@ On the **Enterprise** and **Enterprise Flash** tiers, data is persisted to a man
 
    | Setting      | Suggested value  | Description |
    | ------------ |  ------- | -------------------------------------------------- |
-   | **First Storage Account** | Drop-down and select your storage account. | Choose a storage account in the same region and subscription as the cache. A **Premium Storage** account is recommended because it has higher throughput. Also, we recommend that you avoid using the soft delete feature on the storage account  as it leads to increased storage costs. For more information, see [Pricing and billing](../storage/blobs/soft-delete-blob-overview.md). |
+   | **First Storage Account** | Drop-down and select your storage account. | Choose a storage account in the same region and subscription as the cache. A **Premium Storage** account is recommended because it has higher throughput. Also, we _strongly_ recommend that you disable the soft delete feature on the storage account as it leads to increased storage costs. For more information, see [Pricing and billing](../storage/blobs/soft-delete-blob-overview.md). |
    | **First Storage Key** | Drop-down and choose either the **Primary key** or **Secondary key** to use. | If the storage key for your persistence account is regenerated, you must reconfigure the key from the **Storage Key** drop-down. |
    | **Second Storage Account** | (Optional) Drop-down and select your secondary storage account. | You can optionally configure another storage account. If a second storage account is configured, the writes to the replica cache are written to this second storage account. |
    | **Second Storage Key** | (Optional) Drop-down and choose either the **Primary key** or **Secondary key** to use. | If the storage key for your persistence account is regenerated, you must reconfigure the key from the **Storage Key** drop-down. |
@@ -339,7 +339,7 @@ Using managed identity adds the cache instance to the [trusted services list](..
 
 ### Can I have AOF persistence enabled if I have more than one replica?
 
-This is supported in the Enterprise and Enterprise Flash tiers. With the Premium tier, you can't use Append-only File (AOF) persistence with multiple replicas. 
+With the Premium tier, you can't use Append-only File (AOF) persistence with multiple replicas. In the Enterprise and Enterprise Flash tiers, replica architecture is more complicated, but AOF persistence is supported when Enterprise caches are used in zone redundant deployment.  
 
 ## Next steps
 
