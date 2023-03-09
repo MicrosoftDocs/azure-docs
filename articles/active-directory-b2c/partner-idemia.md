@@ -19,9 +19,7 @@ zone_pivot_groups: b2c-policy-type
 
 ## Before you begin
 
-Azure Active Directory B2C (Azure AD B2C) has two methods to define users interaction with applications: predefined user flows or configurable custom policies.  
-
-See, [User flows and custom policies overview](./user-flow-overview.md)
+Azure Active Directory B2C (Azure AD B2C) has two methods to define users interaction with applications: predefined user flows or configurable custom policies. See, [User flows and custom policies overview](./user-flow-overview.md)
 
 ## Integrate Azure AD B2C with IDEMIA Mobile ID
 
