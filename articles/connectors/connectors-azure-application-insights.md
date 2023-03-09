@@ -10,7 +10,7 @@ tags: connectors
 # As a developer, I want to get telemetry from an Application Insights resource to use with my workflow in Azure Logic Apps.
 ---
 
-# Connect to Azure Monitor Application Insights from workflows in Azure Logic Apps
+# Connect to Azure Application Insights from workflows in Azure Logic Apps
 
 > [!NOTE]
 > 
