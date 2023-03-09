@@ -1,12 +1,12 @@
 ---
-title: Overview of Azure Active Directory authentication strength (preview)
+title: Overview of Azure Active Directory authentication strength 
 description: Learn how admins can use Azure AD Conditional Access to distinguish which authentication methods can be used based on relevant security factors.
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/29/2023
+ms.date: 03/09/2023
 
 ms.author: justinha
 author: justinha
@@ -92,7 +92,7 @@ GET https://graph.microsoft.com/beta/identity/conditionalAccess/authenticationSt
 
 In addition to the three built-in authentication strengths, administrators can create up to 15 of their own custom authentication strengths to exactly suit their requirements. A custom authentication strength can contain any of the supported combinations in the preceding table. 
 
-1. In the Azure portal, browse to **Azure Active Directory** > **Security** > **Authentication methods** > **Authentication strengths (Preview)**.
+1. In the Azure portal, browse to **Azure Active Directory** > **Security** > **Authentication methods** > **Authentication strengths**.
 1. Select **New authentication strength**.
 1. Provide a descriptive **Name** for your new authentication strength.
 1. Optionally provide a **Description**.
@@ -225,13 +225,13 @@ An authentication strength Conditional Access policy works together with [MFA tr
 
 ## Limitations
 
-- **Conditional Access policies are only evaluated after the initial authentication** -  As a result, authentication strength will not restrict a user's initial authentication. Suppose you are using the built-in phishing-resistant MFA strength. A user can still type in their password, but they will be required to use a phishing-resistant method such as FIDO2 security key before they can continue.
+- **Conditional Access policies are only evaluated after the initial authentication** -  As a result, authentication strength doesn't restrict a user's initial authentication. Suppose you are using the built-in phishing-resistant MFA strength. A user can still type in their password, but they will be required to use a phishing-resistant method such as FIDO2 security key before they can continue.
 
 - **Require multifactor authentication and Require authentication strength can't be used together in the same Conditional Access policy** - These two Conditional Access grant controls can't be used together because the built-in authentication strength **Multifactor authentication** is equivalent to the **Require multifactor authentication** grant control.
 
-- **Authentication methods that are currently not supported by authentication strength** - The  Email one-time pass (Guest) authentication method is not included in the available combinations.
+- **Authentication methods that aren't currently supported by authentication strength** - The **Email one-time pass (Guest)** authentication method isn't included in the available combinations.
 
-- **Windows Hello for Business** – If the user has used Windows Hello for Business as their primary authentication method it can be used to satisfy an authentication strength requirement that includes Windows Hello for Business. However, if the user has used another method as their primary authenticating method (for example, password) and the authentication strength requires them to use Windows Hello for Business they will not be prompted to use not register for Windows Hello for Business. 
+- **Windows Hello for Business** – If the user signed in with Windows Hello for Business as their primary authentication method, it can be used to satisfy an authentication strength requirement that includes Windows Hello for Business. But if the user signed in with another method like password as their primary authenticating method, and the authentication strength requires Windows Hello for Business, they get prompted to sign in with Windows Hello for Business. 
 
 ## FAQ
 
