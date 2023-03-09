@@ -3,6 +3,7 @@ title: Integrations with partner services - Microsoft Defender for IoT
 description: Learn about supported integrations with Microsoft Defender for IoT.
 ms.date: 08/02/2022
 ms.topic: overview
+ms.custom: enterprise-iot
 ---
 
 # Integrations with Microsoft and partner services
@@ -10,7 +11,6 @@ ms.topic: overview
 Integrate Microsoft Defender for Iot with partner services to view partner data in Defender for IoT, or to view Defender for IoT data in a partner service.
 
 ## Aruba ClearPass
-
 
 |Name  |Description  |Support scope  |Supported by  |Learn more |
 |---------|---------|---------|---------|---------|
@@ -73,13 +73,11 @@ Integrate Microsoft Defender for Iot with partner services to view partner data 
 |**Defender for IoT data connector in Microsoft Sentinel**     |  Displays Defender for IoT cloud data in Microsoft Sentinel, supporting end-to-end SOC investigations for Defender for IoT alerts.   |    - OT and Enterprise IoT networks <br>- Cloud-connected sensors       |    Microsoft       | [Integrate Microsoft Sentinel and Microsoft Defender for IoT](../../sentinel/iot-solution.md?tabs=use-out-of-the-box-analytics-rules-recommended)  |
 |**Microsoft Sentinel**     |  Send Defender for IoT alerts from on-premises resources to Microsoft Sentinel.   |    - OT networks <br>- Locally managed sensors and on-premises management consoles       |  Microsoft       | [Connect on-premises OT network sensors to Microsoft Sentinel](integrations/on-premises-sentinel.md) |
 
-
 ## Palo Alto
 
 |Name  |Description  |Support scope  |Supported by  |Learn more |
 |---------|---------|---------|---------|---------|
 |**Palo Alto**     |   Use Defender for IoT data to block critical threats with Palo Alto firewalls, either with automatic blocking or with blocking recommendations.      |  - OT networks<br>- Locally managed sensors and on-premises management consoles       |     Microsoft    | [Integrate Palo-Alto with Microsoft Defender for IoT](tutorial-palo-alto.md)   |
-
 
 ## RSA NetWitness
 
@@ -100,7 +98,6 @@ Integrate Microsoft Defender for Iot with partner services to view partner data 
 |Name  |Description  |Support scope  |Supported by  |Learn more |
 |---------|---------|---------|---------|---------|
 |**Skybox**      |   Import vulnerability occurrence data discovered by Defender for IoT in your Skybox platform.     |  - OT networks<br>- Locally managed sensors and on-premises management consoles    |   Skybox      |  [Skybox documentation](https://docs.skyboxsecurity.com)  <br><br>  [Skybox integration page](https://www.skyboxsecurity.com/products/integrations)  |
-
 
 ## Splunk
 
