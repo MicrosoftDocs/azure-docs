@@ -127,7 +127,7 @@ Some networks have packet overhead, which makes the default docker network MTU (
 
 #### Solution
 
-Check the MTU setting for your device and ensure it's appropriately set based on your network setting. The MTU for the docker network cannot be higher than the MTU for your device. Contact your ISP for more information.
+Check the MTU setting for your docker network and ensure it's appropriately set based on the MTU setting of your device. The MTU for the docker network cannot be higher than the MTU for your device. Contact your ISP for more information.
 
 If the MTU settings are correct, try the following workaround:
 
