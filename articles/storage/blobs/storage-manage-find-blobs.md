@@ -67,19 +67,21 @@ You can apply multiple tags on your blob to be more descriptive of the data.
 > "Status" = 'Unprocessed'
 > "Priority" = '01'
 
-To modify the existing index tag attributes, retrieve the existing tag attributes, modify the tag attributes, and replace with the [Set Blob Tags](/rest/api/storageservices/set-blob-tags) operation. To remove all index tags from the blob, call the `Set Blob Tags` operation with no tag attributes specified. As blob index tags are a subresource to the blob data contents, `Set Blob Tags` doesn't modify any underlying content and doesn't change the blob's last-modified-time or eTag. You can create or modify index tags for all current base blobs. Index tags are also preserved for previous versions but they aren't passed to the blob index engine, so you cannot query index tags to retrieve previous versions. Tags on snapshots or soft deleted blobs cannot be modified.
+To modify the existing index tag attributes, retrieve the existing tag attributes, modify the tag attributes, and replace with the [Set Blob Tags](/rest/api/storageservices/set-blob-tags) operation. To remove all index tags from the blob, call the `Set Blob Tags` operation with no tag attributes specified. As blob index tags are a subresource to the blob data contents, `Set Blob Tags` doesn't modify any underlying content and doesn't change the blob's last-modified-time or eTag. You can create or modify index tags for all current base blobs. Index tags are also preserved for previous versions but they aren't passed to the blob index engine, so you cannot query index tags to retrieve previous versions. Tags on snapshots or soft-deleted blobs cannot be modified.
 
 The following limits apply to blob index tags:
 
 - Each blob can have up to 10 blob index tags
 
-- Tag keys must be between one and 128 characters
+- Tag keys must be between one and 128 characters.
 
-- Tag values must be between zero and 256 characters
+- Tag values must be between zero and 256 characters.
 
-- Tag keys and values are case-sensitive
+- Tag keys and values are case-sensitive.
 
-- Tag keys and values only support string data types. Any numbers, dates, times, or special characters are saved as strings
+- Tag keys and values only support string data types. Any numbers, dates, times, or special characters are saved as strings.
+
+- If versioning is enabled, index tags are applied to a specific version of blob. If you set index tags on the current version, and a new version is created, then the tag won't be associated with the new version. The tag will be associated only with the previous version.
 
 - Tag keys and values must adhere to the following naming rules:
 

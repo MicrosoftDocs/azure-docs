@@ -1,10 +1,11 @@
 ---
 title: Alert schema definitions in Azure Monitor for Test Action Group
 description: Understand the common alert schema definitions for Azure Monitor for the Test Action group.
-author: jacegummersall
 ms.topic: conceptual
 ms.date: 01/14/2022
 ms.revewer: jagummersall
+author: AbbyMSFT
+ms.author: abbyweisberg
 ---
 
 # Common alert schema definitions for Test Action Group (preview)
@@ -679,35 +680,8 @@ You can also use `LinkToFilteredSearchResultsAPI` or `LinkToSearchResultsAPI` to
 }
 ```
 
-#### monitoringService = Budget
-
-**Sample values**
-```json
-{
-   "schemaId":"AIP Budget Notification",
-   "data":{
-      "SubscriptionName":"test-subscription",
-      "SubscriptionId":"11111111-1111-1111-1111-111111111111",
-      "EnrollmentNumber":"",
-      "DepartmentName":"test-budgetDepartmentName",
-      "AccountName":"test-budgetAccountName",
-      "BillingAccountId":"",
-      "BillingProfileId":"",
-      "InvoiceSectionId":"",
-      "ResourceGroup":"test-RG",
-      "SpendingAmount":"1111.32",
-      "BudgetStartDate":"11/17/2021 5:40:29 PM -08:00",
-      "Budget":"10000",
-      "Unit":"USD",
-      "BudgetCreator":"email@domain.com",
-      "BudgetName":"test-budgetName",
-      "BudgetType":"Cost",
-      "NotificationThresholdAmount":"8000.0"
-   }
-}
-```
-
-#### monitoringService = Actual Cost Budget
+#### `monitoringService` = `CostAlerts`
+Actual cost budget
 
 **Sample values**
 ```json
@@ -726,9 +700,11 @@ You can also use `LinkToFilteredSearchResultsAPI` or `LinkToSearchResultsAPI` to
          "signalType": null,
          "monitorCondition": null,
          "alertTargetIDs": null,
-         "configurationItems": ["budgets"],
+         "configurationItems": [
+            "budgets"
+         ],
          "originAlertId": null
-          },
+      },
       "alertContext": {
          "AlertCategory": "budgets",
          "AlertData": {
@@ -748,7 +724,9 @@ You can also use `LinkToFilteredSearchResultsAPI` or `LinkToSearchResultsAPI` to
    }
 }
 ```
-#### monitoringService = Forecasted Budget
+
+#### `monitoringService` = `CostAlerts`
+Forecasted cost budget
 
 **Sample values**
 ```json
@@ -767,7 +745,9 @@ You can also use `LinkToFilteredSearchResultsAPI` or `LinkToSearchResultsAPI` to
          "signalType": null,
          "monitorCondition": null,
          "alertTargetIDs": null,
-         "configurationItems": ["budgets"],
+         "configurationItems": [
+            "budgets"
+         ],
          "originAlertId": null
       },
       "alertContext": {
@@ -791,7 +771,7 @@ You can also use `LinkToFilteredSearchResultsAPI` or `LinkToSearchResultsAPI` to
 }
 ```
 
-#### monitoringService = Smart Alert
+#### `monitoringService` = `Smart Alert`
 
 **Sample values**
 ```json

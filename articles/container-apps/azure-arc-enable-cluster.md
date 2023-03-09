@@ -4,10 +4,10 @@ description: 'Tutorial: learn how to set up Azure Container Apps in your Azure A
 services: container-apps
 author: cebundy
 ms.service: container-apps
+ms.custom: devx-track-azurecli
 ms.topic: tutorial
 ms.date: 12/16/2022
 ms.author: v-bcatherine
-
 ---
 ---
 # Tutorial: Enable Azure Container Apps on Azure Arc-enabled Kubernetes (Preview)
@@ -91,7 +91,6 @@ Set environment variables based on your Kubernetes cluster deployment.
 
 ```bash
 GROUP_NAME="my-arc-cluster-group"
-CLUSTER_NAME="my-arc-cluster"
 AKS_CLUSTER_GROUP_NAME="my-aks-cluster-group"
 AKS_NAME="my-aks-cluster" 
 LOCATION="eastus" 
@@ -101,7 +100,6 @@ LOCATION="eastus"
 
 ```azurepowershell
 $GROUP_NAME="my-arc-cluster-group"
-$CLUSTER_NAME="my-arc-cluster"
 $AKS_CLUSTER_GROUP_NAME="my-aks-cluster-group"
 $AKS_NAME="my-aks-cluster" 
 $LOCATION="eastus" 
@@ -121,7 +119,7 @@ The following steps help you get started understanding the service, but for prod
     az group create --name $AKS_CLUSTER_GROUP_NAME --location $LOCATION
     az aks create \
        --resource-group $AKS_CLUSTER_GROUP_NAME \
-       --name $AKS_NAME \ 
+       --name $AKS_NAME \
        --enable-aad \
        --generate-ssh-keys
     ```
@@ -212,7 +210,7 @@ A [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md) pro
 
     az monitor log-analytics workspace create `
         --resource-group $GROUP_NAME `
-        --workspace-name $wORKSPACE_NAME
+        --workspace-name $WORKSPACE_NAME
     ```
 
     ---
@@ -224,13 +222,13 @@ A [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md) pro
     ```azurecli
     LOG_ANALYTICS_WORKSPACE_ID=$(az monitor log-analytics workspace show \
         --resource-group $GROUP_NAME \
-        --workspace-name $wORKSPACE_NAME \
+        --workspace-name $WORKSPACE_NAME \
         --query customerId \
         --output tsv)
     LOG_ANALYTICS_WORKSPACE_ID_ENC=$(printf %s $LOG_ANALYTICS_WORKSPACE_ID | base64 -w0) # Needed for the next step
     lOG_ANALYTICS_KEY=$(az monitor log-analytics workspace get-shared-keys \
         --resource-group $GROUP_NAME \
-        --workspace-name $wORKSPACE_NAME \
+        --workspace-name $WORKSPACE_NAME \
         --query primarySharedKey \
         --output tsv)
     lOG_ANALYTICS_KEY_ENC=$(printf %s $lOG_ANALYTICS_KEY | base64 -w0) # Needed for the next step
@@ -241,13 +239,13 @@ A [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md) pro
     ```azurepowershell
     $LOG_ANALYTICS_WORKSPACE_ID=$(az monitor log-analytics workspace show `
         --resource-group $GROUP_NAME `
-        --workspace-name $wORKSPACE_NAME `
+        --workspace-name $WORKSPACE_NAME `
         --query customerId `
         --output tsv)
     $LOG_ANALYTICS_WORKSPACE_ID_ENC=[Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($LOG_ANALYTICS_WORKSPACE_ID))# Needed for the next step
     $lOG_ANALYTICS_KEY=$(az monitor log-analytics workspace get-shared-keys `
         --resource-group $GROUP_NAME `
-        --workspace-name $wORKSPACE_NAME `
+        --workspace-name $WORKSPACE_NAME `
         --query primarySharedKey `
         --output tsv)
     $lOG_ANALYTICS_KEY_ENC=[Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($lOG_ANALYTICS_KEY))
@@ -294,7 +292,7 @@ A [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md) pro
         --release-namespace $NAMESPACE \
         --configuration-settings "Microsoft.CustomLocation.ServiceAccount=default" \
         --configuration-settings "appsNamespace=${NAMESPACE}" \
-        --configuration-settings "CLUSTER_NAME=${CONNECTED_ENVIRONMENT_NAME}" \
+        --configuration-settings "clusterName=${CONNECTED_ENVIRONMENT_NAME}" \
         --configuration-settings "envoy.annotations.service.beta.kubernetes.io/azure-load-balancer-resource-group=${AKS_CLUSTER_GROUP_NAME}" \
         --configuration-settings "logProcessor.appLogs.destination=log-analytics" \
         --configuration-protected-settings "logProcessor.appLogs.logAnalyticsConfig.customerId=${LOG_ANALYTICS_WORKSPACE_ID_ENC}" \
@@ -316,7 +314,7 @@ A [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md) pro
         --release-namespace $NAMESPACE `
         --configuration-settings "Microsoft.CustomLocation.ServiceAccount=default" `
         --configuration-settings "appsNamespace=${NAMESPACE}" `
-        --configuration-settings "CLUSTER_NAME=${CONNECTED_ENVIRONMENT_NAME}" `
+        --configuration-settings "clusterName=${CONNECTED_ENVIRONMENT_NAME}" `
         --configuration-settings "envoy.annotations.service.beta.kubernetes.io/azure-load-balancer-resource-group=${AKS_CLUSTER_GROUP_NAME}" `
         --configuration-settings "logProcessor.appLogs.destination=log-analytics" `
         --configuration-protected-settings "logProcessor.appLogs.logAnalyticsConfig.customerId=${LOG_ANALYTICS_WORKSPACE_ID_ENC}" `
@@ -332,15 +330,14 @@ A [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md) pro
     The following table describes the various `--configuration-settings` parameters when running the command:
 
     | Parameter | Description |
-    | - | - |
+    |---|---|
     | `Microsoft.CustomLocation.ServiceAccount` | The service account created for the custom location. It's recommended that it 's set to the value `default`. |
     | `appsNamespace` | The namespace used to create the app definitions and revisions. It **must** match that of the extension release namespace. |
-    | `CLUSTER_NAME` | The name of the Container Apps extension Kubernetes environment that will be created against this extension. |
+    | `clusterName` | The name of the Container Apps extension Kubernetes environment that will be created against this extension. |
     | `logProcessor.appLogs.destination` | Optional. Destination for application logs. Accepts `log-analytics` or `none`, choosing none disables platform logs. |
     | `logProcessor.appLogs.logAnalyticsConfig.customerId` | Required only when `logProcessor.appLogs.destination` is set to `log-analytics`. The base64-encoded Log analytics workspace ID. This parameter should be configured as a protected setting. |
-    | `logProcessor.appLogs.logAnalyticsConfig.sharedKey` | Required only when `logProcessor.appLogs.destination` is set to `log-analytics`. The base64-encoded Log analytics workspace shared key. This parameter should be configured as a protected setting. |4
-    | `envoy.annotations.service.beta.kubernetes.io/azure-load-balancer-resource-group` | The name of the resource group in which the Azure Kubernetes Service cluster resides. Valid and required only when the underlying cluster is Azure Kubernetes Service.  |
-    | | |
+    | `logProcessor.appLogs.logAnalyticsConfig.sharedKey` | Required only when `logProcessor.appLogs.destination` is set to `log-analytics`. The base64-encoded Log analytics workspace shared key. This parameter should be configured as a protected setting. |
+    | `envoy.annotations.service.beta.kubernetes.io/azure-load-balancer-resource-group` | The name of the resource group in which the Azure Kubernetes Service cluster resides. Valid and required only when the underlying cluster is Azure Kubernetes Service. |
 
 1. Save the `id` property of the Container Apps extension for later.
 
@@ -474,7 +471,8 @@ Before you can start creating apps in the custom location, you need an [Azure Co
     az containerapp connected-env create \
         --resource-group $GROUP_NAME \
         --name $CONNECTED_ENVIRONMENT_NAME \
-        --custom-location $CUSTOM_LOCATION_ID 
+        --custom-location $CUSTOM_LOCATION_ID \
+        --location $LOCATION
     ```
 
     # [PowerShell](#tab/azure-powershell)
@@ -483,7 +481,8 @@ Before you can start creating apps in the custom location, you need an [Azure Co
     az containerapp connected-env create `
         --resource-group $GROUP_NAME `
         --name $CONNECTED_ENVIRONMENT_NAME `
-        --custom-location $CUSTOM_LOCATION_ID       
+        --custom-location $CUSTOM_LOCATION_ID `
+        --location $LOCATION
     ```
 
     ---

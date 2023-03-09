@@ -3,7 +3,7 @@ title: Create custom Azure security policies in Microsoft Defender for Cloud
 description: Azure custom policy definitions monitored by Microsoft Defender for Cloud.
 ms.topic: how-to
 ms.custom: ignite-2022
-ms.date: 01/22/2023
+ms.date: 01/24/2023
 zone_pivot_groups: manage-asc-initiatives
 ---
 

@@ -49,5 +49,5 @@ For more information, see the [troubleshooting article](troubleshoot-availabilit
 
 * [Azure Private Link](../logs/private-link-security.md)
 * [Availability alerts](availability-alerts.md)
-* [URL tests](monitor-web-app-availability.md)
+* [Availability overview](availability-overview.md)
 * [Create and run custom availability tests by using Azure Functions](availability-azure-functions.md)

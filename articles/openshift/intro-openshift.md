@@ -38,4 +38,4 @@ Azure Red Hat OpenShift offers a Service Level Agreement to guarantee that the s
 Learn the prerequisites for Azure Red Hat OpenShift:
 
 > [!div class="nextstepaction"]
-> [Set up your dev environment](tutorial-create-cluster.md)
+> [Create an OpenShift Cluster](tutorial-create-cluster.md)

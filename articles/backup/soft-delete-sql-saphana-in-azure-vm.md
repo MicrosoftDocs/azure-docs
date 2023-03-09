@@ -4,6 +4,8 @@ description: Learn how soft delete for SQL server in Azure VM and SAP HANA in Az
 ms.topic: conceptual
 ms.date: 04/27/2020 
 ms.custom: devx-track-azurepowershell
+author: jyothisuri
+ms.author: jsuri
 ---
 # Soft delete for SQL server in Azure VM and SAP HANA in Azure VM workloads
 

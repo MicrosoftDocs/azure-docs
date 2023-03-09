@@ -3,11 +3,11 @@ title: 'Understanding lifecycle workflows'
 description: Describes an overview of Lifecycle workflows and the various parts.
 services: active-directory
 author: owinfreyATL
-manager: billmath
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/20/2022
+ms.date: 01/25/2023
 ms.subservice: compliance
 ms.author: owinfrey
 ms.collection: M365-identity-device-management
@@ -23,14 +23,31 @@ The following document provides an overview of a workflow created using Lifecycl
 
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/lifecycle-workflows-license.md)]
 
-## Permissions
+## Permissions and Roles
 
-The following permissions are required for Lifecycle Workflows:
+For a full list of supported delegated and application permissions required to use Lifecycle Workflows, see: [Lifecycle workflows permissions](/graph/permissions-reference#lifecycle-workflows-permissions).
 
-|Parameter  |Display String  |Description  |Admin Consent Required  |
-|---------|---------|---------|---------|
-|LifecycleWorkflows.Read.All     | Read all lifecycle workflows and tasks.| Allows the app to list and read all workflows and tasks related to lifecycle workflows on behalf of the signed-in user.| Yes
-|LifecycleWorkflows.ReadWrite.All     | Read and write all lifecycle workflows and tasks.| Allows the app to create, update, list, read and delete all workflows and tasks related to lifecycle workflows on behalf of the signed-in user.| Yes
+For delegated scenarios, the admin needs one of the following [Azure AD roles](/azure/active-directory/users-groups-roles/directory-assign-admin-roles#available-roles):
+
+- Global administrator
+- Global reader
+- Lifecycle workflows administrator
+
+## Limits
+
+
+|Category  |Limit  |
+|---------|---------|
+|Number of Workflows     |   50 per tenant      |
+|Number of Tasks     |  25 per workflow       |
+|Number of Custom Task Extensions     |  100 per tenant       |
+|offsetInDays range of triggerAndScopeBasedConditions executionConditions     |  60 days       |
+|Workflow schedule interval in hours     |   1-24 hours      |
+|Number of users per on-demand selection	     |  10       |
+|durationBeforeTimeout range of custom task extensions     |   5 minutes-3 hours      |
+
+> [!NOTE]
+> If creating, or updating, a workflow via API the offsetInDays range will be between -60-60 days. The negative value will signal happening before the timeBasedAttribute, while the positive value will signal happening afterwards.
 
 ## Parts of a workflow 
 

@@ -1,7 +1,7 @@
 ---
 title: Connect Azure Functions to Azure Storage using Visual Studio Code
 description: Learn how to connect Azure Functions to an Azure Queue Storage by adding an output binding to your Visual Studio Code project.
-ms.date: 06/15/2022
+ms.date: 01/31/2023
 ms.topic: quickstart
 ms.devlang: csharp, java, javascript, powershell, python, typescript
 ms.custom: devx-track-python, devx-track-js, mode-ui, devdivchpfy22
@@ -89,11 +89,19 @@ Now, you can add the storage output binding to your project.
 
 ## Add an output binding
 
-In Functions, each type of binding requires a `direction`, `type`, and a unique `name` to be defined in the *function.json* file. The way you define these attributes depends on the language of your function app.
 
-::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell"
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-powershell"
+
+In Functions, each type of binding requires a `direction`, `type`, and unique `name`. The way you define these attributes depends on the language of your function app.
 
 [!INCLUDE [functions-add-output-binding-json](../../includes/functions-add-output-binding-json.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+In Functions, each type of binding requires a `direction`, `type`, and a unique `name`. The way you define these attributes depends on your Python programming model.
+
+[!INCLUDE [functions-add-storage-binding-python](../../includes/functions-add-storage-binding-python.md)]
 
 ::: zone-end
 
@@ -129,7 +137,7 @@ After the binding is defined, you can use the `name` of the binding to access it
 
 ::: zone pivot="programming-language-python"
 
-[!INCLUDE [functions-add-output-binding-python](../../includes/functions-add-output-binding-python.md)]
+[!INCLUDE [functions-add-output-binding-python](../../includes/functions-add-output-binding-python-v1-v2.md)]
 
 ::: zone-end
 
@@ -174,17 +182,7 @@ Because you're using the storage connection string, your function connects to th
 
 ### Connect Storage Explorer to your account
 
-Skip this section if you have already installed Azure Storage Explorer and connected it to your Azure account.
-
-1. Run the [Azure Storage Explorer](https://storageexplorer.com/) tool, select the connect icon on the left, and select **Add an account**.
-
-    :::image type="content" source="./media/functions-add-output-binding-storage-queue-vs-code/storage-explorer-add-account.png" alt-text="Screenshot of how to add an Azure account to Microsoft Azure Storage Explorer.":::
-
-1. In the **Connect** dialog, choose **Add an Azure account**, choose your **Azure environment**, and then select **Sign in...**.
-
-    :::image type="content" source="./media/functions-add-output-binding-storage-queue-vs-code/storage-explorer-connect-azure-account.png" alt-text="Screenshot of the sign-in to your Azure account window.":::
-
-After you successfully sign in to your account, you see all of the Azure subscriptions associated with your account.
+[!INCLUDE [functions-storage-explorer-connect.md](../../includes/functions-storage-explorer-connect.md)]
 
 ### Examine the output queue
 
