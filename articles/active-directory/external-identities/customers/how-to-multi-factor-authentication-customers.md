@@ -17,7 +17,7 @@ ms.custom: it-pro
 
 # Add multifactor authentication (MFA) to a customer-facing app
 
-[Multifactor authentication](../active-directory/authentication/concept-mfa-howitworks.md) (MFA) adds a layer of security to sign-up and sign-in experiences for your customer-facing applications. With MFA, customers need more than just a user name and password to access your resources. As a customer completes your app sign-in experience, they're prompted for a one-time passcode, which is sent to them via email. During the entire process, the customer is presented with sign-in pages that reflect any company branding you've configured.
+[Multifactor authentication](/authentication/concept-mfa-howitworks) (MFA) adds a layer of security to sign-up and sign-in experiences for your customer-facing applications. With MFA, customers need more than just a user name and password to access your resources. As a customer completes your app sign-in experience, they're prompted for a one-time passcode, which is sent to them via email. During the entire process, the customer is presented with sign-in pages that reflect any company branding you've configured.
 
 This article describes how to enforce MFA by creating an Azure AD Conditional Access policy and adding MFA to your sign-up and sign-in user flow.
 
@@ -47,7 +47,7 @@ First, create a Conditional Access policy in your customer tenant that prompts u
 1. Confirm your settings and set **Enable policy** to **Report-only**.
 1. Select **Create** to create to enable your policy.
 
-After you confirm your settings using [report-only mode](howto-conditional-access-insights-reporting.md), you can move the **Enable policy** toggle from **Report-only** to **On**.
+After you confirm your settings using [report-only mode](/conditional-access/howto-conditional-access-insights-reporting), you can move the **Enable policy** toggle from **Report-only** to **On**.
 
 ## Enable email one-time passcode
 
@@ -80,6 +80,6 @@ Enable the email one-time passcode authentication method in your customer tenant
         - If the result is an MFA challenge due to risk *and* the user isn't enrolled in MFA, sign-in is blocked.
 
    > [!NOTE]
-   > If you select **Conditional**, you'll also need to [add Conditional Access to user flows](conditional-access-user-flow.md) and specify the apps you want the policy to apply to.
+   > If you select **Conditional**, you'll also need to [add Conditional Access to user flows](conditional-access/conditional-access-user-flow) and specify the apps you want the policy to apply to.
 
 1. Select **Save**. MFA is now enabled for this user flow.
