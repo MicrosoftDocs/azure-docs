@@ -80,6 +80,6 @@ Enable the email one-time passcode authentication method in your customer tenant
         - If the result is an MFA challenge due to risk *and* the user isn't enrolled in MFA, sign-in is blocked.
 
    > [!NOTE]
-   > If you select **Conditional**, you'll also need to [add Conditional Access to user flows](conditional-access/conditional-access-user-flow) and specify the apps you want the policy to apply to.
+   > If you select **Conditional**, you'll also need to [add Conditional Access to user flows](/conditional-access/conditional-access-user-flow) and specify the apps you want the policy to apply to.
 
 1. Select **Save**. MFA is now enabled for this user flow.
