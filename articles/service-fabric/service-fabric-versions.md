@@ -95,10 +95,10 @@ Support for Service Fabric on a specific OS ends when support for the OS version
 ### Current versions
 | Service Fabric runtime | Can upgrade directly from |Can downgrade to*|Compatible SDK or NuGet package version | Supported .NET runtimes** | OS version | End of support |
 | --- | --- | --- | --- | --- | --- | --- |
-| 9.1 CU2<br>9.1.1388.1 | 8.2 CU6<br>8.2.1485.1 | 8.2 | .NET 7, .NET 6, All  | >= .NET Framework 4.6.2 | [See supported OS version](#supported-linux-versions-and-support-end-date) | Current version |
+| 9.1 CU2<br>9.1.1388.1 | 8.2 CU6<br>8.2.1485.1 | 8.2 | .NET 7, .NET 6, All  | N/A | [See supported OS version](#supported-linux-versions-and-support-end-date) | Current version |
 | 9.1 CU1<br>9.1.1230.1 | 8.2 CU6<br>8.2.1485.1 | 8.2 | Less than or equal to version 6.0 | >= .NET Core 2.1 | [See supported OS version](#supported-linux-versions-and-support-end-date) | Current version |
 | 9.1 RTO<br>9.1.1206.1 | 8.2 CU6<br>8.2.1485.1 | 8.2 | Less than or equal to version 6.0 | >= .NET Core 2.1 | [See supported OS version](#supported-linux-versions-and-support-end-date) | Current version |
-| 9.0 CU7<br>9.0.1260.1 | 8.0 CU3<br>8.0.527.1 | 8.2 CU 5.1<br>8.2.1483.1 | .NET 6, All | .NET Framework 4.6.2 | [See supported OS version](#supported-linux-versions-and-support-end-date) | November 1, 2023 |
+| 9.0 CU7<br>9.0.1260.1 | 8.0 CU3<br>8.0.527.1 | 8.2 CU 5.1<br>8.2.1483.1 | .NET 6 | N/A | [See supported OS version](#supported-linux-versions-and-support-end-date) | November 1, 2023 |
 | 9.0 CU5<br>9.0.1148.1 | 8.0 CU3<br>8.0.527.1 | 8.2 CU 5.1<br>8.2.1483.1 | Less than or equal to version 6.0 | >= .NET Core 2.1 | [See supported OS version](#supported-linux-versions-and-support-end-date) | November 1, 2023 |
 | 9.0 CU4<br>9.0.1114.1 | 8.0 CU3<br>8.0.527.1 | 8.2 CU 5.1<br>8.2.1483.1 | Less than or equal to version 6.0 | >= .NET Core 2.1 | [See supported OS version](#supported-linux-versions-and-support-end-date) | November 1, 2023 |
 | 9.0 CU3<br>9.0.1103.1 | 8.0 CU3<br>8.0.527.1 | 8.2 CU 5.1<br>8.2.1483.1 | Less than or equal to version 6.0 | >= .NET Core 2.1 | [See supported OS version](#supported-linux-versions-and-support-end-date) | November 1, 2023 |
