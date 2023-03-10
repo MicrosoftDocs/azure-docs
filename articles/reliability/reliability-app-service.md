@@ -6,15 +6,15 @@ ms.author: anaharris
 ms.topic: overview
 ms.custom: subject-reliability
 ms.service: app-service
-ms.date: 02/22/2022 
+ms.date: 03/10/2023 
 ---
 
 
 # Reliability in Azure App Service
 
-This article describes reliability support in [Azure App Service](/azure/app-service/overview), and covers intra-regional resiliency with availability zones. Azure App Service is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. 
+This article describes reliability support in [Azure App Service](/azure/app-service/overview), and covers intra-regional resiliency with [availability zones](#availability-zone-support). For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
-Azure App Service adds the power of Microsoft Azure to your application, such as:
+Azure App Service is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends; and adds the power of Microsoft Azure to your application, such as:
 
 - Security
 - Load balancing
@@ -155,7 +155,7 @@ To learn how to create the App Service Environment v3 on Isolated v2 plan, see [
 
 To prepare for availability zone failure, you should over-provision capacity of service to ensure that the solution can tolerate 1/3 loss of capacity and continue to function without degraded performance during zone-wide outages. Since the platform spreads VMs across three zones and you need to account for at least the failure of one zone, multiply peak workload instance count by a factor of zones/(zones-1), or 3/2. For example, if your typical peak workload requires four instances, you should provision six instances: (2/3 * 6 instances) = 4 instances.
 
-## Zone down experience
+### Zone down experience
 
 Traffic is routed to all of your available App Service instances. In the case when a zone goes down, the App Service platform will detect lost instances and automatically attempt to find new replacement instances and spread traffic as needed. If you have [autoscale](../app-service/manage-scale-up.md) configured, and if it decides more instances are needed, autoscale will also issue a request to App Service to add more instances. Note that [autoscale behavior is independent of App Service platform behavior](../azure-monitor/autoscale/autoscale-overview.md) and that your autoscale instance count specification doesn't need to be a multiple of three. It's also important to note there's no guarantee that requests for additional instances in a zone-down scenario will succeed since back filling lost instances occurs on a best-effort basis. The recommended solution is to create and configure your App Service plans to account for losing a zone as described in the next section.
 
@@ -165,9 +165,9 @@ When the App Service platform allocates instances to a zone redundant App Servic
 
 ### Availability zone migration
 
-You cannot migrate existing App Service instances or environment resources from non-availability zone support to availability zone support. To get support for availability zones, you'll need to [create upir resources with availability` zones enabled](#create-a-resource-with-availability-zone-enabled).
+You cannot migrate existing App Service instances or environment resources from non-availability zone support to availability zone support. To get support for availability zones, you'll need to [create your resources with availability zones enabled](#create-a-resource-with-availability-zone-enabled).
 
-## Pricing
+### Pricing
 
 There's no additional cost associated with enabling availability zones. Pricing for a zone redundant App Service is the same as a single zone App Service. You'll be charged based on your App Service plan SKU, the capacity you specify, and any instances you scale to based on your autoscale criteria. If you enable availability zones but specify a capacity less than three, the platform will enforce a minimum instance count of three and charge you for those three instances.
 
