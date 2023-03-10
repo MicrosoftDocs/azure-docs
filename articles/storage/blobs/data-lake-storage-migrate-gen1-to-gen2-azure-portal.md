@@ -22,7 +22,7 @@ This article shows you how to simplify the migration by using the Azure portal. 
 > Your account may not qualify for portal-based migration based on certain constraints. When the **Migrate data** button is not enabled in the Azure portal for your Gen1 account, if you have a support plan, you can [file a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). You can also get answers from community experts in [Microsoft Q&A](/answers/topics/azure-data-lake-storage.html).
 
 > [!WARNING]
-> Azure Data Lake Storage Gen2 doesn't support Azure Data Lake Analytics. If you're using Azure Data Lake Analytics, you'll need to migrate before proceeding. See [Migrate Azure Data Lake Analytics workloads](#migrate-azure-data-lake-analytics-workloads) for more information.f
+> Azure Data Lake Storage Gen2 doesn't support Azure Data Lake Analytics. If you're using Azure Data Lake Analytics, you'll need to migrate before proceeding. See [Migrate Azure Data Lake Analytics workloads](#migrate-azure-data-lake-analytics-workloads) for more information.
 
 To migrate to Gen2 using the Azure portal, follow these steps:
 
