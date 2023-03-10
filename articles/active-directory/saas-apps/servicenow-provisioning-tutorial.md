@@ -84,7 +84,7 @@ To configure automatic user provisioning for ServiceNow in Azure AD:
 
 1. Set **Provisioning Mode** to **Automatic**.
 
-1. In the **Admin Credentials** section, enter your ServiceNow tenant URL, Client ID, Client Secret and Authorization Endpoint. Select **Test Connection** to ensure that Azure AD can connect to ServiceNow. 
+1. In the **Admin Credentials** section, enter your ServiceNow tenant URL, Client ID, Client Secret and Authorization Endpoint. Select **Test Connection** to ensure that Azure AD can connect to ServiceNow. [This ServiceNow documentation](https://docs.servicenow.com/bundle/utah-platform-security/page/administer/security/task/t_CreateEndpointforExternalClients.html) outlines how to generate these values.
 
  	![Screenshot that shows the Service Provisioning page, where you can enter admin credentials.](./media/servicenow-provisioning-tutorial/servicenow-provisioning.png)
 
@@ -195,7 +195,7 @@ POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronizat
 
 9. Return to the first web browser window and select the Provisioning tab for your application. Your configuration will have been reset. You can confirm the upgrade has taken place by confirming the Job ID starts with “serviceNowScim”. 
 
-10. The new SCIM app uses OAuth2 to authenticate with the SCIM endpoint. Enter the required fields and authenticate with the new SCIM endpoint. 
+10. The new SCIM app uses OAuth2 to authenticate with the SCIM endpoint. Enter the required fields and authenticate with the new SCIM endpoint. [This ServiceNow documentation](https://docs.servicenow.com/bundle/utah-platform-security/page/administer/security/task/t_CreateEndpointforExternalClients.html) outlines how to generate these values.
 
 11. Restore any previous changes you made to the application (Authentication details, Scoping filters, Custom attribute mappings) and re-enable provisioning. 
 
