@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Provision an Azure Spring Apps Standard consumption plan service
+title: Quickstart - Provision an Azure Spring Apps Standard consumption plan service instance
 description: Learn how to create a Standard consumption plan in Azure Spring Apps for app deployment.
 author: karlerickson
 ms.author: xuycao
@@ -9,7 +9,7 @@ ms.date: 03/14/2023
 ms.custom: devx-track-java
 ---
 
-# Quickstart: Provision an Azure Spring Apps Standard Consumption plan service instance
+# Quickstart: Provision an Azure Spring Apps Standard consumption plan service instance
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.

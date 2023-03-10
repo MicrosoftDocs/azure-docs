@@ -1,6 +1,6 @@
 ---
-title: Create an Azure Spring Apps instance in an Azure Container Apps environment with an existing virtual network
-description: Learn how to create an Azure Spring Apps instance in an Azure Container Apps environment with an existing virtual network.
+title: Create an Azure Spring Apps instance in an Azure Container Apps environment with a virtual network
+description: Learn how to create an Azure Spring Apps instance in an Azure Container Apps environment with a virtual network.
 author: karlerickson
 ms.author: xuycao
 ms.service: spring-apps
@@ -9,26 +9,34 @@ ms.date: 03/14/2023
 ms.custom: devx-track-java
 ---
 
-# Create an Azure Spring Apps instance in an Azure Container Apps environment with an existing virtual network
+# Create an Azure Spring Apps instance in an Azure Container Apps environment with a virtual network
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
 **This article applies to:** ✔️ Standard consumption (Preview) ✔️ Basic/Standard ✔️ Enterprise  
 
-This article describes how create an Azure Spring Apps instance in an Azure Container Apps environment with an existing virtual network.
+This article describes how create an Azure Spring Apps instance in an Azure Container Apps environment with a virtual network. An Azure Container Apps environment creates a secure boundary around a group of applications. Applications deployed to the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace.
 
 When you create an Azure Spring Apps instance in an Azure Container Apps environment, it shares the same virtual network with other services and resources in the same Azure Container Apps environment. When you deploy frontend apps as containers in Azure Container Apps, and you also deploy Spring apps in the Azure Spring Apps Standard consumption plan, the apps are all in the same Azure Container Apps environment.
 
 You can also deploy your Azure Container Apps environment to an existing virtual network created by your IT team. This scenario simplifies the virtual network experience for running polyglot apps.
 
+> [!NOTE]
+> You can use an existing virtual network that has a dedicated subnet with a CIDR range of `/23` or higher.
+
+## Prerequisites
+
+- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- (Optional) [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) version 2.28.0 or higher.
+
 ## Create an Azure Container Apps environment
 
 You can use either the Azure portal or the Azure CLI to create the Azure Container Apps environment.
 
-### [Azure portal](#tab/Azure-portal)
-
 Use the following steps to create an Azure Container Apps environment with a virtual network.
+
+### [Azure portal](#tab/Azure-portal)
 
 1. Open the [Azure portal](https://portal.azure.com/).
 
@@ -42,37 +50,38 @@ Use the following steps to create an Azure Container Apps environment with a vir
 
 1. Fill out the **Basics** form on the Azure Spring Apps **Create** page using the following guidelines:
 
-   - **Project Details**
+   - **Project Details**:
 
      - **Subscription**: Select the subscription you want to be billed for this resource.
      - **Resource group**: Select an existing resource group or create a new one.
 
-   - **Service Details**
+   - **Service Details**:
 
      - **Name**: Create the name for the Azure Spring Apps instance. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
      - **Location**: Currently, only the following regions are supported: Australia East, Central US, East US, East US 2, West Europe, East Asia, North Europe, South Central US, UK South, West US 3.
+
    - **Plan**: Select **Standard Consumption** for the **Pricing tier** option.
 
-   - **App Environment**
+   - **App Environment**:
 
      - Select **Create new** to create a new Azure Container Apps environment or select an existing environment from the dropdown menu.
 
    :::image type="content" source="media/how-to-create-app-environment-with-existing-virtual-network/select-app-environment.png" alt-text="Screenshot of Azure portal showing the Create Container Apps environment page for an Azure Spring Apps instance with Create new highlighted for Azure Container Apps environment." lightbox="media/how-to-create-app-environment-with-existing-virtual-network/select-app-environment.png":::
 
-1. Fill out the **Basics** form on the **Create Container Apps environment** page, use the default value `asa-standard-consumption-app-env` for the **Environment name** and set **Zone redundancy** to **Enabled**.
+1. Fill out the **Basics** form on the **Create Container Apps environment** page. Use the default value `asa-standard-consumption-app-env` for the **Environment name** and set **Zone redundancy** to **Enabled**.
 
-    :::image type="content" source="media/how-to-create-app-environment-with-existing-virtual-network/create-app-env.png" alt-text="Screenshot of Azure portal showing Create Container Apps environment page with the Basics tab selected.":::
+   :::image type="content" source="media/how-to-create-app-environment-with-existing-virtual-network/create-app-env.png" alt-text="Screenshot of Azure portal showing Create Container Apps environment page with the Basics tab selected.":::
 
-1. Select **Networking** and specify the settings using the following guidelines:
+1. Select **Networking** and then specify the settings using the following guidelines:
 
-   - For **Use your own virtual network** select **Yes**.
+   - For **Use your own virtual network**, select **Yes**.
    - Select the names for **Virtual network** and for **Infrastructure subnet** from the dropdown menus or use **Create new** as needed.
-   - Set **Virtual IP** to **External**. You can set to **Internal** if you prefer to use use only internal IP addresses available in the virtual network instead of a public static IP.
+   - Set **Virtual IP** to **External**. You can set the value to **Internal** if you prefer to use use only internal IP addresses available in the virtual network instead of a public static IP.
 
    :::image type="content" source="media/how-to-create-app-environment-with-existing-virtual-network/create-app-env-in-vnet.png" alt-text="Screenshot of Azure portal showing Create Container Apps environment page with the Networking tab selected.":::
 
    >[!NOTE]
-   > The subnet associated with an Azure Container Apps environment requires a CIDR prefix of `/23` or larger.
+   > The subnet associated with an Azure Container Apps environment requires a CIDR prefix of `/23` or higher.
 
 1. Select **Create**.
 
@@ -80,43 +89,31 @@ Use the following steps to create an Azure Container Apps environment with a vir
 
 ### [Azure CLI](#tab/Azure-CLI)
 
-Use the Azure CLI to create an Azure Container Apps environment with a virtual network.
-
-## Prerequisites
-
-- Install the Azure Spring Apps extension with the following command:
-
-   ```azurecli
-   az extension add --name containerapp --upgrade
-   ```
-
-## Setup
-
-1. Sign in to Azure.
+1. Sign in to Azure by using the following command:
 
    ```azurecli
    az login
    ```
 
-1. Install the Azure Container Apps extension for the Azure CLI.
+1. Install the Azure Container Apps extension for the Azure CLI by using the following command:
 
    ```azurecli
    az extension add --name containerapp --upgrade
    ```
 
-1. Register the `Microsoft.App` namespace.
+1. Register the `Microsoft.App` namespace by using the following command:
 
    ```azurecli
    az provider register --namespace Microsoft.App
    ```
 
-1. If you have not previously used the Azure Monitor Log Analytics workspace, register the `Microsoft.OperationalInsights` provider.
+1. If you haven't previously used the Azure Monitor Log Analytics workspace, register the `Microsoft.OperationalInsights` provider by using the following command:
 
    ```azurecli
    az provider register --namespace Microsoft.OperationalInsights
    ```
 
-1. Set the following environment variables.
+1. Use the following commands to create variables to store various values:
 
    ```bash
    RESOURCE_GROUP="<resource-group-name>"
@@ -124,20 +121,13 @@ Use the Azure CLI to create an Azure Container Apps environment with a virtual n
    APP_ENVIRONMENT="<azure-container-apps-environment-name>"
    ```
 
-## Create an environment
-
-An Azure Container Apps environment creates a secure boundary around a group of applications. Applications deployed to the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace.
-
-> [!NOTE]
-> You can use an existing virtual network that has a dedicated subnet with a CIDR range of `/23` or larger.
-
 1. Declare a variable for the name of the virtual network:
 
    ```bash
    VNET_NAME="<virtual-network-name>"
    ```
 
-1. Create an Azure virtual network to associate with the Azure Container Apps environment. The virtual network must have a subnet available for the environment deployment.
+1. Use the following commands to create an Azure virtual network and subnet to associate with the Azure Container Apps environment. The virtual network must have a subnet available for the environment deployment.
 
    ```azurecli
    az network vnet create \
@@ -145,9 +135,7 @@ An Azure Container Apps environment creates a secure boundary around a group of 
        --name $VNET_NAME \
        --location $LOCATION \
        --address-prefix 10.0.0.0/16
-   ```
 
-   ```azurecli
    az network vnet subnet create \
        --resource-group $RESOURCE_GROUP \
        --vnet-name $VNET_NAME \
@@ -155,7 +143,7 @@ An Azure Container Apps environment creates a secure boundary around a group of 
        --address-prefixes 10.0.0.0/23
    ```
 
-1. Get the ID for the infrastructure subnet.
+1. Use the following command to get the ID for the infrastructure subnet and store it in a variable.
 
    ```azurecli
    INFRASTRUCTURE_SUBNET=$(az network vnet subnet show \
@@ -167,7 +155,7 @@ An Azure Container Apps environment creates a secure boundary around a group of 
        | tr -d '[:space:]')
    ```
 
-1. Create the Azure Container Apps environment using the infrastructure subent ID.
+1. Use the following command to create the Azure Container Apps environment using the infrastructure subnet ID.
 
    ```azurecli
    az containerapp env create \
@@ -177,18 +165,18 @@ An Azure Container Apps environment creates a secure boundary around a group of 
        --infrastructure-subnet-resource-id $INFRASTRUCTURE_SUBNET
    ```
 
-> [!NOTE]
-> You can create an internal Azure Container Apps environment that doesn't use a public static IP, but instead uses only internal IP addresses available in the custom virtual network. For more information see [Create an Internal App Environment](/azure/container-apps/vnet-custom-internal?tabs=bash&pivots=azure-cli#create-an-environment).
+   > [!NOTE]
+   > You can create an internal Azure Container Apps environment that doesn't use a public static IP, but instead uses only internal IP addresses available in the custom virtual network. For more information see the [Create an environment](../container-apps/vnet-custom-internal.md?tabs=bash&pivots=azure-cli#create-an-environment) section of [Provide a virtual network to an internal Azure Container Apps environment](../container-apps/vnet-custom-internal.md?tabs=bash&pivots=azure-cli).
 
-The following table describes the parameters used in the `containerapp env create` command.
+   The following table describes the parameters used in the `containerapp env create` command.
 
-| Parameter                           | Description                                                                                                                                                                               |
-|-------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `name`                              | The name of the Azure Container Apps environment.                                                                                                                                         |
-| `resource-group`                    | The name of the resource group.                                                                                                                                                           |
-| `location`                          | The Azure location where the environment is to deploy.                                                                                                                                    |
-| `infrastructure-subnet-resource-id` | The Resource ID of a subnet for infrastructure components and user application containers.                                                                                                |
-| `internal-only`                     | (Optional) Sets the environment to use only internal IP addresses available in the custom virtual network instead of a public static IP (Requires the infrastructure subnet resource ID.) |
+   | Parameter                           | Description                                                                                                                                                                                |
+   |-------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+   | `name`                              | The name of the Azure Container Apps environment.                                                                                                                                          |
+   | `resource-group`                    | The name of the resource group.                                                                                                                                                            |
+   | `location`                          | The Azure location where the environment is to deploy.                                                                                                                                     |
+   | `infrastructure-subnet-resource-id` | The Resource ID of a subnet for infrastructure components and user application containers.                                                                                                 |
+   | `internal-only`                     | (Optional) Sets the environment to use only internal IP addresses available in the custom virtual network instead of a public static IP. (Requires the infrastructure subnet resource ID.) |
 
 ---
 
