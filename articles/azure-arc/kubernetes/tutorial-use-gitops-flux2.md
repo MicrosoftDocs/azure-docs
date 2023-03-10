@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Deploy applications using GitOps with Flux v2"
 description: "This tutorial shows how to use GitOps with Flux v2 to manage configuration and application deployment in Azure Arc and AKS clusters."
-ms.date: 02/08/2023
+ms.date: 03/10/2023
 ms.topic: tutorial
 ms.custom: template-tutorial, devx-track-azurecli, references_regions, ignite-2022
 ---
@@ -16,6 +16,9 @@ GitOps with Flux v2 can be enabled as a [cluster extension](conceptual-extension
 This tutorial describes how to use GitOps in a Kubernetes cluster. Before you dive in, take a moment to [learn how GitOps with Flux works conceptually](./conceptual-gitops-flux2.md).
 
 In this tutorial, we use an example GitOps configuration with two kustomizations, so that you can see how one kustomization can have a dependency on another. You can add more kustomizations and dependencies as needed, depending on your scenario.
+
+> [!TIP]
+> You can also create Flux configurations by using Bicep, ARM templates, or Terraform AzAPI provider. For more information, see [Microsoft.KubernetesConfiguration fluxConfigurations](/azure/templates/microsoft.kubernetesconfiguration/fluxconfigurations).
 
 > [!IMPORTANT]
 > The `microsoft.flux` extension released major version 1.0.0. This includes the [multi-tenancy feature](conceptual-gitops-flux2.md#multi-tenancy). If you have existing GitOps Flux v2 configurations that use a previous version of the `microsoft.flux` extension, you can upgrade to the latest extension manually using the Azure CLI: `az k8s-extension create -g <RESOURCE_GROUP> -c <CLUSTER_NAME> -n flux --extension-type microsoft.flux -t <CLUSTER_TYPE>` (use `-t connectedClusters` for Arc clusters and `-t managedClusters` for AKS clusters).
