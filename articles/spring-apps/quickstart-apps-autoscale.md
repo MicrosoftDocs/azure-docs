@@ -17,7 +17,7 @@ This article describes how to set up autoscale rules for your applications in Az
 
 - Supports all the scaling rules that Azure Container Apps supports.
 
-For more information see [Azure Container Apps documentation](/azure/container-apps/).
+For more information, see [Azure Container Apps documentation](/azure/container-apps/).
 
 ## Prerequisites
 
@@ -31,22 +31,22 @@ For more information see [Azure Container Apps documentation](/azure/container-a
 
 Scaling is defined by the combination of limits and rules.
 
-- Limits are the minimum and maximum number of instances that your spring app will allow.
+- Limits are the minimum and maximum number of instances that your Spring allows.
 
   | Scale limit                               | Default value | Min value | Max value |
   |-------------------------------------------|---------------|-----------|-----------|
-  | Minimum number of instance per deployment | 1             | 0         | 30        |
-  | Maximum number of instance per deployment | 10            | 1         | 30        |
+  | Minimum number of instances per deployment | 1             | 0         | 30        |
+  | Maximum number of instances per deployment | 10            | 1         | 30        |
 
-  By default, the minimum instance number of your spring application is set to 1 to ensure that your deployment is always running. If you want to scale in to zero, you can set the minimum instance count to zero.
+  By default, the minimum instance number of your Spring application is set to 1 to ensure that your deployment is always running. If you want to scale in to zero, you can set the minimum instance count to zero.
 
-- Rules are the criteria that the autoscaling abide by to add or remove instances. The scale rules include HTTP, TCP, and Custom rules as described in [Set scaling rules in Azure Container Apps](/azure/container-apps/scale-app?pivots=azure-cli#scale-rules).
+- Rules are the criteria that the autoscaling abides by to add or remove instances. The scale rules include HTTP, TCP, and Custom rules as described in [Set scaling rules in Azure Container Apps](/azure/container-apps/scale-app?pivots=azure-cli#scale-rules).
 
   If you define more than one scale rule, the autoscaling begins when the first condition of any rule is met.
 
 - The polling interval and cooldown period are two time spans that occur during autoscaling.
-  - The polling interval defines the time span between each polling action of realtime data as defined by your rules. The polling interval is set to 30 seconds by default.
-  - The cooldown period applies only when scaling to zero, for example, to wait five minutes after the last time autoscaling checked the message queue and it was empty.
+  - The polling interval defines the time span between each polling action of real time data as defined by your rules. The polling interval is set to 30 seconds by default.
+  - The cooldown period applies only when scaling to zero. For example, to wait five minutes after the last time autoscaling checked the message queue and it was empty.
 
 ## Set up autoscale settings
 
