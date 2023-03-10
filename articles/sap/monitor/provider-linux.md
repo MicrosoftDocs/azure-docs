@@ -106,7 +106,7 @@ When the provider settings validation operation fails with the code ‘Prometheu
 
 ### Setting up cron job to start Node exporter on VM restart
 
-1. If the target virual machine is restarted/stopped, node exporter is also stopped, and needs to be manually started again to continue monitoring.
+1. If the target virtual machine is restarted/stopped, node exporter is also stopped, and needs to be manually started again to continue monitoring.
 1. Run `sudo crontab -e` command to open cron file.
 1. Add the command `@reboot cd /path/to/node/exporter && nohup ./node_exporter &` at the end of cron file. This will start node exporter on VM reboot.
 
