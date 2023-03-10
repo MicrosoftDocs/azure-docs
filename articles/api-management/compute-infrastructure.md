@@ -4,7 +4,7 @@ description: Learn about the compute platform used to host your API Management s
 author: dlepow
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 02/01/2023
+ms.date: 03/09/2023
 ms.author: danlep
 ms.custom: 
 ---
@@ -22,7 +22,7 @@ The following table summarizes the compute platforms currently used for instance
 
 | Version | Description | Architecture | Tiers |
 | -------| ----------| ----------- | ---- |
-| `stv2` | Single-tenant v2 | Azure-allocated compute infrastructure that supports availability zones, private endpoints | Developer, Basic, Standard, Premium<sup>1</sup> |
+| `stv2` | Single-tenant v2 | Azure-allocated compute infrastructure that supports availability zones, private endpoints, increased unit performance (see [What are the benefits of the `stv2` platform](#what-are-the-benefits-of-the-stv2-platform)) | Developer, Basic, Standard, Premium<sup>1</sup> |
 | `stv1` |  Single-tenant v1 | Azure-allocated compute infrastructure |  Developer, Basic, Standard, Premium | 
 | `mtv1` | Multi-tenant v1 |  Shared infrastructure that supports native autoscaling and scaling down to zero in times of no traffic |  Consumption |
 
@@ -43,6 +43,26 @@ To find the platform version in the portal:
 1. On the **Overview** page, the **Platform Version** is displayed.
 
     :::image type="content" source="media/compute-infrastructure/platformversion-property.png" alt-text="Screenshot of the API Management platform version in the portal.":::
+
+## What are the benefits of the `stv2` platform?
+
+The `stv2` platform infrastructure supports several resiliency and security features of API Management that aren't available on the `stv1` platform, including:
+
+* [Availability zones](zone-redundancy.md)
+* [Private endpoints](private-endpoint.md)
+* [Protection with Azure DDoS](protect-with-ddos-protection.md)
+
+### Improved compute infrastructure (`stv2.1`)
+
+API Management instances hosted on the `stv2` platform are eligible for transparent migration to updated API Management hosting infrastructure with improved CPU and memory resources. Starting in March 2023, API Management instances on the `stv2` platform will be automatically updated, with zero downtime, to the higher performing `stv2.1` infrastructure over time, subject to available platform capacity in the Azure regions. 
+
+This update will provide several benefits to API Management customers:
+
+* Increased performance per API Management scale unit, at no additional cost
+* Increased unit capacity, as measured by the capacity metric
+* Reduced times to provision and scale out instances
+
+The `stv2` update is managed entirely by the API Management service and requires no customer action. Instances that are updated will show a `platformVersion` value of `stv2.1`.    
 
 ## How do I migrate to the `stv2` platform? 
 
