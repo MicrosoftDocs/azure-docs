@@ -23,11 +23,11 @@ In this tutorial, you'll deploy a data-driven Python web app (**[Django](https:/
 
 ## Provision and deploy using the Azure Developer CLI
 
-The Azure Developer CLI (azd) greatly streamlines the process of deploying the app resources to Azure. For a more step-by-step approach using the Azure Portal and other tools, switch to the **Manual Steps** approach available by toggling the **Manual Steps** option at the top of the page.
+Sample Python application templates using the Flask and Django framework are provided for this tutorial. The [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) greatly streamlines the process of deploying the app resources to Azure. For a more step-by-step approach using the Azure Portal and other tools, switch to the **Manual Steps** approach available by toggling the **Manual Steps** option at the top of the page.
 
-The [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) accelerates building cloud apps on Azure by providing developer-friendly commands that map to key stages in the development workflow, such as provisioning and deploying resources. You can use the Azure Developer CLI to provision and deploy the resources for the sample application in an automated and streamlined way.
+The Azure Developer CLI (azd) accelerates building cloud apps on Azure by providing developer-friendly commands that map to key stages in the development workflow, such as provisioning and deploying resources. You can use azd to provision and deploy the resources for the sample application in an automated and streamlined way.
 
-Sample Python applications using the Flask and Django framework are provided for this tutorial. Follow the steps below to setup the Azure Developer CLI and provision and deploy the sample application:
+Follow the steps below to setup the Azure Developer CLI and provision and deploy the sample application:
 
 1. Install the Azure Developer CLI. For a full list of supported installation options and tools, visit the [installation guide](/azure/developer/azure-developer-cli/install-azd).
 
@@ -69,16 +69,22 @@ The Azure Developer CLI also enables you to configure your application to use a 
 
 ## Explore the sample application template and resources
 
-The sections ahead review the steps the Azure Developer CLI completed for you in more detail for added context. When you ran `azd up`, the Azure Developer CLI cloned the template repository down to your local machine. The cloned sample application template includes the source code for a Flask or Django web application written in Python that connects to a Azure Database for PostgresSQL. The template also includes the necessary infrastructure folders and configuration files for the project to work correctly as an AZD template.
+When you ran `azd up`, the Azure Developer CLI completed the following steps:
+
+1. Cloned the template repository down to your local machine. The cloned sample app includes the source code for a Flask or Django web app and the necessary infrastructure files for the project to work correctly as an azd template.
+1. Provisioned the resources in Azure required to host the application.
+1. Deployed the application code to the provisioned resources.
+
+The sections ahead review the provisioned resources and deployed application in more depth. You can use this setup to better understand the requirements for hosting your own apps in Azure.
 
 ### Resource provisioning
 
-The `azd up` command created all of the resources for the sample application in Azure using the Bicep files in the `infra` folder of the project template. [Bicep](/azure/azure-resource-manager/bicep/overview?tabs=bicep) is a declarative language used to manage infrastructure as code in Azure. Some of the key resources that were created and configured for the sample project include:
+The `azd up` command created all of the resources for the sample application in Azure using the Bicep files in the [`infra`](https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app/tree/main/infra) folder of the project template. [Bicep](/azure/azure-resource-manager/bicep/overview?tabs=bicep) is a declarative language used to manage infrastructure as code in Azure. Some of the key resources that were created and configured for the sample Python app include:
 
 * **Resource group**: A resource group was created to hold all of the other provisioned Azure resources. The resource group helps to keep your resources well organized and easier to manage. The name of the resource group is based off of the environment name you specified during the `azd up` initialization process.
 * **Azure Virtual Network**: A virtual network was created to enable the other provisioned resources to securely connect and communicate with one another. Related configurations such as setting up a private DNS zone link were also applied.
 * **Azure App Service plan**: An App Service plan was created to host App Service instances. App Service plans define what compute resources are available for one or more web apps.
-* **Azure App Service**: An App Service instance was created in the new App Service plan to host and run the deployed application. In this case a Linux instance was created and configured to run Python apps. Additional app configurations were also applied to the app service, such as setting the Postgres connection string and secret keys. 
+* **Azure App Service**: An App Service instance was created in the new App Service plan to host and run the deployed application. In this case a Linux instance was created and configured to run Python apps. Additional configurations were also applied to the app service, such as setting the Postgres connection string and secret keys. 
 * **Azure Database for PostgresSQL**: A Postgres database and server were created for the app hosted on App Service to connect to. The required admin user, network and connection settings were also configured.
 * **Azure Application Insights**: Application insights was setup and configured for the app hosted on the App Service. This service enables detailed telemetry and monitoring for your application.
 
