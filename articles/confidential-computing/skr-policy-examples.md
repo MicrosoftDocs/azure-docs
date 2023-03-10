@@ -1,6 +1,6 @@
 ---
 title: Secure Key Release Policy Examples for Confidential Computing
-description: Examples of SKR policies across 1many Azure Confidential Computing Offerings
+description: Examples of SKR policies across offered Azure Confidential Computing Offerings
 author: agowdamsft
 ms.service: virtual-machines
 ms.subservice: confidential-computing
@@ -12,9 +12,9 @@ ms.author: amgowda
 
 # Secure Key Release Policy (SKR) Examples for Confidential Computing (ACC)
 
-SKR can only release exportable marked keys based on the Microsoft Azure Attestation (MAA) generated claims. There is a tight integration on the SKR policy definition to MAA claims. MAA claims by trusted execution environment (TEE)can be found [here.](../attestation/attestation-token-examples.md)
+SKR can only release exportable marked keys based on the Microsoft Azure Attestation (MAA) generated claims. There's a tight integration on the SKR policy definition to MAA claims. MAA claims by trusted execution environment (TEE)can be found [here.](../attestation/attestation-token-examples.md)
 
-Please follow the policy [grammer](../key-vault/keys/policy-grammar.md) for more examples on how you can customize the SKR policies. 
+Follow the policy [grammer](../key-vault/keys/policy-grammar.md) for more examples on how you can customize the SKR policies. 
 
 ## Intel SGX Application Enclaves SKR policy examples
 
@@ -94,7 +94,7 @@ Please follow the policy [grammer](../key-vault/keys/policy-grammar.md) for more
 
 ## Confidential VM AMD SEV-SNP based VM TEE SKR policy examples
 
-**Example 1:** SKR policy that validates if this is azure compliant CVM and is running on a genuine AMD SEV-SNP hardware and the MAA URL authority is spread across many regions.
+**Example 1:** A SKR policy that validates if this is azure compliant CVM and is running on a genuine AMD SEV-SNP hardware and the MAA URL authority is spread across many regions.
 
 ```json
 {
@@ -131,7 +131,7 @@ Please follow the policy [grammer](../key-vault/keys/policy-grammar.md) for more
 
 ```
 
-**Example 2:** SKR policy that validates if this is azure compliant CVM and is running on a genuine AMD SEV-SNP hardware and is of a known Virtual Machine ID. VMIDs are unique across azure.
+**Example 2:** A SKR policy that validates if the CVM is an Azure compliant CVM and is running on a genuine AMD SEV-SNP hardware and is of a known Virtual Machine ID. (VMIDs are unique across azure)
 
 ```json
 {
@@ -161,7 +161,9 @@ Please follow the policy [grammer](../key-vault/keys/policy-grammar.md) for more
 
 ## Confidential containers on Azure Container Instances (ACI) SKR policy examples
 
-**Example 1:** Confidential containers on ACI validating the containers initiated and container configuration metadata as part of container group launch with added validations that this is a AMD SEV-SNP hardware. NOTE: the containers metadata is a rego based policy hash reflected [here](https://github.com/microsoft/confidential-sidecar-containers/tree/main).
+**Example 1:** Confidential containers on ACI validating the containers initiated and container configuration metadata as part of container group launch with added validations that this is an AMD SEV-SNP hardware.
+
+NOTE: the containers metadata is a rego based policy hash reflected [here](https://github.com/microsoft/confidential-sidecar-containers/tree/main).
 
 ```json
 {
