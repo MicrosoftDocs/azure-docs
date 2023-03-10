@@ -147,7 +147,7 @@ Read the license terms prior to using the agent. Your installation and use const
       3. After you finish your changes, select `Ctrl+X` to exit the editor. Then enter `y` to save the changes.
       
 1. Now you need to create the `du-diagnostics-config.json` file by using similar commands. 
-2. 
+
       1. Start by creating or opening the `du-diagnostics-config.json` file for editing by using:
 
       ```bash
