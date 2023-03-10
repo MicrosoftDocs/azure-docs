@@ -34,7 +34,7 @@ For more information, see [Azure built-in roles](../roles/permissions-reference.
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* pymetrics supports **SP** initiated SSO.  If you need to configure an **IdP** initiated flow, please reachout to pymterics support.
+* pymetrics supports **SP** initiated SSO.  If you need to configure an **IdP** initiated flow, please reachout to pymetrics support.
 * pymetrics supports **Just In Time** user provisioning.
 
 ## Add pymetrics from the gallery
