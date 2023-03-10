@@ -18,7 +18,8 @@ In this article, you learn how to:
 > [!div class="checklist"]
 > * Create a random pet name for the Azure resource group name using [random_pet](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/pet)
 > * Create an Azure resource group using [azurerm_resource_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group)
-> * Create an Azure Analysis Services Server using [azurerm_analysis_services_server](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/analysis_services_server)
+> * Create a random string for the Azure Analysis Services server name using [random_string](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string)
+> * Create an Azure Analysis Services server using [azurerm_analysis_services_server](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/analysis_services_server)
 
 [!INCLUDE [AI attribution](../../includes/ai-generated-attribution.md)]
 
@@ -94,5 +95,5 @@ In this article, you learn how to:
 
 ## Next steps
 
-> [!div class="nextstepaction"] 
-> [Learn more about Azure Analysis Services](/azure/analysis-services)
+> [!div class="nextstepaction"]
+> [Quickstart: Configure server firewall - Portal](analysis-services-qs-firewall.md)
