@@ -14,8 +14,6 @@
   items:
     - name: Hierarchy model
       href: concepts-hierarchy-model.md
-    - name: Farm operations data ingestion
-      href: concepts-ingest-farm-operations-data.md
     - name: Satellite data ingestion
       href: concepts-ingest-satellite-imagery.md
     - name: Weather data ingestion
