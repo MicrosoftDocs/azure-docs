@@ -5,7 +5,7 @@ author: joharder
 ms.author: joharder
 ms.topic: tutorial
 ms.service: azure-redhat-openshift
-ms.date: 10/26/2020
+ms.date: 02/23/2022
 #Customer intent: As a developer, I want learn how to create an Azure Red Hat OpenShift cluster, scale it, and then clean up resources so that I am not charged for what I'm not using.
 ---
 
@@ -222,6 +222,24 @@ az aro create \
 ```
 
 After executing the `az aro create` command, it normally takes about 35 minutes to create a cluster.
+
+#### Selecting a different ARO version
+
+You can select to use a specific version of ARO when creating your cluster. First, use the CLI to query for available ARO versions:
+
+`az aro get-versions --location <region>`
+
+Once you've chosen the version, specify it using the `--version` parameter in the `aro create` command:
+
+```azurecli-interactive
+az aro create \
+  --resource-group $RESOURCEGROUP \
+  --name $CLUSTER \
+  --vnet aro-vnet \
+  --master-subnet master-subnet \
+  --worker-subnet worker-subnet
+  --version <x.y.z>
+```
 
 ## Next steps
 

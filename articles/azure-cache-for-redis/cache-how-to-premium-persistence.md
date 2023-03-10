@@ -233,6 +233,10 @@ Using managed identity adds the cache instance to the [trusted services list](..
 
 No, you can't use Append-only File (AOF) persistence with multiple replicas (more than one replica).
 
+### How do I check if soft delete is enabled on my storage account?
+
+Select the storage account that your cache is using for persistence. Select **Data Protection** from the Resource menu. In the working pane, check the state of *Enable soft delete for blobs*.
+
 ## Next steps
 
 Learn more about Azure Cache for Redis features.

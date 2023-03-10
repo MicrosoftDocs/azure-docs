@@ -7,7 +7,6 @@ ms.author: roblescarlos
 ms.reviewer: randolphwest
 ms.date: 01/31/2023
 ms.service: dms
-ms.workload: data-services
 ms.topic: tutorial
 ---
 

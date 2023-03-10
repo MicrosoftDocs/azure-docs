@@ -69,13 +69,13 @@ In this article, you learn how to:
 
 1. Get the Azure resource name in which the lab was created.
 
-    ```azurecli
+    ```console
     echo "$(terraform output resource_group_name)"
     ```
 
 1. Get the lab name.
 
-    ```azurecli
+    ```console
     echo "$(terraform output lab_name)"
     ```
 

@@ -35,11 +35,11 @@ sections:
       questions:
         - question: Where can I learn about the pricing for Azure Data Manager for Energy Preview?
           answer: >
-            Pricing for Azure Data Manager for Energy Preview will be made available on Azure.com via the Product Pricing Page. 
+            Pricing for Azure Data Manager for Energy Preview is available on Azure.com via the Product Pricing Page. 
           
         - question: How is Azure Data Manager for Energy priced?
           answer: >
-            Azure Data Manager for Energy will have a fixed instance fee. This base instance price includes the capacity which can scale up to allow for peak workloads and a higher number of data partition needs.
+            Azure Data Manager for Energy includes a fixed instance fee. This base instance price includes the capacity which can scale up to allow for peak workloads and a higher number of data partition needs.
 
         - question: Are there any data storage charges?
           answer: >
