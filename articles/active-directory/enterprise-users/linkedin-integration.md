@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Integrate LinkedIn account connections in Azure Active Directory
 
-You can allow users in your organization to access their LinkedIn connections within some Microsoft apps. No data is shared until users consent to connect their accounts. You can integrate your organization in the [admin center](https://aad.portal.azure.com) for Azure Active Directory (Azure AD), part of Microsoft Entra.
+You can allow users in your organization to access their LinkedIn connections within some Microsoft apps. No data is shared until users consent to connect their accounts. You can integrate your organization with Azure Active Directory (Azure AD), part of Microsoft Entra.
 
 > [!IMPORTANT]
 > The LinkedIn account connections setting is currently being rolled out to Azure AD organizations. When it is rolled out to your organization, it is enabled by default.
@@ -34,8 +34,8 @@ You can allow users in your organization to access their LinkedIn connections wi
 
 You can enable LinkedIn account connections for only the users you want to have access, from your entire organization to only selected users in your organization.
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com/) with an account that's a Global Administrator for the Azure AD organization.
-1. Select **Users**.
+1. Sign in to the [Azure portal](https://portal.azure.com/) with an account that's a Global Administrator for the Azure AD organization.
+1. Browse to **Azure Active Directory** > **Users**.
 1. On the **Users** page, select **User settings**.
 1. Under **LinkedIn account connections**, allow users to connect their accounts to access their LinkedIn connections within some Microsoft apps. No data is shared until users consent to connect their accounts.
 
@@ -104,4 +104,4 @@ This group policy affects only Office 2016 apps for a local computer. If users d
 
 * [LinkedIn help center](https://www.linkedin.com/help/linkedin)
 
-* [View your current LinkedIn integration setting in the Azure portal](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/UserSettings)
+* [View your current LinkedIn integration setting in the Azure portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/UserSettings)

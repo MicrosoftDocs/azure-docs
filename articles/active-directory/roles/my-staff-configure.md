@@ -46,7 +46,7 @@ To complete this article, you need the following resources and privileges:
 
 Once you have configured administrative units, you can apply this scope to your users who access My Staff. Only users who are assigned an administrative role can access My Staff. To enable My Staff, complete the following steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com) as a Global Administrator, User Administrator, or Group Administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com)  as a Global Administrator, User Administrator, or Group Administrator.
 
 1. Select **Azure Active Directory** > **User settings** > **User feature** > **Manage user feature settings**.
 

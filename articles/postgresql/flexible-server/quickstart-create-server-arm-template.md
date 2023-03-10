@@ -5,7 +5,7 @@ author: mksuni
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
+ms.custom: subject-armqs, mode-arm
 ms.author: sumuth
 ms.date: 05/12/2022
 ---
