@@ -33,7 +33,7 @@ When a membership or ownership is assigned, the assignment:
 
 Follow these steps to make a user eligible member or owner of a group. You will need to have Global Administrator, Privileged Role Administrator role, or be an Owner of the group.
 
-1. [Sign in to Azure AD](https://aad.portal.azure.com).
+1. [Sign in to the Azure portal](https://portal.azure.com).
 
 1. Select **Azure AD Privileged Identity Management -> Groups (Preview)** and view groups that are already enabled for PIM for Groups.
 
@@ -73,7 +73,7 @@ Follow these steps to make a user eligible member or owner of a group. You will 
 
 Follow these steps to update or remove an existing role assignment. You will need to have Global Administrator, Privileged Role Administrator role, or Owner role of the group.
 
-1. [Sign in to Azure AD](https://aad.portal.azure.com) with appropriate role permissions.
+1. [Sign in to the Azure portal](https://portal.azure.com) with appropriate role permissions.
 
 1. Select **Azure AD Privileged Identity Management -> Groups (Preview)** and view groups that are already enabled for PIM for Groups.
 
