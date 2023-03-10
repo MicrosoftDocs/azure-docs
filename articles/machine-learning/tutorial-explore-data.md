@@ -46,36 +46,21 @@ The start of a machine learning project typically involves exploratory data anal
 
 2. Make sure that the kernel, found on the top right, is `Python 3.10 - SDK v2`.  If not, use the dropdown to select this kernel.
 
-<!-- nbstart https://raw.githubusercontent.com/Azure/azureml-examples/new-tutorial-series/tutorials/get-started-notebooks/access-and-explore-data.ipynb -->
+   <!-- nbstart https://raw.githubusercontent.com/Azure/azureml-examples/get-started-tutorials/tutorials/get-started-notebooks/access-and-explore-data.ipynb -->
 
-### Download the data used in this tutorial
-
-For data ingestion, the Azure Data Explorer handles raw data in [these formats](/azure/data-explorer/ingestion-supported-formats). This tutorial uses this [CSV-format credit card client data sample](https://azuremlexamples.blob.core.windows.net/datasets/credit_card/default_of_credit_card_clients.csv). We see the steps proceed in an Azure Machine Learning resource. In that resource, we'll create a local folder with the suggested name of **data** directly under the folder where this notebook is located.
-
-> [!NOTE]
-> This tutorial depends on data placed in an Azure Machine Learning resource folder location. For this tutorial, 'local' means a folder location in that Azure Machine Learning resource. 
-
-This image shows the Azure Machine Learning files (folder) panel:
-
-:::image type="content" source="media/tutorial-prepare-data/files.png" alt-text="Screenshot shows the files panel in Azure Machine Learning studio.":::
-
-In the files panel, you can easily create folders, and move files between folders. Create a new get-started-notebooks below the folder where your notebook is located, named **data**.
-
-Upload the data to the **data** folder after you download it. Or, follow these steps to copy the data using the compute instance terminal.
 
 1. Select **Open terminal** below the three dots, as shown in this image:
 
     :::image type="content" source="media/tutorial-cloud-workstation/open-terminal.png" alt-text="Screenshot shows open terminal tool in notebook toolbar.":::
 
-1. The terminal window opens in a new tab. Enter these commands in this terminal window to copy the data to your compute instance:
+1. The terminal window opens in a new tab. Enter these commands in this terminal window to copy the data to your workspace:
 
     ```
-    cd get-started-notebooks    #  modify this to the path where your notebook is located
+    cd get-started-notebooks    # modify this to the path where your notebook is located
+    mkdir data                     # create a data sub-folder
     cd data                     # the sub-folder where you'll store the data
     wget https://azuremlexamples.blob.core.windows.net/datasets/credit_card/default_of_credit_card_clients.csv
     ```
-
-
 
 [Learn more about this data on the UCI Machine Learning Repository.](https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients)
 
@@ -155,9 +140,15 @@ my_data = Data(
 ml_client.data.create_or_update(my_data)
 ```
 
-You'll notice that the data uploads to the default Azure Machine Learning _Datastore_. An Azure Machine Learning datastore is a _reference_ to an _existing_ storage account on Azure. A datastore offers these benefits:
+In this image, you'll notice that the data uploaded to the default Azure Machine Learning _datastore_: 
 
-1. A common and easy-to-use API, to interact with different storage types (Blob/Files/ADLS) and authentication methods.
+:::image type="content" source="media/tutorial-prepare-data/access-and-explore-data.png" alt-text="Screenshot shows the data in studio.":::
+
+This data is named **credit-card**, and in the **Data assets** tab, we can see it in the **Name** column. This data uploaded to your workspace's default datastore named **workspaceblobstore**, seen in the **Data source** column. An Azure Machine Learning datastore is a _reference_ to an _existing_ storage account on Azure. 
+
+A datastore offers these benefits:
+
+1. A common and easy-to-use API, to interact with different storage types (Blob/Files/Azure Data Lake Storage) and authentication methods.
 1. An easier way to discover useful datastores, when working as a team.
 1. In your scripts, a way to hide connection information for credential-based data access (service principal/SAS/key).
 
