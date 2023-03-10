@@ -434,9 +434,9 @@ You need the following information:
     --ipv4-connected-prefix "<YourNetworkIpv4Prefix>" \
     --ipv6-connected-prefix "<YourNetworkIpv6Prefix>" \
     --l3-isolation-domain-id "<YourL3IsolationDomainId>" \
-    --vlan <YourNetworkVlan>
-    --service-external-prefixes <YourExternalPrefixes>
-    --service-load-balancer-prefixes <YourLBPrefixes>
+    --vlan "<YourNetworkVlan>" \
+    --service-external-prefixes '["YourExternalPrefix-1", "YourExternalPrefix-N"]' \
+    --service-load-balancer-prefixes '["YourLBPrefixes-1", "YourLBPrefixes-N"]'
 ```
 
 ##### Create Cloud Services Network for AKS-Hybrid cluster
