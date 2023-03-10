@@ -46,7 +46,7 @@ In order for your script to run, you need to be working in an environment config
 * **Upload a file.**
     Files you upload are stored in an Azure file share, and these files are mounted to each compute instance and shared within the workspace.
 
-    1. Download this conda environment file, [*workstation_env.yml*](https://raw.githubusercontent.com/Azure/azureml-examples/new-tutorial-series/tutorials/get-started-notebooks/workstation_env.yml) to your computer.
+    1. Download this conda environment file, [*workstation_env.yml*](https://azuremlexampledata.blob.core.windows.net/datasets/workstation_env.yml) to your computer.
     1. Select **+** and select **Upload files** to upload it to your workspace.
     1. Select **Browse and select file(s)**.
     1. Select **workstation_env.yml** file you just downloaded.
@@ -140,10 +140,6 @@ This code uses `sklearn` for training and MLflow for logging the metrics.
     # load the data
     credit_df = pd.read_csv('https://azuremlexamples.blob.core.windows.net/datasets/credit_card/default%20of%20credit%20card%20clients.csv', header=1, index_col=0)
     
-    # pre-process the data
-    mlflow.log_metric("num_samples", credit_df.shape[0])
-    mlflow.log_metric("num_features", credit_df.shape[1] - 1)
-    
     train_df, test_df = train_test_split(
         credit_df,
         test_size=0.25,
@@ -169,6 +165,8 @@ This code uses `sklearn` for training and MLflow for logging the metrics.
 1. Add code to start autologging with `MLflow`, so that you can track the metrics and results. With the iterative nature of model development, `MLflow` helps you log model parameters and results.  Refer back to those runs to compare and understand how your model performs. The logs also provide context when you're ready to move from the development to training phase of your workflows within Azure Machine Learning.
 
     ```python
+    # set name for logging
+    mlflow.set_experiment("Develop on cloud tutorial")
     # enable autologging with MLflow
     mlflow.sklearn.autolog()
 
@@ -180,6 +178,7 @@ This code uses `sklearn` for training and MLflow for logging the metrics.
     # Train Gradient Boosting Classifier
     print(f"Training with data of shape {X_train.shape}")
     
+    mlflow.start_run()
     clf = GradientBoostingClassifier(
         n_estimators=100, learning_rate=0.1
     )
@@ -202,6 +201,7 @@ from sklearn.ensemble import AdaBoostClassifier
 
 print(f"Training with data of shape {X_train.shape}")
 
+mlflow.start_run()
 ada = AdaBoostClassifier()
 
 ada.fit(X_train, y_train)
@@ -245,8 +245,12 @@ Now create a Python script from your notebook for model training.
 
     :::image type="content" source="media/tutorial-cloud-workstation/export-python-file.png" alt-text="Screenshot shows exporting a Python file from the notebook.":::
 
-1. Look through this file and delete the code you don't want in the training script.  For example, keep the code for the model you wish to use, and delete code for the model you don't want.  Make sure you keep the code that starts autologging (`mlflow.sklearn.autolog()`).
-1. You may also wish to delete the auto-generated comments and add in more of your own comments.
+1. Look through this file and delete the code you don't want in the training script.  For example, keep the code for the model you wish to use, and delete code for the model you don't want.  
+    * Make sure you keep the code that starts autologging (`mlflow.sklearn.autolog()`).
+    * When you run the Python script locally (as you'll do in this tutorial), you can keep the line that defines the experiment name (`mlflow.set_experiment("Develop on cloud tutorial")`).  Or even give it a different name to see it as a different entry in the **Jobs** section.  But when you use the script to submit a run with the CLI or SDK (which you'll see in other tutorials), that line will not work - the CLI or SDK code to create a training run will contain the experiment name instead.
+    * When running a single model, the lines to start and end a run (`mlflow.start_run()` and `mlflow.end_run()`) are also not necessary, but can be left in if you wish.
+    * You may wish to delete the auto-generated comments and add in more of your own comments.
+1. When you're finished with your edits, save the file.
 
 You now have a Python script to use for training your preferred model.  
 

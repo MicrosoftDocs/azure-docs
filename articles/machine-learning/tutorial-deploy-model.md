@@ -57,7 +57,7 @@ The steps you'll take are:
     > This translates to `ceil(1.2 * 1) * 4` = `8` cores for the `Standard_DS3_v2` VM and `ceil(1.2 * 2) * 4` = `12` cores for the `Standard_F4s_v2` VM.
 1. Create a new notebook or copy the contents of our notebook.
     * Follow the [Create a new notebook](quickstart-create-resources.md#create-a-new-notebook) steps to create a new notebook.
-    * Or open the notebook by opening  **update these locations** from the **Samples** section of studio. Then select **Clone this notebook**  to add the notebook to your **Files**.
+    * Or open the notebook by opening  **tutorials/get-started-notebooks/deploy.ipynb** from the **Samples** section of studio. Then select **Clone this notebook**  to add the notebook to your **Files**.
 
 ## Connect to the workspace
 
