@@ -3,7 +3,7 @@ title: Monitor Azure Load Testing
 description: Start here to learn how to monitor Azure Load Testing
 author: Sachid26
 ms.topic: how-to
-ms.author: Sachid26
+ms.author: sacsharm
 ms.service: load-testing
 ms.custom: subject-monitoring
 ms.date: 04/22/2022
