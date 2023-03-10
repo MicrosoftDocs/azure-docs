@@ -31,7 +31,7 @@ Sharing in Microsoft 365 is partially governed by the **External Identities, Ext
 
 Learn more:
 
-* [Azure Active Directory admin center](https://aad.portal.azure.com/)
+* [Azure portal](https://portal.azure.com/)
 * [External Identities in Azure AD](../external-identities/external-identities-overview.md)
 
 ### Guest user access
