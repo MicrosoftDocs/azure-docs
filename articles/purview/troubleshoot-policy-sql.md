@@ -11,7 +11,7 @@ ms.date: 03/10/2023
 
 # Tutorial: Troubleshoot Microsoft Purview policies for SQL data sources
 
-In this tutorial, you learn how issue SQL commands to inspect the Microsof Purview policies that have been communicated to the SQL instance, where they will be enforced.
+In this tutorial, you learn how issue SQL commands to inspect the Microsoft Purview policies that have been communicated to the SQL instance, where they will be enforced. You will also learn how to force a download of the policies to the SQL instance. These commands are only used for troubleshooting and are not required during the normal operation of Microsoft Purview policies. These commands require a higher level of privileges in the SQL instance.
 
 For more information about Microsoft Purview policies, see the concept guides listed in the [Next steps](#next-steps) section.
 
