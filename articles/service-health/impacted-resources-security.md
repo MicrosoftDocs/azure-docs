@@ -19,7 +19,9 @@ This article details what is communicated to users and where they can view infor
 
 ## Role Based Access (RBAC) For Security Incident Resource Impact
 
-[Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to. Given the sensitive nature of security incidents, role-based access is leveraged to limit the audience of their impacted resource information. Users authorized with the following roles can view security impacted resource information:
+[Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to. Given the sensitive nature of security incidents, role-based access is leveraged to limit the audience of their impacted resource information. Along with resource information, Service Health provides the below information to users whose resources are impacted by a security incident:
+
+Users authorized with the following roles can view security impacted resource information:
 
 **Subscription level**
 - Subscription Owner
@@ -33,16 +35,7 @@ This article details what is communicated to users and where they can view infor
 
 ## Viewing Impacted Resources for Security Incidents on the Service Health Portal
 
-In the Azure portal, the **Impacted Resources** tab under **Service Health** > **Security Advisories** displays resources that are impacted by a security incident. The following examples of the Impacted Resources tab shows a security incident with impacted resources.
-
-**Subscription**
-:::image type="content" source="./media/impacted-resource-sec/impact-security.PNG" alt-text="Screenshot of information about impacted resources in Azure Service Health.":::
-
-**Tenant**
-
-:::image type="content" source="./media/impacted-resource-sec/security-tenant.PNG" alt-text="Screenshot of information about impacted resources in Azure Service Health.":::
-
-Along with resource information, Service Health provides the below information to users whose resources are impacted by a security incident:
+In the Azure portal, the **Impacted Resources** tab under **Service Health** > **Security Advisories** displays resources that are impacted by a security incident. Along with resource information, Service Health provides the below information to users whose resources are impacted by a security incident:
 
 |Column  |Description |
 |---------|---------|
@@ -50,6 +43,17 @@ Along with resource information, Service Health provides the below information t
 |**Subscription Name**|Subscription name for the subscription that contains the impacted resource|
 |**Tenant Name**|Unique ID for the tenant that contains the impacted resource|
 |**Tenant ID**|Unique ID for the tenant that contains the impacted resource|
+
+The following examples shows a security incident with impacted resources from the subscription and tenant scope.
+
+**Subscription**
+
+:::image type="content" source="./media/impacted-resource-sec/impact-security.PNG" alt-text="Screenshot of information about impacted resources from subscription scope in Azure Service Health.":::
+
+**Tenant**
+
+:::image type="content" source="./media/impacted-resource-sec/security-tenant.PNG" alt-text="Screenshot of information about impacted resources from tenant scope in Azure Service Health.":::
+
 
 ## Accessing Impacted Resources programmatically via an API
 
