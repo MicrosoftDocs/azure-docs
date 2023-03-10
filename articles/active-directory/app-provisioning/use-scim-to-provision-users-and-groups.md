@@ -1195,7 +1195,7 @@ In the sample code, the request is translated into a call to the RetrieveAsync m
 Task<Resource> RetrieveAsync(IRequest<IResourceRetrievalParameters> request);
 ```
 
-In the example of a request to retrieve the current state of a user, the values of the properties of the object provided as the value of the parameters argument are as follows: 
+In the example of a request, to retrieve the current state of a user, the values of the properties of the object provided as the value of the parameters argument are as follows: 
   
 * Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
 * SchemaIdentifier: `urn:ietf:params:scim:schemas:extension:enterprise:2.0:User`
