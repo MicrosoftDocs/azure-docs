@@ -146,7 +146,7 @@ For the following instructions, eID-Me appears as a new OIDC identity provider i
 5. In **Identity providers**, select the created eID-Me identity provider.  
 6. For **Local Accounts**, select **None**. The selection disables email and password authentication.
 7. Select **Run user flow**.
-8. In the form, enter a **Replying URL**, such as `https://jwt.ms`.
+8. Enter a **Replying URL**, such as `https://jwt.ms`.
 9. The browser  redirects to the eID-Me sign-in page. 
 10. Enter the account name from user registration. 
 11. The user receives push notification on the mobile device with eID-Me.
@@ -178,7 +178,7 @@ Store the Client Secret you recorded in your Azure AD B2C tenant. For the follow
 
 ## Configure eID-Me as an Identity provider
 
-To enable user sign in with eID-Me, define eID-Me as a claims provider. Azure AD B2C communicates with it, through an endpoint. The endpoint provides claims used by Azure AD B2C to verify user authentication with a digital ID on their device.
+Define eID-Me as a claims provider to enable users to sign in with eID-Me. Azure AD B2C communicates with it, through an endpoint. The endpoint provides claims used by Azure AD B2C to verify user authentication with a digital ID on their device.
 
 To define eID-Me as a claims provider, add it to the **ClaimsProvider** element in the policy extension file.
 
