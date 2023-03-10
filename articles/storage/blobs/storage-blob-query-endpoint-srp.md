@@ -202,7 +202,7 @@ To get the properties for a specified storage account, use the following method 
 
 This method returns a [StorageAccountResource](/dotnet/api/azure.resourcemanager.storage.storageaccountresource) object, which represents the storage account.
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobQueryEndpoint/QueryEndpoint.cs" id="Snippet_QueryEndpoint" highlight="26,29":::
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobQueryEndpoint/QueryEndpoint.cs" id="Snippet_QueryEndpoint" highlight="25,28":::
 
 ## [Java](#tab/java)
 
