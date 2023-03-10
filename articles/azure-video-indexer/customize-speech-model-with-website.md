@@ -22,7 +22,7 @@ As all custom models must contain a dataset, we'll start with the process of how
 1. Select the Speech (new) tab. Here you'll begin the process of uploading datasets that are used to train the speech models.  
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/customize-speech-model/speech-model.png" alt-text="The image of uploading datasets which are used to train the speech models.":::
+    > :::image type="content" source="./media/customize-speech-model/speech-model.png" alt-text="The "Screenshot of uploading datasets which are used to train the speech models.":::
 1. Select Upload dataset. 
 1. Select either Plain text or Pronunciation from the Dataset type dropdown menu. Every speech model must have a plain text dataset and can optionally have a pronunciation dataset. To learn more about each type, see Customize a speech model with Azure Video Indexer. 
 1. Select Browse which will open the File Explorer. You can only use one file in each dataset. Choose the relevant text file. 
@@ -31,11 +31,11 @@ As all custom models must contain a dataset, we'll start with the process of how
 1. You can optionally add a description of the dataset. This could be helpful to distinguish each dataset if you expect to have multiple datasets. 
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/customize-speech-model/dataset-type.png" alt-text="The image of multiple datasets.":::
+    > :::image type="content" source="./media/customize-speech-model/dataset-type.png" alt-text="Screenshot of multiple datasets.":::
 1. Once you're ready, select Upload. You'll then see a list of all of your datasets and their properties, including the type, language, status, number of lines, and creation date. Once the status is complete, it can be used in the training and creation or new models. 
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/customize-speech-model/datasets.png" alt-text="The image of a new model.":::
+    > :::image type="content" source="./media/customize-speech-model/datasets.png" alt-text="Screenshot of a new model.":::
 
 ## Review and update a dataset
 
@@ -44,14 +44,14 @@ Once a Dataset has been uploaded, you might need to review it or perform any num
 **View dataset**: You can view a dataset and its properties by either clicking on the dataset name or when hovering over the dataset or clicking on the ellipsis and selecting **View Dataset**.  
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/customize-speech-model/view-dataset.png" alt-text="This image shows how to view dataset.":::
+> :::image type="content" source="./media/customize-speech-model/view-dataset.png" alt-text="Screenshot of how to view dataset.":::
 
 You'll then view the name, description, language and status of the dataset plus the following properties: 
 
-**Number of lines**:  indicates the number of lines successfully loaded out of the total number of lines in the file. If the entire file is loaded successfully the numbers will match (for example, 10 of 10 normalized). If the numbers don't match (for example, 7 of 10 normalized), this means that only some of the lines successfully loaded and the rest had errors. The most common cause of errors are formatting issues with a line, such as not spacing a tab between each word in a pronunciation file.  Reviewing the plain text and pronunciation data for training articles should be helpful in finding the issue. To troubleshoot the cause, review the error details, which are contained in the report.  Select **View report** to view the error details regarding the lines that didn't load successfully (errorKind). This can also be viewed by selecting the **Report** tab.   
+**Number of lines**: indicates the number of lines successfully loaded out of the total number of lines in the file. If the entire file is loaded successfully the numbers will match (for example, 10 of 10 normalized). If the numbers don't match (for example, 7 of 10 normalized), this means that only some of the lines successfully loaded and the rest had errors. Common causes of errors are formatting issues with a line, such as not spacing a tab between each word in a pronunciation file. Reviewing the plain text and pronunciation data for training articles should be helpful in finding the issue. To troubleshoot the cause, review the error details, which are contained in the report. Select **View report** to view the error details regarding the lines that didn't load successfully (errorKind). This can also be viewed by selecting the **Report** tab.   
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/customize-speech-model/report-tab.png" alt-text="The image shows how to view by selecting report tab.":::
+> :::image type="content" source="./media/customize-speech-model/report-tab.png" alt-text="Screenshot of how to view by selecting report tab.":::
 
 **Dataset ID**: Each dataset has a unique GUID, which is needed when using the API for operations that reference the dataset. 
 
@@ -87,7 +87,7 @@ Keep in mind the following when creating and using custom speech models:
 1. When viewing the list of datasets, if you select a plain text dataset by clicking on the circle to the left of a plain text dataset’s name, the Train new model icon above the datasets will now turn from greyed out to blue and can be selected. Select Train new model. 
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/customize-speech-model/train-model.png" alt-text="This image shows how to train new model.":::
+    > :::image type="content" source="./media/customize-speech-model/train-model.png" alt-text="Screenshot of how to train new model.":::
 1. In the Train a new model popup, enter a name for the model, a language, and optionally add a description. A model can only contain datasets of the same language. 
 1. Select the Datasets tab and then select from the list of your datasets the datasets you would like to be included in the model. Once a model is created, datasets can't be added. 
 1. Select Create ad train. 
@@ -106,7 +106,7 @@ Once a Model has been created, you might need to review its datasets, edits its 
 **View Model**: You can view a model and its properties by either clicking on the model’s name or when hovering over the model, clicking on the ellipsis and then selecting View Model.  
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/customize-speech-model/view-model.png" alt-text="The image shows how to review and update a model.":::
+> :::image type="content" source="./media/customize-speech-model/view-model.png" alt-text="Screenshot of how to review and update a model.":::
     
 You'll then see in the Details tab the name, description, language and status of the model plus the following properties: 
 
@@ -117,7 +117,7 @@ You'll then see in the Details tab the name, description, language and status of
 **Edit Details**: To edit a model’s name or description, when hovering over the model, click on the ellipsis and then select Edit details. You're then able to edit the model’s name and description. 
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/customize-speech-model/create-model.png" alt-text="Hover over the model.":::
+> :::image type="content" source="./media/customize-speech-model/create-model.png" alt-text="Screenshot of how to hover over the model.":::
 
 > [!Note] 
 > Only the model’s name and description can be edited. If you want to make any changes to its datasets or add datasets, a new model must be created. 
@@ -127,7 +127,7 @@ You'll then see in the Details tab the name, description, language and status of
 **Included datasets**: Click on the Included datasets tab to view the model’s datasets. 
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/customize-speech-model/included-datasets.png" alt-text="This image shows how to delete the model.":::
+> :::image type="content" source="./media/customize-speech-model/included-datasets.png" alt-text="Screenshot of how to delete the model.":::
 
 ## How to use a custom language model when indexing a video 
 
@@ -136,7 +136,7 @@ A custom language model isn't used by default for indexing jobs and must be sele
 During the upload process, you can select the source language of the video. In the Video source language drop-down menu, you'll see your custom model among the language list. The naming of the model is the language of your Language model and the name that you gave it in parentheses. For example: 
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/customize-speech-model/contoso-model.png" alt-text="The image of indexing a video.":::
+> :::image type="content" source="./media/customize-speech-model/contoso-model.png" alt-text="Screenshot of indexing a video.":::
 
 Select the Upload option in the bottom of the page, and your new video will be indexed using your Language model. The same steps apply when you want to re-index a video with a custom model. 
 

@@ -29,7 +29,7 @@ The following are descriptions of some of the parameters:
 ## Create a speech dataset 
 
 The [create speech dataset](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Create-Speech-Dataset) API creates a dataset for training a speech model. You upload a file that is used to create a dataset with this call. The content of a dataset can't be modified after it's created. 
-To upload a file to a dataset, you must update parameters in the Body, including a URL to the text file to be uploaded. The description and custom properties fiels are  optional. The following is a sample of the body:
+To upload a file to a dataset, you must update parameters in the Body, including a URL to the text file to be uploaded. The description and custom properties fields are  optional. The following is a sample of the body:
 
 ```json
 {
