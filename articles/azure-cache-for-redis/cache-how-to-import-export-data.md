@@ -4,7 +4,7 @@ description: Learn how to import and export data to and from blob storage with y
 author: flang-msft
 ms.service: cache
 ms.topic: conceptual
-ms.date: 01/31/2023
+ms.date: 03/10/2023
 ms.author: franlanglois
 
 ---
@@ -23,7 +23,7 @@ For information on which Azure Cache for Redis tiers support import and export, 
 
 ## Import
 
-Use import to bring Redis compatible RDB files from any Redis server running in any cloud or environment, including Redis running on Linux, Windows, or any cloud provider such as Amazon Web Services and others. Importing data is an easy way to create a cache with pre-populated data. During the import process, Azure Cache for Redis loads the RDB files from Azure storage into memory and then inserts the keys into the cache.
+Use import to bring Redis compatible RDB files from any Redis server running in any cloud or environment, including Redis running on Linux, Windows, or any cloud provider such as Amazon Web Services and others. Importing data is an easy way to create a cache with prepopulated data. During the import process, Azure Cache for Redis loads the RDB files from Azure storage into memory and then inserts the keys into the cache.
 
 > [!NOTE]
 > Before beginning the import operation, ensure that your Redis Database (RDB) file or files are uploaded into page or block blobs in Azure storage, in the same region and subscription as your Azure Cache for Redis instance. For more information, see [Get started with Azure Blob storage](../storage/blobs/storage-quickstart-blobs-dotnet.md). If you exported your RDB file using the [Azure Cache for Redis Export](#export) feature, your RDB file is already stored in a page blob and is ready for importing.
@@ -76,7 +76,7 @@ Export allows you to export the data stored in Azure Cache for Redis to Redis co
    > - Export works with page blobs that are supported by both classic and Resource Manager storage accounts.
    > - Azure Cache for Redis does not support exporting to ADLS Gen2 storage accounts.
    > - Export is not supported by Blob storage accounts at this time.
-   > - Redis cache data export to Firewall enabled storage accounts fails? [Please refer to How to export if I have firewall enabled on my storage account?](#how-to-export-if-i-have-firewall-enabled-on-my-storage-account)
+   > - If your cache data export to Firewall-enabled storage accounts fails, refer to [How to export if I have firewall enabled on my storage account?](#how-to-export-if-i-have-firewall-enabled-on-my-storage-account)
    >
    > For more information, see [Azure storage account overview](../storage/common/storage-account-overview.md).
    >
@@ -137,7 +137,7 @@ Azure Cache for Redis supports RDB import up through RDB version 7.
 
 ### Can I use Import/Export with Redis cluster?
 
-Yes, and you can import/export between a clustered cache and a non-clustered cache. Since Redis cluster [only supports database 0](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering), any data in databases other than 0 isn't imported. When clustered cache data is imported, the keys are redistributed among the shards of the cluster.
+Yes, and you can import/export between a clustered cache and a nonclustered cache. Since Redis cluster [only supports database 0](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering), any data in databases other than 0 isn't imported. When clustered cache data is imported, the keys are redistributed among the shards of the cluster.
 
 ### How does Import/Export work with a custom databases setting?
 
