@@ -1607,7 +1607,7 @@
         href: mozy-enterprise-tutorial.md
       - name: MS Azure SSO Access for Ethidex Compliance Office™
         href: ms-azure-sso-access-for-ethidex-compliance-office-tutorial.md
-      - name: MURAL Identity
+      - name: Mural Identity
         href: mural-identity-tutorial.md  
       - name: MVISION Cloud Azure AD SSO Configuration
         href: skyhighnetworks-tutorial.md
@@ -1915,7 +1915,7 @@
         href: productive-tutorial.md  
       - name: Profit.co
         href: profitco-saml-app-tutorial.md
-      - name: Projectplace
+      - name: ProjectPlace
         href: projectplace-tutorial.md
       - name: Prolorus
         href: prolorus-tutorial.md

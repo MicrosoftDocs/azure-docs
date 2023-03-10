@@ -20,7 +20,7 @@ In this tutorial, create a basic ASP.NET Core (Model-View-Controller) app that r
 > + Filter results
 > + Sort results
 
-This tutorial puts the focus on several operations that execute server-side using the Search APIs. Although it's common to sort and filter in client-side script, knowing how to invoke these operations on the server gives you more options when designing the search experience.
+This tutorial puts the focus on server-side operations called through the Search APIs. Although it's common to sort and filter in client-side script, knowing how to invoke these operations on the server gives you more options when designing the search experience.
 
 Sample code for this tutorial can be found in the [azure-search-dotnet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/main/create-mvc-app) repository on GitHub. 
 
@@ -28,11 +28,10 @@ Sample code for this tutorial can be found in the [azure-search-dotnet-samples](
 
 + [Visual Studio](https://visualstudio.microsoft.com/downloads/)
 + [Azure.Search.Documents NuGet package](https://www.nuget.org/packages/Azure.Search.Documents/)
-+ [Microsoft.Spatial NuGet package](https://www.nuget.org/packages/Microsoft.Spatial/)
 + [Azure Cognitive Search](search-create-service-portal.md) <sup>1</sup> 
 + [Hotel samples index](search-get-started-portal.md) <sup>2</sup>
 
-<sup>1</sup> The search service can be any tier, but it must have public network access. 
+<sup>1</sup> The search service can be any tier, but it must have public network access for this tutorial. 
 
 <sup>2</sup> To complete this tutorial, you need to create the hotels-sample-index on your search service. Make sure the search index name is`hotels-sample-index`, or change the index name in the `HomeController.cs` file.
 
@@ -56,13 +55,13 @@ Sample code for this tutorial can be found in the [azure-search-dotnet-samples](
 
 1. Browse for `Azure.Search.Documents` and install the latest stable version.
 
-1. Browse for and install the `Microsoft.Spatial` package. The sample index includes a GeoPoint data type. Installing this package avoids run time errors. Alternatively, remove the field from the Hotels class if you don't want to install the package.
+1. Browse for and install the `Microsoft.Spatial` package. The sample index includes a GeographyPoint data type. Installing this package avoids run time errors. Alternatively, remove the "Location" field from the Hotels class if you don't want to install the package. It's not used in this tutorial.
 
 ### Add service information
 
-For the connection, the app presents a query API key to your fully qualified search URL specified in the `appsettings.json` file.
+For the connection, the app presents a query API key to your fully qualified search URL. Both are specified in the `appsettings.json` file.
 
-Modify `appsettings.json` to specify your search service and query API key.
+Modify `appsettings.json` to specify your search service and [query API key](search-security-api-keys.md).
 
    ```json
    {
@@ -75,7 +74,7 @@ Modify `appsettings.json` to specify your search service and query API key.
 
 In this step, create models that represent the schema of the hotels-search-index.
 
-1. In Solution explorer, right-select **Models** and add a new class named "Hotel".
+1. In Solution explorer, right-select **Models** and add a new class named "Hotel" for the following code:
 
    ```csharp
     using Azure.Search.Documents.Indexes.Models;
@@ -122,7 +121,6 @@ In this step, create models that represent the schema of the hotels-search-index
     
             public Rooms[] Rooms { get; set; }
         }
-    
     }
    ```
 
@@ -149,7 +147,6 @@ In this step, create models that represent the schema of the hotels-search-index
     
             [SearchableField(IsFilterable = true, IsSortable = true, IsFacetable = true)]
             public string Country { get; set; }
-    
         }
     }
    ```
@@ -193,7 +190,7 @@ In this step, create models that represent the schema of the hotels-search-index
     }
    ```
 
-1. Add a class named "SearchData". and replace it with the following code:
+1. Add a class named "SearchData" and replace it with the following code:
 
    ```csharp
     using Azure.Search.Documents.Models;
@@ -293,8 +290,8 @@ For this tutorial, modify the default `HomeController` to contain methods that e
                     IncludeTotalCount = true
                 };
     
-                // Enter Hotel property names into this list so only these values will be returned.
-                // If Select is empty, all values will be returned, which can be inefficient.
+                // Enter Hotel property names to specify which fields are returned.
+                // If Select is empty, all "retrievable" fields are returned.
                 options.Select.Add("HotelName");
                 options.Select.Add("Category");
                 options.Select.Add("Rating");
@@ -334,11 +331,7 @@ For this tutorial, modify the default `HomeController` to contain methods that e
         <img src="~/images/azure-logo.png" width="80" />
         <h2>Search for Hotels</h2>
     
-        <p>Use this demo app to test server-side behaviors, including sorting, filters, and relevance tuning. Modify the RunQueryAsnc method to change the operation.
-        </p>
-    
-        <p>The app connects to the sample hotels index on your search service using the default search configuration (simple search, with searchMode=Any).
-        </p>
+        <p>Use this demo app to test server-side sorting and filtering. Modify the RunQueryAsync method to change the operation. The app uses the default search configuration (simple search syntax, with searchMode=Any).</p>
     
         <form asp-controller="Home" asp-action="Index">
             <p>
@@ -409,7 +402,7 @@ Index field attributes determine which fields are searchable, filterable, sortab
 
 A filter always executes first, followed by a query assuming one is specified.
 
-1. Open the `HomeController` and replace **RunQueryAsync** method with the following version:
+1. Open the `HomeController` and find the **RunQueryAsync** method. Add [Filter](/dotnet/api/azure.search.documents.searchoptions.filter) to `var options = new SearchOptions()`:
 
    ```csharp
     private async Task<ActionResult> RunQueryAsync(SearchData model)
@@ -422,8 +415,6 @@ A filter always executes first, followed by a query assuming one is specified.
             Filter = "search.in(Category,'Budget,Suite')"
         };
 
-        // Enter Hotel property names into this list so only these values will be returned.
-        // If Select is empty, all values will be returned, which can be inefficient.
         options.Select.Add("HotelName");
         options.Select.Add("Category");
         options.Select.Add("Rating");
@@ -432,19 +423,21 @@ A filter always executes first, followed by a query assuming one is specified.
         options.Select.Add("Address/StateProvince");
         options.Select.Add("Description");
 
-        // For efficiency, the search call should be asynchronous, so use SearchAsync rather than Search.
         model.resultList = await _searchClient.SearchAsync<Hotel>(model.searchText, options).ConfigureAwait(false);
 
-        // Display the results.
         return View("Index", model);
     }
    ```
 
 1. Run the application.
 
+1. Select **Search** to run an empty query. The filter criteria returns 18 documents instead of the original 50.
+
+For more information about filter expressions, see [Filters in Azure Cognitive Search](search-filters.md) and [OData $filter syntax in Azure Cognitive Search](search-query-odata-filter.md).
+
 ## Sort results
 
-In the hotels-sample-index, sortable fields include "Rating" and "LastRenovated". This example adds an [$OrderBy](search-query-odata-orderby.md) expression to the "Rating" field.
+In the hotels-sample-index, sortable fields include "Rating" and "LastRenovated". This example adds an [$OrderBy](/dotnet/api/azure.search.documents.searchoptions.orderby) expression to the "Rating" field.
 
 1. Open the `HomeController` and replace **RunQueryAsync** method with the following version:
 
@@ -460,8 +453,6 @@ In the hotels-sample-index, sortable fields include "Rating" and "LastRenovated"
     
         options.OrderBy.Add("Rating desc");
     
-        // Enter Hotel property names into this list so only these values will be returned.
-        // If Select is empty, all values will be returned, which can be inefficient.
         options.Select.Add("HotelName");
         options.Select.Add("Category");
         options.Select.Add("Rating");
@@ -469,16 +460,16 @@ In the hotels-sample-index, sortable fields include "Rating" and "LastRenovated"
         options.Select.Add("Address/City");
         options.Select.Add("Address/StateProvince");
         options.Select.Add("Description");
-    
-        // For efficiency, the search call should be asynchronous, so use SearchAsync rather than Search.
+
         model.resultList = await _searchClient.SearchAsync<Hotel>(model.searchText, options).ConfigureAwait(false);
     
-        // Display the results.
         return View("Index", model);
     }
    ```
 
-1. Run the application.
+1. Run the application. Results are sorted by "Rating" in descending order.
+
+For more information about sorting, see [OData $orderby syntax in Azure Cognitive Search](search-query-odata-orderby.md).
 
 <!-- ## Relevance tuning
 
