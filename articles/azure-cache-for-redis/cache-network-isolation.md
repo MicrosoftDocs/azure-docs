@@ -5,7 +5,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 10/15/2020
+ms.date: 03/10/2023
 ---
 
 # Azure Cache for Redis network isolation options
@@ -48,7 +48,7 @@ VNet is the fundamental building block for your private network in Azure. VNet e
 
 - VNet injected caches are only available for Premium Azure Cache for Redis.
 - When using a VNet injected cache, you must change your VNet to cache dependencies such as CRLs/PKI, AKV, Azure Storage, Azure Monitor, and more.
-- You can't add an existing Azure Cache for Redis instance to a Virtual Network. You can only select this option when you create the cache. 
+- You can't inject an Azure Cache for Redis instance into a Virtual Network. You can only select this option when you _create_ the cache. 
 
 ## Azure Firewall rules
 
