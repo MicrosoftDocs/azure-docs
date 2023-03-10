@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 03/08/2023
+ms.date: 03/09/2023
 ms.author: jasteppe
 ---
 
@@ -88,13 +88,11 @@ The validation process validates the device mapping before allowing them to be s
 > [!NOTE]
 > `Values[].ValueName and Values[].ValueExpression` elements are only required if you have a value entry in the array. It's valid to have no values mapped. This is used when the telemetry being sent is an event. 
 >
-> For example:
-> 
-> Some scenarios may require creating an Observation Resource in the FHIR service that does not contain a value.
+> For example, some scenarios may require creating an Observation Resource in the FHIR service that does not contain a value.
 
 ## CollectionContentTemplate
 
-The CollectionContentTemplate is the root template type used by the MedTech service device mapping and represents a list of all templates that will be used during the normalization process.
+The CollectionContentTemplate is the root template type used by the MedTech service device mapping and represents a list of all templates that will be used during the normalization process. You can define one or more templates within the MedTech service device mapping. Each device message received is evaluated against all device mapping templates.
 
 :::image type="content" source="media/how-to-configure-device-mappings/device-mapping-diagram.png" alt-text="Diagram showing MedTech service device mapping architecture." lightbox="media/how-to-configure-device-mappings/device-mapping-diagram.png":::
                                                              
@@ -223,9 +221,9 @@ JSONPath allows matching on and extracting values from a device message.
 |Values[].ValueExpression|The JSONPath expression to extract the wanted value.|`$.matchedToken.heartRate`|
 |Values[].Required|Will require the value to be present in the payload. If not found, a measurement won't be generated, and an InvalidOperationException will be created.|`true`|
 
-## Other supported template types
+## Other supported device mapping template types
 
-You can define one or more templates within the MedTech service device mapping. Each device message received is evaluated against all device mapping templates.
+In addition to JSONPath, the MedTech service device mapping supports these other template types:
 
 |Template Type|Description|
 |-------------|-----------|   
