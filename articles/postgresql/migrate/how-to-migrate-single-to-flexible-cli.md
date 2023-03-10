@@ -7,7 +7,7 @@ ms.author: hariramt
 ms.service: postgresql
 ms.topic: tutorial
 ms.date: 02/02/2023
-ms.custom: seo-lt-2023
+ms.custom: seo-lt-2023, devx-track-azurecli
 ---
 
 # Tutorial: Migrate Azure Database for PostgreSQL - Single Server to Flexible Server by using the Azure CLI

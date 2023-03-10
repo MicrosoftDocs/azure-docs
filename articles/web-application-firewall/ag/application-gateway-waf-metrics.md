@@ -20,7 +20,7 @@ WAF with Application Gateway log is integrated with [Azure Monitor](../../azure-
 
 ## Logs and diagnostics
 
-WAF with Application Gateway provides detailed reporting on each threat it detects. Logging is integrated with Azure Diagnostics logs and alerts are recorded in a json format. These logs can be integrated with [Azure Monitor logs](../../azure-monitor/insights/azure-networking-analytics.md).
+WAF with Application Gateway provides detailed reporting on each threat it detects. Logging is integrated with Azure Diagnostics logs and alerts are recorded in a json format. These logs can be integrated with [Azure Monitor logs](/previous-versions/azure/azure-monitor/insights/azure-networking-analytics).
 
 ![WAFDiag](../media/waf-appgateway-metrics/waf-appgateway-diagnostic.png)
 
