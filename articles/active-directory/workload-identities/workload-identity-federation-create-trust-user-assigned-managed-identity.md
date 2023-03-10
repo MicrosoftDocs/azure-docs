@@ -6,12 +6,12 @@ author: rwike77
 manager: CelesteDG
 
 ms.service: active-directory
-ms.subservice: develop
+ms.subservice: workload-identities
 ms.topic: how-to
 ms.workload: identity
 ms.date: 03/06/2023
 ms.author: ryanwi
-ms.custom: aaddev
+ms.custom: aaddev, devx-track-azurecli, devx-track-azurepowershell
 ms.reviewer: shkhalide, udayh, vakarand
 zone_pivot_groups: identity-wif-mi-methods
 #Customer intent: As an application developer, I want to configure a federated credential on a user-assigned managed identity so I can create a trust relationship with an external identity provider and use workload identity federation to access Azure AD protected resources without managing secrets.
@@ -591,4 +591,8 @@ https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RES
 
 ## Next steps
 
+<<<<<<< HEAD:articles/active-directory/workload-identities/workload-identity-federation-create-trust-user-assigned-managed-identity.md
 - For information about the required format of JWTs created by external identity providers, read about the [assertion format](/azure/active-directory/develop/active-directory-certificate-credentials#assertion-format).
+=======
+- For information about the required format of JWTs created by external identity providers, read about the [assertion format](active-directory-certificate-credentials.md#assertion-format).
+>>>>>>> 0a8dea8479f6d562cd892f2a46e86229a0cfde6e:articles/active-directory/develop/workload-identity-federation-create-trust-user-assigned-managed-identity.md

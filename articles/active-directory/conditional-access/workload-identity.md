@@ -4,7 +4,7 @@ description: Protecting workload identities with Conditional Access policies
 
 services: active-directory
 ms.service: active-directory
-ms.subservice: conditional-access
+ms.subservice: workload-identities
 ms.topic: how-to
 ms.date: 01/05/2023
 

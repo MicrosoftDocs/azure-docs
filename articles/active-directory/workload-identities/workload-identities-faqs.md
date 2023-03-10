@@ -4,7 +4,7 @@ description: Learn about Microsoft Entra Workload Identities license plans, feat
 author: gargi-sinha
 manager: martinco
 ms.service: active-directory
-ms.subservice: develop
+ms.subservice: workload-identities
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 2/21/2023

@@ -4,7 +4,7 @@ description: Workload identity risk in Azure Active Directory Identity Protectio
 
 services: active-directory
 ms.service: active-directory
-ms.subservice: identity-protection
+ms.subservice: workload-identities
 ms.topic: conceptual
 ms.date: 11/10/2022
 

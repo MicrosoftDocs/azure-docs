@@ -1,7 +1,7 @@
 ---
-title: C# tutorial on using facets to aid navigation
+title: Add facets to search app
 titleSuffix: Azure Cognitive Search
-description: Continue from "Paging results" to add faceted navigation. Learn how facets can be used to easily narrow a search.
+description: In this Azure Cognitive Search tutorial, learn how to facet and filter over search results.
 
 manager: nitinme
 author: HeidiSteen

@@ -6,12 +6,12 @@ author: rwike77
 manager: CelesteDG
 
 ms.service: active-directory
-ms.subservice: develop
+ms.subservice: workload-identities
 ms.topic: how-to
 ms.workload: identity
 ms.date: 01/19/2023
 ms.author: ryanwi
-ms.custom: aaddev
+ms.custom: aaddev, devx-track-azurecli, devx-track-azurepowershell
 ms.reviewer: shkhalid, udayh, vakarand
 zone_pivot_groups: identity-wif-apps-methods
 #Customer intent: As an application developer, I want to configure a federated credential on an app registration so I can create a trust relationship with an external identity provider and use workload identity federation to access Azure AD protected resources without managing secrets.

@@ -452,7 +452,7 @@ sections:
       - question: |
           How can I validate my XPATH queries on the AMA?
         answer: |
-          Use the [Get-WinEvent](/powershell/module/microsoft.powershell.diagnostics/get-winevent) PowerShell cmdlet **-FilterXPath** parameter to test the validity of an XPath query. For more information, see the tip provided in the [Windows agent-based connections](../sentinel/connect-azure-windows-microsoft-services.md#instructions-3) instructions.
+          Use the [Get-WinEvent](/powershell/module/microsoft.powershell.diagnostics/get-winevent) PowerShell cmdlet **-FilterXPath** parameter to test the validity of an XPath query. For more information, see the tip provided in the [Windows agent-based connections](../sentinel/connect-services-windows-based.md) instructions.
           The [Get-WinEvent](/powershell/module/microsoft.powershell.diagnostics/get-winevent) PowerShell cmdlet supports up to 23 expressions, which Azure Monitor DCRs support up to 20. Also `>` and `<` characters must be encoded as `&gt;` and `&lt;` in your DCR.        
 
 
@@ -709,7 +709,7 @@ sections:
           2. Recreate all unique customizations specific to the original resource in the new resource.
           3. Modify your application to use the new region resource's [instrumentation key](app/create-new-resource.md#copy-the-instrumentation-key) or [connection string](app/sdk-connection-string.md).
           4. Test to confirm that everything is continuing to work as expected with your new Application Insights resource.
-          5. At this point you can either delete the original resource, which will result in **all historical data being lost**. Or retain the original resource for historical reporting purposes during its data retention settings.
+          5. At this point you can either keep or delete the original Application Insights resource. Deleting a classic Application Insights resource will result in **all historical data being lost**. If the original resource was workspace-based, its data will remain in the Log Analytics. Keeping the original Application Insights resource will allow you to access its historical data until its data retention settings run out.
           
           Unique customizations that commonly need to be manually recreated or updated for the resource in the new region include but aren't limited to:
           
@@ -910,19 +910,14 @@ sections:
           - :x: : This feature is not available or not applicable.
 
       - question: |
-          Is OpenTelemetry intended for use in web browsers?
+          Can OpenTelemetry be used for web browsers?
         answer: |
-          OpenTelemetry isn’t currently intended for use in web browsers. It’s primarily designed for use with Node.JS.
+          Yes but it’s not recommended or supported by Azure. OpenTelemetry JavaScript is heavily optimized for Node.js. Instead, we recommend using the Application Insights JavaScript SDK.
 
       - question: |
           When can we expect the OpenTelemetry SDK to be available for use in web browsers?
         answer: |
-          The availability timeline for the OpenTelemetry SDK hasn’t been determined yet.
-      
-      - question: |
-          Will OpenTelemetry be the preferred SDK for connecting to Application Insights for third parties in the future?
-        answer: |
-          It’s not expected to be the preferred SDK for connecting to Application Insights for third parties in the near future.
+          The availability timeline for the OpenTelemetry Web SDK hasn’t been determined yet, but we are likely several years away from a browser SDK that will be a viable alternative to the Application Insights JavaScript SDK.
 
       - question: |
           Can I test OpenTelemetry in a web browser today?
