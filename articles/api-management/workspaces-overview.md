@@ -7,7 +7,7 @@ author: dlepow
  
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 03/07/2023
+ms.date: 03/10/2023
 ms.author: danlep
 ms.custom: 
 ---
@@ -31,11 +31,11 @@ An organization that manages APIs using Azure API Management may have multiple d
 
 The following is a sample workflow for creating and using a workspace.
 
-1. A central API platform team that manages the API Management instance creates a workspace and assigns its administrators and workspace members.
+1. A central API platform team that manages the API Management instance creates a workspace and assigns its owners and workspace members.
 
 1. A central API platform team uses DevOps tools to create a DevOps pipeline for APIs in that workspace. 
 
-1. Workspace administrators assign permissions to workspace members using RBAC roles - for example, permissions to create or read resources in the workspace.
+1. Workspace owners assign permissions to workspace members using RBAC roles - for example, permissions to create or read resources in the workspace.
 
 1. Workspace members develop, publish, productize, and maintain APIs in the workspace. 
 
@@ -94,7 +94,7 @@ Workspace members must be assigned both a service-level role and a workspace-lev
     * API gateways, including scaling, locations, and self-hosted gateways
     
     
-* **Resource references** - Resources in a workspace can reference other resources in the workspace and, in certain cases, resources from the service level. They can't reference resources from another workspace. 
+* **Resource references** - Resources in a workspace can reference other resources in the workspace and the following resources from the service level: products, tags, and users. They can't reference resources from another workspace. 
 
     For security reasons, it's not possible to reference service-level resources from workspace-level policies (for example, named values) or by resource names, such as `backend-id` in the [set-backend-service](set-backend-service-policy.md) policy.
 
