@@ -57,7 +57,8 @@ The eID-Me apps authenticate users during transactions. The X509 public key auth
 
 The following diagram illustrates eID-Me identity proofing, which occurs outside Azure AD B2C flows.
 
-   ![Diagram of the identity proofing flow in eID-Me](./media/partner-eid-me/partner-eid-me-identity-proofing.png)
+   ![Diagram of the identity proofing flow in eID-Me.](./media/partner-eid-me/partner-eid-me-identity-proofing.png)
+
 
 1. User uploads a selfie to the eID-Me smartphone application.
 2. User scans and uploads a government issued identification document, such as passport or driver license, to the eID-Me smartphone application.
@@ -66,7 +67,8 @@ The following diagram illustrates eID-Me identity proofing, which occurs outside
 
 The following diagram illustrates Azure AD B2C integration with eID-Me.
 
-   ![Diagram of Azure AD B2C integration with eID-Me](./media/partner-eid-me/partner-eid-me-architecture-diagram.png)
+   ![Diagram of Azure AD B2C integration with eID-Me.](./media/partner-eid-me/partner-eid-me-architecture-diagram.png)
+
 
 1. User opens the Azure AD B2C sign-in page and signs in or signs up with a username.
 2. User forwarded to Azure AD B2C sign-in and sign-up policy.
