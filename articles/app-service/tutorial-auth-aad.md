@@ -230,7 +230,7 @@ In the Cloud Shell, run the following commands on the frontend app to add the `s
 
 ```azurecli-interactive
 authSettings=$(az webapp auth show -g myAuthResourceGroup -n <front-end-app-name>)
-authSettings=$(echo "$authSettings" | jq '.properties' | jq '.identityProviders.azureActiveDirectory.login += {"loginParameters":["scope=openid profile email offline_access api://<back-end-client-id>/user_impersonation"]}')
+authSettings=$(echo "$authSettings" | jq '.properties' | jq '.identityProviders.azureActiveDirectory.login += {"loginParameters":["scope==openid offline_access api://<back-end-client-id>/user_impersonation"]}')
 az webapp auth set --resource-group myAuthResourceGroup --name <front-end-app-name> --body "$authSettings"
 ```
 
