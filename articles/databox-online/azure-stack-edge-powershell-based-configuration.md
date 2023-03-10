@@ -6,7 +6,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/07/2023
+ms.date: 03/10/2023
 ms.author: alkohli
 ---
 # Use a config file to deploy an Azure Stack Edge device
@@ -1119,13 +1119,13 @@ The example below shows a static ACS configuration, followed by an example that 
                                 "name":  "Cluster Network 1",
                                 "address":  "192.168.0.0",
                                 "subnet":  "255.255.0.0",
-                                "dhcpEnabled":  true
+                                "dhcpEnabled":  false
                             },
                             {
                                 "name":  "Cluster Network 4",
                                 "address":  "10.126.72.0",
                                 "subnet":  "255.255.248.0",
-                                "dhcpEnabled":  true
+                                "dhcpEnabled":  false
                             }
                         ]
     }
@@ -1251,28 +1251,28 @@ The example below shows a sequence of steps to enable DHCP.
                                    "name":  "Cluster Network 1",
                                    "address":  "192.168.0.0",
                                    "subnet":  "255.255.0.0",
-                                   "dhcpEnabled":  true
+                                   "dhcpEnabled":  false
                                },
-                   "isDhcpEnabled":  true
+                   "isDhcpEnabled":  false
                },
     "clusterNetworks":  [
                             {
                                 "name":  "Cluster Network 1",
                                 "address":  "192.168.0.0",
                                 "subnet":  "255.255.0.0",
-                                "dhcpEnabled":  true
+                                "dhcpEnabled":  false
                             },
                             {
                                 "name":  "Cluster Network 2",
                                 "address":  "10.139.218.0",
                                 "subnet":  "255.255.255.0",
-                                "dhcpEnabled":  true
+                                "dhcpEnabled":  false
                             },
                             {
                                 "name":  "Cluster Network 3",
                                 "address":  "10.126.72.0",
                                 "subnet":  "255.255.248.0",
-                                "dhcpEnabled":  true
+                                "dhcpEnabled":  false
                             }
                         ]
     }
