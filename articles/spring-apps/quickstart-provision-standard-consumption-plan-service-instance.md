@@ -179,7 +179,7 @@ You can create the Azure Container Apps environment in one of two ways:
 
 ## Clean up resources
 
-If you plan to continue working with subsequent quickstarts and tutorials, you might want to leave these resources in place. When no longer needed, delete the resource group, which deletes the resources in the resource group. To delete the resource group by using Azure CLI, use the following commands:
+Be sure to delete the resources you created in this article when you no longer need them. To delete the resources, just delete the resource group that contains them. You can delete the resource group using the Azure portal. Alternately, to delete the resource group by using Azure CLI, use the following commands:
 
 ```azurecli
 echo "Enter the Resource Group name:" &&
@@ -190,3 +190,4 @@ echo "Press [ENTER] to continue ..."
 
 ## Next steps
 
+- [Azure Spring Apps](./index.yml)

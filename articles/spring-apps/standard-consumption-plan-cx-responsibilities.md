@@ -70,3 +70,5 @@ The following tables describe how to configure a collection of NSG allow rules.
 - Deny rules for some ports and protocols with lower priority than `65000` may cause service interruption and unexpected behavior.
 
 ## Next steps
+
+- [Azure Spring Apps](./index.yml)
