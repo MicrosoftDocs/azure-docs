@@ -42,8 +42,8 @@ If you've enabled Application Proxy enabled and installed a connector already, y
 
 The Application Proxy connector is a Windows Server service that directs the traffic from your remote employees to your published applications. For more detailed installation instructions, see [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](../app-proxy/application-proxy-add-on-premises-application.md).
 
-1. Sign in to the [Azure Active Directory portal](https://aad.portal.azure.com/) as an application administrator. The **Azure Active Directory admin center** page appears.
-1. Select **Azure Active Directory** > **Application proxy** > **Download connector service**. The **Application Proxy Connector Download** page appears.
+1. Sign in to the [Azure portal](https://portal.azure.com) as an Application Administrator.
+1. Browse to **Azure Active Directory** > **Application proxy** > **Download connector service**. The **Application Proxy Connector Download** page appears.
 
    ![Application proxy connector download](./media/application-proxy-configure-single-sign-on-with-ping-access/application-proxy-connector-download.png)
 
@@ -66,8 +66,8 @@ You'll first have to publish your application. This action involves:
 
 To publish your own on-premises application:
 
-1. If you didn't in the last section, sign in to the [Azure Active Directory portal](https://aad.portal.azure.com/) as an application administrator.
-1. Select **Enterprise applications** > **New application** > **Add an on-premises application**. The **Add your own on-premises application** page appears.
+1. If you didn't in the last section, sign in to the [Azure portal](https://portal.azure.com) as an Application Administrator.
+1. Browse to **Enterprise applications** > **New application** > **Add an on-premises application**. The **Add your own on-premises application** page appears.
 
    ![Add your own on-premises application](./media/application-proxy-configure-single-sign-on-with-ping-access/add-your-own-on-premises-application.png)
 1. Fill out the required fields with information about your new application. Use the guidance below for the settings.
@@ -158,8 +158,8 @@ To collect this information:
 
 **Update the `acceptMappedClaims` field:**
 
-1. Sign in to the [Azure Active Directory portal](https://aad.portal.azure.com/) as an application administrator.
-1. Select **Azure Active Directory** > **App registrations**. A list of applications appears.
+1. Sign in to the [Azure portal](https://portal.azure.com) as an Application Administrator.
+1. Browse to **Azure Active Directory** > **App registrations**. A list of applications appears.
 1. Select your application.
 1. From the sidebar of the **App registrations** page for your application, select **Manifest**. The manifest JSON code for your application's registration appears.
 1. Search for the `acceptMappedClaims` field, and change the value to `True`.
