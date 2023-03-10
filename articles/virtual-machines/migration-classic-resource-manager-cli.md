@@ -9,7 +9,7 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 01/23/2023
 ms.author: oriwolman 
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli compute-evergreen
 
 ---
 

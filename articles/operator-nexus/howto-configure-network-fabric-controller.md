@@ -8,14 +8,14 @@ ms.topic: how-to #Required; leave this attribute/value as-is.
 ms.date: 02/06/2023 #Required; mm/dd/yyyy format.
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
-# Create and modify a network fabric controller using Azure CLI
+# Create and modify a Network Fabric Controller using Azure CLI
 
-This article describes how to create a Network fabric controller (NFC) by using the Azure Command Line Interface (AzureCLI).
-This document also shows you how to check the status, or delete a Network fabric controller.
+This article describes how to create a Network Fabric Controller (NFC) by using the Azure Command Line Interface (AzureCLI).
+This document also shows you how to check the status, or delete a Network Fabric Controller.
 
 ## Prerequisites
 
-You must implement all the Pre-requisites prior to creating a network fabric controller (NFC).
+You must implement all the prerequisites prior to creating a NFC.
 
 Names, such as for resources, shouldn't contain the underscore (\_) character.
 
@@ -23,65 +23,17 @@ Names, such as for resources, shouldn't contain the underscore (\_) character.
 
 Validate the ExpressRoute circuit(s) for correct connectivity (CircuitID)(AuthID);  NFC provisioning would fail if connectivity is incorrect.
 
-### Install CLI extensions
 
-Install latest version of the
-[necessary CLI extensions](./howto-install-cli-extensions.md).
-
-### Sign in to your Azure account and select your subscription
-
-To begin your configuration, sign in to your Azure account. You can use the following examples to connect:
-
-```azurecli
-az login
-```
-
-Check the subscriptions for the account.
-
-```azurecli
-az account list
-```
-
-Select the subscription for which you want to create a Network fabric Controller. All Operator Nexus resources, associated with this NFC, will use this subscription.
-
-```azurecli
-az account set --subscription "<subscription ID>"
-```
-
-## Register providers for managed network fabric
-
-You must register your subscription with the `Microsoft.ManagedNetworkFabric` Resource Provider, if not previously registered.
-
-In Azure CLI, enter the following commands:
-
-```azurecli
-az provider register --namespace Microsoft.ManagedNetworkFabric
-```
-
-Monitor the registration process. Registration may take up to 10 minutes.
-
-```azurecli
-az provider show -n Microsoft.ManagedNetworkFabric -o table
-```
-
-Once registered, you should see the `RegistrationState` state for the namespace change to `Registered`.
-
-If you've already registered, you can verify using the `show` command.
-
-## Create a network fabric controller
+## Create a Network Fabric Controller
 
 You must create a resource group before you create your NFC.
 
-**Note**: You should create a separate Resource Group for NFC and a separate one for the on-premises Network fabric (NF).
+**Note**: You should create a separate Resource Group for each NFC.
 
 You create resource groups by running the following commands:
 
 ```azurecli
 az group create -n NFCResourceGroupName -l "East US"
-```
-
-```azurecli
-az group create -n NFResourceGroupName -l "East US"
 ```
 
 ## Attributes for NFC creation
@@ -144,7 +96,7 @@ Expected output:
     "lastModifiedBy": "email@address.com",
 ```
 
-## Get network fabric controller
+## Get Network Fabric Controller
 
 ```azurecli
   az nf controller show --resource-group "NFCResourceGroupName" --resource-name "nfcname"
@@ -202,7 +154,7 @@ Expected output:
 }
 ```
 
-## Delete network fabric controller
+## Delete Network Fabric Controller
 
 You should delete an NFC only after deleting all associated network fabrics.
 

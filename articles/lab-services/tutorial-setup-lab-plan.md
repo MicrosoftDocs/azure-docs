@@ -1,5 +1,5 @@
 ---
-title: Create a lab plan with Azure Lab Services
+title: 'Tutorial: Create a lab plan with Azure Lab Services'
 titleSuffix: Azure Lab Services
 description: Learn how to set up a lab plan with Azure Lab Services and assign lab creation permissions to a user by using the Azure portal.
 ms.topic: tutorial

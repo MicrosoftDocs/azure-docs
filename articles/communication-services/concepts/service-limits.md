@@ -43,10 +43,10 @@ If you want to purchase more phone numbers or place a special order, follow the 
 
 | Operation | Timeframes (seconds) | Limit (number of requests) |
 |---|--|--|
-| **Create identity** | 30 | 500|
+| **Create identity** | 30 | 1000|
 | **Delete identity** | 30 | 500|
-| **Issue access token** | 30 | 500|
-| **Revoke access token**  | 1 | 100|
+| **Issue access token** | 30 | 1000|
+| **Revoke access token**  | 30 | 500|
 | **createUserAndToken**| 30 | 1000 |
 | **exchangeTokens**| 30 | 500 |
 

@@ -51,7 +51,7 @@ This quickstart shows you how to authorize access to the Identity and SMS SDKs f
 
 - [Learn more about Azure role-based access control](../../../../articles/role-based-access-control/index.yml)
 - [Learn more about Azure identity library for .NET](/dotnet/api/overview/azure/identity-readme)
-- [Creating user access tokens](../../quickstarts/access-tokens.md)
+- [Creating user access tokens](../../quickstarts/identity/access-tokens.md)
 - [Send an SMS message](../../quickstarts/sms/send.md)
 - [Learn more about SMS](../../concepts/sms/concepts.md)
 - [Quickly create an identity for testing](./quick-create-identity.md).

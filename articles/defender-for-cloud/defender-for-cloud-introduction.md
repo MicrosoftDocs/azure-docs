@@ -23,7 +23,7 @@ Today’s applications require security awareness at the code, infrastructure, a
 
 | Capability | What problem does it solve? | Get started | Defender plan and pricing |
 | ---------- | --------------------------- | ----------- | ------------------------- |
-| [Code pipeline insights](defender-for-devops-introduction.md)       | Empowers security teams with the ability to protect applications and resources from code to cloud across multi-pipeline environments, including GitHub and Azure DevOps. Findings from Defender for DevOps, such as IaaC misconfigurations and exposed secrets, can then be correlated with other contextual cloud security insights to prioritize remediation in code.                            | Connect [Azure DevOps](quickstart-onboard-devops.md) and [GitHub](quickstart-onboard-github.md) repositories to Defender for Cloud             | [Defender for DevOps](https://azure.microsoft.com/pricing/details/defender-for-cloud/)                          |
+| [Code pipeline insights](defender-for-devops-introduction.md)       | Empowers security teams with the ability to protect applications and resources from code to cloud across multi-pipeline environments, including GitHub and Azure DevOps. Findings from Defender for DevOps, such as IaC misconfigurations and exposed secrets, can then be correlated with other contextual cloud security insights to prioritize remediation in code.                            | Connect [Azure DevOps](quickstart-onboard-devops.md) and [GitHub](quickstart-onboard-github.md) repositories to Defender for Cloud             | [Defender for DevOps](https://azure.microsoft.com/pricing/details/defender-for-cloud/)                          |
 
 ## Improve your security posture
 
