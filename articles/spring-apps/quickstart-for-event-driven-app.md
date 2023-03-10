@@ -160,7 +160,7 @@ The Azure Container Apps environment creates a secure boundary around a group of
     ```azurecli-interactive
     az extension remove -n spring && \
     az extension add \
-        --source https://ascprivatecli.blob.core.windows.net/cli-extension/spring-1.1.11-py3-none-any.whl \
+        --source https://ascprivatecli.blob.core.windows.net/cli-extension/spring-1.8.0-py3-none-any.whl \
         --yes
     ```
 
