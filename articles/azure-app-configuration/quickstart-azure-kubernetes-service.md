@@ -1,6 +1,6 @@
 ---
-title: Quickstart for Azure App Configuration with Azure Kubernetes Service | Microsoft Docs
-description: "In this quickstart, make an Azure Kubernetes Service with an ASP.NET core web app workload. Create an AzureAppConfigurationProvider to connect App Configuration store, the app can load the configurations from App Configuration store. "
+title: Quickstart for using Azure App Configuration in Azure Kubernetes Service (preview) | Microsoft Docs
+description: "In this quickstart, create an Azure Kubernetes Service with an ASP.NET core web app workload and use the Azure App Configuration Kubernetes Provider to load key-values from App Configuration store."
 services: azure-app-configuration
 author: junbchen
 ms.service: azure-app-configuration
@@ -11,13 +11,16 @@ ms.date: 03/08/2023
 ms.author: junbchen
 #Customer intent: As an Azure Kubernetes Service user, I want to manage all my app settings in one place using Azure App Configuration.
 ---
-# Quickstart: Create an AKS workload with configuration settings from Azure App Configuration (Preview)
-In this quickstart, you'll incorporate the Azure App Configuration service into a workload in Azure Kubernetes Service to centralize storage and management of all your application settings separate from your code.
+# Quickstart: Use Azure App Configuration in Azure Kubernetes Service (preview)
+In Kubernetes, you set up pods to consume ConfigMaps for configuration. It lets you decouple configuration from your container images, making your applications easily portable. Azure App Configuration Kubernetes Provider can construct ConfigMaps based on your data in Azure App Configuration. It enables you to take advantage of Azure App Configuration for the centralized storage and management of your configuration without any changes to your application code.
+
+In this quickstart, you will incorporate Azure App Configuration provider for Kubernetes in an Azure Kubernetes Service workload where you run a simple ASP.NET Core app consuming configuration from environment variables.
 
 ## Prerequisites
 
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/dotnet)
 * [.NET Core SDK](https://dotnet.microsoft.com/download)
+* [Azure CLI](/cli/azure/install-azure-cli)
 * [helm](https://helm.sh/docs/intro/install/)
 * [kubectl](https://kubernetes.io/docs/tasks/tools/)
 
@@ -40,27 +43,27 @@ Leave **Label** and **Content type** empty for now. Select **Apply**.
 
 ## Create a Container Registry and AKS cluster
 
-Create an Azure Container Registry (ACR) by following this [doc](/azure/aks/tutorial-kubernetes-prepare-acr?tabs=azure-cli#create-an-azure-container-registry)
+1. Create an Azure Container Registry (ACR) by following this [doc](/azure/aks/tutorial-kubernetes-prepare-acr?tabs=azure-cli#create-an-azure-container-registry).
 
-Create an Azure Kubernetes Service (AKS) cluster, which integrates with the ACR you created by following this [doc](/azure/aks/tutorial-kubernetes-deploy-cluster?tabs=azure-cli#create-a-kubernetes-cluster)
+2. Create an Azure Kubernetes Service (AKS) cluster, which integrates with the ACR you created by following this [doc](/azure/aks/tutorial-kubernetes-deploy-cluster?tabs=azure-cli#create-a-kubernetes-cluster).
 
-Run the following command to set environment variables, set **ACR_Name** with the name of ACR you created, **AKS_Name** with the name of AKS you created, **AKS_Resource_Group** with the resource group of AKS you created:
+3. Run the following command to set environment variables, set **ACR_Name** with the name of ACR you created, **AKS_Name** with the name of AKS you created, **AKS_Resource_Group** with the resource group of AKS you created:
 
-```bash
-export ACR_Name='name-of-acr-you-just-created'
-export AKS_Name='name-of-aks-you-just-created'
-export AKS_Resource_Group='resource-group-of-aks-you-just-created'
-```
+    ```bash
+    export ACR_Name='name-of-acr-you-just-created'
+    export AKS_Name='name-of-aks-you-just-created'
+    export AKS_Resource_Group='resource-group-of-aks-you-just-created'
+    ```
 
-Restart the command prompt to allow the change to take effect. Print the value of the environment variable to validate that it's set properly.
+    Restart the command prompt to allow the change to take effect. Print the value of the environment variable to validate that it's set properly.
 
 ## Enable System Assigned Managed Identity of AKS NodePool
 
-Go to the corresponding Virtual Machine Scale Sets resource of AKS, and enable system-assigned managed identity on the Virtual Machine Scale Sets by following this [doc](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmss#enable-system-assigned-managed-identity-on-an-existing-virtual-machine-scale-set)
+Go to the corresponding Virtual Machine Scale Sets resource of AKS, and enable system-assigned managed identity on the Virtual Machine Scale Sets by following this [doc](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmss#enable-system-assigned-managed-identity-on-an-existing-virtual-machine-scale-set).
 
 ## System Assigned Managed Identity role assignment
 
-Once the system-assigned managed identity has been enabled, you need to grant it read access to Azure AppConfiguration. You can do it by following the instructions in this [doc](/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity?tabs=core5x&pivots=framework-dotnet#grant-access-to-app-configuration)
+Once the system-assigned managed identity has been enabled, you need to grant it read access to Azure AppConfiguration. You can do it by following the instructions in this [doc](/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity?tabs=core5x&pivots=framework-dotnet#grant-access-to-app-configuration).
 
 ## Install App Configuration Kubernetes Provider to your AKS cluster
 
@@ -69,7 +72,7 @@ Install the Azure App Configuration Kubernetes Provider to your AKS cluster, whi
     ```bash
     az aks get-credentials --name $AKS_Name --resource-group $AKS_Resource_Group
     ```
-2. Install Azure App Configuration Kubernetes Provider to your AKS cluster by `helm`
+2. Install Azure App Configuration Kubernetes Provider to your AKS cluster using `helm`:
     ``` bash
     helm install azureappconfiguration.kubernetesprovider oci://mcr.microsoft.com/azure-app-configuration/helmchart/kubernetes-provider --version 1.0.0-alpha --namespace azappconfig-system --create-namespace
     ```
