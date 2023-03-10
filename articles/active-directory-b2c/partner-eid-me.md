@@ -67,17 +67,17 @@ The following diagram illustrates Azure AD B2C integration with eID-Me.
 
    ![Diagram of Azure AD B2C integration with eID-Me](./media/partner-eid-me/partner-eid-me-architecture-diagram.png)
 
-1. User opens Azure AD B2C's sign in page, and then signs in or signs up by entering their username.
-2. User is forwarded to Azure AD B2C’s combined sign-in and sign-up policy.
+1. User opens the Azure AD B2C sign in page and signs in or signs up with a username.
+2. User forwarded to Azure AD B2C sign-in and sign-up policy.
 3. Azure AD B2C redirects the user to the eID-Me identity router using the OIDC authorization code flow.
-4. The eID-Me router sends a push notification to the user’s mobile app including all context details of the authentication and authorization request.
-5. The user reviews the authentication challenge; if accepted the user is prompted for identity claims, proving the user’s identity.
-6. The challenge response is returned to the eID-Me router.
-7. The eID-Me router then replies to Azure AD B2C with the authentication result.
-8. Response from Azure AD B2C is sent as an ID token to the application.
-9. Based on the authentication result, the user is granted or denied access.
+4. The router sends push notification to the user mobile app with authentication and authorization request details.
+5. The user authentication challenge appears, then a prompt for identity claims appears.
+6. The challenge response goes to the router.
+7. The router replies to Azure AD B2C with an authentication result.
+8. Azure AD B2C ID token response goes to the application.
+9. User is granted or denied access.
 
-## Onboard with eID-Me
+## Get started with eID-Me
 
 [Contact eID-Me](https://bluink.ca/contact) and configure a test or production environment to set up Azure AD B2C tenants as a Relying Party. Tenants must determine what identity claims they'll need from their consumers as they sign up using eID-Me.
 
