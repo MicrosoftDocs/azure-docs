@@ -68,7 +68,7 @@ For more information, visit [How to use the MedTech service Mapping debugger - A
 
 
 
-**[Private Preview] : Error Message released - **
+**[Private Preview] : Error Message released**
 
 The MedTech service now has an error message feature that allows you to easily view any errors generated, as well as the message that caused each error. You can now understand the context behind any errors without manual effort. For more info on error logs, visit [Troubleshoot errors using the MedTech service logs - Azure Health Data Services | Microsoft Learn](./../healthcare-apis/iot/troubleshoot-errors-logs.md)
 
