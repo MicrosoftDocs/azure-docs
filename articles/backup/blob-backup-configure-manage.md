@@ -147,8 +147,8 @@ You'll receive notifications about the status of configuring protection and its 
 
 ### Using Data protection settings of the storage account to configure  backup
 
->[!Note]
-      >Configuring vaulted backups from the data protection blade is currently not supported in the preview. You can configure vaulted backups following the steps listed [here](#Configure backups)
+    >[!Note]
+    >Configuring vaulted backups from the data protection blade is currently not supported in the preview. You can configure vaulted backups following the steps listed [here](#Configure backups)
 
 You can configure backup for blobs in a storage account directly from the ‘Data Protection’ settings of the storage account. 
 
