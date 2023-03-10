@@ -203,14 +203,14 @@ In this quickstart, you use Azure Storage as the checkpoint store. Follow these 
 
 1. [Create an Azure Storage account](../storage/common/storage-account-create.md?tabs=azure-portal)
 2. [Create a blob container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)
-3. Authenticate to the blob container
+3. Authenticate to the blob container using either Azure AD (passwordless) authentication or a connection string to the namespace.
     
 ## [Passwordless (Recommended)](#tab/passwordless)
 
 [!INCLUDE [event-hub-storage-assign-roles](../../includes/passwordless/event-hub/event-hub-storage-assign-roles.md)]
 ## [Connection String](#tab/connection-string)
 
-[Get the connection string to the storage account](../storage/common/storage-configure-connection-string.md)
+[Get the connection string to the storage account](../storage/common/storage-account-get-info#get-a-connection-string-for-the-storage-account)
 
 Note down the connection string and the container name. You use them in the receive code. 
 
@@ -357,7 +357,7 @@ await Task.Delay(TimeSpan.FromSeconds(30));
 // Stop the processing
 await processor.StopProcessingAsync();
 
-async Task ProcessEventHandler(ProcessEventArgs eventArgs)
+Task ProcessEventHandler(ProcessEventArgs eventArgs)
 {
     // Write the body of the event to the console window
     Console.WriteLine("\tReceived event: {0}", Encoding.UTF8.GetString(eventArgs.Data.Body.ToArray()));
