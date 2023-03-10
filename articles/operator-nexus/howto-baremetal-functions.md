@@ -13,7 +13,7 @@ ms.custom: template-how-to
 
 This article describes how to perform lifecycle management operations on Bare Metal Machines (BMM). These steps should be used for troubleshooting purposes to recover from failures or when taking maintenance actions. The commands to manage the lifecycle of the BMM include:
 
-- Power-off
+- Power off the BMM
 - Start the BMM
 - Make the BMM unschedulable or schedulable
 - Reinstall the BMM image
@@ -23,9 +23,9 @@ This article describes how to perform lifecycle management operations on Bare Me
 1. Install the latest version of the
   [appropriate CLI extensions](./howto-install-cli-extensions.md)
 1. Ensure that the target bare metal machine (server) must have its `poweredState` set to `On` and have its `readyState` set to `True`
-1. Get the Resource group name that you created for `network cloud cluster resource`
+1. Get the Resource group name that you created for `Cluster` resource
 
-## Power-off bare metal machines
+## Power off the BMM
 
 This command will `power-off` the specified `bareMetalMachineName`.
 
@@ -34,7 +34,7 @@ This command will `power-off` the specified `bareMetalMachineName`.
         --resource-group "resourceGroupName"
 ```
 
-## Start bare metal machine
+## Start the BMM
 
 This command will `start` the specified `bareMetalMachineName`.
 

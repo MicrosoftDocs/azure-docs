@@ -1,16 +1,16 @@
 ---
 title: Understand the MedTech service device message data transformation - Azure Health Data Services
-description: This article provides an overview of the MedTech service device messaging data transformation to FHIR Observation resources. The MedTech service ingests, normalizes, groups, transforms, and persists device message data in the FHIR service.
+description: This article provides an overview of the MedTech service device messaging data transformation into FHIR Observation resources. The MedTech service ingests, normalizes, groups, transforms, and persists device message data in the FHIR service.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: overview
-ms.date: 03/03/2023
+ms.date: 03/07/2023
 ms.author: jasteppe
 ---
 
-# Understand the device message data transformation
+# Understand the MedTech service device message data transformation
 
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.

@@ -29,7 +29,7 @@ Dynamic groups and groups synchronized from on-premises environment cannot be ma
 You should either be a group Owner, have Global Administrator role, or Privileged Role Administrator role to bring the group under management with PIM.
 
 
-1. [Sign in to Azure AD](https://aad.portal.azure.com).
+1. [Sign in to the Azure portal](https://portal.azure.com).
 
 1. Select **Azure AD Privileged Identity Management -> Groups (Preview)** and view groups that are already enabled for PIM for Groups.
 
