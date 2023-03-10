@@ -531,7 +531,7 @@
           - name: Transmit Security
             href: partner-bindid.md
           - name: Trusona
-            href: partner-trusona.md
+            href: partner-trusona-auth-cloud.md
           - name: Twilio
             href: partner-twilio.md
           - name: TypingDNA
