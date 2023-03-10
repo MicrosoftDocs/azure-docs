@@ -2,6 +2,7 @@
 title: 'Quickstart: Send or receive events using .NET'
 description: A quickstart to create a .NET Core application that sends events to Azure Event Hubs and then receive those events by using the Azure.Messaging.EventHubs package.
 ms.topic: quickstart
+ms.service: event-hubs
 ms.date: 03/09/2023
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-api, contperf-fy22q3, passwordless-dotnet
@@ -180,7 +181,7 @@ finally
     ```csharp
     A batch of 3 events has been published.
     ```
-1. On the **Event Hubs Namespaec** page in the Azure portal, you see three incoming messages in the **Messages** chart. Refresh the page to update the chart if needed. It may take a few seconds for it to show that the messages have been received. 
+1. On the **Event Hubs Namespace** page in the Azure portal, you see three incoming messages in the **Messages** chart. Refresh the page to update the chart if needed. It may take a few seconds for it to show that the messages have been received. 
 
     :::image type="content" source="./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png" alt-text="Image of the Azure portal page to verify that the event hub received the events" lightbox="./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png":::
 
