@@ -30,7 +30,7 @@ items:
       href: ./concepts/understand-embeddings.md
 - name: How-to 
   items:
-    - name: Create a resource
+    - name: Resource creation & model deployment
       href: ./how-to/create-resource.md
     - name: Use Chat Markup Language (ChatML)
       href: ./how-to/chatgpt.md
@@ -60,6 +60,8 @@ items:
   items:
     - name: Embeddings
       href: ./tutorials/embeddings.md
+    - name: Speech to speech chat
+      href: /azure/cognitive-services/speech-service/openai-speech?context=/azure/cognitive-services/openai/context/context
 - name: Responsible AI
   items:
     - name : Transparency note
@@ -86,6 +88,8 @@ items:
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/openai/context/context
     - name: Intro to Azure OpenAI training
       href: /training/modules/explore-azure-openai/
+    - name: Azure OpenAI Samples
+      href: https://github.com/Azure/openai-samples
     - name: Region support
       href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
     - name: Terms of use
