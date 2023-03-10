@@ -45,12 +45,13 @@ Clone the [sample project](https://github.com/Azure-Samples/app-service-java-qui
 git clone https://github.com/Azure-Samples/app-service-java-quickstart
 ```
 
-Change directory to the completed project and build from the top level.
+Change directory to the completed project and build from the top level. Then `cd` to the subdirectory for booty duke.
 
 ```azurecli-interactive
 cd app-service-java-quickstart
 git checkout 20230308
 mvn clean install
+cd booty-duke-app-service
 ```
 
 
@@ -77,12 +78,13 @@ Clone the Pet Store demo application.
 git clone https://github.com/Azure-Samples/app-service-java-quickstart
 ```
 
-Change directory to the completed project and build from the top level.
+Change directory to the completed project and build from the top level. Then `cd` to the subdirectory for petstore.
 
 ```azurecli-interactive
 cd app-service-java-quickstart
 git checkout 20230308
 mvn clean install
+cd petstore-ee7
 ```
 
 ---
@@ -98,12 +100,12 @@ The deployment process to Azure App Service will use your Azure credentials from
 Run the Maven command below to configure the deployment. This command will help you to set up the App Service operating system, Java version, and Tomcat version.
 
 ```azurecli-interactive
-cd booty-duke-app-service
 mvn com.microsoft.azure:azure-webapp-maven-plugin:2.9.0:config
 ```
 
 # [Java SE](#tab/javase)
 
+1. If prompted for **Create new run configuration**, select **Y**.
 1. When prompted with **Subscription** option, select the proper `Subscription` by entering the number printed at the start of the line.
 1. When prompted with **Web App** option, select the default option, `<create>`, by pressing enter.
 1. When prompted with **OS** option, select **Linux** by pressing enter.
@@ -133,6 +135,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:2.9.0:config
 
 # [Tomcat](#tab/tomcat)
 
+1. If prompted for **Create new run configuration**, select **Y**.
 1. When prompted with **Subscription** option, select the proper `Subscription` by entering the number printed at the line start.
 1. When prompted with **Web App** option, select the default option, `<create>`, by pressing enter.
 1. When prompted with **OS** option, select **Linux** by pressing enter.
@@ -163,6 +166,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:2.9.0:config
 
 # [JBoss EAP](#tab/jbosseap)
 
+1. If prompted for **Create new run configuration**, select **Y**.
 1. If prompted with **Subscription** option, select the proper `Subscription` by entering the number printed at the line start.
 1. When prompted with **Web App** option, accept the default option `<create>` by pressing enter.
 1. When prompted with **OS** option, select **Linux** by pressing enter.
@@ -187,8 +191,8 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:2.9.0:config
     [INFO] ------------------------------------------------------------------------
     [INFO] BUILD SUCCESS
     [INFO] ------------------------------------------------------------------------
-    [INFO] Total time: 01:01 min
-    [INFO] Finished at: 2021-06-11T15:52:25-07:00
+    [INFO] Total time:  02:07 min
+    [INFO] Finished at: 2023-03-10T15:34:00+01:00
     [INFO] ------------------------------------------------------------------------
     ```
 
@@ -250,9 +254,6 @@ Once deployment is completed, your application will be ready at `http://<appName
 ---
 
 **Congratulations!** You've deployed your first Java app to App Service.
-
-> [!div class="nextstepaction"]
-> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=app-service-linux-quickstart&step=deploy)
 
 ## 5 - Clean up resources
 
