@@ -16,6 +16,13 @@ items:
   items:
   - name: Launch your first app
     href: quickstart.md
+  - name: Run apps on Standard consumption plan
+    expanded: true
+    items:
+    - name: Provision a service instance
+      href: quickstart-provision-standard-consumption-plan-service-instance.md
+    - name: Provision in an Azure Container Apps environment with VNet
+      href: 
   - name: Run apps on Basic/Standard tier
     expanded: true
     items:
