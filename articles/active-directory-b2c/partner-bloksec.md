@@ -19,7 +19,7 @@ zone_pivot_groups: b2c-policy-type
 
 ## Before you begin
 
-Azure Active Directory B2C has two methods to define users interaction with applications: predefined user flows or configurable custom policies.  
+Azure Active Directory B2C has two methods to define user interactions with applications: predefined user flows or configurable custom policies.  
 
 >[!NOTE]
 >In Azure Active Directory B2C, custom policies primarily address complex scenarios. For most scenarios, we recommend built-in user flows.</br> See, [User flows and custom policies overview](./user-flow-overview.md)
@@ -110,19 +110,19 @@ For the following instructions, use the directory that contains your Azure AD B2
 ### Configure an identity provider
 
 1. Select **Identity provider type > OpenID Connect**
-2. For name **Name**, enter **BlokSec yuID Passwordless** or another name.
+2. For **Name**, enter **BlokSec yuID Passwordless** or another name.
 3. For **Metadata URL**, enter `https://api.bloksec.io/oidc/.well-known/openid-configuration`.
 4. For **Client IDV**, enter the application ID from the BlokSec admin UI.
 5. For **Client Secret**, enter the application Secret from the BlokSec admin UI.
 6. For **Scope**, select **OpenID email profile**.
-7. For **Response type**, **Code**.
+7. For **Response type**, select **Code**.
 8. For **Domain hint**, select **yuID**.
 9. Select **OK**.
 10. Select **Map this identity provider’s claims**.
 11. For **User ID**, select **sub**.
 12. For **Display name**, select **name**.
 13. For **Given name**, use **given_name**.
-14. For **Surname, use **family_name**.
+14. For **Surname**, use **family_name**.
 15. For **Email**, use **email**.
 16. Select **Save**. 
 
@@ -303,8 +303,8 @@ For the following instructions, use the directory with your Azure AD B2C tenant.
 7. Select **Upload Custom Policy**.
 8. Upload the two policy files you changed in the following order: 
 
-* Extension policy, for example `TrustFrameworkExtensions.xml`
-* Relying party policy, such as `SignUpSignIn.xml`
+  * Extension policy, for example `TrustFrameworkExtensions.xml`
+  * Relying party policy, such as `SignUpSignIn.xml`
 
 ### Test the custom policy
 
