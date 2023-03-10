@@ -45,7 +45,7 @@ For instructions on how to create a Backup vault, see the [Backup vault document
 
 Operational backup also protects the storage account (that contains the blobs to be protected) from any accidental deletions by applying a Backup-owned Delete Lock. This requires the Backup vault to have certain permissions on the storage accounts that need to be protected. For convenience of use, these minimum permissions have been consolidated under the **Storage Account Backup Contributor** role. 
 
-We recommend you to assign this role to the Backup vault before you configure backup. However, you can also perform the role assignment while configuring backup. [Learn more](#using-backup-center) on configure backup using Backup Center. 
+We recommend you to assign this role to the Backup vault before you configure backup. However, you can also perform the role assignment while configuring backup.  
 
 To assign the required role for storage accounts that you need to protect, follow these steps:
 
@@ -145,7 +145,10 @@ To configure backup for storage accounts, follow these steps:
 
 You'll receive notifications about the status of configuring protection and its completion.
 
-### Using Data protection settings of the storage account to configure operational backup
+### Using Data protection settings of the storage account to configure  backup
+
+>[!Note]
+      >Configuring vaulted backups from the data protection blade is currently not supported in the preview. You can configure vaulted backups following the steps listed [here](#Configure backups)
 
 You can configure backup for blobs in a storage account directly from the ‘Data Protection’ settings of the storage account. 
 
