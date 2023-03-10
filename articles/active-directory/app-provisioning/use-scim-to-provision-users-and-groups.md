@@ -1398,7 +1398,7 @@ The provisioning service supports the [authorization code grant](https://tools.i
 > [!NOTE]
 > OAuth v1 is not supported due to exposure of the client secret. OAuth v2 is supported.  
 
-Supporting multiple secrets for easy renewal, without downtime is recommended, but not required.
+It is recommended, but not required, that you support multiple secrets for easy renewal without downtime.
 
 #### How to set up OAuth code grant flow
 
