@@ -53,7 +53,7 @@ By default, Azure configures a certificate to expire after three years when it's
 1. Save the new certificate.
 1. Download the new certificate in the correct format.
 1. Upload the new certificate to the application.
-1. Make the new certificate active in the Azure Active Directory portal.
+1. Make the new certificate active in the Azure portal.
 
 The following two sections help you perform these steps.
 
