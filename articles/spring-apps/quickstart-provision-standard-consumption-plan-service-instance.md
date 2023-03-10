@@ -18,6 +18,11 @@ ms.custom: devx-track-java
 
 This article describes how to create a Standard consumption plan in Azure Spring Apps for application deployment.
 
+## Prerequisites
+
+- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- (Optional) [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) version 2.28.0 or higher.
+
 ## Standard consumption plan procedures
 
 You can use either the Azure portal or the Azure CLI to create a Standard consumption plan.

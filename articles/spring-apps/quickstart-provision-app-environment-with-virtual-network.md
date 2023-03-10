@@ -30,11 +30,9 @@ You can also deploy your Azure Container Apps environment to an existing virtual
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - (Optional) [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) version 2.28.0 or higher.
 
-## Create an Azure Container Apps environment
+## Create an Azure Spring Apps instance in an Azure Container Apps environment
 
-You can use either the Azure portal or the Azure CLI to create the Azure Container Apps environment.
-
-Use the following steps to create an Azure Container Apps environment with a virtual network.
+Use the following steps to create an Azure Spring Apps instance in an Azure Container Apps environment with a virtual network.
 
 ### [Azure portal](#tab/Azure-portal)
 
