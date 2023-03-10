@@ -6,15 +6,15 @@ ms.author: anaharris
 ms.topic: overview
 ms.custom: subject-reliability
 ms.service: app-service
-ms.date: 02/22/2022 
+ms.date: 03/10/2023 
 ---
 
 
 # Reliability in Azure App Service
 
-This article describes reliability support in [Azure App Service](/azure/app-service/overview), and covers intra-regional resiliency with availability zones. Azure App Service is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. 
+This article describes reliability support in [Azure App Service](/azure/app-service/overview), and covers intra-regional resiliency with [availability zones](#availability-zone-support). For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
-Azure App Service adds the power of Microsoft Azure to your application, such as:
+Azure App Service is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends; and adds the power of Microsoft Azure to your application, such as:
 
 - Security
 - Load balancing
@@ -167,7 +167,7 @@ When the App Service platform allocates instances to a zone redundant App Servic
 
 You cannot migrate existing App Service instances or environment resources from non-availability zone support to availability zone support. To get support for availability zones, you'll need to [create upir resources with availability` zones enabled](#create-a-resource-with-availability-zone-enabled).
 
-## Pricing
+### Pricing
 
 There's no additional cost associated with enabling availability zones. Pricing for a zone redundant App Service is the same as a single zone App Service. You'll be charged based on your App Service plan SKU, the capacity you specify, and any instances you scale to based on your autoscale criteria. If you enable availability zones but specify a capacity less than three, the platform will enforce a minimum instance count of three and charge you for those three instances.
 
