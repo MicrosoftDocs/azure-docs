@@ -263,8 +263,8 @@ For the following instructions, use the directory with your Azure AD B2C tenant.
 7. Select **Upload Custom Policy**.
 8. Upload the two policy files you changed, in the following order: 
 
-  * The extension policy, for example `TrustFrameworkExtensions.xml`
-  * The relying party policy, such as `SignUpSignIn.xml`
+     * The extension policy, for example `TrustFrameworkExtensions.xml`
+     * The relying party policy, such as `SignUpSignIn.xml`
 
 ### Test your custom policy
 
