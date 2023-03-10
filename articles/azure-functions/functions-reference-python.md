@@ -80,7 +80,6 @@ You can also explicitly declare the attribute types and return type in the funct
 ```python
 import azure.functions
 
-
 def main(req: azure.functions.HttpRequest) -> str:
     user = req.params.get('user')
     return f'Hello, {user}!'
@@ -97,7 +96,6 @@ Triggers and bindings can be declared and used in a function in a decorator base
 ```python
 @app.function_name(name="HttpTrigger1")
 @app.route(route="req")
-
 def main(req):
     user = req.params.get('user')
     return f'Hello, {user}!'
@@ -108,9 +106,10 @@ You can also explicitly declare the attribute types and return type in the funct
 ```python
 import azure.functions
 
+app = func.FunctionApp()
+
 @app.function_name(name="HttpTrigger1")
 @app.route(route="req")
-
 def main(req: azure.functions.HttpRequest) -> str:
     user = req.params.get('user')
     return f'Hello, {user}!'
@@ -392,7 +391,6 @@ app = func.FunctionApp()
 
 @app.route(route="req")
 @app.read_blob(arg_name="obj", path="samples/{id}", connection="AzureWebJobsStorage")
-
 def main(req: func.HttpRequest,
          obj: func.InputStream):
     logging.info(f'Python HTTP-triggered function processed: {obj.read()}')
@@ -478,10 +476,10 @@ To produce multiple outputs, use the `set()` method provided by the [`azure.func
 # function_app.py
 import azure.functions as func
 
+app = func.FunctionApp()
 
 @app.write_blob(arg_name="msg", path="output-container/{name}",
                 connection="AzureWebJobsStorage")
-                
 def test_function(req: func.HttpRequest,
                   msg: func.Out[str]) -> str:
                   
@@ -499,7 +497,6 @@ The following example logs an info message when the function is invoked via an H
 
 ```python
 import logging
-
 
 def main(req):
     logging.info('Python HTTP trigger function processed a request.')
@@ -617,7 +614,6 @@ The following example is from the HTTP trigger template for the Python v2 progra
 ```python
 @app.function_name(name="HttpTrigger1")
 @app.route(route="hello")
-
 def test_function(req: func.HttpRequest) -> func.HttpResponse:
      logging.info('Python HTTP trigger function processed a request.')
 
@@ -915,9 +911,10 @@ import logging
 import os
 import azure.functions as func
 
+app = func.FunctionApp()
+
 @app.function_name(name="HttpTrigger1")
 @app.route(route="req")
-
 def main(req: func.HttpRequest) -> func.HttpResponse:
 
 
@@ -1156,7 +1153,6 @@ import logging
 from shared_code import my_second_helper_function
 
 app = func.FunctionApp()
-
 
 # Define the HTTP trigger that accepts the ?value=<int> query parameter
 # Double the value and return the result in HttpResponse
