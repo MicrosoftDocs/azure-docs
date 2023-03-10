@@ -41,13 +41,13 @@ For delegated scenarios, the admin needs one of the following [Azure AD roles](/
 |Number of Workflows     |   50 per tenant      |
 |Number of Tasks     |  25 per workflow       |
 |Number of Custom Task Extensions     |  100 per tenant       |
-|offsetInDays range of triggerAndScopeBasedConditions executionConditions     |  60 days       |
+|offsetInDays range of triggerAndScopeBasedConditions executionConditions     |  180 days       |
 |Workflow schedule interval in hours     |   1-24 hours      |
 |Number of users per on-demand selection	     |  10       |
 |durationBeforeTimeout range of custom task extensions     |   5 minutes-3 hours      |
 
 > [!NOTE]
-> If creating, or updating, a workflow via API the offsetInDays range will be between -60-60 days. The negative value will signal happening before the timeBasedAttribute, while the positive value will signal happening afterwards.
+> If creating, or updating, a workflow via API the offsetInDays range will be between -180-180 days. The negative value will signal happening before the timeBasedAttribute, while the positive value will signal happening afterwards.
 
 ## Parts of a workflow 
 

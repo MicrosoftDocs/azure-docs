@@ -84,7 +84,7 @@ Lifecycle Workflows support a rich set of user properties that are available on 
 |---------|---------|
 |Custom Workflows     |    50     |
 |Number of custom tasks     |  25 per workflow       |
-|Value range for offsetInDays      |    Between -60 and 60 days     |
+|Value range for offsetInDays      |    Between -180 and 180 days     |
 |Default Workflow execution schedule     |     Every 3 hours    |
 
 
