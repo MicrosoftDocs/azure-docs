@@ -4,6 +4,7 @@ description: Learn how to use a custom certificate authority (CA) in an Azure Ku
 author: rayoef
 ms.author: rayoflores
 ms.topic: article
+ms.custom: devx-track-azurecli
 ms.date: 4/12/2022
 ---
 

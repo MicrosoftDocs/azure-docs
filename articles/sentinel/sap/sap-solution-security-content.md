@@ -4,15 +4,12 @@ description: Learn about the built-in security content provided by the Microsoft
 author: MSFTandrelom
 ms.author: andrelom
 ms.topic: reference
-ms.custom: mvc, ignite-fall-2021
-ms.date: 04/27/2022
+ms.date: 01/24/2023
 ---
 
 # Microsoft Sentinel solution for SAP® applications: security content reference
 
-[!INCLUDE [Banner for top of topics](../includes/banner.md)]
-
-This article details the security content available for the Microsoft Sentinel solution for SAP® applications.
+This article details the security content available for the Microsoft Sentinel Solution for SAP.
 
 > [!IMPORTANT]
 > While the Microsoft Sentinel solution for SAP® applications is in GA, some specific components remain in PREVIEW. This article indicates the components that are in preview in the relevant sections below. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -22,7 +19,7 @@ Available security content includes built-in workbooks and analytics rules. You 
 
 ## Built-in workbooks
 
-Use the following built-in workbooks to visualize and monitor data ingested via the SAP data connector. After deploying the SAP solution, SAP workbooks are found in the **My workbooks** tab.
+Use the following built-in workbooks to visualize and monitor data ingested via the SAP data connector. After you deploy the SAP solution, you can find SAP workbooks in the **My workbooks** tab.
 
 | Workbook name | Description | Logs |
 | --------- | --------- | --------- |
@@ -67,8 +64,8 @@ The following tables list the built-in [analytics rules](deploy-sap-security-con
 | --------- | --------- | --------- | --------- |
 | **SAP - Login from unexpected network** | Identifies a sign-in from an unexpected network. <br><br>Maintain networks in the [SAP - Networks](#networks) watchlist. | Sign in to the backend system from an IP address that is not assigned to one of the networks. <br><br>**Data sources**: SAPcon - Audit Log | Initial Access |
 | **SAP - SPNego Attack** | Identifies SPNego Replay Attack. | **Data sources**: SAPcon -  Audit Log | Impact, Lateral Movement |
-| **SAP - Dialog logon attempt from a privileged user** | Identifies dialog sign-in attempts, with the **AUM** type, by privileged users in a SAP system. For more information, see the [SAPUsersGetPrivileged](sap-solution-log-reference.md#sapusersgetprivileged). | Attempt to sign in from the same IP to several systems or clients within the scheduled time interval<br><br>**Data sources**: SAPcon -  Audit Log | Impact, Lateral Movement |
-| **SAP - Brute force attacks** | Identifies brute force attacks on the SAP system using RFC logons | Attempt to login from the same IP to several systems/clients within the scheduled time interval using RFC<br><br>**Data sources**: SAPcon - Audit Log | Credential Access |
+| **SAP - Dialog logon attempt from a privileged user** | Identifies dialog sign-in attempts, with the **AUM** type, by privileged users in an SAP system. For more information, see the [SAPUsersGetPrivileged](sap-solution-log-reference.md#sapusersgetprivileged). | Attempt to sign in from the same IP to several systems or clients within the scheduled time interval<br><br>**Data sources**: SAPcon -  Audit Log | Impact, Lateral Movement |
+| **SAP - Brute force attacks** | Identifies brute force attacks on the SAP system using RFC logons | Attempt to log in from the same IP to several systems/clients within the scheduled time interval using RFC<br><br>**Data sources**: SAPcon - Audit Log | Credential Access |
 | **SAP - Multiple Logons from the same IP** | Identifies the sign-in of several users from same IP address within a scheduled time interval.   <br><br>**Sub-use case**: [Persistency](#built-in-sap-analytics-rules-for-persistency) | Sign in using several users through the same IP address. <br><br>**Data sources**: SAPcon - Audit Log | Initial Access |
 | **SAP - Multiple Logons by User** | Identifies sign-ins of the same user from several terminals within scheduled time interval.  <br><br>Available only via the Audit SAL method, for SAP versions 7.5 and higher. | Sign in using the same user, using different IP addresses.   <br><br>**Data sources**: SAPcon - Audit Log | PreAttack, Credential Access, Initial Access, Collection <br><br>**Sub-use case**: [Persistency](#built-in-sap-analytics-rules-for-persistency) |
 | **SAP - Informational - Lifecycle - SAP Notes were implemented in system** | Identifies SAP Note implementation in the system. | Implement an SAP Note using SNOTE/TCI. <br><br>**Data sources**: SAPcon -  Change Requests | - |
