@@ -132,4 +132,5 @@ Here are important next step documents to explore:
 - [Python](quickstart-create-data-factory-python.md)
 - [REST](quickstart-create-data-factory-rest-api.md)
 - [Azure Resource Manager template](quickstart-create-data-factory-resource-manager-template.md)
+- [Azure Data Factory Questions](https://www.interviewbit.com/azure-data-factory-interview-questions/)
  
