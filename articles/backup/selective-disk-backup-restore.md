@@ -1,8 +1,8 @@
 ---
 title: Selective disk backup and restore for Azure virtual machines
 description: In this article, learn about selective disk backup and restore using the Azure virtual machine backup solution.
-ms.topic: conceptual
-ms.date: 11/10/2021
+ms.topic: how-to
+ms.date: 03/15/2023
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell3
 ms.service: backup
 author: jyothisuri
@@ -11,7 +11,13 @@ ms.author: jsuri
  
 # Selective disk backup and restore for Azure virtual machines
 
-Azure Backup supports backing up all the disks (operating system and data) in a VM together using the virtual machine backup solution. Now, using the selective disks backup and restore functionality, you can back up a subset of the data disks in a VM. This provides an efficient and cost-effective solution for your backup and restore needs. Each recovery point contains only the disks that are included in the backup operation. This further allows you to have a subset of disks restored from the given recovery point during the restore operation. This applies to both restore from snapshots and the vault.
+Azure Backup supports backing up all the disks (operating system and data) in a VM together using the virtual machine backup solution. Now, using the selective disks backup and restore functionality, you can back up a subset of the data disks in a VM.
+
+This is supported both for Enhanced Policy (preview) as well as Standard Policy.          This provides an efficient and cost-effective solution for your backup and restore needs. Each recovery point contains only the disks that are included in the backup operation. This further allows you to have a subset of disks restored from the given recovery point during the restore operation. This applies to both restore from snapshots and the vault.
+
+>[!Note]
+>- This is supported for both backup policies - [Enhanced policy](backup-azure-vms-enhanced-policy.md) and [Standard policy](backup-during-vm-creation.md#create-a-vm-with-backup-configured).
+>- The Selective disk backup and restore (preview) in Enhanced policy is available in public Azure regions only.
 
 ## Scenarios
 
