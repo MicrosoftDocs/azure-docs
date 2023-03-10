@@ -25,7 +25,11 @@ After the application has been registered, you can check or change the account t
 | Accounts in any organizational directory (Any Azure AD directory - Multitenant) | `AzureADMultipleOrgs` |
 | Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox) | `AzureADandPersonalMicrosoftAccount` |
 
-If you change this property you may need to change other properties first. See the following table for the validation differences of various properties for different supported account types.
+If you change this property you may need to change other properties first. 
+
+## Validation differences
+
+See the following table for the validation differences of various properties for different supported account types.
 
 | Property                                                     | `AzureADMyOrg`                                                                                                                                                                                                                                      | `AzureADMultipleOrgs`                                                                                                                                                                                                                          | `AzureADandPersonalMicrosoftAccount` and `PersonalMicrosoftAccount`                                                                                                                                                |
 | ------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
