@@ -73,7 +73,7 @@ If you get the same username/password error, this means that the Pass-through Au
 > [!IMPORTANT]
 > If the Azure AD Connect server isn't domain joined, a requirement mentioned in [Azure AD Connect: Prerequisites](./how-to-connect-install-prerequisites.md#installation-prerequisites), the invalid username/password issue occurs.
 
-### Sign-in failure reasons on the Azure Active Directory admin center (needs Premium license)
+### Sign-in failure reasons on the Azure portal (needs Premium license)
 
 If your tenant has an Azure AD Premium license associated with it, you can also look at the [sign-in activity report](../reports-monitoring/concept-sign-ins.md) on the [Entra admin center](https://entra.microsoft.com/).
 
