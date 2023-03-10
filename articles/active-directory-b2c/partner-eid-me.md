@@ -46,8 +46,8 @@ See also, [Tutorial: Create user flows and custom policies in Azure AD B2C](./tu
 
 eID-Me integrates with Azure AD B2C as an OpenID Connect (OIDC) identity provider. The following components comprise the eID-Me solution with Azure AD B2C:
 
-* **Azure AD B2C tenant** - configured as a relying party in eID-Me enables eID-Me to trust an Azure AD B2C tenant for sign up and sign in.
-* **Azure AD B2C tenant application** - because it's assumed tenants need an Azure AD B2C tenant application. 
+* **Azure AD B2C tenant** - configured as a relying party in eID-Me enables eID-Me to trust an Azure AD B2C tenant for sign-up and sign-in
+* **Azure AD B2C tenant application** - the assumption is tenants need an Azure AD B2C tenant application
   * The application receives identity claims received by Azure AD B2C during transaction
 * **eID-Me smartphone apps** - Azure AD B2C tenant users need the app for iOS or Android
 * **Issued eID-Me digital identities** - from eID-Me identity proofing 
@@ -68,7 +68,7 @@ The following diagram illustrates Azure AD B2C integration with eID-Me.
 
    ![Diagram of Azure AD B2C integration with eID-Me](./media/partner-eid-me/partner-eid-me-architecture-diagram.png)
 
-1. User opens the Azure AD B2C sign in page and signs in or signs up with a username.
+1. User opens the Azure AD B2C sign-in page and signs in or signs up with a username.
 2. User forwarded to Azure AD B2C sign-in and sign-up policy.
 3. Azure AD B2C redirects the user to the eID-Me identity router using the OIDC authorization code flow.
 4. The router sends push notification to the user mobile app with authentication and authorization request details.
@@ -121,7 +121,7 @@ To configure an identity provider:
 4. For **Client Secret**, enter the Client Secret from eID-Me.
 5. For **Scope**, select **openid email profile**.
 6. For **Response type**, select **code**.
-7. For **Response mode**, selct **form post**.
+7. For **Response mode**, select **form post**.
 8. Select **OK**.
 9. Select **Map this identity provider’s claims**.
 10. For **User ID**, use **sub**.
@@ -137,14 +137,14 @@ eID-Me is a multi-factor authenticator, therefore user-flow multi-factor authent
 
 ## Create a user flow policy
 
-For the following instructions eID-Me appears as a new OIDC identity provider in B2C identity providers.  
+For the following instructions, eID-Me appears as a new OIDC identity provider in B2C identity providers.  
 
 1. In the Azure AD B2C tenant, under **Policies**, select **User flows**.  
 2. Select **New user flow**.
 3. Select **Sign up and sign in** > **Version** > **Create**.
 4. Enter a policy **Name**.
 5. In **Identity providers**, select the created eID-Me identity provider.  
-6. For **Local Accounts** elect **None**. This actions disables email and password authentication.
+6. For **Local Accounts**, select **None**. The selection disables email and password authentication.
 7. Select **Run user flow**.
 8. In the form, enter a **Replying URL**, such as `https://jwt.ms`.
 9. The browser  redirects to the eID-Me sign-in page. 
@@ -178,7 +178,7 @@ Store the Client Secret you recorded in your Azure AD B2C tenant. For the follow
 
 ## Configure eID-Me as an Identity provider
 
-To enable user sign-in with eID-Me, define eID-Me as a claims provider. Azure AD B2C communicates with it, through an endpoint. The endpoint provides claims used by Azure AD B2C to verify user authentication with a digital ID on their device.
+To enable user sign in with eID-Me, define eID-Me as a claims provider. Azure AD B2C communicates with it, through an endpoint. The endpoint provides claims used by Azure AD B2C to verify user authentication with a digital ID on their device.
 
 To define eID-Me as a claims provider, add it to the **ClaimsProvider** element in the policy extension file.
 
@@ -241,7 +241,7 @@ To define eID-Me as a claims provider, add it to the **ClaimsProvider** element 
 
 ### Supported identity claims
 
-You can add additional identity claims that eID-Me supports. 
+You can add more identity claims that eID-Me supports. 
 
 1. Open the `TrustFrameworksExtension.xml`.
 2. Find the `BuildingBlocks` element. 
@@ -397,7 +397,7 @@ Add the new identity provider to the user journey.
 5. Set the **Id** to the target claims exchange ID value. 
 6. Update the v**TechnicalProfileReferenceId** value to the technical profile ID you created.
 
-The following XML demonstrates 7 user journey orchestration steps with the identity provider:
+The following XML demonstrates seven user journey orchestration steps with the identity provider:
 
    ```xml
     <UserJourney Id="eIDME-SignUpOrSignIn">
