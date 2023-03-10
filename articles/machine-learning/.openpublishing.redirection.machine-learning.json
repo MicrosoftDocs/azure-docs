@@ -3757,8 +3757,8 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/overview-what-happened-to-workbench.md",
-        "redirect_url": "/azure/machine-learning/v1/overview-what-happened-to-workbench",
-        "redirect_document_id": true
+        "redirect_url": "/azure/machine-learning",
+        "redirect_document_id": false
     }
 ]
 }
