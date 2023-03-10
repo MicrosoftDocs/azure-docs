@@ -105,7 +105,7 @@ To modify email settings:
 
 Recipients of email notifications from API Management could be affected when you change the originating email address.
 
-* **Change to From address** - When you change the originating email address, the "From" address will appear as `noreply@contoso.com apimgmt-noreply@mail.windowsazure.com`. This is because the email is being sent by API Management, and not the email server of the Originating email address.
+* **Change to From address** - When you change the originating email address (for example, to `no-reply@contoso.com`), the `From` address header will be `noreply@contoso.com apimgmt-noreply@mail.windowsazure.com`. This is because the email is being sent by API Management, and not the email server of the originating email address.
 
 * **Email set to Junk or Spam folder** - Some recipients may not receive the email notifications from API Management or emails may get sent to the Junk or Spam folder. This can happen depending on the organization's SPF or DKIM email authentication settings:
 
