@@ -111,12 +111,34 @@ Next, set up a virtual machine (VM) where you will download the SAP components l
     az login
     ```
 
-1. Install Ansible 2.9.27 on the VM.
+1. Install PIP3
 
-    ```bash
-    sudo pip3 install ansible==2.9.27
+    ```Bash
+    sudo apt install python3-pip
     ```
-    
+
+1. Install Ansible 2.11.12 on the VM.
+
+    ```Bash
+    sudo pip3 install ansible-core==2.11.12
+    ```
+
+1. Install Ansible galaxy collection modules
+
+    ```Bash
+    ansible-galaxy collection install ansible.netcommon:==5.0.0 -p /opt/ansible/collections
+    ansible-galaxy collection install ansible.posix:==1.5.1 -p /opt/ansible/collections
+    ansible-galaxy collection install ansible.utils:==2.9.0 -p /opt/ansible/collections
+    ansible-galaxy collection install ansible.windows:==1.13.0 -p /opt/ansible/collections
+    ansible-galaxy collection install community.general:==6.4.0 -p /opt/ansible/collections
+    ```
+
+1. Clone the SAP automation samples repository from GitHub.
+
+    ```git bash
+    git clone https://github.com/Azure/SAP-automation-samples.git
+    ```
+
 1. Clone the SAP automation repository from GitHub.
 
     ```git bash
@@ -140,21 +162,37 @@ Next, set up a virtual machine (VM) where you will download the SAP components l
 
 Next, download the SAP installation media to the VM using a script.
 
-1. Run the Ansible script **playbook_bom_download** with your own information.
+1. Run the Ansible script **playbook_bom_download** with your own information. Enter the actual values within double quotes but without the triangular brackets
 
     The Ansible command that you run should look like:
 
-    ```azurecli
-    ansible-playbook ./sap-automation/deploy/ansible/playbook_bom_downloader.yaml -e "bom_base_name=S41909SPS03_v0011ms" -e "deployer_kv_name=dummy_value" -e "s_user=<username>" -e "s_password=<password>" -e "sapbits_access_key=<storageAccountAccessKey>" -e "sapbits_location_base_path=<containerBasePath>" 
+    ```Bash
+    export bom_base_name="<Enter bom base name>"
+    export s_user="<s-user>"
+    export s_password="<password>"
+    export storage_account_access_key="<storageAccountAccessKey>"
+    export sapbits_location_base_path="<containerBasePath>"
+    export BOM_directory="<BOM_directory_path>"
+    export orchestration_ansible_user="<orchestration_ansible_user>"
+    
+    ansible-playbook /home/demouser/sap-automation/deploy/ansible/playbook_bom_downloader.yaml \
+    -e "bom_base_name=${bom_base_name}" \
+    -e "deployer_kv_name=dummy_value" \
+    -e "s_user=${s_user}" \
+    -e "s_password=${s_password}" \
+    -e "storage_account_access_key=${storage_account_access_key}" \
+    -e "sapbits_location_base_path=${sapbits_location_base_path}" \
+    -e "BOM_directory=${BOM_directory}" \
+    -e "orchestration_ansible_user=${orchestration_ansible_user}"
     ```
 
 1. When asked if you have a storage account, enter `Y`.
-    
-    1. For `<username>`, use your SAP username.
-    
-    1. For `<password>`, use your SAP password. 
-	
+    	
 1. For `<bom_base_name>`, use the SAP Version you want to install i.e. **_S41909SPS03_v0011ms_** or **_S42020SPS03_v0003ms_** or **_S4HANA_2021_ISS_v0001ms_**
+
+1. For `<s_user>`, use your SAP username.
+    
+1. For `<s_password>`, use your SAP password. 
     
 1. For `<storageAccountAccessKey>`, use your storage account's access key. To find the storage account's key:
 
@@ -175,6 +213,11 @@ Next, download the SAP installation media to the VM using a script.
     1. On the container's sidebar menu, select **Properties** under **Settings**.
     
     1. Copy down the **URL** value. The format is `https://<your-storage-account>.blob.core.windows.net/sapbits`. The format is `https://<your-storage-account>.blob.core.windows.net/sapbits`.
+
+1. Where `BOM_directory_path` is the absolute path to **SAP-automation-samples/SAP**
+
+1. Where `orchestration_ansible_user` is the user with **admin** privileges.
+
 
 Now you can [install the SAP software](install-software.md) through Azure Center for SAP solutions.
 
