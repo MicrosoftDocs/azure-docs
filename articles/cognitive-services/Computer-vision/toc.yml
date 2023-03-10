@@ -113,7 +113,7 @@ items:
     - name: Version 4.0 (preview)
       items:
       - name: Azure Image Analysis samples
-        href: https://github.com/Azure-Samples/azure-ai-vision-sdk/tree/main/samples
+        href: https://github.com/Azure-Samples/azure-ai-vision-sdk
     - name: Version 3.2
       items:
       - name: Cognitive Services .NET SDK samples
