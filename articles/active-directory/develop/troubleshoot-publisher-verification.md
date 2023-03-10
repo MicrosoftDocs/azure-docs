@@ -147,10 +147,13 @@ The MPN ID you provided (`MPNID`) doesn't exist, or you don't have access to it.
 Most commonly caused by the signed-in user not being a member of the proper role for the MPN account in Partner Center- see [requirements](publisher-verification-overview.md#requirements) for a list of eligible roles and see [common issues](#common-issues) for more information. Can also be caused by the tenant the app is registered in not being added to the MPN account, or an invalid MPN ID.
 
 **Remediation Steps**
+
     1. Go to your [partner profile](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) and verify that: 
         - The MPN ID is correct. 
         - There are no errors or “pending actions” shown, and the verification status under Legal business profile and Partner info both say “authorized” or “success”.
+        
     2. Go to the [MPN tenant management page](https://partner.microsoft.com/dashboard/account/v3/tenantmanagement) and confirm that the tenant the app is registered in and that you're signing with a user account from is on the list of associated tenants. To add another tenant, follow the instructions [here](/partner-center/multi-tenant-account). Be aware that all Global Admins of any tenant you add will be granted Global Administrator privileges on your Partner Center account.
+    
     3. Go to the [MPN User Management page](https://partner.microsoft.com/pcv/users) and confirm the user you're signing in as is either a Global Administrator, MPN Admin, or Accounts Admin. To add a user to a role in Partner Center, follow the instructions [here](/partner-center/create-user-accounts-and-set-permissions).
 
 ### MPNGlobalAccountNotFound
@@ -181,7 +184,7 @@ Most commonly caused by when the MPN account hasn't completed the [verification]
 
 **Remediation Steps**
     1. Navigate to your [partner profile](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) and verify that There are no errors or “pending actions” shown, and that the verification status under Legal business profile and Partner info both say “authorized” or “success”.
-    2. If not, view pending action items in Partner Center and troubleshoot with [here](https://learn.microsoft.com/en-us/partner-center/verification-responses)
+    2. If not, view pending action items in Partner Center and troubleshoot with [here](/partner-center/verification-responses)
 
 ### NoPublisherIdOnAssociatedMPNAccount
 
@@ -210,7 +213,7 @@ The target application (`AppId`) can’t be found. Provide a valid application I
 Most commonly caused when verification is being performed via Graph API, and the ID of the application provided is incorrect. 
 
 **Remediation Steps**
-    1. The Object ID of the application must be provided, not the AppId/ClientId. See "id" on the list of application properties [here](https://learn.microsoft.com/en-us/graph/api/resources/application?view=graph-rest-1.0)
+    1. The Object ID of the application must be provided, not the AppId/ClientId. See "id" on the list of application properties [here](/graph/api/resources/application)
     2. Log in to [Azure Active Directory](https://aad.portal.azure.com/) with a user account in your organization's primary tenant > Azure Active Directory > App Registrations blade
     3. Find your app's registration to view the Object ID
 
@@ -222,7 +225,7 @@ The target application's object ID is invalid. Please provide a valid ID and try
 Most commonly caused when the verification is being performed via Graph API, and the ID of the application provided does not exist. 
 
 **Remediation Steps**
-    1. The Object ID of the application must be provided, not the AppId/ClientId. See "id" on the list of application properties [here](https://learn.microsoft.com/en-us/graph/api/resources/application?view=graph-rest-1.0)
+    1. The Object ID of the application must be provided, not the AppId/ClientId. See "id" on the list of application properties [here](/graph/api/resources/application)
     2. Log in to [Azure Active Directory](https://aad.portal.azure.com/) with a user account in your organization's primary tenant > Azure Active Directory > App Registrations blade
     3. Find your app's registration to view the Object ID
 
@@ -242,7 +245,7 @@ The target application (`AppId`) must have a Publisher Domain set. Set a Publish
 Occurs when a [Publisher Domain](howto-configure-publisher-domain.md) isn't configured on the app.
 
 **Remediation Steps**
-    1. Follow the directions [here](https://learn.microsoft.com/en-us/azure/active-directory/develop/howto-configure-publisher-domain#set-a-publisher-domain-in-the-azure-portal) to set a Publisher Domain
+    1. Follow the directions [here](/azure/active-directory/develop/howto-configure-publisher-domain#set-a-publisher-domain-in-the-azure-portal) to set a Publisher Domain
 
 ### PublisherDomainMismatch
 
@@ -305,8 +308,11 @@ When a request to add a verified publisher is made, many signals are used to mak
 
 **Remediation Steps**
 > [Investigate risk](../identity-protection/howto-identity-protection-investigate-risk.md#risky-users)
+
 > [Remediate risk/unblock users](../identity-protection/howto-identity-protection-remediate-unblock.md)
+
 > [Self-remediation guidance](../identity-protection/howto-identity-protection-remediate-unblock.md)
+
 > Self-serve password reset (SSPR): If the organization allows SSPR, use aka.ms/sspr to reset the password for remediation. Please choose a strong password; Choosing a weak password may not reset the risk state.  
 
 > [!NOTE] 
