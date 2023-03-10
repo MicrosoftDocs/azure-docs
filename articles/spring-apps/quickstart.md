@@ -52,7 +52,7 @@ Use the following steps to create a service instance of Azure Spring Apps.
    az account show
    ```
 
-1. Azure Cloud Shell workspaces are temporary. On initial start, the shell prompts you to associate an [Azure Storage](../storage/common/storage-introduction.md) instance with your subscription to persist files across sessions.
+1. Azure Cloud Shell workspaces are temporary. When first started, the shell prompts you to select an [Azure Storage](../storage/common/storage-introduction.md) instance with your subscription to persist files across sessions.
 
    :::image type="content" source="media/quickstart/azure-storage-subscription.png" alt-text="Screenshot of Azure Storage subscription." lightbox="media/quickstart/azure-storage-subscription.png":::
 
@@ -62,13 +62,13 @@ Use the following steps to create a service instance of Azure Spring Apps.
    az account list --output table
    ```
 
-1. Use the following command to choose and link to your subscription.
+1. Set your default subscription.
 
    ```azurecli-interactive
    az account set --subscription <subscription-id>
    ```
 
-1. Use the following command to create a resource group.
+1. Create a resource group.
 
    ```azurecli-interactive
    az group create \
@@ -76,15 +76,15 @@ Use the following steps to create a service instance of Azure Spring Apps.
        --location eastus
    ```
 
-1. Use the following command to create an Azure Spring Apps service instance.
+1. Create an Azure Spring Apps service instance.
 
    ```azurecli-interactive
    az spring create \
        --resource-group <name-of-resource-group> \
-       --name <service-instance-name>
+       --name <Azure-Spring-Apps-instance-name>
    ```
 
-1. Choose **Y** to install the Azure Spring Apps extension and run it.
+1. Select **Y** to install the Azure Spring Apps extension and run it.
 
 ## Create an app in your Azure Spring Apps instance
 
@@ -97,7 +97,7 @@ Use the following command to specify the app name on Azure Spring Apps as *hello
 ```azurecli-interactive
 az spring app create \
     --resource-group <name-of-resource-group> \
-    --service <service-instance-name> \
+    --service <Azure-Spring-Apps-instance-name> \
     --name hellospring \
     --assign-endpoint true
 ```
@@ -112,7 +112,7 @@ Use the following steps to clone the Spring Boot sample project.
    git clone -b boot-2.7 https://github.com/spring-guides/gs-spring-boot.git
     ```
 
-1. Use the following command to move to the project folder.
+1. Move to the project folder.
 
     ```azurecli-interactive
     cd gs-spring-boot/complete
@@ -131,7 +131,7 @@ Use the following command to deploy the *.jar* file for the app (*target/spring-
 ```azurecli-interactive
 az spring app deploy \
     --resource-group <name-of-resource-group> \
-    --service <service-instance-name> \
+    --service <Azure-Spring-Apps-instance-name> \
     --name hellospring \
     --artifact-path target/spring-boot-complete-0.0.1-SNAPSHOT.jar
 ```
@@ -168,7 +168,7 @@ Use the following steps to create a service instance of Azure Spring Apps.
    az account show
    ```
 
-1. Azure Cloud Shell workspaces are temporary. On initial start, the shell prompts you to associate an [Azure Storage](../storage/common/storage-introduction.md) instance with your subscription to persist files across sessions.
+1. Azure Cloud Shell workspaces are temporary. When first started, the shell prompts you to associate an [Azure Storage](../storage/common/storage-introduction.md) instance with your subscription to persist files across sessions.
 
    :::image type="content" source="media/quickstart/azure-storage-subscription.png" alt-text="Screenshot of Azure Storage subscription." lightbox="media/quickstart/azure-storage-subscription.png":::
 
@@ -178,16 +178,16 @@ Use the following steps to create a service instance of Azure Spring Apps.
    az account list --output table
    ```
 
-1. Use the following command to choose and link to your subscription.
+1. Use the following command to set your default subscription.
 
    ```azurecli-interactive
    az account set --subscription <subscription-id>
    ```
 
-1. Define variables for this quickstart.
+1. Define variables for this quickstart with the names of your resources and desired settings.
 
    ```azurecli-interactive
-   LOCATION="<location>"
+   LOCATION="<region>"
    RESOURCE_GROUP="<resource group>"
    MANAGED_ENVIRONMENT="<Azure-Container-Apps-environment-name>"
    SERVICE_NAME="<Azure-Spring-Apps-instance-name>"
@@ -233,7 +233,7 @@ Use the following steps to create a service instance of Azure Spring Apps.
 
 ## Create an app in your Azure Spring Apps instance
 
-An [**App**](/azure/spring-apps/concept-understand-app-and-deployment) is an abstraction of one business app. Apps run in an Azure Spring Apps Service Instance, or simply service instance, as shown next.
+An [**App**](/azure/spring-apps/concept-understand-app-and-deployment) is an abstraction of one business app. Apps run in an Azure Spring Apps service instance, or simply service instance, as shown in the following diagram.
 </br>
 ![Apps and Deployments](./media/spring-cloud-app-and-deployment/app-deployment-rev.png)
 </br>
@@ -250,7 +250,7 @@ az spring app create \
     --assign-endpoint true
 ```
 
-Azure Spring Apps creates an empty welcome application, and you can find the application url in the field `properties.url`.
+Azure Spring Apps creates an empty welcome application and provides its URL in the field named `properties.url`.
 
 :::image type="content" source="media/quickstart/bannerapp.png" alt-text="Screenshot of the welcome page." lightbox="media/quickstart/bannerapp.png":::
 
@@ -264,7 +264,7 @@ Use the following steps to clone the Spring Boot sample project.
    git clone -b boot-2.7 https://github.com/spring-guides/gs-spring-boot.git
    ```
 
-1. Use the following command to move to the project folder.
+1. Move to the project folder.
 
    ```azurecli-interactive
    cd gs-spring-boot/complete
@@ -353,11 +353,11 @@ Use the following steps to create an instance of Azure Spring Apps using the Azu
 
    :::image type="content" source="media/quickstart/spring-apps-create.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps resource with Create button highlighted." lightbox="media/quickstart/spring-apps-create.png":::
 
-1. Fill out the form on the Azure Spring Apps **Create** page.  Consider the following guidelines:
+1. Fill out the form on the Azure Spring Apps **Create** page. Consider the following guidelines:
 
    - **Subscription**: Select the subscription you want to be billed for this resource.
    - **Resource group**: Creating new resource groups for new resources is a best practice.
-   - **Service Name**: Specify the service instance name. You'll use this name later in this article where the *\<service-instance-name\>* placeholder appears. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
+   - **Service Name**: Specify the service instance name. You'll use this name later in this article where the *\<Azur-Spring-Apps-instance-name\>* placeholder appears. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
    - **Region**: Select the region for your service instance.
 
    :::image type="content" source="media/quickstart/portal-start.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Create page." lightbox="media/quickstart/portal-start.png":::
