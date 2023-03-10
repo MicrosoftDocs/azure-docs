@@ -44,7 +44,7 @@ See how data is extracted from health insurance cards using the Form Recognizer 
 #### Form Recognizer Studio
 
 > [!NOTE]
-> Form Recognizer studio is available with v3.0 preview API.
+> Form Recognizer studio is available with API version v3.0.
 
 1. On the [Form Recognizer Studio home page](https://formrecognizer.appliedai.azure.com/studio), select **Health insurance cards**.
 
