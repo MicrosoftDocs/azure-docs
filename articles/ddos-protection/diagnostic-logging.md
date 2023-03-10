@@ -13,7 +13,7 @@ ms.author: abell
 
 # Tutorial: View and configure Azure DDoS Protection diagnostic logging
 
-Azure DDoS Protection provides detailed attack insights and visualization with DDoS Attack Analytics. Customers protecting their virtual networks against DDoS attacks have detailed visibility into attack traffic and actions taken to mitigate the attack via attack mitigation reports & mitigation flow logs. Rich telemetry is exposed via Azure Monitor including detailed metrics during the duration of a DDoS attack. Alerting can be configured for any of the Azure Monitor metrics exposed by DDoS Protection. Logging can be further integrated with [Microsoft Sentinel](../sentinel/data-connectors-reference.md#azure-ddos-protection), Splunk (Azure Event Hubs), OMS Log Analytics, and Azure Storage for advanced analysis via the Azure Monitor Diagnostics interface.
+Azure DDoS Protection provides detailed attack insights and visualization with DDoS Attack Analytics. Customers protecting their virtual networks against DDoS attacks have detailed visibility into attack traffic and actions taken to mitigate the attack via attack mitigation reports & mitigation flow logs. Rich telemetry is exposed via Azure Monitor including detailed metrics during the duration of a DDoS attack. Alerting can be configured for any of the Azure Monitor metrics exposed by DDoS Protection. Logging can be further integrated with [Microsoft Sentinel](../sentinel/data-connectors/azure-ddos-protection.md), Splunk (Azure Event Hubs), OMS Log Analytics, and Azure Storage for advanced analysis via the Azure Monitor Diagnostics interface.
 
 The following diagnostic logs are available for Azure DDoS Protection:
 
@@ -93,7 +93,7 @@ This [built-in policy](https://portal.azure.com/#blade/Microsoft_Azure_Policy/Po
 
 ### Microsoft Sentinel data connector
 
-You can connect logs to Microsoft Sentinel, view and analyze your data in workbooks, create custom alerts, and incorporate it into investigation processes. To connect to Microsoft Sentinel, see [Connect to Microsoft Sentinel](../sentinel/data-connectors-reference.md#azure-ddos-protection).
+You can connect logs to Microsoft Sentinel, view and analyze your data in workbooks, create custom alerts, and incorporate it into investigation processes. To connect to Microsoft Sentinel, see [Connect to Microsoft Sentinel](../sentinel/data-connectors/azure-ddos-protection.md).
 
 
 :::image type="content" source="./media/ddos-attack-telemetry/azure-sentinel-ddos.png" alt-text="Screenshot of Microsoft Sentinel DDoS Connector." lightbox="./media/ddos-attack-telemetry/azure-sentinel-ddos.png":::

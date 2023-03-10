@@ -24,6 +24,8 @@
     href: ./resource-bridge/security-overview.md
   - name: Deployment overview
     href: ./resource-bridge/deploy-cli.md
+  - name: Maintenance
+    href: ./resource-bridge/maintenance.md
   - name: Troubleshoot
     href: ./resource-bridge/troubleshoot-resource-bridge.md
 - name: Azure Arc-enabled servers >

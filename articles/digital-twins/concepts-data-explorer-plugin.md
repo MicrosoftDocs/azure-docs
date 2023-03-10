@@ -78,7 +78,7 @@ Before querying with the plugin, you'll need to ingest your Azure Digital Twins 
 
 ### Ingesting with data history
 
-The simplest way to ingest IoT data from Azure Digital Twins into Azure Data Explorer is to use the **data history** feature. This feature allows you to set up a connection between your Azure Digital Twins instance and an Azure Data Explorer cluster, and twin property updates are automatically historized to the cluster. This is a good choice if you're using telemetry data to bring your digital twins to life. For more information about this feature, see [Data history (with Azure Data Explorer)](concepts-data-history.md). 
+The simplest way to ingest IoT data from Azure Digital Twins into Azure Data Explorer is to use the **data history** feature. This feature allows you to set up a connection between your Azure Digital Twins instance and an Azure Data Explorer cluster, and graph updates (including twin property updates, twin lifecycle events, and relationship lifecycle events) are automatically historized to the cluster. This is a good choice if you're using telemetry data to bring your digital twins to life. For more information about this feature, see [Data history (with Azure Data Explorer)](concepts-data-history.md). 
 
 ### Direct ingestion
 
@@ -132,7 +132,7 @@ Once the target table is created, you can use the Azure Digital Twins plugin to 
 
 #### Example schema
 
-Here's an example of a schema that might be used to represent shared data. The example follows the Azure Data Explorer [data history schema](concepts-data-history.md#data-schema).
+Here's an example of a schema that might be used to represent shared data. The example follows the Azure Data Explorer [data history schema for twin property updates](concepts-data-history.md#twin-property-updates).
 
 | `TimeStamp` | `SourceTimeStamp` | `TwinId` | `ModelId` | `Name` | `Value` | `RelationshipTarget` | `RelationshipID` |
 | --- | --- | --- | --- | --- | --- | --- | --- |

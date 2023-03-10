@@ -3,7 +3,7 @@ title: Create and manage intra-account container copy jobs in Azure Cosmos DB
 description: Learn how to create, monitor, and manage container copy jobs within an Azure Cosmos DB account using CLI commands.
 author: nayakshweta
 ms.service: cosmos-db
-ms.custom: ignite-2022
+ms.custom: ignite-2022, devx-track-azurecli
 ms.topic: how-to
 ms.date: 08/01/2022
 ms.author: shwetn

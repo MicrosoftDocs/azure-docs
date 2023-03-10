@@ -188,7 +188,11 @@
             - name: Autoscale FAQ
               href: ../autoscale-faq.yml
         - name: Serverless
-          href: ../serverless.md
+          items: 
+          - name: Serverless overview
+            href: ../serverless.md
+          - name: Serverless 1 TB
+            href: ../serverless-1TB.md
         - name: Choose between autoscale and standard (manual) throughput
           href: ../how-to-choose-offer.md
         - name: Choose between provisioned throughput and serverless

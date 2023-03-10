@@ -41,7 +41,7 @@ Check the following conditions:
 
 ## Delete the organization
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with an account that is the global administrator for your organization.
+1. Sign in to the [Azure portal](https://portal.azure.com) with an account that is the Global Administrator for your organization.
 1. Select **Azure Active Directory**.
 1. On a tenant's **Overview** page, select **Manage tenants**.
   
@@ -183,7 +183,8 @@ Product state | Data | Access to data
 
 You can put a self-service sign-up product like Microsoft Power BI or Azure RMS into a **Delete** state to be immediately deleted in the Azure AD portal:
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with an account that is a global administrator in the organization. If you're trying to delete the Contoso organization that has the initial default domain `contoso.onmicrosoft.com`, sign in with a UPN such as `admin@contoso.onmicrosoft.com`.
+1. Sign in to the [Azure portal](https://portal.azure.com/) with an account that is a global administrator in the organization. If you're trying to delete the Contoso organization that has the initial default domain `contoso.onmicrosoft.com`, sign in with a UPN such as `admin@contoso.onmicrosoft.com`.
+1. Browse to **Azure Active Directory**.
 
 1. Select **Licenses**, and then select **Self-service sign-up products**. You can see all the self-service sign-up products separately from the seat-based subscriptions. Choose the product that you want to permanently delete. Here's an example in Microsoft Power BI:
 

@@ -3361,10 +3361,10 @@ Customers can work around this requirement for testing purposes by using a featu
 **Service category:** Device Registration and Management  
 **Product capability:** Identity Security & Protection
  
-Azure AD and Microsoft Endpoint Manager teams have combined to bring the capability to customize, scale, and secure your frontline worker devices.
+Azure AD and Microsoft Intune teams have combined to bring the capability to customize, scale, and secure your frontline worker devices.
 
 The following preview capabilities will allow you to:
-- Provision Android shared devices at scale with Microsoft Endpoint Manager
+- Provision Android shared devices at scale with Microsoft Intune
 - Secure your access for shift workers using device-based conditional access
 - Customize sign-in experiences for the shift workers with Managed Home Screen
 
@@ -9427,7 +9427,7 @@ For more information, see [My Apps Secure Sign-in Extension](https://support.mic
 **Service category:** Azure AD
 **Product capability:** Directory
 
-As of January 8, 2018, the Azure AD administration experience in the Azure classic portal has been retired. This took place in conjunction with the retirement of the Azure classic portal itself. In the future, you should use the [Azure AD admin center](https://aad.portal.azure.com) for all your portal-based administration of Azure AD.
+As of January 8, 2018, the Azure AD administration experience in the Azure classic portal has been retired. This took place in conjunction with the retirement of the Azure classic portal itself. In the future, you should use the [Azure portal](https://portal.azure.com) for all your portal-based administration of Azure AD.
 
 ---
 
