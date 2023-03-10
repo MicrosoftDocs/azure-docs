@@ -99,8 +99,6 @@ eID-Me will provide a Client ID and a Client Secret once the Relying Party has b
 >[!NOTE]
 >You'll need Client ID and Client secret later to configure the Identity provider in Azure AD B2C.
 
-::: zone pivot="b2c-user-flow"
-
 ## Step 2: Add a new Identity provider in Azure AD B2C
 
 1. Sign in to the [Azure portal](https://portal.azure.com/#home) as the global administrator of your Azure AD B2C tenant.
@@ -186,9 +184,6 @@ For additional information, review the following articles:
 
 - [Get started with custom policies in Azure AD B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy)
 
-::: zone-end
-
-::: zone pivot="b2c-custom-policy"
 
 >[!NOTE]
 >In Azure AD B2C, [**custom policies**](./user-flow-overview.md) are designed primarily to address complex scenarios. For most scenarios, we recommend that you use built-in [**user flows**](./user-flow-overview.md).
