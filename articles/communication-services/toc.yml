@@ -9,6 +9,8 @@ items:
     items:
     - name: What is Azure Communication Services?
       href: overview.md
+    - name: Pricing
+      href: https://azure.microsoft.com/en-us/pricing/details/communication-services/
     - name: Create a Communication Services resource
       href: quickstarts/create-communication-resource.md
     - name: Create an email resource
