@@ -62,7 +62,7 @@ This update will provide several benefits to API Management customers:
 * Increased unit capacity, as measured by the capacity metric
 * Reduced times to provision and scale out instances
 
-The `stv2` update is managed entirely by the API Management service and requires no customer action. Instances that are updated will show a `platformVersion` value of `stv2.1`.    
+The update from `stv2` to `stv2.1` is managed entirely by the API Management service and requires no customer action. Instances that are updated will show a `platformVersion` value of `stv2.1`.    
 
 ## How do I migrate to the `stv2` platform? 
 
