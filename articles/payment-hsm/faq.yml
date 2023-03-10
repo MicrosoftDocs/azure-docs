@@ -19,7 +19,7 @@ sections:
       - question: |
           Where is Azure Payment HSM available? 
         answer: |
-          Azure Payment HSM is available in the East US and North Europe regions. 
+          Azure Payment HSM is available in East US, West US, South Central US, Central US, North Europe, and West Europe.
 
       - question: |
           How does Azure Payment HSM work? 
