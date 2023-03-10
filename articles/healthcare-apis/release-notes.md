@@ -41,14 +41,14 @@ For more details, visit  [#2990](https://github.com/microsoft/fhir-server/pull/2
 **Provide the ability to tweak continuation token size limit with header.**
 
 
-Previous to this change, during pagination Cosmos DB continuation token had a  default limit of 3Kb. With this change, customers can send Cosmos DB Continuation Token limit in the header. Valid range is set to 1-3 Kb. Header value to use to send this value is x-ms-documentdb-responsecontinuationtokenlimitinkb
+Previous to this change, during pagination Cosmos DB continuation token had a  default limit of 3Kb. With this change, customers can send Cosmos DB Continuation Token limit in the header. Valid range is set to 1-3 Kb. Header value that can be used to send this value is x-ms-documentdb-responsecontinuationtokenlimitinkb
 
 For more details, visit  [#2971](https://github.com/microsoft/fhir-server/pull/2971/files) and [Overview of search in Azure API for FHIR | Microsoft Learn](./../healthcare-apis/azure-api-for-fhir/overview-of-search.md)
 
 
 **Fixed issue related to HTTP Status code 500 was encountered when :not modifier was used with chained searches**
 
-Bug fix addresses the issue and identified resources are returned per the search criteria, for more details on bug fix visit  [#3041](https://github.com/microsoft/fhir-server/pull/3041) 
+This bug-fix addresses the issue. Identified resources are returned per search criteria with :contains modifier . for more details on bug fix visit  [#3041](https://github.com/microsoft/fhir-server/pull/3041) 
 
 
 **Versioning policy enabled at resource level still required If-match header for transaction requests.**
