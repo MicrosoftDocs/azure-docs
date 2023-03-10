@@ -8,7 +8,7 @@ ms.subservice: flexible-server
 ms.topic: tutorial
 ms.devlang: php
 ms.date: 8/11/2020
-ms.custom: mvc, devx-track-azurecli
+ms.custom: mvc
 ---
 
 # Tutorial: Build a PHP (Laravel) and MySQL Flexible Server app on Azure App Service
