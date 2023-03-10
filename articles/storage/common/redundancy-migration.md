@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 02/27/2023
 ms.author: jammart
 ms.subservice: common 
-ms.custom: devx-track-azurepowershell, engagement-fy23, references_regions
+ms.custom: engagement-fy23, references_regions
 ---
 
 # Change how a storage account is replicated

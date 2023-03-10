@@ -10,7 +10,7 @@ author: ManojBableshwar
 ms.reviewer: larryfr
 ms.date: 09/21/2022
 ms.topic: how-to
-ms.custom: devx-track-python, ignite-2022
+ms.custom: devx-track-python, ignite-2022, devx-track-azurecli
 ---
 
 # Share models, components and environments across workspaces with registries (preview)
