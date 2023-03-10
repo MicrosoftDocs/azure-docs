@@ -708,6 +708,8 @@
       items:
         - name: Setup MLOps with Azure DevOps
           href: how-to-setup-mlops-azureml.md
+        - name: Setup MLOps with GitHub
+          href: how-to-setup-mlops-github-azure-ml.md
         - name: Manage models
           href: how-to-manage-models.md
         - name: Automation
