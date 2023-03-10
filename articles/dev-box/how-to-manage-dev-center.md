@@ -19,11 +19,11 @@ Development teams vary in the way they function and might have different needs. 
 
 To manage a dev center, you need the following permissions:
 
-|Action|Permission required|
+|Action|Permissions required|
 |-----|-----|
-|Create or delete dev center|Owner or Contributor permissions on an Azure subscription or a specific resource group.|
-|Manage a dev center|Owner or Contributor role, or specific write permission to the dev center.|
-|Attach or remove network connection|Network Contributor permissions on an existing network connection (Owner or Contributor).|
+|Create or delete a dev center|Owner or Contributor permissions on an Azure subscription or a specific resource group.|
+|Manage a dev center|Owner or Contributor role, or specific Write permission to the dev center.|
+|Attach or remove a network connection|Network Contributor permissions on an existing network connection (Owner or Contributor).|
 
 ## Create a dev center
 
@@ -41,16 +41,16 @@ To create a dev center:
 
    :::image type="content" source="./media/how-to-manage-dev-center/create-dev-center.png" alt-text="Screenshot that shows the Create button on the page for dev centers.":::
 
-1. On the **Create a dev center** page, on the **Basics** tab, enter the following values:
+1. On the **Create a dev center** pane, on the **Basics** tab, enter the following values:
 
    |Name|Value|
    |----|----|
    |**Subscription**|Select the subscription in which you want to create the dev center.|
-   |**Resource group**|Select an existing resource group, or select **Create new** and then enter a name for the new resource group.|
+   |**ResourceGroup**|Select an existing resource group, or select **Create new** and then enter a name for the new resource group.|
    |**Name**|Enter a name for the dev center.|
    |**Location**|Select the location or region where you want to create the dev center.|
 
-   :::image type="content" source="./media/how-to-manage-dev-center/create-dev-center-basics.png" alt-text="Screenshot that shows the Basics tab on the page for creating a dev center.":::
+   :::image type="content" source="./media/how-to-manage-dev-center/create-dev-center-basics.png" alt-text="Screenshot that shows the Basics tab on the pane for creating a dev center.":::
 
    For a list of supported Azure locations with capacity, see [Frequently asked questions about Microsoft Dev Box](https://aka.ms/devbox_acom).
 

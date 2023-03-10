@@ -13,7 +13,7 @@ ms.topic: how-to
 
 # Configure a dev box by using Azure VM Image Builder
 
-By using standardized virtual machine (VM) images, your organization can more easily migrate to the cloud and help ensure consistency in your deployments.
+When your organization uses standardized virtual machine (VM) images, it can more easily migrate to the cloud and help ensure consistency in your deployments.
 
 Images ordinarily include predefined security, configuration settings, and any necessary software. Setting up your own imaging pipeline requires time, infrastructure, and many other details. With Azure VM Image Builder, you can create a configuration that describes your image. The service then builds the image and submits it to a dev box project.
 
@@ -29,13 +29,13 @@ To reduce the complexity of creating VM images, VM Image Builder:
 
 - Can fetch customization data from various sources, which removes the need to collect them all from one place.
 
-- Can be integrated with Azure Compute Gallery. Compute Gallery creates an image management system with for distributing, replicating, versioning, and scaling images globally. Additionally, you can distribute the same resulting image as a virtual hard disk or as one or more managed images, without having to rebuild them from scratch.
+- Can be integrated with Azure Compute Gallery, which creates an image management system for distributing, replicating, versioning, and scaling images globally. Additionally, you can distribute the same resulting image as a virtual hard disk or as one or more managed images, without having to rebuild them from scratch.
 
 ## Prerequisites
 
 To provision a custom image that you created by using VM Image Builder, you need:
 
-- Owner or Contributor permissions on an Azure subscription or a specific resource group.
+- Owner or Contributor permissions on an Azure subscription or on a specific resource group.
 - A resource group.
 - A dev center with an attached network connection. If you don't have a one, follow the steps in [Create a network connection](./quickstart-configure-dev-box-service.md#create-a-network-connection).
 

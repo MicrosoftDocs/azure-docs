@@ -45,7 +45,7 @@ To learn more about Azure Compute Gallery and how to create galleries, see:
 > - If you have existing images that don't meet the Windows 365 image requirements, those images won't be listed for image creation.
 > - Microsoft Dev Box Preview doesn't support community galleries.
 
-## Provide permissions for services to access the gallery
+## Provide permissions for services to access a gallery
 
 When you use an Azure Compute Gallery image to create a dev box definition, the Windows 365 service validates the image to ensure that it meets the requirements to be provisioned for a dev box. The Dev Box Preview service replicates the image to the regions specified in the attached network connections, so the images are present in the region that's required for dev box creation.
 
@@ -103,13 +103,13 @@ Use the following steps to manually assign each role.
    | --- | --- |
    | **Role** | Select **Contributor**. |
    | **Assign access to** | Select **Managed Identity**. |
-   | **Members** | Search for and select the user-assigned managed identity that you created when you [added a user-assigned identity to the dev center](#add-a-user-assigned-identity-to-dev-center). |
+   | **Members** | Search for and select the user-assigned managed identity that you created when you [added a user-assigned identity to the dev center](#add-a-user-assigned-identity-to-the-dev-center). |
 
 You can use the same managed identity in multiple dev centers and compute galleries. Any dev center with the managed identity added will have the necessary permissions to the images in the gallery that you've added the Owner role assignment to.
 
 ## Attach a gallery to a dev center
 
-To use the images from a gallery in dev box definitions, you must first associate the gallery with the dev center.
+To use the images from a gallery in dev box definitions, you must first associate the gallery with the dev center by attaching it:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -133,7 +133,7 @@ To use the images from a gallery in dev box definitions, you must first associat
 
 8. Select **Add**.
   
-   Your gallery now appears on the **Azure compute galleries** page.
+9. Confirm that your gallery now appears on the **Azure compute galleries** page.
 
    :::image type="content" source="media/how-to-configure-azure-compute-gallery/gallery-grid.png" alt-text="Screenshot that shows the page for compute galleries page with example galleries listed.":::
 

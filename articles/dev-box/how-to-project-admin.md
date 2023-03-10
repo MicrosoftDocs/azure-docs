@@ -18,7 +18,7 @@ A DevCenter Project Admin can manage a project by:
 
 - Viewing the network connections attached to the dev center.
 - Viewing the dev box definitions attached to the dev center.
-- Creating, viewing, updating, deleting dev box pools in the project.
+- Creating, viewing, updating, and deleting dev box pools in the project.
 
 ## Assign permissions to project admins
 
@@ -26,7 +26,7 @@ Use the following steps to assign the DevCenter Project Admin role:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the search box, enter **dev box**. In the list of results, select **Projects**.
+1. In the search box, enter **projects**. In the list of results, select **Projects**.
 
 1. Select the project that you want to give your team members access to.
 

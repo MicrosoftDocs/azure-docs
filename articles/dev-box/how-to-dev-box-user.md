@@ -28,7 +28,7 @@ A DevCenter Dev Box User can:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the search box, enter **Dev box**. In the search results, select **Projects**.
+1. In the search box, enter **projects**. In the list of results, select **Projects**.
 
 1. Select the project that you want to give your team members access to.
 
@@ -48,7 +48,7 @@ A DevCenter Dev Box User can:
 
     :::image type="content" source="media/how-to-dev-box-user/add-role-assignment-user.png" alt-text="Screenshot that shows the pane for adding role assignments.":::
 
-The user can now view the project and all the pools within it. Dev box users can create dev boxes from any of the pools and manage those dev boxes from the [developer portal](https://aka.ms/devbox-portal).
+The users can now view the project and all the pools within it. Dev box users can create dev boxes from any of the pools and manage those dev boxes from the [developer portal](https://aka.ms/devbox-portal).
 
 [!INCLUDE [dev box runs on creation note](./includes/note-dev-box-runs-on-creation.md)]
 

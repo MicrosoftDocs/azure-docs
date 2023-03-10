@@ -19,7 +19,7 @@ To enable developers to self-serve dev boxes from projects, you must configure d
 
 To manage a dev box pool, you need the following permissions:
 
-|Action|Permission required|
+|Action|Permissions required|
 |-----|-----|
 |Create, delete, or update a dev box pool|Owner or Contributor permissions on an Azure subscription or a specific resource group. </br> DevCenter Project Admin permissions for the project.|
 
@@ -81,7 +81,7 @@ You can delete a dev box pool when you're no longer using it.
 
 1. Open the project from which you want to delete the dev box pool.
   
-1. Select the dev box pool you that want to delete, and then select **Delete**.
+1. Select the dev box pool you that you want to delete, and then select **Delete**.
 
    :::image type="content" source="./media/how-to-manage-dev-box-pools/dev-box-pool-delete.png" alt-text="Screenshot of a selected dev box pool in the list of dev box pools, along with the Delete button.":::
 

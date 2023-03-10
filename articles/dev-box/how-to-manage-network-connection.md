@@ -26,10 +26,10 @@ When you're planning network connectivity for your dev boxes, you must:
 
 To manage a network connection, you need the following permissions:
 
-|Action|Permission required|
+|Action|Permissions required|
 |-----|-----|
 |Create and configure a virtual network and subnet|Network Contributor permissions on an existing virtual network (Owner or Contributor), or permission to create a new virtual network and subnet.|
-|Create or delete a network connection|Owner or Contributor permissions on an Azure subscription or a specific resource group.|
+|Create or delete a network connection|Owner or Contributor permissions on an Azure subscription or on a specific resource group.|
 |Add or remove a network connection |Write permission on the dev center.|
 
 ## Create a virtual network and subnet
@@ -42,7 +42,7 @@ To create a network connection, you need an existing virtual network and subnet.
 
 1. On the **Virtual Network** page, select **Create**.
 
-1. On the **Create virtual network** page, enter or select this information on the **Basics** tab:
+1. On the **Create virtual network** pane, on the **Basics** tab, enter the following values:
 
     | Setting | Value |
     | ------- | ----- |
@@ -51,7 +51,7 @@ To create a network connection, you need an existing virtual network and subnet.
     | **Name** | Enter **VNet-name**. |
     | **Region** | Select the region for the virtual network and dev boxes. |
 
-    :::image type="content" source="./media/how-to-manage-network-connection/example-basics-tab.png" alt-text="Screenshot of the Basics tab on the page for creating a virtual network in the Azure portal." border="true":::
+    :::image type="content" source="./media/how-to-manage-network-connection/example-basics-tab.png" alt-text="Screenshot of the Basics tab on the pane for creating a virtual network in the Azure portal." border="true":::
 
    > [!Important]
    > The region that you select for the virtual network is the where the dev boxes will be deployed.
@@ -101,7 +101,7 @@ Follow the steps on the relevant tab to create your network connection.
 
    :::image type="content" source="./media/how-to-manage-network-connection/network-connections-empty.png" alt-text="Screenshot that shows the Create button on the page for network connections.":::
 
-1. On the **Create a network connection** page, on the **Basics** tab, enter the following values:
+1. On the **Create a network connection** pane, on the **Basics** tab, enter the following values:
 
    |Name|Value|
    |----|----|
@@ -112,7 +112,7 @@ Follow the steps on the relevant tab to create your network connection.
    |**Virtual network**|Select the virtual network that you want the network connection to use.|
    |**Subnet**|Select the subnet that you want the network connection to use.|
 
-:::image type="content" source="./media/how-to-manage-network-connection/create-native-network-connection-full-blank.png" alt-text="Screenshot that shows the Basics tab on the page for creating a network connection, with the option for Azure Active Directory join selected.":::
+   :::image type="content" source="./media/how-to-manage-network-connection/create-native-network-connection-full-blank.png" alt-text="Screenshot that shows the Basics tab on the pane for creating a network connection, with the option for Azure Active Directory join selected.":::
 
 1. Select **Review + Create**.
 
@@ -130,7 +130,7 @@ Follow the steps on the relevant tab to create your network connection.
 
    :::image type="content" source="./media/how-to-manage-network-connection/network-connections-empty.png" alt-text="Screenshot that shows the Create button on the page that lists network connections.":::
 
-1. On the **Create a network connection** page, on the **Basics** tab, enter the following values:
+1. On the **Create a network connection** pane, on the **Basics** tab, enter the following values:
 
    |Name|Value|
    |----|----|
@@ -145,7 +145,7 @@ Follow the steps on the relevant tab to create your network connection.
    |**AD username UPN**| Enter the username, in user principal name (UPN) format, that you want to use for connecting Cloud PCs to your Active Directory domain. For example: `svcDomainJoin@corp.contoso.com`. This service account must have permission to join computers to the domain and the target OU (if one is set). |
    |**AD domain password**| Enter the password for the user. |
 
-   :::image type="content" source="./media/how-to-manage-network-connection/create-hybrid-network-connection-full-blank.png" alt-text="Screenshot that shows the Basics tab on the page for creating a network connection, with the option for hybrid Azure Active Directory join selected.":::
+   :::image type="content" source="./media/how-to-manage-network-connection/create-hybrid-network-connection-full-blank.png" alt-text="Screenshot that shows the Basics tab on the pane for creating a network connection, with the option for hybrid Azure Active Directory join selected.":::
 
 1. Select **Review + Create**.
 
@@ -155,7 +155,7 @@ Follow the steps on the relevant tab to create your network connection.
 
 ---
 
-## Attach the network connection to the dev center
+## Attach a network connection to a dev center
 
 You need to attach a network connection to a dev center before you can use it in projects to create dev box pools.
 
@@ -175,7 +175,7 @@ After you attach a network connection, the Azure portal runs several health chec
 
 :::image type="content" source="./media/how-to-manage-network-connection/network-connection-grid-populated.png" alt-text="Screenshot that shows the status of a network connection.":::
 
-You can add network connections that pass all health checks to a dev center and use them to create dev box pools. Dev boxes that are in dev box pools are created and domain joined in the location of the virtual network that's assigned to the network connection.
+You can add network connections that pass all health checks to a dev center and use them to create dev box pools. Dev boxes within dev box pools are created and domain joined in the location of the virtual network that's assigned to the network connection.
 
 To resolve any errors, see [Troubleshoot Azure network connections](/windows-365/enterprise/troubleshoot-azure-network-connection).
 
@@ -195,7 +195,7 @@ You can remove a network connection from a dev center if you no longer want to u
 
 1. Read the warning message, and then select **OK**.
 
-The network connection will no longer be available for use in the dev center.
+The network connection is no longer available for use in the dev center.
 
 ## Next steps
 

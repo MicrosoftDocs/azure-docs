@@ -12,7 +12,7 @@ ms.topic: how-to
 
 # Manage a dev box by using the developer portal
 
-You can preconfigure a dev box to manage all of your tools, services, source code, and prebuilt binaries specific to your project. Microsoft Dev Box Preview provides an environment that's ready to build on, so you can run your app in minutes.
+You can preconfigure a dev box to manage all of your tools, services, source code, and prebuilt binaries that are specific to your project. Microsoft Dev Box Preview provides an environment that's ready to build on, so you can run your app in minutes.
 
 ## Permissions
 
@@ -28,7 +28,9 @@ Create a dev box through the developer portal. You can create as many dev boxes 
 
 You could create a dev box for your front-end work and a separate dev box for your back-end work. You could also create multiple dev boxes for your back end.
 
-For example, say you're working on a bug. You could a separate dev box for the bug fix to work on the specific task and troubleshoot the issue without poisoning your primary machine.
+For example, say you're working on a bug. You could use a separate dev box for the bug fix to work on the specific task and troubleshoot the issue without poisoning your primary machine.
+
+To create a dev box:
 
 [!INCLUDE [create a dev box](./includes/create-dev-box.md)]
 
@@ -40,7 +42,7 @@ After you create your dev box, you can connect to it through a Remote Desktop ap
 
 For most cases, use the Remote Desktop app when you're accessing a dev box. Remote Desktop provides the highest performance and best user experience for heavy workloads. For more information, see [Quickstart: Use a Remote Desktop client to connect to a dev box](./quickstart-connect-to-dev-box-with-remote-desktop-app.md).
 
-Use the browser for lighter workloads. When you access your dev box via your phone or computer, you can use the browser. The browser is useful for tasks such as a quick bug fix or a review of a GitHub pull request. For more information, see the [steps for using a browser to connect to a dev box](./quickstart-create-dev-box.md#connect-to-a-dev-box).
+Use the browser for lighter workloads. When you access your dev box via your phone or laptop, you can use the browser. The browser is useful for tasks such as a quick bug fix or a review of a GitHub pull request. For more information, see the [steps for using a browser to connect to a dev box](./quickstart-create-dev-box.md#connect-to-a-dev-box).
 
 ## Delete a dev box
 
@@ -57,5 +59,5 @@ You can delete dev boxes after you finish your tasks. Say you finished fixing yo
 
 ## Next steps
 
-- [Quickstart: Use a remote desktop client to connect to a dev box](./quickstart-connect-to-dev-box-with-remote-desktop-app.md)
+- [Use a remote desktop client to connect to a dev box](./quickstart-connect-to-dev-box-with-remote-desktop-app.md)
 - [Use a browser to connect to a dev box](./quickstart-create-dev-box.md#connect-to-a-dev-box)

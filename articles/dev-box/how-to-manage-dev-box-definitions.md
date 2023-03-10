@@ -13,7 +13,7 @@ ms.topic: how-to
 
 # Manage a dev box definition
 
-A dev box definition is a Microsoft Dev Box Preview resource that specifies a source image, compute size, and storage size. You can use a source image from Azure Marketplace or a custom image from Azure Compute Gallery.
+A dev box definition is a Microsoft Dev Box Preview resource that specifies a source image, compute size, and storage size.
 
 Depending on their task, development teams have different software, configuration, compute, and storage requirements. You can create a new dev box definition to fulfill each team's needs. There's no limit to the number of dev box definitions that you can create, and you can use dev box definitions across multiple projects in a dev center.
 
@@ -21,7 +21,7 @@ Depending on their task, development teams have different software, configuratio
 
 To manage a dev box definition, you need the following permissions:
 
-|Action|Permission required|
+|Action|Permissions required|
 |-----|-----|
 |Create, delete, or update a dev box definition|Owner, Contributor, or Write permissions on the dev center in which you want to create the dev box definition. |
 
@@ -37,14 +37,16 @@ When you're selecting an Azure Marketplace image, consider using an image that h
 
 ### Azure Compute Gallery
 
-Azure Compute Gallery enables you to store and manage a collection of custom images. You can build an image to your dev team's exact requirements and store it in a gallery. To use the custom image while creating a dev box definition, attach the gallery to your dev center. To learn how to attach a gallery, see [Configure Azure Compute Gallery](how-to-configure-azure-compute-gallery.md).
+Azure Compute Gallery enables you to store and manage a collection of custom images. You can build an image to your dev team's exact requirements and store it in a gallery.
+
+To use the custom image while creating a dev box definition, attach the gallery to your dev center. To learn how to attach a gallery, see [Configure Azure Compute Gallery](how-to-configure-azure-compute-gallery.md).
 
 ## Image versions
 
-When you select an image to use in your dev box definition, you must specify if you'll use updated versions of the image:
+When you select an image to use in your dev box definition, you must specify whether you'll use updated versions of the image:
 
-- **Numbered image versions:** If you want a consistent dev box definition in which the base image doesn't change, use a specific, numbered version of the image. Using a numbered version ensures that all the dev boxes in the pool always use the same version of the image.
-- **Latest image versions:** If you want a flexible dev box definition in which you can update the base image as needs change, use the latest version of the image. This choice ensures that new dev boxes use the most recent version of the image. Existing dev boxes aren't modified when an image version is updated.
+- **Numbered image versions**: If you want a consistent dev box definition in which the base image doesn't change, use a specific, numbered version of the image. Using a numbered version ensures that all the dev boxes in the pool always use the same version of the image.
+- **Latest image versions**: If you want a flexible dev box definition in which you can update the base image as needs change, use the latest version of the image. This choice ensures that new dev boxes use the most recent version of the image. Existing dev boxes aren't modified when an image version is updated.
 
 ## Create a dev box definition
 
@@ -78,7 +80,7 @@ The following steps show you how to create a dev box definition by using an exis
 
    :::image type="content" source="./media/how-to-manage-dev-box-definitions/recommended-test-image.png" alt-text="Screenshot that shows the pane for creating a dev box definition.":::
 
-1. To finish creating the dev box definition, select **Create**.
+1. Select **Create**.
 
 ## Update a dev box definition
 
