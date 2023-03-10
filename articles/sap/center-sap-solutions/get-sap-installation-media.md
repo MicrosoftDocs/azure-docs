@@ -57,8 +57,6 @@ The following operating system (OS) software versions are compatible with these 
     $skuName="82sapha-gen2"
     ```
   
-  Refer more [here]([https://learn.microsoft.com/en-us/azure/virtual-machines/windows/cli-ps-findimage#list-images])
-
 ## Required components
 
 The following components are necessary for the SAP installation. 
