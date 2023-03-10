@@ -20,7 +20,7 @@ In this tutorial, you learn to:
 > * Create a sample application to send custom data to Azure Monitor.
 
 > [!NOTE]
-> This tutorial uses PowerShell to call the Logs ingestion API. See [.NET](/dotnet/api/overview/azure/Monitor.Ingestion-readme), [Java](/java/api/overview/azure/monitor-ingestion-readme), [JavaScript](/javascript/api/overview/azure/monitor-ingestion-readme), or [Python](/python/api/overview/azure/monitor-ingestion-readme) for guidance on using the Logs ingestion API client libraries for other languages.
+> This tutorial uses PowerShell to call the Logs ingestion API. See [.NET](/dotnet/api/overview/azure/Monitor.Ingestion-readme), [Java](/java/api/overview/azure/monitor-ingestion-readme), [JavaScript](/javascript/api/overview/azure/monitor-ingestion-readme), or [Python](/python/api/overview/azure/monitor-ingestion-readme) for guidance on using the client libraries for other languages.
 
 ## Prerequisites
 To complete this tutorial, you need:
