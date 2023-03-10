@@ -7,7 +7,7 @@ manager: netahw
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 10/14/2022
+ms.date: 02/28/2023
 ms.author: sajagtap
 monikerRange: 'form-recog-3.0.0'
 recommendations: false

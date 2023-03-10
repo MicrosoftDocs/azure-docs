@@ -3,7 +3,7 @@ author: laujan
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 03/08/2023
+ms.date: 02/28/2023
 ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD041 -->

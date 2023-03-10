@@ -12,6 +12,8 @@ ms.author: lajanuar
 monikerRange: 'form-recog-3.0.0'
 ---
 
+<!-- markdownlint-disable MD001 -->
+
 # Get started: Form Recognizer Studio 
 
 [!INCLUDE [applies to v3.0](../includes/applies-to-v3-0.md)]
@@ -28,18 +30,25 @@ monikerRange: 'form-recog-3.0.0'
 > [!TIP]
 > Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../../active-directory/authentication/overview-authentication.md).
 
-## Prebuilt models
+## Models
 
 Prebuilt models help you add Form Recognizer features to your apps without having to build, train, and publish your own models. You can choose from several prebuilt models, each of which has its own set of supported data fields. The choice of model to use for the analyze operation depends on the type of document to be analyzed. The following prebuilt models are currently supported by Form Recognizer:
 
+#### Document analysis
+
 * [**General document**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=document): extract text, tables, structure, key-value pairs and named entities.
-* [**W-2**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2): extract text and key information from W-2 tax forms.
-* [**Read**](https://formrecognizer.appliedai.azure.com/studio/read): extract text lines, words, their locations, detected languages, and handwritten style if detected from documents (PDF, TIFF) and images (JPG, PNG, BMP).
 * [**Layout**](https://formrecognizer.appliedai.azure.com/studio/layout): extract text, tables, selection marks, and structure information from documents (PDF, TIFF) and images (JPG, PNG, BMP).
+* [**Read**](https://formrecognizer.appliedai.azure.com/studio/read): extract text lines, words, their locations, detected languages, and handwritten style if detected from documents (PDF, TIFF) and images (JPG, PNG, BMP).
+
+#### Prebuilt
+
 * [**Invoice**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice): extract text, selection marks, tables, key-value pairs, and key information from invoices.
 * [**Receipt**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt): extract text and key information from receipts.
+* [**W-2**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2): extract text and key information from W-2 tax forms.
 * [**ID document**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument): extract text and key information from driver licenses and international passports.
 * [**Business card**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard): extract text and key information from business cards.
+
+#### Custom
 
 After you've completed the prerequisites, navigate to [Form Recognizer Studio General Documents](https://formrecognizer.appliedai.azure.com/studio/document). 
 
