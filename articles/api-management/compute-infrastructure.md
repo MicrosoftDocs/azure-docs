@@ -22,11 +22,11 @@ The following table summarizes the compute platforms currently used for instance
 
 | Version | Description | Architecture | Tiers |
 | -------| ----------| ----------- | ---- |
-| `stv2` | Single-tenant v2 | Azure-allocated compute infrastructure that supports availability zones, private endpoints, increased unit performance (see [What are the benefits of the `stv2` platform](#what-are-the-benefits-of-the-stv2-platform)) | Developer, Basic, Standard, Premium<sup>1</sup> |
+| `stv2`, `stv2.1` | Single-tenant v2 | Azure-allocated VM infrastructure that supports availability zones, private endpoints<br/><br/>`stv2.1` provides upgraded VM infrastructure with greater unit performance<br/><br/>See [What are the benefits of the `stv2` platform?](#what-are-the-benefits-of-the-stv2-platform) | Developer, Basic, Standard, Premium<sup>1</sup> |
 | `stv1` |  Single-tenant v1 | Azure-allocated compute infrastructure |  Developer, Basic, Standard, Premium | 
 | `mtv1` | Multi-tenant v1 |  Shared infrastructure that supports native autoscaling and scaling down to zero in times of no traffic |  Consumption |
 
-<sup>1</sup> Newly created instances in these tiers and some existing instances in Developer and Premium tiers configured with virtual networks or availability zones.
+<sup>1</sup> Newly created instances in these tiers and some existing instances in Developer and Premium tiers configured with virtual networks or availability zones. Hosting on higher performance `stv2.1` platform is provided subject to regional availability and capacity.  
 
 > [!NOTE]
 > Currently, the `stv2` platform isn't available in the US Government cloud or in the following Azure regions: China East, China East 2, China North, China North 2.
@@ -52,17 +52,16 @@ The `stv2` platform infrastructure supports several resiliency and security feat
 * [Private endpoints](private-endpoint.md)
 * [Protection with Azure DDoS](protect-with-ddos-protection.md)
 
-### Improved compute infrastructure (`stv2.1`)
+### Additional benefits of `stv2.1` platform 
+Starting in March 2023, API Management is introducing the `stv2.1` platform with the capabilities of the `stv2` platform along with upgraded CPU and memory resources. 
 
-API Management instances hosted on the `stv2` platform are eligible for transparent migration to updated API Management hosting infrastructure with improved CPU and memory resources. Starting in March 2023, API Management instances on the `stv2` platform will be automatically updated, with zero downtime, to the higher performing `stv2.1` infrastructure over time, subject to available platform capacity in the Azure regions. 
-
-This update will provide several benefits to API Management customers:
+This compute upgrade in `stv2.1` provides several benefits to API Management customers:
 
 * Increased performance per API Management scale unit, at no additional cost
 * Increased unit capacity, as measured by the capacity metric
 * Reduced times to provision and scale out instances
 
-The update from `stv2` to `stv2.1` is managed entirely by the API Management service and requires no customer action. Instances that are updated will show a `platformVersion` value of `stv2.1`.    
+The `stv2.1` infrastructure is being introduced over time to Azure regions and is provided to customers based on available capacity. Instances that are updated will show a `platformVersion` value of `stv2.1`.    
 
 ## How do I migrate to the `stv2` platform? 
 

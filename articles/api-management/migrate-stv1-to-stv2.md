@@ -5,7 +5,7 @@ description: Follow the steps in this article to migrate your Azure API Manageme
 author: dlepow
 ms.service: api-management
 ms.topic: how-to
-ms.date: 02/01/2023
+ms.date: 03/09/2023
 ms.author: danlep
 
 ---
@@ -18,11 +18,14 @@ You can migrate an API Management instance hosted on the `stv1` compute platform
 
 * **VNet-injected API Management instance** - Update the VNet connection, or enable zone redundancy
 
-For more information about the `stv1` and `stv2` platforms, see [Compute platform for API Management](compute-infrastructure.md).
+For more information about the `stv1` and `stv2` platforms and the benefits of using the `stv2` platform, see [Compute platform for API Management](compute-infrastructure.md).
 
 > [!IMPORTANT]
 > * Migration is a long-running operation and could take several minutes to complete. Your instance will experience downtime during the migration.
 > * Migration to `stv2` is not reversible.
+
+> [!IMPORTANT]
+> Support for API Management instances hosted on the `stv1` platform will be [retired by 31 August 2024](breaking-changes/stv1-platform-retirement-august-2024.md). To ensure proper operation of your API Management instance, you should migrate any instance hosted on the `stv1` platform to `stv2` before that date.
 
 [!INCLUDE [api-management-availability-premium-dev-standard-basic](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -34,7 +37,7 @@ For more information about the `stv1` and `stv2` platforms, see [Compute platfor
 
 ## Scenario 1: Migrate API Management instance, not injected in a VNet
 
-For an API Management instance that's not deployed in a VNet, run the following Azure CLI commands to invoke the Migrate to `stv2` REST API. Where indicated, set variables with the name of your API Management instance and the name of the resource group in which it was created.
+For an API Management instance that's not deployed in a VNet, invoke the Migrate to `stv2` REST API. For example, run the following Azure CLI commands, setting variables where indicated with the name of your API Management instance and the name of the resource group in which it was created.
 
 > [!NOTE]
 > The Migrate to `stv2` REST API is available starting in API Management REST API version `2022-04-01-preview`.
