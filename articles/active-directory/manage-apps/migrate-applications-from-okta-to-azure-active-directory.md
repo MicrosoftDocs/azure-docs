@@ -87,7 +87,7 @@ To migrate a SAML 2.0 application to Azure AD, configure the application in your
 
 To complete the migration, repeat the configuration for all applications in the Okta tenant.
 
-2. In the [Azure Active Directory admin center](https://aad.portal.azure.com), select **Azure Active Directory** > **Enterprise applications** > **+ New application**.
+2. In the [Azure portal](https://portal.azure.com), select **Azure Active Directory** > **Enterprise applications** > **+ New application**.
 
     ![Screenshot of the New Application option on All applications.](media/migrate-applications-from-okta-to-azure-active-directory/list-of-new-applications.png)
 
@@ -167,7 +167,7 @@ To migrate an OpenID Connect (OIDC) or OAuth 2.0 application to Azure AD, in you
 
 To complete the migration, repeat configuration for all applications in the Okta tenant.
 
-1. In the [Azure AD portal](https://aad.portal.azure.com), select **Azure Active Directory** > **Enterprise applications**. 
+1. In the [Azure portal](https://portal.azure.com), select **Azure Active Directory** > **Enterprise applications**. 
 2. Under **All applications**, select **New application**.
 3. Select **Create your own application**. 
 4. On the menu that appears, name the OIDC app and then select **Register an application you're working on to integrate with Azure AD**. 
