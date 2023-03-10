@@ -5,7 +5,7 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: "include"
-ms.date: 03/09/2023
+ms.date: 03/10/2023
 ms.author: tamram
 ms.custom: "include file"
 ---
@@ -22,7 +22,7 @@ To disable a customer-managed key with the Azure portal, follow these steps:
 1. Under **Objects**, select **Keys**.
 1. Right-click the key and select **Disable**.
 
-    :::image type="content" source="../articles/storage/common/media/customer-managed-keys-configure-common/portal-disable-CMK.png" alt-text="Screenshot showing how to disable a customer-managed key in the key vault.":::
+    :::image type="content" source="../articles/storage/common/media/customer-managed-keys-configure-common/portal-disable-customer-managed-keys.png" alt-text="Screenshot showing how to disable a customer-managed key in the key vault.":::
 
 # [PowerShell](#tab/azure-powershell)
 
