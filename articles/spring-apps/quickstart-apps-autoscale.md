@@ -70,14 +70,13 @@ Use the following steps to define autoscale settings and rules.
 
 ### [Azure CLI](#tab/azure-cli)
 
-The following commands show how to create an Azure Spring Apps application deployment with an autoscaling rule.
+The following commands show how to create an Azure Spring Apps application with an autoscaling rule. The replicas count will be automatically ajusted according to the count of messages in Azure Service Bus Queue.
 
 ```azurecli-interactive
-az spring app deployment create 
+az spring app create 
     --resource-group <resource-group> 
     --service <azure-spring-apps-service-instance-name> 
-    --app <app-name> 
-    --name <deployment-name> 
+    --name <app-name> 
     --secrets "connection-string-secret=<service-bus-connection-string>" 
     --scale-rule-name azure-servicebus-queue-rule 
     --scale-rule-type azure-servicebus 
@@ -85,8 +84,8 @@ az spring app deployment create
                           "namespace=service-bus-namespace" 
                           "messageCount=5" 
     --scale-rule-auth "connection=connection-string-secret" 
-    --min-instance-count 0
-    --min-instance-count 5 
+    --min-replicas 0
+    --max-replicas 5 
 ```
 
 ---
