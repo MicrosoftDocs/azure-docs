@@ -4,12 +4,12 @@ titleSuffix: Azure AD B2C
 description: Learn to integrate Azure AD B2C authentication with IDEMIA Mobile ID for a relying party to consume Mobile ID, or US state-issued mobile IDs
 services: active-directory-b2c
 author: gargi-sinha
-manager: CelesteDG
+manager: martinco
 ms.reviewer: kengaderdus
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2023
+ms.date: 03/10/2023
 ms.author: gasinh
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -35,7 +35,7 @@ Mobile ID integration includes the following components:
   * It's also known as the identity provider (IdP)
 * **IDEMIA Mobile ID** - OpenID Connect (OIDC) provider configured as an Azure AD B2C external provider
   * See, [Add an identity provider to your Azure AD B2C tenant](add-identity-provider.md)
-* **[IDEMIA Mobile ID application]** - a digital version of a driver’s license, or state-issued ID, in an app on your phone
+* **IDEMIA Mobile ID application** - a digital version of a driver’s license, or state-issued ID, in an app on your phone
   * See, [IDEMIA Mobile ID](https://idemia-mobile-id.com/)
 
 Mobile ID is a digitized identification document, a portable mobile identity token that DMVs use to verify individual identities. The signed digitized ID is stored on user mobile phones as an identity on the edge. The signed credentials ease access to identity services such as proof of age, financial know your customer, account access, etc.
@@ -58,6 +58,8 @@ To get started, go to the idemia.com [Get in touch](https://www.idemia.com/get-t
 
 ## Integrate Mobile ID with Azure AD B2C
 
+Use the following sections to prepare for and perform integration processes. 
+
 ## Prerequisites
 
 To get started, you need:
@@ -70,9 +72,8 @@ To get started, you need:
 * Your business web application registered in Azure AD B2C tenant. 
   * For testing, configure https://jwt.ms, a Microsoft-owned web application with decoded token contents.
 
-
    >[!NOTE]
-   >The token contents never leave your browser.
+   >The token contents don't leave your browser.
 
 ### Submit a relying party application for mID
 
@@ -87,8 +88,8 @@ During Mobile ID integration, the following information is provided.
 |Redirect URIs | `https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp`<br>For  example, `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`<br><br>If you use a custom domain, enter `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp`.|
 |Post log out redirect URIs | `https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/{policy}/oauth2/v2.0/logout`<br>Send a sign-out request. |
 
->[!NOTE]
->You need the Client ID and Client Secret later to configure the IdP in Azure AD B2C.
+   >[!NOTE]
+   >You need the Client ID and Client Secret later to configure the IdP in Azure AD B2C.
 
 ### Create a policy key
 
@@ -194,7 +195,7 @@ Azure AD B2C requests claims from the claims endpoint and returns them in the Ou
 
 ### Add a user journey
 
-The IdP is set up, but it's not in any sign-in page. If you don't have a custom user journey, copy a template user journey.
+For these instructions, the IdP is set up, but it's not in any sign-in page. If you don't have a custom user journey, copy a template user journey.
 
 1. From the starter pack, open the `TrustFrameworkBase.xml` file.
 2. Locate and copy the contents of the `UserJourneys` element, which includes `ID=SignUpOrSignIn`.
@@ -262,8 +263,8 @@ For the following instructions, use the directory with your Azure AD B2C tenant.
 7. Select **Upload Custom Policy**.
 8. Upload the two policy files you changed, in the following order: 
 
-* The extension policy, for example `TrustFrameworkExtensions.xml`
-* The relying party policy, such as `SignUpSignIn.xml`
+  * The extension policy, for example `TrustFrameworkExtensions.xml`
+  * The relying party policy, such as `SignUpSignIn.xml`
 
 ### Test your custom policy
 
