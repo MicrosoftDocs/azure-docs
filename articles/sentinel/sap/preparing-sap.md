@@ -355,7 +355,7 @@ When you finish deployment, you can [remove the user role and the optional CR in
 
 ## Verify that the Microsoft Sentinel solution for SAP® applications can monitor the PAHI table (history of system, database, and SAP parameters)
 
-The SAP PAHI table includes data on the history of the SAP system, the database, and SAP parameters. In some cases, the Microsoft Sentinel solution for SAP® applications can't monitor the SAP PAHI table frequently due to an SAP issue in the TCOLL table (see the [SAP note](https://launchpad.support.sap.com/#/notes/12103) with more details on this issue). It's important to frequently monitor the PAHI table to alert on suspicious actions that might happen at any time througout the day. 
+The SAP PAHI table includes data on the history of the SAP system, the database, and SAP parameters. In some cases, the Microsoft Sentinel solution for SAP® applications can't monitor the SAP PAHI table frequently due to an SAP issue in the TCOLL table (see the [SAP note](https://launchpad.support.sap.com/#/notes/12103) with more details on this issue). It's important to frequently monitor the PAHI table to alert on suspicious actions that might happen at any time throughout the day. 
 
 You can also configure a set of [analytics rules](sap-solution-security-content.md) that alert on suspicious events related to the PAHI table.
 
