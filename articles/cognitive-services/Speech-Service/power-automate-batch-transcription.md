@@ -45,6 +45,8 @@ You'll [upload files to the container](#upload-files-to-the-container) after the
 
 ## Create a Power Automate flow
 
+### Create a new flow
+
 1. [Sign in to power automate](https://make.powerautomate.com/)
 1. From the collapsible menu on the left, select **Create**. 
 1. Select **Automated cloud flow** to start from a blank flow that can be triggered by a designated event.
@@ -53,7 +55,10 @@ You'll [upload files to the container](#upload-files-to-the-container) after the
 
 1. In the **Build an automated cloud flow** dialog, enter a name for your flow such as "BatchSTT".
 1. Select **Skip** to exit the dialog and continue without choosing a trigger.
-1. Choose a trigger for the first connector. For this example, enter "blob" in the search connectors and triggers box to narrow the results. 
+
+### Configure the flow trigger
+
+1. Choose a trigger from the [Azure Blob Storage connector](/connectors/azureblob/). For this example, enter "blob" in the search connectors and triggers box to narrow the results. 
 1. Under the **Azure Blob Storage** connector, select the **When a blob is added or modified** trigger.
 
     :::image type="content" source="./media/power-platform/flow-search-blob.png" alt-text="A screenshot of the search connectors and triggers dialog." lightbox="./media/power-platform/flow-search-blob.png":::
@@ -69,29 +74,61 @@ You'll [upload files to the container](#upload-files-to-the-container) after the
     1. From the **Storage account name or blob endpoint** drop-down list, select **Use connection settings**. You should see the storage account name as a component of the connection string.
     1. Under **Container** select the folder icon. Choose the container that you [created previously](#create-the-azure-blob-storage-container).
 
+### Create SAS URI by path
+
+To transcribe an audio file that's in your [Azure Blob Storage container](#create-the-azure-blob-storage-container) you need a [Shared Access Signature (SAS) URI](/azure/storage/common/storage-sas-overview) for the file.
+
+The [Azure Blob Storage connector](/connectors/azureblob/) supports SAS URIs for individual blobs, but not for entire containers.
+
 1. Select **+ New step** to begin adding a new operation for the Azure Blob Storage connector.
 1. Enter "blob" in the search connectors and actions box to narrow the results. 
 1. Under the **Azure Blob Storage** connector, select the **Create SAS URI by path** trigger.
 1. Under the **Storage account name or blob endpoint** drop-down, choose the same connection that you used for the **When a blob is added or modified** trigger.
 1. Select `Path` as dynamic content for the **Blob path** field.
 
+By now, you should have a flow that looks like this:
+
+:::image type="content" source="./media/power-platform/flow-progression-sas-uri.png" alt-text="A screenshot of the flow status after create SAS URI." lightbox="./media/power-platform/flow-progression-sas-uri.png":::
+
+### Create transcription
+
 1. Select **+ New step** to begin adding a new operation for the [Azure Cognitive Services for Batch Speech-to-text connector](/connectors/cognitiveservicesspe/). 
 1. Enter "batch speech-to-text" in the search connectors and actions box to narrow the results. 
 1. Select the **Azure Cognitive Services for Batch Speech-to-text** connector.
 1. Select the **Create transcription** action.
+1. Create a new connection to the Speech resource that you [created previously](#prerequisites). The connection will be available throughout the Power Automate environment. For more information, see [Manage connections in Power Automate](/power-automate/add-manage-connections). 
+    1. Enter a name for the connection such as "speech-resource-key". You can choose any name that you like. 
+    1. In the **API Key** field, enter the Speech resource key.
+    
+    Optionally you can select the connector ellipses (...) to view available connections. If you weren't prompted to create a connection, then you already have a connection that's selected by default.
 
-1. Create transcription
-1. Delete transcription
+    :::image type="content" source="./media/power-platform/flow-progression-speech-resource-connection.png" alt-text="A screenshot of the view connections dialog." lightbox="./media/power-platform/flow-progression-speech-resource-connection.png":::
 
+1. Configure the **Create transcription** action. 
+    1. In the **locale** field enter the expected locale of the audio data to transcribe. 
+    1. Select `DisplayName` as dynamic content for the **displayName** field. You can choose any name that you would like to refer to later.
+    1. Select `Web Url` as dynamic content for the **contentUrls Item - 1** field. This is the SAS URI output from the [Create SAS URI by path](#create-sas-uri-by-path) action. 
+    
+    > [!TIP]
+    > For more information about create transcription parameters, see the [Azure Cognitive Services for Batch Speech-to-text](/connectors/cognitiveservicesspe/#create-transcription) documentation.
 
+1. From the top navigation menu, select **Save**.
 
+### Test the flow
+
+1. From the top navigation menu, select **Flow checker**. In the side panel that appears, you shouldn't see any errors or warnings. If you do, then you should fix them before continuing.
 1. From the top navigation menu, save the flow and select **Test the flow**. In the window that appears, select **Test**.
+1. In the side panel that appears, select **Manually** and then select **Test**.
 
+After a few seconds, you should see an indication that the flow is in progress. 
 
+:::image type="content" source="./media/power-platform/flow-progression-test-started.png" alt-text="A screenshot of the flow in progress icon." lightbox="./media/power-platform/flow-progression-test-started.png":::
+
+The flow is waiting for a file to be added or modified in the Azure Blob Storage container. That's the [trigger that you configured](#configure-the-flow-trigger) earlier.
+
+To trigger the test flow, upload an audio file to the Azure Blob Storage container as described next.
 
 ## Upload files to the container
-
-When audio files are located in an [Azure Blob Storage](../../storage/blobs/storage-blobs-overview.md) account, you can request transcription of individual audio files or an entire Azure Blob Storage container. You can also [write transcription results](batch-transcription-create.md#destination-container-url) to a Blob container.
 
 Follow these steps to upload [wav, mp3, or ogg](batch-transcription-audio-data.md#supported-audio-formats) files from your local directory to the Azure Storage container that you created previously. 
 
