@@ -60,7 +60,7 @@ Bug fix addresses the issue and versioned policy at resource level does not requ
 
 #### MedTech service
 
-**[Public Preview] : Mapping Debugger released**
+**Mapping Debugger in public-preview**
 
 The MedTech service's new Mapping Debugger is a self-service tool that is used for creating, updating, and troubleshooting the MedTech service device and FHIR destination mappings. It enables you to easily view and make inline adjustments in real-time, without ever having to leave the Azure portal. 
 
@@ -68,7 +68,7 @@ For more information, visit [How to use the MedTech service Mapping debugger - A
 
 
 
-**[Private Preview] : Error Message released**
+**Error Message in private-preview**
 
 The MedTech service now has an error message feature that allows you to easily view any errors generated, as well as the message that caused each error. You can now understand the context behind any errors without manual effort. For more info on error logs, visit [Troubleshoot errors using the MedTech service logs - Azure Health Data Services | Microsoft Learn](./../healthcare-apis/iot/troubleshoot-errors-logs.md)
 
