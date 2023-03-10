@@ -2,16 +2,12 @@
 title: "Known issues, limitations, and troubleshooting"
 titleSuffix: Azure Database Migration Service
 description: Known issues, limitations and troubleshooting guide for Azure SQL Migration extension for Azure Data Studio
-services: database-migration
 author: croblesm
 ms.author: roblescarlos
-manager: 
-ms.reviewer: 
-ms.service: dms
-ms.workload: data-services
-ms.custom: "seo-lt-2019"
-ms.topic: troubleshooting
 ms.date: 01/05/2023
+ms.service: dms
+ms.topic: troubleshooting
+ms.custom: seo-lt-2019
 ---
 
 # Known issues, limitations, and troubleshooting

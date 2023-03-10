@@ -7,7 +7,7 @@ ms.assetid: 6eb7d43d-e820-4a47-818c-80ff7d3b6f8e
 ms.topic: article
 ms.date: 01/20/2023
 ms.author: madsd
-ms.custom: seodec18, devx-track-azurepowershell
+ms.custom: seodec18
 ---
 # Create an ASE by using an Azure Resource Manager template
 
