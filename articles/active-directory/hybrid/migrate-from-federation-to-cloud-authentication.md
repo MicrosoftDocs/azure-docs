@@ -226,7 +226,7 @@ To choose one of these options, you must know what your current settings are.
 
 #### Verify current Azure AD Connect settings
 
-Sign in to the [Azure AD portal](https://aad.portal.azure.com/), select **Azure AD Connect** and verify the **USER SIGN_IN** settings as shown in this diagram:
+Sign in to the [Azure portal](https://portal.azure.com/), browse to **Azure Active Directory** > **Azure AD Connect** and verify the **USER SIGN_IN** settings as shown in this diagram:
 
 ![Verify current Azure AD Connect settings](media/deploy-cloud-user-authentication/current-user-settings-on-azure-ad-portal.png)
 

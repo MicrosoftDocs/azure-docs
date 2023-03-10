@@ -33,9 +33,8 @@ Publish your proxy application as you would any other application and assign use
 
 You now need to register your application in Azure AD, as follows:
 
-1. Sign in to the [Azure Active Directory portal](https://aad.portal.azure.com/). The **Dashboard** for the **Azure Active Directory admin center** appears.
-1. In the sidebar, select **Azure Active Directory**. The **Azure Active Directory** overview page appears.
-1. In the Azure AD overview sidebar, select **App registrations**. The list of all app registrations appears.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Browse to **Azure Active Directory** > **App registrations**. The list of all app registrations appears.
 1. Select **New registration**. The **Register an application** page appears.
 
    ![Create a new app registration in the Azure portal](./media/application-proxy-configure-native-client-application/create.png)
