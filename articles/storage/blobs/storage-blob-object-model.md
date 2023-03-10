@@ -55,7 +55,7 @@ Azure Storage supports three types of blobs:
 
 - **Block blobs** store text and binary data. Block blobs are made up of blocks of data that can be managed individually. Block blobs can store up to about 190.7 TiB.
 - **Append blobs** are made up of blocks like block blobs, but are optimized for append operations. Append blobs are ideal for scenarios such as logging data from virtual machines.
-- **Page blobs** store random access files up to 8 TiB in size. Page blobs store virtual hard drive (VHD) files and serve as disks for Azure virtual machines. For more information about page blobs, see [Overview of Azure page blobs](storage-blob-pageblob-overview.md)
+- **Page blobs** store random access files up to 8 TiB in size. For more information about page blobs, see [Overview of Azure page blobs](storage-blob-pageblob-overview.md)
 
 For more information about the different types of blobs, see [Understanding Block Blobs, Append Blobs, and Page Blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
 
@@ -67,21 +67,21 @@ For more information about naming blobs, see [Naming and Referencing Containers,
 
 ## Work with data resources using the Azure SDK
 
-The Azure REST API consists of service endpoints that support sets of HTTP operations, or methods. These operations allow access to create, retrieve, update, or delete data resources in the service. 
+The Azure SDKs contain libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar programming language paradigms. The SDKs are designed to simplify interactions between your application and Azure resources.
 
-While you could work directly with the resources via REST API calls in your code, the Azure SDKs contain libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar programming language paradigms. The SDKs are designed to simplify interactions between your application and Azure resources.
+In the Azure Blob Storage client libraries, each resource type is represented by one or more associated classes. These classes provide operations to work with an Azure Storage resource.
 
 ## [.NET](#tab/dotnet)
 
-In the Azure Blob Storage client libraries, each resource type is represented by one or more associated classes. The following table lists the basic classes with a brief description:
+The following table lists the basic classes, along with a brief description:
 
 | Class | Description |
 | --- | --- |
-| [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) | Represents the Blob Storage endpoint for your storage account. |
-| [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) | Allows you to work with Azure Storage containers and their blobs. |
-| [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) | Allows you to work with Azure Storage blobs. |
-| [AppendBlobClient](/dotnet/api/azure.storage.blobs.specialized.appendblobclient) | Allows you to perform operations specific to append blobs such as appending log data. |
-| [BlockBlobClient](/dotnet/api/azure.storage.blobs.specialized.blockblobclient)| Allows you to perform operations specific to block blobs such as staging and then committing blocks of data. |
+| [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) | Represents the storage account, and provides operations to retrieve and configure account properties, and to work with blob containers in the storage account. |
+| [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) | Represents a specific blob container, and provides operations to work with the container and the blobs within. |
+| [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) | Represents a specific blob, and provides general operations to work with the blob, including operations to upload, download, delete, and create snapshots. |
+| [AppendBlobClient](/dotnet/api/azure.storage.blobs.specialized.appendblobclient) | Represents an append blob, and provides operations specific to append blobs, such as appending log data. |
+| [BlockBlobClient](/dotnet/api/azure.storage.blobs.specialized.blockblobclient)| Represents a block blob, and provides operations specific to block blobs, such as staging and then committing blocks of data. |
 
 The following packages contain the classes used to work with Blob Storage data resources:
 
@@ -91,15 +91,15 @@ The following packages contain the classes used to work with Blob Storage data r
 
 ## [Java](#tab/java)
 
-In the Azure Blob Storage client libraries, each resource type is represented by one or more associated classes. The following table lists the basic classes with a brief description:
+The following table lists the basic classes, along with a brief description:
 
 | Class | Description |
 | --- | --- |
-| [BlobServiceClient](/java/api/com.azure.storage.blob.blobserviceclient) | Represents the Blob Storage endpoint for your storage account. |
-| [BlobContainerClient](/java/api/com.azure.storage.blob.blobcontainerclient) | Allows you to work with Azure Storage containers and their blobs. |
-| [BlobClient](/java/api/com.azure.storage.blob.blobclient) | Allows you to work with Azure Storage blobs. |
-| [AppendBlobClient](/java/api/com.azure.storage.blob.specialized.appendblobclient) | Allows you to perform operations specific to append blobs such as appending log data. |
-| [BlockBlobClient](/java/api/com.azure.storage.blob.specialized.blockblobclient)| Allows you to perform operations specific to block blobs such as staging and then committing blocks of data. |
+| [BlobServiceClient](/java/api/com.azure.storage.blob.blobserviceclient) | Represents the storage account, and provides operations to retrieve and configure account properties, and to work with blob containers in the storage account. |
+| [BlobContainerClient](/java/api/com.azure.storage.blob.blobcontainerclient) | Represents a specific blob container, and provides operations to work with the container and the blobs within. |
+| [BlobClient](/java/api/com.azure.storage.blob.blobclient) | Represents a specific blob, and provides general operations to work with the blob, including operations to upload, download, delete, and create snapshots. |
+| [AppendBlobClient](/java/api/com.azure.storage.blob.specialized.appendblobclient) | Represents an append blob, and provides operations specific to append blobs, such as appending log data. |
+| [BlockBlobClient](/java/api/com.azure.storage.blob.specialized.blockblobclient)| Represents a block blob, and provides operations specific to block blobs, such as staging and then committing blocks of data. |
 
 The following packages contain the classes used to work with Blob Storage data resources:
 
@@ -109,13 +109,15 @@ The following packages contain the classes used to work with Blob Storage data r
 
 ## [JavaScript](#tab/javascript)
 
-In the Azure Blob Storage client libraries, each resource type is represented by one or more associated classes. The following table lists the basic classes with a brief description:
+The following table lists the basic classes, along with a brief description:
 
 | Class | Description |
 | --- | --- |
-| [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) | Represents the Blob Storage endpoint for your storage account. |
-| [ContainerClient](/javascript/api/@azure/storage-blob/containerclient) | Allows you to work with Azure Storage containers and their blobs. |
-| [BlobClient](/javascript/api/@azure/storage-blob/blobclient) | Allows you to work with Azure Storage blobs. |
+| [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) | Represents the storage account, and provides operations to retrieve and configure account properties, and to work with blob containers in the storage account. |
+| [ContainerClient](/javascript/api/@azure/storage-blob/containerclient) | Represents a specific blob container, and provides operations to work with the container and the blobs within. |
+| [BlobClient](/javascript/api/@azure/storage-blob/blobclient) | Represents a specific blob, and provides general operations to work with the blob, including operations to upload, download, delete, and create snapshots. |
+| [AppendBlobClient](/javascript/api/@azure/storage-blob/appendblobclient) | Represents an append blob, and provides operations specific to append blobs, such as appending log data. |
+| [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) | Represents a block blob, and provides operations specific to block blobs, such as staging and then committing blocks of data. |
 
 The following package contains the classes used to work with Blob Storage data resources:
 
@@ -123,13 +125,13 @@ The following package contains the classes used to work with Blob Storage data r
 
 ## [Python](#tab/python)
 
-In the Azure Blob Storage client libraries, each resource type is represented by one or more associated classes. The following table lists the basic classes with a brief description:
+The following table lists the basic classes, along with a brief description:
 
 | Class | Description |
 | --- | --- |
-| [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient) | Represents the Blob Storage endpoint for your storage account. |
-| [ContainerClient](/python/api/azure-storage-blob/azure.storage.blob.containerclient) | Allows you to work with Azure Storage containers and their blobs. |
-| [BlobClient](/python/api/azure-storage-blob/azure.storage.blob.blobclient) | Allows you to work with Azure Storage blobs. |
+| [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient) | Represents the storage account, and provides operations to retrieve and configure account properties, and to work with blob containers in the storage account. |
+| [ContainerClient](/python/api/azure-storage-blob/azure.storage.blob.containerclient) | Represents a specific blob container, and provides operations to work with the container and the blobs within. |
+| [BlobClient](/python/api/azure-storage-blob/azure.storage.blob.blobclient) | Represents a specific blob, and provides operations to upload, download, delete, and create snapshots of a blob. `BlobClient` also provides specific operations for specialized blob types, such as append blobs and block blobs. |
 
 The following package contains the classes used to work with Blob Storage data resources:
 
