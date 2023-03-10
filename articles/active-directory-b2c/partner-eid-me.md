@@ -51,7 +51,7 @@ eID-Me integrates with Azure AD B2C as an OpenID Connect (OIDC) identity provide
   * The application receives identity claims received by Azure AD B2C during transaction
 * **eID-Me smartphone apps** - Azure AD B2C tenant users need the app for iOS or Android
 * **Issued eID-Me digital identities** - from eID-Me identity proofing 
-  * Users are issued a digital identity to the digital wallet in the app. Valid identity documents required.
+  * Users are issued a digital identity to the digital wallet in the app. Valid identity documents are required.
 
 The eID-Me apps authenticate users during transactions. The X509 public key authentication provides passwordless MFA, using a private signing key in the eID-Me digital identity.
 
@@ -105,7 +105,7 @@ For the following instructions, use the directory with the Azure AD B2C tenant.
 1. Sign in to the [Azure portal](https://portal.azure.com/#home) as Global Administrator of the Azure AD B2C tenant.
 2. In the top menu, select **Directory + subscription**.
 3. Select the directory with the tenant.
-4. In the top-left corner of the Azure portal, select **All services**.\
+4. In the top-left corner of the Azure portal, select **All services**.
 5. Search for and select **Azure AD B2C**.
 6. Navigate to **Dashboard** > **Azure Active Directory B2C** > **Identity providers**.
 7. Select **New OpenID Connect Provider**.
@@ -384,17 +384,20 @@ For the following instructions, the identity provider is set up, but not in any 
 3. Open the `TrustFrameworkExtensions.xml`.
 4. Locate the **UserJourneys** element. If the element doesn't appear, add one.
 5. Paste the contents of the **UserJourney** element as a child of the **UserJourneys** element.
-6. Rename the user journey ID, for example, ID=`CustomSignUpSignIn`
+6. Rename the user journey ID, for example, ID=`CustomSignUpSignIn`.
 
 ## Add the identity provider to a user journey
 
-Now that you have a user journey, add the new identity provider to the user journey. 
+Add the new identity provider to the user journey. 
 
-1. Find the orchestration step element that includes Type=`CombinedSignInAndSignUp`, or Type=`ClaimsProviderSelection` in the user journey. It's usually the first orchestration step. The **ClaimsProviderSelections** element contains a list of identity providers that a user can sign in with. The order of the elements controls the order of the sign-in buttons presented to the user. Add a **ClaimsProviderSelection** XML element. Set the value of **TargetClaimsExchangeId** to a friendly name.
+1. In the user journey, locate the orchestration step element with Type=`CombinedSignInAndSignUp`, or Type=`ClaimsProviderSelection`. It's usually the first orchestration step. The **ClaimsProviderSelections** element has a list of identity providers users sign in with. The order of the elements controls the order of the sign-in buttons the user sees. 
+2. Add a **ClaimsProviderSelection** XML element. 
+3. Set the **TargetClaimsExchangeId** value to a friendly name.
+4. In the next orchestration step, add a **ClaimsExchange** element. 
+5. Set the **Id** to the target claims exchange ID value. 
+6. Update the v**TechnicalProfileReferenceId** value to the technical profile ID you created.
 
-2. In the next orchestration step, add a **ClaimsExchange** element. Set the **Id** to the value of the target claims exchange ID. Update the value of **TechnicalProfileReferenceId** to the ID of the technical profile you created earlier.
-
-   The following XML demonstrates **7** orchestration steps of a user journey with the identity provider:
+The following XML demonstrates 7 user journey orchestration steps with the identity provider:
 
    ```xml
     <UserJourney Id="eIDME-SignUpOrSignIn">
@@ -475,9 +478,9 @@ Now that you have a user journey, add the new identity provider to the user jour
 
    ```
 
-## Step 6: Configure the relying party policy
+## Configure the relying party policy
 
-The relying party policy specifies the user journey which Azure AD B2C will execute. You can also control what claims are passed to your application by adjusting the **OutputClaims** element of the **eID-Me-OIDC-Signup** TechnicalProfile element. In this sample, the application will receive the user’s postal code, locality, region, IAL, portrait, middle name, and birth date. It also receives the boolean **signupConditionsSatisfied** claim, which indicates whether an account has been created or not:
+The relying party policy specifies the user journey Azure AD B2C executes. You can control claims passed to your application. Adjust the **OutputClaims** element of the **eID-Me-OIDC-Signup** TechnicalProfile element. In the following sample, the application receives user postal code, locality, region, IAL, portrait, middle name, and birth date. It receives the boolean **signupConditionsSatisfied** claim, which indicates whether an account was created.
 
    ```xml
     <RelyingParty>
@@ -508,40 +511,39 @@ The relying party policy specifies the user journey which Azure AD B2C will exec
 
    ```
 
-## Step 7: Upload the custom policy
+## Upload the custom policy
+
+For the following instructions, use the directory with the Azure AD B2C tenant. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com/#home).
+2. In the portal toolbar, select the **Directories + subscriptions**.
+3. On the **Portal settings, Directories + subscriptions** page, in the **Directory name** list, locate the Azure AD B2C directory.
+4. Select **Switch**.
+5. In the Azure portal, search for and select **Azure AD B2C**.
+6. Under **Policies**, select **Identity Experience Framework**.
+7. Select **Upload Custom Policy**. 
+8. Upload the two policy files you changed in the following order: 
 
-2. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+  * The extension policy, for example `TrustFrameworkBase.xml`
+  * The relying party policy, for example `SignUp.xml`
 
-3. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+## Test the custom policy
 
-4. In the [Azure portal](https://portal.azure.com/#home), search for and select **Azure AD B2C**.
+1. Select the relying party policy, for example `B2C_1A_signup`.
+2. For **Application**, select a web application you registered. 
+3. The **Reply URL** is `https://jwt.ms`.
+4. Select **Run now**.
+5. The sign-up policy invokes eID-Me.
+6. For sign-in, select **eID-Me**.
+7. The browser redirects to `https://jwt.ms`. 
+8. The token contents returned by Azure AD B2C appear.
 
-5. Under Policies, select **Identity Experience Framework**.
-Select **Upload Custom Policy**, and then upload the two policy files that you changed, in the following order: the extension policy, for example `TrustFrameworkBase.xml`, then the relying party policy, such as `SignUp.xml`.
-
-## Step 8: Test your custom policy
-
-1. Select your relying party policy, for example `B2C_1A_signup`.
-
-2. For **Application**, select a web application that you [previously registered](./tutorial-register-applications.md). The **Reply URL** should show `https://jwt.ms`.
-
-3. Select the **Run now** button.
-
-4. The sign-up policy should invoke eID-Me immediately.  If sign-in is used, then select eID-Me to sign in with eID-Me.
-
-If the sign-in process is successful, your browser is redirected to `https://jwt.ms`, which displays the contents of the token returned by Azure AD B2C.
+Learn more: [Tutorial: Register a web application in Azure AD B2C](./tutorial-register-applications.md)
 
 ## Next steps
 
-For additional information, review the following articles:
-
-- [Custom policies in Azure AD B2C](./custom-policy-overview.md)
-
-- [Get started with custom policies in Azure AD B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy)
-
-- [Sample code to integrate Azure AD B2C with eID-Me](https://github.com/bluink-stephen/eID-Me_Azure_AD_B2C)
-
-- [eID-Me and Azure AD B2C integration guide](https://bluink.ca/eid-me/azure-b2c-integration-guide)
+* [Azure AD B2C custom policy overview](./custom-policy-overview.md)
+* [Tutorial: Create user flows and custom policies in Azure Active Directory B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy)
+* [A Custom Policy Template and Sample ASP.NET Core Web app for integrating eID-Me with Azure AD B2C](https://github.com/bluink-stephen/eID-Me_Azure_AD_B2C)
+* Go to bluink.ca for the [Azure AD B2C ID Verification Integration Guide | eID-Me](https://bluink.ca/eid-me/azure-b2c-integration-guide)
 
