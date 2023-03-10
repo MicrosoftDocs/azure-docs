@@ -11,8 +11,10 @@ items:
       href: overview.md
     - name: Create a Communication Services resource
       href: quickstarts/create-communication-resource.md
+    - name: Create an email resource
+      href: quickstarts/email/create-email-communication-resource.md
     - name: Create an access token
-      href: quickstarts/access-tokens.md
+      href: quickstarts/identity/access-tokens.md
     - name: Get a phone number
       href: quickstarts/telephony/get-phone-number.md
     - name: SDKs and APIs
@@ -44,6 +46,8 @@ items:
     items:
     - name: Data residency and user privacy
       href: concepts/privacy.md
+    - name: European Union Data Boundary
+      href: concepts/european-union-data-boundary.md
     - name: Azure Government
       href: concepts/government.md  
   - name: Service limits
@@ -70,7 +74,7 @@ items:
     - name:  Connect to a call
       items:
       - name: Create an access tokens
-        href: quickstarts/access-tokens.md
+        href: quickstarts/identity/access-tokens.md
       - name: Add voice calling to your app
         href: quickstarts/voice-video-calling/getting-started-with-calling.md
       - name: Add video calling to your app
@@ -80,7 +84,7 @@ items:
       - name: Use an external identity
         items:
         - name: Create an access tokens
-          href: quickstarts/access-tokens.md
+          href: quickstarts/identity/access-tokens.md
         - name: Add Teams meeting calling to you app
           href: quickstarts/voice-video-calling/get-started-teams-interop.md  
       - name: Use a Teams identity
@@ -102,7 +106,7 @@ items:
     - name: Connect to a chat 
       items:
       - name: Create an access tokens
-        href: quickstarts/access-tokens.md
+        href: quickstarts/identity/access-tokens.md
       - name: Add chat to your app
         href: quickstarts/chat/get-started.md 
       - name: Send Chat messages in Azure Logic Apps
@@ -111,6 +115,8 @@ items:
       items:
       - name: Use an external identity
         items:
+        - name: Create an access tokens
+          href: quickstarts/identity/access-tokens.md
         - name: Add Teams meeting chat to your app
           href: quickstarts/chat/meeting-interop.md   
     - name: Leverage UI components for chat
@@ -199,8 +205,10 @@ items:
         href: how-tos/calling-sdk/events.md
     - name: Raw Media
       items:
-      - name: Raw media access
+      - name: Access raw audio and video
         href: quickstarts/voice-video-calling/get-started-raw-media-access.md
+      - name: Add video background effects
+      href: quickstarts/voice-video-calling/get-started-video-effects.md
     - name: Diagnostics
       items:
       - name: Diagnose your network
@@ -349,6 +357,8 @@ items:
         href: how-tos/event-grid/local-testing-event-grid.md
     - name: Analytics
       items:
+      - name: Enable User Engagement Tracking
+        href: quickstarts/email/enable-user-engagement-tracking.md
       - name: Enable logging with Azure Monitor
         href: concepts/analytics/enable-logging.md
       - name: Visualize logs
@@ -391,6 +401,8 @@ items:
       href: concepts/identifiers.md
     - name: Credentials best practices
       href: concepts/credentials-best-practices.md
+    - name: Use cases for string identifiers
+      href: concepts/raw-id-use-cases.md
     - name: Events
       items:
       - name: Overview
