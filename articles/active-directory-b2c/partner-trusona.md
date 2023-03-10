@@ -16,11 +16,11 @@ zone_pivot_groups: b2c-policy-type
 
 # Configure Trusona Authentication Cloud with Azure Active Directory B2C
 
-In this sample tutorial, you learn how to integrate Azure Active Directory (Azure AD B2C) authentication with [Trusona Authentication Cloud](https://www.trusona.com/customers/authentication-cloud). It's a cloud-based service enabling users to authenticate with a **tap-and-go** experience, without the need for any kind of mobile authenticator app.
+In this sample tutorial, you'll learn how to integrate Azure Active Directory (Azure AD B2C) authentication with [Trusona Authentication Cloud](https://www.trusona.com/customers/authentication-cloud). It's a cloud-based service enabling users to authenticate with a **tap-and-go** experience, without the need for any kind of mobile authenticator app.
 
 Benefits of integrating Trusona Authentication Cloud with Azure AD B2C include:
 -	Deliver strong authentication with a better user experience
-    - Happier users who spend online more 
+    - Happier users who spend more online 
     - Lower attrition and abandonment, increased revenues
     - Higher retention, lifetime value (LTV)
 
@@ -38,7 +38,7 @@ Benefits of integrating Trusona Authentication Cloud with Azure AD B2C include:
 
 To get started, you need:
 
-- A Trusona Authentication Cloud trial account. To request an account, [contact Trusona](https://www.trusona.com/contact).
+- A Trusona Authentication Cloud trial account. To request an account, [contact Trusona](mailto:info@trusona.com).
 - An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 - [An Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
 
@@ -67,8 +67,7 @@ In this scenario, Trusona acts as an identity provider for Azure AD B2C to enabl
 |5. | The user enters their email address and selects the **Continue** button. If the user's account isn't found in the Trusona Authentication Cloud, then a response is sent to the browser that initiates a WebAuthn registration process on the device. Otherwise a response is sent to the browser that begins a WebAuthn authentication process.|
 |6. | The user is asked to select a credential to use. The passkey is associated with the domain of the web application or a hardware security key. Once the user selects a credential, the OS requests the user to use a biometric, passcode, or PIN to confirm their identity. This unlocks the Secure Enclave/Trusted Execution environment, which generates an authentication assertion signed by the private key associated with the selected credential.|
 |7. | The authentication assertion is returned to the Trusona cloud service for verification.
-|8. | Once verified, Trusona Authentication Cloud (Identity Provider) creates an OIDC ID Token and then forwards it to Azure AD B2C (Service Provider).|
-|8. | Azure AD B2C validates the signature of the token and the issuer against the values in the Trusona’s OpenID discovery document. These details were configured during identity provider setup. Once verified, Azure AD B2C issues an OIDC id_token (depending on the scope) and redirects the user back to the initiating application with the token. 
+|8. | Once verified, Trusona Authentication Cloud (IdP) creates an OIDC ID token and then forwards it to Azure AD B2C (Service Provider). Azure AD B2C validates the signature of the token and the issuer against the values in the Trusona’s OpenID discovery document. These details were configured during IdP setup. Once verified, Azure AD B2C issues an OIDC id_token (depending on the scope) and redirects the user back to the initiating application with the token. 
 |9. | The web application (or the developer libraries it uses to implement authentication) retrieves the token and verifies the authenticity of the Azure AD B2C token. If that’s the case, it extracts the claims and pass them to the web application to consume. 
 |10. | Upon verification, user is granted/denied access. |
 
