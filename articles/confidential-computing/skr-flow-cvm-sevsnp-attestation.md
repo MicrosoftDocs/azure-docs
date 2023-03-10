@@ -1,7 +1,7 @@
 ---
 title: Secure Key Release with Confidential AMD SEV-SNP VM Applications
 description: Learn how to build an application that securely gets the key from AKV to a Confidential VM attested environment and in an Azure Kubernetes Service Cluster
-author: agowdamsft;ThomVanL
+author: ThomVanL
 ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.workload: infrastructure
@@ -106,7 +106,7 @@ To enable system-assigned managed identity on a CVM, your account needs the [Vir
     }
    ```
 
-### [ARM template](#tab/arm-template)
+### [ARM template 1](#tab/arm-template)
 
 1. Whether you sign in to Azure locally or via the Azure portal, use an account that is associated with the Azure subscription that contains the VM.
 
@@ -168,7 +168,7 @@ resource keyVaultCvmAccessPolicy 'Microsoft.KeyVault/vaults/accessPolicies@2022-
 }
 ```
 
-### [ARM template]
+### [ARM template 2]
 
 ```json
     {
@@ -369,7 +369,7 @@ Attestation helps us to _cryptographically assess_ that something is running in 
 A [open sourced](https://github.com/Azure/confidential-computing-cvm-guest-attestation) Windows and Linux client binary that utilizes the guest attestation library can be chosen to make the guest attestation process easy with CVMs. The client binary returns the attested platform report as a JSON Web Token, which is what is needed for Key Vault's `release` key operation.
 
 > [!NOTE]
-> A token from the Azure Attestation service is valid for [8 hours](../attestation/faq.md#how-long-is-an-attestation-token-valid).
+> A token from the Azure Attestation service is valid for [8 hours](../attestation/faq.yml).
 
 ### [Linux]
 
