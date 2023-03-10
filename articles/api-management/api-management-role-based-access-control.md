@@ -47,10 +47,10 @@ A workspace collaborator must be assigned both a workspace-scoped role and a ser
 |API Management Workspace Owner     |  workspace       | Can modify workspace details, manage members and their role assignments; has read and write access to all entities within the workspace.          |
 |API Management Workspace Contributor     |  workspace       | Has read and write access to entities in the workspace but can't modify workspace details or manage members.        |
 |API Management Workspace Reader     | workspace        | Has read-only access to entities in the workspace.         |
-|API Management Workspace API Developer      |   workspace      |   Same as workspace contributor, but doesn’t have write access to subscriptions, products, or email notification recipients.  |
-|API Management Workspace API Product Manager     |  workspace       |   Has read access to entities in the workspace and read and write access to products, subscriptions, and email notifications recipients.  |
-| API Management Service Workspace Member    | service    |   Has read access to authorization servers, backends, gateways, loggers, named values, tags on the service level; no access to secrets (for example, values of secret named values).   |
-|  API Management Service Workspace API Product Manager  | service    | Same as service workspace member but also has read access to users and notifications on the service level.    |
+|API Management Workspace API Developer      |   workspace      |   Has read access to entities in the workspace and read and write access to APIs, policies, schemas, products, policy fragments, named values, and tags.  |
+|API Management Workspace API Product Manager     |  workspace       |   Has read access to entities in the workspace and read and write access to products, subscriptions, groups, and email notifications recipients.  |
+| API Management Service Workspace Member    | service    |   Has read access to tags and products and write access to allow:<br/><br/> ▪️ Assigning APIs to products<br/> ▪️ Assigning tags to products and APIs |
+|  API Management Service Workspace API Product Manager  | service    | Has the same access as API Management Service Workspace Member as well as read access to users and write access to allow assigning users to groups.  |
 
  
 ## Custom roles
