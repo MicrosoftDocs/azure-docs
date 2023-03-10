@@ -40,6 +40,10 @@ To check the users who fall under the execution scope of a workflow, you'd follo
 > [!NOTE]
 > Users that fall under the scope of the execution conditions only show up on the list after the system evaluates them. If you have just added a user that falls under scope of the workflow's execution scope, there will be a delay until they show up here.
 
+## Check execution user scope of a workflow using Microsoft Graph
+
+To check execution user scope of a workflow using API via Microsoft Graph, see: [List executionScope](/graph/api/workflow-list-executionscope).
+
 ## Next steps
 
 - [Manage workflow properties](manage-workflow-properties.md)
