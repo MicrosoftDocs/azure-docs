@@ -66,9 +66,9 @@ The values of this string are:
 * Host (required): FQDN of the Azure Cosmos DB account.
 * Port (required): 10255.
 * Database (optional): The database that the connection uses. If no database is provided, the default database is "test."
-* ssl=true (required)
+* ssl=true (required).
 
-For example, consider the account shown in the **Connection String** pane. A valid connection string is:
+For example, consider the account shown in the **Connection strings** pane. A valid connection string is:
 
 `mongodb://contoso123:0Fc3IolnL12312asdfawejunASDF@asdfYXX2t8a97kghVcUzcDv98hawelufhawefafnoQRGwNj2nMPL1Y9qsIr9Srdw==@contoso123.documents.azure.com:10255/mydatabase?ssl=true`
 
