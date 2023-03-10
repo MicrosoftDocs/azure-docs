@@ -517,7 +517,7 @@ Next, add the action that saves each attachment as a blob in your **attachments*
 
    ![Screenshot showing information about the attachment in the Create blob action.](./media/tutorial-process-email-attachments-workflow/create-blob-per-attachment.png)
 
-   When you're done, the action looks like this example:
+   When you're done, the action looks like the following example:
 
    ![Screenshot showing example attachment information for the finished Create blob action.](./media/tutorial-process-email-attachments-workflow/create-blob-per-attachment-done.png)
 
@@ -580,24 +580,21 @@ Next, add an action so that your workflow sends email to review the attachments.
    | **Subject**  | ```ASAP - Review applicant for position:``` **Subject** | The email subject that you want to include. Click inside this box, enter the example text, and from the dynamic content list, select the **Subject** field under **When a new email arrives**. |
    | **Body** | ```Please review new applicant:``` <p>```Applicant name:``` **From** <p>```Application file location:``` **Path** <p>```Application email content:``` **Body** | The email's body content. Click inside this box, enter the example text, and from the dynamic content list, select these fields: <p>- The **From** field under **When a new email arrives** </br>- The **Path** field under **Create blob for email body** </br>- The **Body** field under **Call RemoveHTMLFunction to clean email body** |
 
-   ![Send email notification](./media/tutorial-process-email-attachments-workflow/send-email-notification.png)
-
+   ![Screenshot showing the sample email to send.](./media/tutorial-process-email-attachments-workflow/send-email-notification.png)
 
    > [!NOTE]
-   > If you select a field that contains an array,
-   > such as the **Content** field, which is an array that contains attachments,
-   > the designer automatically adds a "For each" loop
-   > around the action that references that field.
-   > That way, your workflow can perform that action on each array item.
-   > To remove the loop, remove the field for the array,
-   > move the referencing action to outside the loop,
+   >
+   > If you select a field that contains an array, such as the **Content** field, which is an array 
+   > that contains attachments, the designer automatically adds a **For each** loop around the action 
+   > that references that field. That way, your workflow can perform that action on each array item.
+   > To remove the loop, remove the field for the array, move the referencing action to outside the loop,
    > select the ellipses (**...**) on the loop's title bar, and select **Delete**.
 
 1. Save your workflow.
 
-Now, test your workflow, which now looks like this example:
+Now, test your workflow, which now looks like the following example:
 
-![Finished workflow](./media/tutorial-process-email-attachments-workflow/complete.png)
+![Screenshot showing the finished workflow.](./media/tutorial-process-email-attachments-workflow/complete.png)
 
 ## Run your workflow
 
@@ -638,7 +635,7 @@ Now, test your workflow, which now looks like this example:
      Education: Master of Business Administration
      ```
 
-1. Run your workflow. If successful, your workflow sends you an email that looks like this example:
+1. Run your workflow. If successful, your workflow sends you an email that looks like the following example:
 
    ![Screenshot showing example email sent by logic app workflow.](./media/tutorial-process-email-attachments-workflow/email-notification.png)
 
