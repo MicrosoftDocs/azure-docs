@@ -34,52 +34,48 @@ To get started, you need:
   * Go to bluink.ca to [learn more](https://bluink.ca/eid-me/solutions/id-verification#contact-form) and request a demo
 * An Azure subscription
   * If you don't have one, get an [Azure free account](https://azure.microsoft.com/free)
-* An Azure AD B2C tenant linked to thke Azure subscription
-  * See, [Tutorial: Create an Azure Active Directory B2C tenant](tutorial-create-tenant.md)
+* An Azure AD B2C tenant linked to the Azure subscription
+  * See, [Tutorial: Create an Azure AD B2C tenant](tutorial-create-tenant.md)
 * A trial or production version of the eID-Me Digital ID App
   * Go to bluink.ca to [Download the eID-Me Digital ID App](https://bluink.ca/eid-me/download) 
 
 See also, [Tutorial: Create user flows and custom policies in Azure AD B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy).
 
-
 ## Scenario description
 
 eID-Me integrates with Azure AD B2C as an OpenID Connect (OIDC) identity provider. The following components comprise the eID-Me solution with Azure AD B2C:
 
-* **An Azure AD B2C tenant**: Your Azure AD B2C tenant need be configured as a Relying Party in eID-Me. This allows the eID-Me identity provider to trust your Azure AD B2C tenant for sign up and sign in.
-* **An Azure AD B2C tenant application**: Although not strictly required, it's assumed that tenants need to have an Azure AD B2C tenant application. The application can receive identity claims received by Azure AD B2C during an eID-Me transaction.
-* **eID-Me smartphone apps**: Users of your Azure AD B2C tenant need to have the eID-Me smartphone app for iOS or Android.
-* **Issued eID-Me digital identities**: Before using eID-Me, users need to successfully go through the eID-Me identity proofing process. They need to have been issued a digital identity to the digital wallet within the app. This process is done from home and usually takes minutes provided the users have valid identity documents.
+* **Azure AD B2C tenant** - configured as a relying party in eID-Me enables eID-Me to trust an Azure AD B2C tenant for sign up and sign in.
+* **Azure AD B2C tenant application** - because it's assumed tenants need an Azure AD B2C tenant application. 
+  * The application receives identity claims received by Azure AD B2C during transaction
+* **eID-Me smartphone apps** - Azure AD B2C tenant users need the app for iOS or Android
+* **Issued eID-Me digital identities** - from eID-Me identity proofing 
+  * Users are issued a digital identity to the digital wallet in the app. Valid identity documents required.
 
-The eID-Me apps also provide strong authentication of the user during any transaction. X509 public key authentication using a private signing key contained within the eID-Me digital identity provides passwordless MFA.
+The eID-Me apps authenticate users during transactions. The X509 public key authentication provides passwordless MFA, using a private signing key in the eID-Me digital identity.
 
-The following diagram shows the identity proofing process, which occurs outside of Azure AD B2C flows.
+The following diagram illustrates eID-Me identity proofing, which occurs outside Azure AD B2C flows.
 
-![Screenshot shows the architecture of an identity proofing process flow in eID-Me](./media/partner-eid-me/partner-eid-me-identity-proofing.png)
+   ![Diagram of the identity proofing flow in eID-Me](./media/partner-eid-me/partner-eid-me-identity-proofing.png)
 
-| Steps | Description                                                                                                  |
-| :---- | :----------------------------------------------------------------------------------------------------------- |
-| 1.    | User uploads a selfie capture into the eID-Me smartphone application.                                        |
-| 2.    | User scans and uploads a government issued identification document such as Passport or Driver license into the eID-Me smartphone application. |
-| 3.    | The eID-Me smartphone application submits this data to eID-Me identity service for verification.  |                                          
-| 4.    | A digital identity is issued to the user and saved in the application.                    |
+1. User uploads a selfie to the eID-Me smartphone application.
+2. User scans and uploads a government issued identification document, such as passport or driver license, to the eID-Me smartphone application.
+3. eID-Me submits data to the identity service for verification.
+4. User is issued a digital identity, which is saved in the application.
 
-The following architecture diagram shows the implementation.
+The following diagram illustrates Azure AD B2C integration with eID-Me.
 
-![Screenshot shows the architecture of an Azure AD B2C integration with eID-Me](./media/partner-eid-me/partner-eid-me-architecture-diagram.png)
+   ![Diagram of Azure AD B2C integration with eID-Me](./media/partner-eid-me/partner-eid-me-architecture-diagram.png)
 
-| Steps | Description                                                                                                                                         |
-| :---- | :-------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1.    | User opens Azure AD B2C's sign in page, and then signs in or signs up by entering their username.                                                   |
-| 2.    | User is forwarded to Azure AD B2C’s combined sign-in and sign-up policy.                                                                           |
-| 3.    | Azure AD B2C redirects the user to the eID-Me identity router using the OIDC authorization code flow.                                               |
-| 4.    | The eID-Me router sends a push notification to the user’s mobile app including all context details of the authentication and authorization request. |
-| 5.    | The user reviews the authentication challenge; if accepted the user is prompted for identity claims, proving the user’s identity.                   |
-| 6.    | The challenge response is returned to the eID-Me router.                                                                                            |
-| 7.    | The eID-Me router then replies to Azure AD B2C with the authentication result.                                                                      |
-| 8.    | Response from Azure AD B2C is sent as an ID token to the application.                                                                               |
-| 9.    | Based on the authentication result, the user is granted or denied access.                                                                                  |
-
+1. User opens Azure AD B2C's sign in page, and then signs in or signs up by entering their username.
+2. User is forwarded to Azure AD B2C’s combined sign-in and sign-up policy.
+3. Azure AD B2C redirects the user to the eID-Me identity router using the OIDC authorization code flow.
+4. The eID-Me router sends a push notification to the user’s mobile app including all context details of the authentication and authorization request.
+5. The user reviews the authentication challenge; if accepted the user is prompted for identity claims, proving the user’s identity.
+6. The challenge response is returned to the eID-Me router.
+7. The eID-Me router then replies to Azure AD B2C with the authentication result.
+8. Response from Azure AD B2C is sent as an ID token to the application.
+9. Based on the authentication result, the user is granted or denied access.
 
 ## Onboard with eID-Me
 
@@ -89,14 +85,14 @@ The following architecture diagram shows the implementation.
 
 To configure your tenant application as a Relying Party in eID-Me the following information should be supplied to eID-Me:
 
-| Property                           | Description                                                                                                                                                                                                                                                                                                                                                                                                      |
-| :--------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Name                               | Azure AD B2C/your desired application name                                                                                                                                                                                                                                                                                                                                                                       |
-| Domain                             | name.onmicrosoft.com                                                                                                                                                                                                                                                                                                                                                                                             |
-| Redirect URIs                      | https://jwt.ms                                                                                                                                                                                                                                                                                                                                                                       |
-| Redirect URLs                      | `https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp`<br>For Example: `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`<br>If you use a custom domain, enter https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp.<br> Replace your-domain-name with your custom domain, and your-tenant-name with the name of your tenant. |
-| URL for application home page      | Will be displayed to the end user                                                                                                                                                                                                                                                                                                                                                                                |
-| URL for application privacy policy | Will be displayed to the end user                                                                                                                                                                                                                                                                                                                                                                                |
+| Property | Description|
+| ---- | --- |
+| Name | Azure AD B2C/your desired application name |
+| Domain| name.onmicrosoft.com|
+| Redirect URIs| https://jwt.ms|
+| Redirect URLs| `https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp`<br>For Example: `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`<br>If you use a custom domain, enter https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp.<br> Replace your-domain-name with your custom domain, and your-tenant-name with the name of your tenant. |
+| URL for application home page| Will be displayed to the end user|
+| URL for application privacy policy | Will be displayed to the end user|
 
 eID-Me will provide a Client ID and a Client Secret once the Relying Party has been configured with eID-Me. 
 
@@ -594,4 +590,3 @@ For additional information, review the following articles:
 
 - [eID-Me and Azure AD B2C integration guide](https://bluink.ca/eid-me/azure-b2c-integration-guide)
 
-::: zone-end
