@@ -13,7 +13,7 @@ ms.custom: devx-track-java
 
 This article describes how to access your application in a virtual network using Azure Spring Apps Standard Consumption plan.
 
-When you create an Azure Container Apps Environment in an existing virtual network, all the apps inside the environment can be accessed only within that virtual network. In addition, when you create an instance of Azure Spring Apps inside the Azure Container Apps Environment, the applications in the Azure Spring Apps instance can be accessed only from the virtual network. For more information see [Provide a virtual network to an internal Azure Container Apps environments](/azure/container-apps/vnet-custom-internal?tabs=bash&pivots=azure-portal).
+When you create an Azure Container Apps Environment in an existing virtual network, all the apps inside the environment can be accessed only within that virtual network. In addition, when you create an instance of Azure Spring Apps inside the Azure Container Apps Environment, the applications in the Azure Spring Apps instance can be accessed only from the virtual network. For more information, see [Provide a virtual network to an internal Azure Container Apps environments](/azure/container-apps/vnet-custom-internal?tabs=bash&pivots=azure-portal).
 
 ## Create a private DNS zone
 
@@ -23,8 +23,8 @@ Use the following command to get the default domain of Azure Container Apps Envi
 
 ```azurecli
 az containerapp env show \
-    --name <manage environment name> \
-    --resource-group <resource group> \
+    --name <Azure-Container-Apps-environment-name> \
+    --resource-group <resource-group-name> \
     --query 'properties.defaultDomain'
 ```
 
@@ -32,8 +32,8 @@ Use the following command to create a Private DNS Zone for applications in the v
 
 ```azurecli
 az network private-dns zone create \
-    --resource-group <resource group> \
-    --name <private dns zone name>
+    --resource-group <resource-group-name> \
+    --name <private-dns-zone-name>
 ```
 
 ## Create an A record
@@ -44,8 +44,8 @@ Use the following command to get the static IP address for an Azure Container Ap
 
 ```azurecli
 az containerapp env show \
-    --name <manage environment name> \
-    --resource-group <resource group> \
+    --name <Azure-Container-Apps-environment-name> \
+    --resource-group <resource-group-name> \
     --query 'properties.staticIp'
 ```
 
@@ -53,22 +53,22 @@ Use the following command to get the A record:
 
 ```azurecli
 az network private-dns record-set a add-record \
-    --resource-group <resource group> \
-    --zone-name <private dns zone name> \
+    --resource-group <resource-group-name> \
+    --zone-name <private-dns-zone-name> \
     --record-set-name '*' \
-    --ipv4-address <static ip>
+    --ipv4-address <static-ip>
 ```
 
 ## Link the virtual network
 
-Use the following command to create a virtual network link to link to the private DNS zone of the virtual network.
+Use the following command to create a virtual network link to the private DNS zone of the virtual network.
 
 ```azurecli
 az network private-dns link vnet create \
-    --resource-group <resource group> \
-    --name <link name> \
-    --zone-name <private dns zone name> \
-    --virtual-network <name of the virtual network> \
+    --resource-group <resource-group-name> \
+    --name <link-name> \
+    --zone-name <private-dns-zone-name> \
+    --virtual-network <virtual-network-name> \
     --registration-enabled false
 ```
 
