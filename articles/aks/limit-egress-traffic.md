@@ -4,7 +4,7 @@ description: Learn how to control egress traffic using Azure Firewall in Azure K
 ms.subservice: aks-networking
 ms.topic: how-to
 ms.author: allensu
-ms.date: 03/09/2023
+ms.date: 03/10/2023
 author: asudbring
 ---
 
@@ -16,7 +16,7 @@ This article provides a walkthrough of how to use the [Outbound network and FQDN
 >
 > The FQDN tag contains all the FQDNs listed in [Outbound network and FQDN rules for AKS clusters][outbound-fqdn-rules] and is automatically updated.
 >
-> For production scenarios, we recommend having a *minimum of 20 frontend IPs* on the Azure Firewall for to avoid SNAT port exhaustion issues.
+> For production scenarios, we recommend having a *minimum of 20 frontend IPs* on the Azure Firewall to avoid SNAT port exhaustion issues.
 
 The following information provides an example architecture of the deployment:
 
@@ -206,11 +206,11 @@ az network vnet subnet update -g $RG --vnet-name $VNET_NAME --name $AKSSUBNET_NA
 
 ## Deploy an AKS cluster with a UPR outbound type to the existing network
 
-Now an AKS cluster can be deployed into the existing virtual network. We'll also use [outbound type `userDefinedRouting`](egress-outboundtype.md), this feature ensures any outbound traffic will be forced through the firewall and no other egress paths will exist (by default the Load Balancer outbound type could be used).
+Now, you can deploy an AKS cluster into the existing virtual network. You will use the [`userDefinedRouting` outbound type](egress-outboundtype.md), which ensures that any outbound traffic is forced through the firewall and no other egress paths will exist. The [`loadBalancer` outbound type](egress-outboundtype.md#outbound-type-of-loadbalancer) can also be used.
 
 ![aks-deploy](media/limit-egress-traffic/aks-udr-fw.png)
 
-The target subnet to be deployed into is defined with the environment variable, `$SUBNETID`. We didn't define the `$SUBNETID` variable in the previous steps. To set the value for the subnet ID, you can use the following command:
+The target subnet to be deployed into is defined with the environment variable, `$SUBNETID`. Set the value for the subnet ID using the following command:
 
 ```azurecli
 SUBNETID=$(az network vnet subnet show -g $RG --vnet-name $VNET_NAME --name $AKSSUBNET_NAME --query id -o tsv)
@@ -218,22 +218,19 @@ SUBNETID=$(az network vnet subnet show -g $RG --vnet-name $VNET_NAME --name $AKS
 
 You'll define the outbound type to use the UDR that already exists on the subnet. This configuration will enable AKS to skip the setup and IP provisioning for the load balancer.
 
-> [!IMPORTANT]
-> For more information on outbound type UDR including limitations, see [**egress outbound type UDR**](egress-outboundtype.md#limitations).
-
 > [!TIP]
-> Additional features can be added to the cluster deployment such as [**Private Cluster**](private-clusters.md). 
+> You can add additional features to the cluster deployment, such as [**private clusters**](private-clusters.md).
 >
-> The AKS feature for [**API server authorized IP ranges**](api-server-authorized-ip-ranges.md) can be added to limit API server access to only the firewall's public endpoint. The authorized IP ranges feature is denoted in the diagram as optional. When enabling the authorized IP range feature to limit API server access, your developer tools must use a jumpbox from the firewall's virtual network or you must add all developer endpoints to the authorized IP range.
+> You can add the AKS feature for [**API server authorized IP ranges**](api-server-authorized-ip-ranges.md) to limit API server access to only the firewall's public endpoint. The authorized IP ranges feature is denoted in the diagram as optional. When enabling the authorized IP range feature to limit API server access, your developer tools must use a jumpbox from the firewall's virtual network, or you must add all developer endpoints to the authorized IP range.
 
-#### Create an AKS cluster with system-assigned identities
+### Create an AKS cluster with system-assigned identities
 
 > [!NOTE]
-> AKS will create a system-assigned kubelet identity in the Node resource group if you do not [specify your own kubelet managed identity][Use a pre-created kubelet managed identity].
-> 
-> For user defined routing (UDR), system-assigned identity only supports CNI network plugin. Because for kubelet network plugin, AKS cluster needs permission on route table as kubernetes cloud-provider manages rules. 
+> AKS will create a system-assigned kubelet identity in the node resource group if you don't [specify your own kubelet managed identity][Use a pre-created kubelet managed identity].
+>
+> For user-defined routing, system-assigned identity only supports the CNI network plugin.
 
-You can create an AKS cluster using a system-assigned managed identity with CNI network plugin by running the following CLI command.
+Create an AKS cluster using a system-assigned managed identity with the CNI network plugin using the [`az aks create`][az-aks-create] command.
 
 ```azurecli
 az aks create -g $RG -n $AKSNAME -l $LOC \
@@ -244,62 +241,62 @@ az aks create -g $RG -n $AKSNAME -l $LOC \
   --api-server-authorized-ip-ranges $FWPUBLIC_IP
 ```
 
-#### Create an AKS cluster with user-assigned identities
+### Create user-assigned identities
 
-##### Create user-assigned managed identities
+If you don't have user-assigned identites, follow the steps in this section. If you already have user-assigned identities, skip to [Create an AKS cluster with user-assigned identities](#create-an-aks-cluster-with-user-assigned-identities).
 
-If you don't have a control plane managed identity, you can create by running the following [az identity create][az-identity-create] command:
+1. Create a control plane managed identity using the [`az identity create`][az-identity-create] command.
 
-```azurecli-interactive
-az identity create --name myIdentity --resource-group myResourceGroup
-```
+  ```azurecli-interactive
+  az identity create --name myIdentity --resource-group myResourceGroup
+  ```
 
-The output should resemble the following:
+  The output should resemble the following:
 
-```output
-{                                  
-  "clientId": "<client-id>",
-  "clientSecretUrl": "<clientSecretUrl>",
-  "id": "/subscriptions/<subscriptionid>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity", 
-  "location": "westus2",
-  "name": "myIdentity",
-  "principalId": "<principal-id>",
-  "resourceGroup": "myResourceGroup",                       
-  "tags": {},
-  "tenantId": "<tenant-id>",
-  "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
-}
-```
+  ```output
+  {                                  
+    "clientId": "<client-id>",
+    "clientSecretUrl": "<clientSecretUrl>",
+    "id": "/subscriptions/<subscriptionid>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity", 
+    "location": "westus2",
+    "name": "myIdentity",
+    "principalId": "<principal-id>",
+    "resourceGroup": "myResourceGroup",                       
+    "tags": {},
+    "tenantId": "<tenant-id>",
+    "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
+  }
+  ```
 
-If you don't have a kubelet managed identity, you can create one by running the following [az identity create][az-identity-create] command:
+2. Create a kubelet managed identity using the [`az identity create`][az-identity-create] command.
 
-```azurecli-interactive
-az identity create --name myKubeletIdentity --resource-group myResourceGroup
-```
+  ```azurecli-interactive
+  az identity create --name myKubeletIdentity --resource-group myResourceGroup
+  ```
 
-The output should resemble the following:
+  The output should resemble the following:
 
-```output
-{
-  "clientId": "<client-id>",
-  "clientSecretUrl": "<clientSecretUrl>",
-  "id": "/subscriptions/<subscriptionid>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myKubeletIdentity", 
-  "location": "westus2",
-  "name": "myKubeletIdentity",
-  "principalId": "<principal-id>",
-  "resourceGroup": "myResourceGroup",                       
-  "tags": {},
-  "tenantId": "<tenant-id>",
-  "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
-}
-```
+  ```output
+  {
+    "clientId": "<client-id>",
+    "clientSecretUrl": "<clientSecretUrl>",
+    "id": "/subscriptions/<subscriptionid>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myKubeletIdentity", 
+    "location": "westus2",
+    "name": "myKubeletIdentity",
+    "principalId": "<principal-id>",
+    "resourceGroup": "myResourceGroup",                       
+    "tags": {},
+    "tenantId": "<tenant-id>",
+    "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
+  }
+  ```
 
 > [!NOTE]
-> For creating and using your own VNet and route table where the resources are outside of the worker node resource group, the CLI will add the role assignment automatically. If you are using an ARM template or other client, you need to use the Principal ID of the cluster managed identity to perform a [role assignment.][add role to identity]
+> For creating and using your own VNet and route table where the resources are outside of the worker node resource group, the CLI will add the role assignment automatically. If you're using an ARM template or other client, you need to use the Principal ID of the cluster managed identity to perform a [role assignment][add role to identity].
 
-##### Create an AKS cluster with user-assigned identities
+### Create an AKS cluster with user-assigned identities
 
-Now you can use the following command to create your AKS cluster with your existing identities in the subnet. Provide the control plane identity resource ID via `assign-identity` and the kubelet managed identity via `assign-kubelet-identity`:
+Create an AKS cluster with your existing identities in the subnet using the [`az aks create`][az-aks-create] command and providing your control plane identity resource ID kubelet managed identity.
 
 ```azurecli
 az aks create -g $RG -n $AKSNAME -l $LOC \
@@ -313,303 +310,303 @@ az aks create -g $RG -n $AKSNAME -l $LOC \
   --assign-kubelet-identity <kubelet-identity-resource-id>
 ```
 
+## Enable developer access to the API server
 
-### Enable developer access to the API server
+If you used authorized IP ranges for your cluster in the previous step, you need to add your developer tooling IP addresses to the AKS cluster list of approved IP ranges so you access the API server from there. You can also configure a jumpbox with the needed tooling inside a separate subnet in the firewall's virtual network.
 
-If you used authorized IP ranges for the cluster on the previous step, you must add your developer tooling IP addresses to the AKS cluster list of approved IP ranges in order to access the API server from there. Another option is to configure a jumpbox with the needed tooling inside a separate subnet in the Firewall's virtual network.
+1. Retrieve your IP address using the following command:
 
-Add another IP address to the approved ranges with the following command
+  ```bash
+  CURRENT_IP=$(dig @resolver1.opendns.com ANY myip.opendns.com +short)
+  ```
 
-```bash
-# Retrieve your IP address
-CURRENT_IP=$(dig @resolver1.opendns.com ANY myip.opendns.com +short)
+2. Add the IP address to the approved ranges using the [`az aks update`][az-aks-update] command.
 
-# Add to AKS approved list
-az aks update -g $RG -n $AKSNAME --api-server-authorized-ip-ranges $CURRENT_IP/32
-```
+  ```azurecli
+  az aks update -g $RG -n $AKSNAME --api-server-authorized-ip-ranges $CURRENT_IP/32
+  ```
 
-Use the [az aks get-credentials][az-aks-get-credentials] command to configure `kubectl` to connect to your newly created Kubernetes cluster.
+3. Configure `kubectl` to connect to your AKS cluster using the [`az aks get-credentials`][az-aks-get-credentials] command.
 
-```azurecli
-az aks get-credentials -g $RG -n $AKSNAME
-```
+  ```azurecli
+  az aks get-credentials -g $RG -n $AKSNAME
+  ```
 
-### Deploy a public service
+## Deploy a public service
 
-You can now start exposing services and deploying applications to this cluster. In this example, we'll expose a public service, but you may also choose to expose an internal service via [internal load balancer](internal-lb.md).
+You can now start exposing services and deploying applications to this cluster. In this example, we'll expose a public service, but you also might want to expose an internal service using an [internal load balancer](internal-lb.md).
 
 ![Public Service DNAT](media/limit-egress-traffic/aks-create-svc.png)
 
-Deploy the Azure voting app application by copying the yaml below to a file named `example.yaml`.
+1. Copy the following YAML and save it as a file named `example.yaml`.
 
-```yaml
-# voting-storage-deployment.yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: voting-storage
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: voting-storage
-  template:
-    metadata:
-      labels:
+  ```yaml
+  # voting-storage-deployment.yaml
+  apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    name: voting-storage
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
         app: voting-storage
-    spec:
-      containers:
-      - name: voting-storage
-        image: mcr.microsoft.com/aks/samples/voting/storage:2.0
-        args: ["--ignore-db-dir=lost+found"]
-        resources:
-          requests:
-            cpu: 100m
-            memory: 128Mi
-          limits:
-            cpu: 250m
-            memory: 256Mi
-        ports:
-        - containerPort: 3306
-          name: mysql
-        volumeMounts:
+    template:
+      metadata:
+        labels:
+          app: voting-storage
+      spec:
+        containers:
+        - name: voting-storage
+          image: mcr.microsoft.com/aks/samples/voting/storage:2.0
+          args: ["--ignore-db-dir=lost+found"]
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 250m
+              memory: 256Mi
+          ports:
+          - containerPort: 3306
+            name: mysql
+          volumeMounts:
+          - name: mysql-persistent-storage
+            mountPath: /var/lib/mysql
+          env:
+          - name: MYSQL_ROOT_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: voting-storage-secret
+                key: MYSQL_ROOT_PASSWORD
+          - name: MYSQL_USER
+            valueFrom:
+              secretKeyRef:
+                name: voting-storage-secret
+                key: MYSQL_USER
+          - name: MYSQL_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: voting-storage-secret
+                key: MYSQL_PASSWORD
+          - name: MYSQL_DATABASE
+            valueFrom:
+              secretKeyRef:
+                name: voting-storage-secret
+                key: MYSQL_DATABASE
+        volumes:
         - name: mysql-persistent-storage
-          mountPath: /var/lib/mysql
-        env:
-        - name: MYSQL_ROOT_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: voting-storage-secret
-              key: MYSQL_ROOT_PASSWORD
-        - name: MYSQL_USER
-          valueFrom:
-            secretKeyRef:
-              name: voting-storage-secret
-              key: MYSQL_USER
-        - name: MYSQL_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: voting-storage-secret
-              key: MYSQL_PASSWORD
-        - name: MYSQL_DATABASE
-          valueFrom:
-            secretKeyRef:
-              name: voting-storage-secret
-              key: MYSQL_DATABASE
-      volumes:
-      - name: mysql-persistent-storage
-        persistentVolumeClaim:
-          claimName: mysql-pv-claim
----
-# voting-storage-secret.yaml
-apiVersion: v1
-kind: Secret
-metadata:
-  name: voting-storage-secret
-type: Opaque
-data:
-  MYSQL_USER: ZGJ1c2Vy
-  MYSQL_PASSWORD: UGFzc3dvcmQxMg==
-  MYSQL_DATABASE: YXp1cmV2b3Rl
-  MYSQL_ROOT_PASSWORD: UGFzc3dvcmQxMg==
----
-# voting-storage-pv-claim.yaml
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: mysql-pv-claim
-spec:
-  accessModes:
-  - ReadWriteOnce
-  resources:
-    requests:
-      storage: 1Gi
----
-# voting-storage-service.yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: voting-storage
-  labels: 
-    app: voting-storage
-spec:
-  ports:
-  - port: 3306
-    name: mysql
-  selector:
-    app: voting-storage
----
-# voting-app-deployment.yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: voting-app
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: voting-app
-  template:
-    metadata:
-      labels:
+          persistentVolumeClaim:
+            claimName: mysql-pv-claim
+  ---
+  # voting-storage-secret.yaml
+  apiVersion: v1
+  kind: Secret
+  metadata:
+    name: voting-storage-secret
+  type: Opaque
+  data:
+    MYSQL_USER: ZGJ1c2Vy
+    MYSQL_PASSWORD: UGFzc3dvcmQxMg==
+    MYSQL_DATABASE: YXp1cmV2b3Rl
+    MYSQL_ROOT_PASSWORD: UGFzc3dvcmQxMg==
+  ---
+  # voting-storage-pv-claim.yaml
+  apiVersion: v1
+  kind: PersistentVolumeClaim
+  metadata:
+    name: mysql-pv-claim
+  spec:
+    accessModes:
+    - ReadWriteOnce
+    resources:
+      requests:
+        storage: 1Gi
+  ---
+  # voting-storage-service.yaml
+  apiVersion: v1
+  kind: Service
+  metadata:
+    name: voting-storage
+    labels: 
+      app: voting-storage
+  spec:
+    ports:
+    - port: 3306
+      name: mysql
+    selector:
+      app: voting-storage
+  ---
+  # voting-app-deployment.yaml
+  apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    name: voting-app
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
         app: voting-app
-    spec:
-      containers:
-      - name: voting-app
-        image: mcr.microsoft.com/aks/samples/voting/app:2.0
-        imagePullPolicy: Always
-        ports:
-        - containerPort: 8080
-          name: http
-        env:
-        - name: MYSQL_HOST
-          value: "voting-storage"
-        - name: MYSQL_USER
-          valueFrom:
-            secretKeyRef:
-              name: voting-storage-secret
-              key: MYSQL_USER
-        - name: MYSQL_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: voting-storage-secret
-              key: MYSQL_PASSWORD
-        - name: MYSQL_DATABASE
-          valueFrom:
-            secretKeyRef:
-              name: voting-storage-secret
-              key: MYSQL_DATABASE
-        - name: ANALYTICS_HOST
-          value: "voting-analytics"
----
-# voting-app-service.yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: voting-app
-  labels: 
-    app: voting-app
-spec:
-  type: LoadBalancer
-  ports:
-  - port: 80
-    targetPort: 8080
-    name: http
-  selector:
-    app: voting-app
----
-# voting-analytics-deployment.yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: voting-analytics
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: voting-analytics
-      version: "2.0"
-  template:
-    metadata:
-      labels:
+    template:
+      metadata:
+        labels:
+          app: voting-app
+      spec:
+        containers:
+        - name: voting-app
+          image: mcr.microsoft.com/aks/samples/voting/app:2.0
+          imagePullPolicy: Always
+          ports:
+          - containerPort: 8080
+            name: http
+          env:
+          - name: MYSQL_HOST
+            value: "voting-storage"
+          - name: MYSQL_USER
+            valueFrom:
+              secretKeyRef:
+                name: voting-storage-secret
+                key: MYSQL_USER
+          - name: MYSQL_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: voting-storage-secret
+                key: MYSQL_PASSWORD
+          - name: MYSQL_DATABASE
+            valueFrom:
+              secretKeyRef:
+                name: voting-storage-secret
+                key: MYSQL_DATABASE
+          - name: ANALYTICS_HOST
+            value: "voting-analytics"
+  ---
+  # voting-app-service.yaml
+  apiVersion: v1
+  kind: Service
+  metadata:
+    name: voting-app
+    labels: 
+      app: voting-app
+  spec:
+    type: LoadBalancer
+    ports:
+    - port: 80
+      targetPort: 8080
+      name: http
+    selector:
+      app: voting-app
+  ---
+  # voting-analytics-deployment.yaml
+  apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    name: voting-analytics
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
         app: voting-analytics
         version: "2.0"
-    spec:
-      containers:
-      - name: voting-analytics
-        image: mcr.microsoft.com/aks/samples/voting/analytics:2.0
-        imagePullPolicy: Always
-        ports:
-        - containerPort: 8080
-          name: http
-        env:
-        - name: MYSQL_HOST
-          value: "voting-storage"
-        - name: MYSQL_USER
-          valueFrom:
-            secretKeyRef:
-              name: voting-storage-secret
-              key: MYSQL_USER
-        - name: MYSQL_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: voting-storage-secret
-              key: MYSQL_PASSWORD
-        - name: MYSQL_DATABASE
-          valueFrom:
-            secretKeyRef:
-              name: voting-storage-secret
-              key: MYSQL_DATABASE
----
-# voting-analytics-service.yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: voting-analytics
-  labels: 
-    app: voting-analytics
-spec:
-  ports:
-  - port: 8080
-    name: http
-  selector:
-    app: voting-analytics
-```
+    template:
+      metadata:
+        labels:
+          app: voting-analytics
+          version: "2.0"
+      spec:
+        containers:
+        - name: voting-analytics
+          image: mcr.microsoft.com/aks/samples/voting/analytics:2.0
+          imagePullPolicy: Always
+          ports:
+          - containerPort: 8080
+            name: http
+          env:
+          - name: MYSQL_HOST
+            value: "voting-storage"
+          - name: MYSQL_USER
+            valueFrom:
+              secretKeyRef:
+                name: voting-storage-secret
+                key: MYSQL_USER
+          - name: MYSQL_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: voting-storage-secret
+                key: MYSQL_PASSWORD
+          - name: MYSQL_DATABASE
+            valueFrom:
+              secretKeyRef:
+                name: voting-storage-secret
+                key: MYSQL_DATABASE
+  ---
+  # voting-analytics-service.yaml
+  apiVersion: v1
+  kind: Service
+  metadata:
+   name: voting-analytics
+    labels: 
+      app: voting-analytics
+  spec:
+    ports:
+    - port: 8080
+      name: http
+    selector:
+      app: voting-analytics
+  ```
 
-Deploy the service by running:
+2. Deploy the service using the `kubectl apply` command.
 
-```bash
-kubectl apply -f example.yaml
-```
+  ```bash
+  kubectl apply -f example.yaml
+  ```
 
-### Add a DNAT rule to Azure Firewall
+## Add a DNAT rule to Azure Firewall
 
 > [!IMPORTANT]
-> When you use Azure Firewall to restrict egress traffic and create a user-defined route (UDR) to force all egress traffic, make sure you create an appropriate DNAT rule in Firewall to correctly allow ingress traffic. Using Azure Firewall with a UDR breaks the ingress setup due to asymmetric routing. (The issue occurs if the AKS subnet has a default route that goes to the firewall's private IP address, but you're using a public load balancer - ingress or Kubernetes service of type: LoadBalancer). In this case, the incoming load balancer traffic is received via its public IP address, but the return path goes through the firewall's private IP address. Because the firewall is stateful, it drops the returning packet because the firewall isn't aware of an established session. To learn how to integrate Azure Firewall with your ingress or service load balancer, see [Integrate Azure Firewall with Azure Standard Load Balancer](../firewall/integrate-lb.md).
+>
+> When you use Azure Firewall to restrict egress traffic and create a UDR to force all egress traffic, make sure you create an appropriate DNAT rule in Azure Firewall to correctly allow ingress traffic. Using Azure Firewall with a UDR breaks the ingress setup due to asymmetric routing. The issue occurs if the AKS subnet has a default route that goes to the firewall's private IP address, but you're using a public load balancer - ingress or Kubernetes service of type `loadBalancer`. In this case, the incoming load balancer traffic is received via its public IP address, but the return path goes through the firewall's private IP address. Because the firewall is stateful, it drops the returning packet because the firewall isn't aware of an established session. To learn how to integrate Azure Firewall with your ingress or service load balancer, see [Integrate Azure Firewall with Azure Standard Load Balancer](../firewall/integrate-lb.md).
 
-To configure inbound connectivity, a DNAT rule must be written to the Azure Firewall. To test connectivity to your cluster, a rule is defined for the firewall frontend public IP address to route to the internal IP exposed by the internal service.
+To configure inbound connectivity, you need to write a DNAT rule to the Azure Firewall. To test connectivity to your cluster, a rule is defined for the firewall frontend public IP address to route to the internal IP exposed by the internal service.The destination address can be customized. The translated address must be the IP address of the internal load balancer. The translated port must be the exposed port for your Kubernetes service. You also need to specify the internal IP address assigned to the load balancer created by the Kubernetes service.
 
-The destination address can be customized as it's the port on the firewall to be accessed. The translated address must be the IP address of the internal load balancer. The translated port must be the exposed port for your Kubernetes service.
+1. Get the internal IP address assigned to the load balancer using the `kubectl get services` command.
 
-You'll need to specify the internal IP address assigned to the load balancer created by the Kubernetes service. Retrieve the address by running:
+  ```bash
+  kubectl get services
+  ```
 
-```bash
-kubectl get services
-```
+  The IP address will be listed in the `EXTERNAL-IP` column.
 
-The IP address needed will be listed in the EXTERNAL-IP column, similar to the following.
+  ```bash
+  NAME               TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
+  kubernetes         ClusterIP      10.41.0.1       <none>        443/TCP        10h
+  voting-analytics   ClusterIP      10.41.88.129    <none>        8080/TCP       9m
+  voting-app         LoadBalancer   10.41.185.82    20.39.18.6    80:32718/TCP   9m
+  voting-storage     ClusterIP      10.41.221.201   <none>        3306/TCP       9m
+  ```
 
-```bash
-NAME               TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
-kubernetes         ClusterIP      10.41.0.1       <none>        443/TCP        10h
-voting-analytics   ClusterIP      10.41.88.129    <none>        8080/TCP       9m
-voting-app         LoadBalancer   10.41.185.82    20.39.18.6    80:32718/TCP   9m
-voting-storage     ClusterIP      10.41.221.201   <none>        3306/TCP       9m
-```
+2. Get the service IP using the `kubectl get svc voting-app` command.
 
-Get the service IP by running:
+  ```bash
+  SERVICE_IP=$(kubectl get svc voting-app -o jsonpath='{.status.loadBalancer.ingress[*].ip}')
+  ```
 
-```bash
-SERVICE_IP=$(kubectl get svc voting-app -o jsonpath='{.status.loadBalancer.ingress[*].ip}')
-```
+3. Add the NAT rule using the [`az network firewall nat-rule create`][az-network-firewall-nat-rule-create] command.
 
-Add the NAT rule by running:
+  ```azurecli
+  az network firewall nat-rule create --collection-name exampleset --destination-addresses $FWPUBLIC_IP --destination-ports 80 --firewall-name $FWNAME --name inboundrule --protocols Any --resource-group $RG --source-addresses '*' --translated-port 80 --action Dnat --priority 100 --translated-address $SERVICE_IP
+  ```
 
-```azurecli
-az network firewall nat-rule create --collection-name exampleset --destination-addresses $FWPUBLIC_IP --destination-ports 80 --firewall-name $FWNAME --name inboundrule --protocols Any --resource-group $RG --source-addresses '*' --translated-port 80 --action Dnat --priority 100 --translated-address $SERVICE_IP
-```
-
-### Validate connectivity
+## Validate connectivity
 
 Navigate to the Azure Firewall frontend IP address in a browser to validate connectivity.
 
-You should see the AKS voting app. In this example, the Firewall public IP was `52.253.228.132`.
+You should see the AKS voting app. In this example, the firewall public IP was `52.253.228.132`.
 
 ![Screenshot shows the A K S Voting App with buttons for Cats, Dogs, and Reset, and totals.](media/limit-egress-traffic/aks-vote.png)
 
 ### Clean up resources
 
-To clean up Azure resources, delete the AKS resource group.
+To clean up Azure resources, delete the AKS resource group using the [`az group delete`][az-group-delete] command.
 
 ```azurecli
 az group delete -g $RG
@@ -617,11 +614,7 @@ az group delete -g $RG
 
 ## Next steps
 
-In this article, you learned what ports and addresses to allow if you want to restrict egress traffic for the cluster. You also saw how to secure your outbound traffic using Azure Firewall.
-
-If needed, you can generalize the steps above to forward the traffic to your preferred egress solution, following the [Outbound Type `userDefinedRoute` documentation](egress-outboundtype.md).
-
-If you want to restrict how pods communicate between themselves and East-West traffic restrictions within cluster see [Secure traffic between pods using network policies in AKS][network-policy].
+In this article, you learned how to secure your outbound traffic using Azure Firewall. If needed, you can generalize the steps above to forward the traffic to your preferred egress solution following the [Outbound Type `userDefinedRoute` documentation](egress-outboundtype.md).
 
 <!-- LINKS - internal -->
 
@@ -638,22 +631,11 @@ If you want to restrict how pods communicate between themselves and East-West tr
 [az-network-route-table-route-create]: /cli/azure/network/route-table/route#az_network_route_table_route_create
 [az-network-firewall-network-rule-create]: /cli/azure/network/firewall/network-rule#az_network_firewall_network_rule_create
 [az-network-firewall-application-rule-create]: /cli/azure/network/firewall/application-rule#az_network_firewall_application_rule_create
-
-
-[aks-quickstart-cli]: kubernetes-walkthrough.md
-[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
-[install-azure-cli]: /cli/azure/install-azure-cli
-[network-policy]: use-network-policies.md
-[azure-firewall]: ../firewall/overview.md
-[az-feature-register]: /cli/azure/feature#az_feature_register
-[az-feature-list]: /cli/azure/feature#az_feature_list
-[az-provider-register]: /cli/azure/provider#az_provider_register
-[aks-upgrade]: upgrade-cluster.md
-[aks-support-policies]: support-policies.md
-[aks-faq]: faq.md
-[aks-private-clusters]: private-clusters.md
+[az-aks-create]: /cli/azure/aks#az_aks_create
+[az-aks-update]: /cli/azure/aks#az_aks_update
+[az-network-firewall-nat-rule-create]: /cli/azure/network/firewall/nat_rule#az_network_firewall_nat_rule_create
+[az-group-delete]: /cli/azure/group#az_group_delete
 [add role to identity]: use-managed-identity.md#add-role-assignment-for-control-plane-identity
-[Create an AKS cluster with user-assigned identities]: limit-egress-traffic.md#create-an-aks-cluster-with-user-assigned-identities
 [Use a pre-created kubelet managed identity]: use-managed-identity.md#use-a-pre-created-kubelet-managed-identity
 [az-identity-create]: /cli/azure/identity#az_identity_create
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials

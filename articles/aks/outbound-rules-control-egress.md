@@ -3,60 +3,59 @@ title: Outbound network and FQDN rules for Azure Kubernetes Service (AKS) cluste
 description: Learn what ports and addresses are required to control egress traffic in Azure Kubernetes Service (AKS)
 ms.subservice: aks-networking
 ms.topic: article
-ms.date: 03/09/2023
+ms.author: allensu
+ms.date: 03/10/2023
+author: asudbring
 
 #Customer intent: As an cluster operator, I want to learn the network and FQDNs rules to control egress traffic and improve security for my AKS clusters.
 ---
 
 # Outbound network and FQDN rules for Azure Kubernetes Service (AKS) clusters
 
-This article provides the necessary details that allow you to secure outbound traffic from your Azure Kubernetes Service (AKS). It contains the cluster requirements for a base AKS deployment, and additional requirements for optional addons and features. You can apply this information to any outbound restriction method or appliance. 
+This article provides the necessary details that allow you to secure outbound traffic from your Azure Kubernetes Service (AKS). It contains the cluster requirements for a base AKS deployment and additional requirements for optional addons and features. You can apply this information to any outbound restriction method or appliance.
 
 To see an example configuration using Azure Firewall, visit [Control egress traffic using Azure Firewall in AKS](limit-egress-traffic.md).
 
 ## Background
 
-AKS clusters are deployed on a virtual network. This network can be managed (created by AKS) or custom (pre-configured by the user beforehand). In either case, the cluster has **outbound** dependencies on services outside of that virtual network (the service has no inbound dependencies).
+AKS clusters are deployed on a virtual network. This network can either be customized and pre-configured by you or it can be created and managed by AKS. In either case, the cluster has **outbound**, or egress, dependencies on services outside of the virtual network.
 
-For management and operational purposes, nodes in an AKS cluster need to access certain ports and fully qualified domain names (FQDNs). These endpoints are required for the nodes to communicate with the API server, or to download and install core Kubernetes cluster components and node security updates. For example, the cluster needs to pull base system container images from Microsoft Container Registry (MCR).
+For management and operational purposes, nodes in an AKS cluster need to access certain ports and fully qualified domain names (FQDNs). These endpoints are required for the nodes to communicate with the API server or to download and install core Kubernetes cluster components and node security updates. For example, the cluster needs to pull base system container images from Microsoft Container Registry (MCR).
 
-The AKS outbound dependencies are almost entirely defined with FQDNs, which don't have static addresses behind them. The lack of static addresses means that Network Security Groups can't be used to lock down the outbound traffic from an AKS cluster.
+The AKS outbound dependencies are almost entirely defined with FQDNs, which don't have static addresses behind them. The lack of static addresses means you can't use network security groups (NSGs) to lock down the outbound traffic from an AKS cluster.
 
-By default, AKS clusters have unrestricted outbound (egress) internet access. This level of network access allows nodes and services you run to access external resources as needed. If you wish to restrict egress traffic, a limited number of ports and addresses must be accessible to maintain healthy cluster maintenance tasks. The simplest solution to securing outbound addresses lies in use of a firewall device that can control outbound traffic based on domain names. Azure Firewall, for example, can restrict outbound HTTP and HTTPS traffic based on the FQDN of the destination. You can also configure your preferred firewall and security rules to allow these required ports and addresses.
+By default, AKS clusters have unrestricted outbound internet access. This level of network access allows nodes and services you run to access external resources as needed. If you wish to restrict egress traffic, a limited number of ports and addresses must be accessible to maintain healthy cluster maintenance tasks. The simplest solution to securing outbound addresses is using a firewall device that can control outbound traffic based on domain names. Azure Firewall can restrict outbound HTTP and HTTPS traffic based on the FQDN of the destination. You can also configure your preferred firewall and security rules to allow these required ports and addresses.
 
 > [!IMPORTANT]
-> This document covers only how to lock down the traffic leaving the AKS subnet. AKS has no ingress requirements by default.  Blocking **internal subnet traffic** using network security groups (NSGs) and firewalls is not supported. To control and block the traffic within the cluster, use [***Network Policies***][network-policy].
+>
+> This document covers only how to lock down the traffic leaving the AKS subnet. AKS has no ingress requirements by default. Blocking **internal subnet traffic** using network security groups (NSGs) and firewalls isn't supported. To control and block the traffic within the cluster, see [Secure traffic between pods using network policies in AKS][use-network-policies].
 
 ## Required outbound network rules and FQDNs for AKS clusters
 
-The following network and FQDN/application rules are required for an AKS cluster, you can use them if you wish to configure a solution other than Azure Firewall.
+The following network and FQDN/application rules are required for an AKS cluster. You can use them if you wish to configure a solution other than Azure Firewall.
 
-* IP Address dependencies are for non-HTTP/S traffic (both TCP and UDP traffic)
+* IP address dependencies are for non-HTTP/S traffic (both TCP and UDP traffic).
 * FQDN HTTP/HTTPS endpoints can be placed in your firewall device.
 * Wildcard HTTP/HTTPS endpoints are dependencies that can vary with your AKS cluster based on a number of qualifiers.
-* AKS uses an admission controller to inject the FQDN as an environment variable to all deployments under kube-system and gatekeeper-system, that ensures all system communication between nodes and API server uses the API server FQDN and not the API server IP.
-* If you have an app or solution that needs to talk to the API server, you must add an **additional** network rule to allow *TCP communication to port 443 of your API server's IP*.
-* On rare occasions, if there's a maintenance operation your API server IP might change. Planned maintenance operations that can change the API server IP are always communicated in advance.
+* AKS uses an admission controller to inject the FQDN as an environment variable to all deployments under kube-system and gatekeeper-system. This ensures all system communication between nodes and API server uses the API server FQDN and not the API server IP.
+* If you have an app or solution that needs to talk to the API server, you must add an **additional** network rule to allow **TCP communication to port 443 of your API server's IP**.
+* On rare occasions, if there's a maintenance operation, your API server IP might change. Planned maintenance operations that can change the API server IP are always communicated in advance.
 
 ### Azure Global required network rules
 
-The required network rules and IP address dependencies are:
-
 | Destination Endpoint                                                             | Protocol | Port    | Use  |
 |----------------------------------------------------------------------------------|----------|---------|------|
-| **`*:1194`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:1194`** <br/> *Or* <br/> [Regional CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *Or* <br/> **`APIServerPublicIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | For tunneled secure communication between the nodes and the control plane. This is not required for [private clusters][aks-private-clusters], or for clusters with the *konnectivity-agent* enabled. |
-| **`*:9000`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *Or* <br/> [Regional CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *Or* <br/> **`APIServerPublicIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | For tunneled secure communication between the nodes and the control plane. This is not required for [private clusters][aks-private-clusters], or for clusters with the *konnectivity-agent* enabled. |
-| **`*:123`** or **`ntp.ubuntu.com:123`** (if using Azure Firewall network rules)  | UDP      | 123     | Required for Network Time Protocol (NTP) time synchronization on Linux nodes. This is not required for nodes provisioned after March 2021.                 |
+| **`*:1194`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:1194`** <br/> *Or* <br/> [Regional CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *Or* <br/> **`APIServerPublicIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | For tunneled secure communication between the nodes and the control plane. This isn't required for [private clusters][private-clusters], or for clusters with the *konnectivity-agent* enabled. |
+| **`*:9000`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *Or* <br/> [Regional CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *Or* <br/> **`APIServerPublicIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | For tunneled secure communication between the nodes and the control plane. This isn't required for [private clusters][private-clusters], or for clusters with the *konnectivity-agent* enabled. |
+| **`*:123`** or **`ntp.ubuntu.com:123`** (if using Azure Firewall network rules)  | UDP      | 123     | Required for Network Time Protocol (NTP) time synchronization on Linux nodes. This isn't required for nodes provisioned after March 2021.                 |
 | **`CustomDNSIP:53`** `(if using custom DNS servers)`                             | UDP      | 53      | If you're using custom DNS servers, you must ensure they're accessible by the cluster nodes. |
-| **`APIServerPublicIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | Required if running pods/deployments that access the API Server, those pods/deployments would use the API IP. This port is not required for [private clusters][aks-private-clusters]. |
+| **`APIServerPublicIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | Required if running pods/deployments that access the API Server, those pods/deployments would use the API IP. This port isn't required for [private clusters][private-clusters]. |
 
 ### Azure Global required FQDN / application rules
 
-The following FQDN / application rules are required:
-
 | Destination FQDN                 | Port            | Use      |
 |----------------------------------|-----------------|----------|
-| **`*.hcp.<location>.azmk8s.io`** | **`HTTPS:443`** | Required for Node <-> API server communication. Replace *\<location\>* with the region where your AKS cluster is deployed. This is required for clusters with *konnectivity-agent* enabled. Konnectivity also uses Application-Layer Protocol Negotiation (ALPN) to communicate between agent and server. Blocking or rewriting the ALPN extension will cause a failure. This is not required for [private clusters][aks-private-clusters]. |
+| **`*.hcp.<location>.azmk8s.io`** | **`HTTPS:443`** | Required for Node <-> API server communication. Replace *\<location\>* with the region where your AKS cluster is deployed. This is required for clusters with *konnectivity-agent* enabled. Konnectivity also uses Application-Layer Protocol Negotiation (ALPN) to communicate between agent and server. Blocking or rewriting the ALPN extension will cause a failure. This isn't required for [private clusters][private-clusters]. |
 | **`mcr.microsoft.com`**          | **`HTTPS:443`** | Required to access images in Microsoft Container Registry (MCR). This registry contains first-party images/charts (for example, coreDNS, etc.). These images are required for the correct creation and functioning of the cluster, including scale and upgrade operations.  |
 | **`*.data.mcr.microsoft.com`**   | **`HTTPS:443`** | Required for MCR storage backed by the Azure content delivery network (CDN). |
 | **`management.azure.com`**       | **`HTTPS:443`** | Required for Kubernetes operations against the Azure API. |
@@ -66,7 +65,6 @@ The following FQDN / application rules are required:
 
 ### Azure China 21Vianet required network rules
 
-The required network rules and IP address dependencies are:
 
 | Destination Endpoint                                                             | Protocol | Port    | Use  |
 |----------------------------------------------------------------------------------|----------|---------|------|
@@ -78,8 +76,6 @@ The required network rules and IP address dependencies are:
 | **`APIServerPublicIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | Required if running pods/deployments that access the API Server, those pod/deployments would use the API IP.  |
 
 ### Azure China 21Vianet required FQDN / application rules
-
-The following FQDN / application rules are required:
 
 | Destination FQDN                               | Port            | Use      |
 |------------------------------------------------|-----------------|----------|
@@ -94,8 +90,6 @@ The following FQDN / application rules are required:
 
 ### Azure US Government required network rules
 
-The required network rules and IP address dependencies are:
-
 | Destination Endpoint                                                             | Protocol | Port    | Use  |
 |----------------------------------------------------------------------------------|----------|---------|------|
 | **`*:1194`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:1194`** <br/> *Or* <br/> [Regional CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *Or* <br/> **`APIServerPublicIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | For tunneled secure communication between the nodes and the control plane. |
@@ -105,8 +99,6 @@ The required network rules and IP address dependencies are:
 | **`APIServerPublicIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | Required if running pods/deployments that access the API Server, those pods/deployments would use the API IP.  |
 
 ### Azure US Government required FQDN / application rules
-
-The following FQDN / application rules are required:
 
 | Destination FQDN                                        | Port            | Use      |
 |---------------------------------------------------------|-----------------|----------|
@@ -120,19 +112,15 @@ The following FQDN / application rules are required:
 
 ## Optional recommended FQDN / application rules for AKS clusters
 
-The following FQDN / application rules are optional but recommended for AKS clusters:
+The following FQDN / application rules aren't required, but are recommended for AKS clusters:
 
 | Destination FQDN                                                               | Port          | Use      |
 |--------------------------------------------------------------------------------|---------------|----------|
 | **`security.ubuntu.com`, `azure.archive.ubuntu.com`, `changelogs.ubuntu.com`** | **`HTTP:80`** | This address lets the Linux cluster nodes download the required security patches and updates. |
 
-If you choose to block/not allow these FQDNs, the nodes will only receive OS updates when you do a [node image upgrade](node-image-upgrade.md) or [cluster upgrade](upgrade-cluster.md). Keep in mind that Node Image Upgrades also come with updated packages including security fixes.
+If you choose to block/not allow these FQDNs, the nodes will only receive OS updates when you do a [node image upgrade](node-image-upgrade.md) or [cluster upgrade](upgrade-cluster.md). Keep in mind that node image upgrades also come with updated packages including security fixes.
 
-## GPU enabled AKS clusters
-
-### Required FQDN / application rules
-
-The following FQDN / application rules are required for AKS clusters that have GPU enabled:
+## GPU enabled AKS clusters required FQDN / application rules
 
 | Destination FQDN                        | Port      | Use      |
 |-----------------------------------------|-----------|----------|
@@ -140,11 +128,7 @@ The following FQDN / application rules are required for AKS clusters that have G
 | **`us.download.nvidia.com`**            | **`HTTPS:443`** | This address is used for correct driver installation and operation on GPU-based nodes. |
 | **`download.docker.com`**             | **`HTTPS:443`** | This address is used for correct driver installation and operation on GPU-based nodes. |
 
-## Windows Server based node pools
-
-### Required FQDN / application rules
-
-The following FQDN / application rules are required for using Windows Server based node pools:
+### Windows Server based node pools required FQDN / application rules
 
 | Destination FQDN                                                           | Port      | Use      |
 |----------------------------------------------------------------------------|-----------|----------|
@@ -153,14 +137,11 @@ The following FQDN / application rules are required for using Windows Server bas
 
 If you choose to block/not allow these FQDNs, the nodes will only receive OS updates when you do a [node image upgrade](node-image-upgrade.md) or [cluster upgrade](upgrade-cluster.md). Keep in mind that Node Image Upgrades also come with updated packages including security fixes.
 
-
 ## AKS addons and integrations
 
 ### Microsoft Defender for Containers
 
 #### Required FQDN / application rules
-
-The following FQDN / application rules are required for AKS clusters that have Microsoft Defender for Containers enabled.
 
 | FQDN                                          | Port      | Use      |
 |-----------------------------------------------|-----------|----------|
@@ -172,27 +153,24 @@ The following FQDN / application rules are required for AKS clusters that have M
 
 #### Required FQDN / application rules
 
-The following FQDN / application rules are required for AKS clusters that have CSI Secret Store enabled.
-
 | FQDN                                          | Port      | Use      |
 |-----------------------------------------------|-----------|----------|
 | **`vault.azure.net`** | **`HTTPS:443`** | Required for CSI Secret Store addon pods to talk to Azure KeyVault server.|
 
 ### Azure Monitor for containers
 
-There are two options to provide access to Azure Monitor for containers, you may allow the Azure Monitor [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) **or** provide access to the required FQDN/Application Rules.
+There are two options to provide access to Azure Monitor for containers:
+
+1. Allow the Azure Monitor [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags).
+2. Provide access to the required FQDN/application rules.
 
 #### Required network rules
-
-The following FQDN / application rules are required:
 
 | Destination Endpoint                                                             | Protocol | Port    | Use  |
 |----------------------------------------------------------------------------------|----------|---------|------|
 | [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureMonitor:443`**  | TCP           | 443      | This endpoint is used to send metrics data and logs to Azure Monitor and Log Analytics. |
 
 #### Required FQDN / application rules
-
-The following FQDN / application rules are required for AKS clusters that have the Azure Monitor for containers enabled:
 
 | FQDN                                    | Port      | Use      |
 |-----------------------------------------|-----------|----------|
@@ -205,26 +183,20 @@ The following FQDN / application rules are required for AKS clusters that have t
 
 #### Required FQDN / application rules
 
-The following FQDN / application rules are required for AKS clusters that have the Azure Policy enabled.
-
 | FQDN                                          | Port      | Use      |
 |-----------------------------------------------|-----------|----------|
 | **`data.policy.core.windows.net`** | **`HTTPS:443`** | This address is used to pull the Kubernetes policies and to report cluster compliance status to policy service. |
 | **`store.policy.core.windows.net`** | **`HTTPS:443`** | This address is used to pull the Gatekeeper artifacts of built-in policies. |
 | **`dc.services.visualstudio.com`** | **`HTTPS:443`** | Azure Policy add-on that sends telemetry data to applications insights endpoint. |
 
-#### Azure China 21Vianet Required FQDN / application rules
-
-The following FQDN / application rules are required for AKS clusters that have the Azure Policy enabled.
+#### Azure China 21Vianet required FQDN / application rules
 
 | FQDN                                          | Port      | Use      |
 |-----------------------------------------------|-----------|----------|
 | **`data.policy.azure.cn`** | **`HTTPS:443`** | This address is used to pull the Kubernetes policies and to report cluster compliance status to policy service. |
 | **`store.policy.azure.cn`** | **`HTTPS:443`** | This address is used to pull the Gatekeeper artifacts of built-in policies. |
 
-#### Azure US Government Required FQDN / application rules
-
-The following FQDN / application rules are required for AKS clusters that have the Azure Policy enabled.
+#### Azure US Government required FQDN / application rules
 
 | FQDN                                          | Port      | Use      |
 |-----------------------------------------------|-----------|----------|
@@ -235,23 +207,29 @@ The following FQDN / application rules are required for AKS clusters that have t
 
 ### Required FQDN / application rules
 
-The following FQDN / application rules are required for using cluster extensions on AKS clusters.
-
 | FQDN | Port | Use |
 |-----------------------------------------------|-----------|----------|
 | **`<region>.dp.kubernetesconfiguration.azure.com`** | **`HTTPS:443`** | This address is used to fetch configuration information from the Cluster Extensions service and report extension status to the service.|
 | **`mcr.microsoft.com, *.data.mcr.microsoft.com`** | **`HTTPS:443`** | This address is required to pull container images for installing cluster extension agents on AKS cluster.|
 
-#### Azure US Government Required FQDN / application rules
-
-The following FQDN / application rules are required for using cluster extensions on AKS clusters.
+#### Azure US Government required FQDN / application rules
 
 | FQDN | Port | Use |
 |-----------------------------------------------|-----------|----------|
 | **`<region>.dp.kubernetesconfiguration.azure.us`** | **`HTTPS:443`** | This address is used to fetch configuration information from the Cluster Extensions service and report extension status to the service. |
 | **`mcr.microsoft.com, *.data.mcr.microsoft.com`** | **`HTTPS:443`** | This address is required to pull container images for installing cluster extension agents on AKS cluster.|
 
-
-
 > [!NOTE]
-> If any addon does not explicitly stated here, that means the core requirements are covering it.
+>
+> For any addons that aren't explicitly stated here, the core requirements cover it.
+
+## Next steps
+
+In this article, you learned what ports and addresses to allow if you want to restrict egress traffic for the cluster.
+
+If you want to restrict how pods communicate between themselves and East-West traffic restrictions within cluster see [Secure traffic between pods using network policies in AKS][use-network-policies].
+
+<!-- LINKS - internal -->
+
+[private-clusters]: /private-clusters.md
+[use-network-policies]: /use-network-policies.md
