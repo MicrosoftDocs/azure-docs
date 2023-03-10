@@ -14,21 +14,22 @@ ms.date: 03/09/2023
 
 # Power automate batch transcription
 
-Batch transcription is used to transcribe a large amount of audio in storage. Batch transcription can access audio files from inside or outside of Azure. This article describes how to use the [Power Automate batch transcription connector](https://learn.microsoft.com/connectors/cognitiveservicesspe/) to transcribe audio files from an Azure Storage container.
+This article describes how to use [Power Automate](/power-automate/getting-started) and the [Azure Cognitive Services for Batch Speech-to-text](/connectors/cognitiveservicesspe/) to transcribe audio files from an Azure Storage container. The logs and results of the transcription are stored in the same container.
 
-You can also use Batch Transcription in Power Platform applications (Power Automate, Power Apps, Logic Apps) via the [Batch Speech-to-text Connector](https://learn.microsoft.com/connectors/cognitiveservicesspe/) with your own Speech resource. Learn more about [Power Platform](https://learn.microsoft.com/power-platform/) and the [connectors](https://learn.microsoft.com/connectors/).
+In addition to [Power Automate](/power-automate/getting-started) to automate repetitive tasks, you can use the Batch Transcription connector in other [Power Platform](/power-platform/) applications including Power Apps and Logic Apps.
 
-When source audio files are stored outside of Azure, they can be accessed via a public URI (such as "https://crbn.us/hello.wav"). Files should be directly accessible; URIs that require authentication or that invoke interactive scripts before the file can be accessed aren't supported. 
+The connector uses the [Batch Transcription REST API](batch-transcription.md), but you don't need to write any code to use the connector. If the connector doesn't meet your requirements, you can use the [REST API](rest-speech-to-text.md#transcriptions) directly.
 
-You can specify one or multiple audio files when creating a transcription. We recommend that you provide multiple files per request or point to an Azure Blob storage container with the audio files to transcribe. The batch transcription service can handle a large number of submitted transcriptions. The service transcribes the files concurrently, which reduces the turnaround time. 
+> [!TIP]
+> Try more Speech features in [Speech Studio](https://aka.ms/speechstudio/speechtotexttool) without signing up or writing any code.
 
+## Prerequisites
 
+[!INCLUDE [Prerequisites](./includes/common/azure-prerequisites.md)]
 
 ## Create the Azure Blob Storage container
 
-When audio files are located in an [Azure Blob Storage](../../storage/blobs/storage-blobs-overview.md) account, you can request transcription of individual audio files or an entire Azure Blob Storage container. 
-
-
+Batch transcription can access audio files from inside or outside of Azure. When audio files are located in an [Azure Blob Storage](../../storage/blobs/storage-blobs-overview.md) account, you can request transcription of individual audio files or an entire Azure Blob Storage container. 
 
 Follow these steps to create a new storage account and container. 
 
@@ -39,7 +40,21 @@ Follow these steps to create a new storage account and container.
 1. Select **+ Container**.
 1. Enter a name for the new container and select **Create**.
 
+You'll [upload files to the container](#upload-files-to-the-container) after the connector is configured, since the events of adding and modifying files kick off the transcription process.
 
+## Create a Power Automate flow
+
+
+1. [Sign in to power automate](https://make.powerautomate.com/)
+1. From the collapsible menu on the left, select **Create**. 
+1. Select **Automated cloud flow** to start from a blank flow that can be triggered by a designated event.
+1. In the **Build an automated cloud flow** dialog, enter a name for your flow such as `BatchSTT`.
+1. Select **Skip** to exit the dialog and continue without choosing a trigger.
+1. Enter "blob" in the search connectors and triggers box to narrow results. Under the **Azure Blob Storage** connector, select the **When a blob is added or modified** trigger.
+
+
+    
+1. From the top navigation menu, save the flow and select **Test the flow**. In the window that appears, select **Test**.
 
 
 
@@ -59,6 +74,6 @@ Follow these steps to upload [wav, mp3, or ogg](batch-transcription-audio-data.m
 
 ## Next steps
 
-- [Batch transcription overview](batch-transcription.md)
-- [Create a batch transcription](batch-transcription-create.md)
-- [Get batch transcription results](batch-transcription-get.md)
+- [Azure Cognitive Services for Batch Speech-to-text connector](/connectors/cognitiveservicesspe/)
+- [Azure Blob Storage connector](/connectors/azureblob/)
+- [Power Platform](/power-platform/)
