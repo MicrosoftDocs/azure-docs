@@ -129,7 +129,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:2.9.0:config
     [INFO] Total time:  01:03 min
     [INFO] Finished at: 2023-03-08T15:25:47+01:00
     [INFO] ------------------------------------------------------------------------
-```
+    ```
 
 # [Tomcat](#tab/tomcat)
 
