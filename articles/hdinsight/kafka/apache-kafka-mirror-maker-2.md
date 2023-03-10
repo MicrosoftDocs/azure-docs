@@ -100,7 +100,7 @@ This architecture features two clusters in different resource groups and virtual
     
 1. After making the changes, the `/etc/hosts` file for `SECONDARYCLUSTER` looks like the given image.
 
-   :::image type="content" source="./media/apache-kafka-mirror-maker2/ect-hosts.png"  lightbox="./media/apache-kafka-mirror-maker2/ect-hosts.png" alt-text="Screenshot that shows etc-hosts file output." border="false":::
+   :::image type="content" source="./media/apache-kafka-mirror-maker2/ect-host.png" lightbox="./media/apache-kafka-mirror-maker2/ect-host.png" alt-text="Screenshot that shows etc hosts file output." border="false":::
    
 1. Save and close the file.   
 
