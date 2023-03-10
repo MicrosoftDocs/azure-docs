@@ -98,7 +98,7 @@ Clients connect to the Azure Web PubSub service through the standard WebSocket p
     * The package [Websocket.Client](https://github.com/Marfusios/websocket-client) is a third-party package supporting WebSocket connections. You can use any API/library that supports WebSocket.
     * The SDK package `Azure.Messaging.WebPubSub` helps to generate the JWT token. 
 
-    ```console
+    ```bash
     mkdir subscriber
     cd subscriber
     dotnet new console
@@ -155,9 +155,9 @@ Clients connect to the Azure Web PubSub service through the standard WebSocket p
 
      After the connection is established, your client receives messages through the WebSocket connection. The client uses `client.MessageReceived.Subscribe(msg => ...));` to listen for incoming messages.
 
-1. Run the following command replacing `<Web-PubSub-connection-string>` with the connection string you copied earlier:
+1. To start the subscriber, run the following command replacing `<Web-PubSub-connection-string>` with the connection string you copied earlier:
 
-    ```console
+    ```bash
     dotnet run <Web-PubSub-connection-string> "myHub1"
     ```
 
@@ -165,7 +165,7 @@ Clients connect to the Azure Web PubSub service through the standard WebSocket p
 
 1. First, create a project directory named `subscriber` and install required dependencies:
 
-    ```console
+    ```bash
     mkdir subscriber
     cd subscriber
     npm init -y
@@ -198,9 +198,9 @@ Clients connect to the Azure Web PubSub service through the standard WebSocket p
 
      After the connection is established, your client receives messages through the WebSocket connection. The client uses `client.MessageReceived.Subscribe(msg => ...));` to listen for incoming messages.
 
-1. Run the following command replacing `<Web-PubSub-connection-string>` with the connection string you copied earlier. If you are using Windows, you can use `set` instead of `export`.
+1. Run the following command replacing `<Web-PubSub-connection-string>` with the connection string you copied earlier. If you are using Windows command shell, you can use `set` instead of `export`.
 
-    ```console
+    ```bash
     export WebPubSubConnectionString=<Web-PubSub-connection-string>
     node subscribe.js
     ```
@@ -209,7 +209,7 @@ Clients connect to the Azure Web PubSub service through the standard WebSocket p
 
 1. First, create a project directory named `subscriber` and install required dependencies:
 
-    ```console
+    ```bash
     mkdir subscriber
     cd subscriber
     # Create venv
@@ -263,9 +263,9 @@ Clients connect to the Azure Web PubSub service through the standard WebSocket p
 
     After the connection is established, your client will receive messages through the WebSocket connection. Use `await ws.recv()` to listen for incoming messages.
 
-1. Run the following command replacing  `<Web-PubSub-connection-string>` with the connection string you copied earlier:
+1. Run the following command replacing `<Web-PubSub-connection-string>` with the connection string you copied earlier:
 
-    ```console
+    ```bash
     python subscribe.py <Web-PubSub-connection-string> "myHub1"
     ```
 
@@ -280,7 +280,7 @@ Clients connect to the Azure Web PubSub service through the standard WebSocket p
 
 1. Inside the `pubsub` directory, use Maven to create a new console app called `webpubsub-quickstart-subscriber`, then go to the *webpubsub-quickstart-subscriber* directory:
 
-    ```console
+    ```bash
     mvn archetype:generate --define interactiveMode=n --define groupId=com.webpubsub.quickstart --define artifactId=webpubsub-quickstart-subscriber --define archetypeArtifactId=maven-archetype-quickstart --define archetypeVersion=1.4
     cd webpubsub-quickstart-subscriber
     ```
@@ -378,10 +378,10 @@ Clients connect to the Azure Web PubSub service through the standard WebSocket p
 
     After connection is established, your client will receive messages through the WebSocket connection. Use `onMessage(String message)` to listen for incoming messages.
 
-1. Navigate to the *webpubsub-quickstart-subscriber* directory and run the app with following command:
+1.  To start the subscriber app, go to the *webpubsub-quickstart-subscriber* directory and run the  following command. Replace `<Web-PubSub-connection-string>` with the connection string you copied earlier.
 
-    ```console
-    mvn compile & mvn package & mvn exec:java -Dexec.mainClass="com.webpubsub.quickstart.App" -Dexec.cleanupDaemonThreads=false -Dexec.args="$connection_string 'myHub1'"
+    ```bash
+    mvn compile & mvn package & mvn exec:java -Dexec.mainClass="com.webpubsub.quickstart.App" -Dexec.cleanupDaemonThreads=false -Dexec.args="<Web-PubSub-connection-string> 'myHub1'"
     ```
 
 ---
@@ -394,7 +394,7 @@ Create a publisher using the Azure Web PubSub SDK to publish a message to the co
 
 1. First, create a project directory named `publisher` and install required dependencies:
 
-    ```console
+    ```bash
     mkdir publisher
     cd publisher
     dotnet new console
@@ -433,15 +433,15 @@ Create a publisher using the Azure Web PubSub SDK to publish a message to the co
 
     The `SendToAllAsync()` call simply sends a message to all connected clients in the hub.
 
-1. Send a message by running the command:
+1. Send a message by running the following command. Replace `<Web-PubSub-connection-string>` with the connection string you copied earlier.
 
-    ```console
-    dotnet run $connection_string "myHub1" "Hello World"
+    ```bash
+    dotnet run <Web-PubSub-connection-string> "myHub1" "Hello World"
     ```
 
-1. Check the command shell of the previous subscriber to see that it received the message:
+1. Check the command shell of the subscriber to see that it received the message:
 
-    ```text
+    ```console
     Message received: Hello World
     ```
 
@@ -449,7 +449,7 @@ Create a publisher using the Azure Web PubSub SDK to publish a message to the co
 
 1. First, create a project directory named `publisher` and install required dependencies:
 
-    ```console
+    ```bash
     mkdir publisher
     cd publisher
     npm init -y
@@ -471,14 +471,14 @@ Create a publisher using the Azure Web PubSub SDK to publish a message to the co
 
     The `service.sendToAll()` call simply sends a message to all connected clients in a hub.
 
-1. Send a message by running the command.  If you are using Windows, you can use `set` instead of `export`.
+1. To send a message, run the following command replacing `<Web-PubSub-connection-string>` with the connection string you copied earlier. If you are using Windows command shell, you can use `set` instead of `export`.
 
-    ```console
-    export WebPubSubConnectionString=$connection_string 
+    ```bash
+    export WebPubSubConnectionString=<Web-PubSub-connection-string>
     node publish "Hello World"
     ```
 
-1. You can see that the previous subscriber received the message:
+1. You can see that the subscriber received the message:
 
     ```console
     Message received: Hello World
@@ -488,7 +488,7 @@ Create a publisher using the Azure Web PubSub SDK to publish a message to the co
 
 1. First, create a project directory named `publisher` and install required dependencies:
 
-    ```console
+    ```bash
     mkdir publisher
     cd publisher
     # Create venv
@@ -523,15 +523,15 @@ Create a publisher using the Azure Web PubSub SDK to publish a message to the co
 
     The `send_to_all()` send the message to all connected clients in a hub.
 
-1. Run the following command:
+1. To send a message, run the following command replacing `<Web-PubSub-connection-string>` with the connection string you copied earlier.
 
-    ```console
-    python publish.py $connection_string "myHub1" "Hello World"
+    ```bash
+    python publish.py <Web-PubSub-connection-string> "myHub1" "Hello World"
     ```
 
 1. Check the previous command shell to that the subscriber received the message:
 
-    ```text
+    ```console
     Received message: Hello World
     ```
 
@@ -539,7 +539,7 @@ Create a publisher using the Azure Web PubSub SDK to publish a message to the co
 
 1. Go to the `pubsub` directory.  Use Maven to create a publisher console app `webpubsub-quickstart-publisher` and go to the *webpubsub-quickstart-publisher* directory:
 
-    ```console
+    ```bash
     mvn archetype:generate --define interactiveMode=n --define groupId=com.webpubsub.quickstart --define artifactId=webpubsub-quickstart-publisher --define archetypeArtifactId=maven-archetype-quickstart --define archetypeVersion=1.4
     cd webpubsub-quickstart-publisher
     ```
@@ -588,15 +588,15 @@ Create a publisher using the Azure Web PubSub SDK to publish a message to the co
 
     The `sendToAll()` call sends a message to all connected clients in a hub.
 
-1. Go to the *webpubsub-quickstart-publisher* directory and run the project using the following command:
+1. To send a message, go to the *webpubsub-quickstart-publisher* directory and run the project using the following command.  Replace the  `<Web-PubSub-connection-string>` with the connection string you copied earlier.
 
-    ```console
-    mvn compile & mvn package & mvn exec:java -Dexec.mainClass="com.webpubsub.quickstart.App" -Dexec.cleanupDaemonThreads=false -Dexec.args="$connection_string 'myHub1' 'Hello World'"
+    ```bash
+    mvn compile & mvn package & mvn exec:java -Dexec.mainClass="com.webpubsub.quickstart.App" -Dexec.cleanupDaemonThreads=false -Dexec.args="<Web-PubSub-connection-string> 'myHub1' 'Hello World'"
     ```
 
-1. You can see that the previous subscriber received the message:
+1. You can see that the subscriber received the message:
 
-    ```text
+    ```console
     Message received: Hello World
     ```
 
