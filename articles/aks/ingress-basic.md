@@ -4,6 +4,7 @@ description: Learn how to create and configure an ingress controller in an Azure
 author: asudbring
 ms.author: allensu
 ms.subservice: aks-networking
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 02/23/2023
 ---
