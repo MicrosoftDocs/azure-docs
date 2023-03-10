@@ -220,7 +220,7 @@ To get the properties for a specified storage account, use the following method 
 
 - [storageAccounts.getProperties](/javascript/api/@azure/arm-storage/storageaccounts#@azure-arm-storage-storageaccounts-getproperties)
 
-This method returns a [Promise<StorageAccountsGetPropertiesResponse>](/javascript/api/@azure/arm-storage/storageaccountsgetpropertiesresponse), which represents the storage account.
+This method returns a [`Promise<StorageAccountsGetPropertiesResponse>`](/javascript/api/@azure/arm-storage/storageaccountsgetpropertiesresponse), which represents the storage account.
 
 Code sample goes here.
 
