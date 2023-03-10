@@ -29,7 +29,7 @@ This article shows you how to modify the ACL of file or directory and how to app
 
 - You must have one of the following security permissions:
 
-  - Your user identity has been assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role in the scope of the either the target container, storage account, parent resource group or subscription.
+  - Your user identity has been assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role in the scope of either the target container, storage account, parent resource group or subscription.
 
   - You're the owning user of the target container, directory, or blob to which you plan to apply ACL settings.
 
