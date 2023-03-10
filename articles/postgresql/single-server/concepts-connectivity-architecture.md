@@ -21,7 +21,7 @@ Connection to your Azure Database for PostgreSQL is established through a gatewa
 
 :::image type="content" source="./media/concepts-connectivity-architecture/connectivity-architecture-overview-proxy.png" alt-text="Overview of the connectivity architecture":::
 
-As client connects to the database, the connection string to the server resolves to the gateway IP address. The gateway listens on the IP address on port 5432. Inside the database cluster, traffic is forwarded to appropriate Azure Database for PostgreSQL. Therefore, in order to connect to your server, such as from corporate networks, it is necessary to open up the **client-side firewall to allow outbound traffic to be able to reach our gateways**. Below you can find a complete list of the IP addresses used by our gateways per region.
+As client connects to the database, the connection string to the server resolves to the gateway IP address. The gateway listens on the IP address on port 5432. Inside the database cluster, traffic is forwarded to appropriate Azure Database for PostgreSQL. Therefore, in order to connect to your server, such as from corporate networks, it's necessary to open up the **client-side firewall to allow outbound traffic to be able to reach our gateways**. Below you can find a complete list of the IP addresses used by our gateways per region.
 
 ## Azure Database for PostgreSQL gateway IP addresses
 
@@ -37,8 +37,8 @@ The gateway service is hosted on group of stateless compute nodes located behind
 
 The following table lists the gateway IP addresses of the Azure Database for PostgreSQL gateway for all data regions. The most up-to-date information of the gateway IP addresses for each region is maintained in the table below. In the table below, the columns represent following:
 
-* **Gateway IP addresses:** This column lists the current IP addresses of the gateways, As hardware is refreshed we will remove these and  recommend that  you open the client-side firewall to allow outbound traffic for the IP address subnets listed in the next column.
-* **Gateway IP address subnets:** This column lists the IP address subnets of the gateway rings located in the particular region.As we retire older gateway hardware, we recommend that you open the client-side firewall to allow outbound traffic for the IP address subnets in the region you are operating.
+* **Gateway IP addresses:** This column lists the current IP addresses of the gateways. As hardware is refreshed we'll remove these and  recommend that  you open the client-side firewall to allow outbound traffic for the IP address subnets listed in the next column.
+* **Gateway IP address subnets:** This column lists the IP address subnets of the gateway rings located in the particular region. As we retire older gateway hardware, we recommend that you open the client-side firewall to allow outbound traffic for the IP address subnets in the region you are operating.
 
 | **Region name** | **Gateway IP addresses**  | **Gateway IP address subnets** |
 |:----------------|:-------------------------|:------------------------------------------|
@@ -99,7 +99,7 @@ Only Gateway nodes are decommissioned. When users connect to their servers, the 
 
 ### How can you validate if your connections are going to old gateway nodes or new gateway nodes?
 
-Ping your server's FQDN, for example  ``ping xxx.postgres.database.azure.com``. If the returned IP address is one of the IPs listed under Gateway IP addresses (decommissioning) in the document above, it means your connection is going through the old gateway. Contrarily, if the returned Ip address is one of the IPs listed under Gateway IP addresses, it means your connection is going through the new gateway.
+Ping your server's FQDN, for example  ``ping xxx.postgres.database.azure.com``. If the returned IP address is one of the IPs listed under Gateway IP addresses (decommissioning) in the document above, it means your connection is going through the old gateway. On the contrary, if the returned Ip-address is one of the IPs listed under Gateway IP addresses, it means your connection is going through the new gateway.
 
 You may also test by [PSPing](/sysinternals/downloads/psping) or TCPPing the database server from your client application with port 5432 and ensure that return IP address isn't one of the decommissioning IP addresses
 
