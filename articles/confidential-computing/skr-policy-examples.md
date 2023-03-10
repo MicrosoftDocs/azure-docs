@@ -193,6 +193,6 @@ NOTE: the containers metadata is a rego based policy hash reflected [here](https
 
 ## References
 
-[Microsoft Azure Attestation (MAA)](../attestation)
+[Microsoft Azure Attestation (MAA)](../attestation/overview.md)
 
 [Secure Key Release Concept and Basic Steps](concept-skr-attestation.md)
