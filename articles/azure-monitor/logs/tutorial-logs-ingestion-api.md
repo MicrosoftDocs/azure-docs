@@ -23,7 +23,8 @@ In this tutorial, you learn to:
 > [!NOTE]
 > This tutorial uses PowerShell from Azure Cloud Shell to make REST API calls by using the Azure Monitor **Tables** API and the Azure portal to install ARM templates. You can use any other method to make these calls.
 > 
-> For guidance on using the client libraries for the Logs ingestion API for [.NET](/dotnet/api/overview/azure/Monitor.Ingestion-readme), [Java](/java/api/overview/azure/monitor-ingestion-readme), [JavaScript](/javascript/api/overview/azure/monitor-ingestion-readme), or [Python](/python/api/overview/azure/monitor-ingestion-readme).
+> See [.NET](/dotnet/api/overview/azure/Monitor.Ingestion-readme), [Java](/java/api/overview/azure/monitor-ingestion-readme), [JavaScript](/javascript/api/overview/azure/monitor-ingestion-readme), or [Python](/python/api/overview/azure/monitor-ingestion-readme) for guidance on using the Logs ingestion API client libraries for other languages.
+
 
 ## Prerequisites
 To complete this tutorial, you need:
