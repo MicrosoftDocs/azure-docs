@@ -38,7 +38,7 @@ Follow these steps to check where your Authentication Agents are installed:
 3. Select **Azure AD Connect**. 
 4. Select **Pass-through Authentication**. This blade lists the servers where your Authentication Agents are installed.
 
-![Azure Active Directory admin center - Pass-through Authentication blade](./media/how-to-connect-pta-upgrade-preview-authentication-agents/pta8.png)
+![Azure portal - Pass-through Authentication blade](./media/how-to-connect-pta-upgrade-preview-authentication-agents/pta8.png)
 
 ### Step 2: Check the versions of your Authentication Agents
 

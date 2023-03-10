@@ -69,7 +69,7 @@ Use the following cmdlet to retrieve all role assignments in your Azure AD organ
 Get-AzureADMSPrivilegedRoleAssignment -ProviderId "aadRoles" -ResourceId "926d99e7-117c-4a6a-8031-0cc481e9da26"
 ```
 
-Use the following cmdlet to retrieve all role assignments for a particular user. This list is also known as "My Roles" in the Azure AD portal. The only difference here is that you have added a filter for the subject ID. The subject ID in this context is the user ID or the group ID.
+Use the following cmdlet to retrieve all role assignments for a particular user. This list is also known as "My Roles" in the Azure portal. The only difference here is that you have added a filter for the subject ID. The subject ID in this context is the user ID or the group ID.
 
 ```powershell
 Get-AzureADMSPrivilegedRoleAssignment -ProviderId "aadRoles" -ResourceId "926d99e7-117c-4a6a-8031-0cc481e9da26" -Filter "subjectId eq 'f7d1887c-7777-4ba3-ba3d-974488524a9d'" 

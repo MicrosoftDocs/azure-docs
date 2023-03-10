@@ -1,6 +1,6 @@
 ---
-title: Bulk create users in the Azure Active Directory portal | Microsoft Docs
-description: Add users in bulk in the Azure AD admin center in Azure Active Directory
+title: Bulk create users in the Azure portal | Microsoft Docs
+description: Add users in bulk in the Azure portal in Azure Active Directory
 services: active-directory 
 author: barclayn
 ms.author: barclayn
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Bulk create users in Azure Active Directory
 
-Azure Active Directory (Azure AD), part of Microsoft Entra, supports bulk user create and delete operations and supports downloading lists of users. Just fill out comma-separated values (CSV) template you can download from the Azure AD portal.
+Azure Active Directory (Azure AD), part of Microsoft Entra, supports bulk user create and delete operations and supports downloading lists of users. Just fill out comma-separated values (CSV) template you can download from the Azure portal.
 
 ## Required permissions
 
