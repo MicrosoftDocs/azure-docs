@@ -36,9 +36,6 @@ dotnet add package Azure.Identity
 dotnet add package Azure.ResourceManager.Storage
 dotnet add package Azure.Storage.Blobs
 ```
-- [Azure.Identity](/dotnet/api/overview/azure/identity-readme): Provides Azure Active Directory (Azure AD) token authentication support across the Azure SDK, and is needed for passwordless connections to Azure services.
-- [Azure.ResourceManager.Storage](/dotnet/api/overview/azure/resourcemanager.storage-readme): Supports management of Azure Storage resources, including resource groups and storage accounts.
-- [Azure.Storage.Blobs](/dotnet/api/overview/azure/storage.blobs-readme): Contains the primary classes that you can use to work with Blob Storage data resources.
 
 ## [Java](#tab/java)
 
@@ -95,12 +92,9 @@ Install the following packages using `npm install`:
 ```console
 npm install @azure/identity
 npm install @azure/storage-blob
+npm install @azure/arm-resources
 npm install @azure/arm-storage
 ```
-
-- [@azure/identity](/javascript/api/overview/azure/identity-readme): Provides Azure Active Directory (Azure AD) token authentication support across the Azure SDK, and is needed for passwordless connections to Azure services.
-- [@azure/storage-blob](/javascript/api/overview/azure/storage-blob-readme): Contains the primary classes that you can use to work with Blob Storage data resources.
-- [@azure/arm-storage](/javascript/api/overview/azure/arm-storage-readme): Supports management of Azure Storage resources, including resource groups and storage accounts.
 
 ## [Python](#tab/python)
 
@@ -109,12 +103,9 @@ Install the following packages using `pip install`:
 ```console
 pip install azure-identity
 pip install azure-storage-blob
+pip install azure-mgmt-resource
 pip install azure-mgmt-storage
 ```
-
-- [azure-identity](/python/api/overview/azure/identity-readme): Provides Azure Active Directory (Azure AD) token authentication support across the Azure SDK, and is needed for passwordless connections to Azure services.
-- [azure-storage-blob](/python/api/overview/azure/storage-blob-readme): Contains the primary classes that you can use to work with Blob Storage data resources.
-- [azure-mgmt-storage](/python/api/azure-mgmt-storage/azure.mgmt.storage.storagemanagementclient): Supports management of Azure Storage resources, including resource groups and storage accounts.
 
 ---
 
@@ -130,11 +121,16 @@ Add the following `using` directives:
 using Azure.Core;
 using Azure.Identity;
 using Azure.Storage.Blobs;
-
 using Azure.ResourceManager;
 using Azure.ResourceManager.Resources;
 using Azure.ResourceManager.Storage;
 ```
+
+Client library information:
+
+- [Azure.Identity](/dotnet/api/overview/azure/identity-readme): Provides Azure Active Directory (Azure AD) token authentication support across the Azure SDK, and is needed for passwordless connections to Azure services.
+- [Azure.ResourceManager.Storage](/dotnet/api/overview/azure/resourcemanager.storage-readme): Supports management of Azure Storage resources, including resource groups and storage accounts.
+- [Azure.Storage.Blobs](/dotnet/api/overview/azure/storage.blobs-readme): Contains the primary classes that you can use to work with Blob Storage data resources.
 
 ## [Java](#tab/java)
 
@@ -143,22 +139,36 @@ Add the following `import` directives:
 ```java
 import com.azure.identity.*;
 import com.azure.storage.blob.*;
-
 import com.azure.resourcemanager.*;
 import com.azure.resourcemanager.storage.models.*;
 import com.azure.core.management.*;
 import com.azure.core.management.profile.*;
 ```
 
+Client library information:
+
+- [com.azure.identity](/java/api/overview/azure/identity-readme): Provides Azure Active Directory (Azure AD) token authentication support across the Azure SDK, and is needed for passwordless connections to Azure services.
+- [com.azure.storage.blob](/java/api/com.azure.storage.blob): Contains the primary classes that you can use to work with Blob Storage data resources.
+- [com.azure.resourcemanager](/java/api/overview/azure/resourcemanager-readme): Supports management of Azure resources and resource groups.
+- [com.azure.resourcemanager.storage](/java/api/overview/azure/resourcemanager-storage-readme): Supports management of Azure Storage resources, including resource groups and storage accounts.
+
 ## [JavaScript](#tab/javascript)
 
 Add the following `require` statements to load the modules:
 
 ```javascript
-const { StorageManagementClient } = require("@azure/arm-storage");
 const { DefaultAzureCredential } = require("@azure/identity");
 const { BlobServiceClient } = require("@azure/storage-blob");
+const { ResourceManagementClient } = require("@azure/arm-resources");
+const { StorageManagementClient } = require("@azure/arm-storage");
 ```
+
+Client library information:
+
+- [@azure/identity](/javascript/api/overview/azure/identity-readme): Provides Azure Active Directory (Azure AD) token authentication support across the Azure SDK, and is needed for passwordless connections to Azure services.
+- [@azure/storage-blob](/javascript/api/overview/azure/storage-blob-readme): Contains the primary classes that you can use to work with Blob Storage data resources.
+- [@azure/arm-resources](/javascript/api/overview/azure/arm-resources-readme): Supports management of Azure resources and resource groups.
+- [@azure/arm-storage](/javascript/api/overview/azure/arm-storage-readme): Supports management of Azure Storage resources, including resource groups and storage accounts.
 
 ## [Python](#tab/python)
 
@@ -167,15 +177,22 @@ Add the following `import` statements:
 ```python
 from azure.identity import DefaultAzureCredential
 from azure.storage.blob import BlobServiceClient
-
+from azure.mgmt.resource import ResourceManagementClient
 from azure.mgmt.storage import StorageManagementClient
 ```
+
+Client library information:
+
+- [azure-identity](/python/api/overview/azure/identity-readme): Provides Azure Active Directory (Azure AD) token authentication support across the Azure SDK, and is needed for passwordless connections to Azure services.
+- [azure-storage-blob](/python/api/overview/azure/storage-blob-readme): Contains the primary classes that you can use to work with Blob Storage data resources.
+- [azure-mgmt-resource](/python/api/azure-mgmt-resource/azure.mgmt.resource.resourcemanagementclient): Supports management of Azure resources and resource groups.
+- [azure-mgmt-storage](/python/api/azure-mgmt-storage/azure.mgmt.storage.storagemanagementclient): Supports management of Azure Storage resources, including resource groups and storage accounts.
 
 ---
 
 ## Query for the blob service endpoint
 
-The following code samples get a blob service endpoint for a specified storage account:
+To retrieve the blob service endpoint for a given storage account, we need to get the storage account properties by calling the [Get Properties (REST API)](/rest/api/storagerp/storage-accounts/get-properties) operation. The following code samples use client libraries to get a blob service endpoint for a specified storage account:
 
 ## [.NET](#tab/dotnet)
 
@@ -189,9 +206,33 @@ This method returns a [StorageAccountResource](/dotnet/api/azure.resourcemanager
 
 ## [Java](#tab/java)
 
+To get the properties for a specified storage account, use the following method from an [AzureResourceManager](/java/api/com.azure.resourcemanager.azureresourcemanager) object:
+
+- [storageAccounts().getByResourceGroup](/java/api/com.azure.resourcemanager.resources.fluentcore.arm.collection.supportsgettingbyresourcegroup#com-azure-resourcemanager-resources-fluentcore-arm-collection-supportsgettingbyresourcegroup-getbyresourcegroup(java-lang-string-java-lang-string))
+
+This method returns a [StorageAccount](/java/api/com.azure.resourcemanager.storage.models.storageaccount) interface, which is an immutable client-side representation of the storage account.
+
+Code sample goes here.
+
 ## [JavaScript](#tab/javascript)
 
+To get the properties for a specified storage account, use the following method from a [StorageManagementClient](/javascript/api/@azure/arm-storage/storagemanagementclient) object:
+
+- [storageAccounts.getProperties](/javascript/api/@azure/arm-storage/storageaccounts#@azure-arm-storage-storageaccounts-getproperties)
+
+This method returns a [Promise<StorageAccountsGetPropertiesResponse>](/javascript/api/@azure/arm-storage/storageaccountsgetpropertiesresponse), which represents the storage account.
+
+Code sample goes here.
+
 ## [Python](#tab/python)
+
+To get the properties for a specified storage account, use the following method from a [StorageManagementClient](/python/api/azure-mgmt-storage/azure.mgmt.storage.storagemanagementclient) object:
+
+- [storageAccounts.getProperties](/python/api/azure-mgmt-storage/azure.mgmt.storage.storagemanagementclient#azure-mgmt-storage-storagemanagementclient-storage-accounts)
+
+This method returns a `StorageAccount` object, which represents the storage account.
+
+Code sample goes here.
 
 ---
 
