@@ -113,11 +113,12 @@ Using the prefix "system" for any user-defined functions results in error.
 
 **1.2 level:** Array and Object types are no longer supported as a key property.
 
-### Deserializing boolean type in JSON, AVRO and PARKET
+### Deserializing boolean type in JSON, AVRO and PARQUET
 
-**Previous levels:** Boolean value is deserialized into ASA type BIGINT - false to 0, and true to 1. Output does not creates boolean values in JSON, AVRO and PARKET unless explicitly converted to BIT. Therefore a pass-through query like `SELECT value INTO output1 FROM input1` reading JSON `{ "value" : true }` from input1 will write into the output1 JSON value `{ "value" : 1 }`.
+**Previous levels:** Azure Stream Analytics deserializes Boolean value into type BIGINT - false maps to 0 and true maps to 1. The output only creates boolean values in JSON, AVRO, and PARQUET if you explicitly convert events to BIT.
+For example, a pass-through query like `SELECT value INTO output1 FROM input1` reading a JSON `{ "value": true }` from input1 will write into the output1 a JSON value `{ "value": 1 }`.
 
-**1.2 level:** Boolean value is deserialized into ASA type BIT instead of BIGINT with similar mapping - false to 0, and true to 1. Therefore, for the similar example as above, the output will now be `{ "value" : true }`. Just like before it is still possible to cast value to type BIT in the query to make sure they appear as true and false in the output for formats supporting boolean type.
+**1.2 level:** Azure Stream Analytics deserializes Boolean value into type BIT. False maps to 0 and true maps to 1. A pass-through query like `SELECT value INTO output1 FROM input1` reading a JSON `{ "value": true }` from input1 will write into the output1 a JSON value `{ "value": true }`. You can cast value to type BIT in the query to ensure they appear as true and false in the output for formats supporting boolean type.
 
 ## Compatibility level 1.1
 
