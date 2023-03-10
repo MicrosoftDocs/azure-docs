@@ -22,10 +22,6 @@ Mirroring works by using the [MirrorMaker2](https://cwiki.apache.org/confluence/
 
 The most useful mirroring setup for disaster recovery uses Kafka clusters in different Azure regions. To achieve this result, the virtual networks where the clusters reside peered together.
 
-The following diagram illustrates the mirroring process and how the communication flows between clusters:
-
-:::image type="content" source="./media/apache-kafka-mirror-maker2/kafka-mirroring-vnets2.png" alt-text="Diagram showing the mirroring process." border="false":::
-
 The primary and secondary clusters can be different in the number of nodes and partitions, and offsets within the topics are different also. Mirroring maintains the key value that used for partitioning, so record order preserved on a per-key basis.
 
 ### Mirroring across network boundaries
@@ -85,7 +81,7 @@ This architecture features two clusters in different resource groups and virtual
    > [!NOTE]
    > From now onwards we will use `primary-kafka-cluster` as `PRIMARYCLUSTER` and `secondary-kafka-cluster` as `SECONDARYCLUSTER`.
 
-## Configure IP Address of PRIMARYCLUSTER Worker Nodes into client machine for DNS Resolution 
+## Configure IP address of PRIMARYCLUSTER worker nodes into client machine for DNS resolution 
 
 1. Use head node of `SECONDARYCLUSTER` to run mirror maker script. Then we need IP address of worker nodes of PRIMARYCLUSTER in `/etc/hosts` file of `SECONDARYCLUSTER`. 
 
@@ -108,13 +104,13 @@ This architecture features two clusters in different resource groups and virtual
    
 1. Save and close the file.   
 
-### Create Multiple Topics in PRIMARYCLUSTER
+### Create multiple topics in PRIMARYCLUSTER
 1. Use this command to create topics and replace variables. 
 
    ```
    bash /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --zookeeper $KAFKAZKHOSTS --create --topic $TOPICNAME --partitions $NUM_PARTITIONS --replication-factor $REPLICATION_FACTOR 
    ```
-### Configure Mirror Maker2 in SECONDARYCLUSTER
+### Configure MirrorMaker2 in SECONDARYCLUSTER
 
 1. Now change the configuration in MirrorMaker2 properties file. 
 
