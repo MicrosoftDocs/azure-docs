@@ -1,0 +1,33 @@
+items: 
+- name: Azure Health Insights documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+    - name: About Azure Health Insights
+      href: overview.md
+    - name: OncoPhenotype
+      href: ./oncoPhenotype/index.yml
+    - name: Trial Matcher 
+      href: ./trial-matcher/index.yml
+- name: Concepts
+  expanded: true
+  items:
+     - name: Request Info
+       href: request-info.md      
+     - name: Response Info
+       href: response-info.md     
+- name: Quickstarts
+  expanded: true
+  items:
+     - name: Deploy the Azure Health Insights using the portal
+       href: deploy-portal.md
+- name: About Responsible AI
+  expanded: true
+  items:
+    - name: Transparency note
+      href: responsible-AI/transparency-note.md
+    - name: Integration and responsible use
+      href: responsible-AI/integration-and-responsible-use.md
+    - name: Data, privacy, and security
+      href: responsible-AI/data-privacy-security.md
