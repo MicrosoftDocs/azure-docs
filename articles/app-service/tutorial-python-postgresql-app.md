@@ -23,9 +23,11 @@ In this tutorial, you'll deploy a data-driven Python web app (**[Django](https:/
 
 ## Provision and deploy using the Azure Developer CLI
 
-Sample Python applications using the Flask and Django framework are provided for this tutorial. The Azure Developer CLI can greatly streamline the process of deploying the app resources to Azure.
+The Azure Developer CLI (azd) greatly streamlines the process of deploying the app resources to Azure. For a more step-by-step approach using the Azure Portal and other tools, switch to the **Manual Steps** approach available by toggling the **Manual Steps** option at the top of the page.
 
-The [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) accelerates building cloud apps on Azure by providing developer-friendly commands that map to key stages in the development workflow, such as provisioning and deploying resources. You can use the Azure Developer CLI to provision and deploy the resources for the sample application.
+The [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) accelerates building cloud apps on Azure by providing developer-friendly commands that map to key stages in the development workflow, such as provisioning and deploying resources. You can use the Azure Developer CLI to provision and deploy the resources for the sample application in an automated and streamlined way.
+
+Sample Python applications using the Flask and Django framework are provided for this tutorial. Follow the steps below to setup the Azure Developer CLI and provision and deploy the sample application:
 
 1. Install the Azure Developer CLI. For a full list of supported installation options and tools, visit the [installation guide](/azure/developer/azure-developer-cli/install-azd).
 
@@ -57,30 +59,30 @@ The [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) acceler
     azd up --template msdocs-django-postgresql-sample-app
     ```
 
-1. When the `azd up` command finishes running it will print out the URL for your deployed web app in the console. Copy and paste the web app URL into your browser to explore the running app and verify that it is working correctly. 
+1. When the `azd up` command completes it prints out the URL for your deployed web app in the console. Copy and paste the web app URL into your browser to explore the running app and verify that it is working correctly. All of the Azure resources and application code were set up for you with a single command.
 
-    The name of the resource group that was created is also displayed in the console output. Locate the resource group in Azure to see all of the provisioned resources. 
+    The name of the resource group that was created is also displayed in the console output. Locate the resource group in the Azure portal to see all of the provisioned resources. 
 
     :::image type="content" border="False" source="./media/tutorial-python-postgresql-app/azd-resources-small.png" lightbox="./media/tutorial-python-postgresql-app/azd-resources.png" alt-text="The resources deployed by the Azure Developer CLI.":::
 
 The Azure Developer CLI also enables you to configure your application to use a CI/CD pipeline for deployments, setup monitoring functionality or even remove the provisioned resources. For more information about these additional workflows, visit the project [README](https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app/blob/main/README.md).
 
-## Explore the azd template and workflow
+## Explore the sample application template and resources
 
-The sections ahead review the workflow steps the Azure Developer CLI completed for you in more detail for added context. When you ran `azd up`, the Azure Developer CLI cloned the template repository down to your local machine. The cloned sample application template includes the source code for a Flask or Django web application written in Python that connects to a Azure Database for PostgresSQL. The template also includes the necessary infrastructure folders and configuration files for the project to work correctly as an AZD template.
+The sections ahead review the steps the Azure Developer CLI completed for you in more detail for added context. When you ran `azd up`, the Azure Developer CLI cloned the template repository down to your local machine. The cloned sample application template includes the source code for a Flask or Django web application written in Python that connects to a Azure Database for PostgresSQL. The template also includes the necessary infrastructure folders and configuration files for the project to work correctly as an AZD template.
 
 ### Resource provisioning
 
-The `azd up` command also created all of the resources for your application in Azure using the Bicep files in the `infra` folder of the project template. [Bicep](/azure/azure-resource-manager/bicep/overview?tabs=bicep) is a declarative language used to manage infrastructure as code in Azure. You can also run the provisioning stage explicitly using the `azd provision` command. Some of the key resources that were created and configured for the sample project include:
+The `azd up` command created all of the resources for the sample application in Azure using the Bicep files in the `infra` folder of the project template. [Bicep](/azure/azure-resource-manager/bicep/overview?tabs=bicep) is a declarative language used to manage infrastructure as code in Azure. Some of the key resources that were created and configured for the sample project include:
 
-* **Resource group**: A resource group was created to hold all of the other provisioned Azure resources. The resource group helps to keep your resources well organized and easier to manage.
+* **Resource group**: A resource group was created to hold all of the other provisioned Azure resources. The resource group helps to keep your resources well organized and easier to manage. The name of the resource group is based off of the environment name you specified during the `azd up` initialization process.
 * **Azure Virtual Network**: A virtual network was created to enable the other provisioned resources to securely connect and communicate with one another. Related configurations such as setting up a private DNS zone link were also applied.
-* **Azure App Service plan**: An App Service plan was created to host App Service instances. The App Service plan defines what compute resources are available for a web app.
-* **Azure App Service**: An App Service instance was created in the new App Service plan to host and run the deployed application. Various app configurations were also applied to the app service, such as setting the Postgres connection string and secret keys.
-* **Azure Database for PostgresSQL**: A Postgres database was also created for the app hosted on App Service to connect to. The required admin user and connection settings were also configured.
+* **Azure App Service plan**: An App Service plan was created to host App Service instances. App Service plans define what compute resources are available for one or more web apps.
+* **Azure App Service**: An App Service instance was created in the new App Service plan to host and run the deployed application. In this case a Linux instance was created and configured to run Python apps. Additional app configurations were also applied to the app service, such as setting the Postgres connection string and secret keys. 
+* **Azure Database for PostgresSQL**: A Postgres database and server were created for the app hosted on App Service to connect to. The required admin user, network and connection settings were also configured.
 * **Azure Application Insights**: Application insights was setup and configured for the app hosted on the App Service. This service enables detailed telemetry and monitoring for your application.
 
-You can inspect the Bicep files in the `infra` folder of the project to understand how each of these resources were provisioned in more detail. For example, the App Service plan and App Service web app instance were created and connected using the following Bicep code. 
+You can inspect the Bicep files in the [`infra`](https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app/tree/main/infra) folder of the project to understand how each of these resources were provisioned in more detail. The `resources.bicep` file defines most of the different services created in Azure. For example, the App Service plan and App Service web app instance were created and connected using the following Bicep code. 
 
 ```yaml
 resource appServicePlan 'Microsoft.Web/serverfarms@2021-03-01' = {
@@ -131,11 +133,9 @@ The Bicep templates also specify the required configuration values for the diffe
 
 ### Application Deployment
 
-The Azure Developer CLI also deployed your application code to the provisioned Azure resources. The Developer CLI understands how to deploy different types of application code to different services in Azure. For example, the Python app was deployed to App Service, but azd can also deploy to other services such as Azure Container Apps. You can also use the `azd deploy` command to handle this step.
+The Azure Developer CLI also deployed the sample application code to the provisioned Azure resources. The Developer CLI understands how to deploy different parts of your application code to different services in Azure using the `azure.yaml` file at the root of the project. The `azure.yaml` file specifies the app source code location, the type of app, and the Azure Service that should host that app. 
 
-To deploy one or more apps successfully, azd needs to know more about your project. The `azure.yaml` file at the root of the project helps the Azure Developer CLI understand how to deploy different parts of your project to different Azure resources. The `azure.yaml` file specifies the app source code location, the type of app, and the Azure Service that should host that app. 
-
-Consider the following `azure.yaml` file from the sample Flask application. This configuration tells the Azure Developer CLI that the Python code that lives at the root of the project should be deployed to the App Service that was created.
+Consider the following `azure.yaml` file from the sample Flask application. This configuration tells the Azure Developer CLI that the Python code that lives at the root of the project should be deployed to the created App Service.
 
 ```yml
 name: flask-postgresql-sample-app
