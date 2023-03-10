@@ -123,6 +123,7 @@ The first step in creating a customized model is to choose a base model. The **B
 - `curie`
 - `code-cushman-001`\*
 - `davinci`\*
+
     \* currently unavailable for new customers. 
 
 For more information about our base models that can be fine-tuned, see [Models](../concepts/models.md). Select a base model from the **Base model type** dropdown, as shown in the following picture, and then select **Next** to continue.
