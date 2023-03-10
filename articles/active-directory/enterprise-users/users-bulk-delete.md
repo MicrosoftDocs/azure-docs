@@ -1,5 +1,5 @@
 ---
-title: Bulk delete users in the Azure Active Directory portal | Microsoft Docs
+title: Bulk delete users in the Azure portal | Microsoft Docs
 description: Delete users in bulk in the Azure admin center in Azure Active Directory 
 services: active-directory 
 author: barclayn

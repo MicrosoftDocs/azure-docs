@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/21/2022
+ms.date: 3/10/2023
 ms.author: jeedes
 ---
 
@@ -85,8 +85,6 @@ To configure automatic user provisioning for ServiceNow in Azure AD:
 1. Set **Provisioning Mode** to **Automatic**.
 
 1. In the **Admin Credentials** section, enter your ServiceNow tenant URL, Client ID, Client Secret and Authorization Endpoint. Select **Test Connection** to ensure that Azure AD can connect to ServiceNow. [This ServiceNow documentation](https://docs.servicenow.com/bundle/utah-platform-security/page/administer/security/task/t_CreateEndpointforExternalClients.html) outlines how to generate these values.
-
- 	![Screenshot that shows the Service Provisioning page, where you can enter admin credentials.](./media/servicenow-provisioning-tutorial/servicenow-provisioning.png)
 
 1. In the **Notification Email** box, enter the email address of a person or group that should receive the provisioning error notifications. Then select the **Send an email notification when a failure occurs** check box.
 
