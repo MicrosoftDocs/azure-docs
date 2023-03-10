@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial - Stream Analytics at the edge using Azure IoT Edge'
-description: 'In this tutorial, you deploy Azure Stream Analytics as a module to an IoT Edge device'
+title: 'Tutorial - Deploy Azure Stream Analytics as an IoT Edge module'
+description: 'In this tutorial, you deploy Azure Stream Analytics as a module to an IoT Edge device.'
 author: PatAltimore
 ms.author: patricka
 ms.date: 3/8/2023
@@ -13,15 +13,9 @@ ms.custom: mvc
 
 [!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
-Many IoT solutions use analytics services to gain insight about data as it arrives in the cloud from IoT devices. With Azure IoT Edge, you can take [Azure Stream Analytics](../stream-analytics/index.yml) logic and move it onto the device itself. By processing telemetry streams at the edge, you can reduce the amount of uploaded data and reduce the time it takes to react to actionable insights.
+In this tutorial, you create an Azure Stream Analytics job in the Azure portal and then deploy it as an IoT Edge module with no additional code.
 
-Azure IoT Edge and Azure Stream Analytics are integrated to simplify your workload development. You can create an Azure Stream Analytics job in the Azure portal and then deploy it as an IoT Edge module with no additional code.  
-
-Azure Stream Analytics provides a richly structured query syntax for data analysis, both in the cloud and on IoT Edge devices. For more information, see [Azure Stream Analytics documentation](../stream-analytics/stream-analytics-edge.md).
-
-The Stream Analytics module in this tutorial calculates the average temperature over a rolling 30-second window. When that average reaches 70, the module sends an alert for the device to take action. In this case, that action is to reset the simulated temperature sensor. In a production environment, you might use this functionality to shut off a machine or take preventative measures when the temperature reaches dangerous levels.
-
-In this tutorial, you learn how to:
+You learn how to:
 > [!div class="checklist"]
 >
 > * Create an Azure Stream Analytics job to process data on the edge.
@@ -30,11 +24,19 @@ In this tutorial, you learn how to:
 
 :::image type="content" source="./media/tutorial-deploy-stream-analytics/asa-architecture.png" alt-text="Diagram of stream architecture, showing the staging and deploying of an Azure Stream Analytics job.":::
 
+The Stream Analytics module in this tutorial calculates the average temperature over a rolling 30-second window. When that average reaches 70, the module sends an alert for the device to take action. In this case, that action is to reset the simulated temperature sensor. In a production environment, you might use this functionality to shut off a machine or take preventative measures when the temperature reaches dangerous levels.
+
+## Why use Azure Stream Analytics in IoT Edge?
+
+Many IoT solutions use analytics services to gain insight about data as it arrives in the cloud from IoT devices. With Azure IoT Edge, you can take [Azure Stream Analytics](../stream-analytics/index.yml) logic and move it onto the device itself. By processing telemetry streams at the edge, you can reduce the amount of uploaded data and reduce the time it takes to react to actionable insights. Azure IoT Edge and Azure Stream Analytics are integrated to simplify your workload development. 
+
+Azure Stream Analytics provides a richly structured query syntax for data analysis, both in the cloud and on IoT Edge devices. For more information, see [Azure Stream Analytics documentation](../stream-analytics/stream-analytics-edge.md).
+
 ## Prerequisites
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-* An Azure IoT Edge device
+* An Azure IoT Edge device.
 
    You can use an Azure virtual machine as an IoT Edge device by following the steps in the quickstart for [Linux](quickstart-linux.md) or [Windows devices](quickstart.md).
 
@@ -100,23 +102,25 @@ This section creates a job that receives temperature data from an IoT Edge devic
 > [!NOTE]
 > You specify exactly where the data comes from and goes to in the next section, [Configure IoT Edge settings](#configure-iot-edge-settings), when you deploy the job.  
 
+#### Set your input and output
+
 1. Navigate to your Stream Analytics job in the Azure portal.
 
 1. Under **Job topology**, select **Inputs** then **Add input**.
 
-   ![Azure Stream Analytics - add input](./media/tutorial-deploy-stream-analytics/asa-input.png)
+   :::image type="content" source="./media/tutorial-deploy-stream-analytics/add-input.png" alt-text="Screenshot showing where to add stream input in the Azure portal.":::
 
 1. Choose **Edge Hub** from the drop-down list.
 
    If you don't see the **Edge Hub** option in the list, then you may have created your Stream Analytics job as a cloud-hosted job. Try creating a new job and be sure to select **Edge** as the hosting environment.
 
-1. In the **New input** pane, enter **temperature** as the input alias.
+1. In the **New input** pane, enter **temperature** as the **Input alias**.
 
 1. Keep the default values for the other fields, and select **Save**.
 
 1. Under **Job Topology**, open **Outputs** then select **Add**.
 
-   ![Azure Stream Analytics - add output](./media/tutorial-deploy-stream-analytics/asa-output.png)
+   :::image type="content" source="./media/tutorial-deploy-stream-analytics/add-output.png" alt-text="Screenshot showing where to add stream output in the Azure portal.":::
 
 1. Choose **Edge Hub** from the drop-down list.
 
@@ -124,9 +128,11 @@ This section creates a job that receives temperature data from an IoT Edge devic
 
 1. Keep the default values for the other fields, and select **Save**.
 
+#### Create a query
+
 1. Under **Job Topology**, select **Query**.
 
-1. Replace the default text with the following query. The SQL code sends a reset command to the alert output if the average machine temperature in a 30-second window reaches 70 degrees. The reset command has been pre-programmed into the sensor as an action that can be taken.
+1. Replace the default text with the following query. 
 
     ```sql
     SELECT  
@@ -138,6 +144,8 @@ This section creates a job that receives temperature data from an IoT Edge devic
     GROUP BY TumblingWindow(second,30)
     HAVING Avg(machine.temperature) > 70
     ```
+
+   In this query, the SQL code sends a reset command to the alert output if the average machine temperature in a 30-second window reaches 70 degrees. The reset command has been pre-programmed into the sensor as an action that can be taken.
 
 1. Select **Save query**.
 
