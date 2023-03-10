@@ -83,15 +83,16 @@ Sign in to the [Azure portal - Orbital](https://aka.ms/orbital/portal).
 
 9. If a mission requires third-party providers, select the **Third-Party Configuration** tab, or select the **Next: Third-Party Configurations** button at the bottom of the page.
 
-   > NOTE: Mission configurations are agreed upon with third-party providers. Contacts can only be successfully scheduled with the partners if the contact profile contains the discussed mission configuration.
+   > [!NOTE] 
+   > Mission configurations are agreed upon with third-party providers. Contacts can only be successfully scheduled with the partners if the contact profile contains the discussed mission configuration.
 
 10. In the **Third-Party Configurations** page, select **Add new Configuration**.
 11. In the **Mission Configuration** page, enter this information:
    
-   | **Field** | **Value** |
-   | --- | --- |
-   | Provider Name | Enter the name of the provider |
-   | Mission Configuration | Enter the mission configuration from the provider |
+    | **Field** | **Value** |
+    | --- | --- |
+    | Provider Name | Enter the name of the provider |
+    | Mission Configuration | Enter the mission configuration from the provider |
 
 13. Select the **Submit** button to add the mission configuration.
 14. Select the **Review + create** tab or select the **Review + create** button at the bottom of the page.
