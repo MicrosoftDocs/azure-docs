@@ -248,8 +248,8 @@ Now create a Python script from your notebook for model training.
 1. Look through this file and delete the code you don't want in the training script.  For example, keep the code for the model you wish to use, and delete code for the model you don't want.  
     * Make sure you keep the code that starts autologging (`mlflow.sklearn.autolog()`).
     * When you run the Python script locally (as you'll do in this tutorial), you can keep the line that defines the experiment name (`mlflow.set_experiment("Develop on cloud tutorial")`).  Or even give it a different name to see it as a different entry in the **Jobs** section.  But when you use the script to submit a run with the CLI or SDK (which you'll see in other tutorials), that line will not work - the CLI or SDK code to create a training run will contain the experiment name instead.
-    * When running a single model, the lines to start and end a run (`mlflow.start_run()` and `mlflow.end_run()` are also not necessary, but can be left in if you wish.)
-    * You may also wish to delete the auto-generated comments and add in more of your own comments.
+    * When running a single model, the lines to start and end a run (`mlflow.start_run()` and `mlflow.end_run()`) are also not necessary, but can be left in if you wish.
+    * You may wish to delete the auto-generated comments and add in more of your own comments.
 1. When you're finished with your edits, save the file.
 
 You now have a Python script to use for training your preferred model.  
