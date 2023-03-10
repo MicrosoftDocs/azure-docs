@@ -168,13 +168,13 @@ In March 2023, ServiceNow released a SCIM 2.0 connector. Completing the steps be
 
 4. In a new web browser window, go to https://developer.microsoft.com/graph/graph-explorer and sign in as the administrator for the Azure AD tenant where your app is added. 
 
-	![Screenshot of Microsoft Graph explorer sign in page](./media/workplace-by-facebook-provisioning-tutorial/permissions.png)
+	![Screenshot of Microsoft Graph explorer sign in page.](./media/workplace-by-facebook-provisioning-tutorial/permissions.png)
 
 5. Check to make sure the account being used has the correct permissions. The permission “Directory.ReadWrite.All” is required to make this change.                              
 
-	![Screenshot of Microsoft Graph settings option](./media/workplace-by-facebook-provisioning-tutorial/permissions-2.png)                          
+	![Screenshot of Microsoft Graph settings option.](./media/workplace-by-facebook-provisioning-tutorial/permissions-2.png)                          
 
-	![Screenshot of Microsoft Graph permissions](./media/workplace-by-facebook-provisioning-tutorial/permissions-3.png)
+	![Screenshot of Microsoft Graph permissions.](./media/workplace-by-facebook-provisioning-tutorial/permissions-3.png)
 
 6. Using the ObjectID selected from the app previously, run the following command:
 
@@ -191,7 +191,7 @@ DELETE https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchroniz
 POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs { "templateId": "serviceNowScim" }
 ```
 
-![Screenshot of Microsoft Graph request](./media/servicenow-provisioning-tutorial/graph-request.png)
+![Screenshot of Microsoft Graph request.](./media/servicenow-provisioning-tutorial/graph-request.png)
 
 9. Return to the first web browser window and select the Provisioning tab for your application. Your configuration will have been reset. You can confirm the upgrade has taken place by confirming the Job ID starts with “serviceNowScim”. 
 
