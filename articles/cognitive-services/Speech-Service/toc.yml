@@ -73,8 +73,6 @@ items:
         href: batch-transcription-create.md
       - name: Get batch transcription results
         href: batch-transcription-get.md
-      - name: Power automate batch transcription
-        href: batch-transcription-power-automate.md
     - name: Custom Speech
       items:
         - name: What is Custom Speech?
@@ -242,6 +240,8 @@ items:
           displayName: pronounce, learn language, assess pron
     - name: Azure OpenAI speech to speech chat
       href: openai-speech.md
+    - name: Power automate batch transcription
+      href: power-automate-batch-transcription.md
     - name: Conversation transcription
       items:
         - name: Conversation Transcription overview

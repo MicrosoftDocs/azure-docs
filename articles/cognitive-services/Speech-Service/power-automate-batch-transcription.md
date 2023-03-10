@@ -35,25 +35,56 @@ Follow these steps to create a new storage account and container.
 
 1. Go to the [Azure portal](https://portal.azure.com/) and sign in to your Azure account.
 1. <a href="https://portal.azure.com/#create/Microsoft.StorageAccount-ARM"  title="Create a Storage account resource"  target="_blank">Create a Storage account resource</a> in the Azure portal. Use the same subscription and resource group as your Speech resource.
-1. Select the Storage account.
+1. Select the Storage account. 
 1. In the **Data storage** group in the left pane, select **Containers**.
 1. Select **+ Container**.
-1. Enter a name for the new container and select **Create**.
+1. Enter a name for the new container such as "batchtranscription" and select **Create**.
+1. Get the **Access key** for the storage account. Select **Access keys** in the **Security + networking** group in the left pane. View and take note of the **key1** (or **key2**) value. You'll need the access key later when you [configure the connector](#create-a-power-automate-flow). 
 
 You'll [upload files to the container](#upload-files-to-the-container) after the connector is configured, since the events of adding and modifying files kick off the transcription process.
 
 ## Create a Power Automate flow
 
-
 1. [Sign in to power automate](https://make.powerautomate.com/)
 1. From the collapsible menu on the left, select **Create**. 
 1. Select **Automated cloud flow** to start from a blank flow that can be triggered by a designated event.
-1. In the **Build an automated cloud flow** dialog, enter a name for your flow such as `BatchSTT`.
+
+    :::image type="content" source="./media/power-platform/create-automated-cloud-flow.png" alt-text="A screenshot of the menu for creating an automated cloud flow." lightbox="./media/power-platform/create-automated-cloud-flow.png":::
+
+1. In the **Build an automated cloud flow** dialog, enter a name for your flow such as "BatchSTT".
 1. Select **Skip** to exit the dialog and continue without choosing a trigger.
-1. Enter "blob" in the search connectors and triggers box to narrow results. Under the **Azure Blob Storage** connector, select the **When a blob is added or modified** trigger.
+1. Choose a trigger for the first connector. For this example, enter "blob" in the search connectors and triggers box to narrow the results. 
+1. Under the **Azure Blob Storage** connector, select the **When a blob is added or modified** trigger.
 
-
+    :::image type="content" source="./media/power-platform/flow-search-blob.png" alt-text="A screenshot of the search connectors and triggers dialog." lightbox="./media/power-platform/flow-search-blob.png":::
     
+1. Configure the Azure Blob Storage connection. 
+    1. From the **Authentication type** drop-down list, select **Access Key**.
+    1. Enter the account name and access key of the Azure Storage account that you [created previously](#create-the-azure-blob-storage-container).
+    1. Select **Create** to continue.
+1. Configure the **When a blob is added or modified** trigger. 
+
+    :::image type="content" source="./media/power-platform/flow-connection-settings-blob.png" alt-text="A screenshot of the configure blob trigger dialog." lightbox="./media/power-platform/flow-connection-settings-blob.png":::
+
+    1. From the **Storage account name or blob endpoint** drop-down list, select **Use connection settings**. You should see the storage account name as a component of the connection string.
+    1. Under **Container** select the folder icon. Choose the container that you [created previously](#create-the-azure-blob-storage-container).
+
+1. Select **+ New step** to begin adding a new operation for the Azure Blob Storage connector.
+1. Enter "blob" in the search connectors and actions box to narrow the results. 
+1. Under the **Azure Blob Storage** connector, select the **Create SAS URI by path** trigger.
+1. Under the **Storage account name or blob endpoint** drop-down, choose the same connection that you used for the **When a blob is added or modified** trigger.
+1. Select `Path` as dynamic content for the **Blob path** field.
+
+1. Select **+ New step** to begin adding a new operation for the [Azure Cognitive Services for Batch Speech-to-text connector](/connectors/cognitiveservicesspe/). 
+1. Enter "batch speech-to-text" in the search connectors and actions box to narrow the results. 
+1. Select the **Azure Cognitive Services for Batch Speech-to-text** connector.
+1. Select the **Create transcription** action.
+
+1. Create transcription
+1. Delete transcription
+
+
+
 1. From the top navigation menu, save the flow and select **Test the flow**. In the window that appears, select **Test**.
 
 
