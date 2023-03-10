@@ -6,7 +6,7 @@ author: rwike77
 manager: CelesteDG
 
 ms.service: active-directory
-ms.subservice: develop
+ms.subservice: workload-identities
 ms.topic: how-to
 ms.workload: identity
 ms.date: 03/06/2023
@@ -17,7 +17,7 @@ zone_pivot_groups: identity-wif-mi-methods
 #Customer intent: As an application developer, I want to configure a federated credential on a user-assigned managed identity so I can create a trust relationship with an external identity provider and use workload identity federation to access Azure AD protected resources without managing secrets.
 ---
 
-# Configure a user-assigned managed identity to trust an external identity provider (preview)
+# Configure a user-assigned managed identity to trust an external identity provider
 
 This article describes how to manage a federated identity credential on a user-assigned managed identity in Azure Active Directory (Azure AD).  The federated identity credential creates a trust relationship between a user-assigned managed identity and an external identity provider (IdP).  Configuring a federated identity credential on a system-assigned managed identity isn't supported.
 
@@ -44,7 +44,7 @@ To learn more about supported regions, time to propagate federated credential up
 
 ## Configure a federated identity credential on a user-assigned managed identity
 
-In the [Azure portal](https://portal.azure.com), navigate to the user-assigned managed identity you created.  Under **Settings** in the left nav bar, select **Federated credentials (preview)** and then **Add Credential**.
+In the [Azure portal](https://portal.azure.com), navigate to the user-assigned managed identity you created.  Under **Settings** in the left nav bar, select **Federated credentials** and then **Add Credential**.
 
 In the **Federated credential scenario** dropdown box, select your scenario.
 
@@ -158,13 +158,13 @@ Select **Add** to configure the federated credential.
 
 ## List federated identity credentials on a user-assigned managed identity
 
-In the [Azure portal](https://portal.azure.com), navigate to the user-assigned managed identity you created.  Under **Settings** in the left nav bar and select **Federated credentials (preview)**.
+In the [Azure portal](https://portal.azure.com), navigate to the user-assigned managed identity you created.  Under **Settings** in the left nav bar and select **Federated credentials**.
 
 The federated identity credentials configured on that user-assigned managed identity are listed.
 
 ## Delete a federated identity credential from a user-assigned managed identity
 
-In the [Azure portal](https://portal.azure.com), navigate to the user-assigned managed identity you created.  Under **Settings** in the left nav bar and select **Federated credentials (preview)**.
+In the [Azure portal](https://portal.azure.com), navigate to the user-assigned managed identity you created.  Under **Settings** in the left nav bar and select **Federated credentials**.
 
 The federated identity credentials configured on that user-assigned managed identity are listed.
 
@@ -591,4 +591,4 @@ https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RES
 
 ## Next steps
 
-- For information about the required format of JWTs created by external identity providers, read about the [assertion format](active-directory-certificate-credentials.md#assertion-format).
+- For information about the required format of JWTs created by external identity providers, read about the [assertion format](/azure/active-directory/develop/active-directory-certificate-credentials#assertion-format).
