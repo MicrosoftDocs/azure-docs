@@ -1,5 +1,5 @@
 ---
-title: Optimize Checkpoint Performance for Large Model Training Jobs with Nebula
+title: Optimize Checkpoint Performance for Large Model Training Jobs with Nebula (Preview)
 titleSuffix: Azure Machine Learning
 description: Learn how Nebula can save time, resources, and money for large model training applications
 services: machine-learning
@@ -19,14 +19,12 @@ Learn how to boost checkpoint speed and shrink checkpoint cost for large Azure M
 
 ## Overview
 
-Azure Container for PyTorch (ACPT) now includes **Nebula**, a fast, simple, disk-less, model-aware checkpoint tool. With Nebula, you can checkpoint distributed large-scale model training jobs with PyTorch. Nebula levers the latest distributed computing technologies to shrink checkpoint times from hours to seconds - a potential 95% to 99.9% time savings. Large-scale training jobs especially benefit from Nebula checkpoint performance.
+Azure Container for PyTorch (ACPT) now includes **Nebula**, a fast, simple, disk-less, model-aware checkpoint tool. Nebula offers a simple, high-speed checkpointing solution for distributed large-scale model training jobs with PyTorch. Nebula levers the latest distributed computing technologies to shrink checkpoint times from hours to seconds - a potential 95% to 99.9% time savings. Large-scale training jobs especially benefit from Nebula checkpoint performance.
 
-To make Nebula available for your training jobs, import the `torch_nebula` python package in your script. Nebula has full compatibility with different distributed PyTorch training strategies, including PyTorch Lightning, DeepSpeed, and more. The Nebula API offers a simple way to monitor and view checkpoint lifecycles. The APIs support various model types, and ensure checkpoint consistency and reliability.  
+To make Nebula available for your training jobs, import the `nebulaml` python package in your script. Nebula has full compatibility with different distributed PyTorch training strategies, including PyTorch Lightning, DeepSpeed, and more. The Nebula API offers a simple way to monitor and view checkpoint lifecycles. The APIs support various model types, and ensure checkpoint consistency and reliability.  
 
 > [!IMPORTANT] 
 > The `torch-nebula` package is not available in the public PyPI python package index. This package is only available in the Azure Container for PyTorch (ACPT) curated environment on Azure Machine Learning. To avoid problems, please don't try to install `torch-nebula` from PyPI, or the `pip` command.
-
-To maintain stability and to avoid confusion, the next ACPT version release will rename this package to `nebula-ml`.
 
 In this document, you'll learn how to use Nebula with ACPT on Azure Machine Learning, to quickly checkpoint your model training jobs. Additionally, you'll learn how to view and manage Nebula checkpoint data. You'll also learn how to resume the model training jobs from the last available checkpoint if Azure Machine Learning suffers interruption, failure, or termination.
 
@@ -99,20 +97,20 @@ Nebula use involves:
 - [API calls to save and load checkpoints](#call-apis-to-save-and-load-checkpoints)
 
 ### Using ACPT environment
-[Azure Container for PyTorch (ACPT)](how-to-manage-environments-v2.md?tabs=cli#curated-environments), a curated environment for PyTorch model training, offers Nebula pre-installed. See [Azure Container for PyTorch (ACPT)](resource-curated-environments.md#azure-container-for-pytorch-acpt-preview) to learn more about the curated enviroment, and [Enabling Deep Learning with Azure Container for PyTorch in Azure Machine Learning](https://techcommunity.microsoft.com/t5/ai-machine-learning-blog/enabling-deep-learning-with-azure-container-for-pytorch-in-azure/ba-p/3650489) to learn more about the ACPT image.
+[Azure Container for PyTorch (ACPT)](how-to-manage-environments-v2.md?tabs=cli#curated-environments), a curated environment for PyTorch model training, includes Nebula as a pre-installed, dependent Python package. See [Azure Container for PyTorch (ACPT)](resource-curated-environments.md#azure-container-for-pytorch-acpt-preview) to view the curated environment, and [Enabling Deep Learning with Azure Container for PyTorch in Azure Machine Learning](https://techcommunity.microsoft.com/t5/ai-machine-learning-blog/enabling-deep-learning-with-azure-container-for-pytorch-in-azure/ba-p/3650489) to learn more about the ACPT image.
             
 ### Initializing Nebula
 
-To enable Nebula in the ACPT environment, you must only modify your training script to import the `torch_nebula` package, and then call the Nebula APIs in the appropriate places. That's it. You can avoid Azure Machine Learning SDK or CLI modification. You can also avoid modification of other steps to train your large model on Azure Machine Learning Platform.
+To enable Nebula in the ACPT environment, you only need to modify your training script to import the `nebulaml` package, and then call the Nebula APIs in the appropriate places. You can avoid Azure Machine Learning SDK or CLI modification. You can also avoid modification of other steps to train your large model on Azure Machine Learning Platform.
 
 Nebula needs initialization to run in your training script. At the initialization phase, specify the variables that determine the checkpoint save location and frequency, as shown in this code snippet:
 
 ```python
-  import torch_nebula as tn
-  tn.init(persistent_storage_path=<YOUR STORAGE PATH>) # initialize Nebula
+  import nebulaml as nm
+  nm.init(persistent_storage_path=<YOUR STORAGE PATH>) # initialize Nebula
 ```
 
-We plan to integrate Nebula into some trainers, to make initialization simple and easy. If you use a distributed trainer like DeepSpeed, or PyTorch Lightning, this process becomes easier. See these [examples](#examples) to learn how to integrate Nebula in your training scripts.
+Nebula has been integrated into DeepSpeed and PyTorch Lightning. As a result, initialization becomes simple and easy. These [examples](#examples) show how to integrate Nebula into your training scripts.
 
 ### Call APIs to save and load checkpoints
 
@@ -131,48 +129,46 @@ These examples show how to use Nebula with different framework types. You can ch
 
 To enable full Nebula compatibility with PyTorch-based training scripts, modify your training script as needed.
 
-1. First, import the required `torch_nebula` package:
+1. First, import the required `nebulaml` package:
+    ```python
+      # Import the Nebula package for fast-checkpointing 
+      import nebulaml as nm
+    ```
 
-```python
-  # Import the Nebula package for fast-checkpointing 
-  import torch_nebula as tn
-```
-
-1. To initialize Nebula, call the `tn.init()` function in `main()`, as shown here:
-
-```python  
-  # Initialize Nebula with variables that helps Nebula to know where and how often to save your checkpoints
-  persistent_storage_path="/tmp/test",
-  tn.init(persistent_storage_path, persistent_time_interval=2)
-```
+1. To initialize Nebula, call the `nm.init()` function in `main()`, as shown here:
+    ```python
+      # Initialize Nebula with variables that helps Nebula to know where and how often to save your checkpoints
+      persistent_storage_path="/tmp/test",
+      nm.init(persistent_storage_path, persistent_time_interval=2)
+    ```
 
 1. To save checkpoints, replace the original `torch.save()` statement to save your checkpoint with Nebula:
 
-```python
-checkpoint = tn.Checkpoint()
-checkpoint.save(<'CKPT_NAME'>, model)
-```
-> [!NOTE]
-> ``<'CKPT_TAG_NAME'>`` is the unique ID for the checkpoint. A tag is usually the number of steps, the epoch number, or any user-defined name. The optional ``<'NUM_OF_FILES'>`` optional parameter specifies the state number which you would save for this tag.
+    ```python
+    checkpoint = nm.Checkpoint()
+    checkpoint.save(<'CKPT_NAME'>, model)
+    ```
+    > [!NOTE]
+    > ``<'CKPT_TAG_NAME'>`` is the unique ID for the checkpoint. A tag is usually the number of steps, the epoch number, or any user-defined name. The optional ``<'NUM_OF_FILES'>`` optional parameter specifies the state number which you would save for this tag.
 
 1. Load the latest valid checkpoint, as shown here:
 
-```python
-latest_ckpt = tn.get_latest_checkpoint()
-p0 = latest_ckpt.load(<'CKPT_NAME'>)
-```
+    ```python
+    latest_ckpt = nm.get_latest_checkpoint()
+    p0 = latest_ckpt.load(<'CKPT_NAME'>)
+    ```
 
-Since a checkpoint or snapshot may contain many files, you can load one or more of them by the name. In this way, the training state would become the last one saved.
+    Since a checkpoint or snapshot may contain many files, you can load one or more of them by the name. By loading back the latest checkpoint, the training state can be restored to that saved by the last checkpoint.
 
-Other APIs can handle checkpoint management
+    Other APIs can handle checkpoint management
 
-- list all checkpoints
-- get latest checkpoints
+    - list all checkpoints
+    - get latest checkpoints
 
 ```python
 # Managing checkpoints
 ## List all checkpoints
-ckpts = tn.list_checkpoints()
+ckpts = nm.list_checkpoints()
 ## Get Latest checkpoint path
 latest_ckpt_path = tn.get_latest_checkpoint_path("checkpoint", persisted_storage_path)
 ```
@@ -191,7 +187,7 @@ latest_ckpt_path = tn.get_latest_checkpoint_path("checkpoint", persisted_storage
     }
   ```
 
-  This JSON snippets function works like the `torch_nebula.init()` function.
+  This JSON snippets function works like the `nebulaml.init()` function.
 
   Initialization with `ds_config.json` file configuration enables Nebula, which enables checkpoint saves in turn. The original DeepSpeed save method, with the model checkpointing API `model_engine.save_checkpoint()`, automatically uses Nebula. This save method avoids the need for code modification.  
 
@@ -202,7 +198,7 @@ latest_ckpt_path = tn.get_latest_checkpoint_path("checkpoint", persisted_storage
 
   ```python
   # import Nebula package
-  import torch_nebula as tn
+  import nebulaml as nm
   
   # define NebulaCallback
   config_params = dict()
@@ -226,12 +222,12 @@ latest_ckpt_path = tn.get_latest_checkpoint_path("checkpoint", persisted_storage
 
   ```python
   # import Nebula package
-  import torch_nebula as tn
+  import nebulaml as nm
   
   # initialize Nebula
-  tn.init(persistent_storage_path=<YOUR STORAGE PATH>) 
+ nm.init(persistent_storage_path=<YOUR STORAGE PATH>) 
   
-  trainer = Trainer(plugins=[tn.NebulaCheckpointIO()])  # add NebulaCheckpointIO as a plugin
+  trainer = Trainer(plugins=[nm.NebulaCheckpointIO()])  # add NebulaCheckpointIO as a plugin
   
   # Saving checkpoints
   storage_options = {}
@@ -250,7 +246,7 @@ To load the latest checkpoint, ``MyLightningModule.load_from_checkpoint()`` stil
 
 ```python
   persistent_path = "/tmp/tier3/checkpoint"
-  latest_ckpt_path = torch_nebula.get_latest_checkpoint_path("checkpoint", persist_path)
+  latest_ckpt_path = nebulaml.get_latest_checkpoint_path("checkpoint", persist_path)
   model = MyLightningModule.load_from_checkpoint(latest_ckpt_path)
 ```
 
