@@ -46,7 +46,7 @@ The start of a machine learning project typically involves exploratory data anal
 
 2. Make sure that the kernel, found on the top right, is `Python 3.10 - SDK v2`.  If not, use the dropdown to select this kernel.
 
-<!-- nbstart https://raw.githubusercontent.com/Azure/azureml-examples/get-started-tutorials/tutorials/get-started-notebooks/access-and-explore-data.ipynb -->
+   <!-- nbstart https://raw.githubusercontent.com/Azure/azureml-examples/get-started-tutorials/tutorials/get-started-notebooks/access-and-explore-data.ipynb -->
 
 
 1. Select **Open terminal** below the three dots, as shown in this image:
