@@ -51,7 +51,9 @@ The scenario outlined in this tutorial assumes that you already have the followi
 1. Click **Generate key**.
 1. Copy and save the API Key as it won't be available next. This value will be entered in the **Secret Token** field in the Provisioning tab of your Torii application in the Azure portal.
 1. Click **Got it**.
-![Screenshot of Copy API Key.](media/torii-provisioning-tutorial/copy-key.png)
+   ![Screenshot of Create API Key.](media/torii-provisioning-tutorial/create-key.png)
+
+   ![Screenshot of Copy API Key.](media/torii-provisioning-tutorial/copy-key.png)
 1. **Torii Tenant Url:** `https://api.toriihq.com/v1.0/scim/v2` will be entered in the **Tenant URL** field in the Provisioning tab of your Torii application in the Azure portal.
 
 ## Step 3. Add Torii from the Azure AD application gallery
