@@ -29,7 +29,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
 | `$schema` | string | The location/url to load the YAML schema.<br>If the user uses the Azure Machine Learning VS Code extension to author the YAML file, including `$schema` at the top of the file enables the user to invoke schema and resource completions. | | |
-| `compute` | string | **Required.** <br>The name of the AML compute infrastructure to execute the job on. <br> The compute can be either a reference to an existing compute machine in the workspace <br>*Note:* jobs in pipeline don't support 'local' as `compute`. The 'local' here means that compute instance created in user's Azure Machine Learning Studio workspace. | 1. pattern `[^azureml:<compute_name>]` to use existing compute,<br>2.`'local'` to use local execution | `'local'` |
+| `compute` | string | **Required.** <br>The name of the AML compute infrastructure to execute the job on. <br> The compute can be either a reference to an existing compute machine in the workspace <br>*Note:* jobs in pipeline don't support 'local' as `compute`. The 'local' here means that compute instance created in user's Azure Machine Learning studio workspace. | 1. pattern `[^azureml:<compute_name>]` to use existing compute,<br>2.`'local'` to use local execution | `'local'` |
 | `limits` | object | Represents a dictionary object consisting of limit configurations of the Automated ML tabular job.<br>The key is name for the limit within the context of the job and the value is limit value. See [limits](#limits) to find out the properties of this object.|  |  |
 | `name` | string |  The name of the submitted Automated ML job.<br>It must be unique across all jobs in the workspace. If not specified, Azure Machine Learning autogenerates a GUID for the name. | | |
 | `description` | string | The description of the Automated ML job. | | |
@@ -115,7 +115,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
-| `mode` | string | The featurization mode to be used by Automated ML job.<br>Setting it to: <ul><li>`'auto'` indicates whether featurization step should be done automatically</li><li>`'off'` indicates no featurization<li>`'custom'` indicates whether customized featurization should be used.</li></ul> Note: If the input data is sparse, featurization cannot be turned on. | `'auto'`, `'off'`, `'custom'` | `None` |
+| `mode` | string | The featurization mode to be used by Automated ML job.<br>Setting it to: <br> `'auto'` indicates whether featurization step should be done automatically<br>`'off'` indicates no featurization<`'custom'` indicates whether customized featurization should be used. <br> Note: If the input data is sparse, featurization cannot be turned on. | `'auto'`, `'off'`, `'custom'` | `None` |
 | `blocked_transformers` | list(string) | A list of transformer names to be blocked during featurization step by Automated ML, if featurization `mode` is set to 'custom'. | `'text_target_encoder'`, `'one_hot_encoder'`, `'cat_target_encoder'`, `'tf_idf'`, `'wo_e_target_encoder'`, `'label_encoder'`, `'word_embedding'`, `'naive_bayes'`, `'count_vectorizer'`, `'hash_one_hot_encoder'` | `None` |
 | `column_name_and_types` | object | A dictionary object consisting of column names as dict key and feature types used to update column purpose as associated value, if featurization `mode` is set to 'custom'.|  |  |
 | `transformer_params` | object | A nested dictionary object consisting of transformer name as key and corresponding customization parameters on dataset columns for featurization, if featurization `mode` is set to 'custom'.<br>The forecasting only supports `imputer` transformer for customization.<br> Check out [column_transformers](#column_transformers) to find out how to create customization parameters. |  | `None` |
@@ -146,7 +146,7 @@ az ml job create --file [YOUR_CLI_YAML_FILE] --workspace-name [YOUR_AZURE_WORKSP
 ```
 
 ### Quick links for further reference:
-1. [Install and use the CLI (v2)](how-to-configure-cli.md)
-2. [How to run an Automated ML job via CLI]()
-2. [How to auto train forecasts](./how-to-auto-train-forecast.md)
-3. CLI Forecasting examples:<br><ul><li>[Orange Juice Sale Forecasting](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/automl-standalone-jobs/cli-automl-forecasting-orange-juice-sales)</li><li>[Energy Demand Forecasting](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/automl-standalone-jobs/cli-automl-forecasting-task-energy-demand)</li><li>[Bike Share Demand Forecasting](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/automl-standalone-jobs/cli-automl-forecasting-bike-share)</li><li>[GitHub Daily Active Users Forecast](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/automl-standalone-jobs/cli-automl-forecasting-task-github-dau)
+* [Install and use the CLI (v2)](how-to-configure-cli.md)
+* [How to run an Automated ML job via CLI]()
+* [How to auto train forecasts](./how-to-auto-train-forecast.md)
+* CLI Forecasting examples:<br>[Orange Juice Sale Forecasting](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/automl-standalone-jobs/cli-automl-forecasting-orange-juice-sales) <br> [Energy Demand Forecasting](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/automl-standalone-jobs/cli-automl-forecasting-task-energy-demand) <br> [Bike Share Demand Forecasting](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/automl-standalone-jobs/cli-automl-forecasting-bike-share) <br> [GitHub Daily Active Users Forecast](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/automl-standalone-jobs/cli-automl-forecasting-task-github-dau)
