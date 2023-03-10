@@ -174,16 +174,6 @@ You should now see eID-Me as a new OIDC Identity provider listed within your B2C
 
 10. Once the authentication challenge is accepted, the browser will redirect the user to the replying URL.
 
-## Next steps
-
-For additional information, review the following articles:
-
-- [eID-Me and Azure AD B2C integration guide](https://bluink.ca/eid-me/azure-b2c-integration-guide)
-
-- [Custom policies in Azure AD B2C](./custom-policy-overview.md)
-
-- [Get started with custom policies in Azure AD B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy)
-
 
 >[!NOTE]
 >In Azure AD B2C, [**custom policies**](./user-flow-overview.md) are designed primarily to address complex scenarios. For most scenarios, we recommend that you use built-in [**user flows**](./user-flow-overview.md).
