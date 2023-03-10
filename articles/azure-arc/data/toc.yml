@@ -126,6 +126,10 @@ items:
           href: troubleshoot-guide.md
         - name: Get logs
           href: troubleshooting-get-logs.md
+        - name: Failover group
+          href: troubleshoot-managed-instance-failover-group.md
+        - name: Connect
+          href: troubleshoot-managed-instance-connection.md
 - name: Azure Arc-enabled SQL Managed Instance
   items:
     - name: Overview
