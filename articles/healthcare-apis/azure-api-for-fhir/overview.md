@@ -10,6 +10,9 @@ ms.date: 09/30/2022
 ms.author: kesheth
 ---
 
+> [!Note]
+> We are excited to offer Azure Health Data Services evolved version of Azure API for FHIR. Azure Health Data Services enable customers to manage FHIR, DICOM, and MedTech Services with common configuration and integration with other Azure Services. Azure Health Data Services follows consumption-based pricing model, only charging for storage, API calls, transformation and conversion used. To learn about Azure Health Data Services, capabilities [click here](https://azure.microsoft.com/en-us/products/health-data-services/).
+
 # What is Azure API for FHIR?
 
 Azure API for FHIR enables rapid exchange of data through Fast Healthcare Interoperability Resources (FHIR®) APIs, backed by a managed Platform-as-a Service (PaaS) offering in the cloud. It makes it easier for anyone working with health data to ingest, manage, and persist Protected Health Information [PHI](https://www.hhs.gov/answers/hipaa/what-is-phi/index.html) in the cloud: 
