@@ -28,7 +28,7 @@ To migrate to Gen2 using the Azure portal, follow these steps:
 
 Step 1: Assess readiness
 
-- [Verify Azure role-based access control (Azure RBAC) role assignments](#verify-rbac-role-assignments)
+- [Verify Azure role-based access control (Azure RBAC) role assignments](#verify-azure-role-based-access-control-azure-rbac-role-assignments)
 - [Migrate Azure Data Lake Analytics workloads](#migrate-azure-data-lake-analytics-workloads) (if any)
 
 Step 2: [Create a storage account with Gen2 capabilities](#create-a-storage-account-with-gen2-capabilities)
