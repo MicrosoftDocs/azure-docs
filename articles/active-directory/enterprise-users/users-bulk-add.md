@@ -53,8 +53,8 @@ The rows in a downloaded CSV template are as follows:
 
 ## To create users in bulk
 
-1. [Sign in to your Azure AD organization](https://aad.portal.azure.com) with an account that is a User administrator in the organization.
-1. In Azure AD, select **Users** > **Bulk create**.
+1. [Sign in to the Azure portal](https://portal.azure.com) with an account that is a User Administrator in the organization.
+1. Browse to **Azure Active Directory** >  **Users** > **Bulk create**.
 1. On the **Bulk create user** page, select **Download** to receive a valid comma-separated values (CSV) file of user properties, and then add users you want to create.
 
    ![Select a local CSV file in which you list the users you want to add](./media/users-bulk-add/upload-button.png)
@@ -80,9 +80,8 @@ Next, you can check to see that the users you created exist in the Azure AD orga
 
 ## Verify users in the Azure portal
 
-1. [Sign in to the Azure AD admin center](https://aad.portal.azure.com) with an account that is a User administrator in the organization.
-1. In the navigation pane, select **Azure Active Directory**.
-1. Under **Manage**, select **Users**.
+1. [Sign in to the Azure portal](https://portal.azure.com) with an account that is a User Administrator in the organization.
+1. Browse to **Azure Active Directory** > **Users**.
 1. Under **Show**, select **All users** and verify that the users you created are listed.
 
 ### Verify users with PowerShell
