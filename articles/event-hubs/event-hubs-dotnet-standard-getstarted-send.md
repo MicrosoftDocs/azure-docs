@@ -210,7 +210,7 @@ In this quickstart, you use Azure Storage as the checkpoint store. Follow these 
 [!INCLUDE [event-hub-storage-assign-roles](../../includes/passwordless/event-hub/event-hub-storage-assign-roles.md)]
 ## [Connection String](#tab/connection-string)
 
-[Get the connection string to the storage account](../storage/common/storage-account-get-info#get-a-connection-string-for-the-storage-account)
+[Get the connection string to the storage account](../storage/common/storage-account-get-info.md#get-a-connection-string-for-the-storage-account)
 
 Note down the connection string and the container name. You use them in the receive code. 
 
