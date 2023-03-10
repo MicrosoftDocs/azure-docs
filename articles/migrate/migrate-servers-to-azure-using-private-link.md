@@ -22,6 +22,18 @@ This article shows how to migrate on-premises VMware VMs to Azure, using the [Mi
 
 The Migration and modernization tool runs a lightweight VMware VM appliance to enable the discovery, assessment, and agentless migration of VMware VMs. If you have followed the [Discovery and assessment tutorial](discover-and-assess-using-private-endpoints.md), you've already set the appliance up. If you didn't, [set up and configure the appliance](./discover-and-assess-using-private-endpoints.md#set-up-the-azure-migrate-appliance) before you proceed.
 
+In the agentless method for migrating VMware virtual machines to Azure, the Azure Migrate appliance first uploads replication data to a storage account (cache storage account) in your subscription. Azure Migrate then moves the replicated data from the cache storage account to replica-managed disks in your subscription.
+
+To use a private connection for replication, you'll use the storage account already created by Azure Migrate project during the setup or create a new cache storage account and configure private endpoint. To create a new storage account with private endpoint, see [Private endpoint for storage account](migrate-servers-to-azure-using-private-link?pivots=agentlessvmware#create-a-private-endpoint-for-the-storage-account)
+
+The private endpoint allows the Azure Migrate appliance to connect to the cache storage account by using a private connection like an ExpressRoute private peering or VPN. Data can then be transferred directly on the private IP address.
+
+> [!Important]
+> - In addition to replication data, the Azure Migrate appliance communicates with the Azure Migrate service for its control plane activities. These activities include orchestrating replication. Control plane communication between the Azure Migrate appliance and the Azure Migrate service continues to happen over the internet on the Azure Migrate service's public endpoint.
+> - The private endpoint of the storage account should be accessible from the network where the Azure Migrate appliance is deployed.
+> - DNS must be configured to resolve DNS queries by the Azure Migrate appliance for the cache storage account's blob service endpoint to the private IP address of the private endpoint attached to the cache storage account.
+> - The cache storage account must be accessible on its public endpoint. Azure Migrate uses the cache storage account's public endpoint to move data from the storage account to replica-managed disks.
+
 ## Replicate VMs
 
 After setting up the appliance and completing discovery, you can begin replicating VMware VMs to Azure.
