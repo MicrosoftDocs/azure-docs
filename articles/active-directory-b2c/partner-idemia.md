@@ -47,7 +47,7 @@ The following diagram illustrates the sign-up and sign-in user flows with Mobile
 1. User visits the Azure AD B2C sign-in page (the replying party), with their device and Mobile ID, to conduct a transaction.
 2. Azure AD B2C performs an ID check. It redirects the user to the IDEMIA router with an OIDC authorization code flow.
 3. The router sends a biometric challenge to the user’s mobile app with authentication and authorization request details.
-4. Depending on security, the user might be prompted provide additional details: input a PIN, take a live selfie, or both.
+4. Depending on security, the user might be prompted provide more details: input a PIN, take a live selfie, or both.
 5. The authentication response provides proof of possession, presence, and consent. The response returns to the router.
 6. The router verifies user information and replies to Azure AD B2C with the result.
 7. The user is granted or denied access.
@@ -69,8 +69,8 @@ To get started, you need:
 * An Azure AD subscription
   * If you don't have one, get an [Azure free account](https://azure.microsoft.com/free/)
 * An [Azure AD B2C tenant](tutorial-create-tenant.md) linked to the Azure subscription
-* Your business web application registered in Azure AD B2C tenant. 
-  * For testing, configure https://jwt.ms, a Microsoft-owned web application with decoded token contents.
+* Your business web application registered in an Azure AD B2C tenant
+  * For testing, configure https://jwt.ms, a Microsoft web application with decoded token contents
 
    >[!NOTE]
    >The token contents don't leave your browser.
@@ -81,12 +81,12 @@ During Mobile ID integration, the following information is provided.
 
 | Property | Description |
 |:---------|:----------|
-| Application Name | Azure AD B2C, or your an application name |
+| Application Name | Azure AD B2C, or another application name |
 | Client_ID | The unique identifier from the identity provider (IdP) |
 | Client Secret | Password the relying party application uses to authenticate with the IDEMIA IdP |
 | Metadata endpoint | A URL pointing to a token issuer configuration document, also known as an OpenID well-known configuration endpoint |
 |Redirect URIs | `https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp`<br>For  example, `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`<br><br>If you use a custom domain, enter `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp`.|
-|Post log out redirect URIs | `https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/{policy}/oauth2/v2.0/logout`<br>Send a sign-out request. |
+|Post sign out redirect URIs | `https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/{policy}/oauth2/v2.0/logout`<br>Send a sign out request. |
 
    >[!NOTE]
    >You need the Client ID and Client Secret later to configure the IdP in Azure AD B2C.
@@ -175,10 +175,10 @@ Select one of the following values:
 |Parameter value| Effect on user authentication process |
 |---|---|
 |`loa-2`| Crypto-based Azure AD Multi-Factor Authentication (MFA) only|
-|`loa-3`| Crypto-based MFA, plus an additional factor|
+|`loa-3`| Crypto-based MFA, plus another factor|
 |`loa-4`| Crypto-based MFA, plus the user performs PIN and biometric authentication |
 
-The **/userinfo** endpoint provides the claims for the scope(s) requested in the authorization request. For the **<mt_scope>** this includes claims like First Name, Last Name, and Driver's License Number, among other items.
+The **/userinfo** endpoint provides the claims for the scope(s) requested in the authorization request. For the **<mt_scope>**, there are claims like First Name, Last Name, and Driver's License Number, among other items.
 The claims set for a scope are published in the **scope_to_claims_mapping** section of the discovery API.
 Azure AD B2C requests claims from the claims endpoint and returns them in the OutputClaims element. You might need to map the claim name in your policy to the name in the IdP. Define the claim type in the [ClaimSchema element](claimsschema.md):
 
@@ -200,7 +200,7 @@ For these instructions, the IdP is set up, but it's not in any sign-in page. If 
 1. From the starter pack, open the `TrustFrameworkBase.xml` file.
 2. Locate and copy the contents of the `UserJourneys` element, which includes `ID=SignUpOrSignIn`.
 3. Open the `TrustFrameworkExtensions.xml`.
-4. Locate the **UserJourneys** element. If there is no element, add one.
+4. Locate the **UserJourneys** element. If there's no element, add one.
 5. Paste the contents of the **UserJourney** element as a child of the UserJourneys element.
 6. Rename the user journey ID. For example, `ID=CustomSignUpSignIn`.
 
@@ -236,7 +236,7 @@ The following XML demonstrates the first two orchestration steps of a user journ
 
 ### Configure the relying party policy
 
-The relying party policy, for example [SignUpSignIn.xml](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/blob/master/SocialAndLocalAccounts/SignUpOrSignin.xml), specifies the user journey tkhe Azure AD B2C executes. 
+The relying party policy, for example [SignUpSignIn.xml](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/blob/master/SocialAndLocalAccounts/SignUpOrSignin.xml), specifies the user journey the Azure AD B2C executes. 
 
 1. Find the **DefaultUserJourney** element in relying party. 
 2. Update the **ReferenceId** to match the user journey ID, in which you added the IdP.
