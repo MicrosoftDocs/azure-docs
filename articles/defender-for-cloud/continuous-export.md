@@ -176,7 +176,7 @@ You can export data to an Azure Event hub or Log Analytics workspace in a differ
 
 To export data to an Azure Event hub or Log Analytics workspace in a different tenant:
 
-1. In the tenant that has the Azure Event hub or Log Analytics workspace, [invite a user](../active-directory/external-identities/what-is-b2b.md#easily-invite-guest-users-from-the-azure-ad-portal) from the tenant that hosts the continuous export configuration.
+1. In the tenant that has the Azure Event hub or Log Analytics workspace, [invite a user](../active-directory/external-identities/what-is-b2b.md#easily-invite-guest-users-from-the-azure-portal) from the tenant that hosts the continuous export configuration.
 1. For a Log Analytics workspace: After the user accepts the invitation to join the tenant, assign the user in the workspace tenant one of these roles: Owner, Contributor, Log Analytics Contributor, Sentinel Contributor, Monitoring Contributor
 1. Configure the continuous export configuration and select the Event hub or Analytics workspace to send the data to.
 
