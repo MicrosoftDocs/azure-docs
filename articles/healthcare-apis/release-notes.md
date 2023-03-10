@@ -27,7 +27,7 @@ Azure Health Data Services is a set of managed API services based on open standa
 _till parameter is introduced as optional parameter and allows you to export resources that have been modified till the specified time. 
 This feature improvement is applicable to System export, for more information on export, visit [FHIR specification](https://hl7.org/fhir/uv/bulkdata/export/index.html)
 
-Also visit [Export your FHIR data by invoking the $export command on the FHIR service | Microsoft Learn](https://learn.microsoft.com/en-us/azure/healthcare-apis/fhir/export-data)
+Also visit [Export your FHIR data by invoking the $export command on the FHIR service | Microsoft Learn](https://learn.microsoft.com/azure/healthcare-apis/fhir/export-data)
 
 
 **Fixed issue for Chained search with :contains modifier results with no resources are returned**
@@ -43,7 +43,7 @@ For more details, visit  [#2990](https://github.com/microsoft/fhir-server/pull/2
 
 Previous to this change, during pagination Cosmos DB continuation token had a  default limit of 3Kb. With this change, customers can send Cosmos DB Continuation Token limit in the header. Valid range is set to 1-3 Kb. Header value to use to send this value is x-ms-documentdb-responsecontinuationtokenlimitinkb
 
-For more details, visit  [#2971](https://github.com/microsoft/fhir-server/pull/2971/files) and [Overview of search in Azure API for FHIR | Microsoft Learn](https://learn.microsoft.com/en-us/azure/healthcare-apis/azure-api-for-fhir/overview-of-search)
+For more details, visit  [#2971](https://github.com/microsoft/fhir-server/pull/2971/files) and [Overview of search in Azure API for FHIR | Microsoft Learn](https://learn.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/overview-of-search)
 
 
 **Fixed issue related to HTTP Status code 500 was encountered when :not modifier was used with chained searches**
@@ -64,13 +64,13 @@ Bug fix addresses the issue and versioned policy at resource level does not requ
 
 The MedTech service's new Mapping Debugger is a self-service tool that is used for creating, updating, and troubleshooting the MedTech service device and FHIR destination mappings. It enables you to easily view and make inline adjustments in real-time, without ever having to leave the Azure portal. 
 
-For more information, visit [How to use the MedTech service Mapping debugger - Azure Health Data Services | Microsoft Learn](https://learn.microsoft.com/en-us/azure/healthcare-apis/iot/how-to-use-mapping-debugger)
+For more information, visit [How to use the MedTech service Mapping debugger - Azure Health Data Services | Microsoft Learn](./../healthcare-apis/iot/how-to-use-mapping-debugger.md)
 
 
 
 **Error Message released**
 
-The MedTech service now has an error message feature that allows you to easily view any errors generated, as well as the message that caused each error. You can now understand the context behind any errors without manual effort. For more info on error logs, visit [Troubleshoot errors using the MedTech service logs - Azure Health Data Services | Microsoft Learn](https://learn.microsoft.com/en-us/azure/healthcare-apis/iot/troubleshoot-errors-logs)
+The MedTech service now has an error message feature that allows you to easily view any errors generated, as well as the message that caused each error. You can now understand the context behind any errors without manual effort. For more info on error logs, visit [Troubleshoot errors using the MedTech service logs - Azure Health Data Services | Microsoft Learn](./../healthcare-apis/iot/troubleshoot-errors-logs.md)
 
 
 
