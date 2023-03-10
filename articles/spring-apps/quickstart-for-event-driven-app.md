@@ -34,16 +34,16 @@ This article explains how to deploy a Spring Boot event driven application to Az
 
 1. The sample project is ready on GitHub. Just clone sample project by this command:
 
-    ```shell
-    git clone https://github.com/Azure-Samples/ASA-Samples-Event-Driven-Application.git
-    ```
+   ```shell
+   git clone https://github.com/Azure-Samples/ASA-Samples-Event-Driven-Application.git
+   ```
 
 1. Build the sample project.
 
-    ```shell
-    cd ASA-Samples-Event-Driven-Application
-    ./mvnw clean package -DskipTests
-    ```
+   ```shell
+   cd ASA-Samples-Event-Driven-Application
+   ./mvnw clean package -DskipTests
+   ```
 
 ## Prepare the cloud environment
 
@@ -68,58 +68,58 @@ To easier to manage the resources, create a resource group to hold these resourc
 
 1. Sign-in Azure CLI.
 
-    ```azurecli-interactive
-    az login
-    ```
+   ```azurecli-interactive
+   az login
+   ```
 
 1. Set default location.
 
-    ```azurecli-interactive
-    az configure --defaults location=${LOCATION}
-    ```
+   ```azurecli-interactive
+   az configure --defaults location=${LOCATION}
+   ```
 
 1. Set your default subscription. Firstly, list all available subscriptions:
 
-    ```azurecli-interactive
-    az account list --output table
-    ```
+   ```azurecli-interactive
+   az account list --output table
+   ```
 
-    Determine the ID op the subscription you want to use and run the following command to set your default subscription.
+   Determine the ID op the subscription you want to use and run the following command to set your default subscription.
 
-    ```azurecli-interactive
-    az account set --subscription <subscription-ID>
-    ```
+   ```azurecli-interactive
+   az account set --subscription <subscription-ID>
+   ```
 
 1. Create a resource group.
 
-    ```azurecli-interactive
-    az group create --resource-group ${RESOURCE_GROUP}
-    ```
+   ```azurecli-interactive
+   az group create --resource-group ${RESOURCE_GROUP}
+   ```
 
 1. Set the newly created resource group as default resource group.
 
-    ```azurecli-interactive
-    az configure --defaults group=${RESOURCE_GROUP}
-    ```
+   ```azurecli-interactive
+   az configure --defaults group=${RESOURCE_GROUP}
+   ```
 
 ### Step 3 - Create a Service Bus instance
 
 1. Run the following command to create a Service Bus namespace.
 
-    ```azurecli-interactive
-    az servicebus namespace create --name ${SERVICE_BUS_NAME_SPACE}
-    ```
+   ```azurecli-interactive
+   az servicebus namespace create --name ${SERVICE_BUS_NAME_SPACE}
+   ```
 
 1. Run the following command to create two queues named `lower-case` and `upper-case`.
 
-    ```azurecli-interactive
-    az servicebus queue create \
-        --namespace-name ${SERVICE_BUS_NAME_SPACE} \
-        --name lower-case
-    az servicebus queue create \
-        --namespace-name ${SERVICE_BUS_NAME_SPACE} \
-        --name upper-case
-    ```
+   ```azurecli-interactive
+   az servicebus queue create \
+       --namespace-name ${SERVICE_BUS_NAME_SPACE} \
+       --name lower-case
+   az servicebus queue create \
+       --namespace-name ${SERVICE_BUS_NAME_SPACE} \
+       --name upper-case
+   ```
 
 ### Step 4 - Create an Azure Spring Apps Consumption plan instance
 
@@ -131,61 +131,61 @@ The Azure Container Apps environment creates a secure boundary around a group of
 
 1. Install the Azure Container Apps extension for the CLI.
 
-    ```azurecli-interactive
-    az extension add --name containerapp --upgrade
-    ```
+   ```azurecli-interactive
+   az extension add --name containerapp --upgrade
+   ```
 
 1. Register the Microsoft.App namespace.
 
-    ```azurecli-interactive
-    az provider register --namespace Microsoft.App
-    ```
+   ```azurecli-interactive
+   az provider register --namespace Microsoft.App
+   ```
 
 1. Register the Microsoft.OperationalInsights provider for the Azure Monitor Log Analytics workspace if you haven't used it before.
 
-    ```azurecli-interactive
-    az provider register --namespace Microsoft.OperationalInsights
-    ```
+   ```azurecli-interactive
+   az provider register --namespace Microsoft.OperationalInsights
+   ```
 
 1. Create the environment by this command:
 
-    ```azurecli-interactive
-    az containerapp env create --name ${MANAGED_ENVIRONMENT}
-    ```
+   ```azurecli-interactive
+   az containerapp env create --name ${MANAGED_ENVIRONMENT}
+   ```
 
 #### Step 4.2 - Create Azure Spring Apps instance
 
 1. Install the spring extension designed for StandardGen2 Azure Spring Apps.
 
-    ```azurecli-interactive
-    az extension remove -n spring && \
-    az extension add \
-        --source https://ascprivatecli.blob.core.windows.net/cli-extension/spring-1.8.0-py3-none-any.whl \
-        --yes
-    ```
+   ```azurecli-interactive
+   az extension remove -n spring && \
+   az extension add \
+       --source https://ascprivatecli.blob.core.windows.net/cli-extension/spring-1.8.0-py3-none-any.whl \
+       --yes
+   ```
 
 1. Register the Microsoft.AppPlatform provider for the Azure Spring Apps.
 
-    ```azurecli-interactive
-    az provider register --namespace Microsoft.AppPlatform
-    ```
+   ```azurecli-interactive
+   az provider register --namespace Microsoft.AppPlatform
+   ```
 
 1. Get managed environment resource ID.
 
-    ```azurecli-interactive
-    MANAGED_ENV_RESOURCE_ID=$(az containerapp env show \
-        --name ${MANAGED_ENVIRONMENT} \
-        --query id -o tsv)
-    ```
+   ```azurecli-interactive
+   MANAGED_ENV_RESOURCE_ID=$(az containerapp env show \
+       --name ${MANAGED_ENVIRONMENT} \
+       --query id -o tsv)
+   ```
 
 1. Create your Azure Spring Apps instance by specifying the resource ID of the Managed Environment you created.
 
-    ```azurecli-interactive
-    az spring create \
-        --name ${AZURE_SPRING_APPS_NAME} \
-        --managed-environment ${MANAGED_ENV_RESOURCE_ID} \
-        --sku standardGen2
-    ```
+   ```azurecli-interactive
+   az spring create \
+       --name ${AZURE_SPRING_APPS_NAME} \
+       --managed-environment ${MANAGED_ENV_RESOURCE_ID} \
+       --sku standardGen2
+   ```
 
 #### Step 4.3 - Create an app in Azure Spring Apps
 
@@ -193,13 +193,13 @@ Create an app in the Azure Spring Apps instance.
 
 ```azurecli-interactive
 az spring app create \
-    --service ${AZURE_SPRING_APPS_NAME} \
-    --name ${APP_NAME} \
-    --cpu 1 \
-    --memory 2 \
-    --instance-count 2 \
-    --runtime-version Java_17 \
-    --assign-endpoint true
+   --service ${AZURE_SPRING_APPS_NAME} \
+   --name ${APP_NAME} \
+   --cpu 1 \
+   --memory 2 \
+   --instance-count 2 \
+   --runtime-version Java_17 \
+   --assign-endpoint true
 ```
 
 ### Step 5 - Bind Service Bus to Azure Spring Apps
@@ -209,6 +209,7 @@ Now both Service Bus and app in Azure Spring Apps have been created. But the app
 #### Step 5.1 - Get a connection string
 
 To make the app can connect to the Service Bus, get the Service Bus's connection string first.
+
 ```azurecli-interactive
 SERVICE_BUS_CONNECTION_STRING=$(az servicebus namespace authorization-rule keys list \
     --namespace-name ${SERVICE_BUS_NAME_SPACE} \
