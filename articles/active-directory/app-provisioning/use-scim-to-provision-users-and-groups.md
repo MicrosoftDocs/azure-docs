@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/09/2023
+ms.date: 03/10/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -1171,11 +1171,11 @@ In the sample code, the request is translated into a call to the CreateAsync met
 Task<Resource> CreateAsync(IRequest<Resource> request);
 ```
 
-In a request to a user provisioning, the value of the resource argument is an instance of the Microsoft.SCIM.Core2EnterpriseUser class, defined in the Microsoft.SCIM.Schemas library.  If the request to provision the user succeeds, then the implementation of the method is expected to return an instance of the Microsoft.SCIM.Core2EnterpriseUser class, with the value of the Identifier property set to the unique identifier of the newly provisioned user.  
+In a request for user provisioning, the value of the resource argument is an instance of the Microsoft.SCIM.Core2EnterpriseUser class. This class is defined in the Microsoft.SCIM.Schemas library.  If the request to provision the user succeeds, then the implementation of the method is expected to return an instance of the Microsoft.SCIM.Core2EnterpriseUser class. The value of the `Identifier` property is set to the unique identifier of the newly provisioned user.  
 
 ***Example 3. Query the current state of a user*** 
 
-To update a user known to exist in an identity store fronted by an SCIM, Azure AD proceeds by requesting the current state of that user from the service with a request such as: 
+Azure AD requests the current state of the specified user from the service with a request such as: 
 
 ```
 GET ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
@@ -1195,7 +1195,7 @@ In the sample code, the request is translated into a call to the RetrieveAsync m
 Task<Resource> RetrieveAsync(IRequest<IResourceRetrievalParameters> request);
 ```
 
-In the example of a request to retrieve the current state of a user, the values of the properties of the object provided as the value of the parameters argument are as follows: 
+In the example of a request, to retrieve the current state of a user, the values of the properties of the object provided as the value of the parameters argument are as follows: 
   
 * Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
 * SchemaIdentifier: `urn:ietf:params:scim:schemas:extension:enterprise:2.0:User`
@@ -1254,7 +1254,7 @@ In the sample code, the request is translated into a call to the UpdateAsync met
 Task UpdateAsync(IRequest<IPatch> request);
 ```
 
-In the example of a request to update a user, the object provided as the value of the patch argument has these property values: 
+In the example of a request, to update a user, the object provided as the value of the patch argument has these property values: 
 
 |Argument|Value|
 |-|-|
@@ -1398,7 +1398,7 @@ The provisioning service supports the [authorization code grant](https://tools.i
 > [!NOTE]
 > OAuth v1 is not supported due to exposure of the client secret. OAuth v2 is supported.  
 
-Supportting multiple secrets for easy renewal, without downtime is recommended, but not required.
+It is recommended, but not required, that you support multiple secrets for easy renewal without downtime.
 
 #### How to set up OAuth code grant flow
 
