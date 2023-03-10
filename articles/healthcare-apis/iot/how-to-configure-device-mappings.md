@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 03/09/2023
+ms.date: 03/10/2023
 ms.author: jasteppe
 ---
 
@@ -22,7 +22,7 @@ The MedTech service requires two types of [JSON-based](https://www.json.org/) ma
 
 * The FHIR destination mappings allow configuration of the length of the observation period, FHIR data type used to store the values, and terminology code(s). 
 
-The device and FHIR destination mappings are JSON documents based on their type and composed of different templates based on requirements. These JSON documents are then added to your MedTech service through the Azure portal or ARM API (Azure Resource Manage API).
+The device and FHIR destination mappings are JSON documents based on their type and composed of different templates based on requirements. These JSON documents are then added to your MedTech service through the Azure portal or Azure Resource Manager API (ARM API).
 
 > [!NOTE]
 > The device and FHIR destination mappings are stored in [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction) and loaded from blob storage per compute execution. Once updated, the mappings should take effect immediately.
@@ -88,11 +88,11 @@ The validation process validates the device mapping before allowing them to be s
 > [!NOTE]
 > `Values[].ValueName and Values[].ValueExpression` elements are only required if you have a value entry in the array. It's valid to have no values mapped. This is used when the telemetry being sent is an event. 
 >
-> For example, some scenarios may require creating an Observation Resource in the FHIR service that does not contain a value.
+> For example, some scenarios may require creating an Observation resource in the FHIR service that does not contain a value.
 
-## CollectionContentTemplate
+## CollectionContent as the root device mapping template 
 
-The CollectionContentTemplate is the root template type used by the MedTech service device mapping and represents a list of all templates that will be used during the normalization process. You can define one or more templates within the MedTech service device mapping. Each device message received is evaluated against all device mapping templates.
+CollectionContent is the root template type used by the MedTech service device mapping and represents a list of all templates that will be used during the normalization process. You can define one or more templates within the MedTech service device mapping. Each device message received is evaluated against all device mapping templates.
 
 :::image type="content" source="media/how-to-configure-device-mappings/device-mapping-diagram.png" alt-text="Diagram showing MedTech service device mapping architecture." lightbox="media/how-to-configure-device-mappings/device-mapping-diagram.png":::
                                                              
@@ -237,7 +237,7 @@ In addition to JSONPath, the MedTech service device mapping supports these other
 
 ## Next steps
 
-In this article, you learned how the MedTech service device mapping is used and how to configure. 
+In this article, you've been provided an overview of the MedTech service device mapping and learned how to configure the device mapping using templates. 
 
 To learn how the MedTech service FHIR destination mapping is used and configured to configure, see
 
