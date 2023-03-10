@@ -31,8 +31,6 @@ landingContent:
         links:
           - text: Hierarchy model
             url: concepts-hierarchy-model.md
-          - text: Farm operations data ingestion
-            url: concepts-ingest-farm-operations-data.md
           - text: Satellite data ingestion
             url: concepts-ingest-satellite-imagery.md
           - text: Weather forecast data ingestion

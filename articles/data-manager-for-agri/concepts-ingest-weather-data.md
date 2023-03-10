@@ -13,7 +13,7 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 
 Weather is a highly democratized service in the agriculture industry. Data Manager for Agriculture offers customers the ability to work with the weather provider of their choice. 
 
-Data Manager for Agriculture provides weather current and forecast data through an extension-based and provider agnostic approach. Customers can work with a provider of their choice by following the steps [here](./how-to-write-weather-extension.md). Out of the box we support IBM TWC.
+Data Manager for Agriculture provides weather current and forecast data through an extension-based and provider agnostic approach. Customers can work with a provider of their choice by following the steps [here](./how-to-write-weather-extension.md). 
 
 ## Design overview
 
@@ -25,14 +25,6 @@ Data Manager for Agriculture provides weather data through provider agnostic app
 * Forecast data provided isn't older than 15 mins and the current conditions data isn't older than 10 mins.
 * Once the initial call is made for a location, the data gets cached for the TTL defined.
 * To keep the cache warm, you can use the parameter called `apiFreshnessTimeInMinutes` in extension. The platform will keep a job running for the amount of time defined and update the cache. The default value is be zero that means the cache won't be kept warm by default
-
-### Prerequisite to use IBM TWC weather APIs
-
-To start using IBM's APIs go through the documentation [here](https://developer.ibm.com/components/weather-company/apis/).
-
->[!Tip]
->If you are a customer of IBM TWC, then you can skip the above step and directly proceed to using the APIs.
- 
 
 The steps to fetch weather data and ingest into Data Manager for Agriculture platform.
 
@@ -101,7 +93,7 @@ armclient put /subscriptions/<subscriptionid>/resourceGroups/<resource-group-nam
     "lastModifiedAt": "2022-11-08T13:10:17Z"
   },
   "properties": {
-    "extensionId": "IBM.TWC",
+    "extensionId": "provider",
     "extensionCategory": "Weather",
     "installedExtensionVersion": "2.0",
     "extensionApiDocsLink": "https://go.microsoft.com/fwlink/?linkid=2192974",
@@ -118,15 +110,9 @@ armclient put /subscriptions/<subscriptionid>/resourceGroups/<resource-group-nam
     }
   },
   "eTag": "ea0261d0-0000-0700-0000-636a55390000",
-  "name": "IBM.TWC"
+  "name": "provider"
 }
 ```
-
-### Supported weather provider
-
-#### IBM TWC
-
-To work with this extension, the `extensionId` used needs to be **IBM.TWC** and the apiNames supported are `15-day-daily-forecast`, `15-day-hourly-forecast` & `currents-on-demand`. For more information, on the API inputs, read the documentation [here](/rest/api/data-manager-for-agri/dataplane-version2022-11-01-preview/weather-data/)
 
 ## Step 2: Fetch weather data
 
