@@ -2068,12 +2068,12 @@ groups:
   - id: bicep
     title: Bicep
 # Owner: robswain
-- id: ap5gc-portal-powershell
+- id: ap5gc-cli-powershell
   title: Deployment options
   prompt: Choose how you deploy your resources
   pivots:
-  - id: portal
-    title: Azure portal
+  - id: cli
+    title: Azure CLI
   - id: powershell
     title: PowerShell
 # Owner: v-amallick
