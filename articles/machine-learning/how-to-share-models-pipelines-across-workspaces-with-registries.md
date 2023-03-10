@@ -114,8 +114,9 @@ ml_client_workspace = MLClient( credential=credential,
     workspace_name = "<workspace-name>")
 print(ml_client_workspace)
 
-ml_client_registry = MLClient ( credential=credential,
-        registry_name = "<registry-name>")
+ml_client_registry = MLClient(credential=credential,
+                        registry_name="<REGISTRY_NAME>",
+                        registry_location="<REGISTRY_REGION>")
 print(ml_client_registry)
 ```
 
