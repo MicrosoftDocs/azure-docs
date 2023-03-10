@@ -3,7 +3,7 @@ title: 'Quickstart: Create an Azure API Management service using Terraform'
 description: 'In this article, you create an Azure API Management service using Terraform'
 ms.topic: quickstart
 ms.service: api-management
-ms.date: 3/9/2023
+ms.date: 3/10/2023
 ms.custom: devx-track-terraform
 author: TomArcherMsft
 ms.author: tarcher
@@ -84,7 +84,7 @@ In this article, you learn how to:
 
 1. Run [az apim show](/cli/azure/apim#az-apim-show) to display information about the new service.
 
-    ```azurepowershell
+    ```azurecli
     az apim show --resource-group <resource_group_name> \
                  --name <api_management_service_name>
     ```
