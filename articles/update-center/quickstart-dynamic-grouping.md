@@ -8,13 +8,13 @@ ms.author: sudhirsneha
 ms.topic: quickstart
 ---
 
-# Quickstart: Schedule updates for groups
+# Quickstart: Schedule updates for machines that are not supported for schedule
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
 Dynamic grouping allows you to include VMs based on scope and schedule updates at scale. You can modify the scope at any time and the patching requirements are applied at scale without any changes to the deployment schedule.
 
-This quickstart details how to configure schedule updates on a group of Azure virtual machine(s) or Arc-enabled server(s)on-premises or in cloud environments.
+This quickstart details how to configure schedule updates on a group of Azure virtual machine(s) or Arc-enabled server(s)on-premises or in cloud environments that are not supported for schedule.
 
 ## Permissions
 
@@ -31,17 +31,16 @@ Ensure that you have write permissions to create or modify a schedule for a dyna
 ## Create groups
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to Update management center (preview).
-1. Select **Overview** > **Schedule updates**.
-1. In the **Create a maintenance configuration** page, go to **Machines** and under **Group to update**, select **Add a group**.
-1. In the **Add a group to update** page, provide a group name, and select subscriptions.
-1. In **Other criteria**, choose **Select** and in the **Select other criteria** page, specify the Resource group, Resource type, Location, Tags, and OS type and select **Select**.
-
+1. Select **Overview** > **Schedule updates** > **Create new schedule**.
+1. In the **Create a maintenance configuration** page, go to **Basics** tab and select **Add a schedule**. For more information, see from Step 4 in [Schedule recurring updates for machines using Azure portal and Azure Policy](scheduled-patching.md#schedule-recurring-updates-on-single-vm).
+1. Go to **Dynamic scopes** tab to either assign machines to a dynamic scope or assign them after the maintenance configuration has been deployed. Select **Subscription**, **Resource group**, **Resource type**, **Location**, **OS Type**, and **Tags**.
+1. To preview the machines included in the maintenance configuration, select the icon under **Actions**.
+   [!NOTE]
+   > If the new machines that you add later match the selected criteria, the scheduled updates are automatically applied to them.
+1. Select **Updates**
     > [!NOTE]
     > Before you create a group, you can edit, preview, and delete the group. However, after the group is created, you can only edit the scope and not the subscription. To edit the scope, go to **Browse maintenance configuration** > select the schedule. In **Maintenance configuration**, go to **Settings** > **Schedule** to edit it.  
 
-1. In the **Preview of machines based on above criteria** you can view the list of machines for the selected criteria at that current time and select **Add**.
-   > [!NOTE]
-   > If the new machines that you add later match the selected criteria, the scheduled updates are automatically applied to them.
 
 ## Provide consent
 Obtaining consent to apply updates is an important step in the workflow of scheduled patching and listed are the various ways to provide consent.
@@ -49,21 +48,24 @@ Obtaining consent to apply updates is an important step in the workflow of sched
 #### [From Virtual Machine](#tab/vm)
 
 1. In **Azure portal**, go to **+Create a resource** > **Virtual machine** > **Create**. 
-1. In **Create a virtual machine**, select **Management** tab.
-1. Under **Guest OS Updates**, in **Patch orchestration options**, select **Azure-orchestrated with user managed schedules (preview)** to confirm that:
-   - *Patch Orchestration is set to Azure orchestration*
-   - *Set the Bypass platform safety checks on user schedule = True*.
+1. In **Create a virtual machine**, select **Management** tab and under the **Guest OS Updates**, in **Patch orchestration options**, you can do the following: 
+    1. Select **Azure-orchestrated with user managed schedules (Preview)** to confirm that:
 
-    The selection allows you to provide consent to apply the update settings, ensures that auto patching isn't applied and that patching on the VM(s) runs as per the schedule you've defined.
+       - *Patch Orchestration is set to Azure orchestration*
+       - *Set the Bypass platform safety checks on user schedule = True*.
+
+       The selection allows you to provide consent to apply the update settings, ensures that auto patching isn't applied and that patching on the VM(s) runs as per the schedule you've defined.
 
 1. Complete the details under **Monitoring**, **Advanced** and **Tags** tabs.
-1. Select **Review + Create**.
+1. Select **Review + Create** and under the **Management** you can view the values as **Periodic assessment** - *Off* and **Patch orchestration options** - *Azure-orchestrated with user managed schedules (Preview)*.
+1. Select **Create**.
    
 
-#### [From Schedule updates](#tab/sc)
+#### [From Schedule updates tab](#tab/sc)
 
 1. Follow the steps from 1 to 5 listed in [Create groups](#create-groups).
-1. In **Prerequisite for schedule updates**, select **Continue with supported machines only** option to confirm that:
+1. In **Machines** tab, select **Add machine**, In **Select resources** page, select the machines and select **Add**
+1. In **Configure Azure VMs for schedule updates**, select **Continue  to schedule updates** option to confirm that:
 
    - *Patch Orchestration is set to Azure orchestration*
    - *Set the Bypass platform safety checks on user schedule = True*.
