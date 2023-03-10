@@ -23,6 +23,18 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 > This article contains references to the term slave, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 
+
+## March 2023
+
+**Azure Resource Health**
+
+Use Azure Resource Health to monitor the health and availability of the HA enabled server in the event of planned or unplanned failover. [Learn more](concepts-high-availability.md)
+
+**Enhanced restore experience**
+
+Restore experience will now provide additional flexibility to modify the compute and storage setting during the provisioning of the restored server. Restored server can now be configured to have a higher compute tier, compute size and storage than that of the source server at the time of provisioning. Options like "Storage auto-grow", "Backup retention days" and "Geo-redundancy" can be also be edited to have a different value than that of source server.
+
+
 ## February 2023
 
 - **Enhanced metrics workbook is now available**
