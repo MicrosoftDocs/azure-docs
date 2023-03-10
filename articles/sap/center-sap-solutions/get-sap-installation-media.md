@@ -210,7 +210,7 @@ Enter the actual values **within** double quotes but **without** the triangular 
  
 1. If prompted that if *you have a storage account*, enter `Y`.
     	
-1. Where `playbook_bom_downloader_yaml_path` is the absolute path to sap-automation/deploy/ansible/playbook_bom_downloader.yaml
+1. Where `playbook_bom_downloader_yaml_path` is the absolute path to sap-automation/deploy/ansible/playbook_bom_downloader.yaml. e.g. */home/loggedinusername/sap-automation/deploy/ansible/playbook_bom_downloader.yaml*
 
 1. For `<bom_base_name>`, use the SAP Version you want to install i.e. **_S41909SPS03_v0011ms_** or **_S42020SPS03_v0003ms_** or **_S4HANA_2021_ISS_v0001ms_**
 
@@ -238,9 +238,9 @@ Enter the actual values **within** double quotes but **without** the triangular 
     
     1. Copy down the **URL** value. The format is `https://<your-storage-account>.blob.core.windows.net/sapbits`. The format is `https://<your-storage-account>.blob.core.windows.net/sapbits`.
 
-1. Where `BOM_directory_path` is the absolute path to **SAP-automation-samples/SAP**
+1. Where `BOM_directory_path` is the absolute path to **SAP-automation-samples/SAP**. e.g. */home/loggedinusername/SAP-automation-samples/SAP*
 
-1. Where `orchestration_ansible_user` is the user with **admin** privileges.
+1. Where `orchestration_ansible_user` is the user with **admin** privileges. e.g. *loggedinusername*
 
 
 Now you can [install the SAP software](install-software.md) through Azure Center for SAP solutions.
