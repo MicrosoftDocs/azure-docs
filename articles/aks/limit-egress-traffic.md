@@ -66,31 +66,31 @@ Provision a virtual network with two separate subnets: one for the cluster and o
 
 1. Create a resource group using the [`az group create`][az-group-create] command.
 
-  ```azurecli
-  az group create --name $RG --location $LOC
-  ```
+    ```azurecli
+    az group create --name $RG --location $LOC
+    ```
 
 2. Create a virtual network with two subnets to host the AKS cluster and the Azure Firewall using the [`az network vnet create`][az-network-vnet-create] and [`az network vnet subnet create`][az-network-vnet-subnet-create] commands.
 
-  ```azurecli
-  # Dedicated virtual network with AKS subnet
+    ```azurecli
+    # Dedicated virtual network with AKS subnet
 
-  az network vnet create \
-      --resource-group $RG \
-      --name $VNET_NAME \
-      --location $LOC \
-      --address-prefixes 10.42.0.0/16 \
-      --subnet-name $AKSSUBNET_NAME \
-      --subnet-prefix 10.42.1.0/24
+    az network vnet create \
+        --resource-group $RG \
+        --name $VNET_NAME \
+        --location $LOC \
+        --address-prefixes 10.42.0.0/16 \
+        --subnet-name $AKSSUBNET_NAME \
+        --subnet-prefix 10.42.1.0/24
 
-  # Dedicated subnet for Azure Firewall (Firewall name can't be changed)
+    # Dedicated subnet for Azure Firewall (Firewall name can't be changed)
 
-  az network vnet subnet create \
-      --resource-group $RG \
-      --vnet-name $VNET_NAME \
-      --name $FWSUBNET_NAME \
-      --address-prefix 10.42.2.0/24
-  ```
+    az network vnet subnet create \
+        --resource-group $RG \
+        --vnet-name $VNET_NAME \
+        --name $FWSUBNET_NAME \
+        --address-prefix 10.42.2.0/24
+    ```
 
 ## Create and set up an Azure Firewall with a UDR
 
@@ -106,46 +106,46 @@ You need to configure Azure Firewall inbound and outbound rules. The main purpos
 
 1. Create a standard SKU public IP resource using the [`az network public-ip create`][az-network-public-ip-create] command. This resource will be used as the Azure Firewall frontend address.
 
-  ```azurecli
-  az network public-ip create -g $RG -n $FWPUBLICIP_NAME -l $LOC --sku "Standard"
-  ```
+    ```azurecli
+    az network public-ip create -g $RG -n $FWPUBLICIP_NAME -l $LOC --sku "Standard"
+    ```
 
 2. Register the [Azure Firewall preview CLI extension](https://github.com/Azure/azure-cli-extensions/tree/main/src/azure-firewall) to create an Azure Firewall using the [`az extension add`][az-extension-add] command.
 
-  ```azurecli
-  az extension add --name azure-firewall
-  ```
+    ```azurecli
+    az extension add --name azure-firewall
+    ```
 
 3. Create an Azure Firewall and enable DNS proxy using the [`az network firewall create`][az-network-firewall-create] command and setting the `--enable-dns-proxy` to `true`.
 
-  ```azurecli
-  az network firewall create -g $RG -n $FWNAME -l $LOC --enable-dns-proxy true
-  ```
+    ```azurecli
+    az network firewall create -g $RG -n $FWNAME -l $LOC --enable-dns-proxy true
+    ```
 
 The IP address created earlier can now be assigned to the firewall frontend.
 
-  > [!NOTE]
-  >
-  > Setting up the public IP address to the Azure Firewall may take a few minutes.
-  >
-  > To leverage FQDN on network rules, we need DNS proxy enabled. When DNS proxy is enabled when, the firewall listens on port 53 and forwards DNS requests to the DNS server specified above. This allows the firewall to translate the FQDN automatically.
+> [!NOTE]
+>
+> Setting up the public IP address to the Azure Firewall may take a few minutes.
+>
+> To leverage FQDN on network rules, we need DNS proxy enabled. When DNS proxy is enabled when, the firewall listens on port 53 and forwards DNS requests to the DNS server specified above. This allows the firewall to translate the FQDN automatically.
 
 4. Create an Azure Firewall IP configuration using the [`az network firewall ip-config create`][az-network-firewall-ip-config-create] command.
 
-  ```azurecli
-  az network firewall ip-config create -g $RG -f $FWNAME -n $FWIPCONFIG_NAME --public-ip-address $FWPUBLICIP_NAME --vnet-name $VNET_NAME
-  ```
+    ```azurecli
+    az network firewall ip-config create -g $RG -f $FWNAME -n $FWIPCONFIG_NAME --public-ip-address $FWPUBLICIP_NAME --vnet-name $VNET_NAME
+   ```
 
 5. Once the previous command succeeds, save the firewall frontend IP address for configuration later.
 
-  ```azurecli
-  FWPUBLIC_IP=$(az network public-ip show -g $RG -n $FWPUBLICIP_NAME --query "ipAddress" -o tsv)
-  FWPRIVATE_IP=$(az network firewall show -g $RG -n $FWNAME --query "ipConfigurations[0].privateIpAddress" -o tsv)
-  ```
+    ```azurecli
+    FWPUBLIC_IP=$(az network public-ip show -g $RG -n $FWPUBLICIP_NAME --query "ipAddress" -o tsv)
+    FWPRIVATE_IP=$(az network firewall show -g $RG -n $FWNAME --query "ipConfigurations[0].privateIpAddress" -o tsv)
+    ```
 
-  > [!NOTE]
-  >
-  > If you use secure access to the AKS API server with [authorized IP address ranges](./api-server-authorized-ip-ranges.md), you need to add the firewall public IP into the authorized IP range.
+> [!NOTE]
+>
+> If you use secure access to the AKS API server with [authorized IP address ranges](./api-server-authorized-ip-ranges.md), you need to add the firewall public IP into the authorized IP range.
 
 ### Create a UDR with a hop to Azure Firewall
 
@@ -153,17 +153,17 @@ Azure automatically routes traffic between Azure subnets, virtual networks, and 
 
 1. Create an empty route table to be associated with a given subnet using the [`az network route-table create`][az-network-route-table-create] command. The route table will define the next hop as the Azure Firewall created above. Each subnet can have zero or one route table associated to it.
 
-  ```azurecli
-  az network route-table create -g $RG -l $LOC --name $FWROUTE_TABLE_NAME
-  ```
+    ```azurecli
+    az network route-table create -g $RG -l $LOC --name $FWROUTE_TABLE_NAME
+    ```
 
 2. Create routes in the route table for the subnets using the [`az network route-table route create`][az-network-route-table-route-create] command.
 
-  ```azurecli
-  az network route-table route create -g $RG --name $FWROUTE_NAME --route-table-name $FWROUTE_TABLE_NAME --address-prefix 0.0.0.0/0 --next-hop-type VirtualAppliance --next-hop-ip-address $FWPRIVATE_IP
+    ```azurecli
+    az network route-table route create -g $RG --name $FWROUTE_NAME --route-table-name $FWROUTE_TABLE_NAME --address-prefix 0.0.0.0/0 --next-hop-type VirtualAppliance --next-hop-ip-address $FWPRIVATE_IP
 
-  az network route-table route create -g $RG --name $FWROUTE_NAME_INTERNET --route-table-name $FWROUTE_TABLE_NAME --address-prefix $FWPUBLIC_IP/32 --next-hop-type Internet
-  ```
+    az network route-table route create -g $RG --name $FWROUTE_NAME_INTERNET --route-table-name $FWROUTE_TABLE_NAME --address-prefix $FWPUBLIC_IP/32 --next-hop-type Internet
+    ```
 
 For information on how to override Azure's default system routes or add aditional routes to a subnet's route table, see the [virtual network route table documentation](../virtual-network/virtual-networks-udr-overview.md#user-defined).
 
@@ -182,19 +182,19 @@ This section covers three network rules and an application rule you can use to c
 
 1. Create the network rules using the [`az network firewall network-rule create`][az-network-firewall-network-rule-create] command.
 
-  ```azurecli
-  az network firewall network-rule create -g $RG -f $FWNAME --collection-name 'aksfwnr' -n 'apiudp' --protocols 'UDP' --source-addresses '*' --destination-addresses "AzureCloud.$LOC" --destination-ports 1194 --action allow --priority 100
+    ```azurecli
+    az network firewall network-rule create -g $RG -f $FWNAME --collection-name 'aksfwnr' -n 'apiudp' --protocols 'UDP' --source-addresses '*' --destination-addresses "AzureCloud.$LOC" --destination-ports 1194 --action allow --priority 100
 
-  az network firewall network-rule create -g $RG -f $FWNAME --collection-name 'aksfwnr' -n 'apitcp' --protocols 'TCP' --source-addresses '*' --destination-addresses "AzureCloud.$LOC" --destination-ports 9000
+    az network firewall network-rule create -g $RG -f $FWNAME --collection-name 'aksfwnr' -n 'apitcp' --protocols 'TCP' --source-addresses '*' --destination-addresses "AzureCloud.$LOC" --destination-ports 9000
 
-  az network firewall network-rule create -g $RG -f $FWNAME --collection-name 'aksfwnr' -n 'time' --protocols 'UDP' --source-addresses '*' --destination-fqdns 'ntp.ubuntu.com' --destination-ports 123
-  ```
+    az network firewall network-rule create -g $RG -f $FWNAME --collection-name 'aksfwnr' -n 'time' --protocols 'UDP' --source-addresses '*' --destination-fqdns 'ntp.ubuntu.com' --destination-ports 123
+    ```
 
 2. Create the application rule using the [`az network firewall application-rule create`][az-network-firewall-application-rule-create] command.
 
-  ```azurecli
-  az network firewall application-rule create -g $RG -f $FWNAME --collection-name 'aksfwar' -n 'fqdn' --source-addresses '*' --protocols 'http=80' 'https=443' --fqdn-tags "AzureKubernetesService" --action allow --priority 100
-  ```
+    ```azurecli
+    az network firewall application-rule create -g $RG -f $FWNAME --collection-name 'aksfwar' -n 'fqdn' --source-addresses '*' --protocols 'http=80' 'https=443' --fqdn-tags "AzureKubernetesService" --action allow --priority 100
+    ```
 
 To learn more about Azure Firewall, see the [Azure Firewall documentation](../firewall/overview.md).
 
@@ -249,32 +249,32 @@ If you don't have user-assigned identites, follow the steps in this section. If 
 
 1. Create a control plane managed identity using the [`az identity create`][az-identity-create] command.
 
-  ```azurecli-interactive
-  az identity create --name myIdentity --resource-group myResourceGroup
-  ```
+    ```azurecli-interactive
+    az identity create --name myIdentity --resource-group myResourceGroup
+    ```
 
   The output should resemble the following:
 
   ```output
-  {                                  
-    "clientId": "<client-id>",
-    "clientSecretUrl": "<clientSecretUrl>",
-    "id": "/subscriptions/<subscriptionid>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity", 
-    "location": "westus2",
-    "name": "myIdentity",
-    "principalId": "<principal-id>",
-    "resourceGroup": "myResourceGroup",                       
-    "tags": {},
-    "tenantId": "<tenant-id>",
-    "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
-  }
+    {                                  
+      "clientId": "<client-id>",
+      "clientSecretUrl": "<clientSecretUrl>",
+      "id": "/subscriptions/<subscriptionid>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity", 
+      "location": "westus2",
+     "name": "myIdentity",
+     "principalId": "<principal-id>",
+     "resourceGroup": "myResourceGroup",                       
+     "tags": {},
+     "tenantId": "<tenant-id>",
+      "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
+   }
   ```
 
 2. Create a kubelet managed identity using the [`az identity create`][az-identity-create] command.
 
-  ```azurecli-interactive
-  az identity create --name myKubeletIdentity --resource-group myResourceGroup
-  ```
+    ```azurecli
+    az identity create --name myKubeletIdentity --resource-group myResourceGroup
+   ```
 
   The output should resemble the following:
 
@@ -318,21 +318,21 @@ If you used authorized IP ranges for your cluster in the previous step, you need
 
 1. Retrieve your IP address using the following command:
 
-  ```bash
-  CURRENT_IP=$(dig @resolver1.opendns.com ANY myip.opendns.com +short)
-  ```
+    ```bash
+    CURRENT_IP=$(dig @resolver1.opendns.com ANY myip.opendns.com +short)
+    ```
 
 2. Add the IP address to the approved ranges using the [`az aks update`][az-aks-update] command.
 
-  ```azurecli
-  az aks update -g $RG -n $AKSNAME --api-server-authorized-ip-ranges $CURRENT_IP/32
-  ```
+    ```azurecli
+    az aks update -g $RG -n $AKSNAME --api-server-authorized-ip-ranges $CURRENT_IP/32
+    ```
 
 3. Configure `kubectl` to connect to your AKS cluster using the [`az aks get-credentials`][az-aks-get-credentials] command.
 
-  ```azurecli
-  az aks get-credentials -g $RG -n $AKSNAME
-  ```
+    ```azurecli
+    az aks get-credentials -g $RG -n $AKSNAME
+    ```
 
 ## Deploy a public service
 
@@ -342,225 +342,225 @@ You can now start exposing services and deploying applications to this cluster. 
 
 1. Copy the following YAML and save it as a file named `example.yaml`.
 
-  ```yaml
-  # voting-storage-deployment.yaml
-  apiVersion: apps/v1
-  kind: Deployment
-  metadata:
-    name: voting-storage
-  spec:
-    replicas: 1
-    selector:
-      matchLabels:
-        app: voting-storage
-    template:
-      metadata:
-        labels:
+    ```yaml
+    # voting-storage-deployment.yaml
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: voting-storage
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
           app: voting-storage
-      spec:
-        containers:
-        - name: voting-storage
-          image: mcr.microsoft.com/aks/samples/voting/storage:2.0
-          args: ["--ignore-db-dir=lost+found"]
-          resources:
-            requests:
-              cpu: 100m
-              memory: 128Mi
-            limits:
-              cpu: 250m
-              memory: 256Mi
-          ports:
-          - containerPort: 3306
-            name: mysql
-          volumeMounts:
+      template:
+        metadata:
+          labels:
+            app: voting-storage
+        spec:
+          containers:
+          - name: voting-storage
+            image: mcr.microsoft.com/aks/samples/voting/storage:2.0
+            args: ["--ignore-db-dir=lost+found"]
+            resources:
+              requests:
+                cpu: 100m
+                memory: 128Mi
+              limits:
+                cpu: 250m
+                memory: 256Mi
+            ports:
+            - containerPort: 3306
+              name: mysql
+            volumeMounts:
+            - name: mysql-persistent-storage
+              mountPath: /var/lib/mysql
+            env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: voting-storage-secret
+                  key: MYSQL_ROOT_PASSWORD
+            - name: MYSQL_USER
+              valueFrom:
+                secretKeyRef:
+                  name: voting-storage-secret
+                  key: MYSQL_USER
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: voting-storage-secret
+                  key: MYSQL_PASSWORD
+            - name: MYSQL_DATABASE
+              valueFrom:
+                secretKeyRef:
+                  name: voting-storage-secret
+                  key: MYSQL_DATABASE
+          volumes:
           - name: mysql-persistent-storage
-            mountPath: /var/lib/mysql
-          env:
-          - name: MYSQL_ROOT_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: voting-storage-secret
-                key: MYSQL_ROOT_PASSWORD
-          - name: MYSQL_USER
-            valueFrom:
-              secretKeyRef:
-                name: voting-storage-secret
-                key: MYSQL_USER
-          - name: MYSQL_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: voting-storage-secret
-                key: MYSQL_PASSWORD
-          - name: MYSQL_DATABASE
-            valueFrom:
-              secretKeyRef:
-                name: voting-storage-secret
-                key: MYSQL_DATABASE
-        volumes:
-        - name: mysql-persistent-storage
-          persistentVolumeClaim:
-            claimName: mysql-pv-claim
-  ---
-  # voting-storage-secret.yaml
-  apiVersion: v1
-  kind: Secret
-  metadata:
-    name: voting-storage-secret
-  type: Opaque
-  data:
-    MYSQL_USER: ZGJ1c2Vy
-    MYSQL_PASSWORD: UGFzc3dvcmQxMg==
-    MYSQL_DATABASE: YXp1cmV2b3Rl
-    MYSQL_ROOT_PASSWORD: UGFzc3dvcmQxMg==
-  ---
-  # voting-storage-pv-claim.yaml
-  apiVersion: v1
-  kind: PersistentVolumeClaim
-  metadata:
-    name: mysql-pv-claim
-  spec:
-    accessModes:
-    - ReadWriteOnce
+            persistentVolumeClaim:
+              claimName: mysql-pv-claim
+    ---
+    # voting-storage-secret.yaml
+    apiVersion: v1
+    kind: Secret
+    metadata:
+      name: voting-storage-secret
+    type: Opaque
+    data:
+      MYSQL_USER: ZGJ1c2Vy
+      MYSQL_PASSWORD: UGFzc3dvcmQxMg==
+      MYSQL_DATABASE: YXp1cmV2b3Rl
+     MYSQL_ROOT_PASSWORD: UGFzc3dvcmQxMg==
+    ---
+    # voting-storage-pv-claim.yaml
+    apiVersion: v1
+    kind: PersistentVolumeClaim
+    metadata:
+      name: mysql-pv-claim
+    spec:
+      accessModes:
+      - ReadWriteOnce
     resources:
-      requests:
-        storage: 1Gi
-  ---
-  # voting-storage-service.yaml
-  apiVersion: v1
-  kind: Service
-  metadata:
-    name: voting-storage
-    labels: 
-      app: voting-storage
-  spec:
-    ports:
-    - port: 3306
-      name: mysql
-    selector:
-      app: voting-storage
-  ---
-  # voting-app-deployment.yaml
-  apiVersion: apps/v1
-  kind: Deployment
-  metadata:
-    name: voting-app
-  spec:
-    replicas: 1
-    selector:
-      matchLabels:
-        app: voting-app
-    template:
-      metadata:
-        labels:
+        requests:
+          storage: 1Gi
+    ---
+    # voting-storage-service.yaml
+    apiVersion: v1
+    kind: Service
+    metadata:
+      name: voting-storage
+      labels: 
+        app: voting-storage
+    spec:
+      ports:
+      - port: 3306
+        name: mysql
+      selector:
+        app: voting-storage
+    ---
+   # voting-app-deployment.yaml
+    apiVersion: apps/v1
+   kind: Deployment
+    metadata:
+      name: voting-app
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
           app: voting-app
-      spec:
-        containers:
-        - name: voting-app
-          image: mcr.microsoft.com/aks/samples/voting/app:2.0
-          imagePullPolicy: Always
-          ports:
-          - containerPort: 8080
-            name: http
-          env:
-          - name: MYSQL_HOST
-            value: "voting-storage"
-          - name: MYSQL_USER
-            valueFrom:
-              secretKeyRef:
-                name: voting-storage-secret
-                key: MYSQL_USER
-          - name: MYSQL_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: voting-storage-secret
-                key: MYSQL_PASSWORD
-          - name: MYSQL_DATABASE
-            valueFrom:
-              secretKeyRef:
-                name: voting-storage-secret
-                key: MYSQL_DATABASE
-          - name: ANALYTICS_HOST
-            value: "voting-analytics"
-  ---
-  # voting-app-service.yaml
-  apiVersion: v1
-  kind: Service
-  metadata:
-    name: voting-app
-    labels: 
-      app: voting-app
-  spec:
-    type: LoadBalancer
-    ports:
-    - port: 80
-      targetPort: 8080
-      name: http
-    selector:
-      app: voting-app
-  ---
-  # voting-analytics-deployment.yaml
-  apiVersion: apps/v1
-  kind: Deployment
-  metadata:
-    name: voting-analytics
-  spec:
-    replicas: 1
-    selector:
-      matchLabels:
-        app: voting-analytics
-        version: "2.0"
-    template:
-      metadata:
-        labels:
+      template:
+        metadata:
+          labels:
+            app: voting-app
+        spec:
+          containers:
+          - name: voting-app
+            image: mcr.microsoft.com/aks/samples/voting/app:2.0
+            imagePullPolicy: Always
+            ports:
+           - containerPort: 8080
+             name: http
+            env:
+            - name: MYSQL_HOST
+              value: "voting-storage"
+            - name: MYSQL_USER
+              valueFrom:
+                secretKeyRef:
+                  name: voting-storage-secret
+                  key: MYSQL_USER
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: voting-storage-secret
+                  key: MYSQL_PASSWORD
+            - name: MYSQL_DATABASE
+              valueFrom:
+                secretKeyRef:
+                  name: voting-storage-secret
+                  key: MYSQL_DATABASE
+            - name: ANALYTICS_HOST
+              value: "voting-analytics"
+    ---
+    # voting-app-service.yaml
+    apiVersion: v1
+    kind: Service
+    metadata:
+      name: voting-app
+      labels: 
+        app: voting-app
+    spec:
+      type: LoadBalancer
+      ports:
+      - port: 80
+        targetPort: 8080
+        name: http
+      selector:
+        app: voting-app
+    ---
+    # voting-analytics-deployment.yaml
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: voting-analytics
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
           app: voting-analytics
           version: "2.0"
-      spec:
-        containers:
-        - name: voting-analytics
-          image: mcr.microsoft.com/aks/samples/voting/analytics:2.0
-          imagePullPolicy: Always
-          ports:
-          - containerPort: 8080
-            name: http
-          env:
-          - name: MYSQL_HOST
-            value: "voting-storage"
-          - name: MYSQL_USER
-            valueFrom:
-              secretKeyRef:
-                name: voting-storage-secret
-                key: MYSQL_USER
-          - name: MYSQL_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: voting-storage-secret
-                key: MYSQL_PASSWORD
-          - name: MYSQL_DATABASE
-            valueFrom:
-              secretKeyRef:
-                name: voting-storage-secret
-                key: MYSQL_DATABASE
-  ---
-  # voting-analytics-service.yaml
-  apiVersion: v1
-  kind: Service
-  metadata:
-   name: voting-analytics
-    labels: 
-      app: voting-analytics
-  spec:
-    ports:
-    - port: 8080
-      name: http
-    selector:
-      app: voting-analytics
-  ```
+      template:
+        metadata:
+          labels:
+            app: voting-analytics
+            version: "2.0"
+        spec:
+          containers:
+          - name: voting-analytics
+            image: mcr.microsoft.com/aks/samples/voting/analytics:2.0
+            imagePullPolicy: Always
+            ports:
+            - containerPort: 8080
+              name: http
+            env:
+            - name: MYSQL_HOST
+              value: "voting-storage"
+            - name: MYSQL_USER
+              valueFrom:
+                secretKeyRef:
+                  name: voting-storage-secret
+                  key: MYSQL_USER
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: voting-storage-secret
+                  key: MYSQL_PASSWORD
+            - name: MYSQL_DATABASE
+              valueFrom:
+                secretKeyRef:
+                  name: voting-storage-secret
+                  key: MYSQL_DATABASE
+    ---
+    # voting-analytics-service.yaml
+    apiVersion: v1
+    kind: Service
+    metadata:
+    name: voting-analytics
+      labels: 
+        app: voting-analytics
+    spec:
+      ports:
+      - port: 8080
+        name: http
+      selector:
+        app: voting-analytics
+    ```
 
 2. Deploy the service using the `kubectl apply` command.
 
-  ```bash
-  kubectl apply -f example.yaml
-  ```
+    ```bash
+   kubectl apply -f example.yaml
+   ```
 
 ## Add a DNAT rule to Azure Firewall
 
@@ -572,9 +572,9 @@ To configure inbound connectivity, you need to write a DNAT rule to the Azure Fi
 
 1. Get the internal IP address assigned to the load balancer using the `kubectl get services` command.
 
-  ```bash
-  kubectl get services
-  ```
+    ```bash
+    kubectl get services
+   ```
 
   The IP address will be listed in the `EXTERNAL-IP` column.
 
@@ -588,15 +588,15 @@ To configure inbound connectivity, you need to write a DNAT rule to the Azure Fi
 
 2. Get the service IP using the `kubectl get svc voting-app` command.
 
-  ```bash
-  SERVICE_IP=$(kubectl get svc voting-app -o jsonpath='{.status.loadBalancer.ingress[*].ip}')
-  ```
+   ```bash
+    SERVICE_IP=$(kubectl get svc voting-app -o jsonpath='{.status.loadBalancer.ingress[*].ip}')
+    ```
 
 3. Add the NAT rule using the [`az network firewall nat-rule create`][az-network-firewall-nat-rule-create] command.
 
-  ```azurecli
-  az network firewall nat-rule create --collection-name exampleset --destination-addresses $FWPUBLIC_IP --destination-ports 80 --firewall-name $FWNAME --name inboundrule --protocols Any --resource-group $RG --source-addresses '*' --translated-port 80 --action Dnat --priority 100 --translated-address $SERVICE_IP
-  ```
+    ```azurecli
+    az network firewall nat-rule create --collection-name exampleset --destination-addresses $FWPUBLIC_IP --destination-ports 80 --firewall-name $FWNAME --name inboundrule --protocols Any --resource-group $RG --source-addresses '*' --translated-port 80 --action Dnat --priority 100 --translated-address $SERVICE_IP
+    ```
 
 ## Validate connectivity
 
