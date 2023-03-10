@@ -86,7 +86,7 @@ Azure AD Premium P2 licenses are **not** required for users with the Global Admi
 
 Azure AD guest user access is based on a monthly active users (MAU) billing model, which replaces the 1:5 ratio billing model. For more information, see [Azure AD External Identities pricing](../external-identities/external-identities-pricing.md).
 
-For more information about licenses, see [Assign or remove licenses using the Azure Active Directory portal](../fundamentals/license-users-groups.md).
+For more information about licenses, see [Assign or remove licenses using the Azure portal](../fundamentals/license-users-groups.md).
 
 ### Example license scenarios
 
