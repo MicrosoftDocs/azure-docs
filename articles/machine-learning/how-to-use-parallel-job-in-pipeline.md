@@ -259,8 +259,8 @@ To debug the failure of your parallel job, navigate to **Outputs + Logs** tab, e
 
 ## Parallel job in pipeline examples
 
-- Azure CLI + YAML [example repository](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/parallel)
-- SDK [example repository](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/parallel)
+- [Azure CLI + YAML example repository](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/parallel)
+- [SDK example repository](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/parallel)
 
 ## Next steps
 
