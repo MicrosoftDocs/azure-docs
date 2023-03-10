@@ -110,4 +110,4 @@ Typically, you'll want to alert on issues for all your critical Azure applicatio
 
 ## Next steps
 
-[Optimize cost in Azure Monitor](https://learn.microsoft.com/azure/azure-monitor/best-practices-cost)
+[Optimize cost in Azure Monitor](best-practices-cost.md)

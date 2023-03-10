@@ -217,6 +217,7 @@
     href: view-relative-latencies.md
   - name: Monitor network performance
     href: /previous-versions/azure/azure-monitor/insights/network-performance-monitor?toc=%2fazure%2fnetwork-watcher%2ftoc.json
+    maintainContext: true
   - name: Move Network Watcher resources
     href: resource-move.md
 - name: Reference
