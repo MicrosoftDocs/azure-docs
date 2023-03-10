@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: overview
-ms.date: 01/03/2023
+ms.date: 03/10/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -23,7 +23,7 @@ Identity Protection allows organizations to accomplish three key tasks:
 - [Investigate risks](howto-identity-protection-investigate-risk.md) using data in the portal.
 - [Export risk detection data to other tools](howto-export-risk-data.md).
 
-:::image type="content" source="media/overview-identity-protection/identiy-protection-overview.png" alt-text="Diagram showing how Identity Protection conceptually works." lightbox="media/overview-identity-protection/identiy-protection-overview.png":::
+:::image type="content" source="media/overview-identity-protection/identity-protection-overview.png" alt-text="Diagram showing how Identity Protection conceptually works." lightbox="media/overview-identity-protection/identity-protection-overview.png":::
 
 Identity Protection uses the learnings Microsoft has acquired from their position in organizations with Azure Active Directory, the consumer space with Microsoft Accounts, and in gaming with Xbox to protect your users. Microsoft analyses trillions of signals per day to identify and protect customers from threats. 
 

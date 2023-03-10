@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 02/10/2023
+ms.date: 03/10/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
