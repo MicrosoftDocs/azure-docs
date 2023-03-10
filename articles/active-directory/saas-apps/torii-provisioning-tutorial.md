@@ -42,18 +42,22 @@ The scenario outlined in this tutorial assumes that you already have the followi
 ## Step 2. Configure Torii to support provisioning with Azure AD
 1. Log in to [Torii admin console](https://app.toriihq.com).
 1. Navigate to [Settings](https://app.toriihq.com/team/settings/apiAccess) page **> Security**, enable the SCIM toggle.
-![Screenshot of SCIM Toggle.](media/torii-provisioning-tutorial/scim-enabled.png)
+
+	![Screenshot of SCIM Toggle.](media/torii-provisioning-tutorial/scim-enabled.png)
 1. Navigate to the **API Access** tab. From here, you can view and manage the Torii API keys and SCIM.
 1. Click on **Generate API Key** to generate a new SCIM.
-![Screenshot of Generate API Key.](media/torii-provisioning-tutorial/generate-key.png)
+
+	![Screenshot of Generate API Key.](media/torii-provisioning-tutorial/generate-key.png)
 1. Choose type: **SCIM**.
 1. Add **Description** and set **Expiration date**. For security purposes, we recommend setting an expiration date when generating a new key.
 1. Click **Generate key**.
 1. Copy and save the API Key as it won't be available next. This value will be entered in the **Secret Token** field in the Provisioning tab of your Torii application in the Azure portal.
 1. Click **Got it**.
-   ![Screenshot of Create API Key.](media/torii-provisioning-tutorial/create-key.png)
 
-   ![Screenshot of Copy API Key.](media/torii-provisioning-tutorial/copy-key.png)
+	![Screenshot of Create API Key.](media/torii-provisioning-tutorial/create-key.png)
+
+	![Screenshot of Copy API Key.](media/torii-provisioning-tutorial/copy-key.png)
+   
 1. **Torii Tenant Url:** `https://api.toriihq.com/v1.0/scim/v2` will be entered in the **Tenant URL** field in the Provisioning tab of your Torii application in the Azure portal.
 
 ## Step 3. Add Torii from the Azure AD application gallery
