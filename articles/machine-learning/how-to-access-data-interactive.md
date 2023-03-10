@@ -93,17 +93,19 @@ You can also instantiate an Azure Machine Learning filesystem and do filesystem-
 ```python
 from azureml.fsspec import AzureMachineLearningFileSystem
 
-# instantiate file system using datastore URI
-fs = AzureMachineLearningFileSystem('azureml://subscriptions/<subid>/resourcegroups/<rgname>/workspaces/<workspace_name>/datastores/<datastore_name>/paths/<folder>')
+# instantiate file system using following URI
+fs = AzureMachineLearningFileSystem('azureml://subscriptions/<subid>/resourcegroups/<rgname>/workspaces/<workspace_name>')
+# 'azureml://subscriptions/<subid>/resourcegroups/<rgname>/workspaces/<workspace_name>/' is also accepted
 
-# list files in the path
-fs.ls()
+fs.ls('datastore/datastorename_0)') # list folders/files in datastore datastorename_0 
+# 'fs.ls('datastore/datastorename_0/)')' is also accepted
 # output example:
-# /datastore_name/folder/file1.csv
-# /datastore_name/folder/file2.csv
+# datastore/datastorename_0/folder1
+# datastore/datastorename_0/folder2
+# datastore/datastorename_0/file1.csv
 
 # use an open context
-with fs.open('/datastore_name/folder/file1.csv') as f:
+with fs.open('datastore/datastore_name_0/folder/file1.csv') as f:
     # do some process
     process_file(f)
 ```
