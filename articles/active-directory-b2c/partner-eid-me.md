@@ -1,5 +1,5 @@
 ---
-title: Configure Azure Active Directory B2C with eID-Me
+title: Configure Azure Active Directory B2C with Bluink eID-Me for identity verification
 titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with eID-Me for identity verification 
 services: active-directory-b2c
@@ -8,55 +8,48 @@ manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2023
+ms.date: 03/10/2023
 ms.author: gasinh
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
 
-# Configure eID-Me with Azure Active Directory B2C for identity verification
+# Configure Azure Active Directory B2C with Bluink eID-Me for identity verification
 
-[!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
+## Before you begin
 
+Azure Active Directory B2C (Azure AD B2C) has two methods to define users interaction with applications: predefined user flows, or configurable custom policies. See, [User flows and custom policies overview](./user-flow-overview.md)
 
-In this sample article, we provide guidance on how to integrate Azure Active Directory B2C (Azure AD B2C) authentication with [eID-Me](https://bluink.ca). eID-Me is an identity verification and decentralized digital identity solution for Canadian citizens. With eID-Me, Azure AD B2C tenants can strongly verify the identity of their users, obtain verified identity claims during sign up and sign in, and support multifactor authentication (MFA) and password-free sign-in using a secure digital identity. It enables organizations to meet Identity Assurance Level (IAL) 2 and Know Your Customer (KYC) requirements. This solution provides users secure sign-up and sign in experience while reducing fraud.
+##  Integrate Azure AD B2C authentication with eID-Me
 
+Learn to integrate Azure AD B2C authentication with Bluink eID-Me, an identity verification and decentralized digital identity solution for Canadian citizens. With eID-Me, Azure AD B2C tenants verify user identity, obtain verified sign-up and sign-in identity claims. Integration supports multi-factor authentication and passwordless sign-in with a secure digital identity. Organizations can meet Identity Assurance Level (IAL) 2 and Know Your Customer (KYC) requirements. 
 
+To learn more, go to bluink.ca: [Bluink Ltd](https://bluink.ca)
 
 ## Prerequisites
 
-To get started, you'll need:
+To get started, you need:
 
-- [A Relying Party account with eID-Me](https://bluink.ca/eid-me/solutions/id-verification#contact-form).
+* A Relying Party account with eID-Me
+  * Go to bluink.ca to [learn more](https://bluink.ca/eid-me/solutions/id-verification#contact-form) and request a demo
+* An Azure subscription
+  * If you don't have one, get an [Azure free account](https://azure.microsoft.com/free)
+* An Azure AD B2C tenant linked to thke Azure subscription
+  * See, [Tutorial: Create an Azure Active Directory B2C tenant](tutorial-create-tenant.md)
+* A trial or production version of the eID-Me Digital ID App
+  * Go to bluink.ca to [Download the eID-Me Digital ID App](https://bluink.ca/eid-me/download) 
 
-- An Azure subscription. If you don't have one, get a [free
-account](https://azure.microsoft.com/free).
+See also, [Tutorial: Create user flows and custom policies in Azure AD B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy).
 
-- An [Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
-
-- A [trial or production version](https://bluink.ca/eid-me/download) of eID-Me smartphone apps for users.
-
-::: zone pivot="b2c-custom-policy"
-- Complete the steps in the article [get started with custom policies in Azure Active Directory B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy).
-
-::: zone-end
 
 ## Scenario description
 
 eID-Me integrates with Azure AD B2C as an OpenID Connect (OIDC) identity provider. The following components comprise the eID-Me solution with Azure AD B2C:
 
-
-- **An Azure AD B2C tenant**: Your Azure AD B2C tenant need be configured as a Relying Party in eID-Me. This allows the eID-Me identity provider to trust your Azure AD B2C tenant for sign up and sign in.
-
-
-- **An Azure AD B2C tenant application**: Although not strictly required, it's assumed that tenants need to have an Azure AD B2C tenant application. The application can receive identity claims received by Azure AD B2C during an eID-Me transaction.
-
-
-- **eID-Me smartphone apps**: Users of your Azure AD B2C tenant need to have the eID-Me smartphone app for iOS or Android.
-
-
-- **Issued eID-Me digital identities**: Before using eID-Me, users need to successfully go through the eID-Me identity proofing process. They need to have been issued a digital identity to the digital wallet within the app. This process is done from home and usually takes minutes provided the users have valid identity documents.
-
+* **An Azure AD B2C tenant**: Your Azure AD B2C tenant need be configured as a Relying Party in eID-Me. This allows the eID-Me identity provider to trust your Azure AD B2C tenant for sign up and sign in.
+* **An Azure AD B2C tenant application**: Although not strictly required, it's assumed that tenants need to have an Azure AD B2C tenant application. The application can receive identity claims received by Azure AD B2C during an eID-Me transaction.
+* **eID-Me smartphone apps**: Users of your Azure AD B2C tenant need to have the eID-Me smartphone app for iOS or Android.
+* **Issued eID-Me digital identities**: Before using eID-Me, users need to successfully go through the eID-Me identity proofing process. They need to have been issued a digital identity to the digital wallet within the app. This process is done from home and usually takes minutes provided the users have valid identity documents.
 
 The eID-Me apps also provide strong authentication of the user during any transaction. X509 public key authentication using a private signing key contained within the eID-Me digital identity provides passwordless MFA.
 
