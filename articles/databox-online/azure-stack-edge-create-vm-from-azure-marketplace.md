@@ -44,7 +44,7 @@ Before you begin, make sure that:
 
    To enable your VM, use the steps in [Deploy VMs on your Azure Stack Edge device](azure-stack-edge-gpu-deploy-virtual-machine-portal.md#add-a-vm-image). 
 
-   [![Screenshot showing the Deployed edge services page for an Azure Stack Edge device. The page shows VMs running as expected.](./media/azure-stack-edge-create-vm-from-azure-marketplace/azure-stack-edge-access-deployed-edge-services-vm-running-01.png)](./media/azure-stack-edge-create-vm-from-azure-marketplace/azure-stack-edge-access-deployed-edge-services-vm-running-01.png#lightbox)
+   [![Screenshot showing the Deployed edge services page for an Azure Stack Edge device. The page shows VMs running as expected.](./media/azure-stack-edge-create-vm-from-azure-marketplace/azure-stack-edge-deployed-edge-services-vm-running-01.png)](./media/azure-stack-edge-create-vm-from-azure-marketplace/azure-stack-edge-deployed-edge-services-vm-running-01.png#lightbox)
 
    If you're using custom images, you should have a VHD loaded in your Azure Storage account. See how to [Upload a VHD image in your Azure Storage account](azure-stack-edge-gpu-create-virtual-machine-image.md?tabs=windows#copy-vhd-to-storage-account-using-azcopy).
 
