@@ -79,10 +79,10 @@ To delete a DevOps policy, ensure first that you have the Microsoft Purview Poli
 1. Check one of the policies and then select **Delete** as shown in the following screenshot:
 ![Screenshot shows to enter SQL DevOps policies to delete.](./media/how-to-policies-devops-authoring-generic/enter-devops-policies-to-delete.png)
 
-## Test a DevOps policy
+## Test the DevOps policy
 After creating the policy, any of the Azure AD users in the Subject should now be able to connect to the data sources in the scope of the policy. To test, use SSMS or any SQL client and try to query some DMVs/DMFs. We list here some examples. For more, you can consult the [Microsoft Purview DevOps policies concept guide](/azure/purview/concept-policies-devops.md#mapping-of-popular-dmvsdmfs)
 
-### Testing access for SQL Performance Monitor
+### Testing SQL Performance Monitor access
 If you provided the Subject(s) of the policy SQL Performance Monitor role, you can issue the following commands
 ```sql
 -- Returns I/O statistics for data and log files
@@ -92,7 +92,7 @@ SELECT wait_type, wait_time_ms FROM sys.dm_os_wait_stats
 ```
 ![Screenshot shows test for SQL Performance Monitor.](./media/how-to-policies-devops-authoring-generic/test-access-sql-performance-monitor.png)
 
-### Testing access for SQL Security Auditor
+### Testing SQL Security Auditor access
 If you provided the Subject(s) of the policy SQL Security Auditor role, you can issue the following commands from SSMS or any SQL client
 ```sql
 -- Returns the current state of the audit
@@ -101,7 +101,7 @@ SELECT * FROM sys.dm_server_audit_status
 SELECT * FROM sys.dm_database_encryption_keys
 ```
 
-### Ensure there is no access to user data
+### Ensure no access to user data
 Next, try accessing a table in one of the databases. The Azure AD principal you are testing with should be denied, which means the data is protected from insider threat
 
 ```sql
@@ -112,8 +112,7 @@ SELECT * FROM [databaseName].schemaName.tableName
 ![Screenshot shows test to access user data.](./media/how-to-policies-devops-authoring-generic/test-access-user-data.png)
 
 
-## Policy action mapping
-
+## Role definition detail
 This section contains a reference of how actions in Microsoft Purview data policies map to specific actions in Azure SQL MI.
 
 | **DevOps role definition** | **Data source specific actions**     |
