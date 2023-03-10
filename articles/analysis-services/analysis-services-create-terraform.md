@@ -82,7 +82,7 @@ In this article, you learn how to:
 
     ```azurepowershell
     Get-AzAnalysisServicesServer -ResourceGroupName <resource_group_name> `
-                                 -Name <analysis_service_server_name>
+                                 -Name <analysis_services_server_name>
     ```
 
 ## Clean up resources
