@@ -41,7 +41,7 @@ The following screenshot shows the workflow at a high level:
 
   > [!NOTE]
   >
-  > If you want to use the Gmail connector, only G-Suite business accounts can use this connector without restriction in logic apps workflows. 
+  > If you want to use the Gmail connector, only G-Suite business accounts can use this connector without restriction in logic app workflows. 
   > If you have a Gmail consumer account, you can use this connector with only specific Google-approved services, or you can 
   > [create a Google client app to use for authentication with your Gmail connector](/connectors/gmail/#authentication-and-bring-your-own-application). 
   > For more information, see [Data security and privacy policies for Google connectors in Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
@@ -95,7 +95,7 @@ Next, connect Storage Explorer to your storage account.
 
 ## Set up Storage Explorer
 
-Now, connect Storage Explorer to your storage account so you can confirm that your logic app can correctly save attachments as blobs in your storage container.
+Now, connect Storage Explorer to your storage account so you can confirm that your workflow can correctly save attachments as blobs in your storage container.
 
 1. Launch Microsoft Azure Storage Explorer. Sign in with your Azure account.
 
@@ -137,7 +137,7 @@ Next, create an [Azure function](../azure-functions/functions-overview.md) that 
 
 ## Create function to remove HTML
 
-Now, use the code snippet provided by these steps to create an Azure function that removes HTML from each incoming email. That way, the email content is cleaner and easier to process. You can then call this function from your logic app.
+Now, use the code snippet provided by these steps to create an Azure function that removes HTML from each incoming email. That way, the email content is cleaner and easier to process. You can then call this function from your workflow.
 
 1. Before you can create a function, [create a function app](../azure-functions/functions-create-function-app-portal.md) following these steps:
 
@@ -220,7 +220,7 @@ Now, use the code snippet provided by these steps to create an Azure function th
    {"updatedBody":"{\"name\": \"Testing my function\"}"}
    ```
 
-After checking that your function works, create your logic app and workflow. Although this tutorial shows how to create a function that removes HTML from emails, Azure Logic Apps also provides an **HTML to Text** connector.
+After checking that your function works, create your logic app resource and workflow. Although this tutorial shows how to create a function that removes HTML from emails, Azure Logic Apps also provides an **HTML to Text** connector.
 
 ## Create your logic app workflow
 
@@ -234,7 +234,7 @@ After checking that your function works, create your logic app and workflow. Alt
    |----------|-------|-------------|
    | **Subscription** | <*your-Azure-subscription-name*> | The same Azure subscription that you previously used |
    | **Resource Group** | **LA-Tutorial-RG** | The same Azure resource group that you previously used |
-   | **Logic App name** | **LA-ProcessAttachment** | The name for your logic app |
+   | **Logic App name** | **LA-ProcessAttachment** | The name for your logic app and workflow. A Consumption logic app and workflow always have the same name. |
    | **Region** | **West US** | The same region that you previously used |
    | **Enable log analytics** | **No** | For this tutorial, keep the **Off** setting. |
 
@@ -288,7 +288,7 @@ Next, add a [trigger](logic-apps-overview.md#logic-app-concepts) that listens fo
 
 Now add a condition that selects only emails that have attachments.
 
-1. Under the trigger, select **New step**.
+1. On the designer, under the trigger, select **New step**.
 
 1. Under the **Choose an operation** search box, select **Built-in**. In the search box, enter **condition**.
 
@@ -366,7 +366,7 @@ Next, define the actions to take for the **True** branch. To save the email alon
 
 ## Call RemoveHTMLFunction
 
-This step adds your previously created Azure function to your logic app and passes the email body content from email trigger to your function.
+This step adds your previously created Azure function to your workflow and passes the email body content from email trigger to your function.
 
 1. On the logic app menu, select **Logic app designer**. In the **True** branch, select **Add an action**.
 
@@ -374,11 +374,11 @@ This step adds your previously created Azure function to your logic app and pass
 
    ![Screenshot showing the selected action named Choose an Azure function.](./media/tutorial-process-email-attachments-workflow/add-action-azure-function.png)
 
-1. Select your previously created function app, which is `CleanTextFunctionApp` in this example:
+1. Select your previously created function app, which is **CleanTextFunctionApp** in this example:
 
 1. Now select your function, which is named **RemoveHTMLFunction** in this example.
 
-1. Rename your function shape with this description: `Call RemoveHTMLFunction to clean email body`
+1. Rename your function shape with the following description: **Call RemoveHTMLFunction to clean email body**
 
 1. Now specify the input for your function to process.
 
@@ -390,11 +390,11 @@ This step adds your previously created Azure function to your logic app and pass
 
       Also, when your cursor is inside the **Request body** box, the dynamic content list appears so you can select property values available from previous actions.
 
-   1. From the dynamic content list, under **When a new email arrives**, select the **Body** property. After this property, remember to add the closing curly brace: `}`
+   1. From the dynamic content list, under **When a new email arrives**, select the **Body** property. After this property, remember to add the closing curly brace (**}**).
 
       ![Specify the request body for passing to the function](./media/tutorial-process-email-attachments-workflow/add-email-body-for-function-processing.png)
 
-   When you're done, the input to your function looks like this example:
+   When you're done, the input to your function looks like the following example:
 
    ![Finished request body to pass to your function](./media/tutorial-process-email-attachments-workflow/add-email-body-for-function-processing-2.png)
 
@@ -404,7 +404,7 @@ Next, add an action that creates a blob in your storage container so you can sav
 
 ## Create blob for email body
 
-1. In the **True** block, under your Azure function, select **Add an action**.
+1. On the designer, in the **True** block, under your Azure function, select **Add an action**.
 
 1. Under the **Choose an operation** search box, select **All**. In the search box, enter **create blob**, and select the action named **Create blob**.
 
@@ -425,182 +425,181 @@ Next, add an action that creates a blob in your storage container so you can sav
 
    | Property | Value | Description |
    |----------|-------|-------------|
+   | **Storage account name or blob endpoint** | **Use connection settings(<*storage-account-name*>)** | Select your storage account, which is **attachmentstorageacct** for this example. |
    | **Folder path** | <*path-and-container-name*> | The path and name for the container that you previously created. For this example, select the folder icon, and then select the **attachments** container. |
    | **Blob name** | <*sender-name*> | For this example, use the sender's name as the blob's name. Select inside this box so that the dynamic content list appears. From the **When a new email arrives** section, select the **From** field. |
-   | **Blob content** | <*content-for-blob*> | For this example, use the HTML-free email body as the blob content. Select inside this box so that the dynamic content list appears. From the **Call RemoveHTMLFunction to clean email body** section, select **Body** |
+   | **Blob content** | <*content-for-blob*> | For this example, use the HTML-free email body as the blob content. Select inside this box so that the dynamic content list appears. From the **Call RemoveHTMLFunction to clean email body** section, select **Body**. |
 
-   The following image shows which fields to select for the **Create blob** action:
+   The following image shows the fields to select for the **Create blob** action:
 
-   ![Screenshot showing information for the Create blob action.](./media/tutorial-process-email-attachments-workflow/create-blob-for-email-body.png)
+   ![Screenshot showing information about the HTML-free email body in the Create blob action.](./media/tutorial-process-email-attachments-workflow/create-blob-for-email-body.png)
 
+   When you're done, the action looks like the following example:
 
-   When you're done, the action looks like this example:
+   ![Screenshot showing example HTML-free email inputs for the finished Create blob action.](./media/tutorial-process-email-attachments-workflow/create-blob-for-email-body-done.png)
 
-   ![Screenshot that shows an example of a finished "Create blob" action.](./media/tutorial-process-email-attachments-workflow/create-blob-for-email-body-done.png)
-
-1. Save your logic app.
+1. Save your workflow.
 
 ### Check attachment handling
 
-Now test whether your logic app handles emails the way that you specified:
+1. On the designer toolbar, select **Run Trigger** > **Run**.
 
-1. If your logic app isn't running already, select **Run** on the designer toolbar.
+   This step manually starts and runs your workflow, but nothing will happen until the test email arrives in your inbox.
 
-1. Send yourself an email that meets this criteria:
+1. Send yourself an email that meets the following criteria:
 
    * Your email's subject has the text that you specified in the trigger's **Subject filter**: `Business Analyst 2 #423501`
 
    * Your email has at least one attachment. For now, just create one empty text file, and attach that file to your email.
 
-   * Your email has some test content in the body, for example: `Testing my logic app`
+   * Your email has some test content in the body, for example: `Testing my logic app workflow`
 
-   If your logic app didn't trigger or run despite a successful trigger, see [Troubleshoot your logic app](../logic-apps/logic-apps-diagnosing-failures.md).
+   If your workflow didn't trigger or run despite a successful trigger, see [Troubleshoot your logic app workflow](logic-apps-diagnosing-failures.md).
 
-1. Check that your logic app saved the email to the correct storage container.
+1. Check that your workflow saved the email to the correct storage container.
 
-   1. In Storage Explorer, expand **Local & Attached** > **Storage Accounts** > **attachmentstorageacct (Key)** > **Blob Containers** > **attachments**.
+   1. In Storage Explorer, expand **Emulator & Attached** > **Storage Accounts** > **attachmentstorageacct (Key)** > **Blob Containers** > **attachments**.
 
    1. Check the **attachments** container for the email.
 
-      At this point, only the email appears in the container because the logic app doesn't process the attachments yet.
+      At this point, only the email appears in the container because the workflow hasn't processed the attachments yet.
 
-      ![Check Storage Explorer for saved email](./media/tutorial-process-email-attachments-workflow/storage-explorer-saved-email.png)
+      ![Screenshot showing Storage Explorer with only the saved email.](./media/tutorial-process-email-attachments-workflow/storage-explorer-saved-email.png)
 
    1. When you're done, delete the email in Storage Explorer.
 
 1. Optionally, to test the **False** branch, which does nothing at this time, you can send an email that doesn't meet the criteria.
 
-Next, add a loop to process all the email attachments.
+Next, add a **For each** loop to process all the email attachments.
 
 ## Process attachments
 
-To process each attachment in the email, add a **For each** loop to your logic app's workflow.
+To process each attachment in the email, add a **For each** loop to your workflow.
 
-1. Under the **Create blob for email body** shape, select **Add an action**.
+1. Return to the designer. Under the **Create blob for email body** action, select **Add an action**.
 
-   ![Add "for each" loop](./media/tutorial-process-email-attachments-workflow/add-for-each-loop.png)
+1. Under the **Choose an operation** search box, select **Built-in**. In the search box, enter **for each**, and select the action named **For each**.
 
-1. Under **Choose an action**, in the search box, enter `for each` as your filter, and select this action: **For each**
+   ![Screenshot showing the selected action named For each.](./media/tutorial-process-email-attachments-workflow/select-for-each.png)
 
-   ![Select "For each"](./media/tutorial-process-email-attachments-workflow/select-for-each.png)
+1. Rename your loop with the following description: **For each email attachment**
 
-1. Rename your loop with this description: `For each email attachment`
+1. Now select the data for the loop to process. In the **For each email attachment** loop, select inside the **Select an output from previous steps** box so that the dynamic content list appears. From the **When a new email arrives** section, select **Attachments**.
 
-1. Now specify the data for the loop to process. Click inside the **Select an output from previous steps** box so that the dynamic content list opens, and then select **Attachments**.
-
-   ![Select "Attachments"](./media/tutorial-process-email-attachments-workflow/select-attachments.png)
+   ![Screenshot showing dynamic content list with the selected field named Attachments.](./media/tutorial-process-email-attachments-workflow/select-attachments.png)
 
    The **Attachments** field passes in an array that contains all the attachments included with an email. The **For each** loop repeats actions on each item that's passed in with the array.
 
-1. Save your logic app.
+1. Save your workflow.
 
 Next, add the action that saves each attachment as a blob in your **attachments** storage container.
 
 ## Create blob for each attachment
 
-1. In the **For each email attachment** loop, select **Add an action** so you can specify the task to perform on each found attachment.
+1. In the designer, in the **For each email attachment** loop, select **Add an action** to specify the task to perform on each found attachment.
 
-   ![Add action to loop](./media/tutorial-process-email-attachments-workflow/for-each-add-action.png)
+   ![Screenshot showing loop with the Add an action selected.](./media/tutorial-process-email-attachments-workflow/for-each-add-action.png)
 
-1. In the search box, enter `create blob` as your filter, and then select this action: **Create blob**
+1. Under the **Choose an operation** search box, select **All**. In the search box, enter **create blob**, and select the action named **Create blob**.
 
-   ![Add action to create blob](./media/tutorial-process-email-attachments-workflow/create-blob-action-for-attachments.png)
+   ![Screenshot showing the selected action named Create blob.](./media/tutorial-process-email-attachments-workflow/create-blob-action-for-attachments.png)
 
-1. Rename the **Create blob 2** action with this description: `Create blob for each email attachment`
+1. Rename the **Create blob 2** action with the following description: **Create blob for each email attachment**
 
-1. In the **Create blob for each email attachment** action, provide this information, and select the properties for each blob you want to create as shown and described:
+1. In the **Create blob for each email attachment** action, provide the following information:
 
-   ![Provide blob information](./media/tutorial-process-email-attachments-workflow/create-blob-per-attachment.png)
+   | Property | Value | Description |
+   |----------|-------|-------------|
+   | **Storage account name or blob endpoint** | **Use connection settings(<*storage-account-name*>)** | Select your storage account, which is **attachmentstorageacct** for this example. |
+   | **Folder path** | <*path-and-container-name*> | The path and name for the container that you previously created. For this example, select the folder icon, and then select the **attachments** container. |
+   | **Blob name** | <*attachment-name*> | For this example, use the attachment's name as the blob's name. Select inside this box so that the dynamic content list appears. From the **When a new email arrives** section, select the **Name** field. |
+   | **Blob content** | <*email-content*> | For this example, use the email content as the blob content. Select inside this box so that the dynamic content list appears. From the **When a new email arrives** section, select **Content**. |
 
-   | Setting | Value | Description |
-   | ------- | ----- | ----------- |
-   | **Folder path** | /attachments | The path and name for the container that you previously created. For this example, click the folder icon, and then select the "/attachments" container. |
-   | **Blob name** | **Name** field | For this example, use the attachment's name as the blob's name. Click inside this box so that the dynamic content list appears, and then select the **Name** field under the **When a new email arrives** action. |
-   | **Blob content** | **Content** field | For this example, use the **Content** field as the blob content. Click inside this box so that the dynamic content list appears, and then select **Content** under the **When a new email arrives** action. |
-   ||||
+   ![Screenshot showing information about the attachment in the Create blob action.](./media/tutorial-process-email-attachments-workflow/create-blob-per-attachment.png)
 
    When you're done, the action looks like this example:
 
-   ![Finished "Create blob" action](./media/tutorial-process-email-attachments-workflow/create-blob-per-attachment-done.png)
+   ![Screenshot showing example attachment information for the finished Create blob action.](./media/tutorial-process-email-attachments-workflow/create-blob-per-attachment-done.png)
 
-1. Save your logic app.
+1. Save your workflow.
 
 ### Check attachment handling
 
-Next, test whether your logic app handles the attachments the way that you specified:
+1. On the designer toolbar, select **Run Trigger** > **Run**.
 
-1. If your logic app isn't running already, select **Run** on the designer toolbar.
+   This step manually starts and runs your workflow, but nothing will happen until the test email arrives in your inbox.
 
-1. Send yourself an email that meets this criteria:
+1. Send yourself an email that meets the following criteria:
 
    * Your email's subject has the text that you specified in the trigger's **Subject filter** property: `Business Analyst 2 #423501`
 
    * Your email has at least two attachments. For now, just create two empty text files and attach those files to your email.
 
-   If your logic app didn't trigger or run despite a successful trigger, see [Troubleshoot your logic app](../logic-apps/logic-apps-diagnosing-failures.md).
+   If your workflow didn't trigger or run despite a successful trigger, see [Troubleshoot your logic app workflow](logic-apps-diagnosing-failures.md).
 
-1. Check that your logic app saved the email and attachments to the correct storage container.
+1. Check that your workflow saved the email and attachments to the correct storage container.
 
-   1. In Storage Explorer, expand **Local & Attached** > **Storage Accounts** > **attachmentstorageacct (Key)** > **Blob Containers** > **attachments**.
+   1. In Storage Explorer, expand **Emulator & Attached** > **Storage Accounts** > **attachmentstorageacct (Key)** > **Blob Containers** > **attachments**.
 
    1. Check the **attachments** container for both the email and the attachments.
 
-      ![Check for saved email and attachments](./media/tutorial-process-email-attachments-workflow/storage-explorer-saved-attachments.png)
+      ![Screenshot showing Storage Explorer and saved email and attachments.](./media/tutorial-process-email-attachments-workflow/storage-explorer-saved-attachments.png)
 
    1. When you're done, delete the email and attachments in Storage Explorer.
 
-Next, add an action so that your logic app sends email to review the attachments.
+Next, add an action so that your workflow sends email to review the attachments.
 
 ## Send email notifications
 
-1. In the **True** branch, under the **For each email attachment** loop, select **Add an action**.
+1. Return to the designer. In the **True** branch, collapse the **For each email attachment** loop.
 
-   ![Add action under "for each" loop](./media/tutorial-process-email-attachments-workflow/add-action-send-email.png)
+1. Under the loop, select **Add an action**.
 
-1. In the search box, enter `send email` as your filter, and then select the "send email" action for your email provider.
+   ![Screenshot showing the collapsed for each loop. Under the loop, the Add an action option is selected.](./media/tutorial-process-email-attachments-workflow/add-action-send-email.png)
 
-   To filter the actions list to a specific service, you can select the connector first.
+1. Under the **Choose an operation** search box, select **Standard**. In the search box, enter **send email**.
 
-   ![Select "send email" action for your email provider](./media/tutorial-process-email-attachments-workflow/add-action-select-send-email.png)
+1. From the actions list, select the send email action for your email provider. To filter the actions list based on a specific connector, you can select the connector first.
 
-   * For Azure work or school accounts, select Office 365 Outlook.
+   This example continues with the Office 365 Outlook connector, which works only with an Azure work or school account. For personal Microsoft accounts, select the Outlook.com connector.
 
-   * For personal Microsoft accounts, select Outlook.com.
+   ![Screenshot showing the Office 365 Outlook send email action selected.](./media/tutorial-process-email-attachments-workflow/add-action-select-send-email.png)
 
-1. If you're asked for credentials, sign in to your email account so that Logic Apps creates a connection to your email account.
+1. If you're asked for credentials, sign in to your email account so that Azure Logic Apps creates a connection to your email account.
 
-1. Rename the **Send an email** action with this description: `Send email for review`
+1. Rename the **Send an email** action with the following description: **Send email for review**
 
-1. Provide the information for this action and select the fields you want to include in the email as shown and described. To add blank lines in an edit box, press Shift + Enter.
+1. Provide the following action information and select the fields to include in the email.
 
-   ![Send email notification](./media/tutorial-process-email-attachments-workflow/send-email-notification.png)
+   * To add blank lines in an edit box, press Shift + Enter.
+   * If you can't find an expected field in the dynamic content list, select **See more** next to **When a new email arrives**.
 
-   If you can't find an expected field in the dynamic content list, select **See more** next to **When a new email arrives**.
-
-   | Setting | Value | Notes |
-   | ------- | ----- | ----- |
+   | Property | Value | Description |
+   |----------|-------|-------------|
    | **To** | <*recipient-email-address*> | For testing purposes, you can use your own email address. |
    | **Subject**  | ```ASAP - Review applicant for position:``` **Subject** | The email subject that you want to include. Click inside this box, enter the example text, and from the dynamic content list, select the **Subject** field under **When a new email arrives**. |
    | **Body** | ```Please review new applicant:``` <p>```Applicant name:``` **From** <p>```Application file location:``` **Path** <p>```Application email content:``` **Body** | The email's body content. Click inside this box, enter the example text, and from the dynamic content list, select these fields: <p>- The **From** field under **When a new email arrives** </br>- The **Path** field under **Create blob for email body** </br>- The **Body** field under **Call RemoveHTMLFunction to clean email body** |
-   ||||
+
+   ![Send email notification](./media/tutorial-process-email-attachments-workflow/send-email-notification.png)
+
 
    > [!NOTE]
    > If you select a field that contains an array,
    > such as the **Content** field, which is an array that contains attachments,
    > the designer automatically adds a "For each" loop
    > around the action that references that field.
-   > That way, your logic app can perform that action on each array item.
+   > That way, your workflow can perform that action on each array item.
    > To remove the loop, remove the field for the array,
    > move the referencing action to outside the loop,
    > select the ellipses (**...**) on the loop's title bar, and select **Delete**.
 
-1. Save your logic app.
+1. Save your workflow.
 
-Now, test your logic app, which now looks like this example:
+Now, test your workflow, which now looks like this example:
 
-![Finished logic app](./media/tutorial-process-email-attachments-workflow/complete.png)
+![Finished workflow](./media/tutorial-process-email-attachments-workflow/complete.png)
 
-## Run your logic app
+## Run your workflow
 
 1. Send yourself an email that meets this criteria:
 
@@ -639,35 +638,29 @@ Now, test your logic app, which now looks like this example:
      Education: Master of Business Administration
      ```
 
-1. Run your logic app. If successful, your logic app sends you an email that looks like this example:
+1. Run your workflow. If successful, your workflow sends you an email that looks like this example:
 
-   ![Email notification sent by logic app](./media/tutorial-process-email-attachments-workflow/email-notification.png)
+   ![Screenshot showing example email sent by logic app workflow.](./media/tutorial-process-email-attachments-workflow/email-notification.png)
 
-   If you don't get any emails, check your email's junk folder. Your email junk filter might redirect these kinds of mails. Otherwise, if you're unsure that your logic app ran correctly, see [Troubleshoot your logic app](../logic-apps/logic-apps-diagnosing-failures.md).
+   If you don't get any emails, check your email's junk folder. Your email junk filter might redirect these kinds of mails. Otherwise, if you're unsure that your workflow ran correctly, see [Troubleshoot your logic app workflow](logic-apps-diagnosing-failures.md).
 
-Congratulations, you've now created and run a logic app that automates tasks across different Azure services and calls some custom code.
+Congratulations, you've now created and run a workflow that automates tasks across different Azure services and calls some custom code.
 
 ## Clean up resources
 
-When you no longer need this sample, delete the resource group that contains your logic app and related resources.
+When you no longer need this sample, delete the resource group that contains your logic app workflow and related resources.
 
-1. In the top-level Azure search box, enter `resources groups`, and select **Resource groups**.
-
-   ![Find and select "Resource groups"](./media/tutorial-process-email-attachments-workflow/find-azure-resource-groups.png)
+1. In the Azure portal's top-level search box, enter **resource groups**, and select **Resource groups**.
 
 1. From the **Resource groups** list, select the resource group for this tutorial. 
 
-   ![Find the resource group for tutorial](./media/tutorial-process-email-attachments-workflow/find-select-tutorial-resource-group.png)
-
-1. On the **Overview** pane, select **Delete resource group**.
-
-   ![Delete logic app resource group](./media/tutorial-process-email-attachments-workflow/delete-resource-group.png)
+1. On the resource group's **Overview** page toolbar, select **Delete resource group**.
 
 1. When the confirmation pane appears, enter the resource group name, and select **Delete**.
 
 ## Next steps
 
-In this tutorial, you created a logic app that processes and stores email attachments by integrating Azure services, such as Azure Storage and Azure Functions. Now, learn more about other connectors that you can use to build logic apps.
+In this tutorial, you created a logic app workflow that processes and stores email attachments by integrating Azure services, such as Azure Storage and Azure Functions. Now, learn more about other connectors that you can use to build logic app workflows.
 
 > [!div class="nextstepaction"]
 > [Learn more about connectors for Logic Apps](../connectors/apis-list.md)
