@@ -248,7 +248,9 @@ The steps in this article created clusters in different Azure resource groups. T
 
 ## Next steps
 
-In this article, you learned how to use [MirrorMaker2](https://cwiki.apache.org/confluence/display/KAFKA/KIP-382%3A+MirrorMaker+2.0) to create a replica of an [Apache Kafka](https://kafka.apache.org/) cluster. Use the following links to discover other ways to work with Kafka:
+In this article, you learned how to use [MirrorMaker2](https://cwiki.apache.org/confluence/display/KAFKA/KIP-382%3A+MirrorMaker+2.0) to create a replica of an [Apache Kafka](https://kafka.apache.org/) cluster. 
+
+Use the following links to discover other ways to work with Kafka:
 
 * [Apache Kafka MirrorMaker2 documentation](https://cwiki.apache.org/confluence/display/KAFKA/KIP-382%3A+MirrorMaker+2.0) at cwiki.apache.org.
 * [Get started with Apache Kafka on HDInsight](apache-kafka-get-started.md)
