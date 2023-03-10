@@ -111,11 +111,17 @@ Once the workflow is complete, you can refresh the browser to view your web app.
 
 Now any changes made to the `main` branch starts a new build and deployment of your website.
 
+
+>[!NOTE]
+>If you have trouble deploying a Next.js Hybrid application with >100Mb app size, please use the `standalone` feature of Next.js. Kindly check out the [standalone](#enable-standalone-feature) section to learn more. 
+
+
 ### Sync changes
 
 When you created the app, Azure Static Web Apps created a GitHub Actions file in your repository. Synchronize with the server by pulling down the latest to your local repository.
 
 Return to the terminal and run the following command `git pull origin main`.
+
 
 ## Add Server-Rendered data
 
