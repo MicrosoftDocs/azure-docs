@@ -22,10 +22,10 @@ In the content hub, there are multiple product solutions for different domain ca
 - Most of the major network products have a common basic set of firewall alerts that includes malicious threats coming from unusual IP addresses. The analytic rule template is, in general, duplicated for each of the "Security - Network" category of product solutions. If you're running multiple network products, you need to check and configure multiple analytic rules individually, which is inefficient. You'd also get alerts for each rule configured and might end up with alert fatigue.
 - If you have duplicative hunting queries, you might have less performant hunting experiences with the run-all mode of hunting. These duplicative hunting queries also introduce inefficiencies for threat hunters to select and run similar queries.
 
-You might consider Microsoft essential solution for the following reasons:
+You might consider Microsoft essential solutions for the following reasons:
 
 - A normalized schema makes it easier for you to query incident details. You don't have to remember different vendor syntax for similar log attributes.
-- If you don't have to manage content for multiple solutions, it makes use case deployment and incident handling much easier.
+- If you don't have to manage content for multiple solutions, use case deployment and incident handling is much easier.
 - A consolidated workbook view gives you better environment visibility and possible query time parsing with high performing ASIM parsers.
 
 ## ASIM schemas supported
