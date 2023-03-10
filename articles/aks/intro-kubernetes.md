@@ -183,7 +183,7 @@ Learn more about deploying and managing AKS.
 [conf-com-node]: ../confidential-computing/confidential-nodes-aks-overview.md
 [aad]: managed-aad.md
 [aks-monitor]: monitor-aks.md
-[azure-monitor]: ../azure-monitor/containers/containers.md
+[azure-monitor]: /previous-versions/azure/azure-monitor/containers/containers
 [azure-logs]: ../azure-monitor/logs/log-analytics-overview.md
 [helm]: quickstart-helm.md
 [aks-best-practices]: best-practices.md
