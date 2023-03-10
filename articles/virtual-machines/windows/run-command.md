@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.collection: windows
 author: nikhilpatel909
 ms.author: erd
-ms.date: 10/25/2022
+ms.date: 03/10/2023
 ms.topic: how-to  
 ms.reviewer: erd
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
