@@ -19,6 +19,9 @@ In this tutorial, you learn to:
 > * Create a data collection rule (DCR) that transforms incoming data to match the schema of the target table.
 > * Create a sample application to send custom data to Azure Monitor.
 
+> [!NOTE]
+> This tutorial uses PowerShell to call the Logs ingestion API. For guidance on using the client libraries for the Logs ingestion API for [.NET](/dotnet/api/overview/azure/Monitor.Ingestion-readme), [Java](/java/api/overview/azure/monitor-ingestion-readme), [JavaScript](/javascript/api/overview/azure/monitor-ingestion-readme), or [Python](/python/api/overview/azure/monitor-ingestion-readme).
+
 ## Prerequisites
 To complete this tutorial, you need:
 
