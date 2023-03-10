@@ -318,6 +318,9 @@ if (bearerToken) {
 
 1. Use the frontend web site in a browser. The URL is in the formate of `https://<front-end-app-name>.azurewebsites.net/`.
 1. The browser requests your authentication to the web app. Complete the authentication.
+
+    :::image type="content" source="./media/tutorial-auth-aad/browser-screenshot-authentication-permission-requested-popup.png" alt-text="Screenshot of browser authentication pop-up requesting permissions.":::
+
 1. After authentication completes, the frontend application returns the home page of the app.
 
     :::image type="content" source="./media/tutorial-auth-aad/app-home-page.png" alt-text="Screenshot of web browser showing frontend application after successfully completing authentication.":::
