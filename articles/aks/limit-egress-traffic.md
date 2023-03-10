@@ -96,13 +96,13 @@ Provision a virtual network with two separate subnets: one for the cluster and o
 
 You need to configure Azure Firewall inbound and outbound rules. The main purpose of the firewall is to enable organizations to configure granular ingress and egress traffic rules into and out of the AKS cluster.
 
-![Firewall and UDR](media/limit-egress-traffic/firewall-udr.png)
-
 > [!IMPORTANT]
 >
 > If your cluster or application creates a large number of outbound connections directed to the same or a small subset of destinations, you might require more firewall frontend IPs to avoid maxing out the ports per frontend IP.
 >
-> For more information on how to create an Azure Firewall with multiple IPs, see [Create an Azure Firewall with multiple public IP addresses using Bicep](../firewall/quick-create-multiple-ip-bicep.md)
+> For more information on how to create an Azure Firewall with multiple IPs, see [Create an Azure Firewall with multiple public IP addresses using Bicep](../firewall/quick-create-multiple-ip-bicep.md).
+
+![Firewall and UDR](media/limit-egress-traffic/firewall-udr.png)
 
 1. Create a standard SKU public IP resource using the [`az network public-ip create`][az-network-public-ip-create] command. This resource will be used as the Azure Firewall frontend address.
 
@@ -122,13 +122,11 @@ You need to configure Azure Firewall inbound and outbound rules. The main purpos
     az network firewall create -g $RG -n $FWNAME -l $LOC --enable-dns-proxy true
     ```
 
-The IP address created earlier can now be assigned to the firewall frontend.
+  Setting up the public IP address to the Azure Firewall may take a few minutes. Once it's ready, the IP address created earlier can be assigned to the firewall front end.
 
-> [!NOTE]
->
-> Setting up the public IP address to the Azure Firewall may take a few minutes.
->
-> To leverage FQDN on network rules, we need DNS proxy enabled. When DNS proxy is enabled when, the firewall listens on port 53 and forwards DNS requests to the DNS server specified above. This allows the firewall to translate the FQDN automatically.
+  > [!NOTE]
+  >
+  > To leverage FQDN on network rules, we need DNS proxy enabled. When DNS proxy is enabled, the firewall listens on port 53 and forwards DNS requests to the DNS server specified above. This allows the firewall to translate the FQDN automatically.
 
 4. Create an Azure Firewall IP configuration using the [`az network firewall ip-config create`][az-network-firewall-ip-config-create] command.
 
@@ -143,9 +141,9 @@ The IP address created earlier can now be assigned to the firewall frontend.
     FWPRIVATE_IP=$(az network firewall show -g $RG -n $FWNAME --query "ipConfigurations[0].privateIpAddress" -o tsv)
     ```
 
-> [!NOTE]
->
-> If you use secure access to the AKS API server with [authorized IP address ranges](./api-server-authorized-ip-ranges.md), you need to add the firewall public IP into the authorized IP range.
+  > [!NOTE]
+  >
+  > If you use secure access to the AKS API server with [authorized IP address ranges](./api-server-authorized-ip-ranges.md), you need to add the firewall public IP into the authorized IP range.
 
 ### Create a UDR with a hop to Azure Firewall
 
@@ -253,22 +251,22 @@ If you don't have user-assigned identites, follow the steps in this section. If 
     az identity create --name myIdentity --resource-group myResourceGroup
     ```
 
-  The output should resemble the following:
+    The output should resemble the following example output:
 
-  ```output
-    {                                  
-      "clientId": "<client-id>",
-      "clientSecretUrl": "<clientSecretUrl>",
-      "id": "/subscriptions/<subscriptionid>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity", 
-      "location": "westus2",
-     "name": "myIdentity",
-     "principalId": "<principal-id>",
-     "resourceGroup": "myResourceGroup",                       
-     "tags": {},
-     "tenantId": "<tenant-id>",
-      "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
-   }
-  ```
+    ```output
+     {                                  
+       "clientId": "<client-id>",
+        "clientSecretUrl": "<clientSecretUrl>",
+        "id": "/subscriptions/<subscriptionid>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity", 
+       "location": "westus2",
+      "name": "myIdentity",
+       "principalId": "<principal-id>",
+      "resourceGroup": "myResourceGroup",                       
+       "tags": {},
+       "tenantId": "<tenant-id>",
+        "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
+     }
+    ```
 
 2. Create a kubelet managed identity using the [`az identity create`][az-identity-create] command.
 
@@ -276,25 +274,25 @@ If you don't have user-assigned identites, follow the steps in this section. If 
     az identity create --name myKubeletIdentity --resource-group myResourceGroup
    ```
 
-  The output should resemble the following:
+    The output should resemble the following example output:
 
-  ```output
-  {
-    "clientId": "<client-id>",
-    "clientSecretUrl": "<clientSecretUrl>",
-    "id": "/subscriptions/<subscriptionid>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myKubeletIdentity", 
-    "location": "westus2",
-    "name": "myKubeletIdentity",
-    "principalId": "<principal-id>",
-    "resourceGroup": "myResourceGroup",                       
-    "tags": {},
-    "tenantId": "<tenant-id>",
-    "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
-  }
-  ```
+    ```output
+   {
+      "clientId": "<client-id>",
+     "clientSecretUrl": "<clientSecretUrl>",
+     "id": "/subscriptions/<subscriptionid>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myKubeletIdentity", 
+      "location": "westus2",
+      "name": "myKubeletIdentity",
+     "principalId": "<principal-id>",
+      "resourceGroup": "myResourceGroup",                       
+      "tags": {},
+     "tenantId": "<tenant-id>",
+     "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
+    }
+   ```
 
-> [!NOTE]
-> For creating and using your own VNet and route table where the resources are outside of the worker node resource group, the CLI will add the role assignment automatically. If you're using an ARM template or other client, you need to use the Principal ID of the cluster managed identity to perform a [role assignment][add role to identity].
+  > [!NOTE]
+  > If you create your own VNet and route table where the resources are outside of the worker node resource group, the CLI will add the role assignment automatically. If you're using an ARM template or other client, you need to use the Principal ID of the cluster managed identity to perform a [role assignment][add role to identity].
 
 ### Create an AKS cluster with user-assigned identities
 
@@ -576,15 +574,15 @@ To configure inbound connectivity, you need to write a DNAT rule to the Azure Fi
     kubectl get services
    ```
 
-  The IP address will be listed in the `EXTERNAL-IP` column.
+    The IP address will be listed in the `EXTERNAL-IP` column, as shown in the following example output:
 
-  ```bash
-  NAME               TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
-  kubernetes         ClusterIP      10.41.0.1       <none>        443/TCP        10h
-  voting-analytics   ClusterIP      10.41.88.129    <none>        8080/TCP       9m
-  voting-app         LoadBalancer   10.41.185.82    20.39.18.6    80:32718/TCP   9m
-  voting-storage     ClusterIP      10.41.221.201   <none>        3306/TCP       9m
-  ```
+    ```bash
+   NAME               TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
+   kubernetes         ClusterIP      10.41.0.1       <none>        443/TCP        10h
+   voting-analytics   ClusterIP      10.41.88.129    <none>        8080/TCP       9m
+   voting-app         LoadBalancer   10.41.185.82    20.39.18.6    80:32718/TCP   9m
+   voting-storage     ClusterIP      10.41.221.201   <none>        3306/TCP       9m
+    ```
 
 2. Get the service IP using the `kubectl get svc voting-app` command.
 
