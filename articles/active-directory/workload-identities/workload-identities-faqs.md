@@ -1,5 +1,6 @@
 ---
-title: Microsoft Entra Workload Identities license plans faq
+title: Microsoft Entra Workload Identities license plans FAQ
+
 description: Learn about Microsoft Entra Workload Identities license plans, features and capabilities. 
 author: gargi-sinha
 manager: martinco

@@ -24,7 +24,7 @@ Software workloads running in Google Cloud need an Azure Active Directory (Azure
 
 ## Create an app registration in Azure AD
 
-[Create an app registration](/azure/active-directory/develop/quickstart-register-app.md) in Azure AD. 
+[Create an app registration](/azure/active-directory/develop/quickstart-register-app) in Azure AD. 
 
 Take note of the *object ID* of the app (not the application (client) ID) which you need in the following steps.  Go to the [list of registered applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) in the Azure portal, select your app registration, and find the **Object ID** in **Overview**->**Essentials**.
 
