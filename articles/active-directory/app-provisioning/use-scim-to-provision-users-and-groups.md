@@ -1254,7 +1254,7 @@ In the sample code, the request is translated into a call to the UpdateAsync met
 Task UpdateAsync(IRequest<IPatch> request);
 ```
 
-In the example of a request to update a user, the object provided as the value of the patch argument has these property values: 
+In the example of a request, to update a user, the object provided as the value of the patch argument has these property values: 
 
 |Argument|Value|
 |-|-|
