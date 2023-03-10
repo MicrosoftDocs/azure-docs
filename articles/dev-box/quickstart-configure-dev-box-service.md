@@ -65,7 +65,7 @@ Use the following steps to create a dev center so that you can manage your dev b
    |**Name**|Enter a name for your dev center.|
    |**Location**|Select the location or region where you want the dev center to be created.|
 
-   :::image type="content" source="./media/quickstart-configure-dev-box-service/create-dev-center-basics.png" alt-text="Screenshot that shows the Basics tab on the page for creating a dev center.":::
+   :::image type="content" source="./media/quickstart-configure-dev-box-service/create-dev-center-basics.png" alt-text="Screenshot that shows the Basics tab on the pane for creating a dev center.":::
 
    For a list of the currently supported Azure locations with capacity, see [Frequently asked questions about Microsoft Dev Box](https://aka.ms/devbox_acom).
 
@@ -97,7 +97,7 @@ You must have a virtual network and subnet available for your network connection
 
 1. On the **Virtual Network** page, select **Create**.
 
-1. On the **Create virtual network** page, on the **Basics** tab, enter the following values:
+1. On the **Create virtual network** pane, on the **Basics** tab, enter the following values:
 
     | Setting | Value |
     | ------- | ----- |
@@ -106,7 +106,7 @@ You must have a virtual network and subnet available for your network connection
     | **Name** | Enter a name for your virtual network. |
     | **Region** | Enter the location or region where you want the virtual network to be created. |
 
-   :::image type="content" source="./media/quickstart-configure-dev-box-service/vnet-basics-tab.png" alt-text="Screenshot that shows the Basics tab on the page for creating a virtual network in the Azure portal.":::
+   :::image type="content" source="./media/quickstart-configure-dev-box-service/vnet-basics-tab.png" alt-text="Screenshot that shows the Basics tab on the pane for creating a virtual network in the Azure portal.":::
 
 1. On the **IP Addresses** tab, note the default IP address assignment and subnet. You can accept the defaults unless they conflict with your existing configuration.
 
@@ -139,7 +139,7 @@ You now need a network connection to associate the virtual network and subnet wi
    |**Virtual network**|Select the virtual network that you want the network connection to use.|
    |**Subnet**|Select the subnet that you want the network connection to use.|
 
-   :::image type="content" source="./media/quickstart-configure-dev-box-service/create-nc-native-join.png" alt-text="Screenshot that shows the Basics tab on the page for creating a network connection, including the option for Azure Active Directory join.":::
+   :::image type="content" source="./media/quickstart-configure-dev-box-service/create-nc-native-join.png" alt-text="Screenshot that shows the Basics tab on the pane for creating a network connection, including the option for Azure Active Directory join.":::
 
 1. Select **Review + Create**.
 
@@ -172,7 +172,7 @@ You now need a network connection to associate the virtual network and subnet wi
    |**AD username UPN**| Enter the username, in user principal name (UPN) format, that you want to use for connecting the Cloud PCs to your Active Directory domain. For example: `svcDomainJoin@corp.contoso.com`. This service account must have permission to join computers to the domain and the target OU (if one is set). |
    |**AD domain password**| Enter the password for the user. |
 
-   :::image type="content" source="./media/quickstart-configure-dev-box-service/create-nc-hybrid-join.png" alt-text="Screenshot that shows the Basics tab on the page for creating a network connection, including the option for hybrid Azure Active Directory join.":::
+   :::image type="content" source="./media/quickstart-configure-dev-box-service/create-nc-hybrid-join.png" alt-text="Screenshot that shows the Basics tab on the pane for creating a network connection, including the option for hybrid Azure Active Directory join.":::
 
 1. Select **Review + Create**.
 
