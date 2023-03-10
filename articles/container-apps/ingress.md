@@ -45,7 +45,6 @@ The following settings are available when configuring ingress:
 >[!NOTE]
 > Should we add the customDomain property here?
 
-
 ## Enable ingress
 
 Enable ingress for your container app by using the `az containerapp ingress` command.
@@ -116,10 +115,6 @@ Disable ingress for your container app by using the `ingress` configuration prop
 > [!NOTE]
 > To disable ingress for your application, omit the `ingress` configuration property entirely.
 
-
-# [Portal](#tab/portal)
-
-Disable ingress for your container app by using the portal.
 
 ---
 

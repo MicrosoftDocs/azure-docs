@@ -18,7 +18,7 @@ Azure Container Apps uses the ingress feature to allow you to expose your contai
 Ingress supports:
 
 - Public and private ingress
-- [HTTPS and TCP ingress types](#ingress-types)
+- [HTTPS and TCP ingress types](#ingress-type)
 - [Fully qualified domain names (FQDNs)](#fully-qualified-domain-name)
 - [HTTP Headers](#http-headers)
 - [Traffic splitting between revisions](#traffic-splitting-scenarios)
@@ -153,7 +153,7 @@ For configuration details, see [Configure ingress](ingress.md).
 
 ## Traffic splitting
 
-By default, when ingress is enabled all traffic is routed to the latest deployed revision. You can configure traffic splitting rules to route portions of your traffic to a specific revision. Traffic splitting is useful for testing updates to your container app.  For more information, see [Traffic splitting](traffic-splitting.md).](revisions-manage.md#traffic-splitting)
+By default, when ingress is enabled all traffic is routed to the latest deployed revision. You can configure traffic splitting rules to route portions of your traffic to a specific revision. Traffic splitting is useful for testing updates to your container app.  For more information, see [Traffic splitting](revisions-manage.md#traffic-splitting)
 
 
 ## Traffic splitting scenarios
