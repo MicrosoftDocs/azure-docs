@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 04/19/2022
 ms.topic: how-to
-ms.custom: UpdateFrequency5, devx-track-python, devx-track-azurecli, cliv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, devx-track-python, cliv1, event-tier1-build-2022
 ms.devlang: azurecli
 ---
 
