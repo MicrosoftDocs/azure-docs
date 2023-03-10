@@ -212,9 +212,7 @@ For more information on scaling with Azure CLI, see [Change settings of an exist
 
 ---
 
-## How to scale - Enterprise and Enterprise Flash tiers
-
-### [Scale up and down with the Enterprise and Enterprise Flash tiers](#tab/enterprise-enterprise-flash)
+## How to scale up and out - Enterprise and Enterprise Flash tiers
 
 > [!NOTE]
 > The Enterprise and Enterprise Flash tiers are able to scale up and scale out in one operation. Other tiers require separate operations for each action.
@@ -224,7 +222,7 @@ For more information on scaling with Azure CLI, see [Change settings of an exist
 > The Enterprise and Enterprise Flash tiers do not yet support _scale down_ or _scale in_ operations.
 >
 
-#### Scale using the Azure portal
+### Scale using the Azure portal
 
 1. To scale your cache, [browse to the cache](cache-configure.md#configure-azure-cache-for-redis-settings) in the [Azure portal](https://portal.azure.com) and select **Scale** on the left.
 
@@ -249,7 +247,7 @@ While the cache is scaling to the new tier, a **Scaling Redis Cache** notificati
 When scaling is complete, the status changes from **Updating** to **Running**.
 
 
-#### Scale using PowerShell
+### Scale using PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -259,14 +257,13 @@ You can scale your Azure Cache for Redis instances with PowerShell by using the 
    Update-AzRedisEnterpriseCache -ResourceGroupName myGroup -Name myCache -Sku Enterprise_E20 -Capacity 4
 ```
 
-#### Scale using Azure CLI
+### Scale using Azure CLI
 
 To scale your Azure Cache for Redis instances using Azure CLI, call the [az redisenterprise update](/cli/azure/redisenterprise.md#az-redisenterprise-update) command. You can modify the `sku` property to scale the instance up. You can modify the `capacity` property to scale the instance out. The following example shows how to scale a cache named `myCache` to an Enterprise E20 (25GB) instance with capacity of 4.
 
 ```azurecli
 az redisenterprise update --cluster-name "myCache" --resource-group "myGroup" --sku "Enterprise_E20" --capacity 4
 ```
----
 
 ## Scaling FAQ
 
