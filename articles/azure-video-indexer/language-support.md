@@ -23,9 +23,9 @@ This section explains the Video Indexer language options and has a table of the 
 ### Column explanations
 
 - **Supported source language** – The language spoken in the media file supported for transcription, translation, and search.
-- **Language identification** -   Whether the language can be automatically detected by Video Indexer when language identification is used for indexing. To learn more, see [Use Azure Video Indexer to auto identify spoken languages](language-identification-model.md) and the **Language Identification** section.
+- **Language identification** - Whether the language can be automatically detected by Video Indexer when language identification is used for indexing. To learn more, see [Use Azure Video Indexer to auto identify spoken languages](language-identification-model.md) and the **Language Identification** section.
 - **Customization (language model)** - Whether the language can be used when customizing language models in Video Indexer. To learn more, see [Customize a Language model in Azure Video Indexer](customize-language-model-overview.md).
-- **Pronunciation (language model)** 
+- **Pronunciation (language model)** - Whether the language can be used to create a pronunciation dataset as part of a custom speech model. To learn more, see [Customize a speech model with Azure Video Indexer](customize-speech-model-overview.md).
 - **Website Translation** – Whether the language is supported for translation when using the [Azure Video Indexer website](https://aka.ms/vi-portal-link). Select the translated language in the language drop-down menu.
 
     :::image type="content" source="media/language-support/website-translation.png" alt-text="Screenshot showing a menu with download, English and views as menu items. A tooltip is shown as mouseover on the English item and says Translation is set to English." lightbox="media/language-support/website-translation.png":::
@@ -39,10 +39,9 @@ This section explains the Video Indexer language options and has a table of the 
     - Frame patterns (Only to Hebrew as of now)
 
     All other insights appear in English when using translation.
-
 - **Website Language** - Whether the language can be selected for use on the [Azure Video Indexer website](https://aka.ms/vi-portal-link). Select the **Settings icon** then select the language in the **Language settings** dropdown.
 
-    :::image type="content" source="media/language-support/website-language.jpg" alt-text="Screenshow showing a menu with user settings show them all toggled to on." lightbox="media/language-support/website-language.jpg":::
+    :::image type="content" source="media/language-support/website-language.jpg" alt-text="Screenshot showing a menu with user settings show them all toggled to on." lightbox="media/language-support/website-language.jpg":::
 
 | **Language**                     | **Code**   | **Supported source language** | **Language identification** | **Customization <br/>(language model)** | **Pronunciation<br/>  (language model)** | **Website Translation** | **Website Language** |
 |----------------------------------|------------|-------------------------------|-----------------------------|------------------------------------|-------------------------------------|-------------------------|----------------------|
