@@ -244,7 +244,7 @@ Once you've defined your property expression, select **Add condition** to define
 
 In the **Add condition** options, enter a **Label** for the condition in the visualization.
 
-Then, set the **Values** to identify value boundaries for the condition (the exact selection will change depending on the property type). For numerical properties, vhe min of each value range is inclusive, and the max is exclusive.
+Then, set the **Values** to identify value boundaries for the condition (the exact selection will change depending on the property type). For numerical properties, the min of each value range is inclusive, and the max is exclusive.
 
 Under **Actions**, define what happens in the scene visualization when the condition is met. You can use **Mesh coloring** to control the color of the property expression in the viewer, or **Badge** to display a badge of a certain color and icon when the condition for the property expression is met.
 
