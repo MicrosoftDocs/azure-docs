@@ -198,7 +198,7 @@ Your App Service Environment v3 is now more expensive than your App Service Envi
 > This calculation was done with Linux $USD prices in East US. Break even points will vary due to price variances in the different regions. For an estimate that reflects your situation, see [the Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 >
 
-:::image type="content" source="./media/migration/ase-pricing-break-even-point.png" alt-text="Graph that shows the point where App Service Environment v3 becomes more expensive than v2 for the scenario where you only have small instances.":::
+:::image type="content" source="./media/migration/pricing-break-even-point.png" alt-text="Graph that shows the point where App Service Environment v3 becomes more expensive than v2 for the scenario where you only have small instances.":::
 
 For more scenarios on cost changes and savings opportunities with App Service Environment v3, see [Estimate your cost savings by migrating to App Service Environment v3](https://azure.github.io/AppService/2023/03/02/App-service-environment-v3-pricing.html).
 
