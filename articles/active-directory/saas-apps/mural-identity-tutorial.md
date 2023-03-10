@@ -137,7 +137,7 @@ b. In the **Sign in URL** textbox, paste the **Login URL** value, which you have
 
 c. In the **Sign in certificate**, upload the **Certificate (PEM)**, which you have downloaded from the Azure portal. 
 
-d. Select **HTTP-POST** as the Request binding type and select **SHA256** as the Sign in algorithm type.
+d. Select **HTTP-POST** as the Request binding type and select **SHA256** as the Sign-in algorithm type.
 
 e. In the **Claim mapping** section, fill the following fields. 
 
