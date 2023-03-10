@@ -13,7 +13,7 @@ ms.date: 03/09/2023
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
-This article explains the Azure Database for PostgreSQL connectivity architecture as well as how the traffic is directed to your Azure Database for PostgreSQL database instance from clients both within and outside Azure.
+This article explains the Azure Database for PostgreSQL connectivity architecture and how the traffic is directed to your Azure Database for PostgreSQL database instance from clients both within and outside Azure.
 
 ## Connectivity architecture
 
@@ -27,7 +27,7 @@ As client connects to the database, the connection string to the server resolves
 
 The gateway service is hosted on group of stateless compute nodes sitting behind an IP address, which your client would reach first when trying to connect to an Azure Database for PostgreSQL server.
 
-**As part of ongoing service maintenance, we'll periodically refresh compute hardware hosting the gateways to ensure we provide the most secure and performant connectivity experience.**  When the gateway hardware is refreshed, a new ring of the compute nodes is built out first. This new ring serves the traffic for all the newly created Azure Database for PostgreSQL servers and it will have a different IP address from older gateway rings in the same region to differentiate the traffic. The older gateway hardware continues serving existing servers but are planned for decommissioning in future. Before decommissioning a gateway hardware, customers running their servers and connecting to older gateway rings will be notified via email and in the Azure portal, three months in advance before decommissioning. The decommissioning of gateways can impact the connectivity to your servers if
+**As part of ongoing service maintenance, we'll periodically refresh compute hardware hosting the gateways to ensure we provide the most secure and performant connectivity experience.**  When the gateway hardware is refreshed, a new ring of the compute nodes is built out first. This new ring serves the traffic for all the newly created Azure Database for PostgreSQL servers and it has a different IP address from older gateway rings in the same region to differentiate the traffic. The older gateway hardware continues serving existing servers but are planned for decommissioning in future. Before decommissioning a gateway hardware, customers running their servers and connecting to older gateway rings will be notified via email and in the Azure portal, three months in advance before decommissioning. The decommissioning of gateways can impact the connectivity to your servers if
 
 * You hard code the gateway IP addresses in the connection string of your application. It is **not recommended**.You should use fully qualified domain name (FQDN) of your server in the format `<servername>.postgres.database.azure.com`, in the connection string for your application. 
 * You do not update the newer gateway IP addresses in the client-side firewall to allow outbound traffic to be able to reach our new gateway rings. 
@@ -38,7 +38,7 @@ The gateway service is hosted on group of stateless compute nodes sitting behind
 The following table lists the gateway IP addresses of the Azure Database for PostgreSQL gateway for all data regions. The most up-to-date information of the gateway IP addresses for each region is maintained in the table below. In the table below, the columns represent following:
 
 * **Gateway IP addresses:** This column lists the current IP addresses of the gateways, As hardware is refreshed we will remove these and  recommend that  you open the client-side firewall to allow outbound traffic for the IP address subnets listed in the next column.
-* **Gateway IP address subnets:** This column lists the IP address subnets of the gateway rings located in the particular region. As we retire older gateway hardware we recommend that  you open the client-side firewall to allow outbound traffic for the IP address subnets in the region you are operating. 
+* **Gateway IP address subnets:** This column lists the IP address subnets of the gateway rings located in the particular region.As we retire older gateway hardware, we recommend that you open the client-side firewall to allow outbound traffic for the IP address subnets in the region you are operating.
 
 | **Region name** | **Gateway IP addresses**  | **Gateway IP address subnets** |
 |:----------------|:-------------------------|:------------------------------------------|
