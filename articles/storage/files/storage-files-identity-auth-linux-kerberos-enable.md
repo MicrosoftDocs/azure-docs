@@ -4,7 +4,7 @@ description: Learn how to enable identity-based Kerberos authentication for Linu
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/28/2023
+ms.date: 03/10/2023
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -18,7 +18,7 @@ For more information on supported options and considerations, see [Overview of A
 - On-premises Windows Active Directory Domain Services (AD DS)
 - Azure Active Directory Domain Services (Azure AD DS)
 
-In order to use the first option, you must sync your AD DS to Azure Active Directory (Azure AD) using Azure AD Connect.
+In order to use the first option (AD DS), you must sync your AD DS to Azure Active Directory (Azure AD) using Azure AD Connect.
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -217,7 +217,7 @@ _ldap._tcp.contosodomain.contoso.com service = 0 100 389 hxt4yo--jb9q529.contoso
 
 ### Set up hostname and fully qualified domain name (FQDN)
 
-1. Update the `/etc/hosts` file with the final FQDN (after joining the domain) and the alias for the host. The IP address doesn't matter much for now because this line will mainly be used to translate short hostname to FQDN. For more details, see [Setting up Samba as a Domain Member](https://wiki.samba.org/index.php/Setting_up_Samba_as_a_Domain_Member).
+1. Update the `/etc/hosts` file with the final FQDN (after joining the domain) and the alias for the host. The IP address doesn't matter for now because this line will mainly be used to translate short hostname to FQDN. For more details, see [Setting up Samba as a Domain Member](https://wiki.samba.org/index.php/Setting_up_Samba_as_a_Domain_Member).
 
 ```bash
 127.0.0.1       contosovm.contosodomain.contoso.com contosovm
@@ -444,7 +444,7 @@ wbinfo -K 'contososmbadmin%SUPERSECRETPASSWORD'
 
 ## Choose an access control model
 
-Before you mount the share, you need to choose one of the following three access control models for mounting SMB Azure file shares:
+Before you mount the share, you need to choose one of the following access control models for mounting SMB Azure file shares:
 
 1. **Server enforced access control using NT ACLs (default):** Uses NT access control lists (ACLs) to enforce access control. This option is recommended for most scenarios, unless your environment is predominantly Linux. Linux tools that update NT ACLs are minimal, so update ACLs through Windows. Use this access control model only with NT ACLs (no mode bits).
 
