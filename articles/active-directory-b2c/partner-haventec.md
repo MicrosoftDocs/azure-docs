@@ -1,7 +1,7 @@
 ---
-title: Tutorial to configure Azure Active Directory B2C with Haventec
+title: Configure Haventec Authenticate with Azure Active Directory B2C for single-step multi-factor passwordless authentication
 titleSuffix: Azure AD B2C
-description: Learn how to integrate Azure AD B2C authentication with Haventec for multifactor passwordless authentication
+description: Learn to integrate Azure AD B2C with Haventec Authenticate for multifactor passwordless authentication
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
@@ -13,50 +13,51 @@ ms.author: gasinh
 ms.subservice: B2C
 ---
 
-# Tutorial: Configure Haventec with Azure Active Directory B2C for single step, multifactor passwordless authentication
+# Tutorial: Configure Haventec Authenticate with Azure Active Directory B2C for single-step, multi-factor passwordless authentication
 
-In this sample tutorial, learn how to integrate Azure Active Directory (AD) B2C authentication with [Haventec](https://www.haventec.com/). Haventec provides  decentralized identity platform that transform security, accessibility, and experience. Haventec Authenticate provides a passwordless technology that eliminates passwords, shared secrets, and friction.
+Learn to integrate Azure Active Directory B2C (Azure AD B2C) with Haventec Authenicate, a passwordless technology that eliminates passwords, shared secrets, and friction.
+
+To learn more, go to haventec.com: [Haventec](https://www.haventec.com/)
 
 ## Scenario description
 
-The Haventec integration includes the following components:
+The Authenticate integration includes the following components:
 
-- Azure AD B2C - The authorization server, responsible for verifying the user's credentials, also known as the Identity Provider.
+* **Azure AD B2C** - authorization server that verifies user credentials
+  * Also known as the identity provider (IdP)
+* **Web and mobile applications** - Open ID Connect (OIDC) mobile or web applications protected by Authenticate and Azure AD B2C
+* Haventec Authenticate service - external IdP for the Azure AD B2C tenant
 
-- Web and mobile applications - Any Open ID Connect (OIDC) mobile or web applications protected by Haventec and Azure AD B2C.
+The following diagram illustrates sign-up and sign-in user flows in the Haventec Authenticate integration.
 
-- Haventec Authenticate service - Acts as the external Identity Provider to your Azure AD B2C tenant.
+   ![Diagram of sign-up and sign-in user flows in the Haventec Authenticate integration.](media/partner-haventec/partner-haventec-architecture-diagram.png)
 
-The following architecture diagram shows the implementation.
+1. User selects sign-in or sign-up and enters a username.
+2. The application sends user attributes to Azure AD B2C for identity verification.
+3. Azure AD B2C collects user attributes and sends them to Haventec Authenticate.
+4. For new users, Authenticate sends push notification to the user mobile device. It can send email with a one-time password (OTP) for device registration.
+5. User responds and is granted or denied access. New cryptographic keys are pushed to the user device for a future session.
 
-![Image shows the architecture diagram](media/partner-haventec/partner-haventec-architecture-diagram.png)
+## Get started with Authenticate
 
-| Steps | Description |
-|:----------------|:----------------------|
-| 1. | User arrives at a login page. Users select sign-in/sign-up and enter the username|
-| 2. | The application sends the user attributes to Azure AD B2C for identity verification.|
-| 3.|  Azure AD B2C collects the user attributes and sends the attributes to Haventec to authenticate the user through the Haventec Authenticate app.|
-| 4. |For new users only, Haventec Authenticate sends a push notification to the registered users' mobile device. It can also send an email with an OTP for device registration.|
-| 5. | After the user responds to the push notification, the user is either granted or denied access to the customer application based on the verification results. New cryptographic keys are generated and pushed into the user's device to have it ready for the next session. |
+Go to the haventec.com [Get a demo of Haventec Authenticate](https://www.haventec.com/products/get-started) page. In the personalized demo request form, indicate your intereste in Azure AD B2C integration. An email arrives when the demo environment is ready.  
 
-## Onboard with Haventec
+## Integrate Authenticate with Azure AD B2C
 
-Get in touch with Haventec to [request a demo](https://www.haventec.com/products/get-started). While filling out the request form, indicate that you want to onboard with Azure AD B2C. You'll be notified through email once your demo environment is ready.  
-
-## Integrate Haventec with Azure AD B2C
+Use the following instructions to prepare for and integrate Azure AD B2C with Authenicate. 
 
 ### Prerequisites
 
-To get started, you'll need:
+To get started, you need:
 
-- An Azure AD subscription. If you don\'t have one, get a [free
-  account](https://azure.microsoft.com/free/).
+* An Azure AD subscription
+  * If you don't have one, get an [Azure free account](https://azure.microsoft.com/free/)
+* An Azure AD B2C tenant linked to the Azure subscription
+  * see, [Tutorial: Create an Azure Active Directory B2C tenant](tutorial-create-tenant.md)
+* A Haventec Authenticate demo environment
+  * See, [Get a demo of Haventec Authenticate](https://www.haventec.com/products/get-started)
 
-- An [Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
-
-- A Haventec Authenticate [demo environment](https://www.haventec.com/products/get-started).
-
-### Part - 1 Create an application registration in Haventec
+### Create an application registration in Haventec
 
 If you haven't already done so, [register](tutorial-register-applications.md) a web application.
 
