@@ -24,7 +24,7 @@ The Migration and modernization tool runs a lightweight VMware VM appliance to e
 
 In the agentless method for migrating VMware virtual machines to Azure, the Azure Migrate appliance first uploads replication data to a storage account (cache storage account) in your subscription. Azure Migrate then moves the replicated data from the cache storage account to replica-managed disks in your subscription.
 
-To use a private connection for replication, you'll use the storage account already created by Azure Migrate project during the setup or create a new cache storage account and configure private endpoint. To create a new storage account with private endpoint, see [Private endpoint for storage account](migrate-servers-to-azure-using-private-link?pivots=agentlessvmware#create-a-private-endpoint-for-the-storage-account)
+To use a private connection for replication, you'll use the storage account already created by Azure Migrate project during the setup or create a new cache storage account and configure private endpoint. To create a new storage account with private endpoint, see [Private endpoint for storage account.](../private-link/tutorial-private-endpoint-storage-portal.md#create-storage-account-with-a-private-endpoint)
 
 The private endpoint allows the Azure Migrate appliance to connect to the cache storage account by using a private connection like an ExpressRoute private peering or VPN. Data can then be transferred directly on the private IP address.
 
