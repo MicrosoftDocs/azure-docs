@@ -4,7 +4,7 @@ description: Use the Azure Monitor portal to manage log alert rules created in e
 ms.author: abbyweisberg
 ms.topic: conceptual
 ms.date: 2/23/2022
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurepowershell
 ms.reviewer: harelbr
 ---
 # Manage alert rules created in previous versions
