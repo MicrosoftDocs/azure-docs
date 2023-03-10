@@ -128,7 +128,7 @@ If you choose to block/not allow these FQDNs, the nodes will only receive OS upd
 | **`us.download.nvidia.com`**            | **`HTTPS:443`** | This address is used for correct driver installation and operation on GPU-based nodes. |
 | **`download.docker.com`**             | **`HTTPS:443`** | This address is used for correct driver installation and operation on GPU-based nodes. |
 
-### Windows Server based node pools required FQDN / application rules
+## Windows Server based node pools required FQDN / application rules
 
 | Destination FQDN                                                           | Port      | Use      |
 |----------------------------------------------------------------------------|-----------|----------|
