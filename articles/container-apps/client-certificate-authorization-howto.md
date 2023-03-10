@@ -32,9 +32,9 @@ Container Apps accepts client certificates in the PKCS12 format issued by a trus
 
 The client certificate mode is an ingress property that can be configured for your container app.  The property can be set to one of the following values:
 
-    - require: The client certificate is required for all requests to the container app.
-    - accept: The client certificate is optional. If the client certificate is not provided, the request is still accepted.
-    - ignore: The client certificate is ignored. 
+- require: The client certificate is required for all requests to the container app.
+- accept: The client certificate is optional. If the client certificate is not provided, the request is still accepted.
+- ignore: The client certificate is ignored. 
 
 When `require` or `accept` are set, ingress passes the client certificate to the container app.
 

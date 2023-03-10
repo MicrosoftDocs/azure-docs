@@ -21,7 +21,7 @@ Ingress supports:
 - [HTTPS and TCP ingress types](#ingress-types)
 - [Fully qualified domain names (FQDNs)](#fully-qualified-domain-name)
 - [HTTP Headers](#http-headers)
-- [Traffic routing rules](#traffic-splitting-scenari[os)
+- [Traffic splitting between revisions](#traffic-splitting-scenarios)
 - [IP restrictions](#ip-restrictions)
 - [Ingress authentication](#ingress-authentication)
 
@@ -29,10 +29,16 @@ Ingress supports:
 > [!NOTE]
 > Add diagram here
 
-
 Each container app can be configured with different ingress settings. For example, you can have one container app that is exposed to the public web and another that is only accessible from within your Container Apps environment.
 
-## Ingress types
+## Ingress type
+
+When you enable ingress, you can choose between two ingress types: external and internal. 
+
+- External: Allows public ingress to your app.
+- Internal: Allows ingress only from within your Container Apps environment.
+
+## Ingress protocol types
 
 Container Apps supports two types of ingress: HTTPS and TCP.
 
@@ -53,9 +59,6 @@ With HTTPS ingress enabled, your container app features the following characteri
 
 The HTTP headers are used to pass protocol and metadata related information between the client and your container app. For example, the `X-Forwarded-Proto` header is used to identify the protocol that the client used to connect with the Container Apps service.  For information about configuring HTTP headers, see [Configure HTTP headers](./ingress.md#configure-http-headers).
 
-> [!NOTE] 
-> why is X-Forwarded-Proto used?  Example of how it's used?
-
 The header is added to an HTTP request or response using a *name: value* format.  The following table lists the HTTP headers that are relevant to ingress in Container Apps:
 
 > [!NOTE]
@@ -66,6 +69,7 @@ The header is added to an HTTP request or response using a *name: value* format.
 | `X-Forwarded-Proto` | The protocol that the client used to connect with the Container Apps service. | `http` or `https` | Yes |
 | `X-Forwarded-For` | The IP address of the client that sent the request. | Yes |
 | 'X-Forwarded-Host | The host name that the client used to connect with the Container Apps service. | Yes |
+
 ### <a name="tcp"></a>TCP (preview) 
 
 TCP ingress is useful for exposing container apps that use a TCP-based protocol other than HTTP or HTTPS. For example, you can use TCP ingress to expose a container app that uses the [Redis protocol](https://redis.io/topics/protocol).
@@ -104,65 +108,33 @@ You can get access to the environment's unique identifier by querying the enviro
 
 ## IP restrictions
 
-Container Apps supports IP restrictions for ingress. You can restrict access to your container app by specifying a list of IP addresses or IP address ranges.  For more information, see [Configure IP restrictions](ip-restrictions-howto.md).
-
+Container Apps supports IP restrictions for ingress. You can restrict access to your container app by specifying a list of IP addresses or IP address ranges.  For more information, see [Configure IP restrictions](ip-restrictions.md).
 
 ## Ingress authentication
 
 Container Apps supports the following authentication methods for ingress:
 
 - TLS server certificate authentication (default).
-- mTLS client certificate authentication.  For more information, see [Configure client certificate authorization in Azure Container Apps](client-certificate-authorization-howto.md)
-- OAUTH2 authentication.  For more information, see [Configure OAUTH2 authorization in Azure Container Apps](oauth2-authorization-howto.md)
+- mTLS client certificate authentication.  For more information, see [Configure client certificate authorization in Azure Container Apps](client-certificate-authorization-howto.md).
+- OAUTH2 authentication.  For more information, see [Set up OAUTH in Azure Container Apps](oauth2-authorization-howto.md).
 - Do we have anything else?
-
 
 ## Ingress configuration
 
-### Enable ingress
+When you enable ingress, you configure the following options:
 
-Ingress is an application-wide setting. Changes to ingress settings apply to all revisions simultaneously, and don't generate new revisions.
+- Public and private ingress
+- Transport type: HTTPS or TCP
+- Target port: The port your container listens to for incoming requests
+- Authentication: Enable authentication for your app
+- Access restrictions: Restrict access to your app by IP address
+- Allow insecure traffic to your app
+- Traffic splitting: Split traffic between revisions of your app
 
-The ingress configuration section of the container app template has the following form:
-
-```json
-{
-  ...
-  "configuration": {
-      "ingress": {
-          "external": true,
-          "targetPort": 80,
-          "transport": "auto"
-      }
-  }
-}
-```
-
-## Ingress Configuration options
-
-> [!NOTE] 
-> Need information about the flags that are available in the CLI and the portal.
-
-The following settings are available when configuring ingress:
-
-| Property | Description | Values | Required |
-|---|---|---|---|
-| `external` | Allow ingress to your app from outside its Container Apps environment. |`true` for visibility from internet or VNET, depending on app environment endpoint, `false` for visibility within app environment only. (default) | Yes |
-| `targetPort` | The port your container listens to for incoming requests. | Set this value to the port number that your container uses. Your application ingress endpoint is always exposed on port `443`. | Yes |
-| `exposedPort` | (TCP ingress only) An additional exposed port used to access the app. If `external` is `true`, the value must be unique in the Container Apps environment if ingress is external. | A port number from `1` to `65535`. (can't be `80` or `443`) | No |
-| `transport` | The transport protocol type. | auto (default) detects HTTP/1 or HTTP/2,  `http` for HTTP/1, `http2` for HTTP/2, `tcp` for TCP. | No |
-| `allowInsecure` | Allows insecure traffic to your container app. | `false` (default), `true`<br><br>If set to `true`, HTTP requests to port 80 aren't automatically redirected to port 443 using HTTPS, allowing insecure connections. | No |
-| `autoTLS` | Enables automatic TLS certificate provisioning. If set to `true`, Container Apps automatically provisions a TLS certificate for your container app. |`true` (default), `false`<br><br> | No | 
-| `access-restriction` | Configure IP ingress restrictions. | See [Set up IP ingress restrictions](ip-restrictions.md)| No |
-
-> [!NOTE]
-> To disable ingress for your application, omit the `ingress` configuration property entirely.
-
-
->[!NOTE]
-> Should we include the other ingress scenarios, like access restrictions?
+For configuration details, see [Configure ingress](ingress.md).
 
 ## <a name="scenarios"></a>Ingress Scenarios
+
 
 ### Public Container Apps environment
 
@@ -176,10 +148,21 @@ The following settings are available when configuring ingress:
 ### Private Container Apps VNET environment
 
 - mTLS authentication (client certificate)
+- IP Restrictions
+
+
+## Traffic splitting
+
+By default, when ingress is enabled all traffic is routed to the latest deployed revision. You can configure traffic splitting rules to route portions of your traffic to a specific revision. Traffic splitting is useful for testing updates to your container app.  For more information, see [Traffic splitting](traffic-splitting.md).](revisions-manage.md#traffic-splitting)
+
 
 ## Traffic splitting scenarios
 
 The following scenarios describe configuration settings for common use cases.
+
+
+>[!NOTE]
+> add eample of traffic splitting based on revision label.
 
 ### Rapid iteration
 

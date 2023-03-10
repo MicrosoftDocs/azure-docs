@@ -55,6 +55,7 @@ You can edit and delete rules from the IP restrictions list on the **Ingress** p
 The `az containerapp ingress access-restriction set` command group uses the following parameters.
 
 | Argument | Values | Description |
+|----------|--------|-------------|
 |`--action` (required) | Allow, Deny | Specifies whether to allow or deny access from the specified IP address range. |
 | `--ip-address` (required) | IP address or range of IP addresses in CIDR notation | Specifies the IP address range to allow or deny. |
 | `--rule-name` (required) | String | Specifies the name of the access restriction rule. |
