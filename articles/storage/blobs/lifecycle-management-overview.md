@@ -177,7 +177,7 @@ The run conditions are based on age. Current versions use the last modified time
 | daysAfterLastAccessTimeGreaterThan<sup>1</sup> | Integer value indicating the age in days | The condition for a current version of a blob when access tracking is enabled |
 | daysAfterLastTierChangeGreaterThan | Integer value indicating the age in days after last blob tier change time | This condition applies only to `tierToArchive` actions and can be used only with the `daysAfterModificationGreaterThan` condition. |
 
-<sup>1</sup> If [last access time tracking](#move-data-based-on-last-accessed-time) is not enabled, **daysAfterLastAccessTimeGreaterThan** uses the date the lifecycle policy was enabled instead of the `LastAccessTime` property of the blob. The date that the policy was enabled is also used in cases where the value of the `LastAccessTime` property is a null value. See [Move data based on last accessed time](#move-data-based-on-last-accessed-time).
+<sup>1</sup> If [last access time tracking](#move-data-based-on-last-accessed-time) is not enabled, **daysAfterLastAccessTimeGreaterThan** uses the date the lifecycle policy was enabled instead of the `LastAccessTime` property of the blob. This date is also used when the `LastAccessTime` property is a null value. For more information about using last access time tracking, see [Move data based on last accessed time](#move-data-based-on-last-accessed-time).
 
 ## Lifecycle policy completed event
 
@@ -263,8 +263,8 @@ When last access time tracking is enabled, the blob property called `LastAccessT
 If last access time tracking is enabled, lifecycle management uses `LastAccessTime` to determine whether the run condition **daysAfterLastAccessTimeGreaterThan** is met. Lifecycle management uses the date the lifecycle policy was enabled instead of `LastAccessTime` in the following cases:
 
 - The value of the `LastAccessTime` property of the blob is a null value.
-
-  The `LastAccessTime` property of the blob is null if a blob hasn't been accessed since last access time tracking was enabled.
+  > [!NOTE]
+  > The `LastAccessTime` property of the blob is null if a blob hasn't been accessed since last access time tracking was enabled.
 
 - Last access time tracking is not enabled. 
 
