@@ -133,7 +133,7 @@ After selecting a template, on the basics screen:
 
 ## Trigger details
 
-The trigger of a workflow defines when a scheduled workflow will run for users in scope for the workflow. The trigger is a combination of a time-based attribute, and an offset value.  For example, if the attribute is employeeHireDate and offsetInDays is -1, then the workflow should trigger one day before the employee hire date. The value can range between -60 and 60 days. 
+The trigger of a workflow defines when a scheduled workflow will run for users in scope for the workflow. The trigger is a combination of a time-based attribute, and an offset value.  For example, if the attribute is employeeHireDate and offsetInDays is -1, then the workflow should trigger one day before the employee hire date. The value can range between -180 and 180 days. 
 
 The time-based attribute can be either one of two values, which are automatically chosen based on the template in which you select during the creation of your workflow. The two values can be:
 
