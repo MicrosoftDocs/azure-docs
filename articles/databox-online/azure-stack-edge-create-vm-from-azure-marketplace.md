@@ -11,7 +11,7 @@ ms.date: 03/09/2023
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to create VM images using source images from Azure Marketplace or images from an Azure Storage account.
 ---
-# Create VM images using source images from Azure Marketplace or images from an Azure Storage account.
+# Create VM images from Azure Marketplace or Azure storage account
 
 [!INCLUDE [applies-to-GPU-sku](../../includes/azure-stack-edge-applies-to-gpu-sku.md)]
 
