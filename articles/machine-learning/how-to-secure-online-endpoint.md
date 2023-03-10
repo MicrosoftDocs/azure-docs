@@ -10,7 +10,7 @@ ms.reviewer: mopeakande
 author: dem108
 ms.author: sehan
 ms.date: 01/06/2023
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, devx-track-azurecli
 ---
 
 # Use network isolation with managed online endpoints
