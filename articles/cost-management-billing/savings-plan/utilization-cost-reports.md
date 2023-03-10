@@ -129,7 +129,7 @@ Get the Amortized costs data and filter the data for a `PricingModel` = `Savings
 To determine the savings from the pay-as-you-go list price:
 
 1. To get the pay-as-you-go list price cost (`PayGPriceCost`), multiply the `PayGPrice` value with the `Quantity` value.
-1. Subtract `PayGPriceCost` from from `Cost` to determine the savings from the savings plan.
+1. Subtract `PayGPriceCost` from `Cost` to determine the savings from the savings plan.
 
 To determine the savings percentage from the discounted price:
 
