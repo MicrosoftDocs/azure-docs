@@ -80,7 +80,7 @@ To delete a DevOps policy, ensure first that you have the Microsoft Purview Poli
 ![Screenshot shows to enter SQL DevOps policies to delete.](./media/how-to-policies-devops-authoring-generic/enter-devops-policies-to-delete.png)
 
 ## Test a DevOps policy
-After creating the policy, any of the Azure AD users in the Subject of the policy should now be able to connect to the data sources in the scope of the policy. To test, use SSMS or any SQL client and try to query some DMVs/DMFs. We list here some examples. For more, you can consult the [Microsoft Purview DevOps policies concept guide](/azure/purview/concept-policies-devops.md#mapping-of-popular-dmvsdmfs)
+After creating the policy, any of the Azure AD users in the Subject should now be able to connect to the data sources in the scope of the policy. To test, use SSMS or any SQL client and try to query some DMVs/DMFs. We list here some examples. For more, you can consult the [Microsoft Purview DevOps policies concept guide](/azure/purview/concept-policies-devops.md#mapping-of-popular-dmvsdmfs)
 
 ### Testing access for SQL Performance Monitor
 If you provided the Subject(s) of the policy SQL Performance Monitor role, you can issue the following commands
@@ -102,7 +102,7 @@ SELECT * FROM sys.dm_database_encryption_keys
 ```
 
 ### Ensure there is no access to user data
-Next, try accessing a table in one of the databases. The Azure AD principal you are testing with should denied, which means the data is protected from insider threat
+Next, try accessing a table in one of the databases. The Azure AD principal you are testing with should be denied, which means the data is protected from insider threat
 
 ```sql
 -- Test access to user data
