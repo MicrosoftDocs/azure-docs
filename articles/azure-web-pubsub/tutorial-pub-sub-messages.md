@@ -5,7 +5,7 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: tutorial 
-ms.date: 01/17/2023
+ms.date: 03/09/2023
 ---
 
 # Tutorial: Publish and subscribe messages using WebSocket API and Azure Web PubSub service SDK
@@ -21,6 +21,9 @@ In this tutorial, you learn how to:
 > * Create a Web PubSub publisher client to publish messages using Web PubSub service SDK
 
 [!INCLUDE [azure-web-pubsub-tutorial-prerequisites](includes/cli-awps-prerequisites.md)]
+
+>[!NOTE]
+> You can use the Windows cmd.exe command shell instead of a bash shell to run the commands in this tutorial.
 
 If creating the project on a local machine, you'll need to install the dependencies for the language you're using:
 
@@ -43,7 +46,7 @@ If creating the project on a local machine, you'll need to install the dependenc
 
 ---
 
-## Setup 
+## Setup
 
 # [Local Azure CLI](#tab/LocalBash)
 
@@ -66,7 +69,21 @@ If creating the project on a local machine, you'll need to install the dependenc
 
 ### Create a Web PubSub instance
 
-[!INCLUDE [Create a Web PubSub instance](includes/cli-awps-creation.md)]
+Use the Azure CLI [az webpubsub create](/cli/azure/webpubsub#az-webpubsub-create) command to create a Web PubSub in the resource group you've created. The following command creates a _Free_ Web PubSub resource under resource group *myResourceGroup* in *EastUS*:
+
+  > [!Important]
+  > Each Web PubSub resource must have a unique name. Replace &lt;your-unique-resource-name&gt; with the name of your Web PubSub instance in the following command.
+
+```azurecli
+az webpubsub create --name "<your-unique-resource-name>" --resource-group "myResourceGroup" --location "EastUS" --sku Free_F1
+```
+
+The output of this command shows properties of the newly created resource. Take note of the two properties listed below:
+
+* **Resource Name**: The name you provided to the `--name` parameter above.
+* **hostName**: In the example, the host name is `<your-unique-resource-name>.webpubsub.azure.com/`.
+
+At this point, your Azure account is the only one authorized to perform any operations on this new resource.
 
 ### Get the connection string
 
@@ -83,7 +100,7 @@ Clients connect to the Azure Web PubSub service through the standard WebSocket p
     * The package [Websocket.Client](https://github.com/Marfusios/websocket-client) is a third-party package supporting WebSocket connection. You can use any API/library that supports WebSocket to do so.
     * The SDK package `Azure.Messaging.WebPubSub` helps to generate the JWT token. 
 
-    ```bash
+    ```console
     mkdir subscriber
     cd subscriber
     dotnet new console
@@ -140,17 +157,17 @@ Clients connect to the Azure Web PubSub service through the standard WebSocket p
 
      After the connection is established, your client receives messages through the WebSocket connection. The client uses `client.MessageReceived.Subscribe(msg => ...));` to listen for incoming messages.
 
-1. Run the following command:
+1. Run the following command replacing `<Web-PubSub-connection-string>` with the connection string you copied earlier:
 
-    ```bash
-    dotnet run $connection_string "myHub1"
+    ```console
+    dotnet run <Web-PubSub-connection-string> "myHub1"
     ```
 
 # [JavaScript](#tab/javascript)
 
 1. First, create a project directory named `subscriber` and install required dependencies:
 
-    ```bash
+    ```console
     mkdir subscriber
     cd subscriber
     npm init -y
@@ -183,18 +200,18 @@ Clients connect to the Azure Web PubSub service through the standard WebSocket p
 
      After the connection is established, your client receives messages through the WebSocket connection. The client uses `client.MessageReceived.Subscribe(msg => ...));` to listen for incoming messages.
 
-1. Run the following command:
+1. Run the following command replacing `<Web-PubSub-connection-string>` with the connection string you copied earlier. If you are using Windows, you can use `set` instead of `export`.
 
-    ```bash
-    export WebPubSubConnectionString=$connection_string
-    node subscribe
+    ```console
+    export WebPubSubConnectionString=<Web-PubSub-connection-string>
+    node subscribe.js
     ```
 
 # [Python](#tab/python)
 
 1. First, create a project directory named `subscriber` and install required dependencies:
 
-    ```bash
+    ```console
     mkdir subscriber
     cd subscriber
     # Create venv
@@ -248,10 +265,10 @@ Clients connect to the Azure Web PubSub service through the standard WebSocket p
 
     After the connection is established, your client will receive messages through the WebSocket connection. Use `await ws.recv()` to listen for incoming messages.
 
-1. Run the following command:
+1. Run the following command replacing  `<Web-PubSub-connection-string>` with the connection string you copied earlier:
 
-    ```bash
-    python subscribe.py $connection_string "myHub1"
+    ```console
+    python subscribe.py <Web-PubSub-connection-string> "myHub1"
     ```
 
 # [Java](#tab/java)
@@ -379,7 +396,7 @@ Create a publisher using the Azure Web PubSub SDK to publish a message to the co
 
 1. First, create a project directory named `publisher` and install required dependencies:
 
-    ```bash
+    ```console
     mkdir publisher
     cd publisher
     dotnet new console
@@ -420,7 +437,7 @@ Create a publisher using the Azure Web PubSub SDK to publish a message to the co
 
 1. Send a message by running the command:
 
-    ```bash
+    ```console
     dotnet run $connection_string "myHub1" "Hello World"
     ```
 
@@ -434,7 +451,7 @@ Create a publisher using the Azure Web PubSub SDK to publish a message to the co
 
 1. First, create a project directory named `publisher` and install required dependencies:
 
-    ```bash
+    ```console
     mkdir publisher
     cd publisher
     npm init -y
@@ -456,16 +473,16 @@ Create a publisher using the Azure Web PubSub SDK to publish a message to the co
 
     The `service.sendToAll()` call simply sends a message to all connected clients in a hub.
 
-1. Send a message by running the command:
+1. Send a message by running the command.  If you are using Windows, you can use `set` instead of `export`.
 
-    ```bash
+    ```console
     export WebPubSubConnectionString=$connection_string 
     node publish "Hello World"
     ```
 
 1. You can see that the previous subscriber received the message:
 
-    ```text
+    ```console
     Message received: Hello World
     ```
 
@@ -473,7 +490,7 @@ Create a publisher using the Azure Web PubSub SDK to publish a message to the co
 
 1. First, create a project directory named `publisher` and install required dependencies:
 
-    ```bash
+    ```console
     mkdir publisher
     cd publisher
     # Create venv
@@ -510,7 +527,7 @@ Create a publisher using the Azure Web PubSub SDK to publish a message to the co
 
 1. Run the following command:
 
-    ```bash
+    ```console
     python publish.py $connection_string "myHub1" "Hello World"
     ```
 

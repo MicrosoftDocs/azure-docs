@@ -13,24 +13,24 @@ Follow these steps to set up the Azure CLI and your project environment.
 
 1. Upgrade to the latest version of the Azure CLI.
 
-    ```bash
+    ```azurecli
     az upgrade
     ```
 
 1. Install the Azure CLI extension for Web PubSub. 
 
-    ```bash
+    ```azurecli
     az extension add --name webpubsub
     ```
 
 1. Sign in to the Azure CLI.  Following the prompts, enter your Azure credentials.
 
-    ```bash
+    ```azurecli
     az login
     ```
 
 1. Create a resource group.
 
-    ```bash
+    ```azurecli
     az group create --name myResourceGroup --location eastus
     ```
