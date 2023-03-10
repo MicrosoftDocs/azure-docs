@@ -22,7 +22,7 @@ items:
     - name: Provision a service instance
       href: quickstart-provision-standard-consumption-plan-service-instance.md
     - name: Provision in an Azure Container Apps environment with VNet
-      href: 
+      href: quickstart-provision-app-environment-with-virtual-network.md
   - name: Run apps on Basic/Standard tier
     expanded: true
     items:
