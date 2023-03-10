@@ -57,25 +57,26 @@ To get started, you need:
 * A Haventec Authenticate demo environment
   * See, [Get a demo of Haventec Authenticate](https://www.haventec.com/products/get-started)
 
-### Create an application registration in Haventec
+### Create a web application registration
 
-If you haven't already done so, [register](tutorial-register-applications.md) a web application.
+Before applications can interact with Azure AD B2C, register them in a tenant you manage. 
 
-### Part - 2 Add a new Identity provider in Azure AD B2C
+See, [Tutorial: Register a web application in Azure Active Directory B2C](tutorial-register-applications.md)
 
-1. Sign in to the [Azure portal](https://portal.azure.com/#home) as the global administrator of your Azure AD B2C tenant.
+### Add a new identity provider in Azure AD B2C
 
-2. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
+For the following instructions, use the directory with the Azure AD B2C tenant.
 
-3. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
+1. Sign in to the [Azure portal](https://portal.azure.com/#home) as the Global Administrator of your Azure AD B2C tenant.
+2. In the top menu, select **Directory + subscription**
+3. Select the directory with the tenant.
+4. In the top-left corner of the Azure portal, select **All services**.
+5. Search for and select **Azure AD B2C**.
+6. Navigate to **Dashboard** > **Azure Active Directory B2C** > **Identity providers**.
+7. Select **New OpenID Connect Provider**.
+8. Select **Add**.
 
-4. Navigate to **Dashboard** > **Azure Active Directory B2C** > **Identity providers**.
-
-5. Select **New OpenID Connect Provider**.
-
-6. Select **Add**.
-
-### Part - 3 Configure an Identity provider
+### Configure an identity provider
 
 To configure an identity provider, follow these steps:
 
@@ -154,9 +155,7 @@ Open the Azure AD B2C tenant and under Policies select **User flows**.
 
 4. Haventec Authenticate will be called during the flow.
 
-## Additional resources
-
-For additional information, review the following articles:
+## Next steps
 
 - [Haventec](https://docs.haventec.com/) documentation
 
