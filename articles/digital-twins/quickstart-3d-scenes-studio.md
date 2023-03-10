@@ -216,6 +216,8 @@ Next, you'll create a *behavior* for the element. These behaviors allow you to c
 
         :::image type="content" source="media/quickstart-3d-scenes-studio/new-behavior-visual-rules-3.png" alt-text="Screenshot of the Add condition options in 3D Scenes Studio creating the described condition." lightbox="media/quickstart-3d-scenes-studio/new-behavior-visual-rules-3.png":::
 
+        **Save** the new visual rule.
+
 1. Switch to the **Widgets** tab. Widgets are data-driven visuals that provide additional context and data, to help you understand the scenario that the behavior represents. Here, you'll add two visual widgets to display property information for the arm element.
 
     1. First, create a widget to display a gauge of the arm's hydraulic pressure value.
@@ -231,17 +233,17 @@ Next, you'll create a *behavior* for the element. These behaviors allow you to c
     
         1. Select **Create widget**.
         
-        :::image type="content" source="media/quickstart-3d-scenes-studio/new-widget-gauge.png" alt-text="Screenshot of the New widget options in 3D Scenes Studio for the gauge widget." lightbox="media/quickstart-3d-scenes-studio/new-widget-gauge.png":::
+            :::image type="content" source="media/quickstart-3d-scenes-studio/new-widget-gauge.png" alt-text="Screenshot of the New widget options in 3D Scenes Studio for the gauge widget." lightbox="media/quickstart-3d-scenes-studio/new-widget-gauge.png":::
         
     1. Next, create a widget with a link to a live camera stream of the arm.
 
         1. Select **Add widget**. From the **Widget library**, select the **Link** widget and then **Add widget**.
 
-        1. In the **New widget** options, enter a **Label** of *Live arm camera*. For the **URL**, you can use the example URL *http://contoso.aws.armstreams.com/${PrimaryTwin.$dtId}*. (There's no live camera hosted at the URL for this sample, but the link represents where the video feed might be hosted in a real scenario.)
+        1. In the **New widget** options, enter a **Label** of *Live arm camera*. For the **URL**, you can use the example URL *http://contoso.aws.armstreams.com/${PrimaryTwin.$dtId}*. There's no live camera hosted at the URL for this sample, but the link represents where the video feed might be hosted in a real scenario.
     
         1. Select **Create widget**.
     
-        :::image type="content" source="media/quickstart-3d-scenes-studio/new-widget-link.png" alt-text="Screenshot of the New widget options in 3D Scenes Studio for a link widget." lightbox="media/quickstart-3d-scenes-studio/new-widget-link.png":::
+            :::image type="content" source="media/quickstart-3d-scenes-studio/new-widget-link.png" alt-text="Screenshot of the New widget options in 3D Scenes Studio for a link widget." lightbox="media/quickstart-3d-scenes-studio/new-widget-link.png":::
 
 1. The behavior options are now complete. Save the behavior by selecting **Create behavior**.
 
@@ -266,7 +268,7 @@ Sometimes, an environment might contain multiple similar elements, which should 
 1. Return to **Build** mode. Like you did in [Create a scene element](#create-a-scene-element), select a different arm in the visualization, and select **Create new element**. 
     :::image type="content" source="media/quickstart-3d-scenes-studio/new-arm-element-2.png" alt-text="Screenshot of the factory scene in 3D Scenes Studio. A different arm is highlighted with an option to create a new element." lightbox="media/quickstart-3d-scenes-studio/new-arm-element-2.png":::
 
-1. Select a **Primary twin** for the new element, then switch to the **Behaviors** tab.
+1. Select a **Primary twin** of *Arm2* for the new element, then switch to the **Behaviors** tab.
     :::image type="content" source="media/quickstart-3d-scenes-studio/new-element-details-2.png" alt-text="Screenshot of the New element options for Arm2 in 3D Scenes Studio." lightbox="media/quickstart-3d-scenes-studio/new-element-details-2.png":::
 
 1. Select **Add behavior**. Choose the **Packing Line Efficiency** behavior that you created in this quickstart.
