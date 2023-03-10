@@ -170,7 +170,7 @@ Here's the sample JSON definition of a Synapse notebook activity:
 Here's the sample JSON of a Synapse notebook activity output:
 
 ```json
-
+{
 {
     "status": {
         "Status": 1,
