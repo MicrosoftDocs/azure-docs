@@ -103,7 +103,7 @@ postgres01   Ready   3/3          12.345.567.89:5432   9d
 Use the connections string examples below for your server group. Copy, paste, and customize them as needed:
 
 > [!IMPORTANT]
-> SSL is required for client connections. In connection string, the SSL mode parameter should not be disabled.
+> SSL is required for client connections. In connection string, the SSL mode parameter should not be disabled. For more information, review [https://www.postgresql.org/docs/14/runtime-config-connection.html](https://www.postgresql.org/docs/14/runtime-config-connection.html).
 
 ### ADO.NET
 
