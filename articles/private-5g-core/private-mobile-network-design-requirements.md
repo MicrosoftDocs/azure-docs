@@ -43,7 +43,7 @@ In this section, we outline some decisions you should consider when designing yo
 
 #### Design considerations
 
-When deployed on Azure Stack Edge (ASE), AP5GC uses physical port 5 for access signalling and data (5G N2 and N3 reference points/4G S1 and S1-U reference points) and port 6 for core data (5G N6/4G SGi reference points).
+When deployed on Azure Stack Edge (ASE), AP5GC uses physical port 5 for access signaling and data (5G N2 and N3 reference points/4G S1 and S1-U reference points) and port 6 for core data (5G N6/4G SGi reference points).
 
 Azure Private 5G Core Packet Core supports deployments with or without L3 routers on ports 5 and 6. This is useful for avoiding extra hardware at small Edge sites.
 
@@ -58,7 +58,7 @@ Unless your AP5GC Packet core is using NAT, there must be a L3 router configured
 There are multiple ways to set up your network for use with AP5GC packet core. The exact setup varies depending on your own needs and hardware. This section provides some sample network topologies.
 
 - Layer 3 network with N6 Network Address Translation (NAT)  
-  Thhis network topology has your ASE connected to a layer 2 device that provides connectivity to the mobile network core and access gateways (routers connecting your ASE to your data and access networks respectively). This solution is commonly used as it supports L3 routing when required.  
+  This network topology has your ASE connected to a layer 2 device that provides connectivity to the mobile network core and access gateways (routers connecting your ASE to your data and access networks respectively). This solution is commonly used as it supports L3 routing when required.  
   :::image type="content" source="media/private-mobile-network-design-requirements/layer-3-network-with-n6-nat.png" alt-text="Diagram of a layer 3 network with N6 Network Address Translation (N A T)." lightbox="media/private-mobile-network-design-requirements/layer-3-network-with-n6-nat.png":::
 
 - Layer 3 network without Network Address Translation (NAT)  
@@ -108,9 +108,9 @@ Your RAN will transmit a Public Land Mobile Network Identity (PLMN ID) to all UE
 
 The Maximum Transmission Unit (MTU) is a property of an IP link, and it is configured on the interfaces at each end of the link. Packets that exceed an interface's configured MTU are split into smaller packets via IPv4 fragmentation prior to sending and are then reassembled at their destination. However, if an interface's configured MTU is higher than the link's supported MTU, the packet will fail to be transmitted correctly.
 
-To avoid transmission issues caused by IPv4 fragmentation, a 4G or 5G packet core instructs UEs what MTU they should use. However, UEs do not always respect the MTU signalled by the packet core.
+To avoid transmission issues caused by IPv4 fragmentation, a 4G or 5G packet core instructs UEs what MTU they should use. However, UEs do not always respect the MTU signaled by the packet core.
 
-IP packets from UEs are tunnelled through from the RAN, which adds overhead from encapsulation. Due to this, the MTU value for the UE should be smaller than the MTU value used between the RAN and the Packet Core to avoid transmission issues.
+IP packets from UEs are tunneled through from the RAN, which adds overhead from encapsulation. Due to this, the MTU value for the UE should be smaller than the MTU value used between the RAN and the Packet Core to avoid transmission issues.
 
 RANs typically come pre-configured with an MTU of 1500. The Packet Core’s default UE MTU is 1300 bytes to allow for encapsulation overhead. These values maximize RAN interoperability, but risk that certain UEs will not observe the default MTU and will generate larger packets that require IPv4 fragmentation that may be dropped by the network.
 
