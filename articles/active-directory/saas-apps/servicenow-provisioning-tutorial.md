@@ -164,7 +164,7 @@ In March 2023, ServiceNow released a SCIM 2.0 connector. Completing the steps be
 2. Navigate to your current ServiceNow app under Azure Active Directory > Enterprise Applications
 3. In the Properties section of your new custom app, copy the Object ID.
 
-	![Screenshot of ServiceNow app in the Azure portal](./media/servicenow-provisioning-tutorial/app-properties.png)
+	![Screenshot of ServiceNow app in the Azure portal.](./media/servicenow-provisioning-tutorial/app-properties.png)
 
 4. In a new web browser window, go to https://developer.microsoft.com/graph/graph-explorer and sign in as the administrator for the Azure AD tenant where your app is added. 
 
