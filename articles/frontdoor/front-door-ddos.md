@@ -36,7 +36,7 @@ Front Door is a large scaled, globally distributed service. We have many custome
 
 * Using the managed rule set provides protection against many common attacks. For more information, see [Managed rules](../web-application-firewall/afds/waf-front-door-drs.md).
 * Traffic from outside a defined geographic region, or within a defined region, can be blocked or redirected to a static webpage. For more information, see [Geo-filtering](../web-application-firewall/afds/waf-front-door-geo-filtering.md).
-* IP addresses and ranges that you identify as malicious can be blocked. For more information, see [IP restrictions](../web-application-firewall/afds/waf-front-door-configure-ip-restriction).
+* IP addresses and ranges that you identify as malicious can be blocked. For more information, see [IP restrictions](../web-application-firewall/afds/waf-front-door-configure-ip-restriction.md).
 * Rate limiting can be applied to prevent IP addresses from calling your service too frequently. For more information, see [Rate limiting](../web-application-firewall/afds/waf-front-door-rate-limit.md).
 * You can create [custom WAF rules](../web-application-firewall/afds/waf-front-door-custom-rules.md) to automatically block and rate limit HTTP or HTTPS attacks that have known signatures.
 * Using the bot protection managed rule set provides protection against known bad bots. For more information, see [Configuring bot protection](../web-application-firewall/afds/waf-front-door-policy-configure-bot-protection.md).
