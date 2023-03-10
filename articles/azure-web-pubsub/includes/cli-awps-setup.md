@@ -9,7 +9,9 @@ ms.custom: devx-track-azurecli
 
 ## Azure CLI setup for local development
 
-Follow these steps to set up the Azure CLI and your project environment.
+Follow these steps to set up Azure CLI and your project environment.
+
+1. Open a command shell.
 
 1. Upgrade to the latest version of the Azure CLI.
 
@@ -23,14 +25,9 @@ Follow these steps to set up the Azure CLI and your project environment.
     az extension add --name webpubsub
     ```
 
-1. Sign in to the Azure CLI.  Following the prompts, enter your Azure credentials.
+1. Sign in to Azure CLI.  Following the prompts, enter your Azure credentials.
 
     ```azurecli
     az login
     ```
 
-1. Create a resource group.
-
-    ```azurecli
-    az group create --name myResourceGroup --location eastus
-    ```

@@ -22,8 +22,7 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [azure-web-pubsub-tutorial-prerequisites](includes/cli-awps-prerequisites.md)]
 
->[!NOTE]
-> You can use the Windows cmd.exe command shell instead of a bash shell to run the commands in this tutorial.
+You can use the Windows cmd.exe command shell instead of a Bash shell to run the commands in this tutorial.
 
 If creating the project on a local machine, you'll need to install the dependencies for the language you're using:
 
@@ -46,7 +45,7 @@ If creating the project on a local machine, you'll need to install the dependenc
 
 ---
 
-## Setup
+## Prepare your environment
 
 # [Local Azure CLI](#tab/LocalBash)
 
@@ -58,7 +57,7 @@ If creating the project on a local machine, you'll need to install the dependenc
 
 ---
 
-### Create a resource group
+## Create a resource group
 
 [!INCLUDE [Create a resource group](includes/cli-rg-creation.md)]
 
@@ -69,18 +68,17 @@ If creating the project on a local machine, you'll need to install the dependenc
 
 ### Create a Web PubSub instance
 
-Use the Azure CLI [az webpubsub create](/cli/azure/webpubsub#az-webpubsub-create) command to create a Web PubSub in the resource group you've created. The following command creates a _Free_ Web PubSub resource under resource group *myResourceGroup* in *EastUS*:
+Use the Azure CLI [az webpubsub create](/cli/azure/webpubsub#az-webpubsub-create) command to create a Web PubSub in the resource group you've created. The following command creates a _Free_ Web PubSub resource under resource group `myResourceGroup` in `EastUS`:
 
-  > [!Important]
-  > Each Web PubSub resource must have a unique name. Replace &lt;your-unique-resource-name&gt; with the name of your Web PubSub instance in the following command.
+Each Web PubSub resource must have a unique name. Replace &lt;your-unique-resource-name&gt; with the name of your Web PubSub instance in the following command.
 
 ```azurecli
-az webpubsub create --name "<your-unique-resource-name>" --resource-group "myResourceGroup" --location "EastUS" --sku Free_F1
+az webpubsub create --resource-group myResourceGroup --name <your-unique-resource-name> --location EastUS --sku Free_F1
 ```
 
 The output of this command shows properties of the newly created resource. Take note of the two properties listed below:
 
-* **Resource Name**: The name you provided to the `--name` parameter above.
+* **name**: The Web PubSub name you provided in the `--name` parameter above.
 * **hostName**: In the example, the host name is `<your-unique-resource-name>.webpubsub.azure.com/`.
 
 At this point, your Azure account is the only one authorized to perform any operations on this new resource.
@@ -97,7 +95,7 @@ Clients connect to the Azure Web PubSub service through the standard WebSocket p
 
 1. First, create a project directory named `subscriber` for this project and install required dependencies:
 
-    * The package [Websocket.Client](https://github.com/Marfusios/websocket-client) is a third-party package supporting WebSocket connection. You can use any API/library that supports WebSocket to do so.
+    * The package [Websocket.Client](https://github.com/Marfusios/websocket-client) is a third-party package supporting WebSocket connections. You can use any API/library that supports WebSocket.
     * The SDK package `Azure.Messaging.WebPubSub` helps to generate the JWT token. 
 
     ```console
