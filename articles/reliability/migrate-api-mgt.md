@@ -65,6 +65,8 @@ There are no downtime requirements for any of the migration options.
 
 * Migrating to availability zones or changing the availability zone configuration will trigger a public [IP address change](../api-management/api-management-howto-ip-addresses.md#changes-to-the-ip-addresses).
 
+* When enabling availability zones in a region, you configure a number of API Management scale [units](upgrade-and-scale.md) that can be distributed evenly across the zones. For example, if you configure 2 zones, you could configure 2 units, 4 units, or another multiple of 2 units. Adding units incurs additional costs. For details, see [API Management pricing](https://azure.microsoft.com/en-us/pricing/details/api-management/).
+
 * If you've configured autoscaling for your API Management instance in the primary location, you might need to adjust your autoscale settings after enabling zone redundancy. The number of API Management units in autoscale rules and limits must be a multiple of the number of zones.
 
 ## Option 1: Migrate existing location of API Management instance, not injected in VNet
