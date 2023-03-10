@@ -1,6 +1,6 @@
 ---
 title: Bring your own storage to Azure Spring Apps
-description: Learn how to bring in storage from an external source into Azure Spring Appss.
+description: Learn how to bring in storage from an external source into Azure Spring Apps
 author: karlerickson
 ms.author: yitaopan
 ms.service: spring-apps
@@ -27,19 +27,19 @@ In addition, you can your can mount your own persistent storage to not only Azur
 
 ## Step 1: Set up the environment
 
-Set the following variables to the names of your resources.
+Set the following variables to the names of your resources and current region setting.
 
 ```bash
 RESOURCE_GROUP="<resource-group-name>"
-LOCATION="<location>"
-MANAGED_ENVIRONMENT="<azure-container-apps-environment-name>"
-SPRING_APPS_NAME="<azure-spring-apps-instance-name>"
-APP_NAME="<spring-app-name>"
+LOCATION="eastus"
+MANAGED_ENVIRONMENT="<Azure-Container-Apps-environment-name>"
+SPRING_APPS_NAME="<Azure-Spring-Apps-instance-name>"
+APP_NAME="<Spring-app-name>"
 ```
 
 ## Step 2: Set up a storage account
 
-Create a storage account and establish a file share to mount to the spring app.
+Create a storage account and establish a file share to mount to the Spring app.
 
 1. Define a storage account name.
 
@@ -53,13 +53,13 @@ Create a storage account and establish a file share to mount to the spring app.
 
    ```azurecli
    az storage account create \
-     --resource-group $RESOURCE_GROUP \
-     --name $STORAGE_ACCOUNT_NAME \
-     --location "$LOCATION" \
-     --kind StorageV2 \
-     --sku Standard_LRS \
-     --enable-large-file-share \
-     --query provisioningState
+       --resource-group $RESOURCE_GROUP \
+       --name $STORAGE_ACCOUNT_NAME \
+       --location "$LOCATION" \
+       --kind StorageV2 \
+       --sku Standard_LRS \
+       --enable-large-file-share \
+       --query provisioningState
    ```
 
    This command returns a success message upon a successful completion.
@@ -74,12 +74,12 @@ Create a storage account and establish a file share to mount to the spring app.
 
    ```azurecli
    az storage share-rm create \
-     --resource-group $RESOURCE_GROUP \
-     --storage-account $STORAGE_ACCOUNT_NAME \
-     --name $FILE_SHARE_NAME \
-     --quota 1024 \
-     --enabled-protocols SMB \
-     --output table
+       --resource-group $RESOURCE_GROUP \
+       --storage-account $STORAGE_ACCOUNT_NAME \
+       --name $FILE_SHARE_NAME \
+       --quota 1024 \
+       --enabled-protocols SMB \
+       --output table
    ```
 
 1. Get the Storage Account key.
@@ -102,14 +102,14 @@ The storage account key is required to create the storage link in your Azure Con
 
    ```azurecli
    az containerapp env storage set \
-     --access-mode ReadWrite \
-     --azure-file-account-name $STORAGE_ACCOUNT_NAME \
-     --azure-file-account-key $STORAGE_ACCOUNT_KEY \
-     --azure-file-share-name $FILE_SHARE_NAME \
-     --storage-name $STORAGE_MOUNT_NAME \
-     --name $MANAGED_ENVIRONMENT \
-     --resource-group $RESOURCE_GROUP \
-     --output table
+       --access-mode ReadWrite \
+       --azure-file-account-name $STORAGE_ACCOUNT_NAME \
+       --azure-file-account-key $STORAGE_ACCOUNT_KEY \
+       --azure-file-share-name $FILE_SHARE_NAME \
+       --storage-name $STORAGE_MOUNT_NAME \
+       --name $MANAGED_ENVIRONMENT \
+       --resource-group $RESOURCE_GROUP \
+       --output table
    ```
 
 Now that the storage account and environment are linked, you can use the storage mount in your Azure Spring Apps instance.
