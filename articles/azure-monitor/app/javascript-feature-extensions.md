@@ -41,7 +41,7 @@ const clickPluginConfig = {
 };
 // Application Insights Configuration
 const configObj = {
-  instrumentationKey: "YOUR INSTRUMENTATION KEY",
+  connectionString: "YOUR_CONNECTION_STRING",
   extensions: [clickPluginInstance],
   extensionConfig: {
     [clickPluginInstance.identifier]: clickPluginConfig
@@ -55,7 +55,7 @@ appInsights.loadAppInsights();
 ## Snippet Setup (ignore if using npm setup)
 
 ```html
-<script type="text/javascript" src="https://js.monitor.azure.com/scripts/b/ext/ai.clck.2.6.2.min.js"></script>
+<script type="text/javascript" src="https://js.monitor.azure.com/scripts/b/ext/ai.clck.2.min.js"></script>
 <script type="text/javascript">
   var clickPluginInstance = new Microsoft.ApplicationInsights.ClickAnalyticsPlugin();
   // Click Analytics configuration
@@ -67,7 +67,7 @@ appInsights.loadAppInsights();
   }
   // Application Insights Configuration
   var configObj = {
-    instrumentationKey: "YOUR INSTRUMENTATION KEY",
+    connectionString: "YOUR_CONNECTION_STRING",
     extensions: [
       clickPluginInstance
     ],
