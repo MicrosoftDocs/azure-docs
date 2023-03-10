@@ -147,14 +147,11 @@ The MPN ID you provided (`MPNID`) doesn't exist, or you don't have access to it.
 Most commonly caused by the signed-in user not being a member of the proper role for the MPN account in Partner Center- see [requirements](publisher-verification-overview.md#requirements) for a list of eligible roles and see [common issues](#common-issues) for more information. Can also be caused by the tenant the app is registered in not being added to the MPN account, or an invalid MPN ID.
 
 **Remediation Steps**
-
-    1. Go to your [partner profile](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) and verify that: 
-        - The MPN ID is correct. 
-        - There are no errors or “pending actions” shown, and the verification status under Legal business profile and Partner info both say “authorized” or “success”.
-        
-    2. Go to the [MPN tenant management page](https://partner.microsoft.com/dashboard/account/v3/tenantmanagement) and confirm that the tenant the app is registered in and that you're signing with a user account from is on the list of associated tenants. To add another tenant, follow the instructions [here](/partner-center/multi-tenant-account). Be aware that all Global Admins of any tenant you add will be granted Global Administrator privileges on your Partner Center account.
-    
-    3. Go to the [MPN User Management page](https://partner.microsoft.com/pcv/users) and confirm the user you're signing in as is either a Global Administrator, MPN Admin, or Accounts Admin. To add a user to a role in Partner Center, follow the instructions [here](/partner-center/create-user-accounts-and-set-permissions).
+1. Go to your [partner profile](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) and verify that: 
+    - The MPN ID is correct. 
+    - There are no errors or “pending actions” shown, and the verification status under Legal business profile and Partner info both say “authorized” or “success”.
+2. Go to the [MPN tenant management page](https://partner.microsoft.com/dashboard/account/v3/tenantmanagement) and confirm that the tenant the app is registered in and that you're signing with a user account from is on the list of associated tenants. To add another tenant, follow the instructions [here](/partner-center/multi-tenant-account). Be aware that all Global Admins of any tenant you add will be granted Global Administrator privileges on your Partner Center account.
+3. Go to the [MPN User Management page](https://partner.microsoft.com/pcv/users) and confirm the user you're signing in as is either a Global Administrator, MPN Admin, or Accounts Admin. To add a user to a role in Partner Center, follow the instructions [here](/partner-center/create-user-accounts-and-set-permissions).
 
 ### MPNGlobalAccountNotFound
 
@@ -163,8 +160,8 @@ The MPN ID you provided (`MPNID`) isn't valid. Provide a valid MPN ID and try ag
 Most commonly caused when an MPN ID is provided which corresponds to a Partner Location Account (PLA). Only Partner Global Accounts are supported. See [Partner Center account structure](/partner-center/account-structure) for more details.
 
 **Remediation Steps**
-    1. Navigate to your [partner profile](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) > Identifiers blade > Microsoft Cloud Partners Program Tab
-    2. Use the Partner ID with type PartnerGlobal
+1. Navigate to your [partner profile](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) > Identifiers blade > Microsoft Cloud Partners Program Tab
+2. Use the Partner ID with type PartnerGlobal
 
 ### MPNAccountInvalid
 
@@ -173,8 +170,8 @@ The MPN ID you provided (`MPNID`) isn't valid. Provide a valid MPN ID and try ag
 Most commonly caused by the wrong MPN ID being provided.
 
 **Remediation Steps**
-    1. Navigate to your [partner profile](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) > Identifiers blade > Microsoft Cloud Partners Program Tab
-    2. Use the Partner ID with type PartnerGlobal
+1. Navigate to your [partner profile](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) > Identifiers blade > Microsoft Cloud Partners Program Tab
+2. Use the Partner ID with type PartnerGlobal
 
 ### MPNAccountNotVetted
 
@@ -183,8 +180,8 @@ The MPN ID (`MPNID`) you provided hasn't completed the vetting process. Complete
 Most commonly caused by when the MPN account hasn't completed the [verification](/partner-center/verification-responses) process.
 
 **Remediation Steps**
-    1. Navigate to your [partner profile](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) and verify that There are no errors or “pending actions” shown, and that the verification status under Legal business profile and Partner info both say “authorized” or “success”.
-    2. If not, view pending action items in Partner Center and troubleshoot with [here](/partner-center/verification-responses)
+1. Navigate to your [partner profile](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) and verify that There are no errors or “pending actions” shown, and that the verification status under Legal business profile and Partner info both say “authorized” or “success”.
+2. If not, view pending action items in Partner Center and troubleshoot with [here](/partner-center/verification-responses)
 
 ### NoPublisherIdOnAssociatedMPNAccount
 
@@ -193,8 +190,8 @@ The MPN ID you provided (`MPNID`) isn't valid. Provide a valid MPN ID and try ag
 Most commonly caused by the wrong MPN ID being provided.
 
 **Remediation Steps**
-    1. Navigate to your [partner profile](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) > Identifiers blade > Microsoft Cloud Partners Program Tab
-    2. Use the Partner ID with type PartnerGlobal
+1. Navigate to your [partner profile](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) > Identifiers blade > Microsoft Cloud Partners Program Tab
+2. Use the Partner ID with type PartnerGlobal
 
 ### MPNIdDoesNotMatchAssociatedMPNAccount
 
@@ -203,8 +200,8 @@ The MPN ID you provided (`MPNID`) isn't valid. Provide a valid MPN ID and try ag
 Most commonly caused by the wrong MPN ID being provided.
 
 **Remediation Steps**
-    1. Navigate to your [partner profile](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) > Identifiers blade > Microsoft Cloud Partners Program Tab
-    2. Use the Partner ID with type PartnerGlobal
+1. Navigate to your [partner profile](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) > Identifiers blade > Microsoft Cloud Partners Program Tab
+2. Use the Partner ID with type PartnerGlobal
 
 ### ApplicationNotFound
 
@@ -213,9 +210,9 @@ The target application (`AppId`) can’t be found. Provide a valid application I
 Most commonly caused when verification is being performed via Graph API, and the ID of the application provided is incorrect. 
 
 **Remediation Steps**
-    1. The Object ID of the application must be provided, not the AppId/ClientId. See "id" on the list of application properties [here](/graph/api/resources/application)
-    2. Log in to [Azure Active Directory](https://aad.portal.azure.com/) with a user account in your organization's primary tenant > Azure Active Directory > App Registrations blade
-    3. Find your app's registration to view the Object ID
+1. The Object ID of the application must be provided, not the AppId/ClientId. See "id" on the list of application properties [here](/graph/api/resources/application)
+2. Log in to [Azure Active Directory](https://aad.portal.azure.com/) with a user account in your organization's primary tenant > Azure Active Directory > App Registrations blade
+3. Find your app's registration to view the Object ID
 
 
 ### ApplicationObjectisInvalid 
@@ -225,9 +222,9 @@ The target application's object ID is invalid. Please provide a valid ID and try
 Most commonly caused when the verification is being performed via Graph API, and the ID of the application provided does not exist. 
 
 **Remediation Steps**
-    1. The Object ID of the application must be provided, not the AppId/ClientId. See "id" on the list of application properties [here](/graph/api/resources/application)
-    2. Log in to [Azure Active Directory](https://aad.portal.azure.com/) with a user account in your organization's primary tenant > Azure Active Directory > App Registrations blade
-    3. Find your app's registration to view the Object ID
+1. The Object ID of the application must be provided, not the AppId/ClientId. See "id" on the list of application properties [here](/graph/api/resources/application)
+2. Log in to [Azure Active Directory](https://aad.portal.azure.com/) with a user account in your organization's primary tenant > Azure Active Directory > App Registrations blade
+3. Find your app's registration to view the Object ID
 
  
 ### B2CTenantNotAllowed
@@ -245,7 +242,7 @@ The target application (`AppId`) must have a Publisher Domain set. Set a Publish
 Occurs when a [Publisher Domain](howto-configure-publisher-domain.md) isn't configured on the app.
 
 **Remediation Steps**
-    1. Follow the directions [here](/azure/active-directory/develop/howto-configure-publisher-domain#set-a-publisher-domain-in-the-azure-portal) to set a Publisher Domain
+1. Follow the directions [here](/azure/active-directory/develop/howto-configure-publisher-domain#set-a-publisher-domain-in-the-azure-portal) to set a Publisher Domain
 
 ### PublisherDomainMismatch
 
@@ -256,11 +253,11 @@ Occurs when neither the app's [Publisher Domain](howto-configure-publisher-domai
 See [requirements](publisher-verification-overview.md) for a list of allowed domain or sub-domain matches. 
 
 **Remediation Steps**
-    1. Navigate to your [partner profile](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile), and view the email listed as Primary Contact
-    2. The domain used to perform email verification in Partner Center is the portion after the “@” in the Primary Contact’s email
-    3. Log in to [Azure Active Directory](https://aad.portal.azure.com/) > Azure Active Directory > App Registrations blade > (`Your App`) > Branding and Properties
-    4. Click “Update Publisher Domain” and follow the instructions to “Verify a New Domain”
-    5. Add the domain used to perform email verification in Partner Center as a New Domain
+1. Navigate to your [partner profile](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile), and view the email listed as Primary Contact
+2. The domain used to perform email verification in Partner Center is the portion after the “@” in the Primary Contact’s email
+3. Log in to [Azure Active Directory](https://aad.portal.azure.com/) > Azure Active Directory > App Registrations blade > (`Your App`) > Branding and Properties
+4. Click “Update Publisher Domain” and follow the instructions to “Verify a New Domain”
+5. Add the domain used to perform email verification in Partner Center as a New Domain
 
 
 ### NotAuthorizedToVerifyPublisher
@@ -270,10 +267,10 @@ You aren't authorized to set the verified publisher property on application (<`A
 Most commonly caused by the signed-in user not being a member of the proper role for the MPN account in Azure AD- see [requirements](publisher-verification-overview.md#requirements) for a list of eligible roles and see [common issues](#common-issues) for more information.
 
 **Remediation Steps**
-    1. Sign in to the [Azure AD Portal](https://aad.portal.azure.com) using a user account in your organization's primary tenant.
-    2. Navigate to [Role Management](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators).
-    3. Select the desired admin role and click “Add Assignment” if you have sufficient permissions.
-    4. If you do not have sufficient permissions, contact an admin role for assistance
+1. Sign in to the [Azure AD Portal](https://aad.portal.azure.com) using a user account in your organization's primary tenant.
+2. Navigate to [Role Management](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators).
+3. Select the desired admin role and click “Add Assignment” if you have sufficient permissions.
+4. If you do not have sufficient permissions, contact an admin role for assistance
 
 
 ### MPNIdWasNotProvided
@@ -283,8 +280,8 @@ The MPN ID wasn't provided in the request body or the request content type wasn'
 Most commonly caused when the verification is being performed via Graph API, and the MPN ID wasn’t provided in the request. 
 
 **Remediation Steps**
-    1. Navigate to your [partner profile](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) > Identifiers blade > Microsoft Cloud Partners Program Tab
-    2. Use the Partner ID with type PartnerGlobal in the request
+1. Navigate to your [partner profile](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) > Identifiers blade > Microsoft Cloud Partners Program Tab
+2. Use the Partner ID with type PartnerGlobal in the request
 
 ### MSANotSupported 
 
@@ -299,8 +296,8 @@ Occurs when multi-factor authentication (MFA) hasn't been enabled and performed 
 The error message displayed will be: "Due to a configuration change made by your administrator, or because you moved to a new location, you must use multi-factor authentication to proceed."
 
 **Remediation Steps**
-    1. Ensure [multi-factor authentication](../fundamentals/concept-fundamentals-mfa-get-started.md) is enabled and **required** for the user you're signing in with and for this scenario
-    2. Retry Publisher Verification
+1. Ensure [multi-factor authentication](../fundamentals/concept-fundamentals-mfa-get-started.md) is enabled and **required** for the user you're signing in with and for this scenario
+2. Retry Publisher Verification
 
 ### UserUnableToAddPublisher
 
@@ -308,13 +305,13 @@ When a request to add a verified publisher is made, many signals are used to mak
 
 **Remediation Steps**
 > [Investigate risk](../identity-protection/howto-identity-protection-investigate-risk.md#risky-users)
-
+> 
 > [Remediate risk/unblock users](../identity-protection/howto-identity-protection-remediate-unblock.md)
-
+> 
 > [Self-remediation guidance](../identity-protection/howto-identity-protection-remediate-unblock.md)
-
+> 
 > Self-serve password reset (SSPR): If the organization allows SSPR, use aka.ms/sspr to reset the password for remediation. Please choose a strong password; Choosing a weak password may not reset the risk state.  
-
+> 
 > [!NOTE] 
 > Please give some time after remediation for the risk state to update, and then try again.
 
