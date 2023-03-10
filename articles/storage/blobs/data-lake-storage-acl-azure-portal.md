@@ -7,9 +7,8 @@ author: jimmart-dev
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/15/2021
+ms.date: 03/09/2023
 ms.author: jammart
-ms.reviewer: stewu
 ---
 
 # Use the Azure portal to manage ACLs in Azure Data Lake Storage Gen2

@@ -1,13 +1,13 @@
 ---
 title: 'Use PowerShell to manage data: Azure Data Lake Storage Gen2'
 titleSuffix: Azure Storage
-description: Use PowerShell cmdlets to manage directories and files in storage accounts that has hierarchical namespace enabled.
+description: Use PowerShell cmdlets to manage directories and files in storage accounts that have a hierarchical namespace enabled.
 author: normesta
 
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.topic: how-to
-ms.date: 02/17/2021
+ms.date: 03/09/2023
 ms.author: normesta
 ms.reviewer: prishet
 ms.devlang: powershell
@@ -34,7 +34,7 @@ To learn about how to get, set, and update the access control lists (ACL) of dir
 
 ## Install the PowerShell module
 
-1. Verify that the version of PowerShell that have installed is `5.1` or higher by using the following command.
+1. Verify that the version of PowerShell that 's installed is `5.1` or higher by using the following command.
 
    ```powershell
    echo $PSVersionTable.PSVersion.ToString()
@@ -284,7 +284,7 @@ The following table shows how the cmdlets used for Data Lake Storage Gen1 map to
 |New-AzDataLakeStoreItem|New-AzDataLakeGen2Item|This cmdlet uploads the new file content from a local file.|
 |Remove-AzDataLakeStoreItem|Remove-AzDataLakeGen2Item||
 |Set-AzDataLakeStoreItemOwner<br>Set-AzDataLakeStoreItemPermission<br>Set-AzDataLakeStoreItemAcl|Update-AzDataLakeGen2Item|The Update-AzDataLakeGen2Item cmdlet updates a single item only, and not recursively. If want to update recursively, list items by using the Get-AzDataLakeStoreChildItem cmdlet, then pipeline to the Update-AzDataLakeGen2Item cmdlet.|
-|Test-AzDataLakeStoreItem|Get-AzDataLakeGen2Item|The Get-AzDataLakeGen2Item cmdlet will report an error if the item doesn't exist.|
+|Test-AzDataLakeStoreItem|Get-AzDataLakeGen2Item|The Get-AzDataLakeGen2Item cmdlet reports an error if the item doesn't exist.|
 
 ## See also
 
