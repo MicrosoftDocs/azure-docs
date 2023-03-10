@@ -17,7 +17,7 @@ ms.author: anfdocs
 ---
 # Configure policy-based backups for Azure NetApp Files 
 
-Azure NetApp Files backup supports *policy-based* (scheduled) backups and *manual* (on-demand) backups at the volume level. You can use both types of backups in the same volume. During the configuration process, you will enable the backup feature for an Azure NetApp Files volume before policy-based backups or manual backups can be taken. 
+Azure NetApp Files backup supports *policy-based* (scheduled) backups and *manual* (on-demand) backups at the volume level. You can use both types of backups in the same volume. During the configuration process, you'll enable the backup feature for an Azure NetApp Files volume before policy-based backups or manual backups can be taken. 
 
 This article shows you how to configure policy-based backups. For manual backup configuration, see [Configure manual backups](backup-configure-manual.md).  
 
@@ -26,9 +26,9 @@ This article shows you how to configure policy-based backups. For manual backup 
 
 ## About policy-based backups    
 
-Backups are long-running operations. The system schedules backups based on the primary workload (which is given a higher priority) and runs backups in the background. Depending on the size of the volume being backed up, a backup can run in background for hours. There is no option to select the start time for backups. The service performs the backups based on the internal scheduling and optimization logic. 
+Backups are long-running operations. The system schedules backups based on the primary workload (which is given a higher priority) and runs backups in the background. Depending on the size of the volume being backed up, a backup can run in background for hours. There's no option to select the start time for backups. The service performs the backups based on the internal scheduling and optimization logic. 
 
-Assigning a policy creates a baseline snapshot that is the current state of the volume and transfers the snapshot to Azure storage. The baseline snapshot is created with a name starting with `baseline`. This baseline snapshot will be deleted automatically when the first scheduled backup is complete (based on the policy). If the backup policy is attached to a volume, the backup list will be empty until the baseline snapshot is transferred. When the backup is complete, the baseline backup entry will appear in the list of backups for the volume. After the baseline transfer, the list will be updated daily based on the policy. An empty list of backups indicates that the baseline backup is in progress. If a volume already has existing manual backups before you assign a backup policy, the baseline snapshot is not created. A baseline snapshot is created only when the volume has no prior backups.
+Assigning a policy creates a baseline snapshot that is the current state of the volume and transfers the snapshot to Azure storage. The baseline snapshot is created with a name starting with `baseline`. This baseline snapshot is deleted automatically when the first scheduled backup is complete (based on the policy). If the backup policy is attached to a volume, the backup list will be empty until the baseline snapshot is transferred. When the backup is complete, the baseline backup entry appears in the list of backups for the volume. After the baseline transfer, the list will be updated daily based on the policy. An empty list of backups indicates that the baseline backup is in progress. If a volume already has existing manual backups before you assign a backup policy, the baseline snapshot isn't created. A baseline snapshot is created only when the volume has no prior backups.
 
 [!INCLUDE [consideration regarding deleting backups after deleting resource or subscription](includes/disable-delete-backup.md)]
 
@@ -45,7 +45,7 @@ You need to create a snapshot policy and associate the snapshot policy to the vo
 4.	Select **Add snapshot policy**.
 5.	In the Snapshot policy page that appears, specify the number of snapshots to keep and the schedule for creating snapshots for the volume. Select **Save**.  
 
-    Currently, the backup functionality can back up only daily, weekly, and monthly snapshots. (Hourly backups are not supported).   
+    Currently, the backup functionality can back up only daily, weekly, and monthly snapshots. (Hourly backups aren't supported).   
 
     * For a *daily* snapshot configuration, specify the time of the day when you want the snapshot created. 
     * For a *weekly* snapshot configuration, specify the day of the week and time of the day when you want the snapshot created. 
@@ -56,7 +56,7 @@ You need to create a snapshot policy and associate the snapshot policy to the vo
         
     * For each snapshot configuration, specify the number of snapshots that you want to keep.
 
-    For example, if you want to have daily backups, you must configure a snapshot policy with a daily snapshot schedule and snapshot count, and then apply that daily snapshot policy to the volume. If you change the snapshot policy or delete the daily snapshot configuration, new daily snapshots will not be created, resulting in daily backups not taking place. The same process and behavior apply to weekly and monthly backups.  
+    For example, if you want to have daily backups, you must configure a snapshot policy with a daily snapshot schedule and snapshot count, and then apply that daily snapshot policy to the volume. If you change the snapshot policy or delete the daily snapshot configuration, new daily snapshots isn't be created, resulting in daily backups not taking place. The same process and behavior apply to weekly and monthly backups.  
 
     Ensure that each snapshot has a unique snapshot schedule configuration. By design, Azure NetApp Files prevents you from deleting the latest backup. If multiple snapshots have the same time (for example, the same daily and weekly schedule configuration), Azure NetApp Files considers them as the latest snapshots, and deleting those backups is prevented.  
 
@@ -76,7 +76,7 @@ You need to create a snapshot policy and associate the snapshot policy to the vo
 
 A backup policy enables a volume to be protected on a regularly scheduled interval.  
 
-You need to create a backup policy and associate the backup policy to the volume that you want to back up. A single backup policy can be attached to multiple volumes. Backups can be temporarily suspended either by disabling the policy or by disabling backups at the volume level. Backups can also be completely disabled at the volume level, resulting in the clean-up of all the associated data in the Azure storage. A backup policy cannot be deleted if it is attached to any volumes.
+You need to create a backup policy and associate the backup policy to the volume that you want to back up. A single backup policy can be attached to multiple volumes. Backups can be temporarily suspended either by disabling the policy or by disabling backups at the volume level. Backups can also be completely disabled at the volume level, resulting in the clean-up of all the associated data in the Azure storage. A backup policy can't be deleted if it's attached to any volumes.
 
 To enable a policy-based (scheduled) backup: 
 
