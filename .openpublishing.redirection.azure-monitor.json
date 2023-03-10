@@ -5918,7 +5918,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-monitor/insights/azure-key-vault-deprecated.md",
-            "redirect_url": "/previous-versions/azure/azure-monitor/insights/azure-key-vault-deprecated.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/insights/azure-key-vault-deprecated",
             "redirect_document_id": false
         },
         {
