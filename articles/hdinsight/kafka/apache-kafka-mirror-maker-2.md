@@ -4,7 +4,7 @@ description: Learn how to use Use MirrorMaker 2 to replicate Apache Kafka topics
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 02/27/2023
+ms.date: 03/10/2023
 ---
 
 # Use MirrorMaker 2 to replicate Apache Kafka topics with Kafka on HDInsight
@@ -101,6 +101,8 @@ This architecture features two clusters in different resource groups and virtual
 1. After making the changes, the `/etc/hosts` file for `SECONDARYCLUSTER` looks like the given image.
 
    :::image type="content" source="./media/apache-kafka-mirror-maker2/ect-hosts.png" alt-text="Screenshot that shows etc-hosts file output." border="true":::
+   :::image type="content" source="./media/apache-kafka-mirror-maker2/ect-hosts.png"  lightbox="./media/apache-kafka-mirror-maker2/ect-hosts.png" alt-text="Screenshot that shows etc-hosts file output." border="false":::
+
    
 1. Save and close the file.   
 
