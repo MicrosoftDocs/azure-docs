@@ -41,8 +41,6 @@ For query field extraction, specify the fields you want to extract and Form Reco
 
 * In addition to the query fields, the response includes text, tables, selection marks, general document key-value pairs, and other relevant data.
 
-   :::image type="content" source="media/studio/query-field-analyze.png" alt-text="Screenshot of query field analysis in Form Recognizer Studio.":::
-
 ## Next steps
 
 > [!div class="nextstepaction"]
