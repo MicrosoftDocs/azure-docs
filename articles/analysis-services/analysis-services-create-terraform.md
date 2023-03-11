@@ -66,23 +66,25 @@ In this article, you learn how to:
 
 ## Verify the results
 
+1. Open a PowerShell command prompt.
+
 1. Get the Azure resource group name.
 
     ```console
-    echo "$(terraform output resource_group_name)"
+    $resource_group_name=$(terraform output -raw resource_group_name)
     ```
 
 1. Get the server name.
 
     ```console
-    echo "$(terraform output analysis_services_server_name)"
+    $analysis_services_server_name=$(terraform output -raw analysis_services_server_name)
     ```
 
 1. Run [Get-AzAnalysisServicesServer](/powershell/module/az.analysisservices/get-azanalysisservicesserver) to display information about the new server.
 
     ```azurepowershell
-    Get-AzAnalysisServicesServer -ResourceGroupName <resource_group_name> `
-                                 -Name <analysis_services_server_name>
+    Get-AzAnalysisServicesServer -ResourceGroupName $resource_group_name `
+                                 -Name $analysis_services_server_name
     ```
 
 ## Clean up resources
