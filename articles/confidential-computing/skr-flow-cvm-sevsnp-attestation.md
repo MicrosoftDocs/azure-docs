@@ -141,9 +141,9 @@ To enable system-assigned managed identity on a CVM, your account needs the [Vir
 Once you turn on a system-assigned managed identity for your CVM, you have to provide it with access to the Azure Key Vault data plane where key objects are stored. To ensure that only our confidential virtual machine can execute the release operation, we will only grant it the specific permission required for that.
 
 > [!NOTE]
-> You can find the managed identity object ID in the virtual machine identity options, in the Azure Portal. Alternatively you can retrieve it with [PowerShell](../active-directory/managed-identities-azure-resources/how-to-assign-app-role-managed-identity-powershell.md), [Azure CLI](../active-directory/managed-identities-azure-resources/how-to-assign-app-role-managed-identity-cli.md), [Bicep](https://learn.microsoft.com/azure/templates/microsoft.compute/virtualmachines?pivots=deployment-language-bicep) or [ARM templates](../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md).
+> You can find the managed identity object ID in the virtual machine identity options, in the Azure Portal. Alternatively you can retrieve it with [PowerShell](../active-directory/managed-identities-azure-resources/how-to-assign-app-role-managed-identity-powershell.md), [Azure CLI](../active-directory/managed-identities-azure-resources/how-to-assign-app-role-managed-identity-cli.md), Bicep or ARM templates.
 
-### [Bicep]
+### [Bicep 1]
 
 ```bicep
 @description('Required. Specifies the object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies. Get it by using Get-AzADUser or Get-AzADServicePrincipal cmdlets.')
@@ -273,7 +273,7 @@ We create a Key Vault access policy that lets an Azure Confidential Virtual Mach
 > [!NOTE]
 > HSM-backed keys are available with Azure Key Vault Premium and Azure Key Vault Managed HSM.
 
-### [Bicep](#tab/bicep)
+### [Bicep 2]
 
 ```bicep
 @description('The type of the key. For valid values, see JsonWebKeyType. Must be backed by HSM, for secure key release.')
@@ -323,7 +323,7 @@ resource exportableKey 'Microsoft.KeyVault/vaults/keys@2022-07-01' = {
 }
 ```
 
-### [ARM template](#tab/arm-template)
+### [ARM template 2]
 
 ```json
    {
@@ -414,7 +414,7 @@ A [open sourced](https://github.com/Azure/confidential-computing-cvm-guest-attes
 
 1. Sign in to your VM.
 1. Clone the [sample Windows application](https://github.com/Azure/confidential-computing-cvm-guest-attestation/tree/main/cvm-platform-checker-exe/Windows).
-1. Navigate inside the unzipped folder and run `VC_redist.x64.exe`. This exe will install Microsoft C and C++ ([MSVC](https://docs.microsoft.com/cpp/windows/latest-supported-vc-redist?view=msvc-170)) runtime libraries on the machine.
+1. Navigate inside the unzipped folder and run `VC_redist.x64.exe`. This exe will install Microsoft C and C++ (MSVC) runtime libraries on the machine.
 1. To run the sample client, navigate inside the unzipped folder and run the below command:
 
     ```sh
