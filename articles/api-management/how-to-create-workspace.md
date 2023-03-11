@@ -65,11 +65,11 @@ At minimum, assign an *owner* of the workspace. Optionally, assign permissions t
 1. In the menu for your API Management instance, select **Workspaces (preview)**  > the name of the workspace that you created.
 1. In the **Workspace** window, select **Access control (IAM)**> **+ Add**.
     
-1. Assign the administrator the following role:
+1. Assign the owner the following role:
 
     * **API Management Workspace Owner** 
 
-1. Optionally, assign one of the following workspace-level roles to other workspace members to manage workspace APIs and other resources. The administrator of the workspace can also assign workspace-level roles.
+1. Optionally, assign one of the following workspace-level roles to other workspace members to manage workspace APIs and other resources. The owner of the workspace can also assign workspace-level roles.
 
     * **API Management Workspace Reader**
     * **API Management Workspace Contributor**
