@@ -244,7 +244,7 @@ While the cache is scaling to the new tier, a **Scaling Redis Cache** notificati
 :::image type="content" source="media/cache-how-to-scale/scaling-notification.png" alt-text="notification of scaling":::
 **Fran, need a new screenshot here**
 
-When scaling is complete, the status changes from **Updating** to **Running**.
+When scaling is complete, the status changes from **Scaling** to **Running**.
 
 
 ### Scale using PowerShell
