@@ -6,7 +6,7 @@ author: boris-bazilevskiy
 
 ms.service: azure-communication-services
 ms.subservice: pstn
-ms.date: 03/02/2023
+ms.date: 03/11/2023
 ms.topic: include
 ms.custom: include file
 ms.author: nikuklic

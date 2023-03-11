@@ -4,7 +4,7 @@ titleSuffix: An Azure Communication Services quickstart
 description: In this quickstart, you learn how to configure Azure Communication Services direct routing programmatically.
 author: nikuklic
 ms.author: nikuklic
-ms.date: 02/20/2023
+ms.date: 03/11/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: pstn
