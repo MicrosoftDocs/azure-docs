@@ -9,6 +9,10 @@ manager: femila
 ---
 # Use multimedia redirection on Azure Virtual Desktop
 
+> [!IMPORTANT]
+> Azure Virtual Desktop webRTC-based calls are currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 This article will show you how to use multimedia redirection (MMR) for Azure Virtual Desktop with Microsoft Edge or Google Chrome browsers. For more information about how multimedia redirection works, see [Understanding multimedia redirection for Azure Virtual Desktop](multimedia-redirection-intro.md).
 
 > [!NOTE]

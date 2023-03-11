@@ -9,16 +9,26 @@ manager: femila
 ---
 # Understanding multimedia redirection for Azure Virtual Desktop
 
-Multimedia redirection (MMR) gives you smooth video playback while watching videos in a browser in Azure Virtual Desktop. Multimedia redirection redirects the media content from Azure Virtual Desktop to your local machine for faster processing and rendering. Both Microsoft Edge and Google Chrome support this feature. 
+> [!IMPORTANT]
+> Azure Virtual Desktop webRTC-based calls are currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+Multimedia redirection (MMR) gives you smooth video playback while watching videos and clear audio calls when making WebRTC based calls (preview) in a browser in Azure Virtual Desktop. Multimedia redirection redirects the media content from Azure Virtual Desktop to your local machine for faster processing and rendering. Both Microsoft Edge and Google Chrome support this feature. 
 
 > [!NOTE]
 > Multimedia redirection isn't supported on Azure Virtual Desktop for Microsoft 365 Government (GCC), GCC-High environments, and Microsoft 365 DoD.
 >
-> Multimedia redirection on Azure Virtual Desktop is only available for the [Windows Desktop client, version 1.2.3916 or later](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew). on Windows 11, Windows 10, or Windows 10 IoT Enterprise devices.
+> Multimedia redirection on Azure Virtual Desktop is only available for the [Windows Desktop client, version 1.2.3916 or later](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew). Multimedia redirection WebRTC calling redirection (preview) on Azure Virtual Desktop is only available for the Windows Desktop client, version x.x.xxxx or later with Insider releases enabled.
+
+<!--Which version?-->
 
 ## Websites that work with multimedia redirection
 
-The following list shows websites that are known to work with MMR. MMR works with these sites by default.
+The following lists show websites that are known to work with MMR. MMR works with these sites by default.
+
+### Video playback redirection
+
+The following sites work with video playback redirection:
 
 :::row:::
    :::column span="":::
@@ -67,6 +77,15 @@ The following list shows websites that are known to work with MMR. MMR works wit
    :::column-end:::
 :::row-end:::
 
+### WebRTC call redirection
+
+The following sites work with webRTC call redirection:
+
+- WebRTC Sample Site 
+- Content Guru Storm 
+- Intermedia AnyMeeting 
+- Azure Communication Service-based calling apps, such as Dynamics 365 Omnichannel Voice
+
 Microsoft Teams live events aren't media-optimized for Azure Virtual Desktop and Windows 365 when using the native Teams app. However, if you use Teams live events with a supported browser, MMR is a workaround that provides smoother Teams live events playback on Azure Virtual Desktop. MMR supports Enterprise Content Delivery Network (ECDN) for Teams live events.
 
 ### The multimedia redirection status icon
@@ -79,9 +98,9 @@ To quickly tell if multimedia redirection is active in your browser, we've added
 | :::image type="content" source="./media/mmr-extension-disconnect.png" alt-text="The MMR extension icon with a red square with an x that indicates the client can't connect to multimedia redirection."::: | The red square with an "X" inside of it means that the client can't connect to multimedia redirection. You may need to uninstall and reinstall the extension, then try again. |
 | :::image type="content" source="./media/mmr-extension-supported.png" alt-text="The MMR extension icon with no status applied."::: | The default icon appearance with no status applied. This icon state means that multimedia content on the website can be redirected and is ready to use. |
 | :::image type="content" source="./media/mmr-extension-playback.png" alt-text="The MMR extension icon with a green square with a play button icon inside of it, indicating that multimedia redirection is working."::: | The green square with a play button icon inside of it means that the extension is currently redirecting video playback. |
-| :::image type="content" source="./media/mmr-extension-webrtc.png" alt-text="The MMR extension icon with a green square with telephone icon inside of it, indicating that multimedia redirection is working."::: | The green square with a phone icon inside of it means that the extension is currently redirecting a WebRTC call. |
+| :::image type="content" source="./media/mmr-extension-webrtc.png" alt-text="The MMR extension icon with a green square with telephone icon inside of it, indicating that multimedia redirection is working."::: | The green square with a phone icon inside of it means that the extension is currently redirecting a WebRTC call. This icon also appears when the service is redirecting both video playback and calls at the same time. |
 
-Selecting the icon in your browser will display a pop-up menu where it lists the features supported on the current page, you can select to enable or disable multimedia redirection on all websites, and collect logs. It also lists the version numbers for each component of the service.
+Selecting the icon in your browser will display a pop-up menu where it lists the features supported on the current page, you can select to enable or disable video playback redirection and WebRTC calling redirection on all websites and collect logs. It also lists the version numbers for each component of the service.
 
 You can use the icon to check the status of the extension by following the directions in [Check the extension status](multimedia-redirection.md#check-the-extension-status).
 

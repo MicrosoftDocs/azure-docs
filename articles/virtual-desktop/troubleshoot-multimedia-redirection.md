@@ -9,6 +9,10 @@ manager: femila
 ---
 # Troubleshoot multimedia redirection for Azure Virtual Desktop
 
+> [!IMPORTANT]
+> Azure Virtual Desktop webRTC-based calls are currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 >[!NOTE]
 >Azure Virtual Desktop doesn't currently support multimedia redirection on Azure Virtual Desktop for Microsoft 365 Government (GCC), GCC-High environments, and Microsoft 365 DoD.
 >
