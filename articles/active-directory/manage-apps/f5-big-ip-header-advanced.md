@@ -103,7 +103,7 @@ There are many methods to configure BIG-IP for this scenario, including two temp
 Setting up a SAML federation trust between BIG-IP APM and Azure AD is one of the first step in implementing SHA. It establishes the integration required for BIG-IP to hand off pre-authentication and [conditional
 access](../conditional-access/overview.md) to Azure AD, before granting access to the published service.
 
-1. Sign-in to the Azure AD portal using an account with application administrative rights.
+1. Sign-in to the Azure portal using an account with application administrative rights.
 
 2. From the left navigation pane, select the **Azure Active Directory** service
 
