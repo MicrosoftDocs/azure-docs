@@ -37,21 +37,36 @@ Make sure to add and verify domain name portion of the FQDN and keep in mind tha
 1. Reenter the domain name.
 1. Select Confirm and then select Add.
 
-:::image type="content" source="./media/add-domain-direct-routing.png" alt-text="Screenshot of adding a custom domain.":::
+:::image type="content" source="./media/direct-routing-add-domain.png" alt-text="Screenshot of adding a custom domain.":::
+
+#### Verify domain ownership
 
 1. Select Verify next to new domain that is now visible in Domain’s list.
 1. Azure portal generates a value for a TXT record, you need to add that record to your registrars or DNS hosting provider website to set up your domain.
 
-:::image type="content" source="./media/txt-record-direct-routing.png" alt-text="Screenshot of adding a custom domain.":::
+:::image type="content" source="./media/direct-routing-verify-domain-2.png" alt-text="Screenshot of verifying a custom domain.":::
 
-[!Note] It might take up to 30 minutes for new DNS record to propagate on the Internet
+>[!Note] It might take up to 30 minutes for new DNS record to propagate on the Internet
 
-1. Select Next. If everything is set up correctly, you should see Domain status changed to *Verified* next to the added domain.
+3. Select Next. If everything is set up correctly, you should see Domain status changed to *Verified* next to the added domain.
 
-#### Edit existing domain record
-
-tba
+:::image type="content" source="./media/direct-routing-domain-verified.png" alt-text="Screenshot of verifying a custom domain.":::
 
 #### Remove domain from Azure Communication Services
 
-tba
+If you want to remove a domain from your Azure Communication Services direct routing configuration, select the checkbox fir a corresponding domain name, and select *Remove*.
+
+:::image type="content" source="./media/direct-routing-remove-domain.png" alt-text="Screenshot of removing a custom domain.":::
+
+## Next steps:
+
+### Conceptual documentation
+
+- [Telephony in Azure Communication Services](../../concepts/telephony/telephony-concept.md)
+- [Direct routing infrastructure requirements](../../concepts/telephony/direct-routing-infrastructure.md)
+- [Pricing](../pricing.md)
+
+### Quickstarts
+
+- [Outbound call to a phone number](../../quickstarts/telephony/pstn-call.md)
+- [Redirect inbound telephony calls with Call Automation](../../quickstarts/call-automation/redirect-inbound-telephony-calls.md)
