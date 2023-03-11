@@ -53,7 +53,9 @@ This tutorial doesn't:
 
 ## Understand user consent
 
-In the previous tutorial, when the user signs in to the frontend app, a pop-up displayed asking for user consent to the authentication app. 
+In the previous tutorial, when the user signed in to the frontend app, a pop-up displayed asking for user consent to the authentication app. 
+
+:::image type="content" source="./media/tutorial-auth-aad/browser-screenshot-authentication-permission-requested-popup.png" alt-text="Screenshot of browser authentication pop-up requesting permissions.":::
 
 In this tutorial, the backend needs to exchange the user's token for a new token with an audience for **Microsoft Graph** with a scope of **User.Read** in order to get the user's profile. Because the user isn't directly connected to the backend app, the backend authentication app needs to change to _not require_ user consent for Microsoft Graph. 
 
