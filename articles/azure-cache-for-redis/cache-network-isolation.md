@@ -48,7 +48,7 @@ VNet is the fundamental building block for your private network in Azure. VNet e
 
 - VNet injected caches are only available for Premium Azure Cache for Redis.
 - When using a VNet injected cache, you must change your VNet to cache dependencies such as CRLs/PKI, AKV, Azure Storage, Azure Monitor, and more.
-- An existing redis cache instance cannot be to a Virtual Network. This option must be configured when you create the redis cache. 
+- An existing Azure Cache for Redis instance cannot be injected to a Virtual Network. This option must be configured during creation. 
 
 ## Azure Firewall rules
 
