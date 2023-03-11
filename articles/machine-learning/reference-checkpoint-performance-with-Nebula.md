@@ -13,7 +13,7 @@ ms.date: 03/06/2023
 ms.reviewer: franksolomon
 ---
 
-# Large-model Checkpoint Optimization Matters
+# Large-model Checkpoint Optimization Matters (Preview)
 
 Learn how to boost checkpoint speed and shrink checkpoint cost for large Azure Machine Learning training models.
 
