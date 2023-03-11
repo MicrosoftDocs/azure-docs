@@ -4,17 +4,17 @@ description: Learn about troubleshooting known issues with HPC and GPU VM sizes 
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 03/04/2023
+ms.date: 03/10/2023
 ms.reviewer: cynthn
 ms.author: mamccrea
 author: mamccrea
 ---
 
-# Known issues with H-series and N-series VMs
+# Known issues with HB-series and N-series VMs
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-This article attempts to list recent common issues and their solutions when using the [H-series](../../sizes-hpc.md) and [N-series](../../sizes-gpu.md) HPC and GPU VMs.
+This article attempts to list recent common issues and their solutions when using the [HB-series](sizes-hpc.md) and [N-series](sizes-gpu.md) HPC and GPU VMs.
 
 ## Cache topology on Standard_HB120rs_v3
 `lstopo` displays incorrect cache topology on the Standard_HB120rs_v3 VM size. It may display that there’s only 32 MB L3 per NUMA. However in practice, there is indeed 120 MB L3 per NUMA as expected since the same 480 MB of L3 to the entire VM is available as with the other constrained-core HBv3 VM sizes. This is a cosmetic error in displaying the correct value, which should not impact workloads.
@@ -26,9 +26,9 @@ To prevent low-level hardware access that can result in security vulnerabilities
 On Ubuntu-18.04 based marketplace VM images with kernels version `5.4.0-1039-azure #42` and newer, some older Mellanox OFED are incompatible causing an increase in VM boot time up to 30 minutes in some cases. This has been reported for both Mellanox OFED versions 5.2-1.0.4.0 and 5.2-2.2.0.0. The issue is resolved with Mellanox OFED 5.3-1.0.0.1.
 If it is necessary to use the incompatible OFED, a solution is to use the **Canonical:UbuntuServer:18_04-lts-gen2:18.04.202101290** marketplace VM image, or older and not to update the kernel.
 
-## Accelerated Networking on HB, HC, HBv2, HBv3, NDv2 and NDv4
+## Accelerated Networking on HB, HC, HBv2, HBv3, HBv4, HX, NDv2 and NDv4
 
-[Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) is now available on the RDMA and InfiniBand capable and SR-IOV enabled VM sizes [HB](../../hb-series.md), [HC](../../hc-series.md), [HBv2](../../hbv2-series.md), [HBv3](../../hbv3-series.md), [NDv2](../../ndv2-series.md) and [NDv4](../../nda100-v4-series.md). This capability now allows enhanced throughout (up to 30 Gbps) and latencies over the Azure Ethernet network. Though this is separate from the RDMA capabilities over the InfiniBand network, some platform changes for this capability may impact behavior of certain MPI implementations when running jobs over InfiniBand. Specifically the InfiniBand interface on some VMs may have a slightly different name (mlx5_1 as opposed to earlier mlx5_0). This may require tweaking of the MPI command lines especially when using the UCX interface (commonly with OpenMPI and HPC-X). 
+[Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) is now available on the RDMA and InfiniBand capable and SR-IOV enabled VM sizes [HB](hb-series.md), [HC](hc-series.md), [HBv2](hbv2-series.md), [HBv3](hbv3-series.md), [HBv4](hbv4-series.md), [HX](hx-series.md), [NDv2](ndv2-series.md) and [NDv4](nda100-v4-series.md). This capability now allows enhanced throughout (up to 30 Gbps) and latencies over the Azure Ethernet network. Though this is separate from the RDMA capabilities over the InfiniBand network, some platform changes for this capability may impact behavior of certain MPI implementations when running jobs over InfiniBand. Specifically the InfiniBand interface on some VMs may have a slightly different name (mlx5_1 as opposed to earlier mlx5_0). This may require tweaking of the MPI command lines especially when using the UCX interface (commonly with OpenMPI and HPC-X). 
 
 The simplest solution currently is to use the latest HPC-X on the CentOS-HPC VM images where we rename the InfiniBand and Accelerated Networking interfaces accordingly or to run the [script](https://github.com/Azure/azhpc-images/blob/master/common/install_azure_persistent_rdma_naming.sh) to rename the InfiniBand interface.
 
@@ -36,7 +36,7 @@ More details on this are available on this [TechCommunity article](https://techc
 
 ## InfiniBand driver installation on non-SR-IOV VMs
 
-Currently H16r, H16mr, and NC24r are not SR-IOV enabled. For more information on the InfiniBand stack bifurcation, see [Azure VM sizes - HPC](../../sizes-hpc.md#rdma-capable-instances).
+Currently H16r, H16mr, and NC24r are not SR-IOV enabled. For more information on the InfiniBand stack bifurcation, see [Azure VM sizes - HPC](sizes-hpc.md#rdma-capable-instances).
 InfiniBand can be configured on the SR-IOV enabled VM sizes with the OFED drivers while the non-SR-IOV VM sizes require ND drivers. This IB support is available appropriately for [CentOS, RHEL, and Ubuntu](configure.md).
 
 ## Duplicate MAC with cloud-init with Ubuntu on H-series and N-series VMs
@@ -81,7 +81,7 @@ sed -i 's/GSS_USE_PROXY="yes"/GSS_USE_PROXY="no"/g' /etc/sysconfig/nfs
 
 On HPC systems, it is often useful to clean up the memory after a job has finished before the next user is assigned the same node. After running applications in Linux you may find that your available memory reduces while your buffer memory increases, despite not running any applications.
 
-![Screenshot of command prompt before cleaning](./media/known-issues/cache-cleaning-1.png)
+![Screenshot of command prompt before cleaning](./media/hpc/cache-cleaning-1.png)
 
 Using `numactl -H` will show which NUMAnode(s) the memory is buffered with (possibly all). In Linux, users can clean the caches in three ways to return buffered or cached memory to ‘free’. You need to be root or have sudo permissions.
 
@@ -91,7 +91,7 @@ echo 2 > /proc/sys/vm/drop_caches [frees slab objects e.g. dentries, inodes]
 echo 3 > /proc/sys/vm/drop_caches [cleans page-cache and slab objects]
 ```
 
-![Screenshot of command prompt after cleaning](./media/known-issues/cache-cleaning-2.png)
+![Screenshot of command prompt after cleaning](./media/hpc/cache-cleaning-2.png)
 
 ## Kernel warnings
 
@@ -118,6 +118,6 @@ You may ignore the following kernel warning messages when booting an HB-series V
 
 ## Next steps
 
-- Review the [HB-series overview](../../hb-series-overview.md) and [HC-series overview](../../hc-series-overview.md) to learn about optimally configuring workloads for performance and scalability.
+- Review the [HB-series overview](hb-series-overview.md) and [HC-series overview](hc-series-overview.md) to learn about optimally configuring workloads for performance and scalability.
 - Read about the latest announcements, HPC workload examples, and performance results at the [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 - For a higher-level architectural view of running HPC workloads, see [High Performance Computing (HPC) on Azure](/azure/architecture/topics/high-performance-computing/).
