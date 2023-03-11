@@ -19,7 +19,7 @@ This article will show you how to get started with the MedTech service in the [A
 
 The following diagram outlines the basic architectural path that enables the MedTech service to receive data from a device and send it to the FHIR service. This diagram shows how the six-step implementation process is divided into three key deployment stages: deployment, post-deployment, and data processing.
 
-:::image type="content" source="media/get-started/get-started-with-iot.png" alt-text="Diagram showing MedTech service architectural overview." lightbox="media/get-started/get-started-with-iot.png":::
+:::image type="content" source="media/get-started/get-started-with-iot.png" alt-text="Diagram showing the MedTech service architectural overview." lightbox="media/get-started/get-started-with-iot.png":::
 
 Follow these six steps to set up and start using the MedTech service.
 
