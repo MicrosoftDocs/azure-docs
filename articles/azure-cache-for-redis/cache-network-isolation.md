@@ -7,7 +7,8 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 03/10/2023
 
-----
+
+---
 
 # Azure Cache for Redis network isolation options
 
