@@ -25,12 +25,12 @@ The following code snippet shows the most basic way to use the ChatGPT model. We
 import os
 import openai
 openai.api_type = "azure"
-openai.api_base = "https://{your-resource-name}.openai.azure.com/"
+openai.api_base = "https://{your-resource-location}.api.cognitive.microsoft.com/"
 openai.api_version = "2022-12-01"
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 response = openai.Completion.create(
-  engine="gpt-35-turbo",
+  engine="{your-resource-name}",
   prompt="<|im_start|>system\nAssistant is a large language model trained by OpenAI.\n<|im_end|>\n<|im_start|>user\nWhat's the difference between garbanzo beans and chickpeas?\n<|im_end|>\n<|im_start|>assistant\n",
   temperature=0,
   max_tokens=500,
