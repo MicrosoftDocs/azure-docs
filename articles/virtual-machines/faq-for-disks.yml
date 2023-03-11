@@ -254,7 +254,7 @@ sections:
       - question: |
           What should I set my ultra disk throughput to?
         answer: |
-          If you are unsure what to set your disk throughput to, we recommend you start by assuming an IO size of 16 KiB and adjust the performance from there as you monitor your application. The formula is: Throughput in MBps = # of IOPS * 16 / 1000.
+          If you are unsure what to set your disk throughput to, we recommend you start by assuming an IO size of 16 KiB and adjust the performance from there as you monitor your application. The formula is: Throughput in MB/s = # of IOPS * 16 / 1000.
           
       - question: |
           I configured my disk to 40000 IOPS but I'm only seeing 12800 IOPS, why am I not seeing the performance of the disk?
@@ -435,12 +435,12 @@ sections:
       - question: |
           What are the limits for IOPS and throughput that I can get from the disk cache?
         answer: |
-          The combined limits for cache and local SSD for a DS series are 4,000 IOPS per core and 33 MiB per second per core. The GS series offers 5,000 IOPS per core and 50 MiB per second per core.
+          The combined limits for cache and local SSD for a DS series are 4,000 IOPS per core and 33 MB/s per core. The GS series offers 5,000 IOPS per core and 50 MB/s per core.
 
       - question: |
-          Is the local SSD supported for a Managed Disks VM?
+          Is the local SSD supported for a VM using managed disks?
         answer: |
-          The local SSD is temporary storage that is included with a Managed Disks VM. There is no extra cost for this temporary storage. We recommend that you do not use this local SSD to store your application data because it isn't persisted in Azure Blob storage.
+          The local SSD is temporary storage that is included with a VM using managed disks. There is no extra cost for this temporary storage. You shouldn't use this local SSD to store your application data because it isn't persisted in Azure Storage.
 
       - question: |
           Are there any repercussions for the use of TRIM on premium disks?
@@ -469,23 +469,11 @@ sections:
           What is the largest page blob size that's supported?
         answer: |
           The largest page blob size that Azure supports is 8 TiB (8,191 GiB). The maximum page blob size when attached to a VM as data or operating system disks is 4 TiB (4,095 GiB).
-
-      - question: |
-          Do I need to use a new version of Azure tools to create, attach, resize, and upload disks larger than 1 TiB?
-        answer: |
-          You don't need to upgrade your existing Azure tools to create, attach, or resize disks larger than 1 TiB. To upload your VHD file from on-premises directly to Azure as a page blob or unmanaged disk, you need to use the latest tool sets listed below. We only support VHD uploads of up to 8 TiB.
-          
-          |Azure tools      | Supported versions                                |
-          |-----------------|---------------------------------------------------|
-          |Azure PowerShell | Version number 4.1.0: June 2017 release or later|
-          |Azure CLI v1     | Version number 0.10.13: May 2017 release or later|
-          |Azure CLI v2     | Version number 2.0.12: July 2017 release or later|
-          |AzCopy              | Version number 6.1.0: June 2017 release or later|
           
       - question: |
           Are P4 and P6 disk sizes supported for unmanaged disks or page blobs?
         answer: |
-          P4 (32 GiB) and P6 (64 GiB) disk sizes are not supported as the default disk tiers for unmanaged disks and page blobs. You need to explicitly [set the Blob Tier](/rest/api/storageservices/set-blob-tier) to P4 and P6 to have your disk mapped to these tiers. If you deploy a unmanaged disk or page blob with the disk size or content length less than 32 GiB or between 32 GiB to 64 GiB without setting the Blob Tier, you will continue to land on P10 with 500 IOPS and 100 MiB/s and the mapped pricing tier.
+          P4 (32 GiB) and P6 (64 GiB) disk sizes are not supported as the default disk tiers for unmanaged disks and page blobs. You need to explicitly [set the Blob Tier](/rest/api/storageservices/set-blob-tier) to P4 and P6 to have your disk mapped to these tiers. If you deploy a unmanaged disk or page blob with the disk size or content length less than 32 GiB or between 32 GiB to 64 GiB without setting the Blob Tier, you will continue to land on P10 with 500 IOPS and 100 MB/s and the mapped pricing tier.
           
       - question: |
           If my existing premium managed disk less than 64 GiB was created before the small disk was enabled (around June 15, 2017), how is it billed?
@@ -495,10 +483,10 @@ sections:
       - question: |
           How can I switch the disk tier of small premium disks less than 64 GiB from P10 to P4 or P6?
         answer: |
-          You can take a snapshot of your small disks and then create a disk to automatically switch the pricing tier to P4 or P6 based on the provisioned size.
+          You can take a snapshot of your small disks and then create a disk to automatically switch the pricing tier to P4 or P6 based on the provisioned size. You can also use performance tiers, see the articles for changing performance tiers with either the [Azure CLI/PowerShell module](disks-performance-tiers.md) or the [Azure portal](disks-performance-tiers-portal.md).
 
       - question: |
-          Can you resize existing Managed Disks from sizes fewer than 4 tebibytes (TiB) to 32 TiB?
+          Can you resize existing managed disks from sizes fewer than 4 tebibytes (TiB) to 32 TiB?
         answer: |
           Yes.
 
@@ -510,7 +498,7 @@ sections:
       - question: |
           What are the recommended VM sizes for larger disk sizes (>4 TiB) for Standard SSD and Standard HDD disks to achieve optimized disk IOPS and Bandwidth?
         answer: |
-          To achieve the disk throughput of Standard SSD and Standard HDD large disk sizes (>4 TiB) beyond 500 IOPS and 60 MiB/s, we recommend you deploy a new VM from one of the following VM sizes to optimize your performance: B-series, DSv2-series, Dsv3-Series, ESv3-Series, Fs-series, Fsv2-series, M-series, GS-series, NCv2-series, NCv3-series, or Ls-series VMs. Attaching large disks to existing VMs or VMs that are not using the recommended sizes above may experience lower performance.
+          To achieve the disk throughput of Standard SSD and Standard HDD large disk sizes (>4 TiB) beyond 500 IOPS and 60 MB/s, we recommend you deploy a new VM from one of the following VM sizes to optimize your performance: B-series, DSv2-series, Dsv3-Series, ESv3-Series, Fs-series, Fsv2-series, M-series, GS-series, NCv2-series, NCv3-series, or Ls-series VMs. Attaching large disks to existing VMs or VMs that are not using the recommended sizes above may experience lower performance.
           
       - question: |
           How can I upgrade my disks (>4 TiB) which were deployed during the larger disk sizes preview in order to get the higher IOPS & bandwidth at GA?
