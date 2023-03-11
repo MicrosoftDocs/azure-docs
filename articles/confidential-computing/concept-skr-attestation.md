@@ -29,7 +29,7 @@ The below steps are for AKV Premium.
 
 ### Step 1: Create a Key Vault Premium HSM Backed
 
-[Follow the details here for Az CLI based AKV creation](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create)
+[Follow the details here for Az CLI based AKV creation](../key-vault/general/quick-create-cli.md)
 
 Make sure to set the value of [--sku] to "premium".
 
@@ -68,7 +68,7 @@ Example
 
 ### Step 3: Create a exportable key in AKV with attached SKR policy
 
-Exact details of the type of key and other attributes associated can be found [here](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create).
+Exact details of the type of key and other attributes associated can be found [here](../key-vault/general/quick-create-cli.md).
 
 ```azurecli
 az keyvault key create --exportable true --vault-name "vault name from step 1" --kty RSA-HSM --name "keyname" --policy "jsonpolicyfromstep3 -can be a path to JSON" --protection hsm --vault-name "name of vault created from step1"               
