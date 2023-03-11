@@ -25,10 +25,10 @@ On InfiniBand (IB) enabled VMs, the appropriate drivers are required to enable R
 These VM images are based on the base CentOS and Ubuntu marketplace VM images. Scripts used in the creation of these VM images from their base CentOS Marketplace image are on the [azhpc-images repo](https://github.com/Azure/azhpc-images/tree/master/centos).
 
 On GPU enabled [N-series](sizes-gpu.md) VMs, the appropriate GPU drivers are additionally required. This can be available by the following methods:
-- Use the [Ubuntu-HPC VM images](#ubuntu-hpc-vm-images) and [CentOS-HPC VM image](#centos-hpc-vm-images) version 7.9 which come pre-configured with the Nvidia GPU drivers and GPU compute software stack (CUDA, NCCL).
+- Use the [Ubuntu-HPC VM images](#ubuntu-hpc-vm-images) and [CentOS-HPC VM image](#centos-hpc-vm-images) version 7.9 which come pre-configured with the NVIDIA GPU drivers and GPU compute software stack (CUDA, NCCL).
 - Add the GPU drivers through the [VM extensions](./extensions/hpccompute-gpu-linux.md).
 - Install the GPU drivers [manually](./linux/n-series-driver-setup.md).
-- Some other VM images on the Marketplace also come pre-installed with the Nvidia GPU drivers, including some VM images from Nvidia.
+- Some other VM images on the Marketplace also come pre-installed with the NVIDIA GPU drivers, including some VM images from NVIDIA.
 
 Depending on the workloads' Linux distro and version needs, both the [CentOS-HPC VM images](#centos-hpc-vm-images) and [Ubuntu-HPC VM images](#ubuntu-hpc-vm-images) in the Marketplace are the easiest way to get started with HPC and AI workloads on Azure.
 It is also recommended to create [custom VM images](./linux/tutorial-custom-images.md) with workload specific customization and configuration and reuse those recurringly.
@@ -41,11 +41,11 @@ The latest Azure HPC marketplace images come with Mellanox OFED 5.1 and above, w
 - [N-series](sizes-gpu.md): NDv2, NDv4
 
 #### GPU driver support
-Currently only the [Ubuntu-HPC VM images](#ubuntu-hpc-vm-images)  and [CentOS-HPC VM images](#centos-hpc-vm-images) version 7.9 come pre-configured with the Nvidia GPU drivers and GPU compute software stack (CUDA, NCCL).
+Currently only the [Ubuntu-HPC VM images](#ubuntu-hpc-vm-images)  and [CentOS-HPC VM images](#centos-hpc-vm-images) version 7.9 come pre-configured with the NVIDIA GPU drivers and GPU compute software stack (CUDA, NCCL).
 
 The VM size support matrix for the GPU drivers in supported HPC VM images is as follows:
-- [N-series](sizes-gpu.md): NDv2, NDv4 VM sizes are supported with the Nvidia GPU drivers and GPU compute software stack (CUDA, NCCL).
-- The other 'NC' and 'ND' VM sizes in the [N-series](sizes-gpu.md) are supported with the Nvidia GPU drivers.
+- [N-series](sizes-gpu.md): NDv2, NDv4 VM sizes are supported with the NVIDIA GPU drivers and GPU compute software stack (CUDA, NCCL).
+- The other 'NC' and 'ND' VM sizes in the [N-series](sizes-gpu.md) are supported with the NVIDIA GPU drivers.
 
 All of the VM sizes in the N-series support [Gen 2 VMs](generation-2.md), though some older ones also support Gen 1 VMs. Gen 2 support is also indicated with a "01" at the end of the image URN or version.
 
@@ -62,7 +62,7 @@ For SR-IOV enabled [RDMA capable VMs](sizes-hpc.md#rdma-capable-instances), [Ubu
 - Additionally, details on what's included in the [Ubuntu-HPC VM images](#ubuntu-hpc-vm-images) and CentOS-HPC version 7.6 and later VM images, and how to deploy them are in a [TechCommunity article](https://techcommunity.microsoft.com/t5/azure-compute/azure-hpc-vm-images/ba-p/977094).
 
 > [!NOTE] 
-> Among the CentOS-HPC VM images, currently only the version 7.9 VM image additionally comes pre-configured with the Nvidia GPU drivers and GPU compute software stack (CUDA, NCCL).
+> Among the CentOS-HPC VM images, currently only the version 7.9 VM image additionally comes pre-configured with the NVIDIA GPU drivers and GPU compute software stack (CUDA, NCCL).
 
 > [!NOTE] 
 > SR-IOV enabled N-series VM sizes with FDR InfiniBand (e.g. NCv3 and older) will be able to use the following CentOS-HPC VM image or older versions from the Marketplace:
@@ -74,7 +74,7 @@ For SR-IOV enabled [RDMA capable VMs](sizes-hpc.md#rdma-capable-instances), [Ubu
 >- OpenLogic:CentOS-HPC:8_1-gen2:8.1.2020062401
 
 ### Ubuntu-HPC VM images
-For SR-IOV enabled [RDMA capable VMs](sizes-hpc.md#rdma-capable-instances), Ubuntu-HPC VM images versions 18.04 and 20.04 are suitable. These VM images come optimized and pre-loaded with the Mellanox OFED drivers for RDMA, Nvidia GPU drivers, GPU compute software stack (CUDA, NCCL), and various commonly used MPI libraries and scientific computing packages. Refer to the [VM size support matrix](#vm-sizes-supported-by-the-hpc-vm-images) above.
+For SR-IOV enabled [RDMA capable VMs](sizes-hpc.md#rdma-capable-instances), Ubuntu-HPC VM images versions 18.04 and 20.04 are suitable. These VM images come optimized and pre-loaded with the Mellanox OFED drivers for RDMA, NVIDIA GPU drivers, GPU compute software stack (CUDA, NCCL), and various commonly used MPI libraries and scientific computing packages. Refer to the [VM size support matrix](#vm-sizes-supported-by-the-hpc-vm-images) above.
 - The available or latest versions of the VM images can be listed with the following information using [CLI](/cli/azure/vm/image#az-vm-image-list) or [Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-hpc?tab=overview).
    ```bash
    "publisher": "Microsoft-DSVM",
@@ -158,7 +158,7 @@ Optionally, the WALinuxAgent may be disabled as a pre-job step and enabled back 
 
 ## Next steps
 
-- Learn more about [enabling InfiniBand](enable-infiniband.md) on the InfiniBand-enabled [HB-series](sizes-hpc.md) and [N-series](sizes-gpu.md) VMs.
+- Learn more about [enabling InfiniBand](./extensions/enable-infiniband.md) on the InfiniBand-enabled [HB-series](sizes-hpc.md) and [N-series](sizes-gpu.md) VMs.
 - Learn more about installing and running various [supported MPI libraries](setup-mpi.md) on the VMs.
 - Review the [HBv3-series overview](hbv3-series-overview.md) and [HC-series overview](hc-series-overview.md).
 - Read about the latest announcements, HPC workload examples, and performance results at the [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
