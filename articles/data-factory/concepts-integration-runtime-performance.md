@@ -8,7 +8,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
-ms.date: 07/20/2022
+ms.date: 03/10/2023
 ---
 
 # Optimizing performance of the Azure Integration Runtime
