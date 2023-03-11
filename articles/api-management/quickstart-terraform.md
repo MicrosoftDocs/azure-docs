@@ -73,20 +73,20 @@ In this article, you learn how to:
 1. Get the Azure resource group name.
 
     ```console
-    echo "$(terraform output resource_group_name)"
+    resource_group_name=$(terraform output -raw resource_group_name)
     ```
 
 1. Get the service name.
 
     ```console
-    echo "$(terraform output api_management_service_name)"
+    api_management_service_name=$(terraform output -raw api_management_service_name)
     ```
 
 1. Run [az apim show](/cli/azure/apim#az-apim-show) to display information about the new service.
 
     ```azurecli
-    az apim show --resource-group <resource_group_name> \
-                 --name <api_management_service_name>
+    az apim show --resource-group $resource_group_name \
+                 --name $api_management_service_name
     ```
 
 #### [Azure PowerShell](#tab/azure-powershell)
@@ -94,13 +94,13 @@ In this article, you learn how to:
 1. Get the Azure resource group name.
 
     ```console
-    resource_group_name=$(terraform output resource_group_name)
+    $resource_group_name=$(terraform output -raw resource_group_name)
     ```
 
 1. Get the service name.
 
     ```console
-    api_management_service_name=$(terraform output api_management_service_name)
+    $api_management_service_name=$(terraform output -raw api_management_service_name)
     ```
 
 1. Run [Get-AzApiManagement](/powershell/module/az.apimanagement/get-azapimanagement) to display information about the new service.
