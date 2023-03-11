@@ -170,7 +170,7 @@ To enable full Nebula compatibility with PyTorch-based training scripts, modify 
 ## List all checkpoints
 ckpts = nm.list_checkpoints()
 ## Get Latest checkpoint path
-latest_ckpt_path = ml.get_latest_checkpoint_path("checkpoint", persisted_storage_path)
+latest_ckpt_path = nm.get_latest_checkpoint_path("checkpoint", persisted_storage_path)
 ```
 
 # [Using DeepSpeed](#tab/DEEPSPEED)
@@ -205,16 +205,16 @@ latest_ckpt_path = ml.get_latest_checkpoint_path("checkpoint", persisted_storage
   config_params["persistent_storage_path"] = "<YOUR STORAGE PATH>"
   config_params["persistent_time_interval"] = 10
   
-  nebula_checkpoint_callback = ml.NebulaCallback(
+  nebula_checkpoint_callback = nm.NebulaCallback(
      ****, # Original ModelCheckpoint params
      config_params=config_params, # customize the config of init nebula
   )
   ```
 
-  Next, add `ml.NebulaCheckpointIO()` as a plugin to your `Trainer`, and modify the `trainer.save_checkpoint()` storage parameters as shown:
+  Next, add `nm.NebulaCheckpointIO()` as a plugin to your `Trainer`, and modify the `trainer.save_checkpoint()` storage parameters as shown:
 
   ```python
-  trainer = Trainer(plugins=[ml.NebulaCheckpointIO()],   # add NebulaCheckpointIO as a plugin
+  trainer = Trainer(plugins=[nm.NebulaCheckpointIO()],   # add NebulaCheckpointIO as a plugin
                     callbacks=[nebula_checkpoint_callback]) # use NebulaCallback as a plugin
   ```
 
