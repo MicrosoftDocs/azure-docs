@@ -133,23 +133,131 @@ The source code to complete this step is provided for you. Use the following ste
     ```azurecli-interactive
     az webapp up --resource-group myAuthResourceGroup --name <back-end-app-name> 
 
-## 4. Browse to the apps
+## 4. Exchange backend API token for the Microsoft Graph token
 
+In order to change the backend API audience token for a Microsoft Graph token, the backend app needs to find the Tenant ID and use that as part of the MSAL.js configuration object. Because the backend app with configuration with Microsoft as the identity provider, the Tenant ID and several other required values are already in the App service environment variables.
 
-1. Use the frontend web site in a browser. The URL is in the formate of `https://<front-end-app-name>.azurewebsites.net/`.
-1. The browser requests your authentication to the web app. Complete the authentication.
-1. After authentication completes, the frontend application returns the home page of the app.
+### Get the Tenant ID
 
-    :::image type="content" source="./media/tutorial-auth-aad/app-home-page.png" alt-text="Screenshot of web browser showing frontend application after successfully completing authentication.":::
+Get the current tenant ID from the `WEBSITE_AUTH_OPENID_ISSUER` environment variable. The ID just needs to be parsed out of the variable with a regular expression.
 
+```javascript
+// Programmatically get tenant id from env var
+// Env var was set by Easy Auth in App Service
+// env value should look something like: https://sts.windows.net/YOUR-TENANT-ID-AS-GUID/v2.0
+export function getTenantId() {
+
+    const openIdIssuer = process.env.WEBSITE_AUTH_OPENID_ISSUER;
+    const backendAppTenantId = openIdIssuer.replace(/https:\/\/sts\.windows\.net\/(.{1,36})\/v2\.0/gm, '$1');
+
+    return backendAppTenantId;
+}
+```
+
+### Configure MSAL.js
+
+Build the MSAL.js configuration object.
+
+```javascript
+// ./backend/src/auth.js
+// Exchange current bearerToken for Graph API token
+// Env vars were set by Easy Auth in App Service
+export async function getGraphToken(backEndAccessToken) {
+
+    const config = {
+        // MSAL configuration
+        auth: {
+            // the backend's authentication CLIENT ID 
+            clientId: process.env.WEBSITE_AUTH_CLIENT_ID,
+            // the backend's authentication CLIENT SECRET 
+            clientSecret: process.env.MICROSOFT_PROVIDER_AUTHENTICATION_SECRET,
+            // OAuth 2.0 authorization endpoint (v2)
+            // should be: https://login.microsoftonline.com/BACKEND-TENANT-ID
+            authority: `https://login.microsoftonline.com/${getTenantId()}`
+        },
+        // used for debugging
+        system: {
+            loggerOptions: {
+                loggerCallback(loglevel, message, containsPii) {
+                    console.log(message);
+                },
+                piiLoggingEnabled: true,
+                logLevel: MSAL.LogLevel.Verbose,
+            }
+        }
+    };
+
+    const clientCredentialAuthority = new MSAL.ConfidentialClientApplication(config);
+
+    const oboRequest = {
+        oboAssertion: backEndAccessToken,
+        // this scope must already exist on the backend authentication app registration 
+        // and visible in resources.azure.com backend app auth config
+        scopes: ["https://graph.microsoft.com/.default"]
+    }
+
+    // This example has Easy auth validate token in App service runtime
+    // from headers that can't be set externally
+
+    // If you aren't using App service/Easy Auth, 
+    // you must validate your access token yourself
+    // before calling this code
+    try {
+        const { accessToken } = await clientCredentialAuthority.acquireTokenOnBehalfOf(oboRequest);
+        return accessToken;
+    } catch (error) {
+        console.log(`getGraphToken:error.type = ${error.type}  ${error.message}`);
+    }
+}
+```
+
+## 5. Get the user's profile from Microsoft Graph
+
+Now that the code has the correct token for Microsoft Graph, it can use the new token to create a client to Microsoft Graph then get the user's profile. 
+
+```javascript
+// ./backend/src/graph.js
+import graph from "@microsoft/microsoft-graph-client";
+import { getGraphToken } from "./auth.js";
+
+// Create client from token with Graph API scope
+export function getAuthenticatedClient(accessToken) {
+    const client = graph.Client.init({
+        authProvider: (done) => {
+            done(null, accessToken);
+        }
+    });
+
+    return client;
+}
+export async function getGraphProfile(accessToken) {
+    // exchange current backend token for token with 
+    // graph api scope
+    const graphToken = await getGraphToken(accessToken);
+
+    // use graph token to get Graph client
+    const graphClient = getAuthenticatedClient(graphToken);
+
+    // get profile of user
+    const profile = await graphClient
+        .api('/me')
+        .get();
+
+    return profile;
+}
+```
+
+## 6. Browse to the apps
+
+Get your profile from Microsoft Graph.
+
+1. Use the frontend web site in a browser. The URL is in the formate of `https://<front-end-app-name>.azurewebsites.net/`. You may need to refresh your token if it's expired.
 1. Select `Get user's profile`. This passes your authentication in the bearer token to the backend. 
-1. The backend end responds with the _fake_ hard-coded profile name: `John Doe`.
+1. The backend end responds with the _real_ Microsoft Graph profile for your account.
 
-    :::image type="content" source="./media/tutorial-auth-aad/app-profile.png" alt-text="Screenshot of web browser showing frontend application after successfully getting fake profile from backend app.":::
+    :::image type="content" source="./media/tutorial-connect-app-app-graph-javascript/browser-profile-from-microsoft-graph.png" alt-text="Screenshot of web browser showing frontend application after successfully getting real profile from backend app.":::
 
-    The `withAuthentication` value of **true** indicates the authentication _is_ set up yet. 
-
-## 5. Clean up 
+## 7. Clean up 
 
 [!INCLUDE [tutorial-connect-app-app-clean.md](./includes/tutorial-connect-app-app-clean.md)]
 
