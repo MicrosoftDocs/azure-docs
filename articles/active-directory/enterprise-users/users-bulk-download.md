@@ -1,6 +1,6 @@
 ---
 
-title: Download a list of users in the Azure Active Directory portal | Microsoft Docs
+title: Download a list of users in the Azure portal | Microsoft Docs
 description: Download user records in bulk in the Azure admin center in Azure Active Directory. 
 services: active-directory 
 author: barclayn
@@ -16,7 +16,7 @@ ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ---
 
-# Download a list of users in Azure Active Directory portal
+# Download a list of users in Azure portal
 
 Azure Active Directory (Azure AD), part of Microsoft Entra, supports bulk user list download operations.
 
