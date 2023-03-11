@@ -8,9 +8,13 @@ ms.author: cwatson
 #Customer intent: As a security engineer, I want to learn how I can minimize the amount of solution content I have to deploy and manage by using Microsoft essential solutions for Microsoft Sentinel.
 ---
 
-# Advanced Security Information Model (ASIM) based domain solutions for Microsoft Sentinel
+# Advanced Security Information Model (ASIM) based domain solutions for Microsoft Sentinel (preview)
 
 Microsoft essential solutions are solutions in Microsoft Sentinel that help you reduce the amount of content you manage for specific domains like "Security - Network". Essential solutions use the normalization technique Advanced Security Information Model (ASIM) to normalize the data at query time or ingestion time.
+
+> [!IMPORTANT]
+> Microsoft essential solutions and the network session essentials solution are currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
 
 ## Why use ASIM-based Microsoft essential solutions?
 
