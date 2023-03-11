@@ -666,7 +666,7 @@ Users in this role can manage the Desktop Analytics service. This includes the a
 Users in this role can read basic directory information. This role should be used for:
 
 * Granting a specific set of guest users read access instead of granting it to all guest users.
-* Granting a specific set of non-admin users access to Azure portal when "Restrict access to Azure AD portal to admins only" is set to "Yes".
+* Granting a specific set of non-admin users access to Azure portal when "Restrict access to Azure portal to admins only" is set to "Yes".
 * Granting service principals access to directory where Directory.Read.All is not an option.
 
 > [!div class="mx-tableFixed"]

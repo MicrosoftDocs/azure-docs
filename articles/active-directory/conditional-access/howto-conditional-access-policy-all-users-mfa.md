@@ -23,6 +23,7 @@ As Alex Weinert, the Directory of Identity Security at Microsoft, mentions in hi
 
 The guidance in this article will help your organization create an MFA policy for your environment.
 
+## User exclusions
 [!INCLUDE [active-directory-policy-exclusions](../../../includes/active-directory-policy-exclude-user.md)]
 
 ## Application exclusions
