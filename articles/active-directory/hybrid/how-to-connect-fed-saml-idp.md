@@ -64,7 +64,7 @@ Within the SAML Response message, the Signature node contains information about 
       `<ds:SignatureMethod Algorithm="https://www.w3.org/2000/09/xmldsig#rsa-sha1"/>`
 
 >[!NOTE]
->In order to improve the security the SHA-1 algorithm is deprecated. Ensure to use a more secure algorithm like SHA-256. More information [can be found](https://learn.microsoft.com/lifecycle/announcements/sha-1-signed-content-retired).
+>In order to improve the security SHA-1 algorithm is deprecated. Ensure to use a more secure algorithm like SHA-256. More information [can be found](https://learn.microsoft.com/lifecycle/announcements/sha-1-signed-content-retired).
 
 ## Supported bindings
 Bindings are the transport-related communications parameters that are required. The following requirements apply to the bindings
