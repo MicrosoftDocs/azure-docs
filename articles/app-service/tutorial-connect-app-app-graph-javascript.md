@@ -78,7 +78,7 @@ Configure the [user consent](#understand-user-consent) for the backend app.
 
     :::image type="content" source="./media/tutorial-connect-app-app-graph-javascript/azure-portal-authentication-app-api-permission-admin-consent-granted.png" alt-text="Screenshot of Azure portal authentication app with admin consent granted in status column.":::
 
-## Install npm packages
+## 2. Install npm packages
 
 In the previous tutorial, the backend app didn't need any npm packages for authentication because the only authentication was provided by configuring the identity provider. In this tutorial, the user's token for the backend API with `user_impersonation` needs to be exchanged for a Microsoft Graph token. This exchange is completed with two libraries.
 
@@ -100,10 +100,10 @@ In the previous tutorial, the backend app didn't need any npm packages for authe
 1. Install the Microsoft Graph npm package:
 
     ```azurecli-interactive
-    @microsoft/microsoft-graph-client
+    npm install @microsoft/microsoft-graph-client
     ```
 
-## Add code to exchange current token for Microsoft Graph token
+## 3. Add code to exchange current token for Microsoft Graph token
 
 The source code to complete this step is provided for you. Use the following steps to include it.
 
@@ -132,7 +132,24 @@ The source code to complete this step is provided for you. Use the following ste
 
     ```azurecli-interactive
     az webapp up --resource-group myAuthResourceGroup --name <back-end-app-name> 
-## Clean up 
+
+## 4. Browse to the apps
+
+
+1. Use the frontend web site in a browser. The URL is in the formate of `https://<front-end-app-name>.azurewebsites.net/`.
+1. The browser requests your authentication to the web app. Complete the authentication.
+1. After authentication completes, the frontend application returns the home page of the app.
+
+    :::image type="content" source="./media/tutorial-auth-aad/app-home-page.png" alt-text="Screenshot of web browser showing frontend application after successfully completing authentication.":::
+
+1. Select `Get user's profile`. This passes your authentication in the bearer token to the backend. 
+1. The backend end responds with the _fake_ hard-coded profile name: `John Doe`.
+
+    :::image type="content" source="./media/tutorial-auth-aad/app-profile.png" alt-text="Screenshot of web browser showing frontend application after successfully getting fake profile from backend app.":::
+
+    The `withAuthentication` value of **true** indicates the authentication _is_ set up yet. 
+
+## 5. Clean up 
 
 [!INCLUDE [tutorial-connect-app-app-clean.md](./includes/tutorial-connect-app-app-clean.md)]
 
