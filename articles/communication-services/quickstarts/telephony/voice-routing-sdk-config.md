@@ -8,7 +8,7 @@ ms.date: 03/11/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: pstn
-zone_pivot_groups: acs-azp-java-python-csharp-js
+zone_pivot_groups: acs-azp-java-net-python-csharp-js
 ms.custom: mode-other
 ---
 
