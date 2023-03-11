@@ -22,7 +22,7 @@ This article describes the general steps for managing automatic user account pro
 
 ## Finding your apps in the portal
 
-Use the Azure Active Directory portal to view and manage all applications that are configured for single sign-on in a directory. Enterprise apps are apps that are deployed and used within your organization. Follow these steps to view and manage your enterprise applications:
+Use the Azure portal to view and manage all applications that are configured for single sign-on in a directory. Enterprise apps are apps that are deployed and used within your organization. Follow these steps to view and manage your enterprise applications:
 
 1. Open the [Azure portal](https://portal.azure.com).
 1. Browse to **Azure Active Directory** > **Enterprise applications**.

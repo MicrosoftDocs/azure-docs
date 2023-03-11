@@ -56,7 +56,7 @@ We have replaced the 'Selected' option that specifies a list of users with the o
 
 1. Get the current list of individual users
 1. Move the currently enabled individual users to a group
-1. Use the group from the previous as the selected group in the LinkedIn account connections setting in the Azure AD admin center.
+1. Use the group from the previous as the selected group in the LinkedIn account connections setting in the Azure portal.
 
 > [!NOTE]
 > Even if you don't move your currently selected individual users to a group, they can still see LinkedIn information in Microsoft apps.
@@ -79,7 +79,7 @@ We have replaced the 'Selected' option that specifies a list of users with the o
   foreach($user in $users} { Add-AzureADGroupMember -ObjectId $groupId -RefObjectId $user ; Write-Host $i Added $user ; $i++ ; Start-Sleep -Milliseconds 10 }
   ```
 
-To use the group from step two as the selected group in the LinkedIn account connections setting in the Azure AD admin center, see [Enable LinkedIn account connections in the Azure portal](#enable-linkedin-account-connections-in-the-azure-portal).
+To use the group from step two as the selected group in the LinkedIn account connections setting in the Azure portal, see [Enable LinkedIn account connections in the Azure portal](#enable-linkedin-account-connections-in-the-azure-portal).
 
 ## Use Group Policy to enable LinkedIn account connections
 
