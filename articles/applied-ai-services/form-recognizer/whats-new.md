@@ -64,7 +64,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 * Select Form Recognizer containers for v3.0 are now available for use!
 * Currently **Read v3.0** and **Layout v3.0** containers are available.
 
-  For more information, _see_ [Install and run Form Recognizer containers](containers/form-recognizer-container-install-run?view=form-recog-3.0.0&preserve-view=true)
+  For more information, _see_ [Install and run Form Recognizer containers](containers/form-recognizer-container-install-run.md?view=form-recog-3.0.0&preserve-view=true)
 
 ---
 

@@ -18,7 +18,7 @@ monikerRange: 'form-recog-3.0.0'
 
 [!INCLUDE [applies to v3.0](../includes/applies-to-v3-0.md)]
 
-[Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/) is an online tool for visually exploring, understanding, and integrating features from the Form Recognizer service in your applications. You can get started by exploring the pre-trained models with sample or your own documents. You can also create projects to build custom template models and reference the models in your applications using the [Python SDK](get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) and other quickstarts.
+[Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/) is an online tool for visually exploring, understanding, and integrating features from the Form Recognizer service in your applications. You can get started by exploring the pretrained models with sample or your own documents. You can also create projects to build custom template models and reference the models in your applications using the [Python SDK](get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) and other quickstarts.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE56n49]
 
@@ -32,7 +32,7 @@ monikerRange: 'form-recog-3.0.0'
 
 ## Models
 
-Prebuilt models help you add Form Recognizer features to your apps without having to build, train, and publish your own models. You can choose from several prebuilt models, each of which has its own set of supported data fields. The choice of model to use for the analyze operation depends on the type of document to be analyzed. The following prebuilt models are currently supported by Form Recognizer:
+Prebuilt models help you add Form Recognizer features to your apps without having to build, train, and publish your own models. You can choose from several prebuilt models, each of which has its own set of supported data fields. The choice of model to use for the analyze operation depends on the type of document to be analyzed. Form Recognizer currently supports the following prebuilt models:
 
 #### Document analysis
 
@@ -44,7 +44,7 @@ Prebuilt models help you add Form Recognizer features to your apps without havin
 
 * [**Invoice**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice): extract text, selection marks, tables, key-value pairs, and key information from invoices.
 * [**Receipt**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt): extract text and key information from receipts.
-* [**Health insurance card](https://formrecognizer-dogfood.appliedai.azure.com/studio/prebuilt?formType=healthInsuranceCard.us): extract insurer, member, prescription, group number and other key information from US health insurance cards.
+* [**Health insurance card**](https://formrecognizer-dogfood.appliedai.azure.com/studio/prebuilt?formType=healthInsuranceCard.us): extract insurer, member, prescription, group number and other key information from US health insurance cards.
 * [**W-2**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2): extract text and key information from W-2 tax forms.
 * [**ID document**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument): extract text and key information from driver licenses and international passports.
 * [**Business card**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard): extract text and key information from business cards.
@@ -62,7 +62,7 @@ Prebuilt models help you add Form Recognizer features to your apps without havin
 * [**General document with query fields**](https://formrecognizer.appliedai.azure.com/studio): extract labels, values such as names, dates, and amounts from documents.
 * [**Contract**](https://formrecognizer.appliedai.azure.com/studio): extract the title and signatory party information (including names, references, and addresses) from contracts.
 * [**Vaccination card**](https://formrecognizer.appliedai.azure.com/studio): extract card holder name, health provider, and vaccination records from US COVID-19 vaccination cards.
-* [**US 1098 tax form**](https://formrecognizer.appliedai.azure.com/studio): extract mortgage interest information from US 1098 gax forms.
+* [**US 1098 tax form**](https://formrecognizer.appliedai.azure.com/studio): extract mortgage interest information from US 1098 tax forms.
 * [**US 1098-E tax form**](https://formrecognizer.appliedai.azure.com/studio): extract student loan information from US 1098-E tax forms.
 * [**US 1098-T tax form**](https://formrecognizer.appliedai.azure.com/studio): extract tuition information from US 1098-T forms.
 
@@ -71,7 +71,7 @@ Prebuilt models help you add Form Recognizer features to your apps without havin
 
 After you've completed the prerequisites, navigate to [Form Recognizer Studio General Documents](https://formrecognizer.appliedai.azure.com/studio/document).
 
-In the following example, we use the General Documents feature. The steps to use other pre-trained features like [W2 tax form](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2), [Read](https://formrecognizer.appliedai.azure.com/studio/read), [Layout](https://formrecognizer.appliedai.azure.com/studio/layout), [Invoice](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice), [Receipt](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt), [Business card](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard), and [ID documents](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument) models are similar.
+In the following example, we use the General Documents feature. The steps to use other pretrained features like [W2 tax form](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2), [Read](https://formrecognizer.appliedai.azure.com/studio/read), [Layout](https://formrecognizer.appliedai.azure.com/studio/layout), [Invoice](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice), [Receipt](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt), [Business card](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard), and [ID documents](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument) models are similar.
 
    :::image border="true" type="content" source="../media/quickstarts/form-recognizer-general-document-demo-preview3.gif" alt-text="Selecting the General Document API to analysis a document in the Form Recognizer Studio.":::
 
@@ -91,18 +91,18 @@ In the following example, we use the General Documents feature. The steps to use
 
 ## Added prerequisites for custom projects
 
-In addition to the Azure account and a Form Recognizer or Cognitive Services resource, you'll need:
+In addition to the Azure account and a Form Recognizer or Cognitive Services resource, you need:
 
 ### Azure Blob Storage container
 
-A **standard performance** [**Azure Blob Storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You'll create containers to store and organize your training documents within your storage account. If you don't know how to create an Azure storage account with a container, following these quickstarts:
+A **standard performance** [**Azure Blob Storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You create containers to store and organize your training documents within your storage account. If you don't know how to create an Azure storage account with a container, following these quickstarts:
 
 * [**Create a storage account**](../../../storage/common/storage-account-create.md). When creating your storage account, make sure to select **Standard** performance in the **Instance details → Performance** field.
 * [**Create a container**](../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container). When creating your container, set the **Public access level** field to **Container** (anonymous read access for containers and blobs) in the **New Container** window.
 
 ### Configure CORS
 
-[CORS (Cross Origin Resource Sharing)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) needs to be configured on your Azure storage account for it to be accessible from the Form Recognizer Studio. To configure CORS in the Azure portal, you'll need access to the CORS tab of your storage account.
+[CORS (Cross Origin Resource Sharing)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) needs to be configured on your Azure storage account for it to be accessible from the Form Recognizer Studio. To configure CORS in the Azure portal, you need access to the CORS tab of your storage account.
 
 1. Select the CORS tab for the storage account.
 
@@ -139,7 +139,7 @@ CORS should now be configured to use the storage account from Form Recognizer St
 
     :::image border="true" type="content" source="../media/sas-tokens/container-upload-button.png" alt-text="Screenshot: container upload button in the Azure portal.":::
 
-1. The **Upload blob** window will appear.
+1. The **Upload blob** window appears.
 
 1. Select your file(s) to upload.
 

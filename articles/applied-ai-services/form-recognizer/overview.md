@@ -20,7 +20,7 @@ recommendations: false
 
 ::: moniker range="form-recog-3.0.0"
 [!INCLUDE [applies to v3.0](includes/applies-to-v3-0.md)]
-::: moniker-endgit 
+::: moniker-end
 
 ::: moniker range="form-recog-3.0.0"
 
