@@ -113,7 +113,7 @@ Now any changes made to the `main` branch starts a new build and deployment of y
 
 
 >[!NOTE]
->If you have trouble deploying a Next.js Hybrid application with more than 100Mb app size, please use the `standalone` feature of Next.js. Kindly check out the [standalone](#enable-standalone-feature) section to learn more. 
+>If you have trouble deploying a Next.js Hybrid application with more than 100Mb app size, use the `standalone` feature of Next.js. Refer to the [standalone](#enable-standalone-feature) section for more information. 
 
 
 ### Sync changes
