@@ -107,7 +107,7 @@ Now assign a user for application testing and choose header-based single sign-on
 
 Then make sure your redirect URL is set to your external URL:
 
-1. From the **Azure Active Directory admin center** sidebar, select **Azure Active Directory** > **App registrations**. A list of applications appears.
+1. From the **Azure portal**, browse to **Azure Active Directory** > **App registrations**. A list of applications appears.
 1. Select your application.
 1. Select the link next to **Redirect URIs**, showing the number of redirect URIs set up for web and public clients. The **\<application name> - Authentication** page appears.
 1. Check whether the external URL that you assigned to your application earlier is in the **Redirect URIs** list. If it isn't, add the external URL now, using a redirect URI type of **Web**, and select **Save**.
@@ -140,7 +140,7 @@ You need to collect these three pieces of information (all GUIDs) to set up your
 
 To collect this information:
 
-1. From the **Azure Active Directory admin center** sidebar, select **Azure Active Directory** > **App registrations**. A list of applications appears.
+1. From the **Azure portal**, browse to **Azure Active Directory** > **App registrations**. A list of applications appears.
 1. Select your application. The **App registrations** page for your application appears.
 
    ![Registration overview for an application](./media/application-proxy-configure-single-sign-on-with-ping-access/registration-overview-for-an-application.png)
@@ -217,7 +217,7 @@ Now that you've completed all the Azure Active Directory setup steps, you can mo
 
 The detailed steps for the PingAccess part of this scenario continue in the Ping Identity documentation. Follow the instructions in [Configuring PingAccess for Azure AD](https://docs.pingidentity.com/access/sources/dita/topic?category=pingaccess&Releasestatus_ce=Current&resourceid=pa_configuring_apps_for_azure) on the Ping Identity web site and download the [latest version of PingAccess](https://www.pingidentity.com/en/lp/azure-download.html).
 
-Those steps help you install PingAccess and set up a PingAccess account (if you don't already have one). Then, to create an Azure AD OpenID Connect (OIDC) connection, you set up a token provider with the **Directory (tenant) ID** value that you copied from the Azure AD portal. Next, to create a web session on PingAccess, you use the **Application (client) ID** and `PingAccess key` values. After that, you can set up identity mapping and create a virtual host, site, and application.
+Those steps help you install PingAccess and set up a PingAccess account (if you don't already have one). Then, to create an Azure AD OpenID Connect (OIDC) connection, you set up a token provider with the **Directory (tenant) ID** value that you copied from the Azure portal. Next, to create a web session on PingAccess, you use the **Application (client) ID** and `PingAccess key` values. After that, you can set up identity mapping and create a virtual host, site, and application.
 
 ### Test your application
 
