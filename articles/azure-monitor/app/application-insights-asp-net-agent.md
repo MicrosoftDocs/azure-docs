@@ -41,7 +41,7 @@ Application Insights Agent is located in the [PowerShell Gallery](https://www.po
 
 This tab contains the quickstart commands that are expected to work for most environments. The instructions depend on PowerShell Gallery to distribute updates. These commands support the PowerShell `-Proxy` parameter.
 
-For an explanation of these commands, customization instructions, and information about troubleshooting, see the [detailed instructions](#instructions?tabs=detailed-instructions).
+For an explanation of these commands, customization instructions, and information about troubleshooting, see the [detailed instructions](?tabs=detailed-instructions).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
