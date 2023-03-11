@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 02/28/2023
+ms.date: 03/03/2023
 ms.author: lajanuar
 recommendations: false
 ---
@@ -72,6 +72,7 @@ This article contains both a quick reference and detailed description of Azure F
 >
 > * [**Custom template model**](concept-custom-template.md)
 > * [**Custom neural model**](concept-custom-neural.md)
+> * [**Composed classification models**](concept-custom-classifier.md)
 > * [**Composed custom models**](concept-composed-models.md)
 
 |Quota|Free (F0) <sup>1</sup>|Standard (S0)|
@@ -88,6 +89,10 @@ This article contains both a quick reference and detailed description of Azure F
 | Adjustable | No | No |
 | **Custom neural model train** | 10 per month | 10 per month |
 | Adjustable | No |Yes <sup>3</sup>|
+| **Max number of pages (Training) * Classifier** | 10,000 | 10,000 (default value) |
+| Adjustable | No | No |
+| ***Training dataset size * Classifier** | 1GB | 1GB (default value) |
+| Adjustable | No | No |
 
 ::: moniker-end
 

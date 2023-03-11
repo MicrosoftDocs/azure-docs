@@ -1,20 +1,20 @@
 ---
 title: "Quickstart: Form Recognizer Studio | v3.0"
 titleSuffix: Azure Applied AI Services
-description: Form and document processing, data extraction, and analysis using Form Recognizer Studio 
+description: Form and document processing, data extraction, and analysis using Form Recognizer Studio
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 02/02/2023
+ms.date: 03/03/2023
 ms.author: lajanuar
 monikerRange: 'form-recog-3.0.0'
 ---
 
 <!-- markdownlint-disable MD001 -->
 
-# Get started: Form Recognizer Studio 
+# Get started: Form Recognizer Studio
 
 [!INCLUDE [applies to v3.0](../includes/applies-to-v3-0.md)]
 
@@ -44,13 +44,32 @@ Prebuilt models help you add Form Recognizer features to your apps without havin
 
 * [**Invoice**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice): extract text, selection marks, tables, key-value pairs, and key information from invoices.
 * [**Receipt**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt): extract text and key information from receipts.
+* [**Health insurance card](https://formrecognizer-dogfood.appliedai.azure.com/studio/prebuilt?formType=healthInsuranceCard.us): extract insurer, member, prescription, group number and other key information from US health insurance cards.
 * [**W-2**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2): extract text and key information from W-2 tax forms.
 * [**ID document**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument): extract text and key information from driver licenses and international passports.
 * [**Business card**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard): extract text and key information from business cards.
 
 #### Custom
 
-After you've completed the prerequisites, navigate to [Form Recognizer Studio General Documents](https://formrecognizer.appliedai.azure.com/studio/document). 
+* [**Custom extraction models**](https://formrecognizer-dogfood.appliedai.azure.com/studio/custommodel/projects): extract information from forms and documents with custom extraction models. Quickly train a model by labeling as few as five sample documents.
+* [**Custom classifier model**](https://formrecognizer-dogfood.appliedai.azure.com/studio/document-classifier/projects): train a custom classifier to distinguish between the different document types within your applications. Quickly train a model with as few as two classes and five samples per class.
+
+#### Gated preview models
+
+> [!NOTE]
+> To request access for gated preview models in Form Recognizer Studio, complete and submit the [**Form Recognizer private preview request form**](https://aka.ms/form-recognizer/preview/survey).
+
+* [**General document with query fields**](https://formrecognizer.appliedai.azure.com/studio): extract labels, values such as names, dates, and amounts from documents.
+* [**Contract**](https://formrecognizer.appliedai.azure.com/studio): extract the title and signatory party information (including names, references, and addresses) from contracts.
+* [**Vaccination card**](https://formrecognizer.appliedai.azure.com/studio): extract card holder name, health provider, and vaccination records from US COVID-19 vaccination cards.
+* [**US 1098 tax form**](https://formrecognizer.appliedai.azure.com/studio): extract mortgage interest information from US 1098 gax forms.
+* [**US 1098-E tax form**](https://formrecognizer.appliedai.azure.com/studio): extract student loan information from US 1098-E tax forms.
+* [**US 1098-T tax form**](https://formrecognizer.appliedai.azure.com/studio): extract tuition information from US 1098-T forms.
+
+> [!NOTE]
+> To request access for gated preview models in Form Recognizer Studio, complete and submit the [**Form Recognizer private preview request form**](https://aka.ms/form-recognizer/preview/survey).
+
+After you've completed the prerequisites, navigate to [Form Recognizer Studio General Documents](https://formrecognizer.appliedai.azure.com/studio/document).
 
 In the following example, we use the General Documents feature. The steps to use other pre-trained features like [W2 tax form](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2), [Read](https://formrecognizer.appliedai.azure.com/studio/read), [Layout](https://formrecognizer.appliedai.azure.com/studio/layout), [Invoice](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice), [Receipt](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt), [Business card](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard), and [ID documents](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument) models are similar.
 

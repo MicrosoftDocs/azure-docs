@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 02/28/2023
+ms.date: 03/03/2023
 ms.author: lajanuar
 recommendations: false
 ---
@@ -20,11 +20,11 @@ recommendations: false
 
 ::: moniker range="form-recog-3.0.0"
 [!INCLUDE [applies to v3.0](includes/applies-to-v3-0.md)]
-::: moniker-end
+::: moniker-endgit 
 
 ::: moniker range="form-recog-3.0.0"
 
-Azure Form Recognizer is a cloud-based [Azure Applied AI Service](../../applied-ai-services/index.yml) for developers to build intelligent document processing solutions. Form Recognizer applies machine-learning-based optical character recognition (OCR) and document understanding technologies to extract text, tables, structure, and key-value pairs from documents. You can also label and train custom models to automate data extraction from structured, semi-structured, and unstructured documents. To learn more about each model, *see* the Concepts articles:
+> Azure Form Recognizer is a cloud-based [Azure Applied AI Service](../../applied-ai-services/index.yml) for developers to build intelligent document processing solutions. Form Recognizer applies machine-learning-based optical character recognition (OCR) and document understanding technologies to classify documents, extract text, tables, structure, and key-value pairs from documents. You can also label and train custom models to automate data extraction from structured, semi-structured, and unstructured documents. To learn more about each model, *see* the Concepts articles:
 
 [!INCLUDE [Models](includes/model-type-name.md)]
 
@@ -42,7 +42,8 @@ This section helps you decide which **Form Recognizer v3.0** supported model you
  |**Receipt**|You want to extract key information such as merchant name, transaction date, and transaction total from a sales or single-page hotel receipt. |The receipt is written or printed in a [supported language](language-support.md#receipt-model). |[**Receipt model**](concept-receipt.md)|
 |**Identity document (ID)** like a passport or driver's license. |You want to extract key information such as first name, last name, and date of birth from US drivers' licenses or international passports. |Your ID document is a US driver's license or the biographical page from an international passport (not a visa).| [**Identity document (ID) model**](concept-id-document.md)|
 |**Business card**|You want to extract key information such as first name, last name, company name, email address, and phone number from business cards.|The business card document is in English or Japanese text. | [**Business card model**](concept-business-card.md)|
-|**Mixed-type document(s)**| You want to extract key-value pairs, selection marks, tables, signature fields, and selected regions not extracted by prebuilt or general document models.| You have various documents with structured, semi-structured, and/or unstructured elements.| [**Custom model**](concept-custom.md)|
+|**Application specific documents**| You want to extract key-value pairs, selection marks, tables, signature fields, and selected regions not extracted by prebuilt or general document models.| You have various documents with structured, semi-structured, and/or unstructured elements.| [**Custom extraction model**](concept-custom.md)|
+|**Mixed-type document(s)**| You want to classify documents or split a file into individual documents.| You have various documents with structured, semi-structured, and/or unstructured elements.| [**Custom classification model**](concept-custom.md)|
 
 >[!Tip]
 >
