@@ -318,7 +318,7 @@ To see the ingress controller in action, run two demo applications in your AKS c
     spec:
       type: ClusterIP
       ports:
-     - port: 80
+      - port: 80
       selector:
         app: aks-helloworld-one
     ```
@@ -356,7 +356,7 @@ To see the ingress controller in action, run two demo applications in your AKS c
     spec:
       type: ClusterIP
       ports:
-     - port: 80
+      - port: 80
       selector:
         app: aks-helloworld-two
     ```
