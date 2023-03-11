@@ -3,16 +3,14 @@ title: Reliability in Azure Functions
 description: Find out about reliability in Azure Functions
 author: anaharris-ms
 ms.author: anaharris
-ms.topic: overview
-ms.prod: non-product-specific
+ms.topic: conceptual
+ms.service: azure-functions
 ms.custom: references_regions, subject-reliability
 ms.date: 10/07/2022
+#Customer intent: I want to understand reliability support in Azure Functions so that I can respond to and/or avoid failures in order to minimize downtime and data loss.
 ---
 
-<!--#Customer intent:  I want to understand reliability support in Azure Functions so that I can respond to and/or avoid failures in order to minimize downtime and data loss. -->
-
-
-# What is reliability in Azure Functions?
+# Reliability in Azure Functions
 
 This article describes reliability support in Azure Functions and covers both intra-regional resiliency with [availability zones](#availability-zone-support) and links to information on [cross-region resiliency with disaster recovery](#disaster-recovery-cross-region-failover). For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
@@ -42,14 +40,14 @@ Zone-redundant Premium plans are available in the following regions:
 
 | Americas         | Europe               | Middle East   | Africa             | Asia Pacific   |
 |------------------|----------------------|---------------|--------------------|----------------|
-| Brazil South     | France Central       | Qatar Central |                    | Australia East |
-| Canada Central   | Germany West Central |               |                    | Central India  |
+| Brazil South     | France Central       | Qatar Central | South Africa North | Australia East |
+| Canada Central   | Germany West Central | UAE North     |                    | Central India  |
 | Central US       | North Europe         |               |                    | China North 3  |
-| East US          | Sweden Central       |               |                    | East Asia      |
-| East US 2        | UK South             |               |                    | Japan East     |
-| South Central US | West Europe          |               |                    | Southeast Asia |
-| West US 2        |                      |               |                    |                |
-| West US 3        |                      |               |                    |                |
+| East US          | Norway East          |               |                    | East Asia      |
+| East US 2        | Sweden Central       |               |                    | Japan East     |
+| South Central US | Switzerland North    |               |                    | Southeast Asia |
+| West US 2        | UK South             |               |                    |                |
+| West US 3        | West Europe          |               |                    |                |
 
 ### Prerequisites
 

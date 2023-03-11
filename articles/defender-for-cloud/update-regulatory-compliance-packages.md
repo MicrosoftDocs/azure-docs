@@ -2,9 +2,10 @@
 title: The regulatory compliance dashboard in Microsoft Defender for Cloud
 description: Learn how to add and remove regulatory standards from the regulatory compliance dashboard in Defender for Cloud
 ms.topic: how-to
-ms.date: 12/26/2022
+ms.date: 02/07/2023
 ms.custom: ignite-2022
 ---
+
 # Customize the set of standards in your regulatory compliance dashboard
 
 Microsoft Defender for Cloud continually compares the configuration of your resources with requirements in industry standards, regulations, and benchmarks. The **regulatory compliance dashboard** provides insights into your compliance posture based on how you're meeting specific compliance requirements.
@@ -52,11 +53,12 @@ Available regulatory standards:
 
 **AWS**: When users onboard, every AWS account has the AWS Foundational Security Best Practices assigned. This is the AWS-specific guideline for security and compliance best practices based on common compliance frameworks.
 
-Users that have one Defender bundle enabled can enable additional standards. 
+Users that have one Defender bundle enabled can enable other standards. 
 
 Available AWS regulatory standards:
 
 - CIS 1.2.0
+- CIS 1.5.0
 - PCI DSS 3.2.1
 - AWS Foundational Security Best Practices
 
@@ -75,7 +77,7 @@ More standards will be added to the dashboard and included in the information on
 
 **GCP**: When users onboard, every GCP project has the "GCP Default" standard assigned. 
 
-Users that have one Defender bundle enabled can enable additional standards. 
+Users that have one Defender bundle enabled can enable other standards. 
 
 Available GCP regulatory standards:
 
@@ -125,7 +127,7 @@ To add standards to your dashboard:
     > [!NOTE]
     > It may take a few hours for a newly added standard to appear in the compliance dashboard.
 
-    :::image type="content" source="media/concept-regulatory-compliance/compliance-dashboard.png" alt-text="Screenshot showing regulatory compliance dashboard."  lightbox="media/release-notes/audit-reports-list-regulatory-compliance-dashboard.png":::
+    :::image type="content" source="media/concept-regulatory-compliance/compliance-dashboard.png" alt-text="Screenshot showing regulatory compliance dashboard."  lightbox="media/concept-regulatory-compliance/compliance-dashboard.png":::
 
 ### Add a standard to your AWS resources
 

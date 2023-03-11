@@ -1,27 +1,27 @@
 ---
-title: Monitor your apps without code changes - auto-instrumentation for Azure Monitor Application Insights | Microsoft Docs
-description: Overview of auto-instrumentation for Azure Monitor Application Insights - codeless application performance management
+title: Auto-instrumentation for Azure Monitor Application Insights
+description: Overview of auto-instrumentation for Azure Monitor Application Insights codeless application performance management.
 ms.topic: conceptual
-ms.date: 10/19/2022
+ms.date: 02/14/2023
 ms.reviewer: abinetabate
 ---
 
 # What is auto-instrumentation for Azure Monitor Application Insights?
 
-Auto-instrumentation collects [Application Insights](app-insights-overview.md) [telemetry](data-model.md).
+Auto-instrumentation quickly and easily enables [Application Insights](app-insights-overview.md) to make [telemetry](data-model.md) like metrics, requests, and dependencies available in your [Application Insights resource](create-workspace-resource.md).
 
 > [!div class="checklist"]
-> - No code changes required
-> - [SDK update](sdk-support-guidance.md) overhead is eliminated
-> - Recommended when available
+> - No code changes are required.
+> - [SDK update](sdk-support-guidance.md) overhead is eliminated.
+> - Recommended when available.
 
 ## Supported environments, languages, and resource providers
 
-The table below displays the current state of auto-instrumentation availability.
+The following table shows the current state of auto-instrumentation availability.
 
-Links are provided to additional information for each supported scenario.
+Links are provided to more information for each supported scenario.
 
-|Environment/Resource Provider                    | .NET Framework                                                                                                                                 | .NET Core / .NET                                                                                                                               | Java                                                                                                                                               | Node.js                                                                       | Python                                                                                           |
+|Environment/Resource provider                    | .NET Framework                                                                                                                                 | .NET Core / .NET                                                                                                                               | Java                                                                                                                                               | Node.js                                                                       | Python                                                                                           |
 |-------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|
 |Azure App Service on Windows - Publish as Code   | [ :white_check_mark: :link: ](azure-web-apps-net.md) <sup>[1](#OnBD)</sup>                                                                     | [ :white_check_mark: :link: ](azure-web-apps-net-core.md) <sup>[1](#OnBD)</sup>                                                                | [ :white_check_mark: :link: ](azure-web-apps-java.md) <sup>[1](#OnBD)</sup>                                                                                             | [ :white_check_mark: :link: ](azure-web-apps-nodejs.md) <sup>[1](#OnBD)</sup> | :x:                                                                                              |
 |Azure App Service on Windows - Publish as Docker | [ :white_check_mark: ](https://azure.github.io/AppService/2022/04/11/windows-containers-app-insights-preview.html) <sup>[2](#Preview)</sup>    | [ :white_check_mark: ](https://azure.github.io/AppService/2022/04/11/windows-containers-app-insights-preview.html) <sup>[2](#Preview)</sup>    | [ :white_check_mark: ](https://azure.github.io/AppService/2022/04/11/windows-containers-app-insights-preview.html) <sup>[2](#Preview)</sup>        | :x:                                                                           | :x:                                                                                              |
@@ -30,21 +30,21 @@ Links are provided to additional information for each supported scenario.
 |Azure Functions - basic                          | [ :white_check_mark: :link: ](monitor-functions.md) <sup>[1](#OnBD)</sup>                                                                      | [ :white_check_mark: :link: ](monitor-functions.md) <sup>[1](#OnBD)</sup>                                                                      | [ :white_check_mark: :link: ](monitor-functions.md) <sup>[1](#OnBD)</sup>                                                                          | [ :white_check_mark: :link: ](monitor-functions.md) <sup>[1](#OnBD)</sup>     | [ :white_check_mark: :link: ](monitor-functions.md) <sup>[1](#OnBD)</sup>                        |
 |Azure Functions - dependencies                   | :x:                                                                                                                                            | :x:                                                                                                                                            | [ :white_check_mark: :link: ](monitor-functions.md) <sup>[2](#Preview)</sup>                                                                       | :x:                                                                           | [ :white_check_mark: :link: ](monitor-functions.md#distributed-tracing-for-python-function-apps) |
 |Azure Spring Cloud                               | :x:                                                                                                                                            | :x:                                                                                                                                            | [ :white_check_mark: :link: ](azure-web-apps-java.md)                                                                                              | :x:                                                                           | :x:                                                                                              |
-|Azure Kubernetes Service (AKS)                   | :x:                                                                                                                                            | :x:                                                                                                                                            | [ :white_check_mark: :link: ](java-in-process-agent.md)                                                                                            | :x:                                                                           | :x:                                                                                              |
-|Azure VMs Windows                                | [ :white_check_mark: :link: ](azure-vm-vmss-apps.md) <sup>[2](#Preview)</sup> <sup>[3](#Agent)</sup>                                           | [ :white_check_mark: :link: ](azure-vm-vmss-apps.md) <sup>[2](#Preview)</sup> <sup>[3](#Agent)</sup>                                           | [ :white_check_mark: :link: ](java-in-process-agent.md)                                                                                            | :x:                                                                           | :x:                                                                                              |
-|On-premises VMs Windows                          | [ :white_check_mark: :link: ](status-monitor-v2-overview.md) <sup>[3](#Agent)</sup>                                                            | [ :white_check_mark: :link: ](status-monitor-v2-overview.md) <sup>[2](#Preview)</sup> <sup>[3](#Agent)</sup>                                   | [ :white_check_mark: :link: ](java-in-process-agent.md)                                                                                            | :x:                                                                           | :x:                                                                                              |
-|Standalone agent - any environment               | :x:                                                                                                                                            | :x:                                                                                                                                            | [ :white_check_mark: :link: ](java-in-process-agent.md)                                                                                            | :x:                                                                           | :x:                                                                                              |
+|Azure Kubernetes Service (AKS)                   | :x:                                                                                                                                            | :x:                                                                                                                                            | [ :white_check_mark: :link: ](opentelemetry-enable.md?tabs=java)                                                                                            | :x:                                                                           | :x:                                                                                              |
+|Azure VMs Windows                                | [ :white_check_mark: :link: ](azure-vm-vmss-apps.md) <sup>[2](#Preview)</sup> <sup>[3](#Agent)</sup>                                           | [ :white_check_mark: :link: ](azure-vm-vmss-apps.md) <sup>[2](#Preview)</sup> <sup>[3](#Agent)</sup>                                           | [ :white_check_mark: :link: ](opentelemetry-enable.md?tabs=java)                                                                                            | :x:                                                                           | :x:                                                                                              |
+|On-premises VMs Windows                          | [ :white_check_mark: :link: ](status-monitor-v2-overview.md) <sup>[3](#Agent)</sup>                                                            | [ :white_check_mark: :link: ](status-monitor-v2-overview.md) <sup>[2](#Preview)</sup> <sup>[3](#Agent)</sup>                                   | [ :white_check_mark: :link: ](opentelemetry-enable.md?tabs=java)                                                                                            | :x:                                                                           | :x:                                                                                              |
+|Standalone agent - any environment               | :x:                                                                                                                                            | :x:                                                                                                                                            | [ :white_check_mark: :link: ](opentelemetry-enable.md?tabs=java)                                                                                            | :x:                                                                           | :x:                                                                                              |
 
 **Footnotes**
 - <a name="OnBD">1</a>: Application Insights is on by default and enabled automatically.
-- <a name="Preview">2</a>: This feature is in public preview. [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+- <a name="Preview">2</a>: This feature is in public preview. See [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 - <a name="Agent">3</a>: An agent must be deployed and configured.
 
-> [!NOTE] 
+> [!NOTE]
 > Auto-instrumentation was known as "codeless attach" before October 2021.
 
 ## Next steps
 
-* [Application Insights Overview](app-insights-overview.md)
-* [Application Insights Overview dashboard](overview-dashboard.md)
+* [Application Insights overview](app-insights-overview.md)
+* [Application Insights overview dashboard](overview-dashboard.md)
 * [Application map](app-map.md)

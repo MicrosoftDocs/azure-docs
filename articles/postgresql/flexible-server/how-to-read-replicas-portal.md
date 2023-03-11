@@ -20,7 +20,7 @@ In this article, you learn how to create and manage read replicas in Azure Datab
 
 ## Prerequisites
 
-An [Azure Database for PostgreSQL server](/azure/postgresql/flexible-server/quickstart-create-server-portal) to be the primary server.
+An [Azure Database for PostgreSQL server](./quickstart-create-server-portal.md) to be the primary server.
 
 > [!NOTE]
 > When deploying read replicas for persistent heavy write-intensive primary workloads, the replication lag could continue to grow and may never be able to catch-up with the primary. This may also increase storage usage at the primary as the WAL files are not deleted until they are received at the replica.
@@ -145,8 +145,6 @@ The **Read Replica Lag** metric shows the time since the last replayed transacti
 
    :::image type="content" source="./media/how-to-read-replicas-portal/metrics_read_replica_lag.png" alt-text="  screenshot of the Metrics blade showing Read Replica Lag metric.":::
     
-   :::image-end:::
-
 3. For your **Aggregation**, select **Max**.
 
 ## Next steps

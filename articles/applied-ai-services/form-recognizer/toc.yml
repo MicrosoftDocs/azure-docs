@@ -32,7 +32,7 @@ items:
   items:
     - name: Form Recognizer Studio
       displayName: get started, cors, blob, storage, upload, labels, custom, dynamic, fixed, signatures
-      href: quickstarts/try-v3-form-recognizer-studio.md
+      href: quickstarts/try-form-recognizer-studio.md
     - name: "Get started with Form Recognizer"
       displayName: formRecognizerClient, form recognizer client, boundingBox, box, begin_recognize
       href: quickstarts/get-started-sdks-rest-api.md
@@ -87,6 +87,9 @@ items:
     - name: Container image tags
       displayName: registry, mcr
       href: containers/form-recognizer-container-image-tags.md
+    - name: Disconnected containers
+      displayName: docker, commitment, plan, environment, usage
+      href: containers/form-recognizer-disconnected-containers.md
   - name: Configure secure communications
     items:
     - name: Set up Virtual Networks
@@ -168,10 +171,10 @@ items:
     - name: Custom neural model
       displayName: selection, structure, tables, tabular, train, template, neural, build mode, signatures, custom
       href: concept-custom-neural.md
-    - name: Custom labels
+    - name: Create labeled datasets
       displayName: structure, selection, labels, tables, tabular, train
       href: concept-custom-label.md
-    - name: Custom labeling tips
+    - name: Labeling tips and pointers
       displayName: structure, selection, labels, tables, tabular, train, tips
       href: concept-custom-label-tips.md
     - name: Composed models

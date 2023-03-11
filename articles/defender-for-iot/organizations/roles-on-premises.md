@@ -2,7 +2,7 @@
 title: On-premises users and roles for Defender for IoT - Microsoft Defender for IoT
 description: Learn about the on-premises user roles available for OT monitoring with Microsoft Defender for IoT network sensors and on-premises management consoles.
 ms.date: 09/19/2022
-ms.topic: conceptual
+ms.topic: concept-article
 ---
 
 # On-premises users and roles for OT monitoring with Defender for IoT
@@ -53,7 +53,7 @@ Permissions applied to each role differ between the sensor and the on-premises m
 | **View the dashboard** | ✔ | ✔ |✔ |
 | **Control map zoom views** | - | - | ✔ |
 | **View alerts** | ✔ | ✔ | ✔ |
-| **Manage alerts**: acknowledge, learn, and pin |-  | ✔ | ✔ |
+| **Manage alerts**: acknowledge, learn, and mute |-  | ✔ | ✔ |
 | **View events in a timeline** | - | ✔ | ✔ |
 | **Authorize devices**, known scanning devices, programming devices | - | ✔ | ✔ |
 | **Merge and delete devices** |-  |-  | ✔ |
@@ -80,7 +80,7 @@ Permissions applied to each role differ between the sensor and the on-premises m
 | **Build a site** | - | - | ✔ |
 | **Manage a site** (add and edit zones) |-  |-  | ✔ |
 | **View and filter device inventory** | ✔ | ✔ | ✔ |
-| **View and manage alerts**: acknowledge, learn, and pin | ✔ | ✔ | ✔ |
+| **View and manage alerts**: acknowledge, learn, and mute | ✔ | ✔ | ✔ |
 | **Generate reports** |-  | ✔ | ✔ |
 | **View risk assessment reports** | - | ✔ | ✔ |
 | **Set alert exclusions** | - | ✔ | ✔ |

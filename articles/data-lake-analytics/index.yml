@@ -7,8 +7,8 @@ metadata:
   ms.service: data-lake-analytics #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.topic: landing-page # Required
   ms.collection: collection
-  author: hrasheed-msft #Required; your GitHub user alias, with correct capitalization.
-  ms.author: hrasheed #Required; microsoft alias of author; optional team alias.
+  author: whhender #Required; your GitHub user alias, with correct capitalization.
+  ms.author: whhender #Required; microsoft alias of author; optional team alias.
   ms.date: 10/14/2022 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new

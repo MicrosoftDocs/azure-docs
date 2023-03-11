@@ -8,6 +8,8 @@ ms.custom: devdivchpfy22
 
 # What's new in Azure Lab Services August 2022 Update
 
+[!INCLUDE [preview note](./includes/lab-services-new-update-note.md)]
+
 We've made fundamental improvements for the service to boost performance, reliability, and scalability. In this article, we'll describe all the great changes and new features that are available in this update!
 
 ## Overview

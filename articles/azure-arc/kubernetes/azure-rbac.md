@@ -2,6 +2,7 @@
 title: "Azure RBAC for Azure Arc-enabled Kubernetes clusters"
 ms.date: 11/28/2022
 ms.topic: how-to
+ms.custom: devx-track-azurecli
 description: "Use Azure RBAC for authorization checks on Azure Arc-enabled Kubernetes clusters."
 ---
 
@@ -580,10 +581,10 @@ Follow the instructions to sign in again. An error message states that you're su
 
 ## Configure just-in-time cluster access with Azure AD
 
-Another option for cluster access control is to use [Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management/pim-configure) for just-in-time requests.
+Another option for cluster access control is to use [Privileged Identity Management (PIM)](../../active-directory/privileged-identity-management/pim-configure.md) for just-in-time requests.
 
 >[!NOTE]
-> [Azure AD PIM](/azure/active-directory/privileged-identity-management/pim-configure) is an Azure AD Premium capability that requires a Premium P2 SKU. For more on Azure AD SKUs, see the [pricing guide](https://azure.microsoft.com/pricing/details/active-directory/).
+> [Azure AD PIM](../../active-directory/privileged-identity-management/pim-configure.md) is an Azure AD Premium capability that requires a Premium P2 SKU. For more on Azure AD SKUs, see the [pricing guide](https://azure.microsoft.com/pricing/details/active-directory/).
 
 To configure just-in-time access requests for your cluster, complete the following steps:
 

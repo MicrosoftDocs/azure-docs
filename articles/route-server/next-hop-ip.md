@@ -1,5 +1,5 @@
 ---
-title: 'Next Hop IP Support'
+title: Next Hop IP Support
 description: Learn about Next Hop IP support for Azure Route Server.
 author: halkazwini
 ms.author: halkazwini

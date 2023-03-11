@@ -32,7 +32,7 @@ In addition,
 > API Management also supports other mechanisms for securing access to APIs, including the following examples:
 > - [OAuth2.0](api-management-howto-protect-backend-with-aad.md)
 > - [Client certificates](api-management-howto-mutual-certificates-for-clients.md)
-> - [Restrict caller IPs](./api-management-access-restriction-policies.md#RestrictCallerIPs)
+> - [Restrict caller IPs](ip-filter-policy.md)
 
 ## Manage subscription keys
 
@@ -125,7 +125,7 @@ When API Management receives an API request from a client with a subscription ke
 
 When API Management receives an API request from a client without a subscription key, it handles the request according to these rules: 
 
-1. Check first for the existence of a product that includes the API but doesn't require a subscription (an *open* product). If the open product exists, handle the request in the context of the APIs, policies, and access rules configured for the product. 
+1. Check first for the existence of a product that includes the API but doesn't require a subscription (an *open* product). If the open product exists, handle the request in the context of the APIs, policies, and access rules configured for the product. An API can be associated with at most one open product.
 1. If an open product including the API isn't found, check whether the API requires a subscription. If a subscription isn't required, handle the request in the context of that API and operation.
 1. If no configured product or API is found, then access is denied (401 Access denied error).
 
@@ -141,7 +141,7 @@ The following table summarizes how the gateway handles API requests with or with
 |❌<sup>1</sup>     | ✔️    | Access allowed:<br/><br/>• Product-scoped key<br/>• API-scoped key<br/>• All APIs-scoped key<br/>• Service-scoped key<br/><br/>Access denied:<br/><br/>• Other key not scoped to applicable product or API        |    Access allowed (open product context)     | •	Protected API access with API-scoped subscription<br/><br/>•	Anonymous access to API. If anonymous access isn’t intended, configure with product policies to enforce authentication and authorization  |
 |❌<sup>1</sup>     |  ❌      | Access allowed:<br/><br/>• Product-scoped key<br/>• API-scoped key<br/>• All APIs-scoped key<br/>• Service-scoped key<br/><br/>Access denied:<br/><br/>• Other key not scoped to applicable product or API        | Access allowed (open product context)        | Anonymous access to API. If anonymous access isn’t intended, configure with product policies to enforce authentication and authorization  |
 
-<sup>1</sup> An open product exists.
+<sup>1</sup> An open product exists that's associated with the API. 
 
 ### Considerations
 

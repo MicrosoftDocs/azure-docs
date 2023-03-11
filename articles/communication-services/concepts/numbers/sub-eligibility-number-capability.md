@@ -25,12 +25,12 @@ Additional details on eligible subscription types are as follows:
 
 | Number Type                      | Eligible Azure Agreement Type                                                                             |
 | :------------------------------- | :-------------------------------------------------------------------------------------------------------- |
-| Toll-Free and Local (Geographic) | Modern Customer Agreement (Field and Customer Led), Modern Partner Agreement (CSP), Enterprise Agreement* |
-| Short-Codes                      | Modern Customer Agreement (Field Led) and Enterprise Agreement**                                       |
+| Toll-Free and Local (Geographic) | Modern Customer Agreement (Field and Customer Led), Modern Partner Agreement (CSP), Enterprise Agreement*, Pay-As-You-Go |
+| Short-Codes                      | Modern Customer Agreement (Field Led), Enterprise Agreement**, Pay-As-You-Go                                      |
 
-\* Allowing the purchase of Italian phone numbers for CSP and LSP customers is planned only for General Availability launch. 
+\* In some countries, number purchases are only allowed for own use. Reselling or suballcoating to another parties is not allowed. Due to this purchases for CSP and LSP customers is not allowed.
 
-\** Applications from all other subscription types will be reviewed and approved on a case-by-case bases. Please reach out to phone@microsoft.com for assistance with your application.
+\** Applications from all other subscription types will be reviewed and approved on a case-by-case basis. Please reach out to acstns@microsoft.com for assistance with your application.
 
 ## Number capabilities
 
@@ -46,36 +46,36 @@ The tables below summarize current availability:
 | USA & Puerto Rico | Local       | -                    | -                    | General Availability | General Availability\* |
 | USA               | Short-Codes | General Availability | General Availability | -        | -          |
 
-\* Available through Azure Bot Framework and Dynamics only
+\* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
 
 ## Customers with UK Azure billing addresses
 
 | Number             | Type           | Send SMS             | Receive SMS          | Make Calls       | Receive Calls    |
 | :----------------- | :------------- | :------------------- | :------------------- | :--------------- | :--------------- |
-| UK                 | Toll-Free      | -        | -        | Public Preview   | Public Preview\* |
-| UK                 | Local          | -        | -        | Public Preview   | Public Preview\* |
-| USA & Puerto Rico  | Toll-Free      | General Availability | General Availability | Public Preview   | Public Preview\* |
-| USA & Puerto Rico  | Local          | -        | -        | Public Preview   | Public Preview\* |
-| Canada             | Toll-Free      | Public Preview       | Public Preview       | Public Preview   | Public Preview\* |
-| Canada             | Local          | -        | -        | Public Preview   | Public Preview\* |
+| UK                 | Toll-Free      | -        | -        | General Availability   | General Availability\* |
+| UK                 | Local          | -        | -        | General Availability   | General Availability\* |
+| USA & Puerto Rico  | Toll-Free      | General Availability | General Availability | General Availability   | General Availability\* |
+| USA & Puerto Rico  | Local          | -        | -        | General Availability   | General Availability\* |
+| Canada             | Toll-Free      | General Availability       | General Availability       | General Availability   | General Availability\* |
+| Canada             | Local          | -        | -        | General Availability   | General Availability\* |
 
-\* Available through Azure Bot Framework and Dynamics only
+\* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
 
 ## Customers with Ireland Azure billing addresses
 
 | Number            | Type      | Send SMS             | Receive SMS          | Make Calls           | Receive Calls    |
 | :---------------- | :-------- | :------------------- | :------------------- | :------------------- | :--------------- |
-| Ireland           | Toll-Free | -        | -        | Public Preview       | Public Preview\* |
-| Ireland           | Local     | -        | -        | Public Preview       | Public Preview\* |
-| USA & Puerto Rico | Toll-Free | General Availability | General Availability | Public Preview       | Public Preview\* |
-| USA & Puerto Rico | Local     | -        | -        | Public Preview       | Public Preview\* |
-| Canada            | Toll-Free | Public Preview       | Public Preview       | Public Preview       | Public Preview\* |
-| Canada            | Local     | -        | -        | Public Preview       | Public Preview\* |
-| UK                | Toll-Free | -        | -        | Public Preview       | Public Preview\* |
-| UK                | Local     | -        | -        | Public Preview       | Public Preview\* |
+| Ireland           | Toll-Free | -        | -        | General Availability       | General Availability\* |
+| Ireland           | Local     | -        | -        | General Availability       | General Availability\* |
+| USA & Puerto Rico | Toll-Free | General Availability | General Availability | General Availability       | General Availability\* |
+| USA & Puerto Rico | Local     | -        | -        | General Availability       | General Availability\* |
+| Canada            | Toll-Free | General Availability | General Availability | General Availability  | General Availability\* |
+| Canada            | Local     | -        | -        | General Availability       | General Availability\* |
+| UK                | Toll-Free | -        | -        | General Availability       | General Availability\* |
+| UK                | Local     | -        | -        | General Availability       | General Availability\* |
 
 
-\* Available through Azure Bot Framework and Dynamics only
+\* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
 
 ## Customers with Denmark Azure billing addresses
 
@@ -83,52 +83,52 @@ The tables below summarize current availability:
 | :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
 | Denmark           | Toll-Free | -        | -        | Public Preview | Public Preview\* |
 | Denmark           | Local     | -        | -        | Public Preview | Public Preview\* |
-| USA & Puerto Rico | Toll-Free | General Availability | General Availability | Public Preview | Public Preview\* |
-| USA & Puerto Rico | Local     | -        | -        | Public Preview | Public Preview\* |
-| Canada            | Toll-Free | Public Preview       | Public Preview       | Public Preview | Public Preview\* |
-| Canada            | Local     | -        | -        | Public Preview | Public Preview\* |
-| UK                | Toll-Free | -        | -        | Public Preview | Public Preview\* |
-| UK                | Local     | -        | -        | Public Preview | Public Preview\* |
+| USA & Puerto Rico | Toll-Free | General Availability | General Availability | General Availability | General Availability\* |
+| USA & Puerto Rico | Local     | -        | -        | General Availability | General Availability\* |
+| Canada            | Toll-Free | General Availability | General Availability | General Availability  | General Availability\* |
+| Canada            | Local     | -        | -        | General Availability       | General Availability\* |
+| UK                | Toll-Free | -        | -        | General Availability       | General Availability\* |
+| UK                | Local     | -        | -        | General Availability       | General Availability\* |
 
-\* Available through Azure Bot Framework and Dynamics only
+\* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
 
 ## Customers with Canada Azure billing addresses
 
 | Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
 | :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
-| Canada            | Toll-Free | Public Preview       | Public Preview       | Public Preview | Public Preview\* |
-| Canada            | Local     | -        | -        | Public Preview | Public Preview\* |
-| USA & Puerto Rico | Toll-Free | General Availability | General Availability | Public Preview | Public Preview\* |
-| USA & Puerto Rico | Local     | -        | -        | Public Preview | Public Preview\* |
-| UK                | Toll-Free | -        | -        | Public Preview | Public Preview\* |
-| UK                | Local     | -        | -        | Public Preview | Public Preview\* |
+| Canada            | Toll-Free | General Availability | General Availability | General Availability  | General Availability\* |
+| Canada            | Local     | -        | -        | General Availability       | General Availability\* |
+| USA & Puerto Rico | Toll-Free | General Availability | General Availability | General Availability | General Availability\* |
+| USA & Puerto Rico | Local     | -        | -        | General Availability | General Availability\* |
+| UK                | Toll-Free | -        | -        | General Availability       | General Availability\* |
+| UK                | Local     | -        | -        | General Availability       | General Availability\* |
 
 
-\* Available through Azure Bot Framework and Dynamics only
+\* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
 
 ## Customers with Italy Azure billing addresses
 
 | Number  | Type      | Send SMS      | Receive SMS   | Make Calls     | Receive Calls    |
 | :------ | :-------- | :------------ | :------------ | :------------- | :--------------- |
-| Italy   | Toll-Free** | - | - | Public Preview | Public Preview\* |
-| Italy   | Local**     | - | - | Public Preview | Public Preview\* |
+| Italy   | Toll-Free** | - | - | General Availability | General Availability\* |
+| Italy   | Local**     | - | - | General Availability | General Availability\* |
 
-\* Available through Azure Bot Framework and Dynamics only
+\* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
 
-\** Allowing the purchase of Italian phone numbers for CSP and LSP customers is planned only for General Availability launch.
+\** Phone numbers in Italy can only be purchased for own use. Re-selling or sub-allocating to another party is not allowed.
 
 ## Customers with Sweden Azure billing addresses
 
 | Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
 | :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
-| Sweden            | Toll-Free | -        | -        | Public Preview | Public Preview\* |
-| Sweden            | Local     | -        | -        | Public Preview | Public Preview\* |
-| Canada            | Toll-Free | Public Preview       | Public Preview       | Public Preview | Public Preview\* |
-| Canada            | Local     | -        | -        | Public Preview | Public Preview\* |
-| USA & Puerto Rico | Toll-Free | General Availability | General Availability | Public Preview | Public Preview\* |
-| USA & Puerto Rico | Local     | -        | -        | Public Preview | Public Preview\* |
+| Sweden            | Toll-Free | -        | -        | General Availability | General Availability\* |
+| Sweden            | Local     | -        | -        | General Availability | General Availability\* |
+| Canada            | Toll-Free | General Availability | General Availability | General Availability  | General Availability\* |
+| Canada            | Local     | -        | -        | General Availability       | General Availability\* |
+| USA & Puerto Rico | Toll-Free | General Availability | General Availability | General Availability | General Availability\* |
+| USA & Puerto Rico | Local     | -        | -        | General Availability | General Availability\* |
 
-\* Available through Azure Bot Framework and Dynamics only
+\* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
 
 ## Next steps
 

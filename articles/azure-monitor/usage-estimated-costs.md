@@ -24,7 +24,7 @@ Several other features don't have a direct cost, but instead you pay for the ing
 | Platform logs | Processing of [diagnostic and auditing information](essentials/resource-logs.md) is charged for [certain services](essentials/resource-logs-categories.md#costs) when sent to destinations other than a Log Analytics workspace. There's no direct charge when this data is sent to a Log Analytics workspace, but there's a charge for the workspace data ingestion and collection. |
 | Metrics | There's no charge for [standard metrics](essentials/metrics-supported.md) collected from Azure resources. There's a cost for collecting [custom metrics](essentials/metrics-custom-overview.md) and for retrieving metrics from the [REST API](essentials/rest-api-walkthrough.md#retrieve-metric-values). |
 | Alerts | Charges are based on the type and number of signals used by the alert rule, its frequency, and the type of [notification](alerts/action-groups.md) used in response. For [Log alerts](alerts/alerts-types.md#log-alerts) configured for [at-scale monitoring](alerts/alerts-types.md#splitting-by-dimensions-in-log-alert-rules), the cost also depends on the number of time series created by the dimensions resulting from your query. |
-| Web tests | There's a cost for [standard web tests](app/availability-standard-tests.md) and [multistep web tests](app/availability-multistep.md) in Application Insights. Multistep web tests have been deprecated.
+| Web tests | There's a cost for [standard web tests](app/availability-standard-tests.md) and [multistep web tests](/previous-versions/azure/azure-monitor/app/availability-multistep) in Application Insights. Multistep web tests have been deprecated.
 
 ## Data transfer charges
 
@@ -97,7 +97,16 @@ To limit the view to Azure Monitor charges, [create a filter](../cost-management
 >[!NOTE]
 >Usage for Azure Monitor Logs (Log Analytics) can be billed with the **Log Analytics** service (for Pay-as-you-go data ingestion and data retention), or with the **Azure Monitor** service (for Commitment Tiers, Basic Logs and Data Export) or with the **Insight and Analytics** service when using the legacy Per Node pricing tier.  Except for a small set of legacy resources, Application Insights data ingestion and retention are billed as the **Log Analytics** service.
 
-Other services such as Microsoft Defender for Cloud and Microsoft Sentinel also bill their usage against Log Analytics workspace resources, so you might want to add them to your filter. See [Common cost analysis uses](../cost-management-billing/costs/cost-analysis-common-uses.md) for information on how to use this view.
+Other services such as Microsoft Defender for Cloud and Microsoft Sentinel also bill their usage against Log Analytics workspace resources, so you might want to add them to your filter. 
+
+To get the most useful view for understanding your cost trends in the **Cost analysis** view, 
+
+1. Select the date range you want to investigate 
+2. Select the desired "Granularity" of "Daily" or "Monthly" (not "Accumulated")
+3. Set the chart type to "Column (stacked)" in the top right above the chart
+4. Set "Group by" to be "Meter"
+
+See [Common cost analysis uses](../cost-management-billing/costs/cost-analysis-common-uses.md) for more information on how to use this Cost analysis view.
 
 ![Screenshot that shows Cost Management with cost information.](./media/usage-estimated-costs/010.png)
 

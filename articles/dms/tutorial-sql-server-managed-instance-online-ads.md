@@ -1,20 +1,17 @@
 ---
 title: "Tutorial: Migrate SQL Server to Azure SQL Managed Instance online by using Azure Data Studio"
 titleSuffix: Azure Database Migration Service
-description: Migrate SQL Server to an Azure SQL Managed Instance online by using Azure Data Studio with Azure Database Migration Service
-services: dms
-author: croblesm
-ms.author: roblescarlos
-manager: 
+description: Learn how to migrate on-premises SQL Server to Azure SQL Managed Instance only by using Azure Data Studio and Azure Database Migration Service.
+author: abhims14
+ms.author: abhishekum
 ms.reviewer: cawrites
+ms.date: 01/26/2023
 ms.service: dms
-ms.workload: data-services
-ms.custom: "seo-lt-2019"
 ms.topic: tutorial
-ms.date: 10/05/2021
+ms.custom: seo-lt-2019
 ---
 
-# Tutorial: Migrate SQL Server to an Azure SQL Managed Instance online by using Azure Data Studio with DMS
+# Tutorial: Migrate SQL Server to Azure SQL Managed Instance online in Azure Data Studio
 
 Use the Azure SQL migration extension in Azure Data Studio to migrate database(s) from a SQL Server instance to an [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) with minimal downtime. For methods that might require some manual effort, see the article [SQL Server instance migration to Azure SQL Managed Instance](/azure/azure-sql/migration-guides/managed-instance/sql-server-to-managed-instance-guide).
 
@@ -59,13 +56,12 @@ To complete this tutorial, you need to:
     - Azure storage account file share or blob container 
 
     > [!IMPORTANT]
+    > - The Azure SQL Migration extension for Azure Data Studio doesn't take database backups, or neither initiate any database backups on your behalf. Instead, the service uses existing database backup files for the migration.
     > - If your database backup files are provided in an SMB network share, [Create an Azure storage account](../storage/common/storage-account-create.md) that allows the DMS service to upload the database backup files.  Make sure to create the Azure Storage Account in the same region as the Azure Database Migration Service instance is created.
-    > - Azure Database Migration Service does not initiate any backups, and instead uses existing backups, which you might already have as part of your disaster recovery plan, for the migration.
-    > - You need to take [backups using the `WITH CHECKSUM` option](/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server). 
     > - Each backup can be written to either a separate backup file or multiple backup files. However, appending multiple backups (that is, full and t-log) into a single backup media isn't supported. 
     > - Use compressed backups to reduce the likelihood of experiencing potential issues associated with migrating large backups.
 * Ensure that the service account running the source SQL Server instance has read and write permissions on the SMB network share that contains database backup files.
-* The source SQL Server instance certificate from a database protected by Transparent Data Encryption (TDE) needs to be migrated to the target Azure SQL Managed Instance or SQL Server on Azure virtual machine before you migrate data. To learn more, see [Migrate a certificate of a TDE-protected database to Azure SQL Managed Instance](/azure/azure-sql/managed-instance/tde-certificate-migrate) and [Move a TDE Protected Database to Another SQL Server](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server).
+* The source SQL Server instance certificate from a database protected by Transparent Data Encryption (TDE) needs to be migrated to the target Azure SQL Managed Instance or SQL Server on Azure virtual machine before you migrate data. For more information about migrating TDE-enabled databases, see [Tutorial: Migrate TDE-enabled databases (preview) to Azure SQL in Azure Data Studio](/azure/dms/tutorial-transparent-data-encryption-migration-ads).
     > [!TIP]
     > If your database contains sensitive data that is protected by [Always Encrypted](/sql/relational-databases/security/encryption/configure-always-encrypted-using-sql-server-management-studio), the migration process that uses Azure Data Studio with DMS will automatically migrate your Always Encrypted keys to your target Azure SQL Managed Instance or SQL Server on Azure virtual machine.
 
@@ -180,20 +176,29 @@ Resource group, Azure storage account, Blob container from the corresponding dro
 
 The final step of the tutorial is to complete the migration cutover to ensure the migrated database in Azure SQL Managed Instance is ready for use. This is the only part in the process that requires downtime for applications that connect to the database and hence the timing of the cutover needs to be carefully planned with business or application stakeholders.
 
-To complete the cutover,
+To complete the cutover:
 
-1. Stop all incoming transactions to the source database and prepare to make any application configuration changes to point to the target database in Azure SQL Managed Instance.
-2. take any tail log backups for the source database in the backup location specified
-3. ensure all database backups have the status *Restored* in the monitoring details page
-4. select *Complete cutover* in the monitoring details page
+1. Stop all incoming transactions to the source database.
+2. Make application configuration changes to point to the target database in Azure SQL Managed Instance.
+3. Take a final log backup of the source database in the backup location specified
+4. Put the source database in read-only mode. Therefore, users can read data from the database but not modify it.
+5. Ensure all database backups have the status *Restored* in the monitoring details page.
+6. Select *Complete cutover* in the monitoring details page.
 
 During the cutover process, the migration status changes from *in progress* to *completing*. When the cutover process is completed, the migration status changes to *succeeded* to indicate that the database migration is successful and that the migrated database is ready for use.
 
 > [!IMPORTANT]
 > After the cutover, availability of SQL Managed Instance with Business Critical service tier only can take significantly longer than General Purpose as three secondary replicas have to be seeded for Always On High Availability group. This operation duration depends on the size of data, for more information, see [Management operations duration](/azure/azure-sql/managed-instance/management-operations-overview#duration).
 
+## Limitations
+
+Migrating to Azure SQL Managed Instance by using the Azure SQL extension for Azure Data Studio has the following limitations: 
+
+[!INCLUDE [sql-mi-limitations](includes/sql-managed-instance-limitations.md)]
+
 ## Next steps
 
 * For a tutorial showing you how to migrate a database to SQL Managed Instance using the T-SQL RESTORE command, see [Restore a backup to SQL Managed Instance using the restore command](/azure/azure-sql/managed-instance/restore-sample-database-quickstart).
 * For information about SQL Managed Instance, see [What is SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview).
 * For information about connecting apps to SQL Managed Instance, see [Connect applications](/azure/azure-sql/managed-instance/connect-application-instance).
+* To troubleshoot, review [Known issues](known-issues-azure-sql-migration-azure-data-studio.md).

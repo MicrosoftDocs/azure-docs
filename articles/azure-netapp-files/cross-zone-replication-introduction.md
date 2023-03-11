@@ -12,14 +12,14 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/16/2022
+ms.date: 02/17/2023
 ms.author: anfdocs
 ms.custom: references_regions
 ---
 
 # Understand cross-zone replication of Azure NetApp Files (preview)
 
-In many cases resiliency across availability zones is achieved by HA architectures using application-based replication and HA, as explained in Using availability zones for high availability. However, often simpler, more cost-effective approaches are considered by using storage-based data replication instead.  
+In many cases resiliency across availability zones is achieved by HA architectures using application-based replication and HA, as explained in [Use availability zones for high availability](use-availability-zones.md). However, simpler, more cost-effective approaches are often considered by using storage-based data replication instead.  
 
 Similar to the Azure NetApp Files [cross-region replication feature](cross-region-replication-introduction.md), the cross-zone replication (CZR) capability provides data protection between volumes in different availability zones. You can asynchronously replicate data from an Azure NetApp Files volume (source) in one availability zone to another Azure NetApp Files volume (destination) in another availability. This capability enables you to fail over your critical application if a zone-wide outage or disaster happens. 
 
@@ -37,12 +37,17 @@ The preview of cross-zone replication is available in the following regions:
 * France Central 
 * Germany West Central 
 * Japan East
+* Korea Central
 * North Europe
 * Norway East 
 * South Africa North
 * Southeast Asia
 * South Central US 
+* Sweden Central
+* Switzerland North
+* UAE North
 * UK South
+* US Gov Virginia
 * West Europe
 * West US 2 
 * West US 3 

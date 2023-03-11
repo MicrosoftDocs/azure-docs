@@ -21,10 +21,9 @@ zone_pivot_groups: acs-azcli-js-csharp-java-python
 
 > [!IMPORTANT]
 > SMS capabilities depend on the phone number you use and the country that you're operating within as determined by your Azure billing address. For more information, visit the [Subscription eligibility](../../concepts/numbers/sub-eligibility-number-capability.md) documentation.
-> 
-> Currently, SMS messages can only be sent to received from United States phone numbers. For more information, see [Phone number types](../../concepts/telephony/plan-solution.md).
+
 <br/>
-<br/>
+
 >[!VIDEO https://www.youtube.com/embed/YEyxSZqzF4o]
 
 ::: zone pivot="platform-azcli"

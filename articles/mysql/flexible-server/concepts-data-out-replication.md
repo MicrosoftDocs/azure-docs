@@ -40,10 +40,14 @@ Data-out replication isn't supported on Azure Database for MySQL - Flexible Serv
 
 You must use the replication filter to filter out Azure custom tables on the replica server. This can be achieved by setting Replicate_Wild_Ignore_Table = "mysql.\_\_%" to filter the Azure MySQL internal tables on the replica. To modify this parameter from the Azure portal, navigate to Azure Database for MySQL Flexible server and select "Server parameters" to view/edit the Replicate_Wild_Ignore_Table parameter.
 
-Refer to the following general guidance on the replication filter:
-- MySQL 5.7 Reference Manual - 13.4.2.2 CHANGE REPLICATION FILTER Statement
-- MySQL 5.7 Reference Manual - 16.1.6.3 Replica Server Options and Variables
-- MySQL 8.0 Reference Manual - 17.2.5.4 Replication Channel Based Filters.
+Refer to the following general guidance on the replication filter in MySQL Manual:
+- MySQL 5.7 Reference Manual - [13.4.2.2 CHANGE REPLICATION FILTER Statement](https://dev.mysql.com/doc/refman/5.7/en/change-replication-filter.html)
+- MySQL 5.7 Reference Manual - [16.1.6.3 Replica Server Options and Variables](https://dev.mysql.com/doc/refman/5.7/en/replication-options-replica.html#option_mysqld_replicate-wild-ignore-table)
+- MySQL 8.0 Reference Manual - [17.2.5.4 Replication Channel Based Filters](https://dev.mysql.com/doc/refman/8.0/en/replication-rules-channel-based-filters.html)
+
+
+
+
 
 ## Next steps
 

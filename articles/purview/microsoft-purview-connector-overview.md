@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 10/10/2022
+ms.date: 03/01/2023
 ms.custom: ignite-2022
 ---
 
@@ -30,9 +30,10 @@ The table below shows the supported capabilities for each data source. Select th
 || [Azure Data Share](how-to-link-azure-data-share.md) | [Yes](how-to-link-azure-data-share.md) | No | [Yes](how-to-link-azure-data-share.md) | No | No|
 || [Azure Database for MySQL](register-scan-azure-mysql-database.md) | [Yes](register-scan-azure-mysql-database.md#register) | [Yes](register-scan-azure-mysql-database.md#scan) | No* | No | No |
 || [Azure Database for PostgreSQL](register-scan-azure-postgresql.md) | [Yes](register-scan-azure-postgresql.md#register) | [Yes](register-scan-azure-postgresql.md#scan) | No* | No | No |
+|| [Azure Databricks](register-scan-azure-databricks.md) | [Yes](register-scan-azure-databricks.md#register) | No | [Yes](register-scan-azure-databricks.md#lineage) | No | No |
 ||    [Azure Dedicated SQL pool (formerly SQL DW)](register-scan-azure-synapse-analytics.md)| [Yes](register-scan-azure-synapse-analytics.md#register) | [Yes](register-scan-azure-synapse-analytics.md#scan)| No* | No | No |
 ||    [Azure Files](register-scan-azure-files-storage-source.md)|[Yes](register-scan-azure-files-storage-source.md#register) | [Yes](register-scan-azure-files-storage-source.md#scan) | Limited* |  No | No |
-||    [Azure SQL Database](register-scan-azure-sql-database.md)| [Yes](register-scan-azure-sql-database.md#register) |[Yes](register-scan-azure-sql-database.md#scan)| [Yes (Preview)](register-scan-azure-sql-database.md#lineagepreview) | [Yes](register-scan-azure-sql-database.md#access-policy) (Preview) | No |
+||    [Azure SQL Database](register-scan-azure-sql-database.md)| [Yes](register-scan-azure-sql-database.md#register-the-data-source) |[Yes](register-scan-azure-sql-database.md#scope-and-run-the-scan)| [Yes (Preview)](register-scan-azure-sql-database.md#extract-lineage-preview) | [Yes](register-scan-azure-sql-database.md#set-up-access-policies) (Preview) | No |
 ||    [Azure SQL Managed Instance](register-scan-azure-sql-managed-instance.md)|  [Yes](register-scan-azure-sql-managed-instance.md#scan) | [Yes](register-scan-azure-sql-managed-instance.md#scan) | No* | No | No |
 ||    [Azure Synapse Analytics (Workspace)](register-scan-synapse-workspace.md)| [Yes](register-scan-synapse-workspace.md#register) | [Yes](register-scan-synapse-workspace.md#scan)| [Yes - Synapse pipelines](how-to-lineage-azure-synapse-analytics.md)| No| No |
 |Database| [Amazon RDS](register-scan-amazon-rds.md) | [Yes](register-scan-amazon-rds.md#register-an-amazon-rds-data-source) | [Yes](register-scan-amazon-rds.md#scan-an-amazon-rds-database) | No | No | No |
@@ -42,11 +43,11 @@ The table below shows the supported capabilities for each data source. Select th
 || [Hive Metastore Database](register-scan-hive-metastore-source.md) | [Yes](register-scan-hive-metastore-source.md#register) | No | [Yes*](register-scan-hive-metastore-source.md#lineage) | No| No |
 || [MongoDB](register-scan-mongodb.md) | [Yes](register-scan-mongodb.md#register) | No | No | No | No |
 || [MySQL](register-scan-mysql.md) | [Yes](register-scan-mysql.md#register) | No | [Yes](register-scan-mysql.md#lineage) | No | No |
-|| [Oracle](register-scan-oracle-source.md) | [Yes](register-scan-oracle-source.md#register)|  [Yes](register-scan-oracle-source.md#scan) | [Yes*](register-scan-oracle-source.md#lineage) | No| No |
+|| [Oracle](register-scan-oracle-source.md) | [Yes](register-scan-oracle-source.md#register)| [Yes](register-scan-oracle-source.md#scan) | [Yes*](register-scan-oracle-source.md#lineage) | No| No |
 || [PostgreSQL](register-scan-postgresql.md) | [Yes](register-scan-postgresql.md#register) | No | [Yes](register-scan-postgresql.md#lineage) | No | No |
 || [SAP Business Warehouse](register-scan-sap-bw.md) | [Yes](register-scan-sap-bw.md#register) | No | No | No | No |
 || [SAP HANA](register-scan-sap-hana.md) | [Yes](register-scan-sap-hana.md#register) | No | No | No | No |
-|| [Snowflake](register-scan-snowflake.md) | [Yes](register-scan-snowflake.md#register) | No | [Yes](register-scan-snowflake.md#lineage) | No | No |
+|| [Snowflake](register-scan-snowflake.md) | [Yes](register-scan-snowflake.md#register) | [Yes](register-scan-snowflake.md#scan) | [Yes](register-scan-snowflake.md#lineage) | No | No |
 ||    [SQL Server](register-scan-on-premises-sql-server.md)| [Yes](register-scan-on-premises-sql-server.md#register) |[Yes](register-scan-on-premises-sql-server.md#scan) | No* | No| No |
 ||    [SQL Server on Azure-Arc](register-scan-azure-arc-enabled-sql-server.md)| [Yes](register-scan-azure-arc-enabled-sql-server.md#register) | [Yes](register-scan-azure-arc-enabled-sql-server.md#scan) | No* |[Yes](register-scan-azure-arc-enabled-sql-server.md#access-policy) | No |
 ||    [Teradata](register-scan-teradata-source.md)| [Yes](register-scan-teradata-source.md#register)| [Yes](register-scan-teradata-source.md#scan)| [Yes*](register-scan-teradata-source.md#lineage) | No| No |
@@ -62,7 +63,7 @@ The table below shows the supported capabilities for each data source. Select th
 \* Besides the lineage on assets within the data source, lineage is also supported if dataset is used as a source/sink in [Data Factory](how-to-link-azure-data-factory.md) or [Synapse pipeline](how-to-lineage-azure-synapse-analytics.md).
 
 > [!NOTE]
-> Currently, the Microsoft Purview Data Map can't scan an asset that has `/`, `\`, or `#` in its name. To scope your scan and avoid scanning assets that have those characters in the asset name, use the example in [Register and scan an Azure SQL Database](register-scan-azure-sql-database.md#creating-the-scan).
+> Currently, the Microsoft Purview Data Map can't scan an asset that has `/`, `\`, or `#` in its name. To scope your scan and avoid scanning assets that have those characters in the asset name, use the example in [Register and scan an Azure SQL Database](register-scan-azure-sql-database.md#create-the-scan).
 
 > [!IMPORTANT]
 > If you plan on using a self-hosted integration runtime, scanning some data sources requires additional setup on the self-hosted integration runtime machine. For example, JDK, Visual C++ Redistributable, or specific driver. 
@@ -97,22 +98,29 @@ The following is a list of all the Azure data source (data center) regions where
 - West Europe
 - West US
 - West US 2
+- West US 3
 
 ## File types supported for scanning
 
 The following file types are supported for scanning, for schema extraction, and classification where applicable:
 
 - Structured file formats supported by extension: AVRO, ORC, PARQUET, CSV, JSON, PSV, SSV, TSV, TXT, XML, GZIP
- > [!Note]
- > * The Microsoft Purview Data Map scanner only supports schema extraction for the structured file types listed above.
- > * For AVRO, ORC, and PARQUET file types, the scanner does not support schema extraction for files that contain complex data types (for example, MAP, LIST, STRUCT). 
- > * The scanner supports scanning snappy compressed PARQUET types for schema extraction and classification. 
- > * For GZIP file types, the GZIP must be mapped to a single csv file within. 
- > Gzip files are subject to System and Custom Classification rules. We currently don't support scanning a gzip file mapped to multiple files within, or any file type other than csv. 
- > * For delimited file types (CSV, PSV, SSV, TSV, TXT), we do not support data type detection. The data type will be listed as "string" for all columns. We only support comma(‘,’), semicolon(‘;’), vertical bar(‘|’) and tab(‘\t’) as delimiter. If the field doesn't have quotes on the ends, or the field is a single quote char or there are quotes within the field, the row will be judged as error row. Rows that have different number of columns than the header row will be judged as error rows. (numbers of error rows / numbers of rows sampled ) must be less than 0.1.
- > * For Parquet files, if you are using a self-hosted integration runtime, you need to install the **64-bit JRE 8 (Java Runtime Environment) or OpenJDK** on your IR machine. Check our [Java Runtime Environment section at the bottom of the page](manage-integration-runtimes.md#java-runtime-environment-installation) for an installation guide.
 - Document file formats supported by extension: DOC, DOCM, DOCX, DOT, ODP, ODS, ODT, PDF, POT, PPS, PPSX, PPT, PPTM, PPTX, XLC, XLS, XLSB, XLSM, XLSX, XLT
-- The Microsoft Purview Data Map also supports custom file extensions and custom parsers.
+- The Microsoft Purview Data Map also supports [custom file extensions and custom parsers](create-a-scan-rule-set.md#create-a-custom-file-type).
+
+> [!Note]
+> **Known Limitations:**
+> * The Microsoft Purview Data Map scanner only supports schema extraction for the structured file types listed above.
+> * For AVRO, ORC, and PARQUET file types, the scanner does not support schema extraction for files that contain complex data types (for example, MAP, LIST, STRUCT). 
+> * The scanner supports scanning snappy compressed PARQUET types for schema extraction and classification. 
+> * For GZIP file types, the GZIP must be mapped to a single csv file within. 
+> Gzip files are subject to System and Custom Classification rules. We currently don't support scanning a gzip file mapped to multiple files within, or any file type other than csv. 
+> * **For delimited file types (CSV, PSV, SSV, TSV, TXT)**:
+>    * We do not support data type detection. The data type will be listed as "string" for all columns.
+>    * We only support comma(‘,’), semicolon(‘;’), vertical bar(‘|’) and tab(‘\t’) as delimiters.
+>    * Delimited files with less than three rows cannot be determined to be CSV files if they are using a custom delimiter. For example: files with ~ delimiter and less than three rows will not be able to be determined to be CSV files.
+>    * If the field doesn't have quotes on the ends, or the field is a single quote char or there are quotes within the field, the row will be judged as error row. Rows that have different number of columns than the header row will be judged as error rows. (numbers of error rows / numbers of rows sampled ) must be less than 0.1.
+ > * For Parquet files, if you are using a self-hosted integration runtime, you need to install the **64-bit JRE 8 (Java Runtime Environment) or OpenJDK** on your IR machine. Check our [Java Runtime Environment section at the bottom of the page](manage-integration-runtimes.md#java-runtime-environment-installation) for an installation guide.
 
 ## Schema extraction
 

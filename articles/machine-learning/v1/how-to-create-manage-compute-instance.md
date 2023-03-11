@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.custom: devx-track-azurecli, references_regions, cliv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, devx-track-azurecli, references_regions, cliv1, event-tier1-build-2022
 author: swatig007
 ms.author: swatig
 ms.reviewer: sgilley

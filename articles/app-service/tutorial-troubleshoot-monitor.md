@@ -4,8 +4,8 @@ description: Learn how Azure Monitor and Log Analytics helps you monitor your Ap
 author: msangapu-msft
 ms.author: msangapu
 ms.topic: tutorial
+ms.custom: devx-track-azurecli
 ms.date: 06/20/2020
-
 ---
 # Tutorial: Troubleshoot an App Service app with Azure Monitor
 
@@ -32,7 +32,7 @@ To complete this tutorial, you'll need:
 
 - [Git](https://git-scm.com/)
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Create Azure resources
 

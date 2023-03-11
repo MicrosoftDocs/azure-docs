@@ -37,6 +37,8 @@ landingContent:
         links:
           - text: Create Bicep files - VS Code
             url: quickstart-create-bicep-use-visual-studio-code.md
+          - text: Create Bicep files - Visual Studio
+            url: quickstart-create-bicep-use-visual-studio.md
           - text: Create and deploy template specs
             url: quickstart-create-template-specs.md
       - linkListType: learn

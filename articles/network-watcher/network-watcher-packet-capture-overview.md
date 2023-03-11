@@ -1,22 +1,20 @@
 ---
-title: Introduction to Packet capture in Azure Network Watcher | Microsoft Docs
-description: This page provides an overview of the Network Watcher packet capture's capability
+title: Introduction to packet capture in Azure Network Watcher
+description: Learn about the Network Watcher packet capture capability.
 services: network-watcher
-documentationcenter: na
-author: shijaiswal
+author: halkazwini
 ms.service: network-watcher
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload:  infrastructure-services
+ms.topic: conceptual
+ms.workload: infrastructure-services
 ms.date: 06/07/2022
-ms.author: shijaiswal
+ms.author: halkazwini
 ms.custom: engagement-fy23
 ---
 
-# Introduction to variable packet capture in Azure Network Watcher
+# Introduction to packet capture in Azure Network Watcher
  
 > [!Important]
-> Packet capture is now also available for **Virtual Machine Scale Sets**. To check it out, visit [Manage packet capture in the Azure portal for VMSS](network-watcher-packet-capture-manage-portal-vmss.md).
+> Packet capture is now also available for **virtual machine scale sets**. To check it out, visit [Manage packet captures in virtual machine scale sets with Azure Network Watcher using the Azure portal](network-watcher-packet-capture-manage-portal-vmss.md).
 
 Network Watcher variable packet capture allows you to create packet capture sessions to track traffic to and from a virtual machine. Packet capture helps to diagnose network anomalies both reactively and proactively. Other uses include gathering network statistics, gaining information on network intrusions, to debug client-server communications and much more.
 

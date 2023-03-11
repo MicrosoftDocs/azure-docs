@@ -1,5 +1,5 @@
 ---
-title: Use Monitor Azure Virtual Desktop Monitor - Azure
+title: How to monitor with Azure Virtual Desktop Insights - Azure
 description: How to use Azure Virtual Desktop Insights.
 author: Heidilohr
 ms.topic: how-to

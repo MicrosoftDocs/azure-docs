@@ -1,18 +1,14 @@
 ---
-
 title: QuickStart - Deploy and manage NSG Flow Logs using Azure Policy 
 titleSuffix: Azure Network Watcher
 description: This article explains how to use the built-in policies to manage the deployment of NSG flow logs 
 services: network-watcher
-documentationcenter: na
-author: damendo
-
+author: halkazwini
 ms.service: network-watcher
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload:  infrastructure-services
+ms.topic: quickstart
+ms.workload: infrastructure-services
 ms.date: 02/09/2022
-ms.author: damendo
+ms.author: halkazwini
 ms.custom: engagement-fy23
 ---
 
