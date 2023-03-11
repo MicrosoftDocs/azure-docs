@@ -251,7 +251,7 @@ Now that you have a tenant and a Hybrid Identity Administrator account, add your
 
 To add a custom domain name to a directory:
 
-1. In the [Azure portal](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview), be sure to close the **All users** pane.
+1. In the [Azure portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview), be sure to close the **All users** pane.
 1. In the left menu under **Manage**, select **Custom domain names**.
 1. Select **Add custom domain**.
 

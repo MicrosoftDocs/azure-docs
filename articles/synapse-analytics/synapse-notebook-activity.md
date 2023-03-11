@@ -170,7 +170,7 @@ Here's the sample JSON definition of a Synapse notebook activity:
 Here's the sample JSON of a Synapse notebook activity output:
 
 ```json
-
+{
 {
     "status": {
         "Status": 1,
@@ -214,3 +214,5 @@ Here's the sample JSON of a Synapse notebook activity output:
 }
 
 ```
+## Known issues
+If the notebook name is parametrized in the Pipeline Notebook activity, then the notebook version in unpublished status can't be referenced in the debug runs.
