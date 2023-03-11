@@ -22,7 +22,7 @@ There are various ways to enable InfiniBand on the capable VM sizes.
 See [VM Images](configure.md#vm-images) for a list of supported VM Images on the Marketplace, which come pre-loaded with InfiniBand drivers (for SR-IOV or non-SR-IOV VMs) or can be configured with the appropriate drivers for [RDMA capable VMs](../sizes-hpc.md#rdma-capable-instances).  The [CentOS-HPC](configure.md#centos-hpc-vm-images) and [Ubuntu-HPC](configure.md#ubuntu-hpc-vm-images) VM images in the Marketplace are the easiest way to get started.
 
 ## InfiniBand Driver VM Extensions
-On Linux, the [InfiniBandDriverLinux VM extension](hpc-compute-infiniband-linux.md) can be used to install the Mellanox OFED drivers and enable InfiniBand on the SR-IOV enabled H- and N-series VMs.
+On Linux, the [InfiniBandDriverLinux VM extension](hpc-compute-infiniband-linux.md) can be used to install the Mellanox OFED drivers and enable InfiniBand on the SR-IOV enabled HB-series and N-series VMs.
 
 On Windows, the [InfiniBandDriverWindows VM extension](hpc-compute-infiniband-windows.md) installs Windows Network Direct drivers (on non-SR-IOV VMs) or Mellanox OFED drivers (on SR-IOV VMs) for RDMA connectivity. In certain deployments of A8 and A9 instances, the HpcVmDrivers extension is added automatically. Note that the HpcVmDrivers VM extension is being deprecated; it will not be updated.
 
