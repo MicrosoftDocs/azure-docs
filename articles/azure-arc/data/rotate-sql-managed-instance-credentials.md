@@ -24,6 +24,7 @@ Consider the following limitations when you rotate a managed instance service-ma
 - Automatically pre-scheduled rotation isn't supported.
 - The service-managed DPAPI symmetric keys, keytab, active directory accounts, and service-managed TDE credentials aren't included in this credential rotation.
 - SQL Managed Instance Business Critical tier isn't supported.
+- This feature should not be used in production currently. There is a known limitation where _rollback_ cannot be triggered unless credential rotation is completed successfully and the SQLMI is in "Ready" state.
 
 ## General Purpose tier
 
