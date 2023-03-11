@@ -28,7 +28,7 @@ ms.author: nikuklic
     - SBC certificate must match the name; wildcard certificates are supported.
     - The `*.onmicrosoft.com` and `*.azure.com` domains can’t be used for the FQDN of the SBC.
 
-    For the full list of requirements, refer to [Azure direct routing infrastructure requirements](./direct-routing-infrastructure.md).
+    For the full list of requirements, refer to [Azure direct routing infrastructure requirements](../../../concepts/telephony/direct-routing-infrastructure.md).
 
    :::image type="content" source="../media/voice-routing/add-session-border-controller.png" alt-text="Screenshot of Adding Session Border Controller.":::
 

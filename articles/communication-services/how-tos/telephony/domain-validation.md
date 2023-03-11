@@ -46,11 +46,12 @@ Make sure to add and verify domain name portion of the FQDN and keep in mind tha
 
 :::image type="content" source="./media/direct-routing-verify-domain-2.png" alt-text="Screenshot of verifying a custom domain.":::
 
->[!Note] It might take up to 30 minutes for new DNS record to propagate on the Internet
+>[!Note] 
+>It might take up to 30 minutes for new DNS record to propagate on the Internet
 
 3. Select Next. If everything is set up correctly, you should see Domain status changed to *Verified* next to the added domain.
 
-:::image type="content" source="./media/direct-routing-domain-verified.png" alt-text="Screenshot of verifying a custom domain.":::
+:::image type="content" source="./media/direct-routing-domain-verified.png" alt-text="Screenshot of a verified domain.":::
 
 #### Remove domain from Azure Communication Services
 
@@ -64,7 +65,7 @@ If you want to remove a domain from your Azure Communication Services direct rou
 
 - [Telephony in Azure Communication Services](../../concepts/telephony/telephony-concept.md)
 - [Direct routing infrastructure requirements](../../concepts/telephony/direct-routing-infrastructure.md)
-- [Pricing](../pricing.md)
+- [Pricing](../../concepts/pricing.md)
 
 ### Quickstarts
 

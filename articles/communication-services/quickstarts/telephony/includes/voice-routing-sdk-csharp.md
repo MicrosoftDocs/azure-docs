@@ -19,7 +19,7 @@ You can download the sample app from [GitHub](https://github.com/link.  -->
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- An active Communication Services resource and connection string. [Create a Communication Services resource](https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource).
+- An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
 - The latest version [.NET Core client library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
 - Fully Qualified Domain Name (FQDN) and port number of a Session Border Controller (SBC) in operational telephony system.
 - [Verified domain name](../../../how-tos/telephony/domain-validation.md) of the SBC FQDN.

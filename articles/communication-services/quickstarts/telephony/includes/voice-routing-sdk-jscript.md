@@ -19,7 +19,7 @@ You can download the sample app from [GitHub](https://github.com/link. -->
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- An active Communication Services resource and connection string. [Create a Communication Services resource](https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource).
+- An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md)).
 - Active LTS and Maintenance LTS versions of  [Node.js](https://nodejs.org/) for your operating system.
 - Fully Qualified Domain Name (FQDN) and port number of a Session Border Controller (SBC) in operational telephony system.
 - [Verified domain name](../../../how-tos/telephony/domain-validation.md) of the SBC FQDN.
@@ -59,7 +59,7 @@ The `--save` option adds the library as a dependency in your package.json file.
 
 ## Authenticate the client
 
-Import the `SipRoutingClient` from the client library and instantiate it with your connection string. The code retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage your resource's connection string](https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource#store-your-connection-string).
+Import the `SipRoutingClient` from the client library and instantiate it with your connection string. The code retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage your resource's connection string](../../create-communication-resource.md#store-your-connection-string).
 
 Add the following code to the `direct-routing-quickstart.js`:
 

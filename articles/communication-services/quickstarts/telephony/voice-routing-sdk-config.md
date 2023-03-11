@@ -8,6 +8,8 @@ ms.date: 03/11/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: pstn
+zone_pivot_groups: acs-azp-java-python-csharp-js
+ms.custom: mode-other
 ---
 
 # Quickstart: Configure voice routing programmatically
@@ -26,7 +28,7 @@ Configure outbound voice routing rules for Azure Communication Services direct r
 [!INCLUDE [Java](./includes/voice-routing-sdk-java.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-JavaScript"
+::: zone pivot="programming-language-js"
 [!INCLUDE [JavaScript](./includes/voice-routing-sdk-jscript.md)]
 ::: zone-end
 
