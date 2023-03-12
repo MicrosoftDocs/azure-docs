@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 03/08/2023
+ms.date: 03/03/2023
 ms.author: lajanuar
 monikerRange: '>=form-recog-2.1.0'
 recommendations: false
@@ -27,51 +27,72 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 >[!NOTE]
 > With the release of the 2022-08-31 GA API, the associated preview APIs are being deprecated. If you are using the 2021-09-30-preview or the 2022-01-30-preview API versions, please update your applications to target the 2022-08-31 API version. There are a few minor changes involved, for more information, _see_ the [migration guide](v3-migration-guide.md).
 
-## February 2023
+## March 2023
+
+> [!IMPORTANT]
+> Document classification, Query fields, and Add-on capabilities are currently only available in the following regions:
+>
+> * West Europe
+> * West US2
+> * East US
 
 * **Document classification** is now a new capability within Form Recognizer starting with the ```2023-02-28-preview``` API. Try out the document classification capability in the [Studio](https://formrecognizer-dogfood.appliedai.azure.com/studio/) or the REST API.
-* **Query fields** added to the General Document model uses Open AI model to extract specific fields from documents. See the [general document](concept-general-document.md) model to learn more or try the feature in the [Studio](https://formrecognizer-dogfood.appliedai.azure.com/studio/).
-* **Common name** Normalizing key variation to a common name makes the General Document model more useful in processing forms with variations in key names. Learn more about the common name feature in the [General Document model](concept-general-document.md).
-* Additions to the Read and Layout APIs
-    * **Barcodes** are now supported with the ```2023-02-28-preview``` API.
-    * **Fonts** are now recognized with the ```2023-02-28-preview``` API.
-    * **Formulas** are now recognized with the ```2023-02-28-preview``` API.
-* Custom extraction model updates
-    * Custom neural models now support added languages for training and analysis. Train neural models for Dutch, French, German, Italian and Spanish.
-    * Custom template models now have an improved signature detection capability.
-* Service Updates
-    * Support for high resolution documents
-* Studio updates
-    * In addition to support for all the new features like classification and query fields, the Studio now enables project sharing for custom model projects.
+* **Query fields** added to the General Document model uses Open AI model to extract specific fields from documents. See the [general document](concept-general-document.md) model to learn more or try the feature in the [Studio](https://formrecognizer-dogfood.appliedai.azure.com/studio/). Query fields are currently only active for resources in the East US region.
+* **Additions to the Read and Layout APIs**
+  * **Barcodes** are now supported with the ```2023-02-28-preview``` API.
+  * **Fonts** are now recognized with the ```2023-02-28-preview``` API.
+  * **Formulas** are now recognized with the ```2023-02-28-preview``` API.
+* **Common name** normalizing key variation to a common name makes the General Document model more useful in processing forms with variations in key names. Learn more about the common name feature in the [General Document model](concept-general-document.md).
+* **Custom extraction model updates**
+  * Custom neural models now support added languages for training and analysis. Train neural models for Dutch, French, German, Italian and Spanish.
+  * Custom template models now have an improved signature detection capability.
+* **Service Updates**
+  * Support for high resolution documents
+* **Studio updates**
+  * In addition to support for all the new features like classification and query fields, the Studio now enables project sharing for custom model projects.
+* **Receipt model updates**
+  * Receipt model has added support for thermal receipts.
+  * Receipt model now has added language support for 18 languages and three language dialects (English, French, Portuguese).
+  * Receipt model now supports `TaxDetails` extraction.
+* **Layout model** now has improved table recognition.
+* **Read model** now has added improvement for single-digit character recognition.
 
+---
 
-* Select Form Recognizer containers for version 3 are now available for use! Currently the **Read** and **Layout** containers are available with plans to support other Form Recognizer models in containers in the coming months.
+## February 2023
+
+* Select Form Recognizer containers for v3.0 are now available for use!
+* Currently **Read v3.0** and **Layout v3.0** containers are available.
+
+  For more information, _see_ [Install and run Form Recognizer containers](containers/form-recognizer-container-install-run.md?view=form-recog-3.0.0&preserve-view=true)
+
+---
 
 ## January 2023
 
 * Prebuilt receipt model -  added languages supported. The receipt model now supports these added languages and locales
-    * Japanese - Japan (ja-JP)
-    * French - Canada (fr-CA)
-    * Dutch - Netherlands (nl-NL)
-    * English - United Arab Emirates (en-AE)
-    * Portuguese - Brazil (pt-BR)
+  * Japanese - Japan (ja-JP)
+  * French - Canada (fr-CA)
+  * Dutch - Netherlands (nl-NL)
+  * English - United Arab Emirates (en-AE)
+  * Portuguese - Brazil (pt-BR)
 
 * Prebuilt invoice model - added languages supported. The invoice model now supports these added languages and locales
-    * English - United States (en-US), Australia (en-AU), Canada (en-CA), Great Britain (en-GB), India (en-IN)
-    * Spanish - Spain (es-ES)
-    * French - France (fr-FR)
-    * Italian - Italy (it-IT)
-    * Portuguese - Portugal (pt-PT)
-    * Dutch - Netherlands (nl-NL)
+  * English - United States (en-US), Australia (en-AU), Canada (en-CA), Great Britain (en-GB), India (en-IN)
+  * Spanish - Spain (es-ES)
+  * French - France (fr-FR)
+  * Italian - Italy (it-IT)
+  * Portuguese - Portugal (pt-PT)
+  * Dutch - Netherlands (nl-NL)
 
 * Prebuilt invoice model - added fields recognized. The invoice model now recognizes these added fields
-    * Currency code
-    * Payment options
-    * Total discount
-    * Tax items (en-IN only)
+  * Currency code
+  * Payment options
+  * Total discount
+  * Tax items (en-IN only)
 
 * Prebuilt ID model - added document types supported. The ID model now supports these added document types
-    * US Military ID
+  * US Military ID
 
 > [!TIP]
 > All January 2023 updates are available with [REST API version **2022-08-31 (GA)**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument).
@@ -112,6 +133,8 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
   * Australia ID cards and documents (photo card, Key-pass ID)
   * Canada ID cards and documents (identification card, Maple card)
   * United Kingdom ID cards and documents (national identity card)
+
+---
 
 ## December 2022
 

@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 03/08/2023
+ms.date: 03/03/2023
 ms.author: lajanuar
 recommendations: false
 ---
@@ -48,7 +48,9 @@ recommendations: false
 | [Identity document (ID)](#identity-document-id)  | Extract identity (ID) fields from US driver licenses and international passports. |
 | [Business card](#business-card)  | Scan business cards to extract key fields and data into your applications. |
 |**Custom models**||
-| [Custom models](#custom-models) |  Extract data from forms and documents specific to your business. Custom models are trained for your distinct data and use cases. |
+| [Custom model (overview)](#custom-models) |  Extract data from forms and documents specific to your business. Custom models are trained for your distinct data and use cases. |
+| [Custom extraction models](#custom-extraction)| &#9679; **Custom template models** use layout cues to extract values from documents and are suitable to extract fields from highly structured documents with defined visual templates.</br>&#9679; **Custom neural models** are  trained on various document types to extract fields from structured, semi-structured and unstructured documents.|
+| [Custom classifier model](#custom-classifier)| The **Custom classifier model** can classify each page in an input file to identify the document(s) within and can also identify multiple documents or multiple instances of a single document within an input file.
 | [Composed models](#composed-models) | Combine several custom models into a single model to automate processing of diverse document types with a single composed model.
 
 ### Read OCR
@@ -183,6 +185,31 @@ Version v3.0 custom model supports signature detection in custom forms (template
 
 > [!div class="nextstepaction"]
 > [Learn more: custom model](concept-custom.md)
+
+#### Custom extraction
+
+[:::image type="icon" source="media/studio/custom-extraction.png":::](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects)
+
+Custom extraction model can be one of two types, **custom template** or **custom neural**. To create a custom extraction model, label a dataset of documents with the values you want extracted and train the model on the labeled dataset. You only need five examples of the same form or document type to get started.
+
+***Sample custom extraction processed using [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)***:
+
+:::image type="content" source="media/studio/custom-extraction-models.png" alt-text="Screenshot of custom extraction model analysis in Form Recognizer Studio.":::
+
+> [!div class="nextstepaction"]
+> [Learn more: custom template model](concept-custom-template.md)
+
+> [!div class="nextstepaction"]
+> [Learn more: custom neural model](./concept-custom-neural.md)
+
+#### Custom classifier
+
+[:::image type="icon" source="media/studio/custom-classifier.png":::](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects)
+
+The custom classifier model enables you to identify the document type prior to invoking the extraction model.  The classifier model is available starting with the 2023-02-28-preview. Training a custom classifier model requires at least two distinct classes and a minimum of five samples per class.
+
+> [!div class="nextstepaction"]
+> [Learn more: custom classifier model](concept-custom-classifier.md)
 
 #### Composed models
 

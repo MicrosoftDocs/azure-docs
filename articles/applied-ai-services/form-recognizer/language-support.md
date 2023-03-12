@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: reference
-ms.date: 03/09/2023
+ms.date: 03/03/2023
 ---
 
 # Language support for Form Recognizer

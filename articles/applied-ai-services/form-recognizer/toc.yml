@@ -58,15 +58,15 @@ items:
     href:  create-sas-tokens.md
   - name: Custom models
     items:
-    - name: 🆕 Build a custom extraction model (preview)
+    - name: Build a custom extraction model
       displayName: tables, labels, ocr, input, train, training, sets, testing
       href: how-to-guides/build-a-custom-model.md
+    - name: 🆕 Build a custom classifier model (preview)
+      displayName: custom, classifier, splitter
+      href: how-to-guides/build-a-custom-classifier.md
     - name: Compose custom extraction models
       displayName: custom, models, modelId, model ID, train, dataset, data set, label, ocr, upload
       href: how-to-guides/compose-custom-models.md
-    - name: Build a custom classifier model
-      displayName: custom, classifier, splitter
-      href: how-to-guides/build-a-custom-classifier.md
     - name: Deploy the sample-labeling tool
       displayName: FOTT, migration, containers, docker
       href: deploy-label-tool.md
