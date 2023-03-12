@@ -342,7 +342,11 @@ After the DCR has been created, the application needs to be given permission to 
 
     :::image type="content" source="media/tutorial-logs-ingestion-portal/add-role-assignment-save.png" lightbox="media/tutorial-logs-ingestion-portal/add-role-assignment-save.png" alt-text="Screenshot that shows saving the DCR role assignment.":::
 
-## Send sample data
+
+## Sample code
+
+## [PowerShell](#tab/powershell)
+
 The following PowerShell code sends data to the endpoint by using HTTP REST fundamentals.
 
 > [!NOTE]
@@ -357,32 +361,31 @@ The following PowerShell code sends data to the endpoint by using HTTP REST fund
 1. Replace the parameters in the **Step 0** section with values from the resources that you created. You might also want to replace the sample data in the **Step 2** section with your own.
 
     ```powershell
-    ##################
-    ### Step 0: Set parameters required for the rest of the script.
-    ##################
-    #information needed to authenticate to AAD and obtain a bearer token
-    $tenantId = "00000000-0000-0000-0000-000000000000"; #Tenant ID the data collection endpoint resides in
-    $appId = "00000000-0000-0000-0000-000000000000"; #Application ID created and granted permissions
-    $appSecret = "00000000000000000000000"; #Secret created for the application
-
-    #information needed to send data to the DCR endpoint
-    $dcrImmutableId = "dcr-000000000000000"; #the immutableId property of the DCR object
-    $dceEndpoint = "https://my-dcr-name.westus2-1.ingest.monitor.azure.com"; #the endpoint property of the Data Collection Endpoint object
-    $streamName = "Custom-MyTableRawData"; #name of the stream in the DCR that represents the destination table
-
-    ##################
+    ### Step 0: Set variables required for the rest of the script.
+    
+    # information needed to authenticate to AAD and obtain a bearer token
+    $tenantId = "72f988bf-86f1-41af-91ab-2d7cd011db47" #Tenant ID the data collection endpoint resides in
+    $appId = " 15dfe23a-df79-498c-9419-0f5d76f92bfc" #Application ID created and granted permissions
+    $appSecret = "o2y8Q~dvva.XSBroK_YsesLT3UP..BO52Pe2TcW8" #Secret created for the application
+    
+    # information needed to send data to the DCR endpoint
+    $dceEndpoint = "https://bw-mms-5kyl.eastus-1.ingest.monitor.azure.com" #the endpoint property of the Data Collection Endpoint object
+    $dcrImmutableId = "dcr-58d105cd5403426bbe6eace7a566ebfc" #the immutableId property of the DCR object
+    $streamName = "Custom-MyTableRawData" #name of the stream in the DCR that represents the destination table
+    
+    
     ### Step 1: Obtain a bearer token used later to authenticate against the DCE.
-    ##################
+    
     $scope= [System.Web.HttpUtility]::UrlEncode("https://monitor.azure.com//.default")   
     $body = "client_id=$appId&scope=$scope&client_secret=$appSecret&grant_type=client_credentials";
     $headers = @{"Content-Type"="application/x-www-form-urlencoded"};
     $uri = "https://login.microsoftonline.com/$tenantId/oauth2/v2.0/token"
-
+    
     $bearerToken = (Invoke-RestMethod -Uri $uri -Method "Post" -Body $body -Headers $headers).access_token
-
-    ##################
-    ### Step 2: Load up some sample data. 
-    ##################
+    
+    
+    ### Step 2: Create some sample data. 
+    
     $currentTime = Get-Date ([datetime]::UtcNow) -Format O
     $staticData = @"
     [
@@ -390,9 +393,9 @@ The following PowerShell code sends data to the endpoint by using HTTP REST fund
         "Time": "$currentTime",
         "Computer": "Computer1",
         "AdditionalContext": {
-                    "InstanceName": "user1",
-                    "TimeZone": "Pacific Time",
-                    "Level": 4,
+            "InstanceName": "user1",
+            "TimeZone": "Pacific Time",
+            "Level": 4,
             "CounterName": "AppMetric1",
             "CounterValue": 15.3    
         }
@@ -401,23 +404,23 @@ The following PowerShell code sends data to the endpoint by using HTTP REST fund
         "Time": "$currentTime",
         "Computer": "Computer2",
         "AdditionalContext": {
-                    "InstanceName": "user2",
-                    "TimeZone": "Central Time",
-                    "Level": 3,
+            "InstanceName": "user2",
+            "TimeZone": "Central Time",
+            "Level": 3,
             "CounterName": "AppMetric1",
             "CounterValue": 23.5     
         }
     }
     ]
     "@;
-
-    ##################
-    ### Step 3: Send the data to Log Analytics via the DCE.
-    ##################
+    
+    
+    ### Step 3: Send the data to the Log Analytics workspace via the DCE.
+    
     $body = $staticData;
     $headers = @{"Authorization"="Bearer $bearerToken";"Content-Type"="application/json"};
     $uri = "$dceEndpoint/dataCollectionRules/$dcrImmutableId/streams/$($streamName)?api-version=2021-11-01-preview"
-
+    
     $uploadResponse = Invoke-RestMethod -Uri $uri -Method "Post" -Body $body -Headers $headers
     ```
 
@@ -425,6 +428,78 @@ The following PowerShell code sends data to the endpoint by using HTTP REST fund
     > If you receive an `Unable to find type [System.Web.HttpUtility].` error, run the last line in section 1 of the script for a fix and execute it. Executing it uncommented as part of the script won't resolve the issue. The command must be executed separately.
 
 1. After you execute this script, you should see an `HTTP - 204` response. In a few minutes, the data arrives to your Log Analytics workspace.
+
+## [Python](#tab/python)
+
+The following script uses the [Azure Monitor Ingestion client library for Python](/python/api/overview/azure/monitor-ingestion-readme).
+
+```python
+### Step 0: Set variables and get modules required for the rest of the script.
+
+# information needed to authenticate to AAD and obtain a bearer token
+tenant_id = "72f988bf-86f1-41af-91ab-2d7cd011db47" # tenant ID the data collection endpoint resides in
+client_id = "15dfe23a-df79-498c-9419-0f5d76f92bfc" # application ID created and granted permission to the DCR
+secret_value = "o2y8Q~dvva.XSBroK_YsesLT3UP..BO52Pe2TcW8" # value of the secret created for the application
+
+# information needed to send data to the DCR endpoint
+dce_endpoint = "https://bw-mms-5kyl.eastus-1.ingest.monitor.azure.com" # ingestion endpoint of the Data Collection Endpoint object
+dcr_immutableid = "dcr-58d105cd5403426bbe6eace7a566ebfc" # immutableId property of the Data Collection Rule
+stream_name = "Custom-MyTableRawData" #name of the stream in the DCR that represents the destination table
+
+# Import required modules
+import os
+from azure.identity import DefaultAzureCredential
+from azure.monitor.ingestion import LogsIngestionClient
+from azure.core.exceptions import HttpResponseError
+
+### Step 1: Create credential and client 
+
+# Set environment variables for the application used by DefaultAzureCredential
+os.environ["AZURE_TENANT_ID"] = tenant_id
+os.environ["AZURE_CLIENT_ID"] = client_id
+os.environ["AZURE_CLIENT_SECRET"] = secret_value
+
+credential = DefaultAzureCredential()
+client = LogsIngestionClient(endpoint=dce_endpoint, credential=credential, logging_enable=True)
+
+### Step 2: Create some sample data. 
+
+body = [
+        {
+        "Time": "2023-03-12T15:04:48.423211Z",
+        "Computer": "Computer3",
+            "AdditionalContext": {
+                "InstanceName": "user3",
+                "TimeZone": "Pacific Time",
+                "Level": 4,
+                "CounterName": "AppMetric2",
+                "CounterValue": 35.3    
+            }
+        },
+        {
+            "Time": "2023-03-12T15:04:48.794972Z",
+            "Computer": "Computer4",
+            "AdditionalContext": {
+                "InstanceName": "user4",
+                "TimeZone": "Central Time",
+                "Level": 3,
+                "CounterName": "AppMetric2",
+                "CounterValue": 43.5     
+            }
+        }
+    ]
+
+
+### Step 3: Send the data to the Log Analytics workspace via the DCE.
+
+try:
+    client.upload(rule_id=dcr_immutableid, stream_name=stream_name, logs=body)
+except HttpResponseError as e:
+    print(f"Upload failed: {e}")
+```
+---
+
+
 
 ## Troubleshooting
 This section describes different error conditions you might receive and how to correct them.
