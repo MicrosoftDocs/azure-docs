@@ -150,6 +150,10 @@ A read replica is created as a new Azure Database for PostgreSQL server. An exis
 
 During creation of read replicas firewall rules and data encryption method can be changed. Server parameters and authentication method are inherited from the primary server and cannot be changed during creation. After a replica is created, several settings can be changed including storage, compute, backup retention period, server parameters, authentication method, firewall rules etc.
 
+### Server parameters
+
+You are free to change server parameters on your read replica server and set different values than on the primary server. The only exception are parameters that might affect recovery of the replica, mentioned also in the "Scaling" section below: max_connections, max_prepared_transactions, max_locks_per_transaction, max_wal_senders, max_worker_processes. Please ensure these parameters ale always [greater than or equal to the setting on the primary](https://www.postgresql.org/docs/current/hot-standby.html#HOT-STANDBY-ADMIN) to ensure that the standby does not run out of shared memory during recovery.
+
 ### Scaling
 
 Scaling vCores or between General Purpose and Memory Optimized:
