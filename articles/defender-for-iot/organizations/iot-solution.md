@@ -4,6 +4,7 @@ description: This tutorial describes how to integrate Microsoft Sentinel and Mic
 ms.topic: tutorial
 ms.date: 06/20/2022
 ms.custom: enterprise-iot
+ms.subservice: sentinel-integration
 ---
 
 # Tutorial: Connect Microsoft Defender for IoT with Microsoft Sentinel
