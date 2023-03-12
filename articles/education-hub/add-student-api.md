@@ -11,7 +11,7 @@ ms.custom: template-how-to
 
 # Add students to a lab in Education Hub using REST APIs
 
-This article will walk you through how to add students to a lab.
+This article walks through how to add students to a lab.
 
 ## Prerequisites
 
@@ -21,7 +21,7 @@ This article will walk you through how to add students to a lab.
 
 ## Add students to the lab
 
-After a lab has been created, call the endpoint below and make sure to replace the sections that are surrounded by <>.
+After a lab has been created, call the add students endpoint and make sure to replace the sections that are surrounded by <>.
 The invoice section ID must be the same invoice section ID of the lab you want to add this student to.
 
 
@@ -29,7 +29,7 @@ The invoice section ID must be the same invoice section ID of the lab you want t
 PUT https://management.azure.com/providers/Microsoft.Billing/billingAccounts/<BillingAccountID>/billingProfiles/<BillingProfileID>/invoiceSections/<InvoiceSectionID>/providers/Microsoft.Education/labs/default/students/<StudentID>?api-version=2021-12-01-preview
 ```
 
-Call the above API with a body similar to the one below. Change the body to include details of the student you want to add to the lab.
+Call the API with a body similar to the following. Change the body to include details of the student you want to add to the lab.
 
 ```json
 {
@@ -85,13 +85,13 @@ The API response returns details of the newly added student.
 
 ## Check the details of the students in a lab
 
-Calling this API will allow us to see all of the students that are in the specified lab.
+Calling this API allows to see all of the students that are in the specified lab.
 
 ```json
 GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/<BillingAccountID/billingProfiles/<BillingProfileID>/invoiceSections/<InvoiceSectionID>/providers/Microsoft.Education/labs/default/students?includeDeleted=true&api-version=2021-12-01-preview
 ```
 
-The API response will include information about the students in the lab and will even show student that have been deleted from the lab (if the includeDeleted flag is set to true)
+The API response includes information about the students in the lab.
 
 ```json
 {

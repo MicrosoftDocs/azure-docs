@@ -11,7 +11,7 @@ ms.custom: template-how-to
 
 # Create a lab in Azure Education Hub through REST APIs.
 
-This article will walk you through how to create a lab and verify that the lab has been created.
+This article walks you through how to create a lab and verify that the lab has been created.
 
 ## Prerequisites
 
@@ -24,7 +24,7 @@ This article will walk you through how to create a lab and verify that the lab h
 PUT https://management.azure.com/providers/Microsoft.Billing/billingAccounts/<BillingAccountID>/billingProfiles/<BillingProfileID>/invoiceSections/<InvoiceSectionID>/providers/Microsoft.Education/labs/default?api-version=2021-12-01-preview
 ```
 
-Call the above API with the body similar to the one below. Include your details for what the display name will be and how much budget you will allocate for this lab.
+Call the create lab API with the body similar to the following. Include your details for the display name and how much budget you allocate for this lab.
 
 ```json
 {
@@ -89,13 +89,13 @@ The API response returns details of the newly created lab. Congratulations, you 
 
 ## Check the details of a lab
 
-Now that the lab has been created and a student has been added to the lab, let's get the details for the lab. Getting the lab details will provide you with meta data like when the lab was created and how much budget it has. It will not include information about students in the lab.
+Now that the lab has been created and a student has been added to the lab, let's get the details for the lab. Getting the lab details will provide you with meta data like when the lab was created and how much budget it has.
 
 ```json
 GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/<BillingAccountID>/billingProfiles/<BillingProfileID>/invoiceSections/<InvoiceSectionID>/providers/Microsoft.Education/labs/default?includeBudget=true&api-version=2021-12-01-preview
 ```
 
-The API response will include information about the lab and budget information (if the include budget flag is set to true)
+The API response includes information about the lab and budget information.
 
 ```json
 {
