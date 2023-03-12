@@ -61,9 +61,14 @@ In this tutorial, you'll need:
     - [A notebook](../../machine-learning/quickstart-run-notebooks#create-a-new-notebook). 
 - A Log Analytics workspace with data in the `AzureDiagnostics` table. 
 - An application, custom table, data collection endpoint, and data collection rule, as explained in [Send data to Azure Monitor Logs using REST API](../../logs/tutorial-logs-ingestion-api).
-- The following roles and permissions: Azure Machine Learning (???). 
-- Basic familiarity with data science concepts.  
+- The following roles and permissions: 
 
+    |Type  |Details  |
+    |---------|---------|
+    |**Azure Monitor Logs**     |- The **Logs Analytics Contributor** role to read data from aand send data to a Logs Analytics workspace. For more information, see [Manage access to Log Analytics workspaces](../logs/manage-access.md#log-analytics-contributor).|
+    |**Azure Machine Learning**     |- A resource group-level **Owner** or **Contributor** role, to create a new Azure Machine Learning workspace if needed. <br>- A **Contributor** role on the Azure Machine Learning workspace where you run your notebook.    <br><br>For more information, see [Manage access to an Azure Machine Learning workspace](../machine-learning/how-to-assign-roles.md).     |
+    - Basic familiarity with data science concepts.  
+    
  ## Install required Python tools
 
 1. Install the [Azure Monitor Query client library for Python](https://docs.microsoft.com/python/api/overview/azure/monitor-query-readme), which lets you execute read-only queries on data in your Log Analytics workspace. 
