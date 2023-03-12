@@ -22,10 +22,16 @@ Container Insights offers the ability to collect Syslog events from Linux nodes 
   - **Linux image version**: Minimum version for AKS node linux image is 2022.11.01. See [Upgrade Azure Kubernetes Service (AKS) node images](https://learn.microsoft.com/azure/aks/node-image-upgrade) for upgrade help. 
 
 ## How to enable Syslog
-  
-Use the following command in Azure CLI to enable syslog collection when you create a new AKS cluster.
+
+### From the Azure Portal
+
+Navigate to your cluster. Open the _Insights_ tab for your cluster. Open the _Monitor Settings_ panel. Click on Edit collection settings, then check the box for _Enable Syslog collection_
+
+IMAGE TBA
 
 ### Using Azure CLI commands
+
+Use the following command in Azure CLI to enable syslog collection when you create a new AKS cluster.
 
 ```azurecli
 az aks create -g syslog-rg -n new-cluster --enable-managed-identity --node-count 1 --enable-addons monitoring --enable-msi-auth-for-monitoring --enable-syslog --generate-ssh-key
@@ -89,7 +95,23 @@ provisioningState       : Succeeded
 ```
 
 ## How to access Syslog data
- 
+
+### Access using built-in Workbooks
+
+To get a quick snapshot of your syslog data, customers can use our built-in Syslog workbook. There are two way to access the built-in workbook.
+
+Option 1 - The Reports tab in Container Insights. 
+Navigate to your cluster. Open the _Insights_ tab for your cluster. Open the _Reports_ tab and look for the _Syslog_ workbook. 
+
+IMAGE TBA
+
+Option 2 - The Workbooks tab in AKS
+Navigate to your cluster. Open the _Workbooks_ tab for your and look for the _Syslog_ workbook. 
+
+IMAGE TBA
+
+### Access using Loq Queries
+
 Syslog data is stored in the [Syslog](/azure/azure-monitor/reference/tables/syslog) table in your Log Analytics workspace. You can create your own [log queries](../logs/log-query-overview.md) in [Log Analytics](../logs/log-analytics-overview.md) to analyze this data or use any of the [prebuilt queries](../logs/log-query-overview.md).
 
 :::image type="content" source="media/container-insights-syslog/azmon-3.png" lightbox="media/container-insights-syslog/azmon-3.png" alt-text="Screenshot of Syslog query loaded in the query editor in the Azure Monitor Portal UI." border="false":::    
@@ -98,7 +120,7 @@ You can open Log Analytics from the **Logs** menu in the **Monitor** menu to acc
  
 :::image type="content" source="media/container-insights-syslog/aks-4.png" lightbox="media/container-insights-syslog/aks-4.png" alt-text="Screenshot of Query editor with Syslog query." border="false":::
   
-### Sample queries
+#### Sample queries
   
 The following table provides different examples of log queries that retrieve Syslog records.
 
@@ -135,5 +157,11 @@ Select the minimum log level for each facility that you want to collect.
 
 ## Next steps
 
-- Read more about [Syslog record properties](/azure/azure-monitor/reference/tables/syslog)
+Once setup customers can start sending Syslog data to the tools of their choice
+- Send Syslog to Microsoft Sentinel: https://learn.microsoft.com/azure/sentinel/connect-syslog  
+- Export data from Log Analytics: https://learn.microsoft.com/azure/azure-monitor/logs/logs-data-export?tabs=portal 
 
+Read more  
+- [Syslog record properties](/azure/azure-monitor/reference/tables/syslog)
+
+Share your feedback for the preview here: https://forms.office.com/r/BBvCjjDLTS 
