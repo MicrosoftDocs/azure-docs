@@ -91,7 +91,7 @@ This article contains both a quick reference and detailed description of Azure F
 | Adjustable | No |Yes <sup>3</sup>|
 | **Max number of pages (Training) * Classifier** | 10,000 | 10,000 (default value) |
 | Adjustable | No | No |
-| ***Training dataset size * Classifier** | 1GB | 1GB (default value) |
+| **Training dataset size * Classifier** | 1GB | 1GB (default value) |
 | Adjustable | No | No |
 
 ::: moniker-end
