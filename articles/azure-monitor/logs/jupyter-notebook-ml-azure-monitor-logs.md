@@ -212,7 +212,7 @@ To train a machine learning model on data in your Log Analytics workspace:
     > The KQL [series_decompse_anomalies](../../data-explorer/kusto/query/series-decompose-anomaliesfunction) function also uses the Tukey's fences method to detect anomalies.
     
     As you can see, the DataFrame is now filtered based on a new **Anomalies** column, which is set to `1` for all ingestion values that the Tukey's fences method identified as anomalies.
-    :::image type="content" source="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-ingestion-anomalies" alt-text="Screenshot that shows a DataFrame that lists the ingestion values identified as anomalies." 
+    :::image type="content" source="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-ingestion-anomalies.png" alt-text="Screenshot that shows a DataFrame that lists the ingestion values identified as anomalies." 
 
 ## Ingest anomalies into a custom table in your Log Analytics workspace
 
@@ -229,4 +229,4 @@ Learn more about:
 
 - [Log queries in Azure Monitor](log-query-overview.md).
 - [How to use Kusto queries](/azure/data-explorer/kusto/query/tutorial?pivots=azuremonitor).
-- [Analyze logs in Azure Monitor with KQL](/training/modules/analyze-logs-with-kql/)
+- [Analyze logs in Azure Monitor with KQL](/training/modules/analyze-logs-with-kql/).
