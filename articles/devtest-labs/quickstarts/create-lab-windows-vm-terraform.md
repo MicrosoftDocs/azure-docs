@@ -70,19 +70,20 @@ In this article, you learn how to:
 1. Get the Azure resource name in which the lab was created.
 
     ```console
-    echo "$(terraform output resource_group_name)"
+    resource_group_name=$(terraform output -raw resource_group_name)
     ```
 
 1. Get the lab name.
 
     ```console
-    echo "$(terraform output lab_name)"
+    lab_name=$(terraform output -raw lab_name)
     ```
 
 1. Run [az lab vm list](/cli/azure/lab/vm#az-lab-vm-list) to list the virtual machines for the lab you created in this article.
 
     ```azurecli
-    az lab vm list --resource-group <resource_group_name> --lab-name <lab_name>
+    az lab vm list --resource-group $resource_group_name \
+                   --lab-name $lab_name
     ```
 
 ## Clean up resources
