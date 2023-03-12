@@ -1,5 +1,5 @@
 ---
-title: Data security posture management in Microsoft Defender for Cloud
+title: Data-aware Security Posture Management in Microsoft Defender for Cloud
 description: Learn how Defender for Cloud can help you identify and remediate data security posture issues in your cloud environment.
 author: bmansheim
 ms.author: benmansheim
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 03/09/2023
 ---
 
-# Data security posture management (preview)
+# Data-aware security posture (preview)
 
 In today's fast-paced world of constant data migration and increasingly complex cloud environments, it's essential for you to identify and protect your most critical assets from potential cyberattacks. Attacks that expose sensitive information of millions customers are common place, for example due to misconfigured firewalls in a company's cloud infrastructure.
 
@@ -16,7 +16,7 @@ With data sensitivity posture management (DSPM), you can automatically discover 
 
 You can [enable DSPM](link) with the **Sensitive data discovery** option in Defender CSPM or Defender for Storage.
 
-## How data security posture management works
+## How data-aware security posture management works
 
 Data security posture is an essential aspect of cloud security. Defender for Cloud uses smart sampling to scan a selected number of cloud files in your protected datastores. The results provide an accurate assessment of where sensitive data is stored while saving on scanning costs and time.
 
@@ -32,6 +32,6 @@ Resources that are not scanned by data security posture are enriched with classi
 
 ## Next steps
 
-This article explains how data security posture management works and how it helps you protect your sensitive data.
+This article explains how data-aware security posture management works and how it helps you protect your sensitive data.
 
-Learn more about how to [use data security posture management](enable-data-security-posture-management.md).
+Learn more about how to [use data-aware security posture management](enable-data-security-posture-management.md).

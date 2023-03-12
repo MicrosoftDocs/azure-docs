@@ -160,7 +160,7 @@
       - name: External attack surface management (EASM)
         displayName: EASM, attack surface management
         href: concept-easm.md
-      - name: Data Security Posture Management (DSPM)
+      - name: Data-aware Security Posture Management (DSPM)
         href: concept-data-security-posture.md
       - name: Security recommendations
         items:
@@ -235,6 +235,8 @@
       - name: Build queries with cloud security explorer
         displayName: queries, security explorer, explorer, templates, query
         href: how-to-manage-cloud-security-explorer.md
+  - name: Cloud security posture
+    items:
   - name: Security recommendations
     items:
     - name: Create custom Azure security initiatives and policies
