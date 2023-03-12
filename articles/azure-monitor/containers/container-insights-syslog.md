@@ -27,7 +27,7 @@ Container Insights offers the ability to collect Syslog events from Linux nodes 
 
 Navigate to your cluster. Open the _Insights_ tab for your cluster. Open the _Monitor Settings_ panel. Click on Edit collection settings, then check the box for _Enable Syslog collection_
 
-IMAGE TBA
+:::image type="content" source="media/container-insights-syslog/SyslogEnable3.gif" lightbox="media/container-insights-syslog/SyslogEnable3.gif" alt-text="Flow of Syslog being enabled from Azure Portal," border="false":::
 
 ### Using Azure CLI commands
 
