@@ -17,7 +17,7 @@ This article describes the Neousys Nuvo-5006LP appliance for OT sensors.
 |**Hardware profile** | L100 |
 |**Performance** | Max bandwidth: 30 Mbps<br>Max devices: 400 |
 |**Physical specifications** | Mounting: Mounting kit, Din Rail<br>Ports: 5x RJ45|
-|**Status** | Supported up to the latest Defender for IoT software patch for versions [22.2.x](../release-notes#versions-222x)|
+|**Status** | Supported up to the latest Defender for IoT software patch for versions [22.2.x](../release-notes.md#versions-222x)|
 
 :::image type="content" source="../media/ot-system-requirements/cyberx.png" alt-text="Photo of a Neousys Nuvo-5006LP." border="false":::
 
