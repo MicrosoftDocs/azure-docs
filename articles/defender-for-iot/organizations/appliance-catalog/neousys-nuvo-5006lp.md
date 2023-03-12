@@ -10,7 +10,7 @@ ms.topic: reference
 This article describes the Neousys Nuvo-5006LP appliance for OT sensors.
 
 > [!NOTE]
-> Neousys Nuvo-5006LP is a Legacy appliance and it supports Defender for IoT sensor software up to version 22.2.9.
+> Neousys Nuvo-5006LP is a Legacy appliance and it supports Defender for IoT sensor software up to the latest patch version for [22.2.x](../release-notes#versions-222x).
 > It is recommended that these appliances be replaced with newer certified models such as the [YS-FIT2](ys-techsystems-ys-fit2.md) or [HPE DL20 (NHP 2LFF)](hpe-proliant-dl20-plus-smb.md).
 
 | Appliance characteristic |Details |
