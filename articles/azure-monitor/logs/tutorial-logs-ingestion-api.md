@@ -364,13 +364,13 @@ The following PowerShell code sends data to the endpoint by using HTTP REST fund
     ### Step 0: Set variables required for the rest of the script.
     
     # information needed to authenticate to AAD and obtain a bearer token
-    $tenantId = "72f988bf-86f1-41af-91ab-2d7cd011db47" #Tenant ID the data collection endpoint resides in
-    $appId = " 15dfe23a-df79-498c-9419-0f5d76f92bfc" #Application ID created and granted permissions
-    $appSecret = "o2y8Q~dvva.XSBroK_YsesLT3UP..BO52Pe2TcW8" #Secret created for the application
+    $tenantId = "00000000-0000-0000-00000000000000000" #Tenant ID the data collection endpoint resides in
+    $appId = " 100000000-0000-0000-00000000000000000" #Application ID created and granted permissions
+    $appSecret = "0000000000000000000000000000000000000000" #Secret created for the application
     
     # information needed to send data to the DCR endpoint
-    $dceEndpoint = "https://bw-mms-5kyl.eastus-1.ingest.monitor.azure.com" #the endpoint property of the Data Collection Endpoint object
-    $dcrImmutableId = "dcr-58d105cd5403426bbe6eace7a566ebfc" #the immutableId property of the DCR object
+    $dceEndpoint = "https://logs-ingestion-rzmk.eastus2-1.ingest.monitor.azure.com" #the endpoint property of the Data Collection Endpoint object
+    $dcrImmutableId = "dcr-00000000000000000000000000000000" #the immutableId property of the DCR object
     $streamName = "Custom-MyTableRawData" #name of the stream in the DCR that represents the destination table
     
     
@@ -437,13 +437,13 @@ The following script uses the [Azure Monitor Ingestion client library for Python
 ### Step 0: Set variables and get modules required for the rest of the script.
 
 # information needed to authenticate to AAD and obtain a bearer token
-tenant_id = "72f988bf-86f1-41af-91ab-2d7cd011db47" # tenant ID the data collection endpoint resides in
-client_id = "15dfe23a-df79-498c-9419-0f5d76f92bfc" # application ID created and granted permission to the DCR
-secret_value = "o2y8Q~dvva.XSBroK_YsesLT3UP..BO52Pe2TcW8" # value of the secret created for the application
+tenant_id = "00000000-0000-0000-00000000000000000" # tenant ID the data collection endpoint resides in
+client_id = "00000000-0000-0000-00000000000000000" # application ID created and granted permission to the DCR
+secret_value = "0000000000000000000000000000000000000000" # value of the secret created for the application
 
 # information needed to send data to the DCR endpoint
-dce_endpoint = "https://bw-mms-5kyl.eastus-1.ingest.monitor.azure.com" # ingestion endpoint of the Data Collection Endpoint object
-dcr_immutableid = "dcr-58d105cd5403426bbe6eace7a566ebfc" # immutableId property of the Data Collection Rule
+dce_endpoint = "https://logs-ingestion-rzmk.eastus2-1.ingest.monitor.azure.com" # ingestion endpoint of the Data Collection Endpoint object
+dcr_immutableid = "dcr-00000000000000000000000000000000" # immutableId property of the Data Collection Rule
 stream_name = "Custom-MyTableRawData" #name of the stream in the DCR that represents the destination table
 
 # Import required modules
