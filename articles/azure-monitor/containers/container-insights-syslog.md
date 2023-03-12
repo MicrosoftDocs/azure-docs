@@ -103,12 +103,12 @@ To get a quick snapshot of your syslog data, customers can use our built-in Sysl
 Option 1 - The Reports tab in Container Insights. 
 Navigate to your cluster. Open the _Insights_ tab for your cluster. Open the _Reports_ tab and look for the _Syslog_ workbook. 
 
-IMAGE TBA
+:::image type="content" source="media/container-insights-syslog/SyslogWorkbookCluster.gif" lightbox="media/container-insights-syslog/SyslogWorkbookCluster.gif" alt-text="Video of Syslog workbook being accessed from Container Insights Reports tab," border="false":::
 
 Option 2 - The Workbooks tab in AKS
 Navigate to your cluster. Open the _Workbooks_ tab for your and look for the _Syslog_ workbook. 
 
-IMAGE TBA
+:::image type="content" source="media/container-insights-syslog/SyslogWorkbookCIReportsTab.gif" lightbox="media/container-insights-syslog/SyslogWorkbookCIReportsTab.gif" alt-text="Video of Syslog workbook being accessed from cluster workbooks tab," border="false":::
 
 ### Access using Loq Queries
 
