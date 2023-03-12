@@ -1,6 +1,6 @@
 ---
 title: Add a student to a lab in Azure Education Hub through REST APIs
-description: Learn how add students to labs in Azure Education Hub through REST APIs
+description: Learn how to add students to labs in Azure Education Hub through REST APIs
 author: vinnieangel
 ms.author: vangellotti
 ms.service: azure-education
@@ -85,7 +85,7 @@ The API response returns details of the newly added student.
 
 ## Check the details of the students in a lab
 
-Calling this API allows to see all of the students that are in the specified lab.
+Calling this API allows you to see all of the students that are in the specified lab.
 
 ```json
 GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/<BillingAccountID/billingProfiles/<BillingProfileID>/invoiceSections/<InvoiceSectionID>/providers/Microsoft.Education/labs/default/students?includeDeleted=true&api-version=2021-12-01-preview
