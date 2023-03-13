@@ -43,7 +43,7 @@ Get started as an administrator with the [Quickstart: set up the resources for c
 
 Get started as an educator with the [Tutorial: set up a lab for classroom training](./tutorial-setup-lab.md).
 
-:::image type="content" source="./media/classroom-labs-scenarios/lab-services-process-edu-roles-scenario1.png" alt-text="Diagram that shows lab creation steps where admins create the lab plan and educators create the lab.":::
+:::image type="content" source="./media/classroom-labs-scenarios/lab-services-process-education-roles-scenario1.png" alt-text="Diagram that shows lab creation steps where admins create the lab plan and educators create the lab.":::
 
 The following table shows the corresponding mapping of organization roles to Azure AD roles:
 
@@ -68,7 +68,7 @@ Get started as an administrator with the [Quickstart: create and connect to a la
 
 Get started as an educator and [add students to a lab](./how-to-configure-student-usage.md), or [create a lab schedule](./how-to-create-schedules.md).
 
-:::image type="content" source="./media/classroom-labs-scenarios/lab-services-process-edu-roles-scenario2.png" alt-text="Diagram that shows lab creation steps where admins own the entire process.":::
+:::image type="content" source="./media/classroom-labs-scenarios/lab-services-process-education-roles-scenario2.png" alt-text="Diagram that shows lab creation steps where admins own the entire process.":::
 
 The following table shows the corresponding mapping of organization roles to Azure AD roles:
 
@@ -87,7 +87,7 @@ In this scenario, the educator manages their Azure subscription and manages the 
 
 Get started as an administrator with the [Quickstart: create and connect to a lab](./quick-create-connect-lab.md) and then [add students to a lab](./how-to-configure-student-usage.md), and [create a lab schedule](./how-to-create-schedules.md).
 
-:::image type="content" source="./media/classroom-labs-scenarios/lab-services-process-edu-roles-scenario3.png" alt-text="Diagram that shows lab creation steps where educators own the entire process.":::
+:::image type="content" source="./media/classroom-labs-scenarios/lab-services-process-education-roles-scenario3.png" alt-text="Diagram that shows lab creation steps where educators own the entire process.":::
 
 The following table shows the corresponding mapping of organization roles to Azure AD roles:
 
