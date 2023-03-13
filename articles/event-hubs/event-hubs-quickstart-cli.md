@@ -18,7 +18,9 @@ In this quickstart, you will create an event hub using Azure CLI.
 - This article requires version 2.0.4 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a resource group
-A resource group is a logical collection of Azure resources. All resources are deployed and managed in a resource group. Run the following command to create a resource group. Select **Copy** to copy the command and paste it into the Cloud Shell, and run it. 
+Run the following command to create a resource group. A resource group is a logical collection of Azure resources. All resources are deployed and managed in a resource group. 
+
+Select **Copy** to copy the command and paste it into the Cloud Shell or CLI window, and run it. Update the resource group name and the region if you like.
 
 ```azurecli-interactive
 rgName="contosorg$RANDOM"
@@ -43,7 +45,7 @@ You see the output similar to the following one. You see the resource group name
 ```
 
 ## Create an Event Hubs namespace
-An Event Hubs namespace provides a unique scoping container, referenced by its fully qualified domain name, in which you create one or more event hubs. To create a namespace in your resource group, run the following command:
+Run the following command to create an Event Hubs namespace. An Event Hubs namespace provides a unique scoping container, referenced by its fully qualified domain name, in which you create one or more event hubs. Update the name of the namespace if you like. 
 
 ```azurecli-interactive
 # Create an Event Hubs namespace. Specify a name for the Event Hubs namespace.
@@ -83,7 +85,7 @@ You see the output similar to the following one. You see the name of the namespa
 ```
 
 ## Create an event hub
-Run the following command to create an event hub. 
+Run the following command to create an event hub. Update the name of the event hub if you like. 
 
 ```azurecli-interactive
 # Create an event hub. Specify a name for the event hub. 
@@ -127,6 +129,12 @@ az group delete --name $rgName
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> See the **Send and receive events** tutorials: [.NET Core](event-hubs-dotnet-standard-getstarted-send.md), [Java](event-hubs-java-get-started-send.md), [Python](event-hubs-python-get-started-send.md), [JavaScript](event-hubs-node-get-started-send.md)
+In this article, you created a resource group, an Event Hubs namespace, and an event hub. For step-by-step instructions to send events to (or) receive events from an event hub, see the **Send and receive events** tutorials: 
 
+- [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
+- [Java](event-hubs-java-get-started-send.md)
+- [Python](event-hubs-python-get-started-send.md)
+- [JavaScript](event-hubs-node-get-started-send.md)
+- [Go](event-hubs-go-get-started-send.md)
+- [C (send only)](event-hubs-c-getstarted-send.md)
+- [Apache Storm (receive only)](event-hubs-storm-getstarted-receive.md)
