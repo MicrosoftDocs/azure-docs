@@ -490,7 +490,7 @@ To protect your Azure function, follow these steps to integrate Azure AD authent
 > [!NOTE]
 > If the Azure function app is hosted in a different Azure tenant than the tenant in which your custom extension is registered, skip to [using OpenID Connect identity provider](#51-using-openid-connect-identity-provider) step.
 
-1. In the [Azure portal](https://poral.azure.com), navigate and select the function app you previously published.
+1. In the [Azure portal](https://portal.azure.com), navigate and select the function app you previously published.
 1. Select **Authentication** in the menu on the left.
 1. Select **Add Identity provider**.  
 1. Select **Microsoft** as the identity provider.
@@ -505,7 +505,7 @@ To protect your Azure function, follow these steps to integrate Azure AD authent
 
 If you configured the [Microsoft identity provider](#step-5-protect-your-azure-function), skip this step. Otherwise, if the Azure Function is hosted under a different tenant than the tenant in which your custom extension is registered, follow these steps to protect your function:
 
-1. In the [Azure portal](https://poral.azure.com), navigate and select the function app you previously published.
+1. In the [Azure portal](https://portal.azure.com), navigate and select the function app you previously published.
 1. Select **Authentication** in the menu on the left.
 1. Select **Add Identity provider**.  
 1. Select **OpenID Connect** as the identity provider.
