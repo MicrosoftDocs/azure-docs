@@ -43,23 +43,17 @@ Users with a Microsoft Customer Agreement must always submit a request to Azure 
 1. Sign in to the Azure portal.
 1. Navigate to **Subscriptions** and then select the one that you want to set up wire transfer for.
 1. In the left menu, select **Payment methods**.
-1. On the Payment methods page, select **Pay by wire transfer**.  
-    :::image type="content" source="./media/pay-by-invoice/payment-methods.png" alt-text="Screenshot showing the Payment methods page." lightbox="./media/pay-by-invoice/payment-methods.png" :::
-1.  On the **Pay by wire transfer** page, you see a message stating that you can request to use wire transfer instead of automatic payment using a credit or debit card. Select **Continue** to start the check.  
-    
-    :::image type="content" source="./media/pay-by-invoice/pay-check-wire-transfer-continue.png" alt-text="Screenshot showing the Continue option." :::
-1. Depending on your approval status:  
-
-    - If you're automatically approved, the page shows a message stating that you've been approved to pay by wire transfer. Enter your **Company name** and then select **Save**.  
-        :::image type="content" source="./media/pay-by-invoice/pay-check-wire-transfer.png" alt-text="Screenshot showing pay by wire transfer approval." lightbox="./media/pay-by-invoice/pay-check-wire-transfer.png" :::
-
-    - If the request couldn't be processed or if you're not approved, you need to follow the steps in the next [Submit a request to set up pay by wire transfer](#submit-a-request-to-set-up-pay-by-check-or-wire-transfer) section.
+1. On the Payment methods page, select **Pay by wire transfer**.
+1. On the **Pay by wire transfer** page, you see a message stating that you can request to use wire transfer instead of automatic payment using a credit or debit card. Select **Continue** to start the check.
+1. Depending on your approval status:
+  - If you're automatically approved, the page shows a message stating that you've been approved to pay by wire transfer. Enter your **Company name** and then select **Save**.  
+  - If the request couldn't be processed or if you're not approved, you need to follow the steps in the next [Submit a request to set up pay by wire transfer](#submit-a-request-to-set-up-pay-by-wire-transfer) section.
 1. If you've been approved, on the Payment methods page under **Other payment methods**, to the right of **Wire transfer**, select the ellipsis (**...**) symbol and then select **Make default**.  
     You're all set to pay by wire transfer.
 
 ## Submit a request to set up pay by wire transfer
 
-Users in all regions can submit a request to pay by wire transfer through support. Currently, only customers in the United States can get automatically approved to change their payment method to check/wire transfer.
+Users in all regions can submit a request to pay by wire transfer through support. Currently, only customers in the United States can get automatically approved to change their payment method to wire transfer.
 
 If you're not automatically approved, you can submit a request to Azure support to approve payment by wire transfer. If your request is approved, you can switch to pay by wire transfer in the Azure portal.
 
@@ -119,10 +113,10 @@ Follow the steps below to switch your Azure subscription to pay by wire transfer
 
 1. Go to the Azure portal to sign in as the Account Administrator. Search for and select **Cost Management + Billing**.  
     :::image type="content" source="./media/pay-by-invoice/search.png" alt-text="Screenshot showing search for Cost Management + Billing in the Azure portal." lightbox="./media/pay-by-invoice/search.png" :::
-1. Select the subscription you'd like to switch to pay by check or wire transfer.
+1. Select the subscription you'd like to switch to pay by wire transfer.
 1. Select **Payment methods**.
 On the Payment methods page, select **Pay by wire transfer**.  
-    :::image type="content" source="./media/pay-by-invoice/payment-methods.png" alt-text="Screenshot showing the Pay by wire transfer option." lightbox="./media/pay-by-invoice/payment-methods.png" :::
+<!--    :::image type="content" source="./media/pay-by-invoice/payment-methods.png" alt-text="Screenshot showing the Pay by wire transfer option." lightbox="./media/pay-by-invoice/payment-methods.png" :::-->
 
 ### Switch billing profile to wire transfer
 
@@ -135,7 +129,7 @@ Follow the steps below to switch a billing profile to wire transfer. Only the pe
 1. In the **Billing profile** menu, select **Payment methods**.  
    :::image type="content" source="./media/pay-by-invoice/billing-profile-payment-methods.png" alt-text="Screenshot showing Payment methods menu item." lightbox="./media/pay-by-invoice/billing-profile-payment-methods.png" :::
 1. Under the *Other payment methods* heading, select the ellipsis (...) symbol, and then select **Make default**.  
-    :::image type="content" source="./media/pay-by-invoice/customer-led-switch-to-invoice.png" alt-text="Screenshot showing wire transfer ellipsis and Made default option." lightbox="./media/pay-by-invoice/customer-led-switch-to-invoice.png" :::
+<!--    :::image type="content" source="./media/pay-by-invoice/customer-led-switch-to-invoice.png" alt-text="Screenshot showing wire transfer ellipsis and Made default option." lightbox="./media/pay-by-invoice/customer-led-switch-to-invoice.png" :::-->
 
 ## Wire transfer payment processing time
 
