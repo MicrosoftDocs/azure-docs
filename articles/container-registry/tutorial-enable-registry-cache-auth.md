@@ -75,7 +75,7 @@ Follow the steps to create cache rule in the [Azure portal](https://portal.azure
 
 ### Create new credentials
 
-Before configuring a Credential Set you will require to create and store secrets in the Azure KeyVault and retrieve the secrets from the Key Vault. Learn more about [creating and storing credentials in a Key Vault.][create-and-store-keyvault-credentials] and to [set and retrieve a secret from Key Vault.][set-and-retrieve-a-secret].
+Before configuring a Credential Set, you require to create and store secrets in the Azure KeyVault and retrieve the secrets from the Key Vault. Learn more about [creating and storing credentials in a Key Vault.][create-and-store-keyvault-credentials] and to [set and retrieve a secret from Key Vault.][set-and-retrieve-a-secret].
 
 1. Navigate to **Credentials** > **Add credential set** > **Create new credentials**.
 
