@@ -1,7 +1,7 @@
 ---
-title: Configure Haventec Authenticate with Azure Active Directory B2C for single-step multi-factor passwordless authentication
+title: Configure Haventec Authenticate with Azure Active Directory B2C for single-step, multi-factor passwordless authentication
 titleSuffix: Azure AD B2C
-description: Learn to integrate Azure AD B2C with Haventec Authenticate for multifactor passwordless authentication
+description: Learn to integrate Azure AD B2C with Haventec Authenticate for multi-factor passwordless authentication
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
@@ -78,87 +78,56 @@ For the following instructions, use the directory with the Azure AD B2C tenant.
 
 ### Configure an identity provider
 
-To configure an identity provider, follow these steps:
+To configure an identity provider:
 
-1. Select **Identity provider type** > **OpenID Connect**
-
-2. Fill out the form to set up the Identity provider:
-
-   | Property | Value|
-   |:--------------|:---------------|
-   |Name  |Enter Haventec or a name of your choice|
-   |Metadata URL| `https://iam.demo.haventec.com/auth/realms/*your\_realm\_name*/.well-known/openid-configuration`|
-   |Client ID | The application ID from the Haventec admin UI captured in Part - 1 |
-   |Client Secret | The application Secret from the Haventec admin UI captured in Part - 1 |
-   |Scope | OpenID email profile|
-   |Response type | Code |
-   |Response mode | forms_post |
-   |Domain hint | Blank |
-
-3. Select **OK**.
-
-4. Select **Map this identity provider's claims**.
-
-5. Fill out the form to map the Identity provider:
-
-   | Property | Value|
-   |:--------------|:---------------|
-   | User ID | From subscription |
-   | Display name | From subscription |
-   | Given name | given_name |
-   | Surname | family_name |
-   | Email | Email |
-
-6. Select **Save** to complete the setup for your new OIDC Identity provider.
+1. Select **Identity provider type** > **OpenID Connect**.
+2. For **Name**, enter **Haventec**, or another name.
+3. For **Metadata URL**, use `https://iam.demo.haventec.com/auth/realms/*your\_realm\_name*/.well-known/openid-configuration`.
+4. For **Client ID**, enter the application ID recorded from the Haventec admin UI.
+5. For **Client Secret**, enter the application Secret recorded from the Haventec admin UI.
+6. For **Scope**, select **OpenID email profile**.
+7. For **Response type**, select **Code**.
+8. For **Response mode**, select **forms_post**.
+9. For **Domain hint**, leave blank. 
+10. Select **OK**.
+11. Select **Map this identity provider's claims**.
+12. For **User ID**, select **From subscription**.
+13. For **Display** name, select **From subscription**.
+14. For **Given name**, use **given_name**.
+15. For **Surname**, use **family_name**.
+16. For **Email**, use **Email**.
+17. Select **Save**.
 
 ## Create a user flow policy
 
-You should now see Haventec as a new OIDC Identity provider listed within your B2C identity providers.
+For the following instructions, Haventec is a new OIDC identity provider in the B2C identity providers list.
 
-1. In your Azure AD B2C tenant, under **Policies**, select **User flows**.
-
+1. In the Azure AD B2C tenant, under **Policies**, select **User flows**.
 2. Select **New user flow**.
-
 3. Select **Sign up and sign in** > **version** > **Create**.
-
-4. Enter a **Name** for your policy.
-
-5. In the Identity providers section, select your newly created Haventec Identity provider.
-
-6. Select **None** for Local Accounts to disable email and password-based authentication.
-
+4. Enter a **Name** for the policy.
+5. In **Identity providers**, select the created Haventec identity provider.
+6. For **Local Accounts**, select **None**. This selection disables email and password authentication.
 7. Select **Run user flow**
-
-8. In the form, enter the Replying URL, for example, `https://jwt.ms`
-
-9. The browser will be redirected to the Haventec login page
-
-10. User will be asked to register if new or enter a PIN for an existing user.
-
-11. Once the authentication challenge is accepted, the browser will redirect the user to the replying URL.
+8. In the form, enter the replying URL, for example, `https://jwt.ms`.
+9. The browser redirects to the Haventec sign-in page.
+10. User is prompted to register, or enter a PIN.
+11. The authentication challenge is performed.
+12. The browser redirects to the replying URL.
 
 ## Test the user flow
 
-Open the Azure AD B2C tenant and under Policies select **User flows**.
-
-1. Select your previously created **User Flow**.
-
-2. Select **Run user flow** and select the settings:
-
-   a. **Application**: select the registered app (sample is JWT)
-
-   b. **Reply URL**: select the redirect URL
-
-   c. Select **Run user flow**.
-
-3. Go through sign-up flow and create an account
-
-4. Haventec Authenticate will be called during the flow.
+1. In the Azure AD B2C tenant, under **Policies**, select **User flows**.
+2. Select the created **User Flow**.
+3. Select **Run user flow**.
+4. For **Application**, select the registered app. The example is JWT.
+5. For **Reply URL**, select the redirect URL.
+6. Select **Run user flow**.
+7. Perform a sign-up flow and create an account.
+8. Haventec Authenticate is called.
 
 ## Next steps
 
-- [Haventec](https://docs.haventec.com/) documentation
+* Go to docs.haventec.com for [Haventec Documentation](https://docs.haventec.com/)
+* [Azure AD B2C custom policy overview](custom-policy-overview.md)
 
-- [Custom policies in Azure AD B2C](custom-policy-overview.md)
-
-- [Get started with custom policies in Azure AD B2C](custom-policy-get-started.md?tabs=applications)
