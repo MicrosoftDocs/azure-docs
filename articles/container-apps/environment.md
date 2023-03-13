@@ -12,7 +12,7 @@ ms.custom: ignite-fall-2021, event-tier1-build-2022
 
 # Azure Container Apps environments
 
-A Container Apps environment is a secure boundary around groups of container apps that share the same virtual network and write logs to the same Log Analytics workspace.
+A Container Apps environment is a secure boundary around groups of container apps that share the same virtual network and write logs to the same logging destination.
 
 Container Apps environments are fully managed where Azure handles OS upgrades, scale operations, failover procedures, and resource balancing.
 
