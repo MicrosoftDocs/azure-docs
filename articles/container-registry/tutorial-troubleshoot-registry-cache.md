@@ -73,4 +73,4 @@ We recommend deleting any unwanted cache rules to avoid hitting the limit.
 
 <!-- LINKS - External -->
 [create-and-store-keyvault-credentials]:../key-vault/secrets/quick-create-portal.md
-[az-keyvault-set-policy]: /azure/key-vault/general/assign-access-policy.md#assign-an-access-policy
+[az-keyvault-set-policy]: ../key-vault/general/assign-access-policy.md#assign-an-access-policy
