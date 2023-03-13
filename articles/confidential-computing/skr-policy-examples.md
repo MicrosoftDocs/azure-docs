@@ -1,6 +1,6 @@
 ---
-title: Secure Key Release Policy Examples for Confidential Computing
-description: Examples of SKR policies across offered Azure Confidential Computing Offerings
+title: Secure Key Release Policy with Azure Key Vault and Azure Confidential Computing
+description: Examples of AKV SKR policies across offered Azure Confidential Computing Trusted Execution Environments
 author: agowdamsft
 ms.service: virtual-machines
 ms.subservice: confidential-computing
