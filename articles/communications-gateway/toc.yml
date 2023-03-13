@@ -25,7 +25,11 @@ items:
   - name: Reliability
     href: reliability-communications-gateway.md
   - name: Security
-    href: security.md
+    items:
+    - name: Overview of security
+      href: security.md
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/azure-communications-gateway-security-baseline?toc=/azure/communications-gateway/toc.json&bc=/azure/communications-gateway/breadcrumb/toc.json
   - name: Monitoring
     href: monitor-azure-communications-gateway.md
 - name: How-to guides

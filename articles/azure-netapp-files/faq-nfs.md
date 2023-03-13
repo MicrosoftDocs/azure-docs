@@ -6,7 +6,7 @@ ms.workload: storage
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 02/21/2023
+ms.date: 03/13/2023
 ---
 # NFS FAQs for Azure NetApp Files
 

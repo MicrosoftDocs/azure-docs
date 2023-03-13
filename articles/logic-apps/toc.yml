@@ -344,8 +344,6 @@
       href: logic-apps-enterprise-integration-rosettanet.md
     - name: SAP
       href: logic-apps-using-sap-connector.md
-    - name: SFTP
-      href: ../connectors/connectors-create-api-sftp.md
     - name: SFTP - SSH
       href: ../connectors/connectors-sftp-ssh.md
     - name: Sliding Window

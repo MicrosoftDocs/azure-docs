@@ -3,9 +3,8 @@ title: Provide an access identity to the Azure Key Vault Provider for Secrets St
 description: Learn about the various methods that you can use to allow the Azure Key Vault Provider for Secrets Store CSI Driver to integrate with your Azure key vault.
 author: nickomang 
 ms.author: nickoman
-ms.service: azure-kubernetes-service
 ms.topic: article
-ms.date: 01/31/2023
+ms.date: 02/27/2023
 ms.custom: devx-track-azurecli
 ---
 
@@ -43,7 +42,7 @@ Azure AD workload identity (preview) is supported on both Windows and Linux clus
     az account set --subscription $subscriptionID
     az identity create --name $UAMI --resource-group $resourceGroupName
     export USER_ASSIGNED_CLIENT_ID="$(az identity show -g $resourceGroupName --name $UAMI --query 'clientId' -o tsv)"
-    export IDENTITY_TENANT=$(az aks show --name $clusterName --resource-group $resourceGroupName --query aadProfile.tenantId -o tsv)
+    export IDENTITY_TENANT=$(az aks show --name $clusterName --resource-group $resourceGroupName --query identity.tenantId -o tsv)
     ```
 
 2. You need to set an access policy that grants the workload identity permission to access the Key Vault secrets, access keys, and certificates. The rights are assigned using the `az keyvault set-policy` command shown below.
@@ -121,10 +120,13 @@ Azure AD workload identity (preview) is supported on both Windows and Linux clus
     EOF
     ```
 
+    > [!NOTE]
+    > If you use `objectAlias` instead of `objectName`, make sure to update the YAML script.
+
 6. Deploy a sample pod. Notice the service account reference in the pod definition:
 
     ```bash
-    cat <<EOF | kubectl -n $serviceAccountNamespace -f -
+    cat <<EOF | kubectl apply -f -
     # This is a sample pod definition for using SecretProviderClass and the user-assigned identity to access your key vault
     kind: Pod
     apiVersion: v1
@@ -208,6 +210,9 @@ Azure AD workload identity (preview) is supported on both Windows and Linux clus
         tenantId: <tenant-id>                 # The tenant ID of the key vault
     ```
 
+    > [!NOTE]
+    > If you use `objectAlias` instead of `objectName`, make sure to update the YAML script.
+
 1. Apply the `SecretProviderClass` to your cluster:
 
     ```bash
@@ -264,6 +269,6 @@ To validate that the secrets are mounted at the volume path that's specified in 
 [az-aks-show]: /cli/azure/aks#az-aks-show
 [az-rest]: /cli/azure/reference-index#az-rest
 [az-identity-federated-credential-create]: /cli/azure/identity/federated-credential#az-identity-federated-credential-create
-[enable-oidc-issuer]: cluster-configuration.md#oidc-issuer
+[enable-oidc-issuer]: use-oidc-issuer.md
 [workload-identity]: ./workload-identity-overview.md
 <!-- LINKS EXTERNAL -->

@@ -90,7 +90,7 @@ Defender for Cloud includes vulnerability scanners for your machines, containers
 
 Learn more about using these scanners:
 
-- [Find vulnerabilities with Microsoft threat and vulnerability management](deploy-vulnerability-assessment-defender-vulnerability-management.md)
+- [Find vulnerabilities with Microsoft Defender Vulnerability Management](deploy-vulnerability-assessment-defender-vulnerability-management.md)
 - [Find vulnerabilities with the integrated Qualys scanner](deploy-vulnerability-assessment-vm.md)
 - [Scan your ACR images for vulnerabilities](defender-for-containers-vulnerability-assessment-azure.md)
 - [Scan your ECR images for vulnerabilities](defender-for-containers-vulnerability-assessment-elastic.md)
@@ -98,7 +98,7 @@ Learn more about using these scanners:
 
 Findings for each resource type are reported in separate recommendations:
 
-- [Vulnerabilities in your virtual machines should be remediated](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1195afff-c881-495e-9bc5-1486211ae03f) (includes findings from Microsoft threat and vulnerability management, the integrated Qualys scanner, and any configured [BYOL VA solutions](deploy-vulnerability-assessment-byol-vm.md))
+- [Vulnerabilities in your virtual machines should be remediated](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1195afff-c881-495e-9bc5-1486211ae03f) (includes findings from Microsoft Defender Vulnerability Management, the integrated Qualys scanner, and any configured [BYOL VA solutions](deploy-vulnerability-assessment-byol-vm.md))
 - [Container registry images should have vulnerability findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/dbd0cb49-b563-45e7-9724-889e799fa648)
 - [SQL databases should have vulnerability findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/82e20e14-edc5-4373-bfc4-f13121257c37)
 - [SQL servers on machines should have vulnerability findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/f97aa83c-9b63-4f9a-99f6-b22c4398f936)

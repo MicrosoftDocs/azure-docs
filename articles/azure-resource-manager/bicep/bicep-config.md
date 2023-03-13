@@ -2,7 +2,7 @@
 title: Bicep config file
 description: Describes the configuration file for your Bicep deployments
 ms.topic: conceptual
-ms.date: 02/18/2023
+ms.date: 02/21/2023
 ---
 
 # Configure your Bicep environment
@@ -33,19 +33,20 @@ The [Bicep linter](linter.md) checks Bicep files for syntax errors and best prac
 
 ## Enable experimental features
 
-The following sample enables the [user-defined types in Bicep](https://aka.ms/bicepCustomTypes).
+You can enable preview features by adding:
 
 ```json
 {
   "experimentalFeaturesEnabled": {
-    "userDefineTypes": true
+    "userDefineTypes": true,
+    "extensibility": true
   }
 }
 ```
 
-The available experimental features include:
+The preceding sample enables 'userDefineTypes' and 'extensibility`. The available experimental features include:
 
-- **extensibility**: Allows Bicep to use a provider model to deploy non-ARM resources. Currently, we only support a Kubernetes provider.
+- **extensibility**: Allows Bicep to use a provider model to deploy non-ARM resources. Currently, we only support a Kubernetes provider. See [Bicep extensibility Kubernetes provider](./bicep-extensibility-kubernetes-provider.md).
 - **paramsFiles**: Allows for the use of a Bicep-style parameters file with a terser syntax than the JSON equivalent parameters file. Currently, you also need a special build of Bicep to enable this feature, so is it inaccessible to most users. See [Parameters - first release](https://github.com/Azure/bicep/issues/9567).
 - **sourceMapping**: Enables basic source mapping to map an error location returned in the ARM template layer back to the relevant location in the Bicep file.
 - **resourceTypedParamsAndOutputs**: Enables the type for a parameter or output to be of type resource to make it easier to pass resource references between modules. This feature is only partially implemented. See [Simplifying resource referencing](https://github.com/azure/bicep/issues/2245).

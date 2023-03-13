@@ -22,7 +22,7 @@ In this how-to guide, you'll learn how to get the SAP software installation medi
 
 - An Azure subscription.
 - An Azure account with **Contributor** role access to the subscriptions and resource groups in which the Virtual Instance for SAP solutions exists.
-- A **User-assigned managed identity** with **Storage Blob Data Reader** and **Reader and Data Access** roles on the storage account which has the SAP software. 
+- A **User-assigned managed identity** with **Storage Blob Data Reader** or **Reader and Data Access** roles on the storage account which has the SAP software. 
 - A [network set up for your infrastructure deployment](prepare-network.md).
 - A deployment of S/4HANA infrastructure.
 - The SSH private key for the virtual machines in the SAP system. You generated this key during the infrastructure deployment.
@@ -37,13 +37,26 @@ Azure Center for SAP solutions supports the following SAP software versions: S/4
 
 The following operating system (OS) software versions are compatible with these SAP software versions:
 
-| Publisher | Version | Generation SKU | Patch version name | Supported SAP Software Version |
-| --------- | ------- | -------------- | ------------------ | ------------------------------ |
-| Red Hat | RHEL-SAP-HA (8.2 HA Pack) | 82sapha-gen2 | 8.2.2021091202 | S/4HANA 1909 SPS 03, S/4HANA 2020 SPS 03, S/4HANA 2021 ISS 00 | 
-| Red Hat | RHEL-SAP-HA (8.4 HA Pack) | 84sapha-gen2 | 8.4.2021091202 | S/4HANA 1909 SPS 03, S/4HANA 2020 SPS 03, S/4HANA 2021 ISS 00 | 
-| SUSE | sles-sap-15-sp3 | gen2 | 2022.01.26 | S/4HANA 1909 SPS 03, S/4HANA 2020 SPS 03, S/4HANA 2021 ISS 00 | 
-| SUSE | sles-sap-12-sp4 | gen2 | 2022.02.01 | S/4HANA 1909 SPS 03 |
+| Publisher | Image and Image Version | Supported SAP Software Version |
+| --------- | ----------------------- | ------------------------------ |
+| Red Hat | RHEL 82sapha-gen2 latest | S/4HANA 1909 SPS 03, S/4HANA 2020 SPS 03, S/4HANA 2021 ISS 00 | 
+| Red Hat | RHEL 84sapha-gen2 latest | S/4HANA 1909 SPS 03, S/4HANA 2020 SPS 03, S/4HANA 2021 ISS 00 | 
+| SUSE | SLES 15sp3-gen2 latest | S/4HANA 1909 SPS 03, S/4HANA 2020 SPS 03, S/4HANA 2021 ISS 00 | 
+| SUSE | SLES 12sp4-gen2 latest | S/4HANA 1909 SPS 03 |
 
+- You can use `latest` if you want to use the latest image and not a specific older version. If the *latest* image version is newly released in marketplace and has an unforseen issue, the deployment may fail. If you are using Portal for deployment, we recommend choosing a different image *sku train* (e.g. 12-SP4 instead of 15-SP3) till the issues are resolved. However, if deploying via API/CLI, you can provide any other *image version* which is available. To view and select the available image versions from a publisher, use below commands
+
+
+    ```Powershell
+    Get-AzVMImage -Location $locName -PublisherName $pubName -Offer $offerName -Sku $skuName | Select Version
+    
+    where, for example
+    $locName="eastus"
+    $pubName="RedHat"
+    $offerName="RHEL-SAP-HA"
+    $skuName="82sapha-gen2"
+    ```
+  
 ## Required components
 
 The following components are necessary for the SAP installation. 
@@ -111,16 +124,44 @@ Next, set up a virtual machine (VM) where you will download the SAP components l
     az login
     ```
 
-1. Install Ansible 2.9.27 on the VM.
+1. Install PIP3
 
-    ```bash
-    sudo pip3 install ansible==2.9.27
+    ```Bash
+    sudo apt install python3-pip
     ```
-    
+
+1. Install Ansible 2.11.12 on the VM.
+
+    ```Bash
+    sudo pip3 install ansible-core==2.11.12
+    ```
+
+1. Install Ansible galaxy collection modules
+
+    ```Bash
+   sudo ansible-galaxy collection install ansible.netcommon:==5.0.0 -p /opt/ansible/collections
+   sudo ansible-galaxy collection install ansible.posix:==1.5.1 -p /opt/ansible/collections
+   sudo ansible-galaxy collection install ansible.utils:==2.9.0 -p /opt/ansible/collections
+   sudo ansible-galaxy collection install ansible.windows:==1.13.0 -p /opt/ansible/collections
+   sudo ansible-galaxy collection install community.general:==6.4.0 -p /opt/ansible/collections
+    ```
+
+1. Clone the SAP automation samples repository from GitHub.
+
+    ```git bash
+    git clone https://github.com/Azure/SAP-automation-samples.git
+    ```
+
 1. Clone the SAP automation repository from GitHub.
 
     ```git bash
     git clone https://github.com/Azure/sap-automation.git
+    ```
+
+1. Switch to sap-automation directory
+
+    ```git bash
+    cd sap-automation/
     ```
 
 1. Change the branch to `main`.
@@ -140,21 +181,38 @@ Next, set up a virtual machine (VM) where you will download the SAP components l
 
 Next, download the SAP installation media to the VM using a script.
 
-1. Run the Ansible script **playbook_bom_download** with your own information.
+1. Run the Ansible script **playbook_bom_download** with your own information. Enter the actual values **within** double quotes but **without** the triangular brackets. The Ansible command that you run should look like:
 
-    The Ansible command that you run should look like:
-
-    ```azurecli
-    ansible-playbook ./sap-automation/deploy/ansible/playbook_bom_downloader.yaml -e "bom_base_name=S41909SPS03_v0011ms" -e "deployer_kv_name=dummy_value" -e "s_user=<username>" -e "s_password=<password>" -e "sapbits_access_key=<storageAccountAccessKey>" -e "sapbits_location_base_path=<containerBasePath>" 
+    ```git bash
+    export bom_base_name="<Enter bom base name>"
+    export s_user="<s-user>"
+    export s_password="<password>"
+    export storage_account_access_key="<storageAccountAccessKey>"
+    export sapbits_location_base_path="<containerBasePath>"
+    export BOM_directory="<BOM_directory_path>"
+    export orchestration_ansible_user="<orchestration_ansible_user>"
+    export playbook_path="<playbook_bom_downloader_yaml_path>"
+    sudo ansible-playbook ${playbook_path} \
+    -e "bom_base_name=${bom_base_name}" \
+    -e "deployer_kv_name=dummy_value" \
+    -e "s_user=${s_user}" \
+    -e "s_password=${s_password}" \
+    -e "sapbits_access_key=${storage_account_access_key}" \
+    -e "sapbits_location_base_path=${sapbits_location_base_path}" \
+    -e "BOM_directory=${BOM_directory}" \
+    -e "orchestration_ansible_user=${orchestration_ansible_user}"
     ```
 
-1. When asked if you have a storage account, enter `Y`.
-    
-    1. For `<username>`, use your SAP username.
-    
-    1. For `<password>`, use your SAP password. 
-	
+
+1. If prompted that if *you have a storage account*, enter `Y`.
+    	
+1. Where `playbook_bom_downloader_yaml_path` is the absolute path to sap-automation/deploy/ansible/playbook_bom_downloader.yaml. e.g. */home/loggedinusername/sap-automation/deploy/ansible/playbook_bom_downloader.yaml*
+
 1. For `<bom_base_name>`, use the SAP Version you want to install i.e. **_S41909SPS03_v0011ms_** or **_S42020SPS03_v0003ms_** or **_S4HANA_2021_ISS_v0001ms_**
+
+1. For `<s_user>`, use your SAP username.
+    
+1. For `<s_password>`, use your SAP password. 
     
 1. For `<storageAccountAccessKey>`, use your storage account's access key. To find the storage account's key:
 
@@ -175,6 +233,11 @@ Next, download the SAP installation media to the VM using a script.
     1. On the container's sidebar menu, select **Properties** under **Settings**.
     
     1. Copy down the **URL** value. The format is `https://<your-storage-account>.blob.core.windows.net/sapbits`. The format is `https://<your-storage-account>.blob.core.windows.net/sapbits`.
+
+1. Where `BOM_directory_path` is the absolute path to **SAP-automation-samples/SAP**. e.g. */home/loggedinusername/SAP-automation-samples/SAP*
+
+1. Where `orchestration_ansible_user` is the user with **admin** privileges. e.g. *loggedinusername*
+
 
 Now you can [install the SAP software](install-software.md) through Azure Center for SAP solutions.
 
@@ -277,7 +340,7 @@ Next, upload the SAP software files to the storage account:
 
     1. For S/4HANA 1909 SPS 03:
         
-        1. [HANA_2_00_055_v1_install.rsp.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S41909SPS03_v0011ms/templates/HANA_2_00_055_v1_install.rsp.j2)
+        1. [HANA_2_00_055_v1_install.rsp.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/HANA_2_00_059_v0005ms/HANA_2_00_059_v0005ms.yaml)
         
         1. [S41909SPS03_v0011ms-app-inifile-param.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S41909SPS03_v0011ms/templates/S41909SPS03_v0011ms-app-inifile-param.j2)
         
@@ -297,7 +360,7 @@ Next, upload the SAP software files to the storage account:
     	
     1. For S/4HANA 2020 SPS 03:
     	
-        1. [HANA_2_00_055_v1_install.rsp.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S42020SPS03_v0003ms/templates/HANA_2_00_055_v1_install.rsp.j2)
+        1. [HANA_2_00_055_v1_install.rsp.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/HANA_2_00_059_v0005ms/HANA_2_00_059_v0005ms.yaml)
     	
         1. [HANA_2_00_install.rsp.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S42020SPS03_v0003ms/templates/HANA_2_00_install.rsp.j2)
     	
@@ -317,7 +380,7 @@ Next, upload the SAP software files to the storage account:
     	
     1. For S/4HANA 2021 ISS 00:
     	
-        1. [HANA_2_00_055_v1_install.rsp.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S4HANA_2021_ISS_v0001ms/templates/HANA_2_00_055_v1_install.rsp.j2)
+        1. [HANA_2_00_055_v1_install.rsp.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/HANA_2_00_059_v0005ms/HANA_2_00_059_v0005ms.yaml)
     	
         1. [HANA_2_00_install.rsp.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S4HANA_2021_ISS_v0001ms/templates/HANA_2_00_install.rsp.j2)
     	

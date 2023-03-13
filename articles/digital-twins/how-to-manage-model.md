@@ -77,18 +77,18 @@ If you're using the [REST APIs](/rest/api/azure-digitaltwins/) or [Azure CLI](/c
 
 :::code language="json" source="~/digital-twins-docs-samples/models/Planet-Moon.json":::
 
-### Upload large model sets with the Import Jobs API
+### Upload large model sets with the Jobs API
 
-For large model sets, you can use the [Import Jobs API](concepts-apis-sdks.md#bulk-import-with-the-import-jobs-api) to upload many models at once in a single API call. The API can simultaneously accept up to the [Azure Digital Twins limit for number of models in an instance](reference-service-limits.md), and it automatically reorders models if needed to resolve dependencies between them. This method requires the use of [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md), as well as [write permissions](concepts-apis-sdks.md#check-permissions) in your Azure Digital Twins instance for models and bulk jobs.
+For large model sets, you can use the [Jobs API](concepts-apis-sdks.md#bulk-import-with-the-jobs-api) to upload many models at once in a single API call. The API can simultaneously accept up to the [Azure Digital Twins limit for number of models in an instance](reference-service-limits.md), and it automatically reorders models if needed to resolve dependencies between them. This method requires the use of [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md), as well as [write permissions](concepts-apis-sdks.md#check-permissions) in your Azure Digital Twins instance for models and bulk jobs.
 
 >[!TIP]
->The Import Jobs API also allows twins and relationships to be imported in the same call, to create all parts of a graph at once. For more about this process, see [Upload models, twins, and relationships in bulk with the Import Jobs API](how-to-manage-graph.md#upload-models-twins-and-relationships-in-bulk-with-the-import-jobs-api).
+>The Jobs API also allows twins and relationships to be imported in the same call, to create all parts of a graph at once. For more about this process, see [Upload models, twins, and relationships in bulk with the Jobs API](how-to-manage-graph.md#upload-models-twins-and-relationships-in-bulk-with-the-jobs-api).
 
-To import models in bulk, you'll need to structure your models (and any other resources included in the bulk import job) as an *NDJSON* file. The `Models` section comes immediately after `Header` section, making it the first graph data section in the file. You can view an example import file and a sample project for creating these files in the [Import Jobs API introduction](concepts-apis-sdks.md#bulk-import-with-the-import-jobs-api).
+To import models in bulk, you'll need to structure your models (and any other resources included in the bulk import job) as an *NDJSON* file. The `Models` section comes immediately after `Header` section, making it the first graph data section in the file. You can view an example import file and a sample project for creating these files in the [Jobs API introduction](concepts-apis-sdks.md#bulk-import-with-the-jobs-api).
 
 [!INCLUDE [digital-twins-bulk-blob.md](../../includes/digital-twins-bulk-blob.md)]
 
-Then, the file can be used in an [Import Jobs API](/rest/api/digital-twins/dataplane/import-jobs) call.
+Then, the file can be used in an [Jobs API](/rest/api/digital-twins/dataplane/import-jobs) call. You'll provide the blob storage URL of the input file, as well as a new blob storage URL to indicate where you'd like the output log to be stored when it's created by the service.
 
 ## Retrieve models
 

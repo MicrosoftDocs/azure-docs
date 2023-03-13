@@ -10,7 +10,7 @@ ms.author: tchladek
 ms.date: 12/01/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.subservice: calling
+ms.subservice: teams-interop
 ---
 # Calling capabilities supported for Teams users in Calling SDK
 
