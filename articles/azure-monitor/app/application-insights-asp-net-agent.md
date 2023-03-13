@@ -27,21 +27,21 @@ Application Insights Agent is located in the [PowerShell Gallery](https://www.po
 - To get started with concise code samples, see the **Get started** tab.
 - For a deep dive on how to get started, see the **Detailed instructions** tab.
 - For the following PowerShell API reference, see the **API reference** tab:
-   - Disable-ApplicationInsightsMonitoring
-   - Disable-InstrumentationEngine
-   - Enable-ApplicationInsightsMonitoring
-   - Enable-InstrumentationEngine
-   - Get-ApplicationInsightsMonitoringConfig
-   - Get-ApplicationInsightsMonitoringStatus
-   - Set-ApplicationInsightsMonitoringConfig
-   - Start-ApplicationInsightsMonitoringTrace
-- For the release notes, see the **Release notes** tab.
+   - [Disable-ApplicationInsightsMonitoring](?tabs=api-reference#disable-applicationinsightsmonitoring)
+   - [Disable-InstrumentationEngine](?tabs=api-reference#disable-instrumentationengine)
+   - [Enable-ApplicationInsightsMonitoring](?tabs=api-reference#enable-applicationinsightsmonitoring)
+   - [Enable-InstrumentationEngine](?tabs=api-reference#enable-instrumentationengine)
+   - [Get-ApplicationInsightsMonitoringConfig](?tabs=api-reference##get-applicationinsightsmonitoringconfig)
+   - [Get-ApplicationInsightsMonitoringStatus](?tabs=api-reference#get-applicationinsightsmonitoringstatus)
+   - [Set-ApplicationInsightsMonitoringConfig](?tabs=api-reference#set-applicationinsightsmonitoringconfig)
+   - [Start-ApplicationInsightsMonitoringTrace](?tabs=api-reference#start-applicationinsightsmonitoringtrace)
+- For release note updates, see the **Release notes** tab.
 
 ### [Getting started](#tab/getting-started)
 
 This tab contains the quickstart commands that are expected to work for most environments. The instructions depend on PowerShell Gallery to distribute updates. These commands support the PowerShell `-Proxy` parameter.
 
-For an explanation of these commands, customization instructions, and information about troubleshooting, see the [detailed instructions](?tabs=detailed-instructions).
+For an explanation of these commands, customization instructions, and information about troubleshooting, see the [detailed instructions](?tabs=detailed-instructions#instructions).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -325,7 +325,7 @@ The Application Insights SDK will need to send your app's telemetry to Microsoft
 
 Use the `Enable-ApplicationInsightsMonitoring` command to enable monitoring.
 
-See the [API reference](./status-monitor-v2-api-reference.md#enable-applicationinsightsmonitoring) for a detailed description of how to use this cmdlet.
+See the [API reference](?tabs=api-reference#enable-applicationinsightsmonitoring) for a detailed description of how to use this cmdlet.
 
 ### [API reference](#tab/api-reference)
 
@@ -338,7 +338,7 @@ This tab describes a cmdlet that's a member of the [Az.ApplicationMonitor PowerS
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 > [!IMPORTANT] 
-> This cmdlet requires a PowerShell session with Admin permissions and an elevated execution policy. For more information, see [Run PowerShell as administrator with an elevated execution policy](status-monitor-v2-detailed-instructions.md#run-powershell-as-admin-with-an-elevated-execution-policy).
+> This cmdlet requires a PowerShell session with Admin permissions and an elevated execution policy. For more information, see [Run PowerShell as administrator with an elevated execution policy](?tabs=detailed-instructions#run-powershell-as-admin-with-an-elevated-execution-policy).
 > - This cmdlet requires that you review and accept our license and privacy statement.
 > - The instrumentation engine adds additional overhead and is off by default.
 
@@ -991,7 +991,7 @@ Yes. There are multiple ways to download Application Insights Agent:
 - If your computer has internet access, you can onboard to the PowerShell Gallery by using `-Proxy` parameters.
 - You can also manually download the module and either install it on your computer or use it directly.
 
-Each of these options is described in the [detailed instructions](status-monitor-v2-detailed-instructions.md).
+Each of these options is described in the [detailed instructions](?tabs=status-monitor-v2-detailed-instructions#instructions).
 
 ### Does Application Insights Agent support ASP.NET Core applications?
 
@@ -999,7 +999,7 @@ Each of these options is described in the [detailed instructions](status-monitor
 
 ### How do I verify that the enablement succeeded?
 
-  - You can use the [Get-ApplicationInsightsMonitoringStatus](./status-monitor-v2-api-reference.md#get-applicationinsightsmonitoringstatus) cmdlet to verify that enablement succeeded.
+  - You can use the [Get-ApplicationInsightsMonitoringStatus](?tabs=api-reference#get-applicationinsightsmonitoringstatus) cmdlet to verify that enablement succeeded.
   - Use [Live Metrics](./live-stream.md) to quickly determine if your app is sending telemetry.
   - You can also use [Log Analytics](../logs/log-analytics-tutorial.md) to list all the cloud roles currently sending telemetry:
   
