@@ -59,9 +59,22 @@ For more information, see [Ingest time normalization](/azure/sentinel/normalizat
 
 The essential solutions don't have a connector of their own. They depend on the source specific connectors to pull in the logs. Then the solutions use the ASIM parsers in their built in analytic rules, hunting queries, and workbooks to identify anomalies. The ASIM parsers provide a consolidated report or dashboard view for all the source specific solutions that were part of prerequisite lists.
 
+## Content available with essential solutions
+
+The following table describes the type of content available with each essential solution. For some specific use cases, you might want to also use the content available with the source solution.
+
+|Content type |description |
+|---------|---------|
+|Analytical Rule    |  The analytical rules available in the ASIM-based essential solutions are generic and a good fit for any of the dependent source solutions for that domain. The source specific solution might have a source specific use case covered as part of the analytical rule. Enable source specific rules as needed for your environment.        |
+|Hunting query     |   The hunting queries available in the ASIM-based essential solutions are generic and a good fit to hunt for threats from any of the dependent source solutions for that domain. The source specific solution might have a source specific hunting query available out-of-the-box. Use the hunting queries from the source solution as needed for your environment.      |
+|Playbook     |  The ASIM-based essential solutions are expected to handle data with very high events per seconds. When you have content that's using that volume of data, you might experience some performance impact that can cause slow loading of workbooks or query results. To solve this problem, the summarization playbook summarizes the source logs and stores the information into a predefined table. Enable the summarization playbook to allow the essential solutions to query this table.       |
+|Watchlist    | The ASIM-based essential solutions use a watchlist that includes multiple sets of conditions for analytic rule detection and hunting queries. The watchlist allows you to do the following tasks:<br><br>- Do focused monitoring with data filtration. <br>- Switch between hunting and detection for each list item. <br>- Keep **Threshold type** set to **Static** to leverage threshold-based alerting while anomaly-based alerts would learn from the last few days of data (maximum 14 days). <br>- Modify **Alert Name**, **Description**, **Tactic** and **Severity** by using this watchlist for individual list items.<br>- Disable detection by setting **Severity** as **Disabled**.        |
+|Workbook     | The workbook available with the ASIM-based essential solutions give a consolidated view of different events and activity happening in the dependent domain. Because this workbook fetches results from a very high volume of data, there might be some performance lag. If you experience performance issues, use the summarization playbook.
+  |
+
 ## Network session essentials solution
 
-One of the first solutions available in the essentials series is the network session essential solution. This solution doesn't have a connector of its own. Instead, it uses the ASIM parsers for query time parsing. For more information about this solution, see (Marketplace listing)
+One of the first solutions available in the essentials series is the network session essential solution. This solution doesn't have a connector of its own. Instead, it uses the ASIM parsers for query time parsing. For more information about this solution, see the solution listing in the Azure Marketplace.
 
 ## Next steps
 
