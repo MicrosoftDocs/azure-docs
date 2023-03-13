@@ -129,7 +129,7 @@ Some networks have packet overhead, which makes the default docker network MTU (
 
 Check the MTU setting for your docker network and ensure it's appropriately set based on the MTU setting of your device. The MTU for the docker network cannot be higher than the MTU for your device. Contact your ISP for more information.
 
-If the MTU settings are correct, try the following workaround:
+If you see a different MTU size for your docker network and the device, try the following workaround:
 
 1. Create a new network. For example,
 
@@ -145,7 +145,9 @@ If the MTU settings are correct, try the following workaround:
 
    `docker network create --opt com.docker.network.driver.mtu=1430 azure-iot-edge`
 
-1. Remove all images and restart the *aziot-edged* service.
+1. Remove all containers and restart the *aziot-edged* service.
+
+   `sudo iotedge system stop && sudo docker rm -f $(docker ps -aq -f "label=net.azure-devices.edge.owner=Microsoft.Azure.Devices.Edge.Agent") && sudo iotedge config apply`
 
 ### IoT Edge agent can't access a module's image (403)
 
