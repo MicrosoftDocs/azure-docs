@@ -5,7 +5,6 @@ author: mumian
 ms.date: 03/26/2021
 ms.topic: tutorial
 ms.author: jgao
-ms.custom: devx-track-azurepowershell
 ---
 
 # Tutorial: Deploy virtual machine extensions with ARM templates
