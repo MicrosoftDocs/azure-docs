@@ -49,7 +49,7 @@ items:
     - name: Device
       expanded: false
       items:
-      - name: Configure the device mapping
+      - name: Overview of the device mapping
         href: overview-of-device-mapping.md
       - name: Use CalculatedContent mappings
         href: how-to-use-calculatedcontent-mappings.md
