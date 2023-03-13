@@ -57,7 +57,7 @@ While increasing the shuffle partitions, make sure data is spread across well. A
 
 Here are the steps on how it's  set in a custom integration runtime. You can't  set it for autoresolve integrtaion runtime.
 
-1. From ADF portal under **Manage**, select a custom itegration run time and you go to edit mode.
+1. From ADF portal under **Manage**, select a custom integration run time and you go to edit mode.
 2. Under dataflow run time tab, go to **Compute Cusotm Properties** section.
 3. Select **Shuffle Partitions** under Property name, input value of your choice, like 250, 500 etc.
 
