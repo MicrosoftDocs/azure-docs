@@ -32,7 +32,7 @@ Microsoft's **Read** OCR engine is composed of multiple advanced machine-learnin
 
 ## How to use OCR
 
-Try out OCR by using Vision Studio. Then follow one of the links to the [Read edition](includes/read-editions.md) that best meet your requirements.
+Try out OCR by using Vision Studio. Then follow one of the links to the Read edition that best meet your requirements.
 
 > [!div class="nextstepaction"]
 > [Try Vision Studio](https://portal.vision.cognitive.azure.com/)
