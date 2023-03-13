@@ -48,8 +48,6 @@ In addition to the built-in roles, users may also create [custom roles](../role-
 > [!NOTE]
 > Custom role assignments may not always be visible in the Azure portal.
 
-## <a id="prevent-sdk-changes"></a>Preventing changes from the Azure Cosmos DB SDKs
-
 The Azure Cosmos DB resource provider can be locked down to prevent any changes to resources from a client connecting using the account keys (that is applications connecting via the Azure Cosmos DB SDK). This feature may be desirable for users who want higher degrees of control and governance for production environments. Preventing changes from the SDK also enables features such as resource locks and diagnostic logs for control plane operations. The clients connecting from Azure Cosmos DB SDK will be prevented from changing any property for the Azure Cosmos DB accounts, databases, containers, and throughput. The operations involving reading and writing data to Azure Cosmos DB containers themselves are not impacted.
 
 When this feature is enabled, changes to any resource can only be made from a user with the right Azure role and Azure Active Directory credentials including Managed Service Identities.
@@ -63,8 +61,7 @@ This setting will prevent any changes to any Azure Cosmos DB resource from any c
 
 - Creating, deleting child resources such as databases and containers. This includes resources for other APIs such as Cassandra, MongoDB, Gremlin, and table resources.
 
-- Updating throughput on database or container level resources.
-
+- Reading or updating throughput on database or container level resources.
 - Modifying container properties including index policy, TTL and unique keys.
 
 - Modifying stored procedures, triggers or user-defined functions.
@@ -119,3 +116,4 @@ Update-AzCosmosDBAccount -ResourceGroupName [ResourceGroupName] -Name [CosmosDBA
 - [Azure custom roles](../role-based-access-control/custom-roles.md)
 - [Azure Cosmos DB resource provider operations](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb)
 - [Configure role-based access control for your Azure Cosmos DB for MongoDB](mongodb/how-to-setup-rbac.md)
+
