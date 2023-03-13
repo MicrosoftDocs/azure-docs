@@ -670,10 +670,25 @@ items:
         - name: Application Insights API summary
           displayName: SDK, API, custom events, custom metrics, trackevent,trackmetric, getmetric, trackrequest, trackexception, tracktrace, trackdependency
           href: app/api-custom-events-metrics.md
+        - name: Connection strings
+          href: app/sdk-connection-string.md
+          displayName: connection string, instrumentation key
+        - name: Sampling
+          displayName: adaptive sampling, fixed rate sample, fixed sampling, ingestion sampling
+          href: app/sampling.md
         - name: Remove Application Insights
           href: app/remove-application-insights.md
         - name: SDK support policy
           href: app/sdk-support-guidance.md
+        - name: Advanced SDK topics
+          items:
+          - name: TelemetryProcessors
+            displayName: processors, filtering, telemetry filtering, telemetry processor
+            href: app/api-filtering-sampling.md
+          - name: Exceptions
+            href: app/asp-net-exceptions.md
+          - name: Log traces
+            href: app/asp-net-trace-logs.md
       - name: OpenTelemetry-based instrumentation
         items:
         - name: Overview
@@ -706,21 +721,6 @@ items:
             href: app/java-standalone-upgrade-from-2x.md
         - name: FAQ
           href: /azure/azure-monitor/faq#opentelemetry
-      - name: Connection strings
-        href: app/sdk-connection-string.md
-        displayName: connection string, instrumentation key
-      - name: Sampling
-        displayName: adaptive sampling, fixed rate sample, fixed sampling, ingestion sampling
-        href: app/sampling.md
-      - name: Advanced SDK topics
-        items:
-        - name: TelemetryProcessors
-          displayName: processors, filtering, telemetry filtering, telemetry processor
-          href: app/api-filtering-sampling.md
-        - name: Exceptions
-          href: app/asp-net-exceptions.md
-        - name: Log traces
-          href: app/asp-net-trace-logs.md
     - name: Application dashboard
       displayName: dashboard, Application Insights dashboard
       href: app/overview-dashboard.md
