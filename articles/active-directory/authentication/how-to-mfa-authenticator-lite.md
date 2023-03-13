@@ -18,12 +18,22 @@ ms.collection: M365-identity-device-management
 ---
 # How to enable Authenticator Lite for Microsoft Outlook
 
-Authenticator Lite is an additional surface for AAD users to complete multifactor authentication using push notifications or time-based one-time passcodes (TOTP) on their Android or iOS device. With Authenticator Lite, users can satisfy a multifactor authentication requirement from the convenience of a familiar app. 
+Authenticator Lite is another surface for Azure Active Directory (Azure AD) users to complete multifactor authentication by using push notifications or time-based one-time passcodes (TOTP) on their Android or iOS device. With Authenticator Lite, users can satisfy a multifactor authentication requirement from the convenience of a familiar app. Authenticator Lite is currently enabled in Microsoft Outlook. 
 
-Authenticator Lite is currently enabled in the Outlook app. 
-
-Users will receive a notification in their Outlook app to approve or deny, or use TOTP code of Authenticator in the Outlook app that can be entered during sign-in. 
+Users receive a notification in Outlook to approve or deny sign-in, or they can enter the TOTP of Authenticator in Outlook during sign-in. 
 
 ## Prerequisites
+
+- Your organization needs to enable Microsoft Authenticator (second factor) push notifications for some users or groups by using the Authentication methods policy. You can edit the Authentication methods policy by using the Azure portal or Microsoft Graph API.
+- If your organization is using the Active Directory Federation Services (AD FS) adapter or Network Policy Server (NPS) extensions, upgrade to the latest versions for a consistent experience.
+- Users enabled for shared device mode on Outlook aren'tt eligible for Authenticator Lite.
+- Users must run a minimum Outlook version.
+
+  | Operating system | Outlook version |
+  |:----------------:|:---------------:|
+  |Android           | 4.2308.0        |
+  |iOS               | 4.2309.0        |
+
+## Enable Authenticator Lite
 
 
