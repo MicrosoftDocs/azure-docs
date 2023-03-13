@@ -24,24 +24,32 @@ landingContent:
         links:
           - text: What is Azure Monitor?
             url: overview.md
-          - text: What can you Monitor?
-            url: monitor-reference.md  
-          - text: What is Azure Monitor Logs / Log Analytics?
-            url: ./logs/data-platform-logs.md
-          - text: What is Application Insights?
-            url: app/app-insights-overview.md
-          - text: What is Network Insights?
-            url: ../network-watcher/network-insights-overview.md
-
-  # Card 
-  - title: About monitoring data   
-    linkLists:     
-      - linkListType: concept
-        links:
-          - text: Data sources Overview
+          - text: What can you monitor?
             url: data-sources.md
-          - text: Data platform Overview
-            url: ./data-platform.md
+          - text: How do you collect data?
+            url: ./essentials/data-collection.md
+          - text: What are Azure Monitor Metrics?
+            url: ./essentials/data-platform-metrics.md
+          - text: What are Azure Monitor Logs?
+            url: ./logs/data-platform-logs.md
+          - text: What is Azure Monitor for SCOM?
+            url:  azure-monitor-operations-manger.md
+
+# Card 
+  - title: Get started with Azure Monitor
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Plan your implementation
+            url: best-practices-plan.md
+          - text: Configure data collection
+            url: best-practices-data-collection.md
+          - text: Understand analysis and visualization tools
+            url: best-practices-analysis.md
+          - text: Configure alerts and automated actions
+            url: best-practices-alerts.md
+          - text: Optimize costs
+            url: best-practices-cost.md
 
   # Card 
   - title: 10-minute quickstarts
@@ -56,7 +64,7 @@ landingContent:
             url: ./alerts/alerts-activity-log.md
 
   # Card 
-  - title: Monitor applications
+  - title: Get started with Application Insights
     linkLists:
       - linkListType: get-started
         links:
@@ -80,52 +88,49 @@ landingContent:
             url: /training/paths/monitor-usage-performance-availability-resources-azure-monitor/
           - text: Analyze logs in Azure Monitor with KQL
             url: /training/modules/analyze-logs-with-kql/
+          - text: Using Azure Monitor logs
+            url: /training/modules/analyze-infrastructure-with-azure-monitor-logs/
+          - text: Respond to incidents with Azure Monitor alerts
+            url: /training/modules/incident-response-with-alerting-on-azure/
+          - text: Add the Application Insights SDK to your server-side code
+            url: /training/modules/instrument-web-app-code-with-application-insights/
+          - text: Monitor VM performance with VM Insights
+            url: /training/modules/monitor-performance-using-azure-monitor-for-vms/ 
 
   # Card
   - title: Videos
     linkLists: 
-      - linkListType: learn
+      - linkListType: video
         links:
-          - text: Autoscale
+          - text: How to run Autoscale
             url: https://www.microsoft.com/en-us/videoplayer/embed/RE4u7ts
-          - text: Analysis and Visualizations
+          - text: Create Azure Monitor Dashboards
             url: https://www.microsoft.com/en-us/videoplayer/embed/RE4AslH
+          - text: Container Insights overview
+            url: https://www.youtube.com/embed/XEdwGvS2AwA
+          - text: How to create metric charts
+            url: https://www.microsoft.com/videoplayer/embed/RE4qO59
+          - text: Get started with log queries
+            url: https://www.microsoft.com/videoplayer/embed/RE42pGX
+          - text: Advanced query troubleshooting
+            url:  https://www.microsoft.com/en-us/videoplayer/embed/RE4NUH0
+          - text: Get started with Azure Workbooks
+            url: https://www.microsoft.com/en-us/videoplayer/embed/RE4B4Ap
+          - text: Build workbooks using log queries
+            url: https://www.microsoft.com/en-us/videoplayer/embed/RE59Wee
+          - text: Using tabs, groups, and links in Azure Workbooks
+            url: https://www.microsoft.com/en-us/videoplayer/embed/RE59YTe
+          - text: Using graphs and links in Azure Workbooks
+            url: https://www.microsoft.com/en-us/videoplayer/embed/RE5ah5O
 
   # Card
-  - title: Reference - CLI
+  - title: Reference
     linkLists:
       - linkListType: reference
         links:
-          - text: Action Groups, Activity Logs, Autoscale, Diagnostic Settings, Metrics, Private Link Scope
+          - text: CLI Reference
             url:  /cli/azure/azure-cli-reference-for-monitor
-          - text: Log Analytics
-            url:  /cli/azure/monitor
-          - text: Application Insights
-            url:  /cli/azure/monitor/app-insights
-
-  # Card
-  - title: Reference - PowerShell
-    linkLists: 
-      - linkListType: reference
-        links:
-          - text: Metrics, Autoscale, Diagnostic settings, Alerts
-            url: /powershell/module/az.monitor
-          - text: Log Analytics
-            url: /powershell/module/az.operationalinsights
-          - text: Application Insights
-            url: /powershell/module/az.applicationinsights/new-azapplicationinsights
-
-  - title: Reference - REST API
-    linkLists: 
-      - linkListType: reference
-        links:
-          - text: Metrics, Autoscale, Diagnostics settings, Alerts
-            url: /rest/api/monitor
-          - text: Log Analytics
-            url: /rest/api/loganalytics
-          - text: Application Insights
-            url: /rest/api/application-insights/  
-          - text: Application Insights REST API sandbox
-            url: /rest/api/application-insights/
-          - text: Azure Alerts Management SDK for Python
-            url: /python/api/azure-mgmt-monitor/azure.mgmt.monitor.monitormanagementclient
+          - text: PowerShell Reference
+            url:  /powershell/module/az.monitor/?view=azps-9.5.0
+          - text: REST API Reference
+            url:  /rest/api/monitor/
