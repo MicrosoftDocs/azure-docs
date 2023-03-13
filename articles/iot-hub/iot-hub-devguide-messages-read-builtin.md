@@ -94,7 +94,6 @@ You can use the Event Hubs SDKs to read from the built-in endpoint in environmen
 | Language | Sample |
 | -------- | ------ |
 | .NET | [ReadD2cMessages .NET](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/service/samples/getting%20started/ReadD2cMessages) |
-| Java | [read-d2c-messages Java](https://github.com/Azure/azure-iot-sdk-java/tree/main/service/iot-service-samples/read-d2c-messages) |
 | Node.js | [read-d2c-messages Node.js](https://github.com/Azure-Samples/azure-iot-samples-node/tree/master/iot-hub/Quickstarts/read-d2c-messages) |
 | Python | [read-dec-messages Python](https://github.com/Azure-Samples/azure-iot-samples-python/tree/master/iot-hub/Quickstarts/read-d2c-messages) |
 
