@@ -27,7 +27,7 @@ Container Insights offers the ability to collect Syslog events from Linux nodes 
 
 Navigate to your cluster. Open the _Insights_ tab for your cluster. Open the _Monitor Settings_ panel. Click on Edit collection settings, then check the box for _Enable Syslog collection_
 
-:::image type="content" source="media/container-insights-syslog/SyslogEnable3.gif" lightbox="media/container-insights-syslog/SyslogEnable3.gif" alt-text="Syslog being enabled from Azure Portal through Monitor Settings panel in Container Insights" border="false":::
+:::image type="content" source="media/container-insights-syslog/syslog-enable.gif" lightbox="media/container-insights-syslog/syslog-enable.gif" alt-text="Syslog being enabled from Azure Portal through Monitor Settings panel in Container Insights" border="true":::
 
 ### Using Azure CLI commands
 
@@ -103,12 +103,12 @@ To get a quick snapshot of your syslog data, customers can use our built-in Sysl
 Option 1 - The Reports tab in Container Insights. 
 Navigate to your cluster. Open the _Insights_ tab for your cluster. Open the _Reports_ tab and look for the _Syslog_ workbook. 
 
-:::image type="content" source="media/container-insights-syslog/SyslogWorkbookCluster.gif" lightbox="media/container-insights-syslog/SyslogWorkbookCluster.gif" alt-text="Video of Syslog workbook being accessed from Container Insights Reports tab," border="false":::
+:::image type="content" source="media/container-insights-syslog/syslog-workbook-cluster.gif" lightbox="media/container-insights-syslog/syslog-workbook-cluster.gif" alt-text="Video of Syslog workbook being accessed from Container Insights Reports tab." border="true":::
 
 Option 2 - The Workbooks tab in AKS
 Navigate to your cluster. Open the _Workbooks_ tab for your cluster and look for the _Syslog_ workbook. 
 
-:::image type="content" source="media/container-insights-syslog/SyslogWorkbookCIReportsTab.gif" lightbox="media/container-insights-syslog/SyslogWorkbookCIReportsTab.gif" alt-text="Video of Syslog workbook being accessed from cluster workbooks tab," border="false":::
+:::image type="content" source="media/container-insights-syslog/syslog-workbook-container-insights-reports-tab.gif" lightbox="media/container-insights-syslog/syslog-workbook-container-insights-reports-tab.gif" alt-text="Video of Syslog workbook being accessed from cluster workbooks tab." border="true":::
 
 ### Access using log queries
 
