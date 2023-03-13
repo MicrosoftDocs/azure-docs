@@ -27,7 +27,7 @@ Container Insights offers the ability to collect Syslog events from Linux nodes 
 
 Navigate to your cluster. Open the _Insights_ tab for your cluster. Open the _Monitor Settings_ panel. Click on Edit collection settings, then check the box for _Enable Syslog collection_
 
-:::image type="content" source="media/container-insights-syslog/SyslogEnable3.gif" lightbox="media/container-insights-syslog/SyslogEnable3.gif" alt-text="Flow of Syslog being enabled from Azure Portal," border="false":::
+:::image type="content" source="media/container-insights-syslog/SyslogEnable3.gif" lightbox="media/container-insights-syslog/SyslogEnable3.gif" alt-text="Syslog being enabled from Azure Portal through Monitor Settings panel in Container Insights" border="false":::
 
 ### Using Azure CLI commands
 
@@ -98,7 +98,7 @@ provisioningState       : Succeeded
 
 ### Access using built-in Workbooks
 
-To get a quick snapshot of your syslog data, customers can use our built-in Syslog workbook. There are two way to access the built-in workbook.
+To get a quick snapshot of your syslog data, customers can use our built-in Syslog workbook. There are two ways to access the built-in workbook.
 
 Option 1 - The Reports tab in Container Insights. 
 Navigate to your cluster. Open the _Insights_ tab for your cluster. Open the _Reports_ tab and look for the _Syslog_ workbook. 
@@ -106,11 +106,11 @@ Navigate to your cluster. Open the _Insights_ tab for your cluster. Open the _Re
 :::image type="content" source="media/container-insights-syslog/SyslogWorkbookCluster.gif" lightbox="media/container-insights-syslog/SyslogWorkbookCluster.gif" alt-text="Video of Syslog workbook being accessed from Container Insights Reports tab," border="false":::
 
 Option 2 - The Workbooks tab in AKS
-Navigate to your cluster. Open the _Workbooks_ tab for your and look for the _Syslog_ workbook. 
+Navigate to your cluster. Open the _Workbooks_ tab for your cluster and look for the _Syslog_ workbook. 
 
 :::image type="content" source="media/container-insights-syslog/SyslogWorkbookCIReportsTab.gif" lightbox="media/container-insights-syslog/SyslogWorkbookCIReportsTab.gif" alt-text="Video of Syslog workbook being accessed from cluster workbooks tab," border="false":::
 
-### Access using Loq Queries
+### Access using Log Queries
 
 Syslog data is stored in the [Syslog](/azure/azure-monitor/reference/tables/syslog) table in your Log Analytics workspace. You can create your own [log queries](../logs/log-query-overview.md) in [Log Analytics](../logs/log-analytics-overview.md) to analyze this data or use any of the [prebuilt queries](../logs/log-query-overview.md).
 
