@@ -1,6 +1,6 @@
 ---
-title: Automated back up and restore for Azure Arc-enabled PostgreSQL server
-description: Explains how to back up and restore for Azure Arc-enabled PostgreSQL server
+title: Automated backup for Azure Arc-enabled PostgreSQL server
+description: Explains how to configure backups for Azure Arc-enabled PostgreSQL server
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-postgresql
@@ -11,7 +11,7 @@ ms.date: 03/12/2023
 ms.topic: how-to
 ---
 
-# Automated backup and restore Azure Arc-enabled PostgreSQL servers
+# Automated backup Azure Arc-enabled PostgreSQL servers
 
 To enable automated backups, include the `--storage-class-backups` argument when you create an Azure Arc-enabled PostgreSQL server. Specify the retention period for backups with the `--retention-days` parameter. Use this parameter when you create or update an Arc-enabled PostgreSQL server. The retention period can be between 0 and 35 days. If backups are enabled but no retention period is specified, the default is seven days.
 
@@ -37,5 +37,5 @@ az postgres server-arc update -n pg01 -k test --retention-days <number of days> 
 
 ## Next steps
 
-- [Back up and restore Azure Arc-enabled PostgreSQL servers](point-in-time-restore-postgresql.md)
+- [Restore Azure Arc-enabled PostgreSQL servers](restore-postgresql.md)
 - [Scaling up or down (increasing/decreasing memory/vcores)](scale-up-down-postgresql-server-using-cli.md) your server.
