@@ -36,8 +36,8 @@ To enable passwordless FIDO authentication for your users, enable Nok Nok as an 
 * **Azure AD B2C** – authorization server that verifies user credentials
 * **Web and mobile applications** – mobile or web apps to protect with Nok Nok solutions and Azure AD B2C
 * **Nok Nok app SDK or Passport app** – authenticate Azure AD B2C enabled applications. 
-  * Go to the Apple App Atore for [Nok Nok Passport](https://apps.apple.com/us/app/nok-nok-passport/id1050437340)
-  * Or Google Play [Nok Nok Passport](https://play.google.com/store/apps/details?id=com.noknok.android.passport2&hl=en&gl=US)
+  * Go to the Apple App Store for [Nok Nok Passport](https://apps.apple.com/us/app/nok-nok-passport/id1050437340)
+  * Or, Google Play [Nok Nok Passport](https://play.google.com/store/apps/details?id=com.noknok.android.passport2&hl=en&gl=US)
 
 The following diagram illustrates the Nok Nok solution as IdP for Azure AD B2C using Open ID Connect (OIDC) for passwordless authentication.
 
@@ -51,9 +51,12 @@ The following diagram illustrates the Nok Nok solution as IdP for Azure AD B2C u
 6. Nok Nok server validates FIDO assertion and sends OIDC authentication response to Azure AD B2C.
 7. User is granted or denied access.
 
-## Onboard with Nok Nok
+## Get started with Nok Nok
 
-Fill out the [Nok Nok cloud form](https://noknok.com/contact/) to create your own Nok Nok tenant. Once you submit the form, you'll receive an email explaining how to access your tenant. The email will also include access to Nok Nok guides. Follow the instructions provided in the Nok Nok integration guide to complete the OIDC configuration of your Nok Nok cloud tenant.
+1. Go to the noknok.com [Contact](https://noknok.com/contact/) page. 
+2. Fill out the form for a Nok Nok tenant. 
+3. An email arrives with tenant access information and links to documentation. 
+4. Use the Nok Nok integration documentation to complete the tenant OIDC configuration.
 
 ## Integrate with Azure AD B2C
 
