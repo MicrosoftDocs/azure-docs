@@ -263,7 +263,7 @@ export async function getGraphProfile(accessToken) {
 }
 ```
 
-## 6. Get your profile from Microsoft Graph
+## 6. Use frontend app to get your profile from Microsoft Graph
 
 1. Use the frontend web site in a browser. The URL is in the format of `https://<front-end-app-name>.azurewebsites.net/`. You may need to refresh your token if it's expired.
 1. Select `Get user's profile`. This passes your authentication in the bearer token to the backend. 
