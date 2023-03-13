@@ -13,7 +13,7 @@ ms.custom: mvc
 
 [!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
-In this tutorial, you create an Azure Stream Analytics job in the Azure portal and then deploy it as an IoT Edge module with no additional code.
+In this tutorial, you create an Azure Stream Analytics job in the Azure portal and then deploy it as an IoT Edge module with no extra code.
 
 You learn how to:
 > [!div class="checklist"]
@@ -44,7 +44,7 @@ Azure Stream Analytics provides a richly structured query syntax for data analys
 
 ## Create an Azure Stream Analytics job
 
-In this section, you create an Azure Stream Analytics job that will do the following steps:
+In this section, you create an Azure Stream Analytics job that does the following steps:
 
 * Receive data from your IoT Edge device.
 * Query the telemetry data for values outside a set range.
@@ -85,9 +85,9 @@ When you create an Azure Stream Analytics job to run on an IoT Edge device, it n
    | ----- | ----- |
    | Name | Provide a name for your job. For example, **IoTEdgeJob** |
    | Subscription | Choose the same subscription as your IoT hub. |
-   | Resource group | We recommend to use the same resource group for all test resources you create during the IoT Edge quickstarts and tutorials. For example, a resource named **IoTEdgeResources**. |
+   | Resource group | We recommend using the same resource group for all test resources you create during the IoT Edge quickstarts and tutorials. For example, a resource named **IoTEdgeResources**. |
    | Region | Choose a location close to you. |
-   | Hosting environment | Select **Edge**. This option means deployment will go to an IoT Edge device instead of being hosted in the cloud. |
+   | Hosting environment | Select **Edge**. This option means deployment goes to an IoT Edge device instead of being hosted in the cloud. |
 
 1. Select **Review + create**.
 
@@ -145,7 +145,7 @@ This section creates a job that receives temperature data from an IoT Edge devic
     HAVING Avg(machine.temperature) > 70
     ```
 
-   In this query, the SQL code sends a reset command to the alert output if the average machine temperature in a 30-second window reaches 70 degrees. The reset command has been pre-programmed into the sensor as an action that can be taken.
+   In this query, the SQL code sends a reset command to the alert output if the average machine temperature in a 30-second window reaches 70 degrees. The reset command has been preprogrammed into the sensor as an action that can be taken.
 
 1. Select **Save query**.
 
@@ -165,11 +165,11 @@ To prepare your Stream Analytics job to be deployed on an IoT Edge device, you n
 
 ## Deploy the job
 
-You are now ready to deploy the Azure Stream Analytics job on your IoT Edge device.
+You're now ready to deploy the Azure Stream Analytics job on your IoT Edge device.
 
-In this section, you use the **Set Modules** wizard in the Azure portal to create a *deployment manifest*. A deployment manifest is a JSON file that describes all the modules that will be deployed to a device, the container registries that store the module images, how the modules should be managed, and how the modules can communicate with each other. Your IoT Edge device retrieves its deployment manifest from IoT Hub, then uses the information in it to deploy and configure all of its assigned modules.
+In this section, you use the **Set Modules** wizard in the Azure portal to create a *deployment manifest*. A deployment manifest is a JSON file that describes all the modules that get deployed to a device. The manifest also shows the container registries that store the module images, how the modules should be managed, and how the modules can communicate with each other. Your IoT Edge device retrieves its deployment manifest from IoT Hub, then uses the information in it to deploy and configure all of its assigned modules.
 
-For this tutorial, you deploy two modules. The first is **SimulatedTemperatureSensor**, which is a module that simulates a temperature and humidity sensor. The second is your Stream Analytics job. The sensor module provides the stream of data that your job query will analyze.
+For this tutorial, you deploy two modules. The first is **SimulatedTemperatureSensor**, which is a module that simulates a temperature and humidity sensor. The second is your Stream Analytics job. The sensor module provides the stream of data that your job query analyzes.
 
 1. In the Azure portal, navigate to your IoT hub.
 
@@ -177,7 +177,7 @@ For this tutorial, you deploy two modules. The first is **SimulatedTemperatureSe
 
 1. Select **Set modules**.  
 
-1. If you previously deployed the SimulatedTemperatureSensor module on this device, it might autopopulate. If it does not, add the module with the following steps:
+1. If you previously deployed the SimulatedTemperatureSensor module on this device, it might autopopulate. If it doesn't, add the module with the following steps:
 
    1. Select **+ Add** and choose **IoT Edge Module**.
    1. For the name, type **SimulatedTemperatureSensor**.
@@ -200,9 +200,9 @@ For this tutorial, you deploy two modules. The first is **SimulatedTemperatureSe
 
 1. Select **Create**.
 
-1. On your **Set modules** page of your device, after a few minutes, you should see the modules listed and running. Refresh the page if you don't see this, or wait a few more minutes then refresh it again.
+1. On your **Set modules** page of your device, after a few minutes, you should see the modules listed and running. Refresh the page if you don't see modules, or wait a few more minutes then refresh it again.
 
-   :::image type="content" source="media/tutorial-deploy-stream-analytics/module-confirmation.png" alt-text="Screenshot of .":::
+   :::image type="content" source="media/tutorial-deploy-stream-analytics/module-confirmation.png" alt-text="Screenshot that shows your modules list of your device in the Azure portal.":::
 
 ### Understand the two new modules
 
@@ -220,14 +220,18 @@ For this tutorial, you deploy two modules. The first is **SimulatedTemperatureSe
 
 1. On the **Set modules on device:<your-device-name>** page, select **Next: Routes**.
 
-1. On the **Routes** tab, you define how messages are passed between modules and the IoT Hub. Messages are constructed using name and value pairs. Add the route names and values with the pairs shown in following table. Replace instances of `{moduleName}` with the name of your Azure Stream Analytics module.
+1. On the **Routes** tab, you define how messages are passed between modules and the IoT Hub. Messages are constructed using name and value pairs. 
+ 
+   Add the route names and values with the pairs shown in following table. Replace instances of `{moduleName}` with the name of your Azure Stream Analytics module. This module should be the same name you see in the modules list of your device on the **Set modules** page, as shown in the Azure portal.
+
+   :::image type="content" source="media/tutorial-deploy-stream-analytics/stream-analytics-module-name.png" alt-text="Screenshot showing the name of your Stream Analytics modules in your I o T Edge device in the Azure portal." lightbox="media/tutorial-deploy-stream-analytics/stream-analytics-module-name.png":::
 
     | Name | Value |
     | --- | --- |
-    | `telemetryToCloud` | `FROM /messages/modules/SimulatedTemperatureSensor/* INTO $upstream` |
-    | `alertsToCloud` | `FROM /messages/modules/{moduleName}/* INTO $upstream` |
-    | `alertsToReset` | `FROM /messages/modules/{moduleName}/* INTO BrokeredEndpoint("/modules/SimulatedTemperatureSensor/inputs/control")` |
-    | `telemetryToAsa` | `FROM /messages/modules/SimulatedTemperatureSensor/* INTO BrokeredEndpoint("/modules/{moduleName}/inputs/temperature")`|
+    | telemetryToCloud | FROM /messages/modules/SimulatedTemperatureSensor/* INTO $upstream |
+    | alertsToCloud | FROM /messages/modules/{moduleName}/* INTO $upstream |
+    | alertsToReset | FROM /messages/modules/{moduleName}/* INTO BrokeredEndpoint("/modules/SimulatedTemperatureSensor/inputs/control") |
+    | telemetryToAsa | FROM /messages/modules/SimulatedTemperatureSensor/* INTO BrokeredEndpoint("/modules/{moduleName}/inputs/temperature")|
 
     The routes you declare here define the flow of data through the IoT Edge device. The telemetry data from SimulatedTemperatureSensor are sent to IoT Hub and to the **temperature** input that was configured in the Stream Analytics job. The **alert** output messages are sent to IoT Hub and to the SimulatedTemperatureSensor module to trigger the reset command.
 
@@ -264,7 +268,7 @@ Now you can go to your IoT Edge device to see the interaction between the Azure 
 
    You can watch the machine's temperature gradually rise until it reaches 70 degrees for 30 seconds. Then the Stream Analytics module triggers a reset, and the machine temperature drops back to 21.
 
-   ![Reset command output into module logs](./media/tutorial-deploy-stream-analytics/docker_log.png)
+   :::image type="content" source="./media/tutorial-deploy-stream-analytics/docker-log.png" alt-text="Screenshot that shows the reset command in your output from your module logs.":::
 
 ## Clean up resources
 
@@ -276,7 +280,7 @@ Otherwise, you can delete the local configurations and the Azure resources that 
 
 ## Next steps
 
-In this tutorial, you configured an Azure Streaming Analytics job to analyze data from your IoT Edge device. You then loaded this Azure Stream Analytics module on your IoT Edge device to process and react to temperature increase locally, as well as sending the aggregated data stream to the cloud. To see how Azure IoT Edge can create more solutions for your business, continue on to the other tutorials.
+In this tutorial, you configured an Azure Streaming Analytics job to analyze data from your IoT Edge device. You then loaded this Azure Stream Analytics module on your IoT Edge device to process and react to temperature increase locally, and sending the aggregated data stream to the cloud. To see how Azure IoT Edge can create more solutions for your business, continue on to the other tutorials.
 
 > [!div class="nextstepaction"]
 > [Deploy an Azure Machine Learning model as a module](tutorial-deploy-machine-learning.md)
