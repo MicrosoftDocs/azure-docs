@@ -147,7 +147,7 @@ Before configuring a Credential Set, you require to create and store secrets in 
 <!-- LINKS - External -->
 [create-and-store-keyvault-credentials]: ../key-vault/secrets/quick-create-cli.md
 [set-and-retrieve-a-secret]: ../key-vault/secrets/quick-create-cli.md
-[az-keyvault-set-policy]: /azure/key-vault/general/assign-access-policy.md#assign-an-access-policy
+[az-keyvault-set-policy]: ../key-vault/general/assign-access-policy.md#assign-an-access-policy
 [Install Azure CLI]: /cli/azure/install-azure-cli
 [Azure Cloud Shell]: /azure/cloud-shell/quickstart
 [az-acr-cache-create]:/cli/azure/acr/cache#az-acr-cache-create

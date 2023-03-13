@@ -6,7 +6,7 @@ ms.date: 04/19/2022
 ms.author: tejaswikolli
 ---
 
-# Enable Caching for ACR (Preview) - Azure Portal
+# Enable Caching for ACR (Preview) - Azure portal
 
 This article is part two of a six-part tutorial series. [Part one](tutorial-registry-cache.md) provides an overview of Caching for ACR, its features, benefits, and preview limitations. This article walks you through the steps of enabling Caching for ACR by using the Azure portal without authentication.
 
