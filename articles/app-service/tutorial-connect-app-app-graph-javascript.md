@@ -53,13 +53,13 @@ This tutorial doesn't:
 
 ## Understand user consent
 
-In the previous tutorial, when the user signed in to the frontend app, a pop-up displayed asking for user consent to the authentication app. 
+In the previous tutorial, when the user signed in to the frontend app, a pop-up displayed asking for user consent. 
 
 :::image type="content" source="./media/tutorial-auth-aad/browser-screenshot-authentication-permission-requested-pop-up.png" alt-text="Screenshot of browser authentication pop-up requesting permissions.":::
 
-In this tutorial, the backend needs to exchange the user's token for a new token with an audience for **Microsoft Graph** with a scope of **User.Read** in order to get the user's profile. Because the user isn't directly connected to the backend app, the backend authentication app needs to change to _not require_ user consent for Microsoft Graph. 
+In this tutorial, the backend needs to exchange the user's token for a new token with an audience for **Microsoft Graph** with a scope of **User.Read** in order to get the user's profile. Because the user isn't directly connected to the backend app, you need to configure the backend authentication app to _not require_ user consent for Microsoft Graph. 
 
-This is a setting change typically done by an Active Directory administrator. For this tutorial, you change that setting as though you're that role in your organization. If you don't change this setting, the backend app logs an error such as `AADSTS65001: The user or administrator has not consented to use the application with ID \<backend-authentication-id>. Send an interactive authorization request for this user and resource`. Because the error shows up in the log, the user doesn't know why they didn't see their profile in the frontend app.
+This is a setting change typically done by an Active Directory administrator. For this tutorial, you change that setting as though you've been assigned that task in your organization. If you don't change this setting, the backend app logs an error such as `AADSTS65001: The user or administrator has not consented to use the application with ID \<backend-authentication-id>. Send an interactive authorization request for this user and resource`. Because the error shows up in the log for the backend app, the frontend application can't tell the user why they didn't see their profile in the frontend app.
 
 ## 1. Configure backend authentication app with admin consent
 
@@ -80,10 +80,10 @@ Configure the [user consent](#understand-user-consent) for the backend app.
 
 ## 2. Install npm packages
 
-In the previous tutorial, the backend app didn't need any npm packages for authentication because the only authentication was provided by configuring the identity provider. In this tutorial, the user's token for the backend API with `user_impersonation` needs to be exchanged for a Microsoft Graph token. This exchange is completed with two libraries.
+In the previous tutorial, the backend app didn't need any npm packages for authentication because the only authentication was provided by configuring the identity provider in the Azure portal. In this tutorial, the user's token for the backend API with `user_impersonation` needs to be exchanged for a Microsoft Graph token. This exchange is completed with two libraries.
 
-* @azure/msal-node - exchange token
-* @microsoft/microsoft-graph-client - connect to Microsoft Graph
+* [@azure/msal-node](https://www.npmjs.com/package/@azure/msal-node) - exchange token
+* [@microsoft/microsoft-graph-client](https://www.npmjs.com/package/@microsoft/microsoft-graph-client) - connect to Microsoft Graph
 
 1. Open the Azure Cloud Shell and change into the sample directory's backend app:
 
@@ -120,11 +120,23 @@ The source code to complete this step is provided for you. Use the following ste
     import { getGraphProfile } from './with-graph/graph';
     ```
 
+1. In the same file, uncomment the `graphProfile` variable:
+
+    ```javascript
+    let graphProfile={};
+    ```
+
 1. In the same file, uncomment the following `getGraphProfile` lines in the `get-profile` route to get the profile from Microsoft Graph:
 
     ```javascript
-    profile = await getGraphProfile(accessToken);
-    console.log(`profile: ${JSON.stringify(profile)}`);
+    // where did the profile come from
+    profileFromGraph=true;
+
+    // get the profile from Microsoft Graph
+    graphProfile = await getGraphProfile(accessToken);
+
+    // log the profile for debugging
+    console.log(`profile: ${JSON.stringify(graphProfile)}`);
     ```
 
 1. Save the changes: <kbd>Ctrl</kbd> + <kbd>s</kbd>.
@@ -135,7 +147,9 @@ The source code to complete this step is provided for you. Use the following ste
 
 ## 4. Exchange backend API token for the Microsoft Graph token
 
-In order to change the backend API audience token for a Microsoft Graph token, the backend app needs to find the Tenant ID and use that as part of the MSAL.js configuration object. Because the backend app with configuration with Microsoft as the identity provider, the Tenant ID and several other required values are already in the App service environment variables.
+In order to change the backend API audience token for a Microsoft Graph token, the backend app needs to find the Tenant ID and use that as part of the MSAL.js configuration object. Because the backend app with configured with Microsoft as the identity provider, the Tenant ID and several other required values are already in the App service app settings.
+
+The following code is already provided for you in the sample app. You need to understand why it's there and how it works so that you can apply this work to other apps you build that need this same functionality.
 
 ### Get the Tenant ID
 
@@ -213,7 +227,9 @@ export async function getGraphToken(backEndAccessToken) {
 
 ## 5. Get the user's profile from Microsoft Graph
 
-Now that the code has the correct token for Microsoft Graph, it can use the new token to create a client to Microsoft Graph then get the user's profile. 
+Now that the code has the correct token for Microsoft Graph, use it to create a client to Microsoft Graph then get the user's profile. 
+
+The following code is already provided for you in the sample app. You need to understand why it's there and how it works so that you can apply this work to other apps you build that need this same functionality.
 
 ```javascript
 // ./backend/src/graph.js
@@ -247,11 +263,9 @@ export async function getGraphProfile(accessToken) {
 }
 ```
 
-## 6. Browse to the apps
+## 6. Get your profile from Microsoft Graph
 
-Get your profile from Microsoft Graph.
-
-1. Use the frontend web site in a browser. The URL is in the formate of `https://<front-end-app-name>.azurewebsites.net/`. You may need to refresh your token if it's expired.
+1. Use the frontend web site in a browser. The URL is in the format of `https://<front-end-app-name>.azurewebsites.net/`. You may need to refresh your token if it's expired.
 1. Select `Get user's profile`. This passes your authentication in the bearer token to the backend. 
 1. The backend end responds with the _real_ Microsoft Graph profile for your account.
 
@@ -269,10 +283,15 @@ Get your profile from Microsoft Graph.
 * `CompactToken parsing failed with error code: 80049217` means the backend App service isn't authorized to return the Microsoft Graph token. 
 *  `AADSTS65001: The user or administrator has not consented to use the application with ID \<backend-authentication-id>. Send an interactive authorization request for this user and resource` means the backend authentication app hasn't been configured for Admin consent. 
 
-## Connecting to a different Azure service
+## Connect to downstream Azure service as user
 
-This tutorial demonstrates an API app authenticated to **Microsoft Graph**, however, the same general steps can be applied to access any Azure service on behalf of the user. The exchange for a new token must include the scope for that service.
+This tutorial demonstrates an API app authenticated to **Microsoft Graph**, however, the same general steps can be applied to access any Azure service on behalf of the user. 
+
+1. No change to the frontend application. Only changes to the backend's authentication app registration and backend app source code.
+1. Exchange the user's token scoped for backend API for a token to the downstream service you want to access.
+1. Use token in downstream service's SDK to create the client.
+1. Use downstream client to access service functionality.
 
 ## Next steps
 
-* [TBD]()
+* [Deploy a Node.js + MongoDB web app to Azure](tutorial-nodejs-mongodb-app.md)
