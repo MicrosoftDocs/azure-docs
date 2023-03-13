@@ -71,6 +71,7 @@ Organizations can select individual policy templates and:
 - [Block access by location](howto-conditional-access-policy-location.md)
 - [Block access except specific apps](howto-conditional-access-policy-block-access.md)
 
+## User exclusions
 [!INCLUDE [active-directory-policy-exclusions](../../../includes/active-directory-policy-exclude-user.md)]
 
 ## Next steps

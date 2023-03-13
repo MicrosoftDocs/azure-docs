@@ -3,7 +3,7 @@ title: Enable partitioning in Azure Service Bus Premium namespaces
 description: This article explains how to enable partitioning in Azure Service Bus Premium namespaces by using Azure portal, PowerShell, CLI, and programming languages (C#, Java, Python, and JavaScript)
 ms.topic: how-to
 ms.date: 10/12/2022 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, ignite-2022
+ms.custom: ignite-2022
 ms.devlang: azurecli
 ---
 
@@ -76,4 +76,3 @@ Try the samples in the language of your choice to explore Azure Service Bus feat
 - [Azure Service Bus client library samples for Python](/samples/azure/azure-sdk-for-python/servicebus-samples/)
 - [Azure Service Bus client library samples for JavaScript](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
 - [Azure Service Bus client library samples for TypeScript](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
-
