@@ -1,13 +1,13 @@
 ---
 title: Restore Azure Arc-enabled PostgreSQL server
-description: Explains how to restore for Restore Azure Arc-enabled PostgreSQL server. You can restore to a point-in-time or restore a whole server.
+description: Explains how to restore Arc-enabled PostgreSQL server. You can restore to a point-in-time or restore a whole server.
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-postgresql
 author: dhanmm
 ms.author: dhmahaja
 ms.reviewer: mikeray
-ms.date: 11/03/2021
+ms.date: 03/13/2023
 ms.topic: how-to
 ---
 
@@ -23,7 +23,7 @@ Restore an Azure Arc-enabled PostgreSQL server to a new server with the `restore
 az postgres server-arc restore -n <destination-server-name> --source-server <source-server-name> --k8s-namespace <namespace> --use-k8s
 ```
 
-## Examples:
+## Examples
 
 ### Restore using latest backups
 
@@ -41,7 +41,7 @@ Create a new Arc-enabled PostgreSQL server `pg02` by restoring `pg01` using the 
 az postgres server-arc restore -n pg02 --source-server pg01 --k8s-namespace arc --storage-class-data azurefile-csi-premium --volume-size-data 10Gi --storage-class-logs azurefile-csi-premium --volume-size-logs 2Gi--use-k8s --storage-class-backups azurefile-csi-premium --volume-size-backups 15Gi
 ```
 
-## Restore to a specific point in time
+### Restore to a specific point in time
 
 Create a new Arc-enabled PostgreSQL server `pg02` by restoring `pg01` to its state at `2023-02-01T00:00:00Z`:
 ```azurecli
@@ -55,6 +55,7 @@ For details about all the parameters available for restore review the output of 
 az postgres server-arc restore --help
 ```
 
-## Next steps:
+## Next steps
+
 - [Configure automated backup - Azure Arc-enabled PostgreSQL servers](backup-restore-postgresql.md)
 - [Scaling up or down (increasing/decreasing memory/vcores)](scale-up-down-postgresql-server-using-cli.md) your server.
