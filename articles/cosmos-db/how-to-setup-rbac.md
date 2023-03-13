@@ -4,7 +4,7 @@ description: Learn how to configure role-based access control with Azure Active 
 author: seesharprun
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 02/16/2022
+ms.date: 03/13/2023
 ms.author: sidandrews
 ms.reviewer: mjbrown
 ---
@@ -36,10 +36,10 @@ The Azure Cosmos DB data plane RBAC is built on concepts that are commonly found
 ## <a id="permission-model"></a> Permission model
 
 > [!IMPORTANT]
-> This permission model covers only database operations that involve reading and writing data. It does *not* cover any kind of management operations on management resources, for example:
+> This permission model covers only database operations that involve reading and writing data. It **does not** cover any kind of management operations on management resources, including:
 > - Create/Replace/Delete Database
 > - Create/Replace/Delete Container
-> - Replace Container Throughput
+> - Read/Replace Container Throughput
 > - Create/Replace/Delete/Read Stored Procedures
 > - Create/Replace/Delete/Read Triggers
 > - Create/Replace/Delete/Read User Defined Functions
@@ -83,7 +83,7 @@ When using Azure Cosmos DB SDKs, these SDKs issue read-only metadata requests du
 - The partition key of your containers or their indexing policy.
 - The list of physical partitions that make a container and their addresses.
 
-They do *not* fetch any of the data that you've stored in your account.
+They **do not** fetch any of the data that you've stored in your account.
 
 To ensure the best transparency of our permission model, these metadata requests are explicitly covered by the `Microsoft.DocumentDB/databaseAccounts/readMetadata` action. This action should be allowed in every situation where your Azure Cosmos DB account is accessed through one of the Azure Cosmos DB SDKs. It can be assigned (through a role assignment) at any level in the Azure Cosmos DB hierarchy (that is, account, database, or container).
 
@@ -94,6 +94,8 @@ The actual metadata requests allowed by the `Microsoft.DocumentDB/databaseAccoun
 | Account | - Listing the databases under the account<br>- For each database under the account, the allowed actions at the database scope |
 | Database | - Reading database metadata<br>- Listing the containers under the database<br>- For each container under the database, the allowed actions at the container scope |
 | Container | - Reading container metadata<br>- Listing physical partitions under the container<br>- Resolving the address of each physical partition |
+
+> [!IMPORTANT] Throughput is not included in the metadata for this action.
 
 ## Built-in role definitions
 
