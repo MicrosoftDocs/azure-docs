@@ -623,7 +623,7 @@ az group delete --name <CloudShellResourceGroup> --yes
 
 ## Next steps
 
-This tutorial provides you a basic idea of how to connect to the Web PubSub service and publish messages to the connected clients.
+This tutorial provides you with a basic idea of how to connect to the Web PubSub service and publish messages to the connected clients.
 
 Check other tutorials to dive further into how to use the service.
 
