@@ -14,11 +14,6 @@
       "source_path_from_root": "/articles/app-service/app-service-web-restore-snapshots.md",
       "redirect_url": "/azure/app-service/manage-backup",
       "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/app-service/manage-disaster-recovery.md",
-      "redirect_url": "/azure/app-service/overview-disaster-recovery",
-      "redirect_document_id": false
     }
   ]
 }
