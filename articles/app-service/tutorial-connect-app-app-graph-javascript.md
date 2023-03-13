@@ -4,7 +4,7 @@ description: Learn how to use App Service authentication and authorization to se
 keywords: app service, azure app service, authN, authZ, secure, security, multi-tiered, azure active directory, azure ad
 ms.devlang: javascript
 ms.topic: tutorial
-ms.date: 3/09/2023
+ms.date: 3/13/2023
 ms.custom: "devx-track-js, seodec18, devx-track-azurecli, engagement-fy23"
 zone_pivot_groups: app-service-platform-windows-linux
 # Requires non-internal subscription - internal subscriptons doesn't provide permission to correctly configure AAD apps
