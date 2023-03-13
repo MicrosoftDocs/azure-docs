@@ -216,6 +216,7 @@ To pass the identity provider's refresh token, follow these steps:
 
 1. Save the changes you made in your policy's relying party policy file.
 1. Upload the *TrustframeworkExtensions.xml* file, and then the relying party policy file.
+1. [Test your policy](#test-your-policy)
  
 
  
