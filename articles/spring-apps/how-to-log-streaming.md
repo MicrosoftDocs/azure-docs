@@ -144,6 +144,9 @@ For an Azure Spring Apps instance deployed in a custom virtual network, you can 
 
 Azure Spring Apps also enables you to access real-time app logs from a public network using Azure portal or the Azure CLI.
 
+> [!NOTE]
+> Enable log stream endpoint on the public network would add a public inbound IP in your virtual network. Please enable this with caution if you are sensitive about this.
+
 ### [Azure portal](#tab/azure-portal)
 
 Use the following steps to enable a log streaming endpoint on the public network.
@@ -177,8 +180,9 @@ Log streaming uses the same key as the test endpoint described in [Set up a stag
 
 To ensure the security of your applications when you expose a public endpoint for them, secure the endpoint by filtering network traffic to your service with a network security group. For more information, see [Tutorial: Filter network traffic with a network security group using the Azure portal](../virtual-network/tutorial-filter-network-traffic.md). A network security group contains security rules that allow or deny inbound network traffic to, or outbound network traffic from, several types of Azure resources. For each rule, you can specify source and destination, port, and protocol.
 
-> [!NOTE]
-> If you can't access app logs in the VNet injection instance from the internet after you've enabled a log stream public endpoint, check your network security group to see whether you've allowed such inbound traffic.
+The following is a recommanded basic rule example from us. You could use commands like nslookup with the endpoint 
+
+    :::image type="content" source="media/how-to-log-streaming/logstream-nsg.png" alt-text="Screenshot of recommanded network security group rule." lightbox="media/how-to-log-streaming/logstream-nsg.png":::
 
 ## Next steps
 
