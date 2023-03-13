@@ -53,7 +53,7 @@ The following sections explain common scenarios where you can use Azure Cosmos D
 
 ## Understand how many requests are succeeding or causing errors
 
-To get started, head to the [Azure portal](https://portal.azure.com) and navigate to the **Insights** pane. From this pane, open the **Requests** tab, it shows a chart with the total requests segmented by the status code and operation type. For more information about HTTP status codes, see [HTTP status codes for Azure Cosmos DB](/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
+To get started, head to the [Azure portal](https://portal.azure.com) and navigate to the **Insights** pane. From this pane, open the **Requests** tab. The Requests tab shows a chart with the total requests segmented by the status code and operation type. For more information about HTTP status codes, see [HTTP status codes for Azure Cosmos DB](/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
 
 The most common error status code is 429 (rate limiting/throttling). This error means that requests to Azure Cosmos DB are more than the provisioned throughput. The most common solution to this problem is to scale up the RUs for the given collection. For more information, see [Introduction to provisioned throughput in Azure Cosmos DB](./set-throughput.md)
 
