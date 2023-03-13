@@ -7,8 +7,9 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.author: larryfr
-author: Blackmist
+ms.author: vaidyas
+author: vaidya-s
+ms.reviewer: larryfr
 ms.date: 09/09/2022
 ---
 
@@ -23,6 +24,8 @@ When to use Event Grid for event driven actions:
 * Use an Azure function after a model is registered
 * Streaming events from Azure Machine Learning to various of endpoints
 * Trigger an ML pipeline when drift is detected
+
+[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## Prerequisites
 
@@ -182,7 +185,7 @@ Use [Azure Logic Apps](../logic-apps/index.yml) to configure emails for all your
 ### Example: Data drift triggers retraining
 
 > [!IMPORTANT]
-> This example relies on a feature (data drift) that is only available when using Azure Machine Learning SDK v1 or Azure CLI extension v1 for Azure Machine Learning. For more information, see [What is Azure ML CLI & SDK v2](concept-v2.md).
+> This example relies on a feature (data drift) that is only available when using Azure Machine Learning SDK v1 or Azure CLI extension v1 for Azure Machine Learning. For more information, see [What is Azure Machine Learning CLI & SDK v2](concept-v2.md).
 
 Models go stale over time, and not remain useful in the context it is running in. One way to tell if it's time to retrain the model is detecting data drift. 
 
@@ -190,7 +193,7 @@ This example shows how to use event grid with an Azure Logic App to trigger retr
 
 Before you begin, perform the following actions:
 
-* Set up a dataset monitor to [detect data drift](v1/how-to-monitor-datasets.md) in a workspace
+* Set up a dataset monitor to [detect data drift (SDK/CLI v1)](v1/how-to-monitor-datasets.md) in a workspace
 * Create a published [Azure Data Factory pipeline](../data-factory/index.yml).
 
 In this example, a simple Data Factory pipeline is used to copy files into a blob store and run a published Machine Learning pipeline. For more information on this scenario, see how to set up a [Machine Learning step in Azure Data Factory](../data-factory/transform-data-machine-learning-service.md)

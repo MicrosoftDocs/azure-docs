@@ -106,11 +106,14 @@ Example of a `data` entry:
 
 ## Upload frequency
 
-In the **indirect** mode, usage information needs to be uploaded to Azure at least once in every 30 days. It is highly recommended to upload more frequently, such as daily or weekly. If usage information is not uploaded past 32 days, you will see some degradation in the service such as being unable to provision any new resources. 
+In the **indirect** mode, usage information needs to be uploaded to Azure at least once in every 30 days. It is highly recommended to upload more frequently, such as daily. If usage information is not uploaded past 32 days, you will see some degradation in the service such as being unable to provision any new resources. 
 
 There will be two types of notifications for delayed usage uploads - warning phase and degraded phase. In the warning phase there will be a message such as `Billing data for the Azure Arc data controller has not been uploaded in {0} hours.  Please upload billing data as soon as possible.`. 
 
 In the degraded phase, the message will look like `Billing data for the Azure Arc data controller has not been uploaded in {0} hours.  Some functionality will not be available until the billing data is uploaded.`.
+
+> [!NOTE]
+> You will see the warning message if usage has not been uploaded for more than 48 hours. 
 
 The Azure portal Overview page for Data Controller and the Custom Resource status of the Data controller in your kubernetes cluster will  both indicate the last upload date and the status message(s).
 

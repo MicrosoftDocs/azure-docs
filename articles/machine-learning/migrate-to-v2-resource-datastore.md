@@ -1,7 +1,7 @@
 ---
-title: Migrate datastore management from SDK v1 to SDK v2
+title: Upgrade datastore management to SDK v2
 titleSuffix: Azure Machine Learning
-description: Migrate datastore management from v1 to v2 of Azure Machine Learning SDK
+description: Upgrade datastore management from v1 to v2 of Azure Machine Learning SDK
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,9 +13,9 @@ ms.reviewer: sgilley
 ms.custom: migration
 ---
 
-# Migrate datastore management from SDK v1 to SDK v2
+# Upgrade datastore management to SDK v2
 
-Azure Machine Learning Datastores securely keep the connection information to your data storage on Azure, so you don't have to code it in your scripts. V2 Datastore concept remains mostly unchanged compared with V1. The difference is we won't support SQL-like data sources via AzureML Datastores. We'll support SQL-like data sources via AzureML data import&export functionalities.
+Azure Machine Learning Datastores securely keep the connection information to your data storage on Azure, so you don't have to code it in your scripts. V2 Datastore concept remains mostly unchanged compared with V1. The difference is we won't support SQL-like data sources via Azure Machine Learning Datastores. We'll support SQL-like data sources via Azure Machine Learning data import&export functionalities.
 
 This article gives a comparison of scenario(s) in SDK v1 and SDK v2.
 
@@ -88,9 +88,9 @@ This article gives a comparison of scenario(s) in SDK v1 and SDK v2.
         description="Datastore pointing to a blob container using SAS token.",
         account_name="mytestblobstore",
         container_name="data-container",
-        credentials={
-            "sas_token": "?xx=XXXX-XX-XX&xx=xxxx&xxx=xxx&xx=xxxxxxxxxxx&xx=XXXX-XX-XXXXX:XX:XXX&xx=XXXX-XX-XXXXX:XX:XXX&xxx=xxxxx&xxx=XXxXXXxxxxxXXXXXXXxXxxxXXXXXxxXXXXXxXXXXxXXXxXXxXX"
-        },
+        credentials=SasTokenCredentials(
+            sas_token= "?xx=XXXX-XX-XX&xx=xxxx&xxx=xxx&xx=xxxxxxxxxxx&xx=XXXX-XX-XXXXX:XX:XXX&xx=XXXX-XX-XXXXX:XX:XXX&xxx=xxxxx&xxx=XXxXXXxxxxxXXXXXXXxXxxxXXXXXxxXXXXXxXXXXxXXXxXXxXX"
+        ),
     )
     
     ml_client.create_or_update(store)
@@ -148,7 +148,7 @@ blob_datastore = Datastore.register_azure_blob_container(workspace=ws,
     from azure.ai.ml import MLClient
     from azure.identity import DefaultAzureCredential
     
-    #Enter details of your AzureML workspace
+    #Enter details of your Azure Machine Learning workspace
     subscription_id = '<SUBSCRIPTION_ID>'
     resource_group = '<RESOURCE_GROUP>'
     workspace_name = '<AZUREML_WORKSPACE_NAME>'
@@ -157,16 +157,16 @@ blob_datastore = Datastore.register_azure_blob_container(workspace=ws,
                          subscription_id=subscription_id, 
                          resource_group_name=resource_group)
     
-    datastore = ml_client.datastores.get(datastore_name='your datastore name')
+    datastore = ml_client.datastores.get(name='your datastore name')
     ```
 
 ## Mapping of key functionality in SDK v1 and SDK v2
 
 |Storage types in SDK v1|Storage types in SDK v2|
 |--------------|-------------------|
-|[azureml_blob_datastore](/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py&preserve-view=true)|[azureml_blob_datastore](/python/api/azure-ai-ml/azure.ai.ml.entities.azuredatalakegen1datastore?view=azure-python-preview&preserve-view=true)|
-|[azureml_data_lake_gen1_datastore](/python/api/azureml-core/azureml.data.azure_data_lake_datastore.azuredatalakedatastore?view=azure-ml-py&preserve-view=true)|[azureml_data_lake_gen1_datastore](/python/api/azure-ai-ml/azure.ai.ml.entities.azuredatalakegen1datastore?view=azure-python-preview&preserve-view=true)|
-|[azureml_data_lake_gen2_datastore](/python/api/azureml-core/azureml.data.azure_data_lake_datastore.azuredatalakegen2datastore?view=azure-ml-py&preserve-view=true)|[azureml_data_lake_gen2_datastore](/python/api/azure-ai-ml/azure.ai.ml.entities.azuredatalakegen2datastore?view=azure-python-preview&preserve-view=true)|
+|[azureml_blob_datastore](/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py&preserve-view=true)|[azureml_blob_datastore](/python/api/azure-ai-ml/azure.ai.ml.entities.azuredatalakegen1datastore)|
+|[azureml_data_lake_gen1_datastore](/python/api/azureml-core/azureml.data.azure_data_lake_datastore.azuredatalakedatastore?view=azure-ml-py&preserve-view=true)|[azureml_data_lake_gen1_datastore](/python/api/azure-ai-ml/azure.ai.ml.entities.azuredatalakegen1datastore)|
+|[azureml_data_lake_gen2_datastore](/python/api/azureml-core/azureml.data.azure_data_lake_datastore.azuredatalakegen2datastore?view=azure-ml-py&preserve-view=true)|[azureml_data_lake_gen2_datastore](/python/api/azure-ai-ml/azure.ai.ml.entities.azuredatalakegen2datastore)|
 |[azuremlml_sql_database_datastore](/python/api/azureml-core/azureml.data.azure_sql_database_datastore.azuresqldatabasedatastore?view=azure-ml-py&preserve-view=true)|Will be supported via import & export functionalities|
 |[azuremlml_my_sql_datastore](/python/api/azureml-core/azureml.data.azure_my_sql_datastore.azuremysqldatastore?view=azure-ml-py&preserve-view=true)|Will be supported via import & export functionalities|
 |[azuremlml_postgre_sql_datastore](/python/api/azureml-core/azureml.data.azure_postgre_sql_datastore.azurepostgresqldatastore?view=azure-ml-py&preserve-view=true)|Will be supported via import & export functionalities|
@@ -178,5 +178,5 @@ For more information, see:
 
 * [Create datastores](how-to-datastore.md?tabs=cli-identity-based-access%2Csdk-adls-sp%2Csdk-azfiles-sas%2Csdk-adlsgen1-sp)
 * [Read and write data in a job](how-to-read-write-data-v2.md)
-* [V2 datastore operations](/python/api/azure-ai-ml/azure.ai.ml.operations.datastoreoperations?view=azure-python-preview)
+* [V2 datastore operations](/python/api/azure-ai-ml/azure.ai.ml.operations.datastoreoperations)
 

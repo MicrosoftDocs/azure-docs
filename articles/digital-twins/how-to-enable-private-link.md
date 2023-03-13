@@ -58,7 +58,7 @@ The Private Link options are located in the **Networking** tab of instance setup
 
 1. In the **Create private endpoint** page that opens, enter the details of a new private endpoint.
 
-    :::image type="content" source="media/how-to-enable-private-link/create-private-endpoint-full.png" alt-text="Screenshot of the Azure portal showing the Create private endpoint page. It contains the fields described below.":::
+    :::image type="content" source="media/how-to-enable-private-link/create-private-endpoint-full.png" alt-text="Screenshot of the Azure portal showing the Create private endpoint page. It contains the fields described below." lightbox="media/how-to-enable-private-link/create-private-endpoint-full.png":::
 
     1. Fill in selections for your **Subscription** and **Resource group**. Set the **Location** to the same location as the VNet you'll be using. Choose a **Name** for the endpoint, and for **Target sub-resources** select *API*.
 
@@ -181,7 +181,7 @@ For more information and examples, see the [az dt network private-link reference
 
 ## Disable / enable public network access flags
 
-You can configure your Azure Digital Twins instance to deny all public connections and allow only connections through private endpoints to enhance the network security. This action is done with a *public network access flag*. 
+You can configure your Azure Digital Twins instance to deny all public connections and allow only connections through private access endpoints to enhance the network security. This action is done with a *public network access flag*. 
 
 This policy allows you to restrict API access to Private Link connections only. When the public network access flag is set to `disabled`, all REST API calls to the Azure Digital Twins instance data plane from the public cloud will return `403, Unauthorized`. Otherwise, when the policy is set to `disabled` and a request is made through a private endpoint, the API call will succeed.
 
@@ -195,13 +195,7 @@ To disable or enable public network access in the [Azure portal](https://portal.
 
 1. In the **Public access** tab, set **Allow public network access to** either **Disabled** or **All networks**.
 
-    :::row:::
-        :::column:::
-            :::image type="content" source="media/how-to-enable-private-link/network-flag-portal.png" alt-text="Screenshot of the Azure portal showing the Networking page for an Azure Digital Twins instance, highlighting how to toggle public access." lightbox="media/how-to-enable-private-link/network-flag-portal.png":::
-        :::column-end:::
-        :::column:::
-        :::column-end:::
-    :::row-end:::
+   :::image type="content" source="media/how-to-enable-private-link/network-flag-portal.png" alt-text="Screenshot of the Azure portal showing the Networking page for an Azure Digital Twins instance, highlighting how to toggle public access." lightbox="media/how-to-enable-private-link/network-flag-portal.png":::
 
     Select **Save**.
 

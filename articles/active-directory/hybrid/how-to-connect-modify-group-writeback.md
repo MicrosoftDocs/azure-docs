@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/15/2022
+ms.date: 01/26/2023
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -28,30 +28,88 @@ This article walks you through the options for modifying the default behaviors o
 
 If the original version of group writeback is already enabled and in use in your environment, all your Microsoft 365 groups have already been written back to Active Directory. Instead of disabling all Microsoft 365 groups, review any use of the previously written-back groups. Disable only those that are no longer needed in on-premises Active Directory. 
 
-### Disable automatic writeback of all Microsoft 365 groups 
+### Disable automatic writeback of new Microsoft 365 groups 
 
 To configure directory settings to disable automatic writeback of newly created Microsoft 365 groups, use one of these methods:
 
 - Azure portal: Update the `NewUnifiedGroupWritebackDefault` setting to `false`. 
-- PowerShell: Use the [New-AzureADDirectorySetting](../enterprise-users/groups-settings-cmdlets.md) cmdlet. For example:
+- PowerShell: Use the [Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/installation?view=graph-powershell-1.0&preserve-view=true). For example: 
     
   ```PowerShell 
-  $TemplateId = (Get-AzureADDirectorySettingTemplate | where {$_.DisplayName -eq "Group.Unified" }).Id 
-  $Template = Get-AzureADDirectorySettingTemplate | where -Property Id -Value $TemplateId -EQ 
-  $Setting = $Template.CreateDirectorySetting() 
-  $Setting["NewUnifiedGroupWritebackDefault"] = "False" 
-  New-AzureADDirectorySetting -DirectorySetting $Setting 
+  # Import Module
+  Import-Module Microsoft.Graph.Identity.DirectoryManagement
+
+  #Connect to MgGraph with necessary scope and select the Beta API Version
+  Connect-MgGraph -Scopes Directory.ReadWrite.All
+  Select-MgProfile -Name beta
+
+  # Verify if "Group.Unified" directory settings exist
+  $DirectorySetting = Get-MgDirectorySetting | Where-Object {$_.DisplayName -eq "Group.Unified"}
+
+  # If "Group.Unified" directory settings exist, update the value for new unified group writeback default
+  if ($DirectorySetting) {
+    $DirectorySetting.Values | ForEach-Object {
+        if ($_.Name -eq "NewUnifiedGroupWritebackDefault") {
+            $_.Value = "false"
+        }
+    }
+    Update-MgDirectorySetting -DirectorySettingId $DirectorySetting.Id -BodyParameter $DirectorySetting
+  }
+  else
+  {
+    # In case the directory setting doesn't exist, create a new "Group.Unified" directory setting
+    # Import "Group.Unified" template values to a hashtable
+    $Template = Get-MgDirectorySettingTemplate | Where-Object {$_.DisplayName -eq "Group.Unified"}
+    $TemplateValues = @{}
+    $Template.Values | ForEach-Object {
+        $TemplateValues.Add($_.Name, $_.DefaultValue)
+    }
+
+    # Update the value for new unified group writeback default
+    $TemplateValues["NewUnifiedGroupWritebackDefault"] = "false"
+    
+    # Create a directory setting using the Template values hashtable including the updated value
+    $params = @{}
+    $params.Add("TemplateId", $Template.Id)
+    $params.Add("Values", @())
+    $TemplateValues.Keys | ForEach-Object {
+        $params.Values += @(@{Name = $_; Value = $TemplateValues[$_]})
+    }
+    New-MgDirectorySetting -BodyParameter $params
+  }
   ``` 
 
-- Microsoft Graph: Use the [directorySetting](/graph/api/resources/directorysetting?view=graph-rest-beta) resource type. 
+> [!NOTE]     
+> We recommend using Microsoft Graph PowerShell SDK with [Windows PowerShell 7](/powershell/scripting/whats-new/migrating-from-windows-powershell-51-to-powershell-7?view=powershell-7.3&preserve-view=true).
 
-### Disable writeback for each existing Microsoft 365 group 
+- Microsoft Graph: Use the [directorySetting](/graph/api/resources/directorysetting?view=graph-rest-beta&preserve-view=true) resource type. 
+
+### Disable writeback for all existing Microsoft 365 group 
+
+To disable writeback of all Microsoft 365 groups that were created before these modifications, use one of the folowing methods:
 
 - Portal: Use the [Microsoft Entra admin portal](../enterprise-users/groups-write-back-portal.md).
-- PowerShell: Use the [Microsoft Identity Tools PowerShell module](https://www.powershellgallery.com/packages/MSIdentityTools/2.0.16). For example: 
+- PowerShell: Use the [Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/installation?view=graph-powershell-1.0&preserve-view=true). For example: 
   
-  `Get-mggroup -filter "groupTypes/any(c:c eq 'Unified')" | Update-MsIdGroupWritebackConfiguration -WriteBackEnabled $false` 
-- Microsoft Graph: Use a [group object](/graph/api/group-update?tabs=http&view=graph-rest-beta). 
+  ```PowerShell
+    #Import-module
+    Import-module Microsoft.Graph
+
+    #Connect to MgGraph with necessary scope and select the Beta API Version
+    Connect-MgGraph -Scopes Group.ReadWrite.All
+    Select-MgProfile -Name beta
+
+    #List all Microsoft 365 Groups
+    $Groups = Get-MgGroup -All | Where-Object {$_.GroupTypes -like "*unified*"}
+
+    #Disable Microsoft 365 Groups
+    Foreach ($group in $Groups) 
+    {
+        Update-MgGroup -GroupId $group.id -WritebackConfiguration @{isEnabled=$false}
+    }
+  ```
+      
+- Microsoft Graph Explorer: Use a [group object](/graph/api/group-update?tabs=http&view=graph-rest-beta&preserve-view=true). 
 
 ## Delete groups when they're disabled for writeback or soft deleted 
 
@@ -70,56 +128,56 @@ To configure directory settings to disable automatic writeback of newly created 
    import-module ADSync 
    $precedenceValue = Read-Host -Prompt "Enter a unique sync rule precedence value [0-99]" 
 
-   New-ADSyncRule  ` 
-   -Name 'In from AAD - Group SOAinAAD Delete WriteBackOutOfScope and SoftDelete' ` 
-   -Identifier 'cb871f2d-0f01-4c32-a333-ff809145b947' ` 
-   -Description 'Delete AD groups that fall out of scope of Group Writeback or get Soft Deleted in Azure AD' ` 
-   -Direction 'Inbound' ` 
-   -Precedence $precedenceValue ` 
-   -PrecedenceAfter '00000000-0000-0000-0000-000000000000' ` 
-   -PrecedenceBefore '00000000-0000-0000-0000-000000000000' ` 
-   -SourceObjectType 'group' ` 
-   -TargetObjectType 'group' ` 
-   -Connector 'b891884f-051e-4a83-95af-2544101c9083' ` 
-   -LinkType 'Join' ` 
-   -SoftDeleteExpiryInterval 0 ` 
-   -ImmutableTag '' ` 
-   -OutVariable syncRule 
+   New-ADSyncRule  `
+   -Name 'In from AAD - Group SOAinAAD Delete WriteBackOutOfScope and SoftDelete' `
+   -Identifier 'cb871f2d-0f01-4c32-a333-ff809145b947' `
+   -Description 'Delete AD groups that fall out of scope of Group Writeback or get Soft Deleted in Azure AD' `
+   -Direction 'Inbound' `
+   -Precedence $precedenceValue `
+   -PrecedenceAfter '00000000-0000-0000-0000-000000000000' `
+   -PrecedenceBefore '00000000-0000-0000-0000-000000000000' `
+   -SourceObjectType 'group' `
+   -TargetObjectType 'group' `
+   -Connector 'b891884f-051e-4a83-95af-2544101c9083' `
+   -LinkType 'Join' `
+   -SoftDeleteExpiryInterval 0 `
+   -ImmutableTag '' `
+   -OutVariable syncRule
 
-   Add-ADSyncAttributeFlowMapping  ` 
-   -SynchronizationRule $syncRule[0] ` 
-   -Destination 'reasonFiltered' ` 
-   -FlowType 'Expression' ` 
-   -ValueMergeType 'Update' ` 
-   -Expression 'IIF((IsPresent([reasonFiltered]) = True) && (InStr([reasonFiltered], "WriteBackOutOfScope") > 0 || InStr([reasonFiltered], "SoftDelete") > 0), "DeleteThisGroupInAD", [reasonFiltered])' ` 
-    -OutVariable syncRule 
+   Add-ADSyncAttributeFlowMapping  `
+   -SynchronizationRule $syncRule[0] `
+   -Destination 'reasonFiltered' `
+   -FlowType 'Expression' `
+   -ValueMergeType 'Update' `
+   -Expression 'IIF((IsPresent([reasonFiltered]) = True) && (InStr([reasonFiltered], "WriteBackOutOfScope") > 0 || InStr([reasonFiltered], "SoftDelete") > 0), "DeleteThisGroupInAD", [reasonFiltered])' `
+    -OutVariable syncRule
 
-   New-Object  ` 
-   -TypeName 'Microsoft.IdentityManagement.PowerShell.ObjectModel.ScopeCondition' ` 
-   -ArgumentList 'cloudMastered','true','EQUAL' ` 
-   -OutVariable condition0 
+   New-Object  `
+   -TypeName 'Microsoft.IdentityManagement.PowerShell.ObjectModel.ScopeCondition' `
+   -ArgumentList 'cloudMastered','true','EQUAL' `
+   -OutVariable condition0
 
-   Add-ADSyncScopeConditionGroup  ` 
-   -SynchronizationRule $syncRule[0] ` 
-   -ScopeConditions @($condition0[0]) ` 
-   -OutVariable syncRule 
+   Add-ADSyncScopeConditionGroup  `
+   -SynchronizationRule $syncRule[0] `
+   -ScopeConditions @($condition0[0]) `
+   -OutVariable syncRule
  
-   New-Object  ` 
-   -TypeName 'Microsoft.IdentityManagement.PowerShell.ObjectModel.JoinCondition' ` 
-   -ArgumentList 'cloudAnchor','cloudAnchor',$false ` 
-   -OutVariable condition0 
+   New-Object  `
+   -TypeName 'Microsoft.IdentityManagement.PowerShell.ObjectModel.JoinCondition' `
+   -ArgumentList 'cloudAnchor','cloudAnchor',$false `
+   -OutVariable condition0
 
-   Add-ADSyncJoinConditionGroup  ` 
-   -SynchronizationRule $syncRule[0] ` 
-   -JoinConditions @($condition0[0]) ` 
-   -OutVariable syncRule 
+   Add-ADSyncJoinConditionGroup  `
+   -SynchronizationRule $syncRule[0] `
+   -JoinConditions @($condition0[0]) `
+   -OutVariable syncRule
 
-   Add-ADSyncRule  ` 
-   -SynchronizationRule $syncRule[0] 
+   Add-ADSyncRule  `
+   -SynchronizationRule $syncRule[0]
 
-   Get-ADSyncRule  ` 
-   -Identifier 'cb871f2d-0f01-4c32-a333-ff809145b947' 
-   ``` 
+   Get-ADSyncRule  `
+   -Identifier 'cb871f2d-0f01-4c32-a333-ff809145b947'
+   ```
 
 4. [Enable group writeback](how-to-connect-group-writeback-enable.md). 
 5. Enable the Azure AD Connect sync scheduler: 

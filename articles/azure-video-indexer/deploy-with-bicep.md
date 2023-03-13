@@ -12,7 +12,7 @@ In this tutorial, you create an Azure Video Indexer account by using [Bicep](../
 
 > [!NOTE]
 > This sample is *not* for connecting an existing Azure Video Indexer classic account to an ARM-based Azure Video Indexer account.
-> For full documentation on Azure Video Indexer API, visit the [Developer portal](https://aka.ms/avam-dev-portal) page.
+> For full documentation on Azure Video Indexer API, visit the [developer portal](https://aka.ms/avam-dev-portal) page.
 > For the latest API version for Microsoft.VideoIndexer, see the [template reference](/azure/templates/microsoft.videoindexer/accounts?tabs=bicep).
 
 ## Prerequisites
@@ -21,13 +21,38 @@ In this tutorial, you create an Azure Video Indexer account by using [Bicep](../
 
 ## Review the Bicep file
 
-The Bicep file used in this tutorial is:
-
-:::code language="bicep" source="~/media-services-video-indexer/ARM-Quick-Start/avam.template.bicep":::
-
 One Azure resource is defined in the bicep file:
 
-* [Microsoft.videoIndexer/accounts](/azure/templates/microsoft.videoindexer/accounts?tabs=bicep)
+```bicep
+param location string = resourceGroup().location
+
+@description('The name of the AVAM resource')
+param accountName string
+
+@description('The managed identity Resource Id used to grant access to the Azure Media Service (AMS) account')
+param managedIdentityResourceId string
+
+@description('The media Service Account Id. The Account needs to be created prior to the creation of this template')
+param mediaServiceAccountResourceId string
+
+@description('The AVAM Template')
+resource avamAccount 'Microsoft.VideoIndexer/accounts@2022-08-01' = {
+  name: accountName
+  location: location
+  identity:{
+    type: 'UserAssigned'
+    userAssignedIdentities : {
+      '${managedIdentityResourceId}' : {}
+    }
+  }
+  properties: {
+    mediaServices: {
+      resourceId: mediaServiceAccountResourceId
+      userAssignedIdentity: managedIdentityResourceId
+    }
+  }
+}
+```
 
 Check [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates) for more updated Bicep samples.
 
@@ -62,8 +87,8 @@ Check [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-tem
 
 If you're new to Azure Video Indexer, see:
 
-* [Azure Video Indexer Documentation](./index.yml)
-* [Azure Video Indexer Developer Portal](https://api-portal.videoindexer.ai/)
+* [The Azure Video Indexer documentation](./index.yml)
+* [The Azure Video Indexer developer portal](https://api-portal.videoindexer.ai/)
 * After completing this tutorial, head to other Azure Video Indexer samples, described on [README.md](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/README.md)
 
 If you're new to Bicep deployment, see:

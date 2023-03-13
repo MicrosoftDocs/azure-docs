@@ -1,11 +1,11 @@
 ---
 title: Log metrics in the designer
 titleSuffix: Azure Machine Learning
-description: Monitor your Azure ML designer experiments. Enable logging using the Execute Python Script component and view the logged results in the studio.
+description: Monitor your Azure Machine Learning designer experiments. Enable logging using the Execute Python Script component and view the logged results in the studio.
 services: machine-learning
 author: likebupt
 ms.author: keli19
-ms.reviewer: peterlu
+ms.reviewer: lagayhar
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 10/21/2021
@@ -18,7 +18,7 @@ ms.custom: designer, sdkv1, event-tier1-build-2022
 
 In this article, you learn how to add logging code to designer pipelines. You also learn how to view those logs using the Azure Machine Learning studio web portal.
 
-For more information on logging metrics using the SDK authoring experience, see [Monitor Azure ML experiment runs and metrics](how-to-log-view-metrics.md).
+For more information on logging metrics using the SDK authoring experience, see [Monitor Azure Machine Learning experiment runs and metrics](how-to-log-view-metrics.md).
 
 ## Enable logging with Execute Python Script
 
@@ -58,7 +58,7 @@ The following example shows you how to log the mean squared error of two trained
     
 This code uses the Azure Machine Learning Python SDK to log values. It uses Run.get_context() to get the context of the current run. It then logs values to that context with the run.parent.log() method. It uses `parent` to log values to the parent pipeline run rather than the component run.
 
-For more information on how to use the Python SDK to log values, see [Enable logging in Azure ML training runs](how-to-log-view-metrics.md).
+For more information on how to use the Python SDK to log values, see [Enable logging in Azure Machine Learning training runs](how-to-log-view-metrics.md).
 
 ## View logs
 
@@ -77,5 +77,5 @@ In this article, you learned how to use logs in the designer. For next steps, se
 
 
 * Learn how to troubleshoot designer pipelines, see [Debug & troubleshoot ML pipelines](v1/how-to-debug-pipelines.md#azure-machine-learning-designer).
-* Learn how to use the Python SDK to log metrics in the SDK authoring experience, see [Enable logging in Azure ML training runs](how-to-log-view-metrics.md).
+* Learn how to use the Python SDK to log metrics in the SDK authoring experience, see [Enable logging in Azure Machine Learning training runs](how-to-log-view-metrics.md).
 * Learn how to use [Execute Python Script](./algorithm-module-reference/execute-python-script.md) in the designer.

@@ -7,10 +7,10 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 ms.custom: cliv2, event-tier1-build-2022
-author: s-polly
-ms.author: scottpolly
+author: cloga
+ms.author: lochen
 ms.date: 08/08/2022
-ms.reviewer: larryfr
+ms.reviewer: lagayhar
 ---
 
 # CLI (v2) command component YAML schema
@@ -30,10 +30,11 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `$schema` | string | The YAML schema. If you use the Azure Machine Learning VS Code extension to author the YAML file, including `$schema` at the top of your file enables you to invoke schema and resource completions. | | |
 | `type` | const | The type of component. | `command` | `command` |
 | `name` | string | **Required.** Name of the component. Must start with lowercase letter. Allowed characters are lowercase letters, numbers, and underscore(_). Maximum length is 255 characters.| | |
-| `version` | string | Version of the component. If omitted, Azure ML will autogenerate a version. | | |
+| `version` | string | Version of the component. If omitted, Azure Machine Learning will autogenerate a version. | | |
 | `display_name` | string | Display name of the component in the studio UI. Can be non-unique within the workspace. | | |
 | `description` | string | Description of the component. | | |
 | `tags` | object | Dictionary of tags for the component. | | |
+| `is_deterministic` | boolean |This option determines if the component will produce the same output for the same input data. You should usually set this to `false` for components that load data from external sources, such as importing data from a URL. This is because the data at the URL might change over time. | | `true` |
 | `command` | string | **Required.** The command to execute. | | |
 | `code` | string | Local path to the source code directory to be uploaded and used for the component. | | |
 | `environment` | string or object | **Required.** The environment to use for the component. This value can be either a reference to an existing versioned environment in the workspace or an inline environment specification. <br><br> To reference an existing environment, use the `azureml:<environment-name>:<environment-version>` syntax. <br><br> To define an environment inline, follow the [Environment schema](reference-yaml-environment.md#yaml-syntax). Exclude the `name` and `version` properties as they are not supported for inline environments. | | |

@@ -4,7 +4,7 @@ description: Learn how to enable InfiniBand on Azure HPC VMs.
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 04/28/2021
+ms.date: 03/04/2023
 ms.reviewer: cynthn
 ms.author: mamccrea
 author: mamccrea
@@ -32,7 +32,7 @@ To add the VM extension to a VM, you can use [Azure PowerShell](/powershell/azur
 [Mellanox OpenFabrics drivers (OFED)](https://www.mellanox.com/products/InfiniBand-VPI-Software) can be manually installed on the [SR-IOV enabled](../../sizes-hpc.md#rdma-capable-instances) [H-series](../../sizes-hpc.md) and [N-series](../../sizes-gpu.md) VMs.
 
 ### Linux
-The [OFED drivers for Linux](https://www.mellanox.com/products/infiniband-drivers/linux/mlnx_ofed) can be installed with the example below. Though the example here is for RHEL/CentOS, but the steps are general and can be used for any compatible Linux operating system such as Ubuntu (16.04, 18.04 19.04, 20.04) and SLES (12 SP4 and 15). More examples for others distros is on the [azhpc-images repo](https://github.com/Azure/azhpc-images/blob/master/ubuntu/ubuntu-18.x/ubuntu-18.04-hpc/install_mellanoxofed.sh). The inbox drivers also work as well, but the Mellanox OFED drivers provide more features.
+The [OFED drivers for Linux](https://www.mellanox.com/products/infiniband-drivers/linux/mlnx_ofed) can be installed with the example below. Though the example here is for RHEL/CentOS, but the steps are general and can be used for any compatible Linux operating system such as Ubuntu (16.04, 18.04 19.04, 20.04) and SLES (12 SP4 and 15). More examples for other distros are on the [azhpc-images repo](https://github.com/Azure/azhpc-images/blob/master/ubuntu/ubuntu-18.x/ubuntu-18.04-hpc/install_mellanoxofed.sh). The inbox drivers also work as well, but the Mellanox OFED drivers provide more features.
 
 ```bash
 MLNX_OFED_DOWNLOAD_URL=http://content.mellanox.com/ofed/MLNX_OFED-5.0-2.1.8.0/MLNX_OFED_LINUX-5.0-2.1.8.0-rhel7.7-x86_64.tgz
@@ -53,7 +53,7 @@ yum install -y kernel-devel-${KERNEL}
 For Windows, download and install the [Mellanox OFED for Windows drivers](https://www.mellanox.com/products/adapter-software/ethernet/windows/winof-2).
 
 ## Enable IP over InfiniBand (IB)
-If you are plan to run MPI jobs, you typically don't need IPoIB. The MPI library will use the verbs interface for IB communication (unless you explicitly use the TCP/IP channel of MPI library). But if you have an app that uses TCP/IP for communication and you want to run over IB, you can use IPoIB over the IB interface. Use the following commands (for RHEL/CentOS) to enable IP over InfiniBand.
+If you plan to run MPI jobs, you typically don't need IPoIB. The MPI library will use the verbs interface for IB communication (unless you explicitly use the TCP/IP channel of MPI library). But if you have an app that uses TCP/IP for communication and you want to run over IB, you can use IPoIB over the IB interface. Use the following commands (for RHEL/CentOS) to enable IP over InfiniBand.
 
 ```bash
 sudo sed -i -e 's/# OS.EnableRDMA=n/OS.EnableRDMA=y/g' /etc/waagent.conf
@@ -63,6 +63,6 @@ sudo systemctl restart waagent
 ## Next steps
 
 - Learn more about installing and running various [supported MPI libraries](setup-mpi.md) on the VMs.
-- Review the [HBv3-series overview](hbv3-series-overview.md) and [HC-series overview](hc-series-overview.md).
+- Review the [HBv3-series overview](../../hbv3-series-overview.md) and [HC-series overview](../../hc-series-overview.md).
 - Read about the latest announcements, HPC workload examples, and performance results at the [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 - For a higher level architectural view of running HPC workloads, see [High Performance Computing (HPC) on Azure](/azure/architecture/topics/high-performance-computing/).

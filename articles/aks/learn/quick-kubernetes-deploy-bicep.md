@@ -1,9 +1,8 @@
 ---
 title: Quickstart - Create an Azure Kubernetes Service (AKS) cluster by using Bicep
 description: Learn how to quickly create a Kubernetes cluster using a Bicep file and deploy an application in Azure Kubernetes Service (AKS)
-services: container-service
 ms.topic: quickstart
-ms.date: 08/11/2022
+ms.date: 11/01/2022
 ms.custom: mvc, subject-armbicep
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run applications using the managed Kubernetes service in Azure.
 ---
@@ -27,7 +26,7 @@ This quickstart assumes a basic understanding of Kubernetes concepts. For more i
 
 ### [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 * This article requires version 2.20.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -271,6 +270,8 @@ Two [Kubernetes Services][kubernetes-service] are also created:
         app: azure-vote-front
     ```
 
+    For a breakdown of YAML manifest files, see [Deployments and YAML manifests](../concepts-clusters-workloads.md#deployments-and-yaml-manifests).
+
 1. Deploy the application using the [kubectl apply][kubectl-apply] command and specify the name of your YAML manifest:
 
     ```console
@@ -362,7 +363,7 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [import-azakscredential]: /powershell/module/az.aks/import-azakscredential
 [az-aks-install-cli]: /cli/azure/aks#az_aks_install_cli
-[install-azakskubectl]: /powershell/module/az.aks/install-azakskubectl
+[install-azakskubectl]: /powershell/module/az.aks/install-azaksclitool
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-delete]: /cli/azure/group#az_group_delete
 [remove-azresourcegroup]: /powershell/module/az.resources/remove-azresourcegroup

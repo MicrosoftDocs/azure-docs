@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/23/2022
+ms.date: 03/06/2023
 
 ms.author: justinha
 author: justinha
@@ -20,9 +20,7 @@ ms.collection: M365-identity-device-management
 Before combined registration, users registered authentication methods for Azure AD Multi-Factor Authentication and self-service password reset (SSPR) separately. People were confused that similar methods were used for multifactor authentication and SSPR but they had to register for both features. Now, with combined registration, users can register once and get the benefits of both multifactor authentication and SSPR. We recommend this video on [How to enable and configure SSPR in Azure AD](https://www.youtube.com/watch?v=rA8TvhNcCvQ)
 
 > [!NOTE]
-> Starting on August 15th 2020, all new Azure AD tenants will be automatically enabled for combined registration. 
-> 
-> After Sept. 30th, 2022, all users will register security information through the combined registration experience. 
+> Effective Oct. 1st, 2022, we will begin to enable combined registration for all users in Azure AD tenants created before August 15th, 2020. Tenants created after this date are enabled with combined registration. 
 
 This article outlines what combined security registration is. To get started with combined security registration, see the following article:
 
@@ -59,14 +57,17 @@ Combined registration supports the authentication methods and actions in the fol
 | Hardware token | No | No | Yes |
 | Phone | Yes | Yes | Yes |
 | Alternate phone | Yes | Yes | Yes |
-| Office phone | Yes | Yes | Yes |
+| Office phone* | Yes | Yes | Yes |
 | Email | Yes | Yes | Yes |
 | Security questions | Yes | No | Yes |
-| App passwords | Yes | No | Yes |
-| FIDO2 security keys<br />*Managed mode only from the [Security info](https://mysignins.microsoft.com/security-info) page*| Yes | Yes | Yes |
+| App passwords* | Yes | No | Yes |
+| FIDO2 security keys*| Yes | No | Yes |
 
 > [!NOTE]
-> App passwords are available only to users who have been enforced for Azure AD Multi-Factor Authentication. App passwords are not available to users who are enabled for Azure AD Multi-Factor Authentication by a Conditional Access policy.
+> <b>Alternate phone</b> can only be registered in *manage mode* on the [Security info](https://mysignins.microsoft.com/security-info) page and requires Voice calls to be enabled in the Authentication methods policy. <br /> 
+> <b>Office phone</b> can only be registered in *Interrupt mode* if the users *Business phone* property has been set. Office phone can be added by users in *Managed mode from the [Security info](https://mysignins.microsoft.com/security-info)* without this requirement.  <br />
+> <b>App passwords</b> are available only to users who have been enforced for per-user MFA. App passwords aren't available to users who are enabled for Azure AD Multi-Factor Authentication by a Conditional Access policy. <br />
+> <b>FIDO2 security keys</b>, can only be added in *manage mode only* on the [Security info](https://mysignins.microsoft.com/security-info) page.
 
 Users can set one of the following options as the default multifactor authentication method. 
 
@@ -76,9 +77,9 @@ Users can set one of the following options as the default multifactor authentica
 - Text message
 
 >[!NOTE]
->Virtual phone numbers are not supported for Voice calls or SMS messages.
+>Virtual phone numbers aren't supported for Voice calls or SMS messages.
 
-Third party authenticator apps do not provide push notification. As we continue to add more authentication methods to Azure AD, those methods become available in combined registration.
+Third party authenticator apps don't provide push notification. As we continue to add more authentication methods to Azure AD, those methods become available in combined registration.
 
 ## Combined registration modes
 
@@ -93,24 +94,28 @@ For both modes, users who have previously registered a method that can be used f
 
 ### Interrupt mode
 
-Combined registration adheres to both multifactor authentication and SSPR policies, if both are enabled for your tenant. These policies control whether a user is interrupted for registration during sign-in and which methods are available for registration. If only an SSPR policy is enabled, then users will be able to skip the registration interruption and complete it at a later time.
+Combined registration adheres to both multifactor authentication and SSPR policies, if both are enabled for your tenant. These policies control whether a user is interrupted for registration during sign-in and which methods are available for registration. If only an SSPR policy is enabled, then users will be able to skip (indefinitely) the registration interruption and complete it at a later time.
 
 The following are sample scenarios where users might be prompted to register or refresh their security info:
 
-- *Multifactor Authentication registration enforced through Identity Protection:* Users are asked to register during sign-in. They register multifactor authentication methods and SSPR methods (if the user is enabled for SSPR).
-- *Multifactor Authentication registration enforced through per-user multifactor authentication:* Users are asked to register during sign-in. They register multifactor authentication methods and SSPR methods (if the user is enabled for SSPR).
-- *Multifactor Authentication registration enforced through Conditional Access or other policies:* Users are asked to register when they use a resource that requires multifactor authentication. They register multifactor authentication methods and SSPR methods (if the user is enabled for SSPR).
+- *Multifactor authentication registration enforced through Identity Protection:* Users are asked to register during sign-in. They register multifactor authentication methods and SSPR methods (if the user is enabled for SSPR).
+- *Multifactor authentication registration enforced through per-user multifactor authentication:* Users are asked to register during sign-in. They register multifactor authentication methods and SSPR methods (if the user is enabled for SSPR).
+- *Multifactor authentication registration enforced through Conditional Access or other policies:* Users are asked to register when they use a resource that requires multifactor authentication. They register multifactor authentication methods and SSPR methods (if the user is enabled for SSPR).
 - *SSPR registration enforced:* Users are asked to register during sign-in. They register only SSPR methods.
 - *SSPR refresh enforced:* Users are required to review their security info at an interval set by the admin. Users are shown their info and can confirm the current info or make changes if needed.
 
-When registration is enforced, users are shown the minimum number of methods needed to be compliant with both multifactor authentication and SSPR policies, from most to least secure. Users going through combined registration where both MFA and SSPR registration is enforced and the SSPR policy requires two methods will first be required to register an MFA method as the first method and can select another MFA or SSPR specific method as the second registered method (e.g. email, security questions etc.)
+When registration is enforced, users are shown the minimum number of methods needed to be compliant with both multifactor authentication and SSPR policies, from most to least secure. Users going through combined registration where both MFA and SSPR registration are enforced and the SSPR policy requires two methods will first be required to register an MFA method as the first method and can select another MFA or SSPR specific method as the second registered method (e.g. email, security questions etc.)
 
 Consider the following example scenario:
 
-- A user is enabled for SSPR. The SSPR policy requires two methods to reset and has enabled Authenticator app, email, and phone.
+- A user is enabled for SSPR. The SSPR policy requires two methods to reset and has enabled Microsoft Authenticator app, email, and phone.
 - When the user chooses to register, two methods are required:
-   - The user is shown Authenticator app and phone by default.
+   - The user is shown Microsoft Authenticator app and phone by default.
    - The user can choose to register email instead of Authenticator app or phone.
+
+When they set up Microsoft Authenticator, the user can click **I want to setup a different method** to register other authentication methods. The list of available methods is determined by the Authentication methods policy for the tenant. 
+
+:::image type="content" border="true" source="media/concept-registration-mfa-sspr-combined/choose.png" alt-text="Screenshot of how to choose another method when you set up Microsoft Authenticator.":::
 
 The following flowchart describes which methods are shown to a user when interrupted to register during sign-in:
 
@@ -118,7 +123,7 @@ The following flowchart describes which methods are shown to a user when interru
 
 If you have both multifactor authentication and SSPR enabled, we recommend that you enforce multifactor authentication registration.
 
-If the SSPR policy requires users to review their security info at regular intervals, users are interrupted during sign-in and shown all their registered methods. They can confirm the current info if it's up to date, or they can make changes if they need to. Users must perform multi-factor authentication when accessing this page.
+If the SSPR policy requires users to review their security info at regular intervals, users are interrupted during sign-in and shown all their registered methods. They can confirm the current info if it's up to date, or they can make changes if they need to. Users must perform multifactor authentication to access this page.
 
 ### Manage mode
 
@@ -134,13 +139,13 @@ A user has not set up all required security info and goes to the Azure portal. A
 
 ### Set up security info from My Account
 
-An admin has not enforced registration.
+An admin hasn't enforced registration.
 
 A user who hasn't yet set up all required security info goes to [https://myaccount.microsoft.com](https://myaccount.microsoft.com). The user selects **Security info** in the left pane. From there, the user chooses to add a method, selects any of the methods available, and follows the steps to set up that method. When finished, the user sees the method that was set up on the Security info page.
 
 ### Set up other methods after partial registration
 
-If a user has partially satisfied MFA or SSPR registration due to existing authentication method registrations performed by the user or admin, users will only be asked to register additional information allowed by the Authentication methods policy. If more than one other authentication method is available for the user to choose and register, an option on the registration experience titled **I want to set up another method** will be shown and allow the user to set up their desired authentication method.  
+If a user has partially satisfied MFA or SSPR registration due to existing authentication method registrations performed by the user or admin, users will only be asked to register additional information allowed by the Authentication methods policy settings when registration is required. If more than one other authentication method is available for the user to choose and register, an option on the registration experience titled **I want to set up another method** will be shown and allow the user to set up their desired authentication method.  
 
 :::image type="content" border="true" source="./media/concept-registration-mfa-sspr-combined/other-method.png" alt-text="Screenshot of how to set up another method." :::  
 
@@ -164,6 +169,12 @@ If this user removes SMS/Text as one of the authentication options on their home
 To switch the directory in the Azure portal, click the user account name in the upper right corner and click **Switch directory**.
 
 ![External users can switch directory.](media/concept-registration-mfa-sspr-combined/switch-directory.png)
+
+Or, you can specify a tenant by URL to access security information.
+
+`https://mysignins.microsoft.com/security-info?tenant=<Tenant Name>`
+
+`https://mysignins.microsoft.com/security-info/?tenantId=<Tenant ID>`
 
 ## Next steps
 

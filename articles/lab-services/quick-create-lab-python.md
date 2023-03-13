@@ -15,7 +15,7 @@ In this quickstart, you, as the educator, create a lab using Python and the Azur
 
 - Azure subscription.  If you don’t have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
 - [Setup Local Python dev environment for Azure](/azure/developer/python/configure-local-development-environment).
-- [The requirements.txt can be downloaded from the Azure Python samples](https://github.com/RogerBestMsft/azure-samples-python-management/blob/rbest_ALSSample/samples/labservices/requirements.txt)
+- [The requirements.txt can be downloaded from the Azure Python samples](https://github.com/Azure-Samples/azure-samples-python-management/blob/main/samples/labservices/requirements.txt)
 - Lab plan. To create a lab plan, see [Quickstart: Create a lab plan using Python and the Azure Python libraries (SDK)](quick-create-lab-plan-python.md).
 
 ## Create a lab

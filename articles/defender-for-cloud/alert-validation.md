@@ -2,17 +2,23 @@
 title: Alert validation in Microsoft Defender for Cloud
 description: Learn how to validate that your security alerts are correctly configured in Microsoft Defender for Cloud
 ms.topic: how-to
-ms.date: 07/04/2022
-
+ms.date: 10/06/2022
+ms.author: benmansheim
+author: bmansheim
 ---
 # Alert validation in Microsoft Defender for Cloud
 
 This document helps you learn how to verify if your system is properly configured for Microsoft Defender for Cloud alerts.
 
 ## What are security alerts?
-Alerts are the notifications that Defender for Cloud generates when it detects threats on your resources. It prioritizes and lists the alerts along with the information needed to quickly investigate the problem. Defender for Cloud also provides recommendations for how you can remediate an attack.
-For more information, see [Security alerts in Defender for Cloud](alerts-overview.md) and [Managing and responding to security alerts](managing-and-responding-alerts.md)
 
+Alerts are the notifications that Defender for Cloud generates when it detects threats on your resources. It prioritizes and lists the alerts along with the information needed to quickly investigate the problem. Defender for Cloud also provides recommendations for how you can remediate an attack.
+
+For more information, see [Security alerts in Defender for Cloud](alerts-overview.md) and [Managing and responding to security alerts](managing-and-responding-alerts.md).
+
+## Prerequisites
+
+To receive all the alerts, your machines and the connected Log Analytics workspaces need to be in the same tenant.
 
 ## Generate sample security alerts
 
@@ -25,7 +31,7 @@ Use sample alerts to:
 
 To create sample alerts:
 
-1. As a user with the role **Subscription Contributor**, from the toolbar on the alerts page, select **Create sample alerts**.
+1. As a user with the role **Subscription Contributor**, from the toolbar on the security alerts page, select **Sample alerts**.
 1. Select the subscription.
 1. Select the relevant Microsoft Defender plan/s for which you want to see alerts. 
 1. Select **Create sample alerts**.
@@ -98,7 +104,7 @@ You can simulate alerts for both of the control plane, and workload alerts with 
 
 1. Wait 30 minutes.
 
-1. In the Azure portal, navigate to the Defender for Cloud's alerts page.
+1. In the Azure portal, navigate to the Defender for Cloud's security alerts page.
 
 1. On the relevant Kubernetes cluster, locate the following alert `Microsoft Defender for Cloud test alert for K8S (not a threat)` 
 
@@ -111,7 +117,7 @@ You can simulate alerts for both of the control plane, and workload alerts with 
 
 **To simulate a a Kubernetes workload security alert**:
  
-1. Create a pod to run a test command on. This pod can be any of the existing pods in the cluster, or a new pod. You can create created using this sample yaml configuration:
+1. Create a pod to run a test command on. This pod can be any of the existing pods in the cluster, or a new pod. You can create using this sample yaml configuration:
     
     ```yaml
     apiVersion: v1
@@ -144,7 +150,7 @@ You can simulate alerts for both of the control plane, and workload alerts with 
 
 1. Wait 10 minutes.
 
-1. In the Azure portal, navigate to the Defender for Cloud's alerts page.
+1. In the Azure portal, navigate to the Defender for Cloud's security alerts page.
 
 1. On the relevant AKS cluster, locate the following alert `Microsoft Defender for Cloud test alert (not a threat)`.
 

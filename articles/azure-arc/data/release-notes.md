@@ -1,6 +1,6 @@
 ---
 title: Azure Arc-enabled data services - Release notes
-description: Latest release notes
+description: This article provides highlights for the latest release, and a history of features introduced in previous releases.
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
@@ -12,9 +12,129 @@ ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurecli, event-tier1-build-2022
 #Customer intent: As a data professional, I want to understand why my solutions would benefit from running with Azure Arc-enabled data services so that I can leverage the capability of the feature.
 ---
+
 # Release notes - Azure Arc-enabled data services
 
 This article highlights capabilities, features, and enhancements recently released or improved for Azure Arc-enabled data services.
+
+## February 14, 2023
+
+### Image tag
+
+`v1.16.0_2023-02-14`
+
+For complete release version information, see [Version log](version-log.md#february-14-2023).
+
+New for this release:
+
+- Arc data services:
+   - Initial Extended Events Functionality | (preview)
+
+- Arc-SQL MI
+   - [Enabled service managed Transparent Data Encryption (TDE) (preview)](configure-transparent-data-encryption-sql-managed-instance.md).
+   - Backups | Produce automated backups from readable secondary
+    - The built-in automatic backups are performed on secondary replicas when available.
+
+- Arc PostgreSQL 
+   - Automated Backups
+   - Settings via configuration framework
+   - Point-in-Time Restore
+   - Turn backups on/off
+   - Require client connections to use SSL
+   - Active Directory |  Customer-managed bring your own keytab
+   - Active Directory | Configure in Azure command line client
+   - Enable Extensions via Kubernetes Custom Resource Definition
+
+- Azure CLI Extension 
+   - Optional `imageTag` for controller creation by defaulting to the image tag of the bootstrapper
+
+
+## January 13, 2023
+
+### Image tag
+
+`v1.15.0_2023-01-10`
+
+For complete release version information, see [Version log](version-log.md#january-13-2023).
+
+New for this release:
+
+- Arc data services:
+   - Kafka separate mode
+
+- Arc-SQL MI
+   - Time series functions are available.
+
+## December 13, 2022
+
+### Image tag
+
+`v1.14.0_2022-12-13`
+
+For complete release version information, see [Version log](version-log.md#december-13-2022).
+
+New for this release:
+
+- Platform support
+  - Add support for K3s
+
+- Arc data controller.
+  - Added defaults on HA supervisor pod to support resource quotas.
+  - Update Grafana to version 9.
+
+- Arc-enabled PostgreSQL server
+  - Switch to Ubuntu based images.
+
+- Bug fixes and optimizations in the following areas:
+  - Arc enabling SQL Server onboarding.
+  - Fixed confusing error messages when DBMail is configured.
+
+## November 8, 2022
+
+### Image tag
+
+`v1.13.0_2022-11-08`
+
+For complete release version information, see [Version log](version-log.md#november-8-2022).
+
+New for this release:
+
+- Arc-enabled PostgreSQL server
+  - Add support for automated backups
+
+- `arcdata` Azure CLI extension
+  - CLI support for automated backups: Setting the `--storage-class-backups` parameter for the create command will enable automated backups
+
+## October 11, 2022
+
+### Image tag
+
+`v1.12.0_2022-10-11`
+
+For complete release version information, see [Version log](version-log.md#october-11-2022).
+
+New for this release: 
+- Arc data controller
+  - Updates to TelemetryRouter implementation to include inbound and outbound TelemetryCollector layers alongside Kafka as a persistent buffer
+  - AD connector will now be upgraded when data controller is upgraded
+
+- Arc-enabled SQL managed instance
+  - New reprovision replica task lets you rebuild a broken sql instance replica. For more information, see [Reprovision replica](reprovision-replica.md).
+  - Edit Active Directory settings from the Azure portal
+
+- `arcdata` Azure CLI extension
+  - Columns for release information added to the following commands: `az sql mi-arc list` this makes it easy to see what instance may need to be updated.
+  - Alternately you can run `az arcdata dc list-upgrades'
+  - New command to list AD Connectors `az arcdata ad-connector list --k8s-namespace <namespace> --use-k8s`
+  - Az CLI Polling for AD Connector create/update/delete: This feature changes the default behavior of `az arcdata ad-connector create/update/delete` to hang and wait until the operation finishes. To override this behavior, the user has to use the `--no-wait` flag when invoking the command. 
+
+Deprecation and breaking changes notices:
+
+The following properties in the Arc SQL Managed Instance status will be deprecated/moved in the _next_ release:
+- `status.logSearchDashboard`: use `status.endpoints.logSearchDashboard` instead.
+- `status.metricsDashboard`: use `status.endpoints.metricsDashboard` instead.
+- `status.primaryEndpoint`: use `status.endpoints.primary` instead.
+- `status.readyReplicas`: uses `status.roles.sql.readyReplicas` instead.
 
 ## September 13, 2022
 
@@ -930,9 +1050,9 @@ This release introduces the following breaking changes:
 
 ### Additional changes
 
-* A new optional parameter was added to `azdata arc postgres server create` called `--volume-claim mounts`. The value is a comma-separated list of volume claim mounts. A volume claim mount is a pair of volume type and PVC name. The only volume type currently supported is `backup`. In PostgreSQL, when volume type is `backup`, the PVC is mounted to `/mnt/db-backups`. This enables sharing backups between PostgresSQL instances so that the backup of one PostgresSQL instance can be restored in another instance.
+* A new optional parameter was added to `azdata arc postgres server create` called `--volume-claim mounts`. The value is a comma-separated list of volume claim mounts. A volume claim mount is a pair of volume type and PVC name. The only volume type currently supported is `backup`. In PostgreSQL, when volume type is `backup`, the PVC is mounted to `/mnt/db-backups`. This enables sharing backups between PostgreSQL instances so that the backup of one PostgreSQL instance can be restored in another instance.
 
-* New short names for PostgresSQL custom resource definitions:
+* New short names for PostgreSQL custom resource definitions:
   * `pg11`
   * `pg12`
 * Telemetry upload provides user with either:

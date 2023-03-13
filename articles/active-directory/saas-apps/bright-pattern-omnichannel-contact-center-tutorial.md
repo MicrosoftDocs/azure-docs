@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/18/2019
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
@@ -164,5 +164,3 @@ When you click the Bright Pattern Omnichannel Contact Center tile in the Access 
 - [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
 - [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
-
-- [Try Bright Pattern Omnichannel Contact Center with Azure AD](https://aad.portal.azure.com/)

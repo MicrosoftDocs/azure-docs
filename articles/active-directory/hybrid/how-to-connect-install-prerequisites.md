@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 02/23/2022
+ms.date: 01/26/2023
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -57,8 +57,8 @@ To read more about securing your Active Directory environment, see [Best practic
 
 #### Installation prerequisites
 
-- Azure AD Connect must be installed on a domain-joined Windows Server 2019 or later - note that Windows Server 2022 is not yet supported. You can deploy Azure AD Connect on Windows Server 2016 but since WS2016 is in extended support, you may require [a paid support program](/lifecycle/policies/fixed#extended-support) if you require support for this configuration. 
-- The minimum .Net Framework version required is 4.6.2, and newer versions of .Net are also supported.
+- Azure AD Connect must be installed on a domain-joined Windows Server 2016 or later - **note that Windows Server 2022 is not yet supported**. You can deploy Azure AD Connect on Windows Server 2016 but since Windows Server 2016 is in extended support, you may require [a paid support program](/lifecycle/policies/fixed#extended-support) if you require support for this configuration. We recommend the usage of domain joined Windows Server 2019.
+- The minimum .NET Framework version required is 4.6.2, and newer versions of .Net are also supported.
 - Azure AD Connect can't be installed on Small Business Server or Windows Server Essentials before 2019 (Windows Server Essentials 2019 is supported). The server must be using Windows Server standard or better. 
 - The Azure AD Connect server must have a full GUI installed. Installing Azure AD Connect on Windows Server Core isn't supported. 
 - The Azure AD Connect server must not have PowerShell Transcription Group Policy enabled if you use the Azure AD Connect wizard to manage Active Directory Federation Services (AD FS) configuration. You can enable PowerShell transcription if you use the Azure AD Connect wizard to manage sync configuration. 
@@ -67,7 +67,7 @@ To read more about securing your Active Directory environment, see [Best practic
     - You must configure TLS/SSL certificates. For more information, see [Managing SSL/TLS protocols and cipher suites for AD FS](/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs) and [Managing SSL certificates in AD FS](/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap).
     - You must configure name resolution. 
 - It is not supported to break and analyze traffic between Azure AD Connect and Azure AD. Doing so may disrupt the service.
-- If your global administrators have MFA enabled, the URL https://secure.aadcdn.microsoftonline-p.com *must* be in the trusted sites list. You're prompted to add this site to the trusted sites list when you're prompted for an MFA challenge and it hasn't been added before. You can use Internet Explorer to add it to your trusted sites.
+- If your Hybrid Identity Administrators have MFA enabled, the URL `https://secure.aadcdn.microsoftonline-p.com` *must* be in the trusted sites list. You're prompted to add this site to the trusted sites list when you're prompted for an MFA challenge and it hasn't been added before. You can use Internet Explorer to add it to your trusted sites.
 - If you plan to use Azure AD Connect Health for syncing, ensure that the prerequisites for Azure AD Connect Health are also met. For more information, see [Azure AD Connect Health agent installation](how-to-connect-health-agent-install.md).
 
 ### Harden your Azure AD Connect server 
@@ -82,18 +82,19 @@ We recommend that you harden your Azure AD Connect server to decrease the securi
 - Implement dedicated [privileged access workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/) for all personnel with privileged access to your organization's information systems. 
 - Follow these [additional guidelines](/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface) to reduce the attack surface of your Active Directory environment.
 - Follow the [Monitor changes to federation configuration](how-to-connect-monitor-federation-changes.md) to setup alerts to monitor changes to the trust established between your Idp and Azure AD. 
-- Enable Multi Factor Authentication (MFA) for all users that have privileged access in Azure AD or in AD. One security issue with using AADConnect is that if an attacker can get control over the Azure AD Connect server they can manipulate users in Azure AD. To prevent a attacker from using these capabilities to take over Azure AD accounts, MFA offers protections so that even if an attacker manages to e.g. reset a user's password using Azure AD Connect they still cannot bypass the second factor.
-- Disable Soft Matching on your tenant. Soft Matching is a great feature to help transfering source of autority for existing cloud only objects to Azure AD Connect, but it comes with certain security risks. If you do not require it, you should [disable Soft Matching](how-to-connect-syncservice-features.md#blocksoftmatch)
+- Enable Multi Factor Authentication (MFA) for all users that have privileged access in Azure AD or in AD. One security issue with using Azure AD Connect is that if an attacker can get control over the Azure AD Connect server they can manipulate users in Azure AD. To prevent an attacker from using these capabilities to take over Azure AD accounts, MFA offers protections so that even if an attacker manages to e.g. reset a user's password using Azure AD Connect they still cannot bypass the second factor.
+- Disable Soft Matching on your tenant. Soft Matching is a great feature to help transferring source of authority for existing cloud managed objects to Azure AD Connect, but it comes with certain security risks. If you do not require it, you should [disable Soft Matching](how-to-connect-syncservice-features.md#blocksoftmatch).
+- Disable Hard Match Takeover. Hard match takeover allows Azure AD Connect to take control of a cloud managed object and changing the source of authority for the object to Active Directory. Once the source of authority of an object is taken over by Azure AD Connect, changes made to the Active Directory object that is linked to the Azure AD object will overwrite the original Azure AD data - including the password hash, if Password Hash Sync is enabled. An attacker could use this capability to take over control of cloud managed objects. To mitigate this risk, [disable hard match takeover](/powershell/module/msonline/set-msoldirsyncfeature?view=azureadps-1.0&preserve-view=true#example-3-block-cloud-object-takeover-through-hard-matching-for-the-tenant).
 
 ### SQL Server used by Azure AD Connect
 * Azure AD Connect requires a SQL Server database to store identity data. By default, a SQL Server 2019 Express LocalDB (a light version of SQL Server Express) is installed. SQL Server Express has a 10-GB size limit that enables you to manage approximately 100,000 objects. If you need to manage a higher volume of directory objects, point the installation wizard to a different installation of SQL Server. The type of SQL Server installation can impact the [performance of Azure AD Connect](./plan-connect-performance-factors.md#sql-database-factors).
 * If you use a different installation of SQL Server, these requirements apply:
-  * Azure AD Connect support all mainstream supported SQL Server versions up to SQL Server 2019. Please refer to the [SQL Server lifecycle article](https://learn.microsoft.com/lifecycle/products/?products=sql-server) to verify the support status of your SQL Server version. Azure SQL Database *isn't supported* as a database.  This includes both Azure SQL Database and Azure SQL Managed Instance.
+  * Azure AD Connect support all mainstream supported SQL Server versions up to SQL Server 2019. Please refer to the [SQL Server lifecycle article](/lifecycle/products/?products=sql-server) to verify the support status of your SQL Server version. SQL Server 2012 is no longer supported. Azure SQL Database *isn't supported* as a database.  This includes both Azure SQL Database and Azure SQL Managed Instance.
   * You must use a case-insensitive SQL collation. These collations are identified with a \_CI_ in their name. Using a case-sensitive collation identified by \_CS_ in their name *isn't supported*.
   * You can have only one sync engine per SQL instance. Sharing a SQL instance with FIM/MIM Sync, DirSync, or Azure AD Sync *isn't supported*.
 
 ### Accounts
-* You must have an Azure AD Global Administrator account for the Azure AD tenant you want to integrate with. This account must be a *school or organization account* and can't be a *Microsoft account*.
+* You must have an Azure AD Global Administrator account or Hybrid Identity Administrator account for the Azure AD tenant you want to integrate with. This account must be a *school or organization account* and can't be a *Microsoft account*.
 * If you use [express settings](reference-connect-accounts-permissions.md#express-settings-installation) or upgrade from DirSync, you must have an Enterprise Administrator account for your on-premises Active Directory.
 * If you use the custom settings installation path, you have more options. For more information, see [Custom installation settings](reference-connect-accounts-permissions.md#custom-installation-settings).
 
@@ -218,10 +219,10 @@ The following table shows the minimum requirements for the Azure AD Connect sync
 
 | Number of objects in Active Directory | CPU | Memory | Hard drive size |
 | --- | --- | --- | --- |
-| Fewer than 10,000 |1.6 GHz |4 GB |70 GB |
-| 10,000–50,000 |1.6 GHz |4 GB |70 GB |
+| Fewer than 10,000 |1.6 GHz |6 GB |70 GB |
+| 10,000–50,000 |1.6 GHz |6 GB |70 GB |
 | 50,000–100,000 |1.6 GHz |16 GB |100 GB |
-| For 100,000 or more objects, the full version of SQL Server is required. For performance reasons, installing locally is preferred. | | | |
+| For 100,000 or more objects, the full version of SQL Server is required. For performance reasons, installing locally is preferred. The following values are valid only for Azure AD Connect installation. If SQL Server will be installed on the same server, further memory, drive, and CPU is required. | | | |
 | 100,000–300,000 |1.6 GHz |32 GB |300 GB |
 | 300,000–600,000 |1.6 GHz |32 GB |450 GB |
 | More than 600,000 |1.6 GHz |32 GB |500 GB |

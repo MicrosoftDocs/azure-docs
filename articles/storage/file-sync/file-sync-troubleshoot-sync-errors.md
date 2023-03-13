@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot sync health and errors in Azure File Sync | Microsoft Docs
+title: Troubleshoot sync health and errors in Azure File Sync
 description: Troubleshoot common issues with monitoring sync health and resolving sync errors in an Azure File Sync deployment.
 author: khdownie
 ms.service: storage
@@ -132,15 +132,15 @@ To see these errors, run the **FileSyncErrorsReport.ps1** PowerShell script (loc
 | 0x80c8603e | -2134351810 | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED | The file cannot be synced because the Azure file share limit is reached. | To resolve this issue, see [You reached the Azure file share storage limit](?tabs=portal1%252cazure-portal#-2134351810) section in the troubleshooting guide. |
 | 0x80c83008 | -2134364152 | ECS_E_CANNOT_CREATE_AZURE_STAGED_FILE | The file cannot be synced because the Azure file share limit is reached.  | To resolve this issue, see [You reached the Azure file share storage limit](?tabs=portal1%252cazure-portal#-2134351810) section in the troubleshooting guide. |
 | 0x80c8027C | -2134375812 | ECS_E_ACCESS_DENIED_EFS | The file is encrypted by an unsupported solution (like NTFS EFS). | Decrypt the file and use a supported encryption solution. For a list of support solutions, see the [Encryption](file-sync-planning.md#encryption) section of the planning guide. |
-| 0x80c80283 | -2160591491 | ECS_E_ACCESS_DENIED_DFSRRO | The file is located on a DFS-R read-only replication folder. | File is located on a DFS-R read-only replication folder. Azure Files Sync does not support server endpoints on DFS-R read-only replication folders. See [planning guide](file-sync-planning.md#distributed-file-system-dfs) for more information. |
+| 0x80c80283 | -2160591491 | ECS_E_ACCESS_DENIED_DFSRRO | The file is located on a DFS-R read-only replication folder. | File is located on a DFS-R read-only replication folder. Azure File Sync doesn't support server endpoints on DFS-R read-only replication folders. See [planning guide](file-sync-planning.md#distributed-file-system-dfs) for more information. |
 | 0x80070005 | -2147024891 | ERROR_ACCESS_DENIED | The file has a delete pending state. | No action required. File will be deleted once all open file handles are closed. |
-| 0x80c86044 | -2134351804 | ECS_E_AZURE_AUTHORIZATION_FAILED | The file cannot be synced because the firewall and virtual network settings on the storage account are enabled and the server does not have access to the storage account. | Add the Server IP address or virtual network by following the steps documented in the [Configure firewall and virtual network settings](file-sync-deployment-guide.md?tabs=azure-portal#optional-configure-firewall-and-virtual-network-settings) section in the deployment guide. |
+| 0x80c86044 | -2134351804 | ECS_E_AZURE_AUTHORIZATION_FAILED | The file cannot be synced because the firewall and virtual network settings on the storage account are enabled, and the server doesn't have access to the storage account. | Add the Server IP address or virtual network by following the steps documented in the [Configure firewall and virtual network settings](file-sync-deployment-guide.md?tabs=azure-portal#optional-configure-firewall-and-virtual-network-settings) section in the deployment guide. |
 | 0x80c80243 | -2134375869 | ECS_E_SECURITY_DESCRIPTOR_SIZE_TOO_LARGE | The file cannot be synced because the security descriptor size exceeds the 64 KiB limit. | To resolve this issue, remove access control entries (ACE) on the file to reduce the security descriptor size. |
 | 0x8000ffff | -2147418113 | E_UNEXPECTED | The file cannot be synced due to an unexpected error. | If the error persists for several days, please open a support case. |
 | 0x80070020 | -2147024864 | ERROR_SHARING_VIOLATION | The file cannot be synced because it's in use. The file will be synced when it's no longer in use. | No action required. |
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | The file was changed during sync, so it needs to be synced again. | No action required. |
 | 0x80070017 | -2147024873 | ERROR_CRC | The file cannot be synced due to CRC error. This error can occur if a tiered file was not recalled prior to deleting a server endpoint or if the file is corrupt. | To resolve this issue, see [Tiered files are not accessible on the server after deleting a server endpoint](file-sync-troubleshoot-cloud-tiering.md#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint) to remove tiered files that are orphaned. If the error continues to occur after removing orphaned tiered files, run [chkdsk](/windows-server/administration/windows-commands/chkdsk) on the volume. |
-| 0x80c80200 | -2134375936 | ECS_E_SYNC_CONFLICT_NAME_EXISTS | The file cannot be synced because the maximum number of conflict files has been reached. Azure File Sync supports 100 conflict files per file. To learn more about file conflicts, see Azure File Sync [FAQ](../files/storage-files-faq.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json#afs-conflict-resolution). | To resolve this issue, reduce the number of conflict files. The file will sync once the number of conflict files is less than 100. |
+| 0x80c80200 | -2134375936 | ECS_E_SYNC_CONFLICT_NAME_EXISTS | The file cannot be synced because the maximum number of conflict files has been reached. Azure File Sync supports 100 conflict files per file. To learn more about file conflicts, see Azure File Sync [FAQ](../files/storage-files-faq.md?toc=/azure/storage/filesync/toc.json#afs-conflict-resolution). | To resolve this issue, reduce the number of conflict files. The file will sync once the number of conflict files is less than 100. |
 | 0x80c8027d | -2134375811 | ECS_E_DIRECTORY_RENAME_FAILED | Rename of a directory cannot be synced because files or folders within the directory have open handles. | No action required. The rename of the directory will be synced once all open file handles within the directory are closed. |
 | 0x800700de | -2147024674 | ERROR_BAD_FILE_TYPE | The tiered file on the server is not accessible because it's referencing a version of the file which no longer exists in the Azure file share. | This issue can occur if the tiered file was restored from a backup of the Windows Server. To resolve this issue, restore the file from a snapshot in the Azure file share. |
 
@@ -344,7 +344,7 @@ This error occurs if the Azure File Sync agent version installed on the server i
 | **Error string** | ECS_E_NOT_ENOUGH_REMOTE_STORAGE |
 | **Remediation required** | Yes |
 
-Sync sessions fail with either of these errors when the Azure file share storage limit has been reached, which can happen if a quota is applied for an Azure file share or if the usage exceeds the limits for an Azure file share. For more information, see the [current limits for an Azure file share](../files/storage-files-scale-targets.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json).
+Sync sessions fail with either of these errors when the Azure file share storage limit has been reached, which can happen if a quota is applied for an Azure file share or if the usage exceeds the limits for an Azure file share. For more information, see the [current limits for an Azure file share](../files/storage-files-scale-targets.md?toc=/azure/storage/filesync/toc.json).
 
 1. Navigate to the sync group within the Storage Sync Service.
 2. Select the cloud endpoint within the sync group.
@@ -355,7 +355,7 @@ Sync sessions fail with either of these errors when the Azure file share storage
 
 5. Select **Files** to view the list of file shares.
 6. Click the three dots at the end of the row for the Azure file share referenced by the cloud endpoint.
-7. Verify that the **Usage** is below the **Quota**. Note unless an alternate quota has been specified, the quota will match the [maximum size of the Azure file share](../files/storage-files-scale-targets.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json).
+7. Verify that the **Usage** is below the **Quota**. Note unless an alternate quota has been specified, the quota will match the [maximum size of the Azure file share](../files/storage-files-scale-targets.md?toc=/azure/storage/filesync/toc.json).
 
     ![A screenshot of the Azure file share properties.](media/storage-sync-files-troubleshoot/file-share-limit-reached-1.png)
 
@@ -374,6 +374,7 @@ This error occurs when the Azure file share is not accessible. To troubleshoot:
 
 1. [Verify the storage account exists.](#troubleshoot-storage-account)
 2. [Ensure the Azure file share exists.](#troubleshoot-azure-file-share)
+3. Verify the **SMB security settings** on the storage account are allowing **SMB 3.1.1** protocol version, **NTLM v2** authentication and **AES-128-GCM** encryption. To check the SMB security settings on the storage account, see [SMB security settings](../files/files-smb-protocol.md#smb-security-settings).
 
 If the Azure file share was deleted, you need to create a new file share and then recreate the sync group. 
 
@@ -408,7 +409,14 @@ This error occurs when the Azure file share is inaccessible because of a storage
 | **Error string** | ECS_E_SYNC_METADATA_WRITE_LOCK_TIMEOUT |
 | **Remediation required** | No |
 
-This error usually resolves itself, and can occur if there are:
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80c83044 |
+| **HRESULT (decimal)** | -2134364092 |
+| **Error string** | ECS_E_SYNC_METADATA_WRITE_LOCK_TIMEOUT_SERVICEUNAVAILABLE |
+| **Remediation required** | No |
+
+These errors usually resolve themselves and can occur if there are:
 
 * A high number of file changes across the servers in the sync group.
 * A large number of errors on individual files and directories.
@@ -912,5 +920,4 @@ if ($role -eq $null) {
 - [Troubleshoot Azure File Sync agent installation and server registration](file-sync-troubleshoot-installation.md)
 - [Troubleshoot Azure File Sync cloud tiering](file-sync-troubleshoot-cloud-tiering.md)
 - [Monitor Azure File Sync](file-sync-monitoring.md)
-- [Troubleshoot Azure Files problems in Windows](../files/storage-troubleshoot-windows-file-connection-problems.md)
-- [Troubleshoot Azure Files problems in Linux](../files/storage-troubleshoot-linux-file-connection-problems.md)
+- [Troubleshoot Azure Files problems](../files/files-troubleshoot.md)

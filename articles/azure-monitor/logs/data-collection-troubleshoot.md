@@ -42,7 +42,7 @@ Operation
 ```
 
 ## Azure subscription is in a suspended state 
-You Azure subscription could be in a suspended state for one of the following reasons:
+Your Azure subscription could be in a suspended state for one of the following reasons:
 
 - Free trial ended
 - Azure pass expired
@@ -51,7 +51,7 @@ You Azure subscription could be in a suspended state for one of the following re
 
 ## Limits summary
 
-There are additional Log Analytics limits, some of which depend on the Log Analytics pricing tier. These are documented at [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md#log-analytics-workspaces).
+There are additional Log Analytics limits, some of which depend on the Log Analytics pricing tier. These are documented at [Azure subscription and service limits, quotas, and constraints](../service-limits.md#log-analytics-workspaces).
 
 
 ## Next steps

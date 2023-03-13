@@ -4,8 +4,7 @@ description: Learn how to provide a Kubernetes cluster with access to images in 
 ms.topic: article
 author: karolz-ms
 ms.author: karolz
-ms.reviewer: danlep
-ms.date: 06/02/2021
+ms.date: 10/11/2022
 ---
 
 # Pull images from an Azure container registry to a Kubernetes cluster using a pull secret

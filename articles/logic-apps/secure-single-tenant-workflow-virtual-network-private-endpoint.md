@@ -5,7 +5,8 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/08/2022
+ms.custom: engagement-fy23
+ms.date: 02/22/2023
 
 # As a developer, I want to connect to my Standard logic app workflows with virtual networks using private endpoints and virtual network integration.
 ---
@@ -125,10 +126,10 @@ To secure outbound traffic from your logic app, you can integrate your logic app
 
 - For the Azure Logic Apps runtime to work, you need to have an uninterrupted connection to the backend storage. If the backend storage is exposed to the virtual network through a private endpoint, make sure that the following ports are open:
 
-  | Source port | Direction | Protocol | Source / Destination | Purpose |
-  |-------------|-----------|----------|----------------------|---------|
-  | 443 | Outbound | TCP | Private endpoint / Storage account | Storage account |
-  | 445 | Outbound | TCP | Private endpoint / Subnet integrated with Standard logic app | Server Message Block (SMB) File Share |
+  | Source port | Destination port | Source | Destination | Protocol | Purpose |
+  |-------------|------------------|--------|-------------|----------|---------|
+  | * | 443 | Subnet integrated with Standard logic app | Storage account | TCP | Storage account |
+  | * | 445 | Subnet integrated with Standard logic app | Storage account | TCP | Server Message Block (SMB) File Share |
 
 - For Azure-hosted managed connectors to work, you need to have an uninterrupted connection to the managed API service. With virtual network integration, make sure that no firewall or network security policy blocks these connections. If your virtual network uses a network security group (NSG), user-defined route table (UDR), or a firewall, make sure that the virtual network allows outbound connections to [all managed connector IP addresses](/connectors/common/outbound-ip-addresses#azure-logic-apps) in the corresponding region. Otherwise, Azure-managed connectors won't work.
 
@@ -161,6 +162,8 @@ For more information, review the following documentation:
 1. On the **VNet Integration** pane, select **Add Vnet**.
 
 1. On the **Add VNet Integration** pane, select the subscription and the virtual network that connects to your internal service.
+
+   After you add virtual network integration, on the **VNet Integration** pane, the **Route All** setting is enabled by default. This setting routes all outbound traffic through the virtual network. When this setting is enabled, the `WEBSITE_VNET_ROUTE_ALL` app setting is ignored.
 
 1. If you use your own domain name server (DNS) with your virtual network, set your logic app resource's `WEBSITE_DNS_SERVER` app setting to the IP address for your DNS. If you have a secondary DNS, add another app setting named `WEBSITE_DNS_ALT_SERVER`, and set the value also to the IP for your DNS.
 

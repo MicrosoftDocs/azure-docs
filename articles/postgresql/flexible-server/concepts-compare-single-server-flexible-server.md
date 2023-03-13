@@ -1,8 +1,8 @@
 ---
 title: Compare Azure Database for PostgreSQL - Single Server and Flexible Server
 description: Detailed comparison of features and capabilities between Azure Database for PostgreSQL Single Server and Flexible Server
-ms.author: srranga
-author: sr-msft
+ms.author: alkuchar
+author: AwdotiaRomanowna
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -52,7 +52,7 @@ The following table provides a list of high-level features and capabilities comp
 | Max. Storage size | 1 TB (Basic), 4 TB or 16 TB (GP, MO). Note: Not all regions support 16 TB. | 16 TB |
 | Min storage size | 5 GB (Basic), 100 GB (GP, MO) | 32 GB |
 | Storage auto-grow | Yes (1-GB increments) | No |
-| Max IOPS | Basic - Variable. GP/MO: up to 20 K  | Up to 20 K |
+| Max IOPS | Basic - Variable. GP/MO: up to 18 K  | Up to 18 K |
 | **Networking/Security** | | |
 | Supported networking | Virtual network, private link, public access | Private access (VNET injection in a delegated subnet), public access) |
 | Public access control | Firewall | Firewall |
@@ -68,10 +68,10 @@ The following table provides a list of high-level features and capabilities comp
 | Same-zone HA | No | Yes (a synchronous standby is established in the same zone as the primary) |
 | HA Configuration | Built-in with storage pinned to a zone. Compute can float across regions. | Physically separate compute & storage provisioned |
 | Cost | 1x | 2x (compute + storage) |
-| Availability with non-HA configuration | Automatic restart, compute relocation | Automatic restart, compute relocation)
+| Availability with non-HA configuration | Automatic restart, compute relocation | Automatic restart, compute relocation
 | Protect from zone failure | Compute - Yes. Storage - No | Compute & storage - Yes |
 | Protect from region failure | No | No |
-| Mode of HA replication | N/A | Postgres physical streaming replication in SYNC mode)
+| Mode of HA replication | N/A | Postgres physical streaming replication in SYNC mode
 | Standby can be used for read purposes | N/A | No |
 | Application performance impact | No (not replicating) | Yes (Due to sync replication. Depends on the workload) |
 | Automatic failover | Yes (spins another server)| Yes |
@@ -82,23 +82,23 @@ The following table provides a list of high-level features and capabilities comp
 | Support for PgLogical extension | No | Yes |
 | Support logical replication with HA | N/A | [Limited](concepts-high-availability.md#high-availability---limitations) |
 | **Disaster Recovery** | | |
-| Cross region DR | Using read replicas, geo-redundant backup | Geo-redundant backup (Preview) in select regions|
-| DR using replica | Using async physical replication | N/A |
-| Automatic failover | No | N/A |
-| Can use the same r/w endpoint | No | N/A |
+| Cross region DR | Using read replicas, geo-redundant backup | Geo-redundant backup (in [selected regions](overview.md#azure-regions)) |
+| DR using replica | Using async physical replication | Preview |
+| Automatic failover | No | No |
+| Can use the same r/w endpoint | No | No |
 | **Backup and Recovery** | | |
 | Automated backups | Yes | Yes |
 | Backup retention | 7-35 days | 7-35 days |
 | PITR capability to any time within the retention period | Yes | Yes
 | Ability to restore on a different zone | N/A | Yes |
 | Ability to restore to a different VNET | No | Yes |
-| Ability to restore to a different region | Yes (Geo-redundant) | Yes (in Preview in [selected regions](overview.md#azure-regions)) |
+| Ability to restore to a different region | Yes (Geo-redundant) | Yes (in [selected regions](overview.md#azure-regions)) |
 | Ability to restore a deleted server | Limited via API | Limited via support ticket |
 | **Read Replica** | | |
-| Support for read replicas | Yes | No |
-| Number of read replicas | 5 | N/A |
-| Mode of replication | Async | N/A |
-| Cross-region support | Yes | N/A |
+| Support for read replicas | Yes | Yes (Preview) |
+| Number of read replicas | 5 | 5 |
+| Mode of replication | Async | Async |
+| Cross-region support | Yes | Yes |
 | **Maintenance Window** | | |
 | System scheduled window | Yes | Yes |
 | Customer scheduled window| No | Yes (can choose any 1 hr on any day) |
@@ -114,8 +114,8 @@ The following table provides a list of high-level features and capabilities comp
 | PgCron, lo, pglogical | No | Yes |
 | pgAudit | Preview | Yes |
 | **Security** | | |
-| Azure Active Directory Support(AAD) | Yes | No |
-| Customer managed encryption key(BYOK) | Yes | No |
+| Azure Active Directory Support(AAD) | Yes | Yes |
+| Customer managed encryption key(BYOK) | Yes | Yes |
 | SCRAM Authentication (SHA-256) | No | Yes |
 | Secure Sockets Layer support (SSL) | Yes | Yes |
 | **Other features** | | |
@@ -124,7 +124,7 @@ The following table provides a list of high-level features and capabilities comp
 | Resource health | Yes | Yes |
 | Service health | Yes | Yes |
 | Performance insights (iPerf) | Yes | Yes. Not available in portal |
-| Major version upgrades support | No | No |
+| Major version upgrades support | No | Preview |
 | Minor version upgrades | Yes. Automatic during maintenance window | Yes. Automatic during maintenance window |
 
 

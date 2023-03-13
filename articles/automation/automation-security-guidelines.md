@@ -9,10 +9,13 @@ ms.topic: conceptual
 
 # Security best practices in Azure Automation
 
+> [!IMPORTANT]
+> Azure Automation Run As Account will retire on September 30, 2023 and will be replaced with Managed Identities. Before that date, you'll need to start migrating your runbooks to use [managed identities](automation-security-overview.md#managed-identities). For more information, see [migrating from an existing Run As accounts to managed identity](migrate-run-as-accounts-managed-identity.md?tabs=run-as-account#sample-scripts) to start migrating the runbooks from Run As account to managed identities before 30 September 2023.
+
 This article details the best practices to securely execute the automation jobs.
 [Azure Automation](./overview.md) provides you the platform to orchestrate frequent, time consuming, error-prone infrastructure management and operational tasks, as well as mission-critical operations. This service allows you to execute scripts, known as automation runbooks seamlessly across cloud and hybrid environments. 
 
-The platform components of Azure Automation Service are actively secured and hardened. The service goes through robust security and compliance checks. [Azure security benchmark](/security/benchmark/azure/overview) details the best practices and recommendations to help improve the security of workloads, data, and services on Azure. Also see [Azure security baseline for Azure Automation](/security/benchmark/azure/baselines/automation-security-baseline?toc=/azure/automation/TOC.json).
+The platform components of Azure Automation Service are actively secured and hardened. The service goes through robust security and compliance checks. the [Microsoft cloud security benchmark](/security/benchmark/azure/overview) details the best practices and recommendations to help improve the security of workloads, data, and services on Azure. Also see [Azure security baseline for Azure Automation](/security/benchmark/azure/baselines/automation-security-baseline?toc=/azure/automation/TOC.json).
 
 ## Secure configuration of Automation account
 

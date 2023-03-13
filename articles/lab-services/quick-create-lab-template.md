@@ -9,7 +9,7 @@ ms.date: 05/10/2022
 
 # Quickstart: Create a lab using an ARM template
 
-This quickstart shows you, as the educator or admin, how to use an Azure Resource Manager (ARM) template to create a lab.  This quickstart shows you how to create a lab with Windows 11 Pro image.  Once a lab is created, an educator [configures the template](how-to-create-manage-template.md), [adds lab users](how-to-configure-student-usage.md#add-and-manage-lab-users), and [publishes the lab](tutorial-setup-lab.md#publish-a-lab).  For an overview of Azure Lab Services, see [An introduction to Azure Lab Services](lab-services-overview.md).
+This quickstart shows you, as the educator or admin, how to use an Azure Resource Manager (ARM) template to create a lab.  This quickstart shows you how to create a lab with Windows 11 Pro image.  Once a lab is created, an educator [configures the template](how-to-create-manage-template.md), [adds lab users](how-to-configure-student-usage.md), and [publishes the lab](tutorial-setup-lab.md#publish-a-lab).  For an overview of Azure Lab Services, see [An introduction to Azure Lab Services](lab-services-overview.md).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -26,7 +26,7 @@ To complete this quick start, make sure that you have:
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/lab).
+The template used in this quickstart is from [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/lab/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.labservices/lab-using-lab-plan/azuredeploy.json":::
 
@@ -34,7 +34,7 @@ One Azure resource is defined in the template:
 
 - **[Microsoft.LabServices/labs](/azure/templates/microsoft.labservices/labs)**: resource type description.
 
-More Azure Lab Services template samples can be found in [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Labservices&pageNumber=1&sort=Popular).  For more information how to create a lab without a lab plan using automation, see [Create Azure LabServices lab template](https://azure.microsoft.com/resources/templates/lab/).
+More Azure Lab Services template samples can be found in [Azure Quickstart Templates](/samples/browse/?expanded=azure&products=azure-resource-manager&terms=lab%20services).  For more information how to create a lab without a lab plan using automation, see [Create Azure LabServices lab template](/samples/azure/azure-quickstart-templates/lab/).
 
 ## Deploy the template
 

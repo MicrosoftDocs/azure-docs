@@ -1,7 +1,7 @@
 ---
 title: AI enrichment concepts
 titleSuffix: Azure Cognitive Search
-description: Content extraction, natural language processing (NLP), and image processing are used to create searchable content in Azure Cognitive Search indexes. AI enrichment can use both pre-defined cognitive skills and custom AI algorithms.
+description: Content extraction, natural language processing (NLP), and image processing can create searchable content in Azure Cognitive Search indexes.
 
 manager: nitinme
 author: HeidiSteen

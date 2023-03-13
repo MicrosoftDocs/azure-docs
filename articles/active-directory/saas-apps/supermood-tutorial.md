@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/31/2019
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
@@ -170,5 +170,3 @@ When you click the Supermood tile in the Access Panel, you should be automatical
 - [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
 - [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
-
-- [Try Supermood with Azure AD](https://aad.portal.azure.com/)

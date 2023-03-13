@@ -118,6 +118,8 @@
       href: custom-consent-permissions.md
     - name: Device management permissions
       href: custom-device-permissions.md
+    - name: User management permissions
+      href: custom-user-permissions.md
     - name: Group management permissions
       href: custom-group-permissions.md
   - name: Azure AD service limits

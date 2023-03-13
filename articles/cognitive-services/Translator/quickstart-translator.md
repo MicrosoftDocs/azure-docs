@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 09/14/2022
+ms.date: 02/01/2023
 ms.author: lajanuar
 ms.devlang: csharp, golang, java, javascript, python
 ---
@@ -21,14 +21,7 @@ ms.devlang: csharp, golang, java, javascript, python
 
 # Quickstart: Azure Cognitive Services Translator
 
-In this quickstart, you'll get started using the Translator service to [translate text](reference/v3-0-translate.md) with a programming language of your choice and the REST API.
-
-> [!NOTE]
->
-> * For this quickstart it is recommended that you use a Translator text single-service global resource.
-> * With a single-service global resource you'll include one authorization header (**Ocp-Apim-Subscription-key**) with the REST API request. The value for Ocp-Apim-Subscription-key is your Azure secret key for your Translator Text subscription.
-> * If you choose to use the multi-service Cognitive Services or regional Translator resource, two authentication headers will be required: (**Ocp-Api-Subscription-Key** and **Ocp-Apim-Subscription-Region**). The value for Ocp-Apim-Subscription-Region is the region associated with your subscription.
-> * For more information on how to use the **Ocp-Apim-Subscription-Region** header, _see_ [Text Translator REST API headers](translator-text-apis.md).
+Try the latest version of Azure Translator. In this quickstart, you'll get started using the Translator service to [translate text](reference/v3-0-translate.md) using a programming language of your choice or the REST API. For this project, we recommend using the free pricing tier (F0), while you're learning the technology, and later upgrading to a paid tier for production.
 
 ## Prerequisites
 
@@ -42,10 +35,18 @@ To get started, you'll need an active Azure subscription. If you don't have an A
 
     :::image type="content" source="media/quickstarts/keys-and-endpoint-portal.png" alt-text="Screenshot: Azure portal keys and endpoint page.":::
 
-* Use the free pricing tier (F0) to try the service and upgrade later to a paid tier for production.
+    > [!NOTE]
+    >
+    > * For this quickstart it is recommended that you use a Translator text single-service global resource.
+    > * With a single-service global resource you'll include one authorization header (**Ocp-Apim-Subscription-key**) with the REST API request. The value for Ocp-Apim-Subscription-key is your Azure secret key for your Translator Text subscription.
+    > * If you choose to use the multi-service Cognitive Services or regional Translator resource, two authentication headers will be required: (**Ocp-Api-Subscription-Key** and **Ocp-Apim-Subscription-Region**). The value for Ocp-Apim-Subscription-Region is the region associated with your subscription.
+    > * For more information on how to use the **Ocp-Apim-Subscription-Region** header, _see_ [Text Translator REST API headers](translator-text-apis.md).
+
 <!-- checked -->
-> [!div class="nextstepaction"]
+<!--
+ > [!div class="nextstepaction"]
 > [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=prerequisites)
+-->
 
 ## Headers
 
@@ -110,8 +111,8 @@ The core operation of the Translator service is translating text. In this quicks
 
     :::image type="content" source="media/quickstarts/install-newtonsoft.png" alt-text="Screenshot of the NuGet package install button.":::
 <!-- checked -->
-> [!div class="nextstepaction"]
-> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=set-up-your-visual-studio-project)
+<!-- [!div class="nextstepaction"]
+> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=set-up-your-visual-studio-project) -->
 
 ### Build your C# application
 
@@ -169,8 +170,8 @@ class Program
 
 ```
 <!-- checked -->
-> [!div class="nextstepaction"]
-> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=build-your-c#-application)
+<!-- > [!div class="nextstepaction"]
+> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=build-your-c#-application) -->
 
 ### Run your C# application
 
@@ -204,8 +205,9 @@ After a successful call, you should see the following response:
 
 ```
 <!-- checked -->
-> [!div class="nextstepaction"]
-> [My REST API call was successful](#next-steps) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=run-your-c#-application)
+<!--
+ > [!div class="nextstepaction"]
+> [My REST API call was successful](#next-steps) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=run-your-c#-application) -->
 
 ### [Go](#tab/go)
 
@@ -227,8 +229,9 @@ You can use any text editor to write Go applications. We recommend using the lat
           go version
         ```
 <!-- checked -->
-> [!div class="nextstepaction"]
-> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=set-up-your-go-environment)
+<!--
+ > [!div class="nextstepaction"]
+> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=set-up-your-go-environment) -->
 
 ### Build your Go application
 
@@ -303,8 +306,9 @@ func main() {
 }
 ```
 <!-- checked -->
-> [!div class="nextstepaction"]
-> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=build-your-go-application)
+<!--
+ > [!div class="nextstepaction"]
+> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=build-your-go-application) -->
 
 ### Run your Go application
 
@@ -340,8 +344,9 @@ After a successful call, you should see the following response:
 
 ```
 <!-- checked -->
-> [!div class="nextstepaction"]
-> [My REST API call was successful](#next-steps) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=run-your-go-application)
+<!--
+ > [!div class="nextstepaction"]
+> [My REST API call was successful](#next-steps) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=run-your-go-application) -->
 
 ### [Java: Gradle](#tab/java)
 
@@ -360,8 +365,9 @@ After a successful call, you should see the following response:
 
   * [**Gradle**](https://docs.gradle.org/current/userguide/installation.html), version 6.8 or later.
 <!-- checked -->
-> [!div class="nextstepaction"]
-> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=set-up-your-java-environment)
+<!-- 
+ > [!div class="nextstepaction"]
+> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=set-up-your-java-environment) -->
 
 ### Create a new Gradle project
 
@@ -404,8 +410,9 @@ After a successful call, you should see the following response:
   }
   ```
 <!-- checked -->
-> [!div class="nextstepaction"]
-> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=create-a-gradle-project)
+
+<!-- > [!div class="nextstepaction"]
+> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=create-a-gradle-project) -->
 
 ### Create your Java Application
 
@@ -443,7 +450,7 @@ import okhttp3.Response;
 
 public class TranslatorText {
     private static String key = "<your-translator-key";
-    
+
     // location, also known as region.
    // required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
     private static String location = "<YOUR-RESOURCE-LOCATION>";
@@ -461,8 +468,8 @@ public class TranslatorText {
                 .url("https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=fr&to=zu")
                 .post(body)
                 .addHeader("Ocp-Apim-Subscription-Key", key)
-                // location required if you're using a multi-service or regional (not global) resource. 
-                .addHeader("Ocp-Apim-Subscription-Region", location) 
+                // location required if you're using a multi-service or regional (not global) resource.
+                .addHeader("Ocp-Apim-Subscription-Region", location)
                 .addHeader("Content-type", "application/json")
                 .build();
         Response response = client.newCall(request).execute();
@@ -489,8 +496,9 @@ public class TranslatorText {
 }
 ```
 <!-- checked -->
-> [!div class="nextstepaction"]
-> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=create-your-java-application)
+
+<!-- > [!div class="nextstepaction"]
+> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=create-your-java-application) -->
 
 ### Build and run your Java application
 
@@ -530,8 +538,9 @@ After a successful call, you should see the following response:
 
 ```
 <!-- checked -->
-> [!div class="nextstepaction"]
-> [My REST API call was successful](#next-steps) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=build-and-run-your-java-application)
+
+<!-- > [!div class="nextstepaction"]
+> [My REST API call was successful](#next-steps) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=build-and-run-your-java-application) -->
 
 ### [JavaScript: Node.js](#tab/nodejs)
 
@@ -582,12 +591,13 @@ After a successful call, you should see the following response:
     >
     > * You can also create a new file named `index.js` in your IDE and save it to the `translator-app` directory.
 <!-- checked -->
-> [!div class="nextstepaction"]
-> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=set-up-your-nodejs-express-project)
+
+<!-- > [!div class="nextstepaction"]
+> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=set-up-your-nodejs-express-project) -->
 
 ### Build your JavaScript application
 
-1. Add the following code sample to your `index.js` file. **Make sure you update the key variable with the value from your Azure portal Translator instance**:
+Add the following code sample to your `index.js` file. **Make sure you update the key variable with the value from your Azure portal Translator instance**:
 
 ```javascript
     const axios = require('axios').default;
@@ -626,8 +636,9 @@ After a successful call, you should see the following response:
 
 ```
 <!-- checked -->
-> [!div class="nextstepaction"]
-> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=build-your-javascript-application)
+<!-- 
+ > [!div class="nextstepaction"]
+> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=build-your-javascript-application) -->
 
 ### Run your JavaScript application
 
@@ -663,8 +674,9 @@ After a successful call, you should see the following response:
 
 ```
 <!-- checked -->
-> [!div class="nextstepaction"]
-> [My REST API call was successful](#next-steps) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=run-your-javascript-application)
+<!-- 
+ > [!div class="nextstepaction"]
+> [My REST API call was successful](#next-steps) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=run-your-javascript-application) -->
 
 ### [Python](#tab/python)
 
@@ -685,8 +697,9 @@ After a successful call, you should see the following response:
     > [!NOTE]
     > We will also use a Python built-in package called json. It's used to work with JSON data.
 <!-- checked -->
-> [!div class="nextstepaction"]
-> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=set-up-your-python-project)
+<!-- 
+ > [!div class="nextstepaction"]
+> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=set-up-your-python-project) -->
 
 ### Build your Python application
 
@@ -734,8 +747,9 @@ print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separat
 
 ```
 <!-- checked -->
-> [!div class="nextstepaction"]
-> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=build-your-python-application)
+<!-- 
+ > [!div class="nextstepaction"]
+> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=build-your-python-application) -->
 
 ### Run your Python application
 
@@ -771,8 +785,9 @@ After a successful call, you should see the following response:
 
 ```
 <!-- checked -->
-> [!div class="nextstepaction"]
-> [My REST API call was successful](#next-steps) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=run-your-python-application)
+<!-- 
+ > [!div class="nextstepaction"]
+> [My REST API call was successful](#next-steps) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=run-your-python-application) -->
 
 ---
 

@@ -62,7 +62,7 @@ The app must be running in the **Standard**, **Premium**, or **Isolated** tier i
 
 6. Select the app URL on the slot's resource page. The deployment slot has its own host name and is also a live app. To limit public access to the deployment slot, see [Azure App Service IP restrictions](app-service-ip-restrictions.md).
 
-The new deployment slot has no content, even if you clone the settings from a different slot. For example, you can [publish to this slot with Git](./deploy-local-git.md). You can deploy to the slot from a different repository branch or a different repository.
+The new deployment slot has no content, even if you clone the settings from a different slot. For example, you can [publish to this slot with Git](./deploy-local-git.md). You can deploy to the slot from a different repository branch or a different repository.  Get publish profile [from Azure App Service](/visualstudio/azure/how-to-get-publish-profile-from-azure-app-service) can provide required information to deploy to the slot.  The profile can be imported by Visual Studio to deploy contents to the slot.
 
 The slot's URL will be of the format `http://sitename-slotname.azurewebsites.net`. To keep the URL length within necessary DNS limits, the site name will be truncated at 40 characters, the slot name will be truncated at 19 characters, and an additional 4 random characters will be appended to ensure the resulting domain name is unique. 
 
@@ -145,6 +145,10 @@ Before you swap into production as the target slot, validate that the app runs w
 When you perform a swap with preview, App Service performs the same [swap operation](#AboutConfiguration) but pauses after the first step. You can then verify the result on the staging slot before completing the swap. 
 
 If you cancel the swap, App Service reapplies configuration elements to the source slot.
+
+> [!NOTE]
+> Swap with preview can't be used when one of the slots has site authentication enabled.
+> 
 
 To swap with preview:
 
@@ -279,7 +283,7 @@ By default, new slots are given a routing rule of `0%`, shown in grey. When you 
 
 ## Delete a slot
 
-Search for and select your app. Select **Deployment slots** > *\<slot to delete>* > **Overview**. The app type is shown as **App Service (Slot)** to remind you that you're viewing a deployment slot. Select **Delete** on the command bar.  
+Search for and select your app. Select **Deployment slots** > *\<slot to delete>* > **Overview**. The app type is shown as **App Service (Slot)** to remind you that you're viewing a deployment slot. Before deleting a slot, make sure to stop the slot and set the traffic in the slot to zero.  Select **Delete** on the command bar.  
 
 ![Delete a deployment slot](./media/web-sites-staged-publishing/DeleteStagingSiteButton.png)
 

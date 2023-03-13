@@ -6,13 +6,13 @@ ms.reviewer: fcabrera
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 07/13/2022
+ms.date: 07/22/2022
 ms.author: patricka
 ---
 
 # How to configure Azure IoT Edge for Linux on Windows Industrial IoT & DMZ configuration
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
 This article describes how to configure the Azure IoT Edge for Linux (EFLOW) VM to support multiple network interface cards (NICs) and connect to multiple networks. By enabling multiple NIC support, applications running on the EFLOW VM can communicate with devices connected to the offline network, and at the same time, use IoT Edge to send data to the cloud.
 
@@ -33,7 +33,7 @@ Since the EFLOW host device and the PLC or OPC UA devices are physically connect
 
 For the other network, the EFLOW host device is physically connected to the DMZ (online network) with internet and Azure connectivity. Using an *internal or external switch*, you can connect the EFLOW VM to Azure IoT Hub using IoT Edge modules and upload the information sent by the offline devices through the offline NIC.
 
-![EFLOW Industrial IoT scenario showing a EFLOW VM connected to offline and online network.](./media/how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz/iiot-multiple-nic.png)
+:::image type="content" source="./media/how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz/iiot-multiple-nic.png" alt-text="Screenshot of an EFLOW Industrial IoT scenario showing an EFLOW virtual machine connected to an offline and online network.":::
 
 ### Scenario summary
 
@@ -76,11 +76,11 @@ For the custom new *external virtual switch* you created, use the following Powe
 
 1. `Add-EflowNetwork -vswitchName "OnlineOPCUA" -vswitchType "External"`
 
-    ![Screenshot of showing successful creation of the external network named OnlineOPCUA.](./media/how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz/add-eflow-network.png)
+   :::image type="content" source="./media/how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz/add-eflow-network.png" alt-text="Screenshot of a successful creation of the external network named OnlineOPCUA.":::
 
 2. `Add-EflowVmEndpoint -vswitchName "OnlineOPCUA" -vEndpointName "OnlineEndpoint" -ip4Address 192.168.0.103 -ip4PrefixLength 24 -ip4GatewayAddress 192.168.0.1`
 
-    ![Screenshot showing the successful configuration of the OnlineOPCUA switch.](./media/how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz/add-eflow-vm-endpoint.png)
+   :::image type="content" source="./media/how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz/add-eflow-vm-endpoint.png" alt-text="Screenshot of a successful configuration of the OnlineOPCUA switch..":::
 
 Once complete, you'll have the *OnlineOPCUA* switch assigned to the EFLOW VM. To check the multiple NIC attachment, use the following steps:
 
@@ -98,7 +98,7 @@ Once complete, you'll have the *OnlineOPCUA* switch assigned to the EFLOW VM. To
 
 1. Review the IP configuration and verify you see the *eth0* interface (connected to the secure network) and the *eth1* interface (connected to the DMZ network).
 
-    ![Screenshot showing IP configuration of multiple NICs connected to two different networks.](./media/how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz/ifconfig-multiple-nic.png)
+   :::image type="content" source="./media/how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz/ifconfig-multiple-nic.png" alt-text="Screenshot showing the IP configuration of multiple NICs connected to two different networks.":::
 
 ## Configure VM network routing 
 
@@ -120,7 +120,7 @@ EFLOW uses the [route](https://man7.org/linux/man-pages/man8/route.8.html) servi
     sudo route
     ```
 
-    ![Screenshot listing routing table for the EFLOW VM.](./media/how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz/route-output.png)
+   :::image type="content" source="./media/how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz/route-output.png" alt-text="Screenshot showing the routing table for the EFLOW virtual machine.":::
 
     >[!TIP]
     >The previous image shows the route command output with the two NIC's assigned (*eth0* and *eth1*). The virtual machine creates two different *default* destinations rules with different metrics. A lower metric value has a higher priority. This routing table will vary depending on the networking scenario configured in the previous steps.

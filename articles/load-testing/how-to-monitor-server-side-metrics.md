@@ -6,20 +6,17 @@ services: load-testing
 ms.service: load-testing
 ms.author: nicktrog
 author: ntrogh
-ms.date: 02/08/2022
+ms.date: 01/18/2023
 ms.topic: how-to
 
 ---
-# Monitor server-side application metrics by using Azure Load Testing Preview
+# Monitor server-side application metrics by using Azure Load Testing
  
-You can monitor server-side application metrics for Azure-hosted applications when running a load test with Azure Load Testing Preview. In this article, you'll learn how to configure app components and metrics for your load test.
+You can monitor server-side application metrics for Azure-hosted applications when running a load test with Azure Load Testing. In this article, you'll learn how to configure app components and metrics for your load test.
 
 To capture metrics during your load test, you'll first [select the Azure components](#select-azure-application-components) that make up your application. Optionally, you can then [configure the list of server-side metrics](#select-server-side-resource-metrics) for each Azure component.
 
 Azure Load Testing integrates with Azure Monitor to capture server-side resource metrics for Azure-hosted applications. Read more about which [Azure resource types that Azure Load Testing supports](./resource-supported-azure-resource-types.md).
-
-> [!IMPORTANT]
-> Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites  
 
@@ -84,4 +81,4 @@ When you update the configuration of a load test, all future test runs will use 
 
 - Learn how to [set up a high-scale load test](./how-to-high-scale-load.md).
 
-- Learn how to [configure automated performance testing](./tutorial-cicd-azure-pipelines.md).
+- Learn how to [configure automated performance testing](./tutorial-identify-performance-regression-with-cicd.md).

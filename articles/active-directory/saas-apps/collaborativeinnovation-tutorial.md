@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/22/2019
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
@@ -160,4 +160,3 @@ When you click the Collaborative Innovation tile in the Access Panel, you should
 
 - [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
-- [Try Collaborative Innovation with Azure AD](https://aad.portal.azure.com/)

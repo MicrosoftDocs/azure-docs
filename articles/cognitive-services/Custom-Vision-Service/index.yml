@@ -12,7 +12,7 @@ metadata:
   ms.topic: landing-page # Required
   author: PatrickFarley #Required; your GitHub user alias, with correct capitalization.
   ms.author: pafarley #Required; microsoft alias of author; optional team alias.
-  ms.date: 06/13/2022 #Required; mm/dd/yyyy format.
+  ms.date: 11/03/2022 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -114,7 +114,7 @@ landingContent:
           - text: Prediction API
             url: https://go.microsoft.com/fwlink/?linkid=865445
           - text: .NET SDK
-            url: /dotnet/api/overview/azure/cognitiveservices/client/customvision
+            url: /dotnet/api/overview/azure/custom-vision
           - text: Python SDK
             url: /python/api/azure-cognitiveservices-vision-customvision/
           - text: Java SDK

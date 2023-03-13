@@ -6,6 +6,27 @@ ms.date: 01/08/2022
 ms.author: eur
 ---
 
+### Speech CLI 1.26.0: March 2023 release
+
+Updated to use Speech SDK 1.26.0.
+
+### Speech CLI 1.25.0: January 2023 release
+
+Updated to use Speech SDK 1.25.0.
+
+### Speech CLI 1.24.0: October 2022 release
+
+Uses Speech SDK 1.24.0.
+
+#### New features
+
+- Expanded "spx check" to support JMESPath queries against all spx events
+
+#### Bug fixes
+
+- Various improvements to robustness against JMESPath query evaluations
+- Fix for truncations to file writes that may occur on resource-constrained machines
+
 ### Speech CLI 1.23.0: July 2022 release
 
 Uses Speech SDK 1.23.0.

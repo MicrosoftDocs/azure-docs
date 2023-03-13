@@ -1,5 +1,5 @@
 ---
-title: Single sign-on for Azure integration with Logz.io - Azure partner solutions
+title: Single sign-on for Azure integration with Logz.io
 description: Learn about how to set up single sign-on for Azure integration with Logz.io.
 ms.topic: conceptual
 ms.date: 10/25/2021

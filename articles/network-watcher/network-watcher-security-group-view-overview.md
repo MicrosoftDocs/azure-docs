@@ -1,15 +1,14 @@
 ---
-title: Introduction to Effective security rules view in Azure Network Watcher | Microsoft Docs
-description: This page provides an overview of the Network Watcher - Effective security rules view capability
+title: Introduction to effective security rules view in Azure Network Watcher
+description: Learn about Azure Network Watcher effective security rules view capability.
 services: network-watcher
-documentationcenter: na
-author: damendo
+author: halkazwini
 ms.service: network-watcher
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload:  infrastructure-services
-ms.date: 04/26/2017
-ms.author: damendo
+ms.topic: conceptual
+ms.workload: infrastructure-services
+ms.date: 03/18/2022
+ms.author: halkazwini
+ms.custom: engagement-fy23
 ---
 
 # Introduction to Effective security rules view in Azure Network Watcher

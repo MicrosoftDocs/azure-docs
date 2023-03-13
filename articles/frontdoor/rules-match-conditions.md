@@ -5,7 +5,7 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
-ms.date: 06/09/2022
+ms.date: 12/05/2022
 ms.author: duau
 zone_pivot_groups: front-door-tiers
 ---
@@ -399,7 +399,7 @@ Use the **query string** match condition to identify requests that contain a spe
 
 | Property | Supported values |
 |-|-|
-| Operator | Any operator from the [standard operator list](#operator-list). |
+| Operator | All operators from the [standard operator list](#operator-list) are supported. However, the **Any** match condition matches every request, and the **Not Any** match condition doesn't match any request, when used with the **query string** match condition. |
 | Query string | One or more string or integer values representing the value of the query string to match. Don't include the `?` at the start of the query string. If multiple values are specified, they're evaluated using OR logic. |
 | Case transform | Any transform from the [standard string transforms list](#string-transform-list). |
 
@@ -605,7 +605,7 @@ The **request body** match condition identifies requests based on specific text 
 
 | Property | Supported values |
 |-|-|
-| Operator | Any operator from the [standard operator list](#operator-list). |
+| Operator | All operators from the [standard operator list](#operator-list) are supported. However, the **Any** match condition matches every request, and the **Not Any** match condition doesn't match any request, when used with the **request body** match condition. |
 | Value | One or more string or integer values representing the value of the request body text to match. If multiple values are specified, they're evaluated using OR logic. |
 | Case transform | Any transform from the [standard string transforms list](#string-transform-list). |
 
@@ -715,7 +715,7 @@ The **request file name** match condition identifies requests that include the s
 
 | Property | Supported values |
 |-|-|
-| Operator | Any operator from the [standard operator list](#operator-list). |
+| Operator | All operators from the [standard operator list](#operator-list) are supported. However, the **Any** match condition matches every request, and the **Not Any** match condition doesn't match any request, when used with the **request file name** match condition. |
 | Value | One or more string or integer values representing the value of the request file name to match. If multiple values are specified, they're evaluated using OR logic. |
 | Case transform | Any transform from the [standard string transforms list](#string-transform-list). |
 
@@ -828,7 +828,7 @@ The **request file extension** match condition identifies requests that include 
 
 | Property | Supported values |
 |-|-|
-| Operator | Any operator from the [standard operator list](#operator-list). |
+| Operator | All operators from the [standard operator list](#operator-list) are supported. However, the **Any** match condition matches every request, and the **Not Any** match condition doesn't match any request, when used with the **request file extension** match condition. |
 | Value | One or more string or integer values representing the value of the request file extension to match. Don't include a leading period. If multiple values are specified, they're evaluated using OR logic. |
 | Case transform | Any transform from the [standard string transforms list](#string-transform-list). |
 
@@ -1134,8 +1134,8 @@ The **request path** match condition identifies requests that include the specif
 
 | Property | Supported values |
 |-|-|
-| Operator | <ul><li>Any operator from the [standard operator list](#operator-list).</li><li>**Wildcard**: Matches when the request path matches a wildcard expression. A wildcard expression can include the `*` character to match zero or more characters within the path. For example, the wildcard expression `files/customer*/file.pdf` matches the paths `files/customer1/file.pdf`, `files/customer109/file.pdf`, and `files/customer/file.pdf`, but does not match `files/customer2/anotherfile.pdf`.<ul><li>In the Azure portal: `Wildcards`, `Not Wildcards`</li><li>In ARM templates: `Wildcard`; use the `negateCondition` property to specify _Not Wildcards_</li></ul></li></ul> |
-| Value | One or more string or integer values representing the value of the request path to match. Don't include the leading slash. If multiple values are specified, they're evaluated using OR logic. |
+| Operator | <ul><li>All operators from the [standard operator list](#operator-list) are supported. However, the **Any** match condition matches every request, and the **Not Any** match condition doesn't match any request, when used with the **request path** match condition.</li><li>**Wildcard**: Matches when the request path matches a wildcard expression. A wildcard expression can include the `*` character to match zero or more characters within the path. For example, the wildcard expression `files/customer*/file.pdf` matches the paths `files/customer1/file.pdf`, `files/customer109/file.pdf`, and `files/customer/file.pdf`, but does not match `files/customer2/anotherfile.pdf`.<ul><li>In the Azure portal: `Wildcards`, `Not Wildcards`</li><li>In ARM templates: `Wildcard`; use the `negateCondition` property to specify _Not Wildcards_</li></ul></li></ul> |
+| Value | One or more string or integer values representing the value of the request path to match. If you specify a leading slash, it's ignored. If multiple values are specified, they're evaluated using OR logic. |
 | Case transform | Any transform from the [standard string transforms list](#string-transform-list). |
 
 ::: zone-end
@@ -1144,8 +1144,8 @@ The **request path** match condition identifies requests that include the specif
 
 | Property | Supported values |
 |-|-|
-| Operator | Any operator from the [standard operator list](#operator-list). |
-| Value | One or more string or integer values representing the value of the request path to match. Don't include the leading slash. If multiple values are specified, they're evaluated using OR logic. |
+| Operator | All operators from the [standard operator list](#operator-list) are supported. However, the **Any** match condition matches every request, and the **Not Any** match condition doesn't match any request, when used with the **request path** match condition. |
+| Value | One or more string or integer values representing the value of the request path to match. If you specify a leading slash, it's ignored. If multiple values are specified, they're evaluated using OR logic. |
 | Case transform | Any transform from the [standard string transforms list](#string-transform-list). |
 
 ::: zone-end
@@ -1359,7 +1359,7 @@ Identifies requests that match the specified URL. The entire URL is evaluated, i
 
 | Property | Supported values |
 |-|-|
-| Operator | Any operator from the [standard operator list](#operator-list). |
+| Operator | All operators from the [standard operator list](#operator-list) are supported. However, the **Any** match condition matches every request, and the **Not Any** match condition doesn't match any request, when used with the **request URL** match condition. |
 | Value | One or more string or integer values representing the value of the request URL to match. If multiple values are specified, they're evaluated using OR logic. |
 | Case transform | Any transform from the [standard string transforms list](#string-transform-list). |
 
@@ -1471,7 +1471,7 @@ The **host name** match condition identifies requests based on the specified hos
 
 | Property | Supported values |
 |-------|------------------|
-| Operator | Any operator from the [standard operator list](#operator-list). |
+| Operator | All operators from the [standard operator list](#operator-list) are supported. However, the **Any** match condition matches every request, and the **Not Any** match condition doesn't match any request, when used with the **host name** match condition. |
 | Value | One or more string values representing the value of request hostname to match. If multiple values are specified, they're evaluated using OR logic. |
 | Case transform | Any case transform from the [standard string transforms list](#string-transform-list). |
 
@@ -1645,7 +1645,7 @@ The **client port** match condition identifies requests based on the TCP port of
 
 | Property | Supported values |
 |-------|------------------|
-| Operator | Any operator from the [standard operator list](#operator-list). |
+| Operator | All operators from the [standard operator list](#operator-list) are supported. However, the **Any** match condition matches every request, and the **Not Any** match condition doesn't match any request, when used with the **client port** match condition. |
 | Value | One or more port numbers, expressed as integers. If multiple values are specified, they're evaluated using OR logic. |
 
 ### Example
@@ -1698,7 +1698,7 @@ The **server port** match condition identifies requests based on the TCP port of
 
 | Property | Supported values |
 |-------|------------------|
-| Operator | Any operator from the [standard operator list](#operator-list). |
+| Operator | All operators from the [standard operator list](#operator-list) are supported. However, the **Any** match condition matches every request, and the **Not Any** match condition doesn't match any request, when used with the **server port** match condition. |
 | Value | A port number, which must be either 80 or 443. If multiple values are specified, they're evaluated using OR logic. |
 
 ### Example

@@ -2,13 +2,13 @@
 title: Custom topics in Azure Event Grid
 description: Describes custom topics in Azure Event Grid. 
 ms.topic: conceptual
-ms.date: 02/23/2022
+ms.date: 03/10/2023
 ---
 
 # Custom topics in Azure Event Grid
-An event grid topic provides an endpoint where the source sends events. The publisher creates the event grid topic, and decides whether an event source needs one topic or more than one topic. A topic is used for a collection of related events. To respond to certain types of events, subscribers decide which topics to subscribe to.
+An Event Grid topic provides an endpoint where the source sends events. The publisher creates an Event Grid topic, and decides whether an event source needs one topic or more than one topic. A topic is used for a collection of related events. To respond to certain types of events, subscribers decide which topics to subscribe to.
 
-**Custom topics** are application and third-party topics. When you create or are assigned access to a custom topic, you see that custom topic in your subscription. 
+**Custom topics** are application and third-party topics. When you create or are given access to a custom topic, you see that custom topic in your subscription. 
 
 When designing your application, you have flexibility when deciding how many topics to create. For large solutions, create a **custom topic** for **each category of related events**. For example, consider an application that sends events related to modifying user accounts and processing orders. It's unlikely any event handler wants both categories of events. Create two custom topics and let event handlers subscribe to the one that interests them. For small solutions, you might prefer to send all events to a single topic. Event subscribers can filter for the event types they want.
 
@@ -78,7 +78,7 @@ The following sections provide links to tutorials to create custom topics using 
 | [Resource Manager template: custom topic and Event Hubs endpoint](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.eventgrid/event-grid-event-hubs-handler)| A Resource Manager template that creates a subscription for a custom topic. It sends events to an Azure Event Hubs. |
 
 > [!NOTE]
-> Azure Digital Twins can route event notifications to custom topics that you create with Event Grid. For more information, see [Manage endpoints and routes in Azure Digital Twins](../digital-twins/how-to-manage-routes.md).
+> Azure Digital Twins can route event notifications to custom topics that you create with Event Grid. For more information, see [Endpoints and event routes](../digital-twins/concepts-route-events.md) in the Azure Digital Twins documentation.
 
 ## Next steps
 See the following articles: 

@@ -8,7 +8,7 @@ ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
 ms.date: 10/18/2021
-ms.custom: sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, sdkv1, event-tier1-build-2022
 ---
 
 # Make predictions with ONNX on computer vision models from AutoML (v1)
@@ -43,7 +43,7 @@ In this guide, you'll learn how to use [Python APIs for ONNX Runtime](https://on
 
 ## Prerequisites
 
-* Get an AutoML-trained computer vision model for any of the supported image tasks: classification, object detection, or instance segmentation. [Learn more about AutoML support for computer vision tasks](../how-to-auto-train-image-models.md).
+* Get an AutoML-trained computer vision model for any of the supported image tasks: classification, object detection, or instance segmentation. [Learn more about AutoML support for computer vision tasks](how-to-auto-train-image-models-v1.md).
 
 * Install the [onnxruntime](https://onnxruntime.ai/docs/get-started/with-python.html) package. The methods in this article have been tested with versions 1.3.0 to 1.8.0.
 
@@ -62,7 +62,7 @@ Within the best child run, go to **Outputs+logs** > **train_artifacts**. Use the
 - *labels.json*: File that contains all the classes or labels in the training dataset.
 - *model.onnx*: Model in ONNX format. 
 
-![Screenshot that shows selections for downloading O N N X model files.](.././media/how-to-inference-onnx-automl-image-models/onnx-files-manual-download.png)
+![Screenshot that shows selections for downloading ONNX model files.](.././media/how-to-inference-onnx-automl-image-models/onnx-files-manual-download.png)
 
 Save the downloaded model files in a directory. The example in this article uses the *./automl_models* directory. 
 
@@ -98,7 +98,7 @@ best_child_run.download_file(name='train_artifacts/model.onnx', output_file_path
 
 ### Model generation for batch scoring
 
-By default, AutoML for Images supports batch scoring for classification.But object detection and instance segmentation models don't support batch inferencing. In case of batch inference for object detection and instance segmentation, use the following procedure to generate an ONNX model for the required batch size. Models generated for a specific batch size don't work for other batch sizes.
+By default, AutoML for Images supports batch scoring for classification. But object detection and instance segmentation models don't support batch inferencing. In case of batch inference for object detection and instance segmentation, use the following procedure to generate an ONNX model for the required batch size. Models generated for a specific batch size don't work for other batch sizes.
 
 
 ```python
@@ -124,9 +124,9 @@ automl_image_run = AutoMLRun(experiment=experiment, run_id=run_id)
 best_child_run = automl_image_run.get_best_child()
 ```
 
-Use the following model specific arguments to submit the script. For more details on arguments, refer to [model specific hyperparameters](../how-to-auto-train-image-models.md#configure-model-algorithms-and-hyperparameters) and for supported object detection model names refer to the [supported model algorithm section](../how-to-auto-train-image-models.md#supported-model-algorithms).
+Use the following model specific arguments to submit the script. For more details on arguments, refer to [model specific hyperparameters](reference-automl-images-hyperparameters-v1.md#model-specific-hyperparameters) and for supported object detection model names refer to the [supported model algorithm section](how-to-auto-train-image-models-v1.md#supported-model-algorithms).
 
-To get the argument values needed to create the batch scoring model, refer to the scoring scripts generated under the outputs folder of the Automl training runs. Use the hyperparameter values available in the model settings variable inside the scoring file for the best child run.
+To get the argument values needed to create the batch scoring model, refer to the scoring scripts generated under the outputs folder of the AutoML training runs. Use the hyperparameter values available in the model settings variable inside the scoring file for the best child run.
 
 # [Multi-class image classification ](#tab/multi-class)
 For multi-class image classification, the generated ONNX model for the best child-run supports batch scoring by default. Therefore, no model specific arguments are needed for this task type and you can skip to the [Load the labels and ONNX model files](#load-the-labels-and-onnx-model-files) section. 
@@ -197,7 +197,7 @@ arguments = ['--model_name', 'maskrcnn_resnet50_fpn',  # enter the maskrcnn mode
 
 ---
 
-Download and keep the `ONNX_batch_model_generator_automl_for_images.py` file in the current directory and submit the script. Use [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) to submit the script `ONNX_batch_model_generator_automl_for_images.py` available in the [azureml-examples GitHub repository](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/v1/python-sdk/tutorials/automl-with-azureml), to generate an ONNX model of a specific batch size. In the following code, the trained model environment is used to submit this script to generate and save the ONNX model to the outputs directory. 
+Download and keep the `ONNX_batch_model_generator_automl_for_images.py` file in the current directory and submit the script. Use [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) to submit the script `ONNX_batch_model_generator_automl_for_images.py` available in the [azureml-examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/v1/python-sdk/tutorials/automl-with-azureml), to generate an ONNX model of a specific batch size. In the following code, the trained model environment is used to submit this script to generate and save the ONNX model to the outputs directory. 
 ```python
 script_run_config = ScriptRunConfig(source_directory='.',
                                     script='ONNX_batch_model_generator_automl_for_images.py',
@@ -216,7 +216,7 @@ onnx_model_path = 'automl_models/model.onnx'  # local path to save the model
 remote_run.download_file(name='outputs/model_'+str(batch_size)+'.onnx', output_file_path=onnx_model_path)
 ```
 
-After the model downloading step, you use the ONNX Runtime Python package to perform inferencing by using the *model.onnx* file. For demonstration purposes, this article uses the datasets from [How to prepare image datasets](../how-to-prepare-datasets-for-automl-images.md) for each vision task. 
+After the model downloading step, you use the ONNX Runtime Python package to perform inferencing by using the *model.onnx* file. For demonstration purposes, this article uses the datasets from [How to prepare image datasets](how-to-prepare-datasets-for-automl-images-v1.md) for each vision task. 
 
 We've trained the models for all vision tasks with their respective datasets to demonstrate ONNX model inference.
  
@@ -269,7 +269,7 @@ Every ONNX model has a predefined set of input and output formats.
 
 # [Multi-class image classification](#tab/multi-class)
 
-This example applies the model trained on the [fridgeObjects](https://cvbp-secondary.z19.web.core.windows.net/datasets/image_classification/fridgeObjects.zip) dataset with 134 images and 4 classes/labels to explain ONNX model inference. For more information on training an image classification task, see the [multi-class image classification notebook](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/v1/python-sdk/tutorials/automl-with-azureml/image-classification-multiclass).
+This example applies the model trained on the [fridgeObjects](https://cvbp-secondary.z19.web.core.windows.net/datasets/image_classification/fridgeObjects.zip) dataset with 134 images and 4 classes/labels to explain ONNX model inference. For more information on training an image classification task, see the [multi-class image classification notebook](https://github.com/Azure/azureml-examples/tree/main/v1/python-sdk/tutorials/automl-with-azureml/image-classification-multiclass).
 
 ### Input format
     
@@ -290,7 +290,7 @@ The output is an array of logits for all the classes/labels.
 
 # [Multi-label image classification](#tab/multi-label)
 
-This example uses the model trained on the [multi-label fridgeObjects dataset](https://cvbp-secondary.z19.web.core.windows.net/datasets/image_classification/multilabelFridgeObjects.zip) with 128 images and 4 classes/labels to explain ONNX model inference. For more information on model training for multi-label image classification, see the [multi-label image classification notebook](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/v1/python-sdk/tutorials/automl-with-azureml/image-classification-multilabel).
+This example uses the model trained on the [multi-label fridgeObjects dataset](https://cvbp-secondary.z19.web.core.windows.net/datasets/image_classification/multilabelFridgeObjects.zip) with 128 images and 4 classes/labels to explain ONNX model inference. For more information on model training for multi-label image classification, see the [multi-label image classification notebook](https://github.com/Azure/azureml-examples/tree/main/v1/python-sdk/tutorials/automl-with-azureml/image-classification-multilabel).
 
 ### Input format
 
@@ -312,7 +312,7 @@ The output is an array of logits for all the classes/labels.
 
 # [Object detection with Faster R-CNN or RetinaNet](#tab/object-detect-cnn)
 
-This object detection example uses the model trained on the [fridgeObjects detection dataset](https://cvbp-secondary.z19.web.core.windows.net/datasets/object_detection/odFridgeObjects.zip) of 128 images and 4 classes/labels to explain ONNX model inference. This example trains Faster R-CNN models to demonstrate inference steps. For more information on training object detection models, see the [object detection notebook](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/v1/python-sdk/tutorials/automl-with-azureml/image-object-detection).
+This object detection example uses the model trained on the [fridgeObjects detection dataset](https://cvbp-secondary.z19.web.core.windows.net/datasets/object_detection/odFridgeObjects.zip) of 128 images and 4 classes/labels to explain ONNX model inference. This example trains Faster R-CNN models to demonstrate inference steps. For more information on training object detection models, see the [object detection notebook](https://github.com/Azure/azureml-examples/tree/main/v1/python-sdk/tutorials/automl-with-azureml/image-object-detection).
 
 ### Input format
 
@@ -344,7 +344,7 @@ The following table describes boxes, labels and scores returned for each sample 
 
 # [Object detection with YOLO](#tab/object-detect-yolo)
 
-This object detection example uses the model trained on the [fridgeObjects detection dataset](https://cvbp-secondary.z19.web.core.windows.net/datasets/object_detection/odFridgeObjects.zip) of 128 images and 4 classes/labels to explain ONNX model inference. This example trains YOLO models to demonstrate inference steps. For more information on training object detection models, see the [object detection notebook](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/v1/python-sdk/tutorials/automl-with-azureml/image-object-detection). 
+This object detection example uses the model trained on the [fridgeObjects detection dataset](https://cvbp-secondary.z19.web.core.windows.net/datasets/object_detection/odFridgeObjects.zip) of 128 images and 4 classes/labels to explain ONNX model inference. This example trains YOLO models to demonstrate inference steps. For more information on training object detection models, see the [object detection notebook](https://github.com/Azure/azureml-examples/tree/main/v1/python-sdk/tutorials/automl-with-azureml/image-object-detection). 
 
 ### Input format
 
@@ -366,7 +366,7 @@ Each cell in the list indicates box detections of a sample with shape `(n_boxes,
 
 # [Instance segmentation](#tab/instance-segmentation)
 
-For this instance segmentation example, you use the Mask R-CNN model that has been trained on the [fridgeObjects dataset](https://cvbp-secondary.z19.web.core.windows.net/datasets/object_detection/odFridgeObjectsMask.zip) with 128 images and 4 classes/labels to explain ONNX model inference. For more information on training of the instance segmentation model, see the [instance segmentation notebook](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/v1/python-sdk/tutorials/automl-with-azureml/image-instance-segmentation).
+For this instance segmentation example, you use the Mask R-CNN model that has been trained on the [fridgeObjects dataset](https://cvbp-secondary.z19.web.core.windows.net/datasets/object_detection/odFridgeObjectsMask.zip) with 128 images and 4 classes/labels to explain ONNX model inference. For more information on training of the instance segmentation model, see the [instance segmentation notebook](https://github.com/Azure/azureml-examples/tree/main/v1/python-sdk/tutorials/automl-with-azureml/image-instance-segmentation).
 
 >[!IMPORTANT]
 > Only Mask R-CNN is supported for instance segmentation tasks. The input and output formats are based on Mask R-CNN only.
@@ -411,7 +411,7 @@ Perform the following preprocessing steps for the ONNX model inference:
 5. Convert to float type.
 6. Normalize with ImageNet's `mean` = `[0.485, 0.456, 0.406]` and `std` = `[0.229, 0.224, 0.225]`.
 
-If you chose different values for the [hyperparameters](../how-to-auto-train-image-models.md#configure-model-algorithms-and-hyperparameters) `valid_resize_size` and `valid_crop_size` during training, then those values should be used.
+If you chose different values for the [hyperparameters](reference-automl-images-hyperparameters-v1.md) `valid_resize_size` and `valid_crop_size` during training, then those values should be used.
 
 Get the input shape needed for the ONNX model.
 
@@ -560,7 +560,7 @@ Perform the following preprocessing steps for the ONNX model inference. These st
 5. Convert to float type.
 6. Normalize with ImageNet's `mean` = `[0.485, 0.456, 0.406]` and `std` = `[0.229, 0.224, 0.225]`.
 
-If you chose different values for the [hyperparameters](../how-to-auto-train-image-models.md#configure-model-algorithms-and-hyperparameters) `valid_resize_size` and `valid_crop_size` during training, then those values should be used.
+If you chose different values for the [hyperparameters](reference-automl-images-hyperparameters-v1.md) `valid_resize_size` and `valid_crop_size` during training, then those values should be used.
 
 Get the input shape needed for the ONNX model.
 
@@ -783,7 +783,7 @@ batch, channel, height_onnx, width_onnx = session.get_inputs()[0].shape
 batch, channel, height_onnx, width_onnx
 ```
 
-For preprocessing required for YOLO, refer to [yolo_onnx_preprocessing_utils.py](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/v1/python-sdk/tutorials/automl-with-azureml/image-object-detection).
+For preprocessing required for YOLO, refer to [yolo_onnx_preprocessing_utils.py](https://github.com/Azure/azureml-examples/tree/main/v1/python-sdk/tutorials/automl-with-azureml/image-object-detection).
 
 ```python
 import glob
@@ -822,7 +822,7 @@ Perform the following preprocessing steps for the ONNX model inference:
 4. Convert to float type.
 5. Normalize with ImageNet's `mean` = `[0.485, 0.456, 0.406]` and `std` = `[0.229, 0.224, 0.225]`.
 
-For `resize_height` and `resize_width`, you can also use the values that you used during training, bounded by the `min_size` and `max_size` [hyperparameters](../how-to-auto-train-image-models.md#configure-model-algorithms-and-hyperparameters) for Mask R-CNN.
+For `resize_height` and `resize_width`, you can also use the values that you used during training, bounded by the `min_size` and `max_size` [hyperparameters](reference-automl-images-hyperparameters-v1.md) for Mask R-CNN.
 
 ```python
 import glob
@@ -1437,5 +1437,5 @@ display_detections(img, boxes.copy(), labels, scores, masks.copy(),
 ---
 
 ## Next steps
-* [Learn more about computer vision tasks in AutoML](../how-to-auto-train-image-models.md)
+* [Learn more about computer vision tasks in AutoML](how-to-auto-train-image-models-v1.md)
 * [Troubleshoot AutoML experiments](../how-to-troubleshoot-auto-ml.md)

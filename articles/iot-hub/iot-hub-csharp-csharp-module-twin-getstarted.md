@@ -17,6 +17,8 @@ ms.custom: "amqp, devx-track-csharp"
 
 [Module identities and module twins](iot-hub-devguide-module-twins.md) are similar to Azure IoT Hub device identity and device twin, but provide finer granularity. While Azure IoT Hub device identity and device twin enable the back-end application to configure a device and provide visibility on the device's conditions, a module identity and module twin provide these capabilities for individual components of a device. On capable devices with multiple components, such as operating system devices or firmware devices, module identities and module twins allow for isolated configuration and conditions for each component.
 
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
+
 At the end of this article, you have two .NET console apps:
 
 * **CreateIdentities**: creates a device identity, a module identity, and associated security key to connect your device and module clients.
@@ -44,7 +46,7 @@ At the end of this article, you have two .NET console apps:
 
 Now let's communicate to the cloud from your simulated device. Once a module identity is created, a module twin is implicitly created in IoT Hub. In this section, you create a .NET console app on your simulated device that updates the module twin reported properties.
 
-To retrieve your module connection string, navigate to your [IoT hub](https://ms.portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Devices%2FIotHubs) then select **Devices**. Find and select **myFirstDevice** to open it and then select **myFirstModule** to open it. In **Module Identity Details**, copy the **Connection string (primary key)** and save it for the console app.
+To retrieve your module connection string, navigate to your [IoT hub](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Devices%2FIotHubs) then select **Devices**. Find and select **myFirstDevice** to open it and then select **myFirstModule** to open it. In **Module Identity Details**, copy the **Connection string (primary key)** and save it for the console app.
 
 :::image type="content" source="./media/iot-hub-csharp-csharp-module-twin-getstarted/module-identity-detail.png" alt-text="Screenshot that shows the 'Module Identity Details' page." lightbox="./media/iot-hub-csharp-csharp-module-twin-getstarted/module-identity-detail.png":::
 

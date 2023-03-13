@@ -1,18 +1,18 @@
 ---
-title: PowerShell script to create resource lock for Azure Cosmos Gremlin API database and graph
-description: Create resource lock for Azure Cosmos Gremlin API database and graph
+title: PowerShell script to create resource lock for Azure Cosmos DB for Gremlin database and graph
+description: Create resource lock for Azure Cosmos DB for Gremlin database and graph
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-graph
+ms.subservice: apache-gremlin
 ms.topic: sample
 ms.date: 06/12/2020 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, ignite-2022
 ---
 
-# Create a resource lock for Azure Cosmos Gremlin API database and graph using Azure PowerShell
-[!INCLUDE[appliesto-gremlin-api](../../../includes/appliesto-gremlin-api.md)]
+# Create a resource lock for Azure Cosmos DB for Gremlin database and graph using Azure PowerShell
+[!INCLUDE[Gremlin](../../../includes/appliesto-gremlin.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -22,7 +22,7 @@ If you need to install, see [Install Azure PowerShell module](/powershell/azure/
 Run [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) to sign in to Azure.
 
 > [!IMPORTANT]
-> Resource locks do not work for changes made by users connecting using any Gremlin SDK or the Azure Portal unless the Cosmos DB account is first locked with the `disableKeyBasedMetadataWriteAccess` property enabled. To learn more about how to enable this property see, [Preventing changes from SDKs](../../../role-based-access-control.md#prevent-sdk-changes).
+> Resource locks do not work for changes made by users connecting using any Gremlin SDK or the Azure Portal unless the Azure Cosmos DB account is first locked with the `disableKeyBasedMetadataWriteAccess` property enabled. To learn more about how to enable this property see, [Preventing changes from SDKs](../../../role-based-access-control.md#prevent-sdk-changes).
 
 ## Sample script
 

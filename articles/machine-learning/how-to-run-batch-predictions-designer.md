@@ -7,6 +7,7 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.author: keli19
 author: likebupt
+ms.reviewer: lagayhar
 ms.date: 05/10/2022
 ms.topic: how-to
 ms.custom: designer, event-tier1-build-2022
@@ -24,8 +25,6 @@ In this how-to, you learn to do the following tasks:
 > * Manage endpoint versions
 
 To learn how to set up batch scoring services using the SDK, see the accompanying [tutorial on pipeline batch scoring](./tutorial-pipeline-batch-scoring-classification.md).
-
-[!INCLUDE [endpoints-option](../../includes/machine-learning-endpoints-preview-note.md)]
 
 ## Prerequisites
 

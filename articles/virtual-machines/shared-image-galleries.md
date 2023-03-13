@@ -7,9 +7,9 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: conceptual
 ms.workload: infrastructure
+ms.custom: devx-track-azurepowershell
 ms.date: 07/18/2022
 ms.reviewer: cynthn
-
 #Customer intent: As an IT administrator, I want to learn about how to create shared VM images to minimize the number of post-deployment configuration tasks.
 ---
 # Store and share images in an Azure Compute Gallery
@@ -133,7 +133,7 @@ To set an image for shallow replication, use `--replication-mode Shallow` with t
 
 The following SDKs support creating Azure Compute Galleries:
 
-- [.NET](/dotnet/api/overview/azure/virtualmachines/management)
+- [.NET](/dotnet/api/azure.resourcemanager.compute)
 - [Java](/java/azure/)
 - [Node.js](/javascript/api/overview/azure/arm-compute-readme)
 - [Python](/python/api/overview/azure/virtualmachines)

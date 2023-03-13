@@ -2,11 +2,11 @@
 title: Overview of Backup vaults
 description: An overview of Backup vaults.
 ms.topic: conceptual
-ms.date: 09/26/2022
+ms.date: 10/19/2022
 ms.custom: references_regions
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 # Backup vaults overview
 
@@ -125,11 +125,11 @@ In the **Backup Instances** tile, you get a summarized view of all backup instan
 This section explains how to move a Backup vault (configured for Azure Backup) across Azure subscriptions and resource groups using the Azure portal.
 
 >[!Note]
->You can also move Backup vaults to a different resource group or subscription using [PowerShell](/powershell/module/az.resources/move-azresource?view=azps-6.3.0&preserve-view=true) and [CLI](/cli/azure/resource#az-resource-move).
+>You can also move Backup vaults to a different resource group or subscription using [PowerShell](/powershell/module/az.resources/move-azresource) and [CLI](/cli/azure/resource#az-resource-move).
 
 ### Supported regions
 
-The vault move across subscriptions and resource groups is supported in all public regions.
+The vault move across subscriptions and resource groups is supported in all public and national regions.
 
 ### Use Azure portal to move Backup vault to a different resource group
 
