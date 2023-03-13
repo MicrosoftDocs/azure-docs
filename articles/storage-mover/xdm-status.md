@@ -22,7 +22,7 @@ EDIT PASS: not started
 !########################################################
 -->
 
-# Agent Job Error Codes
+# Troubleshooting Job Run Error Codes
 
 An Azure Storage Mover agent uses string status codes for statuses that are conveyed to the end user. All XDM status codes have the prefix *AZSM* followed by 4 decimal digits. The first decimal digit indicates the high-level scope of the status. Each status code should belong to one of the following scopes:
 
@@ -34,6 +34,8 @@ Each of these scopes can then further divide the statuses into categories and su
 
 > [!IMPORTANT]
 > *AZSM0000* is the special scope-agnostic status code indicating successful operation. This should be used to signify successful operation at any scope/level.
+
+## Job run error codes
 
 |Error Code                       |Error Message | Details/Troubleshooting steps/Mitigation |
 |---------------------------------|--------------|------------------------------------------|
