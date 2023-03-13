@@ -1,5 +1,5 @@
 ---
-title: How to deploy labs through a PowerShell script
+title: How to deploy Azure Education Hub labs through a PowerShell script
 description: This article shows you how to deploy labs in Education Hub through a PowerShell script
 author: vinnieangel
 ms.author: vangellotti
