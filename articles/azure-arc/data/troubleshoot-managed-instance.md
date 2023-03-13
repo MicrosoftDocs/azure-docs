@@ -25,9 +25,9 @@ kubectl -n $nameSpace get fog $fogName -o jsonpath-as-json='{.status}'
 
 On each side, there are two replicas for one failover group. Check the value of `connectedState`, and `synchronizationState` for each replica.
 
-If one of `connectedState` is not equal to `CONNECTED`, see the instructions under [Check parameters](#check-parameters).
+If one of `connectedState` isn't equal to `CONNECTED`, see the instructions under [Check parameters](#check-parameters).
 
-If one of `synchronizationState` is not equal to `HEALTHY`, please focus on the instance which `synchronizationState` is not equal to `HEALTHY`". Refer to [Can't connect to Arc-enabled SQL Managed Instance](#cant-connect-to-arc-enabled-sql-managed-instance) for how to debug.
+If one of `synchronizationState` isn't equal to `HEALTHY`, focus on the instance which `synchronizationState` isn't equal to `HEALTHY`". Refer to [Can't connect to Arc-enabled SQL Managed Instance](#cant-connect-to-arc-enabled-sql-managed-instance) for how to debug.
 
 ### Check parameters
 
@@ -60,11 +60,11 @@ Compare the results from the remote instance with the results from the local ins
 
 * `partnerMI` from `kubectl -n $nameSpace get fog $fogName -o jsonpath-as-json='{.spec}'` has to match with `$sqlmiName` from remote instance.
 
-* `sharedName` from `kubectl -n $nameSpace get fog $fogName -o jsonpath-as-json='{.spec}'` is optional. If it is not presented, it is same as `sourceMI`. The `sharedName` from both site should be same if presented. If it is not presented, `sourceMI` from both site should be identical.
+* `sharedName` from `kubectl -n $nameSpace get fog $fogName -o jsonpath-as-json='{.spec}'` is optional. If it'sn't presented, it's same as `sourceMI`. The `sharedName` from both site should be same if presented. If it'sn't presented, `sourceMI` from both site should be identical.
 
 * Role from `kubectl -n $nameSpace get fog $fogName -o jsonpath-as-json='{.spec}'` should be different between two sites. One side should be primary, other should be secondary.
 
-If any one of above is not right, delete failover group on both sites and re-create them.
+If any one of above isn't right, delete failover group on both sites and re-create them.
 
 If nothing is wrong, follow the instructions under [Check mirroring endpoints for both sides](#check-mirroring-endpoints-for-both-sides).
 
@@ -80,11 +80,11 @@ kubectl -n test get services $sqlmiName-external-svc -o jsonpath-as-json='{.spec
 
 * `port-mssql-mirroring` should be presented on the list. The port should be used by failover group `partnerMirroringURL` on other side.
 
-If it is not, correct the mistake and retry from the beginning.
+If it'sn't, correct the mistake and retry from the beginning.
 
 ### Verify SQL Server can reach external endpoint of another site
 
-Although you cannot ping mirroring endpoint of another site directly, use the following command to reach another side external endpoint of the SQL Server tabular data stream (TDS) port.
+Although you can't ping mirroring endpoint of another site directly, use the following command to reach another side external endpoint of the SQL Server tabular data stream (TDS) port.
 
 ```console
 kubectl exec -ti -n $nameSpace $sqlmiName-0 -c arc-sqlmi -- /opt/mssql-tools/bin/sqlcmd -S $remotePrimaryEndpoint -U $remoteUser -P $remotePassword -Q "SELECT @@ServerName"
@@ -98,9 +98,8 @@ If SQL server can use external endpoint TDS, there is a good chance it can reach
 
 This section identifies specific steps you can take to troubleshoot connections to Azure Arc-enabled SQL managed instances.
 
-To troubleshoot connections to resources in a failover group, see [Troubleshoot connection to Azure Arc-enabled SQL Managed Instance failover group](troubleshoot-managed-instance-connection.md).
-
-You can't connect to an Azure Arc-enabled SQL Managed Instance if the instance license type is `DisasterRecovery`.
+> [!NOTE]
+> You can't connect to an Azure Arc-enabled SQL Managed Instance if the instance license type is `DisasterRecovery`.
 
 ### Check the managed instance status
 
@@ -112,7 +111,7 @@ kubectl -n $nameSpace get sqlmi $sqlmiName -o jsonpath-as-json='{.status}'
 
 **Results**
 
-The state should be `Ready`. If it is not, you need to wait. If state is error, get the message field, collect logs, and contact support. See [Collecting the logs](#collecting-the-logs).
+The state should be `Ready`. If it'sn't, you need to wait. If state is error, get the message field, collect logs, and contact support. See [Collecting the logs](#collecting-the-logs).
 
 ### Check the routing label for stateful set
 The routing label for stateful set is used to route external endpoint to a matched pod. The name of the label is `role.ag.mssql.microsoft.com`.
@@ -141,7 +140,7 @@ kubectl exec -ti -n $nameSpace $sqlmiName-2 -c arc-sqlmi -- /opt/mssql-tools/bin
 
 All replicas should be connected & healthy. Here is the detailed description of the query results [sys.dm_hadr_availability_replica_states](/sql/relational-databases/system-dynamic-management-views/sys-dm-hadr-availability-replica-states-transact-sql).
 
-If you find it is not synchronized or not connected unexpectedly, try to kill the pod which has the problem. If problem persists, collect logs and contact support. See [Collecting the logs](#collecting-the-logs).
+If you find it'sn't synchronized or not connected unexpectedly, try to kill the pod which has the problem. If problem persists, collect logs and contact support. See [Collecting the logs](#collecting-the-logs).
 
 > [!NOTE]
 > If there are some large database in the instance, the seeding process to secondary could take a while. If this happens, wait for seeding to complete.
@@ -158,7 +157,7 @@ kubectl exec -ti -n $nameSpace $sqlmiName-2 -c arc-sqlmi -- /opt/mssql-tools/bin
 
 **Results**
 
-You should get `ServerName` from `Listener` of SQL Server on each replicas, If you cannot, kill the pods which have the problem. If the problem persists after recovery, collect logs and contact support. See [Collecting the logs](#collecting-the-logs).
+You should get `ServerName` from `Listener` of each replica. If you can't get `ServerName`, kill the pods which have the problem. If the problem persists after recovery, collect logs and contact support. See [Collecting the logs](#collecting-the-logs).
 
 ### Check Kubernetes network connection
 
@@ -171,7 +170,7 @@ kubectl exec -ti -n $nameSpace $sqlmiName-0 -c arc-sqlmi -- /opt/mssql-tools/bin
 
 **Results**
 
-You should be able to reach any Cluster IP address for the pods of stateful set from another pod. If this is not the case, please refer to [Kubernetes documentation - Cluster networking](https://kubernetes.io/docs/concepts/cluster-administration/networking/) for detailed information or get service provider to resolve the issue.
+You should be able to reach any Cluster IP address for the pods of stateful set from another pod. If this isn't the case, refer to [Kubernetes documentation - Cluster networking](https://kubernetes.io/docs/concepts/cluster-administration/networking/) for detailed information or get service provider to resolve the issue.
 
 ### Check the Kubernetes load balancer or `nodeport` services
 
@@ -185,13 +184,13 @@ kubectl -n $nameSpace expose pod $sqlmiName-2 --port=1533  --name=ha-$sqlmiName-
 
 **Results**
 
-You should be able to connect to exposed external port (which has been confirmed from internal at step 3). If you cannot connect to external port, please refer to [Kubernetes documentation - Create an external load balancer](https://kubernetes.io/docs/tasks/access-application-cluster/create-external-load-balancer/) and get service provider help on the issues.
+You should be able to connect to exposed external port (which has been confirmed from internal at step 3). If you can't connect to external port, refer to [Kubernetes documentation - Create an external load balancer](https://kubernetes.io/docs/tasks/access-application-cluster/create-external-load-balancer/) and get service provider help on the issues.
 
 You can use any client like `SqlCmd`, SQL Server Management Studio (SSMS), or Azure Data Studio (ADS) to test this out.
 
 ## Collecting the logs
 
-If the previous steps all succeeded without any problem and you still cannot log in, collect the logs and contact support
+If the previous steps all succeeded without any problem and you still can't log in, collect the logs and contact support
 
 ### Collection controller logs
 
