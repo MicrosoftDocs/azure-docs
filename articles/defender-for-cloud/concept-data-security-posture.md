@@ -10,23 +10,64 @@ ms.date: 03/09/2023
 
 # Data-aware security posture (preview)
 
-In today's fast-paced world of constant data migration and increasingly complex cloud environments, it's essential for you to identify and protect your most critical assets from potential cyberattacks. Attacks that expose sensitive information of millions customers are common place, for example due to misconfigured firewalls in a company's cloud infrastructure.
+As digital transformation accelerates, organizations move data at an exponential rate to the cloud using multiple data stores, such as object stores, managed and hosted databases. The dynamic and complex nature of the cloud has altered the threat surface and risks related to data, causing security teams to encounter blind spots and significant challenges to protect their cloud data estate.
 
-With data sensitivity posture management (DSPM), you can automatically discover and assess your cloud data estate, identify your most critical assets and sensitive data, and prioritize remediation of potential attack paths for resources that are exposed to high risk. The result is greater visibility and insight into where critical data is located and how best to protect it, ensuring that your personal identification and financial information remains secure and protected.
 
-You can [enable DSPM](link) with the **Sensitive data discovery** option in Defender CSPM or Defender for Storage.
 
-## How data-aware security posture management works
+## Which data security capabilities does Defender for Cloud offer?
 
-Data security posture is an essential aspect of cloud security. Defender for Cloud uses smart sampling to scan a selected number of cloud files in your protected datastores. The results provide an accurate assessment of where sensitive data is stored while saving on scanning costs and time.
+Microsoft Defender for Cloud offers data security capabilities which help security teams be more productive at reducing risks and responding to data breaches in the cloud:
+* Automatically discover data resources across cloud estate and evaluate their accessibility, data sensitivity and configured data flows.
+* Continuously uncover risks to data breaches of sensitive data resources, exposure or attack paths that could lead to a data resource using a lateral movement technique. 
+* Detect suspicious activities that may indicate an ongoing threat to sensitive data resources.
+
+
+## Data-Aware Security Posture in Defender CSPM
+
+Defender CSPM helps security teams cut through the noise with contextual cloud security and prioritize the most critical security risks powered by its Cloud Security Graph. 
+
+With Defender CSPM's new data-aware security posture management, security teams can get ahead of their data risks and prioritize security issues that could prevent a costly data breach.
+
+### Auto-Discovery of the Cloud Data Estate
+Cloud data security starts with visibility.  Data-aware security posture management automatically and continuously discovers managed and shadow data resources in use across clouds, including different types of objects stores and databases. Security teams can utilize Defender for Cloud security explorer to determine where the data is stored, who can access it and how does the data flows by querying different types of data resources, their network, access controls, and configured data flows security attributes.
+
+Data-aware security management also offers rapid, agentless, and intelligent sensitive data discovery, which automatically identify data resources that contain sensitive data such as Finance, PII, and Credentials. By default, the new sensitive data discovery service is enabled with high-sensitive information types and additional sensitive information types can be selected from the Defender for Cloud’s data sensitivity settings.
+
+In addition, customers using Microsoft Purview can leverage their investments in organization data classification with custom information types, custom labels, and data scan context to identify data resources that contain sensitive data in the cloud.
+
+### Uncover risks for data breaches in the cloud
+Now that the data layer is part of the Cloud Security Graph, the new data-aware security posture continuously uncovers risks to data exposure and prioritizes security issues across cloud environments that cloud lead to data breach.
+
+Examples:
+* Find misconfigured data resources across multi-cloud environments that are publicly accessible and contain sensitive data, using the cloud security explorer queries. The result of such a query provides additional information regarding the network and access controls applied to the exposed data resources, along with examples of the sensitive data that these data resources contain.
+* Discover risk to a data breach by an attack path of an internet-exposed virtual machine (VM) with access to a sensitive data store. Hackers can exploit the vulnerable VM that is exposed to and move laterally to access an object store that contains sensitive data.
+
+
+Relevant links:
+* [How to enable sensitive data discovery in Defender CSPM for Azure storage accounts](link)
+* [How to enable sensitive data discovery in Defender CSPM for Amazon S3 buckets](link)
+* [How to explore data risk](link)
+* [Relevant insights and attack paths related to data-aware security](link)
+
+
+## Data-Aware Threat Detection in Defender for Storage
+Defender for Storage provides ongoing monitoring of activities within Azure Storage account across data and control planes. It uses advanced threat detection modules to detect potential data breaches by identifying harmful attempts to access or exploit data, as well as suspicious configuration changes that could lead to such a data breach. When such early signs are detected, the Defender for Storage generates a security alert, which allows security teams to enable quick response and mitigation.
+
+Defender for Storage threat detection with sensitive data context allows secure teams to detect and respond to active data breaches that involve malicious access, exfiltration, or corruption of sensitive data.
+
+
+Relevant links:
+* [How to enable sensitive data discovery in Defender for Storage for Azure storage accounts](link)
+* [How to enable sensitive data discovery in Defender for Storage for Amazon S3 buckets](link)
+* [How to explore data risk](link)
+
+
+
+## How does the data discovery work?
+Defender for Cloud uses smart sampling to scan a selected number of files in your cloud datastores. The results provide an accurate assessment of where sensitive data is stored while saving on scanning costs and time.
 
 The data security posture scans resources and annotates them with sensitive information types and labels based on sensitivity settings defined for your tenant.
 
-## Integration with Microsoft Purview
-
-Resources that are not scanned by data security posture are enriched with classifications and labels from Purview, but these classifications are considered to contain sensitive data regardless of the sensitivity settings. The enrichment from Purview does not provide details about the last scan time, sensitive information types, labels, or samples of files. To access this information, the user must launch the Purview catalog.
-
-## FAQ
 
 
 
