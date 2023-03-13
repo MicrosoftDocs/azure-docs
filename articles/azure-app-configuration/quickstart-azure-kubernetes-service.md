@@ -68,7 +68,7 @@ Once the system-assigned managed identity has been enabled, you need to grant it
 ## Install App Configuration Kubernetes Provider to your AKS cluster
 
 Install the Azure App Configuration Kubernetes Provider to your AKS cluster, which was created in the previous step.
-1. Get the credential to manage your AKS cluster
+1. Get the credential to manage your AKS cluster:
     ```bash
     az aks get-credentials --name $AKS_Name --resource-group $AKS_Resource_Group
     ```
@@ -77,7 +77,7 @@ Install the Azure App Configuration Kubernetes Provider to your AKS cluster, whi
     helm install azureappconfiguration.kubernetesprovider oci://mcr.microsoft.com/azure-app-configuration/helmchart/kubernetes-provider --version 1.0.0-alpha --namespace azappconfig-system --create-namespace
     ```
 
-## Create a sample ASP.NET Core web app.
+## Create a sample ASP.NET Core web app
 
 Use the .NET Core command-line interface (CLI) to create a new ASP.NET Core web app project. The Azure Cloud Shell provides these tools for you. They're also available across the Windows, macOS, and Linux platforms.
 
