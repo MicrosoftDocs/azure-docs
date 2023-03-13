@@ -4,6 +4,7 @@ description: This article provides an overview of the catalog lineage feature of
 author: linda33wj
 ms.author: jingwang
 ms.service: purview
+ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 01/09/2023
 ---

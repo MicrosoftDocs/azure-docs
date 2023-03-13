@@ -4,6 +4,7 @@ description: Describes the concepts for data lineage.
 author: linda33wj
 ms.author: jingwang
 ms.service: purview
+ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 12/05/2022
 ---
