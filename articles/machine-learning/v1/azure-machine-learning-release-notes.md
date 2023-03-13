@@ -31,7 +31,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
     + The current Python 3.7 versions for Azure Machine Learning SDK v1 will still function. However, in order to continue receiving security updates and remaining qualified for technical assistance, Azure Machine Learning strongly advises that you move your scripts and dependencies to a supported version of the Python runtime.
     + As a runtime for Azure Machine Learning SDK v1 files, we advise using Python version 3.8 or later.
     + Additionally, Python 3.7 based Azure Machine Learning SDK v1 packages will no longer be qualified for technical assistance.
-    + Use AML Support to get in touch with us if you have any concerns.
+    + Use Azure Machine Learning support to get in touch with us if you have any concerns.
 
 ## 2023-13-02
 
