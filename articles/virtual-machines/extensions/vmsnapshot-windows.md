@@ -9,7 +9,7 @@ ms.service: virtual-machines
 ms.subservice: extensions
 ms.collection: windows
 ms.topic: article
-ms.date: 10/15/2020
+ms.date: 03/09/2023
 ms.author: trinadhk
 
 ---

@@ -675,7 +675,7 @@ Dependencies
 
 Autocollected metrics
 
-* Micrometer, including Spring Boot Actuator metrics
+* Micrometer Metrics, including Spring Boot Actuator metrics
 * JMX Metrics
 
 #### [Node.js](#tab/nodejs)
@@ -748,7 +748,7 @@ The following table represents the currently supported custom telemetry types:
 | **Java**                                  |               |                |              |            |            |          |        |
 | &nbsp;&nbsp;&nbsp;OpenTelemetry API       |               | Yes            | Yes          | Yes        |            | Yes      |        |
 | &nbsp;&nbsp;&nbsp;Logback, Log4j, JUL     |               |                |              | Yes        |            |          | Yes    |
-| &nbsp;&nbsp;&nbsp;Micrometer              |               | Yes            |              |            |            |          |        |
+| &nbsp;&nbsp;&nbsp;Micrometer Metrics      |               | Yes            |              |            |            |          |        |
 | &nbsp;&nbsp;&nbsp;AI Classic API          |  Yes          | Yes            | Yes          | Yes        | Yes        | Yes      | Yes    |
 |                                           |               |                |              |            |            |          |        |
 | **Node.js**                               |               |                |              |            |            |          |        |

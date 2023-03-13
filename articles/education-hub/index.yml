@@ -62,5 +62,7 @@ landingContent:
         links:
           - text: How to create a lab
             url: create-lab-education-hub.md
+          - text: How to add a student to a lab
+            url: add-student-api.md
           - text: How to delete a lab
             url: delete-lab-education-hub-apis.md
