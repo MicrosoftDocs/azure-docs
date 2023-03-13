@@ -537,6 +537,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "azure-cosmos-db-mongodb-mern-web-app",
+      "url": "https://github.com/Azure-samples/msdocs-azure-cosmos-db-mongodb-mern-web-app/",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "azure-cosmos-spark",
       "url": "https://github.com/Azure/azure-cosmosdb-spark",
       "branch": "2.4",

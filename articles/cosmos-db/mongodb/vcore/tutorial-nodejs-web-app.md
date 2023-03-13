@@ -96,19 +96,22 @@ For the most straightforward dev environment, we use GitHub Codespaces so that y
 1. The playground run should result in a list of documents in the local MongoDB collection. Here's a truncated example of the output.
 
     ```output
-    {
-      "acknowledged": true,
-      "insertedIds": {
-        "0": { "$oid": "640f8f93cc595e64508369ad" },
-        "1": { "$oid": "640f8f93cc595e64508369ae" },
-        "2": { "$oid": "640f8f93cc595e64508369af" },
-        "3": { "$oid": "640f8f93cc595e64508369b0" },
-        "4": { "$oid": "640f8f93cc595e64508369b1" },
-        "5": { "$oid": "640f8f93cc595e64508369b2" },
-        "6": { "$oid": "640f8f93cc595e64508369b3" },
-        ...
-      }
-    }
+    [
+      {
+        "_id": { "$oid": "640a146e89286b79b6628eef" },
+        "name": "Confira Watch",
+        "category": "watches",
+        "price": 105
+      },
+      {
+        "_id": { "$oid": "640a146e89286b79b6628ef0" },
+        "name": "Diannis Watch",
+        "category": "watches",
+        "price": 98,
+        "sale": true
+      },
+      ...
+    ]
     ```
 
     > [!NOTE]
@@ -137,26 +140,7 @@ Alternatively, you can complete this tutorial in [Visual Studio Code](https://co
 
 1. Run the following commands to create a database and collection. The command will then seed the collection with sample data and output a list of all documents in the collection.
 
-    ```bash
-    use('cosmicworks');
-    
-    db.products.drop();
-    
-    db.products.insertMany([
-      { name: "Confira Watch", category: "watches", price: 105.00 },
-      { name: "Diannis Watch", category: "watches", price: 98.00, sale: true },
-      { name: "Sterse Gloves", category: "gloves", price: 42.00 },
-      { name: "Peache Sunglasses", category: "eyewear", price: 32.00, sale: false, sizes: [ "S", "M", "L" ] },
-      { name: "Icento Pack", category: "bags", price: 58.00 },
-      { name: "Iroowl Bracelet", category: "watches", price: 66.00 },
-      { name: "Glaark Bag", category: "bags", price: 56.00, sale: true },
-      { name: "Windry Mittens", category: "gloves", price: 35.00 },
-      { name: "Tuvila Hat", category: "hats", price: 120.00 },
-      { name: "Klinto Hat", category: "hats", subcategory: "hats-beanies", price: 65.00 }
-    ]);
-    
-    db.products.find({});
-    ```
+    :::code language="bash" source="~/azure-cosmos-db-mongodb-mern-web-app/data/products.mongodb" highlight="5-16":::
 
 1. The commands should result in a list of documents in the local MongoDB collection. Here's a truncated example of the output.
 
