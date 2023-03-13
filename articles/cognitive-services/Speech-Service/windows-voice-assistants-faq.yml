@@ -21,7 +21,7 @@ summary: |
   - demonstrate the use of the Windows ConversationalAgent APIs
   - display best practices for a voice agent on Windows
   - provide an adaptable app and reusable components for your MVP agent application
-  - show how Direct Line Speech, along with Bot Framework or Custom Commands, can be used together with the Windows ConversationalAgent APIs for an end-to-end voice agent experience
+  - show how Direct Line Speech and the Bot Framework can be used together with the Windows ConversationalAgent APIs for an end-to-end voice agent experience
   
   The documentation provided with the sample app walks through the code path of voice activation and agent management, from the prerequisites of startup through proper cleanup.
   
@@ -32,11 +32,6 @@ summary: |
 sections:
   - name: Ignored
     questions:
-      - question: |
-          How do I contact Microsoft for resources like Limited Access Feature tokens and keyword model files?
-        answer: |
-          Contact winvoiceassistants@microsoft.com to request these resources.
-
       - question: |
           My app is showing in a small window when I activate it by voice. How can I transition from the compact view to a full application window?
         answer: |
