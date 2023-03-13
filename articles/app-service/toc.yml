@@ -253,7 +253,7 @@
           href: app-service-hybrid-connections.md
         - name: Virtual network integration
           href: overview-vnet-integration.md
-        - name: Name resoulution (DNS)
+        - name: Name resolution (DNS)
           href: overview-name-resolution.md
     - name: Local cache
       href: overview-local-cache.md

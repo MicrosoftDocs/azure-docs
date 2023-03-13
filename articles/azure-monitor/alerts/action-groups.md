@@ -562,8 +562,6 @@ You might have a limited number of SMS actions per action group.
 >
 > If you can't select your country/region code in the Azure portal, SMS isn't supported for your country/region. If your country/region code isn't available, you can vote to have your country/region added at [Share your ideas](https://feedback.azure.com/d365community/idea/e527eaa6-2025-ec11-b6e6-000d3a4f09d0). In the meantime, as a workaround, configure your action group to call a webhook to a third-party SMS provider that offers support in your country/region.
 
-For information about pricing for supported countries/regions, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
-
 #### Countries with SMS notification support
 
 | Country code | Country |
@@ -616,8 +614,33 @@ You might have a limited number of voice actions per action group.
 > [!NOTE]
 >
 > If you can't select your country/region code in the Azure portal, voice calls aren't supported for your country/region. If your country/region code isn't available, you can vote to have your country/region added at [Share your ideas](https://feedback.azure.com/d365community/idea/e527eaa6-2025-ec11-b6e6-000d3a4f09d0). In the meantime, as a workaround, configure your action group to call a webhook to a third-party voice call provider that offers support in your country/region.
->
-> The only country code that action groups currently support for voice notification is +1 for the United States.
+
+#### Countries with Voice notification support
+| Country code | Country |
+|:---|:---|
+| 61 | Australia |
+| 43 | Austria |
+| 32 | Belgium |
+| 55 | Brazil |
+| 1    |Canada |
+| 56 | Chile |
+| 420 | Czech Republic |
+| 45 | Denmark |
+| 358 | Finland |
+| 353 | Ireland |
+| 972 | Israel |
+| 352 | Luxembourg |
+| 60 | Malaysia |
+| 52 | Mexico |
+| 31 | Netherlands |
+| 64 | New Zealand |
+| 47 | Norway |
+| 351 | Portugal |
+| 65 | Singapore |
+| 27 | South Africa |
+| 46 | Sweeden |
+| 44 | United Kingdom |
+| 1 | United States |
 
 For information about pricing for supported countries/regions, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 

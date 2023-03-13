@@ -10,7 +10,6 @@ ms.topic: how-to
 ms.date: 04/14/2022
 ms.author: jammart
 ms.reviewer: nachakra 
-ms.custom: devx-track-azurepowershell
 ---
 
 # Manage storage account access keys
