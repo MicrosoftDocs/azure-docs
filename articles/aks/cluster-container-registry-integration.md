@@ -55,7 +55,7 @@ $MYACR = 'myContainerRegistry'
 New-AzContainerRegistry -Name $MYACR -ResourceGroupName myContainerRegistryResourceGroup -Sku Basic
 ```
 
-#### [Terraform](#tab/terraform)
+#### [Terraform](#tab/terraform-example)
 
 ```terraform
 # Example Usage
@@ -125,7 +125,7 @@ New-AzAksCluster -Name myAKSCluster -ResourceGroupName myResourceGroup -Generate
 
 This command may take several minutes to complete.
 
-#### [Terraform](#tab/terraform)
+#### [Terraform](#tab/terraform-example)
 
 ```terraform
 # Example Usage
@@ -190,7 +190,7 @@ Set-AzAksCluster -Name myAKSCluster -ResourceGroupName myResourceGroup -AcrNameT
 > [!NOTE]
 > Running the `Set-AzAksCluster -AcrNameToAttach` cmdlet uses the permissions of the user running the command to create the role ACR assignment. This role is assigned to the [kubelet][kubelet] managed identity. For more information on AKS managed identities, see [Summary of managed identities][summary-msi].
 
-#### [Terraform](#tab/terraform)
+#### [Terraform](#tab/terraform-example)
 
 ```terraform
 # Example Usage
