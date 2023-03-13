@@ -508,6 +508,18 @@ groups:
     title: REST API
   - id: vision-studio
     title: Vision Studio
+- id: programming-languages-computer-vision-40
+  title: Programming languages
+  prompt: Choose a programming language.
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-rest-api
+    title: REST API
 - id: programming-languages-ocr
   title: Programming languages
   prompt: Choose a programming language.
