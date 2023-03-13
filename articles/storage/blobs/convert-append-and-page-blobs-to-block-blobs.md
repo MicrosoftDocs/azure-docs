@@ -11,7 +11,7 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: blobs
 ms.devlang: powershell, azurecli
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurepowershell
 ---
 
 # Convert append blobs and page blobs into block blobs
