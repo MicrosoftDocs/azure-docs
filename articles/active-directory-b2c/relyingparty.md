@@ -78,7 +78,7 @@ The optional **RelyingParty** element contains the following elements:
 | UserJourneyBehaviors | 0:1 | The scope of the user journey behaviors. |
 | TechnicalProfile | 1:1 | A technical profile that's supported by the RP application. The technical profile provides a contract for the RP application to contact Azure AD B2C. |
 
-You need to create the **RelyingParty** child elements in the order as presented in the preceding table.
+You need to create the **RelyingParty** child elements in the order presented in the preceding table.
 
 ## Endpoints
 
