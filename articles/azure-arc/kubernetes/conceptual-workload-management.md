@@ -19,13 +19,13 @@ This article describes an organization that develops cloud-native applications. 
 
 Every application goes through a software development lifecycle that promotes it to the production environment. For example, an application is built, deployed to Dev environment, tested and promoted to Stage environment, tested, and finally delivered to production. For a cloud-native application, the application requires and targets different Kubernetes cluster resources throughout its lifecycle. In addition, applications normally require clusters to provide some platform services, such as Prometheus and Fluentbit, and infrastructure configurations, such as networking policy.
 
-Depending on the application, the variety of cluster types where the application is deployed in its lifecycle may be very diverse. The very same application with different configurations could be hosted on a managed cluster in the cloud, on a connected cluster in an on-premises environment, on a fleet of clusters on semi-connected edge devices on factory lines or military drones, and on an air-gapped cluster on a starship. Another complexity is that clusters in the early lifecycle stages such as Dev and QA are normally managed by the developer, but reconciliation to actual production clusters may be managed by the organization's customers. In the latter case, the developer may be only responsible for promoting and scheduling the application across different rings.  
+Depending on the application, there may be a great diversity of cluster types to which the application is deployed. The same application with different configurations could be hosted on a managed cluster in the cloud, on a connected cluster in an on-premises environment, on a fleet of clusters on semi-connected edge devices on factory lines or military drones, and on an air-gapped cluster on a starship. Another complexity is that clusters in early lifecycle stages such as Dev and QA are normally managed by the developer, while reconciliation to actual production clusters may be managed by the organization's customers. In the latter case, the developer may be responsible only for promoting and scheduling the application across different rings.  
 
 ## Challenges at scale
 
-The scenarios described above can be handled manually with a handful of scripts and pipelines in a small organization that operates a single application and a few clusters. In enterprise organizations, it's a real challenge. These organizations operate at scale, often producing hundreds of applications and targeting hundreds of cluster types that are backed up by thousands of physical clusters. In many cases, handling these operations manually with scripts is simply not feasible.
+In a small organization with a single application and only a few operations, most of these processes can be handled manually with a handful of scripts and pipelines. But for enterprise organizations operating on a larger scale, it can be a real challenge. These organizations often produce hundreds of applications that target hundreds of cluster types, backed up by thousands of physical clusters. In these cases, handling such operations manually with scripts isn't feasible.
 
-This type of workload management in a multi-cluster environment requires a scalable, automated solution with the following capabilities:
+The following capabilities are required to perform this type of workload management at scale in a multi-cluster environment:
 
 - Separation of concerns on scheduling and reconciling
 - Promotion of the fleet state through a chain of environments
@@ -51,9 +51,9 @@ Key responsibilities of the platform team are:
 
 ### Application team
 
-The application team is responsible for the software development lifecycle (SDLC) of their applications. They provide Kubernetes manifests that describe how to deploy the application to different targets. They are responsible for owning CI/CD pipelines that create container images and Kubernetes manifests and promote deployment artifacts across environment stages.
+The application team is responsible for the software development lifecycle (SDLC) of their applications. They provide Kubernetes manifests that describe how to deploy the application to different targets. They're responsible for owning CI/CD pipelines that create container images and Kubernetes manifests and promote deployment artifacts across environment stages.
 
-Typically, the application team has no knowledge of the clusters that they are deploying to, and they aren't aware of the structure of the fleet, global configurations, or what other teams do. The application team primarily understands the success of their application rollout as defined by the success of the pipeline stages. 
+Typically, the application team has no knowledge of the clusters that they are deploying to. They aren't aware of the structure of the fleet, global configurations, or tasks performed by other teams. The application team primarily understands the success of their application rollout as defined by the success of the pipeline stages. 
 
 Key responsibilities of the application team are:
 
@@ -64,7 +64,7 @@ Key responsibilities of the application team are:
 
 ## High level fLow
 
-The diagram below describes how these personas interact with each other while performing their regular activities.
+This diagram shows how the platform and application team personas interact with each other while performing their regular activities.
 
 :::image type="content" source="media/concept-workload-management/high-level-diagram.png" alt-text="Diagram showing how the personas interact with each other." lightbox="media/concept-workload-management/high-level-diagram.png":::
 
@@ -74,7 +74,7 @@ The application team runs SDLC operations on their applications and promotes cha
 
 The application team defines deployment targets for each rollout environment, and they know how to configure their application and how to generate manifests for each deployment target. This process is automated and exists in the application repositories space. This results in generated manifests for each deployment target, stored in a manifests storage such as a Git repository, Helm Repository, or OCI storage.
 
-The platform team has very limited knowledge about the applications and therefore is not involved in the application configuration and deployment process. The platform team is in charge of platform clusters, grouped in cluster types. They describe cluster types with configuration values such as DNS names, endpoints of external services, and so on. The platform team assigns or schedules application deployment targets to various cluster types. With that in place, application behavior on a physical cluster is determined by the combination of the deployment target configuration values, provided by the application team, and cluster type configuration values, provided by the platform peam. 
+The platform team has limited knowledge about the applications, so they aren't involved in the application configuration and deployment process. The platform team is in charge of platform clusters, grouped in cluster types. They describe cluster types with configuration values such as DNS names, endpoints of external services, and so on. The platform team assigns or schedules application deployment targets to various cluster types. With that in place, application behavior on a physical cluster is determined by the combination of the deployment target configuration values (provided by the application team), and cluster type configuration values (provided by the platform team).
 
 The platform team uses a separate platform repository that contains manifests for each cluster type. These manifests define the workloads that should run on each cluster type, and which platform configuration values should be applied. Clusters can fetch that information from the platform repository with their preferred reconciler and then apply the manifests.
 
@@ -88,9 +88,9 @@ Let's have a look at the high level solution architecture and understand its pri
 
 ### Control plane
 
-The platform team models the fleet in the control plane. It's designed to be human-oriented and easy to understand, update, and review. The control plane operates with abstractions such as Cluster Types, Environments, Workloads, Scheduling Policies, Configs and Templates. These abstractions are processed by an automated process that assigns deployment targets and configuration values to the cluster types, then saves the result to the platform GitOps repository. Although the entire fleet may consist of thousands of physical clusters, the platform repository operates at a higher level, grouping the clusters into cluster types. 
+The platform team models the fleet in the control plane. It's designed to be human-oriented and easy to understand, update, and review. The control plane operates with abstractions such as Cluster Types, Environments, Workloads, Scheduling Policies, Configs and Templates. These abstractions are handled by an automated process that assigns deployment targets and configuration values to the cluster types, then saves the result to the platform GitOps repository. Although the entire fleet may consist of thousands of physical clusters, the platform repository operates at a higher level, grouping the clusters into cluster types. 
 
-The main requirement for the control plane storage is to provide a reliable and secure transaction processing functionality, rather than being hit with complex queries against a large amount of data. Various technologies may be be used to store the control plane data.
+The main requirement for the control plane storage is to provide a reliable and secure transaction processing functionality, rather than being hit with complex queries against a large amount of data. Various technologies may be used to store the control plane data.
 
 This architecture design suggests a Git repository with a set of pipelines to store and promote platform abstractions across environments. This design provides a number of benefits:
 
@@ -104,15 +104,15 @@ This architecture design suggests a Git repository with a set of pipelines to st
 The control plane repository contains two types of data:
 
 * Data that gets promoted across environments, such as a list of onboarded workloads and various templates.
-* Environment-specific configurations, such as included environment cluster types, config values, and scheduling policies. This data is not promoted, as it is specific to each environment.
+* Environment-specific configurations, such as included environment cluster types, config values, and scheduling policies. This data isn't promoted, as it's specific to each environment.
 
 The data to be promoted is stored in the `main` branch. Environment-specific data is stored in the corresponding environment branches such as example `dev`, `qa`, and `prod`. Transforming data from the control plane to the GitOps repo is a combination of the promotion and scheduling flows. The promotion flow moves the change across the environments horizontally; the scheduling flow does the scheduling and generates manifests vertically for each environment.
 
 :::image type="content" source="media/concept-workload-management/promotion-flow.png" alt-text="Diagram showing promotion flow." lightbox="media/concept-workload-management/promotion-flow.png":::
 
-A commit to the `main` branch starts the promotion flow that triggers the scheduling flow for each environment one by one. The scheduling flow takes the base manifests from `main`, applies config values from a corresponding to this environment branch and creates a PR with the resulting manifests to the platform GitOps repository. Once the rollout on this environment is complete and successful, the promotion flow goes ahead and performs the same procedure on the next environment. On every environment the flow promotes the same commit id of the `main` branch, making sure that the content from `main` is getting to the next environment only after success on the previous environment.
+A commit to the `main` branch starts the promotion flow that triggers the scheduling flow for each environment one by one. The scheduling flow takes the base manifests from `main`, applies config values from a corresponding to this environment branch, and creates a PR with the resulting manifests to the platform GitOps repository. Once the rollout on this environment is complete and successful, the promotion flow goes ahead and performs the same procedure on the next environment. On each environment, the flow promotes the same commit ID of the `main` branch, making sure that the content from `main` goes to the next environment only after successful deployment to the previous environment.
 
-A commit to the environment branch in the control plane repository simply starts the scheduling flow for this environment. For example, if you have configured cosmo-db endpoint in the QA environment, you only want to have updates in the QA branch of the platform GitOps repository. You don’t want to touch anything else. The scheduling takes the `main` content, corresponding to the latest commit id promoted to this environment, apply configurations and PR the resulting manifests to the platform GitOps branch.
+A commit to the environment branch in the control plane repository starts the scheduling flow for this environment. For example, perhaps you have configured cosmo-db endpoint in the QA environment. You only want to update the QA branch of the platform GitOps repository, without touching anything else. The scheduling takes the `main` content, corresponding to the latest commit ID promoted to this environment, applies configurations, and promotes the resulting manifests to the platform GitOps branch.
 
 ### Workload assignment
 
@@ -125,11 +125,11 @@ In the platform GitOps repository, each workload assignment to a cluster type is
 
 ### Cluster types and reconcilers
 
-Every cluster type can use a different reconciler (such as Flux, ArgoCD, Zarf, Rancher Fleet, and so on) to deliver manifests from the Workload Manifests Storages. Cluster type definition refers to a reconciler, which defines a collection of manifest templates. The scheduler uses these templates to produce reconciler resources, such as Flux GitRepository and Flux Kustomization, ArgoCD Application, Zarf descriptors, and so on. The very same workload may be scheduled to the cluster types, managed by different reconcilers, for example Flux and ArgoCD. The scheduler generates Flux GitRepository and Flux Kustomization for one cluster and ArgoCD Application for another cluster, but both of them point to the same Workload Manifests Storage containing the workload manifests.
+Every cluster type can use a different reconciler (such as Flux, ArgoCD, Zarf, Rancher Fleet, and so on) to deliver manifests from the Workload Manifests Storages. Cluster type definition refers to a reconciler, which defines a collection of manifest templates. The scheduler uses these templates to produce reconciler resources, such as Flux GitRepository and Flux Kustomization, ArgoCD Application, Zarf descriptors, and so on. The same workload may be scheduled to the cluster types, managed by different reconcilers, for example Flux and ArgoCD. The scheduler generates Flux GitRepository and Flux Kustomization for one cluster and ArgoCD Application for another cluster, but both of them point to the same Workload Manifests Storage containing the workload manifests.
 
 ### Platform services
 
-Platform services are workloads (such as Prometheus, NGINX, Fluentbit, and so on) maintained by the platform team. Just like any workloads, they have their source repositories and manifests storage. The source repositories may contain pointers to external Helm charts. CI/CD pipelines pull the charts with the containers and perform all necessary security scans before submitting them to the manifests storage, from where they are reconciled to the clusters in the fleet. 
+Platform services are workloads (such as Prometheus, NGINX, Fluentbit, and so on) maintained by the platform team. Just like any workloads, they have their source repositories and manifests storage. The source repositories may contain pointers to external Helm charts. CI/CD pipelines pull the charts with containers and perform necessary security scans before submitting them to the manifests storage, from where they're reconciled to the clusters in the fleet. 
 
 ### Deployment Observability Hub
 
