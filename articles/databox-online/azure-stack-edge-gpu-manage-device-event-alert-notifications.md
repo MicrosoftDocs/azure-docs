@@ -43,7 +43,7 @@ Use the following steps in the Azure portal to create an alert processing rule f
 
 1. Select a **Subscription** and optionally filter by **Resource types**. To filter by Azure Stack Edge resources, select **Resource types** for **Azure Stack Edge / Data Box Gateway** as shown in the following example.
 
-   [![Screenshot showing the **Scope** menu in the **Create an alert processing rule** wizard for an Azure Stack Edge resource. The Select subscription dropdown menu is highlighted.](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/azure-stack-edge-alert-processing-rules-select-subscription-04.png)](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/azure-stack-edge-alert-processing-rules-select-subscription-04.png#lightbox)
+   [![Screenshot showing the **Select a scope** menu for an Azure Stack Edge resource. The Select subscription and Resource types dropdown menus are highlighted.](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/azure-stack-edge-alert-processing-rules-select-subscription-04.png)](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/azure-stack-edge-alert-processing-rules-select-subscription-04.png#lightbox)
 
 1. The **Resource type** option lists the available resources based on your selection. Use the filter option to reduce the list of options. Select the **Checkbox** for the scope option you want to work with and then select **Apply**.
 
