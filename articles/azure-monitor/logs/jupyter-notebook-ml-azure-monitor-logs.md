@@ -60,14 +60,12 @@ In this tutorial, you'll need:
     - Kernel set to Python 3.8 or higher.
     - [A notebook](../../machine-learning/quickstart-run-notebooks#create-a-new-notebook). 
 - A Log Analytics workspace with data in the `AzureDiagnostics` table. 
-- An application, custom table, data collection endpoint, and data collection rule, as explained in [Send data to Azure Monitor Logs using REST API](../../logs/tutorial-logs-ingestion-api).
 - The following roles and permissions: 
 
     |Type  |Details  |
     |---------|---------|
-    |**Azure Monitor Logs**     |- The **Logs Analytics Contributor** role to read data from aand send data to a Logs Analytics workspace. For more information, see [Manage access to Log Analytics workspaces](../logs/manage-access.md#log-analytics-contributor).|
-    |**Azure Machine Learning**     |- A resource group-level **Owner** or **Contributor** role, to create a new Azure Machine Learning workspace if needed. <br>- A **Contributor** role on the Azure Machine Learning workspace where you run your notebook.    <br><br>For more information, see [Manage access to an Azure Machine Learning workspace](../machine-learning/how-to-assign-roles.md).     |
-    
+    |**Azure Monitor Logs**     |- The **Logs Analytics Contributor** role to read data from and send data to your Logs Analytics workspace. For more information, see [Manage access to Log Analytics workspaces](../logs/manage-access.md#log-analytics-contributor).|
+    |**Azure Machine Learning**     |- A resource group-level **Owner** or **Contributor** role, to create a new Azure Machine Learning workspace if needed. <br>- A **Contributor** role on the Azure Machine Learning workspace where you run your notebook.    <br><br>For more information, see [Manage access to an Azure Machine Learning workspace](../machine-learning/how-to-assign-roles.md).     | 
 - Basic familiarity with data science concepts.  
     
  ## Install required Python tools
@@ -222,8 +220,20 @@ To train a machine learning model on data in your Log Analytics workspace:
 
 ## Ingest anomalies into a custom table in your Log Analytics workspace
 
+1. To send data back to your Log Analytics workspace, you need a registered application, custom table, data collection endpoint, and data collection rule, as explained in [Send data to Azure Monitor Logs using REST API](../../logs/tutorial-logs-ingestion-api).
+1. Define variables you need to pass in the call to the Logs Ingestion API:
 
-1. Define variables you need to pass in the call to the Logs Ingestion API.
+    ```python
+    os.environ['AZURE_TENANT_ID'] = "<Tenant ID>"; #Tenant ID the data collection endpoint resides in
+    os.environ['AZURE_CLIENT_ID'] = "<Application ID>"; #Application ID to which you granted permissions to your data collection rule
+    os.environ['AZURE_CLIENT_SECRET'] = "<Client secret"; #Secret created for the application
+    
+    
+    
+    os.environ['LOGS_DCR_STREAM_NAME'] = "Custom stream name" ##Name of the custom stream from the data collection rule
+    os.environ['LOGS_DCR_RULE_ID'] = "Data collection rule immutableId" # immutableId of your data collection rule
+    os.environ['DATA_COLLECTION_ENDPOINT'] =  "Logs ingestion URL of your endpoint" # URL that looks like this: https://xxxx.ingest.monitor.azure.com
+    ```
 1. Send anomalies to your Log Analytics workspace.
 1. Verify that the anomaly data now appear in your custom table.
 
