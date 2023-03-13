@@ -9,7 +9,7 @@ ms.date: 03/06/2023
 
 [!INCLUDE [speech model](./includes/speech-model.md)]
 
-Through Azure Video Indexer’s integration with [Azure speech services](../cognitive-services/speech-service/captioning-concepts.md), a Universal Language Model is utilized as a base model that is trained with Microsoft-owned data and reflects commonly used spoken language. The base model is pre-trained with dialects and phonetics representing a variety of common domains. The base model works well in most speech recognition scenarios. 
+Through Azure Video Indexer integration with [Azure speech services](../cognitive-services/speech-service/captioning-concepts.md), a Universal Language Model is utilized as a base model that is trained with Microsoft-owned data and reflects commonly used spoken language. The base model is pretrained with dialects and phonetics representing various common domains. The base model works well in most speech recognition scenarios. 
 
 However, sometimes the base model’s transcription doesn't accurately handle some content. In these situations, a customized speech model can be used to improve recognition of domain-specific vocabulary or pronunciation that is specific to your content by providing text data to train the model. Through the process of creating and adapting speech customization models, your content can be properly transcribed. There is no additional charge for using Video Indexers speech customization. 
 
