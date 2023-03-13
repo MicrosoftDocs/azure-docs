@@ -888,7 +888,7 @@ putSecretWithLS(linkedService, secretName, secretValue): puts AKV secret for a g
 ```
 
 > [!NOTE]
-> It is not supported in Csharp language.
+> Currently getSecretWithLS(linkedService, secret) is not supported in C#.
 
 
 ### Get token
