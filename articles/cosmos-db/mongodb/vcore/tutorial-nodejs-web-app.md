@@ -96,22 +96,19 @@ For the most straightforward dev environment, we use GitHub Codespaces so that y
 1. The playground run should result in a list of documents in the local MongoDB collection. Here's a truncated example of the output.
 
     ```output
-    [
-      {
-        "_id": { "$oid": "640a146e89286b79b6628eef" },
-        "name": "Confira Watch",
-        "category": "watches",
-        "price": 105
-      },
-      {
-        "_id": { "$oid": "640a146e89286b79b6628ef0" },
-        "name": "Diannis Watch",
-        "category": "watches",
-        "price": 98,
-        "sale": true
-      },
-      ...
-    ]
+    {
+      "acknowledged": true,
+      "insertedIds": {
+        "0": { "$oid": "640f8f93cc595e64508369ad" },
+        "1": { "$oid": "640f8f93cc595e64508369ae" },
+        "2": { "$oid": "640f8f93cc595e64508369af" },
+        "3": { "$oid": "640f8f93cc595e64508369b0" },
+        "4": { "$oid": "640f8f93cc595e64508369b1" },
+        "5": { "$oid": "640f8f93cc595e64508369b2" },
+        "6": { "$oid": "640f8f93cc595e64508369b3" },
+        ...
+      }
+    }
     ```
 
     > [!NOTE]
