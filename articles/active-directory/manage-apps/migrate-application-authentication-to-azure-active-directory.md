@@ -48,7 +48,7 @@ You can find more migration resources at [https://aka.ms/migrateapps](./migratio
 
 ## Benefits of migrating app authentication to Azure AD
 
-Moving app authentication to Azure AD will help you manage risk and cost, increase productivity, and address compliance and governance requirements.
+Moving app authentication to Azure AD helps you manage risk and cost, increase productivity, and address compliance and governance requirements.
 
 ### Manage risk
 
@@ -111,10 +111,10 @@ The following table includes the key roles and their contributions:
 | **Identity Architect / Azure AD App Administrator** | They're responsible for the following:<br /> - design the solution in cooperation with stakeholders<br /> - document the solution design and operational procedures for handoff to the operations team<br /> - manage the pre-production and production environments |
 | **On premises AD operations team** | The organization that manages the different on-premises identity sources such as AD forests, LDAP directories, HR systems etc.<br /> - perform any remediation tasks needed before synchronizing<br /> - Provide the service accounts required for synchronization<br /> - provide access to configure federation to Azure AD |
 | **IT Support Manager** | A representative from the IT support organization who can provide input on the supportability of this change from a helpdesk perspective. |
-| **Security Owner**  | A representative from the security team that can ensure that the plan will meet the security requirements of your organization. |
-| **Application technical owners** | Includes technical owners of the apps and services that will integrate with Azure AD. They provide the applications’ identity attributes that should include in the synchronization process. They usually have a relationship with CSV representatives. |
+| **Security Owner**  | A representative from the security team that can ensure that the plan meets the security requirements of your organization. |
+| **Application technical owners** | Includes technical owners of the apps and services that integrates with Azure AD. They provide the applications’ identity attributes that should include in the synchronization process. They usually have a relationship with CSV representatives. |
 | **Application business Owners** | Representative colleagues who can provide input on the user experience and usefulness of this change from a user’s perspective and owns the overall business aspect of the application, which may include managing access. |
-| **Pilot group of users** | Users who will test as a part of their daily work, the pilot experience, and provide feedback to guide the rest of the deployments. |
+| **Pilot group of users** | Users who tests as a part of their daily work, the pilot experience, and provide feedback to guide the rest of the deployments. |
 
 ### Plan communications
 
@@ -173,7 +173,7 @@ The migration states you might consider using are as follows:
 | **Production Configuration Successful** | Change the configurations to work against the production AD tenant and assess the app authentication in the test environment |
 | **Complete / Sign Off** | Deploy the changes for the app to the production environment and execute against the production Azure AD tenant |
 
-This will ensure app owners know what the app migration and testing schedule are when their apps are up for migration, and what the results are from other apps that have already been migrated. You might also consider providing links to your bug tracker database for owners to be able to file and view issues for apps that are being migrated.
+This ensures app owners know what the app migration and testing schedule are when their apps are up for migration, and what the results are from other apps that have already been migrated. You might also consider providing links to your bug tracker database for owners to be able to file and view issues for apps that are being migrated.
 
 ### Best practices
 
@@ -189,7 +189,7 @@ The following are our customer and partner’s success stories, and suggested be
 
 ### Find your apps
 
-The first decision point in an application migration is which apps to migrate, which if any should remain, and which apps to deprecate. There is always an opportunity to deprecate the apps that you will not use in your organization. There are several ways to find apps in your organization. While discovering apps, ensure you include in-development and planned apps. Use Azure AD for authentication in all future apps.
+The first decision point in an application migration is which apps to migrate, which if any should remain, and which apps to deprecate. There is always an opportunity to deprecate the apps that you won't use in your organization. There are several ways to find apps in your organization. While discovering apps, ensure you include in-development and planned apps. Use Azure AD for authentication in all future apps.
 
 Using Active Directory Federation Services (AD FS) to gather a correct app inventory:
 
@@ -217,7 +217,7 @@ In the cloud environment, you need rich visibility, control over data travel, an
 
 ### Using manual processes
 
-Once you have taken the automated approaches described above, you will have a good handle on your applications. However, you might consider doing the following to ensure you have good coverage across all user access areas:
+Once you have taken the automated approaches described in this artcile, you'll have a good handle on your applications. However, you might consider doing the following to ensure you have good coverage across all user access areas:
 
 - Contact the various business owners in your organization to find the applications in use in your organization.
 - Run an HTTP inspection tool on your proxy server, or analyze proxy logs, to see where traffic is commonly routed.
@@ -226,7 +226,7 @@ Once you have taken the automated approaches described above, you will have a go
 
 ### Type of apps to migrate
 
-Once you find your apps, you will identify these types of apps in your organization:
+Once you find your apps, you'll identify these types of apps in your organization:
 
 - Apps that use modern authentication protocols such as [Security Assertion Markup Language (SAML)](../fundamentals/auth-saml.md) and [OpenID Connect (OIDC)](../fundamentals/auth-oidc.md) already 
 - Apps that use legacy authentication such as [Kerberos](https://techcommunity.microsoft.com/t5/itops-talk-blog/deep-dive-how-azure-ad-kerberos-works/ba-p/3070889), [Header-based](application-proxy-configure-single-sign-on-with-headers.md), or NT LAN Manager (NTLM) protocols that you choose to modernize 
@@ -279,7 +279,7 @@ You are successful in this phase with:
 
   - What systems those apps connect to
   - From where and on what devices users access them
-  - Whether they will be migrated, deprecated, or connected with [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md).
+  - Whether they'll be migrated, deprecated, or connected with [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md).
 
 > [!NOTE]
 > You can download the [Application Discovery Worksheet](https://download.microsoft.com/download/2/8/3/283F995C-5169-43A0-B81D-B0ED539FB3DD/Application%20Discovery%20worksheet.xlsx) to record the applications that you want to migrate to Azure AD authentication.
@@ -294,7 +294,7 @@ One way to think about this is along the axes of business criticality, usage, an
 
 ### Business criticality
 
-Business criticality will take on different dimensions for each business, but the two measures that you should consider are **features and functionality** and **user profiles**. Assign apps with unique functionality a higher point value than those with redundant or obsolete functionality.
+Business criticality takes on different dimensions for each business, but the two measures that you should consider are **features and functionality** and **user profiles**. Assign apps with unique functionality a higher point value than those with redundant or obsolete functionality.
 
 ![A diagram of the spectrums of features & functionality and user profiles](media/migrate-apps-to-azure-ad/functionality-user-profile.png)
 
@@ -311,17 +311,17 @@ Once you have determined values for business criticality and usage, you can then
 
 You can choose to begin the app migration with either the lowest priority apps or the highest priority apps based on your organization’s needs.
 
-In a scenario where you may not have experience using Azure AD and Identity services, consider moving your **lowest priority apps** to Azure AD first. This will minimize your business impact, and you can build momentum. Once you have successfully moved these apps and have gained the stakeholder’s confidence, you can continue to migrate the other apps.
+In a scenario where you may not have experience using Azure AD and Identity services, consider moving your **lowest priority apps** to Azure AD first. This minimizes your business impact, and you can build momentum. Once you have successfully moved these apps and have gained the stakeholder’s confidence, you can continue to migrate the other apps.
 
 If there is no clear priority, you should consider moving the apps that are in the [Azure AD Gallery](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps) first and support multiple identity providers because they are easier to integrate. It is likely that these apps are the **highest-priority apps** in your organization. To help integrate your SaaS applications with Azure AD, we have developed a collection of [tutorials](../saas-apps/tutorial-list.md) that walk you through configuration.
 
-When you have a deadline to migrate the apps, these highest priority apps bucket will take the major workload. You can eventually select the lower priority apps as they will not change the cost even though you have moved the deadline. 
+When you have a deadline to migrate the apps, these highest priority apps bucket takes the major workload. You can eventually select the lower priority apps as they won't change the cost even though you have moved the deadline. 
 
 In addition to this classification and depending on the urgency of your migration, you should publish a **migration schedule** within which app owners must engage to have their apps migrated. At the end of this process, you should have a list of all applications in prioritized buckets for migration.
 
 ### Document your apps
 
-First, start by gathering key details about your applications. The [Application Discovery Worksheet](https://download.microsoft.com/download/2/8/3/283F995C-5169-43A0-B81D-B0ED539FB3DD/Application%20Discovery%20worksheet.xlsx)will help you to make your migration decisions quickly and get a recommendation out to your business group in no time at all.
+First, start by gathering key details about your applications. The [Application Discovery Worksheet](https://download.microsoft.com/download/2/8/3/283F995C-5169-43A0-B81D-B0ED539FB3DD/Application%20Discovery%20worksheet.xlsx) helps you to make your migration decisions quickly and get a recommendation out to your business group in no time at all.
 
 Information that is important to making your migration decision includes:
 
@@ -339,7 +339,7 @@ Information that is important to making your migration decision includes:
 - **Whether the app depends on other apps or APIs** – does the app currently call into other apps or APIs?
 - **Whether the app is in the Azure AD gallery** – is the app currently already integrated with the [Azure AD Gallery](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps)?
 
-Other data that will help you later, but that you do not need to make an immediate migration decision includes:
+Other data that helps you later, but that you do not need to make an immediate migration decision includes:
 
 - **App URL** – where do users go to access the app?
 - **App description** – what is a brief description of what the app does?
@@ -378,7 +378,7 @@ You can use this information to protect access to all services integrated with A
 - Plan identity security improvements
 - Review the success of your improvements
 
-This will also help you implement the [five steps to securing your identity  infrastructure](../../security/fundamentals/steps-secure-identity.md). Use the guidance as a starting point for your organization and adjust the policies to meet your organization's specific requirements.
+This also helps you implement the [five steps to securing your identity  infrastructure](../../security/fundamentals/steps-secure-identity.md). Use the guidance as a starting point for your organization and adjust the policies to meet your organization's specific requirements.
 
 ### Who is accessing your data?
 
@@ -429,7 +429,7 @@ After migration, you may choose to send communication informing the users of the
 
 ### Plan testing
 
-During the process of the migration, your app may already have a test environment used during regular deployments. You can continue to use this environment for migration testing. If a test environment is not currently available, you may be able to set one up using Azure App Service or Azure Virtual Machines, depending on the architecture of the application. You may choose to set up a separate test Azure AD tenant to use as you develop your app configurations. This tenant will start in a clean state and will not be configured to sync with any system.
+During the process of the migration, your app may already have a test environment used during regular deployments. You can continue to use this environment for migration testing. If a test environment is not currently available, you may be able to set one up using Azure App Service or Azure Virtual Machines, depending on the architecture of the application. You may choose to set up a separate test Azure AD tenant to use as you develop your app configurations. This tenant will start in a clean state and won't be configured to sync with any system.
 
 Once you have migrated the apps, go to the [Azure portal](https://portal.azure.com/) to test if the migration was a success. Follow the instructions below:
 
