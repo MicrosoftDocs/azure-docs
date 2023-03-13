@@ -40,7 +40,7 @@ To ensure that the users can easily and securely access applications, your goal 
 
 [Azure Active Directory (Azure AD)](../fundamentals/active-directory-whatis.md) offers a universal identity platform that provides your employees, partners, and customers a single identity to access the applications they want and collaborate from any platform and device.
 
-![A diagram of Azure AD connectivity.](media/migrating-application-authentication-to-azure-active-directory-1.jpg)
+![A diagram of Azure AD connectivity.](media/migrate-apps-to-azure-ad/azure-ad-connectivity.png)
 
 Azure AD has a [full suite of identity management capabilities](../fundamentals/active-directory-whatis.md#which-features-work-in-azure-ad). Standardizing your app authentication and authorization to Azure AD gets you the benefits that these capabilities provide.
 
@@ -95,7 +95,7 @@ When technology projects fail, it's often due to mismatched expectations, the ri
 
 Before we get into the tools, you should understand how to think through the migration process. Through several direct-to-customer workshops, we recommend the following four phases:
 
-![A diagram of the phases of migration](media/migrating-application-authentication-to-azure-active-directory-2.jpg)
+![A diagram of the phases of migration](media/migrate-apps-to-azure-ad/phases-of-migration.png)
 
 ### Assemble the project team
 
@@ -229,7 +229,7 @@ Once you have taken the automated approaches described above, you will have a go
 Once you find your apps, you will identify these types of apps in your organization:
 
 - Apps that use modern authentication protocols such as [Security Assertion Markup Language (SAML)](../fundamentals/auth-saml.md) and [OpenID Connect (OIDC)](../fundamentals/auth-oidc.md) already 
-- Apps that use legacy authentication such as [Kerberos](https://techcommunity.microsoft.com/t5/itops-talk-blog/deep-dive-how-azure-ad-kerberos-works/ba-p/3070889), [Header-based](../application-proxy-configure-single-sign-on-with-headers.md), or NT LAN Manager (NTLM) protocols that you choose to modernize 
+- Apps that use legacy authentication such as [Kerberos](https://techcommunity.microsoft.com/t5/itops-talk-blog/deep-dive-how-azure-ad-kerberos-works/ba-p/3070889), [Header-based](application-proxy-configure-single-sign-on-with-headers.md), or NT LAN Manager (NTLM) protocols that you choose to modernize 
 - Apps that use legacy authentication protocols that you choose NOT to modernize 
 
 ### Apps that use modern authentication already
@@ -296,18 +296,17 @@ One way to think about this is along the axes of business criticality, usage, an
 
 Business criticality will take on different dimensions for each business, but the two measures that you should consider are **features and functionality** and **user profiles**. Assign apps with unique functionality a higher point value than those with redundant or obsolete functionality.
 
-![A diagram of the spectrums of Features & Functionality and User Profiles](media/migrating-application-authentication-to-azure-active-directory-3.jpg)
+![A diagram of the spectrums of features & functionality and user profiles](media/migrate-apps-to-azure-ad/functionality-user-profile.png)
 
 ### Usage
 
 Applications with **high usage numbers** should receive a higher value than apps with low usage. Assign a higher value to apps with external, executive, or security team users. For each app in your migration portfolio, complete these assessments.
 
-![A diagram of the spectrums of User Volume and User Breadth](media/migrating-application-authentication-to-azure-active-directory-4.jpg)
+![A diagram of the spectrums of User Volume and User Breadth](media/migrate-apps-to-azure-ad/user-volume-breadth.png)
 
 Once you have determined values for business criticality and usage, you can then determine the **application lifespan**, and create a matrix of priority. See one such matrix below:
 
-![A triangle diagram showing the relationships between Usage, Expected Lifespan, and Business Criticality](media/migrating-application-authentication-to-azure-active-directory5.jpg)
-
+![A triangle diagram showing the relationships between Usage, Expected Lifespan, and Business Criticality](media/migrate-apps-to-azure-ad/triangular-diagram-showing-relationship.png)
 ### Prioritize apps for migration
 
 You can choose to begin the app migration with either the lowest priority apps or the highest priority apps based on your organization’s needs.
@@ -397,7 +396,7 @@ External users may also refer to customers. [Azure AD B2C](../../active-director
 
 The device and location that a user uses to access an app are also important. Devices physically connected to your corporate network are more secure. Connections from outside the network over VPN may need scrutiny.
 
-![A diagram showing the relationship between User Location and Data Access](media/migrating-application-authentication-to-azure-active-directory-6.jpg)
+![A diagram showing the relationship between User Location and Data Access.](media/migrate-apps-to-azure-ad/user-location-data-access.png) 
 
 With these aspects of resource, user, and device in mind, you may choose to use [Azure AD Conditional Access](../conditional-access/overview.md) capabilities. Conditional access goes beyond user permissions: it is based on a combination of factors, such as the identity of a user or group, the network that the user is connected to, the device and application they are using, and the type of data they are trying to access. The access granted to the user adapts to this broader set of conditions.
 
