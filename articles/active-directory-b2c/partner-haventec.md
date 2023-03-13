@@ -68,7 +68,7 @@ See, [Tutorial: Register a web application in Azure Active Directory B2C](tutori
 For the following instructions, use the directory with the Azure AD B2C tenant.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/#home) as the Global Administrator of your Azure AD B2C tenant.
-2. In the top menu, select **Directory + subscription**
+2. In the top menu, select **Directory + subscription**.
 3. Select the directory with the tenant.
 4. In the top-left corner of the Azure portal, select **All services**.
 5. Search for and select **Azure AD B2C**.
