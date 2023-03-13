@@ -17,7 +17,7 @@ To set up your environment for Bicep development, see [Install Bicep tools](inst
 
 Visual Studio Code comes with several Bicep commands.
 
-Open or create a Bicep file in VS Code, select the **View** menu and then select **Command Palette**. You can also use the key combination <kbd>Ctrl+Shift+P</kbd> to bring up the command palette. Type **Bicep** to list the Bicep commands.
+Open or create a Bicep file in VS Code, select the **View** menu and then select **Command Palette**. You can also use **F1** or the key combination <kbd>Ctrl+Shift+P</kbd> to bring up the command palette. Type **Bicep** to list the Bicep commands.
 
 :::image type="content" source="./media/visual-studio-code/visual-studio-code-bicep-commands.png" alt-text="Screenshot of Visual Studio Code Bicep commands in the command palette.":::
 
@@ -132,7 +132,7 @@ To enable the feature:
 
 1. In Visual Studio Code, select **Manage** (gear icon) in the side menu. Select **Settings**.  You can also use <kbd>Ctrl+,</kbd> to open settings.
 1. Expand **Extensions** and then select **Bicep**.
-1. Select **Decompile on Paste** and **Enable paste as Bicep**.
+1. Select **Decompile on Paste**.
 
     :::image type="content" source="./media/visual-studio-code/enable-paste-json.png" alt-text="Screenshot of Visual Studio Code Paste as Bicep.":::
 
@@ -196,7 +196,7 @@ And, paste the following JSON:
 
 Visual Studio Code automatically converts the JSON to Bicep. Notice that you also need to add the parameter named `batchAccountName`.
 
-You can undo the decompilation by using <kbd>Ctrl+Z</kbd>.
+You can undo the decompilation by using <kbd>Ctrl+Z</kbd>. The original JSON appears in the file.
 
 ## Next steps
 
