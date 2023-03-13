@@ -153,14 +153,6 @@
               href: authenticate-application.md
             - name: Authorize access with Azure Active Directory
               href: authorize-access-azure-active-directory.md
-        - name: Authorization
-          items:
-            - name: Authorize access to Azure Event Hubs
-              href: authorize-access-event-hubs.md
-            - name: Authorize access with Azure Active Directory
-              href: authorize-access-azure-active-directory.md
-            - name: Authorize access with a shared access signature
-              href: authorize-access-shared-access-signature.md
         - name: Network security
           href: network-security.md
         - name: Security controls by Azure Policy
