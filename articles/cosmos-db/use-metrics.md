@@ -25,7 +25,7 @@ This article walks through common use cases and how Azure Cosmos DB insights can
 
 1. You can view your account metrics either from the **Metrics** pane or the **Insights** pane.
 
-   * **Metrics:** This pane provides numerical metrics that are collected at regular intervals and describes some aspect of a system at a particular time. For more information, see [How to monitor the server-side latency for operations in an Azure Cosmos DB container or account](monitor-server-side-latency.md) and [How to monitor normalized RU/s for an Azure Cosmos DB container or an account](monitor-normalized-request-units.md).
+   * **Metrics:** This pane provides numerical metrics that are collected at regular intervals and describes some aspect of a system at a particular time. For example, you can view and monitor the [server side latency metric](monitor-server-side-latency.md), [normalized request unit usage metric](monitor-normalized-request-units.md), etc.
 
    * **Insights:** This pane provides a customized monitoring experience for Azure Cosmos DB. Insights use the same metrics and logs that are collected in Azure Monitor and show an aggregated view for your account.
 
@@ -45,7 +45,7 @@ This article walks through common use cases and how Azure Cosmos DB insights can
 
    * **Latency**. This tab shows the read and write latency observed by Azure Cosmos DB in the region where your account is operating. You can visualize latency across regions for a geo-replicated account. You can also view server-side latency by different operations. This metric doesn't represent the end-to-end request latency.
 
-   * **System**. This tab shows how many metadata requests are served by the primary partition. It also helps to identify the throttled requests.
+   * **System**. This tab shows how many metadata requests that the primary partition serves. It also helps to identify the throttled requests.
 
    * **Management Operations**. This tab shows the metrics for account management activities such as account creation, deletion, key updates, network and replication settings.
 
@@ -75,7 +75,7 @@ It's important to determine the storage distribution of any partitioned containe
 
 ## Compare data size against index size
 
-In Azure Cosmos DB, the total consumed storage is the combination of both the data size and dndex size. Typically, the index size is a fraction of the data size. To learn more, see the [Index size](index-policy.md#index-size) article. In the Metrics pane in the [Azure portal](https://portal.azure.com), the Storage tab showcases the breakdown of storage consumption based on data and index.
+In Azure Cosmos DB, the total consumed storage is the combination of both the data size and index size. Typically, the index size is a fraction of the data size. To learn more, see the [Index size](index-policy.md#index-size) article. In the Metrics pane in the [Azure portal](https://portal.azure.com), the Storage tab showcases the breakdown of storage consumption based on data and index.
 
 ```csharp
 // Measure the document size usage (which includes the index size)  
