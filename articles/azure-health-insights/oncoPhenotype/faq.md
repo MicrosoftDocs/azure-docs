@@ -1,6 +1,7 @@
 ---
 title: OncoPhenotype frequently asked questions
-description: OncoPhenotype frequently qsked questions
+titleSuffix: Azure Health Insights
+description: OncoPhenotype frequently asked questions
 services: azure-health-insights
 author: iBoonZ
 manager: urieinav
@@ -23,7 +24,7 @@ It is populated based on ICD-O-3 SEER Site/Histology Validation List [here](http
 No, we do not support 1-digit behavior code. We support only 4-digit histology code.
 
 ## What does inference value ```N+``` mean for clinical/pathologic N category? Why don't you have ```N1, N2, N3``` inference values?
-N+ means there is involvement of regional lymph nodes without explicitly mentioning the extent of spread. Our models were trained to classify whether or not there is regional lymph node involvement but not the extent of spread and hence we do not have ```N1, N2, N3``` inference values.We plan to support these values in the long term.
+N+ means there is involvement of regional lymph nodes without explicitly mentioning the extent of spread. Our models were trained to classify whether or not there is regional lymph node involvement but not the extent of spread and hence we do not have ```N1, N2, N3``` inference values. We plan to support these values in the long term.
 
 ## Do you have plans to support I-IV stage grouping?
 No, we do not have any plans to support I-IV stage grouping at this time.
@@ -38,3 +39,8 @@ Yes, for clinical/pathologic TNM categories. For tumor site and histology, the v
 ## Is there a workaround for patients whose clinical documents exceed the # characters limit?
 
 Unfortunately, we do not support patients with clinical documents that exceed # characters limit. You might try excluding the progress notes.
+
+## Limits and quotas
+
+For the public preview you can select the F0 (free) sku. 
+The Official prices will be released after public preview 

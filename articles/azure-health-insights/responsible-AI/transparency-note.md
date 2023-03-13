@@ -1,5 +1,6 @@
 ---
 title: Transparency Note for Azure Health Insights
+titleSuffix: Azure Health Insights
 description: Microsoft's Transparency Notes are intended to help you understand how our AI technology works.
 services: azure-health-insights
 author: iBoonZ
@@ -23,16 +24,16 @@ Microsoft's Transparency Notes are part of a broader effort at Microsoft to put 
 
 ## The basics of Azure Health Insights
 
-### introduction
+### Introduction
 
 Azure Health Insights is an Azure Applied AI Service built with the Azure Cognitive Services Framework, that leverages multiple Cognitive Services, Healthcare API services and other Azure resources. It currently includes the following features 
 
 - [Trial Matcher](../trial-matcher/overview.md) 
-- [OncoPhenotye](../oncoPhenotype/overview.md) 
+- [OncoPhenotye](../oncophenotype/overview.md) 
 
 Read the overview to get an introduction to each feature and review the example use cases. See the How-to guides and the API reference to understand more details about what each feature does and what gets returned by the system.
 
 This article contains basic guidelines for how to use Azure Cognitive Service for language features responsibly. Read the general information first and then jump to the specific article if you're using one of the features below.
 
 - [Transparency note for Trial Matcher](../trial-matcher/transparency-note.md) 
-- [Transparency note for OncoPhenotye](../oncoPhenotype//transparency-note.md) 
+- [Transparency note for OncoPhenotye](../oncophenotype//transparency-note.md) 

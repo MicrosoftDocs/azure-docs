@@ -1,5 +1,6 @@
 ---
 title: Transparency Note for OncoPhenotype
+titleSuffix: Azure Health Insights
 description: Microsoft's Transparency Notes for OncoPhenoType are intended to help you understand how our AI technology works.
 services: azure-health-insights
 author: iBoonZ
@@ -17,8 +18,6 @@ ms.author: behoorne
 An AI system includes not only the technology, but also the people who will use it, the people who will be affected by it, and the environment in which it is deployed. Creating a system that is fit for its intended purpose requires an understanding of how the technology works, its capabilities and limitations, and how to achieve the best performance. Microsoft's Transparency Notes are intended to help you understand how our AI technology works, the choices system owners can make that influence system performance and behavior, and the importance of thinking about the whole system, including the technology, the people, and the environment. You can use Transparency Notes when developing or deploying your own system, or share them with the people who will use or be affected by your system.
 
 Microsoft's Transparency Notes are part of a broader effort at Microsoft to put our AI principles into practice. To find out more, see [Microsoft AI principles](https://www.microsoft.com/ai/responsible-ai). 
-
-<br>
 
 ## Example use cases for the OncoPhenotype
 **USE CASE** | **DESCRIPTION** 

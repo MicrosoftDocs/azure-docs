@@ -1,6 +1,6 @@
 ---
-title: Azure Health Insights Request Info  
-description: this article describes the required properties to interact with the service
+title: Azure Health Insights request info  
+description: this article describes the required properties to interact with Azure Health Insights
 services: azure-health-insights
 author: iBoonZ
 manager: urieinav
@@ -11,6 +11,8 @@ ms.author: behoorne
 ---
 
 # Azure Health Insights Request Info  
+
+This page describes the request models and parameters that can be used to interact with the Azure Health Insights service.
 
 ## Request
 The generic part of the Azure Health Insights request, common to all models.

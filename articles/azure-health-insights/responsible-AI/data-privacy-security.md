@@ -1,6 +1,7 @@
 ---
 title: Data, privacy, and security for Azure Health Insights
-description: details regarding how Azure Health Insights processes your data..
+titleSuffix: Azure Health Insights
+description: details regarding how Azure Health Insights processes your data.
 services: azure-health-insights
 author: iBoonZ
 manager: urieinav

@@ -1,5 +1,5 @@
 ---
-title: Azure Health Insights Response Info  
+title: Azure Health Insights response info  
 description: this article describes the response from the service
 services: azure-health-insights
 author: iBoonZ
@@ -11,6 +11,9 @@ ms.author: behoorne
 ---
 
 # Azure Health Insights Response Info  
+
+This page describes the response models and parameters that is being returned by the Azure Health Insights service.
+
 
 ## Response
 The generic part of the Azure Health Insights response, common to all models.

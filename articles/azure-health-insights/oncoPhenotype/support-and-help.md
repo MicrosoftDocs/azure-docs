@@ -1,5 +1,6 @@
 ---
 title: OncoPhenotype support and help options
+titleSuffix: Azure Health Insights
 description: How to obtain help and support for questions and problems when you create applications that use with OncoPhenotype model
 services: azure-health-insights
 author: iBoonZ
@@ -16,10 +17,6 @@ ms.author: behoorne
 Are you just starting to explore the functionality of the OncoPhenotype model? Perhaps you are implementing a new feature in your application. Or after using the service, do you have suggestions on how to improve it? Here are options for where you can get support, stay up-to-date, give feedback, and report bugs for Cognitive Services.
 
 ## Create an Azure support request
-
-<div class='icon is-large'>
-    <img alt='Azure support' src='/media/logos/logo_azure.svg'>
-</div>
 
 Explore the range of [Azure support options and choose the plan](https://azure.microsoft.com/support/plans) that best fits, whether you're a developer just starting your cloud journey or a large organization deploying business-critical, strategic applications. Azure customers can create and manage support requests in the Azure portal.
 

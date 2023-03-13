@@ -2,10 +2,9 @@
 
 title: Azure Health Insights
 summary:  Azure Applied AI Service
-
 metadata:
   title: Azure Health Insights
-  description: this article contains documentation regarding the different Health Decisison Models from Health A.I.
+  description: this article contains documentation regarding the different Health Decision Models from Health A.I.
   ms.service: Azure Health Insights
   ms.topic: landing-page 
   author: iBoonZ
@@ -31,19 +30,19 @@ landingContent:
       - linkListType: overview
         links:
           - text: About OncoPhenotype
-            url: oncoPhenotype/overview.md
+            url: oncophenotype/overview.md
       - linkListType: concept
         links:
           - text: Model configuration
-            url: oncoPhenotype/model-configuration.md
+            url: oncophenotype/model-configuration.md
           - text: Patient information
-            url: oncoPhenotype/patient-info.md
+            url: oncophenotype/patient-info.md
           - text: Inference information
-            url: oncoPhenotype/inferences.md    
+            url: oncophenotype/inferences.md    
       - linkListType: quickstart
         links:
           - text: Get started
-            url: oncoPhenotype/get-started.md
+            url: oncophenotype/get-started.md
   - title: Trial Matcher
     linkLists:
       - linkListType: overview

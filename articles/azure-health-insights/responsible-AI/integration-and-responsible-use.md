@@ -1,5 +1,6 @@
 ---
 title: Guidance for integration and responsible use with Azure Health Insights
+titleSuffix: Azure Health Insights
 description: Microsoft wants to help you responsibly develop and deploy solutions that use Azure Health Insights.
 services: azure-health-insights
 author: iBoonZ
@@ -43,5 +44,5 @@ When getting ready to integrate and use AI-powered products or features, the fol
 - [Microsoft Azure Learning courses on Responsible AI](/training/paths/responsible-ai-business-principles/)
 
 ## See Also
-- [Transparency note for OncoPhenotype](../oncoPhenotype/transparency-note.md)
+- [Transparency note for OncoPhenotype](../oncophenotype/transparency-note.md)
 - [Transparency note for Trial Matcher](../trial-matcher/integration-and-responsible-use.md)

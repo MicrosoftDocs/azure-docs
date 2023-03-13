@@ -7,7 +7,7 @@ items:
     - name: About Azure Health Insights
       href: overview.md
     - name: OncoPhenotype
-      href: ./oncoPhenotype/index.yml
+      href: ./oncophenotype/index.yml
     - name: Trial Matcher 
       href: ./trial-matcher/index.yml
 - name: Concepts
@@ -26,8 +26,8 @@ items:
   expanded: true
   items:
     - name: Transparency note
-      href: responsible-AI/transparency-note.md
+      href: responsible-ai/transparency-note.md
     - name: Integration and responsible use
-      href: responsible-AI/integration-and-responsible-use.md
+      href: responsible-ai/integration-and-responsible-use.md
     - name: Data, privacy, and security
-      href: responsible-AI/data-privacy-security.md
+      href: responsible-ai/data-privacy-security.md

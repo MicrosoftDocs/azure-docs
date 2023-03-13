@@ -5,6 +5,7 @@ summary: OncoPhenotype is offered within the context of the broader Azure Health
 
 metadata:
   title: OncoPhenotype documentation
+  titleSuffix: Azure Health Insights
   description: enable healthcare organizations to rapidly identify key cancer attributes within their patient populations.
   ms.service: Azure Health Insights
   ms.topic: landing-page 

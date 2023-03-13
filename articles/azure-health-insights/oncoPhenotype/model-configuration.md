@@ -1,5 +1,6 @@
 ---
 title: OncoPhenotype model configuration
+titleSuffix: Azure Health Insights
 description: This article provides OncoPhenotype model configuration information.
 services: azure-health-insights
 author: iBoonZ

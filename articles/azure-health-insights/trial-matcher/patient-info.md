@@ -1,5 +1,6 @@
 ---
-title: Trial Matcher Patient Info 
+title: Trial Matcher patient info 
+titleSuffix: Azure Health Insights
 description: This article describes how and which patient information can be send to the Trial Matcher
 services: azure-health-insights
 author: iBoonZ
@@ -154,11 +155,11 @@ When sending patient information back to the Trial Matcher, customers can also s
 
 
 There are 5 different cagetories that can used as concepts:
-1.	UMLS concept ID that represents a single concept
-2.	UMLS concept ID that represents multiple related concepts
-3.	Textual concepts
-4.	Entity types
-5.	Semantic types
+-	UMLS concept ID that represents a single concept
+-	UMLS concept ID that represents multiple related concepts
+- Textual concepts
+-	Entity types
+-	Semantic types
 
 
 ### 1. UMLS concept ID that represents a single concept

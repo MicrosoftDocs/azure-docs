@@ -1,6 +1,7 @@
 ---
 title: OncoPhenotype Inference information
-description: This article provides OncoPhenotype Inference information.
+titleSuffix: Azure Health Insights
+description: This article provides OncoPhenotype inference information.
 services: azure-health-insights
 author: iBoonZ
 manager: urieinav

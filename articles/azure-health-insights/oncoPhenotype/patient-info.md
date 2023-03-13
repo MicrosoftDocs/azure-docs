@@ -1,6 +1,7 @@
 ---
-title: OncoPhenotype Patient Info 
-description: This article describes how and which patient information can be send to the OncoPhenotype model
+title: OncoPhenotype patient info 
+titleSuffix: Azure Health Insights
+description: This article describes how and which patient information can be sent to the OncoPhenotype model
 services: azure-health-insights
 author: iBoonZ
 manager: urieinav
@@ -13,11 +14,11 @@ ms.author: behoorne
 
 # OncoPhenotype Patient Info
 
-
-The OncoPhenotype currently can recieve patient information in the form of ```Unstructured clinical notes```.
+The OncoPhenotype currently can receive patient information in the form of ```Unstructured clinical notes```.
 The payload should contain a ```patients``` section with one or more objects where the ```data``` property contains one or more JSON object of ```kind``` "note". 
                       
 
+## Example payload
 An example can be seen below
 
 

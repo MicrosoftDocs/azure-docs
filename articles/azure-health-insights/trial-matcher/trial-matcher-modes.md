@@ -1,5 +1,6 @@
 ---
 title: Trial Matcher modes
+titleSuffix: Azure Health Insights
 description:  This article explains the different modes of Trial Matcher
 services: azure-health-insights
 author: iBoonZ
@@ -16,7 +17,7 @@ The Trial Matcher is a decision support model, offered within the context of the
 
 Trial Matcher provides the user of the services two main modes of operation: **patients centric** and **clinical trial centric**. 
 
-![Trial Matcher operation modes](../media/trial-matcher/overview.png) 
+![Diagram that shows the Trial Matcher operation modes.](../media/trial-matcher/overview.png) 
 
 
 ## Patient Centric

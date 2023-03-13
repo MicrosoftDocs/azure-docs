@@ -1,5 +1,6 @@
 ---
 title: Overview of the Trial Matcher
+titleSuffix: Azure Health Insights
 description:  Trial Matcher is designed to match patients to potentially suitable clinical trials and find group of potentially eligible patients to a list of clinical trials.
 services: azure-health-insights
 author: iBoonZ

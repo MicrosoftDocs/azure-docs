@@ -6,8 +6,8 @@ items:
   items:
     - name: About Trial Matcher
       href: overview.md
-    - name: Pricing and limits
-      href: pricing-and-limits.md
+    - name: Trial Matcher modes
+      href: trial-matcher-modes.md
     - name: FAQ
       href: faq.md
 - name: Quickstarts
@@ -25,13 +25,7 @@ items:
     - name: Integration and responsible use
       href: integration-and-responsible-use.md
     - name: Data, privacy, and security
-      href: ../responsible-AI/data-privacy-security.md
-- name: References
-  items:
-     - name: SDKs
-       items:
-        - name: .NET
-          href: sdk-dotnet.md
+      href: ../responsible-ai/data-privacy-security.md
 - name: Resources
   items:
      - name: Enterprise readiness
@@ -42,8 +36,6 @@ items:
           href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
      - name: Support and help options
        href: support-and-help.md
-     - name: Release notes
-       href: release-notes.md
 - name: Concepts
   expanded: true
   items:

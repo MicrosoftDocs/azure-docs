@@ -1,5 +1,6 @@
 ---
 title: Guidance for integration and responsible use with OncoPhenotype
+titleSuffix: Azure Health Insights
 description: Microsoft wants to help you responsibly develop and deploy solutions that use OncoPhenotype.
 services: azure-health-insights
 author: iBoonZ

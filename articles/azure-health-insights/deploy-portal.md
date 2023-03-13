@@ -1,5 +1,6 @@
 ---
 title: Deploy Azure Health Insights using the Azure portal
+titleSuffix: Azure Health Insights
 description: This article describes how to deploy Azure Health Insights in the Azure portal.
 services: azure-health-insights
 author: iBoonZ
@@ -25,7 +26,7 @@ To deploy Azure Health Insight  you must register your subscription. Please let 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Create a new **Resource group**
 3. Add a new Cognitive Services account to your Resource group and search for **Azure Health Insights** 
-![Create new service.](media/oncoPhenotype/deploy-to-azure/create-service.png) 
+![Screenshot of how to create the new Azure Health Insights service.](media/oncophenotype/deploy-to-azure/create-service.png) 
 
     or Use this [link](https://ms.portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_healthdecisionsupportpreview&feature.healthdecisionsupportpreview=true#create/Microsoft.CognitiveServicesHealthDecisionSupport) to create a new Cognitive Services account.
 
@@ -35,13 +36,11 @@ To deploy Azure Health Insight  you must register your subscription. Please let 
 - Name: Enter a Cognitive Services account name
 - Pricing tier: select your pricing tier
 
-    ![Create new Cognitive Services account](media/oncoPhenotype/deploy-to-azure/CreateHealthDecisionSupport.jpg) 
+    ![Screenshot of how to create new Cognitive Services account.](media/oncophenotype/deploy-to-azure/create-health-decision-support.jpg) 
 
-5. Naigate to your newly created service
+5. Navigate to your newly created service
 
-    ![Overview of Cognitive Services account](media/oncoPhenotype/deploy-to-azure/CreatedHealthDecisionSupport.jpg) 
-
-<br>
+    ![Screenshot of the Overview of Cognitive Services account.](media/oncophenotype/deploy-to-azure/created-health-decision-support.jpg) 
 
 ## Configuring private endpoints
 
@@ -49,14 +48,14 @@ With private endpoints, the network traffic between the clients on the VNet and 
 
 Once the Cognitive Services account is successfully created, you can configure private endpoints from the Networking page under Resource Management. 
 
-![Private Endpoint](media/oncoPhenotype/deploy-to-azure/PrivateEndpoints.jpg) 
+![Screenshot of Private Endpoint.](media/oncophenotype/deploy-to-azure/private-endpoints.jpg) 
 
 ## Next steps
 
 To get started using the Azure Health Insights , you can test one of the following models
 
 >[!div class="nextstepaction"]
-> [OncoPhenotype](oncoPhenotype/index.yml) 
+> [OncoPhenotype](oncophenotype/index.yml) 
 
 >[!div class="nextstepaction"]
 > [Trial Matcher](trial-matcher/index.yml) 

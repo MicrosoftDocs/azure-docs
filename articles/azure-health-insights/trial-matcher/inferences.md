@@ -1,6 +1,7 @@
 ---
 title: Trial Matcher Inference information
-description: This article provides Trial Matcher Inference information.
+titleSuffix: Azure Health Insights
+description: This article provides Trial Matcher inference information.
 services: azure-health-insights
 author: iBoonZ
 manager: urieinav
@@ -15,6 +16,7 @@ ms.author: behoorne
 
 The conclusion of the Trial Matcher decision support model is a list of inferences made regarding the patient. For each trial that was queried for the patient, the model will return and indication of whether the patient appears eligible or ineligible for the trial. If the model concluded the patient is ineligible for a trial, it will also provide a piece of evidence to support its conclusion (unless the ```evidence``` flag was set to false). 
 
+## Example conclusion payload
 ```json
 "inferences":[
    {
@@ -34,8 +36,6 @@ The conclusion of the Trial Matcher decision support model is a list of inferenc
    "..."
 ]
 ```
-
-
 
 ## Next steps
 

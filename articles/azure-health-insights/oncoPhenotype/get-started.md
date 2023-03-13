@@ -24,7 +24,7 @@ Once deployment is complete, you can use the Azure portal to navigate to the new
 ## Submitting a request and getting results
 To send an API request, you will need your Cognitive Services account endpoint and key.
 
-![Keys and Endpoints](../media/KeysAndEndpoint.jpg) 
+![Screenshot of the Keys and Endpoints for the OncoPhenotype.](../media/keys-and-endpoints.jpg) 
 
 > [!IMPORTANT]
 > Prediction is performed upon receipt of the API request and the results will be returned asynchronously. The API results are available for 24 hours from the time the request was ingested, and is indicated in the response. After this time period, the results are purged and are no longer available for retrieval.
