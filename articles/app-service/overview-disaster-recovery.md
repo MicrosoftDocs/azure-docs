@@ -37,7 +37,7 @@ Depending on your desired RTO and RPO metrics, three disaster recovery architect
 
 In this disaster recovery approach, identical web apps are deployed in two separate regions and Azure Front door is used to route traffic to both the active regions.
 
-:::image type="content" source="media/overview-disaster-recovery/active-active-architecture.png" alt-text="Diagram that shows an active-active deployment of App Service":::
+:::image type="content" source="media/overview-disaster-recovery/active-active-architecture.png" alt-text="Diagram that shows an active-active deployment of App Service.":::
 
 With this example architecture: 
 
@@ -67,7 +67,7 @@ Steps to create an active-active architecture for your web app in App Service ar
 
 In this disaster recovery approach, identical web apps are deployed in two separate regions and Azure Front door is used to route traffic to one region only (the *active* region).
 
-:::image type="content" source="media/overview-disaster-recovery/active-passive-architecture.png" alt-text="A diagram showing an active-passive architecture of Azure App Service":::
+:::image type="content" source="media/overview-disaster-recovery/active-passive-architecture.png" alt-text="A diagram showing an active-passive architecture of Azure App Service.":::
 
 With this example architecture:
 
@@ -128,7 +128,7 @@ Steps to create a passive-cold region for your web app in App Service are summar
 
 [Azure regions that don't have a regional pair](../reliability/cross-region-replication-azure.md#regions-with-availability-zones-and-no-region-pair) don't have GRS nor GZRS. In this scenario, utilize zone-redundant storage (ZRS) or locally redundant storage (LRS) to create a similar architecture. For example, you can manually create a secondary region for the storage account as follows:
 
-:::image type="content" source="media/overview-disaster-recovery/alternative-no-grs-no-gzrs.png" alt-text="Diagram that shows how to create a passive or cold region without GRS or GZRS":::
+:::image type="content" source="media/overview-disaster-recovery/alternative-no-grs-no-gzrs.png" alt-text="Diagram that shows how to create a passive or cold region without GRS or GZRS." lightbox="media/overview-disaster-recovery/alternative-no-grs-no-gzrs.png":::
 
 Steps to create a passive-cold region without GRS and GZRS are summarized as follows: 
 
