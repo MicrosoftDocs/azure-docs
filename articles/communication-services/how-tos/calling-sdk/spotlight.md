@@ -3,13 +3,13 @@ title: Spotlight states
 titleSuffix: An Azure Communication Services how-to guide
 description: Use Azure Communication Services SDKs to send spotlight state.
 author: cnwankwo
-ms.author: Chukwuebuka
+ms.author: cnwankwo
 ms.service: azure-communication-services
 ms.subservice: calling
 ms.topic: how-to 
 ms.date: 03/01/2023
 ms.custom: template-how-to
-zone_pivot_groups: acs-web
+zone_pivot_groups: acs-js
 
 #Customer intent: As a developer, I want to learn how to send and receive Spotlight state using SDK.
 ---
