@@ -6,7 +6,8 @@ ms.date: 03/10/2023
 ms.author: azfuncdf
 ---
 
-# Introduction
+# Durable Functions Troubleshooting Guide
+## Introduction
 
 Durable Functions is an extension that customers can install in their function app. For more information on Durable functions, please refer to the official [documentation](./durable-functions-overview.md).
 
@@ -20,7 +21,7 @@ The **Diagnostic and solve problems** tab in Azure Portal is a useful resource t
 
 If the above two steps could not help solving your problem, please see the following steps according to the scenarios.
 
-# Orchestration does not start (pending)
+## Orchestration does not start (pending)
 
 1. Check the Durable Task Framework traces for warnings or errors for this instance ID. 
 
@@ -29,13 +30,13 @@ If the above two steps could not help solving your problem, please see the follo
 3. Change platform configuration version to “64-Bit” for function applications. 
    Sometimes orchestrations don't start because the app is running out of memory. Switching to 64-bit process can allow the app to allocate more total memory. This only applies to App Service Basic, Standard, Premium, and Elastic Premium plans. Free or Consumption plans **do not** support it. 
 
-# Orchestration starts after a delay
+## Orchestration starts after a delay
 
 1. This [page](./durable-functions-azure-storage-provider.md) illustrates reasons for orchestrators’ delay start. Please see here for detailed instructions. 
 
 2. The following query could help you check the warning/error message for the orchestrator. You could query it by changing the instance ID.  
 
-# Orchestration starts but then gets stuck in the Running state
+## Orchestration starts but then gets stuck in the Running state
 
 1. Try restarting the function app.
 
@@ -45,7 +46,7 @@ If the above two steps could not help solving your problem, please see the follo
 
 4. Please check if you have followed the **Durable Functions Best Practice and Diagnostic Tools**. Some problems are caused because of inappropriate behavior. So, we suggest you read this article, revise the part that breaks the best practice rules and reset your function.
 
-# Orchestration starts and runs, but runs slowly
+## Orchestration starts and runs, but runs slowly
 
 1. Check if **extendedSessionsEnabled** is being enabled.  
    Excessive history load can result in extremely slow orchestrator processing. The detailed instruction could be seen [here](./durable-functions-azure-storage-provider.md)
@@ -56,7 +57,7 @@ If the above two steps could not help solving your problem, please see the follo
    
    * We suggest monitoring memory utilization per Function, and ensure it stays at a healthy percentage. The montior guide could be seen [here](./durable-functions-azure-storage-provider.md).
 
-# Azure Storage Message
+## Azure Storage Message
 All Durable Function behavior is driven by Azure Storage queue messages. Also, all state related to an orchestration is stored in Table Storage and blob storage. All Azure Storage interactions are logged to Application Insights, and this data is critically important for debugging execution and performance problems. Starting in v2.3.0, customers can get access to these logs by updating their host.json configuration. See the [Durable Task Framework logging section](./durable-functions-diagnostics.md) for more information. 
 
 To see the Azure Storage query result, please add the following configuration in your host.json file.  
@@ -98,5 +99,5 @@ traces
 | sort by timestamp asc 
 ```
 
-# Trace Multiple Orchestrators
+## Trace Multiple Orchestrators
 The following query shows the orchestration instance status for multiple orchestrators run in a specified time range. Edit the **instanceId** to query the multiple orchestration.
