@@ -213,11 +213,11 @@ cd pubsub-dapr-nodejs-servicebus
 
 In the Azure portal, verify the `checkout` service is publishing messages to the Azure Service Bus topic. 
 
-1. Copy the `checkout` Container App name from the terminal output.
+1. Copy the `checkout` container app name from the terminal output.
 
-1. Navigate to the [Azure portal](https://ms.portal.azure.com) and search for the Container App resource by name.
+1. Go to the [Azure portal](https://ms.portal.azure.com) and search for the container app resource by name.
 
-1. In the Container App dashboard, select **Monitoring** > **Log stream**.
+1. In the Container Apps dashboard, select **Monitoring** > **Log stream**.
 
 1. Confirm the `checkout` container is logging the same output as in the terminal earlier.
 
@@ -414,11 +414,11 @@ cd pubsub-dapr-python-servicebus
 
 In the Azure portal, verify the `checkout` service is publishing messages to the Azure Service Bus topic. 
 
-1. Copy the `checkout` Container App name from the terminal output.
+1. Copy the `checkout` container app name from the terminal output.
 
-1. Navigate to the [Azure portal](https://ms.portal.azure.com) and search for the Container App resource by name.
+1. Go to the [Azure portal](https://ms.portal.azure.com) and search for the container app resource by name.
 
-1. In the Container App dashboard, select **Monitoring** > **Log stream**.
+1. In the Container Apps dashboard, select **Monitoring** > **Log stream**.
 
 1. Confirm the `checkout` container is logging the same output as in the terminal earlier.
 
@@ -616,11 +616,11 @@ cd pubsub-dapr-csharp-servicebus
 
 In the Azure portal, verify the `checkout` service is publishing messages to the Azure Service Bus topic. 
 
-1. Copy the `checkout` Container App name from the terminal output.
+1. Copy the `checkout` container app name from the terminal output.
 
-1. Navigate to the [Azure portal](https://ms.portal.azure.com) and search for the Container App resource by name.
+1. Go to the [Azure portal](https://ms.portal.azure.com) and search for the container app resource by name.
 
-1. In the Container App dashboard, select **Monitoring** > **Log stream**.
+1. In the Container Apps dashboard, select **Monitoring** > **Log stream**.
 
 1. Confirm the `checkout` container is logging the same output as in the terminal earlier.
 
