@@ -18,7 +18,7 @@ In this tutorial, you'll:
 > * Deploy the application to Azure Container Apps via the Azure Developer CLI with the provided Bicep. 
 
 The sample service invocation project includes:
-1. A `checkout` service that uses Dapr's http proxying capability on a loop to invoke a request on the `order-processor` service. 
+1. A `checkout` service that uses Dapr's HTTP proxying capability on a loop to invoke a request on the `order-processor` service.  
 1. A `order-processor` service that receives the request from the `checkout` service.  
 
 :::image type="content" source="media/microservices-dapr-azd/service-invocation-quickstart.png" alt-text="Diagram of the Dapr service invocation services.":::
@@ -55,7 +55,7 @@ Before deploying the application to Azure Container Apps, start by running the `
 
 ### Run the Dapr applications using the Dapr CLI
 
-Start by running the `order-processor` callee service.
+Start by running the `order-processor` service.
 
 1. From the sample's root directory, change directories to `order-processor`.
 
@@ -146,7 +146,7 @@ Start by running the `order-processor` callee service.
    == APP == Order received: { orderId: 20 }
    ```
 
-1. Press Ctrl+C in both terminals to exit out of the service-to-service invocation.
+1. Press <kbd>Cmd/Ctrl</kbd> + <kbd>C</kbd> in both terminals to exit out of the service-to-service invocation.
 
 ## Deploy the Dapr application template using `azd`
 
@@ -154,7 +154,7 @@ Deploy the Dapr application to Azure Container Apps using [`azd`](/developer/azu
 
 ### Prepare the project
 
-In a new terminal window, navigate into the [sample's](https://github.com/Azure-Samples/svc-invoke-dapr-nodejs) root directory.
+In a new terminal window, navigate into the sample's root directory.
 
    ```bash
    cd svc-invoke-dapr-nodejs
@@ -195,7 +195,7 @@ In a new terminal window, navigate into the [sample's](https://github.com/Azure-
    Provisioning Azure resources can take some time
    
      You can view detailed progress in the Azure Portal:
-     https://portal.azure.com/#blade/HubsExtension/DeploymentDetailsBlade/overview/id/%2Fsubscriptions%2F2123cb08-23fa-4a80-afec-4ec9e015433f%2Fproviders%2FMicrosoft.Resources%2Fdeployments%2Fhhhhhunter-azd-svc
+     https://portal.azure.com
    
      (✓) Done: Resource group: rg-name
      (✓) Done: Log Analytics workspace: log-analytics-name
@@ -209,23 +209,23 @@ In a new terminal window, navigate into the [sample's](https://github.com/Azure-
    Deploying services (azd deploy)
    
      (✓) Done: Deploying service api
-     - Endpoint: https://ca-order-processor-lrtmh4d75c7uk.kindflower-a5309f0f.eastus.azurecontainerapps.io/
+     - Endpoint: https://ca-order-processor-name.eastus.azurecontainerapps.io/
      (✓) Done: Deploying service worker
    
    SUCCESS: Your Azure app has been deployed!
    You can view the resources created under the resource group rg-hhhhhunter-azd-svc in Azure Portal:
-   https://portal.azure.com/#@/resource/subscriptions/2123cb08-23fa-4a80-afec-4ec9e015433f/resourceGroups/rg-hhhhhunter-azd-svc/overview
+   https://portal.azure.com/#@/resource/subscriptions/<your-azure-subscription>/resourceGroups/rg-name/overview
    ```
 
 ### Confirm successful deployment 
 
 In the Azure portal, verify the `checkout` service is passing orders to the `order-processor` service. 
 
-1. Copy the `checkout` Container App name from the terminal output.
+1. Copy the `checkout` container app's name from the terminal output.
 
-1. Navigate to the [Azure portal](https://ms.portal.azure.com) and search for the Container App resource by name.
+1. Navigate to the [Azure portal](https://ms.portal.azure.com) and search for the container app resource by name.
 
-1. In the Container App dashboard, select **Monitoring** > **Log stream**.
+1. In the Container Apps dashboard, select **Monitoring** > **Log stream**.
 
 1. Confirm the `checkout` container is logging the same output as in the terminal earlier.
 
@@ -268,7 +268,7 @@ Before deploying the application to Azure Container Apps, start by running the `
 
 ### Run the Dapr applications using the Dapr CLI
 
-Start by running the `order-processor` callee service.
+Start by running the `order-processor` service.
 
 1. From the sample's root directory, change directories to `order-processor`.
 
@@ -359,7 +359,7 @@ Start by running the `order-processor` callee service.
    == APP == Order received: { orderId: 20 }
    ```
 
-1. Press Ctrl+C in both terminals to exit out of the service-to-service invocation.
+1. Press <kbd>Cmd/Ctrl</kbd> + <kbd>C</kbd> in both terminals to exit out of the service-to-service invocation
 
 ## Deploy the Dapr application template using `azd`
 
@@ -408,7 +408,7 @@ Deploy the Dapr application to Azure Container Apps using [`azd`](/developer/azu
    Provisioning Azure resources can take some time
    
      You can view detailed progress in the Azure Portal:
-     https://portal.azure.com/#blade/HubsExtension/DeploymentDetailsBlade/overview/id/%2Fsubscriptions%2F2123cb08-23fa-4a80-afec-4ec9e015433f%2Fproviders%2FMicrosoft.Resources%2Fdeployments%2Fhhhhhunter-azd-svc
+     https://portal.azure.com
    
      (✓) Done: Resource group: rg-name
      (✓) Done: Log Analytics workspace: log-analytics-name
@@ -422,23 +422,23 @@ Deploy the Dapr application to Azure Container Apps using [`azd`](/developer/azu
    Deploying services (azd deploy)
    
      (✓) Done: Deploying service api
-     - Endpoint: https://ca-order-processor-lrtmh4d75c7uk.kindflower-a5309f0f.eastus.azurecontainerapps.io/
+     - Endpoint: https://ca-order-processor-name.eastus.azurecontainerapps.io/
      (✓) Done: Deploying service worker
    
    SUCCESS: Your Azure app has been deployed!
    You can view the resources created under the resource group rg-hhhhhunter-azd-svc in Azure Portal:
-   https://portal.azure.com/#@/resource/subscriptions/2123cb08-23fa-4a80-afec-4ec9e015433f/resourceGroups/rg-hhhhhunter-azd-svc/overview
+   https://portal.azure.com/#@/resource/subscriptions/<your-azure-subscription>/resourceGroups/rg-name/overview
    ```
 
 ### Confirm successful deployment 
 
 In the Azure portal, verify the `checkout` service is passing orders to the `order-processor` service. 
 
-1. Copy the `checkout` Container App name from the terminal output.
+1. Copy the `checkout` container app's name from the terminal output.
 
-1. Navigate to the [Azure portal](https://ms.portal.azure.com) and search for the Container App resource by name.
+1. Navigate to the [Azure portal](https://ms.portal.azure.com) and search for the container app resource by name.
 
-1. In the Container App dashboard, select **Monitoring** > **Log stream**.
+1. In the Container Apps dashboard, select **Monitoring** > **Log stream**.
 
 1. Confirm the `checkout` container is logging the same output as in the terminal earlier.
 
@@ -573,7 +573,7 @@ Start by running the `order-processor` callee service with Dapr.
    == APP == Order received: { orderId: 20 }
    ```
 
-1. Press Ctrl+C in both terminals to exit out of the service-to-service invocation.
+1. Press <kbd>Cmd/Ctrl</kbd> + <kbd>C</kbd> in both terminals to exit out of the service-to-service invocation.
 
 ## Deploy the Dapr application template using `azd`
 
@@ -622,7 +622,7 @@ In a new terminal window, navigate into the [sample's](https://github.com/Azure-
    Provisioning Azure resources can take some time
    
      You can view detailed progress in the Azure Portal:
-     https://portal.azure.com/#blade/HubsExtension/DeploymentDetailsBlade/overview/id/%2Fsubscriptions%2F2123cb08-23fa-4a80-afec-4ec9e015433f%2Fproviders%2FMicrosoft.Resources%2Fdeployments%2Fhhhhhunter-azd-svc
+     https://portal.azure.com
    
      (✓) Done: Resource group: rg-name
      (✓) Done: Log Analytics workspace: log-analytics-name
@@ -636,23 +636,23 @@ In a new terminal window, navigate into the [sample's](https://github.com/Azure-
    Deploying services (azd deploy)
    
      (✓) Done: Deploying service api
-     - Endpoint: https://ca-order-processor-lrtmh4d75c7uk.kindflower-a5309f0f.eastus.azurecontainerapps.io/
+     - Endpoint: https://ca-order-processor-name.eastus.azurecontainerapps.io/
      (✓) Done: Deploying service worker
    
    SUCCESS: Your Azure app has been deployed!
    You can view the resources created under the resource group rg-hhhhhunter-azd-svc in Azure Portal:
-   https://portal.azure.com/#@/resource/subscriptions/2123cb08-23fa-4a80-afec-4ec9e015433f/resourceGroups/rg-hhhhhunter-azd-svc/overview
+   https://portal.azure.com/#@/resource/subscriptions/<your-azure-subscription>/resourceGroups/rg-name/overview
    ```
 
 ### Confirm successful deployment 
 
 In the Azure portal, verify the `checkout` service is passing orders to the `order-processor` service. 
 
-1. Copy the `checkout` Container App name from the terminal output.
+1. Copy the `checkout` container app's name from the terminal output.
 
-1. Navigate to the [Azure portal](https://ms.portal.azure.com) and search for the Container App resource by name.
+1. Navigate to the [Azure portal](https://ms.portal.azure.com) and search for the container app resource by name.
 
-1. In the Container App dashboard, select **Monitoring** > **Log stream**.
+1. In the Container Apps dashboard, select **Monitoring** > **Log stream**.
 
 1. Confirm the `checkout` container is logging the same output as in the terminal earlier.
 
