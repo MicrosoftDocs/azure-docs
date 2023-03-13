@@ -16,8 +16,8 @@ This article provides an overview of the Scanning and Ingestion features in Micr
 
 - [**Scanning**](#scanning) captures metadata from [data sources](microsoft-purview-connector-overview.md) and brings it to Microsoft Purview.
 - [**Ingestion**](#ingestion) processes metadata and stores it in the data catalog from both:
-    - Data source scans
-    - Lineage connections
+    - Data source scans - scanned metadata is added to the Microsoft Purview Data Map.
+    - Lineage connections - transformation resources add metadata about their sources, outputs, and activities to the Microsoft Purview Data Map.
 
 ## Scanning
 
@@ -80,7 +80,9 @@ The technical metadata or classifications identified by the scanning process are
 
 ## Ingestion from lineage connections
 
-Resources like [Azure Data Factory](how-to-link-azure-data-factory.md) and [Azure Synapse](how-to-lineage-azure-synapse-analytics.md) can be connected to Microsoft Purview to bring lineage information into your Microsoft Purview Data Map. For example, when a copy pipeline runs in an Azure Data Factory that has been connected to Microsoft Purview, metadata about inputs, the activity, and outputs are ingested in Microsoft Purview and the information is added to the data map.
+Resources like [Azure Data Factory](how-to-link-azure-data-factory.md) and [Azure Synapse](how-to-lineage-azure-synapse-analytics.md) can be connected to Microsoft Purview to bring data source and lineage information into your Microsoft Purview Data Map. For example, when a copy pipeline runs in an Azure Data Factory that has been connected to Microsoft Purview, metadata about the input sources, the activity, and the output sources are ingested in Microsoft Purview and the information is added to the data map.
+
+If a data source has already been added to the data map through a scan, lineage information about the activity will be added to the existing source. If the data source hasn't yet been added to the data map, the lineage ingestion process will add it to the root collection with its lineage information.
 
 For more information about the available lineage connections, see the [lineage user guide](catalog-lineage-user-guide.md).
 
