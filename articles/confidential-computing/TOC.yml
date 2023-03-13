@@ -122,16 +122,16 @@
 - name: How To
   expanded: true
   items:
-  - name: Concept
+  - name: concept
     items:
     - name: Secure Key Release (SKR) with Azure Key Vault
       items:
-      - name: SKR with Confidential Computing Concept
+      - name: SKR with Azure Confidential Computing Concept
         href: concept-skr-attestation.md
       - name: SKR with AMD SEV-SNP based Confidential VMs
-        href: skr-flow-cvm-sevsnp-attestation.md
+        href: skr-flow-confidential-vm-sev-snp.md
       - name: SKR with Confidential containers on Azure Container Instance
-        href: skr-flow-confidentialcontainers-aci.md
+        href: skr-flow-confidential-containers-azure-container-instance.md
       - name: SKR Policy Examples
         href: skr-policy-examples.md
   - name: Partner Solutions
