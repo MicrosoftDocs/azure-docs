@@ -23,7 +23,7 @@ Secure Key Release (SKR) is a functionality of Azure Key Vault (AKV) Managed HSM
 
 SKR can only release keys based on the Microsoft Azure Attestation (MAA) generated claims. There's a tight integration on the SKR policy definition to MAA claims.
 
-![SKR E2E Flow](media/skr-flow-cvm-sevsnp-attestation/skr-e2e-flow.png)
+![SKR E2E Flow](media/skr-flow-confidential-vm-sev-snp-attestation/skr-e2e-flow.png)
 
 The below steps are for AKV Premium. 
 
@@ -110,9 +110,9 @@ No. Not at this time.
 
 [SKR Policy Examples](skr-policy-examples.md)
 
-[Azure Container Instance with confidential containers Secure Key Release with container side-cars](skr-flow-confidentialcontainers-aci.md)
+[Azure Container Instance with confidential containers Secure Key Release with container side-cars](skr-flow-confidential-containers-azure-container-instance.md)
 
-[CVM on AMD SEV-SNP Applications with Secure Key Release Example](skr-flow-cvm-sevsnp-attestation.md)
+[CVM on AMD SEV-SNP Applications with Secure Key Release Example](skr-flow-confidential-vm-sev-snp.md)
 
 [AKV REST API With SKR Details](/rest/api/keyvault/keys/create-key/create-key?tabs=HTTP)
 
