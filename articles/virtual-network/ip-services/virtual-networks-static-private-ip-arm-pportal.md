@@ -12,7 +12,7 @@ ms.custom: template-how-to, engagement-fy23
 
 # Create a virtual machine with a static private IP address using the Azure portal
 
-When you create a virtual machine (VM), it's automatically assigned a private IP address from a range that you specify. This IP address is based on the subnet in which the VM is deployed, and the VM keeps this address until the VM is deleted. Azure dynamically assigns the next available private IP address from the subnet you create a VM in. If you want to use a specific IP address in the subnet for your VM, assign a static IP address to it.
+When you create a virtual machine (VM), it's automatically assigned a private IP address from a range that you specify. This IP address is based on the subnet in which the VM is deployed, and the VM keeps this address until the VM is deleted. Azure dynamically assigns the next available private IP address from the subnet you create a VM in. If you want to assign a specific IP address in this subnet for your VM, use a static IP address.
 
 ## Prerequisites
 
@@ -20,7 +20,7 @@ When you create a virtual machine (VM), it's automatically assigned a private IP
 
 ## Create a VM
 
-Use the following steps to create a VM, virtual network, and subnet.
+Use the following steps to create a VM, and its virtual network and subnet:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -31,12 +31,14 @@ Use the following steps to create a VM, virtual network, and subnet.
 1. From the **Create a virtual machine** window, in the **Basics** tab, enter or select this information in the following sections:
 
     **Project details**
+
     | Setting | Value |
     | ------- | ----- |
     | **Subscription** | Select your subscription. |
     | **Resource group** | Select **Create new**, enter *myResourceGroup* for the **Name**, and then select **OK**. |
 
     **Instance details**
+
     | Setting | Value |
     | ------- | ----- |
     | **Virtual machine name** | Enter *myVM*. |
@@ -48,6 +50,7 @@ Use the following steps to create a VM, virtual network, and subnet.
     | **Size** | Select a size. |
 
     **Administrator account**
+
     | Setting | Value |
     | ------- | ----- |
     | **Authentication type** | Select **Password**. |
@@ -56,6 +59,7 @@ Use the following steps to create a VM, virtual network, and subnet.
     | **Confirm password** | Reenter password. |
 
     **Inbound port rules**
+
     | Setting | Value |
     | ------- | ----- |
     | **Public inbound ports** | Select **Allow selected ports**. |
@@ -64,7 +68,7 @@ Use the following steps to create a VM, virtual network, and subnet.
     :::image type="content" source="./media/virtual-networks-static-private-ip-arm-pportal/create-vm.png" alt-text="Screenshot that shows the Basic tab of the Create a virtual machine window.":::
 
     > [!WARNING]
-    > Port 3389 is selected to enable remote access to the Windows Server VM from the internet. Opening port 3389 to the internet is not recommended to manage production workloads. </br> For secure access to Azure VMs, see [What is Azure Bastion?](../../bastion/bastion-overview.md).
+    > In this example, you open port 3389 to enable remote access to the Windows Server VM from the internet. However, opening port 3389 to the internet is not recommended to manage production workloads. For information about secure access to Azure VMs, see [What is Azure Bastion?](../../bastion/bastion-overview.md).
 
 1. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**.
   
@@ -72,7 +76,6 @@ Use the following steps to create a VM, virtual network, and subnet.
 
     | Setting | Value |
     |-|-|
-    | **Network interface** |  |
     | **Virtual network** | Accept the default network name. |
     | **Subnet** | Accept the default subnet configuration. |
     | **Public IP** | Accept the default public IP configuration. |
@@ -88,7 +91,7 @@ Use the following steps to create a VM, virtual network, and subnet.
 
 ## Change private IP address to static
 
-In this section, you change the private IP address from **dynamic** to **static** for the VM you created previously.
+In this procedure, you change the private IP address from **dynamic** to **static** for the VM you created previously:
 
 1. In the search box at the top of the portal, enter *virtual machine*. Select **Virtual machines** in the search results.
 
