@@ -14,7 +14,7 @@ ms.date: 11/07/2022
 
 # What is Azure Firewall?
 
-Azure Firewall is a cloud-native and intelligent network firewall security service that provides the best of breed threat protection for your cloud workloads running in Azure. It's a fully stateful, firewall as a service with built-in high availability and unrestricted cloud scalability. It provides both east-west and north-south traffic inspection.
+Azure Firewall is a cloud-native and intelligent network firewall security service that provides the best of breed threat protection for your cloud workloads running in Azure. It's a fully stateful, firewall as a service with built-in high availability and unrestricted cloud scalability. It provides both east-west and north-south traffic inspection. To learn what's east-west and north-south traffic, see [East-west and north-south traffic](/azure/architecture/framework/security/design-network-flow#east-west-and-north-south-traffic).
 
 Azure Firewall is offered in three SKUs: Standard, Premium, and Basic.
 
@@ -181,9 +181,7 @@ Untrusted customer signed certificates|Customer signed certificates aren't trust
 |Certificate Propagation|After a CA certificate is applied on the firewall, it may take between 5-10 minutes for the certificate to take effect.|A fix is being investigated.|
 |TLS 1.3 support|TLS 1.3 is partially supported. The TLS tunnel from client to the firewall is based on TLS 1.2, and from the firewall to the external Web server is based on TLS 1.3.|Updates are being investigated.|
 |Availability Zones for Firewall Premium in the Southeast Asia region|You can't currently deploy Azure Firewall Premium with Availability Zones in the Southeast Asia region.|Deploy the firewall in Southeast Asia without Availability Zones, or deploy in a region that supports Availability Zones.|
-
-
-
+|TLSi intermediate CA certificate expiration|In some unique cases, the intermediate CA certificate can expire two months before the original expiration date.|Renew the intermediate CA certificate two months before the original expiration date. A fix is being investigated.|
 
 ## Next steps
 

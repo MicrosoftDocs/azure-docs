@@ -122,6 +122,7 @@ Click the resource provider name in the following table to see the list of opera
 | **DevOps** |
 | [Microsoft.DevTestLab](#microsoftdevtestlab) |
 | [Microsoft.LabServices](#microsoftlabservices) |
+| [Microsoft.SecurityDevOps](#microsoftsecuritydevops) |
 | [Microsoft.VisualStudio](#microsoftvisualstudio) |
 | **Migration** |
 | [Microsoft.Migrate](#microsoftmigrate) |
@@ -10897,6 +10898,40 @@ Azure service: [Azure Lab Services](../lab-services/index.yml)
 > | Microsoft.LabServices/users/UserSettings/action | Updates and returns personal user settings. |
 > | **DataAction** | **Description** |
 > | Microsoft.LabServices/labPlans/createLab/action | Create a new lab from a lab plan. |
+
+### Microsoft.SecurityDevOps
+
+Azure service: [Microsoft Defender for Cloud](../defender-for-cloud/index.yml)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.SecurityDevOps/register/action | Register the subscription for Microsoft.SecurityDevOps |
+> | Microsoft.SecurityDevOps/unregister/action | Unregister the subscription for Microsoft.SecurityDevOps |
+> | Microsoft.SecurityDevOps/azureDevOpsConnectors/read | read azureDevOpsConnectors |
+> | Microsoft.SecurityDevOps/azureDevOpsConnectors/write | write azureDevOpsConnectors |
+> | Microsoft.SecurityDevOps/azureDevOpsConnectors/delete | delete azureDevOpsConnectors |
+> | Microsoft.SecurityDevOps/azureDevOpsConnectors/orgs/read | read orgs |
+> | Microsoft.SecurityDevOps/azureDevOpsConnectors/orgs/write | write orgs |
+> | Microsoft.SecurityDevOps/azureDevOpsConnectors/orgs/projects/read | read projects |
+> | Microsoft.SecurityDevOps/azureDevOpsConnectors/orgs/projects/write | write projects |
+> | Microsoft.SecurityDevOps/azureDevOpsConnectors/orgs/projects/repos/read | read repos |
+> | Microsoft.SecurityDevOps/azureDevOpsConnectors/orgs/projects/repos/write | write repos |
+> | Microsoft.SecurityDevOps/azureDevOpsConnectors/repos/read | read repos |
+> | Microsoft.SecurityDevOps/azureDevOpsConnectors/stats/read | read stats |
+> | Microsoft.SecurityDevOps/gitHubConnectors/read | read gitHubConnectors |
+> | Microsoft.SecurityDevOps/gitHubConnectors/write | write gitHubConnectors |
+> | Microsoft.SecurityDevOps/gitHubConnectors/delete | delete gitHubConnectors |
+> | Microsoft.SecurityDevOps/gitHubConnectors/gitHubRepos/read | Returns a list of monitored GitHub repositories. |
+> | Microsoft.SecurityDevOps/gitHubConnectors/owners/read | read owners |
+> | Microsoft.SecurityDevOps/gitHubConnectors/owners/write | write owners |
+> | Microsoft.SecurityDevOps/gitHubConnectors/owners/repos/read | read repos |
+> | Microsoft.SecurityDevOps/gitHubConnectors/owners/repos/write | write repos |
+> | Microsoft.SecurityDevOps/gitHubConnectors/repos/read | read repos |
+> | Microsoft.SecurityDevOps/gitHubConnectors/stats/read | read stats |
+> | Microsoft.SecurityDevOps/Locations/OperationStatuses/read | read OperationStatuses |
+> | Microsoft.SecurityDevOps/Locations/OperationStatuses/write | write OperationStatuses |
+> | Microsoft.SecurityDevOps/Operations/read | read Operations |
 
 ### Microsoft.VisualStudio
 

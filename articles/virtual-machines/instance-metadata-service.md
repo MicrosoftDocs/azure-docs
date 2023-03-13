@@ -130,7 +130,7 @@ http://169.254.169.254/metadata/<endpoint>/[<filter parameter>/...]?<query param
 ```
 The parameters correspond to the indexes/keys that would be used to walk down the json object were you interacting with a parsed representation.
 
-For example, `/metatadata/instance` returns the json object:
+For example, `/metadata/instance` returns the json object:
 ```json
 {
     "compute": { ... },
