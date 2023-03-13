@@ -16,7 +16,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Updates summary
 
-- February 2023
+- March 2023
   - [Azure Blob vaulted backups (preview)](#azure-blob-vaulted-backups-preview)
 - October 2022
   - [Multi-user authorization using Resource Guard for Backup vault (in preview)](#multi-user-authorization-using-resource-guard-for-backup-vault-in-preview)
