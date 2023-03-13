@@ -181,10 +181,9 @@ Next, set up a virtual machine (VM) where you will download the SAP components l
 
 Next, download the SAP installation media to the VM using a script.
 
-1. Run the Ansible script **playbook_bom_download** with your own information. 
+1. Run the Ansible script **playbook_bom_download** with your own information. Enter the actual values **within** double quotes but **without** the triangular brackets. The Ansible command that you run should look like:
 
-Enter the actual values **within** double quotes but **without** the triangular brackets. The Ansible command that you run should look like:
-
+    ```git bash
     export bom_base_name="<Enter bom base name>"
     export s_user="<s-user>"
     export s_password="<password>"
@@ -193,16 +192,17 @@ Enter the actual values **within** double quotes but **without** the triangular 
     export BOM_directory="<BOM_directory_path>"
     export orchestration_ansible_user="<orchestration_ansible_user>"
     export playbook_path="<playbook_bom_downloader_yaml_path>"
-    
     ansible-playbook ${playbook_bom_downloader_yaml_path} \
     -e "bom_base_name=${bom_base_name}" \
     -e "deployer_kv_name=dummy_value" \
     -e "s_user=${s_user}" \
     -e "s_password=${s_password}" \
-    -e "storage_account_access_key=${storage_account_access_key}" \
+    -e "sapbits_access_key=${storage_account_access_key}" \
     -e "sapbits_location_base_path=${sapbits_location_base_path}" \
     -e "BOM_directory=${BOM_directory}" \
     -e "orchestration_ansible_user=${orchestration_ansible_user}"
+    ```
+
 
 1. If prompted that if *you have a storage account*, enter `Y`.
     	
@@ -340,7 +340,7 @@ Next, upload the SAP software files to the storage account:
 
     1. For S/4HANA 1909 SPS 03:
         
-        1. [HANA_2_00_055_v1_install.rsp.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S41909SPS03_v0011ms/templates/HANA_2_00_055_v1_install.rsp.j2)
+        1. [HANA_2_00_055_v1_install.rsp.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/HANA_2_00_059_v0005ms/HANA_2_00_059_v0005ms.yaml)
         
         1. [S41909SPS03_v0011ms-app-inifile-param.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S41909SPS03_v0011ms/templates/S41909SPS03_v0011ms-app-inifile-param.j2)
         
@@ -360,7 +360,7 @@ Next, upload the SAP software files to the storage account:
     	
     1. For S/4HANA 2020 SPS 03:
     	
-        1. [HANA_2_00_055_v1_install.rsp.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S42020SPS03_v0003ms/templates/HANA_2_00_055_v1_install.rsp.j2)
+        1. [HANA_2_00_055_v1_install.rsp.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/HANA_2_00_059_v0005ms/HANA_2_00_059_v0005ms.yaml)
     	
         1. [HANA_2_00_install.rsp.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S42020SPS03_v0003ms/templates/HANA_2_00_install.rsp.j2)
     	
@@ -380,7 +380,7 @@ Next, upload the SAP software files to the storage account:
     	
     1. For S/4HANA 2021 ISS 00:
     	
-        1. [HANA_2_00_055_v1_install.rsp.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S4HANA_2021_ISS_v0001ms/templates/HANA_2_00_055_v1_install.rsp.j2)
+        1. [HANA_2_00_055_v1_install.rsp.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/HANA_2_00_059_v0005ms/HANA_2_00_059_v0005ms.yaml)
     	
         1. [HANA_2_00_install.rsp.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S4HANA_2021_ISS_v0001ms/templates/HANA_2_00_install.rsp.j2)
     	
