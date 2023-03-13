@@ -35,7 +35,7 @@ To enable multi-region writes, use the following steps:
 
 1. You can add more regions by selecting the icons on the map or by selecting the **Add region** button. All the regions you add have both read and writes enabled.
 
-1. After you update the region list, select **save** to apply the changes.
+1. After you update the region list, select **Save** to apply the changes.
 
    :::image type="content" source="./media/how-to-multi-master/enable-multi-region-writes.png" alt-text="Screenshot to enable multi-region writes using Azure portal." lightbox="./media/how-to-multi-master/enable-multi-region-writes.png":::
 
