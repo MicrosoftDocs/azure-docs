@@ -199,7 +199,7 @@ To pass the identity provider's refresh token, follow these steps:
     
     - Other identity providers may have different methods to issue a refresh token. Follow the identity provider's audience and add the necessary elements to your identity provider's technical profile. 
 
-1. Save the *TrustframeworkExtensions.xml* file.
+1. Save the changes you made in your *TrustframeworkExtensions.xml* file.
 1. Open your relying party policy file, such as *SignUpOrSignIn.xml*, and add the **OutputClaim** element to the **TechnicalProfile**:
 
     ```xml
