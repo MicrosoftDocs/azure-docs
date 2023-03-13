@@ -1,14 +1,13 @@
 items:
-- name: Azure Orbital documentation
+- name: Azure Orbital - Documentation
   href: index.yml
 - name: Overview
   items:
-  - name: Why use Azure Orbital?
+  - name: Why use Azure Orbital Ground Station?
     href: overview.md
-  - name: What is the Space Partner Community?
+  - name: What is the Azure Space Parter Community?
     href: space-partner-program-overview.md
-  - name: What is Azure Orbital Analytics?
-    href: overview-analytics.md  
+
 - name: Quickstart
   items:
   - name: Register a spacecraft
@@ -17,6 +16,7 @@ items:
     href: contact-profile.md
   - name: Schedule a contact
     href: schedule-contact.md
+    
 - name: How-to guides
   items:
   - name: Prepare network to send and receive data
@@ -33,22 +33,24 @@ items:
     href: update-tle.md
   - name: Cancel a contact
     href: delete-contact.md
+    
 - name: Tutorials
   items:
   - name: Schedule a contact with NASA's AQUA public satellite
     href: downlink-aqua.md 
   - name: Collect and process AQUA satellite payload
-    href: satellite-imagery-with-orbital-ground-station.md    
+    href: satellite-imagery-with-orbital-ground-station.md
+    
 - name: Concepts
   items:
   - name: Contact
     href: concepts-contact.md
   - name: Contact profile
     href: concepts-contact-profile.md
-  - name: Geospatial reference architecture
-    href: geospatial-reference-architecture.md
   - name: Spacecraft object
     href: spacecraft-object.md
+  - name: Geospatial reference architecture
+    href: geospatial-reference-architecture.md          
   - name: Organize spaceborne geospatial data with STAC
     href: organize-stac-data.md
   - name: Process Synthetic Aperture Radar (SAR) data

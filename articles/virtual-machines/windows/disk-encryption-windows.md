@@ -8,8 +8,7 @@ ms.collection: windows
 ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 01/24/2023
-ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
-
+ms.custom: seodec18, devx-track-azurepowershell
 ---
 
 # Azure Disk Encryption scenarios on Windows VMs
