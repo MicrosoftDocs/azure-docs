@@ -152,7 +152,7 @@ When testing your applications in Azure AD B2C, it can be useful to have the Azu
 
 ## Pass the IDP refresh token (optional)
 
-The access tokens return by the identity provider are valid for only a short period of time. Some identity providers also issue a refresh token along with the access token. Your client application can then exchange the identity provider's refresh token for a new access token when needed. 
+The access token the identity provider returns is valid for a short period of time. Some identity providers also issue a refresh token along with the access token. Your client application can then exchange the identity provider's refresh token for a new access token when needed. 
 
 Azure AD B2C custom policy supports passing the refresh token of OAuth 2.0 identity providers, which includes [Facebook](https://github.com/azure-ad-b2c/unit-tests/tree/main/Identity-providers#facebook-with-access-token), [Google](https://github.com/azure-ad-b2c/unit-tests/tree/main/Identity-providers#facebook-with-access-token) and [GitHub](https://github.com/azure-ad-b2c/unit-tests/tree/main/Identity-providers#github-with-access-token).
 
