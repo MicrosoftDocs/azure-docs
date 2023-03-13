@@ -51,7 +51,7 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 |Description|The purpose of the requirement is to validate the device identity is rooted in hardware and can be the primary authentication method with Azure IoT Hub Device Provisioning Service (DPS).|
 |Requirements dependency|TPM v2.0 device|
 |Validation Type|Manual/Tools|
-|Validation|Devices will be enrolled to DPS using the TPM authentication mechanism during testing.|
+|Validation|Devices are enrolled to DPS using the TPM authentication mechanism during testing.|
 |Resources|Azure IoT Hub Device Provisioning Service: <ul><li>[Quickstart - Provision a simulated TPM device to Microsoft Azure IoT Hub](../iot-dps/quick-create-simulated-device-tpm.md) </li><li>[TPM Attestation Concepts](../iot-dps/concepts-tpm-attestation.md)</li></ul>|
 
 ---
@@ -60,10 +60,10 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 |Name|SecuredCore.Hardware.MemoryProtection|x86/AMD64|Arm64|
 |:---|:---|:---|:---|
 |Status|Required|2023|2024|
-|Description|The purpose of the requirement is to validate that DMA is not enabled on externally accessible ports.|
+|Description|The purpose of the requirement is to validate that DMA isn't enabled on externally accessible ports.|
 |Requirements dependency|Only if DMA capable ports exist|
 |Validation Type|Manual/Tools|
-|Validation|If DMA capable external ports exist on the device, toolset to validate that the IOMMU or SMMU is enabled and configured for those ports.|
+|Validation|If DMA capable external ports exist on the device, toolset to validate that the IOMMU, or SMMU is enabled and configured for those ports.|
 
 
 ---
@@ -75,7 +75,7 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 |Description|The purpose of the requirement is to ensure that device has adequate mitigations from Firmware security threats.|
 |Requirements dependency|DRTM + UEFI|
 |Validation Type|Manual/Tools|
-|Validation|Device to be validated through [Edge Secured-core Agent](https://aka.ms/Scforwiniot) toolset to confirm it is protected from firmware security threats through one of the following approaches: <ul><li>DRTM + UEFI Management Mode mitigations</li><li>DRTM + UEFI Management Mode hardening</li></ul> |
+|Validation|Device to be validated through [Edge Secured-core Agent](https://aka.ms/Scforwiniot) toolset to confirm it's protected from firmware security threats through one of the following approaches: <ul><li>DRTM + UEFI Management Mode mitigations</li><li>DRTM + UEFI Management Mode hardening</li></ul> |
 |Resources| <ul><li>https://trustedcomputinggroup.org/</li><li>[Intel's DRTM based computing whitepaper](https://www.intel.com/content/dam/www/central-libraries/us/en/documents/drtm-based-computing-whitepaper.pdf)</li><li>[AMD Security whitepaper](https://www.amd.com/system/files/documents/amd-security-white-paper.pdf)</li></ul> |
 
 ---
@@ -111,7 +111,7 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 |Name|SecuredCore.Encryption.Storage|x86/AMD64|Arm64|
 |:---|:---|:---|:---|
 |Status|Required|2023|2024|
-|Description|The purpose of the requirement to validate that sensitive data can be encrypted on non-volatile storage.|
+|Description|The purpose of the requirement to validate that sensitive data can be encrypted on nonvolatile storage.|
 |Validation Type|Manual/Tools|
 |Validation|Device to be validated through [Edge Secured-core Agent](https://aka.ms/Scforwiniot) toolset to ensure Secure-boot and BitLocker is enabled and bound to PCR7.|
 
@@ -146,9 +146,9 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Name|SecuredCore.Protection.NetworkServices|x86/AMD64|Arm64|
 |:---|:---|:---|:---|
 |Status|Required|2023|2024|
-|Description|The purpose of the requirement is to validate that services listening for input from the network are not running with elevated privileges.|
+|Description|The purpose of the requirement is to validate that services listening for input from the network aren't running with elevated privileges.|
 |Validation Type|Manual/Tools|
-|Validation|Device to be validated through [Edge Secured-core Agent](https://aka.ms/Scforwiniot) toolset to ensure that 3rd party services accepting network connections are not running with elevated LocalSystem and LocalService privileges. <ol><li>Exceptions may apply</li></ol>|
+|Validation|Device to be validated through [Edge Secured-core Agent](https://aka.ms/Scforwiniot) toolset to ensure that third party services accepting network connections aren't running with elevated LocalSystem and LocalService privileges. <ol><li>Exceptions may apply</li></ol>|
 
 
 ---
@@ -181,7 +181,7 @@ Validation|Device to be validated through toolset to ensure the device supports 
 
 ## Windows IoT Policy Requirements
 ---
-Some requirements of this program are based on a business agreement between your company and Microsoft. The following requirements are not validated through our test harness, but are required by your company in certifying the device.
+Some requirements of this program are based on a business agreement between your company and Microsoft. The following requirements aren't validated through our test harness, but are required by your company in certifying the device.
 
 ---
 </br>
@@ -215,7 +215,7 @@ Some requirements of this program are based on a business agreement between your
 |Status|Required|
 |Description|The purpose of this policy is to ensure that the device remains secure.|
 |Validation Type|Manual|
-|Validation|Commitment from submission that devices certified will be required to keep devices up to date for 60 months from date of submission. Specifications available to the purchaser and devices itself in some manner should indicate the duration for which their software will be updated.|
+|Validation|Commitment from submission that devices certified can be kept up to date for 60 months from date of submission. Specifications available to the purchaser and devices itself in some manner should indicate the duration for which their software will be updated.|
 
 
 ---
@@ -224,7 +224,7 @@ Some requirements of this program are based on a business agreement between your
 |Name|SecuredCore.Policy.Vuln.Disclosure|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of this policy is to ensure that there is a mechanism for collecting and distributing reports of vulnerabilities in the product.|
+|Description|The purpose of this policy is to ensure that there's a mechanism for collecting and distributing reports of vulnerabilities in the product.|
 |Validation Type|Manual|
 |Validation|Documentation on the process for submitting and receiving vulnerability reports for the certified devices will be reviewed.|
 
@@ -249,7 +249,7 @@ Some requirements of this program are based on a business agreement between your
 ## Linux OS Support
 OS Support is determined through underlying requirements of Azure services and our ability to validate scenarios.
 
-The Edge Secured-core program for Linux is enabled through the IoT Edge runtime which is supported based on [Tier 1 and Tier 2 operating systems](../iot-edge/support.md).
+The Edge Secured-core program for Linux is enabled through the IoT Edge runtime, which is supported based on [Tier 1 and Tier 2 operating systems](../iot-edge/support.md).
 
 ## IoT Edge
 Edge Secured-core validation on Linux based devices is executed through a container run on the IoT Edge runtime. For this reason, all devices that are certifying Edge Secured-core must have the IoT Edge runtime installed.
@@ -289,7 +289,7 @@ Edge Secured-core validation on Linux based devices is executed through a contai
 |Status|Required|2023|2023|
 |Description|The purpose of the requirement is to ensure that device has adequate mitigations from Firmware security threats.|
 |Validation Type|Manual/Tools|
-|Validation|Device to be validated through toolset to confirm it is protected from firmware security threats through one of the following approaches: <ul><li>Approved FW that does SRTM + runtime firmware hardening</li><li>Firmware scanning and evaluation by approved Microsoft 3rd party</li></ul> |
+|Validation|Device to be validated through toolset to confirm it's protected from firmware security threats through one of the following approaches: <ul><li>Approved FW that does SRTM + runtime firmware hardening</li><li>Firmware scanning and evaluation by approved Microsoft third party</li></ul> |
 |Resources| https://trustedcomputinggroup.org/ |
 
 ---
@@ -332,7 +332,7 @@ Edge Secured-core validation on Linux based devices is executed through a contai
 |Name|SecuredCore.Encryption.Storage|x86/AMD64|Arm64|
 |:---|:---|:---|:---|
 |Status|Required|2023|2023|
-|Description|The purpose of the requirement to validate that sensitive data can be encrypted on non-volatile storage.|
+|Description|The purpose of the requirement to validate that sensitive data can be encrypted on nonvolatile storage.|
 |Validation Type|Manual/Tools|
 |Validation|Device to be validated through toolset to ensure storage encryption is enabled and default algorithm is XTS-AES, with key length 128 bits or higher.|
 
@@ -365,9 +365,9 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Name|SecuredCore.Protection.NetworkServices|x86/AMD64|Arm64|
 |:---|:---|:---|:---|
 |Status|<sup>*</sup>Required|2023|2023|
-|Description|The purpose of the requirement is to validate that applications accepting input from the network are not running with elevated privileges.|
+|Description|The purpose of the requirement is to validate that applications accepting input from the network aren't running with elevated privileges.|
 |Validation Type|Manual/Tools|
-|Validation|Device to be validated through toolset to ensure that services accepting network connections are not running with SYSTEM or root privileges.|
+|Validation|Device to be validated through toolset to ensure that services accepting network connections aren't running with SYSTEM or root privileges.|
 
 
 
@@ -390,7 +390,7 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Description|The purpose of the requirement is to validate that device supports auditing and setting of system configuration (and certain management actions such as reboot) through Azure.|
 |Dependency|azure-osconfig|
 |Validation Type|Manual/Tools|
-|Validation|<ol><li>Device must report, via IoT Hub, its firewall state, firewall fingerprint, ip addresses, network adapter state, host name, hosts file, TPM (absence, or presence with version) and package manager sources (see What can I manage) </li><li>Device must accept the creation, via IoT Hub, of a default firewall policy (accept vs drop), and at least one firewall rule, with positive remote acknowledgement (see configurationStatus)</li><li>Device must accept the replacement of /etc/hosts file contents via IoT Hub, with positive remote acknowledgement (see https://learn.microsoft.com/en-us/azure/osconfig/howto-hosts?tabs=portal#the-object-model )</li><li>Device must accept and implement, via IoT Hub, remote reboot</li></ol> Note: Use of other system management toolchains (e.g., Ansible, etc.) by operators is not prohibited, but the device must include the azure-osconfig agent such that it is ready to be managed from Azure.|
+|Validation|<ol><li>Device must report, via IoT Hub, its firewall state, firewall fingerprint, ip addresses, network adapter state, host name, hosts file, TPM (absence, or presence with version) and package manager sources (see What can I manage) </li><li>Device must accept the creation, via IoT Hub, of a default firewall policy (accept vs drop), and at least one firewall rule, with positive remote acknowledgment (see configurationStatus)</li><li>Device must accept the replacement of /etc/hosts file contents via IoT Hub, with positive remote acknowledgment (see https://learn.microsoft.com/en-us/azure/osconfig/howto-hosts?tabs=portal#the-object-model )</li><li>Device must accept and implement, via IoT Hub, remote reboot</li></ol> Note: Use of other system management toolchains (for example, Ansible, etc.) by operators are not prohibited, but the device must include the azure-osconfig agent such that it's ready to be managed from Azure.|
 
 
 ---
@@ -413,7 +413,7 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Description|The purpose of the requirement is to validate the extent to which the device implements the Azure Security Baseline|
 |Dependency|azure-osconfig|
 |Validation Type|Manual/Tools|
-|Validation|OSConfig is present on the device and reporting to what extent it implemets the Azure Security Baseline.|
+|Validation|OSConfig is present on the device and reporting to what extent it implements the Azure Security Baseline.|
 |Resources| <ul><li>https://techcommunity.microsoft.com/t5/microsoft-security-baselines/bg-p/Microsoft-Security-Baselines </li><li> https://www.cisecurity.org/cis-benchmarks/ </li><li>https://learn.microsoft.com/en-us/azure/governance/policy/samples/guest-configuration-baseline-linux|</li></ul>
 
 ---
@@ -424,7 +424,7 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Status|Required|2023|2023|
 |Description|The purpose of the requirement is to validate that updates must be signed.|
 |Validation Type|Manual/Tools|
-|Validation|Device to be validated through toolset to ensure that updates to the operating system, drivers, application software, libraries, packages and firmware will not be applied unless properly signed and validated.
+|Validation|Device to be validated through toolset to ensure that updates to the operating system, drivers, application software, libraries, packages and firmware won't be applied unless properly signed and validated.
 
 
 
@@ -445,7 +445,7 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Name|SecuredCore.Policy.Manageability.Reset|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of this requirement is to validate the device against two use cases: a) Ability to perform a reset (remove user data, remove user configs), b) Restore device to last known good in the case of an update causing issues.|
+|Description|The purpose of this requirement is to validate the device against two use cases: a) Ability to perform a reset (remove user data, remove user configs), b) Restore device to last known good if an update causing issues.|
 |Validation Type|Manual/Tools|
 |Validation|Device to be validated through a combination of toolset and submitted documentation that the device supports this functionality. The device manufacturer can determine whether to implement these capabilities to support remote reset or only local reset.|
 
@@ -467,7 +467,7 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Name|SecuredCore.Policy.Vuln.Disclosure|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of this policy is to ensure that there is a mechanism for collecting and distributing reports of vulnerabilities in the product.|
+|Description|The purpose of this policy is to ensure that there's a mechanism for collecting and distributing reports of vulnerabilities in the product.|
 |Validation Type|Manual|
 |Validation|Documentation on the process for submitting and receiving vulnerability reports for the certified devices will be reviewed.|
 
@@ -501,7 +501,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |:---|:---|:---|
 |Status|Required|2023|
 |Description|The purpose of the requirement is to validate the device identity is rooted in hardware.||
-|Validation Type|Pre-validated, no additional validation is required||
+|Validation Type|Prevalidated, no additional validation is required||
 |Validation|Provided by Microsoft||
 
 ---
@@ -511,7 +511,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |:---|:---|:---|
 |Status|Required|2023|
 |Description|The purpose of the requirement is to ensure that memory integrity helps protect the device from vulnerable peripherals.|
-|Validation Type|Pre-validated, no additioanl validation is required|
+|Validation Type|Prevalidated, no additional validation is required|
 |Validation|Provided by Microsoft|
 
 
@@ -522,7 +522,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |:---|:---|:---|
 |Status|Required|2023|
 |Description|The purpose of the requirement is to ensure that device has adequate mitigations from Firmware security threats.|
-|Validation Type|Pre-validated, no additioanl validation is required|
+|Validation Type|Prevalidated, no additional validation is required|
 |Validation|Provided by Microsoft|
 
 
@@ -533,7 +533,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |:---|:---|:---|
 |Status|Required|2023|
 |Description|The purpose of the requirement is to validate the boot integrity of the device.|
-|Validation Type|Pre-validated, no additioanl validation is required|
+|Validation Type|Prevalidated, no additional validation is required|
 |Validation|Provided by Microsoft|
 
 
@@ -543,8 +543,8 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |Name|SecuredCore.Firmware.Attestation|Azure Sphere|
 |:---|:---|:---|
 |Status|Required|2023|
-|Description|The purpose of the requirement is to ensure the device can remotely attest to the Microsoft Azure Attestation service.|
-|Validation Type|Pre-validated, no additioanl validation is required|
+|Description|The purpose of the requirement is to ensure the device can remotely attest to a Microsoft Azure Attestation service.|
+|Validation Type|Prevalidated, no additional validation is required|
 |Validation|Provided by Microsoft|
 
 
@@ -555,7 +555,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |:---|:---|:---|
 |Status|Required|2023|
 |Description|The purpose of this requirement is to validate hardware security that is accessible from a secure operating system.|
-|Validation Type|Pre-validated, no additioanl validation is required|
+|Validation Type|Prevalidated, no additional validation is required|
 |Validation|Provided by Microsoft|
 
 ## Azure Sphere OS Configuration Requirements
@@ -564,8 +564,8 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |Name|SecuredCore.Encryption.Storage|Azure Sphere|
 |:---|:---|:---|
 |Status|Required|2023|
-|Description|The purpose of this requirement is to validate that sensitive data can be encrypted on non-volatile storage.|
-|Validation Type|Pre-validated, no additioanl validation is required|
+|Description|The purpose of this requirement is to validate that sensitive data can be encrypted on nonvolatile storage.|
+|Validation Type|Prevalidated, no additional validation is required|
 |Validation|Provided by Microsoft|
 |Resources|[Data at rest protection on Azure Sphere](https://learn.microsoft.com/azure-sphere/app-notes/app-notes-overview)|
 
@@ -576,7 +576,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |:---|:---|:---|
 |Status|Required|2023|
 |Description|The purpose of the requirement is to validate support for required TLS versions and cipher suites.|
-|Validation Type|Pre-validated, no additioanl validation is required|
+|Validation Type|Prevalidated, no additional validation is required|
 |Validation|Provided by Microsoft|
 |Resources| [TLS support in IoT Hub](../iot-hub/iot-hub-tls-support.md) <br /> |
 
@@ -587,7 +587,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |:---|:---|:---|
 |Status|Required|2023|
 |Description|The purpose of this requirement is to validate that authorized code runs with least privilege.|
-|Validation Type|Pre-validated, no additioanl validation is required|
+|Validation Type|Prevalidated, no additional validation is required|
 |Validation|Provided by Microsoft|
 
 ---
@@ -596,8 +596,8 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |Name|SecuredCore.Protection.NetworkServices|Azure Sphere|
 |:---|:---|:---|
 |Status|Required|2023|
-|Description|The purpose of the requirement is to validate that applications accepting input from the network are not running with elevated privileges.|
-|Validation Type|Pre-validated, no additioanl validation is required|
+|Description|The purpose of the requirement is to validate that applications accepting input from the network aren't running with elevated privileges.|
+|Validation Type|Prevalidated, no additional validation is required|
 |Validation|Provided by Microsoft|
 
 ---
@@ -606,8 +606,8 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |Name|SecuredCore.Protection.NetworkFirewall|Azure Sphere|
 |:---|:---|:---|
 |Status|Required|2023|
-|Description|The purpose of this requirement is to validate that applications cannot connect to endpoints that have not been authorized.|
-|Validation Type|Pre-validated, no additioanl validation is required|
+|Description|The purpose of this requirement is to validate that applications can't connect to endpoints that haven't been authorized.|
+|Validation Type|Prevalidated, no additional validation is required|
 |Validation|Provided by Microsoft|
 
 
@@ -617,7 +617,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |:---|:---|:---|
 |Status|Required|2023|
 |Description|The purpose of this requirement is to make sure devices can report security information and events by sending data to a Microsoft telemetry service.|
-|Validation Type|Pre-validated, no additioanl validation is required|
+|Validation Type|Prevalidated, no additional validation is required|
 |Validation|Provided by Microsoft|
 |Resources|[Collect and interpret error data - Azure Sphere](https://learn.microsoft.com/azure-sphere/deployment/interpret-error-data?tabs=cliv2beta)</br>[Configure crash dumps - Azure Sphere](https://learn.microsoft.com/azure-sphere/deployment/configure-crash-dumps)|
 
@@ -628,7 +628,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |:---|:---|:---|
 |Status|Required|2023|
 |Description|The purpose of this requirement is to validate the device supports remote administration via service-based configuration control.|
-|Validation Type|Pre-validated, no additioanl validation is required|
+|Validation Type|Prevalidated, no additional validation is required|
 |Validation|Provided by Microsoft|
 
 ---
@@ -638,7 +638,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |:---|:---|:---|
 |Status|Required|2023|
 |Description|The purpose of the requirement is to validate the device can receive and update its firmware and software.|
-|Validation Type|Pre-validated, no additioanl validation is required|
+|Validation Type|Prevalidated, no additional validation is required|
 |Validation|Provided by Microsoft|
 
 ---
@@ -648,7 +648,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |:---|:---|:---|
 |Status|Required|2023|
 |Description|The purpose of the requirement is to validate that the system conforms to a baseline security configuration|
-|Validation Type|Pre-validated, no additioanl validation is required|
+|Validation Type|Prevalidated, no additional validation is required|
 |Validation|Provided by Microsoft|
 
 ---
@@ -658,7 +658,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |:---|:---|:---|
 |Status|Required|2023|
 |Description|The purpose of the requirement is to validate that updates must be signed.|
-|Validation Type|Pre-validated, no additioanl validation is required|
+|Validation Type|Prevalidated, no additional validation is required|
 |Validation|Provided by Microsoft|
 
 
@@ -669,7 +669,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |:---|:---|
 |Status|Required|
 |Description|The purpose of the policy requires that debug functionality on the device is disabled.|
-|Validation Type|Pre-validated, no additioanl validation is required|
+|Validation Type|Prevalidated, no additional validation is required|
 |Validation|Provided by Microsoft|
 
 
@@ -680,7 +680,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |:---|:---|
 |Status|Required|
 |Description|The policy requires that the device can execute two use cases: a) Ability to perform a reset (remove user data, remove user configurations), b) Restore device to last known good in the case of an update causing issues.|
-|Validation Type|Pre-validated, no additioanl validation is required|
+|Validation Type|Prevalidated, no additional validation is required|
 |Validation|Provided by Microsoft|
 
 
@@ -691,7 +691,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |:---|:---|
 |Status|Required|
 |Description|The purpose of this policy is to ensure that the device remains secure.|
-|Validation Type|Pre-validated, no additioanl validation is required|
+|Validation Type|Prevalidated, no additional validation is required|
 |Validation|Provided by Microsoft|
 
 
@@ -701,8 +701,8 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |Name|SecuredCore.Policy.Vuln.Disclosure|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of this policy is to ensure that there is a mechanism for collecting and distributing reports of vulnerabilities in the product.|
-|Validation Type|Pre-validated, no additioanl validation is required|
+|Description|The purpose of this policy is to ensure that there's a mechanism for collecting and distributing reports of vulnerabilities in the product.|
+|Validation Type|Prevalidated, no additional validation is required|
 |Validation|Azure Sphere vulnerabilities are collected by Microsoft through MSRC and are published to customers through the Tech Community Blog, Azure Sphere “What’s New” page, and through Mitre’s CVE database.|
 |Resources|<ul><li>[Report an issue and submission guidelines](https://www.microsoft.com/msrc/faqs-report-an-issue)</li><li>[What's new - Azure Sphere](https://learn.microsoft.com/azure-sphere/product-overview/whats-new)</li><li>
 [Azure Sphere CVEs](https://learn.microsoft.com/azure-sphere/deployment/azure-sphere-cves)|</li></ul>
@@ -714,7 +714,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |:---|:---|
 |Status|Required|
 |Description|The purpose of this policy is to ensure that vulnerabilities that are high/critical (using CVSS 3.0) are addressed within 180 days of the fix being available.|
-|Validation Type|Pre-validated, no additioanl validation is required|
+|Validation Type|Prevalidated, no additional validation is required|
 |Validation|Provided by Microsoft|
 
 
