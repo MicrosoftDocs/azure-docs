@@ -119,7 +119,7 @@ Use the following steps to create an Azure Spring Apps instance in an Azure Cont
    AZURE_CONTAINER_APPS_ENVIRONMENT="<Azure-Container-Apps-environment-name>"
    ```
 
-1. Declare a variable for the name of the virtual network:
+1. Use the following command to create a variable for the name of the virtual network:
 
    ```bash
    VNET_NAME="<virtual-network-name>"
