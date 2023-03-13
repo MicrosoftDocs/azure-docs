@@ -122,7 +122,7 @@ Effective business engagement and communication are the keys to success. It's im
 
 Based on the communication strategy that you have chosen for the app you may want to remind users of the pending downtime. You should also verify that there are no recent changes or business impacts that would require to postpone the deployment.
 
-In the following table you'll find the minimum suggested communication to keep your stakeholders informed:
+In the following table you find the minimum suggested communication to keep your stakeholders informed:
 
 #### Plan phases and project strategy
 
@@ -217,7 +217,7 @@ In the cloud environment, you need rich visibility, control over data travel, an
 
 ### Using manual processes
 
-Once you have taken the automated approaches described in this article, you'll have a good handle on your applications. However, you might consider doing the following to ensure you have good coverage across all user access areas:
+Once you have taken the automated approaches described in this article, you have a good handle on your applications. However, you might consider doing the following to ensure you have good coverage across all user access areas:
 
 - Contact the various business owners in your organization to find the applications in use in your organization.
 - Run an HTTP inspection tool on your proxy server, or analyze proxy logs, to see where traffic is commonly routed.
@@ -226,7 +226,7 @@ Once you have taken the automated approaches described in this article, you'll h
 
 ### Type of apps to migrate
 
-Once you find your apps, you'll identify these types of apps in your organization:
+Once you find your apps, you identify these types of apps in your organization:
 
 - Apps that use modern authentication protocols such as [Security Assertion Markup Language (SAML)](../fundamentals/auth-saml.md) and [OpenID Connect (OIDC)](../fundamentals/auth-oidc.md) already 
 - Apps that use legacy authentication such as [Kerberos](https://techcommunity.microsoft.com/t5/itops-talk-blog/deep-dive-how-azure-ad-kerberos-works/ba-p/3070889), [Header-based](application-proxy-configure-single-sign-on-with-headers.md), or NT LAN Manager (NTLM) protocols that you choose to modernize 
