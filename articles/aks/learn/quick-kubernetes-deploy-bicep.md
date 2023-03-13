@@ -77,7 +77,7 @@ For more AKS samples, see the [AKS quickstart templates][aks-quickstart-template
 
     ```azurecli
     az group create --name myResourceGroup --location eastus
-    az deployment group create --resource-group myResourceGroup --template-file main.bicep --parameters clusterName=<cluster-name> dnsPrefix=<dns-previs> linuxAdminUsername=<linux-admin-username> sshRSAPublicKey='<ssh-key>'
+    az deployment group create --resource-group myResourceGroup --template-file main.bicep --parameters clusterName=<cluster-name> dnsPrefix=<dns-prefix> linuxAdminUsername=<linux-admin-username> sshRSAPublicKey='<ssh-key>'
     ```
 
     # [PowerShell](#tab/PowerShell)

@@ -18,8 +18,8 @@ The following table lists how long device data is stored in each Defender for Io
 | Storage type | Details |
 |---------|---------|
 | **Azure portal** | 90 days from the date of the **Last activity** value. <br><br> For more information, see [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md). |
-| **OT network sensor** | 90 days from the date of the **Last activity** value. <br><br> For more information, see [Manage your OT device inventory from a sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md). |
-| **On-premises management console** | 90 days from the date of the **Last activity** value. <br><br> For more information, see [Manage your OT device inventory from an on-premises management console](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md). |
+| **OT network sensor** |  The retention of device inventory data isn't limited by time. <br><br> For more information, see [Manage your OT device inventory from a sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md). |
+| **On-premises management console** |  The retention of device inventory data isn't limited by time. <br><br> For more information, see [Manage your OT device inventory from an on-premises management console](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md). |
 
 ## Alert data retention
 
