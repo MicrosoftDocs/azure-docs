@@ -3,6 +3,7 @@ title: Remediate non-compliant resources
 description: This guide walks you through the remediation of resources that are non-compliant to policies in Azure Policy.
 ms.date: 07/29/2022
 ms.topic: how-to
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.author: timwarner
 author: timwarner-msft
 ---

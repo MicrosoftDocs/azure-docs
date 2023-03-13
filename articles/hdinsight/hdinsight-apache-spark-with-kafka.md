@@ -5,7 +5,7 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ROBOTS: NOINDEX
-ms.date: 02/16/2023
+ms.date: 03/01/2023
 ---
 
 # Apache Spark streaming (DStream) example with Apache Kafka on HDInsight
@@ -33,12 +33,12 @@ While you can create an Azure virtual network, Kafka, and Spark clusters manuall
 
 1. Use the following button to sign in to Azure and open the template in the Azure portal.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-spark-cluster-in-vnet-v4.1.json" target="_blank"><img src="./media/hdinsight-apache-spark-with-kafka/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FHDInsight%2Fhdinsight-kafka-tools%2Fmaster%2Fsrc%2Farm%2FHDInsight4.0%2Fhdinsight-kafka-2.1-spark-2.4-vnet%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apache-spark-with-kafka/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
    > [!WARNING]
-   > To guarantee availability of Kafka on HDInsight, your cluster must contain at least three worker nodes. This template creates a Kafka cluster that contains three worker nodes.
+   > To guarantee availability of Kafka on HDInsight, your cluster must contain at least four worker nodes. This template creates a Kafka cluster that contains four worker nodes.
 
-   This template creates an HDInsight 3.6 cluster for both Kafka and Spark.
+   This template creates an HDInsight 4.0 cluster for both Kafka and Spark.
 
 1. Use the following information to populate the entries on the **Custom deployment** section:
 
