@@ -26,7 +26,7 @@ The AKS to ACR integration assigns the [**AcrPull** role][acr-pull] to the [Azur
   * To avoid needing one of these roles, you can instead use an existing managed identity to authenticate ACR from AKS. For more information, see [Use an Azure managed identity to authenticate to an ACR](../container-registry/container-registry-authentication-managed-identity.md).
 * If you're using Azure CLI, this article requires that you're running Azure CLI version 2.7.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 * If you're using Azure PowerShell, this article requires that you're running Azure PowerShell version 5.9.0 or later. Run `Get-InstalledModule -Name Az` to find the version. If you need to install or upgrade, see [Install Azure PowerShell][azure-powershell-install].
-* Examples and syntax to use Terraform for managing ACR can be found in the [Terraform reference][terraform-reference].
+* Examples and syntax to use Terraform for configuring ACR can be found in the [Terraform reference][terraform-reference].
 
 ## Create a new AKS cluster with ACR integration
 
