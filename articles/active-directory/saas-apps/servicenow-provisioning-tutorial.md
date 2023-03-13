@@ -51,6 +51,8 @@ For more information on the Azure AD automatic user provisioning service, see [A
 1. Obtain credentials for an admin in ServiceNow. Go to the user profile in ServiceNow and verify that the user has the admin role. 
 
    ![Screenshot that shows a ServiceNow admin role.](media/servicenow-provisioning-tutorial/servicenow-admin-role.png)
+   
+1. Enable the SCIM v2 Plugin using the steps outlined by this [ServiceNow doc](https://docs.servicenow.com/en-US/bundle/utah-platform-security/page/integrate/authentication/task/activate-scim-plugin.html)
 
 
 ## Step 3: Add ServiceNow from the Azure AD application gallery
