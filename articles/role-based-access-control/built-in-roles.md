@@ -8,7 +8,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 01/28/2023
+ms.date: 02/24/2023
 ms.custom: generated
 ---
 
@@ -65,8 +65,7 @@ The following table provides a brief description of each built-in role. Click th
 > | [Elastic SAN Owner](#elastic-san-owner) | Allows for full access to all resources under Azure Elastic SAN including changing network security policies to unblock data path access | 80dcbedb-47ef-405d-95bd-188a1b4ac406 |
 > | [Elastic SAN Reader](#elastic-san-reader) | Allows for control path read access to Azure Elastic SAN | af6a70f8-3c9f-4105-acf1-d719e9fca4ca |
 > | [Elastic SAN Volume Group Owner](#elastic-san-volume-group-owner) | Allows for full access to a volume group in Azure Elastic SAN including changing network security policies to unblock data path access | a8281131-f312-4f34-8d98-ae12be9f0d23 |
-> | [Reader and Data Access](#reader-and-data-access) | Lets you view everything but 
-. It will also allow read/write access to all data contained in a storage account via access to storage account keys. | c12c1c16-33a1-487b-954d-41c89c60f349 |
+> | [Reader and Data Access](#reader-and-data-access) | Lets you view everything but will not let you delete or create a storage account or contained resource. It will also allow read/write access to all data contained in a storage account via access to storage account keys. | c12c1c16-33a1-487b-954d-41c89c60f349 |
 > | [Storage Account Backup Contributor](#storage-account-backup-contributor) | Lets you perform backup and restore operations using Azure Backup on the storage account. | e5e2a7ff-d759-4cd2-bb51-3152d37e2eb1 |
 > | [Storage Account Contributor](#storage-account-contributor) | Permits management of storage accounts. Provides access to the account key, which can be used to access data via Shared Key authorization. | 17d1049b-9a84-46fb-8f53-869881c3d3ab |
 > | [Storage Account Key Operator Service Role](#storage-account-key-operator-service-role) | Permits listing and regenerating storage account access keys. | 81a9662b-bebf-436f-a333-f67b29880f12 |
@@ -227,6 +226,7 @@ The following table provides a brief description of each built-in role. Click th
 > | [Managed HSM contributor](#managed-hsm-contributor) | Lets you manage managed HSM pools, but not access to them. | 18500a29-7fe2-46b2-a342-b16a415e101d |
 > | [Microsoft Sentinel Automation Contributor](#microsoft-sentinel-automation-contributor) | Microsoft Sentinel Automation Contributor | f4c81013-99ee-4d62-a7ee-b3f1f648599a |
 > | [Microsoft Sentinel Contributor](#microsoft-sentinel-contributor) | Microsoft Sentinel Contributor | ab8e14d6-4a74-4a29-9ba8-549422addade |
+> | [Microsoft Sentinel Playbook Operator](#microsoft-sentinel-playbook-operator) | Microsoft Sentinel Playbook Operator | 51d6186e-6489-4900-b93f-92e23144cca5 |
 > | [Microsoft Sentinel Reader](#microsoft-sentinel-reader) | Microsoft Sentinel Reader | 8d289c81-5878-46d4-8554-54e1e3d8b5cb |
 > | [Microsoft Sentinel Responder](#microsoft-sentinel-responder) | Microsoft Sentinel Responder | 3e150937-b8fe-4cfb-8069-0eaf05ecd056 |
 > | [Security Admin](#security-admin) | View and update permissions for Microsoft Defender for Cloud. Same permissions as the Security Reader role and can also update the security policy and dismiss alerts and recommendations.<br><br>For Microsoft Defender for IoT, see [Azure user roles for OT and Enterprise IoT monitoring](../defender-for-iot/organizations/roles-azure.md). | fb1c8493-542b-48eb-b624-b4c8fea62acd |
@@ -1064,7 +1064,7 @@ Let's you manage the OS of your resource via Windows Admin Center as an administ
 > | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/networkSecurityGroups/securityRules/write | Creates a security rule or updates an existing security rule |
 > | [Microsoft.HybridConnectivity](resource-provider-operations.md#microsofthybridconnectivity)/endpoints/write | Create or update the endpoint to the target resource. |
 > | [Microsoft.HybridConnectivity](resource-provider-operations.md#microsofthybridconnectivity)/endpoints/read | Get or list of endpoints to the target resource. |
-> | [Microsoft.HybridConnectivity](resource-provider-operations.md#microsofthybridconnectivity)/endpoints/listManagedProxyDetails/action | Get managed proxy details for the resource. |
+> | [Microsoft.HybridConnectivity](resource-provider-operations.md#microsofthybridconnectivity)/endpoints/listManagedProxyDetails/action |  |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/virtualMachines/read | Get the properties of a virtual machine |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/virtualMachines/patchAssessmentResults/latest/read | Retrieves the summary of the latest patch assessment operation |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/virtualMachines/patchAssessmentResults/latest/softwarePatches/read | Retrieves list of patches assessed during the last patch assessment operation |
@@ -1834,6 +1834,8 @@ Lets you manage backup service, but can't create vaults and give access to other
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupEngines/read | Returns all the backup management servers registered with vault. |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/backupProtectionIntent/* |  |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/protectableContainers/read | Get all protectable containers |
+> | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/vaults/operationStatus/read | Gets Operation Status for a given Operation |
+> | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/vaults/operationResults/read | The Get Operation Results operation can be used get the operation status and result for the asynchronously submitted operation |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/locations/backupStatus/action | Check Backup Status for Recovery Services Vaults |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/locations/backupPreValidateProtection/action |  |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/locations/backupValidateFeatures/action | Validate Features |
@@ -1921,6 +1923,8 @@ Lets you manage backup service, but can't create vaults and give access to other
         "Microsoft.RecoveryServices/Vaults/backupEngines/read",
         "Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/*",
         "Microsoft.RecoveryServices/Vaults/backupFabrics/protectableContainers/read",
+        "Microsoft.RecoveryServices/vaults/operationStatus/read",
+        "Microsoft.RecoveryServices/vaults/operationResults/read",
         "Microsoft.RecoveryServices/locations/backupStatus/action",
         "Microsoft.RecoveryServices/locations/backupPreValidateProtection/action",
         "Microsoft.RecoveryServices/locations/backupValidateFeatures/action",
@@ -2763,7 +2767,7 @@ Allows for full access to a volume group in Azure Elastic SAN including changing
 
 ### Reader and Data Access
 
-Lets you view everything but will not let you delete or create a storage account. It will also allow read/write/delete access to all data contained in a storage account via access to storage account keys.
+Lets you view everything but will not let you delete or create a storage account or contained resource. It will also allow read/write access to all data contained in a storage account via access to storage account keys.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -2783,7 +2787,7 @@ Lets you view everything but will not let you delete or create a storage account
   "assignableScopes": [
     "/"
   ],
-  "description": "Lets you view everything but will not let you delete or create a storage account. It will also allow read/write/delete access to all data contained in a storage account via access to storage account keys.",
+  "description": "Lets you view everything but will not let you delete or create a storage account or contained resource. It will also allow read/write access to all data contained in a storage account via access to storage account keys.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/c12c1c16-33a1-487b-954d-41c89c60f349",
   "name": "c12c1c16-33a1-487b-954d-41c89c60f349",
   "permissions": [
@@ -8846,6 +8850,7 @@ Allows full access to App Configuration data. [Learn more](../azure-app-configur
 > | [Microsoft.AppConfiguration](resource-provider-operations.md#microsoftappconfiguration)/configurationStores/*/read |  |
 > | [Microsoft.AppConfiguration](resource-provider-operations.md#microsoftappconfiguration)/configurationStores/*/write |  |
 > | [Microsoft.AppConfiguration](resource-provider-operations.md#microsoftappconfiguration)/configurationStores/*/delete |  |
+> | [Microsoft.AppConfiguration](resource-provider-operations.md#microsoftappconfiguration)/configurationStores/*/action |  |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -8864,7 +8869,8 @@ Allows full access to App Configuration data. [Learn more](../azure-app-configur
       "dataActions": [
         "Microsoft.AppConfiguration/configurationStores/*/read",
         "Microsoft.AppConfiguration/configurationStores/*/write",
-        "Microsoft.AppConfiguration/configurationStores/*/delete"
+        "Microsoft.AppConfiguration/configurationStores/*/delete",
+        "Microsoft.AppConfiguration/configurationStores/*/action"
       ],
       "notDataActions": []
     }
@@ -11007,6 +11013,51 @@ Microsoft Sentinel Contributor [Learn more](../sentinel/roles.md)
     }
   ],
   "roleName": "Microsoft Sentinel Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### Microsoft Sentinel Playbook Operator
+
+Microsoft Sentinel Playbook Operator [Learn more](../sentinel/roles.md)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Logic](resource-provider-operations.md#microsoftlogic)/workflows/read | Reads the workflow. |
+> | [Microsoft.Logic](resource-provider-operations.md#microsoftlogic)/workflows/triggers/listCallbackUrl/action | Gets the callback URL for trigger. |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/hostruntime/webhooks/api/workflows/triggers/listCallbackUrl/action | Get Web Apps Hostruntime Workflow Trigger Uri. |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/read | Get the properties of a Web App |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Microsoft Sentinel Playbook Operator",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/51d6186e-6489-4900-b93f-92e23144cca5",
+  "name": "51d6186e-6489-4900-b93f-92e23144cca5",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Logic/workflows/read",
+        "Microsoft.Logic/workflows/triggers/listCallbackUrl/action",
+        "Microsoft.Web/sites/hostruntime/webhooks/api/workflows/triggers/listCallbackUrl/action",
+        "Microsoft.Web/sites/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Microsoft Sentinel Playbook Operator",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -15346,7 +15397,7 @@ Lets you manage BizTalk services, but not access to them.
 
 ### Grafana Admin
 
-Perform all Grafana operations, including the ability to manage data sources, create dashboards, and manage role assignments within Grafana. [Learn more](../managed-grafana/how-to-share-grafana-workspace.md).
+Perform all Grafana operations, including the ability to manage data sources, create dashboards, and manage role assignments within Grafana. [Learn more](../managed-grafana/how-to-share-grafana-workspace.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -15355,7 +15406,7 @@ Perform all Grafana operations, including the ability to manage data sources, cr
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | [Microsoft.Dashboard](resource-provider-operations.md#microsoftdashboard)/grafana/ActAsGrafanaAdmin/action | Act as Grafana Admin role. |
+> | [Microsoft.Dashboard](resource-provider-operations.md#microsoftdashboard)/grafana/ActAsGrafanaAdmin/action | Act as Grafana Admin role |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -15385,7 +15436,7 @@ Perform all Grafana operations, including the ability to manage data sources, cr
 
 ### Grafana Editor
 
-View and edit a Grafana instance, including its dashboards and alerts. [Learn more](../managed-grafana/how-to-share-grafana-workspace.md).
+View and edit a Grafana instance, including its dashboards and alerts. [Learn more](../managed-grafana/how-to-share-grafana-workspace.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -15394,7 +15445,7 @@ View and edit a Grafana instance, including its dashboards and alerts. [Learn mo
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | [Microsoft.Dashboard](resource-provider-operations.md#microsoftdashboard)/grafana/ActAsGrafanaEditor/action | Act as Grafana Editor role. |
+> | [Microsoft.Dashboard](resource-provider-operations.md#microsoftdashboard)/grafana/ActAsGrafanaEditor/action | Act as Grafana Editor role |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -15424,7 +15475,7 @@ View and edit a Grafana instance, including its dashboards and alerts. [Learn mo
 
 ### Grafana Viewer
 
-View a Grafana instance, including its dashboards and alerts. [Learn more](../managed-grafana/how-to-share-grafana-workspace.md).
+View a Grafana instance, including its dashboards and alerts. [Learn more](../managed-grafana/how-to-share-grafana-workspace.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -15433,8 +15484,8 @@ View a Grafana instance, including its dashboards and alerts. [Learn more](../ma
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | [Microsoft.Dashboard](resource-provider-operations.md#microsoftdashboard)/grafana/ActAsGrafanaViewer/action | Act as Grafana Viewer role.|
-> | **NotDataActions** |
+> | [Microsoft.Dashboard](resource-provider-operations.md#microsoftdashboard)/grafana/ActAsGrafanaViewer/action | Act as Grafana Viewer role |
+> | **NotDataActions** |  |
 > | *none* |  |
 
 ```json

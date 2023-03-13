@@ -4,6 +4,7 @@ description: In this article, learn how to remove dependencies and then delete a
 ms.topic: how-to
 ms.date: 05/23/2022
 ms.service: backup
+ms.custom: devx-track-azurepowershell
 author: jyothisuri
 ms.author: jsuri
 ---

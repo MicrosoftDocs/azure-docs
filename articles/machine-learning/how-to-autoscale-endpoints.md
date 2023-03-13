@@ -20,7 +20,7 @@ Azure Monitor autoscaling supports a rich set of rules. You can configure metric
 
 :::image type="content" source="media/how-to-autoscale-endpoints/concept-autoscale.png" alt-text="Diagram for autoscale adding/removing instance as needed":::
 
-Today, you can manage autoscaling using either the Azure CLI, REST, ARM, or the browser-based Azure portal. Other Azure ML SDKs, such as the Python SDK, will add support over time.
+Today, you can manage autoscaling using either the Azure CLI, REST, ARM, or the browser-based Azure portal. Other Azure Machine Learning SDKs, such as the Python SDK, will add support over time.
 
 ## Prerequisites
 
@@ -75,7 +75,7 @@ endpoint_name = "<YOUR-ENDPOINT-NAME>"
 deployment_name = "blue"
 ``` 
 
-Get Azure ML and Azure Monitor clients:
+Get Azure Machine Learning and Azure Monitor clients:
 
 ```python
 credential = DefaultAzureCredential()

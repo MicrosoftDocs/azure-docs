@@ -7,7 +7,6 @@ ms.topic: conceptual
 ms.date: 02/15/2022
 author: chugugrace
 ms.author: chugu 
-ms.custom: devx-track-azurepowershell
 ---
 
 # Create an Azure-SSIS integration runtime via Azure portal 
