@@ -857,13 +857,6 @@ mssparkutils.credentials.help()
 
 ::: zone-end
 
-:::zone pivot = "programming-language-csharp"
-
-```csharp
-Credentials.Help()
-```
-
-::: zone-end
 
 :::zone pivot = "programming-language-r"
 
@@ -887,6 +880,10 @@ putSecret(akvName, secretName, secretValue, linkedService): puts AKV secret for 
 putSecret(akvName, secretName, secretValue): puts AKV secret for a given akvName, secretName
 putSecretWithLS(linkedService, secretName, secretValue): puts AKV secret for a given linked service, secretName
 ```
+
+> [!NOTE]
+> It is not supported in Csharp language.
+
 
 ### Get token
 
