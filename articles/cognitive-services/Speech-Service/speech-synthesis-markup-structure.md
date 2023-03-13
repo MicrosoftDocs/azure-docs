@@ -136,13 +136,14 @@ Here are more details about the `strength` attribute.
 
 ### Break examples
 
-The supported values for attributes of the `break` element were [described previously](#add-a-break). 
+The supported values for attributes of the `break` element were [described previously](#add-a-break). The following three ways all add 750 ms breaks.
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
     <voice name="en-US-JennyNeural">
+        Welcome <break /> to text-to-speech.
         Welcome <break strength="medium" /> to text-to-speech.
-        Welcome <break time="250ms" /> to text-to-speech.
+        Welcome <break time="750ms" /> to text-to-speech.
     </voice>
 </speak>
 ```
