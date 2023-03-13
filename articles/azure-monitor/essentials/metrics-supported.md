@@ -5,7 +5,7 @@ author: EdB-MSFT
 services: azure-monitor
 ms.topic: reference
 ms.custom: ignite-2022
-ms.date: 03/01/2023
+ms.date: 03/12/2023
 ms.author: edbaynash
 ms.reviewer: priyamishra
 ---
@@ -15,7 +15,7 @@ ms.reviewer: priyamishra
 > [!NOTE]
 > This list is largely auto-generated. Any modification made to this list via GitHub might be written over without warning. Contact the author of this article for details on how to make permanent updates.
 
-Date list was last updated: 03/01/2023.
+Date list was last updated: 03/12/2023.
 
 Azure Monitor provides several ways to interact with metrics, including charting them in the Azure portal, accessing them through the REST API, or querying them by using PowerShell or the Azure CLI (Command Line Interface).  
 
@@ -266,7 +266,10 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |PodNetworkIn |Yes |App Network In |Bytes |Average |Cumulative count of bytes received in the app |Deployment, AppName, Pod |
 |PodNetworkOut |Yes |App Network Out |Bytes |Average |Cumulative count of bytes sent from the app |Deployment, AppName, Pod |
 |process.cpu.usage |Yes |process.cpu.usage |Percent |Average |The recent CPU usage for the JVM process |Deployment, AppName, Pod |
+|Requests |Yes |Requests |Count |Total |Requests processed |containerAppName, podName, statusCodeCategory, statusCode |
 |requests-per-second |Yes |requests-rate |Count |Average |Request rate |Deployment, AppName, Pod |
+|RestartCount |Yes |Restart Count |Count |Maximum |Restart count of Spring App |containerAppName, podName |
+|RxBytes |Yes |Network In Bytes |Bytes |Total |Network received bytes |containerAppName, podName |
 |system.cpu.usage |Yes |system.cpu.usage |Percent |Average |The recent CPU usage for the whole system |Deployment, AppName, Pod |
 |threadpool-completed-items-count |Yes |threadpool-completed-items-count |Count |Average |ThreadPool Completed Work Items Count |Deployment, AppName, Pod |
 |threadpool-queue-length |Yes |threadpool-queue-length |Count |Average |ThreadPool Work Items Queue Length |Deployment, AppName, Pod |
@@ -288,7 +291,10 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |tomcat.threads.config.max |Yes |tomcat.threads.config.max |Count |Total |Tomcat Config Max Thread Count |Deployment, AppName, Pod |
 |tomcat.threads.current |Yes |tomcat.threads.current |Count |Total |Tomcat Current Thread Count |Deployment, AppName, Pod |
 |total-requests |Yes |total-requests |Count |Average |Total number of requests in the lifetime of the process |Deployment, AppName, Pod |
+|TxBytes |Yes |Network Out Bytes |Bytes |Total |Network transmitted bytes |containerAppName, podName |
+|UsageNanoCores |Yes |CPU Usage |NanoCores |Average |CPU consumed by Spring App, in nano cores. 1,000,000,000 nano cores = 1 core |containerAppName, podName |
 |working-set |Yes |working-set |Count |Average |Amount of working set used by the process (MB) |Deployment, AppName, Pod |
+|WorkingSetBytes |Yes |Memory Working Set Bytes |Bytes |Average |Spring App working set memory used in bytes. |containerAppName, podName |
 
 
 ## Microsoft.Automation/automationAccounts  
@@ -315,6 +321,15 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TotalMbAverage |Yes |Average Total Memory |Bytes |Average |Total memory in cluster |clustername |
 |UsageAverage |Yes |Average Memory Usage |Percent |Average |Memory usage as percentage of total configured or available memory |clustername |
 |UsedLatest |Yes |Datastore Disk Used |Bytes |Average |The total amount of disk used in the datastore |dsname |
+
+
+## microsoft.azuresphere/catalogs  
+<!-- Data source : naam-->
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|DeviceAttestationCount |Yes |Device Attestation Requests |Count |Count |Count of all the requests sent by an Azure Sphere device for authentication and attestation. |DeviceId, CatalogId, StatusCodeClass |
+|DeviceErrorCount |Yes |Device Errors |Count |Count |Count of all the errors encountered by an Azure Sphere device. |DeviceId, CatalogId, ErrorCategory, ErrorClass, ErrorType |
 
 
 ## Microsoft.Batch/batchaccounts  
@@ -1036,8 +1051,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Available Memory Bytes |Yes |Available Memory Bytes (Preview) |Bytes |Average |Amount of physical memory, in bytes, immediately available for allocation to a process or for system use in the Virtual Machine |No Dimensions |
 |CPU Credits Consumed |Yes |CPU Credits Consumed |Count |Average |Total number of credits consumed by the Virtual Machine. Only available on B-series burstable VMs |No Dimensions |
 |CPU Credits Remaining |Yes |CPU Credits Remaining |Count |Average |Total number of credits available to burst. Only available on B-series burstable VMs |No Dimensions |
-|Data Disk Bandwidth Consumed Percentage |Yes |Data Disk Bandwidth Consumed Percentage |Percent |Average |Percentage of data disk bandwidth consumed per minute |LUN |
-|Data Disk IOPS Consumed Percentage |Yes |Data Disk IOPS Consumed Percentage |Percent |Average |Percentage of data disk I/Os consumed per minute |LUN |
+|Data Disk Bandwidth Consumed Percentage |Yes |Data Disk Bandwidth Consumed Percentage |Percent |Average |Percentage of data disk bandwidth consumed per minute. Only available on VM series that support premium storage. |LUN |
+|Data Disk IOPS Consumed Percentage |Yes |Data Disk IOPS Consumed Percentage |Percent |Average |Percentage of data disk I/Os consumed per minute. Only available on VM series that support premium storage. |LUN |
 |Data Disk Max Burst Bandwidth |Yes |Data Disk Max Burst Bandwidth |Count |Average |Maximum bytes per second throughput Data Disk can achieve with bursting |LUN |
 |Data Disk Max Burst IOPS |Yes |Data Disk Max Burst IOPS |Count |Average |Maximum IOPS Data Disk can achieve with bursting |LUN |
 |Data Disk Queue Depth |Yes |Data Disk Queue Depth |Count |Average |Data Disk Queue Depth(or Queue Length) |LUN |
@@ -1059,8 +1074,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Network In Total |Yes |Network In Total |Bytes |Total |The number of bytes received on all network interfaces by the Virtual Machine(s) (Incoming Traffic) |No Dimensions |
 |Network Out |Yes |Network Out Billable (Deprecated) |Bytes |Total |The number of billable bytes out on all network interfaces by the Virtual Machine(s) (Outgoing Traffic) (Deprecated) |No Dimensions |
 |Network Out Total |Yes |Network Out Total |Bytes |Total |The number of bytes out on all network interfaces by the Virtual Machine(s) (Outgoing Traffic) |No Dimensions |
-|OS Disk Bandwidth Consumed Percentage |Yes |OS Disk Bandwidth Consumed Percentage |Percent |Average |Percentage of operating system disk bandwidth consumed per minute |LUN |
-|OS Disk IOPS Consumed Percentage |Yes |OS Disk IOPS Consumed Percentage |Percent |Average |Percentage of operating system disk I/Os consumed per minute |LUN |
+|OS Disk Bandwidth Consumed Percentage |Yes |OS Disk Bandwidth Consumed Percentage |Percent |Average |Percentage of operating system disk bandwidth consumed per minute. Only available on VM series that support premium storage. |LUN |
+|OS Disk IOPS Consumed Percentage |Yes |OS Disk IOPS Consumed Percentage |Percent |Average |Percentage of operating system disk I/Os consumed per minute. Only available on VM series that support premium storage. |LUN |
 |OS Disk Max Burst Bandwidth |Yes |OS Disk Max Burst Bandwidth |Count |Average |Maximum bytes per second throughput OS Disk can achieve with bursting |LUN |
 |OS Disk Max Burst IOPS |Yes |OS Disk Max Burst IOPS |Count |Average |Maximum IOPS OS Disk can achieve with bursting |LUN |
 |OS Disk Queue Depth |Yes |OS Disk Queue Depth |Count |Average |OS Disk Queue Depth(or Queue Length) |No Dimensions |
@@ -1079,14 +1094,14 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Premium Data Disk Cache Read Miss |Yes |Premium Data Disk Cache Read Miss |Percent |Average |Premium Data Disk Cache Read Miss |LUN |
 |Premium OS Disk Cache Read Hit |Yes |Premium OS Disk Cache Read Hit |Percent |Average |Premium OS Disk Cache Read Hit |No Dimensions |
 |Premium OS Disk Cache Read Miss |Yes |Premium OS Disk Cache Read Miss |Percent |Average |Premium OS Disk Cache Read Miss |No Dimensions |
-|VM Cached Bandwidth Consumed Percentage |Yes |VM Cached Bandwidth Consumed Percentage |Percent |Average |Percentage of cached disk bandwidth consumed by the VM |No Dimensions |
-|VM Cached IOPS Consumed Percentage |Yes |VM Cached IOPS Consumed Percentage |Percent |Average |Percentage of cached disk IOPS consumed by the VM |No Dimensions |
+|VM Cached Bandwidth Consumed Percentage |Yes |VM Cached Bandwidth Consumed Percentage |Percent |Average |Percentage of cached disk bandwidth consumed by the VM. Only available on VM series that support premium storage. |No Dimensions |
+|VM Cached IOPS Consumed Percentage |Yes |VM Cached IOPS Consumed Percentage |Percent |Average |Percentage of cached disk IOPS consumed by the VM. Only available on VM series that support premium storage. |No Dimensions |
 |VM Local Used Burst BPS Credits Percentage |Yes |VM Cached Used Burst BPS Credits Percentage |Percent |Average |Percentage of Cached Burst BPS Credits used by the VM. |No Dimensions |
 |VM Local Used Burst IO Credits Percentage |Yes |VM Cached Used Burst IO Credits Percentage |Percent |Average |Percentage of Cached Burst IO Credits used by the VM. |No Dimensions |
 |VM Remote Used Burst BPS Credits Percentage |Yes |VM Uncached Used Burst BPS Credits Percentage |Percent |Average |Percentage of Uncached Burst BPS Credits used by the VM. |No Dimensions |
 |VM Remote Used Burst IO Credits Percentage |Yes |VM Uncached Used Burst IO Credits Percentage |Percent |Average |Percentage of Uncached Burst IO Credits used by the VM. |No Dimensions |
-|VM Uncached Bandwidth Consumed Percentage |Yes |VM Uncached Bandwidth Consumed Percentage |Percent |Average |Percentage of uncached disk bandwidth consumed by the VM |No Dimensions |
-|VM Uncached IOPS Consumed Percentage |Yes |VM Uncached IOPS Consumed Percentage |Percent |Average |Percentage of uncached disk IOPS consumed by the VM |No Dimensions |
+|VM Uncached Bandwidth Consumed Percentage |Yes |VM Uncached Bandwidth Consumed Percentage |Percent |Average |Percentage of uncached disk bandwidth consumed by the VM. Only available on VM series that support premium storage. |No Dimensions |
+|VM Uncached IOPS Consumed Percentage |Yes |VM Uncached IOPS Consumed Percentage |Percent |Average |Percentage of uncached disk IOPS consumed by the VM. Only available on VM series that support premium storage. |No Dimensions |
 |VmAvailabilityMetric |Yes |VM Availability Metric (Preview) |Count |Average |Measure of Availability of Virtual machines over time. |No Dimensions |
 
 
@@ -2056,8 +2071,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TableTableThroughputUpdate |No |AzureTable Table Throughput Updated |Count |Count |AzureTable Table Throughput Updated |ResourceName, ApiKind, ApiKindResourceType, IsThroughputRequest |
 |TableTableUpdate |No |AzureTable Table Updated |Count |Count |AzureTable Table Updated |ResourceName, ApiKind, ApiKindResourceType, IsThroughputRequest, OperationType |
 |TotalRequests |Yes |Total Requests |Count |Count |Number of requests made |DatabaseName, CollectionName, Region, StatusCode, OperationType, Status, CapacityType |
-|TotalRequestsPreview |No |Total Requests (Preview) |Count |Count |Number of requests |DatabaseName, CollectionName, Region, StatusCode, OperationType, Status, IsExternal |
-|TotalRequestUnits |Yes |Total Request Units |Count |Total |Request Units consumed |DatabaseName, CollectionName, Region, StatusCode, OperationType, Status, CapacityType |
+|TotalRequestsPreview |No |Total Requests (Preview) |Count |Count |Number of SQL requests |DatabaseName, CollectionName, Region, StatusCode, OperationType, Status, IsExternal |
+|TotalRequestUnits |Yes |Total Request Units |Count |Total |SQL Request Units consumed |DatabaseName, CollectionName, Region, StatusCode, OperationType, Status, CapacityType |
 |TotalRequestUnitsPreview |No |Total Request Units (Preview) |Count |Total |Request Units consumed with CapacityType |DatabaseName, CollectionName, Region, StatusCode, OperationType, Status, CapacityType |
 |UpdateAccountKeys |Yes |Account Keys Updated |Count |Count |Account Keys Updated |KeyType |
 |UpdateAccountNetworkSettings |Yes |Account Network Settings Updated |Count |Count |Account Network Settings Updated |No Dimensions |
@@ -2306,7 +2321,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |AnalyticsConnectorResourceLatency |Yes |Analytics Connector Process Latency |Milliseconds |Average |The response latency of the service. |No Dimensions |
 |AnalyticsConnectorSuccessfulDataSize |Yes |Analytics Connector Successful Data Size |Count |Sum |The size of data successfully processed by the analytics connector |No Dimensions |
 |AnalyticsConnectorSuccessfulResourceCount |Yes |Analytics Connector Successful Resource Count |Count |Sum |The amount of data successfully processed by the analytics connector |No Dimensions |
-|AnalyticsConnectorTotalErrors |Yes |Analytics Connector Total Error Count |Count |Sum |The total number of errors logged by the analytics connector |ErrorType, Operation |
+|AnalyticsConnectorTotalError |Yes |Analytics Connector Total Error Count |Count |Sum |The total number of errors logged by the analytics connector |ErrorType, Operation |
 
 
 ## Microsoft.HealthcareApis/workspaces/fhirservices  
@@ -2415,11 +2430,11 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
+|ApiCallReceived_Count |Yes |Call Received |Count |Count |Number of requests received via Log Ingestion API or from the agent |InputStreamId, ResponseCode |
 |RowsDropped_Count |Yes |Rows Dropped |Count |Count |Number of rows dropped while running transformation. |InputStreamId |
 |RowsReceived_Count |Yes |Rows Received |Count |Count |Total number of rows recevied for transformation. |InputStreamId |
-|TransformationErrors |Yes |Transformation Errors |Count |Count |The number of rows, where the execution of KQL transformation led to an error, KQL transformation service limit exceeds. |InputStreamId, ErrorType |
-|TransformationErrors_Count |Yes |Transformation Errors |Count |Count |The number of rows, where the execution of KQL transformation led to an error like KQL transformation service limit exceeds. |InputStreamId, ErrorType |
-|TransformationRuntime_DurationMs |Yes |Transformation Runtime Duration |Count |Count |Total time taken in miliseconds to transform given set of records. |InputStreamId |
+|TransformationErrors_Count |Yes |Transformation Errors |Count |Count |The number of times when execution of KQL transformation resulted in an error, e.g. KQL syntax error or going over a service limit. |InputStreamId, ErrorType |
+|TransformationRuntime_DurationMs |Yes |Transformation Runtime Duration |Count |Count |Total time taken to transform given set of records, measured in milliseconds. |InputStreamId |
 
 
 ## Microsoft.IoTCentral/IoTApps  
@@ -3495,6 +3510,9 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Average_Virtual Shared Memory |Yes |Virtual Shared Memory |Count |Average |Average_Virtual Shared Memory. Supported for: Linux. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric). |Computer, ObjectName, InstanceName, CounterPath, SourceSystem |
 |Event |Yes |Event |Count |Average |Event. Supported for: Windows. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric). |Source, EventLog, Computer, EventCategory, EventLevel, EventLevelName, EventID |
 |Heartbeat |Yes |Heartbeat |Count |Total |Heartbeat. Supported for: Linux, Windows. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric). |Computer, OSType, Version, SourceComputerId |
+|Query Count |No |Query Count |Count |Count |Total number of user queries for this workspace. |IsUserQuery |
+|Query Failure Count |No |Query Failure Count |Count |Count |Total number of failed user queries for this workspace. |IsUserQuery |
+|Query Success Rate |No |Query Success Rate |Percent |Average |User query success rate for this workspace. |IsUserQuery |
 |Update |Yes |Update |Count |Average |Update. Supported for: Windows. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric). |Computer, Product, Classification, UpdateState, Optional, Approved |
 
 
@@ -4463,4 +4481,4 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 - [Export metrics to storage, Event Hub, or Log Analytics](../essentials/platform-logs-overview.md)
 
 
-<!--Gen Date:  Wed Mar 01 2023 10:07:05 GMT+0200 (Israel Standard Time)-->
+<!--Gen Date:  Sun Mar 12 2023 11:30:35 GMT+0200 (Israel Standard Time)-->
