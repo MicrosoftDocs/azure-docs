@@ -215,7 +215,7 @@ You'll now set the Google client ID and client secret. You can use the Azure por
 
 You can delete your Google federation setup. If you do so, Google guest users who have already redeemed their invitation won't be able to sign in. But you can give them access to your resources again by [resetting their redemption status](reset-redemption-status.md).
  
-**To delete Google federation in the Azure AD portal**
+**To delete Google federation in the Azure portal**
 1. Go to the [Azure portal](https://portal.azure.com). On the left pane, select **Azure Active Directory**. 
 2. Select **External Identities**.
 3. Select **All identity providers**.

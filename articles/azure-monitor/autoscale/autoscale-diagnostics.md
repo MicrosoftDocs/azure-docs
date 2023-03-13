@@ -1,6 +1,6 @@
 ---
 title: Autoscale diagnostics
-description: Configure diagnostics in autoscale.
+description: This article shows you how to configure diagnostics in autoscale.
 author: EdB-MSFT
 ms.author: edbaynash
 ms.service: azure-monitor
@@ -9,47 +9,48 @@ ms.topic: how-to
 ms.date: 06/22/2022
 ms.reviewer: akkumari
 
-# Customer intent: As a devops admin, I want to collect and analyze autoscale metrics and logs.
+# Customer intent: As a DevOps admin, I want to collect and analyze autoscale metrics and logs.
 ---
-# Diagnostic settings in Autoscale
+# Diagnostic settings in autoscale
 
-Autoscale has two log categories and a set of metrics that can be enabled via the **Diagnostics settings** tab on the autoscale setting page.
+Autoscale has two log categories and a set of metrics that can be enabled via the **Diagnostics settings** tab on the **Autoscale setting** page.
 
-:::image type="content" source="./media/autoscale-diagnostics/autoscale-diagnostics-menu.png" alt-text="A screenshot showing the menu in the autoscale setting page.":::
+:::image type="content" source="./media/autoscale-diagnostics/autoscale-diagnostics-menu.png" alt-text="Screenshot that shows the menu on the Autoscale setting page.":::
 
+The two categories are:
 
-The two categories are 
-* [Autoscale Evaluations](https://learn.microsoft.com/azure/azure-monitor/reference/tables/autoscaleevaluationslog) containing log data relating to rule evaluation.
-* [Autoscale Scale Actions](https://learn.microsoft.com/azure/azure-monitor/reference/tables/autoscalescaleactionslog) log data relating to each scale event. 
+* [Autoscale Evaluations](/azure/azure-monitor/reference/tables/autoscaleevaluationslog) contain log data relating to rule evaluation.
+* [Autoscale Scale Actions](/azure/azure-monitor/reference/tables/autoscalescaleactionslog) log data relating to each scale event.
 
-Information about Autoscale Metrics can be found in the [Supported metrics](../essentials/metrics-supported.md#microsoftinsightsautoscalesettings) reference.
+For more information about autoscale metrics, see the [Supported metrics](../essentials/metrics-supported.md#microsoftinsightsautoscalesettings) document.
 
-Both the logs and metrics can be sent to various destinations including:
+You can send logs and metrics to various destinations:
+
 * Log Analytics workspaces
 * Storage accounts
 * Event hubs
 * Partner solutions
 
-For more information on diagnostics, see [Diagnostic settings in Azure Monitor](../essentials/diagnostic-settings.md?tabs=portal)
+For more information on diagnostics, see [Diagnostic settings in Azure Monitor](../essentials/diagnostic-settings.md?tabs=portal).
 
 ## Run history
 
-View the history of your autoscale activity in the run history tab. The run history tab includes a chart of resource instance counts over time and the resource activity log entries for autoscale.
+View the history of your autoscale activity on the **Run history** tab. The **Run history** tab includes a chart of resource instance counts over time and the resource activity log entries for autoscale.
 
-:::image type="content" source="./media/autoscale-diagnostics/autoscale-run-history.png" alt-text="A screenshot showing the run history tab on the autoscale setting page.":::
+:::image type="content" source="./media/autoscale-diagnostics/autoscale-run-history.png" alt-text="Screenshot that shows the Run history tab on the Autoscale setting page.":::
 
-## Resource log schemas 
+## Resource log schemas
 
-The following are the general formats for autoscale resource logs with example data included. Not all examples below are properly formed JSON as they may include a list of valid for a given field. 
+The following examples are the general formats for autoscale resource logs with example data included. Not all the examples are properly formed JSON because they might include a valid list for a given field.
 
 Use these logs to troubleshoot issues in autoscale. For more information, see [Troubleshooting autoscale problems](autoscale-troubleshoot.md).
 
-## Autoscale Evaluations Log
+## Autoscale evaluations log
 The following schemas appear in the autoscale evaluations log.
 
 ### Profile evaluation
 
-Logged when autoscale first looks at an autoscale profile
+Logged when autoscale first looks at an autoscale profile:
 
 ```JSON
 {
@@ -66,9 +67,9 @@ Logged when autoscale first looks at an autoscale profile
 }
 ```
 
-### Profile cooldown evaluation
+### Profile cool-down evaluation
 
-Logged when autoscale evaluates if it shouldn't  scale because of a cool down period. 
+Logged when autoscale evaluates if it shouldn't scale because of a cool-down period:
 
 ```JSON
 {
@@ -91,7 +92,7 @@ Logged when autoscale evaluates if it shouldn't  scale because of a cool down pe
 
 ### Rule evaluation
 
-Logged when autoscale first starts evaluating a particular scale rule. 
+Logged when autoscale first starts evaluating a particular scale rule:
 
 ```JSON
 {
@@ -118,7 +119,7 @@ Logged when autoscale first starts evaluating a particular scale rule.
 
 ### Metric evaluation
 
-Logged when autoscale evaluated the metric being used to trigger a scale action. 
+Logged when autoscale evaluates the metric being used to trigger a scale action:
 
 ```JSON
 {
@@ -142,7 +143,7 @@ Logged when autoscale evaluated the metric being used to trigger a scale action.
 
 ### Instance count evaluation
 
-Logged when autoscale evaluates the number of instances already running in preparation for deciding if it should start more, shut down some, or do nothing. 
+Logged when autoscale evaluates the number of instances already running in preparation for deciding if it should start more, shut down some, or do nothing:
 
 ```JSON
 {
@@ -163,7 +164,7 @@ Logged when autoscale evaluates the number of instances already running in prepa
 
 ### Scale action evaluation
 
-Logged when autoscale starts evaluation if a scale action should take place. 
+Logged when autoscale starts evaluation if a scale action should take place:
 
 ```JSON
 {
@@ -183,7 +184,7 @@ Logged when autoscale starts evaluation if a scale action should take place.
 
 ### Instance update evaluation
 
-Logged when autoscale updates the number of compute instances running, either up or down.
+Logged when autoscale updates the number of compute instances running, either up or down:
 
 ```JSON
 {
@@ -202,14 +203,14 @@ Logged when autoscale updates the number of compute instances running, either up
 }
 ```
 
-## Autoscale Scale Actions Log
+## Autoscale scale actions log
 
 The following schemas appear in the autoscale evaluations log.
 
-
 ### Scale action
 
-Logged when autoscale initiates a scale action, either up or down. 
+Logged when autoscale initiates a scale action, either up or down:
+
 ```JSON
 {
   "time": "2018-09-10 18:12:00.6132593",
@@ -232,7 +233,7 @@ Logged when autoscale initiates a scale action, either up or down.
 
 ### Scale action tracking
 
-Logged at different intervals of an instance scale action.
+Logged at different intervals of an instance scale action:
 
 ```JSON
 {
@@ -250,25 +251,25 @@ Logged at different intervals of an instance scale action.
 }
 ```
 
-## Activity Logs
-The following events are logged to the Activity log with a `CategoryValue` of `Autoscale`.
+## Activity logs
+The following events are logged to the activity log with a `CategoryValue` of `Autoscale`:
 
-* Autoscale scale up initiated
-* Autoscale scale up completed
-* Autoscale scale down initiated
-* Autoscale scale down completed
-* Predictive Autoscale scale up initiated
-* Predictive Autoscale scale up completed
-* Metric Failure
-* Metric Recovery
-* Predictive Metric Failure
+* Autoscale scale-up initiated
+* Autoscale scale-up completed
+* Autoscale scale-down initiated
+* Autoscale scale-down completed
+* Predictive autoscale scale-up initiated
+* Predictive autoscale scale-up completed
+* Metric failure
+* Metric recovery
+* Predictive metric failure
 * Flapping
 
-An extract of each log event name, showing the relevant parts of the `Properties` element are shown below:
+An extract of each log event name, showing the relevant parts of the `Properties` element, are shown next.
 
-### Autoscale action 
+### Autoscale action
 
-Logged when autoscale attempts to scale in or out.
+Logged when autoscale attempts to scale in or out:
 
 ```JSON
 {
@@ -346,9 +347,9 @@ Logged when autoscale attempts to scale in or out.
 
 ```
 
-### Get Operation Status Result
+### Get operation status result
 
-Logged following a scale event.
+Logged following a scale event:
 
 ```JSON
 
@@ -365,7 +366,7 @@ Logged following a scale event.
 
 ### Metric failure
 
-Logged when autoscale can't determine the value of the metric used in the scale rule.
+Logged when autoscale can't determine the value of the metric used in the scale rule:
 
 ```JSON
 "Properties":{
@@ -378,9 +379,10 @@ Logged when autoscale can't determine the value of the metric used in the scale 
     "activityStatusValue": "Failed"
 }
 ```
+
 ### Metric recovery
 
-Logged when autoscale can once again determine the value of the metric used in the scale rule after a `MetricFailure` event
+Logged when autoscale can once again determine the value of the metric used in the scale rule after a `MetricFailure` event:
 
 ```JSON
 "Properties":{
@@ -392,9 +394,11 @@ Logged when autoscale can once again determine the value of the metric used in t
     "activityStatusValue": "Succeeded"
 }
 ```
-### Predictive Metric Failure
 
-Logged when autoscale can't calculate predicted scale events due to the metric being unavailable.
+### Predictive metric failure
+
+Logged when autoscale can't calculate predicted scale events because the metric is unavailable:
+
 ```JSON
 "Properties": {
     "eventCategory": "Autoscale",
@@ -407,9 +411,10 @@ Logged when autoscale can't calculate predicted scale events due to the metric b
     "activityStatusValue": "Failed"
 }
 ```
-### Flapping Occurred
 
-Logged when autoscale detects flapping could occur, and scales differently to avoid it.
+### Flapping occurred
+
+Logged when autoscale detects flapping could occur and scales differently to avoid it:
 
 ```JSON
 "Properties":{
@@ -435,7 +440,7 @@ Logged when autoscale detects flapping could occur, and scales differently to av
 
 ### Flapping
 
-Logged when autoscale detects flapping could occur, and defers scaling in to avoid it.
+Logged when autoscale detects flapping could occur and defers scaling in to avoid it:
 
 ```JSON
 "Properties": {
@@ -508,6 +513,6 @@ Logged when autoscale detects flapping could occur, and defers scaling in to avo
 
 ## Next steps
 
-* [Troubleshooting Autoscale](./autoscale-troubleshoot.md)
-* [Autoscale Flapping](./autoscale-flapping.md)
+* [Troubleshooting autoscale](./autoscale-troubleshoot.md)
+* [Autoscale flapping](./autoscale-flapping.md)
 * [Autoscale settings](./autoscale-understanding-settings.md)

@@ -20,15 +20,9 @@ This article describes the following methods for reducing OT network alert fatig
 
 ## Prerequisites
 
-- To create alert comments or custom alert rules on an OT network sensor, you must have:
+- To create alert comments or custom alert rules on an OT network sensor, you must have an OT network sensor installed and access to the sensor as an **Admin** user.
 
-    - An OT network sensor installed
-    - Access to the sensor as an **Admin** user.
-
-- To create alert exclusion rules on an on-premises management console, you must have:
-
-    - An on-premises management console installed
-    - Access to the on-premises management console as an **Admin** user.
+- To create alert exclusion rules on an on-premises management console, you must have an on-premises management console installed and access to the on-premises management console as an **Admin** user.
 
 For more information, see [Install OT agentless monitoring software](how-to-install-software.md) and [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 

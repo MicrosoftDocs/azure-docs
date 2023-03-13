@@ -56,6 +56,8 @@
     href: classroom-labs-concepts.md    
   - name: Labs architecture fundamentals
     href: classroom-labs-fundamentals.md
+  - name: Migrate from physical labs
+    href: concept-migrating-physical-labs.md
   - name: Nested virtualization on a template VM
     href: concept-nested-virtualization-template-vm.md
   - name: Capacity limits
@@ -117,7 +119,7 @@
     - name: SolidWorks computer-aided design (CAD)
       displayName: SolidWorks CAD
       href: class-type-solidworks.md
-    - name: Sql database management and development
+    - name: SQL database management and development
       href: class-type-sql-server.md
 - name: How-tos
   items:
