@@ -2,7 +2,7 @@
 title: Configure ServiceNow for automatic user provisioning with Azure Active Directory
 description: Learn how to automatically provision and deprovision user accounts from Azure AD to ServiceNow.
 services: active-directory
-author: thwimmer
+author: twimmers
 manager: CelesteDG
 ms.reviewer: celested
 ms.service: active-directory
