@@ -15,11 +15,13 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 > [!TIP]
 > If you're looking for items older than six months, you can find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
+
 ## March 2023
 
 Updates in March include:
 
 - [Improved security policy management experience for Azure environment](#improved-security-policy-management-experience-for-azure-environment)
+- [New alert in Azure Defender for Key Vault](#new-alert-in-azure-defender-for-key-vault)
 
 ### Improved security policy management experience for Azure environment
 
