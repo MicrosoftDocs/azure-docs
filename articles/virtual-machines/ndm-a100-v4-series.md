@@ -6,7 +6,7 @@ ms.author: sherrywang
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 10/26/2021
+ms.date: 03/13/2023
 
 ---
 
@@ -23,8 +23,8 @@ Each GPU features NVLINK 3.0 connectivity for communication within the VM, and t
 These instances provide excellent performance for many AI, ML, and analytics tools that support GPU acceleration 'out-of-the-box,' such as TensorFlow, Pytorch, Caffe, RAPIDS, and other frameworks. Additionally, the scale-out InfiniBand interconnect is supported by a large set of existing AI and HPC tools built on NVIDIA's NCCL2 communication libraries for seamless clustering of GPUs.
 
 > [!IMPORTANT]
-> To get started with NDm A100 v4 VMs, refer to [HPC Workload Configuration and Optimization](./workloads/hpc/configure.md) for steps including driver and network configuration.
-> Due to increased GPU memory I/O footprint, the NDm A100 v4 requires the use of [Generation 2 VMs](./generation-2.md) and marketplace images. The [Azure HPC images](./workloads/hpc/configure.md) are strongly recommended. Azure HPC Ubuntu 18.04, 20.04 and Azure HPC CentOS 7.9 images are supported.
+> To get started with NDm A100 v4 VMs, refer to [HPC Workload Configuration and Optimization](configure.md) for steps including driver and network configuration.
+> Due to increased GPU memory I/O footprint, the NDm A100 v4 requires the use of [Generation 2 VMs](generation-2.md) and marketplace images. The [Azure HPC images](configure.md) are strongly recommended. Azure HPC Ubuntu 18.04, 20.04 and Azure HPC CentOS 7.9 images are supported.
 > 
 
 <br>
