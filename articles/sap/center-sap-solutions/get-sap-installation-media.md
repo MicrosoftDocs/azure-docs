@@ -192,7 +192,7 @@ Next, download the SAP installation media to the VM using a script.
     export BOM_directory="<BOM_directory_path>"
     export orchestration_ansible_user="<orchestration_ansible_user>"
     export playbook_path="<playbook_bom_downloader_yaml_path>"
-    ansible-playbook ${playbook_bom_downloader_yaml_path} \
+    sudo ansible-playbook ${playbook_path} \
     -e "bom_base_name=${bom_base_name}" \
     -e "deployer_kv_name=dummy_value" \
     -e "s_user=${s_user}" \
