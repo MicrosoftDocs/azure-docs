@@ -23,26 +23,6 @@ The subnet of the IP addresses for Arc resource bridge must lie in the IP addres
 
 DNS Server must have internal and external endpoint resolution. The appliance VM and control plane need to resolve the management machine and vice versa. All three must be able to reach the required URLs for deployment.
 
-### Configuration file example
-
-The example below highlights a couple key requirements for Arc resource bridge when creating the configuration files. The IPs for `k8snodeippoolstart` and `k8snodeippoolend` reside in the subnet range designated in `ipaddressprefix`. The `ipaddressprefix` is provided in the format of the subnet's IP address range for the virtual network and subnet mask (IP Mask) in CIDR notation.
-
-```
-azurestackhciprovider:
-virtualnetwork:
-name: "mgmtvnet
-vswitchname: "Default Switch
-type: "Transparent"
-macpoolname
-vlanid: 0
-ipaddressprefix: 172.16.0.0/16
-gateway: 17.16.1.1
-dnsservers: 17.16.0.1
-vippoolstart: 172.16.250.0
-vippoolend: 172.16.250.254
-k8snodeippoolstart: 172.16.30.0
-k8snodeippoolend: 172.16.30.254
-```
 
 ## General network requirements
 
