@@ -1777,7 +1777,7 @@ This issue can happen when Docker fails to find and copy a file.
 **Troubleshooting steps**
 * Ensure that the source file exists in the Docker build context
 * Ensure that the source and destination paths exist and are spelled correctly
-* Ensure that the source file is not listed in the `.dockerignore` of the current and parent directories
+* Ensure that the source file isn't listed in the `.dockerignore` of the current and parent directories
 * Remove any trailing comments from the same line as the `COPY` command
 
 **Resources**
@@ -1815,7 +1815,7 @@ If you aren't using a virtual network, or if you've configured it correctly, tes
 ## *Unknown Docker command*
 ### Unknown Docker instruction
 <!--issueDescription-->
-This issue can happen when Docker does not recognize an instruction in the Dockerfile.  
+This issue can happen when Docker doesn't recognize an instruction in the Dockerfile.  
 
 **Potential causes:**
 * Unknown Docker instruction being used in Dockerfile
@@ -1828,8 +1828,8 @@ This issue can happen when Docker does not recognize an instruction in the Docke
 
 **Troubleshooting steps**  
 * Ensure that the Docker command is valid and spelled correctly
-* Ensure there is a space between the Docker command and arguments
-* Ensure there is no unnecessary whitespace in the Dockerfile
+* Ensure there's a space between the Docker command and arguments
+* Ensure there's no unnecessary whitespace in the Dockerfile
 * Ensure Dockerfile is formatted correctly and is encoded in UTF-8
 
 **Resources**
