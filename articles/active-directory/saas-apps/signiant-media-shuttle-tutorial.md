@@ -16,13 +16,13 @@ ms.author: jeedes
 
 # Azure Active Directory SSO integration with Signiant Media Shuttle
 
-In this article, you learn how to integrate Signiant Media Shuttle with Azure Active Directory (Azure AD). Media Shuttle is a solution for securely moving large files and data sets to, and from, cloud-based or on-premises storage. Transfers are accelerated and can be up to 100s of times faster than FTP. When you integrate Signiant Media Shuttle with Azure AD, you can:
+In this article, you learn how to integrate Signiant Media Shuttle with Azure Active Directory (Azure AD). Media Shuttle is a solution for securely moving large files and data sets to, and from, cloud-based or on-premises storage. Transfers are accelerated and can be up to 100 s of times faster than FTP. When you integrate Signiant Media Shuttle with Azure AD, you can:
 
 * Control in Azure AD who has access to Signiant Media Shuttle.
 * Enable your users to be automatically signed-in to Signiant Media Shuttle with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-You'll configure and test Azure AD single sign-on for Signiant Media Shuttle in a test environment. Signiant Media Shuttle supports only **SP** initiated single sign-on and **Just In Time** user provisioning.
+You need to configure and test Azure AD single sign-on for Signiant Media Shuttle in a test environment. Signiant Media Shuttle supports only **SP** initiated single sign-on and **Just In Time** user provisioning.
 
 ## Prerequisites
 
@@ -83,7 +83,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 	> [!Note]
     > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [Signiant Media Shuttle support team](mailto:support@signiant.com) to get these values. You can also refer to the patterns shown in the Basic SAML Configuration section in the Azure portal.
 
-1. Your Signiant Media Shuttle application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this. The default value of **Unique User Identifier** is **user.userprincipalname** but Signiant Media Shuttle expects this to be mapped with the user's email address. For that you can use **user.mail** attribute from the list or use the appropriate attribute value based on your organization configuration.
+1. Your Signiant Media Shuttle application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example. The default value of **Unique User Identifier** is **user.userprincipalname** but Signiant Media Shuttle expects to be mapped with the user's email address. For that you can use **user.mail** attribute from the list or use the appropriate attribute value based on your organization configuration.
 
 	![Screenshot shows the image of attributes configuration.](common/default-attributes.png "Image")
 
@@ -97,7 +97,7 @@ To configure single sign-on on **Signiant Media Shuttle** side, you need to send
 
 ### Create Signiant Media Shuttle test user
 
-In this section, a user called Britta Simon is created in Signiant Media Shuttle. Signiant Media Shuttle supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Signiant Media Shuttle, a new one is created after authentication.
+In this section, a user called Britta Simon is created in Signiant Media Shuttle. Signiant Media Shuttle supports just-in-time user provisioning, which is enabled by default. There's no action item for you in this section. If a user doesn't already exist in Signiant Media Shuttle, a new one is created after authentication.
 
 ## Test SSO 
 
