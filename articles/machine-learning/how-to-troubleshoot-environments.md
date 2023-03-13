@@ -1199,7 +1199,7 @@ az ml workspace update --name myworkspace --resource-group myresourcegroup --ima
 
 ### Unexpected Dockerfile Format
 <!--issueDescription-->
-This issue can happen when the Dockerfile is formatted incorrectly.
+This issue can happen when your Dockerfile is formatted incorrectly.
 
 **Potential causes:**
 * Your Dockerfile contains invalid syntax
