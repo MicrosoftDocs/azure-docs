@@ -21,7 +21,7 @@ Before you can access your resources, you'll need to meet the following prerequi
 
 - Internet access.
 
-- iPhone running iOS 15 or later or iPad running iPadOS 15 or later.
+- An iPhone running iOS 15 or later or an iPad running iPadOS 15 or later.
 
 - Download and install the Remote Desktop client from the [App Store](https://apps.apple.com/app/microsoft-remote-desktop/id714464092).
 
