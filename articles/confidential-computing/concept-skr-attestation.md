@@ -1,5 +1,5 @@
 ---
-title: Secure Key Release and Attestation with Confidential Computing
+title: Secure Key Release with Azure Key Vault and Azure Confidential Computing
 description: Concept guide on what SKR is and its usage with Azure Confidential Computing Offerings
 author: agowdamsft
 ms.service: virtual-machines
@@ -16,8 +16,8 @@ Secure Key Release (SKR) is a functionality of Azure Key Vault (AKV) Managed HSM
 
 ## SKR Support with AKV Offerings
 
-1. [Azure Key Vault Premium](../security/fundamentals/key-management.md)
-1. [Azure Key Vault Managed HSM](../key-vault/managed-hsm/overview.md)
+- [Azure Key Vault Premium](../security/fundamentals/key-management.md)
+- [Azure Key Vault Managed HSM](../key-vault/managed-hsm/overview.md)
 
 ## Overall Secure Key Release Flow with TEE
 
@@ -39,7 +39,7 @@ A Secure Key Release Policy is a json format release policy as defined [here](/r
 
 Visit the TEE specific [examples page for more details](/skr-flow-confidentialcontainers-aci.md)
 
-Before, you set an SKR policy make sure to run your TEE application through the remote attestation flow. Remote attestation isn't covered as part of this tutorial.
+Before you set an SKR policy make sure to run your TEE application through the remote attestation flow. Remote attestation isn't covered as part of this tutorial.
 
 Example
 
@@ -66,7 +66,7 @@ Example
 
 ```
 
-### Step 3: Create a exportable key in AKV with attached SKR policy
+### Step 3: Create an exportable key in AKV with attached SKR policy
 
 Exact details of the type of key and other attributes associated can be found [here](../key-vault/general/quick-create-cli.md).
 
@@ -80,9 +80,9 @@ This step can be specific to the type of TEE you're running your application Int
 
 Follow these references examples for various TEE types offering with Azure:
 
-1. [Application within AMD EV-SNP based CVM's performing Secure Key Release](./skr-flow-cvm-sevsnp-attestation.md)
-1. [Confidential containers with Azure Container Instances (ACI) with SKR side-car containers](./skr-flow-confidentialcontainers-aci.md)
-1. [Intel SGX based applications performing Secure Key Release - Open Source Solution Mystikos Implementation](https://github.com/deislabs/mystikos/tree/main/samples/confidential_ml#environment)
+- [Application within AMD EV-SNP based CVM's performing Secure Key Release](./skr-flow-cvm-sevsnp-attestation.md)
+- [Confidential containers with Azure Container Instances (ACI) with SKR side-car containers](./skr-flow-confidentialcontainers-aci.md)
+- [Intel SGX based applications performing Secure Key Release - Open Source Solution Mystikos Implementation](https://github.com/deislabs/mystikos/tree/main/samples/confidential_ml#environment)
 
 ## Frequently Asked Questions (FAQ)
 
@@ -94,7 +94,7 @@ No. The policy attached to SKR only understands MAA claims that are associated t
 
 No. AKV only understands and integrates with MAA today.
 
-### Can I use AKV SDKs to get perform key RELEASE?
+### Can I use AKV SDKs to perform key RELEASE?
 
 Yes. Latest SDK integrated with 7.3 AKV API's support key RELEASE.
 
