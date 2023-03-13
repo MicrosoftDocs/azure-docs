@@ -20,16 +20,16 @@ These articles describe how to get started on the InfiniBand-enabled H-series an
 
 ## Features and capabilities
 
-The InfiniBand enabled H-series and N-series VMs are designed to provide the best HPC performance, MPI scalability, and cost efficiency for HPC workloads. See [HB-series](sizes-hpc.md) and [N-series](sizes-gpu.md) VMs to learn more about the features and capabilities of the VMs.
+The InfiniBand enabled HB-series and N-series VMs are designed to provide the best HPC performance, MPI scalability, and cost efficiency for HPC workloads. See [HB-series](sizes-hpc.md) and [N-series](sizes-gpu.md) VMs to learn more about the features and capabilities of the VMs.
 
 ### RDMA and InfiniBand
 
 [RDMA capable](sizes-hpc.md#rdma-capable-instances) [HB-series](sizes-hpc.md) and [N-series](sizes-gpu.md) VMs communicate over the low latency and high bandwidth InfiniBand network. The RDMA capability over such an interconnect is critical to boost the scalability and performance of distributed-node HPC and AI workloads. The InfiniBand enabled H-series and N-series VMs are connected in a non-blocking fat tree with a low-diameter design for optimized and consistent RDMA performance.
-See [Enable InfiniBand](enable-infiniband.md) to learn more about setting up InfiniBand on the InfiniBand enabled VMs.
+See [Enable InfiniBand](./extensions/enable-infiniband.md) to learn more about setting up InfiniBand on the InfiniBand enabled VMs.
 
 ### Message passing interface
 
-The SR-IOV enabled H-series and N-series support almost all MPI libraries and versions. Some of the most commonly used MPI libraries are: Intel MPI, OpenMPI, HPC-X, MVAPICH2, MPICH, Platform MPI. All remote direct memory access (RDMA) verbs are supported.
+The SR-IOV enabled HB-series and N-series support almost all MPI libraries and versions. Some of the most commonly used MPI libraries are: Intel MPI, OpenMPI, HPC-X, MVAPICH2, MPICH, Platform MPI. All remote direct memory access (RDMA) verbs are supported.
 See [Set up MPI](setup-mpi.md) to learn more about installing various supported MPI libraries and their optimal configuration.
 
 ## Get started
