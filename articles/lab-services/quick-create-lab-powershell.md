@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to create an Azure Lab Services l
 author: RogerBestMSFT
 ms.topic: quickstart
 ms.date: 06/15/2022
-ms.custom: mode-api
+ms.custom: mode-api, devx-track-azurepowershell
 ---
 
 # Quickstart: Create a lab using PowerShell and the Azure module
