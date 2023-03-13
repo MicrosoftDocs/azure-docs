@@ -98,9 +98,9 @@ if (authResult != null)
  }
 ```
 
-The required info in the sample code can be found in the Azure AD portal, as follows:
+The required info in the sample code can be found in the Azure portal, as follows:
 
-| Info required | How to find it in the Azure AD portal |
+| Info required | How to find it in the Azure portal |
 | --- | --- |
 | \<Tenant ID> | **Azure Active Directory** > **Properties** > **Directory ID** |
 | \<App ID of the Native app> | **Application registration** > *your native application* > **Overview** > **Application ID** |

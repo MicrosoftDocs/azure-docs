@@ -116,6 +116,8 @@ items:
       href: visualize/resource-manager-workbooks.md
     - name: VM insights
       href: vm/resource-manager-vminsights.md
+  - name: Alerts 
+    href: alerts/alerts-payload-samples.md
   - name: Data collection rules
     items:
     - name: Agent
@@ -828,7 +830,7 @@ items:
           href: profiler/profiler-bring-your-own-storage.md
         - name: Snapshot Debugger troubleshooting
           displayName: troubleshoot, troubleshooting
-          href: /troubleshoot/azure/azure-monitor/app-insights/snapshot-debugger-troubleshoot
+          href: /troubleshoot/azure/azure-monitor/app-insights/snapshot-debugger-troubleshoot.md
     - name: Upgrade from classic resources and iKey
       items:
       - name: Migrate to a workspace-based resource
@@ -1327,8 +1329,6 @@ items:
         href: alerts/alerts-sms-behavior.md
       - name: Common schema for alerts
         href: alerts/alerts-common-schema.md
-      - name: Common alert schema definition for Test action group
-        href: alerts/alerts-common-schema-test-action-definitions.md
       - name: Configure the schema to get activity log alerts
         href: alerts/activity-log-alerts-webhook.md        
       - name: Non-common alert schema definition
