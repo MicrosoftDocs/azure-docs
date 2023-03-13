@@ -1,7 +1,7 @@
 ---
 title: Spotlight states
 titleSuffix: An Azure Communication Services how-to guide
-description: Use Azure Communication Services SDKs to send raise hand state.
+description: Use Azure Communication Services SDKs to send spotlight state.
 author: cnwankwo
 ms.author: Chukwuebuka
 ms.service: azure-communication-services
@@ -28,11 +28,7 @@ During an active call, you may want to send or receive states from other users. 
 - Optional: Complete the quickstart to [add voice calling to your application](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 
 ::: zone pivot="platform-web"
-[!INCLUDE [Raise Hand Client-side JavaScript](./includes/raise-hand/raise-hand-web.md)]
-::: zone-end
-
-::: zone pivot="platform-android"
-[!INCLUDE [Raise Hand Client-side Android](./includes/raise-hand/raise-hand-android.md)]
+[!INCLUDE [Spotlight Client-side JavaScript](./includes/spotlight/spotlight-web.md)]
 ::: zone-end
 
 ## Next steps
