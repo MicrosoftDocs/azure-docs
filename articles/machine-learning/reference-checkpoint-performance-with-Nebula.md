@@ -49,7 +49,7 @@ To summarize, large model checkpoint management involves heavy storage, and job 
 
 ## Nebula to the Rescue
 
-To train large, distributed models, a reliable and efficient way to save and resume training progress, that avoids data loss and waste of resources, becomes helpful. Nebula reduces checkpoint save times and training GPU hour demands. For large model Azure Machine Learning training jobs, Nebula offers faster and easier checkpoint management and saves. In turn, it helps shrink large-scale model training time demands.
+To train large, distributed models, a reliable and efficient way to save and resume training progress that avoids data loss and waste of resources becomes helpful. Nebula reduces checkpoint save times and training GPU hour demands. For large model Azure Machine Learning training jobs, Nebula offers faster and easier checkpoint management and saves. In turn, it helps shrink large-scale model training time demands.
 
 Nebula can
 
@@ -73,13 +73,6 @@ Nebula can
 
   and access them at any time with a few lines of code.
 
-THIS DOCUMENT ALREADY USED THESE IMAGES:
-
-  The following images show the Nebula checkpointing lifecycle on Azure Machine Learning studio as an example.
-
-  ![image](https://user-images.githubusercontent.com/42362331/220549552-5a6b4ec7-c422-4cf6-87f9-29ae9570e097.png)
-  ![image](https://user-images.githubusercontent.com/42362331/220549754-506f0352-a8e2-4942-bdbc-319c26dae85a.png)
-
 ## Prerequisites
 
 * An Azure subscription and an Azure Machine Learning workspace. See [Create workspace resources](./quickstart-create-resources.md) for more information about workspace resource creation
@@ -97,7 +90,7 @@ Nebula use involves:
 - [API calls to save and load checkpoints](#call-apis-to-save-and-load-checkpoints)
 
 ### Using ACPT environment
-[Azure Container for PyTorch (ACPT)](how-to-manage-environments-v2.md?tabs=cli#curated-environments), a curated environment for PyTorch model training, includes Nebula as a pre-installed, dependent Python package. See [Azure Container for PyTorch (ACPT)](resource-curated-environments.md#azure-container-for-pytorch-acpt-preview) to view the curated environment, and [Enabling Deep Learning with Azure Container for PyTorch in Azure Machine Learning](https://techcommunity.microsoft.com/t5/ai-machine-learning-blog/enabling-deep-learning-with-azure-container-for-pytorch-in-azure/ba-p/3650489) to learn more about the ACPT image.
+[Azure Container for PyTorch (ACPT)](how-to-manage-environments-v2.md?tabs=cli#curated-environments), a curated environment for PyTorch model training, includes Nebula as a preinstalled, dependent Python package. See [Azure Container for PyTorch (ACPT)](resource-curated-environments.md#azure-container-for-pytorch-acpt-preview) to view the curated environment, and [Enabling Deep Learning with Azure Container for PyTorch in Azure Machine Learning](https://techcommunity.microsoft.com/t5/ai-machine-learning-blog/enabling-deep-learning-with-azure-container-for-pytorch-in-azure/ba-p/3650489) to learn more about the ACPT image.
             
 ### Initializing Nebula
 
@@ -158,7 +151,7 @@ To enable full Nebula compatibility with PyTorch-based training scripts, modify 
     p0 = latest_ckpt.load(<'CKPT_NAME'>)
     ```
 
-    Since a checkpoint or snapshot may contain many files, you can load one or more of them by the name. By loading back the latest checkpoint, the training state can be restored to that saved by the last checkpoint.
+    Since a checkpoint or snapshot may contain many files, you can load one or more of them by the name. With the latest checkpoint, the training state can be restored to the state saved by the last checkpoint.
 
     Other APIs can handle checkpoint management
 
