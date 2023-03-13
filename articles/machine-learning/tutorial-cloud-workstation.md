@@ -9,12 +9,12 @@ ms.topic: tutorial
 author: lebaro-msft
 ms.author: lebaro
 ms.reviewer: sgilley
-ms.date: 02/22/2023
+ms.date: 03/13/2023
 #Customer intent: As a data scientist, I want to know how to prototype and develop machine learning models on a cloud workstation.
 ---
 
 # Tutorial: Model development on a cloud workstation
- 
+
 Learn how to develop a training script with a notebook on an Azure Machine Learning cloud workstation. This tutorial covers the basics you need to get started:
 
 > [!div class="checklist"]
@@ -44,6 +44,7 @@ In order for your script to run, you need to be working in an environment config
 > The code in this tutorial works in the default kernel the notebook connects to. You'll find that the pre-configured kernels often have what you need for your machine learning tasks. If you prefer not to create a new kernel, skip to [Create a notebook](#create-a-notebook).
 
 * **Upload a file.**
+
     Files you upload are stored in an Azure file share, and these files are mounted to each compute instance and shared within the workspace.
 
     1. Download this conda environment file, [*workstation_env.yml*](https://azuremlexampledata.blob.core.windows.net/datasets/workstation_env.yml) to your computer.
@@ -52,11 +53,10 @@ In order for your script to run, you need to be working in an environment config
     1. Select **workstation_env.yml** file you just downloaded.
     1. Select **Upload**.
 
-    You see the *workstation_env.yml* file under your username folder in the **Files** tab. Select this file to preview it, and see what dependencies it specifies.
+    You'll see the *workstation_env.yml* file under your username folder in the **Files** tab. Select this file to preview it, and see what dependencies it specifies.
 
     :::image type="content" source="media/tutorial-cloud-workstation/view-yml.png" alt-text="Screenshot shows the yml file that you uploaded.":::
 
-    You may not always need to define a new environment. There are kernels pre-installed on each compute instance that are already configured for many common machine learning model development tasks.
 
 * **Create a kernel.**
 
@@ -74,6 +74,7 @@ In order for your script to run, you need to be working in an environment config
         ```bash
         conda env list
         ```
+
     1. If you created a subfolder for this tutorial, `cd` to that folder now.
 
     1. Create the environment based on the conda file provided. It takes a few minutes to build this environment.
@@ -103,7 +104,7 @@ In order for your script to run, you need to be working in an environment config
 
     1. Close the terminal window.
 
-You have a new kernel.  Next you open a notebook and use this kernel.
+You now have a new kernel.  Next you'll open a notebook and use this kernel.
 
 ## Create a notebook
 
@@ -121,7 +122,7 @@ In this section you develop a Python training script that predicts credit card d
 
 This code uses `sklearn` for training and MLflow for logging the metrics.
 
-1. Copy and paste the following code into the first cell of your notebook.  This code imports the packages and libraries used in the training script.
+1. Start with code that imports the packages and libraries you'll use in the training script.
 
     ```python
     import os
@@ -138,7 +139,7 @@ This code uses `sklearn` for training and MLflow for logging the metrics.
 
     ```python
     # load the data
-    credit_df = pd.read_csv('https://azuremlexamples.blob.core.windows.net/datasets/credit_card/default%20of%20credit%20card%20clients.csv', header=1, index_col=0)
+    credit_df = pd.read_csv('https://azuremlexamples.blob.core.windows.net/datasets/credit_card/default_of_credit_card_clients.csv', header=1, index_col=0)
     
     train_df, test_df = train_test_split(
         credit_df,
@@ -162,7 +163,7 @@ This code uses `sklearn` for training and MLflow for logging the metrics.
     X_test = test_df.values
     ```
 
-1. Add code to start autologging with `MLflow`, so that you can track the metrics and results. With the iterative nature of model development, `MLflow` helps you log model parameters and results.  Refer back to those runs to compare and understand how your model performs. The logs also provide context when you're ready to move from the development to training phase of your workflows within Azure Machine Learning.
+1. Add code to start autologging with `MLflow`, so that you can track the metrics and results. With the iterative nature of model development, `MLflow` helps you log model parameters and results.  Refer back to those runs to compare and understand how your model performs. The logs also provide context for when you're ready to move from the development phase to the training phase of your workflows within Azure Machine Learning.
 
     ```python
     # set name for logging
@@ -175,7 +176,7 @@ This code uses `sklearn` for training and MLflow for logging the metrics.
 1. Train a model.
 
     ```python
-    # Train Gradient Boosting Classifier
+    # Train with Gradient Boosting Classifier
     print(f"Training with data of shape {X_train.shape}")
     
     mlflow.start_run()
@@ -187,7 +188,7 @@ This code uses `sklearn` for training and MLflow for logging the metrics.
     y_pred = clf.predict(X_test)
     
     print(classification_report(y_test, y_pred))
-    # Stop Logging for this model
+    # Stop logging for this model
     mlflow.end_run()
     ```
 
@@ -196,7 +197,7 @@ This code uses `sklearn` for training and MLflow for logging the metrics.
 Now that you have model results, you may want to change something and try again.  For example, try a different classifier technique:
 
 ```python
-# Train  AdaBoost Classifier
+# Train  with AdaBoost Classifier
 from sklearn.ensemble import AdaBoostClassifier
 
 print(f"Training with data of shape {X_train.shape}")
@@ -209,22 +210,22 @@ ada.fit(X_train, y_train)
 y_pred = ada.predict(X_test)
 
 print(classification_report(y_test, y_pred))
-# Stop Logging for this model
+# Stop logging for this model
 mlflow.end_run()
 ```
 
 ## Examine results
 
-Now that you've tried two different models, which one do you like best?  Since you used `MLflow` to log results, you can dive into these models in more detail.  
+Now that you've tried two different models, use the results tracked with `MLflow` to decide which model is better. You can dive into these results in more details by looking at the jobs created by `MLflow`.
 
 1. On the left navigation, select **Jobs**.
 
     :::image type="content" source="media/tutorial-set-up-workstation/jobs.png" alt-text="Screenshot shows how to select Jobs in the navigation.":::
 
-1. You see an experiment named **Default**. Select this link.
-1. There are two different runs shown, one for each of the models you tried.  These run names are auto-generated.  As you hover over a name, use the pencil tool next to the name if you want to rename it.  
-1. Select the link for the first job. The name appears at the top, you can also rename it here with the pencil tool.
-1. You see more information about the job.  Under **Tags**, you see the estimator_name, which describes the type of model.
+1. Select the link for **Develop on cloud tutorial**.
+1. There are two different jobs shown, one for each of the models you tried.  These names are auto-generated.  As you hover over a name, use the pencil tool next to the name if you want to rename it.  
+1. Select the link for the first job. The name appears at the top. You can also rename it here with the pencil tool.
+1. The page shows details of the job, such as properties, outputs, tags, and parameters.  Under **Tags**, you'll see the estimator_name, which describes the type of model.
 
 1. Select the **Metrics** tab to view the metrics that were logged by `MLflow`. (Expect your results to differ, as you have a different training set.)
 
@@ -247,9 +248,10 @@ Now create a Python script from your notebook for model training.
 
 1. Look through this file and delete the code you don't want in the training script.  For example, keep the code for the model you wish to use, and delete code for the model you don't want.  
     * Make sure you keep the code that starts autologging (`mlflow.sklearn.autolog()`).
-    * When you run the Python script locally (as you'll do in this tutorial), you can keep the line that defines the experiment name (`mlflow.set_experiment("Develop on cloud tutorial")`).  Or even give it a different name to see it as a different entry in the **Jobs** section.  But when you use the script to submit a run with the CLI or SDK (which you'll see in other tutorials), that line will not work - the CLI or SDK code to create a training run will contain the experiment name instead.
-    * When running a single model, the lines to start and end a run (`mlflow.start_run()` and `mlflow.end_run()`) are also not necessary, but can be left in if you wish.
     * You may wish to delete the auto-generated comments and add in more of your own comments.
+    * When you run the Python script interactively (in a terminal or notebook), you can keep the line that defines the experiment name (`mlflow.set_experiment("Develop on cloud tutorial")`). Or even give it a different name to see it as a different entry in the **Jobs** section. But when you prepare the script for a training job, that line will not work and should be omitted - the job definition will include the experiment name.
+    * When running a single model, the lines to start and end a run (`mlflow.start_run()` and `mlflow.end_run()`) are also not necessary (they will have no effect), but can be left in if you wish.
+
 1. When you're finished with your edits, save the file.
 
 You now have a Python script to use for training your preferred model.  
