@@ -17,16 +17,14 @@ ms.custom: it-pro
 
 # Add multifactor authentication (MFA) to a customer-facing app
 
-[Multifactor authentication](/authentication/concept-mfa-howitworks) (MFA) adds a layer of security to sign-up and sign-in experiences for your customer-facing applications. With MFA, customers need more than just a user name and password to access your resources. As a customer completes your app sign-in experience, they're prompted for a one-time passcode, which is sent to them via email. During the entire process, the customer is presented with sign-in pages that reflect any company branding you've configured.
-
-This article describes how to enforce MFA by creating an Azure AD Conditional Access policy and adding MFA to your sign-up and sign-in user flow.
+[Multifactor authentication](/authentication/concept-mfa-howitworks) (MFA) adds a layer of security to your customer-facing applications. With MFA, customers are prompted for a one-time passcode in addition to their username and password when they sign up or sign in to your app. This article describes how to enforce MFA for your customers by creating an Azure AD Conditional Access policy and adding MFA to your sign-up and sign-in user flow.
 
 ## Prerequisites
 
-- Create your Azure AD customer tenant. (If you don't have a tenant, you can start a free trial.)
-- Register the app in your customer tenant.
-- Create a sign-up and sign-in user flow and associate it with your app.
-- You need an account with Conditional Access Administrator, Security Administrator, or Global Administrator privileges to configure Conditional Access policies and MFA.
+- An Azure AD customer tenant (if you don't have a tenant, you can start a free trial).
+- A sign-up and sign-in user flow that has been integrated with your app.
+- An app that's registered in your customer tenant, added to a sign-up and sign-in user flow, and updated to point to the user flow for authentication.
+- An account with Conditional Access Administrator, Security Administrator, or Global Administrator privileges to configure Conditional Access policies and MFA.
 
 ## Create a Conditional Access policy
 
