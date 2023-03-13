@@ -185,8 +185,6 @@ Next, download the SAP installation media to the VM using a script.
 
 Enter the actual values **within** double quotes but **without** the triangular brackets. The Ansible command that you run should look like:
 
-    
-     ```bash
     export bom_base_name="<Enter bom base name>"
     export s_user="<s-user>"
     export s_password="<password>"
@@ -205,9 +203,7 @@ Enter the actual values **within** double quotes but **without** the triangular 
     -e "sapbits_location_base_path=${sapbits_location_base_path}" \
     -e "BOM_directory=${BOM_directory}" \
     -e "orchestration_ansible_user=${orchestration_ansible_user}"
-    ```
 
- 
 1. If prompted that if *you have a storage account*, enter `Y`.
     	
 1. Where `playbook_bom_downloader_yaml_path` is the absolute path to sap-automation/deploy/ansible/playbook_bom_downloader.yaml. e.g. */home/loggedinusername/sap-automation/deploy/ansible/playbook_bom_downloader.yaml*
