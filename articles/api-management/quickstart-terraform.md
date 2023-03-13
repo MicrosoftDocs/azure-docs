@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Create an Azure API Management service using Terraform'
-description: 'In this article, you create an Azure API Management service using Terraform'
+description: 'In this article, you create an Azure API Management service using Terraform.'
 ms.topic: quickstart
 ms.service: api-management
 ms.date: 3/13/2023
