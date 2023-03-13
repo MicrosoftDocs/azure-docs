@@ -1,11 +1,11 @@
 ---
 title: How to deploy tenant workloads
 description: Learn the steps for creating VMs for VNF workloads and for creating AKS-Hybrid clusters for CNF workloads
-author: jwheeler60 #Required; your GitHub user alias, with correct capitalization.
-ms.author: johnwheeler #Required; microsoft alias of author; optional team alias.
+author: dramasamymsft #Required; your GitHub user alias, with correct capitalization.
+ms.author: dramasamy #Required; microsoft alias of author; optional team alias.
 ms.service: azure #Required; service per approved list. slug assigned by ACOM.
 ms.topic: quickstart #Required; leave this attribute/value as-is.
-ms.date: 01/25/2023 #Required; mm/dd/yyyy format.
+ms.date: 03/10/2023 #Required; mm/dd/yyyy format.
 ms.custom: template-quickstart #Required; leave this attribute/value as-is.
 ---
 
@@ -21,7 +21,7 @@ You should complete the prerequisites specified [here](./quickstarts-tenant-work
 
 ## Section V: how to create VMs for deploying VNF workloads
 
-Step-V1: [Create isolation-domains for VMs](#step-v1-create-isolation-domain-for-vm-workloads)
+Step-V1: [Create Isolation Domains for VMs](#step-v1-create-isolation-domain-for-vm-workloads)
 
 Step-V2: [Create Networks for VM](#step-v2-create-networks-for-vm-workloads)
 
@@ -31,45 +31,45 @@ Step-V3: [Create Virtual Machines](#step-v3-create-a-vm)
 
 This section explains steps to create VMs for VNF workloads
 
-### Step V1: create isolation domain for VM workloads
+### Step V1: create Isolation domain for VM workloads
 
-isolation-domains enable creation of layer 2 and layer 3 connectivity between Operator Nexus and network fabric network functions.
+Isolation Domains enable creation of layer 2 and layer 3 connectivity between Operator Nexus and network fabric network functions.
 This connectivity enables inter-rack and intra-rack communication between the workloads.
-You can create as many L2 and L3 isolation-domains as needed.
+You can create as many L2 and L3 Isolation Domains as needed.
 
 You should have the following information already:
 
 - VLAN/subnet info for each of the layer 3 network(s)
 - Which network(s) would need to talk to each other (remember to put VLANs/subnets that needs to
-  talk to each other into the same L3 isolation-domain)
+  talk to each other into the same L3 Isolation Domain)
 - VLAN/subnet info for your `defaultcninetwork` for AKS-Hybrid cluster
-- BGP peering and network policies information for your L3 isolation-domain(s)
+- BGP peering and network policies information for your L3 Isolation Domain(s)
 - VLANs for all your layer 2 network(s)
 - VLANs for all your trunked network(s)
 - MTU values for your network.
 
-#### L2 isolation domain
+#### L2 Isolation Domain
 
-[!INCLUDE [L2 isolation-domain](./includes/l2-isolation-domain.md)]
+[!INCLUDE [L2 Isolation Domain](./includes/l2-isolation-domain.md)]
 
-#### L3 isolation domain
+#### L3 Isolation Domain
 
-[!INCLUDE [L3 isolation-domain](./includes/l3-isolation-domain.md)]
+[!INCLUDE [L3 Isolation Domain](./includes/l3-isolation-domain.md)]
 
 ### Step V2: create networks for VM workloads
 
 This section describes how to create the following networks for VM Workloads:
 
-- Layer 2 network
-- Layer 3 network
-- Trunked network
-- Cloud services network
+- Layer 2 Network
+- Layer 3 Network
+- Trunked Network
+- Cloud services Network
 
-#### Create an L2 network
+#### Create an L2 Network
 
-Create an L2 network, if necessary, for your VM. You can repeat the instructions for each L2 network required.
+Create an L2 Network, if necessary, for your VM. You can repeat the instructions for each L2 Network required.
 
-Gather the resource ID of the L2 isolation-domain you [created](#l2-isolation-domain) that configures the VLAN for this network.
+Gather the resource ID of the L2 Isolation Domain you [created](#l2-isolation-domain) that configures the VLAN for this network.
 
 Example CLI command:
 
@@ -82,19 +82,19 @@ Example CLI command:
     --l2-isolation-domain-id "<YourL2IsolationDomainId>"
 ```
 
-#### Create an L3 network
+#### Create an L3 Network
 
-Create an L3 network, if necessary, for your VM. Repeat the instructions for each L3 network required.
+Create an L3 Network, if necessary, for your VM. Repeat the instructions for each L3 Network required.
 
 You need:
 
-- resource ID of the L3 isolation-domain you [created](#l3-isolation-domain) that configures the VLAN for this network.
-- The ipv4-connected-prefix must match the i-pv4-connected-prefix that is in the L3 isolation-domain
-- The ipv6-connected-prefix must match the i-pv6-connected-prefix that is in the L3 isolation-domain
+- resource ID of the L3 Isolation Domain you [created](#l3-isolation-domain) that configures the VLAN for this network.
+- The ipv4-connected-prefix must match the i-pv4-connected-prefix that is in the L3 Isolation Domain
+- The ipv6-connected-prefix must match the i-pv6-connected-prefix that is in the L3 Isolation Domain
 - The ip-allocation-type can be either "IPv4", "IPv6", or "DualStack" (default)
-- The VLAN value must match what is in the L3 isolation-domain
+- The VLAN value must match what is in the L3 Isolation Domain
 
-<!--- The MTU wasn't specified during l2 isolation domain creation so what is "same" 
+<!--- The MTU wasn't specified during l2 Isolation domain creation so what is "same" 
 - The MTU of the network doesn't need to be specified here, but the network will be configured with the MTU information --->
 
 ```azurecli
@@ -110,12 +110,12 @@ You need:
     --vlan <YourNetworkVlan>
 ```
 
-#### Create a trunked network
+#### Create a Trunked Network
 
-Create a trunked network, if necessary, for your VM. Repeat the instructions for each trunked network required.
+Create a Trunked Network, if necessary, for your VM. Repeat the instructions for each Trunked Network required.
 
-Gather the resourceId(s) of the L2 and L3 isolation-domains you created earlier to configure the VLAN(s) for this network.
-You can include as many L2 and L3 isolation-domains as needed.
+Gather the resourceId(s) of the L2 and L3 Isolation Domains you created earlier to configure the VLAN(s) for this network.
+You can include as many L2 and L3 Isolation Domains as needed.
 
 ```azurecli
   az networkcloud trunkednetwork create --name "<YourTrunkedNetworkName>" \
@@ -133,7 +133,7 @@ You can include as many L2 and L3 isolation-domains as needed.
     --vlans <YourVlanList>
 ```
 
-### Create cloud services network
+### Create Cloud Services Network
 
 Your VM requires at least one Cloud Services Network. You need the egress endpoints you want to add to the proxy for your VM to access.
 
@@ -148,14 +148,14 @@ Your VM requires at least one Cloud Services Network. You need the egress endpoi
 
 ### Step V3: create a VM
 
-Operator Nexus Virtual Machines (VM) are used for hosting VNF(s) within a Telco network.
+Operator Nexus Virtual Machines (VMs) are used for hosting VNF(s) within a Telco network.
 The Nexus platform provides `az networkcloud virtualmachine create` to create a customized VM.
 For hosting a VNF on your VM, have it [Microsoft Azure Arc-enrolled](//azure/azure-arc/servers/overview),
 and provide a way to ssh to it via Azure CLI.
 
 #### Parameters
 
-- The `subscription`, `resource group`, `location`, and `customlocation` of the Operator Nexus cluster for deployment
+- The `subscription`, `resource group`, `location`, and `customlocation` of the Operator Nexus Cluster for deployment
   - **SUBSCRIPTION**=
   - **RESOURCE_GROUP**=
   - **LOCATION**=
@@ -176,7 +176,7 @@ and provide a way to ssh to it via Azure CLI.
 - Azure CLI and extensions installed and available
 - A customized `cloudinit userdata` file (provided)
   - **USERDATA**=
-- The resource ID of the earlier created [cloud service network](#create-cloud-services-network) and [L3 networks](#create-an-l3-network) to configure VM connectivity
+- The resource ID of the earlier created [Cloud Service Network](#create-cloud-services-network) and [L3 Networks](#create-an-l3-network) to configure VM connectivity
 
 #### 1. Update user data file
 
@@ -211,7 +211,7 @@ Update the VM template with proper information:
 - cloudServicesNetworkAttachment
 - cpuCores
 - memorySizeGB
-- networkAttachments (set your layer3 network as default gateway)
+- networkAttachments (set your L3 Network as default gateway)
 - sshPublicKeys (_SSH_PUBLIC_KEY_)
 - diskSizeGB
 - userData (_ENCODED_USERDATA_)
@@ -243,10 +243,10 @@ If each server has two CPU chipsets and each CPU chip has 28 cores. Then with hy
 Gather this information:
 
 - The `resourceId` of the `cloudservicesnetwork`
-- The `resourceId(s)` for each of the L2/L3/Trunked networks
+- The `resourceId(s)` for each of the L2/L3/Trunked Networks
 - Determine which network will serve as your default gateway (can only choose 1)
 - If you want to specify `networkAttachmentName` (interface name) for any of your networks
-- Determine the `ipAllocationMethod` for each of your L3 network (static/dynamic)
+- Determine the `ipAllocationMethod` for each of your L3 Network (static/dynamic)
 - The dimension of your VM
   - number of cpuCores
   - RAM (memorySizeGB)
@@ -287,11 +287,11 @@ You've created the VMs with your custom image. You're now ready to use for VNFs.
 
 ## Section K: how to create AKS-Hybrid cluster for deploying CNF workloads
 
-Step-K1: [Create isolation-domains for AKS-Hybrid Cluster](#step-k1-create-isolation-domain-for-aks-hybrid-cluster)
+Step-K1: [Create Isolation Domains for AKS-Hybrid cluster](#step-k1-create-isolation-domain-for-aks-hybrid-cluster)
 
-Step-K2: [Create Networks for AKS-Hybrid Cluster](#step-k2-create-aks-hybrid-networks)
+Step-K2: [Create Networks for AKS-Hybrid cluster](#step-k2-create-aks-hybrid-networks)
 
-Step-K3: [Create AKS-Hybrid Cluster](#step-k3-create-an-aks-hybrid-cluster)
+Step-K3: [Create AKS-Hybrid cluster](#step-k3-create-an-aks-hybrid-cluster)
 
 Step-K4: [Provision Tenant workloads (CNFs)](#step-k4-provision-tenant-workloads-cnfs)
 
@@ -301,27 +301,27 @@ Step-K4: [Provision Tenant workloads (CNFs)](#step-k4-provision-tenant-workloads
 
 This section explains steps to create AKS-Hybrid clusters for CNF workloads
 
-### Step K1: create isolation domain for AKS-Hybrid cluster
+### Step K1: create Isolation Domain for AKS-Hybrid cluster
 
 You should have the following information already:
 
-- VLAN/subnet info for each of the layer 3 network(s). List of networks
+- VLAN/subnet info for each of the L3 Network(s). List of networks
   that need to talk to each other (remember to put VLAN/subnets that needs to
-  talk to each other into the same L3 isolation-domain)
-- VLAN/subnet info for your `defaultcninetwork` for aks-hybrid cluster
-- BGP peering and network policies information for your L3 isolation-domain(s)
-- VLANs for all your layer 2 network(s)
-- VLANs for all your trunked network(s)
+  talk to each other into the same L3 Isolation Domain)
+- VLAN/subnet info for your `defaultcninetwork` for AKS-Hybrid cluster
+- BGP peering and network policies information for your L3 Isolation Domain(s)
+- VLANs for all your L2 Network(s)
+- VLANs for all your Trunked Network(s)
 <!--- The MTU isn't being specified and "11/15"?
-- MTU needs to be passed during creation of isolation-domain, due to a known issue. The issue will be fixed with the 11/15 release. --->
+- MTU needs to be passed during creation of Isolation Domain, due to a known issue. The issue will be fixed with the 11/15 release. --->
 
-#### L2 isolation domain
+#### L2 Isolation Domain
 
-[!INCLUDE [L2 isolation-domain](./includes/l2-isolation-domain.md)]
+[!INCLUDE [L2 Isolation Domain](./includes/l2-isolation-domain.md)]
 
-#### L3 isolation domain
+#### L3 Isolation Domain
 
-[!INCLUDE [L3 isolation-domain](./includes/l3-isolation-domain.md)]
+[!INCLUDE [L3 Isolation Domain](./includes/l3-isolation-domain.md)]
 
 ### Step K2: create AKS-Hybrid networks
 
@@ -331,17 +331,17 @@ This section describes how to create networks and vNET(s) for your AKD-Hybrid Cl
 
 This section describes how to create the following networks:
 
-- Layer 2 network
-- Layer 3 network
-- Trunked network
-- Default CNI network
-- Cloud services network
+- Layer 2 Network
+- Layer 3 Network
+- Trunked Network
+- Default CNI Network
+- Cloud Services Network
 
-At a minimum, you need to create a "Default CNI network" and a "Cloud Services network".
+At a minimum, you need to create a "Default CNI Network" and a "Cloud Services Network".
 
-##### Create an L2 network for AKS-Hybrid cluster
+##### Create an L2 Network for AKS-Hybrid cluster
 
-You need the resourceId of the [L2 isolation-domain](#l2-isolation-domain-1) you created earlier that configures the VLAN for this network.
+You need the resourceId of the [L2 Isolation Domain](#l2-isolation-domain-1) you created earlier that configures the VLAN for this network.
 
 For your network, the valid values for
 `hybrid-aks-plugin-type` are `OSDevice`, `SR-IOV`, `DPDK`; the default value is `SR-IOV`.
@@ -356,21 +356,21 @@ For your network, the valid values for
     --hybrid-aks-plugin-type "<YourHaksPluginType>"
 ```
 
-##### Create an L3 network for AKS-Hybrid cluster
+##### Create an L3 Network for AKS-Hybrid cluster
 
 You need the following information:
 
-- The `resourceId` of the [L3 isolation-domain](#l3-isolation-domain) domain you created earlier that configures the VLAN for this network.
-- The `ipv4-connected-prefix` must match the i-pv4-connected-prefix that is in the L3 isolation-domain
-- The `ipv6-connected-prefix` must match the i-pv6-connected-prefix that is in the L3 isolation-domain
+- The `resourceId` of the [L3 Isolation Domain](#l3-isolation-domain) domain you created earlier that configures the VLAN for this network.
+- The `ipv4-connected-prefix` must match the i-pv4-connected-prefix that is in the L3 Isolation Domain
+- The `ipv6-connected-prefix` must match the i-pv6-connected-prefix that is in the L3 Isolation Domain
 - The `ip-allocation-type` can be either "IPv4", "IPv6", or "DualStack" (default)
-- The VLAN value must match what is in the L3 isolation-domain
-<!--- The MTU wasn't specified during l2 isolation domain creation so what is "same" 
-- The MTU of the network doesn't need to be specified here as the network will be configured with the MTU specified during isolation-domain creation --->
+- The VLAN value must match what is in the L3 Isolation Domain
+<!--- The MTU wasn't specified during l2 Isolation domain creation so what is "same" 
+- The MTU of the network doesn't need to be specified here as the network will be configured with the MTU specified during Isolation Domain creation --->
 
-You also need to configure the following information for your aks-hybrid cluster
+You also need to configure the following information for your AKS-Hybrid cluster
 
-- hybrid-aks-ipam-enabled: If you want IPAM enabled for this network within your AKS-hybrid cluster. Default: True
+- hybrid-aks-ipam-enabled: If you want IPAM enabled for this network within your AKS-Hybrid cluster. Default: True
 - hybrid-aks-plugin-type: valid values are `OSDevice`, `SR-IOV`, `DPDK`. Default: `SR-IOV`
 
 ```azurecli
@@ -388,9 +388,9 @@ You also need to configure the following information for your aks-hybrid cluster
     --hybrid-aks-plugin-type "<YourHaksPluginType>"
 ```
 
-##### Create a trunked network for AKS-hybrid cluster
+##### Create a Trunked Network for AKS-Hybrid cluster
 
-Gather the resourceId(s) of the L2 and L3 isolation-domains you created earlier that configured the VLAN(s) for this network. You can include as many L2 and L3 isolation-domains as needed.
+Gather the resourceId(s) of the L2 and L3 Isolation Domains you created earlier that configured the VLAN(s) for this network. You can include as many L2 and L3 Isolation Domains as needed.
 
 You also need to configure the following information for your network
 
@@ -413,15 +413,15 @@ You also need to configure the following information for your network
     --hybrid-aks-plugin-type "<YourHaksPluginType>"
 ```
 
-##### Create default CNI network for AKS-Hybrid cluster
+##### Create default CNI Network for AKS-Hybrid cluster
 
 You need the following information:
 
-- `resourceId` of the L3 isolation-domain you created earlier that configures the VLAN for this network.
-- The ipv4-connected-prefix must match the i-pv4-connected-prefix that is in the L3 isolation-domain
-- The ipv6-connected-prefix must match the i-pv6-connected-prefix that is in the L3 isolation-domain
+- `resourceId` of the L3 Isolation Domain you created earlier that configures the VLAN for this network.
+- The ipv4-connected-prefix must match the i-pv4-connected-prefix that is in the L3 Isolation Domain
+- The ipv6-connected-prefix must match the i-pv6-connected-prefix that is in the L3 Isolation Domain
 - The ip-allocation-type can be either "IPv4", "IPv6", or "DualStack" (default)
-- The VLAN value must match what is in the L3 isolation-domain
+- The VLAN value must match what is in the L3 Isolation Domain
 - You don't need to specify the network MTU here, as the network will be configured with the same MTU information as used previously
 
 ```azurecli
@@ -434,10 +434,12 @@ You need the following information:
     --ipv4-connected-prefix "<YourNetworkIpv4Prefix>" \
     --ipv6-connected-prefix "<YourNetworkIpv6Prefix>" \
     --l3-isolation-domain-id "<YourL3IsolationDomainId>" \
-    --vlan < YourNetworkVlan>
+    --vlan "<YourNetworkVlan>" \
+    --service-external-prefixes '["YourExternalPrefix-1", "YourExternalPrefix-N"]' \
+    --service-load-balancer-prefixes '["YourLBPrefixes-1", "YourLBPrefixes-N"]'
 ```
 
-##### Create cloud services network for AKS-Hybrid cluster
+##### Create Cloud Services Network for AKS-Hybrid cluster
 
 You need the egress endpoints you want to add to the proxy for your VM to access.
 
@@ -479,9 +481,9 @@ az hybridaks vnet create \
   --aods-vnet-id "<ARM resource ID>"
 ```
 
-### Step K3: Create an AKS-Hybrid Cluster
+### Step K3: Create an AKS-Hybrid cluster
 
-This section describes how to create an AKS-Hybrid Cluster
+This section describes how to create an AKS-Hybrid cluster
 
 ```azurecli
   az hybridaks create \
@@ -491,7 +493,7 @@ This section describes how to create an AKS-Hybrid Cluster
     --custom-location <ARM ID of the custom location> \
     --vnet-ids <comma separated list of ARM IDs of all the Azure hybridaks vnets> \
     --aad-admin-group-object-ids <comma separated list of Azure AD group IDs> \
-    --kubernetes-version v1.21.9 \
+    --kubernetes-version v1.22.11 \
     --load-balancer-sku stacked-kube-vip \
     --control-plane-count <count> \
     --location <dc-location> \
