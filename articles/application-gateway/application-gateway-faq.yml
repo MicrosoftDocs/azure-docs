@@ -240,7 +240,7 @@ sections:
       - question: Does Application Gateway support virtual network peering?
         answer: Yes. Virtual network peering helps load-balance traffic in other virtual networks.
 
-      - question: Can I talk to on-premises servers when they're connected by ExpressRoute or VPN tunnels?
+      - question: Can Azure Application gateway talk to on-premises servers when they're connected by ExpressRoute or VPN tunnels?
         answer: Yes, as long as traffic is allowed.
 
       - question: Can one backend pool serve many applications on different ports?
