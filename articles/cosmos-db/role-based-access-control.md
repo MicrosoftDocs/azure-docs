@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.date: 05/11/2022
 author: seesharprun
 ms.author: sidandrews
-ms.custom: devx-track-azurepowershell, ignite-2022
+ms.custom: ignite-2022
 ---
 
 # Azure role-based access control in Azure Cosmos DB
@@ -118,4 +118,4 @@ Update-AzCosmosDBAccount -ResourceGroupName [ResourceGroupName] -Name [CosmosDBA
 - [What is Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md)
 - [Azure custom roles](../role-based-access-control/custom-roles.md)
 - [Azure Cosmos DB resource provider operations](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb)
-- [Configure role-based access control for your Azure Cosmso DB for MongoDB](mongodb/how-to-setup-rbac.md)
+- [Configure role-based access control for your Azure Cosmos DB for MongoDB](mongodb/how-to-setup-rbac.md)

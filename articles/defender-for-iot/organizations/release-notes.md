@@ -1,7 +1,7 @@
 ---
 title: OT monitoring software versions - Microsoft Defender for IoT
 description: This article lists Microsoft Defender for IoT on-premises OT monitoring software versions, including release and support dates and highlights for new features.
-ms.topic: overview
+ms.topic: release-notes
 ms.date: 1/02/2023
 ---
 
@@ -186,7 +186,8 @@ This version includes the following new updates and fixes:
 
 This version includes the following new updates and fixes:
 
-- [Update your sensors from the Azure portal](update-ot-software.md#update-your-sensors)
+- [Define and view OT sensor settings from the Azure portal](configure-sensor-settings-portal.md)
+- [Update your sensors from the Azure portal](update-ot-software.md#update-ot-sensors)
 - [New naming convention for hardware profiles](ot-appliance-sizing.md)
 - [PCAP access from the Azure portal](how-to-manage-cloud-alerts.md)
 - [Bi-directional alert synch between OT sensors and the Azure portal](alerts.md#managing-ot-alerts-in-a-hybrid-environment)

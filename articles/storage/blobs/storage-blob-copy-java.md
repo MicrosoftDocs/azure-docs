@@ -44,7 +44,7 @@ To copy a blob, use the following method:
 
 - [copyFromUrl](/java/api/com.azure.storage.blob.specialized.blobclientbase)
 
-This method synchronously copies the data at the source URL to a blob and waits for the copy to complete before returning a response. The source must be a block blob no larger than 256 MB. The source URL must include a SAS token that provides permissions to read the source blob. To learn more about the underlying operation, see [Copy Blob From URL](/rest/api/storageservices/copy-blob-from-url).
+This method synchronously copies the data at the source URL to a blob and waits for the copy to complete before returning a response. The source must be a block blob no larger than 256 MB. The source URL must include a SAS token that provides permissions to read the source blob. To learn more about the underlying operation, see [REST API operations](#rest-api-operations).
 
 The following code example gets a `BlobClient` object representing an existing blob and copies it to a new blob in a different container. This example also gets a lease on the source blob before copying so that no other client can modify the blob until the copy is complete and the lease is broken.
 
@@ -65,7 +65,7 @@ You can also copy a blob using the following method:
 
 - [beginCopy](/java/api/com.azure.storage.blob.specialized.blobclientbase)
 
-This method triggers a long-running, asynchronous operation. The source may be another blob or an Azure File resource. If the source is in another storage account, the source must either be public or authorized with a SAS token. To learn more about the underlying operation, see [Copy Blob](/rest/api/storageservices/copy-blob).
+This method triggers a long-running, asynchronous operation. The source may be another blob or an Azure File resource. If the source is in another storage account, the source must either be public or authorized with a SAS token. To learn more about the underlying operation, see [REST API operations](#rest-api-operations).
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobCopy.java" id="Snippet_CopyBlobBeginCopy":::
 
@@ -87,8 +87,20 @@ The following example stops a pending copy and leaves a destination blob with ze
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobCopy.java" id="Snippet_AbortCopy":::
 
-## See also
+## Resources
 
-- [View code sample in GitHub](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobCopy.java)
+To learn more about copying blobs using the Azure Blob Storage client library for Java, see the following resources.
+
+### REST API operations
+
+The Azure SDK for Java contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar Java paradigms. The client library methods for copying blobs use the following REST API operations:
+
 - [Copy Blob](/rest/api/storageservices/copy-blob) (REST API)
+- [Copy Blob From URL](/rest/api/storageservices/copy-blob-from-url) (REST API)
 - [Abort Copy Blob](/rest/api/storageservices/abort-copy-blob) (REST API)
+
+### Code samples
+
+- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobCopy.java)
+
+[!INCLUDE [storage-dev-guide-resources-java](../../../includes/storage-dev-guides/storage-dev-guide-resources-java.md)]

@@ -5,9 +5,9 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/05/2022
 ms.custom: mvc, devx-track-azurecli, mode-api
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Back up a virtual machine in Azure with the Azure CLI

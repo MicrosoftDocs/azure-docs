@@ -355,7 +355,7 @@ Locate the installer files for the server’s operating system using the followi
 4. After successfully installing, register the source machine with the above appliance using the following command:
 
    ```cmd
-   "C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\UnifiedAgentConfigurator.exe" /SourceConfigFilePath "config.json" /CSType CSPrime
+   "C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\UnifiedAgentConfigurator.exe" /SourceConfigFilePath "config.json" /CSType CSPrime /CredLessDiscovery true
    ```
 
 #### Installation settings
@@ -373,9 +373,10 @@ Syntax | `.\UnifiedAgentInstaller.exe /Platform vmware /Role MS /CSType CSPrime 
 
 Setting | Details
 --- | ---
-Syntax | `"<InstallLocation>\UnifiedAgentConfigurator.exe" /SourceConfigFilePath "config.json" /CSType CSPrime >`
+Syntax | `"<InstallLocation>\UnifiedAgentConfigurator.exe" /SourceConfigFilePath "config.json" /CSType CSPrime /CredentialLessDiscovery true`
 `/SourceConfigFilePath` | Mandatory. Full file path of the Mobility Service configuration file. Use any valid folder.
 `/CSType` |  Mandatory. Used to define modernized or legacy architecture. (CSPrime or CSLegacy).
+`/CredentialLessDiscovery` | Optional. Specifies whether credential-less discovery will be performed or not.  
 
 
 ### Linux machine

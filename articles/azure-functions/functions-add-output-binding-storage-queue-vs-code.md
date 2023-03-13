@@ -89,11 +89,19 @@ Now, you can add the storage output binding to your project.
 
 ## Add an output binding
 
-In Functions, each type of binding requires a `direction`, `type`, and a unique `name` to be defined in the *function.json* file. The way you define these attributes depends on the language of your function app.
 
-::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell"
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-powershell"
+
+In Functions, each type of binding requires a `direction`, `type`, and unique `name`. The way you define these attributes depends on the language of your function app.
 
 [!INCLUDE [functions-add-output-binding-json](../../includes/functions-add-output-binding-json.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+In Functions, each type of binding requires a `direction`, `type`, and a unique `name`. The way you define these attributes depends on your Python programming model.
+
+[!INCLUDE [functions-add-storage-binding-python](../../includes/functions-add-storage-binding-python.md)]
 
 ::: zone-end
 
@@ -129,7 +137,7 @@ After the binding is defined, you can use the `name` of the binding to access it
 
 ::: zone pivot="programming-language-python"
 
-[!INCLUDE [functions-add-output-binding-python](../../includes/functions-add-output-binding-python.md)]
+[!INCLUDE [functions-add-output-binding-python](../../includes/functions-add-output-binding-python-v1-v2.md)]
 
 ::: zone-end
 

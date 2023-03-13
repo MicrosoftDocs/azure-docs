@@ -52,4 +52,5 @@ Here are some ways you can use workload identities:
 
 ## Next steps
 
-Learn how to [secure access of workload identities](../conditional-access/workload-identity.md) with adaptive policies.
+- Learn how to [secure access of workload identities](../conditional-access/workload-identity.md) with adaptive policies.
+- Get answers to [frequently asked questions about workload identities](workload-identities-faqs.md). 

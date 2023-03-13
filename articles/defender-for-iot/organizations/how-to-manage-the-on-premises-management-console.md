@@ -2,28 +2,29 @@
 title: Manage the on-premises management console 
 description: Learn about on-premises management console options like backup and restore, defining the host name, and setting up a proxy to sensors.
 ms.date: 06/02/2022
-ms.topic: article
+ms.topic: how-to
 ---
 
 # Manage the on-premises management console
 
 This article covers on-premises management console options like backup and restore, downloading committee device activation file, updating certificates, and setting up a proxy to sensors.
 
-You onboard the on-premises management console from the Azure portal.
-
 ## Download software for the on-premises management console
 
-You may need to download software for your on-premises management console if you're installing Defender for IoT software on your own appliances, or updating software versions.
+You may need to download software for your on-premises management console if you're [installing Defender for IoT software](ot-deploy/install-software-on-premises-management-console.md) on your own appliances, or [updating software versions](update-ot-software.md).
 
-**To download on-premises management console software**:
+In [Defender for IoT](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) in the Azure portal, use one of the following options:
 
-1. In the Azure portal, go to **Defender for IoT** > **Getting started** > **On-premises management console** or **Updates**.
+- For a new installation or standalone update, select **Getting started** > **On-premises management console**.
 
-1. Select **Download** for your on-premises management console software update. Save your `management-secured-patcher-<version>.tar` file locally. For example:
+   - For a new installation, select a version in the **Purchase an appliance and install software** area, and then select **Download**.
+   - For an update, select your update scenario in the **On-premises management console** area and then select **Download**.
 
-    :::image type="content" source="media/update-ot-software/on-premises-download.png" alt-text="Screenshot of the Download option for the on-premises management console." lightbox="media/update-ot-software/on-premises-download.png":::
+- If you're updating your on-premises management console together with connected OT sensors, use the options in the **Sites and sensors** page > **Sensor update (Preview)** menu.
 
 [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
+
+For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md#update-an-on-premises-management-console).
 
 ## Upload an activation file
 

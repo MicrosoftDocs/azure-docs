@@ -4,7 +4,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: include
-ms.date: 12/01/2022
+ms.date: 02/07/2023
 ms.custom: references_regions
 ---
 
@@ -28,6 +28,7 @@ Enforcement of Microsoft Purview policies is available only in the following reg
 - UK South
 - South Africa North
 - Central India
+- South East Asia
 - East Asia
 - Australia East
     

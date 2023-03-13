@@ -10,7 +10,9 @@ items:
     href: whats-new.md
   - name: Packet core release notes
     items:
-    - name: 2301 - Current
+    - name: 2302 - Current
+      href: azure-private-5g-core-release-notes-2302.md
+    - name: 2301
       href: azure-private-5g-core-release-notes-2301.md
     - name: 2211
       href: azure-private-5g-core-release-notes-2211.md
@@ -152,6 +154,8 @@ items:
      href: region-code-names.md
    - name: ASE VM sizing
      href: azure-stack-edge-virtual-machine-sizing.md
+   - name: 5QI to DSCP mapping
+     href: differentiated-services-codepoint-5qi-mapping.md
 - name: Resources
   items:
   - name: Azure Private 5G Core product page

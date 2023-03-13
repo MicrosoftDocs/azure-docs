@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 02/16/2022
+ms.date: 02/06/2023
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -34,15 +34,17 @@ Follow these steps to assign Azure AD roles using the Azure portal. Your experie
 
 ### Assign a role
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory** > **Roles and administrators** to see the list of all available roles.
 
     ![Roles and administrators page in Azure Active Directory.](./media/manage-roles-portal/roles-and-administrators.png)
 
-1. Select a role to see its assignments.
+1. Find the role you need. You can use the search box or **Add filters** to filter the roles.
 
-    To help you find the role you need, use **Add filters** to filter the roles.
+1. Select the role name to open the role. Don't add a check mark next to the role.
+
+    ![Screenshot that shows selecting a role.](./media/manage-roles-portal/role-select-mouse.png)
 
 1. Select **Add assignments** and then select the users you want to assign to this role.
 
@@ -58,15 +60,17 @@ If you have [Azure AD Privileged Identity Management (PIM)](../privileged-identi
 
 Follow these steps to assign roles using the [Roles and administrators](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators) page. If you want to assign roles using the [Privileged Identity Management](https://portal.azure.com/#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickStart) page, see [Assign Azure AD roles in Privileged Identity Management](../privileged-identity-management/pim-how-to-add-role-to-user.md).
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory** > **Roles and administrators** to see the list of all available roles.
 
     ![Roles and administrators page in Azure Active Directory when PIM enabled.](./media/manage-roles-portal/roles-and-administrators.png)
 
-1. Select a role to see its eligible, active, and expired role assignments.
+1. Find the role you need. You can use the search box or **Add filters** to filter the roles.
 
-    To help you find the role you need, use **Add filters** to filter the roles.
+1. Select the role name to open the role and see its eligible, active, and expired role assignments. Don't add a check mark next to the role.
+
+    ![Screenshot that shows selecting a role.](./media/manage-roles-portal/role-select-mouse.png)
 
 1. Select **Add assignments**.
 
