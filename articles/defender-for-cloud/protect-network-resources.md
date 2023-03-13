@@ -57,7 +57,7 @@ The network map can show you your Azure resources in a **Topology** view and a *
 
 In the **Topology** view of the networking map, you can view the following insights about your networking resources:
 
-- In the inner circle, you can see all the Vnets within your selected subscriptions, the next circle is all the subnets, the outer circle is all the virtual machines.
+- In the inner circle, you can see all the VNets within your selected subscriptions, the next circle is all the subnets, the outer circle is all the virtual machines.
 - The lines connecting the resources in the map let you know which resources are associated with each other, and how your Azure network is structured. 
 - Use the severity indicators to quickly get an overview of which resources have open recommendations from Defender for Cloud.
 - You can click any of the resources to drill down into them and view the details of that resource and its recommendations directly, and in the context of the Network map.  
