@@ -28,7 +28,13 @@ You can create custom attributes in the Azure portal and use them in your self-s
 
 The `<extensions-app-id>` is specific to your tenant. To find this identifier, navigate to **Azure Active Directory** > **App registrations** > **All applications**. Search for the app that starts with "aad-extensions-app" and select it. On the app's Overview page, note the Application (client) ID.
 
+## Query the custom attribute in Microsoft Graph Explorer
+
 Once you've created a new user using a user flow that uses the newly created custom attribute, the object can be queried in [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). You should now see new name in the list of attributes collected during the sign-up journey on the user object. You can call the Graph API from your application to get the data from this attribute after it's added to the user object.
+
+## Language customization
+
+By default, language customization is enabled for users signing up to ensure a consistent sign-up experience. You can use languages to modify the strings displayed to users as part of the attribute collection process during sign-up. If you're using custom user attributes, you need to provide your own translations.
 
 ## Next steps
 - [Customizing the sign-in look and feel](concept-branding-customers.md)
