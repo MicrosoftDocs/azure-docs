@@ -8,9 +8,6 @@ ms.topic: how-to
 ms.date: 03/13/2023
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 02/27/2023
 ms.custom: ignite-2022
 ---
 
