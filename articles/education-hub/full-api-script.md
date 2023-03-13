@@ -1,6 +1,6 @@
 ---
-title: How to deploy labs though a Power Shell script
-description: This article will show you how to deploy labs in Education Hub through a power shell script
+title: How to deploy labs through a PowerShell script
+description: This article shows you how to deploy labs in Education Hub through a PowerShell script
 author: vinnieangel
 ms.author: vangellotti
 ms.service: education
@@ -11,7 +11,7 @@ ms.custom: template-how-to
 
 # Run a script to create lab and call other dependent APIs
 
-With Education Hub's public APIs you can deploy labs through APIs alone. However, there are a few additional APIs that need to be called which are shown in the following Power Shell script.
+With Education Hub's public APIs, you can deploy labs through APIs alone. However, there are a few more APIs that need to be called which are shown in the following PowerShell script.
 
 ## Prerequisites
 
