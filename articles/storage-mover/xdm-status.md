@@ -35,32 +35,32 @@ Each of these scopes can then further divide the statuses into categories and su
 > [!IMPORTANT]
 > *AZSM0000* is the special scope-agnostic status code indicating successful operation. This should be used to signify successful operation at any scope/level.
 
-|Error Code			  |Error Message | Details/Troubleshooting steps/Mitigation |
+|Error Code                       |Error Message | Details/Troubleshooting steps/Mitigation |
 |---------------------------------|--------------|------------------------------------------|
-| <a name="AZSM1001">AZSM1001</a> |Failed to mount source path | Verify the provided server information, name or IP-address, is valid, or the source location is correct.
-| <a name="AZSM1002">AZSM1002</a> |Encountered an error while scanning the source  | Retry or create a support ticket. |
-| <a name="AZSM1003">AZSM1003</a> |Failed to access source folder due to permission issues | Check if the agent has been granted permissions correctly to the source file share. |
-| <a name="AZSM1004">AZSM1004</a> |Source path provided is invalid | Create a new endpoint with a valid source share path and update the job definition and retry. |
-| <a name="AZSM1020">AZSM1020</a> |Miscellaneous error while accessing source  | Retry or create a support ticket. |
-| <a name="AZSM1021">AZSM1021</a> |Failed to access target folder due to permission issues  | Retry or create a support ticket. |
-| <a name="AZSM1022">AZSM1022</a> |Target path provided is invalid | Create a new endpoint with a valid target container and path and update the job definition and retry. |
-| <a name="AZSM1023">AZSM1023</a> |Lease expired for this agent on the target container  | Retry or create a support ticket. |
-| <a name="AZSM1024">AZSM1024</a> |Authorization failure on claiming the target container | The agent does not have the permission to access the target container. The role assignment is performed automatically while running jobs from the portal. If you are using the APIs/Powershell cmdlets/SDKs, then manually create a 'Storage Blob Data Contributor' role assignment for the agent to access the target storage account blob container. The [Assign an Azure role for access to blob data](/azure/storage/blobs/assign-azure-role-data-access) article may help resolve this issue. |
-| <a name="AZSM1025">AZSM1025</a> |Authentication failure on claiming the target container  | Retry or create a support ticket. |
-| <a name="AZSM1026">AZSM1026</a> |Blob type in the target container not supported by the agent | This blob type is unsupported by the current Storage Mover agent. |
-| <a name="AZSM1040">AZSM1040</a> |Miscellaneous error while accessing target  | Retry or create a support ticket. |
-| <a name="AZSM1041">AZSM1041</a> |Failed to send job progress  | Retry or create a support ticket. |
-| <a name="AZSM1042">AZSM1042</a> |Failed to create job  | Retry or create a support ticket. |
-| <a name="AZSM1043">AZSM1043</a> |Failed to resume job  | Retry or create a support ticket. |
-| <a name="AZSM1044">AZSM1044</a> |Failed to finalize the job  | Retry or create a support ticket. |
-| <a name="AZSM1045">AZSM1045</a> |Job was aborted while it was still running  | Retry or create a support ticket. |
-| <a name="AZSM1060">AZSM1060</a> |Miscellaneous error during job execution  | Retry or create a support ticket. |
+| **<a name="AZSM1001">AZSM1001</a>** |Failed to mount source path | Verify the provided server information, name or IP-address, is valid, or the source location is correct. |
+| **<a name="AZSM1002">AZSM1002</a>** |Encountered an error while scanning the source  | Retry or create a support ticket. |
+| **<a name="AZSM1003">AZSM1003</a>** |Failed to access source folder due to permission issues | Check if the agent has been granted permissions correctly to the source file share. |
+| **<a name="AZSM1004">AZSM1004</a>** |Source path provided is invalid | Create a new endpoint with a valid source share path and update the job definition and retry. |
+| **<a name="AZSM1020">AZSM1020</a>** |Miscellaneous error while accessing source  | Retry or create a support ticket. |
+| **<a name="AZSM1021">AZSM1021</a>** |Failed to access target folder due to permission issues  | Retry or create a support ticket. |
+| **<a name="AZSM1022">AZSM1022</a>** |Target path provided is invalid | Create a new endpoint with a valid target container and path and update the job definition and retry. |
+| **<a name="AZSM1023">AZSM1023</a>** |Lease expired for this agent on the target container  | Retry or create a support ticket. |
+| **<a name="AZSM1024">AZSM1024</a>** |Authorization failure on claiming the target container | The agent does not have the permission to access the target container. The role assignment is performed automatically while running jobs from the portal. If you are using the APIs/Powershell cmdlets/SDKs, then manually create a 'Storage Blob Data Contributor' role assignment for the agent to access the target storage account blob container. The [Assign an Azure role for access to blob data](/azure/storage/blobs/assign-azure-role-data-access) article may help resolve this issue. |
+| **<a name="AZSM1025">AZSM1025</a>** |Authentication failure on claiming the target container  | Retry or create a support ticket. |
+| **<a name="AZSM1026">AZSM1026</a>** |Blob type in the target container not supported by the agent | This blob type is unsupported by the current Storage Mover agent. |
+| **<a name="AZSM1040">AZSM1040</a>** |Miscellaneous error while accessing target  | Retry or create a support ticket. |
+| **<a name="AZSM1041">AZSM1041</a>** |Failed to send job progress  | Retry or create a support ticket. |
+| **<a name="AZSM1042">AZSM1042</a>** |Failed to create job  | Retry or create a support ticket. |
+| **<a name="AZSM1043">AZSM1043</a>** |Failed to resume job  | Retry or create a support ticket. |
+| **<a name="AZSM1044">AZSM1044</a>** |Failed to finalize the job  | Retry or create a support ticket. |
+| **<a name="AZSM1045">AZSM1045</a>** |Job was aborted while it was still running  | Retry or create a support ticket. |
+| **<a name="AZSM1060">AZSM1060</a>** |Miscellaneous error during job execution  | Retry or create a support ticket. |
 
 ## I'd like to retain any content below this section for future work
 
 I'd like to retain any content below this section for future work.
 
-## Upgrade Related Errors (status code range == 01-20)
+## Upgrade-related status codes (range AZSM0001-AZSM0020)
 
 |Status code| Description                                   |
 |-----------|-----------------------------------------------|
@@ -70,14 +70,13 @@ I'd like to retain any content below this section for future work.
 |"AZSM0004" | Post-upgrade checks for agent upgrade failed. |
 |"AZSM0005" | Rollback for agent upgrade failed.            |
 
-
-## Job run-specific status codes
+## Job run-related status codes
 
 Status codes for various job run failures. These should cover *all* possible cases of job runs failures. These will be conveyed to the user as part of "jobrunlog" telling what happened to the job.
 
 Based on the reason for job run failure these are grouped under the following categories:
 
-### Source Related Errors (status code range == 01-20)
+### Source-related status codes (range AZSM1001-AZSM1020)
 
 |Status code| Description                                                |
 |-----------|------------------------------------------------------------|
@@ -87,7 +86,7 @@ Based on the reason for job run failure these are grouped under the following ca
 |"AZSM1004" | Invalid source path provided.                              |
 |"AZSM1020" | Cannot access target folder due to other issues.           |
 
-### Target Related Errors (status code range == 21-40)
+### Target-related status codes (range AZSM1021-AZSM1040)
 
 |Status code| Description                                                   |
 |-----------|---------------------------------------------------------------|
@@ -100,7 +99,7 @@ Based on the reason for job run failure these are grouped under the following ca
 |"AZSM1027" | Target container is being used by some other job.             |
 |"AZSM1040" | Cannot access target folder due to other issues.              |
 
-### Other errors, not related to source or target access (status code range == 41-60)
+### Status codes unrelated to source or target access (range AZSM1041-AZSM1060)
 
 |Status code| Description                  |
 |-----------|------------------------------|
@@ -113,9 +112,9 @@ Based on the reason for job run failure these are grouped under the following ca
 
 ## Copy failure-specific status codes
 
-Status codes for various copy failures. These should cover *all* possible reasons which prevent a source file from being copied to target. These will be conveyed to the user as part of "copylog" telling "why" the given file was not copied. Based on the reason for copy failure these are grouped under the following categories:
+Status codes for various copy failures are provided below. These should cover all possible scenarios in which a source file is prevented from being copied to target. These codes will be conveyed to the user as part of the copy log.
 
-### Excluded (status code range 01 - 20)
+### Excluded (status code range AZSM2001 - AZSM2020)
 
 The file was excluded by at least one user specified filter. This is not actually an error but neverthless we make a note of it to let user know that these files were skipped due to some exclusion filter.
 
@@ -123,7 +122,7 @@ The file was excluded by at least one user specified filter. This is not actuall
 |-----------|----------------------------------------------------------|
 |"AZSM2001" | File was excluded by at least one user specified filter. |
 
-### Unsupported (status code range 21 - 40)
+### Unsupported (status code range AZSM2021 - AZSM2040)
 
 One or more of the source file's characteristics makes it unfit for storing in the target, e.g., the source file may have deeper directory depths than what the target supports, or it may have path/component lengths longer than that supported by the target, or it may be a filetype not supported by the target, etc.
 
