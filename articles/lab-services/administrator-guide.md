@@ -195,7 +195,7 @@ By using [Azure role-based access control (RBAC)](../role-based-access-control/o
 
 - **Lab Creator**
 
-  When set on the lab plan, this role enables the user account to create labs from the lab plan. The user account can also see existing labs that are in the same resource group as the lab plan. When applied to a resource group, this role enables the user to view existing lab and create new labs. They'll have full control over any labs they create as they're assigned as Owner to those created labs. For more information, see [Add a user to the Lab Creator role](./tutorial-setup-lab-plan.md#add-a-user-to-the-lab-creator-role).
+  When set on the lab plan, this role enables the user account to create labs from the lab plan. The user account can also see existing labs that are in the same resource group as the lab plan. When applied to a resource group, this role enables the user to view existing lab and create new labs. They'll have full control over any labs they create as they're assigned as Owner to those created labs. For more information, see [Add a user to the Lab Creator role](./quick-create-resources.md#add-a-user-to-the-lab-creator-role).
 
 - **Lab Contributor**
 
