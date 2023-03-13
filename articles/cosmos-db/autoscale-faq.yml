@@ -155,7 +155,7 @@ sections:
         answer: |
           When you lower the max RU/s, the minimum value you can set it to is: `MAX(1000, highest max RU/s ever provisioned / 10, current storage in GB * 10)`, rounded to the nearest 1000 RU/s. 
           
-          Example #1: Suppose you have an autoscale container with max RU/s of 20,000 RU/s (scales between 2000 - 20,000 RU/s) and 150 GB of storage. The lowest, minimum value you can set max RU/s to is: MAX(1000, 20,000 / 10, **150 * 10**) = 2000 RU/s (scales between 200 - 2000 RU/s).
+          Example #1: Suppose you have an autoscale container with max RU/s of 20,000 RU/s (scales between 2000 - 20,000 RU/s) and 1500 GB of storage. The lowest, minimum value you can set max RU/s to is: MAX(1000, 20,000 / 10, **1500 * 10**) = 15,000 RU/s (scales between 1500 - 15,000 RU/s).
           
           Example #2: Suppose you have an autoscale container with max RU/s of 100,000 RU/s and 100 GB of storage. Now, you scale max RU/s up to 150,000 RU/s (scales between 15,000 - 150,000 RU/s). The lowest, minimum value you can now set max RU/s to is: MAX(1000, **150,000 / 10**, 100 * 10) = 15,000 RU/s (scales between 1500 - 15,000 RU/s). 
           
