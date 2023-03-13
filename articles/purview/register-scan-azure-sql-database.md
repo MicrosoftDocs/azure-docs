@@ -4,6 +4,7 @@ description: Learn how to register, authenticate with, and interact with an Azur
 author: athenads
 ms.author: athenadsouza
 ms.service: purview
+ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 01/10/2023
 ms.custom: template-how-to
