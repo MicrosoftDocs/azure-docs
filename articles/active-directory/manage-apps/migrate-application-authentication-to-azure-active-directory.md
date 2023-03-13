@@ -112,9 +112,9 @@ The following table includes the key roles and their contributions:
 | **On premises AD operations team** | The organization that manages the different on-premises identity sources such as AD forests, LDAP directories, HR systems etc.<br /> - perform any remediation tasks needed before synchronizing<br /> - Provide the service accounts required for synchronization<br /> - provide access to configure federation to Azure AD |
 | **IT Support Manager** | A representative from the IT support organization who can provide input on the supportability of this change from a helpdesk perspective. |
 | **Security Owner**  | A representative from the security team that can ensure that the plan meets the security requirements of your organization. |
-| **Application technical owners** | Includes technical owners of the apps and services that integrates with Azure AD. They provide the applications’ identity attributes that should include in the synchronization process. They usually have a relationship with CSV representatives. |
+| **Application technical owners** | Includes technical owners of the apps and services that integrate with Azure AD. They provide the applications’ identity attributes that should include in the synchronization process. They usually have a relationship with CSV representatives. |
 | **Application business Owners** | Representative colleagues who can provide input on the user experience and usefulness of this change from a user’s perspective and owns the overall business aspect of the application, which may include managing access. |
-| **Pilot group of users** | Users who tests as a part of their daily work, the pilot experience, and provide feedback to guide the rest of the deployments. |
+| **Pilot group of users** | Users who test as a part of their daily work, the pilot experience, and provide feedback to guide the rest of the deployments. |
 
 ### Plan communications
 
@@ -213,11 +213,11 @@ In the cloud environment, you need rich visibility, control over data travel, an
   - Use the [Get-AzureWebsite](/powershell/module/servicemanagement/azure.service/get-azurewebsite) cmdlet to get information about Azure websites.
   - Use the [Get-AzureRMWebApp](/powershell/module/azurerm.websites/get-azurermwebapp) cmdlet to get information about your Azure Web Apps.D
   - You can find all the apps running on Microsoft IIS from the Windows command line using [AppCmd.exe](/iis/get-started/getting-started-with-iis/getting-started-with-appcmdexe#working-with-sites-applications-virtual-directories-and-application-pools).
-  - Use [Applications](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity) and [Service Principals](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity) to get you information on web apps and app instance in a directory in Azure AD.
+  - Use [Applications](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity) and [Service Principals](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity) to get your information on web apps and app instance in a directory in Azure AD.
 
 ### Using manual processes
 
-Once you have taken the automated approaches described in this artcile, you'll have a good handle on your applications. However, you might consider doing the following to ensure you have good coverage across all user access areas:
+Once you have taken the automated approaches described in this article, you'll have a good handle on your applications. However, you might consider doing the following to ensure you have good coverage across all user access areas:
 
 - Contact the various business owners in your organization to find the applications in use in your organization.
 - Run an HTTP inspection tool on your proxy server, or analyze proxy logs, to see where traffic is commonly routed.
