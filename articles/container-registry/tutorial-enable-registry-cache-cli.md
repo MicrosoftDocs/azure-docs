@@ -6,7 +6,7 @@ ms.date: 04/19/2022
 ms.author: tejaswikolli
 ---
 
-# Enable Caching for ACR (Preview) 
+# Enable Caching for ACR (Preview) - Azure CLI
 
 This article is part three of a six-part tutorial series. [Part one](tutorial-registry-cache.md) provides an overview of Caching for ACR, its features, benefits, and preview limitations. [Part two](tutorial-enable-registry-cache.md) you will learn how to enable Caching for ACR feature by using the Azure portal. This article walks you through the steps of enabling Caching for ACR by using the Azure CLI without authentication.
 
@@ -18,6 +18,8 @@ This article is part three of a six-part tutorial series. [Part one](tutorial-re
 ## Configure Caching for ACR (preview)  - Azure CLI
 
 Follow the steps to create a cache rule without using a Credential set.
+
+### Create a Cache rule
 
 1. Run [az acr cache create][az-acr-cache-create] command to create a cache rule.
 
@@ -35,7 +37,9 @@ Follow the steps to create a cache rule without using a Credential set.
      az acr cache show -r MyRegistry -n MyRule
     ```
 
-3. Pull the image from your cache using the Docker command `docker pull myregistry.azurecr.io/hello-world`.
+### Pull your Image
+
+1. Pull the image from your cache using the Docker command `docker pull myregistry.azurecr.io/hello-world`.
 
 
 ## Clean up the resources

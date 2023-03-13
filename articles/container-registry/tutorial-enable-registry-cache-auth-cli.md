@@ -6,7 +6,7 @@ ms.date: 04/19/2022
 ms.author: tejaswikolli
 ---
 
-# Enable Caching for ACR (Preview) with authentication 
+# Enable Caching for ACR (Preview) with authentication - Azure CLI
 
 This article is part five of a six-part tutorial series. [Part one](tutorial-registry-cache.md) provides an overview of Caching for ACR, its features, benefits, and preview limitations. In [part two](tutorial-enable-registry-cache.md), you learn how to enable Caching for ACR feature by using the Azure portal. In [part three](tutorial-enable-registry-cache-cli.md), you learn how to enable Caching for ACR feature by using the Azure CLI. In [part four](tutorial-enable-registry-cache-auth.md), you learn how to enable Caching for ACR feature with authentication by using Azure Portal. 
 
@@ -20,7 +20,7 @@ This article walks you through the steps of enabling Caching for ACR with authen
 
 ## Configure Caching for ACR (preview) with authentication - Azure CLI
 
-### Configure a Credential Set - Azure CLI
+### Create a Credential Set - Azure CLI
 
 1. Run [az acr credential set create][az-acr-credential-set-create] command to create a credential set. 
 
@@ -78,14 +78,31 @@ This article walks you through the steps of enabling Caching for ACR with authen
      az acr cache show -r MyRegistry -n MyRule""" 
     ```
 
-4. Run the [az keyvault set-policy][az-keyvault-set-policy] command to assign access to the Key Vault, before pulling the image.
+### Assign permissions to Key Vault
+
+1. Get the principal Id of system identity used to access Key Vault.
 
     ```azurecli-interactive
-    az keyvault set-policy --name myKeyVaultName --object-id myObjID --secret-permissions get
+    PRINCIPAL_ID=$(az acr credential-set show 
+                    -n $CRED_SET 
+                    -r $REGISTRY  \
+                    --query 'identity.principalId' 
+                    -o tsv) 
     ```
 
-5. Pull the image from your cache using the Docker command `docker pull myregistry.azurecr.io/hello-world`
+2. Run the [az keyvault set-policy][az-keyvault-set-policy] command to assign access to the Key Vault, before pulling the image.
 
+    - For example, to assign permissions for the credential set access the KeyVault secret
+
+    ```azurecli-interactive
+    az keyvault set-policy --name $KEYVAULT_NAME \
+    --object-id $PRINCIPAL_ID \
+    --secret-permissions get
+    ```
+
+### Pull your Image
+
+1. Pull the image from your cache using the Docker command `docker pull myregistry.azurecr.io/hello-world`
 
 ## Clean up the resources
 
