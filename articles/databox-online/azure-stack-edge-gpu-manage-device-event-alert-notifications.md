@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/08/2023
+ms.date: 03/13/2023
 ms.author: alkohli
 ---
 # Use alert processing rules to manage alert notifications on Azure Stack Edge devices
@@ -18,7 +18,7 @@ This article describes how to create alert processing rules in the Azure portal.
 
 ## About alert processing rules
 
-An alert processing rule can trigger or suppress alert notifications. The alert processing rule is added to an *action group*, a set of notification preferences used to notify users to act on alerts triggered in different contexts.
+An alert processing rule can add action groups to alert notifications. Use alert notification preferences, like email or SMS messages, to notify users when alerts are triggered.
 
 For more information about alert processing rules, see [Alert processing rules](../azure-monitor/alerts/alerts-processing-rules.md?tabs=portal). For more information about action groups, see [Create and manage action groups in the Azure portal](../azure-monitor/alerts/action-groups.md).
 
@@ -27,7 +27,7 @@ For more information about alert processing rules, see [Alert processing rules](
 Use the following steps in the Azure portal to create an alert processing rule for your Azure Stack Edge device.
 
 > [!NOTE]
-> These steps create an alert processing rule that sends notifications to an action group. For details about creating an alert processing rule to suppress notifications, see [Alert processing rules](../azure-monitor/alerts/alerts-action-rules.md?tabs=portal).
+> These steps create an alert processing rule. The alert processing rule adds action groups to alert notifications. For details about creating an alert processing rule to suppress notifications, see [Alert processing rules](../azure-monitor/alerts/alerts-action-rules.md?tabs=portal).
 
 1. Go to the Azure Stack Edge device in the [Azure portal](https://portal.azure.com), and select the **Alerts** menu item (under **Monitoring**). Then select **Alert processing rules**.
 
