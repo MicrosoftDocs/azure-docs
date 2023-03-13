@@ -50,7 +50,7 @@ items:
       expanded: false
       items:
       - name: Configure the device mapping
-        href: how-to-configure-device-mappings.md
+        href: overview-of-device-mapping.md
       - name: Use CalculatedContent mappings
         href: how-to-use-calculatedcontent-mappings.md
       - name: Use IotJsonPathContentTemplate mappings
