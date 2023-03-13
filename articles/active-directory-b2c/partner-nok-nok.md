@@ -15,38 +15,36 @@ ms.subservice: B2C
 ---
 # Tutorial: Configure Nok Nok Passport with Azure Active Directory B2C for passwordless FIDO2 authentication
 
-Learn to integrate the Nok Nok S3 Authentication Suite into your Azure Active Directory B2C (Azure AD B2C) tenant.  enables FIDO certified multifactor authentication such as FIDO UAF, FIDO U2F, WebAuthn, and FIDO2 for mobile and web applications. Using Nok Nok customers can improve their security posture while balancing user experience.
+Learn to integrate the Nok Nok S3 Authentication Suite into your Azure Active Directory B2C (Azure AD B2C) tenant. Nok Nok solutions enable FIDO certified multi-factor authentication such as FIDO UAF, FIDO U2F, WebAuthn, and FIDO2 for mobile and web applications. Nok Nok solutins improve security posture while balancing user experience.
 
-[Nok Nok](https://noknok.com/)
+To to noknok.com to learn more: [Nok Nok Labs, Inc.](https://noknok.com/)
 
 ## Prerequisites
 
-To get started, you'll need:
+To get started, you need:
 
-- An Azure subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-
-- [An Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
-
-- Get a free Nok Nok [trial tenant](https://noknok.com/products/strong-authentication-service/).
+* An Azure subscription
+  * If you don't have one, get a [Azure free account](https://azure.microsoft.com/free/)
+* An Azure AD B2C tenant linked to the Azure subscription
+  * [Tutorial: Create an Azure Active Directory B2C tenant](tutorial-create-tenant.md) 
+* Go to [noknok.com](https://noknok.com/products/strong-authentication-service/). On the top menu, select **Demo**.
 
 ## Scenario description
 
-To enable passwordless FIDO authentication to your users, enable Nok Nok as an Identity provider to your Azure AD B2C tenant. The Nok Nok integration includes the following components:
+To enable passwordless FIDO authentication for your users, enable Nok Nok as an identity provider (IdP) in your Azure AD B2C tenant. Nok Nok solution integration includes the following components:
 
-- **Azure AD B2C** – The authorization server, responsible for verifying the user’s credentials.
+* **Azure AD B2C** – authorization server that verifies user credentials
+* **Web and mobile applications** – mobile or web apps to protect with Nok Nok solutions and Azure AD B2C
+* **Nok Nok app SDK or Passport app** – authenticate Azure AD B2C enabled applications. 
+  * Go to the Apple App Atore for [Nok Nok Passport](https://apps.apple.com/us/app/nok-nok-passport/id1050437340)
+  * Or Google Play [Nok Nok Passport](https://play.google.com/store/apps/details?id=com.noknok.android.passport2&hl=en&gl=US)
 
-- **Web and mobile applications** – Your mobile or web applications that you choose to protect with Nok Nok and Azure AD B2C.
+The following diagram illustrates the Nok Nok solution as IdP for Azure AD B2C using Open ID Connect (OIDC) for passwordless authentication.
 
-- **The Nok Nok app SDK or Nok Nok Passport app** – Applications used to authenticate Azure AD B2C enabled applications. These applications are available on [Apple app store](https://apps.apple.com/us/app/nok-nok-passport/id1050437340) and [Google play store](https://play.google.com/store/apps/details?id=com.noknok.android.passport2&hl=en&gl=US).
+   ![Diagram of Nok Nok as IdP for Azure AD B2C using Open ID Connect (OIDC) for passwordless authentication.](./media/partner-nok-nok/nok-nok-architecture-diagram.png)
 
-The following architecture diagram shows the implementation. Nok Nok is acting as an Identity provider for Azure AD B2C using Open ID Connect (OIDC) to enable passwordless authentication.
-
-![image shows the architecture diagram of nok nok and azure ad b2c](./media/partner-nok-nok/nok-nok-architecture-diagram.png)
-
-| Step | Description |
-|:------|:-----------|
-| 1. | User arrives at a login page. Users select sign-in/sign-up and enter the username |
-| 2. | Azure AD B2C redirects the user to the Nok Nok OIDC authentication provider. |
+1. At the sign-in page, user selects sign-in or sign-up and enters the username.
+2. Azure AD B2C redirects user to the Nok Nok OIDC authentication provider. |
 | 3a. | For mobile based authentications, Nok Nok either displays a QR code or sends a push notification request to the end user’s mobile device. |
 | 3b. | For Desktop/PC based login, Nok Nok redirects the end user to the web application login page to initiate a passwordless authentication prompt. |
 |4a. | The user scan’s the displayed QR code in their smartphone using Nok Nok app SDK or Nok Nok Passport app.|
