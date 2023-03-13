@@ -71,6 +71,8 @@ az keyvault set-policy --name myKeyVaultName --object-id myObjID --secret-permis
 
 ### Create new credentials
 
+Before configuring a Credential Set you will require to create and store secrets in the Azure KeyVault and retrieve the secrets from the Key Vault. Learn more about [creating and storing credentials in a Key Vault.][create-and-store-keyvault-credentials] and to [set and retrieve a secret from Key Vault.][set-and-retrieve-a-secret].
+
 1. Navigate to **Credentials** > **Add credential set** > **Create new credentials**.
 
 
@@ -94,4 +96,5 @@ az keyvault set-policy --name myKeyVaultName --object-id myObjID --secret-permis
 
 <!-- LINKS - External -->
 [create-and-store-keyvault-credentials]: ../key-vault/secrets/quick-create-portal.md
+[set-and-retrieve-a-secret]: ../key-vault/secrets/quick-create-portal.md
 [az-keyvault-set-policy]: /azure/key-vault/general/assign-access-policy.md#assign-an-access-policy

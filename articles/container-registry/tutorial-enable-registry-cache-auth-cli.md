@@ -22,6 +22,8 @@ This article walks you through the steps of enabling Caching for ACR with authen
 
 ### Create a Credential Set - Azure CLI
 
+Before configuring a Credential Set you will require to create and store secrets in the Azure KeyVault and retrieve the secrets from the Key Vault. Learn more about [creating and storing credentials in a Key Vault.][create-and-store-keyvault-credentials] and to [set and retrieve a secret from Key Vault.][set-and-retrieve-a-secret].
+
 1. Run [az acr credential set create][az-acr-credential-set-create] command to create a credential set. 
 
     - For example, To create a credential set for a given `MyRegistry` Azure Container Registry.
@@ -144,7 +146,7 @@ This article walks you through the steps of enabling Caching for ACR with authen
 
 <!-- LINKS - External -->
 [create-and-store-keyvault-credentials]: ../key-vault/secrets/quick-create-cli.md
-[set-and-retrieve-a-secret]: /azure/key-vault/secrets/quick-create-cli
+[set-and-retrieve-a-secret]: ../key-vault/secrets/quick-create-cli.md
 [az-keyvault-set-policy]: /azure/key-vault/general/assign-access-policy.md#assign-an-access-policy
 [Install Azure CLI]: /cli/azure/install-azure-cli
 [Azure Cloud Shell]: /azure/cloud-shell/quickstart
