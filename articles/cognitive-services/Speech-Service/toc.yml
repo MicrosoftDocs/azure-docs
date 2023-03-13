@@ -540,16 +540,10 @@ items:
           href: /legal/cognitive-services/speech-service/speaker-recognition/guidance-integration-responsible-use-speaker-recognition?context=/azure/cognitive-services/speech-service/context/context
       - name: Data, privacy, and security
         href: /legal/cognitive-services/speech-service/speaker-recognition/data-privacy-speaker-recognition?context=/azure/cognitive-services/speech-service/context/context
-- name: Training modules
-  items:
-  - name: Create your first Azure Cognitive Services Speech-to-Text application
-    href: /training/modules/create-your-first-speech-to-text-app/
-  - name: Create your first Azure Cognitive Services text-to-speech application
-    href: /training/modules/create-your-first-text-to-speech-app/
-  - name: Transcribe large amounts of audio data with Batch Transcription
-    href: /training/modules/intro-to-batch-transcription/
 - name: Resources
   items:
+    - name: Build your skills with Microsoft Learn training
+      href: /training/browse/
     - name: Support and help options
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context
     - name: Pricing calculator
