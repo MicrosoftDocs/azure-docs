@@ -1,5 +1,5 @@
 ---
-title: Data encryption with Azure Machine learning
+title: Data encryption with Azure Machine Learning
 titleSuffix: Azure Machine Learning
 description: 'Learn how Azure Machine Learning computes and data stores provides data encryption at rest and in transit.'
 services: machine-learning
@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 12/20/2022
+ms.date: 03/07/2023
 ---
 
 # Data encryption with Azure Machine Learning
@@ -129,6 +129,8 @@ The OS disk for each compute node stored in Azure Storage is encrypted with Micr
 
 Each virtual machine also has a local temporary disk for OS operations. If you want, you can use the disk to stage training data. If the workspace was created with the `hbi_workspace` parameter set to `TRUE`, the temporary disk is encrypted. This environment is short-lived (only during your job,) and encryption support is limited to system-managed keys only.
 
+Managed online endpoint and batch endpoint use machine learning compute in the backend, and follows the same encryption mechanism.
+
 **Compute instance**
 The OS disk for compute instance is encrypted with Microsoft-managed keys in Azure Machine Learning storage accounts. If the workspace was created with the `hbi_workspace` parameter set to `TRUE`, the local OS and temporary disks on compute instance are encrypted with Microsoft managed keys. Customer managed key encryption is not supported for OS and temporary disks.
 
@@ -165,7 +167,7 @@ Microsoft may collect non-user identifying information like resource names (for 
 
 Microsoft also recommends not storing sensitive information (such as account key secrets) in environment variables. Environment variables are logged, encrypted, and stored by us. Similarly when naming your jobs, avoid including sensitive information such as user names or secret project names. This information may appear in telemetry logs accessible to Microsoft Support engineers.
 
-You may opt out from diagnostic data being collected by setting the `hbi_workspace` parameter to `TRUE` while provisioning the workspace. This functionality is supported when using the AzureML Python SDK, the Azure CLI, REST APIs, or Azure Resource Manager templates.
+You may opt out from diagnostic data being collected by setting the `hbi_workspace` parameter to `TRUE` while provisioning the workspace. This functionality is supported when using the Azure Machine Learning Python SDK, the Azure CLI, REST APIs, or Azure Resource Manager templates.
 
 ## Using Azure Key Vault
 

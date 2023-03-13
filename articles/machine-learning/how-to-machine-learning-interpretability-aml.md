@@ -32,6 +32,7 @@ In this how-to guide, you learn to use the interpretability package of the Azure
 
 * Deploy a scoring explainer alongside your model to observe explanations during inferencing.
 
+[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 For more information on the supported interpretability techniques and machine learning models, see [Model interpretability in Azure Machine Learning](how-to-machine-learning-interpretability.md) and [sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model).
 
@@ -362,7 +363,7 @@ Follow one of these paths to access the explanations dashboard in Azure Machine 
   1. Select a particular experiment to view all the runs in that experiment.
   1. Select a run, and then the **Explanations** tab to the explanation visualization dashboard.
 
-   [![Visualization Dashboard with Aggregate Feature Importance in AzureML studio in experiments](./media/how-to-machine-learning-interpretability-aml/model-explanation-dashboard-aml-studio.png)](./media/how-to-machine-learning-interpretability-aml/model-explanation-dashboard-aml-studio.png#lightbox)
+   [![Visualization Dashboard with Aggregate Feature Importance in Azure Machine Learning studio in experiments](./media/how-to-machine-learning-interpretability-aml/model-explanation-dashboard-aml-studio.png)](./media/how-to-machine-learning-interpretability-aml/model-explanation-dashboard-aml-studio.png#lightbox)
 
 * **Models** pane
 
@@ -575,12 +576,12 @@ Dataset explorer  | Supported (not forecasting)   | Not supported. Since sparse 
 
 * **Forecasting models not supported with model explanations**: Interpretability, best model explanation, isn’t available for AutoML forecasting experiments that recommend the following algorithms as the best model: TCNForecaster, AutoArima, Prophet, ExponentialSmoothing, Average, Naive, Seasonal Average, and Seasonal Naive. AutoML Forecasting regression models support explanations. However, in the explanation dashboard, the "Individual feature importance" tab isn’t supported for forecasting because of complexity in their data pipelines.
 
-* **Local explanation for data index**: The explanation dashboard doesn’t support relating local importance values to a row identifier from the original validation dataset if that dataset is greater than 5000 datapoints as the dashboard randomly downsamples the data. However, the dashboard shows raw dataset feature values for each datapoint passed into the dashboard under the Individual feature importance tab. Users can map local importances back to the original dataset through matching the raw dataset feature values. If the validation dataset size is less than 5000 samples, the `index` feature in AzureML studio will correspond to the index in the validation dataset.
+* **Local explanation for data index**: The explanation dashboard doesn’t support relating local importance values to a row identifier from the original validation dataset if that dataset is greater than 5000 datapoints as the dashboard randomly downsamples the data. However, the dashboard shows raw dataset feature values for each datapoint passed into the dashboard under the Individual feature importance tab. Users can map local importances back to the original dataset through matching the raw dataset feature values. If the validation dataset size is less than 5000 samples, the `index` feature in Azure Machine Learning studio will correspond to the index in the validation dataset.
 
 * **What-if/ICE plots not supported in studio**: What-If and Individual Conditional Expectation (ICE) plots aren’t supported in Azure Machine Learning studio under the Explanations tab since the uploaded explanation needs an active compute to recalculate predictions and probabilities of perturbed features. It’s currently supported in Jupyter notebooks when run as a widget using the SDK.
 
 ## Next steps
 
-[Techniques for model interpretability in Azure ML](how-to-machine-learning-interpretability.md)
+[Techniques for model interpretability in Azure Machine Learning](how-to-machine-learning-interpretability.md)
 
 [Check out Azure Machine Learning interpretability sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model)

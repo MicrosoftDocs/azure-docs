@@ -5,11 +5,10 @@ author: EdB-MSFT
 ms.author: edbaynash
 ms.service: azure-monitor
 ms.subservice: autoscale
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: conceptual
 ms.date: 01/10/2023
 ms.reviewer: akkumari
-
-
 # Customer intent: As a user or dev ops administrator, I want to understand how set up autoscale with more than one profile so I can scale my resources with more flexibility.
 ---
 
@@ -41,7 +40,7 @@ The example below shows an autoscale setting with a default profile and recurrin
 
 :::image type="content" source="./media/autoscale-multiple-profiles/autoscale-default-recurring-profiles.png" alt-text="A screenshot showing an autoscale setting with default and recurring profile or scale condition":::
 
-In the above example, on Monday after 6 AM, the recurring profile will be used. If the instance count is less than 3, autoscale scales to the new minimum of three. Autoscale continues to use this profile and scales based on CPU% until Monday at 6 PM. At all other times scaling will be done according to the default profile, based on the number of requests. After 6 PM on Monday, autoscale switches to the default profile. If for example, the number of instances at the time is 12, autoscale scales in to 10, which the maximum allowed for the default profile.
+In the above example, on Monday after 3 AM, the recurring profile will cease to be used. If the instance count is less than 3, autoscale scales to the new minimum of three. Autoscale continues to use this profile and scales based on CPU% until Monday at 8 PM. At all other times scaling will be done according to the default profile, based on the number of requests. After 8 PM on Monday, autoscale switches to the default profile. If for example, the number of instances at the time is 12, autoscale scales in to 10, which the maximum allowed for the default profile.
 
 ## Multiple contiguous profiles
 Autoscale transitions between profiles based on their start times. The end time for a given profile is determined by the start time of the following profile.
@@ -49,7 +48,8 @@ Autoscale transitions between profiles based on their start times. The end time 
 In the portal, the end time field becomes the next start time for the default profile. You can't specify the same time for the end of one profile and the start of the next. The portal will force the end time to be one minute before the start time of the following profile. During this minute, the default profile will become active. If you don't want the default profile to become active between recurring profiles, leave the end time field empty.
 
 > [!TIP]
-> To set up multiple contiguous profiles using the portal, leave the end time empty. The current profile will stop being used when the next profile becomes active. Only specify an end time when you want to revert to the default profile.
+> To set up multiple contiguous profiles using the portal, leave the end time empty. The current profile will stop being used when the next profile becomes active. Only specify an end time when you want to revert to the default profile. 
+> Creating a recurring profile with no end time is only supported via the portal and ARM templates.
 
 ## Multiple profiles using templates, CLI, and PowerShell
 
@@ -62,9 +62,9 @@ See the autoscale section of the [ARM template resource definition](https://lear
 There is no specification in the template for end time. A profile will remain active until the next profile's start time.  
 
 
-## Add a recurring profile using AIM templates
+## Add a recurring profile using ARM templates
 
-The example below shows how to create two recurring profiles. One profile for weekends from 00:01 on Saturday morning and a second Weekday profile starting on Mondays at 04:00. That means that the weekend profile will start on Saturday morning at one minute passed midnight and end on Monday morning at 04:00. The Weekday profile will start at 4am on Monday end just after midnight on Saturday morning.
+The example below shows how to create two recurring profiles. One profile for weekends from 00:01 on Saturday morning and a second Weekday profile starting on Mondays at 04:00. That means that the weekend profile will start on Saturday morning at one minute passed midnight and end on Monday morning at 04:00. The Weekday profile will start at 4am on Monday and end just after midnight on Saturday morning.
 
 Use the following command to deploy the template:
 ` az deployment group create --name VMSS1-Autoscale-607 --resource-group rg-vmss1 --template-file VMSS1-autoscale.json`
@@ -205,18 +205,19 @@ The example below shows how to add a recurring autoscale profile, recurring on T
 
 ``` azurecli
 
-az monitor autoscale profile create --autoscale-name VMSS1-Autoscale-607 --count 2 --max-count 10 --min-count 1 --name Thursdays --recurrence week thu --resource-group rg-vmss1 --start 06:00 --end 22:50 --timezone "Pacific Standard Time" 
+az monitor autoscale profile create --autoscale-name VMSS1-Autoscale --count 2 --max-count 10 --min-count 1 --name Thursdays --recurrence week thu --resource-group rg-vmss1 --start 06:00 --end 22:50 --timezone "Pacific Standard Time" 
 
-az monitor autoscale rule create -g rg-vmss1 --autoscale-name VMSS1-Autoscale-607 --scale in 1 --condition "Percentage CPU < 25 avg 5m" --profile-name Thursdays
+az monitor autoscale rule create -g rg-vmss1 --autoscale-name VMSS1-Autoscale --scale in 1 --condition "Percentage CPU < 25 avg 5m" --profile-name Thursdays
 
-az monitor autoscale rule create -g rg-vmss1 --autoscale-name VMSS1-Autoscale-607 --scale out 2 --condition "Percentage CPU > 50 avg 5m"  --profile-name Thursdays
+az monitor autoscale rule create -g rg-vmss1 --autoscale-name VMSS1-Autoscale --scale out 2 --condition "Percentage CPU > 50 avg 5m"  --profile-name Thursdays
 ```
 
 > [!NOTE]  
-> The JSON for your autoscale default profile is modified by adding a recurring profile.  
-> The `name` element of the default profile is changed to an object in the format: `"name": "{\"name\":\"Auto created default scale condition\",\"for\":\"recurring profile\"}"` where *recurring profile* is the profile name of your recurring profile.
+> * The JSON for your autoscale default profile is modified by adding a recurring profile.  
+> The `name` element of the default profile is changed to an object in the format: `"name": "{\"name\":\"Auto created default scale condition\",\"for\":\"recurring profile name\"}"` where *recurring profile* is the profile name of your recurring profile.
 > The default profile also has a recurrence clause added to it that starts at the end time specified for the new recurring profile.
-> A new default profile is created for each recurring profile.  
+> * A new default profile is created for each recurring profile.  
+> * If the end time is not specified in the CLI command, the end time will be defaulted to 23:59.
 
 ## Updating the default profile when you have recurring profiles
 

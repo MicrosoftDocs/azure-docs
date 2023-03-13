@@ -101,7 +101,7 @@ Otherwise, you'll see a list of your recent automated  ML experiments, including
     Virtual machine priority| Low priority virtual machines are cheaper but don't guarantee the compute nodes. 
     Virtual machine type| Select CPU or GPU for virtual machine type.
     Virtual machine size| Select the virtual machine size for your compute.
-    Min / Max nodes| To profile data, you must specify 1 or more nodes. Enter the maximum number of nodes for your compute. The default is 6 nodes for an AzureML Compute.
+    Min / Max nodes| To profile data, you must specify 1 or more nodes. Enter the maximum number of nodes for your compute. The default is 6 nodes for an Azure Machine Learning Compute.
     Advanced settings | These settings allow you to configure a user account and existing virtual network for your experiment. 
     
     Select **Create**. Creation of a new compute can take a few minutes.

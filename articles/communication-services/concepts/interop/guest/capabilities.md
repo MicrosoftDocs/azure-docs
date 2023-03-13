@@ -15,7 +15,7 @@ ms.subservice: teams-interop
 In this article, you will learn which capabilities are supported for Teams external users using Azure Communication Services SDKs in Teams meetings. You can find per platform availability in [voice and video calling capabilities](../../voice-video-calling/calling-sdk-features.md).
 
 
-| Group of features | Capability                                                                                                          | JavaScript |
+| Group of features | Capability                                                                                                          | Supported |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------- | ---------- | 
 | Core Capabilities | Join Teams meeting                                                                                                  | ✔️        |
 |                   | Leave meeting                                                                                                       | ✔️ |
@@ -193,7 +193,7 @@ The following table shows supported Teams capabilities:
 
 ## Next steps
 
-- [Authenticate as Teams external user](../../../quickstarts/access-tokens.md)
+- [Authenticate as Teams external user](../../../quickstarts/identity/access-tokens.md)
 - [Join Teams meeting audio and video as Teams external user](../../../quickstarts/voice-video-calling/get-started-teams-interop.md)
 - [Join Teams meeting chat as Teams external user](../../../quickstarts/chat/meeting-interop.md)
 - [Join meeting options](../../../how-tos/calling-sdk/teams-interoperability.md)

@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/21/2022
+ms.date: 02/28/2023
 ---
 
 # Send, receive, and batch process messages in Azure Logic Apps

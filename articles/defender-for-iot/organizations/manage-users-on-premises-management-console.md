@@ -184,8 +184,8 @@ Before you create access groups, we also recommend that you:
 - Carefully set up your business topology. For a rule to be successfully applied, you must assign sensors to zones in the **Site Management** window. For more information, see:
 
     - [Work with site map views](how-to-gain-insight-into-global-regional-and-local-threats.md#work-with-site-map-views)
-    - [Create enterprise zones](how-to-activate-and-set-up-your-on-premises-management-console.md#create-enterprise-zones)
-    - [Assign sensors to zones](how-to-activate-and-set-up-your-on-premises-management-console.md#assign-sensors-to-zones)
+    - [Create zones](ot-deploy/sites-and-zones-on-premises.md#create-zones)
+    - [Assign sensors to zones](ot-deploy/sites-and-zones-on-premises.md#manage-sites-and-zones)
 
 **To create access groups**:
 

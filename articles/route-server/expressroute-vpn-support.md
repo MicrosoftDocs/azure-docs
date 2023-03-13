@@ -1,5 +1,5 @@
 ---
-title: 'Azure Route Server support for ExpressRoute and Azure VPN'
+title: Azure Route Server support for ExpressRoute and Azure VPN
 description: Learn about how Azure Route Server interacts with ExpressRoute and Azure VPN gateways.
 services: route-server
 author: halkazwini

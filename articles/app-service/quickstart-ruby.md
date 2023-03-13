@@ -369,3 +369,6 @@ Your web app's **Overview** page will be displayed. Here, you can perform basic 
 
 > [!div class="nextstepaction"]
 > [Configure Ruby app](configure-language-ruby.md)
+
+> [!div class="nextstepaction"]
+> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)

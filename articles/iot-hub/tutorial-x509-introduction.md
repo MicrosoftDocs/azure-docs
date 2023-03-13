@@ -33,11 +33,9 @@ Before starting any of the articles in this tutorial, you should be familiar wit
 
 - For an introduction to concepts that underlie the use of X.509 certificates, see [Understand public key cryptography and X.509 public key infrastructure](iot-hub-x509-certificate-concepts.md).
 
-- For a quick review of the fields that can be present in an X.509 certificate, see the [Certificate fields](tutorial-x509-certificates.md#certificate-fields) section of [Understand X.509 public key certificates](tutorial-x509-certificates.md).
+- For a quick review of the fields that can be present in an X.509 certificate, see the [Certificate fields](reference-x509-certificates.md#certificate-fields) section of [Understand X.509 public key certificates](reference-x509-certificates.md).
 
 ## X.509 certificate scenario paths
-
-Using a self-signed certificate to authenticate a device provides a quick and easy way to test IoT Hub features. Self-signed certificates shouldn't be used in production as they provide less security than a certificate chain anchored with a CA-signed certificate backed by a PKI. To learn more about creating and using a self-signed X.509 certificate to authenticate with IoT Hub, see [Tutorial: Use OpenSSL to create self-signed certificates](tutorial-x509-self-sign.md).
 
 Using a CA-signed certificate chain backed by a PKI to authenticate a device provides the best level of security for your devices:
 
@@ -45,16 +43,16 @@ Using a CA-signed certificate chain backed by a PKI to authenticate a device pro
 
 - For testing purposes, we recommend using OpenSSL to create an X.509 certificate chain. OpenSSL is used widely across the industry to work with X.509 certificates. You can follow the steps in [Tutorial: Use OpenSSL to create test certificates](tutorial-x509-openssl.md) to create a root CA and intermediate CA certificate with which to create and sign device certificates. The tutorial also shows how to upload and verify a CA certificate. Then, follow the instructions in [Tutorial: Test certificate authentication](tutorial-x509-test-certificate.md) to authenticate a device with your IoT hub.
 
-- Several of the Azure IoT SDKs provide convenience scripts to help you create test certificate chains. For instructions about how to create certificate chains in PowerShell or Bash using scripts provided in the Azure IoT C SDK, see [Tutorial: Use Microsoft-supplied scripts to create test certificates](tutorial-x509-scripts.md). The tutorial also shows how to upload and verify a CA certificate. Then follow the instructions in [Tutorial: Test certificate authentication](tutorial-x509-test-certificate.md) to authenticate a device with your IoT hub.
-
 ## Next steps
 
-To learn more about the fields that make up an X.509 certificate, see [Understand X.509 public key certificates](tutorial-x509-certificates.md).
+To learn more about the fields that make up an X.509 certificate, see [X.509 certificates](reference-x509-certificates.md).
 
 If you're already familiar with X.509 certificates, and you want to generate test versions that you can use to authenticate to your IoT hub, see the following articles:
 
-* [Tutorial: Use Microsoft-supplied scripts to create test certificates](tutorial-x509-scripts.md)
 * [Tutorial: Use OpenSSL to create test certificates](tutorial-x509-openssl.md)
-* [Tutorial: Use OpenSSL to create self-signed certificates](tutorial-x509-self-sign.md)
+* If you want to use self-signed certificates for testing, see the [Create a self-signed certificate](reference-x509-certificates.md#create-a-self-signed-certificate) section of [X.509 certificates](reference-x509-certificates.md).
+
+    >[!IMPORTANT]
+    >We recommend that you use certificates signed by an issuing Certificate Authority (CA), even for testing purposes. Never use self-signed certificates in production.
 
 If you have a root CA certificate or subordinate CA certificate and you want to upload it to your IoT hub, you must verify that you own that certificate. For more information, see [Tutorial: Upload and verify a CA certificate to IoT Hub](tutorial-x509-prove-possession.md).

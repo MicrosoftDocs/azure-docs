@@ -58,8 +58,8 @@ A certificate created in Key Vault can be:
 
 The following CAs are currently partnered providers with Key Vault:
 
-- DigiCert: Key Vault offers OV TLS/SSL certificates.
-- GlobalSign: Key Vault offers OV TLS/SSL certificates.
+- DigiCert: Key Vault offers OV or EV TLS/SSL certificates.
+- GlobalSign: Key Vault offers OV or EV TLS/SSL certificates.
 
 Key Vault auto-rotates certificates through established partnerships with CAs. Because Key Vault automatically requests and renews certificates through the partnership, auto-rotation capability isn't applicable for certificates created with CAs that aren't partnered with Key Vault.
 

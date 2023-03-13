@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 12/15/2022
+ms.date: 01/30/2023
 ms.author: vikurpad
 ms.custom: references_regions
 monikerRange: 'form-recog-3.0.0'
@@ -32,13 +32,21 @@ A labeled dataset consists of several files:
 
   * A `{file}.labels.json` file is created or updated when a field is labeled in a document. The label file contains the spans of text and associated polygons from the layout output for each span of text the user adds as a value for a specific field.
 
+## Video: Custom label tips and pointers
+
+* The following video is the first of two presentations intended to help you build custom models with higher accuracy (The second presentation examines [Best practices for labeling documents](concept-custom-label-tips.md#video-custom-labels-best-practices)).
+
+* Here, we'll explore how to create a balanced data set and select the right documents to label. This process will set you on the path to higher quality models.</br></br>
+
+  > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWWHru]
+
 ## Create a balanced dataset
 
 Before you start labeling, it's a good idea to look at a few different samples of the document to identify which samples you want to use in your labeled dataset. A balanced dataset represents all the typical variations you would expect to see for the document. Creating a balanced dataset will result in a model with the highest possible accuracy. A few examples to consider are:
 
 * **Document formats**: If you expect to analyze both digital and scanned documents, add a few examples of each type to the training dataset
 
-* **Variations (template model)**:  Consider splitting the dataset into folders and train a model for each of variation. Variations that include either structure or layout should be split into different models. You can then compose the individual models into a single [composed model](concept-composed-models.md).
+* **Variations (template model)**:  Consider splitting the dataset into folders and train a model for each of variation. Any variations that include either structure or layout should be split into different models. You can then compose the individual models into a single [composed model](concept-composed-models.md).
 
 * **Variations (Neural models)**: When your dataset has a manageable set of variations, about 15 or fewer, create a single dataset with a few samples of each of the different variations to train a single model. If the number of template variations is larger than 15, you'll train multiple models and [compose](concept-composed-models.md) them together.
 

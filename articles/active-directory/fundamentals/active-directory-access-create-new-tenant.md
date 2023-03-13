@@ -60,7 +60,7 @@ Your new tenant is created with the domain contoso.onmicrosoft.com.
 
 ## Your user account in the new tenant
 
-When you create a new Azure AD tenant, you become the first user of that tenant. As the first user, you're automatically assigned the [Global Admin](../roles/permissions-reference.md#global-administrator) role. Check out your user account by navigating to the [**Users**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/MsGraphUsers) page.
+When you create a new Azure AD tenant, you become the first user of that tenant. As the first user, you're automatically assigned the [Global Administrator](../roles/permissions-reference.md#global-administrator) role. Check out your user account by navigating to the [**Users**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/MsGraphUsers) page.
 
 By default, you're also listed as the [technical contact](/microsoft-365/admin/manage/change-address-contact-and-more#what-do-these-fields-mean) for the tenant. Technical contact information is something you can change in [**Properties**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties).
 

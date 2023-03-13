@@ -1,26 +1,20 @@
 ---
 title: Understanding multimedia redirection on Azure Virtual Desktop - Azure
-description: An overview of multimedia redirection on Azure Virtual Desktop (preview).
+description: An overview of multimedia redirection on Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 09/27/2022
+ms.date: 02/07/2023
 ms.author: helohr
 manager: femila
 ---
 # Understanding multimedia redirection for Azure Virtual Desktop
-
-> [!IMPORTANT]
-> Multimedia redirection on Azure Virtual Desktop is currently in preview.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Multimedia redirection (MMR) gives you smooth video playback while watching videos in a browser in Azure Virtual Desktop. Multimedia redirection redirects the media content from Azure Virtual Desktop to your local machine for faster processing and rendering. Both Microsoft Edge and Google Chrome support this feature. 
 
 > [!NOTE]
 > Multimedia redirection isn't supported on Azure Virtual Desktop for Microsoft 365 Government (GCC), GCC-High environments, and Microsoft 365 DoD.
 >
-> Multimedia redirection on Azure Virtual Desktop is only available for the [Windows Desktop client, version 1.2.3573 or later](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew). on Windows 11, Windows 10, or Windows 10 IoT Enterprise devices.
->
-> The preview version of multimedia redirection for Azure Virtual Desktop has restricted playback to sites we've tested.
+> Multimedia redirection on Azure Virtual Desktop is only available for the [Windows Desktop client, version 1.2.3916 or later](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew). on Windows 11, Windows 10, or Windows 10 IoT Enterprise devices.
 
 ## Websites that work with multimedia redirection
 
@@ -32,6 +26,7 @@ The following list shows websites that are known to work with MMR. MMR works wit
       - AWS Training
       - BBC
       - Big Think
+      - Bleacher Report
       - Brightcove
       - CNBC
       - Coursera
@@ -48,7 +43,10 @@ The following list shows websites that are known to work with MMR. MMR works wit
       - LinkedIn Learning
       - Microsoft Learn
       - Microsoft Stream
+      - NBC Sports
+      - The New York Times
       - Pluralsight
+      - Politico
       - Reddit
       - Reuters
    :::column-end:::
@@ -56,11 +54,13 @@ The following list shows websites that are known to work with MMR. MMR works wit
       - Skillshare
       - The Guardian
       - Twitch
+      - Twitter
       - Udemy
       - UMU
       - U.S. News
       - Vidazoo
       - Vimeo
+      - The Wall Street Journal
       - Yahoo
       - Yammer
       - YouTube (including sites with embedded YouTube videos).
@@ -85,13 +85,9 @@ Selecting the icon in your browser will display a pop-up menu where it lists the
 
 You can use the icon to check the status of the extension by following the directions in [Check the extension status](multimedia-redirection.md#check-the-extension-status).
 
-## Support during public preview
-
-If you run into issues while using the public preview version of multimedia redirection, we recommend contacting [Microsoft Azure support](https://azure.microsoft.com/support/plans/).
-
 ## Next steps
 
-To learn how to use this feature, see [Multimedia redirection for Azure Virtual Desktop (preview)](multimedia-redirection.md).
+To learn how to use this feature, see [Multimedia redirection for Azure Virtual Desktop](multimedia-redirection.md).
 
 To troubleshoot issues or view known issues, see [our troubleshooting article](troubleshoot-multimedia-redirection.md).
 

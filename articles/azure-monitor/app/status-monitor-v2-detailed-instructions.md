@@ -231,7 +231,7 @@ See the [API reference](./status-monitor-v2-api-reference.md#enable-applicationi
 
  Add more telemetry:
 
-- [Create web tests](monitor-web-app-availability.md) to make sure your site stays live.
+- [Availability overview](availability-overview.md)
 - [Add web client telemetry](./javascript.md) to see exceptions from web page code and to enable trace calls.
 - [Add the Application Insights SDK to your code](./asp-net.md) so you can insert trace and log calls.
 

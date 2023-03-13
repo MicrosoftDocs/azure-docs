@@ -177,7 +177,7 @@ items:
   - name: Python (Management)
     href: /python/api/azure-mgmt-iothubprovisioningservices
   - name: Azure IoT SDK for C API documentation
-    href: ../iot-hub/iot-hub-device-sdk-c-intro.md
+    href: https://github.com/Azure/azure-iot-sdk-c/blob/main/readme.md
   - name: REST API
     href: /rest/api/iot-dps
   - name: Resource Manager template
@@ -207,13 +207,13 @@ items:
   - name: Azure IoT samples
     items:
     - name: C# (.NET)
-      href: https://github.com/Azure-Samples/azure-iot-samples-csharp
+      href: https://github.com/Azure/azure-iot-sdk-csharp#samples
     - name: Node.js
-      href: https://azure.microsoft.com/resources/samples/azure-iot-samples-node/
+      href: https://github.com/Azure/azure-iot-sdk-node/tree/main/provisioning/device/samples
     - name: Java
-      href: https://github.com/Azure-Samples/azure-iot-samples-java
+      href: https://github.com/Azure/azure-iot-sdk-java#samples
     - name: Python
-      href: https://azure.microsoft.com/resources/samples/azure-iot-samples-python/
+      href: https://github.com/Azure/azure-iot-sdk-python/tree/main/samples
     - name: iOS Platform
       href: https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/
   - name: Terraform modules
