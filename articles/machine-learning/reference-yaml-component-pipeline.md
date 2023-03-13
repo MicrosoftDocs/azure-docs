@@ -13,7 +13,7 @@ ms.date: 02/28/2023
 ms.reviewer: larryfr
 ---
 
-# CLI (v2) pipeline component YAML schema
+# CLI (v2) pipeline component YAML schema (preview)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
