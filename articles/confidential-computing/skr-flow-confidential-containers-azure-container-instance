@@ -12,7 +12,7 @@ ms.author: amgowda
 
 # Secure Key Release with Confidential containers on Azure Container Instance (ACI)
 
-Secure Key Release (SKR) Flow with Azure Key Vault (AKV) with confidential container offerings can implement in couple of ways. Confidential containers run a guest enlightened exposting AMD SEV-SNP device through a Linux Kernel that uses an in guest firmware with necessary Hyper-V related patches that we refer as Direct Linux Boot (DLB). This platform doesn't use vTPM and HCL based that Confidential VMs with AMD SEV-SNP support. This concept document assumes you plan to run the containers in [Azure Container Support choosing a confidential computing SKU](../container-instances/container-instances-tutorial-deploy-confidential-containers-cce-arm.md)
+Secure Key Release (SKR) flow with Azure Key Vault (AKV) with confidential container offerings can implement in couple of ways. Confidential containers run a guest enlightened exposting AMD SEV-SNP device through a Linux Kernel that uses an in guest firmware with necessary Hyper-V related patches that we refer as Direct Linux Boot (DLB). This platform doesn't use vTPM and HCL based that Confidential VMs with AMD SEV-SNP support. This concept document assumes you plan to run the containers in [Azure Container Support choosing a confidential computing SKU](../container-instances/container-instances-tutorial-deploy-confidential-containers-cce-arm.md)
 
 - Side-Car Helper Container provided by Azure
 - Custom implementation with your container application
@@ -54,7 +54,7 @@ Upon error, the `key/release` POST method response carries a `StatusForbidden` h
 
 To perform a custom container application that extends the capability of SKR, please follow the high level flow described below. An easy approach is to review the current side-car implementation code in this [side-car Github project](https://github.com/microsoft/confidential-sidecar-containers/tree/d933d0f4e3d5498f7ed9137189ab6a23ade15466/pkg/common).
 
-![Image of the aforementioned operations, which you should be performing.](media/skr-flow-aci-sevsnp-attestation/skr-flow-custom-container.png)
+![Image of the aforementioned operations, which you should be performing.](media/skr-flow-azure-container-instance-sev-snp-attestation/skr-flow-custom-container.png)
 
 1. **Step 1:** Set up AKV with Exportable Key and attach the release policy. More [here](concept-skr-attestation.md)
 1. **Step 2:** Set up a managed identity with Azure Active Directory and attach that to AKV. More [here](../container-instances/container-instances-managed-identity.md)
@@ -72,7 +72,7 @@ On success of the key fetch from AKV, you can consume the key for decrypting the
 
 [Side-Car Implementation with encrypted blob fetch and decrypt with SKR AKV key](https://github.com/microsoft/confidential-sidecar-containers/#encrypted-filesystem-sidecar)
 
-[AKV SKR with Confidential VM's AMD SEV-SNP](skr-flow-cvm-sevsnp-attestation.md)
+[AKV SKR with Confidential VM's AMD SEV-SNP](skr-flow-confidential-vm-sev-snp.md)
 
 [Microsoft Azure Attestation (MAA)](../attestation/overview.md)
 
