@@ -1,6 +1,6 @@
 ---
-title: Introduction to Apache Kafka on Azure Event Hubs
-description: Learn what Apache Kafka on Azure Event Hubs is and how to use it to stream data from Apache Kafka applications without setting up a Kafka cluster on your own.
+title: Introduction to Apache Kafka in Event Hubs on Azure Cloud
+description: Learn what Apache Kafka in the Event Hubs service on Azure Cloud is and how to use it to stream data from Apache Kafka applications without setting up a Kafka cluster on your own.
 ms.topic: overview
 ms.date: 02/03/2023
 ---
