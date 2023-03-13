@@ -28,7 +28,7 @@ For more information, see: [License requirements](what-are-lifecycle-workflows.m
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Select **Azure Active Directory** and then select **Identity Governance**.
+1. Type in **Identity Governance** on the search bar near the top of the page and select it.
 
 1. In the left menu, select **Lifecycle Workflows (Preview)**.
 
