@@ -67,7 +67,8 @@ In this tutorial, you'll need:
     |---------|---------|
     |**Azure Monitor Logs**     |- The **Logs Analytics Contributor** role to read data from aand send data to a Logs Analytics workspace. For more information, see [Manage access to Log Analytics workspaces](../logs/manage-access.md#log-analytics-contributor).|
     |**Azure Machine Learning**     |- A resource group-level **Owner** or **Contributor** role, to create a new Azure Machine Learning workspace if needed. <br>- A **Contributor** role on the Azure Machine Learning workspace where you run your notebook.    <br><br>For more information, see [Manage access to an Azure Machine Learning workspace](../machine-learning/how-to-assign-roles.md).     |
-    - Basic familiarity with data science concepts.  
+    
+- Basic familiarity with data science concepts.  
     
  ## Install required Python tools
 
