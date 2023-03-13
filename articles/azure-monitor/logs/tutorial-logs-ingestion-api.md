@@ -1,16 +1,15 @@
 ---
-title: 'Tutorial: Send data to Azure Monitor Logs using REST API (Resource Manager templates)'
-description: Tutorial on how to send data to a Log Analytics workspace in Azure Monitor by using the REST API Azure Resource Manager template version.
+title: 'Tutorial: Send data to Azure Monitor using Logs ingestion API (Resource Manager templates)'
+description: Tutorial on how to send custom data to a Log Analytics workspace in Azure Monitor by using the Logs ingestion API. Required configuration performed with Azure Resource Manager templates.
 ms.topic: tutorial
 ms.date: 02/01/2023
 ---
 
-# Tutorial: Send data to Azure Monitor Logs using REST API (Resource Manager templates)
-The [Logs Ingestion API](logs-ingestion-api-overview.md) in Azure Monitor allows you to send external data to a Log Analytics workspace with a REST API. This tutorial uses Azure Resource Manager templates (ARM templates) to walk through configuration of a new table and a sample application to send log data to Azure Monitor.
+# Tutorial: Send data to Azure Monitor using Logs ingestion API (Resource Manager templates)
+The [Logs Ingestion API](logs-ingestion-api-overview.md) in Azure Monitor allows you to send custom data to a Log Analytics workspace. This tutorial uses Azure Resource Manager templates (ARM templates) to walk through configuration of the components required to support the API and then provides a sample application using both the REST API and client libraries.
 
 > [!NOTE]
-> This tutorial uses ARM templates and a REST API to configure custom logs. For a similar tutorial using the Azure portal, see [Tutorial: Send data to Azure Monitor Logs using REST API (Azure portal)](tutorial-logs-ingestion-portal.md).
-> 
+> This tutorial uses ARM templates to configure custom logs. For a similar tutorial using the Azure portal, see [Tutorial: Send data to Azure Monitor Logs using Logs ingestion API (Azure portal)](tutorial-logs-ingestion-portal.md).
 
 In this tutorial, you learn to:
 
@@ -18,7 +17,7 @@ In this tutorial, you learn to:
 > * Create a custom table in a Log Analytics workspace.
 > * Create a data collection endpoint (DCE) to receive data over HTTP.
 > * Create a data collection rule (DCR) that transforms incoming data to match the schema of the target table.
-> * Create a sample application to send custom data to Azure Monitor.
+> * Create a sample application to send custom data to Azure Monitor using both REST API and client libraries.
 
 > [!NOTE]
 > This tutorial uses PowerShell from Azure Cloud Shell to make REST API calls by using the Azure Monitor **Tables** API and the Azure portal to install ARM templates. You can use any other method to make these calls.
@@ -31,6 +30,7 @@ To complete this tutorial, you need:
 
 - A Log Analytics workspace where you have at least [contributor rights](manage-access.md#azure-rbac).
 - [Permissions to create DCR objects](../essentials/data-collection-rule-overview.md#permissions) in the workspace.
+
 
 ## Collect workspace details
 Start by gathering information that you'll need from your workspace.
