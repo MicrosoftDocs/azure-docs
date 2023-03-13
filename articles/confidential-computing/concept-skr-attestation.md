@@ -37,7 +37,7 @@ Make sure to set the value of [--sku] to "premium".
 
 A Secure Key Release Policy is a json format release policy as defined [here](/rest/api/keyvault/keys/create-key/create-key?tabs=HTTP#keyreleasepolicy) that specifies a set of claims required in addition to authorization to release the key. The claims here are MAA based claims as referenced [here for SGX](/azure/attestation/attestation-token-examples#sample-jwt-generated-for-sgx-attestation) and here for [AMD SEV-SNP CVM](/azure/attestation/attestation-token-examples#sample-jwt-generated-for-sev-snp-attestation).
 
-Visit the TEE specific [examples page for more details](/skr-flow-confidentialcontainers-aci.md)
+Visit the TEE specific [examples page for more details](skr-policy-examples.md)
 
 Before you set an SKR policy make sure to run your TEE application through the remote attestation flow. Remote attestation isn't covered as part of this tutorial.
 
@@ -80,8 +80,8 @@ This step can be specific to the type of TEE you're running your application Int
 
 Follow these references examples for various TEE types offering with Azure:
 
-- [Application within AMD EV-SNP based CVM's performing Secure Key Release](./skr-flow-cvm-sevsnp-attestation.md)
-- [Confidential containers with Azure Container Instances (ACI) with SKR side-car containers](./skr-flow-confidentialcontainers-aci.md)
+- [Application within AMD EV-SNP based CVM's performing Secure Key Release](skr-flow-confidential-vm-sev-snp.md)
+- [Confidential containers with Azure Container Instances (ACI) with SKR side-car containers](skr-flow-confidential-containers-azure-container-instance.md)
 - [Intel SGX based applications performing Secure Key Release - Open Source Solution Mystikos Implementation](https://github.com/deislabs/mystikos/tree/main/samples/confidential_ml#environment)
 
 ## Frequently Asked Questions (FAQ)
