@@ -122,6 +122,14 @@ UpdatedAt                    : 3/13/2023 10:26:07 PM
 
 Congratulations! You have used Azure PowerShell to create an Event Hubs namespace, and an event hub within that namespace. 
 
+## Clean up resources
+If you want to keep this event hub so that you can test sending and receiving events, ignore this section. Otherwise, run the following command to delete the resource group. This command deletes all the resources in the resource group and the resource group itself.
+
+```azurepowershell-interactive
+Remove-AzResourceGroup $rgName
+```
+
+
 ## Next steps
 
 In this article, you created the Event Hubs namespace, and used sample applications to send and receive events from your event hub. For step-by-step instructions to send events to (or) receive events from an event hub, see the **Send and receive events** tutorials: 
