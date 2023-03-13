@@ -1,10 +1,12 @@
 items:
-- name: Azure Orbital Ground Station - Documentation
+- name: Azure Orbital - Documentation
   href: index.yml
 - name: Overview
   items:
   - name: Why use Azure Orbital Ground Station?
     href: overview.md
+  - name: What is the Azure Space Parter Community?
+    href: space-partner-program-overview.md
 
 - name: Quickstart
   items:

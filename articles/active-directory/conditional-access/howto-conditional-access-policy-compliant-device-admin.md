@@ -42,6 +42,7 @@ Microsoft recommends you require enable this policy for the following roles at a
 
 Organizations can choose to include or exclude roles as they see fit.
 
+## User exclusions
 [!INCLUDE [active-directory-policy-exclusions](../../../includes/active-directory-policy-exclude-user.md)]
 
 [!INCLUDE [active-directory-policy-deploy-template](../../../includes/active-directory-policy-deploy-template.md)]
