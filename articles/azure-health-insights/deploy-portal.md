@@ -23,7 +23,7 @@ To deploy Azure Health Insight  you must register your subscription. Please let 
 ## Deploying Azure Health Insights
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Create a new **Resource group**, more info can be found [here](/azure-resource-manager/management/manage-resource-groups-portal.md)
+2. Create a new **Resource group**
 3. Add a new Cognitive Services account to your Resource group and search for **Azure Health Insights** 
 ![Create new service.](media/oncoPhenotype/deploy-to-azure/create-service.png) 
 

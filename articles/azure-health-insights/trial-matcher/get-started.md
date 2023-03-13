@@ -124,7 +124,7 @@ With the following fields at the body of the request:
 
 
 The response will include the operation-location in the response header. The value will look similar to the following URL:
-https://eastus.api.cognitive.microsoft.com/healthdecisionsupport/trialmatcher/jobs/b58f3776-c6cb-4b19-a5a7-248a0d9481ff?api_version=2022-01-01-preview
+```https://eastus.api.cognitive.microsoft.com/healthdecisionsupport/trialmatcher/jobs/b58f3776-c6cb-4b19-a5a7-248a0d9481ff?api_version=2022-01-01-preview```
 
 
 ### Example Response
@@ -237,4 +237,4 @@ To get better insights into the request and responses, you can read more on foll
 > [Model configuration](model-configuration.md) 
 
 >[!div class="nextstepaction"]
-> [Patient information](patient-info.md.md) 
+> [Patient information](patient-info.md) 

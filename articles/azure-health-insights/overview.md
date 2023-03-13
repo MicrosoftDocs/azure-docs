@@ -31,14 +31,14 @@ Azure Health Insights is an Applied AI service that provides pre-built models th
 
 There are currently two models available in Azure Health Insights: 
 
-The [Trial Matcher](/trial-matcher/overview.md) model receives patients data and clinical trials protocols, and provides relevant clinical trials based on eligibility criteria.
+The [Trial Matcher](./trial-matcher/overview.md) model receives patients data and clinical trials protocols, and provides relevant clinical trials based on eligibility criteria.
 
-The [OncoPhenotye](/oncoPhenotype/overview.md) receives clinical records of oncology patients and outputs cancer staging, such as  **clinical stage TNM** categories and **pathologic stage TNM categories** as well as **tumor site**, **histology**.
+The [OncoPhenotye](./oncoPhenotype/overview.md) receives clinical records of oncology patients and outputs cancer staging, such as  **clinical stage TNM** categories and **pathologic stage TNM categories** as well as **tumor site**, **histology**.
 
 
 ## Architecture
 
-![Architecture](media/architecture.png) 
+![Azure Health Insights Architecture](media/architecture.png) 
 
 
 ## Next steps
