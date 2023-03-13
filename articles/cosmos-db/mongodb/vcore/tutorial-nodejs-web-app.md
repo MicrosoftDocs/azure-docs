@@ -294,4 +294,4 @@ TODO - Short sentence or two.
 Now that you have built your first application for the MongoDB vCore cluster, learn how to migrate your data to Azure Cosmos DB.
 
 > [!div class="nextstepaction"]
-> [Migrate your data](how-to-migrate-data.md)
+> [Migrate your data](migration-options.md)
