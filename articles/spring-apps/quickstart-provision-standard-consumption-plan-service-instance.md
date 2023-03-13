@@ -81,7 +81,7 @@ An Azure Container Apps environment creates a secure boundary around a group of 
 
 You can create the Azure Container Apps environment in one of two ways:
 
-- Using your own virtual network. For more information see [Quickstart: Create an Azure Spring Apps instance in an Azure Container Apps environment with a virtual network](quickstart-provision-app-environment-with-virtual-network.md).
+- Using your own virtual network. For more information, see [Quickstart: Create an Azure Spring Apps instance in an Azure Container Apps environment with a virtual network](quickstart-provision-app-environment-with-virtual-network.md).
 
 - Using a system assigned virtual network, as described in the following procedure.
 
@@ -143,7 +143,7 @@ Use the following steps to deploy the service instance:
    az provider register --namespace Microsoft.AppPlatform
    ```
 
-1. Use the following commands to create variables to store name and location information. You can skip the first three variables below if you set them in the previous section. Be sure to replace the placeholder values with your own values.
+1. Use the following commands to create variables to store name and location information. You can skip the first three variables if you set them in the previous section. Be sure to replace the placeholder values with your own values.
 
    ```azurecli
    RESOURCE_GROUP="<resource-group-name>"
@@ -158,7 +158,7 @@ Use the following steps to deploy the service instance:
        --output tsv)
    ```
 
-1. Deploy a Standard consumption plan for an Azure Spring Apps instance on top of the container environment. Create your Azure Spring Apps instance by specifying the resource of the Azure Container Apps environment you just created.
+1. Use the following command to deploy a Standard consumption plan for an Azure Spring Apps instance on top of the container environment. Create your Azure Spring Apps instance by specifying the resource of the Azure Container Apps environment you created.
 
    ```azurecli
    az spring create \
@@ -169,7 +169,7 @@ Use the following steps to deploy the service instance:
        --location $LOCATION
    ```
 
-1. After the deployment, an additional infrastructure resource group is created in your subscription to host the underlying resources for the Azure Spring Apps Standard consumption plan instance. The resource group is named `{AZURE_CONTAINER_APPS_ENVIRONMENT}_SpringApps_{SPRING_APPS_SERVICE_ID}`.
+1. After the deployment, an infrastructure resource group is created in your subscription to host the underlying resources for the Azure Spring Apps Standard consumption plan instance. The resource group is named `{AZURE_CONTAINER_APPS_ENVIRONMENT}_SpringApps_{SPRING_APPS_SERVICE_ID}`, as shown with the following command:
 
    ```azurecli
    SERVICE_ID=$(az spring show \
