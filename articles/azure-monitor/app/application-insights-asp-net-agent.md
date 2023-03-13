@@ -24,18 +24,10 @@ Application Insights Agent is located in the [PowerShell Gallery](https://www.po
 ![PowerShell Gallery icon.](https://img.shields.io/powershellgallery/v/Az.ApplicationMonitor.svg?color=Blue&label=Current%20Version&logo=PowerShell&style=for-the-badge)
 
 ## Instructions
-- To get started with concise code samples, see the [Getting started](?tabs=getting-started) tab.
-- For a deep dive on how to get started, see the [Detailed instructions](?tabs=detailed-instructions) tab.
-- For the following PowerShell API reference, see the [API reference](?tabs=api-reference) tab:
-   - [Disable-ApplicationInsightsMonitoring](?tabs=api-reference#disable-applicationinsightsmonitoring)
-   - [Disable-InstrumentationEngine](?tabs=api-reference#disable-instrumentationengine)
-   - [Enable-ApplicationInsightsMonitoring](?tabs=api-reference#enable-applicationinsightsmonitoring)
-   - [Enable-InstrumentationEngine](?tabs=api-reference#enable-instrumentationengine)
-   - [Get-ApplicationInsightsMonitoringConfig](?tabs=api-reference#get-applicationinsightsmonitoringconfig)
-   - [Get-ApplicationInsightsMonitoringStatus](?tabs=api-reference#get-applicationinsightsmonitoringstatus)
-   - [Set-ApplicationInsightsMonitoringConfig](?tabs=api-reference#set-applicationinsightsmonitoringconfig)
-   - [Start-ApplicationInsightsMonitoringTrace](?tabs=api-reference#start-applicationinsightsmonitoringtrace)
-- For release note updates, see the [Release notes](?tabs=release-notes) tab.
+- To get started with concise code samples, see the **Getting started** tab.
+- For a deep dive on how to get started, see the **Detailed instructions** tab.
+- For PowerShell API reference, see the **API reference** tab.
+- For release note updates, see the **Release notes** tab.
 
 ### [Getting started](#tab/getting-started)
 
@@ -329,7 +321,15 @@ See the [API reference](?tabs=api-reference#enable-applicationinsightsmonitoring
 
 ### [API reference](#tab/api-reference)
 
-This tab describes a cmdlet that's a member of the [Az.ApplicationMonitor PowerShell module](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
+This tab describes the following cmdlets, which are members of the [Az.ApplicationMonitor PowerShell module](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/):
+   - [Disable-ApplicationInsightsMonitoring](?tabs=api-reference#disable-applicationinsightsmonitoring)
+   - [Disable-InstrumentationEngine](?tabs=api-reference#disable-instrumentationengine)
+   - [Enable-ApplicationInsightsMonitoring](?tabs=api-reference#enable-applicationinsightsmonitoring)
+   - [Enable-InstrumentationEngine](?tabs=api-reference#enable-instrumentationengine)
+   - [Get-ApplicationInsightsMonitoringConfig](?tabs=api-reference#get-applicationinsightsmonitoringconfig)
+   - [Get-ApplicationInsightsMonitoringStatus](?tabs=api-reference#get-applicationinsightsmonitoringstatus)
+   - [Set-ApplicationInsightsMonitoringConfig](?tabs=api-reference#set-applicationinsightsmonitoringconfig)
+   - [Start-ApplicationInsightsMonitoringTrace](?tabs=api-reference#start-applicationinsightsmonitoringtrace)
 
 > [!NOTE] 
 > - To get started, you need an instrumentation key. For more information, see [Create a resource](create-new-resource.md#copy-the-instrumentation-key).
