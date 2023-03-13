@@ -3,7 +3,7 @@ title: 'Quickstart: Create an Azure API Management service using Terraform'
 description: 'In this article, you create an Azure API Management service using Terraform'
 ms.topic: quickstart
 ms.service: api-management
-ms.date: 3/10/2023
+ms.date: 3/13/2023
 ms.custom: devx-track-terraform
 author: TomArcherMsft
 ms.author: tarcher
@@ -11,7 +11,7 @@ ms.author: tarcher
 
 # Quickstart: Create an Azure API Management service using Terraform
 
-This article shows how to use [Terraform](/azure/terraform) to create an [API Management (APIM) service instance](/azure/api-management/api-management-key-concepts) on Azure. APIM helps organizations publish APIs to external, partner, and internal developers to unlock the potential of their data and services. API Management provides the core competencies to ensure a successful API program through developer engagement, business insights, analytics, security, and protection. APIM enables you to create and manage modern API gateways for existing backend services hosted anywhere. For more information, see the [Azure API Management - Overview and key concepts](api-management-key-concepts.md).
+This article shows how to use [Terraform](/azure/terraform) to create an [API Management service instance](/azure/api-management/api-management-key-concepts) on Azure. API Management helps organizations publish APIs to external, partner, and internal developers to unlock the potential of their data and services. API Management provides the core competencies to ensure a successful API program through developer engagement, business insights, analytics, security, and protection. API Management enables you to create and manage modern API gateways for existing backend services hosted anywhere. For more information, see the [Azure API Management - Overview and key concepts](api-management-key-concepts.md).
 
 [!INCLUDE [Terraform abstract](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 
