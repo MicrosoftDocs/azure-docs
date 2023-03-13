@@ -226,13 +226,13 @@ To train a machine learning model on data in your Log Analytics workspace:
     ```python
     os.environ['AZURE_TENANT_ID'] = "<Tenant ID>"; #Tenant ID the data collection endpoint resides in
     os.environ['AZURE_CLIENT_ID'] = "<Application ID>"; #Application ID to which you granted permissions to your data collection rule
-    os.environ['AZURE_CLIENT_SECRET'] = "<Client secret"; #Secret created for the application
+    os.environ['AZURE_CLIENT_SECRET'] = "<Client secret>"; #Secret created for the application
     
     
     
-    os.environ['LOGS_DCR_STREAM_NAME'] = "Custom stream name" ##Name of the custom stream from the data collection rule
-    os.environ['LOGS_DCR_RULE_ID'] = "Data collection rule immutableId" # immutableId of your data collection rule
-    os.environ['DATA_COLLECTION_ENDPOINT'] =  "Logs ingestion URL of your endpoint" # URL that looks like this: https://xxxx.ingest.monitor.azure.com
+    os.environ['LOGS_DCR_STREAM_NAME'] = "<Custom stream name>" ##Name of the custom stream from the data collection rule
+    os.environ['LOGS_DCR_RULE_ID'] = "<Data collection rule immutableId>" # immutableId of your data collection rule
+    os.environ['DATA_COLLECTION_ENDPOINT'] =  "<Logs ingestion URL of your endpoint>" # URL that looks like this: https://xxxx.ingest.monitor.azure.com
     ```
 1. Send anomalies to your Log Analytics workspace.
 1. Verify that the anomaly data now appear in your custom table.
