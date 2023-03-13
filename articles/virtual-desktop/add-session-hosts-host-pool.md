@@ -242,7 +242,7 @@ Using `msiexec` enables you to install the agent and boot loader from the comman
 
    $installers = @()
    foreach ($uri in $uris) {
-       $download = Invoke-WebRequest -Uri $uri -Method GET
+       $download = Invoke-WebRequest -Uri $uri
 
        $fileName = ($download.Headers.'Content-Disposition').Split('=')[1].Replace('"','')
        $output = [System.IO.FileStream]::new("$pwd\$fileName", [System.IO.FileMode]::Create)

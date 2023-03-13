@@ -249,7 +249,7 @@ items:
         href: map-get-information-from-coordinate.md
       - name: Show directions from A to B
         href: map-route.md
-    - name: creator indoor maps module
+    - name: Creator indoor maps module
       items:
       - name: Indoor Maps module with custom styles
         href: how-to-use-indoor-module.md

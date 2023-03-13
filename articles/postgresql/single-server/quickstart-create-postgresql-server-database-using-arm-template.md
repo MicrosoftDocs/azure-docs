@@ -6,7 +6,7 @@ ms.subservice: single-server
 ms.topic: quickstart
 ms.author: sunila
 author: sunilagarwal
-ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
+ms.custom: subject-armqs, mode-arm
 ms.date: 06/24/2022
 ---
 
