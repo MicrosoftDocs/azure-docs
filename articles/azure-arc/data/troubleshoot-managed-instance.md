@@ -60,7 +60,7 @@ Compare the results from the remote instance with the results from the local ins
 
 * `partnerMI` from `kubectl -n $nameSpace get fog $fogName -o jsonpath-as-json='{.spec}'` has to match with `$sqlmiName` from remote instance.
 
-* `sharedName` from `kubectl -n $nameSpace get fog $fogName -o jsonpath-as-json='{.spec}'` is optional. If it'sn't presented, it's same as `sourceMI`. The `sharedName` from both site should be same if presented. If it'sn't presented, `sourceMI` from both site should be identical.
+* `sharedName` from `kubectl -n $nameSpace get fog $fogName -o jsonpath-as-json='{.spec}'` is optional. If it isn't presented, it's same as `sourceMI`. The `sharedName` from both site should be same if presented. 
 
 * Role from `kubectl -n $nameSpace get fog $fogName -o jsonpath-as-json='{.spec}'` should be different between two sites. One side should be primary, other should be secondary.
 
@@ -78,9 +78,7 @@ kubectl -n test get services $sqlmiName-external-svc -o jsonpath-as-json='{.spec
 
 **Results**
 
-* `port-mssql-mirroring` should be presented on the list. The failover group on the other side should use the same value for `partnerMirroringURL`.
-
-If it'sn't, correct the mistake and retry from the beginning.
+* `port-mssql-mirroring` should be presented on the list. The failover group on the other side should use the same value for `partnerMirroringURL`. If the values don't match, correct the mistake and retry from the beginning.
 
 ### Verify SQL Server can reach external endpoint of another site
 
@@ -111,7 +109,7 @@ kubectl -n $nameSpace get sqlmi $sqlmiName -o jsonpath-as-json='{.status}'
 
 **Results**
 
-The state should be `Ready`. If it'sn't, you need to wait. If state is error, get the message field, collect logs, and contact support. See [Collecting the logs](#collecting-the-logs).
+The state should be `Ready`. If the value isn't `Ready`, you need to wait. If state is error, get the message field, collect logs, and contact support. See [Collecting the logs](#collecting-the-logs).
 
 ### Check the routing label for stateful set
 The routing label for stateful set is used to route external endpoint to a matched pod. The name of the label is `role.ag.mssql.microsoft.com`.
@@ -140,7 +138,7 @@ kubectl exec -ti -n $nameSpace $sqlmiName-2 -c arc-sqlmi -- /opt/mssql-tools/bin
 
 All replicas should be connected & healthy. Here is the detailed description of the query results [sys.dm_hadr_availability_replica_states](/sql/relational-databases/system-dynamic-management-views/sys-dm-hadr-availability-replica-states-transact-sql).
 
-If you find it'sn't synchronized or not connected unexpectedly, try to kill the pod which has the problem. If problem persists, collect logs and contact support. See [Collecting the logs](#collecting-the-logs).
+If you find it isn't synchronized or not connected unexpectedly, try to kill the pod which has the problem. If problem persists, collect logs and contact support. See [Collecting the logs](#collecting-the-logs).
 
 > [!NOTE]
 > If there are some large database in the instance, the seeding process to secondary could take a while. If this happens, wait for seeding to complete.
