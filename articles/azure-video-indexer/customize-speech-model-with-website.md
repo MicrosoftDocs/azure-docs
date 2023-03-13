@@ -22,7 +22,7 @@ As all custom models must contain a dataset, we'll start with the process of how
 1. Select the Speech (new) tab. Here you'll begin the process of uploading datasets that are used to train the speech models.  
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/customize-speech-model/speech-model.png" alt-text="The "Screenshot of uploading datasets which are used to train the speech models.":::
+    > :::image type="content" source="./media/customize-speech-model/speech-model.png" alt-text="Screenshot of uploading datasets which are used to train the speech models.":::
 1. Select Upload dataset. 
 1. Select either Plain text or Pronunciation from the Dataset type dropdown menu. Every speech model must have a plain text dataset and can optionally have a pronunciation dataset. To learn more about each type, see Customize a speech model with Azure Video Indexer. 
 1. Select Browse which will open the File Explorer. You can only use one file in each dataset. Choose the relevant text file. 
