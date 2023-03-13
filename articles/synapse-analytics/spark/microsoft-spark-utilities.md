@@ -856,7 +856,13 @@ mssparkutils.credentials.help()
 ```
 
 ::: zone-end
+:::zone pivot = "programming-language-csharp"
 
+```csharp
+Not supported.
+```
+
+::: zone-end
 
 :::zone pivot = "programming-language-r"
 
