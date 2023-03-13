@@ -4918,6 +4918,46 @@
             "source_path_from_root": "/articles/virtual-machines/linux/azure-hybrid-benefit-byos-linux.md",
             "redirect_url": "/azure/virtual-machines/linux/azure-hybrid-benefit-linux/",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/hpc/hb-series-overview.md",
+            "redirect_url": "/azure/virtual-machines/hb-series-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/hpc/hb-series-performance.md",
+            "redirect_url": "/azure/virtual-machines/hb-series-performance",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/hpc/hbv2-performance.md",
+            "redirect_url": "/azure/virtual-machines/hbv2-performance",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/hpc/hbv2-series-overview.md",
+            "redirect_url": "/azure/virtual-machines/hbv2-series-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/hpc/hbv3-performance.md",
+            "redirect_url": "/azure/virtual-machines/hbv3-performance",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/hpc/hbv3-series-overview.md",
+            "redirect_url": "/azure/virtual-machines/hbv3-series-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/hpc/hc-series-overview.md",
+            "redirect_url": "/azure/virtual-machines/hc-series-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/hpc/hc-series-performance.md",
+            "redirect_url": "/azure/virtual-machines/hc-series-performance",
+            "redirect_document_id": false
         }
     ]
 }
