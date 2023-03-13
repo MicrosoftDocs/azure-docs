@@ -14,7 +14,7 @@ ms.date: 02/15/2022
 
 1. Select the menu button in the upper-left corner of the portal, and then select **+ Create a resource**.
 
-    :::image type="content" source="media/azure-load-testing-create-in-portal/create-resource.png" alt-text="Screenshot that shows the button for creating a resource.":::
+    :::image type="content" source="../../media/azure-load-testing-create-in-portal/create-resource.png" alt-text="Screenshot that shows the button for creating a resource.":::
 
 1. Use the search bar to find **Azure Load Testing**.
 
@@ -22,7 +22,7 @@ ms.date: 02/15/2022
 
 1. On the **Azure Load Testing** pane, select **Create**.
 
-    :::image type="content" source="media/azure-load-testing-create-in-portal/create-azure-load-testing.png" alt-text="Screenshot that shows the Azure Load Testing pane.":::
+    :::image type="content" source="../../media/azure-load-testing-create-in-portal/create-azure-load-testing.png" alt-text="Screenshot that shows the Azure Load Testing pane.":::
 
 1. Provide the following information to configure your new Azure Load Testing resource:
 
@@ -44,11 +44,11 @@ ms.date: 02/15/2022
 
 1. To view the new resource, select **Go to resource**.
     
-    :::image type="content" source="media/azure-load-testing-create-in-portal/create-azure-load-testing-goto-resource.png" alt-text="Screenshot that shows the deployment completion screen.":::
+    :::image type="content" source="../../media/azure-load-testing-create-in-portal/create-azure-load-testing-goto-resource.png" alt-text="Screenshot that shows the deployment completion screen.":::
 
 1. Optionally, [manage access to your Azure Load Testing resource](../articles/load-testing/how-to-assign-roles.md).
 
     Azure Load Testing uses role-based access control (RBAC) to manage permissions for your resource. If you encounter this message, your account doesn't have the necessary permissions to manage tests.
 
-    :::image type="content" source="media/azure-load-testing-create-in-portal/azure-load-testing-not-authorized.png" lightbox="media/azure-load-testing-create-in-portal/azure-load-testing-not-authorized.png" alt-text="Screenshot that shows an error message in the Azure portal that you're not authorized to use the Azure Load Testing resource.":::
+    :::image type="content" source="../../media/azure-load-testing-create-in-portal/azure-load-testing-not-authorized.png" lightbox="media/azure-load-testing-create-in-portal/azure-load-testing-not-authorized.png" alt-text="Screenshot that shows an error message in the Azure portal that you're not authorized to use the Azure Load Testing resource.":::
     
