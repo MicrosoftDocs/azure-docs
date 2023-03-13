@@ -2,7 +2,7 @@
 title: Create metric alert rules in Container insights (preview)
 description: Describes how to create recommended metric alerts rules for a Kubernetes cluster in Container insights.
 ms.topic: conceptual
-ms.date: 09/28/2022
+ms.date: 03/13/2023
 ms.reviewer: aul
 ---
 
@@ -11,7 +11,7 @@ ms.reviewer: aul
 Metric alerts in Azure Monitor proactively identify issues related to system resources of your Azure resources, including monitored Kubernetes clusters. Container insights provides preconfigured alert rules so that you don't have to create your own. This article describes the different types of alert rules you can create and how to enable and configure them.
 
 > [!IMPORTANT]
-> Container insights in Azure Monitor now supports alerts based on Prometheus metrics. If you already use alerts based on custom metrics, you should migrate to Prometheus alerts and disable the equivalent custom metric alerts.
+> Container insights in Azure Monitor now supports alerts based on Prometheus metrics, and metric rules will be retired on March 14, 2026. If you already use alerts based on custom metrics, you should migrate to Prometheus alerts and disable the equivalent custom metric alerts.
 
 ## Types of metric alert rules
 
@@ -95,7 +95,7 @@ The configuration change can take a few minutes to finish before it takes effect
 ## Metric alert rules
 
 > [!IMPORTANT]
-> Metric alerts (preview) is retiring. Please refer to the migration guidance at [Migrate from Container insights recommended alerts to Prometheus recommended alert rules (preview)](#migrate-from-metric-rules-to-prometheus-rules-preview).
+> Metric alerts (preview) are retiring and no longer recommended. Please refer to the migration guidance at [Migrate from Container insights recommended alerts to Prometheus recommended alert rules (preview)](#migrate-from-metric-rules-to-prometheus-rules-preview).
 
 ### Prerequisites
 
