@@ -26,7 +26,7 @@ The Authenticate integration includes the following components:
 * **Azure AD B2C** - authorization server that verifies user credentials
   * Also known as the identity provider (IdP)
 * **Web and mobile applications** - Open ID Connect (OIDC) mobile or web applications protected by Authenticate and Azure AD B2C
-* Haventec Authenticate service - external IdP for the Azure AD B2C tenant
+* **Haventec Authenticate service** - external IdP for the Azure AD B2C tenant
 
 The following diagram illustrates sign-up and sign-in user flows in the Haventec Authenticate integration.
 
@@ -108,7 +108,7 @@ For the following instructions, Haventec is a new OIDC identity provider in the 
 4. Enter a **Name** for the policy.
 5. In **Identity providers**, select the created Haventec identity provider.
 6. For **Local Accounts**, select **None**. This selection disables email and password authentication.
-7. Select **Run user flow**
+7. Select **Run user flow**.
 8. In the form, enter the replying URL, for example, `https://jwt.ms`.
 9. The browser redirects to the Haventec sign-in page.
 10. User is prompted to register, or enter a PIN.
