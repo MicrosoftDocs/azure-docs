@@ -136,7 +136,7 @@ Here are more details about the `strength` attribute.
 
 ### Break examples
 
-The supported values for attributes of the `break` element were [described previously](#add-or-prevent-a-break). 
+The supported values for attributes of the `break` element were [described previously](#add-a-break). 
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
