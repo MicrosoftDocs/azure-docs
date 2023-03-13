@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.custom: cliv2, event-tier1-build-2023
+ms.custom: cliv2
 author: cloga
 ms.author: lochen
 ms.date: 02/28/2023
@@ -34,45 +34,26 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `display_name` | string | Display name of the component in the studio UI. Can be non-unique within the workspace. | | |
 | `description` | string | Description of the component. | | |
 | `tags` | object | Dictionary of tags for the component. | | |
-| `command` | string | **Required.** The command to execute. | | |
-| `code` | string | Local path to the source code directory to be uploaded and used for the component. | | |
-| `environment` | string or object | **Required.** The environment to use for the component. This value can be either a reference to an existing versioned environment in the workspace or an inline environment specification. <br><br> To reference an existing environment, use the `azureml:<environment-name>:<environment-version>` syntax. <br><br> To define an environment inline, follow the [Environment schema](reference-yaml-environment.md#yaml-syntax). Exclude the `name` and `version` properties as they are not supported for inline environments. | | |
-| `distribution` | object | The distribution configuration for distributed training scenarios. One of [MpiConfiguration](#mpiconfiguration), [PyTorchConfiguration](#pytorchconfiguration), or [TensorFlowConfiguration](#tensorflowconfiguration). | | |
-| `resources.instance_count` | integer | The number of nodes to use for the job. | | `1` |
-| `inputs` | object | Dictionary of component inputs. The key is a name for the input within the context of the component and the value is the component input definition. <br><br> Inputs can be referenced in the `command` using the `${{ inputs.<input_name> }}` expression. | | |
-| `inputs.<input_name>` | object | The component input definition. See [Component input](#component-input) for the set of configurable properties. | | |
-| `outputs` | object | Dictionary of component outputs. The key is a name for the output within the context of the component and the value is the component output definition. <br><br> Outputs can be referenced in the `command` using the `${{ outputs.<output_name> }}` expression. | |
-| `outputs.<output_name>` | object | The component output definition. See [Component output](#component-output) for the set of configurable properties. | |
+| `settings` | object | Default settings for the pipeline job. See [Attributes of the `settings` key](#attributes-of-the-settings-key) for the set of configurable properties. | | |
+| `jobs` | object | **Required.** Dictionary of the set of individual jobs to run as steps within the pipeline. These jobs are considered child jobs of the parent pipeline job. <br><br> The key is the name of the step within the context of the pipeline job. This name is different from the unique job name of the child job. The value is the job specification, which can follow the [command job schema](reference-yaml-job-command.md#yaml-syntax) or [sweep job schema](reference-yaml-job-sweep.md#yaml-syntax). Currently only command jobs and sweep jobs can be run in a pipeline. Later releases will have support for other job types. | | |
+| `inputs` | object | Dictionary of inputs to the pipeline job. The key is a name for the input within the context of the job and the value is the input value. <br><br> These pipeline inputs can be referenced by the inputs of an individual step job in the pipeline using the `${{ parent.inputs.<input_name> }}` expression. For more information on how to bind the inputs of a pipeline step to the inputs of the top-level pipeline job, see the [Expression syntax for binding inputs and outputs between steps in a pipeline job](reference-yaml-core-syntax.md#binding-inputs-and-outputs-between-steps-in-a-pipeline-job). | | |
+| `inputs.<input_name>` | number, integer, boolean, string or object | One of a literal value (of type number, integer, boolean, or string) or an object containing a [job input data specification](#job-inputs). | | |
+| `outputs` | object | Dictionary of output configurations of the pipeline job. The key is a name for the output within the context of the job and the value is the output configuration. <br><br> These pipeline outputs can be referenced by the outputs of an individual step job in the pipeline using the `${{ parents.outputs.<output_name> }}` expression. For more information on how to bind the inputs of a pipeline step to the inputs of the top-level pipeline job, see the [Expression syntax for binding inputs and outputs between steps in a pipeline job](reference-yaml-core-syntax.md#binding-inputs-and-outputs-between-steps-in-a-pipeline-job). | |
+| `outputs.<output_name>` | object | You can leave the object empty, in which case by default the output will be of type `uri_folder` and Azure ML will system-generate an output location for the output based on the following templatized path: `{settings.datastore}/azureml/{job-name}/{output-name}/`. File(s) to the output directory will be written via read-write mount. If you want to specify a different mode for the output, provide an object containing the [job output specification](#job-outputs). | |
 
-### Distribution configurations
+### Attributes of the `settings` key
 
-#### MpiConfiguration
-
-| Key | Type | Description | Allowed values |
-| --- | ---- | ----------- | -------------- |
-| `type` | const | **Required.** Distribution type.  | `mpi` |
-| `process_count_per_instance` | integer | **Required.** The number of processes per node to launch for the job.  | |
-
-#### PyTorchConfiguration
-
-| Key | Type | Description | Allowed values | Default value |
-| --- | ---- | ----------- | -------------- | ------------- |
-| `type` | const | **Required.** Distribution type.  | `pytorch` | |
-| `process_count_per_instance` | integer | The number of processes per node to launch for the job. | |  `1` |
-
-#### TensorFlowConfiguration
-
-| Key | Type | Description | Allowed values | Default value |
-| --- | ---- | ----------- | -------------- | ------------- |
-| `type` | const | **Required.** Distribution type.  | `tensorflow` |
-| `worker_count` | integer | The number of workers to launch for the job. | | Defaults to `resources.instance_count`. |
-| `parameter_server_count` | integer | The number of parameter servers to launch for the job. | | `0` |
+| Key | Type | Description | Default value |
+| --- | ---- | ----------- | ------------- |
+| `default_datastore` | string | Name of the datastore to use as the default datastore for the pipeline job. This value must be a reference to an existing datastore in the workspace using the `azureml:<datastore-name>` syntax. Any outputs defined in the `outputs` property of the parent pipeline job or child step jobs will be stored in this datastore. If omitted, outputs will be stored in the workspace blob datastore. | |
+| `default_compute` | string | Name of the compute target to use as the default compute for all steps in the pipeline. If compute is defined at the step level, it will override this default compute for that specific step. This value must be a reference to an existing compute in the workspace using the `azureml:<compute-name>` syntax. | |
+| `continue_on_step_failure` | boolean | Whether the execution of steps in the pipeline should continue if one step fails. The default value is `False`, which means that if one step fails, the pipeline execution will be stopped, canceling any running steps. | `False` |
 
 ### Component input
 
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
-| `type` | string | **Required.** The type of component input. [Learn more about data access](concept-data.md) | `number`, `integer`, `boolean`, `string`, `uri_file`, `uri_folder`, `mltable`, `mlflow_model`| |
+| `type` | string | **Required.** The type of component input. [Learn more about data access](concept-data.md) | `number`, `integer`, `boolean`, `string`, `uri_file`, `uri_folder`, `mltable`, `mlflow_model`, `custom_model`| |
 | `description` | string | Description of the input. | | |
 | `default` | number, integer, boolean, or string | The default value for the input. | | |
 | `optional` | boolean | Whether the input is required. If set to `true`, you need use the command includes optional inputs with `$[[]]`| | `false` |
@@ -84,7 +65,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
-| `type` | string | **Required.** The type of component output. | `uri_file`, `uri_folder`, `mltable`, `mlflow_model` | |
+| `type` | string | **Required.** The type of component output. | `uri_file`, `uri_folder`, `mltable`, `mlflow_model`, `custom_model` | |
 | `description` | string | Description of the output. | | |
 
 ## Remarks
@@ -93,35 +74,9 @@ The `az ml component` commands can be used for managing Azure Machine Learning c
 
 ## Examples
 
-Command component examples are available in the examples GitHub repository. Select examples for are shown below.
-
-Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/pipelines-with-components). Several are shown below.
-
-## YAML: Hello world command component
-
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines-with-components/basics/2a_basic_component/component.yml":::
-
-## YAML: Component with different input types
-
-:::code language="yaml" source="~/azureml-examples-main/cli/assets/component/train.yml":::
-
-### Define optional inputs in command line
-When the input is set as `optional = true`, you need use `$[[]]` to embrace the command line with inputs. For example `$[[--input1 ${{inputs.input1}}]`. The command line at runtime may have different inputs.
-- If  you are using only specify the required `training_data` and `model_output` parameters, the command line will look like:
-
-```azurecli
-python train.py --training_data some_input_path --learning_rate 0.01 --learning_rate_schedule time-based --model_output some_output_path
-```
-
-If no value is specified at runtime, `learning_rate` and `learning_rate_schedule` will use the default value.
-
-- If all inputs/outputs provide values during runtime, the command line will look like:
-```azurecli
-python train.py --training_data some_input_path --max_epocs 10 --learning_rate 0.01 --learning_rate_schedule time-based --model_output some_output_path
-```
-
+Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/lochen/pipeline-component-pup/cli/jobs/pipelines-with-components/pipeline_with_pipeline_component).
 
 ## Next steps
 
 - [Install and use the CLI (v2)](how-to-configure-cli.md)
-- [Create ML pipelines using components (CLI v2)](how-to-create-component-pipelines-cli.md)
+- [Create ML pipelines using components](how-to-create-component-pipelines-cli.md)
