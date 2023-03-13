@@ -1607,25 +1607,7 @@ The following example shows a function that retrieves a single document. The fun
 
 # [v2](#tab/python-v2)
 
-```python
-@app.route()
-@app.cosmos_db_input(
-    arg_name="documents", 
-    database_name="ToDoItems",
-    collection_name="Items",
-    connection_string_setting="CosmosDBConnection")
-def test_function(req: func.HttpRequest,
-    todoitems: func.DocumentList) -> func.HttpResponse:
-     id = req.params.get('id')
-     partitionKeyValue = req.params.get('partitionKeyValue')
-     if not todoitems:
-         logging.warning("ToDoItems not found")
-     else:
-        logging.info("Found ToDo item, Text=%s", 
-                     todoitems[0]['description'])
-
-     return 'OK'
-```
+No equivalent sample for v2 at this time.
 
 # [v1](#tab/python-v1)
 
@@ -1691,26 +1673,7 @@ The following example shows a function that retrieves a single document. The fun
 
 # [v2](#tab/python-v2)
 
-```python
-@app.function_name()
-@app.route(route="todoitems/{partitionKey}/{id}")
-@app.cosmos_db_input(
-    arg_name="todoitems", 
-    database_name="ToDoItems",
-    collection_name="Items",
-    connection_string_setting="CONNECTION_STRING",
-    partition_key="{partitionKey}",
-    id="{id}")
-def test_function(req: func.HttpRequest,
-    todoitems: func.DocumentList) -> func.HttpResponse:
-     if not todoitems:
-         logging.warning("ToDo items not found")
-     else:
-        logging.info("Found ToDo item, Text=%s", 
-                     todoitems[0]['description'])
-
-     return 'OK'
-```
+No equivalent sample for v2 at this time.
 
 # [v1](#tab/python-v1)
 
