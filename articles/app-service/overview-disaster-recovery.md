@@ -47,6 +47,7 @@ With this example architecture:
 - During a disaster, one of the regions becomes offline, and Azure Front Door routes traffic exclusively to the region that remains online. The RTO during such a geo-failover is near-zero.
 - Application files should be deployed to both web apps with a CI/CD solution. This ensures that the RPO is practically zero. 
 - If your application actively modifies the file system, the best way to minimize RPO is to only write to a [mounted Azure Storage share](configure-connect-to-azure-storage.md) instead of writing directly to the web app's */home* content share. Then, use the Azure Storage redundancy features ([GZRS](../storage/common/storage-redundancy.md#geo-zone-redundant-storage) or [GRS](../storage/common/storage-redundancy.md#geo-redundant-storage)) for your mounted share, which has an [RPO of about 15 minutes](../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region).
+- Review [important considerations](#important-considerations) for disaster recovery guidance on the rest of your architecture, such as Azure SQL Database and Azure Storage.
 
 Steps to create an active-active architecture for your web app in App Service are summarized as follows: 
 
