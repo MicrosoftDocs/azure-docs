@@ -176,7 +176,7 @@ The easiest way to create an SP and grant access to your workspace is by using t
     ```
 
 1. To grant access to the workspace and other resources used by Azure Machine Learning, use the information in the following articles:
-    * [How to assign roles and actions in AzureML](how-to-assign-roles.md)
+    * [How to assign roles and actions in Azure Machine Learning](how-to-assign-roles.md)
     * [How to assign roles in the CLI](../role-based-access-control/role-assignments-cli.md)
 
     > [!IMPORTANT]
@@ -186,7 +186,7 @@ The easiest way to create an SP and grant access to your workspace is by using t
 ## Configure a managed identity
 
 > [!IMPORTANT]
-> Managed identity is only supported when using the Azure Machine Learning SDK from an Azure Virtual Machine or with an Azure Machine Learning compute cluster.
+> Managed identity is only supported when using the Azure Machine Learning SDK from an Azure Virtual Machine, an Azure Machine Learning compute cluster, or compute instance.
 
 ### Managed identity with a VM
 
@@ -199,6 +199,10 @@ The easiest way to create an SP and grant access to your workspace is by using t
 ### Managed identity with compute cluster
 
 For more information, see [Set up managed identity for compute cluster](how-to-create-attach-compute-cluster.md#set-up-managed-identity).
+
+### Managed identity with compute instance
+
+For more information, see [Set up managed identity for compute instance](how-to-create-manage-compute-instance.md#assign-managed-identity).
 
 <a id="service-principal-authentication"></a>
 

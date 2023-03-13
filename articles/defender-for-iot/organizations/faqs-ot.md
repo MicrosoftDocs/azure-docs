@@ -1,7 +1,7 @@
 ---
 title: FAQs for OT networks - Microsoft Defender for IoT
 description: Find answers to the most frequently asked questions about Microsoft Defender for IoT OT networks.
-ms.topic: conceptual
+ms.topic: faq
 ms.date: 07/07/2022
 ---
 

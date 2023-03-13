@@ -8,7 +8,7 @@ ms.author: chrhoder
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: overview
-ms.date: 11/07/2022
+ms.date: 03/01/2022
 ms.custom: event-tier1-build-2022
 recommendations: false
 keywords:  
@@ -22,10 +22,12 @@ Azure OpenAI Service provides REST API access to OpenAI's powerful language mode
 
 | Feature | Azure OpenAI |
 | --- | --- |
-| Models available | GPT-3 base series <br> Codex series <br> Embeddings series <br> Learn more in our [Models](./concepts/models.md) page.|
+| Models available | GPT-3 base series <br>**New ChatGPT (gpt-35-turbo)**<br> Codex series <br> Embeddings series <br> Learn more in our [Models](./concepts/models.md) page.|
 | Fine-tuning | Ada <br> Babbage <br> Curie <br> Cushman* <br> Davinci* <br> \* Currently unavailable.|
+| Models available | GPT-3 base series <br> Codex series <br> Embeddings series <br> Learn more in our [Models](./concepts/models.md) page.|
+| Fine-tuning | Ada <br> Babbage <br> Curie <br> Cushman* <br> Davinci* <br> \* Currently unavailable. \*\*East US Fine-tuning is currently unavailable to new customers. Please use US South Central for US based training|
 | Price | [Available here](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) |
-| Virtual network support | Yes | 
+| Virtual network support & private link support | Yes | 
 | Managed Identity| Yes, via Azure Active Directory | 
 | UI experience | **Azure Portal** for account & resource management, <br> **Azure OpenAI Service Studio** for model exploration and fine tuning |
 | Regional availability | East US <br> South Central US <br> West Europe |

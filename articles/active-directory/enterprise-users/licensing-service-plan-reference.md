@@ -424,10 +424,8 @@ The following service plans cannot be assigned together:
 | Service Plan Name | GUID |
 | --- | --- |
 | EXCHANGE_B_STANDARD	| 90927877-dcff-4af6-b346-2332c0b15bb7 |
-| EXCHANGE_L_STANDARD	| d42bdbd6-c335-4231-ab3d-c8f348d5aff5 |
 | EXCHANGE_S_ARCHIVE	| da040e0a-b393-4bea-bb76-928b3fa1cf5a |
 | EXCHANGE_S_DESKLESS	| 4a82b400-a79f-41a4-b4e2-e94f5787b113 |
-| EXCHANGE_S_ENTERPRISE	| efb87545-963c-4e0d-99df-69c6916d9eb0 |
 | EXCHANGE_S_ESSENTIALS	| 1126bef5-da20-4f07-b45e-ad25d2581aa8 |
 | EXCHANGE_S_STANDARD	| 9aaf7827-d63c-4b61-89c3-182f06f82e5c |
 | EXCHANGE_S_STANDARD_MIDMARKET	| fc52cc4b-ed7d-472d-bbe7-b081c23ecc56 |
