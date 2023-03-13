@@ -28,7 +28,9 @@ Use the following steps to change the pricing tier of your workspace using the A
 
 :::image type="content" source="media/manage-cost-storage/pricing-tier-estimated-costs.png" alt-text="Pricing tiers":::
     
-3. Click **Select** if you decide to change the pricing tier after reviewing the estimated costs.  
+3. Click **Select** if you decide to change the pricing tier after reviewing the estimated costs.
+
+4. Review the commitment message in the popup that "Commitment Tier pricing has a 31-day commitment period, during which the workspace cannot be moved to a lower Commitment Tier or any Consumption Tier" and click **Change pricing tier** to confirm. 
 
 # [Azure Resource Manager](#tab/azure-resource-manager)
 To set the pricing tier using an [Azure Resource Manager](./resource-manager-workspace.md), use the `sku` object to set the pricing tier and the `capacityReservationLevel` parameter if the pricing tier is `capacityresrvation`. For details on this template format, see [Microsoft.OperationalInsights workspaces](/azure/templates/microsoft.operationalinsights/workspaces)

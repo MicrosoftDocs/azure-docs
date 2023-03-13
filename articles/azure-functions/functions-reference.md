@@ -121,8 +121,8 @@ Identity-based connections are supported by the following components:
 | Azure Tables (when using Azure Storage)  | All | [Azure Tables extension version 1.0.0 or later](./functions-bindings-storage-table.md#table-api-extension),<br/>[Extension bundle 3.3.0 or later][tablesv1] |
 | Azure Event Hubs triggers and bindings     | All             | [Azure Event Hubs extension version 5.0.0 or later][eventhubv5],<br/>[Extension bundle 3.3.0 or later][eventhubv5]   |
 | Azure Service Bus triggers and bindings       | All             | [Azure Service Bus extension version 5.0.0 or later][servicebusv5],<br/>[Extension bundle 3.3.0 or later][servicebusv5] |
-| Azure Cosmos DB triggers and bindings - Preview         | Elastic Premium | [Azure Cosmos DB extension version 4.0.0-preview1 or later][cosmosv4],<br/> [Preview extension bundle 4.0.0 or later][cosmosv4]|
-| Durable Functions storage provider (Azure Storage) - Preview | All | [Durable Functions extension version 2.7.0 or later][durable-identity],<br/>[Extension bundle 3.3.0 or later][durable-identity] | 
+| Azure Cosmos DB triggers and bindings         | All | [Azure Cosmos DB extension version 4.0.0 or later][cosmosv4],<br/> [Extension bundle 4.0.2 or later][cosmosv4]|
+| Durable Functions storage provider (Azure Storage) | All | [Durable Functions extension version 2.7.0 or later][durable-identity],<br/>[Extension bundle 3.3.0 or later][durable-identity] | 
 | Host-required storage ("AzureWebJobsStorage") - Preview | All             | [Connecting to host storage with an identity](#connecting-to-host-storage-with-an-identity-preview)                        |
 
 [blobv5]: ./functions-bindings-storage-blob.md#install-extension
@@ -131,7 +131,7 @@ Identity-based connections are supported by the following components:
 [servicebusv5]: ./functions-bindings-service-bus.md
 [cosmosv4]: ./functions-bindings-cosmosdb-v2.md?tabs=extensionv4
 [tablesv1]: ./functions-bindings-storage-table.md#table-api-extension
-[durable-identity]: ./durable/durable-functions-storage-providers.md#identity-based-connections-preview
+[durable-identity]: ./durable/durable-functions-configure-durable-functions-with-credentials.md
 
 [!INCLUDE [functions-identity-based-connections-configuration](../../includes/functions-identity-based-connections-configuration.md)]
 
@@ -157,7 +157,7 @@ Choose a tab below to learn about permissions for each component:
 
 [!INCLUDE [functions-service-bus-permissions](../../includes/functions-service-bus-permissions.md)]
 
-# [Azure Cosmos DB extension (preview)](#tab/cosmos)
+# [Azure Cosmos DB extension](#tab/cosmos)
 
 [!INCLUDE [functions-cosmos-permissions](../../includes/functions-cosmos-permissions.md)]
 

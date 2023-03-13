@@ -6,7 +6,6 @@ ms.author: rymend
 ms.topic: overview
 ms.date: 12/09/2020
 ms.service: azure-education
-ms.subservice: education-hub
 ---
 
 # What is the Azure Education Hub?

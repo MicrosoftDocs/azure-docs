@@ -4,6 +4,7 @@ description: Build your container app from a local or GitHub source repository a
 services: container-apps
 author: cebundy
 ms.service: container-apps
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: quickstart
 ms.date: 02/09/2023
 ms.author: v-bcatherine
@@ -319,4 +320,3 @@ az group delete --name $RESOURCE_GROUP
 
 > [!div class="nextstepaction"]
 > [Tutorial: Communication between microservices](communicate-between-microservices.md)
-> [Deploy Azure Container Apps with the az containerapp up command](containerapp-up.md)

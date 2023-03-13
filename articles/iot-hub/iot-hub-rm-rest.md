@@ -146,8 +146,6 @@ Since you've deployed an IoT hub using the resource provider REST API, you may w
 
 To learn more about developing for IoT Hub, see the following articles:
 
-* [Introduction to C SDK](iot-hub-device-sdk-c-intro.md)
-
 * [Azure IoT SDKs](iot-hub-devguide-sdks.md)
 
 To further explore the capabilities of IoT Hub, see:

@@ -4,6 +4,7 @@ description: A guide to show you how to enable Event Grid events for your Signal
 services: signalr
 author: vicancy
 ms.service: signalr
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 07/18/2022
 ms.author: lianwei
@@ -15,7 +16,7 @@ Azure Event Grid is a fully managed event routing service that provides uniform 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
  - The Azure CLI commands in this article are formatted for the **Bash** shell. If you're using a different shell like PowerShell or Command Prompt, you may need to adjust line continuation characters or variable assignment lines accordingly. This article uses variables to minimize the amount of command editing required.
 

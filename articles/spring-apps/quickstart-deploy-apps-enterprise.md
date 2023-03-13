@@ -6,7 +6,7 @@ ms.author: asirveda # external contributor: paly@vmware.com
 ms.service: spring-apps
 ms.topic: quickstart
 ms.date: 05/31/2022
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 ---
 
 # Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise tier
@@ -248,7 +248,8 @@ Use the following steps to deploy and build applications. For these steps, make 
        --name payment-service \
        --service <Azure-Spring-Apps-service-instance-name> \
        --config-file-pattern payment/default \
-       --source-path apps/acme-payment
+       --source-path apps/acme-payment \
+       --build-env BP_JVM_VERSION=17
    ```
 
 1. Use the following command to build and deploy the catalog service:
@@ -259,7 +260,8 @@ Use the following steps to deploy and build applications. For these steps, make 
        --name catalog-service \
        --service <Azure-Spring-Apps-service-instance-name> \
        --config-file-pattern catalog/default \
-       --source-path apps/acme-catalog
+       --source-path apps/acme-catalog \
+       --build-env BP_JVM_VERSION=17
    ```
 
 1. Use the following command to build and deploy the order service:

@@ -2,7 +2,7 @@
 title: OpenTelemetry with Azure Monitor overview 
 description: This article provides an overview of how to use OpenTelemetry with Azure Monitor.
 ms.topic: conceptual
-ms.date: 10/11/2021
+ms.date: 01/10/2023
 ms.reviewer: mmcc
 ---
 
@@ -46,7 +46,7 @@ Manual instrumentation is coding against the OpenTelemetry API. In the context o
 >
 > A subset of OpenTelemetry instrumentation libraries will be supported by Azure Monitor, informed by customer feedback. We're also working to [instrument the most popular Azure Service SDKs using OpenTelemetry](https://devblogs.microsoft.com/azure-sdk/introducing-experimental-opentelemetry-support-in-the-azure-sdk-for-net/).
 
-Auto-instrumentation enables telemetry collection through configuration without touching the application's code. Although it's more convenient, it tends to be less configurable. It's also not available in all languages. The Azure Monitor OpenTelemetry-based auto-instrumentation offering consists of the [Java 3.X OpenTelemetry-based GA offering](java-in-process-agent.md). We continue to invest in it informed by customer feedback. The OpenTelemetry community is also experimenting with C# and Python auto-instrumentation, but Azure Monitor is focused on creating a simple and effective manual instrumentation story in the near term.
+Auto-instrumentation enables telemetry collection through configuration without touching the application's code. Although it's more convenient, it tends to be less configurable. It's also not available in all languages. The Azure Monitor OpenTelemetry-based auto-instrumentation offering consists of the [Java 3.X OpenTelemetry-based GA offering](opentelemetry-enable.md?tabs=java). We continue to invest in it informed by customer feedback. The OpenTelemetry community is also experimenting with C# and Python auto-instrumentation, but Azure Monitor is focused on creating a simple and effective manual instrumentation story in the near term.
 
 ### Send your telemetry
 
@@ -59,7 +59,7 @@ A direct exporter sends telemetry in-process (from the application's code) direc
 
 *All currently supported OpenTelemetry-based offerings in Azure Monitor use a direct exporter*.
 
-Alternatively, sending telemetry via an agent will provide a path for any OpenTelemetry-supported language to send to Azure Monitor via [online transactional processing (OTLP)](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/protocol/README.md). Receiving OTLP will enable customers to observe applications written in languages beyond our [supported languages](platforms.md).
+Alternatively, sending telemetry via an agent will provide a path for any OpenTelemetry-supported language to send to Azure Monitor via [Open Telemetry Protocol (OTLP)](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/protocol/README.md). Receiving OTLP will enable customers to observe applications written in languages beyond our [supported languages](platforms.md).
 
 > [!NOTE]
 > Some customers have begun to use the [OpenTelemetry-Collector](https://github.com/open-telemetry/opentelemetry-collector/blob/main/docs/design.md) as an agent alternative even though Microsoft doesn't officially support the "via an agent" approach for application monitoring yet. In the meantime, the open-source community has contributed an OpenTelemetry-Collector Azure Monitor exporter that some customers are using to send data to Azure Monitor Application Insights.
@@ -81,7 +81,7 @@ Traces | Logs
 
 The following websites consist of language-by-language guidance to enable and configure Microsoft's OpenTelemetry-based offerings. The available functionality and limitations of each offering are explained so that you can determine whether OpenTelemetry is right for your project.
 
-- [.NET](opentelemetry-enable.md)
-- [Java](java-in-process-agent.md)
-- [JavaScript](opentelemetry-enable.md)
-- [Python](opentelemetry-enable.md)
+- [.NET](opentelemetry-enable.md?tabs=net)
+- [Java](opentelemetry-enable.md?tabs=java)
+- [JavaScript](opentelemetry-enable.md?tabs=nodejs)
+- [Python](opentelemetry-enable.md?tabs=python)

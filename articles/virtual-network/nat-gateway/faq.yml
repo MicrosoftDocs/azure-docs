@@ -54,7 +54,7 @@ sections:
       
       - question: Can public IPs of an existing NAT gateway be changed? 
         answer: |
-          No, the address of an existing public IP can't be changed. A different or additional IP can be added to NAT gateway.  Associate either an existing or newly created public IP address to the NAT gateway resource.  Disassociate the old IP address. See [add or remove a public IP address](/azure/virtual-network/nat-gateway/manage-nat-gateway?tabs=manage-nat-portal#add-or-remove-a-public-ip-address) for guidance.
+          No, the address of an existing public IP can't be changed. A different or additional IP can be added to NAT gateway.  Associate either an existing or newly created public IP address to the NAT gateway resource.  Disassociate the old IP address. See [add or remove a public IP address](./manage-nat-gateway.md?tabs=manage-nat-portal#add-or-remove-a-public-ip-address) for guidance.
 
       - question: If multiple public IP addresses are assigned to a NAT gateway resource, which public IPs will be used by my subnet resources?
         answer: |
@@ -84,6 +84,10 @@ sections:
         answer: |
           Yes. NAT gateway can be associated with multiple subnets within a virtual network. It isn't required to be associated with all subnets within a virtual network. Each subnet within a virtual network can be configured with its own Virtual Network NAT. 
       
+      - question: What configuration must I make on the subnet route table to connect outbound with NAT gateway?
+        answer: |
+          No configuration on the subnet route table is required in order to start connecting outbound with NAT gateway. When NAT gateway is assigned to a subnet, NAT gateway becomes the next hop type for all internet destined traffic. Traffic can start connecting outbound to the internet as soon as NAT gateway is assigned to a subnet and at least one public IP address.
+      
       - question: Can Virtual Network NAT gateway be associated with a gateway subnet? 
         answer: |
           No. NAT gateway can't be associated with a [gateway](../../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsub) subnet.
@@ -94,7 +98,7 @@ sections:
 
       - question: How does Virtual Network NAT gateway work with availability zones?   
         answer: |
-          Virtual Network NAT can be zonal or placed in "no zone". See [NAT gateway and availability zones](/azure/virtual-network/nat-gateway/nat-availability-zones) for more information. 
+          Virtual Network NAT can be zonal or placed in "no zone". See [NAT gateway and availability zones](./nat-availability-zones.md) for more information. 
 
           A "no zone" NAT gateway is placed into a zone for you by Azure and does not give a guarantee of redundancy.
 
@@ -106,11 +110,9 @@ sections:
         answer: |
           No. NAT gateway cannot be moved across subscriptions, regions, or resource groups. A new NAT gateway must be created for the other subscription, region, or resource group.
       
-      - question: How does NAT gateway work with virtual networks that are peered to one another?
+      - question: How does NAT gateway work in a hub and spoke network architecture?
         answer: |
-          NAT gateway can only be used by a virtual network that the NAT gateway is directly connected to and cannot traverse multiple virtual networks. 
-
-          In a scenario in which virtual network A is peered with virtual network B and NAT gateway is directly associated with virtual network A, virtual network B cannot use NAT gateway to direct outbound traffic. Virtual network B will need its own NAT gateway to make outbound connections. 
+           Traffic from the spoke VNets can be routed to the centralized hub VNet through an NVA or Azure Firewall. NAT Gateway can then provide outbound connectivity for all spoke virtual networks from the centralized hub network. To set up NAT gateway in a hub and spoke architecture with NVAs, see [use NAT gateway in a hub and spoke network](./tutorial-hub-spoke-route-nat.md). To use NAT gateway with Azure Firewall in a hub and spoke setup, see [integrate NAT gateway with Azure Firewall](./tutorial-hub-spoke-nat-firewall.md). 
       
       - question: How can I obtain logs for my NAT gateway resource?  
         answer: |
@@ -120,7 +122,7 @@ sections:
       
       - question: How do I delete a NAT gateway resource?
         answer: |
-          To delete a NAT gateway resource, the resource must first be disassociated from the subnet. Once the NAT gateway resource is disassociated from all subnets, it can be deleted. See [remove a NAT gateway from an existing subnet and delete the resource](/azure/virtual-network/nat-gateway/manage-nat-gateway?tabs=manage-nat-portal#remove-a-nat-gateway-from-an-existing-subnet-and-delete-the-resource) for step-by-step guidance.
+          To delete a NAT gateway resource, the resource must first be disassociated from the subnet. Once the NAT gateway resource is disassociated from all subnets, it can be deleted. See [remove a NAT gateway from an existing subnet and delete the resource](./manage-nat-gateway.md?tabs=manage-nat-portal#remove-a-nat-gateway-from-an-existing-subnet-and-delete-the-resource) for step-by-step guidance.
       
   - name: NAT gateway integration with other Azure services
     questions:  
@@ -134,7 +136,7 @@ sections:
 
       - question: Can I use NAT gateway with Azure Firewall?
         answer: |
-          Yes. NAT gateway can be used with Azure Firewall unless Azure Firewall is zone-redundant. Because NAT gateway is a zonal resource, it cannot be associated with an Azure Firewall that spans multiple zones. For more information about Virtual Network NAT integration with Azure Firewall, see [Scale SNAT ports with Azure NAT Gateway](../../firewall/integrate-with-nat-gateway.md).
+          Yes. NAT gateway can be used with Azure Firewall. Azure Firewall when used with NAT gateway should be in a zonal configuration. NAT gateway will work with a zone redundant firewall, but it’s not a recommended deployment at this time. For more information about Virtual Network NAT integration with Azure Firewall, see [Scale SNAT ports with Azure NAT Gateway](../../firewall/integrate-with-nat-gateway.md).
 
       - question: Can I use NAT gateway with Virtual Network service endpoints or Private Link?
         answer: | 

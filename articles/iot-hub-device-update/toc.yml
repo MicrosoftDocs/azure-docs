@@ -8,6 +8,8 @@ items:
     href: understand-device-update.md
   - name: Device Update for IoT Hub public preview documentation
     href: /previous-versions/azure/iot-hub-device-update/understand-device-update
+  - name: Release notes and version history
+    href: device-update-changelog.md
 - name: Tutorials
   items:
   - name: Try Device Update with a simulator
@@ -135,7 +137,7 @@ items:
   - name: Control plane SDK
     items:
       - name: .NET
-        href: /dotnet/api/overview/azure/iot/management
+        href: /dotnet/api/overview/azure/resourcemanager.iothub-readme
       - name: Python
         href: /python/api/azure-mgmt-deviceupdate/
   - name: Data plane SDK

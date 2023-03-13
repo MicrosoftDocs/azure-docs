@@ -1,15 +1,18 @@
 ---
-title: Configuring the MedTech service for deployment using the Azure portal - Azure Health Data Services
+title: Configure the MedTech service for deployment using the Azure portal - Azure Health Data Services
 description: In this article, you'll learn how to configure the MedTech service for manual deployment using the Azure portal.
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 11/21/2022
+ms.date: 03/10/2023
 ms.author: jasteppe
 ---
 
 # Quickstart: Part 2: Configure the MedTech service for manual deployment using the Azure portal
+
+> [!NOTE]
+> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
 Before you can manually deploy the MedTech service, you must complete the following configuration tasks:
 
@@ -74,7 +77,7 @@ Follow these six steps to fill in the Basics tab configuration:
 
 The Basics tab should now look like this after you've filled it out:
 
-  :::image type="content" source="media\iot-deploy-manual-in-portal\select-device-mapping-button.png" alt-text="Screenshot of Basics tab filled out correctly." lightbox="media\iot-deploy-manual-in-portal\select-device-mapping-button.png":::
+  :::image type="content" source="media\deploy-new-config\select-device-mapping-button.png" alt-text="Screenshot of Basics tab filled out correctly." lightbox="media\deploy-new-config\select-device-mapping-button.png":::
 
 You're now ready to select the Device mapping tab and begin setting up the device mappings for your MedTech service.
 
@@ -94,7 +97,7 @@ To begin configuring the device mapping tab, go to the Create MedTech service pa
 
 For more information regarding device mappings, see the relevant GitHub open source documentation at [Device Content Mapping](https://github.com/microsoft/iomt-fhir/blob/master/docs/Configuration.md#device-content-mapping).
 
-For Azure docs information about device mapping, see [How to use Device mappings](how-to-use-device-mappings.md).
+For Azure docs information about the device mapping, see [How to configure the MedTech service device mapping](how-to-configure-device-mappings.md).
 
 ## Configure the Destination tab
 
@@ -109,7 +112,7 @@ To begin configuring destination mapping, go to the Create MedTech service page 
 
 Under the **Destination** tab, use these values to enter the destination properties for your MedTech service instance:
 
-- First, enter the name of your **Fast Healthcare Interoperability Resources (FHIR&#174;) server** using the following four steps:
+- First, enter the name of your **FHIR server** using the following four steps:
 
   1. The **FHIR Server** name (also known as the **FHIR service**) can be located by using the **Search** bar at the top of the screen. 
   1. To connect to your FHIR service instance, enter the name of the FHIR service you used in the manual deploy configuration article at [Deploy the FHIR service](deploy-new-manual.md#deploy-the-fhir-service).
@@ -138,7 +141,7 @@ Under the **Destination** tab, use these values to enter the destination propert
 
 For more information regarding destination mapping, see the FHIR service GitHub documentation at [FHIR mapping](https://github.com/microsoft/iomt-fhir/blob/master/docs/Configuration.md#fhir-mapping).
 
-For Azure docs information about destination mapping, see [How to use FHIR destination mappings](how-to-use-fhir-mappings.md).
+For Azure docs information about destination mapping, see [How to use FHIR destination mappings](how-to-configure-fhir-mappings.md).
 
 ### JSON template request
 
@@ -183,13 +186,13 @@ To begin the validation process of your MedTech service deployment, select the *
 
 Your validation screen should look something like this:
 
-   :::image type="content" source="media\iot-deploy-manual-in-portal\validate-and-review-medtech-service.png" alt-text="Screenshot of validation success with details displayed." lightbox="media\iot-deploy-manual-in-portal\validate-and-review-medtech-service.png":::
+   :::image type="content" source="media\deploy-new-config\validate-and-review-medtech-service.png" alt-text="Screenshot of validation success with details displayed." lightbox="media\deploy-new-config\validate-and-review-medtech-service.png":::
 
 If your MedTech service didn't validate, review the validation failure message, and troubleshoot the issue. Check all properties under each MedTech service tab that you've configured. Go back and try again.
 
 ## Continue on to Part 3: Deployment and post-deployment
 
-After your configuration is successfully completed, you can go on to Part 3: Deployment and post deployment. See **Next steps** below.
+After your configuration is successfully completed, you can go on to Part 3: Deployment and post deployment. See **Next steps**.
 
 ## Next steps
 

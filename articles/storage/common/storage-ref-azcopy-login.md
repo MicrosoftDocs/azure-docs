@@ -4,7 +4,7 @@ description: This article provides reference information for the azcopy login co
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 05/26/2022
+ms.date: 03/13/2023
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
@@ -82,7 +82,7 @@ Subcommand for login to check the login status of your current session.
 
 ## Options
 
-`--aad-endpoint`    (string)    The Azure Active Directory endpoint to use. The default (https://login.microsoftonline.com) is correct for the global Azure cloud. Set this parameter when authenticating in a national cloud. Not needed for Managed Service Identity
+`--aad-endpoint`    (string)    The Azure Active Directory endpoint to use. The default (https://login.microsoftonline.com) is correct for the global Azure cloud. Set this parameter when authenticating in a national cloud. Not needed for Managed Service Identity. To see a list of national cloud Azure AD endpoints, see [Azure AD authentication endpoints](../../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints)
 
 `--application-id`    (string)    Application ID of user-assigned identity. Required for service principal auth.
 

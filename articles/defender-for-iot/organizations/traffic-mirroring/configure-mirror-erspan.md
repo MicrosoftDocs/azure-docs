@@ -13,7 +13,6 @@ The sensor's monitoring interface is a promiscuous interface and does not have a
 
 Use ERSPAN encapsulation when there is a need to extend monitored traffic across Layer 3 domains. ERSPAN is a Cisco proprietary feature and is available only on specific routers and switches. For more information, see the [Cisco documentation](https://learningnetwork.cisco.com/s/article/span-rspan-erspan).
 
-
 > [!NOTE]
 > This article provides high-level guidance for configuring traffic mirroring with ERSPAN. Specific implementation details will vary depending on your equiptment vendor.
 >
@@ -60,7 +59,8 @@ The installation wizard starts to run, and you can select the interfaces you wan
 
 Complete the wizard to apply your changes.
 
-For more information, see [Install OT monitoring software](../how-to-install-software.md#install-ot-monitoring-software).
+For more information, see [Install OT monitoring software on OT sensors](../how-to-install-software.md).
+
 ## Sample configuration on a Cisco switch
 
 The following code shows a sample `ifconfig` output for ERSPAN configured on a Cisco switch:
@@ -77,6 +77,8 @@ no shut                             
 
 monitor erspan origin ip-address 172.1.2.1 global
 ```
+
+ For more information, see [CLI command reference from OT network sensors](../cli-ot-sensor.md).
 
 ## Next steps
 

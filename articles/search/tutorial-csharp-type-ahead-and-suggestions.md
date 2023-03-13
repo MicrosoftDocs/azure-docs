@@ -1,7 +1,7 @@
 ---
-title: C# tutorial on autocomplete and suggestions
+title: Add autocomplete and suggestions to search app
 titleSuffix: Azure Cognitive Search
-description:  Add autocomplete and suggestions to collect search term input from users using dropdown list. This tutorial builds on an existing hotels project.
+description:  In this tutorial for Azure Cognitive Search, add autocomplete and suggestions based on search term inputs. 
 
 manager: nitinme
 author: HeidiSteen
@@ -15,7 +15,7 @@ ms.custom: "devx-track-js, devx-track-csharp"
 
 # Tutorial: Add autocomplete and suggestions using the .NET SDK
 
-Learn how to implement autocomplete (typeahead queries and suggested results) when a user starts typing into a search box. In this tutorial, we will show autocompleted queries and suggested results separately, and then together. A user may only have to type two or three characters to locate all the results that are available.
+Learn how to implement autocomplete (typeahead queries and suggested results) when a user starts typing into a search box. In this tutorial, we'll show autocompleted queries and suggested results separately, and then together. A user may only have to type two or three characters to locate all the results that are available.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -82,7 +82,7 @@ Let's start with the simplest case of offering up alternatives to the user: a dr
     </head>
     ```
 
-2. Because we are introducing a new jQuery reference, we also need to remove, or comment out, the default jQuery reference in the _Layout.cshtml file (in the **Views/Shared** folder). Locate the following lines, and comment out the first script line as shown. This change avoids clashing references to jQuery.
+2. Because we're introducing a new jQuery reference, we also need to remove, or comment out, the default jQuery reference in the _Layout.cshtml file (in the **Views/Shared** folder). Locate the following lines, and comment out the first script line as shown. This change avoids clashing references to jQuery.
 
     ```html
     <environment include="Development">
@@ -131,7 +131,7 @@ Let's start with the simplest case of offering up alternatives to the user: a dr
 
     The **Size** parameter specifies how many results to return (if unspecified, the default is 5). A _suggester_ is specified on the search index when the index is created. In the sample hotels index hosted by Microsoft, the suggester name is "sg", and it searches for suggested matches exclusively in the **HotelName** field.
 
-    Fuzzy matching allows "near misses" to be included in the output, up to one edit distance. If the **highlights** parameter is set to true, then bold HTML tags are added to the output. We will set both parameters to true in the next section.
+    Fuzzy matching allows "near misses" to be included in the output, up to one edit distance. If the **highlights** parameter is set to true, then bold HTML tags are added to the output. We'll set both parameters to true in the next section.
 
 2. You may get some syntax errors. If so, add the following two **using** statements to the top of the file.
 
@@ -150,7 +150,7 @@ Let's start with the simplest case of offering up alternatives to the user: a dr
  
     :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-fuzzy.png" alt-text="Typing *pa* with fuzzy set to true" border="false":::
 
-    If you are interested, the [Lucene query syntax in Azure Cognitive Search](./query-lucene-syntax.md) describes the logic used in fuzzy searches in detail.
+    If you're interested, the [Lucene query syntax in Azure Cognitive Search](./query-lucene-syntax.md) describes the logic used in fuzzy searches in detail.
 
 ## Add highlighting to the suggestions
 
@@ -195,13 +195,13 @@ We can improve the appearance of the suggestions to the user by setting the **hi
  
     :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-highlight.png" alt-text="Typing *pa* with highlighting" border="false":::
 
-   The logic used in the highlighting script above is not foolproof. If you enter a term that appears twice in the same name, the bolded results are not quite what you would want. Try typing "mo".
+   The logic used in the highlighting script above isn't foolproof. If you enter a term that appears twice in the same name, the bolded results aren't quite what you would want. Try typing "mo".
 
-   One of the questions a developer needs to answer is, when is a script working "well enough", and when should its quirks be addressed. We will not be taking highlighting any further in this tutorial, but finding a precise algorithm is something to consider if highlighting is not effective for your data. For more information, see [Hit highlighting](search-pagination-page-layout.md#hit-highlighting).
+   One of the questions a developer needs to answer is, when is a script working "well enough", and when should its quirks be addressed. We won't be taking highlighting any further in this tutorial, but finding a precise algorithm is something to consider if highlighting isn't effective for your data. For more information, see [Hit highlighting](search-pagination-page-layout.md#hit-highlighting).
 
 ## Add autocomplete
 
-Another variation, slightly different from suggestions, is autocompletion (sometimes called "type-ahead") that completes a query term. Again, we will start with the simplest implementation, before improving the user experience.
+Another variation, slightly different from suggestions, is autocompletion (sometimes called "type-ahead") that completes a query term. Again, we'll start with the simplest implementation, before improving the user experience.
 
 1. Enter the following script into the view, following your previous scripts.
 
@@ -246,9 +246,9 @@ Another variation, slightly different from suggestions, is autocompletion (somet
     }
     ```
 
-    Notice that we are using the same *suggester* function, called "sg", in the autocomplete search as we did for suggestions (so we are only trying to autocomplete the hotel names).
+    Notice that we're using the same *suggester* function, called "sg", in the autocomplete search as we did for suggestions (so we're only trying to autocomplete the hotel names).
 
-    There are a range of **AutocompleteMode** settings, and we are using **OneTermWithContext**. Refer to [Autocomplete API](/rest/api/searchservice/autocomplete) for a description of additional options.
+    There are a range of **AutocompleteMode** settings, and we're using **OneTermWithContext**. Refer to [Autocomplete API](/rest/api/searchservice/autocomplete) for a description of additional options.
 
 1. Run the app. Notice how the range of options displayed in the drop-down list are single words. Try typing words starting with "re". Notice how the number of options reduces as more letters are typed.
 
@@ -260,9 +260,9 @@ Another variation, slightly different from suggestions, is autocompletion (somet
 
 Combining autocompletion and suggestions is the most complex of our options, and probably provides the best user experience. What we want is to display, inline with the text that is being typed, is the first choice of Azure Cognitive Search for autocompleting the text. Also, we want a range of suggestions as a drop-down list.
 
-There are libraries that offer this functionality - often called "inline autocompletion" or a similar name. However, we are going to natively implement this feature so that you can explore the APIs. We are going to start work on the controller first in this example.
+There are libraries that offer this functionality - often called "inline autocompletion" or a similar name. However, we're going to natively implement this feature so that you can explore the APIs. We're going to start work on the controller first in this example.
 
-1. Add an action to the controller that returns just one autocompletion result, along with a specified number of suggestions. We will call this action **AutoCompleteAndSuggestAsync**. In the home controller, add the following action, following your other new actions.
+1. Add an action to the controller that returns just one autocompletion result, along with a specified number of suggestions. We'll call this action **AutoCompleteAndSuggestAsync**. In the home controller, add the following action, following your other new actions.
 
     ```cs
     public async Task<ActionResult> AutoCompleteAndSuggestAsync(string term)
@@ -325,9 +325,9 @@ There are libraries that offer this functionality - often called "inline autocom
     </div>
     ```
 
-    Notice we are changing the ID again, to **azureautocomplete** in this case.
+    Notice we're changing the ID again, to **azureautocomplete** in this case.
 
-1. Also in the view, enter the following script, after all the scripts you have entered so far. The script is lengthy and complex due to the variety of input behaviors that it handles.
+1. Also in the view, enter the following script, after all the scripts you've entered so far. The script is lengthy and complex due to the variety of input behaviors that it handles.
 
     ```javascript
     <script>
@@ -452,7 +452,7 @@ There are libraries that offer this functionality - often called "inline autocom
 
 1. Try tabbing to accept the autocomplete suggestion, and try selecting suggestions using the arrow keys and tab key, and try again using the mouse and a single click. Verify that the script handles all these situations neatly.
 
-    You may decide that it is simpler to load in a library that offers this feature for you, but now you know at least one way to get inline autocompletion to work.
+    You may decide that it's simpler to load in a library that offers this feature for you, but now you know at least one way to get inline autocompletion to work.
 
 ## Takeaways
 

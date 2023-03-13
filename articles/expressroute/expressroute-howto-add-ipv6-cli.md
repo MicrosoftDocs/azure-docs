@@ -4,6 +4,7 @@ description: Learn how to add IPv6 support to connect to Azure deployments using
 services: expressroute
 author: duongau
 ms.service: expressroute
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 09/27/2021
 ms.author: duau
@@ -75,7 +76,7 @@ Follow the steps below if you plan to connect to a new set of Azure resources us
 
 3. [Create the virtual network gateway](expressroute-howto-add-gateway-resource-manager.md#add-a-gateway) using any SKU. If you plan to use FastPath, use UltraPerformance or ErGw3AZ (note that this is only available for circuits using ExpressRoute Direct).
 
-4. [Link your virtual network to your ExpressRoute circuit](howto-linkvnet-cli.md).
+4. [Link your virtual network to your ExpressRoute circuit](expressroute-howto-linkvnet-cli.md).
 
 ## Limitations
 While IPv6 support is available for connections to deployments in global Azure regions, it does not support the following use cases:

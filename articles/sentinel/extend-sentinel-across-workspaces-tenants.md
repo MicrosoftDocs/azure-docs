@@ -10,8 +10,6 @@ ms.author: yelevin
 
 # Extend Microsoft Sentinel across workspaces and tenants
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 ## The need to use multiple Microsoft Sentinel workspaces
 
 When you onboard Microsoft Sentinel, your first step is to select your Log Analytics workspace. While you can get the full benefit of the Microsoft Sentinel experience with a single workspace, in some cases, you might want to extend your workspace to query and analyze your data across workspaces and tenants.

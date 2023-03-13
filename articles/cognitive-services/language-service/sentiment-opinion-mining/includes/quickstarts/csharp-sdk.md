@@ -4,7 +4,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 10/21/2022
+ms.date: 02/17/2023
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
@@ -49,7 +49,7 @@ Install the client library by right-clicking on the solution in the **Solution E
 
 ## Code example
 
-Copy the following code into your *program.cs* file.
+Copy the following code into your *program.cs* file, and run the code.
 
 ```csharp
 using Azure;

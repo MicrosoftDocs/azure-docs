@@ -7,7 +7,7 @@ ms.service: container-apps
 ms.topic: how-to
 ms.date: 09/29/2022
 ms.author: cshoe
-ms.custom: event-tier1-build-2022, ignite-2022
+ms.custom: event-tier1-build-2022, ignite-2022, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Manage secrets in Azure Container Apps
@@ -25,6 +25,10 @@ An updated or deleted secret doesn't automatically affect existing revisions in 
 2. Restart an existing revision.
 
 Before you delete a secret, deploy a new revision that no longer references the old secret. Then deactivate all revisions that reference the secret.
+
+> [!NOTE]
+> Container Apps doesn't support Azure Key Vault integration. Instead, enable managed identity in the container app and use the [Key Vault SDK](../key-vault/general/developers-guide.md) in your app to access secrets.
+
 
 ## Defining secrets
 

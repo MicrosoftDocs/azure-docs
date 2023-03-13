@@ -152,16 +152,26 @@ For more information, see [Quickstart: Build a Node.js app by using an Azure Cos
 
 ## Use the Python SDK
 
-The `CosmosClient` object from the [Python SDK](https://pypi.org/project/azure-cosmos/) exposes a `last_response_headers` dictionary that maps all the headers returned by the underlying HTTP API for the last operation executed. The request charge is available under the `x-ms-request-charge` key:
+The `Container` object from the [Python SDK](https://pypi.org/project/azure-cosmos/) exposes a `last_response_headers` dictionary that maps all the headers returned by the underlying HTTP API for the last operation executed. The request charge is available under the `x-ms-request-charge` key:
 
 ```python
-response = client.ReadItem(
-    'dbs/database/colls/container/docs/itemId', {'partitionKey': 'partitionKey'})
-request_charge = client.last_response_headers['x-ms-request-charge']
+new_item = {
+    "id": "70b63682-b93a-4c77-aad2-65501347265f",
+    "partition_key": "61dba35b-4f02-45c5-b648-c6badc0cbd79",
+    "name": "Yamba Surfboard"
+}
+container.create_item(new_item)
 
-response = client.ExecuteStoredProcedure(
-    'dbs/database/colls/container/sprocs/storedProcedureId', None, {'partitionKey': 'partitionKey'})
-request_charge = client.last_response_headers['x-ms-request-charge']
+request_charge = container.client_connection.last_response_headers["x-ms-request-charge"]
+```
+
+```python
+existing_item = container.read_item(
+    item="70b63682-b93a-4c77-aad2-65501347265f"
+    partition_key="61dba35b-4f02-45c5-b648-c6badc0cbd79"
+)
+
+request_charge = container.client_connection.last_response_headers["x-ms-request-charge"]
 ```
 
 For more information, see [Quickstart: Build a Python app by using an Azure Cosmos DB for NoSQL account](quickstart-python.md). 

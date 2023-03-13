@@ -46,7 +46,7 @@ Common uses include:
 - Enforce security protection to prevent users from opening high-risk ports.
 - Create default rules for everyone in the company/organization so that administrators can prevent security threats caused by NSG misconfiguration or forgetting to put necessary NSGs.
 - Create security boundaries using security admin rules as an administrator and let the owners of the virtual networks configure their NSGs so the NSGs won’t break company policies.
-- Force-allow the traffic from and to critical services so that other users can't accidentally block the necessary traffic, such as program updates.
+- Force-allow the traffic from and to critical services so that other users can't accidentally block the necessary traffic, such as monitoring services and program updates.
 
 For a walk-through of use cases, see [Securing Your Virtual Networks with Azure Virtual Network Manager - Microsoft Tech Community](https://techcommunity.microsoft.com/t5/azure-networking-blog/securing-your-virtual-networks-with-azure-virtual-network/ba-p/3353366).
 
