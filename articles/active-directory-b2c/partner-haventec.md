@@ -15,7 +15,7 @@ ms.subservice: B2C
 
 # Tutorial: Configure Haventec Authenticate with Azure Active Directory B2C for single-step, multi-factor passwordless authentication
 
-Learn to integrate Azure Active Directory B2C (Azure AD B2C) with Haventec Authenicate, a passwordless technology that eliminates passwords, shared secrets, and friction.
+Learn to integrate Azure Active Directory B2C (Azure AD B2C) with Haventec Authenticate, a passwordless technology that eliminates passwords, shared secrets, and friction.
 
 To learn more, go to haventec.com: [Haventec](https://www.haventec.com/)
 
@@ -40,11 +40,11 @@ The following diagram illustrates sign-up and sign-in user flows in the Haventec
 
 ## Get started with Authenticate
 
-Go to the haventec.com [Get a demo of Haventec Authenticate](https://www.haventec.com/products/get-started) page. In the personalized demo request form, indicate your intereste in Azure AD B2C integration. An email arrives when the demo environment is ready.  
+Go to the haventec.com [Get a demo of Haventec Authenticate](https://www.haventec.com/products/get-started) page. In the personalized demo request form, indicate your interest in Azure AD B2C integration. An email arrives when the demo environment is ready.  
 
 ## Integrate Authenticate with Azure AD B2C
 
-Use the following instructions to prepare for and integrate Azure AD B2C with Authenicate. 
+Use the following instructions to prepare for and integrate Azure AD B2C with Authenticate. 
 
 ### Prerequisites
 
