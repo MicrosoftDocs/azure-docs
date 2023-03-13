@@ -2,6 +2,7 @@
 title: Durable Function Troubleshooting Guide
 description: Guide for common troubleshooting scenarios for durable functions.
 author: nytiannn
+ms.topic: conceptual
 ms.date: 03/10/2023
 ms.author: azfuncdf
 ---
@@ -23,7 +24,7 @@ If the above two steps could not help solving your problem, please see the follo
 
 ## Orchestration does not start (pending)
 
-1. Check the Durable Task Framework traces for warnings or errors for this instance ID. 
+1. Check the Durable Task Framework traces for warnings or errors for this instance ID. The query could be found at **Trace Errors/Warnings** section.
 
 2. Check the Azure Storage control queues to see if the message is still in the queue. 
 
@@ -34,7 +35,7 @@ If the above two steps could not help solving your problem, please see the follo
 
 1. This [page](./durable-functions-azure-storage-provider.md) illustrates reasons for orchestrators’ delay start. Please see here for detailed instructions. 
 
-2. The following query could help you check the warning/error message for the orchestrator. You could query it by changing the instance ID.  
+2. The following query could help you check the warning/error message for the orchestrator. The query could be found at **Trace Errors/Warnings** section.
 
 ## Orchestration starts but then gets stuck in the Running state
 
@@ -42,7 +43,7 @@ If the above two steps could not help solving your problem, please see the follo
 
 2. Check the Azure Storage account control queues to see if any queues are growing but not shrinking.
 
-3. Use the Azure Storage Kusto query to filter on that queue name in the PartitionId column to look for any problems related to that control queue partition. The query is below this page in Azure Storage Message part.
+3. Use the Azure Storage Kusto query to filter on that queue name in the PartitionId column to look for any problems related to that control queue partition. The query is below this page in **Azure Storage Message** part.
 
 4. Please check if you have followed the **Durable Functions Best Practice and Diagnostic Tools**. Some problems are caused because of inappropriate behavior. So, we suggest you read this article, revise the part that breaks the best practice rules and reset your function.
 
@@ -100,4 +101,33 @@ traces
 ```
 
 ## Trace Multiple Orchestrators
-The following query shows the orchestration instance status for multiple orchestrators run in a specified time range. Edit the **instanceId** to query the multiple orchestration.
+The following query shows the orchestration instance status for multiple orchestrators run in a specified time range. Edit the **instanceId** list to query the multiple orchestration.
+
+```kusto
+let start = datetime(2017-09-30T04:30:00); 
+ traces  
+| where timestamp > start and timestamp < start + 1h 
+| where customDimensions.Category == "Host.Triggers.DurableTask" 
+| extend functionName = customDimensions["prop__functionName"] 
+| extend instanceId = customDimensions["prop__instanceId"] 
+| extend state = customDimensions["prop__state"] 
+| extend isReplay = tobool(tolower(customDimensions["prop__isReplay"])) 
+| extend sequenceNumber = tolong(customDimensions["prop__sequenceNumber"]) 
+| where isReplay != true 
+| where instanceId in ("XXX", "XXX",”XXX”) 
+| sort by timestamp asc 
+| project timestamp, functionName, state, instanceId, sequenceNumber, appName = cloud_RoleName 
+```
+
+## Trace Errors/Warnings
+
+The following query shows the errors/warnings message for the orchestration instance. Edit the **instanceId** to query these information.
+
+```kusto
+traces 
+| extend logLevel = customDimensions["LogLevel"] 
+| extend instanceId = customDimensions["prop__InstanceId"] 
+| where logLevel in ("Error", "Warning") 
+| where instanceId == "XXXXXX" 
+| sort by timestamp asc 
+```
