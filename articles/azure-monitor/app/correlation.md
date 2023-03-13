@@ -159,7 +159,21 @@ For a reference, you can find the OpenCensus data model on [this GitHub page](ht
 
 OpenCensus Python correlates W3C Trace-Context headers from incoming requests to the spans that are generated from the requests themselves. OpenCensus will correlate automatically with integrations for these popular web application frameworks: Flask, Django, and Pyramid. You just need to populate the W3C Trace-Context headers with the [correct format](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format) and send them with the request.
 
-**Sample Flask application**
+Explore this sample Flask application. Install Flask, OpenCensus, and the extensions for Flask and Azure.
+
+```shell
+
+pip install flask opencensus opencensus-ext-flask opencensus-ext-azure
+
+```
+
+You will need to add your Application Insights connection string to the environment variable.
+
+```shell
+APPLICATIONINSIGHTS_CONNECTION_STRING=<appinsights-connection-string>
+```
+
+**Sample Flask Application**
 
 ```python
 from flask import Flask
@@ -170,7 +184,9 @@ from opencensus.trace.samplers import ProbabilitySampler
 app = Flask(__name__)
 middleware = FlaskMiddleware(
     app,
-    exporter=AzureExporter(),
+    exporter=AzureExporter(
+        connection_string='<appinsights-connection-string>', # or set environment variable APPLICATION_INSIGHTS_CONNECTION_STRING
+    ), 
     sampler=ProbabilitySampler(rate=1.0),
 )
 
@@ -248,6 +264,7 @@ You can export the log data by using `AzureLogHandler`. For more information, se
 
 We can also pass trace information from one component to another for proper correlation. For example, consider a scenario where there are two components, `module1` and `module2`. Module1 calls functions in Module2. To get logs from both `module1` and `module2` in a single trace, we can use the following approach:
 
+
 ```python
 # module1.py
 import logging
@@ -255,42 +272,51 @@ import logging
 from opencensus.trace import config_integration
 from opencensus.trace.samplers import AlwaysOnSampler
 from opencensus.trace.tracer import Tracer
-from module2 import function_1
+from module_2 import function_1
 
-config_integration.trace_integrations(['logging'])
-logging.basicConfig(format='%(asctime)s traceId=%(traceId)s spanId=%(spanId)s %(message)s')
+config_integration.trace_integrations(["logging"])
+logging.basicConfig(
+    format="%(asctime)s traceId=%(traceId)s spanId=%(spanId)s %(message)s"
+)
 tracer = Tracer(sampler=AlwaysOnSampler())
 
 logger = logging.getLogger(__name__)
-logger.warning('Before the span')
-with tracer.span(name='hello'):
-   logger.warning('In the span')
-   function_1(tracer)
-logger.warning('After the span')
+logger.warning("Before the span")
 
-# module2.py
+with tracer.span(name="hello"):
+    logger.warning("In the span")
+    function_1(logger, tracer)
+logger.warning("After the span")
+```
 
+```python
+# module_2.py
 import logging
 
 from opencensus.trace import config_integration
 from opencensus.trace.samplers import AlwaysOnSampler
 from opencensus.trace.tracer import Tracer
 
-config_integration.trace_integrations(['logging'])
-logging.basicConfig(format='%(asctime)s traceId=%(traceId)s spanId=%(spanId)s %(message)s')
+config_integration.trace_integrations(["logging"])
+logging.basicConfig(
+    format="%(asctime)s traceId=%(traceId)s spanId=%(spanId)s %(message)s"
+)
+logger = logging.getLogger(__name__)
 tracer = Tracer(sampler=AlwaysOnSampler())
 
-def function_1(parent_tracer=None):
+
+def function_1(logger=logger, parent_tracer=None):
     if parent_tracer is not None:
         tracer = Tracer(
-                    span_context=parent_tracer.span_context,
-                    sampler=AlwaysOnSampler(),
-                )
+            span_context=parent_tracer.span_context,
+            sampler=AlwaysOnSampler(),
+        )
     else:
         tracer = Tracer(sampler=AlwaysOnSampler())
 
     with tracer.span("function_1"):
         logger.info("In function_1")
+
 ```
 
 ## Telemetry correlation in .NET
@@ -308,7 +334,7 @@ The Application Insights .NET SDK uses `DiagnosticSource` and `Activity` to coll
 <a name="java-correlation"></a>
 ## Telemetry correlation in Java
 
-[Java agent](./java-in-process-agent.md) supports automatic correlation of telemetry. It automatically populates `operation_id` for all telemetry (like traces, exceptions, and custom events) issued within the scope of a request. It also propagates the correlation headers that were described earlier for service-to-service calls via HTTP, if the [Java SDK agent](java-2x-agent.md) is configured.
+[Java agent](./opentelemetry-enable.md?tabs=java) supports automatic correlation of telemetry. It automatically populates `operation_id` for all telemetry (like traces, exceptions, and custom events) issued within the scope of a request. It also propagates the correlation headers that were described earlier for service-to-service calls via HTTP, if the [Java SDK agent](deprecated-java-2x.md#monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps) is configured.
 
 > [!NOTE]
 > Application Insights Java agent autocollects requests and dependencies for JMS, Kafka, Netty/Webflux, and more. For Java SDK, only calls made via Apache HttpClient are supported for the correlation feature. Automatic context propagation across messaging technologies like Kafka, RabbitMQ, and Azure Service Bus isn't supported in the SDK.
@@ -356,7 +382,7 @@ You can also set the cloud role name via environment variable or system property
 - Write [custom telemetry](../../azure-monitor/app/api-custom-events-metrics.md).
 - For advanced correlation scenarios in ASP.NET Core and ASP.NET, see [Track custom operations](custom-operations-tracking.md).
 - Learn more about [setting cloud_RoleName](./app-map.md#set-or-override-cloud-role-name) for other SDKs.
-- Onboard all components of your microservice on Application Insights. Check out the [supported platforms](./platforms.md).
+- Onboard all components of your microservice on Application Insights. Check out the [supported platforms](./app-insights-overview.md#supported-languages).
 - See the [data model](./data-model.md) for Application Insights types.
 - Learn how to [extend and filter telemetry](./api-filtering-sampling.md).
 - Review the [Application Insights config reference](configuration-with-applicationinsights-config.md).

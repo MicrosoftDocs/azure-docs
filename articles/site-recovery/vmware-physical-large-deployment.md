@@ -3,8 +3,10 @@ title: Scale VMware/physical disaster recovery with Azure Site Recovery
 description: Learn how to set up disaster recovery to Azure for large numbers of on-premises VMware VMs or physical servers with Azure Site Recovery.
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/14/2019
-
+ms.date: 12/30/2022
+ms.author: ankitadutta
+author: ankitaduttaMSFT
+ms.custom: engagement-fy23
 
 ---
 # Set up disaster recovery at scale for VMware VMs/physical servers
@@ -171,7 +173,7 @@ After planning capacity and deploying the required components and infrastructure
     
 2. If disk churn for a machine is high, or exceeds limits in  Deployment thePlanner, you can move non-critical files you don't need to replicate (such as log dumps or temp files) off the machine. For VMware VMs, you can move these files to a separate disk, and then [exclude that disk](vmware-azure-exclude-disk.md) from replication.
 3. Before you enable replication, check that machines meet [replication requirements](vmware-physical-azure-support-matrix.md#replicated-machines).
-4. Configure a replication policy for [VMware VMs](vmware-azure-set-up-replication.md#create-a-policy) or [physical servers](physical-azure-disaster-recovery.md#create-a-replication-policy).
+4. Configure a replication policy for [VMware VMs](vmware-azure-set-up-replication.md#create-a-policy) or [physical servers](physical-azure-disaster-recovery.md#replication-policy).
 5. Enable replication for [VMware VMs](vmware-azure-enable-replication.md) or [physical servers](physical-azure-disaster-recovery.md#enable-replication). This kicks off the initial replication for the selected machines.
 
 ## Monitor your deployment

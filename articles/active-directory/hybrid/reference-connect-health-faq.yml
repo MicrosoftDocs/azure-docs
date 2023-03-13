@@ -6,14 +6,13 @@ metadata:
   documentationcenter: ''
   author: billmath
   manager: amycolannino
-  editor: curtand
   ms.assetid: f1b851aa-54d7-4cb4-8f5c-60680e2ce866
   ms.service: active-directory
   ms.subservice: hybrid
   ms.workload: identity
   ms.tgt_pltfrm: na
   ms.topic: faq
-  ms.date: 07/18/2017
+  ms.date: 02/08/2023
   ms.author: billmath
   ms.collection: M365-identity-device-management
 title: Azure AD Connect Health frequently asked questions
@@ -26,7 +25,7 @@ sections:
       - question: |
           I manage multiple Azure AD directories. How do I switch to the one that has Azure Active Directory Premium?
         answer: |
-          To switch between different Azure AD tenants, select the currently signed-in **User Name** on the upper-right corner, and then choose the appropriate account. If the account isn't listed here, select **Sign out.** Next, use the global admin credentials of the directory that has Azure Active Directory Premium (P1 or P2) enabled to sign in.
+          To switch between different Azure AD tenants, select the currently signed-in **User Name** on the upper-right corner, and then choose the appropriate account. If the account isn't listed here, select **Sign out.** Next, use the Global Administrator credentials of the directory that has Azure Active Directory Premium (P1 or P2) enabled to sign in.
 
       - question: |
           What version of identity roles are supported by Azure AD Connect Health?

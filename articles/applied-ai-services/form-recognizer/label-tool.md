@@ -7,10 +7,10 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 06/23/2022
+ms.date: 01/09/2023
 ms.author: lajanuar
-ms.custom: cog-serv-seo-aug-2020, ignite-fall-2021
-keywords: document processing
+monikerRange: 'form-recog-2.1.0'
+recommendations: false
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -18,12 +18,14 @@ keywords: document processing
 <!-- markdownlint-disable MD034 -->
 # Train a custom model using the Sample Labeling tool
 
+**This article applies to:** ![Form Recognizer v2.1 checkmark](media/yes-icon.png) **Form Recognizer v2.1**.
+
 >[!TIP]
 >
 > * For an enhanced experience and advanced model quality, try the [Form Recognizer v3.0 Studio](https://formrecognizer.appliedai.azure.com/studio).
 > * The v3.0 Studio supports any model trained with v2.1 labeled data.
 > * You can refer to the [API migration guide](v3-migration-guide.md) for detailed information about migrating from v2.1 to v3.0.
-> * *See* our [**REST API**](quickstarts/get-started-v3-sdk-rest-api.md) or [**C#**](quickstarts/get-started-v3-sdk-rest-api.md), [**Java**](quickstarts/get-started-v3-sdk-rest-api.md), [**JavaScript**](quickstarts/get-started-v3-sdk-rest-api.md), or [Python](quickstarts/get-started-v3-sdk-rest-api.md) SDK quickstarts to get started with the V3.0.
+> * *See* our [**REST API**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) or [**C#**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), [**Java**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), [**JavaScript**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), or [Python](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) SDK quickstarts to get started with the V3.0.
 
 In this article, you'll use the Form Recognizer REST API with the Sample Labeling tool to train a custom model with manually labeled data.
 
@@ -35,7 +37,7 @@ In this article, you'll use the Form Recognizer REST API with the Sample Labelin
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Create a Form Recognizer resource"  target="_blank">create a Form Recognizer resource </a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
-  * You'll need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart.
+  * You'll need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code later in the quickstart.
   * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 * A set of at least six forms of the same type. You'll use this data to train the model and test a form. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract *sample_data.zip*) for this quickstart. Upload the training files to the root of a blob storage container in a standard-performance-tier Azure Storage account.
 
@@ -69,7 +71,7 @@ You'll use the Docker engine to run the Sample Labeling tool. Follow these steps
 
     | Container | Minimum | Recommended|
     |:--|:--|:--|
-    |Sample Labeling tool|2 core, 4-GB memory|4 core, 8-GB memory|
+    |Sample Labeling tool|`2` core, 4-GB memory|`4` core, 8-GB memory|
 
     Install Docker on your machine by following the appropriate instructions for your operating system:
 
@@ -89,7 +91,7 @@ You'll use the Docker engine to run the Sample Labeling tool. Follow these steps
      docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-2.1 eula=accept
     ```
 
-   This command will make the Sample Labeling tool available through a web browser. Go to `http://localhost:3000`.
+   This command will make the sample-labeling tool available through a web browser. Go to `http://localhost:3000`.
 
 > [!NOTE]
 > You can also label documents and train models using the Form Recognizer REST API. To train and Analyze with the REST API, see [Train with labels using the REST API and Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md).
@@ -171,6 +173,7 @@ Next, you'll create tags (labels) and apply them to the text elements that you w
    1. Press Enter to save the tag.
 1. In the main editor, select words from the highlighted text elements or a region you drew in.
 1. Select the tag you want to apply, or press the corresponding keyboard key. The number keys are assigned as hotkeys for the first 10 tags. You can reorder your tags using the up and down arrow icons in the tag editor pane.
+1. Follow these steps to label at least five of your forms.
     > [!Tip]
     > Keep the following tips in mind when you're labeling your forms:
     >
@@ -185,8 +188,6 @@ Next, you'll create tags (labels) and apply them to the text elements that you w
     >
 
 :::image type="content" source="media/label-tool/main-editor-2-1.png" alt-text="Main editor window of Sample Labeling tool.":::
-
-Follow the steps above to label at least five of your forms.
 
 ### Specify tag value types
 
@@ -255,14 +256,14 @@ Once you've defined your table tag, tag the cell values.
 
 Choose the Train icon on the left pane to open the Training page. Then select the **Train** button to begin training the model. Once the training process completes, you'll see the following information:
 
-* **Model ID** - The ID of the model that was created and trained. Each training call creates a new model with its own ID. Copy this string to a secure location; you'll need it if you want to do prediction calls through the [REST API](./quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api&tabs=preview%2cv2-1) or [client library guide](./quickstarts/try-sdk-rest-api.md).
+* **Model ID** - The ID of the model that was created and trained. Each training call creates a new model with its own ID. Copy this string to a secure location; you'll need it if you want to do prediction calls through the [REST API](/azure/applied-ai-services/form-recognizer/how-to-guides/v2-1-sdk-rest-api?pivots=programming-language-rest-api&tabs=preview%2cv2-1) or [client library guide](/azure/applied-ai-services/form-recognizer/how-to-guides/v2-1-sdk-rest-api).
 * **Average Accuracy** - The model's average accuracy. You can improve model accuracy by adding and labeling more forms, then retraining to create a new model. We recommend starting by labeling five forms and adding more forms as needed.
 * The list of tags, and the estimated accuracy per tag.
 
 
 :::image type="content" source="media/label-tool/train-screen.png" alt-text="Training view.":::
 
-After training finishes, examine the **Average Accuracy** value. If it's low, you should add more input documents and repeat the steps above. The documents you've already labeled will remain in the project index.
+After training finishes, examine the **Average Accuracy** value. If it's low, you should add more input documents and repeat the labeling steps. The documents you've already labeled will remain in the project index.
 
 > [!TIP]
 > You can also run the training process with a REST API call. To learn how to do this, see [Train with labels using Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md).
@@ -271,14 +272,16 @@ After training finishes, examine the **Average Accuracy** value. If it's low, yo
 
 With Model Compose, you can compose up to 100 models to a single model ID. When you call Analyze with the composed `modelID`, Form Recognizer will first classify the form you submitted, choose the best matching model, and then return results for that model. This operation is useful when incoming forms may belong to one of several templates.
 
-To compose models in the Sample Labeling tool, select the Model Compose (merging arrow) icon on the left. On the left, select the models you wish to compose together. Models with the arrows icon are already composed models.
-Choose the **Compose button**. In the pop-up, name your new composed model and select **Compose**. When the operation completes, your newly composed model should appear in the list.
+* To compose models in the Sample Labeling tool, select the Model Compose (merging arrow) icon from the navigation bar.
+* Select the models you wish to compose together. Models with the arrows icon are already composed models.
+* Choose the **Compose button**. In the pop-up, name your new composed model and select **Compose**.
+* When the operation completes, your newly composed model should appear in the list.
 
 :::image type="content" source="media/label-tool/model-compose.png" alt-text="Model compose UX view.":::
 
 ## Analyze a form
 
-Select the Analyze (light bulb) icon on the left to test your model. Select source 'Local file'. Browse for a file and select a file from the sample dataset that you unzipped in the test folder. Then choose the **Run analysis** button to get key/value pairs, text and tables predictions for the form. The tool will apply tags in bounding boxes and will report the confidence of each tag.
+Select the Analyze icon from the navigation bar to test your model. Select source 'Local file'. Browse for a file and select a file from the sample dataset that you unzipped in the test folder. Then choose the **Run analysis** button to get key/value pairs, text and tables predictions for the form. The tool will apply tags in bounding boxes and will report the confidence of each tag.
 
 :::image type="content" source="media/analyze.png" alt-text="Screenshot: analyze-a-custom-form window":::
 
@@ -301,7 +304,7 @@ Go to your project settings page (slider icon) and take note of the security tok
 
 ### Restore project credentials
 
-When you want to resume your project, you first need to create a connection to the same blob storage container. To do so, repeat the steps above. Then, go to the application settings page (gear icon) and see if your project's security token is there. If it isn't, add a new security token and copy over your token name and key from the previous step. Select **Save** to retain your settings.
+When you want to resume your project, you first need to create a connection to the same blob storage container. To do so, repeat the steps. Then, go to the application settings page (gear icon) and see if your project's security token is there. If it isn't, add a new security token and copy over your token name and key from the previous step. Select **Save** to retain your settings.
 
 ### Resume a project
 
@@ -315,4 +318,4 @@ In this quickstart, you've learned how to use the Form Recognizer Sample Labelin
 > [Train with labels using Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md)
 
 * [What is Form Recognizer?](overview.md)
-* [Form Recognizer quickstart](./quickstarts/try-sdk-rest-api.md)
+* [Form Recognizer quickstart](/azure/applied-ai-services/form-recognizer/how-to-guides/v2-1-sdk-rest-api)

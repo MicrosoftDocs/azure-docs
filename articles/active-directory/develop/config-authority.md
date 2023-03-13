@@ -2,7 +2,7 @@
 title: Configure identity providers (MSAL iOS/macOS)
 description: Learn how to use different authorities such as B2C, sovereign clouds, and guest users, with MSAL for iOS and macOS.
 services: active-directory
-author: mmacy
+author: cilwerner
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/28/2019
-ms.author: marsma
+ms.author: cwerner
 ms.reviewer: oldalton
 ms.custom: aaddev
 ---

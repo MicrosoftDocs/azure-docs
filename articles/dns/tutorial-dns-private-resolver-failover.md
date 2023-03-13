@@ -4,6 +4,7 @@ description: A tutorial on how to configure regional failover using the Azure DN
 services: dns
 author: greg-lindsay
 ms.service: dns
+ms.custom: ignite-2022
 ms.topic: tutorial
 ms.date: 09/27/2022
 ms.author: greglin
@@ -13,9 +14,6 @@ ms.author: greglin
 # Tutorial: Set up DNS failover using private resolvers
 
 This article details how to eliminate a single point of failure in your on-premises DNS services by using two or more Azure DNS private resolvers deployed across different regions. DNS failover is enabled by assigning a local resolver as your primary DNS and the resolver in an adjacent region as secondary DNS. If the primary DNS server fails to respond, DNS clients automatically retry using the secondary DNS server.
-
-> [!IMPORTANT]
-> Azure DNS Private Resolver is currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 In this tutorial, you learn how to:
 

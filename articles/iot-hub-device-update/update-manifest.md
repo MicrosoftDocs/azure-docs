@@ -39,8 +39,8 @@ Each manifest type has its own schema and schema version.
   },
   "compatibility": [
     {
-      "deviceManufacturer": "Contoso",
-      "deviceModel": "Toaster"
+      "manufacturer": "Contoso",
+      "model": "Toaster"
     }
   ],
   "instructions": {

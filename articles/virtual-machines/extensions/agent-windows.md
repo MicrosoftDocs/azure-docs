@@ -5,10 +5,9 @@ ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
 ms.author: gabsta
-author: MsGabsta
+author: GabstaMSFT
 ms.collection: windows
-ms.date: 07/20/2019 
-ms.custom: devx-track-azurepowershell
+ms.date: 02/27/2023 
 ---
 
 # Azure Virtual Machine Agent overview

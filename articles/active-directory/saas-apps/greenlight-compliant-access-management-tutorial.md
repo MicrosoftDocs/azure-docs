@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/03/2020
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
@@ -148,8 +148,6 @@ When you click the Greenlight Compliant Access Management tile in the Access Pan
 - [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
 - [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
-
-- [Try Greenlight Compliant Access Management with Azure AD](https://aad.portal.azure.com/)
 
 - [What is session control in Microsoft Defender for Cloud Apps?](/cloud-app-security/proxy-intro-aad)
 

@@ -10,7 +10,7 @@ ms.author: scottpolly
 author: s-polly
 ms.date: 08/16/2022
 ms.topic: how-to
-ms.custom: data4ml, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, data4ml, sdkv1, event-tier1-build-2022
 ---
 # Collect data from models in production
 
@@ -64,7 +64,7 @@ The path to the output data in the blob follows this syntax:
 
 - [Set up your environment](how-to-configure-environment-v1.md) and install the [Azure Machine Learning Monitoring SDK](/python/api/overview/azure/ml/install).
 
-- Use a docker image based on Ubuntu 18.04, which is shipped with `libssl 1.0.0`, the essential dependency of [modeldatacollector](/python/api/azureml-monitoring/azureml.monitoring.modeldatacollector.modeldatacollector). You can refer to [prebuilt images](/azure/machine-learning/concept-prebuilt-docker-images-inference).
+- Use a docker image based on Ubuntu 18.04, which is shipped with `libssl 1.0.0`, the essential dependency of [modeldatacollector](/python/api/azureml-monitoring/azureml.monitoring.modeldatacollector.modeldatacollector). You can refer to [prebuilt images](../concept-prebuilt-docker-images-inference.md).
 
 ## Enable data collection
 

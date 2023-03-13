@@ -7,12 +7,13 @@ author: moala
 manager: moala
 editor: 
 ms.assetid: 
-ms.service: az-devops-project
+ms.service: azure-devops
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload:
 ms.date: 09/16/2022
 ms.author: moala
+ms.subservice: azure-devops-starter
 
 ---
 # Retirement of DevOps Starter

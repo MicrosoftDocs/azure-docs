@@ -15,9 +15,9 @@ Review these formatting guidelines to get the best results for your content.
 
 ## Formatting considerations
 
-After importing a file or URL, question answering converts and stores your content in the [markdown format](https://en.wikipedia.org/wiki/Markdown). The conversion process adds new lines in the text, such as `\n\n`. A knowledge of the markdown format helps you to understand the converted content and manage your knowledge base content.
+After importing a file or URL, question answering converts and stores your content in the [markdown format](https://en.wikipedia.org/wiki/Markdown). The conversion process adds new lines in the text, such as `\n\n`. A knowledge of the markdown format helps you to understand the converted content and manage your project content.
 
-If you add or edit your content directly in your knowledge base, use **markdown formatting** to create rich text content or change the markdown format content that is already in the answer. Question answering supports much of the markdown format to bring rich text capabilities to your content. However, the client application, such as a chat bot may not support the same set of markdown formats. It is important to test the client application's display of answers.
+If you add or edit your content directly in your project, use **markdown formatting** to create rich text content or change the markdown format content that is already in the answer. Question answering supports much of the markdown format to bring rich text capabilities to your content. However, the client application, such as a chat bot may not support the same set of markdown formats. It is important to test the client application's display of answers.
 
 ## Basic document formatting
 
@@ -38,7 +38,7 @@ A manual is typically guidance material that accompanies a product. It helps the
 Below is an example of a manual with an index page, and hierarchical content
 
 > [!div class="mx-imgBorder"]
-> ![Product Manual example for a knowledge base](../../../qnamaker/media/qnamaker-concepts-datasources/product-manual.png)
+> ![Product Manual example for a project](../../../qnamaker/media/qnamaker-concepts-datasources/product-manual.png)
 
 > [!NOTE]
 > Extraction works best on manuals that have a table of contents and/or an index page, and a clear structure with hierarchical headings.
@@ -59,7 +59,7 @@ Custom question answering now supports unstructured documents. A  document that 
 Below is an example of an unstructured PDF document:
 
 > [!div class="mx-imgBorder"]
-> ![Unstructured  document example for a knowledge base](../../../qnamaker/media/qnamaker-concepts-datasources/unstructured-qna-pdf.png)
+> ![Unstructured  document example for a project](../../../qnamaker/media/qnamaker-concepts-datasources/unstructured-qna-pdf.png)
 
 > [!NOTE]
 > QnA pairs are not extracted in the "Edit sources" tab for unstructured sources.
@@ -84,11 +84,11 @@ Answer2
 Below is an example of a structured question answering word document:
 
 > [!div class="mx-imgBorder"]
-> ![Structured question answering document example for a knowledge base](../../../qnamaker/media/qnamaker-concepts-datasources/structured-qna-doc.png)
+> ![Structured question answering document example for a project](../../../qnamaker/media/qnamaker-concepts-datasources/structured-qna-doc.png)
 
 ### Structured *TXT*, *TSV* and *XLS* Files
 
-Question answering in the form of structured *.txt*, *.tsv* or *.xls* files can also be uploaded to question answering to create or augment a knowledge base.  These can either be plain text, or can have content in RTF or HTML. Question answer pairs have an optional metadata field that can be used to group question answer pairs into categories.
+Question answering in the form of structured *.txt*, *.tsv* or *.xls* files can also be uploaded to question answering to create or augment a project.  These can either be plain text, or can have content in RTF or HTML. Question answer pairs have an optional metadata field that can be used to group question answer pairs into categories.
 
 | Question  | Answer  | Metadata (1 key: 1 value) |
 |-----------|---------|-------------------------|
@@ -99,7 +99,7 @@ Any additional columns in the source file are ignored.
 
 ### Structured data format through import
 
-Importing a knowledge base replaces the content of the existing knowledge base. Import requires a structured .tsv file that contains data source information. This information helps group the question-answer pairs and attribute them to a particular data source. Question answer pairs have an optional metadata field that can be used to group question answer pairs into categories. The import format needs to be similar to the exported knowledgebase format.
+Importing a project replaces the content of the existing project. Import requires a structured .tsv file that contains data source information. This information helps group the question-answer pairs and attribute them to a particular data source. Question answer pairs have an optional metadata field that can be used to group question answer pairs into categories. The import format needs to be similar to the exported knowledgebase format.
 
 | Question  | Answer  | Source| Metadata (1 key: 1 value) | QnaId |
 |-----------|---------|----|---------------------|------|
@@ -135,7 +135,7 @@ In this type of FAQ page, questions are aggregated together and are linked to an
 Below is an example of an FAQ page with links in sections that are on the same page:
 
 > [!div class="mx-imgBorder"]
-> ![Section Link FAQ page example for a knowledge base](../../../qnamaker/media/qnamaker-concepts-datasources/sectionlink-faq.png)
+> ![Section Link FAQ page example for a project](../../../qnamaker/media/qnamaker-concepts-datasources/sectionlink-faq.png)
 
 ### Parent Topics page links to child answers pages
 
@@ -144,7 +144,7 @@ This type of FAQ has a Topics page where each topic is linked to a corresponding
 Below is an example of a Topics page with links to FAQ sections in different pages.
 
 > [!div class="mx-imgBorder"]
-> ![Deep link FAQ page example for a knowledge base](../../../qnamaker/media/qnamaker-concepts-datasources/topics-faq.png)
+> ![Deep link FAQ page example for a project](../../../qnamaker/media/qnamaker-concepts-datasources/topics-faq.png)
 
 ### Support URLs
 
@@ -153,11 +153,11 @@ Question answering can process semi-structured support web pages, such as web ar
 > [!NOTE]
 > Extraction for support articles is a new feature and is in early stages. It works best for simple pages, that are well structured, and do not contain complex headers/footers.
 
-## Import and export knowledge base
+## Import and export project
 
-**TSV and XLS files**, from exported knowledge bases, can only be used by importing the files from the **Settings** page in Language Studio. They cannot be used as data sources during knowledge base creation or from the **+ Add file** or **+ Add URL** feature on the **Settings** page.
+**TSV and XLS files**, from exported projects, can only be used by importing the files from the **Settings** page in Language Studio. They cannot be used as data sources during project creation or from the **+ Add file** or **+ Add URL** feature on the **Settings** page.
 
-When you import the knowledge base through these **TSV and XLS files**, the question answer pairs get added to the editorial source and not the sources from which the question and answers were extracted in the exported knowledge base.
+When you import the project through these **TSV and XLS files**, the question answer pairs get added to the editorial source and not the sources from which the question and answers were extracted in the exported project.
 
 ## Next steps
 

@@ -10,7 +10,7 @@ author: deeikele
 ms.reviewer: larryfr
 ms.date: 08/12/2022
 ms.topic: how-to
-ms.custom: devx-track-azurecli, cliv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, devx-track-azurecli, cliv1, event-tier1-build-2022
 ---
 
 # Manage Azure Machine Learning workspaces using Azure CLI extension v1
@@ -104,7 +104,7 @@ When you deploy an Azure Machine Learning workspace, various other services are 
 > * Hierarchical Namespace (ADLS Gen 2) is disabled
 > These requirements are only for the _default_ storage account used by the workspace.
 >
-> When attaching Azure container registry, you must have the [admin account](/azure/container-registry/container-registry-authentication#admin-account) enabled before it can be used with an Azure Machine Learning workspace.
+> When attaching Azure container registry, you must have the [admin account](../../container-registry/container-registry-authentication.md#admin-account) enabled before it can be used with an Azure Machine Learning workspace.
 
 # [Create with new resources](#tab/createnewresources)
 
@@ -294,4 +294,4 @@ To check for problems with your workspace, see [How to use workspace diagnostics
 
 To learn how to move a workspace to a new Azure subscription, see [How to move a workspace](../how-to-move-workspace.md).
 
-For information on how to keep your Azure ML up to date with the latest security updates, see [Vulnerability management](../concept-vulnerability-management.md).
+For information on how to keep your Azure Machine Learning up to date with the latest security updates, see [Vulnerability management](../concept-vulnerability-management.md).

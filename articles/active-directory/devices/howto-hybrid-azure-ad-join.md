@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 04/06/2022
+ms.date: 10/26/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -42,7 +42,7 @@ Hybrid Azure AD join requires devices to have access to the following Microsoft 
 - Your organization's Security Token Service (STS) (**For federated domains**)
 
 > [!WARNING]
-> If your organization uses proxy servers that intercept SSL traffic for scenarios like data loss prevention or Azure AD tenant restrictions, ensure that traffic to these URLs are excluded from TLS break-and-inspect. Failure to exclude these URLs may cause interference with client certificate authentication, cause issues with device registration, and device-based Conditional Access.
+> If your organization uses proxy servers that intercept SSL traffic for scenarios like data loss prevention or Azure AD tenant restrictions, ensure that traffic to `https://device.login.microsoftonline.com` is excluded from TLS break-and-inspect. Failure to exclude this URL may cause interference with client certificate authentication, cause issues with device registration, and device-based Conditional Access.
 
 If your organization requires access to the internet via an outbound proxy, you can use [Web Proxy Auto-Discovery (WPAD)](/previous-versions/tn-archive/cc995261(v=technet.10)) to enable Windows 10 or newer computers for device registration with Azure AD. To address issues configuring and managing WPAD, see [Troubleshooting Automatic Detection](/previous-versions/tn-archive/cc302643(v=technet.10)).
 
@@ -122,11 +122,11 @@ Organizations can test hybrid Azure AD join on a subset of their environment bef
 
 Some organizations may not be able to use Azure AD Connect to configure AD FS. The steps to configure the claims manually can be found in the article [Configure hybrid Azure Active Directory join manually](hybrid-azuread-join-manual.md).
 
-### Government cloud
+### US Government cloud (inclusive of GCCHigh and DoD)
 
 For organizations in [Azure Government](https://azure.microsoft.com/global-infrastructure/government/), hybrid Azure AD join requires devices to have access to the following Microsoft resources from inside your organization's network:  
 
-- `https://enterpriseregistration.microsoftonline.us`
+- `https://enterpriseregistration.windows.net` **and** `https://enterpriseregistration.microsoftonline.us`
 - `https://login.microsoftonline.us`
 - `https://device.login.microsoftonline.us`
 - `https://autologon.microsoft.us` (If you use or plan to use seamless SSO)

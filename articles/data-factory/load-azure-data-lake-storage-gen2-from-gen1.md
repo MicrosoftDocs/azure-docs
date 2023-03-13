@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/06/2021
+ms.date: 10/25/2022
 ---
 
 # Copy data from Azure Data Lake Storage Gen1 to Gen2 with Azure Data Factory
@@ -121,7 +121,7 @@ ADF offers a serverless architecture that allows parallelism at different levels
 
 Customers have successfully migrated petabytes of data consisting of hundreds of millions of files from Data Lake Storage Gen1 to Gen2, with a sustained throughput of 2 GBps and higher.
 
-you can achieve great data movement speeds through different levels of parallelism:
+You can achieve greater data movement speeds by applying different levels of parallelism:
 
 - A single copy activity can take advantage of scalable compute resources: when using Azure Integration Runtime, you can specify up to 256 [data integration units (DIUs)](copy-activity-performance-features.md#data-integration-units) for each copy activity in a serverless manner; when using self-hosted Integration Runtime, you can manually scale up the machine or scale out to multiple machines (up to 4 nodes), and a single copy activity will partition its file set across all nodes.
 - A single copy activity reads from and writes to the data store using multiple threads.
@@ -176,7 +176,7 @@ You can also enable [fault tolerance](copy-activity-fault-tolerance.md) in copy 
 
 ### Permissions 
 
-In Data Factory, the [Data Lake Storage Gen1 connector](connector-azure-data-lake-store.md) supports service principal and managed identity for Azure resource authentications. The [Data Lake Storage Gen2 connector](connector-azure-data-lake-storage.md) supports account key, service principal, and managed identity for Azure resource authentications. To make Data Factory able to navigate and copy all the files or access control lists (ACLs) you need, grant high enough permissions for the account you provide to access, read, or write all files and set ACLs if you choose to. Grant it a super-user or owner role during the migration period. 
+In Data Factory, the [Data Lake Storage Gen1 connector](connector-azure-data-lake-store.md) supports service principal and managed identity for Azure resource authentications. The [Data Lake Storage Gen2 connector](connector-azure-data-lake-storage.md) supports account key, service principal, and managed identity for Azure resource authentications. To make Data Factory able to navigate and copy all the files or access control lists (ACLs) you will need to grant high enough permissions to the account to access, read, or write all files and set ACLs if you choose to. You should grant the account a super-user or owner role during the migration period and remove the elevated permissions once the migration is completed. 
 
 
 ## Next steps

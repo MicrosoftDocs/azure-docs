@@ -7,7 +7,7 @@ ms.author: xixian
 ms.date: 12/1/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.subservice: calling
+ms.subservice: teams-interop
 ms.custom: mode-other
 ---
 

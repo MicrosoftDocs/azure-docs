@@ -89,7 +89,7 @@ The Azure Monitor service manages your cloud-based data securely by using the fo
 
 ### Azure Backup
 
-[Azure Backup](/azure/backup) provides data backup and restore services and is part of the Azure Monitor suite of products and services.
+[Azure Backup](../../backup/index.yml) provides data backup and restore services and is part of the Azure Monitor suite of products and services.
  It protects your application data and retains it for years without any capital investment and with minimal operating costs. It can back up data from physical and virtual Windows servers in addition to application workloads such as SQL Server and SharePoint. It can also be used by [System Center Data Protection Manager (DPM)](https://en.wikipedia.org/wiki/System_Center_Data_Protection_Manager) to replicate protected data to Azure for redundancy and long-term storage.
 
 
@@ -99,7 +99,7 @@ Protected data in Azure Backup is stored in a backup vault located in a particul
 [Azure Monitor](../../security-center/security-center-introduction.md) is Microsoft's cloud-based IT management solution that helps you manage and protect your on-premises and cloud infrastructure.
 
 
-[Management Solutions](../../azure-monitor/insights/solutions.md) are prepackaged sets of logics that implement a particular management scenario using one or more Azure Monitor services. Different solutions are available from Microsoft and from partners that you can easily add to your Azure subscription to increase the value of your investment in Azure Monitor. As a partner, you can create your own solutions to support your applications and services and provide them to users through the Azure Marketplace or quickstart templates.
+[Management Solutions](/previous-versions/azure/azure-monitor/insights/solutions) are prepackaged sets of logics that implement a particular management scenario using one or more Azure Monitor services. Different solutions are available from Microsoft and from partners that you can easily add to your Azure subscription to increase the value of your investment in Azure Monitor. As a partner, you can create your own solutions to support your applications and services and provide them to users through the Azure Marketplace or quickstart templates.
 
 
 ![Management Solutions](./media/operational-security/azure-operational-security-fig4.png)
@@ -337,5 +337,5 @@ Microsoft designs its services and software with security in mind to help ensure
 
 Use Microsoft security data and analysis to perform more intelligent and effective threat detection.
 
-- [Microsoft Defender for Cloud planning and operations](../../security-center/security-center-planning-and-operations-guide.md)
+- [Microsoft Defender for Cloud planning and operations](../../defender-for-cloud/defender-for-cloud-planning-and-operations-guide.md)
 A set of steps and tasks that you can follow to optimize your use of Defender for Cloud based on your organization’s security requirements and cloud management model.

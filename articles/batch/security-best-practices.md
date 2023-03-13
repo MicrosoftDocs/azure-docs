@@ -1,7 +1,7 @@
 ---
 title: Batch security and compliance best practices
 description: Learn best practices and useful tips for enhancing security with your Azure Batch solutions.
-ms.date: 09/01/2021
+ms.date: 11/15/2022
 ms.topic: conceptual
 ---
 
@@ -21,7 +21,13 @@ Many features are available to help you create a more secure Azure Batch deploym
 
 ### Pool configuration
 
-Many security features are only available for pools configured using [Virtual Machine Configuration](nodes-and-pools.md#configurations), and not for pools with Cloud Services Configuration. We recommend using Virtual Machine Configuration pools, which utilize [virtual machine scale sets](../virtual-machine-scale-sets/overview.md), whenever possible.
+Many security features are only available for pools configured using [Virtual Machine Configuration](nodes-and-pools.md#configurations), and not for pools with Cloud Services Configuration. We recommend using Virtual Machine Configuration pools, which utilize [Virtual Machine Scale Sets](../virtual-machine-scale-sets/overview.md), whenever possible.
+
+Pools can also be configured in one of two node communication modes, classic or [simplified](simplified-compute-node-communication.md).
+In the classic node communication model, the Batch service initiates communication to the compute nodes, and compute nodes
+also require communicating to Azure Storage. In the simplified node communication model, compute nodes initiate communication
+with the Batch service. Due to the reduced scope of inbound/outbound connections required, and not requiring Azure Storage
+outbound access for baseline operation, the recommendation is to use the simplified node communication model.
 
 ### Batch account authentication
 
@@ -33,16 +39,16 @@ We strongly recommend using Azure AD for Batch account authentication. Some Batc
 
 When creating a Batch account, you can choose between two [pool allocation modes](accounts.md#batch-accounts):
 
-- **Batch service**: The default option, where the underlying Cloud Service or virtual machine scale set resources used to allocate and manage pool nodes are created in internal subscriptions, and aren't directly visible in the Azure portal. Only the Batch pools and nodes are visible.
-- **User subscription**: The underlying Cloud Service or virtual machine scale set resources are created in the same subscription as the Batch account. These resources are therefore visible in the subscription, in addition to the corresponding Batch resources.
+- **Batch service**: The default option, where the underlying Cloud Service or Virtual Machine Scale Set resources used to allocate and manage pool nodes are created on Batch-owned subscriptions, and aren't directly visible in the Azure portal. Only the Batch pools and nodes are visible.
+- **User subscription**: The underlying Cloud Service or Virtual Machine Scale Set resources are created in the same subscription as the Batch account. These resources are therefore visible in the subscription, in addition to the corresponding Batch resources.
 
-With user subscription mode, Batch VMs and other resources are created directly in your subscription when a pool is created. User subscription mode is required if you want to create Batch pools using Azure Reserved VM Instances, use Azure Policy on virtual machine scale set resources, and/or  manage the core quota on the subscription (shared across all Batch accounts in the subscription). To create a Batch account in user subscription mode, you must also register your subscription with Azure Batch, and associate the account with an Azure Key Vault.
+With user subscription mode, Batch VMs and other resources are created directly in your subscription when a pool is created. User subscription mode is required if you want to create Batch pools using Azure Reserved VM Instances, use Azure Policy on Virtual Machine Scale Set resources, and/or  manage the core quota on the subscription (shared across all Batch accounts in the subscription). To create a Batch account in user subscription mode, you must also register your subscription with Azure Batch, and associate the account with an Azure Key Vault.
 
 ## Restrict network endpoint access
 
 ### Batch network endpoints
 
-Be aware that by default, endpoints with public IP addresses are used to communicate with Batch accounts, Batch pools, and pool nodes.
+By default, endpoints with public IP addresses are used to communicate with Batch accounts, Batch pools, and pool nodes.
 
 ### Batch account API
 
@@ -87,7 +93,10 @@ For more  information, see [Create an Azure Batch pool in a virtual network](bat
 
 #### Create pools with static public IP addresses
 
-By default, the public IP addresses associated with pools are dynamic; they are created when a pool is created and IP addresses can be added or removed when a pool is resized. When the task applications running on pool nodes need to access external services, access to those services may need to be restricted to specific IPs.  In this case, having dynamic IP addresses will not be manageable.
+By default, the public IP addresses associated with pools are dynamic; they're created when a pool is created
+and IP addresses can be added or removed when a pool is resized. When the task applications running on pool
+nodes need to access external services, access to those services may need to be restricted to specific IPs.
+In this case, having dynamic IP addresses won't be manageable.
 
 You can create static public IP address resources in the same subscription as the Batch account before pool creation. You can then specify these addresses when creating your pool.
 
@@ -138,7 +147,12 @@ For extra security, encrypt these disks using one of these Azure disk encryption
 
 ## Securely access services from compute nodes
 
-Batch nodes can securely access credentials stored in [Azure Key Vault](../key-vault/general/overview.md), which can be used by task applications to access other services. A certificate is used to grant the pool nodes access to Key Vault. By [enabling automatic certificate rotation in your Batch pool](automatic-certificate-rotation.md), the credentials will be automatically renewed. This is the recommended option for Batch nodes to access credentials stored in Azure Key Vault, although you can also [set up Batch nodes to securely access credentials and secrets with a certificate](credential-access-key-vault.md) without automatic certificate rotation.
+Use [Pool managed identities](managed-identity-pools.md) with the appropriate access permissions configured for the
+user-assigned managed identity to access Azure services that support managed identity, including Azure Key Vault. If
+you need to provision certificates on Batch nodes, utilize the available Azure Key Vault VM extension with pool
+Managed Identity to install and manage certificates on your Batch pool. For more information on deploying certificates
+from Azure Key Vault with Managed Identity on Batch pools, see
+[Enable automatic certificate rotation in a Batch pool](automatic-certificate-rotation.md).
 
 ## Governance and compliance
 
@@ -155,7 +169,7 @@ These  offerings are based on various types of assurances, including formal cert
 Depending on your pool allocation mode and the resources to which a policy should apply, use Azure Policy with Batch in one of the following ways:
 
 - Directly, using the Microsoft.Batch/batchAccounts resource. A subset of the properties for a Batch account can be used. For example, your policy can include valid Batch account regions, allowed pool allocation mode, and whether a public network is enabled for accounts.
-- Indirectly, using the Microsoft.Compute/virtualMachineScaleSets resource. Batch accounts with user subscription pool allocation mode can have policy set on the virtual machine scale set resources that are created in the Batch account subscription. For example, allowed VM sizes and ensure certain extensions are run on each pool node.
+- Indirectly, using the Microsoft.Compute/virtualMachineScaleSets resource. Batch accounts with user subscription pool allocation mode can have policy set on the Virtual Machine Scale Set resources that are created in the Batch account subscription. For example, allowed VM sizes and ensure certain extensions are run on each pool node.
 
 ## Next steps
 

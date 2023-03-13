@@ -4,7 +4,7 @@
   items:
   - name: About Azure VMware Solution
     href: introduction.md
-  - name: Platform updates
+  - name: What's new
     href: azure-vmware-solution-platform-updates.md
 - name: Get started
   items:
@@ -14,10 +14,12 @@
     href: deploy-azure-vmware-solution.md
   - name: 3 - Connect to on-premises environment
     href: tutorial-expressroute-global-reach-private-cloud.md
-  - name: 4 - Install the VMware HCX Connector
+  - name: 4 - Install and activate VMware HCX in Azure VMware Solution
     href: install-vmware-hcx.md
   - name: 5 - Configure on-premises HCX Connector
     href: configure-vmware-hcx.md
+  - name: 6 - Uninstall VMware HCX in Azure VMware Solution
+    href: uninstall-vmware-hcx.md
 - name: Tutorials
   items:
   - name: 1 - Network planning checklist
@@ -54,8 +56,12 @@
     href: concepts-private-clouds-clusters.md
   - name: Run command
     href: concepts-run-command.md
-  - name: Security recommendations
-    href: concepts-security-recommendations.md
+  - name: Security
+    items:
+    - name: Security recommendations
+      href: concepts-security-recommendations.md
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/azure-vmware-solution-security-baseline?toc=/azure/azure-vmware/toc.json
   - name: Storage 
     href: concepts-storage.md
 - name: How-to guides
@@ -72,6 +78,8 @@
       href: deploy-traffic-manager-balance-workloads.md
     - name: Configure alerts and work with metrics
       href: configure-alerts-for-azure-vmware-solution.md
+    - name: Configure customer-managed key encryption at rest
+      href: configure-customer-managed-keys.md
     - name: Manage and protect VMs on Azure NetApp Files
       items: 
       - name: Attach Azure NetApp Files datastores to Azure VMware Solution hosts
@@ -110,13 +118,13 @@
     items:
     - name: Configure external identity source for vCenter Server
       href: configure-identity-source-vcenter.md
-    - name: Configure external identity source for NSX-T
+    - name: Configure external identity source for NSX-T Data Center
       href: configure-external-identity-source-nsx-t.md
   - name: Configure Internet connectivity
     items:
     - name: Enable Managed SNAT for Azure VMware Solution Workloads
       href: enable-managed-snat-for-workloads.md
-    - name: Enable Public IP to the NSX Edge for Azure VMware Solution
+    - name: Enable Public IP to the NSX-T Data Center Edge for Azure VMware Solution
       href: enable-public-ip-nsx-edge.md
     - name: Disable Internet access or enable a default route
       href: disable-internet-access.md
@@ -130,14 +138,14 @@
       href: configure-dns-azure-vmware-solution.md
     - name: Configure HCX network extension
       href: configure-hcx-network-extension.md
-    - name: Configure NSX network components
+    - name: HCX Mobility Optimized Networking (MON) guidance 
+      href: vmware-hcx-mon-guidance.md
+    - name: Configure NSX-T Data Center network components
       href: configure-nsx-network-components-azure-portal.md
     - name: Configure port mirroring
       href: configure-port-mirroring-azure-vmware-solution.md
     - name: Configure a site-to-site VPN in vWAN
       href: configure-site-to-site-vpn-gateway.md
-    - name: HCX Mobility Optimized Networking (MON) guidance 
-      href: vmware-hcx-mon-guidance.md
   - name: Configure storage policies
     href: configure-storage-policy.md
   - name: Configure VMware syslogs
@@ -150,20 +158,22 @@
     href: deploy-arc-for-azure-vmware-solution.md
   - name: Deploy disaster recovery
     items:
-    - name: Deploy disaster recovery using JetStream DR software
-      href: deploy-disaster-recovery-using-jetstream.md
     - name: Deploy VMware HCX for disaster recovery
       href: deploy-disaster-recovery-using-vmware-hcx.md
     - name: Deploy VMware SRM for disaster recovery
       href: disaster-recovery-using-vmware-site-recovery-manager.md
     - name: Deploy Zerto disaster recovery
       href: deploy-zerto-disaster-recovery.md
+    - name: Deploy disaster recovery using JetStream DR software
+      href: deploy-disaster-recovery-using-jetstream.md
   - name: Deploy virtual desktops
     items:
     - name: Deploy Horizon on Azure VMware Solution
       href: azure-vmware-solution-horizon.md
     - name: Deploy Citrix on Azure VMware Solution
       href: azure-vmware-solution-citrix.md
+  - name: Deploy vSAN stretched clusters (Preview)
+    href: deploy-vsan-stretched-clusters.md
   - name: Move resources
     items:
     - name: Move Azure VMware Solution subscriptions
@@ -206,23 +216,23 @@
       href: deploy-vm-content-library.md
     - name: Enable HCX access over the internet
       href: enable-hcx-access-over-internet.md
-    - name: Enable SQL Azure hybrid benefit for Azure VMware Solution (Preview)
+    - name: Enable SQL Azure hybrid benefit for Azure VMware Solution
       href: enable-sql-azure-hybrid-benefit.md
     - name: Enable VMware Cloud director service with Azure VMware solution (Preview)
       href: enable-vmware-cds-with-azure.md
-    - name: Upgrade the VMware HCX appliance
-      href: https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-02DB88E1-EC81-434B-9AE9-D100E427B31C.html
+    - name: Upgrade HCX on Azure VMware Solution
+      href: upgrade-hcx-azure-vmware-solutions.md
 - name: Resources
   items:
   - name: Learning paths
     items:
       - name: Introduction to Azure VMware Solution
         href: /training/modules/intro-azure-vmware-solution/
-      - name: Run VMware workloads on Azure VMware Solution
+      - name: Run VMware vSphere workloads on Azure VMware Solution
         href: /training/paths/run-vmware-workloads-azure-vmware-solution/
-      - name: Prepare to migrate VMware workloads to Azure by deploying Azure VMware Solution
+      - name: Prepare to migrate VMware vSphere workloads to Azure by deploying Azure VMware Solution
         href: /training/modules/deploy-azure-vmware-solution/
-      - name: Migrate VMware workloads on-premises to Azure VMware Solution
+      - name: Migrate VMware vSphere workloads from on-premises to Azure VMware Solution
         href: /training/modules/migrate-vmware-workloads-on-premises-azure-vmware-solution/
       - name: Deploy disaster recovery using VMware Site Recovery Manager and Azure VMware Solution
         href: /training/modules/deploy-disaster-recovery-vmware-srm-azure-vmware-solution/
@@ -257,7 +267,7 @@
   - name: Pricing
     items:
       - name: Azure VMware Solution pricing        
-        href: https://azure.microsoft.com/en-us/pricing/details/azure-vmware/
+        href: https://azure.microsoft.com/pricing/details/azure-vmware/
       - name: Azure pricing calculator
         href: https://azure.microsoft.com/pricing/calculator/
   - name: SLA
@@ -271,31 +281,7 @@
     - name: VMware tools vix error code = 21009
       href: https://kb.vmware.com/s/article/2129927
   - name: FAQ
-    items:
-    - name: General
-      href: ./faq.yml
-    - name: Billing
-      href: ./faq.yml
-    - name: Customer communication
-      href: ./faq.yml
-    - name: Configuration and setup
-      href: ./faq.yml
-    - name: VMware software
-      href: ./faq.yml
-    - name: Third-party backup solutions
-      href: ./faq.yml
-    - name: Compute
-      href: ./faq.yml
-    - name: Networking and interconnectivity
-      href: ./faq.yml
-    - name: Storage
-      href: ./faq.yml
-    - name: Hosts, clusters, and private clouds
-      href: ./faq.yml
-    - name: Identity management
-      href: ./faq.yml
-    - name: CSP and multi-tenancy
-      href: ./faq.yml
+    href: ./faq.yml
   - name: Videos
     items:
     - name: Playlist

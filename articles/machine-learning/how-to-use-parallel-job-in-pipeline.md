@@ -8,22 +8,23 @@ ms.subservice: mlops
 ms.topic: how-to
 author: alainli
 ms.author: alainli
+ms.reviewer: lagayhar
 ms.date: 09/27/2022
 ms.custom: devx-track-python, sdkv2, cliv2, event-tier1-build-2022
 ---
 
-# How to use parallel job in pipeline (V2) (preview)
+# How to use parallel job in pipeline (V2)
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
-Parallel job lets users accelerate their job execution by distributing repeated tasks on powerful multi-nodes compute clusters. For example, take the scenario where you're running an object detection model on large set of images. With Azure ML Parallel job, you can easily distribute your images to run custom code in parallel on a specific compute cluster. Parallelization could significantly reduce the time cost. Also by using Azure ML parallel job you can simplify and automate your process to make it more efficient.
+Parallel job lets users accelerate their job execution by distributing repeated tasks on powerful multi-nodes compute clusters. For example, take the scenario where you're running an object detection model on large set of images. With Azure Machine Learning Parallel job, you can easily distribute your images to run custom code in parallel on a specific compute cluster. Parallelization could significantly reduce the time cost. Also by using Azure Machine Learning parallel job you can simplify and automate your process to make it more efficient.
 
 ## Prerequisite
 
-Azure ML parallel job can only be used as one of steps in a pipeline job. Thus, it's important to be familiar with using pipelines. To learn more about Azure ML pipelines, see the following articles.
+Azure Machine Learning parallel job can only be used as one of steps in a pipeline job. Thus, it's important to be familiar with using pipelines. To learn more about Azure Machine Learning pipelines, see the following articles.
 
 - Understand what is a [Azure Machine Learning pipeline](concept-ml-pipelines.md)
-- Understand how to use Azure ML pipeline with [CLI v2](how-to-create-component-pipelines-cli.md) and [SDK v2](how-to-create-component-pipeline-python.md).
+- Understand how to use Azure Machine Learning pipeline with [CLI v2](how-to-create-component-pipelines-cli.md) and [SDK v2](how-to-create-component-pipeline-python.md).
 
 ## Why are parallel jobs needed?
 
@@ -32,12 +33,12 @@ In the real world, ML engineers always have scale requirements on their training
 - Delay pressure caused by long execution time.
 - Manual intervention to handle unexpected issues to keep the task proceeding.
 
-The core value of Azure ML parallel job is to split a single serial task into mini-batches and dispatch those mini-batches to multiple computes to execute in parallel. By using parallel jobs, we can:
+The core value of Azure Machine Learning parallel job is to split a single serial task into mini-batches and dispatch those mini-batches to multiple computes to execute in parallel. By using parallel jobs, we can:
 
  - Significantly reduce end-to-end execution time.
- - Use Azure ML parallel job's automatic error handling settings.
+ - Use Azure Machine Learning parallel job's automatic error handling settings.
 
-You should consider using Azure ML Parallel job if:
+You should consider using Azure Machine Learning Parallel job if:
 
  - You plan to train many models on top of your partitioned data.
  - You want to accelerate your large scale batch inferencing task.
@@ -52,7 +53,7 @@ Parallel job requires only one **major input data** to be split and processed wi
 
 The following table illustrates the relation between input data and partition setting:
 
-| Data format | AML input type | AML input mode | Partition method |
+| Data format | Azure Machine Learning input type | Azure Machine Learning input mode | Partition method |
 |: ---------- |: ------------- |: ------------- |: --------------- |
 | File list | `mltable` or<br>`uri_folder` | ro_mount or<br>download | By size (number of files) |
 | Tabular data | `mltable` | direct | By size (estimated physical size) |
@@ -76,7 +77,7 @@ For example, you could set numbers to `mini_batch_size` to partition your data *
 
 Declare `job_data_path` as one of the inputs. Bind it to `input_data` attribute.
 
-[!notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/pipelines/1g_pipeline_with_parallel_nodes/pipeline_with_parallel_nodes.ipynb?name=parallel-job-for-file-data)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/jobs/pipelines/1g_pipeline_with_parallel_nodes/pipeline_with_parallel_nodes.ipynb?name=parallel-job-for-file-data)]
 
 ---
 
@@ -104,7 +105,7 @@ Sample code to set two attributes:
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-[!notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/pipelines/1g_pipeline_with_parallel_nodes/pipeline_with_parallel_nodes.ipynb?name=parallel-job-for-file-data)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/jobs/pipelines/1g_pipeline_with_parallel_nodes/pipeline_with_parallel_nodes.ipynb?name=parallel-job-for-file-data)]
 ---
 
 > [!NOTE]
@@ -112,7 +113,7 @@ Sample code to set two attributes:
 
 ### Implement predefined functions in entry script
 
-Entry script is a single python file where user needs to implement three predefined functions with custom code. Azure ML parallel job follows the diagram below to execute them in each processor.
+Entry script is a single Python file where user needs to implement three predefined functions with custom code. Azure Machine Learning parallel job follows the diagram below to execute them in each processor.
 
 :::image type="content" source="./media/how-to-use-parallel-job-in-pipeline/how-entry-script-works-in-parallel-job.png" alt-text="Diagram showing how entry script works in parallel job." lightbox ="./media/how-to-use-parallel-job-in-pipeline/how-entry-script-works-in-parallel-job.png":::
 
@@ -132,7 +133,7 @@ Once you have entry script ready, you can set following two attributes to use it
 | Attribute name | Type | Description | Default value |
 |: ------------- | ---- |: ---------- | ------------- |
 | `code` | string | Local path to the source code directory to be uploaded and used for the job. | |
-| `entry_script` | string | The python file that contains the implementation of pre-defined parallel functions. | |
+| `entry_script` | string | The Python file that contains the implementation of pre-defined parallel functions. | |
 
 Sample code to set two attributes:
 
@@ -146,7 +147,7 @@ Sample code to set two attributes:
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-[!notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/pipelines/1g_pipeline_with_parallel_nodes/pipeline_with_parallel_nodes.ipynb?name=parallel-job-for-file-data)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/jobs/pipelines/1g_pipeline_with_parallel_nodes/pipeline_with_parallel_nodes.ipynb?name=parallel-job-for-file-data)]
 ---
 
 > [!IMPORTANT]
@@ -157,7 +158,7 @@ Sample code to set two attributes:
 
 ### Consider automation settings
 
-Azure ML parallel job exposes numerous settings to automatically control the job without manual intervention. See the following table for the details.
+Azure Machine Learning parallel job exposes numerous settings to automatically control the job without manual intervention. See the following table for the details.
 
 | Key | Type | Description | Allowed values | Default value | Set in attribute | Set in program arguments |
 |--|--|--|--|--|--|--|
@@ -186,7 +187,7 @@ Sample code to update these settings:
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-[!notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/pipelines/1g_pipeline_with_parallel_nodes/pipeline_with_parallel_nodes.ipynb?name=parallel-job-for-tabular-data)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/jobs/pipelines/1g_pipeline_with_parallel_nodes/pipeline_with_parallel_nodes.ipynb?name=parallel-job-for-tabular-data)]
 ---
 
 ## Create parallel job in pipeline
@@ -204,19 +205,19 @@ You can create your parallel job inline with your pipeline job:
 
 First, you need to import the required libraries, initiate your ml_client with proper credential, and create/retrieve your computes:
 
-[!notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/pipelines/1g_pipeline_with_parallel_nodes/pipeline_with_parallel_nodes.ipynb?name=required-library)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/jobs/pipelines/1g_pipeline_with_parallel_nodes/pipeline_with_parallel_nodes.ipynb?name=required-library)]
 
-[!notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/pipelines/1g_pipeline_with_parallel_nodes/pipeline_with_parallel_nodes.ipynb?name=credential)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/jobs/pipelines/1g_pipeline_with_parallel_nodes/pipeline_with_parallel_nodes.ipynb?name=credential)]
 
-[!notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/pipelines/1g_pipeline_with_parallel_nodes/pipeline_with_parallel_nodes.ipynb?name=workspace)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/jobs/pipelines/1g_pipeline_with_parallel_nodes/pipeline_with_parallel_nodes.ipynb?name=workspace)]
 
 Then implement your parallel job by filling `parallel_run_function`:
 
-[!notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/pipelines/1g_pipeline_with_parallel_nodes/pipeline_with_parallel_nodes.ipynb?name=parallel-job-for-tabular-data)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/jobs/pipelines/1g_pipeline_with_parallel_nodes/pipeline_with_parallel_nodes.ipynb?name=parallel-job-for-tabular-data)]
 
 Finally use your parallel job as a step in your pipeline and bind its inputs/outputs with other steps:
 
-[!notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/pipelines/1g_pipeline_with_parallel_nodes/pipeline_with_parallel_nodes.ipynb?name=build-pipeline)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/jobs/pipelines/1g_pipeline_with_parallel_nodes/pipeline_with_parallel_nodes.ipynb?name=build-pipeline)]
 
 ---
 
@@ -238,7 +239,7 @@ az ml job create --file pipeline.yml
 
 You can submit your pipeline job with parallel step by using `jobs.create_or_update` function of ml_client:
 
-[!notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/pipelines/1g_pipeline_with_parallel_nodes/pipeline_with_parallel_nodes.ipynb?name=submit-pipeline)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/jobs/pipelines/1g_pipeline_with_parallel_nodes/pipeline_with_parallel_nodes.ipynb?name=submit-pipeline)]
 
 ---
 
@@ -246,11 +247,11 @@ Once you submit your pipeline job, the SDK or CLI widget will give you a web URL
 
 To check the settings of your parallel job, navigate to **Parameters** tab, expand **Run settings**, and check **Parallel** section:
 
-:::image type="content" source="./media/how-to-use-parallel-job-in-pipeline/screenshot-for-parallel-job-settings.png" alt-text="Screenshot of Azure ML studio on the jobs tab showing the parallel job settings." lightbox ="./media/how-to-use-parallel-job-in-pipeline/screenshot-for-parallel-job-settings.png":::
+:::image type="content" source="./media/how-to-use-parallel-job-in-pipeline/screenshot-for-parallel-job-settings.png" alt-text="Screenshot of Azure Machine Learning studio on the jobs tab showing the parallel job settings." lightbox ="./media/how-to-use-parallel-job-in-pipeline/screenshot-for-parallel-job-settings.png":::
 
 To debug the failure of your parallel job, navigate to **Outputs + Logs** tab, expand **logs** folder from output directories on the left, and check **job_result.txt** to understand why the parallel job is failed. For more detail about logging structure of parallel job, see the **readme.txt** under the same folder.
 
-:::image type="content" source="./media/how-to-use-parallel-job-in-pipeline/screenshot-for-parallel-job-result.png" alt-text="Screenshot of Azure ML studio on the jobs tab showing the parallel job results." lightbox ="./media/how-to-use-parallel-job-in-pipeline/screenshot-for-parallel-job-result.png":::
+:::image type="content" source="./media/how-to-use-parallel-job-in-pipeline/screenshot-for-parallel-job-result.png" alt-text="Screenshot of Azure Machine Learning studio on the jobs tab showing the parallel job results." lightbox ="./media/how-to-use-parallel-job-in-pipeline/screenshot-for-parallel-job-result.png":::
 
 ## Parallel job in pipeline examples
 

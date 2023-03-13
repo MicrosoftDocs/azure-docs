@@ -12,17 +12,20 @@ Get started with Azure Communication Services by using the Communication Service
 
 If you'd like to skip ahead to the end, you can download this quickstart as a sample on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-video-calling).
 
+> [!NOTE] 
+> Outbound calling to an Azure Communication Services user can be accessed using the [Azure Communication Services UI Library](https://azure.github.io/communication-ui-library/?path=/docs/quickstarts-1ton--page). The UI Library enables developers to add a call client that is VoIP enabled into their application with only a couple lines of code.
+
 ## Prerequisites
 - Obtain an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Node.js](https://nodejs.org/en/) Active LTS and Maintenance LTS versions
 - Create an active Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md?pivots=platform-azp&tabs=windows). You'll need to **record your connection string** for this quickstart.
-- Create a User Access Token to instantiate the call client. [Learn how to create and manage user access tokens](../../../access-tokens.md). You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
+- Create a User Access Token to instantiate the call client. [Learn how to create and manage user access tokens](../../../identity/access-tokens.md). You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
 
   ```azurecli-interactive
   az communication identity token issue --scope voip --connection-string "yourConnectionString"
   ```
 
-  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../../access-tokens.md?pivots=platform-azcli).
+  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../../identity/access-tokens.md?pivots=platform-azcli).
 
 ## Setting up
 ### Create a new Node.js application
@@ -321,10 +324,9 @@ subscribeToRemoteVideoStream = async (remoteVideoStream) => {
     remoteVideoContainer.className = 'remote-video-container';
 
     /**
-     * isReceiving API is currently an @alpha feature. Do not use in production.
-     * To use this api please use 'alpha' release of Azure Communication Services Calling Web SDK.
-     * Create a CSS class to style your loading spinner. Take a look at our
-     * video calling quickstart, to see how to create a loading spinner.
+     * isReceiving API is currently a @beta feature.
+     * To use this api, please use 'beta' version of Azure Communication Services Calling Web SDK.
+     * Create a CSS class to style your loading spinner.
      *
     let loadingSpinner = document.createElement('div');
     loadingSpinner.className = 'loading-spinner';
@@ -495,7 +497,7 @@ npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool 
 Open your browser and on two tabs navigate to http://localhost:8080/. You should see the following:
 :::image type="content" source="../../media/javascript/1-on-1-video-calling-a.png" alt-text="1 on 1 video calling page - a":::
 
-On the first tab, enter a valid user access token, and on the other tab enter another different valid user access token (Refer to the [user access token documentation](../../../access-tokens.md) if you don't already have tokens available to use).
+On the first tab, enter a valid user access token, and on the other tab enter another different valid user access token (Refer to the [user access token documentation](../../../identity/access-tokens.md) if you don't already have tokens available to use).
 On both tabs, click on the "Initialize Call Agent" buttons. You should see the following: 
 :::image type="content" source="../../media/javascript/1-on-1-video-calling-b.png" alt-text="1 on 1 video calling page - b":::
 

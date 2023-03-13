@@ -209,7 +209,7 @@ In addition to viewing the billing in the portal, you can access the billing inf
 
 - You can use the Azure Usage API to retrieve your usage data. You can fine-tune the billing usage information by tagging related Azure resources. For example, you can tag each of the resources in a resource group with a department name or project name, and then track the costs specifically for that one tag.
 
-- You can use the [Azure consumption API overview](../../cost-management-billing/manage/consumption-api-overview.md) to list all the available resources, along with the metadata. For more information on prices, see [Azure Retail Prices overview](/rest/api/cost-management/retail-prices/azure-retail-prices).
+- You can use the [Cost Management automation overview](../../cost-management-billing/automate/automation-overview.md) to list all the available resources, along with the metadata. For more information on prices, see [Azure Retail Prices overview](/rest/api/cost-management/retail-prices/azure-retail-prices).
 
 ### Forecast cost with the pricing calculator
 

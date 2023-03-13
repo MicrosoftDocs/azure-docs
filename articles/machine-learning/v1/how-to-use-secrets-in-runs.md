@@ -8,9 +8,9 @@ ms.author: roastala
 ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
-ms.date: 10/21/2021
+ms.date: 11/16/2022
 ms.topic: how-to
-ms.custom: sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, sdkv1, event-tier1-build-2022
 ---
 
 # Use authentication credential secrets in Azure Machine Learning training jobs
@@ -22,7 +22,7 @@ ms.custom: sdkv1, event-tier1-build-2022
 
 In this article, you learn how to use secrets in training jobs securely. Authentication information such as your user name and password are secrets. For example, if you connect to an external database in order to query training data, you would need to pass your username and password to the remote job context. Coding such values into training scripts in cleartext is insecure as it would expose the secret. 
 
-Instead, your Azure Machine Learning workspace has an associated resource called a [Azure Key Vault](/azure/key-vault/general/overview). Use this Key Vault to pass secrets to remote jobs securely through a set of APIs in the Azure Machine Learning Python SDK.
+Instead, your Azure Machine Learning workspace has an associated resource called a [Azure Key Vault](../../key-vault/general/overview.md). Use this Key Vault to pass secrets to remote jobs securely through a set of APIs in the Azure Machine Learning Python SDK.
 
 The standard flow for using secrets is:
  1. On local computer, log in to Azure and connect to your workspace.
@@ -51,7 +51,7 @@ Do not put the secret value in your Python code as it is insecure to store it in
 You can list secret names using the [`list_secrets()`](/python/api/azureml-core/azureml.core.keyvault.keyvault#list-secrets--) method and there is also a batch version,[set_secrets()](/python/api/azureml-core/azureml.core.keyvault.keyvault#set-secrets-secrets-batch-) that allows you to set multiple secrets at a time.
 
 > [!IMPORTANT]
-> Using `list_secrets()` will only list secrets created through `set_secret()` or `set_secrets()` using the Azure ML SDK. It will not list secrets created by something other than the SDK. For example, a secret created using the Azure portal or Azure PowerShell will not be listed.
+> Using `list_secrets()` will only list secrets created through `set_secret()` or `set_secrets()` using the Azure Machine Learning SDK. It will not list secrets created by something other than the SDK. For example, a secret created using the Azure portal or Azure PowerShell will not be listed.
 > 
 > You can use [`get_secret()`](#get-secrets) to get a secret value from the key vault, regardless of how it was created. So you can retrieve secrets that are not listed by `list_secrets()`.
 

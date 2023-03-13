@@ -4,7 +4,7 @@ description: Application Insights SDK tutorial to monitor ASP.NET Core web appli
 ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp
-ms.date: 08/22/2022
+ms.date: 11/15/2022
 ms.reviewer: casocha
 ---
 
@@ -22,7 +22,7 @@ Application Insights can collect the following telemetry from your ASP.NET Core 
 > * Heartbeats
 > * Logs
 
-For a sample application, we'll use an [ASP.NET Core MVC application](/aspnet/core/tutorials/first-mvc-app) that targets `net6.0`. However, you can apply these instructions to all ASP.NET Core applications. If you're using the [Worker Service](/aspnet/core/fundamentals/host/hosted-services#worker-service-template), use the instructions from [here](./worker-service.md).
+For a sample application, we'll use an [ASP.NET Core MVC application](https://github.com/AaronMaxwell/AzureCafe) that targets `net6.0`. However, you can apply these instructions to all ASP.NET Core applications. If you're using the [Worker Service](/aspnet/core/fundamentals/host/hosted-services#worker-service-template), use the instructions from [here](./worker-service.md).
 
 > [!NOTE]
 > A preview [OpenTelemetry-based .NET offering](./opentelemetry-enable.md?tabs=net) is available. [Learn more](./opentelemetry-overview.md).
@@ -70,8 +70,9 @@ In order to provide globally unique names to resources, a six-character suffix i
 
 3. On the **Create a resource** screen, search for and select **Application Insights** in the marketplace search textbox.
 
-   <!-- The long description for search-application-insights.png: Screenshot of the Create a resource screen in the Azure portal. The screenshot shows a search for Application Insights highlighted and Application Insights displaying in the search results, which is also highlighted. -->
-   :::image type="content" source="media/tutorial-asp-net-core/search-application-insights.png" alt-text="Screenshot of the Create a resource screen in the Azure portal." lightbox="media/tutorial-asp-net-core/search-application-insights.png":::
+   :::image type="complex" source="media/tutorial-asp-net-core/search-application-insights.png" alt-text="Screenshot of the Create a resource screen in the Azure portal." lightbox="media/tutorial-asp-net-core/search-application-insights.png":::
+      Screenshot of the Create a resource screen in the Azure portal. The screenshot shows a search for Application Insights highlighted and Application Insights displaying in the search results, which is also highlighted.
+   :::image-end:::
 
 4. On the Application Insights resource overview screen, select **Create**.
 
@@ -97,8 +98,9 @@ In order to provide globally unique names to resources, a six-character suffix i
 
 8. On the Overview screen of the Application Insights resource, select the **Copy to clipboard** button to copy the connection string value. You will use the connection string value in the next section of this article.
 
-   <!-- The long description for application-insights-connection-string-overview.png: Screenshot of the Application Insights Overview screen in the Azure portal. The screenshot shows the connection string value highlighted and the Copy to clipboard button selected and highlighted. -->
-   :::image type="content" source="media/tutorial-asp-net-core/application-insights-connection-string-overview.png" alt-text="Screenshot of the Application Insights Overview screen in the Azure portal." lightbox="media/tutorial-asp-net-core/application-insights-connection-string-overview.png":::
+   :::image type="complex" source="media/tutorial-asp-net-core/application-insights-connection-string-overview.png" alt-text="Screenshot of the Application Insights Overview screen in the Azure portal." lightbox="media/tutorial-asp-net-core/application-insights-connection-string-overview.png":::
+      Screenshot of the Application Insights Overview screen in the Azure portal. The screenshot shows the connection string value highlighted and the Copy to clipboard button selected and highlighted.
+   :::image-end:::
 
 ## Configure the Application Insights connection string application setting in the web App Service
 
@@ -108,17 +110,18 @@ In order to provide globally unique names to resources, a six-character suffix i
 
 2. From the left menu, under the Settings section, select **Configuration**. Then, on the **Application settings** tab, select **+ New application setting** beneath the Application settings header.
 
-    <!-- The long description for app-service-app-setting-button.png: Screenshot of the App Service resource screen in the Azure portal. The screenshot shows Configuration in the left menu under the Settings section selected and highlighted, the Application settings tab selected and highlighted, and the + New application setting toolbar button highlighted. -->
-   :::image type="content" source="media/tutorial-asp-net-core/app-service-app-setting-button.png" alt-text="Screenshot of the App Service resource screen in the Azure portal." lightbox="media/tutorial-asp-net-core/app-service-app-setting-button.png":::
+   :::image type="complex" source="media/tutorial-asp-net-core/app-service-app-setting-button.png" alt-text="Screenshot of the App Service resource screen in the Azure portal." lightbox="media/tutorial-asp-net-core/app-service-app-setting-button.png":::
+      Screenshot of the App Service resource screen in the Azure portal. The screenshot shows Configuration in the left menu under the Settings section selected and highlighted, the Application settings tab selected and highlighted, and the + New application setting toolbar button highlighted.
+   :::image-end:::
 
-3. In the Add/Edit application setting blade, complete the form as follows and select **OK**.
+3. In the Add/Edit application setting pane, complete the form as follows and select **OK**.
 
     | Field | Value |
     |-------|-------|
     | Name  | APPLICATIONINSIGHTS_CONNECTION_STRING |
     | Value | Paste the Application Insights connection string value you copied in the preceding section. |
 
-    :::image type="content" source="media/tutorial-asp-net-core/add-edit-app-setting.png" alt-text="Screenshot of the Add/Edit application setting blade in the Azure portal with the preceding values populated in the Name and Value fields." lightbox="media/tutorial-asp-net-core/add-edit-app-setting.png":::
+    :::image type="content" source="media/tutorial-asp-net-core/add-edit-app-setting.png" alt-text="Screenshot of the Add/Edit application setting pane in the Azure portal with the preceding values populated in the Name and Value fields." lightbox="media/tutorial-asp-net-core/add-edit-app-setting.png":::
 
 4. On the App Service Configuration screen, select the **Save** button from the toolbar menu. When prompted to save the changes, select **Continue**.
 
@@ -136,8 +139,9 @@ We need to configure the ASP.NET Core MVC web application to send telemetry. Thi
 
 3. Select the **Browse** tab and then search for and select **Microsoft.ApplicationInsights.AspNetCore**. Select **Install**, and accept the license terms. It is recommended you use the latest stable version. For the full release notes for the SDK, see the [open-source GitHub repo](https://github.com/Microsoft/ApplicationInsights-dotnet/releases).
 
-   <!-- The long description for asp-net-core-install-nuget-package.png: Screenshot that shows the NuGet Package Manager user interface in Visual Studio with the Browse tab selected. Microsoft.ApplicationInsights.AspNetCore is entered in the search box, and the Microsoft.ApplicationInsights.AspNetCore package is selected from a list of results. In the right pane, the latest stable version of the Microsoft.ApplicationInsights.AspNetCore package is selected from a drop down list and the Install button is highlighted. -->
-   :::image type="content" source="media/tutorial-asp-net-core/asp-net-core-install-nuget-package.png" alt-text="Screenshot of the NuGet Package Manager user interface in Visual Studio." lightbox="media/tutorial-asp-net-core/asp-net-core-install-nuget-package.png":::
+   :::image type="complex" source="media/tutorial-asp-net-core/asp-net-core-install-nuget-package.png" alt-text="Screenshot of the NuGet Package Manager user interface in Visual Studio." lightbox="media/tutorial-asp-net-core/asp-net-core-install-nuget-package.png":::
+      Screenshot that shows the NuGet Package Manager user interface in Visual Studio with the Browse tab selected. Microsoft.ApplicationInsights.AspNetCore is entered in the search box, and the Microsoft.ApplicationInsights.AspNetCore package is selected from a list of results. In the right pane, the latest stable version of the Microsoft.ApplicationInsights.AspNetCore package is selected from a drop down list and the Install button is highlighted.
+   :::image-end:::
 
    Keep Visual Studio open for the next section of the article.
 
@@ -281,13 +285,15 @@ Application Insights introspects the incoming telemetry data and is able to gene
 
 3. The **Operations** tab contains details of the HTTP calls received by the application. To toggle between Server and Browser (client-side) views of the data, use the Server/Browser toggle.
 
-   <!-- The long description for server-performance.png: Screenshot of the Application Insights Performance screen in the Azure portal. The screenshot shows the Server/Browser toggle and HTTP calls received by the application highlighted. -->
-   :::image type="content" source="media/tutorial-asp-net-core/server-performance.png" alt-text="Screenshot of the Performance screen in the Azure portal." lightbox="media/tutorial-asp-net-core/server-performance.png":::
+   :::image type="complex" source="media/tutorial-asp-net-core/server-performance.png" alt-text="Screenshot of the Performance screen in the Azure portal." lightbox="media/tutorial-asp-net-core/server-performance.png":::
+      Screenshot of the Application Insights Performance screen in the Azure portal. The screenshot shows the Server/Browser toggle and HTTP calls received by the application highlighted.
+   :::image-end:::
 
 4. Select an Operation from the table, and choose to drill into a sample of the request.
  
-    <!-- The long description for select-operation-performance.png: Screenshot of the Application Insights Performance screen in the Azure portal. The screenshot shows a POST operation and a sample operation from the suggested list selected and highlighted and the Drill into samples button is highlighted. -->
-    :::image type="content" source="media/tutorial-asp-net-core/select-operation-performance.png" alt-text="Screenshot of the Application Insights Performance screen in the Azure portal with operations and sample operations listed." lightbox="media/tutorial-asp-net-core/select-operation-performance.png":::
+    :::image type="complex" source="media/tutorial-asp-net-core/select-operation-performance.png" alt-text="Screenshot of the Application Insights Performance screen in the Azure portal with operations and sample operations listed." lightbox="media/tutorial-asp-net-core/select-operation-performance.png":::
+       Screenshot of the Application Insights Performance screen in the Azure portal. The screenshot shows a POST operation and a sample operation from the suggested list selected and highlighted and the Drill into samples button is highlighted.
+    :::image-end:::
 
    The end-to-end transaction displays for the selected request. In this case, a review was created, including an image, so it includes calls to Azure Storage and the Language Service (for sentiment analysis). It also includes database calls into SQL Azure to persist the review. In this example, the first selected Event displays information relative to the HTTP POST call.
 
@@ -453,7 +459,7 @@ For the latest updates and bug fixes, see the [release notes](./release-notes.md
 * [Explore user flows](./usage-flows.md) to understand how users navigate through your app.
 * [Configure a snapshot collection](./snapshot-debugger.md) to see the state of source code and variables at the moment an exception is thrown.
 * [Use the API](./api-custom-events-metrics.md) to send your own events and metrics for a detailed view of your app's performance and usage.
-* Use [availability tests](./monitor-web-app-availability.md) to check your app constantly from around the world.
+* [Availability overview](availability-overview.md)
 * [Dependency Injection in ASP.NET Core](/aspnet/core/fundamentals/dependency-injection)
 * [Logging in ASP.NET Core](/aspnet/core/fundamentals/logging)
 * [.NET trace logs in Application Insights](./asp-net-trace-logs.md)

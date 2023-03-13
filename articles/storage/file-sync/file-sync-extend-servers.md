@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Extend Windows file servers with Azure File Sync | Microsoft Docs
+title: Tutorial - Extend Windows file servers with Azure File Sync
 description: Learn how to extend Windows file servers with Azure File Sync, from start to finish.
 author: khdownie
 ms.service: storage

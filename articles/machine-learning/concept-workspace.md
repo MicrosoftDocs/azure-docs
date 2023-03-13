@@ -5,10 +5,11 @@ description: The workspace is the top-level resource for Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, ignite-2022
 ms.topic: conceptual
-ms.author: sgilley
-author: sdgilley
+ms.author: deeikele
+author: deeikele
+ms.reviewer: sgilley
 ms.date: 08/26/2022
 #Customer intent: As a data scientist, I want to understand the purpose of a workspace for Azure Machine Learning.
 ---
@@ -21,12 +22,6 @@ The workspace is the top-level resource for Azure Machine Learning, providing a 
 Once you have a model you like, you register it with the workspace. You then use the registered model and scoring scripts to deploy to an [online endpoint](concept-endpoints.md) as a REST-based HTTP endpoint.
 
 ## Taxonomy 
-
-A taxonomy of the workspace is illustrated in the following diagram:
-
-[![Workspace taxonomy](./media/concept-workspace/azure-machine-learning-taxonomy.png)](./media/concept-workspace/azure-machine-learning-taxonomy.png#lightbox)
-
-The diagram shows the following components of a workspace:
 
 + A workspace can contain [Azure Machine Learning compute instances](concept-compute-instance.md), cloud resources configured with the Python environment necessary to run Azure Machine Learning.
 
@@ -91,9 +86,9 @@ There are multiple ways to create a workspace:
 
 ## Sub resources
 
-These sub resources are the main resources that are made in the AzureML workspace.
+These sub resources are the main resources that are made in the Azure Machine Learning workspace.
 
-* VMs: provide computing power for your AzureML workspace and are an integral part in deploying and training models.
+* VMs: provide computing power for your Azure Machine Learning workspace and are an integral part in deploying and training models.
 * Load Balancer: a network load balancer is created for each compute instance and compute cluster to manage traffic even while the compute instance/cluster is stopped.
 * Virtual Network: these help Azure resources communicate with one another, the internet, and other on-premises networks.
 * Bandwidth: encapsulates all outbound data transfers across regions.
@@ -113,7 +108,7 @@ When you create a new workspace, it automatically creates several Azure resource
 + [Azure Container Registry](https://azure.microsoft.com/services/container-registry/): Registers docker containers that are used for the following components:
     * [Azure Machine Learning environments](concept-environments.md) when training and deploying models
     * [AutoML](concept-automated-ml.md) when deploying
-    * [Data profiling](v1/how-to-connect-data-ui.md#data-profile-and-preview)
+    * [Data profiling](v1/how-to-connect-data-ui.md#data-preview-and-profile)
 
     To minimize costs, ACR is **lazy-loaded** until images are needed.
 
@@ -138,6 +133,7 @@ To get started with Azure Machine Learning, see:
 
 + [What is Azure Machine Learning?](overview-what-is-azure-machine-learning.md)
 + [Create and manage a workspace](how-to-manage-workspace.md)
++ [Recover a workspace after deletion (soft-delete)](concept-soft-delete.md)
 + [Tutorial: Get started with Azure Machine Learning](quickstart-create-resources.md)
 + [Tutorial: Create your first classification model with automated machine learning](tutorial-first-experiment-automated-ml.md) 
 + [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md)

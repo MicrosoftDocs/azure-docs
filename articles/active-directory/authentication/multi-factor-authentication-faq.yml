@@ -7,7 +7,7 @@ metadata:
   ms.service: active-directory
   ms.subservice: authentication
   ms.topic: faq
-  ms.date: 07/14/2020
+  ms.date: 11/03/2022
   ms.author: justinha
   author: justinha
   manager: amycolannino
@@ -18,12 +18,7 @@ summary: |
   This FAQ answers common questions about Azure AD Multi-Factor Authentication and using the Multi-Factor Authentication service. It's broken down into questions about the service in general, billing models, user experiences, and troubleshooting.
   
   > [!IMPORTANT]
-  > As of July 1, 2019, Microsoft will no longer offer MFA Server for new deployments. New customers who would like to require multi-factor authentication from their users should use cloud-based Azure AD Multi-Factor Authentication. Existing customers who have activated MFA Server prior to July 1 will be able to download the latest version, future updates and generate activation credentials as usual.
-  >
-  > The information shared below regarding the Azure Multi-Factor Authentication Server is only applicable for users who already have the MFA server running.
-  >
-  > Consumption-based licensing is no longer available to new customers effective September 1, 2018.
-  > Effective September 1, 2018 new auth providers may no longer be created. Existing auth providers may continue to be used and updated. Multi-factor authentication will continue to be an available feature in Azure AD Premium licenses.
+  > In September 2022, Microsoft announced deprecation of Azure Multi-Factor Authentication Server. Beginning September 30, 2024, Azure Multi-Factor Authentication Server deployments will no longer service multifactor authentication (MFA) requests, which could cause authentications to fail for your organization. To ensure uninterrupted authentication services and to remain in a supported state, organizations should [migrate their users’ authentication data](how-to-migrate-mfa-server-to-azure-mfa-user-authentication.md) to the cloud-based Azure MFA service by using the latest Migration Utility included in the most recent [Azure MFA Server update](https://www.microsoft.com/download/details.aspx?id=55849). For more information, see [Azure MFA Server Migration](how-to-migrate-mfa-server-to-azure-mfa.md).
   
 
 sections:

@@ -9,7 +9,7 @@ ms.reviwer: heya
 
 # Statsbeat in Azure Application Insights
 
-Statsbeat collects essential and non-essential [custom metric](../essentials/metrics-custom-overview.md) about Application Insights SDKs and auto-instrumentation. Statsbeat serves three benefits for Azure Monitor Application insights customers:
+Statsbeat collects essential and non-essential [custom metric](../essentials/metrics-custom-overview.md) about Application Insights SDKs and auto-instrumentation. Statsbeat serves three benefits for Azure Monitor Application Insights customers:
 -	Service Health and Reliability (outside-in monitoring of connectivity to ingestion endpoint)
 -	Support Diagnostics (self-help insights and CSS insights)
 -	Product Improvement (insights for design optimizations)
@@ -46,7 +46,8 @@ Statsbeat supports EU Data Boundary for Application Insights resources in the fo
 | Sweden                    | Sweden Central         | 
 | Switzerland               | Switzerland North      |
 | Switzerland               | Switzerland West       | 
-
+| United Kingdom            | United Kingdom South   |
+| United Kingdom            | United Kingdom West    |
 
 #### [Node](#tab/eu-node)
 
@@ -63,7 +64,9 @@ Statsbeat supports EU Data Boundary for Application Insights resources in the fo
 | Norway                    | Norway West            | 
 | Sweden                    | Sweden Central         | 
 | Switzerland               | Switzerland North      |
-| Switzerland               | Switzerland West       | 
+| Switzerland               | Switzerland West       |
+| United Kingdom            | United Kingdom South   |
+| United Kingdom            | United Kingdom West    |
 
 #### [Python](#tab/eu-python)
 
@@ -80,7 +83,9 @@ Statsbeat supports EU Data Boundary for Application Insights resources in the fo
 | Norway                    | Norway West            | 
 | Sweden                    | Sweden Central         | 
 | Switzerland               | Switzerland North      |
-| Switzerland               | Switzerland West       | 
+| Switzerland               | Switzerland West       |
+| United Kingdom            | United Kingdom South   |
+| United Kingdom            | United Kingdom West    |
 
 
 ---

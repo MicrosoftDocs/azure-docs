@@ -5,13 +5,13 @@ services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: include
-ms.date: 04/29/2022
+ms.date: 11/14/2022
 ms.author: spelluru
 ms.custom: "include file"
 
 ---
 
-:::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/overview.png" alt-text="Application overview":::
+:::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/overview.svg" alt-text="Application overview":::
 
 This diagram depicts the workflow of the solution you build in this tutorial: 
 
@@ -133,12 +133,7 @@ In this section, you create a table in the dedicated SQL pool you created earlie
 2. On the **Dedicated SQL pool** page, in the **Common Tasks** section on the left menu, select **Query editor (preview)**. 
 
     :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/sql-data-warehouse-page.png" alt-text="Screenshot showing the selection of Query Editor on a Dedicated SQL pool page in the Azure portal.":::
-2. Enter the name of **user** and **password** for the SQL server, and select **OK**. If you see a message about allowing your client to access the SQL server, follow these steps:
-    1. Select the link: **Set server firewall**. 
-    2. On the **Firewall settings** page, select **Add client IP** on the toolbar, and then select **Save** on the toolbar. 
-    3. Select **OK** on the success message.
-    4. Navigate back to the **Dedicated SQL pool** page, and select **Query editor (preview)** on the left menu. 
-    5. Enter **user** and **password**, and then select **OK**. 
+2. Enter the name of **user** and **password** for the SQL server, and select **OK**. If you see a message about allowing your client to access the SQL server, select **Allowlist IP &lt;your IP Address&gt; on server &lt;your SQL server&gt;**, and then select **OK**. 
 1. In the query window, copy and run the following SQL script: 
 
     ```sql

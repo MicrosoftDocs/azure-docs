@@ -10,7 +10,7 @@ ms.date: 09/01/2022
 ms.custom: vscode-azure-extension-update-completed
 ---
 
-# Tutorial: Deploy to Azure Container Apps using Visual Studio Code
+# Quickstart: Deploy to Azure Container Apps using Visual Studio Code
 
 Azure Container Apps enables you to run microservices and containerized applications on a serverless platform. With Container Apps, you enjoy the benefits of running containers while leaving behind the concerns of manually configuring cloud infrastructure and complex container orchestrators.
 

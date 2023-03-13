@@ -2,7 +2,7 @@
 title: Linter rule - use recent API versions
 description: Linter rule - use recent API versions
 ms.topic: conceptual
-ms.date: 09/30/2022
+ms.date: 02/13/2023
 ---
 
 # Linter rule - use recent API versions
@@ -21,6 +21,10 @@ Use the following value in the [Bicep configuration file](bicep-config-linter.md
 ## Solution
 
 Use the most recent API version, or one that is no older than 730 days.
+
+Use **Quick Fix** to use the latest API versions:
+
+:::image type="content" source="./media/linter-rule-use-recent-api-versions/linter-rule-use-recent-api-versions-quick-fix.png" alt-text="The screenshot of Simplify interpolation linter rule quick fix.":::
 
 ## Next steps
 

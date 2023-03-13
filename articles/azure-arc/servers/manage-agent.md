@@ -1,7 +1,7 @@
 ---
 title:  Managing the Azure Arc-enabled servers agent
 description: This article describes the different management tasks that you will typically perform during the lifecycle of the Azure Connected Machine agent.
-ms.date: 08/03/2022
+ms.date: 10/12/2022
 ms.topic: conceptual
 ---
 
@@ -131,7 +131,7 @@ The latest version of the Azure Connected Machine agent for Windows-based machin
 
 #### Microsoft Update configuration
 
-The recommended way of keeping the Windows agent up to date is to automatically obtain the latest version through Microsoft Update. This allows you to utilize your existing update infrastructure (such as Microsoft Endpoint Configuration Manager or Windows Server Update Services) and include Azure Connected Machine agent updates with your regular OS update schedule.
+The recommended way of keeping the Windows agent up to date is to automatically obtain the latest version through Microsoft Update. This allows you to utilize your existing update infrastructure (such as Microsoft Configuration Manager or Windows Server Update Services) and include Azure Connected Machine agent updates with your regular OS update schedule.
 
 Windows Server doesn't check for updates in Microsoft Update by default. To receive automatic updates for the Azure Connected Machine Agent, you must configure the Windows Update client on the machine to check for other Microsoft products.
 
@@ -169,7 +169,7 @@ For Windows Servers that belong to a domain and connect to the Internet to check
 
 The next time computers in your selected scope refresh their policy, they will start to check for updates in both Windows Update and Microsoft Update.
 
-For organizations that use Microsoft Endpoint Configuration Manager (MECM) or Windows Server Update Services (WSUS) to deliver updates to their servers, you need to configure WSUS to synchronize the Azure Connected Machine Agent packages and approve them for installation on your servers. Follow the guidance for [Windows Server Update Services](/windows-server/administration/windows-server-update-services/manage/setting-up-update-synchronizations#to-specify-update-products-and-classifications-for-synchronization) or [MECM](/mem/configmgr/sum/get-started/configure-classifications-and-products#to-configure-classifications-and-products-to-synchronize) to add the following products and classifications to your configuration:
+For organizations that use Microsoft Configuration Manager (MECM) or Windows Server Update Services (WSUS) to deliver updates to their servers, you need to configure WSUS to synchronize the Azure Connected Machine Agent packages and approve them for installation on your servers. Follow the guidance for [Windows Server Update Services](/windows-server/administration/windows-server-update-services/manage/setting-up-update-synchronizations#to-specify-update-products-and-classifications-for-synchronization) or [MECM](/mem/configmgr/sum/get-started/configure-classifications-and-products#to-configure-classifications-and-products-to-synchronize) to add the following products and classifications to your configuration:
 
 * **Product Name**: Azure Connected Machine Agent (select all 3 sub-options)
 * **Classifications**: Critical Updates, Updates
@@ -400,15 +400,15 @@ You do not need to restart any services when reconfiguring the proxy settings wi
 
 ### Proxy bypass for private endpoints
 
-Starting with agent version 1.15, you can also specify services which should **not** use the specified proxy server. This can help with split-network designs and private endpoint scenarios where you want Azure Active Directory (Azure AD) and Azure Resource Manager traffic to go through your proxy server to public endpoints but want Azure Arc traffic to skip the proxy and communicate with a private IP address on your network.
+Starting with agent version 1.15, you can also specify services which should **not** use the specified proxy server. This can help with split-network designs and private endpoint scenarios where you want Azure Active Directory and Azure Resource Manager traffic to go through your proxy server to public endpoints but want Azure Arc traffic to skip the proxy and communicate with a private IP address on your network.
 
 The proxy bypass feature does not require you to enter specific URLs to bypass. Instead, you provide the name of the service(s) that should not use the proxy server.
 
 | Proxy bypass value | Affected endpoints |
 | --------------------- | ------------------ |
-| Azure AD | `login.windows.net`, `login.microsoftonline.com`, `pas.windows.net` |
-| ARM | `management.azure.com` |
-| Arc | `his.arc.azure.com`, `guestconfiguration.azure.com`, `guestnotificationservice.azure.com`, `servicebus.windows.net` |
+| `AAD` | `login.windows.net`, `login.microsoftonline.com`, `pas.windows.net` |
+| `ARM` | `management.azure.com` |
+| `Arc` | `his.arc.azure.com`, `guestconfiguration.azure.com`, `guestnotificationservice.azure.com`, `servicebus.windows.net` |
 
 To send Azure Active Directory and Azure Resource Manager traffic through a proxy server but skip the proxy for Azure Arc traffic, run the following command:
 

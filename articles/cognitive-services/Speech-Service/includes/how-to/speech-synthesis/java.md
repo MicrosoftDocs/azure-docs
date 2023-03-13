@@ -14,7 +14,7 @@ ms.author: eur
 ## Select synthesis language and voice
 
 The text-to-speech feature in the Azure Speech service supports more than 270 voices and more than 110 languages and variants.
-You can get the [full list](../../../language-support.md?tabs=stt-tts) or try them in a [text-to-speech demo](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features).
+You can get the [full list](../../../language-support.md?tabs=tts) or try them in the [Voice Gallery](https://speech.microsoft.com/portal/voicegallery).
 
 Specify the language or voice of [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig) to match your input text and use the wanted voice:
 
@@ -27,7 +27,7 @@ public static void main(String[] args) {
 }
 ```
 
-All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is "I'm excited to try text to speech" and you set `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent. If the voice does not speak the language of the input text, the Speech service won't output synthesized audio. See the [full list](../../../language-support.md?tabs=stt-tts) of supported neural voices.
+All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is "I'm excited to try text to speech" and you set `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent. If the voice does not speak the language of the input text, the Speech service won't output synthesized audio. See the [full list](../../../language-support.md?tabs=tts) of supported neural voices.
 
 > [!NOTE]
 > The default voice is the first voice returned per locale via the [Voice List API](../../../rest-text-to-speech.md#get-a-list-of-voices).
@@ -61,8 +61,8 @@ public static void main(String[] args) {
     SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
     AudioConfig audioConfig = AudioConfig.fromWavFileOutput("path/to/write/file.wav");
 
-    SpeechSynthesizer synthesizer = new SpeechSynthesizer(speechConfig, audioConfig);
-    synthesizer.SpeakText("I'm excited to try text-to-speech");
+    SpeechSynthesizer speechSynthesizer = new SpeechSynthesizer(speechConfig, audioConfig);
+    speechSynthesizer.SpeakText("I'm excited to try text-to-speech");
 }
 ```
 
@@ -79,8 +79,8 @@ public static void main(String[] args) {
     SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
     AudioConfig audioConfig = AudioConfig.fromDefaultSpeakerOutput();
 
-    SpeechSynthesizer synthesizer = new SpeechSynthesizer(speechConfig, audioConfig);
-    synthesizer.SpeakText("I'm excited to try text to speech");
+    SpeechSynthesizer speechSynthesizer = new SpeechSynthesizer(speechConfig, audioConfig);
+    speechSynthesizer.SpeakText("I'm excited to try text to speech");
 }
 ```
 
@@ -102,9 +102,9 @@ This time, you save the result to a [`SpeechSynthesisResult`](/java/api/com.micr
 ```java
 public static void main(String[] args) {
     SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
-    SpeechSynthesizer synthesizer = new SpeechSynthesizer(speechConfig, null);
+    SpeechSynthesizer speechSynthesizer = new SpeechSynthesizer(speechConfig, null);
 
-    SpeechSynthesisResult result = synthesizer.SpeakText("I'm excited to try text-to-speech");
+    SpeechSynthesisResult result = speechSynthesizer.SpeakText("I'm excited to try text-to-speech");
     AudioDataStream stream = AudioDataStream.fromResult(result);
     System.out.print(stream.getStatus());
 }
@@ -136,8 +136,8 @@ public static void main(String[] args) {
     // set the output format
     speechConfig.setSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat.Riff24Khz16BitMonoPcm);
 
-    SpeechSynthesizer synthesizer = new SpeechSynthesizer(speechConfig, null);
-    SpeechSynthesisResult result = synthesizer.SpeakText("I'm excited to try text-to-speech");
+    SpeechSynthesizer speechSynthesizer = new SpeechSynthesizer(speechConfig, null);
+    SpeechSynthesisResult result = speechSynthesizer.SpeakText("I'm excited to try text-to-speech");
     AudioDataStream stream = AudioDataStream.fromResult(result);
     stream.saveToWavFile("path/to/write/file.wav");
 }
@@ -151,7 +151,7 @@ You can use SSML to fine-tune the pitch, pronunciation, speaking rate, volume, a
 
 To start using SSML for customization, you make a simple change that switches the voice.
 
-First, create a new XML file for the SSML configuration in your root project directory. In this example, it's `ssml.xml`. The root element is always `<speak>`. Wrapping the text in a `<voice>` element allows you to change the voice by using the `name` parameter. See the [full list](../../../language-support.md?tabs=stt-tts) of supported *neural* voices.
+First, create a new XML file for the SSML configuration in your root project directory. In this example, it's `ssml.xml`. The root element is always `<speak>`. Wrapping the text in a `<voice>` element allows you to change the voice by using the `name` parameter. See the [full list](../../../language-support.md?tabs=tts) of supported *neural* voices.
 
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
@@ -184,10 +184,10 @@ From here, the result object is exactly the same as previous examples:
 ```java
 public static void main(String[] args) {
     SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
-    SpeechSynthesizer synthesizer = new SpeechSynthesizer(speechConfig, null);
+    SpeechSynthesizer speechSynthesizer = new SpeechSynthesizer(speechConfig, null);
 
     String ssml = xmlToString("ssml.xml");
-    SpeechSynthesisResult result = synthesizer.SpeakSsml(ssml);
+    SpeechSynthesisResult result = speechSynthesizer.SpeakSsml(ssml);
     AudioDataStream stream = AudioDataStream.fromResult(result);
     stream.saveToWavFile("path/to/write/file.wav");
 }
@@ -214,6 +214,7 @@ import java.util.Scanner;
 import java.util.concurrent.ExecutionException;
 
 public class SpeechSynthesis {
+    // This example requires environment variables named "SPEECH_KEY" and "SPEECH_REGION"
     private static String speechKey = System.getenv("SPEECH_KEY");
     private static String speechRegion = System.getenv("SPEECH_REGION");
 
@@ -287,13 +288,13 @@ public class SpeechSynthesis {
             // Synthesize the SSML
             System.out.println("SSML to synthesize:");
             System.out.println(ssml);
-            SpeechSynthesisResult speechRecognitionResult = speechSynthesizer.SpeakSsmlAsync(ssml).get();
+            SpeechSynthesisResult speechSynthesisResult = speechSynthesizer.SpeakSsmlAsync(ssml).get();
 
-            if (speechRecognitionResult.getReason() == ResultReason.SynthesizingAudioCompleted) {
+            if (speechSynthesisResult.getReason() == ResultReason.SynthesizingAudioCompleted) {
                 System.out.println("SynthesizingAudioCompleted result");
             }
-            else if (speechRecognitionResult.getReason() == ResultReason.Canceled) {
-                SpeechSynthesisCancellationDetails cancellation = SpeechSynthesisCancellationDetails.fromResult(speechRecognitionResult);
+            else if (speechSynthesisResult.getReason() == ResultReason.Canceled) {
+                SpeechSynthesisCancellationDetails cancellation = SpeechSynthesisCancellationDetails.fromResult(speechSynthesisResult);
                 System.out.println("CANCELED: Reason=" + cancellation.getReason());
 
                 if (cancellation.getReason() == CancellationReason.Error) {

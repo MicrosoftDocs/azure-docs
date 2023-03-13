@@ -105,11 +105,19 @@
     href: batch-compute-node-environment-variables.md
   - name: Feature retirements
     items:
+    - name: Active change, retirement, and end of life notices
+      href: https://github.com/Azure/Batch/labels/notice
+    - name: Cloud Service Configuration Pools
+      href: batch-pool-cloud-service-to-virtual-machine-configuration.md
     - name: Batch certificates
       href: batch-certificate-migration-guide.md
     - name: Pools without public IP addresses (classic)
       href: batch-pools-without-public-IP-addresses-classic-retirement-migration-guide.md
-    - name: TLS 1.0 and TLS 1.1 
+    - name: Classic compute node communication model
+      href: batch-pools-to-simplified-compute-node-communication-model-migration-guide.md
+    - name: VHD and Managed Images
+      href: batch-custom-image-pools-to-azure-compute-gallery-migration-guide.md
+    - name: TLS 1.0 and TLS 1.1
       href: batch-tls-101-migration-guide.md
     - name: Job and pool lifetime statistics
       href: job-pool-lifetime-statistics-migration-guide.md
@@ -135,8 +143,6 @@
       href: batch-customer-managed-key.md
     - name: Move between regions
       href: account-move.md
-    - name: Use simplified compute node communication
-      href: simplified-compute-node-communication.md
   - name: Authenticate with Azure AD
     items:
     - name: Azure AD with Batch service
@@ -156,6 +162,8 @@
       href: resource-files.md
   - name: Create and manage pools
     items:
+    - name: Use simplified compute node communication
+      href: simplified-compute-node-communication.md
     - name: Autoscale compute nodes
       displayName: scaling, dynamic, formula
       href: batch-automatic-scaling.md

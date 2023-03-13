@@ -12,7 +12,7 @@ metadata:
   ms.topic: hub-page # Required
   author: PatrickFarley #Required; your GitHub user alias, with correct capitalization.
   ms.author: pafarley #Required; microsoft alias of author; optional team alias.
-  ms.date: 06/13/2022 #Required; mm/dd/yyyy format.
+  ms.date: 11/03/2022 #Required; mm/dd/yyyy format.
 
 highlightedContent:
   # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -62,16 +62,22 @@ conceptualContent:
           url: overview-image-analysis.md
         - itemType: quickstart
           text: Get started with Image Analysis
-          url: quickstarts-sdk/image-analysis-client-library.md
+          url: quickstarts-sdk/image-analysis-client-library-40.md
         - itemType: concept
-          text: Content tags
-          url: concept-tagging-images.md
+          text: Image tagging
+          url: concept-tag-images-40.md
         - itemType: concept
-          text: Image descriptions
-          url: concept-describing-images.md
+          text: Image captions
+          url: concept-describe-images-40.md
         - itemType: concept
-          text: Face detection
-          url: concept-detecting-faces.md
+          text: Optical Character Recognition
+          url: concept-ocr.md
+        - itemType: concept
+          text: Model customization
+          url: concept-model-customization.md
+        - itemType: concept
+          text: Background removal
+          url: concept-background-removal.md
         - itemType: tutorial
           text: Generate metadata for images
           url: Tutorials/storage-lab-tutorial.md
@@ -80,7 +86,7 @@ conceptualContent:
           url: /training/modules/analyze-images-computer-vision/
         - itemType: reference
           text: Image Analysis API reference
-          url: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b
+          url: https://aka.ms/vision-4-0-ref
       footerLink:
         text: More
         url: index-image-analysis.yml
@@ -143,13 +149,16 @@ tools:
   items:
   - title: C#
     imageSrc: media/index/logo_Csharp.svg
-    url: /dotnet/api/overview/azure/cognitiveservices/client/computervision
+    url: /dotnet/api/azure.ai.vision.imageanalysis
   - title: Node.js
     imageSrc: media/index/logo_nodejs.svg
     url: /javascript/api/@azure/cognitiveservices-computervision/
   - title: Python
     imageSrc: media/index/logo_python.svg
-    url: /python/api/overview/azure/cognitiveservices-vision-computervision-readme
+    url: /python/api/azure-ai-vision
+  - title: C++
+    imageSrc: media/index/logo-cplusplus.svg
+    url: /cpp/cognitive-services/vision
   - title: Go
     imageSrc: media/index/logo_go.svg
     url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision
@@ -166,7 +175,9 @@ additionalContent:
         - text: Optical character recognition (OCR)
           url: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005
         - text: Image Analysis
-          url: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b
+          url: https://aka.ms/vision-4-0-ref
+        - text: Face
+          url: /rest/api/face/
       - title: Resources
         links:
         - text: Pricing

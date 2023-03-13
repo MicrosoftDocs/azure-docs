@@ -3,14 +3,15 @@ title: Create an account SAS with .NET
 titleSuffix: Azure Storage
 description: Learn how to create an account shared access signature (SAS) using the .NET client library.
 services: storage
-author: tamram
+author: pauljewellmsft
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/12/2020
-ms.author: tamram
+ms.date: 02/02/2023
+ms.author: pauljewell
 ms.reviewer: dineshm
 ms.subservice: common
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
@@ -44,7 +45,9 @@ static string GetAccountSASToken()
     // Create a new access policy for the account.
     SharedAccessAccountPolicy policy = new SharedAccessAccountPolicy()
         {
-            Permissions = SharedAccessAccountPermissions.Read | SharedAccessAccountPermissions.Write | SharedAccessAccountPermissions.List,
+            Permissions = SharedAccessAccountPermissions.Read | 
+                          SharedAccessAccountPermissions.Write | 
+                          SharedAccessAccountPermissions.List,
             Services = SharedAccessAccountServices.Blob | SharedAccessAccountServices.File,
             ResourceTypes = SharedAccessAccountResourceTypes.Service,
             SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24),

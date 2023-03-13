@@ -2,7 +2,8 @@
 title: Compare Azure Storage queues and Service Bus queues
 description: Analyzes differences and similarities between two types of queues offered by Azure.
 ms.topic: article
-ms.date: 06/15/2021
+ms.custom: ignite-2022
+ms.date: 10/25/2022
 ---
 
 # Storage queues and Service Bus queues - compared and contrasted
@@ -130,7 +131,7 @@ This section compares Storage queues and Service Bus queues from the perspective
 
 ### Additional information
 * Service Bus enforces queue size limits. The maximum queue size is specified when creating a queue. It can be between 1 GB and 80 GB. If the queue's size reaches this limit, additional incoming messages will be rejected and the caller receives an exception. For more information about quotas in Service Bus, see [Service Bus Quotas](service-bus-quotas.md).
-* Partitioning isn't supported in the [Premium tier](service-bus-premium-messaging.md). In the Standard messaging tier, you can create Service Bus queues and topics in 1 (default), 2, 3, 4, or 5-GB sizes. With partitioning enabled, Service Bus creates 16 copies (16 partitions) of the entity, each of the same size specified. As such, if you create a queue that's 5 GB in size, with 16 partitions the maximum queue size becomes (5 * 16) = 80 GB.  You can see the maximum size of your partitioned queue or topic in the [Azure portal][Azure portal].
+* In the Standard messaging tier, you can create Service Bus queues and topics in 1 (default), 2, 3, 4, or 5-GB sizes. When enabling partitioning in the Standard tier, Service Bus creates 16 copies (16 partitions) of the entity, each of the same size specified. As such, if you create a queue that's 5 GB in size, with 16 partitions the maximum queue size becomes (5 * 16) = 80 GB.  You can see the maximum size of your partitioned queue or topic in the [Azure portal][Azure portal].
 * With Storage queues, if the content of the message isn't XML-safe, then it must be **Base64** encoded. If you **Base64**-encode the message, the user payload can be up to 48 KB, instead of 64 KB.
 * With Service Bus queues, each message stored in a queue is composed of two parts: a header and a body. The total size of the message can't exceed the maximum message size supported by the service tier.
 * When clients communicate with Service Bus queues over the TCP protocol, the maximum number of concurrent connections to a single Service Bus queue is limited to 100. This number is shared between senders and receivers. If this quota is reached, requests for additional connections will be rejected and an exception will be received by the calling code. This limit isn't imposed on clients connecting to the queues using REST-based API.
@@ -200,4 +201,3 @@ The following articles provide more guidance and information about using Storage
 * [Best practices for performance improvements using Service Bus brokered messaging](service-bus-performance-improvements.md)
 
 [Azure portal]: https://portal.azure.com
-

@@ -4,15 +4,14 @@ description: Learn about the best practices and general guidance for security re
 services: active-directory
 author: davidmu1
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 06/17/2022
+ms.date: 01/06/2023
 ms.custom: template-concept
 ms.author: davidmu
-ms.reviewer: saumadan, marsma
+ms.reviewer: saumadan
 ---
 
 # Security best practices for application properties in Azure Active Directory
@@ -50,7 +49,7 @@ Scenarios that required **implicit flow** can now use **Auth code flow** to redu
 
 Consider the following guidance related to implicit flow:
 
-- Understand if [implicit flow is required](./v2-oauth2-implicit-grant-flow.md#suitable-scenarios-for-the-oauth2-implicit-grant). Don't use implicit flow unless [explicitly required](./v2-oauth2-implicit-grant-flow.md#suitable-scenarios-for-the-oauth2-implicit-grant).
+- Understand if [implicit flow is required](./v2-oauth2-implicit-grant-flow.md#suitable-scenarios-for-the-oauth2-implicit-grant). Don't use implicit flow unless explicitly required.
 - If the application was configured to receive access tokens using implicit flow, but doesn't actively use them, turn off the setting to protect from misuse.
 - Use separate applications for valid implicit flow scenarios.
 

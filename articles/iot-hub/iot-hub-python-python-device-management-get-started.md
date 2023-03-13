@@ -6,14 +6,16 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
-ms.date: 01/17/2020
+ms.date: 12/29/2022
 ms.author: kgremban
-ms.custom: mqtt, devx-track-python, devx-track-azurecli
+ms.custom: mqtt, devx-track-python, devx-track-azurecli, py-fresh-zinc
 ---
 
 # Get started with device management (Python)
 
 [!INCLUDE [iot-hub-selector-dm-getstarted](../../includes/iot-hub-selector-dm-getstarted.md)]
+
+[!INCLUDE [iot-hub-include-dm-getstarted](../../includes/iot-hub-include-dm-getstarted.md)]
 
 This article shows you how to create:
 
@@ -22,7 +24,7 @@ This article shows you how to create:
 * **dmpatterns_getstarted_service.py**: a Python console app that calls the direct method in the simulated device app through your IoT hub. It displays the response and updated reported properties.
 
 > [!NOTE]
-> See [Azure IoT SDKs](iot-hub-devguide-sdks.md) for more information about the SDK tools available to build both device and back-end apps.
+> For more information about the SDK tools available to build both device and back-end apps, see [Azure IoT SDKs](iot-hub-devguide-sdks.md).
 
 ## Prerequisites
 
@@ -44,11 +46,13 @@ This article shows you how to create:
 
 In this section, you:
 
-* Create a Python console app that responds to a direct method called by the cloud
+* Create a Python console app that responds to a direct method called by the cloud.
 
-* Simulate a device reboot
+* Simulate a device reboot.
 
-* Use the reported properties to enable device twin queries to identify devices and when they last rebooted
+* Use the reported properties to enable device twin queries to identify devices and when they last rebooted.
+
+In Azure Cloud Shell you used above or any other environment with Python, create the device code.
 
 1. At your command prompt, run the following command to install the **azure-iot-device** package:
 
@@ -155,6 +159,8 @@ In this section, you:
 
 In this section, you create a Python console app that initiates a remote reboot on a device using a direct method. The app uses device twin queries to discover the last reboot time for that device.
 
+In Azure Cloud Shell or any other environment with Python, create the console code.
+
 1. At your command prompt, run the following command to install the **azure-iot-hub** package:
 
     ```cmd/sh
@@ -241,15 +247,15 @@ In this section, you create a Python console app that initiates a remote reboot 
 
 ## Run the apps
 
-You're now ready to run the apps.
+You're now ready to run the device code and the service code that initiates a reboot of the device.
 
-1. At the command prompt, run the following command to begin listening for the reboot direct method.
+1. At the command prompt where you created the device, run the following command to begin listening for the reboot direct method.
 
     ```cmd/sh
     python dmpatterns_getstarted_device.py
     ```
 
-2. At another command prompt, run the following command to trigger the remote reboot and query for the device twin to find the last reboot time.
+2. At the command prompt where you create the service, run the following command to trigger the remote reboot and query for the device twin to find the last reboot time.
 
     ```cmd/sh
     python dmpatterns_getstarted_service.py

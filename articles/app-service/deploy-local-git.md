@@ -145,6 +145,8 @@ When you push commits to your App Service repository, App Service deploys the fi
 
     You can also change the `DEPLOYMENT_BRANCH` app setting in the Azure Portal, by selecting **Configuration** under **Settings** and adding a new Application Setting with a name of `DEPLOYMENT_BRANCH` and value of `main`.
 
+> [!NOTE]
+> You can also change the `DEPLOYMENT_BRANCH` using the Azure Portal interface, by selecting **Deployment Center** under **Deployment** and modifying the `Branch`.
 
 ## Troubleshoot deployment
 

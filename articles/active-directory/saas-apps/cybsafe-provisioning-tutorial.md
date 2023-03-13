@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/12/2020
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 

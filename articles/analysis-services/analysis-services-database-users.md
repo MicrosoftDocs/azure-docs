@@ -1,10 +1,10 @@
 ---
-title: Manage database roles and users in Azure Analysis Services | Microsoft Docs
+title: Learn how to manage database roles and users in Azure Analysis Services | Microsoft Docs
 description: Learn how to manage database roles and users on an Analysis Services server in Azure.
 author: minewiskan
-ms.service: azure-analysis-services
+ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 02/02/2022
+ms.date: 01/27/2023
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions 
@@ -53,7 +53,7 @@ When adding a **service principal** use `app:appid@tenantid`.
   
 8.  In **Add External Member**, enter users or groups in your tenant Azure AD by email address. After you click OK and close Role Manager, roles and role members appear in Tabular Model Explorer. 
  
-     ![Roles and users in Tabular Model Explorer](./media/analysis-services-database-users/aas-roles-tmexplorer.png)
+     ![Screen showing roles and users in Tabular Model Explorer.](./media/analysis-services-database-users/aas-roles-tmexplorer.png)
 
 9. Deploy to your Azure Analysis Services server.
 
@@ -76,7 +76,7 @@ To add roles and users to a deployed model database, you must be connected to th
   
 4. Click **Membership**, then enter a user or group in your tenant Azure AD by email address.
 
-     ![Add user](./media/analysis-services-database-users/aas-roles-adduser-ssms.png)
+     ![Screen showing Add user.](./media/analysis-services-database-users/aas-roles-adduser-ssms.png)
 
 5. If the role you are creating has Read permission, you can add row filters by using a DAX formula. Click **Row Filters**, select a table, and then type a DAX formula in the **DAX Filter** field. 
 

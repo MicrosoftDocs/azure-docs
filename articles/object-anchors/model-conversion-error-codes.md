@@ -48,4 +48,4 @@ Any errors that occur outside the actual asset conversion jobs are thrown as exc
 
 - [Quickstart: Create an Object Anchors model from a 3D model](quickstarts/get-started-model-conversion.md)
 - [Frequently asked questions about Azure Object Anchors](faq.md)
-- [Azure Object Anchors client library for .NET](/dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme-pre)
+- [Azure Object Anchors client library for .NET](/dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme)

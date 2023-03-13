@@ -1,5 +1,5 @@
 ---
-title: Integrate airflow logs with Azure Monitor - Microsoft Energy Data Services Preview
+title: Integrate airflow logs with Azure Monitor - Microsoft Microsoft Azure Data Manager for Energy Preview
 description: This is a how-to article on how to start collecting Airflow Task logs in Azure Monitor, archiving them to a storage account, and querying them in Log Analytics workspace.
 author: nitinnms
 ms.author: nitindwivedi
@@ -11,7 +11,7 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 # Integrate airflow logs with Azure Monitor
 
-This article describes how you can start collecting Airflow Logs for your Microsoft Energy Data Services instances into Azure Monitor. This integration feature helps you debug Airflow DAG run failures. 
+In this article, you'll learn how to start collecting Airflow Logs for your Microsoft Azure Data Manager for Energy Preview instances into Azure Monitor. This integration feature helps you debug Airflow DAG ([Directed Acyclic Graph](https://airflow.apache.org/docs/apache-airflow/stable/concepts/dags.html)) run failures. 
 
 
 ## Prerequisites
@@ -27,14 +27,14 @@ This article describes how you can start collecting Airflow Logs for your Micros
 
 
 ## Enabling diagnostic settings to collect logs in a storage account
-Every Microsoft Energy Data Services instance comes inbuilt with an Azure Data Factory-managed Airflow instance. We collect Airflow logs for internal troubleshooting and debugging purposes. Airflow logs can be integrated with Azure Monitor in the following ways:
+Every Azure Data Manager for Energy Preview instance comes inbuilt with an Azure Data Factory-managed Airflow instance. We collect Airflow logs for internal troubleshooting and debugging purposes. Airflow logs can be integrated with Azure Monitor in the following ways:
 
 * Storage account
 * Log Analytics workspace
 
 To access logs via any of the above two options, you need to create a Diagnostic Setting. Each Diagnostic Setting has three basic parts:
 
-| Title | Description |
+| Part | Description |
 |-|-|
 | Name  | This is the name of the diagnostic log. Ensure a unique name is set for each log. |
 | Categories | Category of logs to send to each of the destinations. The set of categories will vary for each Azure service. Visit: [Supported Resource Log Categories](../azure-monitor/essentials/resource-logs-categories.md) |
@@ -42,17 +42,17 @@ To access logs via any of the above two options, you need to create a Diagnostic
 
 Follow the following steps to set up Diagnostic Settings:
 
-1. Open Microsoft Energy Data Services' "**Overview**" page
-1. Select "**Diagnostic Settings**" from the left panel
+1. Open Microsoft Azure Data Manager for Energy Preview' *Overview* page
+1. Select *Diagnostic Settings* from the left panel
 
     [![Screenshot for Azure monitor diagnostic setting overview page. The page shows a list of existing diagnostic settings and the option to add a new one.](media/how-to-integrate-airflow-logs-with-azure-monitor/azure-monitor-diagnostic-settings-overview-page.png)](media/how-to-integrate-airflow-logs-with-azure-monitor/azure-monitor-diagnostic-settings-overview-page.png#lightbox)
 
 
-1. Select "**Add diagnostic setting**"
+1. Select *Add diagnostic setting*
 
-1. Select "**Airflow Task Logs**" under Logs
+1. Select *Airflow Task Logs* under Logs
 
-1. Select "**Archive to a storage account**"
+1. Select *Archive to a storage account*
 
     [![Screenshot for creating a diagnostic setting to archive logs to a storage account. The image shows the subscription and the storage account chosen for a diagnostic setting.](media/how-to-integrate-airflow-logs-with-azure-monitor/creating-diagnostic-setting-destination-storage-account.png)](media/how-to-integrate-airflow-logs-with-azure-monitor/creating-diagnostic-setting-destination-storage-account.png#lightbox)
 
@@ -63,7 +63,7 @@ Follow the following steps to set up Diagnostic Settings:
 
 After a diagnostic setting is created for archiving Airflow task logs into a storage account, you can navigate to the storage account **overview** page. You can then use the "Storage Browser" on the left panel to find the right JSON file that you want to investigate. Browsing through different directories is intuitive as you move from a year to a month to a day. 
 
-1. Navigate through **Containers**, available on the left panel. 
+1. Navigate through *Containers*, available on the left panel. 
 
     [![Screenshot for exploring archived logs in the containers of the Storage Account. The container will show logs from all the sources set up.](media/how-to-integrate-airflow-logs-with-azure-monitor/storage-account-containers-page-showing-collected-logs-explorer.png)](media/how-to-integrate-airflow-logs-with-azure-monitor/storage-account-containers-page-showing-collected-logs-explorer.png#lightbox)
 
@@ -76,13 +76,13 @@ After a diagnostic setting is created for archiving Airflow task logs into a sto
 
 ## Enabling diagnostic settings to integrate logs with Log Analytics Workspace
 
-You can integrate Airflow logs with Log Analytics Workspace by using **Diagnostic Settings** under the left panel of your Microsoft Energy Data Services instance overview page. 
+You can integrate Airflow logs with Log Analytics Workspace by using **Diagnostic Settings** under the left panel of your Microsoft Azure Data Manager for Energy Preview instance overview page. 
 
 [![Screenshot for creating a diagnostic setting. It shows the options to select subscription & Log Analytics Workspace with which to integrate.](media/how-to-integrate-airflow-logs-with-azure-monitor/creating-diagnostic-setting-choosing-destination-retention.png)](media/how-to-integrate-airflow-logs-with-azure-monitor/creating-diagnostic-setting-choosing-destination-retention.png#lightbox)
 
 ## Working with the integrated Airflow Logs in Log Analytics Workspace
 
-Data is retrieved from a Log Analytics Workspace using a query written in Kusto Query Language (KQL). A set of precreated queries is available for many Azure services (not available for Airflow at the moment) so that you don't require knowledge of KQL to get started.
+Use Kusto Query Language (KQL) to retrieve desired data on collected Airflow logs from your Log Analytics Workspace.
 
 
 [![Screenshot for Azure Monitor Log Analytics page for viewing collected logs. Under log management, tables from all sources will be visible.](media/how-to-integrate-airflow-logs-with-azure-monitor/azure-monitor-log-analytics-page-viewing-collected-logs.png)](media/how-to-integrate-airflow-logs-with-azure-monitor/azure-monitor-log-analytics-page-viewing-collected-logs.png#lightbox)

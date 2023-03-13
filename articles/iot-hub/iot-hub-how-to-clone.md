@@ -73,7 +73,7 @@ This is the general method we recommend for moving an IoT hub from one region to
 
 ## How to handle message routing
 
-If your hub uses [custom routing](iot-hub-devguide-messages-read-custom.md), exporting the template for the hub includes the routing configuration, but it doesn't include the resources themselves. You must choose whether to move the routing resources to the new location or to leave them in place and continue to use them "as is". 
+If your hub uses [message routing](iot-hub-devguide-messages-d2c.md), exporting the template for the hub includes the routing configuration, but it doesn't include the resources themselves. You must choose whether to move the routing resources to the new location or to leave them in place and continue to use them "as is".
 
 For example, say you have a hub in West US that is routing messages to a storage account (also in West US), and you want to move the hub to East US. You can move the hub and have it still route messages to the storage account in West US, or you can move the hub and also move the storage account. There may be a small performance hit from routing messages to endpoint resources in a different region.
 
@@ -213,7 +213,7 @@ This section provides specific instructions for migrating the hub.
 
 ### Edit the template 
 
-You have to make some changes before you can use the template to create the new hub in the new region. Use [VS Code](https://code.visualstudio.com) or a text editor to edit the template.
+You have to make some changes before you can use the template to create the new hub in the new region. Use [Visual Studio Code](https://code.visualstudio.com) or a text editor to edit the template.
 
 #### Edit the hub name and location
 
@@ -389,7 +389,7 @@ The application targets .NET Core, so you can run it on either Windows or Linux.
 
 1. To run the application, specify three connection strings and five options. You pass this data in as command-line arguments or use environment variables, or use a combination of the two. We're going to pass the options in as command line arguments, and the connection strings as environment variables. 
 
-   The reason for this is because the connection strings are long and ungainly, and unlikely to change, but you might want to change the options and run the application more than once. To change the value of an environment variable, you have to close the command window and Visual Studio or VS Code, whichever you are using. 
+   The reason for this is because the connection strings are long and ungainly, and unlikely to change, but you might want to change the options and run the application more than once. To change the value of an environment variable, you have to close the command window and Visual Studio or Visual Studio Code, whichever you are using. 
 
 ### Options
 
@@ -562,13 +562,5 @@ Don't clean up until you are certain the new hub is up and running and the devic
 ## Next steps
 
 You have cloned an IoT hub into a new hub in a new region, complete with the devices. For more information about performing bulk operations against the identity registry in an IoT Hub, see [Import and export IoT Hub device identities in bulk](iot-hub-bulk-identity-mgmt.md).
-
-For more information about IoT Hub and development for the hub, see the following articles:
-
-* [IoT Hub developer's guide](iot-hub-devguide.md)
-
-* [IoT Hub routing tutorial](tutorial-routing.md)
-
-* [IoT Hub device management overview](iot-hub-device-management-overview.md)
 
 If you want to deploy the sample application, see [.NET Core application deployment](/dotnet/core/deploying/index).

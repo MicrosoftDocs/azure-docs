@@ -8,9 +8,9 @@ ms.author: roastala
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
-ms.date: 03/22/2021
+ms.date: 10/20/2022
 ms.topic: how-to
-ms.custom: devx-track-python, contperf-fy21q1, devx-track-azurecli, event-tier1-build-2022
+ms.custom: devx-track-python, contperf-fy21q1, devx-track-azurecli, event-tier1-build-2022, ignite-2022, py-fresh-zinc
 ---
 
 # Set up a Python development environment for Azure Machine Learning
@@ -54,11 +54,14 @@ To use this file from your code, use the [`MLClient.from_config`](/python/api/az
 
 Create a workspace configuration file in one of the following methods:
 
-* Azure portal
+* Azure Machine Learning studio
 
-    **Download the file**: In the [Azure portal](https://portal.azure.com), select  **Download config.json** from the **Overview** section of your workspace.
+    **Download the file**: 
+    1. Sign in to [Azure Machine Learning studio](https://ml.azure.com)
+    1. In the upper right Azure Machine Learning studio toolbar, select your workspace name.
+    1. Select the **Download config file** link.
 
-    ![Azure portal](./media/how-to-configure-environment/configure.png)
+    :::image type="content" source="media/how-to-configure-environment/configure.png" alt-text="Screenshot shows how to download your config file." lightbox="media/how-to-configure-environment/configure.png":::
 
 * Azure Machine Learning Python SDK
 
@@ -71,7 +74,7 @@ Create a workspace configuration file in one of the following methods:
         from azure.ai.ml import MLClient
         from azure.identity import DefaultAzureCredential
 
-        #Enter details of your AzureML workspace
+        #Enter details of your Azure Machine Learning workspace
         subscription_id = '<SUBSCRIPTION_ID>'
         resource_group = '<RESOURCE_GROUP>'
         workspace = '<AZUREML_WORKSPACE_NAME>'
@@ -98,7 +101,7 @@ To configure a local development environment or remote VM:
 1. Install the [Azure Machine Learning Python SDK](/python/api/overview/azure/ai-ml-readme).
 1. To configure your local environment to use your Azure Machine Learning workspace, [create a workspace configuration file](#local-and-dsvm-only-create-a-workspace-configuration-file) or use an existing one.
 
-Now that you have your local environment set up, you're ready to start working with Azure Machine Learning. See the [Azure Machine Learning Python getting started guide](tutorial-1st-experiment-hello-world.md) to get started.
+Now that you have your local environment set up, you're ready to start working with Azure Machine Learning. See the [Tutorial: Azure Machine Learning in a day](tutorial-azure-ml-in-a-day.md) to get started.
 
 ### Jupyter Notebooks
 
@@ -146,7 +149,7 @@ Create one anytime from within your Azure Machine Learning workspace. Provide ju
 To learn more about compute instances, including how to install packages, see [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md).
 
 > [!TIP]
-> To prevent incurring charges for an unused compute instance, [stop the compute instance](how-to-create-manage-compute-instance.md#manage).
+> To prevent incurring charges for an unused compute instance, [enable idle shutdown](how-to-create-manage-compute-instance.md#enable-idle-shutdown-preview).
 
 In addition to a Jupyter Notebook server and JupyterLab, you can use compute instances in the [integrated notebook feature inside of Azure Machine Learning studio](how-to-run-jupyter-notebooks.md).
 

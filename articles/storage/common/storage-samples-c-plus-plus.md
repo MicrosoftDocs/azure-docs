@@ -1,5 +1,5 @@
 ---
-title: Azure Storage samples using C++ | Microsoft Docs
+title: Azure Storage samples using C++
 description: View, download, and run sample code and applications for Azure Storage. Discover getting started samples for blobs, queues, tables, and files, using the C++ storage client libraries.
 author: pauljewellmsft
 ms.author: pauljewell

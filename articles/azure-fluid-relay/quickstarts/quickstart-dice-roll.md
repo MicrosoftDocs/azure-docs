@@ -4,7 +4,7 @@ description: Quickly create a dice rolling app using the Azure Fluid Relay servi
 author: hickeys
 ms.service: azure-fluid
 ms.topic: quickstart
-ms.date: 09/09/2021
+ms.date: 01/18/2023
 ms.author: hickeys
 ms.custom: mode-other
 ---
@@ -51,15 +51,21 @@ You can open new tabs with the same URL to create additional instances of the di
 To run against the Azure Fluid Relay service, you'll need to update your app's configuration to connect to your Azure service instead of your local server.
 
 ### Configure and create an Azure client
-
+Install @fluidframework/azure-client and "@fluidframework/test-client-utils packages and import Azure Client and InsecureTokenProvider.
+```javascript
+import { InsecureTokenProvider } from "@fluidframework/test-client-utils";
+import { AzureClient } from "@fluidframework/azure-client";
+```
 To configure the Azure client, replace the local connection `serviceConfig` object in `app.js` with your Azure Fluid Relay
-service configuration values. These values can be found in the "Access Key" section of the Fluid Relay resource in the Azure portal. Your `serviceConfig` object should look like this with the values replaced
+service configuration values. These values can be found in the "Access Key" section of the Fluid Relay resource in the Azure portal. Your `serviceConfig` object should look like this with the values replaced. (For information about how to find these values, see [How to: Provision an Azure Fluid Relay service](../how-tos/provision-fluid-azure-portal.md).) Note that the `id` and `name` fields are arbitrary.
 
 ```javascript
+const user = { id: "userId", name: "userName" };
+
 const serviceConfig = {
     connection: {
         tenantId: "MY_TENANT_ID", // REPLACE WITH YOUR TENANT ID
-        tokenProvider: new InsecureTokenProvider("" /* REPLACE WITH YOUR PRIMARY KEY */, { id: "userId" }),
+        tokenProvider: new InsecureTokenProvider("" /* REPLACE WITH YOUR PRIMARY KEY */, user),
         endpoint: "https://myServiceEndpointUrl", // REPLACE WITH YOUR SERVICE ENDPOINT
         type: "remote",
     }

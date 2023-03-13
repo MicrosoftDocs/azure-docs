@@ -178,7 +178,7 @@ To minimize the number of abandoned in-progress workflow instances, you can choo
 
 ### Access to trigger and runs history
 
-To get more information about your logic app's past workflow executions, you can review the app's trigger and runs history. A logic app's history execution history is stored in the same location or region where that logic app ran, which means you can't migrate this history to a different location. If your primary instance fails over to a secondary instance, you can only access each instance's trigger and runs history in the respective locations where those instances ran. However, you can get location-agnostic information about your logic app's history by setting up your logic apps to send diagnostic events to an Azure Log Analytics workspace. You can then review the health and history across logic apps that run in multiple locations.
+To get more information about your logic app's past workflow executions, you can review the app's trigger and runs history. A logic app's execution history is stored in the same location or region where that logic app ran, which means you can't migrate this history to a different location. If your primary instance fails over to a secondary instance, you can only access each instance's trigger and runs history in the respective locations where those instances ran. However, you can get location-agnostic information about your logic app's history by setting up your logic apps to send diagnostic events to an Azure Log Analytics workspace. You can then review the health and history across logic apps that run in multiple locations.
 
 <a name="trigger-types-guidance"></a>
 
@@ -359,7 +359,7 @@ Currently, this capability is preview and available for new Consumption logic ap
 
 You can set up logging for your logic app runs and send the resulting diagnostic data to services such as Azure Storage, Azure Event Hubs, and Azure Log Analytics for further handling and processing.
 
-* If you want to use this data with Azure Log Analytics, you can make the data available for both the primary and secondary locations by setting up your logic app's **Diagnostic settings** and sending the data to multiple Log Analytics workspaces. For more information, see [Set up Azure Monitor logs and collect diagnostics data for Azure Logic Apps](../logic-apps/monitor-logic-apps-log-analytics.md).
+* If you want to use this data with Azure Log Analytics, you can make the data available for both the primary and secondary locations by setting up your logic app's **Diagnostic settings** and sending the data to multiple Log Analytics workspaces. For more information, see [Set up Azure Monitor logs and collect diagnostics data for Azure Logic Apps](../logic-apps/monitor-workflows-collect-diagnostic-data.md).
 
 * If you want to send the data to Azure Storage or Azure Event Hubs, you can make the data available for both the primary and secondary locations by setting up geo-redundancy. For more information, see these articles:<p>
 

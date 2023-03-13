@@ -91,7 +91,9 @@ The following software must be installed:
   * **Desktop development with C++**
   * **Universal Windows Platform (UWP) development** 
 * **Windows SDK 10.0.18362.0** [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
-* **GIT** [(download)](https://git-scm.com/downloads)
+* To work with the samples repository:
+  * **Git** [(download)](https://git-scm.com/downloads)
+  * **Git LFS plugin** [(download)](https://git-lfs.github.com/)
 * Optional: To view the video stream from the server on a desktop PC, you need the **HEVC Video Extensions** [(Microsoft Store link)](https://www.microsoft.com/p/hevc-video-extensions/9nmzlz57r3t7). Ensure that the latest version is installed by checking for updates in the store.
 
 ## Unity
@@ -122,6 +124,10 @@ For Unity 2020, use latest version of Unity 2020.3.
 ### Unity 2021
 
 For Unity 2021, use latest version of Unity 2021.3.
+
+### WMR vs. OpenXR
+
+In Unity 2019 and Unity 2020, you can still choose between the WMR (Windows Mixed Reality) and OpenXR plugin. WMR has been deprecated for Unity 2021 and onwards. A known limitation of the WMR version is that it doesn't work in linear color space.
 
 ## Next steps
 

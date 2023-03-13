@@ -78,7 +78,7 @@ For Application Gateway, the following metrics are available:
 
 - **Client TLS protocol**
 
-   Count of TLS and non-TLS requests initiated by the client that established connection with the Application Gateway. To view TLS protocol distribution, filter by the dimension TLS Protocol.
+   Count of TLS and non-TLS requests initiated by the client that established connection with the Application Gateway. To view TLS protocol distribution, filter by the dimension TLS Protocol. This metric includes requests served by the gateway, such as redirects.
 
 - **Current capacity units**
 
@@ -119,7 +119,7 @@ For Application Gateway, the following metrics are available:
 
 - **Total Requests**
 
-   Count of successful requests that Application Gateway has served. The request count can be further filtered to show count per each/specific backend pool-http setting combination.
+   Count of successful requests that Application Gateway has served by the backend pool targets.  Pages served directly by the gateway, such as redirects, are not counted and should be found in the Client TLS protocol metric.  Total requests count metric can be further filtered to show count per each/specific backend pool-http setting combination.
 
 ### Backend metrics
 
@@ -236,7 +236,7 @@ To understand more about webhooks and how you can use them with alerts, visit [C
 
 ## Next steps
 
-* Visualize counter and event logs by using [Azure Monitor logs](../azure-monitor/insights/azure-networking-analytics.md).
+* Visualize counter and event logs by using [Azure Monitor logs](/previous-versions/azure/azure-monitor/insights/azure-networking-analytics).
 * [Visualize your Azure activity log with Power BI](https://powerbi.microsoft.com/blog/monitor-azure-audit-logs-with-power-bi/) blog post.
 * [View and analyze Azure activity logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) blog post.
 

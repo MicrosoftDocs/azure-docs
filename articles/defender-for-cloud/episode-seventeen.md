@@ -3,7 +3,7 @@ title: Defender for Cloud integration with Microsoft Entra | Defender for Cloud 
 titleSuffix: Microsoft Defender for Cloud
 description: Learn about Defender for Cloud integration with Microsoft Entra.
 ms.topic: reference
-ms.date: 09/19/2022
+ms.date: 01/24/2023
 ---
 
 # Defender for Cloud integration with Microsoft Entra | Defender for Cloud in the Field
@@ -38,4 +38,4 @@ Learn more about [Entra Permission Management](other-threat-protections.md#entra
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [New AWS Connector in Microsoft Defender for Cloud](episode-one.md)
+> [New AWS Connector in Microsoft Defender for Cloud](episode-eighteen.md)

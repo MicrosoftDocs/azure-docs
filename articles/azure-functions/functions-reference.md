@@ -3,8 +3,9 @@ title: Guidance for developing Azure Functions
 description: Learn the Azure Functions concepts and techniques that you need to develop functions in Azure, across all programming languages and bindings.
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
-ms.date: 9/02/2021
+ms.date: 11/11/2022
 ms.devlang: csharp
+ms.custom: ignite-2022
 ---
 # Azure Functions developer guide
 In Azure Functions, specific functions share a few core technical concepts and components, regardless of the language or binding you use. Before you jump into learning details specific to a given language or binding, be sure to read through this overview that applies to all of them.
@@ -115,14 +116,22 @@ Identity-based connections are supported by the following components:
 
 | Connection source                                       | Plans supported | Learn more                                                                                                         |
 |---------------------------------------------------------|-----------------|--------------------------------------------------------------------------------------------------------------------|
-| Azure Blob triggers and bindings               | All             | [Extension version 5.0.0 or later](./functions-bindings-storage-blob.md#install-extension)     |
-| Azure Queue triggers and bindings            | All             | [Extension version 5.0.0 or later](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher)    |
-| Azure Event Hubs triggers and bindings     | All             | [Extension version 5.0.0 or later](./functions-bindings-event-hubs.md?tabs=extensionv5)    |
-| Azure Service Bus triggers and bindings       | All             | [Extension version 5.0.0 or later](./functions-bindings-service-bus.md)  |
-| Azure Cosmos DB triggers and bindings - Preview         | Elastic Premium | [Extension version 4.0.0-preview1 or later](.//functions-bindings-cosmosdb-v2.md?tabs=extensionv4) |
-| Azure Tables (when using Azure Storage) - Preview | All | [Table API extension](./functions-bindings-storage-table.md#table-api-extension) |
-| Durable Functions storage provider (Azure Storage) - Preview | All | [Extension version 2.7.0 or later](https://github.com/Azure/azure-functions-durable-extension/releases/tag/v2.7.0) | 
+| Azure Blobs triggers and bindings               | All             | [Azure Blobs extension version 5.0.0 or later][blobv5],<br/>[Extension bundle 3.3.0 or later][blobv5]  |
+| Azure Queues triggers and bindings            | All             | [Azure Queues extension version 5.0.0 or later][queuev5],<br/>[Extension bundle 3.3.0 or later][queuev5] |
+| Azure Tables (when using Azure Storage)  | All | [Azure Tables extension version 1.0.0 or later](./functions-bindings-storage-table.md#table-api-extension),<br/>[Extension bundle 3.3.0 or later][tablesv1] |
+| Azure Event Hubs triggers and bindings     | All             | [Azure Event Hubs extension version 5.0.0 or later][eventhubv5],<br/>[Extension bundle 3.3.0 or later][eventhubv5]   |
+| Azure Service Bus triggers and bindings       | All             | [Azure Service Bus extension version 5.0.0 or later][servicebusv5],<br/>[Extension bundle 3.3.0 or later][servicebusv5] |
+| Azure Cosmos DB triggers and bindings         | All | [Azure Cosmos DB extension version 4.0.0 or later][cosmosv4],<br/> [Extension bundle 4.0.2 or later][cosmosv4]|
+| Durable Functions storage provider (Azure Storage) | All | [Durable Functions extension version 2.7.0 or later][durable-identity],<br/>[Extension bundle 3.3.0 or later][durable-identity] | 
 | Host-required storage ("AzureWebJobsStorage") - Preview | All             | [Connecting to host storage with an identity](#connecting-to-host-storage-with-an-identity-preview)                        |
+
+[blobv5]: ./functions-bindings-storage-blob.md#install-extension
+[queuev5]: ./functions-bindings-storage-queue.md#storage-extension-5x-and-higher
+[eventhubv5]: ./functions-bindings-event-hubs.md?tabs=extensionv5
+[servicebusv5]: ./functions-bindings-service-bus.md
+[cosmosv4]: ./functions-bindings-cosmosdb-v2.md?tabs=extensionv4
+[tablesv1]: ./functions-bindings-storage-table.md#table-api-extension
+[durable-identity]: ./durable/durable-functions-configure-durable-functions-with-credentials.md
 
 [!INCLUDE [functions-identity-based-connections-configuration](../../includes/functions-identity-based-connections-configuration.md)]
 
@@ -136,6 +145,10 @@ Choose a tab below to learn about permissions for each component:
 
 [!INCLUDE [functions-queue-permissions](../../includes/functions-queue-permissions.md)]
 
+# [Azure Tables extension](#tab/table)
+
+[!INCLUDE [functions-table-permissions](../../includes/functions-table-permissions.md)]
+
 # [Event Hubs extension](#tab/eventhubs)
 
 [!INCLUDE [functions-event-hubs-permissions](../../includes/functions-event-hubs-permissions.md)]
@@ -144,13 +157,10 @@ Choose a tab below to learn about permissions for each component:
 
 [!INCLUDE [functions-service-bus-permissions](../../includes/functions-service-bus-permissions.md)]
 
-# [Azure Cosmos DB extension (preview)](#tab/cosmos)
+# [Azure Cosmos DB extension](#tab/cosmos)
 
 [!INCLUDE [functions-cosmos-permissions](../../includes/functions-cosmos-permissions.md)]
 
-# [Azure Tables API extension (preview)](#tab/table)
-
-[!INCLUDE [functions-table-permissions](../../includes/functions-table-permissions.md)]
 
 # [Durable Functions storage provider (preview)](#tab/durable)
 

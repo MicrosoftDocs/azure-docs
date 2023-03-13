@@ -69,8 +69,6 @@
       href: costs/manage-automation.md
     - name: Cost Management for partners
       href: costs/get-started-partners.md
-    - name: Migrate from EA reporting to Azure Resource Manager APIs
-      href: costs/migrate-from-enterprise-reporting-to-azure-resource-manager-apis.md
   - name: Reservations
     items:
     - name: What are Azure Reservations?
@@ -85,7 +83,7 @@
         href: reservations/reservation-discount-app-service.md?toc=/azure/cost-management-billing/toc.json
       - name: Azure Cache for Redis
         href: reservations/understand-azure-cache-for-redis-reservation-charges.md?toc=/azure/cost-management-billing/toc.json
-      - name: Cosmos DB
+      - name: Azure Cosmos DB
         href: reservations/understand-cosmosdb-reservation-charges.md?toc=/azure/cost-management-billing/toc.json
       - name: Database for MariaDB
         href: reservations/understand-reservation-charges-mariadb.md?toc=/azure/cost-management-billing/toc.json
@@ -143,8 +141,10 @@
       href: understand/mpa-overview.md
     - name: Get started in the Azure EA portal
       href: manage/ea-portal-get-started.md
-    - name: Get started in the Azure portal for direct EA
+    - name: Get started with EA billing in the Azure portal
       href: manage/ea-direct-portal-get-started.md
+    - name: Direct EA billing invoice documents
+      href: manage/direct-ea-billing-invoice-documents.md
     - name: Request Withholding Tax credit - India
       href: manage/withholding-tax-credit-india.md
   - name: Automation
@@ -327,7 +327,7 @@
         href: manage/understand-ea-roles.md
       - name: Azure EA portal administration
         href: manage/ea-portal-administration.md
-      - name: Azure direct EA administration
+      - name: EA billing administration
         href: manage/direct-ea-administration.md
       - name: Azure EA portal administration for partners
         href: manage/ea-partner-portal-administration.md
@@ -337,12 +337,12 @@
         href: manage/ea-portal-agreements.md
       - name: Enterprise enrollment invoices
         href: manage/ea-portal-enrollment-invoices.md
-      - name: View and download direct EA usage details
+      - name: View and download EA usage details
         href: manage/direct-ea-azure-usage-charges-invoices.md
       - name: Azure EA pricing
         href: manage/ea-pricing-overview.md
       - name: Azure Enterprise REST APIs
-        href: manage/ea-portal-rest-apis.md
+        href: manage/enterprise-rest-apis.md
       - name: Azure EA VM reserved instances
         href: manage/ea-portal-vm-reservations.md
       - name: Azure Marketplace
@@ -385,8 +385,12 @@
       href: costs/cost-mgt-alerts-monitor-usage-spending.md
     - name: Export cost data with a Storage SAS key
       href: costs/export-cost-data-storage-account-sas-key.md
-    - name: Allocate costs
-      href: costs/allocate-costs.md
+    - name: Cost allocation
+      items:
+      - name: Group and allocate costs using tag inheritance
+        href: costs/enable-tag-inheritance.md
+      - name: Split shared costs
+        href: costs/allocate-costs.md
     - name: Connect with Power BI Desktop
       href: /power-bi/desktop-connect-azure-cost-management
     - name: Analyze Azure costs with the Power BI template app
@@ -399,8 +403,6 @@
       href: manage/mca-check-azure-credits-balance.md
     - name: Track your Microsoft Azure Consumption Commitment
       href: manage/track-consumption-commitment.md
-    - name: Migrate from EA reporting to Azure Resource Manager APIs
-      href: costs/migrate-from-enterprise-reporting-to-azure-resource-manager-apis.md
   - name: Purchase and administer reservations
     items:
     - name: Determine what to purchase
@@ -415,7 +417,7 @@
         href: reservations/prepay-app-service.md?toc=/azure/cost-management-billing/toc.json
       - name: Azure Cache for Redis reservation
         href: /azure/data-explorer/pricing-reserved-capacity?toc=/azure/cost-management-billing/toc.json
-      - name: Cosmos DB
+      - name: Azure Cosmos DB
         href: /azure/data-explorer
       - name: Databricks
         href: reservations/prepay-databricks-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
@@ -471,10 +473,10 @@
       href: manage/pay-by-invoice.md
     - name: Resolve pay-as-you-go past due balance
       href: manage/resolve-past-due-balance.md
-    - name: Add or update credit card
+    - name: Add, update, or delete payment method
       href: manage/change-credit-card.md
-    - name: Delete billing payment method
-      href: manage/delete-azure-payment-method.md
+    - name: View payment history
+      href: manage/view-payment-history.md
   - name: Troubleshoot
     items:
     - name: Error codes
@@ -495,10 +497,16 @@
       href: manage/billing-troubleshoot-azure-payment-issues.md
     - name: Declined card
       href: manage/troubleshoot-declined-card.md
+    - name: Troubleshoot threshold billing
+      href: manage/troubleshoot-threshold-billing.md
     - name: Azure account sign-up issues
       href: manage/troubleshoot-azure-sign-up.md
     - name: Subscription sign-in issues
       href: manage/troubleshoot-sign-in-issue.md
+    - name: Create multiple subscriptions message
+      href: manage/create-subscriptions-deploy-resources.md
+    - name: Not available due to conflict error
+      href: manage/troubleshoot-not-available-conflict.md
     - name: Enterprise cost view disabled
       href: manage/enterprise-mgmt-grp-troubleshoot-cost-view.md
     - name: Troubleshoot Azure EA portal access
@@ -513,8 +521,6 @@
     href: /cli/azure/billing
   - name: Cost Management REST API
     href: /rest/api/cost-management
-  - name: Azure Consumption REST API
-    href: /rest/api/consumption
   - name: Consumption REST API ARM budget template
     href: /azure/templates/microsoft.consumption/budgets
   - name: Cost Management REST API Samples
@@ -527,10 +533,6 @@
     href: /rest/api/cost-management/retail-prices/azure-retail-prices
   - name: Azure Billing REST API
     href: /rest/api/billing
-  - name: Azure Consumption API overview
-    href: manage/consumption-api-overview.md
-  - name: Azure Consumption REST API
-    href: /rest/api/consumption
   - name: Enterprise reporting REST API overview
     href: manage/enterprise-api.md
   - name: Enterprise reporting REST APIs

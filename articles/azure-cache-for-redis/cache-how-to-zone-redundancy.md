@@ -13,7 +13,7 @@ ms.date: 06/07/2022
 
 In this article, you'll learn how to configure a zone-redundant Azure Cache instance using the Azure portal.
 
-Azure Cache for Redis Standard, Premium, and Enterprise tiers provide built-in redundancy by hosting each cache on two dedicated virtual machines (VMs). Even though these VMs are located in separate [Azure fault and update domains](../virtual-machines/availability.md) and highly available, they're susceptible to datacenter level failures. Azure Cache for Redis also supports zone redundancy in its Premium and Enterprise tiers. A zone-redundant cache runs on VMs spread across multiple [Availability Zones](../availability-zones/az-overview.md). It provides higher resilience and availability.
+Azure Cache for Redis Standard, Premium, and Enterprise tiers provide built-in redundancy by hosting each cache on two dedicated virtual machines (VMs). Even though these VMs are located in separate [Azure fault and update domains](../virtual-machines/availability.md) and highly available, they're susceptible to datacenter level failures. Azure Cache for Redis also supports zone redundancy in its Premium and Enterprise tiers. A zone-redundant cache runs on VMs spread across multiple [Availability Zones](../reliability/availability-zones-overview.md). It provides higher resilience and availability.
 
 > [!NOTE]
 > Data transfer between Azure Availability Zones will be charged at standard [bandwidth rates](https://azure.microsoft.com/pricing/details/bandwidth/).
@@ -52,9 +52,10 @@ To create a cache, follow these steps:
 
 1. Configure your settings for clustering and/or RDB persistence.  
 
-    > [!NOTE]
-    > Zone redundancy doesn't support AOF persistence or work with geo-replication currently.
-    >
+   > [!NOTE]
+   > Zone redundancy doesn't support Append-only File (AOF) persistence with multiple replicas (more than one replica).
+   > Zone redundancy doesn't work with geo-replication currently.
+   >
 
 1. Select **Create**.
 
@@ -80,11 +81,11 @@ A Premium cache has one primary and one replica node by default. To configure zo
 
 ### Can I update my existing Premium cache to use zone redundancy?
 
-No, this isn't supported currently.
+No, updating an existing Premium cache to use zone redundancy isn't supported currently.
 
 ### How much does it cost to replicate my data across Azure Availability Zones?
 
-When using zone redundancy configured with multiple Availability Zones, data is replicated from the primary cache node in one zone to the other node(s) in another zone(s). The data transfer charge is the network egress cost of data moving across the selected Availability Zones. For more information, see [Bandwidth Pricing Details](https://azure.microsoft.com/pricing/details/bandwidth/).
+When your cache uses zone redundancy configured with multiple Availability Zones, data is replicated from the primary cache node in one zone to the other node(s) in another zone(s). The data transfer charge is the network egress cost of data moving across the selected Availability Zones. For more information, see [Bandwidth Pricing Details](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 ## Next Steps
 

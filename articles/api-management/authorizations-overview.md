@@ -30,7 +30,7 @@ The feature consists of two parts, management and runtime:
 * The **management** part takes care of configuring identity providers, enabling the consent flow for the identity provider, and managing access to the authorizations.
 
 
-* The **runtime** part uses the [`get-authorization-context`](api-management-access-restriction-policies.md#GetAuthorizationContext) policy to fetch and store access and refresh tokens. When a call comes into API Management, and the `get-authorization-context` policy is executed, it will first validate if the existing authorization token is valid. If the authorization token has expired, the refresh token is used to try to fetch a new authorization and refresh token from the configured identity provider. If the call to the backend provider is successful, the new authorization token will be used, and both the authorization token and refresh token will be stored encrypted.
+* The **runtime** part uses the [`get-authorization-context`](get-authorization-context-policy.md) policy to fetch and store access and refresh tokens. When a call comes into API Management, and the `get-authorization-context` policy is executed, it will first validate if the existing authorization token is valid. If the authorization token has expired, the refresh token is used to try to fetch a new authorization and refresh token from the configured identity provider. If the call to the backend provider is successful, the new authorization token will be used, and both the authorization token and refresh token will be stored encrypted.
 
 
     During the policy execution, access to the tokens is also validated using access policies.
@@ -46,15 +46,16 @@ The feature consists of two parts, management and runtime:
 
 For public preview the following limitations exist:
 
+- Authorizations feature only supports Service Principal and Managed Identity as access policies.
+- Authorizations feature only supports /.default app-only scopes while acquire token for https://.../authorizationmanager audience.
 - Authorizations feature is not supported in the following regions: swedencentral, australiacentral, australiacentral2, jioindiacentral.
+- Authorizations feature is not supported in National Clouds.
+- Authorizations feature is not supported on self-hosted gateways.
 - Supported identity providers can be found in [this](https://github.com/Azure/APIManagement-Authorizations/blob/main/docs/identityproviders.md) GitHub repository.
 - Maximum configured number of authorization providers per API Management instance: 1,000
 - Maximum configured number of authorizations per authorization provider: 10,000
 - Maximum configured number of access policies per authorization: 100
 - Maximum requests per minute per service: 250
-- Authorization code PKCE flow with code challenge isn't supported.
-- Authorizations feature isn't supported on self-hosted gateways.
-- API documentation is not available yet. Please see [this](https://github.com/Azure/APIManagement-Authorizations) GitHub repository with samples.  
 
 ### Authorization providers
  
@@ -113,7 +114,7 @@ The following image shows the process flow to fetch and store authorization and 
 :::image type="content" source="media/authorizations-overview/get-token-for-backend.svg" alt-text="Diagram that shows the process flow for creating runtime." border="false":::
 
 1. Client sends request to API Management instance.
-1. The policy [`get-authorization-context`](api-management-access-restriction-policies.md#GetAuthorizationContext) checks if the access token is valid for the current authorization.
+1. The policy [`get-authorization-context`](get-authorization-context-policy.md) checks if the access token is valid for the current authorization.
 1. If the access token has expired but the refresh token is valid, API Management tries to fetch new access and refresh tokens from the configured identity provider.
 1. The identity provider returns both an access token and a refresh token, which are encrypted and saved to API Management. 
 1. After the tokens have been retrieved, the access token is attached using the `set-header` policy as an authorization header to the outgoing request to the backend API.

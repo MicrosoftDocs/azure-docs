@@ -27,6 +27,8 @@ You can create a Synapse notebook activity directly from the Synapse pipeline ca
 
 Drag and drop **Synapse notebook** under **Activities** onto the Synapse pipeline canvas. Select on the Synapse notebook activity box and config the notebook content for current activity in the **settings**. You can select an existing notebook from the current workspace or add a new one. 
 
+If you select an existing notebook from the current workspace, you can click the **Open** button to directly open the notebook's page.
+
 (Optional) You can also reconfigure Spark pool\Executor size\Dynamically allocate executors\Min executors\Max executors\Driver size in settings. It should be noted that the settings reconfigured here will replace the settings of the configure session in Notebook. If nothing is set in the settings of the current notebook activity, it will run with the settings of the configure session in that notebook.
 
 > [!div class="mx-imgBorder"]
@@ -168,7 +170,7 @@ Here's the sample JSON definition of a Synapse notebook activity:
 Here's the sample JSON of a Synapse notebook activity output:
 
 ```json
-
+{
 {
     "status": {
         "Status": 1,
@@ -212,3 +214,5 @@ Here's the sample JSON of a Synapse notebook activity output:
 }
 
 ```
+## Known issues
+If the notebook name is parametrized in the Pipeline Notebook activity, then the notebook version in unpublished status can't be referenced in the debug runs.
