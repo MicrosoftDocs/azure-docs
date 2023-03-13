@@ -30,7 +30,7 @@ The following table provides a comparison of the five disk types to help you dec
 | ------- | ---------- | ----------- | ------------ | ------------ | ------------ |
 | **Disk type** | SSD | SSD |SSD | SSD | HDD |
 | **Scenario**  | IO-intensive workloads such as [SAP HANA](workloads/sap/hana-vm-operations-storage.md), top tier databases (for example, SQL, Oracle), and other transaction-heavy workloads. | Production and performance-sensitive workloads that consistently require low latency and high IOPS and throughput | Production and performance sensitive workloads | Web servers, lightly used enterprise applications and dev/test | Backup, non-critical, infrequent access |
-| **Max disk size** | 65,536 gibibyte (GiB) | 65,536 GiB |32,767 GiB | 32,767 GiB | 32,767 GiB |
+| **Max disk size** | 65,536 gigabytes (GiB) | 65,536 GiB |32,767 GiB | 32,767 GiB | 32,767 GiB |
 | **Max throughput** | 4,000 MB/s | 1,200 MB/s | 900 MB/s | 750 MB/s | 500 MB/s |
 | **Max IOPS** | 160,000 | 80,000 | 20,000 | 6,000 | 2,000 |
 | **Usable as OS Disk?** | No | No | Yes | Yes | Yes |
@@ -47,7 +47,7 @@ Azure ultra disks offer up to 32-TiB per region per subscription by default, but
 
 The following table provides a comparison of disk sizes and performance caps to help you decide which to use.
 
-|Disk Size (GiB)  |IOPS Cap  |Throughput Cap (MBps)  |
+|Disk Size (GiB)  |IOPS Cap  |Throughput Cap (MB/s)  |
 |---------|---------|---------|
 |4     |1,200         |300         |
 |8     |2,400         |600         |
@@ -77,7 +77,7 @@ For more information about IOPS, see [Virtual machine and disk performance](disk
 
 ### Ultra disk throughput
 
-The throughput limit of a single ultra disk is 256-KiB/s for each provisioned IOPS, up to a maximum of 4000 MBps per disk (where MBps = 10^6 Bytes per second). The minimum guaranteed throughput per disk is 4KiB/s for each provisioned IOPS, with an overall baseline minimum of 1 MBps.
+The throughput limit of a single ultra disk is 256-KiB/s for each provisioned IOPS, up to a maximum of 4000 MB/s per disk (where MB/s = 10^6 Bytes per second). The minimum guaranteed throughput per disk is 4KiB/s for each provisioned IOPS, with an overall baseline minimum of 1 MB/s.
 
 You can adjust ultra disk IOPS and throughput performance at runtime without detaching the disk from the virtual machine. After a performance resize operation has been issued on a disk, it can take up to an hour for the change to take effect. Up to four performance resize operations are permitted during a 24-hour window.
 

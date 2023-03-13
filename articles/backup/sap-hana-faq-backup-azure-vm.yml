@@ -4,7 +4,7 @@ metadata:
   description: This article provides answers to common questions about backing up SAP HANA databases using the Azure Backup service.
   ms.topic: faq
   ms.service: backup
-  ms.date: 03/08/2023
+  ms.date: 03/10/2023
   author: jyothisuri
   ms.author: jsuri
 title: Frequently asked questions – Back up SAP HANA databases on Azure VMs
@@ -220,6 +220,11 @@ sections:
           Can I download only a subset of files during restore as files?
         answer: |
           Yes, you can download files partially as documented [here](sap-hana-db-restore.md#partial-restore-as-files).
+
+      - question: |
+          Do I've to disable the HSR on SAP HANA native environment during "SYSTEMDB + Tenant DB" restore for HSR setup?
+        answer: |
+          Yes, you need to disable the HANA System Replication (HSR) on target system, and then perform restore. You can't restore an HSR-enabled system, as per SAP.
           
   - name: Policy
     questions:
