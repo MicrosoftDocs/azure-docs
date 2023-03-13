@@ -1,7 +1,6 @@
 ---
 title: Concepts - Kubernetes basics for Azure Kubernetes Services (AKS)
 description: Learn the basic cluster and workload components of Kubernetes and how they relate to features in Azure Kubernetes Service (AKS)
-services: container-service
 ms.topic: conceptual
 ms.date: 10/31/2022
 
@@ -78,7 +77,7 @@ To run your applications and supporting services, you need a Kubernetes *node*. 
 
 The Azure VM size for your nodes defines CPUs, memory, size, and the storage type available (such as high-performance SSD or regular HDD). Plan the node size around whether your applications may require large amounts of CPU and memory or high-performance storage. Scale out the number of nodes in your AKS cluster to meet demand. For more information on scaling, see [Scaling options for applications in AKS](/concepts-scale.md).
 
-In AKS, the VM image for your cluster's nodes is based on Ubuntu Linux or Windows Server 2019. When you create an AKS cluster or scale out the number of nodes, the Azure platform automatically creates and configures the requested number of VMs. Agent nodes are billed as standard VMs, so any VM size discounts (including [Azure reservations][reservation-discounts]) are automatically applied.
+In AKS, the VM image for your cluster's nodes is based on Ubuntu Linux, [Mariner Linux](use-mariner.md), or Windows Server 2019. When you create an AKS cluster or scale out the number of nodes, the Azure platform automatically creates and configures the requested number of VMs. Agent nodes are billed as standard VMs, so any VM size discounts (including [Azure reservations][reservation-discounts]) are automatically applied.
 
 For managed disks, the default disk size and performance will be assigned according to the selected VM SKU and vCPU count. For more information, see [Default OS disk sizing](cluster-configuration.md#default-os-disk-sizing).
 

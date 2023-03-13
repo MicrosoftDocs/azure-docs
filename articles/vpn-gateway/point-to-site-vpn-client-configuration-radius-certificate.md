@@ -51,7 +51,13 @@ You can generate the VPN client configuration files by using the Azure portal, o
 1. Navigate to the virtual network gateway.
 1. Click **Point-to-Site configuration**.
 1. Click **Download VPN client**.
-1. Select the client and fill out any information that is requested.
+1. Select the client and fill out any information that is requested. Depending on the configuration, you might be requested to upload the Radius root certificate to the portal. Export the certificate in the required Base-64 encoded X.509 (.CER) format and open it using a text editor, such as Notepad. You'll see text similar to the following example. The section highlighted in blue contains the information that you copy and upload to Azure.
+
+
+   :::image type="content" source="../../includes/media/vpn-gateway-certificates-export-public-key-include/notepad-file.png" alt-text="Screenshot shows the CER file open in Notepad with the certificate data highlighted." lightbox="../../includes/media/vpn-gateway-certificates-export-public-key-include/notepad-file.png":::
+
+   If your file doesn't look similar to the example, typically that means you didn't export it using the Base-64 encoded X.509(.CER) format. Additionally, if you use a text editor other than Notepad, understand that some editors can introduce unintended formatting in the background. This can create problems when uploaded the text from this certificate to Azure.
+
 1. Click **Download** to generate the .zip file.
 1. The .zip file will download, typically to your Downloads folder.
 

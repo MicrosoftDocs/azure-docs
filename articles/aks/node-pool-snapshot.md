@@ -1,12 +1,11 @@
 ---
 title: Snapshot Azure Kubernetes Service (AKS) node pools
 description: Learn how to snapshot AKS cluster node pools and create clusters and node pools from a snapshot.
-ms.service: container-service
 ms.topic: how-to
+ms.custom: devx-track-azurecli
 ms.date: 09/11/2020
 ms.author: allensu
 author: asudbring
-
 ---
 
 # Azure Kubernetes Service (AKS) node pool snapshot
@@ -25,6 +24,7 @@ This article assumes that you have an existing AKS cluster. If you need an AKS c
 
 - Any node pool or cluster created from a snapshot must use a VM from the same virtual machine family as the snapshot, for example, you can't create a new N-Series node pool based of a snapshot captured from a D-Series node pool because the node images in those cases are structurally different.
 - Snapshots must be created same region as the source node pool, those snapshots can be used to create or update clusters and node pools in other regions.
+
 
 ## Take a node pool snapshot
 

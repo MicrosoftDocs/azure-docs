@@ -30,7 +30,7 @@ Turning on the TDE feature does the following:
 
 Before you proceed with this article, you must have an Azure Arc-enabled SQL Managed Instance resource created and connect to it.
 
-- [An Azure Arc-enabled SQL Managed Instance created](./create-sql-managed-instance.md)
+- [Create an Azure Arc-enabled SQL Managed Instance](./create-sql-managed-instance.md)
 - [Connect to Azure Arc-enabled SQL Managed Instance](./connect-managed-instance.md)
 
 ## Limitations

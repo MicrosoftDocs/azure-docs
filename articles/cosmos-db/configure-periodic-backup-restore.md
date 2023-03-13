@@ -172,6 +172,8 @@ If you have accidentally deleted or corrupted your data, you should contact [Azu
 > * VNET access control lists
 > * Stored procedures, triggers and user-defined functions
 > * Multi-region settings  
+> * Managed identity settings
+
 
 If you provision throughput at the database level, the backup and restore process in this case happen at the entire database level, and not at the individual containers level. In such cases, you can't select a subset of containers to restore.
 
