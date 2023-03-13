@@ -20,7 +20,7 @@ ms.custom: it-pro
 
 After creating a new customer tenant, you can customize the end-user experience. Create a custom look and feel for users signing in to your web-based apps by configuring **Company branding** settings for your tenant. 
 
-## Comparing the default sign-in experiences between the CIAM tenant and the Azure AD tenant.
+## Comparing the default sign-in experiences between the CIAM tenant and the Azure AD tenant
 
 The default sign-in experience is the global look and feel that applies across all sign-ins to your tenant. The default branding experiences between the CIAM tenant and the default Azure AD tenant are distinct.
 
