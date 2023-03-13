@@ -142,5 +142,3 @@ When you click the ExactCare SSO tile in the Access Panel, you should be automat
 - [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
 - [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
-
-- [Try ExactCare SSO with Azure AD](https://aad.portal.azure.com/)

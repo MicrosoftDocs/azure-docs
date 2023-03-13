@@ -235,7 +235,7 @@ To use your own custom messages, complete the following steps:
 
 ## MFA service settings
 
-Settings for app passwords, trusted IPs, verification options, and remembering multi-factor authentication on trusted devices are available in the service settings. This is a legacy portal. It isn't part of the regular Azure AD portal.
+Settings for app passwords, trusted IPs, verification options, and remembering multi-factor authentication on trusted devices are available in the service settings. This is a legacy portal. It isn't part of the regular Azure portal.
 
 You can access service settings from the Azure portal by going to **Azure Active Directory** > **Security** > **Multifactor authentication** > **Getting started** > **Configure** > **Additional cloud-based MFA settings**. A window or tab opens with additional service settings options.
 

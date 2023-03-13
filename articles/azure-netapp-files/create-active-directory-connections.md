@@ -2,15 +2,11 @@
 title: Create and manage Active Directory connections for Azure NetApp Files | Microsoft Docs
 description: This article shows you how to create and manage Active Directory connections for Azure NetApp Files.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 03/01/2023
 ms.author: anfdocs

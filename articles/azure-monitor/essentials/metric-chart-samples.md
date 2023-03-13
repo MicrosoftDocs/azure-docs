@@ -33,7 +33,7 @@ View your application's availability by region to identify which geographic loca
 
 ### How to configure this chart?
 
-You first need to turn on [Application Insights availability](../app/monitor-web-app-availability.md) monitoring for your website. After that, pick your Application Insights resource and select the Availability metric. Apply splitting on the **Run location** dimension.
+You first need to turn on [Application Insights availability](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability) monitoring for your website. After that, pick your Application Insights resource and select the Availability metric. Apply splitting on the **Run location** dimension.
 
 ## Volume of failed storage account transactions by API name
 

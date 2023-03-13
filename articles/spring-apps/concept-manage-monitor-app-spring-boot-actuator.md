@@ -58,10 +58,10 @@ Actuator endpoints let you monitor and interact with your application. By defaul
 To observe the configuration and configurable environment, we need to enable `env` and `configgrops` endpoints as well.
 
 1. Go to app **Overview** pane, select **Configuration** in the setting menu, go to the **Environment variables** configuration page.
-1. Add the following properties as in the "key:value" form. This environment will open the Spring Actuator endpoint "env", "health", "info".
+1. Add the following properties as in the "key:value" form. This environment will open the Spring Actuator endpoint "health".
 
    ```properties
-   management.endpoints.web.exposure.include: env,health,info
+   management.endpoints.web.exposure.include: health
    ```
 
 1. Select the **Save** button, your application will restart automatically and load the new environment variables.

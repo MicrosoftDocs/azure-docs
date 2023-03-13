@@ -1,12 +1,12 @@
 ---
-title: 'Quickstart: Create an Azure DB for MySQL - Flexible Server - ARM template'
+title: 'Quickstart: Create an Azure Database for MySQL - Flexible Server - ARM template'
 description: In this Quickstart, learn how to create an Azure Database for MySQL - Flexible Server using ARM template.
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: quickstart
 author: shreyaaithal
 ms.author: shaithal
-ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
+ms.custom: subject-armqs, mode-arm
 ms.date: 02/16/2023
 ---
 

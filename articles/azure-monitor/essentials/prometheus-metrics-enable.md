@@ -330,13 +330,13 @@ Deploy the template with the parameter file using any valid method for deploying
 
 ## Verify Deployment
 
-Run the following command to verify that the daemon set was deployed properly:
+Run the following command to verify that the DaemonSet was deployed properly:
 
 ```
 kubectl get ds ama-metrics-node --namespace=kube-system
 ```
 
-The output should resemble the following:
+The number of pods should be equal to the number of nodes on the cluster. The output should resemble the following:
 
 ```
 User@aksuser:~$ kubectl get ds ama-metrics-node --namespace=kube-system
@@ -344,7 +344,7 @@ NAME               DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SEL
 ama-metrics-node   1         1         1       1            1           <none>          10h
 ```
 
-Run the following command to which verify that the replica set was deployed properly:
+Run the following command to which verify that the ReplicaSets were deployed properly:
 
 ```
 kubectl get rs --namespace=kube-system
@@ -358,12 +358,16 @@ NAME                            DESIRED   CURRENT   READY   AGE
 ama-metrics-5c974985b8          1         1         1       11h
 ama-metrics-ksm-5fcf8dffcd      1         1         1       11h
 ```
+## Feature Support
 
+- ARM64 and Mariner nodes are supported.
+- HTTP Proxy is supported and will use the same settings as the HTTP Proxy settings for the AKS cluster configured with [these instructions](/articles/aks/http-proxy.md).
 
 ## Limitations
 
 - CPU and Memory requests and limits can't be changed for Container insights metrics addon. If changed, they'll be reconciled and replaced by original values in a few seconds.
-- Metrics addon doesn't work on AKS clusters configured with HTTP proxy.
+- Azure Monitor Private Link (AMPLS) is not currently supported.
+- Only public clouds are currently supported.
 
 
 ## Uninstall metrics addon

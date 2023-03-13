@@ -108,8 +108,26 @@ items:
       href: quickstarts-sdk/image-analysis-client-library-40.md
     - name: Version 3.2 quickstart
       href: quickstarts-sdk/image-analysis-client-library.md
-  - name: Samples  
-    href: /samples/browse/?products=azure&terms=analyze-image
+  - name: Samples
+    items:
+    - name: Version 4.0 (preview)
+      items:
+      - name: Azure Image Analysis samples
+        href: https://github.com/Azure-Samples/azure-ai-vision-sdk
+    - name: Version 3.2
+      items:
+      - name: Cognitive Services .NET SDK samples
+        href: https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples
+      - name: Cognitive Services Java SDK samples
+        href: https://github.com/Azure-Samples/cognitive-services-java-sdk-samples
+      - name: Cognitive Services Node.js SDK samples
+        href: https://github.com/Azure-Samples/cognitive-services-node-sdk-samples
+      - name: JavaScript Static Web app
+        href: https://github.com/azure-samples/js-e2e-client-cognitive-services/tree/main/
+      - name: Cognitive Services Python SDK samples
+        href: https://github.com/Azure-Samples/cognitive-services-python-sdk-samples
+      - name: Cognitive Services Go SDK Samples
+        href: https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/cognitiveservices
   - name: Responsible use of AI
     items:
     - name: Transparency note

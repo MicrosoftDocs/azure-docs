@@ -12,6 +12,9 @@ ms.date: 01/19/2023
 
 This article shows you how to create and delete an Azure Monitor workspace. When you configure Azure Monitor managed service for Prometheus, you can select an existing Azure Monitor workspace or create a new one.
 
+> [!NOTE]
+> When you create an Azure Monitor workspace, by default a data collection rule and a data collection endpoint in the form `<azure-workspace-name>` will automatically be created in a resource group in the form `MA_<azure-workspace-name>_<location>_managed`.
+
 ## Create an Azure Monitor workspace
 ### [Azure portal](#tab/azure-portal)
 

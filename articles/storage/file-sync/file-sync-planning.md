@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 02/03/2023
 ms.author: kendownie
 ms.subservice: files
-ms.custom: references_regions, devx-track-azurepowershell
+ms.custom: references_regions
 ---
 
 # Planning for an Azure File Sync deployment

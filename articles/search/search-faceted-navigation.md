@@ -31,7 +31,7 @@ Facets are dynamic and returned on a query. A search response brings with it all
 
 In Cognitive Search, facets are one layer deep and can't be hierarchical. If you aren't familiar with faceted navigation structured, the following example shows one on the left. Counts indicate the number of matches for each facet. The same document can be represented in multiple facets.
 
-:::image source="media/tutorial-csharp-create-first-app/azure-search-facet-nav.png" alt-text="faceted search results":::
+:::image source="media/search-faceted-navigation/azure-search-facet-nav.png" alt-text="Screenshot of faceted search results.":::
 
 Facets can help you find what you're looking for, while ensuring that you don't get zero results. As a developer, facets let you expose the most useful search criteria for navigating your search index.
 
@@ -286,10 +286,6 @@ If you build the list of facets dynamically based on untrusted user input, valid
 ## Demos and samples
 
 Several samples include faceted navigation. This section has links to the samples and also notes which client library and language is used for each one.
-
-### Create your first app in C# (Razor)
-
-This tutorial and sample series in C# includes a [lesson focused on faceted navigation](tutorial-csharp-facets.md). The solution is an ASP.NET MVC app and the presentation layer uses the Razor client libraries.
 
 ### Add search to web apps (React)
 

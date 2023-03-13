@@ -40,8 +40,8 @@ To assign users to an enterprise application, you need:
 
 To assign a user or group account to an enterprise application:
 
-1. In the [Azure Active Directory Admin Center](https://aad.portal.azure.com), select **Enterprise applications**, and then search for and select the application to which you want to assign the user or group account.
-1. In the left pane, select **Users and groups**, and then select **Add user/group**.
+1. In the [Azure portal](https://portal.azure.com), select **Enterprise applications**, and then search for and select the application to which you want to assign the user or group account.
+1. Browse to **Azure Active Directory** > **Users and groups**, and then select **Add user/group**.
 
     :::image type="content" source="media/add-application-portal-assign-users/assign-user.png" alt-text="Assign user account to an application in your Azure AD tenant.":::
 

@@ -26,7 +26,7 @@ The [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-
 * Some form of preprocessed data.
 
 These files are typically batch processed in the cloud, using tools such as [Azure Data Factory](../data-factory/introduction.md) or the [Hadoop](../hdinsight/index.yml) stack. When you need to upload files from a device, you can still use the security and reliability of IoT Hub. This article shows you how. View two samples from [azure-iot-sdk-java
-](https://github.com/Azure/azure-iot-sdk-java/tree/main/device/iot-device-samples/file-upload-sample/src/main/java/samples/com/microsoft/azure/sdk/iot) in GitHub.
+](https://github.com/Azure/azure-iot-sdk-java/tree/main/iothub/device/iot-device-samples/file-upload-sample/src/main/java/samples/com/microsoft/azure/sdk/iot) in GitHub.
 
 > [!NOTE]
 > IoT Hub supports many device platforms and languages (including C, .NET, and JavaScript) through Azure IoT device SDKs. Refer to the [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot) to learn how to connect your device to Azure IoT Hub.

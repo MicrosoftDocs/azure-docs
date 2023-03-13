@@ -6,8 +6,7 @@ ms.author: allensu
 ms.subservice: aks-networking
 ms.topic: how-to
 ms.date: 09/09/2022
-ms.custom: references_regions
-
+ms.custom: references_regions, devx-track-azurecli
 ---
 
 # Create an Azure Kubernetes Service cluster with API Server VNet Integration (Preview)

@@ -369,7 +369,6 @@ The following example YAML configuration deploys a container app when used with 
 - [`az containerapp revision copy`](/cli/azure/containerapp?view=azure-cli-latest&preserve-view=true#az-containerapp-revision-copy)
 
 ```yaml
-kind: containerapp
 location: canadacentral
 name: mycontainerapp
 resourceGroup: myresourcegroup

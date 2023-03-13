@@ -161,5 +161,3 @@ When you click the Dovetale tile in the Access Panel, you should be automaticall
 - [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
 - [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
-
-- [Try Dovetale with Azure AD](https://aad.portal.azure.com/)

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: conceptual
-ms.date: 06/30/2022
+ms.date: 03/01/2023
 ms.author: chrhoder
 ---
 
@@ -23,8 +23,8 @@ The following sections provide you with a quick guide to the quotas and limits t
 | Limit Name | Limit Value |
 |--|--|
 | OpenAI resources per region | 2 | 
-| Requests per minute per model* | Davinci-models (002 and later): 120  <br> All other models: 300 |
-| Tokens per minute per model* | Davinci-models (002 and later): 40,000  <br> All other models: 120,000 |
+| Requests per minute per model* | Davinci-models (002 and later): 120  <br> ChatGPT model: 300 <br> All other models: 300|
+| Tokens per minute per model* | Davinci-models (002 and later): 40,000  <br> ChatGPT model: 120,000 <br> All other models: 120,000 |
 | Max fine-tuned model deployments* | 2 |
 | Ability to deploy same model to multiple deployments | Not allowed |
 | Total number of training jobs per resource | 100 |
@@ -36,6 +36,8 @@ The following sections provide you with a quick guide to the quotas and limits t
 | Max training job size (tokens in training file) x (# of epochs) | **Ada**: 40-M tokens <br> **Babbage**: 40-M tokens <br> **Curie**: 40-M tokens <br> **Cushman**: 40-M tokens <br> **Davinci**: 10-M |
 
 *The limits are subject to change. We anticipate that you will need higher limits as you move toward production and your solution scales. When you know your solution requirements, please reach out to us by applying for a quota increase here: <https://aka.ms/oai/quotaincrease>
+
+For information on max tokens for different models, consult the [models article](./concepts/models.md#model-summary-table-and-region-availability)
 
 ### General best practices to mitigate throttling during autoscaling
 

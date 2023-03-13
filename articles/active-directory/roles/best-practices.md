@@ -27,7 +27,7 @@ When planning your access control strategy, it's a best practice to manage to le
 
 Follow these steps to help you find the right role.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory** > **Roles and administrators** to see the list of Azure AD roles.
 

@@ -19,6 +19,7 @@ ms.collection: M365-identity-device-management
 
 Users will be blocked from accessing company resources when the device type is unknown or unsupported.
 
+## User exclusions
 [!INCLUDE [active-directory-policy-exclusions](../../../includes/active-directory-policy-exclude-user.md)]
 
 [!INCLUDE [active-directory-policy-deploy-template](../../../includes/active-directory-policy-deploy-template.md)]

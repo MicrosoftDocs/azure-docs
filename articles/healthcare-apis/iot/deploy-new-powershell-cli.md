@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 1/5/2023
+ms.date: 03/10/2023
 ms.author: jasteppe
 ---
 
@@ -16,10 +16,7 @@ ms.author: jasteppe
 
 To implement infrastructure as code for your Azure solutions, use Azure Resource Manager templates (ARM templates). The template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax, which lets you state what you intend to deploy without having to write the sequence of programming commands to create it. In the template, you specify the resources to deploy and the properties for those resources. 
 
-In this quickstart, you'll learn how to:
-
-> [!div class="checklist"]
-> - Use Azure PowerShell or the Azure CLI to deploy an instance of the MedTech service using an Azure Resource Manager template (ARM template).
+In this quickstart, you'll learn how use Azure PowerShell or the Azure CLI to deploy an instance of the MedTech service using an Azure Resource Manager template (ARM template).
 
 > [!TIP]
 > To learn more about ARM templates, see [What are ARM templates?](./../../azure-resource-manager/templates/overview.md)

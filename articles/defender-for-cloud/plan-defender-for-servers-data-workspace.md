@@ -173,7 +173,7 @@ Based on your usage, you won't be billed until you've used your daily allowance.
 
 ### How can I manage my costs?
 
-You may want to manage your costs and limit the amount of data collected for a solution by limiting it to a particular set of agents. Use [solution targeting](../azure-monitor/insights/solution-targeting.md) to apply a scope to the solution and target a subset of computers in the workspace. If you're using solution targeting, Defender for Cloud lists the workspace as not having a solution.
+You may want to manage your costs and limit the amount of data collected for a solution by limiting it to a particular set of agents. Use [solution targeting](/previous-versions/azure/azure-monitor/insights/solution-targeting) to apply a scope to the solution and target a subset of computers in the workspace. If you're using solution targeting, Defender for Cloud lists the workspace as not having a solution.
 > [!IMPORTANT]
 > Solution targeting has been deprecated because the Log Analytics agent is being replaced with the Azure Monitor agent and solutions in Azure Monitor are being replaced with insights. You can continue to use solution targeting if you already have it configured, but it is not available in new regions.
 > The feature will not be supported after August 31, 2024.

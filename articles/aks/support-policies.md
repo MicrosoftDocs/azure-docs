@@ -88,7 +88,7 @@ Microsoft and users share responsibility for Kubernetes agent nodes where:
   * `Kube-proxy`
   * Networking tunnels that provide communication paths to the Kubernetes master components
   * `Kubelet`
-  * Docker or `containerd`
+  * `containerd`
 
 > [!NOTE]
 > If an agent node is not operational, AKS might restart individual components or the entire agent node. These restart operations are automated and provide auto-remediation for common issues. If you want to know more about the auto-remediation mechanisms, see [Node Auto-Repair](node-auto-repair.md)

@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.collection: windows
 author: nikhilpatel909
 ms.author: erd
-ms.date: 11/03/2022
+ms.date: 03/10/2023
 ms.topic: how-to  
 ms.reviewer: erd
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
@@ -28,6 +28,13 @@ The *updated* managed Run Command uses the same VM agent channel to execute scri
 - Support for long running (hours/days) scripts 
 - Passing secrets (parameters, passwords) in a secure manner
 
+## Limiting access to Run Command
+
+Listing the run commands or showing the details of a command requires the `Microsoft.Compute/locations/runCommands/read` permission on Subscription Level. The built-in [Reader](../../role-based-access-control/built-in-roles.md#reader) role and higher levels have this permission.
+
+Running a command requires the `Microsoft.Compute/virtualMachines/runCommand/write` permission. The [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role and higher levels have this permission.
+
+You can use one of the [built-in roles](../../role-based-access-control/built-in-roles.md) or create a [custom role](../../role-based-access-control/custom-roles.md) to use Run Command.
 
 ## Azure CLI 
 

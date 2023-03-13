@@ -6,8 +6,8 @@ author: ankitaduttaMSFT
 manager: gaggupta
 ms.topic: how-to
 ms.service: site-recovery
+ms.custom: devx-track-azurepowershell
 ms.date: 02/11/2021
-
 ---
 
 # Replicate virtual machines running in a proximity placement group to another region

@@ -10,7 +10,13 @@ ms.author: alexwolf
 ms.custom: include file
 ---
 
-This quick start shows you two ways of connecting to Azure Event Hubs: passwordless and connection string. The first option shows you how to use your security principal in Azure Active Directory and role-based access control (RBAC) to connect to an Event Hubs namespace. You don't need to worry about having hard-coded connection strings in your code or in a configuration file or in a secure storage like Azure Key Vault. The second option shows you how to use a connection string to connect to an Event Hubs namespace. If you're new to Azure, you may find the connection string option easier to follow. We recommend using the passwordless option in real-world applications and production environments. For more information, see [Authentication and authorization](../../../articles/service-bus-messaging/service-bus-authentication-and-authorization.md). You can also read more about passwordless authentication on the [overview page](/dotnet/azure/sdk/authentication?tabs=command-line).
+This quick start shows you two ways of connecting to Azure Event Hubs: 
+- Passwordless (Azure Active Directory authentication)
+- Connection string
+
+The first option shows you how to use your security principal in Azure **Active Directory and role-based access control (RBAC)** to connect to an Event Hubs namespace. You don't need to worry about having hard-coded connection strings in your code or in a configuration file or in a secure storage like Azure Key Vault. 
+
+The second option shows you how to use a **connection string** to connect to an Event Hubs namespace. If you're new to Azure, you may find the connection string option easier to follow. We recommend using the passwordless option in real-world applications and production environments. For more information, see [Authentication and authorization](../../../articles/service-bus-messaging/service-bus-authentication-and-authorization.md). You can also read more about passwordless authentication on the [overview page](/dotnet/azure/sdk/authentication?tabs=command-line).
 
 ## [Passwordless](#tab/passwordless)
 
@@ -18,7 +24,7 @@ This quick start shows you two ways of connecting to Azure Event Hubs: passwordl
 
 [!INCLUDE [event-hub-assign-roles](event-hub-assign-roles.md)]
 
-## Launch Visual Studio and sign-in to Azure
+### Launch Visual Studio and sign-in to Azure
 
 You can authorize access to the service bus namespace using the following steps:
 

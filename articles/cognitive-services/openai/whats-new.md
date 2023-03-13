@@ -8,12 +8,40 @@ ms.author: mbullwin
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: overview
-ms.date: 12/14/2022
+ms.date: 03/01/2023
 recommendations: false
 keywords:  
 ---
 
 # What's new in Azure OpenAI Service
+
+## March 2023
+
+- **ChatGPT (gpt-35-turbo) public preview**. To learn more checkout the new [quickstart](./quickstart.md), and [how-to articles](./how-to/chatgpt.md).
+
+- Adding additional use cases to your existing access.  Previously, the process for adding new use cases required customers to reapply to the service. Now, we're releasing a new process that allows you to quickly add new use cases to your use of the service. This process follows the established Limited Access process within Azure Cognitive Services. [Existing customers can attest to any and all new use cases here](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUM003VEJPRjRSOTZBRVZBV1E5N1lWMk1XUyQlQCN0PWcu). Please note that this is required anytime you would like to use the service for a new use case you did not originally apply for.
+
+## February 2023
+
+### New Features
+
+- .NET SDK(inference) [preview release](https://www.nuget.org/packages/Azure.AI.OpenAI/1.0.0-beta.3) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/openai/Azure.AI.OpenAI/tests/Samples)
+- [Terraform SDK update](https://registry.terraform.io/providers/hashicorp/azurerm/3.37.0/docs/resources/cognitive_deployment) to support Azure OpenAI management operations.
+- Inserting text at the end of a completion is now supported with the `suffix` parameter.
+
+### Updates
+
+- Content filtering is on by default.
+
+New articles on:
+
+- [Monitoring an Azure OpenAI Service](./how-to/monitoring.md)
+- [Plan and manage costs for Azure OpenAI](./how-to/manage-costs.md)
+
+New training course:
+
+- [Intro to Azure OpenAI](/training/modules/explore-azure-openai/)
+
 
 ## January 2023
 

@@ -183,13 +183,13 @@ Required claims for the WS-Fed token issued by the IdP:
 
 ## Step 3: Configure SAML/WS-Fed IdP federation in Azure AD
 
-Next, you'll configure federation with the IdP configured in step 1 in Azure AD. You can use either the Azure AD portal or the [Microsoft Graph API](/graph/api/resources/samlorwsfedexternaldomainfederation?view=graph-rest-beta&preserve-view=true). It might take 5-10 minutes before the federation policy takes effect. During this time, don't attempt to redeem an invitation for the federation domain. The following attributes are required:
+Next, you'll configure federation with the IdP configured in step 1 in Azure AD. You can use either the Azure portal or the [Microsoft Graph API](/graph/api/resources/samlorwsfedexternaldomainfederation?view=graph-rest-beta&preserve-view=true). It might take 5-10 minutes before the federation policy takes effect. During this time, don't attempt to redeem an invitation for the federation domain. The following attributes are required:
 
 - Issuer URI of the partner's IdP
 - Passive authentication endpoint of partner IdP (only https is supported)
 - Certificate
 
-### To configure federation in the Azure AD portal
+### To configure federation in the Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as an External Identity Provider Administrator or a Global Administrator. 
 2. In the left pane, select **Azure Active Directory**.
@@ -274,7 +274,7 @@ On the **All identity providers** page, you can view the list of SAML/WS-Fed ide
 ## How do I remove federation?
 
 You can remove your federation configuration. If you do, federation guest users who have already redeemed their invitations won't be able to sign in. But you can give them access to your resources again by [resetting their redemption status](reset-redemption-status.md).
-To remove a configuration for an IdP in the Azure AD portal:
+To remove a configuration for an IdP in the Azure portal:
 
 1. Go to the [Azure portal](https://portal.azure.com/). In the left pane, select **Azure Active Directory**.
 1. Select **External Identities**.

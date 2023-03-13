@@ -3,7 +3,7 @@ title: Use system node pools in Azure Kubernetes Service (AKS)
 description: Learn how to create and manage system node pools in Azure Kubernetes Service (AKS)
 ms.topic: article
 ms.date: 11/22/2022
-ms.custom: fasttrack-edit, devx-track-azurecli
+ms.custom: fasttrack-edit, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Manage system node pools in Azure Kubernetes Service (AKS)

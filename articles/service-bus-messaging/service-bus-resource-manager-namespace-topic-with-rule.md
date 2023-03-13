@@ -6,7 +6,7 @@ ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.date: 09/27/2021
 ms.author: spelluru
-ms.custom:  devx-track-azurepowershell, devx-track-azurecli 
+ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ---
 

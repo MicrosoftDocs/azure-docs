@@ -150,9 +150,7 @@
       - name: Azure App Configuration
         href: ../azure-app-configuration/faq.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-does-app-configuration-ensure-high-data-availability
       - name: Azure App Service
-        href: /azure/architecture/framework/services/compute/azure-app-service/reliability?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#why-use-app-service
-      - name: Azure App Service- App Service Environment
-        href: /azure/architecture/reference-architectures/enterprise-integration/ase-high-availability-deployment?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+        href: reliability-app-service.md
       - name: Azure Application Gateway (V2)
         href: ../application-gateway/application-gateway-autoscaling-zone-redundant.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Batch

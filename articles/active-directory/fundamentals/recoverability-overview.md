@@ -33,7 +33,7 @@ Deletions and misconfigurations have different impacts on your tenant.
 
 The impact of deletions depends on the object type.
 
-Users, Microsoft 365 Groups, and applications can be soft deleted. Soft-deleted items are sent to the Azure AD recycle bin. While in the recycle bin, items aren't available for use. However, they retain all their properties and can be restored via a Microsoft Graph API call or in the Azure AD portal. Items in the soft-delete state that aren't restored within 30 days are permanently, or hard, deleted.
+Users, Microsoft 365 Groups, and applications can be soft deleted. Soft-deleted items are sent to the Azure AD recycle bin. While in the recycle bin, items aren't available for use. However, they retain all their properties and can be restored via a Microsoft Graph API call or in the Azure portal. Items in the soft-delete state that aren't restored within 30 days are permanently, or hard, deleted.
 
 ![Diagram that shows that users, Microsoft 365 Groups, and applications are soft deleted and then hard deleted after 30 days.](media/recoverability/overview-deletes.png)
 

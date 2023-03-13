@@ -113,22 +113,21 @@ This example uses the `en-US-JennyNeural` voice. For more examples, see [voice e
 </speak>
 ```
 
-## Add or prevent a break
+## Add a break
 
-Use the `break` element to override the default behavior of breaks or pauses between words. You can use it to add or prevent pauses that are otherwise automatically inserted by the Speech service.
+Use the `break` element to override the default behavior of breaks or pauses between words. You can use it to add pauses that are otherwise automatically inserted by the Speech service.
 
 Usage of the `break` element's attributes are described in the following table.
 
 | Attribute | Description | Required or optional |
 | ---------- | ---------- | ---------- |
-| `strength` | The relative duration of a pause by using one of the following values:<br/><ul><li>none</li><li>x-weak</li><li>weak</li><li>medium (default)</li><li>strong</li><li>x-strong</li></ul><br/><br/>Set `strength` to `none` to prevent automatic insertion of a prosodic break. | Optional |
+| `strength` | The relative duration of a pause by using one of the following values:<br/><ul><li>x-weak</li><li>weak</li><li>medium (default)</li><li>strong</li><li>x-strong</li></ul>| Optional |
 | `time`     | The absolute duration of a pause in seconds (such as `2s`) or milliseconds (such as `500ms`). Valid values range from 0 to 5000 milliseconds. If you set a value greater than the supported maximum, the service will use `5000ms`. If the `time` attribute is set, the `strength` attribute is ignored.| Optional |
 
 Here are more details about the `strength` attribute.
 
 | Strength                      | Relative duration |
 | ---------- | ---------- |
-| None, or if no value provided | 0 ms        |
 | X-weak                        | 250 ms      |
 | Weak                          | 500 ms      |
 | Medium                        | 750 ms      |
@@ -137,14 +136,14 @@ Here are more details about the `strength` attribute.
 
 ### Break examples
 
-The supported values for attributes of the `break` element were [described previously](#add-or-prevent-a-break). 
+The supported values for attributes of the `break` element were [described previously](#add-a-break). The following three ways all add 750 ms breaks.
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
     <voice name="en-US-JennyNeural">
         Welcome <break /> to text-to-speech.
         Welcome <break strength="medium" /> to text-to-speech.
-        Welcome <break time="250ms" /> to text-to-speech.
+        Welcome <break time="750ms" /> to text-to-speech.
     </voice>
 </speak>
 ```

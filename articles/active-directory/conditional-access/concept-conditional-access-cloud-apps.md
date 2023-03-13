@@ -93,7 +93,6 @@ The following key applications are affected by the Office 365 cloud app:
 - Microsoft Flow
 - Microsoft Office 365 Portal
 - Microsoft Office client application
-- Microsoft Stream 
 - Microsoft To-Do WebApp
 - Microsoft Whiteboard Services
 - Office Delve

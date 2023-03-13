@@ -35,7 +35,7 @@ sections:
       - question: |
           How do I enable Azure Monitor?
         answer: |
-          Azure Monitor is enabled the moment that you create a new Azure subscription, and [Activity log](./essentials/platform-logs-overview.md) and platform [metrics](essentials/data-platform-metrics.md) are automatically collected. Create [diagnostic settings](essentials/diagnostic-settings.md) to collect more detailed information about the operation of your Azure resources, and add [monitoring solutions](insights/solutions.md) and [insights](./monitor-reference.md) to provide extra analysis on collected data for particular services.
+          Azure Monitor is enabled the moment that you create a new Azure subscription, and [Activity log](./essentials/platform-logs-overview.md) and platform [metrics](essentials/data-platform-metrics.md) are automatically collected. Create [diagnostic settings](essentials/diagnostic-settings.md) to collect more detailed information about the operation of your Azure resources, and add [monitoring solutions](/previous-versions/azure/azure-monitor/insights/solutions) and [insights](./monitor-reference.md) to provide extra analysis on collected data for particular services.
           
       - question: |
           How do I access Azure Monitor?
@@ -105,7 +105,7 @@ sections:
       - question: |
           What is a solution in Azure Monitor?
         answer: |
-          Monitoring solutions are packaged sets of logic for monitoring a particular application or service based on Azure Monitor features. They collect log data in Azure Monitor and provide log queries and views for their analysis using a common experience in the Azure portal. See [Monitoring solutions in Azure Monitor](insights/solutions.md).
+          Monitoring solutions are packaged sets of logic for monitoring a particular application or service based on Azure Monitor features. They collect log data in Azure Monitor and provide log queries and views for their analysis using a common experience in the Azure portal. See [Monitoring solutions in Azure Monitor](/previous-versions/azure/azure-monitor/insights/solutions).
           
           To view solutions in the Azure portal, click **More** in the **Insights** section of the **Monitor** menu. Click **Add** to add more solutions to the workspace.
           
@@ -478,7 +478,7 @@ sections:
           
           * [Set firewall exceptions](app/ip-addresses.md)
           * [Set up an ASP.NET server](app/status-monitor-v2-overview.md)
-          * [Set up a Java server](app/deprecated-java-2x.md#monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps)
+          * [Set up a Java server](/previous-versions/azure/azure-monitor/app/deprecated-java-2x#monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps)
           
           *How many Application Insights resources should I deploy:*
           
@@ -494,7 +494,7 @@ sections:
           * [Web apps on Azure](app/azure-web-apps.md)
           * [Cloud Services on Azure](app/azure-web-apps-net-core.md)
           * [Single-page web apps](app/javascript.md)
-          * [SharePoint](app/sharepoint.md)
+          * [SharePoint](/previous-versions/azure/azure-monitor/app/sharepoint)
           * [Windows desktop app](https://github.com/Microsoft/appcenter)
           * [Other platforms](app/app-insights-overview.md#supported-languages)
           
@@ -569,7 +569,7 @@ sections:
           * HTTP requests
           * [Dependencies](app/asp-net-dependencies.md). Calls to: SQL Databases; HTTP calls to external services; Azure Cosmos DB, table, blob storage, and queue.
           * [Exceptions](app/asp-net-exceptions.md) and stack traces.
-          * [Performance Counters](app/performance-counters.md) - If you use [Azure Monitor Application Insights Agent](app/status-monitor-v2-overview.md), [Azure monitoring for VM or Virtual Machine Scale Set](app/azure-vm-vmss-apps.md), or the [Application Insights collectd writer](app/deprecated-java-2x.md#collectd-linux-performance-metrics-in-application-insights-deprecated).
+          * [Performance Counters](app/performance-counters.md) - If you use [Azure Monitor Application Insights Agent](app/status-monitor-v2-overview.md), [Azure monitoring for VM or Virtual Machine Scale Set](app/azure-vm-vmss-apps.md), or the [Application Insights collectd writer](/previous-versions/azure/azure-monitor/app/deprecated-java-2x#collectd-linux-performance-metrics-in-application-insights-deprecated).
           * [Custom events and metrics](app/api-custom-events-metrics.md) that you code.
           * [Trace logs](app/asp-net-trace-logs.md) if you configure the appropriate collector.
           
@@ -597,7 +597,7 @@ sections:
           * Telemetry Processor to filter or add properties to selected telemetry items before they are sent from your app.
           * Telemetry Initializer to add properties to all items of telemetry.
           
-          Learn more for [ASP.NET](app/api-filtering-sampling.md) or [Java](app/deprecated-java-2x.md#filter-telemetry-in-your-java-web-app).
+          Learn more for [ASP.NET](app/api-filtering-sampling.md) or [Java](/previous-versions/azure/azure-monitor/app/deprecated-java-2x#filter-telemetry-in-your-java-web-app).
           
       - question: |
           How are city, country/region, and other geo location data calculated?
@@ -680,7 +680,7 @@ sections:
         answer: |
           | What you should see | How to get it | Why you want it |
           | --- | --- | --- |
-          | Availability charts |[Web tests](app/monitor-web-app-availability.md) |Know your web app is up |
+          | Availability charts |[Web tests](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability) |Know your web app is up |
           | Server app perf: response times, ... |[Add Application Insights to your project](app/asp-net.md) or [Install Azure Monitor Application Insights Agent on server](app/status-monitor-v2-overview.md) (or write your own code to [track dependencies](app/api-custom-events-metrics.md#trackdependency)) |Detect perf issues |
           | Dependency telemetry |[Install Azure Monitor Application Insights Agent on server](app/status-monitor-v2-overview.md) |Diagnose issues with databases or other external components |
           | Get stack traces from exceptions |[Insert TrackException calls in your code](app/asp-net-exceptions.md) (but some are reported automatically) |Detect and diagnose exceptions |
@@ -705,11 +705,11 @@ sections:
         answer: |
           Moving existing Application Insights resources from one region to another is **currently not supported**. Historical data that you have collected **can't be migrated** to a new region. The only partial workaround is to:
           
-          1. Create a brand new Application Insights resource ([classic](app/create-new-resource.md) or [workspace-based](./app/create-workspace-resource.md)) in the new region.
+          1. Create a brand new Application Insights resource ([classic](/previous-versions/azure/azure-monitor/app/create-new-resource) or [workspace-based](./app/create-workspace-resource.md)) in the new region.
           2. Recreate all unique customizations specific to the original resource in the new resource.
-          3. Modify your application to use the new region resource's [instrumentation key](app/create-new-resource.md#copy-the-instrumentation-key) or [connection string](app/sdk-connection-string.md).
+          3. Modify your application to use the new region resource's [instrumentation key](/previous-versions/azure/azure-monitor/app/create-new-resource#copy-the-instrumentation-key) or [connection string](app/sdk-connection-string.md).
           4. Test to confirm that everything is continuing to work as expected with your new Application Insights resource.
-          5. At this point you can either delete the original resource, which will result in **all historical data being lost**. Or retain the original resource for historical reporting purposes during its data retention settings.
+          5. At this point you can either keep or delete the original Application Insights resource. Deleting a classic Application Insights resource will result in **all historical data being lost**. If the original resource was workspace-based, its data will remain in the Log Analytics. Keeping the original Application Insights resource will allow you to access its historical data until its data retention settings run out.
           
           Unique customizations that commonly need to be manually recreated or updated for the resource in the new region include but aren't limited to:
           
@@ -825,7 +825,7 @@ sections:
       - question: |
           Can I run Availability web tests on an intranet server?
         answer: |
-          Our [web tests](app/monitor-web-app-availability.md) run on points of presence that are distributed around the globe. There are two solutions:
+          Our [web tests](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability) run on points of presence that are distributed around the globe. There are two solutions:
           
           * Firewall door - Allow requests to your server from [the long and changeable list of web test agents](app/ip-addresses.md).
           * Write your own code to send periodic requests to your server from inside your intranet. You could run Visual Studio web tests for this purpose. The tester could send the results to Application Insights using the TrackAvailability() API.
@@ -912,7 +912,7 @@ sections:
       - question: |
           Can OpenTelemetry be used for web browsers?
         answer: |
-          Yes but it’s not recommended or supported by Azure. OpenTelemetry Javascript is heavily optimized for Node.js. Instead, we recommend using the Application Insights JavaScript SDK.
+          Yes but it’s not recommended or supported by Azure. OpenTelemetry JavaScript is heavily optimized for Node.js. Instead, we recommend using the Application Insights JavaScript SDK.
 
       - question: |
           When can we expect the OpenTelemetry SDK to be available for use in web browsers?

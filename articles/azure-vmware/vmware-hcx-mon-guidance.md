@@ -3,7 +3,7 @@ title: VMware HCX Mobility Optimized Networking (MON) guidance
 description: Learn about Azure VMware Solution-specific use cases for Mobility Optimized Networking (MON).  
 ms.topic: reference
 ms.service: azure-vmware
-ms.date: 04/11/2022
+ms.date: 3/10/2023
 ---
 
 # VMware HCX Mobility Optimized Networking (MON) guidance
@@ -19,7 +19,8 @@ ms.date: 04/11/2022
 >[Unsupported source configurations for HCX NE](https://docs.vmware.com/en/VMware-HCX/4.2/hcx-user-guide/GUID-DBDB4D1B-60B6-4D16-936B-4AC632606909.html)
 > 
 >[Limitations for any HCX deployment including MON](https://docs.vmware.com/en/VMware-HCX/4.2/hcx-user-guide/GUID-BEC26054-D560-46D0-98B4-7FF09501F801.html)
-
+>
+>VMware HCX Mobility Optimized Networkign (MON) is not supported with the use of a 3rd party gateway. It may only be used with the T1 gateway directly connected to the T0 gateway with no network virtual appliance (NVA). It may be able to make this configuration function, but we do not support it. 
 
 [HCX Mobility Optimized Networking (MON)](https://docs.vmware.com/en/VMware-HCX/4.2/hcx-user-guide/GUID-0E254D74-60A9-479C-825D-F373C41F40BC.html) is an optional feature to enable when using [HCX Network Extensions (NE)](configure-hcx-network-extension.md). MON provides optimal traffic routing under certain scenarios to prevent network tromboning between the on-premises and cloud-based resources on extended networks. 
 

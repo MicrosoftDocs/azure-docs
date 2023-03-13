@@ -2,12 +2,12 @@
 title: Convert your data to FHIR in Azure Health Data Services
 description: This article describes how to use the $convert-data endpoint and custom converter templates to convert data to FHIR in Azure Health Data Services.
 services: healthcare-apis
-author: RuiyiC
+author: irenepjoseph
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
 ms.date: 08/15/2022
-ms.author: mikaelw
+ms.author: irenejoseph
 ms.custom: subject-rbac-steps
 ---
 
@@ -210,27 +210,32 @@ The following table lists the IP addresses for the Azure regions where the FHIR 
 
 | Azure region         | Public IP address |
 |:----------------------|:-------------------|
-| Australia East       | 20.53.44.80       |
-| Canada Central       | 20.48.192.84      |
-| Central US           | 52.182.208.31     |
-| East US              | 20.62.128.148     |
-| East US 2            | 20.49.102.228     |
-| East US 2 EUAP       | 20.39.26.254      |
-| Germany North        | 51.116.51.33      |
-| Germany West Central | 51.116.146.216    |
-| Japan East           | 20.191.160.26     |
-| Korea Central        | 20.41.69.51       |
-| North Central US     | 20.49.114.188     |
-| North Europe         | 52.146.131.52     |
-| South Africa North   | 102.133.220.197   |
-| South Central US     | 13.73.254.220     |
-| Southeast Asia       | 23.98.108.42      |
-| Switzerland North    | 51.107.60.95      |
-| UK South             | 51.104.30.170     |
-| UK West              | 51.137.164.94     |
-| West Central US      | 52.150.156.44     |
-| West Europe          | 20.61.98.66       |
-| West US 2            | 40.64.135.77      |
+| Australia East       | 20.53.47.210      |
+| Brazil South         | 191.238.72.227    |
+| Canada Central       | 20.48.197.161     |
+| Central India        | 20.192.47.66      |
+| East US              | 20.62.134.242, 20.62.134.244, 20.62.134.245     |
+| East US 2            | 20.62.60.115, 20.62.60.116, 20.62.60.117    |
+| France Central       | 51.138.211.19     |
+| Germany North        | 51.116.60.240     |
+| Germany West Central | 20.52.88.224      |
+| Japan East           | 20.191.167.146    |
+| Japan West           | 20.189.228.225    |
+| Korea Central        | 20.194.75.193     |
+| North Central US     | 52.162.111.130, 20.51.0.209   |
+| North Europe         | 52.146.137.179    |
+| Qatar Central        | 20.21.36.225      |
+| South Africa North   | 102.133.220.199   |
+| South Central US     | 20.65.134.83      |
+| Southeast Asia       | 20.195.67.208     |
+| Sweden Central       | 51.12.28.100      |
+| Switzerland North    | 51.107.247.97     |
+| UK South             | 51.143.213.211    |
+| UK West              | 51.140.210.86     |
+| West Central US      | 13.71.199.119     |
+| West Europe          | 20.61.103.243, 20.61.103.244     |
+| West US 2            | 20.51.13.80, 20.51.13.84, 20.51.13.85     |
+| West US 3            | 20.150.245.165    |
 
 > [!NOTE]
 > The preceding steps are similar to the configuration steps in [Configure export settings and set up a storage account](./configure-export-data.md).

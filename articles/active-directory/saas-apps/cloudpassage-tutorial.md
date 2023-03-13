@@ -211,8 +211,6 @@ When you click the CloudPassage tile in the Access Panel, you should be automati
 
 - [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
-- [Try CloudPassage with Azure AD](https://aad.portal.azure.com/)
-
 <!--Image references-->
 
 [12]: ./media/cloudpassage-tutorial/tutorial_cloudpassage_07.png

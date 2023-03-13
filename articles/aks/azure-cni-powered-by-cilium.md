@@ -5,7 +5,7 @@ author: asudbring
 ms.author: allensu
 ms.subservice: aks-networking
 ms.topic: article
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli
 ms.date: 10/24/2022
 ---
 

@@ -155,8 +155,6 @@ When you click the insuite tile in the Access Panel, you should be automatically
 
 - [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
-- [Try insuite with Azure AD](https://aad.portal.azure.com/)
-
 - [What is session control in Microsoft Defender for Cloud Apps?](/cloud-app-security/proxy-intro-aad)
 
 - [How to protect insuite with advanced visibility and controls](/cloud-app-security/proxy-intro-aad)

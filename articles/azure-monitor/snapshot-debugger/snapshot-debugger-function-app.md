@@ -167,4 +167,4 @@ We recommend that you have Snapshot Debugger enabled on all your apps to ease di
 * Generate traffic to your application that can trigger an exception. Then, wait 10 to 15 minutes for snapshots to be sent to the Application Insights instance.
 * [View snapshots](snapshot-debugger.md?toc=/azure/azure-monitor/toc.json#view-snapshots-in-the-portal) in the Azure portal.
 * Customize Snapshot Debugger configuration based on your use-case on your Function app. For more information, see [snapshot configuration in host.json](../../azure-functions/functions-host-json.md#applicationinsightssnapshotconfiguration).
-* For help with troubleshooting Snapshot Debugger issues, see [Snapshot Debugger troubleshooting](https://learn.microsoft.com/troubleshoot/azure/azure-monitor/app-insights/snapshot-debugger-troubleshoot).
+* For help with troubleshooting Snapshot Debugger issues, see [Snapshot Debugger troubleshooting](/troubleshoot/azure/azure-monitor/app-insights/snapshot-debugger-troubleshoot.md).

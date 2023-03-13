@@ -8,7 +8,7 @@ ms.date: 11/01/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.custom: references_regions, devx-track-azurepowershell
+ms.custom: references_regions
 ---
 
 # Manage and find Azure Blob data with blob index tags

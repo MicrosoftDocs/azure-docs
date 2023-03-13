@@ -42,9 +42,9 @@ Groups created in | Security group default behavior | Microsoft 365 group defaul
 
 ## Make a group available for user self-service
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com) with an account that's been assigned the Global Administrator or Groups Administrator role for the directory.
+1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's been assigned the Global Administrator or Groups Administrator role for the directory.
 
-1. Select **Groups**, and then select **General** settings.
+1. Browse to **Azure Active Directory** > **Groups**, and then select **General** settings.
 
     ![Azure Active Directory groups general settings.](./media/groups-self-service-management/groups-settings-general.png)
 

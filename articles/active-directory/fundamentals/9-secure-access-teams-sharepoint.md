@@ -31,20 +31,17 @@ Sharing in Microsoft 365 is partially governed by the **External Identities, Ext
 
 Learn more:
 
-* [Azure Active Directory admin center](https://aad.portal.azure.com/)
+* [Azure portal](https://portal.azure.com/)
 * [External Identities in Azure AD](../external-identities/external-identities-overview.md)
 
 ### Guest user access
 
 Guest users are invited to have access to resources. 
 
-1. Go to the Azure Active Directory admin center.
-2. Select **All Services**.
-3. Under **Categories**, select **Identity**.
-4. From the list, select **External Identities**.
-5. Select **External collaboration settings**.
-6. Find the **Guest user access** options. 
-7. To prevent guest-user access to other guest-user details, and to prevent enumeration of group membership, select **Guest users have limited access to properties and memberships of directory objects**.
+1. Sign in to the **Azure portal**
+1. Browse to **Azure Active Directory** > **External Identities** > **External collaboration settings**.
+1. Find the **Guest user access** options. 
+1. To prevent guest-user access to other guest-user details, and to prevent enumeration of group membership, select **Guest users have limited access to properties and memberships of directory objects**.
 
 ### Guest invite settings
 
@@ -115,7 +112,7 @@ If you enable Azure AD B2B integration, then SharePoint and OneDrive sharing is 
 
 ### Sharing policies in SharePoint and OneDrive
 
-In the Azure AD admin center, you can use the External Sharing settings for SharePoint and OneDrive to help configure sharing policies. OneDrive restrictions can't be more permissive than SharePoint settings.
+In the Azure portal, you can use the External Sharing settings for SharePoint and OneDrive to help configure sharing policies. OneDrive restrictions can't be more permissive than SharePoint settings.
 
 Learn more: [External sharing overview](/sharepoint/external-sharing-overview)
 

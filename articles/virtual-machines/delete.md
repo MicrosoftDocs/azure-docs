@@ -279,11 +279,11 @@ PATCH https://management.azure.com/subscriptions/subID/resourceGroups/resourcegr
 
 ## Force Delete for VMs
 
-Force delete allows you to forcefully delete your virtual machine, reducing delete latency and immediately freeing up attached resources. For VMs that do not require graceful shutdown, Force Delete will delete the VM as fast as possible while relieving the logical resources from the VM, bypassing the graceful shutdown and some of the cleanup operations. Force Delete will not immediately free the MAC address associated with a VM, as this is a physical resource that may take up to 10 min to free. If you need to immediately re-use the MAC address on a new VM, Force Delete is not recommended. Force delete should only be used when you are not intending to re-use virtual hard disks. You can use force delete through Portal, CLI, PowerShell, and REST API.
+Force delete allows you to forcefully delete your virtual machine, reducing delete latency and immediately freeing up attached resources. For VMs that don't require graceful shutdown, Force Delete will delete the VM as fast as possible while relieving the logical resources from the VM, bypassing the graceful shutdown and some of the cleanup operations. Force Delete won't immediately free the MAC address associated with a VM, as this is a physical resource that may take up to 10 min to free. If you need to immediately re-use the MAC address on a new VM, Force Delete isn't recommended. Force delete should only be used when you aren't intending to re-use virtual hard disks. You can use force delete through Portal, CLI, PowerShell, and REST API.
 
 ### [Portal](#tab/portal4)
 
-When you go to delete an existing VM, you will find an option to apply force delete in the delete pane.  
+When you go to delete an existing VM, you'll find an option to apply force delete in the delete pane.  
 
 1. Open the [portal](https://portal.azure.com).
 1. Navigate to your virtual machine.
@@ -293,7 +293,7 @@ When you go to delete an existing VM, you will find an option to apply force del
 
 ### [CLI](#tab/cli4)
 
-Use the `--force-deletion` parameter for [az vm delete](/cli/azure/vm?view=azure-cli-latest#az-vm-delete&preserve-view=true). 
+Use the `--force-deletion` parameter for [az vm delete](/cli/azure/vm#az-vm-delete). 
 
 ```azurecli-interactive
 az vm delete \
@@ -321,11 +321,11 @@ You can use the Azure REST API to apply force delete to your virtual machines. U
 
 ## Force Delete for scale sets
 
-Force delete allows you to forcefully delete your **Uniform** Virtual Machine Scale Set, reducing delete latency and immediately freeing up attached resources. . Force Delete will not immediately free the MAC address associated with a VM, as this is a physical resource that may take up to 10 min to free. If you need to immediately re-use the MAC address on a new VM, Force Delete is not recommended. Force delete should only be used when you are not intending to re-use virtual hard disks. You can use force delete through Portal, CLI, PowerShell, and REST API.
+Force delete allows you to forcefully delete your **Uniform** Virtual Machine Scale Set, reducing delete latency and immediately freeing up attached resources. Force Delete won't immediately free the MAC address associated with a VM, as this is a physical resource that may take up to 10 min to free. If you need to immediately re-use the MAC address on a new VM, Force Delete isn't recommended. Force delete should only be used when you are not intending to re-use virtual hard disks. You can use force delete through Portal, CLI, PowerShell, and REST API.
 
 ### [Portal](#tab/portal5)
 
-When you go to delete an existing scale set, you will find an option to apply force delete in the delete pane.  
+When you go to delete an existing scale set, you'll find an option to apply force delete in the delete pane.  
 
 1. Open the [portal](https://portal.azure.com).
 1. Navigate to your Virtual Machine Scale Set.
@@ -335,7 +335,7 @@ When you go to delete an existing scale set, you will find an option to apply fo
 
 ### [CLI](#tab/cli5)
 
-Use the `--force-deletion` parameter for [az vmss delete](/cli/azure/vmss?view=azure-cli-latest#az-vmss-delete&preserve-view=true). 
+Use the `--force-deletion` parameter for [`az vmss delete`](/cli/azure/vmss#az-vmss-delete). 
 
 ```azurecli-interactive
 az vmss delete \

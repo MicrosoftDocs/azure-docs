@@ -2,13 +2,12 @@
 title: Move an App Configuration store to another region
 description: Learn how to move an App Configuration store to a different region.
 ms.service: azure-app-configuration
+ms.custom: devx-track-azurecli
 author: maud-lv
 ms.author: malev
 ms.topic: how-to
 ms.date: 8/23/2021
-
-#Customer intent: I want to move my App Configuration resource from one Azure region to another. 
-
+#Customer intent: I want to move my App Configuration resource from one Azure region to another.
 ---
 
 # Move an App Configuration store to another region 

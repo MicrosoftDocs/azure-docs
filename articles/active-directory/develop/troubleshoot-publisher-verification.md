@@ -35,8 +35,8 @@ Below are some common issues that may occur during the process.
     4. Navigate to the [partner profile page](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) where the MPN ID and primary account contact will be listed.
 
 - **I don’t know who my Azure AD Global Administrator (also known as company admin or tenant admin) is, how do I find them? What about the Application Administrator or Cloud Application Administrator?**
-    1. Sign in to the [Azure AD Portal](https://aad.portal.azure.com) using a user account in your organization's primary tenant.
-    2. Navigate to [Role Management](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators).
+    1. Sign in to the [Azure portal](https://portal.azure.com) using a user account in your organization's primary tenant.
+    1. Browse to **Azure Active Directory** > [Roles and administrators](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators).
     3. Select the desired admin role.
     4. The list of users assigned that role will be displayed.
 
@@ -50,7 +50,7 @@ Below are some common issues that may occur during the process.
     2. Go to the [MPN tenant management page](https://partner.microsoft.com/dashboard/account/v3/tenantmanagement) and confirm that the tenant the app is registered in and that you're signing with a user account from is on the list of associated tenants. To add another tenant, follow the instructions [here](/partner-center/multi-tenant-account). Be aware that all Global Admins of any tenant you add will be granted Global Administrator privileges on your Partner Center account.
     3. Go to the [MPN User Management page](https://partner.microsoft.com/pcv/users) and confirm the user you're signing in as is either a Global Administrator, MPN Admin, or Accounts Admin. To add a user to a role in Partner Center, follow the instructions [here](/partner-center/create-user-accounts-and-set-permissions).
 
-- **When I sign into the Azure AD portal, I do not see any apps registered. Why?** 
+- **When I sign into the Azure portal, I do not see any apps registered. Why?** 
     Your app registrations may have been created using a different user account in this tenant, a personal/consumer account, or in a different tenant. Ensure you're signed in with the correct account in the tenant where your app registrations were created.
 
 - **I'm getting an error related to multi-factor authentication. What should I do?** 

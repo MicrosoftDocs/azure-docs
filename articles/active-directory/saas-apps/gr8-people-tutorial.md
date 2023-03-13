@@ -149,8 +149,6 @@ When you click the gr8 People tile in the Access Panel, you should be automatica
 
 - [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
-- [Try gr8 People with Azure AD](https://aad.portal.azure.com/)
-
 - [What is session control in Microsoft Defender for Cloud Apps?](/cloud-app-security/proxy-intro-aad)
 
 - [How to protect gr8 People with advanced visibility and controls](/cloud-app-security/proxy-intro-aad)

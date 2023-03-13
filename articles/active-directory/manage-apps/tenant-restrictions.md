@@ -82,7 +82,7 @@ The headers should include the following elements:
 - For *Restrict-Access-Context*, use a value of a single directory ID, declaring which tenant is setting the tenant restrictions. For example, to declare Contoso as the tenant that set the tenant restrictions policy, the name/value pair looks like: `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`. You *must* use your own directory ID here to get logs for these authentications. If you use any directory ID other than your own, those sign-in logs *will* appear in someone else's tenant, with all personal information removed. For more information, see [Admin experience](#admin-experience).
 
 > [!TIP]
-> You can find your directory ID in the [Azure Active Directory portal](https://aad.portal.azure.com/). Sign in as an administrator, select **Azure Active Directory**, then select **Properties**.
+> You can find your directory ID in the [Azure portal](https://portal.azure.com). Sign in as an administrator, select **Azure Active Directory**, then select **Properties**.
 >
 > To validate that a directory ID or domain name refer to the same tenant, use that ID or domain in place of \<tenant\> in this URL: `https://login.microsoftonline.com/<tenant>/v2.0/.well-known/openid-configuration`.  If the results with the domain and the ID are the same, they refer to the same tenant.
 
@@ -104,9 +104,9 @@ An example user is on the Contoso network, but is trying to access the Fabrikam 
 
 While configuration of tenant restrictions is done on the corporate proxy infrastructure, admins can access the tenant restrictions reports in the Azure portal directly. To view the reports:
 
-1. Sign in to the [Azure Active Directory portal](https://aad.portal.azure.com/). The **Azure Active Directory admin center** dashboard appears.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. In the left pane, select **Azure Active Directory**. The Azure Active Directory overview page appears.
+2. Browse to **Azure Active Directory**. The Azure Active Directory overview page appears.
 
 3. On the Overview page, select **Tenant restrictions**.
 

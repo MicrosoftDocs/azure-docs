@@ -45,7 +45,7 @@ B2B collaboration is enabled by default, but comprehensive admin settings let yo
 
 - Use [Microsoft cloud settings](cross-cloud-settings.md) to establish mutual B2B collaboration between the Microsoft Azure global cloud and [Microsoft Azure Government](../../azure-government/index.yml) or [Microsoft Azure China 21Vianet](/azure/china).
 
-## Easily invite guest users from the Azure AD portal
+## Easily invite guest users from the Azure portal
 
 As an administrator, you can easily add guest users to your organization in the Azure portal.
 

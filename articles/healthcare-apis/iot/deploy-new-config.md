@@ -5,11 +5,14 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 1/5/2023
+ms.date: 03/10/2023
 ms.author: jasteppe
 ---
 
 # Quickstart: Part 2: Configure the MedTech service for manual deployment using the Azure portal
+
+> [!NOTE]
+> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
 Before you can manually deploy the MedTech service, you must complete the following configuration tasks:
 
@@ -94,7 +97,7 @@ To begin configuring the device mapping tab, go to the Create MedTech service pa
 
 For more information regarding device mappings, see the relevant GitHub open source documentation at [Device Content Mapping](https://github.com/microsoft/iomt-fhir/blob/master/docs/Configuration.md#device-content-mapping).
 
-For Azure docs information about device mapping, see [How to configure device mappings](how-to-configure-device-mappings.md).
+For Azure docs information about the device mapping, see [How to configure the MedTech service device mapping](how-to-configure-device-mappings.md).
 
 ## Configure the Destination tab
 
@@ -109,7 +112,7 @@ To begin configuring destination mapping, go to the Create MedTech service page 
 
 Under the **Destination** tab, use these values to enter the destination properties for your MedTech service instance:
 
-- First, enter the name of your **Fast Healthcare Interoperability Resources (FHIR&#174;) server** using the following four steps:
+- First, enter the name of your **FHIR server** using the following four steps:
 
   1. The **FHIR Server** name (also known as the **FHIR service**) can be located by using the **Search** bar at the top of the screen. 
   1. To connect to your FHIR service instance, enter the name of the FHIR service you used in the manual deploy configuration article at [Deploy the FHIR service](deploy-new-manual.md#deploy-the-fhir-service).
@@ -189,7 +192,7 @@ If your MedTech service didn't validate, review the validation failure message, 
 
 ## Continue on to Part 3: Deployment and post-deployment
 
-After your configuration is successfully completed, you can go on to Part 3: Deployment and post deployment. See **Next steps** below.
+After your configuration is successfully completed, you can go on to Part 3: Deployment and post deployment. See **Next steps**.
 
 ## Next steps
 

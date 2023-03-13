@@ -49,7 +49,7 @@ Follow these steps to create administrative units with dynamic membership rules 
 
 ### Azure portal
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory**.
 
@@ -133,7 +133,7 @@ When an administrative unit has been configured for dynamic membership, the usua
 
 ### Azure portal
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory**.
 
@@ -180,7 +180,7 @@ Follow these steps to change an administrative unit with dynamic membership rule
 
 ### Azure portal
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory**.
 

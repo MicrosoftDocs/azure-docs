@@ -19,6 +19,7 @@ ms.collection: M365-identity-device-management
 
 Block or limit access to SharePoint, OneDrive, and Exchange content from unmanaged devices.
 
+## User exclusions
 [!INCLUDE [active-directory-policy-exclusions](../../../includes/active-directory-policy-exclude-user.md)]
 
 [!INCLUDE [active-directory-policy-deploy-template](../../../includes/active-directory-policy-deploy-template.md)]

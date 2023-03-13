@@ -23,7 +23,7 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 | [Alerts automatic export to Log Analytics workspace will be deprecated](#alerts-automatic-export-to-log-analytics-workspace-will-be-deprecated) | March 2023 |
 | [Deprecation and improvement of selected alerts for Windows and Linux Servers](#deprecation-and-improvement-of-selected-alerts-for-windows-and-linux-servers) | April 2023 |
 | [Deprecation of App Service language monitoring policies](#deprecation-of-app-service-language-monitoring-policies) | April 2023 |
-| [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations) | August 2023 |
+| [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations) | May 2023 |
 
 ### Changes in the recommendation "Machines should be configured securely"
 
@@ -94,7 +94,7 @@ Defender for Cloud won't include these recommendations as built-in recommendatio
 
 ### Multiple changes to identity recommendations
 
-**Estimated date for change: August 2023**
+**Estimated date for change: May 2023**
 
 We announced previously the [availability of identity recommendations V2 (preview)](release-notes.md#extra-recommendations-added-to-identity), which included enhanced capabilities.
 

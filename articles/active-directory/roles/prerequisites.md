@@ -186,7 +186,7 @@ To use AzureADPreview, follow these steps to make sure it is imported into the c
 
 To manage Azure AD roles using the [Microsoft Graph API](/graph/overview) and [Graph Explorer](/graph/graph-explorer/graph-explorer-overview), you must do the following:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory** > **Enterprise applications**.
 

@@ -10942,6 +10942,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory-b2c/support-options.md",
+      "redirect_url": "/azure/active-directory-b2c/find-help-open-support-ticket",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md",
       "redirect_url": "/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-arm",
       "redirect_document_id": false

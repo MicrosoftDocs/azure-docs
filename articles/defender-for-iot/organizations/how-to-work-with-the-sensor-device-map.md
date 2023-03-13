@@ -124,15 +124,14 @@ Use one of the following options to import and export device data:
 
     |Name  |Description  |
     |---------|---------|
-    |**Edit properties**     |   Opens the edit pane where you can edit device properties, such as authorization, name, description, OS platform, device type, Purdue level and if it is a scanner or programming device.     |
-    |**View properties**     |    Opens the device's details page.      |
+    |**View properties**     |    Opens the device's details page to view and edit device properties.      |
     |**Authorize/Unauthorize**     |    Changes the device's [authorization status](device-inventory.md#unauthorized-devices).     |
     |**Mark as Important / Non-Important**     |    Changes the device's [importance](device-inventory.md#important-ot-devices) status, highlighting business critical servers on the map with a star and elsewhere, including OT sensor reports and the Azure device inventory.     |
     |**Show Alerts** / **Show Events**     |  Opens the **Alerts** or **Event Timeline** tab on the device's details page.   |
     |  **Activity Report**   | Generates an activity report for the device for the selected timespan.        |
     | **Simulate Attack Vectors**    |   Generates an [attack vector simulation](how-to-create-attack-vector-reports.md) for the selected device.      |
     | **Add to custom group**    | Creates a new [custom group](#create-a-custom-device-group) with the selected device.        |
-    |  **Delete**   |Deletes the device from the inventory.     |
+    |  **Delete**   | Deletes the device from the inventory.     |
 
 ## Merge devices
 
@@ -173,9 +172,6 @@ For example, you might receive a notification about an inactive device that need
     - Handle one notification at a time, selecting a specific mitigation action, or selecting **Dismiss** to close the notification with no activity.
     - Select **Select All** to show which notifications can be [handled together](#handling-multiple-notifications-together). Clear selections for specific notifications, and then select **Accept All** or **Dismiss All** to handle any remaining selected notifications together.
 
-> [!NOTE]
-> Selected notifications are automatically resolved if they aren't dismissed or otherwise handled within 14 days. For more information, see the action indicated in the **Auto-resolve** column in the table [below](#device-notification-responses).
->
 
 ### Handling multiple notifications together
 
@@ -192,20 +188,15 @@ When you handle multiple notifications together, you may still have remaining no
 
 The following table lists available responses for each notification, and when we recommend using each one:
 
-| Type | Description | Available responses | Auto-resolve|
-|--|--|--|--|
-| **New IP detected** | A new IP address is associated with the device. This may occur in the following scenarios: <br><br>- A new or additional IP address was associated with a device already detected, with an existing MAC address.<br><br> - A new IP address was detected for a device that's using a NetBIOS name. <br /><br /> - An IP address was detected as the management interface for a device associated with a MAC address. <br /><br /> - A new IP address was detected for a device that's using a virtual IP address. | - **Set Additional IP to Device**: Merge the devices <br />- **Replace Existing IP**: Replaces any existing IP address with the new address <br /> - **Dismiss**: Remove the notification. |**Dismiss** |
-| **No subnets configured** | No subnets are currently configured in your network. <br /><br /> We recommend configuring subnets for the ability to differentiate between OT and IT devices on the map. | - **Open Subnets Configuration** and [configure subnets](how-to-control-what-traffic-is-monitored.md#configure-subnets). <br />- **Dismiss**: Remove the notification. |**Dismiss** |
-| **Operating system changes** | One or more new operating systems have been associated with the device. | - Select the name of the new OS that you want to associate with the device.<br /> - **Dismiss**:  Remove the notification. |No automatic handling|
-| **New subnets** | New subnets were discovered. |-  **Learn**: Automatically add the subnet.<br />- **Open Subnet Configuration**: Add all missing subnet information.<br />- **Dismiss**<br />Remove the notification. |**Dismiss** |
-| **Device type changes** | A new device type has been associated with the device. | - **Set as {…}**: Associate the new type with the device.<br />- **Dismiss**: Remove the notification. |No automatic handling|
-
-The following legacy notifications were removed in version 22.3.6. If you have an earlier OT sensor version installed, you may still have these notifications to resolve:
-
 | Type | Description | Available responses |
 |--|--|--|
-| **Inactive devices** | Traffic wasn't detected on a specific device for more than 60 days. | We recommend removing the device from your network if it's no longer needed. <br><br>**Dismiss**: If the device is part of your network but currently inactive, such as if it's mistakenly disconnected from the network, dismiss the notification and reconnect the device. |
-| **New OT devices** | 	A subnet includes an OT device that's not defined in an ICS subnet. <br><br> Each subnet that contains at least one OT device can be defined as an ICS subnet. This helps differentiate between OT and IT devices on the map. |	**Set as ICS Subnet** <br><br>**Dismiss**: Remove the notification if the device isn't part of the subnet.
+| **New IP detected** | A new IP address is associated with the device. This may occur in the following scenarios: <br><br>- A new or additional IP address was associated with a device already detected, with an existing MAC address.<br><br> - A new IP address was detected for a device that's using a NetBIOS name. <br /><br /> - An IP address was detected as the management interface for a device associated with a MAC address. <br /><br /> - A new IP address was detected for a device that's using a virtual IP address. | - **Set Additional IP to Device**: Merge the devices <br />- **Replace Existing IP**: Replaces any existing IP address with the new address <br /> - **Dismiss**: Remove the notification. |
+| **Inactive devices** | Traffic wasn't detected on a device for more than 60 days. | - **Delete**: If the device isn't part of your network, remove it from the device inventory. <br><br> - **Dismiss**:  Remove the notification if the device is part of your network.  If the device is inactive, for example, because it's incorrectly disconnected from the network, dismiss the notification and reconnect the device. |
+| **New OT devices** | An OT device was detected on a subnet that's not defined as an ICS subnet. | -   **Set as ICS Subnet**  <br><br> - **Dismiss**:  Remove the notification if the device is part of your subnet.  |
+| **No subnets configured** | No subnets are currently configured in your network. <br /><br /> We recommend configuring subnets for the ability to differentiate between OT and IT devices on the map. | - **Open Subnets Configuration** and [configure subnets](how-to-control-what-traffic-is-monitored.md#configure-subnets). <br />- **Dismiss**: Remove the notification. |
+| **Operating system changes** | One or more new operating systems have been associated with the device. | - Select the name of the new OS that you want to associate with the device.<br /> - **Dismiss**:  Remove the notification. |
+| **New subnets** | New subnets were discovered. |-  **Learn**: Automatically add the subnet.<br />- **Open Subnet Configuration**: Add all missing subnet information.<br />- **Dismiss**<br />Remove the notification. |
+| **Device type changes** | A new device type has been associated with the device. | - **Set as {…}**: Associate the new type with the device.<br />- **Dismiss**: Remove the notification. |
 
 ## View a device map for a specific zone
 

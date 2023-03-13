@@ -5,7 +5,7 @@ description: Learn how to create and manage an Azure Machine Learning compute in
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, devx-track-azurecli
 ms.topic: how-to
 author: jesscioffi
 ms.author: jcioffi
@@ -812,4 +812,3 @@ Administrators can use [Azure Policy](./../governance/policy/overview.md) defini
 * [Access the compute instance terminal](how-to-access-terminal.md)
 * [Create and manage files](how-to-manage-files.md)
 * [Update the compute instance to the latest VM image](concept-vulnerability-management.md#compute-instance)
-

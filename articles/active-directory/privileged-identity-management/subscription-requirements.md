@@ -42,7 +42,7 @@ Azure AD Premium P2 licenses are **not** required for the following tasks:
 
 - No licenses are required for users who set up PIM, configure policies, receive alerts, and set up access reviews.
 
-For more information about licenses, see [Assign or remove licenses using the Azure Active Directory portal](../fundamentals/license-users-groups.md).
+For more information about licenses, see [Assign or remove licenses using the Azure portal](../fundamentals/license-users-groups.md).
 
 ## Example license scenarios
 

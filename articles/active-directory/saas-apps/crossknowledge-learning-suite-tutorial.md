@@ -149,8 +149,6 @@ When you click the CrossKnowledge Learning Suite tile in the Access Panel, you s
 
 - [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
-- [Try CrossKnowledge Learning Suite with Azure AD](https://aad.portal.azure.com/)
-
 - [What is session control in Microsoft Defender for Cloud Apps?](/cloud-app-security/proxy-intro-aad)
 
 - [How to protect CrossKnowledge Learning Suite with advanced visibility and controls](/cloud-app-security/proxy-intro-aad)

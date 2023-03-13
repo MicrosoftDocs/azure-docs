@@ -347,7 +347,7 @@ A generic description of a resource health status is available in the [resource 
 
 ## Next steps
 
-- Learn about [Network Analytics](../azure-monitor/insights/azure-networking-analytics.md).
+- Learn about [Network Analytics](/previous-versions/azure/azure-monitor/insights/azure-networking-analytics).
 - Learn about using [Insights](./load-balancer-insights.md) to view these metrics pre-configured for your load balancer.
 - Learn more about [Standard load balancer](./load-balancer-overview.md).
 

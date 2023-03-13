@@ -5,6 +5,7 @@ author: flang-msft
 
 ms.author: franlanglois
 ms.service: cache
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: conceptual
 ms.date: 02/28/2022
 ---

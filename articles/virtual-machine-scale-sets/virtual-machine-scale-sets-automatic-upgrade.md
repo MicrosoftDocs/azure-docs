@@ -8,8 +8,6 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: automatic-os-upgrade
 ms.date: 11/22/2022
 ms.reviewer: mimckitt
-ms.custom: devx-track-azurepowershell
-
 ---
 # Azure Virtual Machine Scale Set automatic OS image upgrades
 

@@ -131,9 +131,12 @@ For information about uploading a new certificate, supported certificate paramet
 
 ### Activation expirations
 
-After activating a sensor, cloud-connected and locally-managed sensors remain activated for as long as your Azure subscription with your Defender for IoT plan is active.
+After activating a sensor, you'll need to apply new activation files as follows:
 
-If you're updating an OT sensor from a legacy version, you'll need to re-activate your updated sensor. For more information, see [Update legacy OT sensor software](update-ot-software.md#update-legacy-ot-sensor-software).
+|Location  |Activation process  |
+|---------|---------|
+|**Cloud-connected sensors**     | Cloud-connected sensors remain activated for as long as your Azure subscription with your Defender for IoT plan is active. <br><br>If you're [updating an OT sensor from a legacy version](update-ot-software.md#update-legacy-ot-sensor-software), you'll need to re-activate your updated sensor.   |
+|  **Locally managed**   |   Apply a new activation file to locally managed sensors every year. After a sensor's activation file has expired, the sensor will continue to monitor your network, but you'll see a warning message when signing in to the sensor.     |
 
 For more information, see [Manage Defender for IoT subscriptions](how-to-manage-subscriptions.md) and [Manage the on-premises management console](how-to-manage-the-on-premises-management-console.md).
 

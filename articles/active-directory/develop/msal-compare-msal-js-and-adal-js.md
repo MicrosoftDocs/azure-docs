@@ -181,7 +181,7 @@ authContext.acquireTokenRedirect("https://graph.microsoft.com", function (error,
 });
 ```
 
-MSAL.js supports both **v1.0** and **v2.0** endpoints. The **v2.0** endpoint employs a *scope-centric* model to access resources. Thus, when you request an access token for a resource, you also need to specify the scope for that resource:
+MSAL.js supports only the **v2.0** endpoint. The **v2.0** endpoint employs a *scope-centric* model to access resources. Thus, when you request an access token for a resource, you also need to specify the scope for that resource:
 
 ```javascript
 msalInstance.acquireTokenRedirect({

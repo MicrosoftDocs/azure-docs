@@ -22401,7 +22401,11 @@
             "redirect_url": "/previous-versions/azure/virtual-machines/linux/openshift-container-platform-3x",
             "redirect_document_id": false
           },
-      
+	  {
+            "source_path": "articles/orbital/orbital-preview.md",
+            "redirect_url": "/azure/orbital/overview",
+            "redirect_document_id": false
+          },
         {
             "source_path": "articles/private-multi-access-edge-compute-mec/metaswitch-fusion-core-overview.md",
             "redirect_URL": "/azure/private-5g-core",

@@ -8,9 +8,8 @@ author: mgoedtel
 ms.author: magoedte
 ms.collection: linux
 ms.date: 06/12/2018
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurecli
 ms.devlang: azurecli
-
 ---
 
 # DSC extension for Linux (Microsoft.OSTCExtensions.DSCForLinux)

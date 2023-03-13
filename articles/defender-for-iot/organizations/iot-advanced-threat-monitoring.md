@@ -3,6 +3,7 @@ title: Investigate and detect threats for IoT devices | Microsoft Docs
 description: This tutorial describes how to use the Microsoft Sentinel data connector and solution for Microsoft Defender for IoT to secure your entire  environment. Detect and respond to threats, including multistage attacks that may cross IT and OT boundaries.
 ms.topic: tutorial
 ms.date: 09/18/2022
+ms.subservice: sentinel-integration
 ---
 
 # Tutorial: Investigate and detect threats for IoT devices

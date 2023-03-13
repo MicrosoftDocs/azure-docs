@@ -6,7 +6,7 @@ ms.author: shjia
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 02/14/2023
+ms.date: 03/13/2023
 ms.custom: ignite-fall-2021
 ---
 
@@ -14,11 +14,16 @@ ms.custom: ignite-fall-2021
 
 This article provides an overview of the Scanning and Ingestion features in Microsoft Purview. These features connect your Microsoft Purview account to your sources to populate the data map and data catalog so you can begin exploring and managing your data through Microsoft Purview.
 
+- [**Scanning**](#scanning) captures metadata from [data sources](microsoft-purview-connector-overview.md) and brings it to Microsoft Purview.
+- [**Ingestion**](#ingestion) processes metadata and stores it in the data catalog from both:
+    - Data source scans - scanned metadata is added to the Microsoft Purview Data Map.
+    - Lineage connections - transformation resources add metadata about their sources, outputs, and activities to the Microsoft Purview Data Map.
+
 ## Scanning
 
 After data sources are [registered](manage-data-sources.md) in your Microsoft Purview account, the next step is to scan the data sources. The scanning process establishes a connection to the data source and captures technical metadata like names, file size, columns, and so on. It also extracts schema for structured data sources, applies classifications on schemas, and [applies sensitivity labels if your Microsoft Purview Data Map is connected to a Microsoft Purview compliance portal](create-sensitivity-label.md). The scanning process can be triggered to run immediately or can be scheduled to run on a periodic basis to keep your Microsoft Purview account up to date.
 
-For each scan there are customizations you can apply so that you're only scanning your sources for the information you need.
+For each scan, there are customizations you can apply so that you're only scanning information you need, rather than the whole source.
 
 ### Choose an authentication method for your scans
 
@@ -48,7 +53,7 @@ There are [system scan rule sets](create-a-scan-rule-set.md#system-scan-rule-set
 
 ### Schedule your scan
 
-Microsoft Purview gives you a choice of scanning weekly or monthly at a specific time you choose. Weekly scans may be appropriate for data sources with structures that are actively under development or frequently change. Monthly scanning is more appropriate for data sources that change infrequently. A good best practice is to work with the administrator of the source you want to scan to identify a time when compute demands on the source are low.
+Microsoft Purview gives you a choice of scanning weekly or monthly at a specific time you choose. Weekly scans may be appropriate for data sources with structures that are actively under development or frequently change. Monthly scanning is more appropriate for data sources that change infrequently. Best practice is to work with the administrator of the source you want to scan to identify a time when compute demands on the source are low.
 
 ### How scans detect deleted assets
 
@@ -56,7 +61,7 @@ A Microsoft Purview catalog is only aware of the state of a data store when it r
 
 #### Detecting deleted files
 
-The logic for detecting missing files works for multiple scans by the same user as well as by different users. For example, suppose a user runs a one-time scan on a Data Lake Storage Gen2 data store on folders A, B, and C. Later, a different user in the same account runs a different one-time scan on folders C, D, and E of the same data store. Because folder C was scanned twice, the catalog checks it for possible deletions. Folders A, B, D, and E, however, were scanned only once, and the catalog won't check them for deleted assets.
+The logic for detecting missing files works for multiple scans by the same user and by different users. For example, suppose a user runs a one-time scan on a Data Lake Storage Gen2 data store on folders A, B, and C. Later, a different user in the same account runs a different one-time scan on folders C, D, and E of the same data store. Because folder C was scanned twice, the catalog checks it for possible deletions. Folders A, B, D, and E, however, were scanned only once, and the catalog won't check them for deleted assets.
 
 To keep deleted files out of your catalog, it's important to run regular scans. The scan interval is important, because the catalog can't detect deleted assets until another scan is run. So, if you run scans once a month on a particular store, the catalog can't detect any deleted data assets in that store until you run the next scan a month later.
 
@@ -67,7 +72,19 @@ When you enumerate large data stores like Data Lake Storage Gen2, there are mult
 
 ## Ingestion
 
-The technical metadata or classifications identified by the scanning process are then sent to Ingestion. The ingestion process is responsible for populating the data map and is managed by Microsoft Purview.  Ingestion analyses the input from scan, [applies resource set patterns](concept-resource-sets.md#how-microsoft-purview-detects-resource-sets), populates available [lineage](concept-data-lineage.md) information, and then loads the data map automatically. Assets/schemas can be discovered or curated only after ingestion is complete. So, if your scan is completed but you haven't seen your assets in the data map or catalog, you'll need to wait for the ingestion process to finish.
+Ingestion is the process responsible for populating the data map with metadata gathered through its various processes.
+
+## Ingestion from scans
+
+The technical metadata or classifications identified by the scanning process are then sent to ingestion. Ingestion analyses the input from scan, [applies resource set patterns](concept-resource-sets.md#how-microsoft-purview-detects-resource-sets), populates available [lineage](concept-data-lineage.md) information, and then loads the data map automatically. Assets/schemas can be discovered or curated only after ingestion is complete. So, if your scan is completed but you haven't seen your assets in the data map or catalog, you'll need to wait for the ingestion process to finish.
+
+## Ingestion from lineage connections
+
+Resources like [Azure Data Factory](how-to-link-azure-data-factory.md) and [Azure Synapse](how-to-lineage-azure-synapse-analytics.md) can be connected to Microsoft Purview to bring data source and lineage information into your Microsoft Purview Data Map. For example, when a copy pipeline runs in an Azure Data Factory that has been connected to Microsoft Purview, metadata about the input sources, the activity, and the output sources are ingested in Microsoft Purview and the information is added to the data map.
+
+If a data source has already been added to the data map through a scan, lineage information about the activity will be added to the existing source. If the data source hasn't yet been added to the data map, the lineage ingestion process will add it to the root collection with its lineage information.
+
+For more information about the available lineage connections, see the [lineage user guide](catalog-lineage-user-guide.md).
 
 ## Next steps
 

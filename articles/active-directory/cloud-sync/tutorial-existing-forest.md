@@ -24,7 +24,7 @@ You can use the environment you create in this tutorial for testing or for getti
 In this scenario, there's an existing forest synced using Azure AD Connect sync to an Azure AD tenant. And you have a new forest that you want to sync to the same Azure AD tenant. You'll set up cloud sync for the new forest. 
 
 ## Prerequisites
-### In the Azure Active Directory admin center
+### In the Azure portal
 
 1. Create a cloud-only global administrator account on your Azure AD tenant. This way, you can manage the configuration of your tenant should your on-premises services fail or become unavailable. Learn about [adding a cloud-only global administrator account](../fundamentals/add-users-azure-active-directory.md). Completing this step is critical to ensure that you don't get locked out of your tenant.
 2. Add one or more [custom domain names](../fundamentals/add-custom-domain.md) to your Azure AD tenant. Your users can sign in with one of these domain names.
@@ -40,7 +40,7 @@ In this scenario, there's an existing forest synced using Azure AD Connect sync 
      | --- | --- |
      | **80** | Downloads the certificate revocation lists (CRLs) while validating the TLS/SSL certificate |
      | **443** | Handles all outbound communication with the service |
-     | **8080** (optional) | Agents report their status every 10 minutes over port 8080, if port 443 is unavailable. This status is displayed on the Azure AD portal. |
+     | **8080** (optional) | Agents report their status every 10 minutes over port 8080, if port 443 is unavailable. This status is displayed on the Azure portal. |
      
      If your firewall enforces rules according to the originating users, open these ports for traffic from Windows services that run as a network service.
    - If your firewall or proxy allows you to specify safe suffixes, then add  connections to **\*.msappproxy.net** and **\*.servicebus.windows.net**. If not, allow access to the [Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653), which are updated weekly.
@@ -61,7 +61,7 @@ If you're using the  [Basic AD and Azure environment](tutorial-basic-ad-azure.md
 ## Configure Azure AD Connect cloud sync
  Use the following steps to configure provisioning
 
-1.  Sign in to the Azure AD portal.
+1.  Sign in to the Azure portal.
 2.  Select **Azure Active Directory**
 3.  Select **Azure AD Connect**
 4.  Select **Manage cloud sync**

@@ -5,9 +5,8 @@ ms.topic: conceptual
 author: shseth
 ms.author: shseth
 ms.date: 1/9/2023
-ms.custom: references_region
+ms.custom: references_region, devx-track-azurepowershell
 ms.reviewer: shseth
-
 ---
 
 # Azure Monitor agent on Windows client devices

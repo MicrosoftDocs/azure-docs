@@ -21,7 +21,7 @@ In this article, you'll learn the various ways you can:
 
 ## Pre-requisites
 
-- [An Application Insights resource](../app/create-new-resource.md). Make note of the instrumentation key.
+- [An Application Insights resource](/previous-versions/azure/azure-monitor/app/create-new-resource). Make note of the instrumentation key.
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/) to build docker images.
 - [.NET 6 SDK](https://dotnet.microsoft.com/download/dotnet/6.0) installed.
 

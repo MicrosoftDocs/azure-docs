@@ -137,6 +137,4 @@ When you click the In Case of Crisis - Online Portal tile in the Access Panel, y
 
 - [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
-- [Try In Case of Crisis - Online Portal with Azure AD](https://aad.portal.azure.com/)
-
 - [What is session control in Microsoft Defender for Cloud Apps?](/cloud-app-security/proxy-intro-aad)

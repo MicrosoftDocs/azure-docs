@@ -56,6 +56,8 @@
     href: classroom-labs-concepts.md    
   - name: Labs architecture fundamentals
     href: classroom-labs-fundamentals.md
+  - name: Migrate from physical labs
+    href: concept-migrating-physical-labs.md
   - name: Nested virtualization on a template VM
     href: concept-nested-virtualization-template-vm.md
   - name: Capacity limits

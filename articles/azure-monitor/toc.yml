@@ -116,6 +116,8 @@ items:
       href: visualize/resource-manager-workbooks.md
     - name: VM insights
       href: vm/resource-manager-vminsights.md
+  - name: Alerts 
+    href: alerts/alerts-payload-samples.md
   - name: Data collection rules
     items:
     - name: Agent
@@ -564,9 +566,7 @@ items:
     items:
     - name: Application Insights overview
       href: app/app-insights-overview.md
-    - name: FAQ
-      href: /azure/azure-monitor/faq#application-insights
-    - name: Create a resource (workspace-based)
+    - name: Create a resource
       href: app/create-workspace-resource.md
     - name: Enable Application Insights
       items:
@@ -627,6 +627,20 @@ items:
             - name: .NET Console
               displayName: console, .NET, dotnet console, dotnet, c#, csharp, NET
               href: app/console.md
+            - name: Advanced ASP.NET SDK topics
+              items:
+              - name: EventCounters
+                href: app/eventcounters.md
+              - name: Dependencies
+                href: app/asp-net-dependencies.md
+              - name: ApplicationInsights.config
+                href: app/configuration-with-applicationinsights-config.md
+              - name: TelemetryChannels
+                displayName: in memory, server telemetry channel, channel, inmemory, servertelemetry
+                href: app/telemetry-channels.md
+              - name: Track custom operations in .NET SDK
+                href: app/custom-operations-tracking.md
+                displayName: correlation, dependency, dependencies, track dependency, OWIN, queue, service bus, background tasks, long running background tasks, outgoing dependency tracking, parallel operations, System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource, StartOperation, StopOperation
         - name: Node.js
           href: app/nodejs.md
         - name: Python
@@ -656,10 +670,25 @@ items:
         - name: Application Insights API summary
           displayName: SDK, API, custom events, custom metrics, trackevent,trackmetric, getmetric, trackrequest, trackexception, tracktrace, trackdependency
           href: app/api-custom-events-metrics.md
+        - name: Connection strings
+          href: app/sdk-connection-string.md
+          displayName: connection string, instrumentation key
+        - name: Sampling
+          displayName: adaptive sampling, fixed rate sample, fixed sampling, ingestion sampling
+          href: app/sampling.md
         - name: Remove Application Insights
           href: app/remove-application-insights.md
         - name: SDK support policy
           href: app/sdk-support-guidance.md
+        - name: Advanced SDK topics
+          items:
+          - name: TelemetryProcessors
+            displayName: processors, filtering, telemetry filtering, telemetry processor
+            href: app/api-filtering-sampling.md
+          - name: Exceptions
+            href: app/asp-net-exceptions.md
+          - name: Log traces
+            href: app/asp-net-trace-logs.md
       - name: OpenTelemetry-based instrumentation
         items:
         - name: Overview
@@ -695,6 +724,9 @@ items:
     - name: Application dashboard
       displayName: dashboard, Application Insights dashboard
       href: app/overview-dashboard.md
+    - name: Application Map
+      displayName: appmap, app map, dependency map, dependencies, hotspots, cloud role name, cloudrolename, cloud_rolename, cloud.rolename, cloud role instance, node
+      href: app/app-map.md
     - name: Availability
       items:
       - name: Overview
@@ -711,9 +743,6 @@ items:
         href: app/availability-alerts.md
       - name: SLA Report
         href: app/sla-report.md
-    - name: Application Map
-      displayName: appmap, app map, dependency map, dependencies, hotspots, cloud role name, cloudrolename, cloud_rolename, cloud.rolename, cloud role instance, node
-      href: app/app-map.md
     - name: Transaction diagnostics
       href: app/transaction-diagnostics.md
       displayName: e2e, end-to-end, component, dependency, cross-component transaction, operation ID, dependencies
@@ -724,11 +753,14 @@ items:
       - name: Telemetry correlation
         href: app/correlation.md
         displayName: correlation headers, w3c, distributed tracing, tracing
-    - name: Live Metric stream
-      displayName: live, quickpulse, quick pulse, live metrics
-      href: app/live-stream.md
     - name: Metrics
       items:
+      - name: Live Metric stream
+        displayName: live, quickpulse, quick pulse, live metrics
+        href: app/live-stream.md
+      - name: GetMetric
+        displayName: get metric, custom metrics, metrics, TrackMetric
+        href: app/get-metric.md
       - name: Log-based & pre-aggregated metrics
         href: app/pre-aggregated-metrics-log-metrics.md
       - name: Log-based metrics definitions
@@ -843,8 +875,10 @@ items:
         href: app/convert-classic-resource.md
       - name: Migrate to connection strings
         href: app/migrate-from-instrumentation-keys-to-connection-strings.md
-    - name: Advanced configuration
+    - name: Administration and security
       items:
+      - name: Manage Application Insights
+        href: app/powershell.md
       - name: Access control
         href: app/resources-roles-access-control.md
       - name: Azure AD authentication
@@ -855,47 +889,14 @@ items:
       - name: IP address collection
         href: app/ip-collection.md
         displayName: geolocation, IP collection, IP tracking, IP storage
-      - name: Sampling
-        displayName: adaptive sampling, fixed rate sample, fixed sampling, ingestion sampling
-        href: app/sampling.md
-      - name: TelemetryChannels
-        displayName: in memory, server telemetry channel, channel, inmemory, servertelemetry
-        href: app/telemetry-channels.md
-      - name: TelemetryProcessors
-        displayName: processors, filtering, telemetry filtering, telemetry processor
-        href: app/api-filtering-sampling.md
-      - name: Track custom operations in .NET SDK
-        href: app/custom-operations-tracking.md
-        displayName: correlation, dependency, dependencies, track dependency, OWIN, queue, service bus, background tasks, long running background tasks, outgoing dependency tracking, parallel operations, System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource, StartOperation, StopOperation
       - name: Custom email reports
         href: app/automate-custom-reports.md
-      - name: Exceptions
-        href: app/asp-net-exceptions.md
-      - name: Log traces
-        href: app/asp-net-trace-logs.md
+      - name: Separate development, test, and production
+        href: app/separate-resources.md
       - name: Performance counters
         href: app/performance-counters.md
-      - name: EventCounters
-        href: app/eventcounters.md
-      - name: Dependencies
-        href: app/asp-net-dependencies.md
-      - name: ApplicationInsights.config
-        href: app/configuration-with-applicationinsights-config.md
-      - name: Connection strings
-        href: app/sdk-connection-string.md
-      - name: GetMetric
-        displayName: get metric, custom metrics, metrics, TrackMetric
-        href: app/get-metric.md
       - name: Statsbeat
         href: app/statsbeat.md
-      - name: Special topics
-        items:
-        - name: Deep diagnostics for web apps and services
-          href: app/devops.md
-        - name: Separate development, test, and production
-          href: app/separate-resources.md
-        - name: Manage Application Insights
-          href: app/powershell.md
     - name: Tutorials
       items:
       - name: Application Insights SDK for ASP.NET Core applications
@@ -910,6 +911,18 @@ items:
         href: app/tutorial-users.md
       - name: Dashboard with application data
         href: app/tutorial-app-dashboards.md
+    - name: Help and support
+      items:
+      - name: Application Insights FAQ
+        href: /azure/azure-monitor/faq#application-insights
+      - name: Q&A forum (general questions)
+        href: /answers/topics/24223/azure-monitor
+      - name: Stack Overflow (coding questions)
+        href: https://stackoverflow.com/questions/tagged/azure-application-insights
+      - name: Application Insights product feedback
+        href: https://feedback.azure.com/d365community/forum/3887dc70-2025-ec11-b6e6-000d3a4f09d0
+      - name: Troubleshooting articles
+        href: /troubleshoot/azure/azure-monitor/welcome-azure-monitor
   - name: Container insights
     items:
     - name: Overview
@@ -1326,8 +1339,6 @@ items:
         href: alerts/alerts-sms-behavior.md
       - name: Common schema for alerts
         href: alerts/alerts-common-schema.md
-      - name: Common alert schema definition for Test action group
-        href: alerts/alerts-common-schema-test-action-definitions.md
       - name: Configure the schema to get activity log alerts
         href: alerts/activity-log-alerts-webhook.md        
       - name: Non-common alert schema definition
@@ -1540,106 +1551,8 @@ items:
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: policy-reference.md
-  - name: Legacy and retired features
-    items:
-    - name: Monitoring solutions 
-      items:
-      - name: Overview
-        href: insights/solutions.md
-        displayName: Azure CLI, az monitor log-analytics
-      - name: Target solutions
-        href: insights/solution-targeting.md
-      - name: Available solutions
-        items:
-        - name: AD health assessment
-          href: insights/ad-assessment.md
-        - name: AD Replication Status
-          href: insights/ad-replication-status.md
-        - name: Capacity and performance solution
-          href: insights/capacity-performance.md
-        - name: Docker and Windows Container monitoring
-          href: containers/containers.md
-        - name: Office 365
-          href: insights/solution-office-365.md
-        - name: Service Map solution
-          href: vm/service-map.md
-        - name: Service Map and Operations Manager
-          href: vm/service-map-scom.md
-        - name: Azure SQL
-          href: insights/azure-sql.md
-        - name: SQL Server
-          href: insights/sql-assessment.md
-        - name: Surface Hub
-          href: insights/surface-hubs.md
-        - name: VMware Analytics solution
-          href: insights/vmware.md
-        - name: Wire Data solution
-          href: insights/wire-data.md
-        - name: Alert Management solution
-          href: insights/alert-management-solution.md
-        - name: Networks
-          items:
-          - name: Networking Analytics
-            href: insights/azure-networking-analytics.md
-          - name: DNS
-            href: insights/dns-analytics.md
-          - name: Network Performance Monitor
-            items:
-            - name: Solution overview
-              href: insights/network-performance-monitor.md
-            - name: Performance Monitor
-              href: insights/network-performance-monitor-performance-monitor.md
-            - name: Service Connectivity Monitor
-              href: insights/network-performance-monitor-service-connectivity.md
-            - name: ExpressRoute
-              href: insights/network-performance-monitor-expressroute.md
-            - name: Pricing
-              href: insights/network-performance-monitor-pricing-faq.yml
-            - name: FAQ
-              href: insights/network-performance-monitor-faq.yml
-          - name: Web App Analytics solution (deprecated)
-            href: insights/azure-web-apps-analytics.md
-          - name: Application Insights Connector (deprecated)
-            href: logs/app-insights-connector.md
-          - name: OMS portal deprecation
-            href: logs/oms-portal-transition.md
-          - name: Key Vault Analytics (deprecated)
-            href: insights/azure-key-vault-deprecated.md
-    - name: Application Insights Java 2.x
-      href: ./app/deprecated-java-2x.md
-    - name: Continuous export
-      href: app/export-telemetry.md
-    - name: SharePoint sites
-      href: app/sharepoint.md
-    - name: Create a new App Insights resource (classic)
-      href: app/create-new-resource.md
-    - name: URL ping tests
-      href: app/monitor-web-app-availability.md
-    - name: Multi-step tests
-      href: app/availability-multistep.md
-    - name: Classic autoscale & metrics API
-      href: ./essentials/classic-api-retirement-metrics-autoscale.md
-    - name: NULL values in exported metrics
-      href: essentials/metrics-supported-export-diagnostic-settings.md
-    - name: Disk metrics deprecation
-      href: essentials/portal-disk-metrics-deprecation.md
-    - name: Change to blob storage format
-      displayName: Diagnostic settings
-      href: essentials/resource-logs-blob-format.md
-    - name: Classic alerting & monitoring
-      href: alerts/monitoring-classic-retirement.md
-    - name: Switch to current log alert API
-      href: alerts/alerts-log-api-switch.md
-    - name: Views (deprecated)
-      items:
-      - name: View Designer
-        href: visualize/view-designer.md
-      - name: Tile reference
-        href: visualize/view-designer-tiles.md
-      - name: Visualization part reference
-        href: visualize/view-designer-parts.md
-      - name: Filters
-        href: visualize/view-designer-filters.md
+  - name: Archived documentation
+    href: /previous-versions/azure/azure-monitor/azure-monitor-documentation-archive
 - name: Resources
   items:
   - name: Azure updates
@@ -1648,8 +1561,6 @@ items:
     items:
     - name: View and estimate charges
       href: usage-estimated-costs.md
-    - name: Legacy Application Insights pricing
-      href: /previous-versions/azure/azure-monitor/app/legacy-pricing
     - name: Azure Monitor Pricing page
       href: https://azure.microsoft.com/pricing/details/monitor/
     - name: Pricing calculator

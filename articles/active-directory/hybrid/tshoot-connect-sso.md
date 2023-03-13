@@ -38,21 +38,21 @@ This article helps you find troubleshooting information about common problems re
 
 ## Check status of feature
 
-Ensure that the Seamless SSO feature is still **Enabled** on your tenant. You can check the status by going to the **Azure AD Connect** pane in the [Azure Active Directory admin center](https://aad.portal.azure.com/).
+Ensure that the Seamless SSO feature is still **Enabled** on your tenant. You can check the status by going to the **Azure Active Directory** > **Azure AD Connect** pane in the [Azure portal](https://portal.azure.com/).
 
-![Azure Active Directory admin center: Azure AD Connect pane](./media/tshoot-connect-sso/sso10.png)
+![Azure portal: Azure AD Connect pane](./media/tshoot-connect-sso/sso10.png)
 
 Click through to see all the AD forests that have been enabled for Seamless SSO.
 
-![Azure Active Directory admin center: Seamless SSO pane](./media/tshoot-connect-sso/sso13.png)
+![Azure portal: Seamless SSO pane](./media/tshoot-connect-sso/sso13.png)
 
-## Sign-in failure reasons in the Azure Active Directory admin center (needs a Premium license)
+## Sign-in failure reasons in the Azure portal (needs a Premium license)
 
-If your tenant has an Azure AD Premium license associated with it, you can also look at the [sign-in activity report](../reports-monitoring/concept-sign-ins.md) in the [Azure Active Directory admin center](https://aad.portal.azure.com/).
+If your tenant has an Azure AD Premium license associated with it, you can also look at the [sign-in activity report](../reports-monitoring/concept-sign-ins.md) inside of Azure Active Directory in the [Azure portal](https://portal.azure.com/).
 
-![Azure Active Directory admin center: Sign-ins report](./media/tshoot-connect-sso/sso9.png)
+![Azure portal: Sign-ins report](./media/tshoot-connect-sso/sso9.png)
 
-Browse to **Azure Active Directory** > **Sign-ins** in the [Azure Active Directory admin center](https://aad.portal.azure.com/), and then select a specific user's sign-in activity. Look for the **SIGN-IN ERROR CODE** field. Map the value of that field to a failure reason and resolution by using the following table:
+Browse to **Azure Active Directory** > **Sign-ins** in the [Azure portal](https://portal.azure.com/), and then select a specific user's sign-in activity. Look for the **SIGN-IN ERROR CODE** field. Map the value of that field to a failure reason and resolution by using the following table:
 
 |Sign-in error code|Sign-in failure reason|Resolution
 | --- | --- | ---

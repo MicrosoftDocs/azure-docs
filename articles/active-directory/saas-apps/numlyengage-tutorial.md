@@ -155,8 +155,6 @@ When you click the NumlyEngage™ tile in the Access Panel, you should be automa
 
 - [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
-- [Try NumlyEngage™ with Azure AD](https://aad.portal.azure.com/)
-
 - [What is session control in Microsoft Defender for Cloud Apps?](/cloud-app-security/proxy-intro-aad)
 
 - [How to protect NumlyEngage™ with advanced visibility and controls](/cloud-app-security/proxy-intro-aad)

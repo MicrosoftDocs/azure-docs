@@ -24,7 +24,7 @@ Several other features don't have a direct cost, but instead you pay for the ing
 | Platform logs | Processing of [diagnostic and auditing information](essentials/resource-logs.md) is charged for [certain services](essentials/resource-logs-categories.md#costs) when sent to destinations other than a Log Analytics workspace. There's no direct charge when this data is sent to a Log Analytics workspace, but there's a charge for the workspace data ingestion and collection. |
 | Metrics | There's no charge for [standard metrics](essentials/metrics-supported.md) collected from Azure resources. There's a cost for collecting [custom metrics](essentials/metrics-custom-overview.md) and for retrieving metrics from the [REST API](essentials/rest-api-walkthrough.md#retrieve-metric-values). |
 | Alerts | Charges are based on the type and number of signals used by the alert rule, its frequency, and the type of [notification](alerts/action-groups.md) used in response. For [Log alerts](alerts/alerts-types.md#log-alerts) configured for [at-scale monitoring](alerts/alerts-types.md#splitting-by-dimensions-in-log-alert-rules), the cost also depends on the number of time series created by the dimensions resulting from your query. |
-| Web tests | There's a cost for [standard web tests](app/availability-standard-tests.md) and [multistep web tests](app/availability-multistep.md) in Application Insights. Multistep web tests have been deprecated.
+| Web tests | There's a cost for [standard web tests](app/availability-standard-tests.md) and [multistep web tests](/previous-versions/azure/azure-monitor/app/availability-multistep) in Application Insights. Multistep web tests have been deprecated.
 
 ## Data transfer charges
 

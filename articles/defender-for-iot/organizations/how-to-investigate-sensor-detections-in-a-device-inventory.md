@@ -49,12 +49,6 @@ If you're working with a cloud-connected sensor, any edits you make in the senso
 
 **To edit device details**:
 
-1. Select a device in the grid, and then select **Edit** in the toolbar at the top of the page.
-
-1. In the **Edit** pane on the right, modify the device fields as needed, and then select **Save** when you're done.
-
-You can also open the edit pane from the device details page:
-
 1. Select a device in the grid, and then select **View full details** in the pane on the right.
 
 1. In the device details page, select **Edit Properties**.
@@ -65,10 +59,10 @@ Editable fields include:
 
 - Authorized status
 - Device name
-- Device type
-- OS
-- Purdue level
 - Description
+- OS platform
+- Device type
+- Purdue level
 - Scanner or programming device
 
 For more information, see [Device inventory column data](device-inventory.md#device-inventory-column-data).
@@ -125,13 +119,11 @@ You may want to delete devices from your device inventory, such as if they've be
 
 Deleted devices are removed from the **Device map** and the device inventories on the Azure portal and on-premises management console, and aren't calculated when generating reports, such as Data Mining, Risk Assessment, or Attack Vector reports.
 
-**To delete one or more devices**:
+**To delete a single device**:
 
 You can delete a device when it's been inactive for more than 10 minutes.
 
-1. In the **Device inventory** page, select the device or devices you want to delete, and then select **Delete** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/delete-device.png" border="false"::: in the toolbar at the top of the page.
-
-1. At the prompt, select **Confirm** to confirm that you want to delete the device from Defender for IoT.
+1. In the **Device inventory** page, select the device you want to delete, and then select **Delete** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/delete-device.png" border="false"::: in the toolbar at the top of the page.
 
 A confirmation message appears at the top right.
 

@@ -27,7 +27,7 @@ Azure AD lets you use groups to manage access to applications, data, and resourc
 - SharePoint sites
 - On-premises resources
 
-Some groups can't be managed in the Azure AD portal:
+Some groups can't be managed in the Azure portal:
 
 - Groups synced from on-premises Active Directory can be managed only in on-premises Active Directory.
 - Distribution lists and mail-enabled security groups are managed only in Exchange admin center or Microsoft 365 admin center. You must sign in to Exchange admin center or Microsoft 365 admin center to manage these groups.

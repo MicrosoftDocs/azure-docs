@@ -25,7 +25,7 @@ The *Availability* metric shows the percentage of the web test runs that didn't 
 
 ### Availability test duration (availabilityResults/duration)
 
-The *Availability test duration* metric shows how much time it took for the web test to run. For the [multi-step web tests](../app/availability-multistep.md), the metric reflects the total execution time of all steps.
+The *Availability test duration* metric shows how much time it took for the web test to run. For the [multi-step web tests](/previous-versions/azure/azure-monitor/app/availability-multistep), the metric reflects the total execution time of all steps.
 
 |Unit of measure|Supported aggregations|Supported dimensions|
 |---|---|---|---|---|---|

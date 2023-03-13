@@ -267,14 +267,14 @@ An error response (400 Bad Request) looks like this:
 Now that you've acquired a token, use the token to make requests to the resource. When the token expires, repeat the request to the `/token` endpoint to acquire a fresh access token.
 
 ```HTTP
-GET /v1.0/me/messages
+GET /v1.0/users
 Host: https://graph.microsoft.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 ```
 Try the following command in your terminal, ensuring to replace the token with your own.
 
 ```bash
-curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbG...." 'https://graph.microsoft.com/v1.0/me/messages'
+curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbG...." 'https://graph.microsoft.com/v1.0/users'
 ```
 
 ## Code samples and other documentation

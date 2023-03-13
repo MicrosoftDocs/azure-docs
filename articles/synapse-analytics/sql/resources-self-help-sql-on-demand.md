@@ -722,6 +722,10 @@ There are several mitigation steps that you can do to avoid this:
 - If you are using delta file format, use the optimize write feature in Spark.  This can improve the performance of queries by reducing the amount of data that needs to be read and processed. How to use optimize write is described in [Using optimize write on Apache Spark](../spark/optimize-write-for-apache-spark.md). 
 - To avoid some of the top-level wildcards by effectively hardcoding the implicit filters over partitioning columns use [dynamic SQL](../sql/develop-dynamic-sql.md). 
 
+### Missing column when using automatic schema inference
+
+You can easily query files without knowing or specifying schema, by omitting WITH clause. In that case column names and data types will be inferred from the files. Have in mind that if you are reading number of files at once, the schema will be inferred from the first file service gets from the storage. This can mean that some of the columns expected are omitted, all because the file used by the service to define the schema did not contain these columns. To explicitly specify the schema, please use OPENROWSET WITH clause. If you specify schema (by using external table or OPENROWSET WITH clause) default lax path mode will be used. That means that the columns that don’t exist in some files will be returned as NULLs (for rows from those files). To understand how path mode is used, please check the following [documentation](../sql/develop-openrowset.md) and [sample](../sql/develop-openrowset.md#specify-columns-using-json-paths). 
+
 ## Configuration
 
 Serverless SQL pools enable you to use T-SQL to configure database objects. There are some constraints:
@@ -909,7 +913,7 @@ Our engineering team is currently working on a full support for Spark 3.3.
 If you created a Delta table in Spark, and it is not shown in the serverless SQL pool, check the following:
 - Wait some time (usually 30 seconds) because the Spark tables are synchronized with delay.
 - If the table didn't appear in the serverless SQL pool after some time, check the schema of the Spark Delta table. Spark tables with complex types or the types that are not supported in serverless are not available. Try to create a Spark Parquet table with the same schema in a lake database and check would that table appears in the serverless SQL pool.
-- Check could workspace Managed Identity access Delta Lake folder that is referenced by the table. Serverless SQL pool uses workspace Managed Identity to get the table column information from the storage to create the table.
+- Check the workspace Managed Identity access Delta Lake folder that is referenced by the table. Serverless SQL pool uses workspace Managed Identity to get the table column information from the storage to create the table.
 
 ## Lake database
 

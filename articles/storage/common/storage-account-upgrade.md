@@ -9,7 +9,7 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 04/29/2021
 ms.author: jammart
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurecli
 ---
 
 # Upgrade to a general-purpose v2 storage account

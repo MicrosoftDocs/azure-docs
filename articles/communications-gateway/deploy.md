@@ -10,7 +10,7 @@ ms.date: 12/16/2022
 
 # Deploy Azure Communications Gateway
 
-This article will guide you through creating an Azure Communications Gateway resource in Azure. You must configure this resource before you can deploy Azure Communications Gateway.
+This article guides you through creating an Azure Communications Gateway resource in Azure. You must configure this resource before you can deploy Azure Communications Gateway.
 
 ## Prerequisites
 
@@ -47,15 +47,15 @@ If you haven't filled in the configuration correctly, you'll see an error messag
 
 Check your configuration and ensure it matches your requirements. If the configuration is correct, select **Create**.
 
-You now need to wait for your resource to be provisioned and connected to the Microsoft Teams environment. When your resource has been provisioned and connected, your onboarding team will reach out to you and the Provisioning Status filed on the resource overview will show as "Complete". We recommend you check in periodically to see if your resource has been provisioned. This process can take up to two weeks, because updating ACLs in the Azure and Teams environments is done on a periodic basis.
+You now need to wait for your resource to be provisioned and connected to the Microsoft Teams environment. When your resource has been provisioned and connected, your onboarding team will contact you and the Provisioning Status filed on the resource overview will be "Complete". We recommend you check in periodically to see if your resource has been provisioned. This process can take up to two weeks, because updating ACLs in the Azure and Teams environments is done on a periodic basis.
 
-Once your resource has been provisioned, a message will appear saying **Your deployment is complete**. Select **Go to resource group**, and then check that your resource group contains the correct Azure Communications Gateway resource.
+Once your resource has been provisioned, a message appears saying **Your deployment is complete**. Select **Go to resource group**, and then check that your resource group contains the correct Azure Communications Gateway resource.
 
 :::image type="content" source="media/deploy/go-to-resource-group.png" alt-text="Screenshot of the Create an Azure Communications Gateway portal, showing a completed deployment screen.":::
 
 ## 3. Complete the JSON onboarding file
 
-Your onboarding team will require additional information to complete your Operator Connect onboarding. If you're being onboarded to Operator Connect/Teams Phone Mobile by Microsoft, the onboarding team will reach out to you.
+Your onboarding team needs more information to complete your Operator Connect onboarding. If you're being onboarded to Operator Connect or Teams Phone Mobile by Microsoft, the onboarding team will contact you. Fill in the JSON onboarding file and give it to your onboarding team.
 
 Wait for your onboarding team to confirm that the onboarding process is complete before testing your portal access.
 

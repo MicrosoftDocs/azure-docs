@@ -1,7 +1,7 @@
 ---
-title: "Tutorial: Migrate SQL Server to Azure SQL Database (preview) offline in Azure Data Studio"
+title: "Tutorial: Migrate SQL Server to Azure SQL Database offline in Azure Data Studio"
 titleSuffix: Azure Database Migration Service
-description: Learn how to migrate on-premises SQL Server to Azure SQL Database (preview) offline by using Azure Data Studio and Azure Database Migration Service.
+description: Learn how to migrate on-premises SQL Server to Azure SQL Database offline by using Azure Data Studio and Azure Database Migration Service.
 author: croblesm
 ms.author: roblescarlos
 ms.date: 01/12/2023
@@ -10,9 +10,9 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019
 ---
 
-# Tutorial: Migrate SQL Server to Azure SQL Database (preview) offline in Azure Data Studio
+# Tutorial: Migrate SQL Server to Azure SQL Database offline in Azure Data Studio
 
-You can use Azure Database Migration Service and the Azure SQL Migration extension for Azure Data Studio to migrate databases from an on-premises instance of SQL Server to Azure SQL Database (preview) offline and with minimal downtime.
+You can use Azure Database Migration Service and the Azure SQL Migration extension for Azure Data Studio to migrate databases from an on-premises instance of SQL Server to Azure SQL Database offline and with minimal downtime.
 
 In this tutorial, learn how to migrate the example AdventureWorks2019 database from an on-premises instance of SQL Server to an instance of Azure SQL Database by using the Azure SQL Migration extension for Azure Data Studio. This tutorial uses offline migration mode, which considers an acceptable downtime during the migration process.
 

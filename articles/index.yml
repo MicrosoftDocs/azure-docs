@@ -1548,6 +1548,7 @@ productDirectory:
       imageSrc: /media/logos/logo-azureorbital.svg
       azureCategories:
         - networking
+        - 5g-space
       url: orbital/index.yml
     # Card
     - title: Azure Web PubSub

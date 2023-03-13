@@ -20,3 +20,5 @@ Your storage account access keys are similar to a root password for your storage
 > To prevent users from accessing data in your storage account with Shared Key, you can disallow Shared Key authorization for the storage account. Disallowing Shared Key access is recommended as a security best practice. For more information, see [Prevent Shared Key authorization for an Azure Storage account](../articles/storage/common/shared-key-authorization-prevent.md).
 >
 > To protect an Azure Storage account with Azure AD Conditional Access policies, you must disallow Shared Key authorization for the storage account.
+> 
+> If you have disabled shared key access and you are seeing Shared Key authorization reported in the diagnostic logs, this indicates that trusted access is being used to access storage. For more details, see [Trusted access for resources registered in your subscription](../articles/storage/common/storage-network-security.md#trusted-access-for-resources-registered-in-your-subscription).

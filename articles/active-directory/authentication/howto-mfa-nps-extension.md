@@ -343,7 +343,7 @@ import-module MSOnline
 Connect-MsolService
 New-MsolServicePrincipal -AppPrincipalId 981f26a1-7f43-403b-a875-f8b09b8cd720 -DisplayName "Azure Multi-Factor Auth Client"
 ```
-Once done , go to https://aad.portal.azure.com > "Enterprise Applications" > Search for "Azure Multi-Factor Auth Client" > Check properties for this app > Confirm if the service principal is enabled or disabled > Click on the application entry > Go to Properties of the app > If the option "Enabled for users to sign-in? is set to No in Properties of this app , please set it to Yes.
+Once done , go to the [Azure portal](https://portal.azure.com) > **Azure Active Directory** > **Enterprise Applications** > Search for "Azure Multi-Factor Auth Client" > Check properties for this app > Confirm if the service principal is enabled or disabled > Click on the application entry > Go to Properties of the app > If the option "Enabled for users to sign-in? is set to No in Properties of this app , please set it to Yes.
 
 Run the `AzureMfaNpsExtnConfigSetup.ps1` script again and it should not return the `Service principal was not found` error. 
 

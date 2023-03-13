@@ -220,6 +220,8 @@
       items:
       - name: Migrate to availability zone support
         href: ../availability-zones/migrate-app-service.md
+      - name: Disaster recovery
+        href: overview-disaster-recovery.md
       - name: Restore from downed region
         href: manage-disaster-recovery.md
     - name: Security
@@ -253,7 +255,7 @@
           href: app-service-hybrid-connections.md
         - name: Virtual network integration
           href: overview-vnet-integration.md
-        - name: Name resoulution (DNS)
+        - name: Name resolution (DNS)
           href: overview-name-resolution.md
     - name: Local cache
       href: overview-local-cache.md

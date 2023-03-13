@@ -124,8 +124,7 @@ After you've configured the prerequisites and established the base settings, it'
 
 1. To configure Conditional Access policies in Azure AD, go to the [Azure portal](https://portal.azure.com). On **Manage Azure Active Directory**, select **View**.
 
-   Configure Conditional Access policies by following [best
-practices for deploying and designing Conditional Access](../conditional-access/plan-conditional-access.md#understand-conditional-access-policy-components).
+   Configure Conditional Access policies by following [best practices for deploying and designing Conditional Access](../conditional-access/plan-conditional-access.md#conditional-access-policy-components).
 
 1. To mimic the global sign-on MFA policy from Okta, [create a policy](../conditional-access/howto-conditional-access-policy-all-users-mfa.md).
 

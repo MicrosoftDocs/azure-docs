@@ -80,7 +80,7 @@ Microsoft has many products and services that enable you to customize your IT en
 * Cloud-based Azure environments
 
   * [Monitor sign-ins with the Azure AD sign-in log](../reports-monitoring/concept-all-sign-ins.md)
-  * [Audit activity reports in the Azure Active Directory portal](../reports-monitoring/concept-audit-logs.md)
+  * [Audit activity reports in the Azure portal](../reports-monitoring/concept-audit-logs.md)
   * [Investigate risk with Azure Active Directory Identity Protection](../identity-protection/howto-identity-protection-investigate-risk.md) 
   * [Connect Azure AD Identity Protection data to Microsoft Sentinel](../../sentinel/data-connectors/azure-active-directory-identity-protection.md)
 

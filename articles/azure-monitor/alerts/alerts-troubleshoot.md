@@ -9,14 +9,14 @@ ms.reviewer: ofmanor
 ---
 # Troubleshooting problems in Azure Monitor alerts
 
-This article discusses common problems in Azure Monitor alerting and notifications.
+This article discusses common problems in Azure Monitor alerting and notifications. Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues before the users of your system notice them. For more information on alerting, see [Overview of alerts in Microsoft Azure](./alerts-overview.md).
 
-Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues before the users of your system notice them. For more information on alerting, see [Overview of alerts in Microsoft Azure](./alerts-overview.md).
+You can see fired alerts in the Azure portal.
 
-If you have a problem with an alert firing or not firing when expected, refer to the articles below. You can see "fired" alerts in the Azure portal.
+Refer to these articles for troubleshooting information about metric or log alerts that are not behaving as expected:
 
-- [Troubleshooting Azure Monitor Metric Alerts in Microsoft Azure](alerts-troubleshoot-metric.md)  
-- [Troubleshooting Azure Monitor Log Alerts in Microsoft Azure](alerts-troubleshoot-log.md)
+- [Troubleshoot Azure Monitor metric alerts](alerts-troubleshoot-metric.md)
+- [Troubleshoot Azure Monitor log alerts](alerts-troubleshoot-log.md)
 
 If the alert fires as intended according to the Azure portal but the proper notifications do not occur, use the information in the rest of this article to troubleshoot that problem.
 
@@ -179,7 +179,7 @@ If you have received the alert, but believe some of its fields are missing or in
 
     Check if the format specified at the action level is what you expect. For example, you may have developed code that responds to alerts (webhook, function, logic app, etc.), expecting one format, but later in the action you or another person specified a different format.  
 
-    Also, check the payload format (JSON) for [activity log alerts](../alerts/activity-log-alerts-webhook.md), for [log search alerts](../alerts/alerts-log-webhook.md) (both Application Insights and log analytics), for [metric alerts](alerts-metric-near-real-time.md#payload-schema), for the [common alert schema](../alerts/alerts-common-schema-definitions.md), and for the deprecated [classic metric alerts](./alerts-webhooks.md).
+    Also, check the payload format (JSON) for [activity log alerts](../alerts/activity-log-alerts-webhook.md), for [log search alerts](../alerts/alerts-log-webhook.md) (both Application Insights and log analytics), for [metric alerts](alerts-metric-near-real-time.md#payload-schema), for the [common alert schema](../alerts/alerts-common-schema.md), and for the deprecated [classic metric alerts](./alerts-webhooks.md).
 
  
 1. **Activity log alerts: Is the information available in the activity log?** 

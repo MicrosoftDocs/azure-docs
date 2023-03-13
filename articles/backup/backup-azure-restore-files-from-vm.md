@@ -39,7 +39,7 @@ To restore files or folders from the recovery point, go to the virtual machine a
     ![File recovery menu](./media/backup-azure-restore-files-from-vm/file-recovery-blade.png)
 
 > [!IMPORTANT]
-> Users should note the performance limitations of this feature. As pointed out in the footnote section of the above blade, this feature should be used when the total size of recovery is not beyond 10 GB and you could get data transfer speeds of around 1 GB per hour
+> Users should note the performance limitations of this feature. As pointed out in the footnote section of the above blade, this feature should be used when the total size of recovery is 10 GB or less. The expected data transfer speeds are around 1 GB per hour.
 
 4. From the **Select recovery point** drop-down menu, select the recovery point that holds the files you want. By default, the latest recovery point is already selected.
 

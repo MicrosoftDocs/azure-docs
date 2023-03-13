@@ -1,7 +1,7 @@
 ---
 title: Remove the background in images
 titleSuffix: Azure Cognitive Services
-description: Learn how to call the Image Analysis - Segment API to isolate and remove the background from images.
+description: Learn how to call the Segment API to isolate and remove the background from images.
 services: cognitive-services
 manager: nitinme
 
@@ -23,7 +23,7 @@ This guide assumes you've already [created a Computer Vision resource](https://p
 
 ## Submit data to the service
 
-When calling the **Image Analysis - Segment** API,  you specify the image's URL by formatting the request body like this: `{"url":"https://learn.microsoft.com/azure/cognitive-services/computer-vision/images/windows-kitchen.jpg"}`.
+When calling the **[Segment](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/unified-vision-apis-public-preview-2023-02-01-preview/operations/63e6b6d9217d201194bbecbd)** API,  you specify the image's URL by formatting the request body like this: `{"url":"https://docs.microsoft.com/azure/cognitive-services/computer-vision/images/windows-kitchen.jpg"}`.
 
 To analyze a local image, you'd put the binary image data in the HTTP request body.
 

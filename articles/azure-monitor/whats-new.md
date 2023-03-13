@@ -24,12 +24,13 @@ Alerts|[Create a new alert rule](alerts/alerts-create-new-alert-rule.md)|Add inf
 Alerts|[Manage your alert instances](alerts/alerts-manage-alert-instances.md)|Removed option for managing alert instances using the CLI.|
 Application-Insights|[Migrate to workspace-based Application Insights resources](app/convert-classic-resource.md)|The continuous export deprecation notice has been added to this article for more visibility. It's recommended to migrate to workspace-based Application Insights resources as soon as possible to take advantage of new features.|
 Application-Insights|[Application Insights API for custom events and metrics](app/api-custom-events-metrics.md)|Client-side JavaScript SDK extensions have been consolidated into two new articles called "Framework extensions" and "Feature Extensions". We've additionally created new stand-alone Upgrade and Troubleshooting articles.|
-Application-Insights|[Create an Application Insights resource](app/create-new-resource.md)|Classic workspace documentation has been moved to the Legacy and Retired Features section of our table of contents and we've made both the feature retirement and upgrade path clearer. It's recommended to migrate to workspace-based Application Insights resources as soon as possible to take advantage of new features.|
+Application-Insights|[Create an Application Insights resource](/previous-versions/azure/azure-monitor/app/create-new-resource)|Classic workspace documentation has been moved to the Legacy and Retired Features section of our table of contents and we've made both the feature retirement and upgrade path clearer. It's recommended to migrate to workspace-based Application Insights resources as soon as possible to take advantage of new features.|
 Application-Insights|[Monitor Azure Functions with Azure Monitor Application Insights](app/monitor-functions.md)|We've overhauled our documentation on Azure Functions integration with Application Insights.|
 Application-Insights|[Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python and Java applications](app/opentelemetry-enable.md)|Java OpenTelemetry examples have been updated.|
 Application-Insights|[Application Monitoring for Azure App Service and Java](app/azure-web-apps-java.md)|We updated and separated out the instructions to manually deploy the latest Application Insights Java version.|
 Containers|[Enable Container insights for Azure Kubernetes Service (AKS) cluster](containers/container-insights-enable-aks.md)|Added section for enabling private link without managed identity authentication.|
 Containers|[Syslog collection with Container Insights (preview)](containers/container-insights-syslog.md)|Added use of ARM templates for enabling syslog collection|
+Containers|[Enable cost optimization settings (preview)](containers/container-insights-cost-config.md)|New Article: Enable cost optimization settings|
 Essentials|[Data collection transformations in Azure Monitor](essentials/data-collection-transformations.md)|Added section and sample for using transformations to send to multiple destinations.|
 Essentials|[Custom metrics in Azure Monitor (preview)](essentials/metrics-custom-overview.md)|Added reference to the limit of 64 KB on the combined length of all custom metrics names|
 Essentials|[Azure monitoring REST API walkthrough](essentials/rest-api-walkthrough.md)|Refresh REST API walkthrough|
@@ -50,7 +51,7 @@ Snapshot-Debugger|[Configure Bring Your Own Storage (BYOS) for Application Insig
 Snapshot-Debugger|[Release notes for Microsoft.ApplicationInsights.SnapshotCollector](snapshot-debugger/snapshot-collector-release-notes.md)|Removing the TSG from the AzMon TOC and adding to the support TOC|
 Snapshot-Debugger|[Enable Snapshot Debugger for .NET apps in Azure App Service](snapshot-debugger/snapshot-debugger-app-service.md)|Removing the TSG from the AzMon TOC and adding to the support TOC|
 Snapshot-Debugger|[Enable Snapshot Debugger for .NET and .NET Core apps in Azure Functions](snapshot-debugger/snapshot-debugger-function-app.md)|Removing the TSG from the AzMon TOC and adding to the support TOC|
-Snapshot-Debugger|[ Troubleshoot problems enabling Application Insights Snapshot Debugger or viewing snapshots](snapshot-debugger/snapshot-debugger-troubleshoot.md)|Removing the TSG from the AzMon TOC and adding to the support TOC|
+Snapshot-Debugger|[ Troubleshoot problems enabling Application Insights Snapshot Debugger or viewing snapshots](/troubleshoot/azure/azure-monitor/app-insights/snapshot-debugger-troubleshoot.md)|Removing the TSG from the AzMon TOC and adding to the support TOC|
 Snapshot-Debugger|[Enable Snapshot Debugger for .NET apps in Azure Service Fabric, Cloud Service, and Virtual Machines](snapshot-debugger/snapshot-debugger-vm.md)|Removing the TSG from the AzMon TOC and adding to the support TOC|
 Snapshot-Debugger|[Debug snapshots on exceptions in .NET apps](snapshot-debugger/snapshot-debugger.md)|Removing the TSG from the AzMon TOC and adding to the support TOC|
 Virtual-Machines|[Monitor virtual machines with Azure Monitor: Analyze monitoring data](vm/monitor-virtual-machine-analyze.md)|New article|
@@ -70,7 +71,7 @@ Application-Insights|[Live Metrics: Monitor and diagnose with 1-second latency](
 Application-Insights|[Application Insights for Azure VMs and Virtual Machine Scale Sets](app/azure-vm-vmss-apps.md)|Easily monitor your IIS-hosted .NET Framework and .NET Core applications running on Azure VMs and Virtual Machine Scale Sets using a new App Insights Extension.|
 Application-Insights|[Sampling in Application Insights](app/sampling.md)|We've added embedded links to assist with looking up type definitions. (Dependency, Event, Exception, PageView, Request, Trace)|
 Application-Insights|[Configuration options: Azure Monitor Application Insights for Java](app/java-standalone-config.md)|Instructions are now available on how to set the http proxy using an environment variable, which overrides the JSON configuration. We've also provided a sample to configure connection string at runtime.|
-Application-Insights|[Application Insights for Java 2.x](app/deprecated-java-2x.md)|The Java 2.x retirement notice is available at https://azure.microsoft.com/updates/application-insights-java-2x-retirement.|
+Application-Insights|[Application Insights for Java 2.x](/previous-versions/azure/azure-monitor/app/deprecated-java-2x)|The Java 2.x retirement notice is available at https://azure.microsoft.com/updates/application-insights-java-2x-retirement.|
 Autoscale|[Diagnostic settings in Autoscale](autoscale/autoscale-diagnostics.md)|Updated and expanded content|
 Autoscale|[Overview of common autoscale patterns](autoscale/autoscale-common-scale-patterns.md)|Clarification of weekend profiles|
 Autoscale|[Autoscale with multiple profiles](autoscale/autoscale-multiprofile.md)|Added clarifications for profile end times|
@@ -108,7 +109,7 @@ Virtual-Machines|[Monitor Azure virtual machines](../../articles/virtual-machine
 |Subservice| Article | Description |
 |---|---|---|
 General|[Azure Monitor for existing Operations Manager customers](azure-monitor-operations-manager.md)|Updated for AMA and SCOM managed instance.|
-Application-Insights|[Create an Application Insights resource](app/create-new-resource.md)|Classic Application Insights resources are deprecated and support will end on February 29, 2024. Migrate to workspace-based resources to take advantage of new capabilities.|
+Application-Insights|[Create an Application Insights resource](/previous-versions/azure/azure-monitor/app/create-new-resource)|Classic Application Insights resources are deprecated and support will end on February 29, 2024. Migrate to workspace-based resources to take advantage of new capabilities.|
 Application-Insights|[Enable Azure Monitor OpenTelemetry for .NET, Node.js, and Python applications (preview)](app/opentelemetry-enable.md)|Updated Node.js sample code for JavaScript and TypeScript.|
 Application-Insights|[System performance counters in Application Insights](app/performance-counters.md)|Updated code samples for .NET 6/7.|
 Application-Insights|[Sampling in Application Insights](app/sampling.md)|Updated code samples for .NET 6/7.|
@@ -225,7 +226,7 @@ Visualizations|[Azure Workbooks](./visualize/workbooks-overview.md)|New video to
 |[Convert ITSM actions that send events to ServiceNow to secure webhook actions](./alerts/itsm-convert-servicenow-to-webhook.md)|As of September 2022, we're starting the 3-year process of deprecating support of using ITSM actions to send events to ServiceNow. Learn how to convert ITSM actions that send events to ServiceNow to secure webhook actions|
 |[Create a new alert rule](./alerts/alerts-create-new-alert-rule.md)|Added description of all available monitoring services to create a new alert rule and alert processing rules pages. <br><br>Added support for regional processing for metric alert rules that monitor a custom metric with the scope defined as one of the supported regions. <br><br> Clarified that selecting the **Automatically resolve alerts** setting makes log alerts stateful.<|
 |[Types of Azure Monitor alerts](alerts/alerts-types.md)|Azure Database for PostgreSQL - Flexible Servers  is supported for monitoring multiple resources.|
-|[Upgrade legacy rules management to the current Log Alerts API from legacy Log Analytics Alert API](./alerts/alerts-log-api-switch.md)|The process of moving legacy log alert rules management from the legacy API to the current API is now supported by the government cloud.|
+|[Upgrade legacy rules management to the current Log Alerts API from legacy Log Analytics Alert API](/previous-versions/azure/azure-monitor/alerts/alerts-log-api-switch)|The process of moving legacy log alert rules management from the legacy API to the current API is now supported by the government cloud.|
 
 ### Application insights
 
@@ -300,8 +301,8 @@ Visualizations|[Azure Workbooks](./visualize/workbooks-overview.md)|New video to
 | Article | Description |
 |---|---|
 |[Azure Application Insights Overview Dashboard](app/overview-dashboard.md)|Important information has been added clarifying that moving or renaming resources will break dashboards, with additional instructions on how to resolve this scenario.|
-|[Azure Application Insights override default SDK endpoints](app/create-new-resource.md#override-default-endpoints)|We've clarified that endpoint modification isn't recommended and to use connection strings instead.|
-|[Continuous export of telemetry from Application Insights](app/export-telemetry.md)|Important information has been added about avoiding duplicates when saving diagnostic logs in a Log Analytics workspace.|
+|[Azure Application Insights override default SDK endpoints](/previous-versions/azure/azure-monitor/app/create-new-resource#override-default-endpoints)|We've clarified that endpoint modification isn't recommended and to use connection strings instead.|
+|[Continuous export of telemetry from Application Insights](/previous-versions/azure/azure-monitor/app/export-telemetry)|Important information has been added about avoiding duplicates when saving diagnostic logs in a Log Analytics workspace.|
 |[Dependency Tracking in Azure Application Insights with OpenCensus Python](app/opencensus-python-dependency.md)|Updated Django sample application and documentation in the Azure Monitor OpenCensus Python samples repository.|
 |[Incoming Request Tracking in Azure Application Insights with OpenCensus Python](app/opencensus-python-request.md)|Updated Django sample application and documentation in the Azure Monitor OpenCensus Python samples repository.|
 |[Monitor Python applications with Azure Monitor](app/opencensus-python.md)|Updated Django sample application and documentation in the Azure Monitor OpenCensus Python samples repository.|
@@ -381,7 +382,7 @@ Visualizations|[Azure Workbooks](./visualize/workbooks-overview.md)|New video to
 |[Application Insights SDK support guidance](app/sdk-support-guidance.md)|SDK support guidance has been updated and clarified.
 |[Azure Monitor Application Insights Java](app/opentelemetry-enable.md?tabs=java)|Example code has been updated.
 |[IP addresses used by Azure Monitor](app/ip-addresses.md)|The IP/FQDN table has been updated.
-|[Continuous export of telemetry from Application Insights](app/export-telemetry.md)|The continuous export notice has been updated and clarified.
+|[Continuous export of telemetry from Application Insights](/previous-versions/azure/azure-monitor/app/export-telemetry)|The continuous export notice has been updated and clarified.
 |[Set up availability alerts with Application Insights](app/availability-alerts.md)|Custom Alert Rule and Alert Frequency sections have been added.
 
 ### Autoscale
@@ -441,7 +442,7 @@ Visualizations|[Azure Workbooks](./visualize/workbooks-overview.md)|New video to
 | [Azure AD authentication for Application Insights](app/azure-ad-authentication.md) | Azure AD authenticated telemetry ingestion has been reached general availability.|
 | [Azure Application Insights for JavaScript web apps](app/javascript.md) | Our Java on-premises page has been retired and redirected to [Azure Monitor OpenTelemetry-based auto-instrumentation for Java applications](app/opentelemetry-enable.md?tabs=java).|
 | [Azure Application Insights Telemetry Data Model - Telemetry Context](app/data-model-context.md) | Clarified that Anonymous User ID is simply User.Id for easy selection in Intellisense.|
-| [Continuous export of telemetry from Application Insights](app/export-telemetry.md) | On February 29, 2024, continuous export will be deprecated as part of the classic Application Insights deprecation.|
+| [Continuous export of telemetry from Application Insights](/previous-versions/azure/azure-monitor/app/export-telemetry) | On February 29, 2024, continuous export will be deprecated as part of the classic Application Insights deprecation.|
 | [Dependency Tracking in Azure Application Insights](app/asp-net-dependencies.md) | The Event Hubs Client SDK and ServiceBus Client SDK information has been updated.|
 | [Monitor Azure app services performance .NET Core](app/azure-web-apps-net-core.md) | Updated Linux troubleshooting guidance. |
 | [Performance counters in Application Insights](app/performance-counters.md) | A prerequisite section has been added to ensure performance counter data is accessible.|

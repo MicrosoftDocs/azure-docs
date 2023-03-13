@@ -24,7 +24,7 @@ This tutorial describes the steps you need to perform in both Netsparker Enterpr
 > * Create users in Netsparker Enterprise.
 > * Remove users in Netsparker Enterprise when they do not require access anymore.
 > * Keep user attributes synchronized between Azure AD and Netsparker Enterprise.
-> * Provision groups and group memberships in Netsparker Enterprise
+> * Provision groups and group memberships in Netsparker Enterprise.
 > * [Single sign-on](netsparker-enterprise-tutorial.md) to Netsparker Enterprise (recommended).
 
 ## Prerequisites

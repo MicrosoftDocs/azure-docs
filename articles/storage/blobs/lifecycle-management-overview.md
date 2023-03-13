@@ -5,12 +5,12 @@ description: Use Azure Storage lifecycle management policies to create automated
 author: normesta
 
 ms.author: normesta
-ms.date: 02/01/2023
+ms.date: 03/09/2023
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.custom: "devx-track-azurepowershell, references_regions, engagement-fy23"
+ms.custom: references_regions, engagement-fy23
 ---
 
 # Optimize costs by automatically managing the data lifecycle
@@ -177,7 +177,7 @@ The run conditions are based on age. Current versions use the last modified time
 | daysAfterLastAccessTimeGreaterThan<sup>1</sup> | Integer value indicating the age in days | The condition for a current version of a blob when access tracking is enabled |
 | daysAfterLastTierChangeGreaterThan | Integer value indicating the age in days after last blob tier change time | This condition applies only to `tierToArchive` actions and can be used only with the `daysAfterModificationGreaterThan` condition. |
 
-<sup>1</sup> If [last access time tracking](#move-data-based-on-last-accessed-time) is not enabled for a blob, **daysAfterLastAccessTimeGreaterThan** uses the date the lifecycle policy was enabled instead of the `LastAccessTime` property of the blob.
+<sup>1</sup> If [last access time tracking](#move-data-based-on-last-accessed-time) is not enabled, **daysAfterLastAccessTimeGreaterThan** uses the date the lifecycle policy was enabled instead of the `LastAccessTime` property of the blob. This date is also used when the `LastAccessTime` property is a null value. For more information about using last access time tracking, see [Move data based on last accessed time](#move-data-based-on-last-accessed-time).
 
 ## Lifecycle policy completed event
 
@@ -258,11 +258,17 @@ This example shows how to transition block blobs prefixed with `sample-container
 
 You can enable last access time tracking to keep a record of when your blob is last read or written and as a filter to manage tiering and retention of your blob data. To learn how to enable last access time tracking, see [Optionally enable access time tracking](lifecycle-management-policy-configure.md#optionally-enable-access-time-tracking).
 
-When last access time tracking is enabled, the blob property called `LastAccessTime` is updated when a blob is read or written. A [Get Blob](/rest/api/storageservices/get-blob) operation is considered an access operation. [Get Blob Properties](/rest/api/storageservices/get-blob-properties), [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata), and [Get Blob Tags](/rest/api/storageservices/get-blob-tags) aren't access operations, and therefore don't update the last access time.
+When last access time tracking is enabled, the blob property called `LastAccessTime` is updated when a blob is read or written. A [Get Blob](/rest/api/storageservices/get-blob) operation is considered an access operation. [Get Blob Properties](/rest/api/storageservices/get-blob-properties), [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata), and [Get Blob Tags](/rest/api/storageservices/get-blob-tags) aren't access operations, and therefore don't update the last access time. 
+
+If last access time tracking is enabled, lifecycle management uses `LastAccessTime` to determine whether the run condition **daysAfterLastAccessTimeGreaterThan** is met. Lifecycle management uses the date the lifecycle policy was enabled instead of `LastAccessTime` in the following cases:
+
+- The value of the `LastAccessTime` property of the blob is a null value.
+  > [!NOTE]
+  > The `LastAccessTime` property of the blob is null if a blob hasn't been accessed since last access time tracking was enabled.
+
+- Last access time tracking is not enabled. 
 
 To minimize the effect on read access latency, only the first read of the last 24 hours updates the last access time. Subsequent reads in the same 24-hour period don't update the last access time. If a blob is modified between reads, the last access time is the more recent of the two values.
-
-If last access time tracking is enabled for a blob, lifecycle management uses `LastAccessTime` to determine whether the run condition **daysAfterLastAccessTimeGreaterThan** is met. If last access time tracking is not enabled, it uses the date the lifecycle policy was enabled instead of `LastAccessTime`.
 
 In the following example, blobs are moved to cool storage if they haven't been accessed for 30 days. The `enableAutoTierToHotFromCool` property is a Boolean value that indicates whether a blob should automatically be tiered from cool back to hot if it's accessed again after being tiered to cool.
 

@@ -5,7 +5,6 @@ services: automation
 ms.subservice: process-automation
 ms.date: 09/24/2021
 ms.topic: conceptual 
-ms.custom: devx-track-azurepowershell
 ---
 
 # Deploy an agent-based Linux Hybrid Runbook Worker in Automation

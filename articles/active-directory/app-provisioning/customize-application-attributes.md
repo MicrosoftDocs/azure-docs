@@ -29,8 +29,9 @@ You can customize the default attribute-mappings according to your business need
 
 Follow these steps to access the **Mappings** feature of user provisioning:
 
-1. Sign in to the [Azure Active Directory portal](https://aad.portal.azure.com).
-1. Select **Enterprise applications** from the left pane. A list of all configured apps is shown, including apps that were added from the gallery.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Browse to **Azure Active Directory** > **Enterprise applications**.
+1. A list of all configured apps is shown, including apps that were added from the gallery.
 1. Select any app to load its app management pane, where you can view reports and manage app settings.
 1. Select **Provisioning** to manage user account provisioning settings for the selected app.
 1. Expand **Mappings** to view and edit the user attributes that flow between Azure AD and the target application. If the target application supports it, this section lets you optionally configure provisioning of groups and user accounts.
@@ -142,7 +143,7 @@ When you are editing the list of supported attributes, the following properties 
 
 #### Provisioning a custom extension attribute to a SCIM compliant application
 The SCIM RFC defines a core user and group schema, while also allowing for extensions to the schema to meet your application's needs. To add a custom attribute to a SCIM application:
-   1. Sign in to the [Azure Active Directory portal](https://aad.portal.azure.com), select **Enterprise Applications**, select your application, and then select **Provisioning**.
+   1. Sign in to the [Azure portal](https://portal.azure.com), select **Enterprise Applications**, select your application, and then select **Provisioning**.
    2. Under **Mappings**, select the object (user or group) for which you'd like to add a custom attribute.
    3. At the bottom of the page, select **Show advanced options**.
    4. Select **Edit attribute list for AppName**.

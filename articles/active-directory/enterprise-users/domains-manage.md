@@ -64,12 +64,12 @@ To delete a custom domain name, you must first ensure that no resources in your 
 
 You must change or delete any such resource in your Azure AD organization before you can delete the custom domain name. 
 
-> [!Note]
+> [!NOTE]
 > To delete the custom domain, use a Global Administrator account that is based on either the default domain (onmicrosoft.com) or a different custom domain (mydomainname.com).
 
 ## ForceDelete option
 
-You can **ForceDelete** a domain name in the [Azure AD Admin Center](https://aad.portal.azure.com) or using [Microsoft Graph API](/graph/api/domain-forcedelete). These options use an asynchronous operation and update all references from the custom domain name like “user@contoso.com” to the initial default domain name such as “user@contoso.onmicrosoft.com.”
+You can **ForceDelete** a domain name in the [Azure portal](https://portal.azure.com) or using [Microsoft Graph API](/graph/api/domain-forcedelete). These options use an asynchronous operation and update all references from the custom domain name like “user@contoso.com” to the initial default domain name such as “user@contoso.onmicrosoft.com.”
 
 To call **ForceDelete** in the Azure portal, you must ensure that there are fewer than 1000 references to the domain name, and any references where Exchange is the provisioning service must be updated or removed in the [Exchange Admin Center](https://outlook.office365.com/ecp/). This includes Exchange Mail-Enabled Security Groups and distributed lists. For more information, see [Removing mail-enabled security groups](/Exchange/recipients/mail-enabled-security-groups#Remove%20mail-enabled%20security%20groups&preserve-view=true). Also, the **ForceDelete** operation won't succeed if either of the following is true:
 
@@ -94,7 +94,7 @@ Keep your domain names current with your Registrar, and verify TXT records for a
 
 * If you purposefully are expiring your domain name or turning over ownership to someone else (separately from your Azure AD tenant), you should delete it from your Azure AD tenant prior to expiring or transferring.
 * If you do allow your domain name to expire, if you are able to reactivate it/regain control of it, carefully review all TXT records with the registrar to ensure no tampering of your domain name took place.
-* If you can't reactivate or regain control of your domain name immediately, you should delete it from your Azure AD tenant. Dom't readd/re-verify until you are able to resolve ownership of the domain name and verify the full TXT record for correctness.
+* If you can't reactivate or regain control of your domain name immediately, you should delete it from your Azure AD tenant. Don't read/re-verify until you are able to resolve ownership of the domain name and verify the full TXT record for correctness.
 
 >[!NOTE]
 > Microsoft will not allow a domain name to be verified with more than Azure AD tenant. Once you delete a domain name from your tenant, you will not be able to re-add/re-verify it with your Azure AD tenant if it is subsequently added and verified with another Azure AD tenant.

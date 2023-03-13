@@ -2,6 +2,7 @@
 title: Cluster configuration in Azure Kubernetes Services (AKS)
 description: Learn how to configure a cluster in Azure Kubernetes Service (AKS)
 ms.topic: article
+ms.custom: devx-track-azurecli
 ms.date: 02/16/2023
 ---
 
@@ -129,9 +130,8 @@ Mariner can be deployed on AKS through Azure CLI or ARM templates.
 
 ### Prerequisites
 
-1. You need the latest version of Azure CLI. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
-2. You need the `aks-preview` Azure CLI extension for the ability to select the Mariner 2.0 operating system SKU. Run `az extension remove --name aks-preview` to clear any previous versions, then run `az extension add --name aks-preview`.
-3. If you don't already have kubectl installed, install it through Azure CLI using `az aks install-cli` or follow the [upstream instructions](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/).
+1. You need the Azure CLI version 2.44.1 or later installed and configured. Run `az --version` to find the version currently installed. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+1. If you don't already have kubectl installed, install it through Azure CLI using `az aks install-cli` or follow the [upstream instructions](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/).
 
 ### Deploy an AKS Mariner cluster with Azure CLI
 
@@ -140,7 +140,7 @@ Use the following example commands to create a Mariner cluster.
 ```azurecli
 az group create --name MarinerTest --location eastus
 
-az aks create --name testMarinerCluster --resource-group MarinerTest --os-sku mariner
+az aks create --name testMarinerCluster --resource-group MarinerTest --os-sku mariner --generate-ssh-keys
 
 az aks get-credentials --resource-group MarinerTest --name testMarinerCluster
 
@@ -149,9 +149,14 @@ kubectl get pods --all-namespaces
 
 ### Deploy an AKS Mariner cluster with an ARM template
 
-To add Mariner to an existing ARM template, you need to add `"osSKU": "mariner"` and `"mode": "System"` to `agentPoolProfiles` and set the apiVersion to 2021-03-01 or newer (`"apiVersion": "2021-03-01"`). The following deployment uses the ARM template "marineraksarm.yml".
+To add Mariner to an existing ARM template, you need to do the following:
 
-```yml
+- Add `"osSKU": "mariner"` and `"mode": "System"` to agentPoolProfiles property.
+- Set the apiVersion to 2021-03-01 or newer: `"apiVersion": "2021-03-01"`
+
+The following deployment uses the ARM template `marineraksarm.json`.
+
+```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.1",
@@ -172,6 +177,7 @@ To add Mariner to an existing ARM template, you need to add `"osSKU": "mariner"`
     },
     "dnsPrefix": {
       "type": "string",
+      "defaultValue": "mariner",
       "metadata": {
         "description": "Optional DNS prefix to use with hosted Kubernetes API server FQDN."
       }
@@ -280,12 +286,12 @@ To add Mariner to an existing ARM template, you need to add `"osSKU": "mariner"`
 }
 ```
 
-Create this file on your system and fill it with the contents of the Mariner AKS YAML file.
+Create this file on your system and include the settings defined in the `marineraksarm.json` file.
 
 ```azurecli
 az group create --name MarinerTest --location eastus
 
-az deployment group create --resource-group MarinerTest --template-file marineraksarm.yml --parameters clusterName=testMarinerCluster dnsPrefix=marineraks1 linuxAdminUsername=azureuser sshRSAPublicKey=`<contents of your id_rsa.pub>`
+az deployment group create --resource-group MarinerTest --template-file marineraksarm.json --parameters linuxAdminUsername=azureuser sshRSAPublicKey=`<contents of your id_rsa.pub>`
 
 az aks get-credentials --resource-group MarinerTest --name testMarinerCluster
 
@@ -312,7 +318,7 @@ default_node_pool {
   name = "default"
   node_count = 2
   vm_size = "Standard_D2_v2"
-  os_sku = "CBLMariner"
+  os_sku = "mariner"
 }
 ```
 

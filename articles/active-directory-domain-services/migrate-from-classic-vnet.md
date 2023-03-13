@@ -8,10 +8,8 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/29/2023
+ms.date: 03/10/2023
 ms.author: justinha 
-ms.custom: devx-track-azurepowershell
-
 ---
 
 # Migrate Azure Active Directory Domain Services from the Classic virtual network model to Resource Manager
@@ -176,11 +174,11 @@ Before you begin the migration process, complete the following initial checks an
 
     The following network security group Inbound rules are required for the managed domain to provide authentication and management services. Don't edit or delete these network security group rules for the virtual network subnet your managed domain is deployed into.
 
-    | Inbound port number | Protocol | Source                             | Destination | Action | Required | Purpose |
-    |:-----------:|:--------:|:----------------------------------:|:-----------:|:------:|:--------:|:--------|
-    | 5986        | TCP      | AzureActiveDirectoryDomainServices | Any         | Allow  | Yes      | Management of your domain. |
-    | 3389        | TCP      | CorpNetSaw                         | Any         | Allow  | Optional      | Debugging for support. |
-    | 636         | TCP      | AzureActiveDirectoryDomainServices | Inbound         | Allow  | Optional      | Secure LDAP. |
+    | Source      | Source service tag                 | Source port ranges |  Destination  | Service | Destination port ranges | Protocol | Action | Required | Purpose |
+    |:-----------:|:----------------------------------:|:------------------:|:-------------:|:-------:|:-----------------------:|:--------:|:------:|:--------:|:--------|
+    | Service tag | AzureActiveDirectoryDomainServices | *                  | Any           | WinRM   | 5986        | TCP       | Allow  | Yes       | Management of your domain |
+    | Service tag | CorpNetSaw                         | *                  | Any           | WinRM   | 3389        | TCP       | Allow  | Optional  | Debugging for support |
+    | Service tag | AzureActiveDirectoryDomainServices | *                  | Any           | WinRM   | 636         | TCP       | Allow  | Optional  | Secure LDAP |
 
     Make a note of this target resource group, target virtual network, and target virtual network subnet. These resource names are used during the migration process.
 

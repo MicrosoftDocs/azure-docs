@@ -20,7 +20,7 @@ Before connecting VMs to a workspace in a different region, you should review th
 
 This article provides the supported mappings in order to successfully enable and use these features in your Automation account.
 
-For more information, see [Log Analytics workspace and Automation account](../../azure-monitor/insights/solutions.md#log-analytics-workspace-and-automation-account).
+For more information, see [Log Analytics workspace and Automation account](/previous-versions/azure/azure-monitor/insights/solutions#log-analytics-workspace-and-automation-account).
 
 ## Supported mappings for Log Analytics and Azure Automation
 

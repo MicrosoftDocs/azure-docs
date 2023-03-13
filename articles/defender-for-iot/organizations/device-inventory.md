@@ -59,8 +59,6 @@ Defender for IoT's device inventory supports device types across a variety of in
 | **Enterprise** | Smart devices, printers,  communication devices, or audio/video devices |
 | **Retail** | Barcode scanners, humidity sensor, punch clocks | 
 
-A *transient* device type indicates a device that was detected for only a short time. We recommend investigating these devices carefully to understand their impact on your network.
-
 *Unclassified* devices are devices that don't otherwise have an out-of-the-box category defined.
 
 

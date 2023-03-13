@@ -40,7 +40,7 @@ Only administrators in the Global Administrator, Intune Administrator, or User A
 
 ## Getting started
 
-This feature can be used in the Azure AD portal, Microsoft Graph, and in PowerShell. Because memberOf isn't yet supported in the rule builder, you must enter your rule in the rule editor.  
+This feature can be used in the Azure portal, Microsoft Graph, and in PowerShell. Because memberOf isn't yet supported in the rule builder, you must enter your rule in the rule editor.  
 
 ### Steps to create a memberOf dynamic group
 

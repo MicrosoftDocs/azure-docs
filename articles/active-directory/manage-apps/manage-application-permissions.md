@@ -36,7 +36,7 @@ To review permissions granted to applications, you need:
 
 ## Review permissions
 
-You can access the Azure AD portal to get contextual PowerShell scripts to perform the actions.
+You can access the Azure portal to get contextual PowerShell scripts to perform the actions.
 
 To review application permissions:
 

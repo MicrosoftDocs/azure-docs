@@ -2,8 +2,8 @@
 title: Perform disaster recovery operations
 description: Learn how to perform recovery operations for the Azure Arc resource bridge VM in Azure Arc-enabled VMware vSphere disaster scenarios.
 ms.topic: how-to 
+ms.custom: devx-track-azurecli
 ms.date: 08/16/2022
-
 ---
 
 # Perform disaster recovery operations

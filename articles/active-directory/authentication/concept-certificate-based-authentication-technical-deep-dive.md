@@ -94,16 +94,17 @@ If CBA enabled user cannot use MF cert (such as on mobile device without smart c
 
 ## MFA with Single-factor certificate-based authentication
 
-Azure AD CBA can be used as a second factor to meet MFA requirements with single-factor certificates. The supported combintaions are
+Azure AD CBA can be used as a second factor to meet MFA requirements with single-factor certificates. 
+Some of the supported combintaions are
 
-CBA (first factor) + passwordless phone sign-in (PSI as second factor)
-CBA (first factor) + FIDO2 security keys
-Password (first factor) + CBA (second factor) 
+1. CBA (first factor) + passwordless phone sign-in (PSI as second factor)
+1. CBA (first factor) + FIDO2 security keys (second factor) 
+1. Password (first factor) + CBA (second factor) 
 
 Users need to have another way to get MFA and register passwordless sign-in or FIDO2 in advance to signing in with Azure AD CBA.
 
 >[!IMPORTANT]
->A user will be considered MFA capable when a user is in scope for Certificate-based authentication auth method. This means user will not be able to use proof up as part of their authentication to registerd other available methods. More info on [Azure AD MFA](../authentication/concept-mfa-howitworks.md)
+>A user will be considered MFA capable when a user is in scope for Certificate-based authentication auth method. This means user will not be able to use proof up as part of their authentication to registerd other available methods. Make sure users who do not have a valid certificate are not part of CBA auth method scope. More info on [Azure AD MFA](../authentication/concept-mfa-howitworks.md)
 
 **Steps to set up passwordless phone signin(PSI) with CBA**
 

@@ -28,7 +28,7 @@ PIM role settings are also known as “PIM Policies”.
 
 Follow these steps to open the settings for an Azure resource role.
 
-1. [Sign in to Azure AD](https://aad.portal.azure.com/) 
+1. [Sign in to the Azure portal](https://portal.azure.com/)
 
 1. Select **Azure AD Privileged Identity Management -> Azure Resources**. On this page you can see list of Azure resources discovered in PIM. Use Resource type filter to select all required resource types.
 

@@ -33,7 +33,7 @@ To move a peered virtual network, you must first disable the virtual network pee
 
 ## VPN Gateways
 
-You cannot move VPN Gateways across subscriptions if they are of Basic SKU. Basic SKU is only meant for test environment usage and doesn't support resource move operation.
+You cannot move VPN Gateways across resource groups or subscriptions if they are of Basic SKU. Basic SKU is only meant for test environment usage and doesn't support resource move operation.
 
 ## Subnet links
 

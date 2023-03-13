@@ -32,7 +32,7 @@ This section describes how to assign roles at the tenant scope.
 
 ### Azure portal
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory** > **Roles and administrators** to see the list of all available roles.
 
@@ -122,7 +122,7 @@ This section describes how to assign roles at an [administrative unit](administr
 
 ### Azure portal
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory > Administrative units** to see the list of all administrative units.
 
@@ -229,7 +229,7 @@ This section describes how to assign roles at an application registration scope.
 
 ### Azure portal
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory > App registrations** to see the list of all app registrations.
 

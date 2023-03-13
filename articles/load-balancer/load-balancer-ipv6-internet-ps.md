@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create an Internet-facing load balancer with IPv6 - Azure PowerShell
 titleSuffix: Azure Load Balancer
 description: Learn how to create an Internet facing load balancer with IPv6 using PowerShell for Resource Manager.
@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: mbender
-ms.custom: template-how-to, seodec18
+ms.custom: template-how-to, seodec18, devx-track-azurepowershell
 ---
 
 # Get started creating an Internet facing load balancer with IPv6 using PowerShell for Resource Manager

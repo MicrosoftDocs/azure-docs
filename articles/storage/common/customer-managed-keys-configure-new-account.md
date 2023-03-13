@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/29/2022
+ms.date: 03/09/2023
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common 
@@ -195,7 +195,11 @@ When you manually update the key version, you'll need to update the storage acco
 
 [!INCLUDE [storage-customer-managed-keys-change-include](../../../includes/storage-customer-managed-keys-change-include.md)]
 
+If the new key is in a different key vault, you must [grant the managed identity access to the key in the new vault](#use-a-user-assigned-managed-identity-to-authorize-access-to-the-key-vault). If you choose manual updating of the key version, you will also need to [update the key vault URI](#configure-encryption-for-manual-updating-of-key-versions).
+
 [!INCLUDE [storage-customer-managed-keys-revoke-include](../../../includes/storage-customer-managed-keys-revoke-include.md)]
+
+Disabling the key will cause attempts to access data in the storage account to fail with error code 403 (Forbidden). For a list of storage account operations that will be affected by disabling the key, see [Revoke access to a storage account that uses customer-managed keys](customer-managed-keys-overview.md#revoke-access-to-a-storage-account-that-uses-customer-managed-keys).
 
 [!INCLUDE [storage-customer-managed-keys-disable-include](../../../includes/storage-customer-managed-keys-disable-include.md)]
 

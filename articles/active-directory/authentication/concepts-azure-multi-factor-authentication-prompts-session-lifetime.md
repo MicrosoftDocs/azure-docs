@@ -104,20 +104,20 @@ Under each sign-in log, go to the **Authentication Details** tab and explore **S
 
 To configure or review the *Remain signed-in* option, complete the following steps:
 
-1. In the Azure AD portal, search for and select *Azure Active Directory*.
+1. In the Azure portal, search for and select *Azure Active Directory*.
 1. Select **Company Branding**, then for each locale, choose **Show option to remain signed in**.
 1. Choose *Yes*, then select **Save**.
 
 To remember multifactor authentication settings on trusted devices, complete the following steps:
 
-1. In the Azure AD portal, search for and select *Azure Active Directory*.
+1. In the Azure portal, search for and select *Azure Active Directory*.
 1. Select **Security**, then **MFA**.
 1. Under **Configure**, select **Additional cloud-based MFA settings**.
 1. In the *Multi-factor authentication service settings* page, scroll to **remember multi-factor authentication settings**. Disable the setting by unchecking the checkbox.
 
 To configure Conditional Access policies for sign-in frequency and persistent browser session, complete the following steps:
 
-1. In the Azure AD portal, search for and select *Azure Active Directory*.
+1. In the Azure portal, search for and select *Azure Active Directory*.
 1. Select **Security**, then **Conditional Access**.
 1. Configure a policy using the recommended session management options detailed in this article.
 

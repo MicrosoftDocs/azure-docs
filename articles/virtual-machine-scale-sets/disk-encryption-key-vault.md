@@ -8,9 +8,8 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: disks
 ms.date: 11/22/2022
 ms.reviewer: mimckitt
-ms.custom: mimckitt, devx-track-azurecli 
+ms.custom: mimckitt, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: azurecli
-
 ---
 
 # Create and configure a key vault for Azure Disk Encryption
@@ -36,4 +35,3 @@ The steps in this article can be completed with the [Azure CLI](/cli/azure/), th
 - [Azure Disk Encryption overview](disk-encryption-overview.md)
 - [Encrypt a Virtual Machine Scale Sets using the Azure CLI](disk-encryption-cli.md)
 - [Encrypt a Virtual Machine Scale Sets using the Azure PowerShell](disk-encryption-powershell.md)
-

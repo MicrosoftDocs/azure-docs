@@ -25,7 +25,7 @@ You need an Azure API Management instance. [Create one](get-started-create-servi
 
 ## Create an Application Insights instance
 
-To use Application Insights, [create an instance of the Application Insights service](../azure-monitor/app/create-new-resource.md). To create an instance using the Azure portal, see [Workspace-based Application Insights resources](../azure-monitor/app/create-workspace-resource.md).
+To use Application Insights, [create an instance of the Application Insights service](/previous-versions/azure/azure-monitor/app/create-new-resource). To create an instance using the Azure portal, see [Workspace-based Application Insights resources](../azure-monitor/app/create-workspace-resource.md).
 
 > [!NOTE]
 > The Application Insights resource **can be** in a different subscription or even a different tenant than the API Management resource.
@@ -40,7 +40,7 @@ To use Application Insights, [create an instance of the Application Insights ser
 1. Select **+ Add**.  
     :::image type="content" source="media/api-management-howto-app-insights/apim-app-insights-logger-1.png" alt-text="Screenshot that shows where to add a new connection":::
 1. Select the **Application Insights** instance you created earlier and provide a short description.
-1. To enable [availability monitoring](../azure-monitor/app/monitor-web-app-availability.md) of your API Management instance in Application Insights, select the **Add availability monitor** checkbox.
+1. To enable [availability monitoring](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability) of your API Management instance in Application Insights, select the **Add availability monitor** checkbox.
     * This setting regularly validates whether the API Management gateway endpoint is responding. 
     * Results appear in the **Availability** pane of the Application Insights instance.
 1. Select **Create**.

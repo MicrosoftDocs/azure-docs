@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: overview
-ms.date: 02/07/2022
+ms.date: 03/13/2023
 ms.author: greglin
 ms.custom: references_regions
 ---
@@ -43,8 +43,6 @@ The Standard_v2 and WAF_v2 SKU is not currently available in the following regio
 - US DOD East
 - US DOD Central
 - US Gov Central
-- Germany Northeast
-- Germany Central
 - Qatar Central
 
 ## Pricing
