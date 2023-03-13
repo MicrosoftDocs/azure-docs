@@ -58,12 +58,10 @@ Verify that your SSL/TLS certificate [meets the required parameters](#verify-cer
         | **Certificate (CRT file)**     | Upload a Certificate (CRT file).        |
         | **Certificate Chain (PEM file)** - *Optional*     |  Upload a Certificate Chain (PEM file).       |
     
-        Select **Use CRL (Certificate Revocation List) to check certificate status** to validate the certificate against a [CRL server](#verify-crl-server-access). The certificate is checked once during the import process.
-
         For example:
 
-        :::image type="content" source="media/how-to-deploy-certificates/recommended-ssl.png" alt-text="Screenshot of importing a trusted CA certificate." lightbox="media/how-to-deploy-certificates/recommended-ssl.png":::
-    
+        :::image type="content" source="media/how-to-deploy-certificates/old-recommended-ssl.png" alt-text="Screenshot of importing a trusted CA certificate." lightbox="media/how-to-deploy-certificates/old-recommended-ssl.png":::
+
     # [Locally generated self-signed certificates](#tab/locally-generated-self-signed-certificate)
     
     > [!NOTE]
@@ -75,7 +73,7 @@ Verify that your SSL/TLS certificate [meets the required parameters](#verify-cer
 
     ---
 
-1. In the **Validation for on-premises management console certificates** area, select **Required** if SSL/TLS certificate validation is required. Otherwise, select **None**.
+1. Toggle on **Enable certificate validation** to validate the certificate against a [CRL server](#verify-crl-server-access). The certificate is checked once during the import process.
 
 1. Select **Save** to save your certificate settings.
 

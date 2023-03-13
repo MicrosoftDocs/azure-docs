@@ -66,7 +66,7 @@ In the Azure portal, use the following steps:
 
 ## View results
 
-After the service catalog managed application is deployed, you have two new resource groups. One resource group contains the managed application. The other resource group contains the managed resource that was deployed. In this example, a managed storage account.
+After the service catalog managed application is deployed, you have two new resource groups. One resource group contains the managed application. The other resource group contains the managed resources that were deployed. In this example, an App Service, App Service plan, and storage account.
 
 ### Managed application
 
@@ -78,7 +78,7 @@ Select the managed application's name to get more information like the link to t
 
    :::image type="content" source="./media/deploy-service-catalog-quickstart/view-managed-application.png" alt-text="Screenshot that shows the managed application's details and highlights the link to the managed resource group.":::
 
-### Managed resource
+### Managed resources
 
 Go to the managed resource group with the name prefix **rg-sampleManagedApplication** and select **Overview** to display the resources that were deployed. The resource group contains an App Service, App Service plan, and storage account.
 
