@@ -37,24 +37,24 @@ Each of these scopes can then further divide the statuses into categories and su
 
 |Error Code                       |Error Message | Details/Troubleshooting steps/Mitigation |
 |---------------------------------|--------------|------------------------------------------|
-| **<a name="AZSM1001">AZSM1001</a>** |Failed to mount source path | Verify the provided server information, name or IP-address, is valid, or the source location is correct. |
-| **<a name="AZSM1002">AZSM1002</a>** |Encountered an error while scanning the source  | Retry or create a support ticket. |
-| **<a name="AZSM1003">AZSM1003</a>** |Failed to access source folder due to permission issues | Check if the agent has been granted permissions correctly to the source file share. |
-| **<a name="AZSM1004">AZSM1004</a>** |Source path provided is invalid | Create a new endpoint with a valid source share path and update the job definition and retry. |
-| **<a name="AZSM1020">AZSM1020</a>** |Miscellaneous error while accessing source  | Retry or create a support ticket. |
-| **<a name="AZSM1021">AZSM1021</a>** |Failed to access target folder due to permission issues  | Retry or create a support ticket. |
-| **<a name="AZSM1022">AZSM1022</a>** |Target path provided is invalid | Create a new endpoint with a valid target container and path and update the job definition and retry. |
-| **<a name="AZSM1023">AZSM1023</a>** |Lease expired for this agent on the target container  | Retry or create a support ticket. |
-| **<a name="AZSM1024">AZSM1024</a>** |Authorization failure on claiming the target container | The agent does not have the permission to access the target container. The role assignment is performed automatically while running jobs from the portal. If you are using the APIs/Powershell cmdlets/SDKs, then manually create a 'Storage Blob Data Contributor' role assignment for the agent to access the target storage account blob container. The [Assign an Azure role for access to blob data](/azure/storage/blobs/assign-azure-role-data-access) article may help resolve this issue. |
-| **<a name="AZSM1025">AZSM1025</a>** |Authentication failure on claiming the target container  | Retry or create a support ticket. |
-| **<a name="AZSM1026">AZSM1026</a>** |Blob type in the target container not supported by the agent | This blob type is unsupported by the current Storage Mover agent. |
-| **<a name="AZSM1040">AZSM1040</a>** |Miscellaneous error while accessing target  | Retry or create a support ticket. |
-| **<a name="AZSM1041">AZSM1041</a>** |Failed to send job progress  | Retry or create a support ticket. |
-| **<a name="AZSM1042">AZSM1042</a>** |Failed to create job  | Retry or create a support ticket. |
-| **<a name="AZSM1043">AZSM1043</a>** |Failed to resume job  | Retry or create a support ticket. |
-| **<a name="AZSM1044">AZSM1044</a>** |Failed to finalize the job  | Retry or create a support ticket. |
-| **<a name="AZSM1045">AZSM1045</a>** |Job was aborted while it was still running  | Retry or create a support ticket. |
-| **<a name="AZSM1060">AZSM1060</a>** |Miscellaneous error during job execution  | Retry or create a support ticket. |
+| <a name="AZSM1001">AZSM1001</a> |Failed to mount source path | Verify the provided server information, name or IP-address, is valid, or the source location is correct. |
+| <a name="AZSM1002">AZSM1002</a> |Encountered an error while scanning the source  | Retry or create a support ticket. |
+| <a name="AZSM1003">AZSM1003</a> |Failed to access source folder due to permission issues | Check if the agent has been granted permissions correctly to the source file share. |
+| <a name="AZSM1004">AZSM1004</a> |Source path provided is invalid | Create a new endpoint with a valid source share path and update the job definition and retry. |
+| <a name="AZSM1020">AZSM1020</a> |Miscellaneous error while accessing source  | Retry or create a support ticket. |
+| <a name="AZSM1021">AZSM1021</a> |Failed to access target folder due to permission issues  | Retry or create a support ticket. |
+| <a name="AZSM1022">AZSM1022</a> |Target path provided is invalid | Create a new endpoint with a valid target container and path and update the job definition and retry. |
+| <a name="AZSM1023">AZSM1023</a> |Lease expired for this agent on the target container  | Retry or create a support ticket. |
+| <a name="AZSM1024">AZSM1024</a> |Authorization failure on claiming the target container | The agent does not have the permission to access the target container. The role assignment is performed automatically while running jobs from the portal. If you are using the APIs/Powershell cmdlets/SDKs, then manually create a 'Storage Blob Data Contributor' role assignment for the agent to access the target storage account blob container. The [Assign an Azure role for access to blob data](/azure/storage/blobs/assign-azure-role-data-access) article may help resolve this issue. |
+| <a name="AZSM1025">AZSM1025</a> |Authentication failure on claiming the target container  | Retry or create a support ticket. |
+| <a name="AZSM1026">AZSM1026</a> |Blob type in the target container not supported by the agent | This blob type is unsupported by the current Storage Mover agent. |
+| <a name="AZSM1040">AZSM1040</a> |Miscellaneous error while accessing target  | Retry or create a support ticket. |
+| <a name="AZSM1041">AZSM1041</a> |Failed to send job progress  | Retry or create a support ticket. |
+| <a name="AZSM1042">AZSM1042</a> |Failed to create job  | Retry or create a support ticket. |
+| <a name="AZSM1043">AZSM1043</a> |Failed to resume job  | Retry or create a support ticket. |
+| <a name="AZSM1044">AZSM1044</a> |Failed to finalize the job  | Retry or create a support ticket. |
+| <a name="AZSM1045">AZSM1045</a> |Job was aborted while it was still running  | Retry or create a support ticket. |
+| <a name="AZSM1060">AZSM1060</a> |Miscellaneous error during job execution  | Retry or create a support ticket. |
 
 ## I'd like to retain any content below this section for future work
 
@@ -150,7 +150,6 @@ The copy failed due to some transient reason, either while reading from the sour
 
 |Status code| Description                  |
 |-----------|------------------------------|
-
 |"AZSM2061" | Error encountered when scanning the source. |
 |"AZSM2062" | Could not read source file due to permission issues. |
 |"AZSM2063" | Encountered I/O error while reading source file. |
