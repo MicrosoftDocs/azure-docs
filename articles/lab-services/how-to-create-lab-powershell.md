@@ -5,7 +5,7 @@ description: Learn how to create an Azure Lab Services lab using PowerShell and 
 author: RogerBestMSFT
 ms.topic: how-to
 ms.date: 06/15/2022
-ms.custom: mode-api
+ms.custom: mode-api, devx-track-azurepowershell
 ---
 
 # Create a lab in Azure Lab Services using PowerShell and the Azure module

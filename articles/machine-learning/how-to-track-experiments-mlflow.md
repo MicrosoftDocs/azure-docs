@@ -28,6 +28,11 @@ MLflow allows you to:
 
 In this article, you'll learn how to manage experiments and runs in your workspace using Azure Machine Learning and MLflow SDK in Python.
 
+> [!IMPORTANT]
+> Items marked (preview) in this article are currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## Using MLflow SDK in Azure Machine Learning
 
 Use MLflow to query and manage all the experiments in Azure Machine Learning. The MLflow SDK has capabilities to query everything that happens inside of a training job in Azure Machine Learning. See [Support matrix for querying runs and experiments in Azure Machine Learning](#support-matrix-for-querying-runs-and-experiments) for a detailed comparison between MLflow Open-Source and MLflow when connected to Azure Machine Learning.

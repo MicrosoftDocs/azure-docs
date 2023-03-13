@@ -35,7 +35,7 @@ In this article, you learn how to:
 
     - You'll need access to the Active Directory Domain Controller(s) with Administrator permissions.
     - Your Active Directory Domain Controller(s) must have LDAPS enabled with a valid certificate. The certificate could be issued by an [Active Directory Certificate Services Certificate Authority (CA)](https://social.technet.microsoft.com/wiki/contents/articles/2980.ldap-over-ssl-ldaps-certificate.aspx) or a [Third-party/Public CA](/troubleshoot/windows-server/identity/enable-ldap-over-ssl-3rd-certification-authority).
-    - You need to have a valid certificate. To create a certificate, follow the steps shown in [create a certificate for secure LDAP](https://learn.microsoft.com/azure/active-directory-domain-services/tutorial-configure-ldaps#create-a-certificate-for-secure-ldap). Make sure the certificate meets the requirements that are listed after the steps you used to create a certificate for secure LDAP.
+    - You need to have a valid certificate. To create a certificate, follow the steps shown in [create a certificate for secure LDAP](../active-directory-domain-services/tutorial-configure-ldaps.md#create-a-certificate-for-secure-ldap). Make sure the certificate meets the requirements that are listed after the steps you used to create a certificate for secure LDAP.
     >[!NOTE]
     >Self-sign certificates are not recommended for production environments.  
     - [Export the certificate for LDAPS authentication](#export-the-certificate-for-ldaps-authentication) and upload it to an Azure Storage account as blob storage. Then, you'll need to [grant access to Azure Storage resources using shared access signature (SAS)](../storage/common/storage-sas-overview.md).  
@@ -47,7 +47,7 @@ In this article, you learn how to:
 
 ## Export the certificate for LDAPS authentication
 
-First, verify that the certificate used for LDAPS is valid. If you don't already have a certificate, follow the steps to [create a certificate for secure LDAP](https://learn.microsoft.com/azure/active-directory-domain-services/tutorial-configure-ldaps#create-a-certificate-for-secure-ldap) before you continue.
+First, verify that the certificate used for LDAPS is valid. If you don't already have a certificate, follow the steps to [create a certificate for secure LDAP](../active-directory-domain-services/tutorial-configure-ldaps.md#create-a-certificate-for-secure-ldap) before you continue.
 
 1. Sign in to a domain controller with administrator permissions where LDAPS is enabled.
 
@@ -178,6 +178,10 @@ You'll run the `Add-GroupToCloudAdmins` cmdlet to add an existing AD group to a 
 You'll run the `Get-ExternalIdentitySources` cmdlet to list all external identity sources already integrated with vCenter Server SSO.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
+    
+   >[!NOTE]
+   >If you need access to the Azure US Gov portal, go to https://portal.azure.us/
+
 
 1. Select **Run command** > **Packages** > **Get-ExternalIdentitySources**.
 

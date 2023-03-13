@@ -43,6 +43,8 @@ items:
       href: how-to-configure-project-admin.md
     - name: Provide access to developers
       href: how-to-configure-deployment-environments-user.md
+    - name: Manage environments as a developer
+      href: how-to-manage-environments.md
     - name: Create environments with the CLI
       href: how-to-create-access-environments.md  
 - name: Reference
@@ -60,4 +62,4 @@ items:
     - name: Report a problem
       href: https://aka.ms/deployment-environments/reportproblem
     - name: Suggest a feature
-      href: https://aka.ms/deployment-environments/suggestfeature
+      href: https://aka.ms/deployment-environments/suggestfeature 

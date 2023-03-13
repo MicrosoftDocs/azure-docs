@@ -80,7 +80,7 @@ Use the VPN device configuration file to configure your on-premises VPN device. 
 
 1. From your Virtual WAN page, go to **Hubs -> Your virtual hub -> VPN (Site to site)** page.
 
-1. At the top of the **VPN (Site to site)** page, click **Download VPN Config**. You'll see a series of messages as Azure creates a new storage account in the resource group 'microsoft-network-[location]', where location is the location of the WAN. You can also add an existing storage account by clicking "Use Existing" and adding a valid SAS URL.
+1. At the top of the **VPN (Site to site)** page, click **Download VPN Config**. You'll see a series of messages as Azure creates a new storage account in the resource group 'microsoft-network-[location]', where location is the location of the WAN. You can also add an existing storage account by clicking "Use Existing" and adding a valid SAS URL with write permissions enabled. To learn more about creating a new SAS URL, see [Generate the SAS URL](packet-capture-site-to-site-portal.md#URL).
 
 1. Once the file finishes creating, click the link to download the file. This creates a new file with VPN configuration at the provided SAS url location. To learn about the contents of the file, see [About the VPN device configuration file](#config-file) in this section.
 

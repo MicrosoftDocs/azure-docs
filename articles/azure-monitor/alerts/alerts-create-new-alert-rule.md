@@ -5,7 +5,7 @@ author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: conceptual
 ms.custom: ignite-2022
-ms.date: 02/12/2023
+ms.date: 03/05/2023
 ms.reviewer: harelbr
 ---
 # Create a new alert rule
@@ -30,23 +30,20 @@ Then you define these elements for the resulting alert actions by using:
 
 1. On the **Select a resource** pane, set the scope for your alert rule. You can filter by **subscription**, **resource type**, or **resource location**.
 
-    The **Available signal types** for your selected resources are at the bottom right of the pane.
-
     > [!NOTE]
     > If you select a Log analytics workspace resource, keep in mind that if the workspace receives telemetry from resources in more than one subscription, alerts are sent about those resources from different subscriptions.
 
     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-select-resource.png" alt-text="Screenshot that shows the select resource pane for creating a new alert rule.":::
 
-1. Select **Include all future resources** to include any future resources added to the selected scope.
-1. Select **Done**.
+1. Select **Apply**.
 1. Select **Next: Condition** at the bottom of the page.
-1. On the **Select a signal** pane, filter the list of signals by using the signal type and monitor service:
+1. On the **Select a signal** pane, you can search for the signal name or you can filter the list of signals by:
     - **Signal type**: The [type of alert rule](alerts-overview.md#types-of-alerts) you're creating.
-    - **Monitor service**: The service sending the signal. This list is pre-populated based on the type of alert rule you selected.
+    - **Signal source**: The service sending the signal. The list is pre-populated based on the type of alert rule you selected.
 
     This table describes the services available for each type of alert rule:
 
-    |Signal type  |Monitor service  |Description  |
+    |Signal type  |Signal source  |Description  |
     |---------|---------|---------|
     |Metrics|Platform   |For metric signals, the monitor service is the metric namespace. "Platform" means the metrics are provided by the resource provider, namely, Azure.|
     |       |Azure.ApplicationInsights|Customer-reported metrics, sent by the Application Insights SDK. |
@@ -60,7 +57,8 @@ Then you define these elements for the resulting alert actions by using:
     |Resource health|Resource health|The service that provides the resource-level health status. |
     |Service health|Service health|The service that provides the subscription-level health status.         |
 
-1. Select the **Signal name**, and follow the steps in the following tab that corresponds to the type of alert you're creating.
+1. Select the **Signal name** and **Apply**.
+1. Follow the steps in the tab that corresponds to the type of alert you're creating.
 
     ### [Metric alert](#tab/metric)
 
@@ -75,7 +73,7 @@ Then you define these elements for the resulting alert actions by using:
 
         Dimensions are name-value pairs that contain more data about the metric value. By using dimensions, you can filter the metrics and monitor specific time-series, instead of monitoring the aggregate of all the dimensional values.
 
-        If you select more than one dimension value, each time series that results from the combination will trigger its own alert and be charged separately. For example, the transactions metric of a storage account can have an API name dimension that contains the name of the API called by each transaction (for example, GetBlob, DeleteBlob, and PutPage). You can choose to have an alert fired when there's a high number of transactions in a specific API (the aggregated data). Or you can use dimensions to alert only when the number of transactions is high for specific APIs.
+        If you select more than one dimension value, each time series that results from the combination triggers its own alert and is charged separately. For example, the transactions metric of a storage account can have an API name dimension that contains the name of the API called by each transaction (for example, GetBlob, DeleteBlob, and PutPage). You can choose to have an alert fired when there's a high number of transactions in a specific API (the aggregated data). Or you can use dimensions to alert only when the number of transactions is high for specific APIs.
 
         |Field  |Description  |
         |---------|---------|
@@ -89,7 +87,7 @@ Then you define these elements for the resulting alert actions by using:
         |Field |Description |
         |---------|---------|
         |Threshold|Select if the threshold should be evaluated based on a static value or a dynamic value.<br>A **static threshold** evaluates the rule by using the threshold value that you configure.<br>**Dynamic thresholds** use machine learning algorithms to continuously learn the metric behavior patterns and calculate the appropriate thresholds for unexpected behavior. You can learn more about using [dynamic thresholds for metric alerts](alerts-types.md#dynamic-thresholds). |
-        |Operator|Select the operator for comparing the metric value against the threshold. <br>If you are using dynamic thresholds, alert rules can use tailored thresholds based on metric behavior for both upper and lower bounds in the same alert rule. Select one of these operators: <br> - Greater than the upper threshold or lower than the lower threshold (default) <br> - Greater than the upper threshold <br> - Lower than the lower threshold|
+        |Operator|Select the operator for comparing the metric value against the threshold. <br>If you're using dynamic thresholds, alert rules can use tailored thresholds based on metric behavior for both upper and lower bounds in the same alert rule. Select one of these operators: <br> - Greater than the upper threshold or lower than the lower threshold (default) <br> - Greater than the upper threshold <br> - Lower than the lower threshold|
         |Aggregation type|Select the aggregation function to apply on the data points: Sum, Count, Average, Min, or Max. |
         |Threshold value|If you selected a **static** threshold, enter the threshold value for the condition logic. |
         |Unit|If the selected metric signal supports different units, such as bytes, KB, MB, and GB, and if you selected a **static** threshold, enter the unit for the condition logic.|
@@ -102,9 +100,9 @@ Then you define these elements for the resulting alert actions by using:
         |Field |Description |
         |---------|---------|
         |Check every|Select how often the alert rule checks if the condition is met.    |
-        |Lookback period|Select how far back to look each time the data is checked. For example, every 1 minute you’ll be looking at the past 5 minutes.|
+        |Lookback period|Select how far back to look each time the data is checked. For example, every 1 minute, look back 5 minutes.|
 
-    1. (Optional) In the **Advanced options** section, you can specify how many failures within a specific time period will trigger the alert. For example, you can specify that you only want to trigger an alert if there were three failures in the last hour. This setting is defined by your application business policy. 
+    1. (Optional) In the **Advanced options** section, you can specify how many failures within a specific time period trigger an alert. For example, you can specify that you only want to trigger an alert if there were three failures in the last hour. Your application business policy should determine this setting. 
 
         Select values for these fields:
 
@@ -121,7 +119,7 @@ Then you define these elements for the resulting alert actions by using:
     > [!NOTE]
     > If you're creating a new log alert rule, note that the current alert rule wizard is different from the earlier experience. For more information, see [Changes to the log alert rule creation experience](#changes-to-the-log-alert-rule-creation-experience).
 
-    1. On the **Logs** pane, write a query that will return the log events for which you want to create an alert.
+    1. On the **Logs** pane, write a query that returns the log events for which you want to create an alert.
         To use one of the predefined alert rule queries, expand the **Schema and filter** pane on the left of the **Logs** pane. Then select the **Queries** tab, and select one of the queries.
 
         :::image type="content" source="media/alerts-create-new-alert-rule/alerts-log-rule-query-pane.png" alt-text="Screenshot that shows the Query pane when creating a new log alert rule.":::
@@ -177,7 +175,7 @@ Then you define these elements for the resulting alert actions by using:
 
         :::image type="content" source="media/alerts-create-new-alert-rule/alerts-create-log-rule-logic.png" alt-text="Screenshot that shows the Alert logic section of a new log alert rule.":::
 
-    1. (Optional) In the **Advanced options** section, you can specify the number of failures and the alert evaluation period required to trigger an alert. For example, if you set **Aggregation granularity** to 5 minutes, you can specify that you only want to trigger an alert if there were three failures (15 minutes) in the last hour. This setting is defined by your application business policy.
+    1. (Optional) In the **Advanced options** section, you can specify the number of failures and the alert evaluation period required to trigger an alert. For example, if you set **Aggregation granularity** to 5 minutes, you can specify that you only want to trigger an alert if there were three failures (15 minutes) in the last hour. Your application business policy determines this setting.
 
         Select values for these fields under **Number of violations to trigger the alert**:
 
@@ -334,7 +332,7 @@ Then you define these elements for the resulting alert actions by using:
 
     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-rule-tags-tab.png" alt-text="Screenshot that shows the Tags tab when creating a new alert rule.":::
 
-1. On the **Review + create** tab, a validation will run and inform you of any issues.
+1. On the **Review + create** tab, the rule is validated, and lets you know about any issues.
 1. When validation passes and you've reviewed the settings, select the **Create** button.
 
     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-rule-review-create.png" alt-text="Screenshot that shows the Review and create tab when creating a new alert rule.":::
