@@ -1,6 +1,6 @@
 ---
 title: Transparency Note for Trial Matcher
-description: Microsoft's Transparency Notes are intended to help you understand how our AI technology works.
+description: Microsoft's Transparency Notes for Trial Matcher are intended to help you understand how our AI technology works.
 services: azure-health-insights
 author: iBoonZ
 manager: urieinav
