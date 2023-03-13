@@ -22,7 +22,7 @@ Embedded Speech is designed for on-device [speech-to-text](speech-to-text.md) an
 
 ## Platform requirements
 
-Embedded speech is included with the Speech SDK (version 1.24.1 and higher) for C#, C++, and Java. Refer to the general [Speech SDK installation requirements](quickstarts/setup-platform.md) for programming language and target platform specific details.
+Embedded speech is included with the Speech SDK (version 1.24.1 and higher) for C#, C++, and Java. Refer to the general [Speech SDK installation requirements](#embedded-speech-sdk-packages) for programming language and target platform specific details.
 
 **Choose your target environment**
 
@@ -61,32 +61,6 @@ Embedded speech is only available with C#, C++, and Java SDKs. The other Speech 
 Embedded speech recognition only supports mono 16 bit, 8-kHz or 16-kHz PCM-encoded WAV audio.
 
 Embedded neural voices only support 24-kHz sample rate.
-
-## Models and voices
-
-For embedded speech, you'll need to download the speech recognition models for [speech-to-text](speech-to-text.md) and voices for [text-to-speech](text-to-speech.md). Instructions will be provided upon successful completion of the [limited access review](https://aka.ms/csgate-embedded-speech) process.
-
-The following [speech-to-text](speech-to-text.md) models are available: de-DE, en-AU, en-CA, en-GB, en-IE, en-IN, en-NZ, en-US, es-ES, es-MX, fr-CA, fr-FR, hi-IN, it-IT, ja-JP, ko-KR, nl-NL, pt-BR, ru-RU, sv-SE, tr-TR, zh-CN, zh-HK, and zh-TW.
-
-The following [text-to-speech](text-to-speech.md) locales and voices are available:
-
-| Locale (BCP-47) | Language | Text-to-speech voices |
-| ----- | ----- | ----- |
-| `de-DE` | German (Germany) | `de-DE-KatjaNeural` (Female)<br/>`de-DE-ConradNeural` (Male)|
-| `en-AU` | English (Australia) | `en-AU-AnnetteNeural` (Female)<br/>`en-AU-WilliamNeural` (Male)|
-| `en-CA` | English (Canada) | `en-CA-ClaraNeural` (Female)<br/>`en-CA-LiamNeural` (Male)|
-| `en-GB` | English (United Kingdom) | `en-GB-LibbyNeural` (Female)<br/>`en-GB-RyanNeural` (Male)|
-| `en-US` | English (United States) | `en-US-AriaNeural` (Female)<br/>`en-US-GuyNeural` (Male)<br/>`en-US-JennyNeural` (Female)|
-| `es-ES` | Spanish (Spain) | `es-ES-ElviraNeural` (Female)<br/>`es-ES-AlvaroNeural` (Male)|
-| `es-MX` | Spanish (Mexico) | `es-MX-DaliaNeural` (Female)<br/>`es-MX-JorgeNeural` (Male)|
-| `fr-CA` | French (Canada) | `fr-CA-SylvieNeural` (Female)<br/>`fr-CA-JeanNeural` (Male)|
-| `fr-FR` | French (France) | `fr-FR-DeniseNeural` (Female)<br/>`fr-FR-HenriNeural` (Male)|
-| `it-IT` | Italian (Italy) | `it-IT-IsabellaNeural` (Female)<br/>`it-IT-DiegoNeural` (Male)|
-| `ja-JP` | Japanese (Japan) | `ja-JP-NanamiNeural` (Female)<br/>`ja-JP-KeitaNeural` (Male)|
-| `ko-KR` | Korean (Korea) | `ko-KR-SunHiNeural` (Female)<br/>`ko-KR-InJoonNeural` (Male)|
-| `pr-BR` | Portuguese (Brazil) | `pt-BR-FranciscaNeural` (Female)<br/>`pt-BR-AntonioNeural` (Male)|
-| `zh-CN` | Chinese (Mandarin, Simplified) | `zh-CN-XiaoxiaoNeural` (Female)<br/>`zh-CN-YunxiNeural` (Male)|
-
 
 ## Embedded speech SDK packages
 
@@ -184,6 +158,32 @@ dependencies {
 ```
 ::: zone-end
 
+
+## Models and voices
+
+For embedded speech, you'll need to download the speech recognition models for [speech-to-text](speech-to-text.md) and voices for [text-to-speech](text-to-speech.md). Instructions will be provided upon successful completion of the [limited access review](https://aka.ms/csgate-embedded-speech) process.
+
+The following [speech-to-text](speech-to-text.md) models are available: de-DE, en-AU, en-CA, en-GB, en-IE, en-IN, en-NZ, en-US, es-ES, es-MX, fr-CA, fr-FR, hi-IN, it-IT, ja-JP, ko-KR, nl-NL, pt-BR, ru-RU, sv-SE, tr-TR, zh-CN, zh-HK, and zh-TW.
+
+The following [text-to-speech](text-to-speech.md) locales and voices are available:
+
+| Locale (BCP-47) | Language | Text-to-speech voices |
+| ----- | ----- | ----- |
+| `de-DE` | German (Germany) | `de-DE-KatjaNeural` (Female)<br/>`de-DE-ConradNeural` (Male)|
+| `en-AU` | English (Australia) | `en-AU-AnnetteNeural` (Female)<br/>`en-AU-WilliamNeural` (Male)|
+| `en-CA` | English (Canada) | `en-CA-ClaraNeural` (Female)<br/>`en-CA-LiamNeural` (Male)|
+| `en-GB` | English (United Kingdom) | `en-GB-LibbyNeural` (Female)<br/>`en-GB-RyanNeural` (Male)|
+| `en-US` | English (United States) | `en-US-AriaNeural` (Female)<br/>`en-US-GuyNeural` (Male)<br/>`en-US-JennyNeural` (Female)|
+| `es-ES` | Spanish (Spain) | `es-ES-ElviraNeural` (Female)<br/>`es-ES-AlvaroNeural` (Male)|
+| `es-MX` | Spanish (Mexico) | `es-MX-DaliaNeural` (Female)<br/>`es-MX-JorgeNeural` (Male)|
+| `fr-CA` | French (Canada) | `fr-CA-SylvieNeural` (Female)<br/>`fr-CA-JeanNeural` (Male)|
+| `fr-FR` | French (France) | `fr-FR-DeniseNeural` (Female)<br/>`fr-FR-HenriNeural` (Male)|
+| `it-IT` | Italian (Italy) | `it-IT-IsabellaNeural` (Female)<br/>`it-IT-DiegoNeural` (Male)|
+| `ja-JP` | Japanese (Japan) | `ja-JP-NanamiNeural` (Female)<br/>`ja-JP-KeitaNeural` (Male)|
+| `ko-KR` | Korean (Korea) | `ko-KR-SunHiNeural` (Female)<br/>`ko-KR-InJoonNeural` (Male)|
+| `pr-BR` | Portuguese (Brazil) | `pt-BR-FranciscaNeural` (Female)<br/>`pt-BR-AntonioNeural` (Male)|
+| `zh-CN` | Chinese (Mandarin, Simplified) | `zh-CN-XiaoxiaoNeural` (Female)<br/>`zh-CN-YunxiNeural` (Male)|
+
 ## Embedded speech configuration
 
 For cloud connected applications, as shown in most Speech SDK samples, you use the `SpeechConfig` object with a Speech resource key and region. For embedded speech, you don't use a Speech resource. Instead of a cloud resource, you use the [models and voices](#models-and-voices) that you downloaded to your local device. 
@@ -210,11 +210,6 @@ embeddedSpeechConfig.SetSpeechSynthesisVoice(
     Environment.GetEnvironmentVariable("VOICE_KEY"));
 embeddedSpeechConfig.SetSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat.Riff24Khz16BitMonoPcm);
 ```
-
-You can find ready to use embedded speech samples at [GitHub](https://aka.ms/embedded-speech-samples). For remarks on projects from scratch, see samples specific documentation:
-
-- [C# (.NET 6.0)](https://aka.ms/embedded-speech-samples-csharp)
-- [C# for Unity](https://aka.ms/embedded-speech-samples-csharp-unity)
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
@@ -241,8 +236,6 @@ embeddedSpeechConfig->SetSpeechSynthesisVoice(
 embeddedSpeechConfig->SetSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat::Riff24Khz16BitMonoPcm);
 ```
 
-You can find ready to use embedded speech samples at [GitHub](https://aka.ms/embedded-speech-samples). For remarks on projects from scratch, see samples specific documentation:
-- [C++](https://aka.ms/embedded-speech-samples-cpp)
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
@@ -266,11 +259,31 @@ embeddedSpeechConfig.setSpeechSynthesisVoice(
 embeddedSpeechConfig.setSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat.Riff24Khz16BitMonoPcm);
 ```
 
+::: zone-end
+
+
+## Embedded speech code samples
+
+::: zone pivot="programming-language-csharp"
+
+You can find ready to use embedded speech samples at [GitHub](https://aka.ms/embedded-speech-samples). For remarks on projects from scratch, see samples specific documentation:
+
+- [C# (.NET 6.0)](https://aka.ms/embedded-speech-samples-csharp)
+- [C# for Unity](https://aka.ms/embedded-speech-samples-csharp-unity)
+::: zone-end
+
+::: zone pivot="programming-language-cpp"
+
+You can find ready to use embedded speech samples at [GitHub](https://aka.ms/embedded-speech-samples). For remarks on projects from scratch, see samples specific documentation:
+- [C++](https://aka.ms/embedded-speech-samples-cpp)
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
 You can find ready to use embedded speech samples at [GitHub](https://aka.ms/embedded-speech-samples). For remarks on projects from scratch, see samples specific documentation:
 - [Java (JRE)](https://aka.ms/embedded-speech-samples-java)
 - [Java for Android](https://aka.ms/embedded-speech-samples-java-android)
 ::: zone-end
-
 
 ## Hybrid speech
 
@@ -284,7 +297,8 @@ With hybrid speech configuration for [text-to-speech](text-to-speech.md) (voices
 
 For cloud speech, you use the `SpeechConfig` object, as shown in the [speech-to-text quickstart](get-started-speech-to-text.md) and [text-to-speech quickstart](get-started-text-to-speech.md). To run the quickstarts for embedded speech, you can replace `SpeechConfig` with `EmbeddedSpeechConfig` or `HybridSpeechConfig`. Most of the other speech recognition and synthesis code are the same, whether using cloud, embedded, or hybrid configuration.
 
+
 ## Next steps
 
-- [Quickstart: Recognize and convert speech to text](get-started-speech-to-text.md)
-- [Quickstart: Convert text to speech](get-started-text-to-speech.md)
+- [Read about text to speech on devices for disconnected and hybrid scenarios](https://techcommunity.microsoft.com/t5/ai-cognitive-services-blog/azure-neural-tts-now-available-on-devices-for-disconnected-and/ba-p/3716797)
+- [Limited Access to embedded Speech](/legal/cognitive-services/speech-service/embedded-speech/limited-access-embedded-speech?context=/azure/cognitive-services/speech-service/context/context)
