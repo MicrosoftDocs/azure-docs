@@ -33,7 +33,7 @@ landingContent:
           - text: What are Azure Monitor Logs?
             url: ./logs/data-platform-logs.md
           - text: What is Azure Monitor for SCOM?
-            url:  azure-monitor-operations-manger.md
+            url:  azure-monitor-operations-manager.md
 
 # Card 
   - title: Get started with Azure Monitor
@@ -52,18 +52,6 @@ landingContent:
             url: best-practices-cost.md
 
   # Card 
-  - title: 10-minute quickstarts
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Monitor and alert on metrics
-            url: alerts/alerts-metric.md
-          - text: Analyze logs
-            url: ./logs/log-analytics-tutorial.md
-          - text: Alert on Subscription events
-            url: ./alerts/alerts-activity-log.md
-
-  # Card 
   - title: Get started with Application Insights
     linkLists:
       - linkListType: get-started
@@ -78,6 +66,17 @@ landingContent:
             url: https://github.com/Microsoft/appcenter
           - text: Website
             url: app/website-monitoring.md
+  # Card 
+  - title: 10-minute quickstarts
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Monitor and alert on metrics
+            url: alerts/alerts-metric.md
+          - text: Analyze logs
+            url: ./logs/log-analytics-tutorial.md
+          - text: Alert on Subscription events
+            url: ./alerts/alerts-activity-log.md
 
   # Card
   - title: Training
@@ -86,34 +85,34 @@ landingContent:
         links:
           - text: Learning path
             url: /training/paths/monitor-usage-performance-availability-resources-azure-monitor/
+          - text: Using Azure Monitor Logs
+            url: /training/modules/analyze-infrastructure-with-azure-monitor-logs/
           - text: Analyze logs in Azure Monitor with KQL
             url: /training/modules/analyze-logs-with-kql/
-          - text: Using Azure Monitor logs
-            url: /training/modules/analyze-infrastructure-with-azure-monitor-logs/
-          - text: Respond to incidents with Azure Monitor alerts
-            url: /training/modules/incident-response-with-alerting-on-azure/
           - text: Add the Application Insights SDK to your server-side code
             url: /training/modules/instrument-web-app-code-with-application-insights/
           - text: Monitor VM performance with VM Insights
-            url: /training/modules/monitor-performance-using-azure-monitor-for-vms/ 
+            url: /training/modules/monitor-performance-using-azure-monitor-for-vms/
+          - text: Respond to incidents with Azure Monitor alerts
+            url: /training/modules/incident-response-with-alerting-on-azure/
 
   # Card
   - title: Videos
     linkLists: 
       - linkListType: video
         links:
-          - text: How to run Autoscale
-            url: https://www.microsoft.com/en-us/videoplayer/embed/RE4u7ts
           - text: Create Azure Monitor Dashboards
             url: https://www.microsoft.com/en-us/videoplayer/embed/RE4AslH
-          - text: Container Insights overview
-            url: https://www.youtube.com/embed/XEdwGvS2AwA
           - text: How to create metric charts
             url: https://www.microsoft.com/videoplayer/embed/RE4qO59
           - text: Get started with log queries
             url: https://www.microsoft.com/videoplayer/embed/RE42pGX
           - text: Advanced query troubleshooting
             url:  https://www.microsoft.com/en-us/videoplayer/embed/RE4NUH0
+          - text: How to run Autoscale
+            url: https://www.microsoft.com/en-us/videoplayer/embed/RE4u7ts
+          - text: Container Insights overview
+            url: https://www.youtube.com/embed/XEdwGvS2AwA
           - text: Get started with Azure Workbooks
             url: https://www.microsoft.com/en-us/videoplayer/embed/RE4B4Ap
           - text: Build workbooks using log queries
