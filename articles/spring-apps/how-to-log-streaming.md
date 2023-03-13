@@ -157,7 +157,7 @@ Use the following steps to enable a log streaming endpoint on the public network
 
 1. Switch the status of **Log streaming on public network** to **enable** to enable a log streaming endpoint on the public network. This process will take a few minutes.
 
-   :::image type="content" source="media/how-to-log-streaming/enable-logstream-public-endpoint.png" alt-text="Screenshot of enabling a log stream public endpoint on the Vnet Injection page." lightbox="media/how-to-log-streaming/enable-logstream-public-endpoint.png":::
+    :::image type="content" source="media/how-to-log-streaming/enable-logstream-public-endpoint.png" alt-text="Screenshot of enabling a log stream public endpoint on the Vnet Injection page." lightbox="media/how-to-log-streaming/enable-logstream-public-endpoint.png":::
 
 #### [CLI](#tab/azure-CLI)
 
@@ -182,7 +182,7 @@ To ensure the security of your applications when you expose a public endpoint fo
 
 The following is a recommanded basic rule example from us. You could use commands like nslookup with the endpoint <service\-name>.private.azuremicroservices.io to get the target IP address.
 
-    :::image type="content" source="media/how-to-log-streaming/logstream-nsg.png" alt-text="Screenshot of recommanded network security group rule." lightbox="media/how-to-log-streaming/logstream-nsg.png":::
+   ![Recommanded network security group rule.](media/how-to-log-streaming/logstream-nsg.png)
 
 ## Next steps
 
