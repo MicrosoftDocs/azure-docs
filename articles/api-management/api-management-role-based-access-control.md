@@ -49,8 +49,8 @@ A workspace collaborator must be assigned both a workspace-scoped role and a ser
 |API Management Workspace Reader     | workspace        | Has read-only access to entities in the workspace.         |
 |API Management Workspace API Developer      |   workspace      |   Has read access to entities in the workspace and read and write access to APIs, policies, schemas, products, policy fragments, named values, and tags.  |
 |API Management Workspace API Product Manager     |  workspace       |   Has read access to entities in the workspace and read and write access to products, subscriptions, groups, and email notifications recipients.  |
-| API Management Service Workspace Member    | service    |   Has read access to tags and products and write access to allow:<br/><br/> ▪️ Assigning APIs to products<br/> ▪️ Assigning tags to products and APIs |
-|  API Management Service Workspace API Product Manager  | service    | Has the same access as API Management Service Workspace Member as well as read access to users and write access to allow assigning users to groups.  |
+| API Management Workspace API Developer    | service    |   Has read access to tags and products and write access to allow:<br/><br/> ▪️ Assigning APIs to products<br/> ▪️ Assigning tags to products and APIs |
+|  API Management Service Workspace API Product Manager  | service    | Has the same access as API Management Workspace API Developer as well as read access to users and write access to allow assigning users to groups.  |
 
  
 ## Custom roles

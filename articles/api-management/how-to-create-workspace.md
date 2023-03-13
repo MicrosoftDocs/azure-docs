@@ -16,7 +16,10 @@ Set up a [workspace](workspaces-overview.md) (preview) to enable a decentralized
 [!INCLUDE [api-management-availability-premium-dev-standard](../../includes/api-management-availability-premium-dev-standard.md)]
 
 > [!NOTE]
-> Workspaces are supported in API Management REST API version 2022-09-01-preview or later.
+> * Workspaces are a preview feature of API Management and subject to certain [limitations](workspaces-overview.md#preview-limitations).
+> * This feature is being released during March and April 2023.
+> * Workspaces are supported in API Management REST API version 2022-09-01-preview or later.
+> * For pricing considerations, see [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/).
 
 ## Prerequisites
 
@@ -38,7 +41,7 @@ The new workspace appears in the list on the **Workspaces** page. Select the wor
 
 After creating a workspace, assign permissions to users to manage the workspace's resources. Each workspace user must be assigned a workspace-specific RBAC role at the service level and at the workspace level, or granted equivalent permissions using custom roles.
 
-At minimum, assign an *administrator* of the workspace. Optionally, assign permissions to other workspace collaborators.
+At minimum, assign an *owner* of the workspace. Optionally, assign permissions to other workspace collaborators.
 
 * For a list of built-in workspace roles, see [How to use role-based access control in API Management](api-management-role-based-access-control.md).
 * For steps to assign a role, see [Assign Azure roles using the portal](../role-based-access-control/role-assignments-portal.md?tabs=current).
@@ -50,11 +53,11 @@ At minimum, assign an *administrator* of the workspace. Optionally, assign permi
 
 1. In the left menu, select **Access control (IAM)** > **+ Add**.
 
-1. Assign the administrator the following role:
+1. Assign the owner the following role:
     * **API Management Service Workspace API Product Manager**
 
 1. Assign one of the following roles to other members of the workspace:
-    * **API Management Service Workspace Member**
+    * **API Management Workspace API Developer**
     * **API Management Service Workspace API Product Manager**
 
 ### Assign a workspace-level role
@@ -62,11 +65,11 @@ At minimum, assign an *administrator* of the workspace. Optionally, assign permi
 1. In the menu for your API Management instance, select **Workspaces (preview)**  > the name of the workspace that you created.
 1. In the **Workspace** window, select **Access control (IAM)**> **+ Add**.
     
-1. Assign the administrator the following role:
+1. Assign the owner the following role:
 
     * **API Management Workspace Owner** 
 
-1. Optionally, assign one of the following workspace-level roles to other workspace members to manage workspace APIs and other resources. The administrator of the workspace can also assign workspace-level roles.
+1. Optionally, assign one of the following workspace-level roles to other workspace members to manage workspace APIs and other resources. The owner of the workspace can also assign workspace-level roles.
 
     * **API Management Workspace Reader**
     * **API Management Workspace Contributor**
