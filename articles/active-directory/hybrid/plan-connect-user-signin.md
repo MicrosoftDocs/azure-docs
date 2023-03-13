@@ -177,7 +177,7 @@ On the next page, you're asked to provide the credentials for Azure AD.
 
 On the **User sign-in** page, select the desired user sign-in.
 
-![Connect to Azure AD](./media/plan-connect-user-signin/changeusersignin2a.png)
+![Connect to Azure AD](https://user-images.githubusercontent.com/101168840/224614013-b03ae2b8-41cd-4746-8f2e-5e11eac0fde7.png)
 
 > [!NOTE]
 > If you're only making a temporary switch to password hash synchronization, then select the **Do not convert user accounts** check box. Not checking the option will convert each user to federated, and it can take several hours.
