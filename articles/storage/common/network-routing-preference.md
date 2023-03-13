@@ -75,7 +75,6 @@ Routing preference for Azure Storage is available in the following regions:
 | Asia Pacific  | East Asia            | eastasia           |
 | Asia Pacific  | Japan East           | japaneast          |
 | Asia Pacific  | Japan West           | japanwest          |
-| Asia Pacific  | Korea Central        | koreacentral       |
 | Asia Pacific  | Korea South          | koreasouth         |
 | Asia Pacific  | South India          | southindia         |
 | Asia Pacific  | Southeast Asia       | southeastasia      |
@@ -89,13 +88,11 @@ Routing preference for Azure Storage is available in the following regions:
 | Europe        | North Europe         | northeurope        |
 | Europe        | Norway East          | norwayeast         |
 | Europe        | Norway West          | norwaywest         |
-| Europe        | Sweden Central       | swedencentral      |
 | Europe        | Switzerland North    | switzerlandnorth   |
 | Europe        | Switzerland West     | switzerlandwest    |
 | Europe        | UK South             | uksouth            |
 | Europe        | UK West              | ukwest             |
 | Europe        | West Europe          | westeurope         |
-| Middle East   | Qatar Central        | qatarcentral       |
 | Middle East   | UAE Central          | uaecentral         |
 | Middle East   | UAE North            | uaenorth           |
 | South America | Brazil South         | brazilsouth        |
