@@ -15,7 +15,7 @@ As part of creating an AKS cluster, you may need to customize your cluster confi
 
 AKS supports Ubuntu 22.04 as the only node operating system (OS) for clusters with Kubernetes 1.25 and higher. Ubuntu 18.04 can also be specified at nodepool creation for Kubernetes versions 1.24 and below. 
 
-AKS supports Windows Server 2022 as the default operating system (OS) for Windows node pools in clusters with Kubernetes 1.25 and higher. Windows Server 2019 can also be specified at nodepool creation until Kubernetes 1.31. For more information about this retirement, see the [AKS release notes][aks-release-notes].
+AKS supports Windows Server 2022 as the default operating system (OS) for Windows node pools in clusters with Kubernetes 1.25 and higher. Windows Server 2019 can also be specified at nodepool creation for Kubernetes versions 1.32 and below. For more information about this retirement, see the [AKS release notes][aks-release-notes].
 
 ## Container runtime configuration
 
