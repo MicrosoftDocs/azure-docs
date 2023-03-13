@@ -78,7 +78,7 @@ resource "azurerm_container_registry" "acr" {
 }
 ```
 
-For more information about the syntax and argument reference, see [Terraform reference](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/container_registry).
+For more information about the syntax and argument reference, see [Terraform reference][terraform-reference].
 
 ---
 
@@ -154,7 +154,7 @@ resource "azurerm_role_assignment" "example" {
 }
 ```
 
-For more information about the syntax and argument reference, see [Terraform reference](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/container_registry).
+For more information about the syntax and argument reference, see [Terraform reference][terraform-reference].
 
 This method may take several minutes to complete.
 
@@ -202,7 +202,7 @@ resource "azurerm_role_assignment" "example" {
 }
 ```
 
-For more information about the syntax and argument reference, see [Terraform reference](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/container_registry).
+For more information about the syntax and argument reference, see [Terraform reference][terraform-reference].
 
 ---
 
@@ -337,3 +337,4 @@ nginx0-deployment-669dfc4d4b-xdpd6   1/1     Running   0          20s
 [cli-param]: /cli/azure/aks#az-aks-update-optional-parameters
 [ps-attach]: /powershell/module/az.aks/set-azakscluster#-acrnametoattach
 [byo-kubelet-identity]: use-managed-identity.md#use-a-pre-created-kubelet-managed-identity
+[terraform-reference]: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/container_registry
