@@ -6,7 +6,7 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 03/07/2023
+ms.date: 03/13/2023
 # Customer intent: As a Microsoft Purview admin, I want to set up private endpoints and managed vnets for my Microsoft Purview account for secure access or ingestion.
 ---
 # FAQ about Microsoft Purview private endpoints and Managed VNets
@@ -82,7 +82,7 @@ Yes. You can configure Microsoft Purview firewall setting to Disabled for ingest
 
 ### If public network access is set to Allow, does it mean the managed storage account and event hub namespace are accessible by anyone?
 
-No. As protected resources, access to the Microsoft Purview managed storage account and event hub namespace is restricted to Microsoft Purview only. These resources are deployed with a deny assignment to all principals, which prevents any applications, users, or groups from gaining access to them.
+No. As protected resources, access to the Microsoft Purview managed storage account and event hub namespace is restricted to Microsoft Purview only using RBAC authenitcation schemes. These resources are deployed with a deny assignment to all principals, which prevents any applications, users, or groups from gaining access to them.
 
 To read more about Azure deny assignment, see [Understand Azure deny assignments](../role-based-access-control/deny-assignments.md).
 
