@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/20/2021
+ms.date: 03/13/2023
 ms.author: alkohli
 ---
 
