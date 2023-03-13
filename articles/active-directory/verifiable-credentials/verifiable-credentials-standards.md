@@ -41,7 +41,7 @@ Entra Verified ID supports the following open standards:
 | Presentation | [OpenID for Verifiable Credentials](https://openid.net/specs/openid-connect-4-verifiable-presentations-1_0.html) | OIDF|
 | Query language | [Presentation Exchange v1.0](https://identity.foundation/presentation-exchange/spec/v1.0.0/)| DIF |
 | Trust in DID (decentralized identifier) owner | [Well Known DID Configuration](https://identity.foundation/.well-known/resources/did-configuration)| DIF |
-| Revocation |[Verifiable Credential Status List 2021](https://github.com/w3c-ccg/vc-status-list-2021/tree/343b8b59cddba4525e1ef355356ae760fc75904e)| W3C CCG |
+| Revocation |[Verifiable Credential Status List 2021](https://w3c.github.io/vc-status-list-2021/)| W3C CCG |
 
 ## Supported algorithms
 
