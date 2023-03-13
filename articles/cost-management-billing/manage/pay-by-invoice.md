@@ -12,7 +12,7 @@ ms.author: banders
 ms.custom: contperf-fy21q2
 ---
 
-# Pay for your Azure subscription wire transfer
+# Pay for your Azure subscription by wire transfer
 
 This article applies to customers with a Microsoft Customer Agreement (MCA) and to customers who signed up for Azure through the Azure website (for a Microsoft Online Services Program account also called pay-as-you-go account). If you signed up for Azure through a Microsoft representative, then your default payment method is already be set to *wire transfer*.
 
