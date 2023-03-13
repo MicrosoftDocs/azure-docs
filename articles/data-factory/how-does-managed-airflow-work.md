@@ -58,7 +58,7 @@ You'll need to upload a sample DAG onto an accessible Storage account.
 ### Steps to import
 1. Copy-paste the content (either v2.x or v1.10 based on the Airflow environment that you have setup) into a new file called as **tutorial.py**.
 
-   Upload the **tutorial.py** to a blob storage. ([How to upload a file into blob](/storage/blobs/storage-quickstart-blobs-portal.md))
+   Upload the **tutorial.py** to a blob storage. ([How to upload a file into blob](/azure/storage/blobs/storage-quickstart-blobs-portal))
 
    > [!NOTE]
    > You will need to select a directory path from a blob storage account that contains folders named **dags** and **plugins** to import those into the Airflow environment. **Plugins** are not mandatory. You can also have a container named **dags** and upload all Airflow files within it.  

@@ -2,7 +2,7 @@
 title: Application Insights overview
 description: Learn how Application Insights in Azure Monitor provides performance management and usage tracking of your live web application.
 ms.topic: overview
-ms.date: 01/24/2023
+ms.date: 02/14/2023
 ---
 
 # Application Insights overview
@@ -20,7 +20,7 @@ Application Insights provides other features including, but not limited to:
 
 - [Live Metrics](live-stream.md) – observe activity from your deployed application in real time with no effect on the host environment
 - [Availability](availability-overview.md)  – also known as “Synthetic Transaction Monitoring”, probe your applications external endpoint(s) to test the overall availability and responsiveness over time
-- [GitHub or Azure DevOps integration](work-item-integration.md) – create [GitHub](/training/paths/github-administration-products/) or [Azure DevOps](/azure/devops/?view=azure-devops) work items in context of Application Insights data
+- [GitHub or Azure DevOps integration](work-item-integration.md) – create [GitHub](/training/paths/github-administration-products/) or [Azure DevOps](/azure/devops/) work items in context of Application Insights data
 - [Usage](usage-overview.md) – understand which features are popular with users and how users interact and use your application
 - [Smart Detection](proactive-diagnostics.md) – automatic failure and anomaly detection through proactive telemetry analysis
 
@@ -109,7 +109,7 @@ This section outlines supported scenarios.
 
 ### Supported platforms and frameworks
 
-Supported platforms and frameworks are listed here.
+This section lists all supported platforms and frameworks.
 
 #### Azure service integration (portal enablement, Azure Resource Manager deployments)
 * [Azure Virtual Machines and Azure Virtual Machine Scale Sets](./azure-vm-vmss-apps.md)
@@ -129,9 +129,9 @@ Supported platforms and frameworks are listed here.
 * [Node.js](./nodejs.md)
 * [Python](./opencensus-python.md)
 * [JavaScript - web](./javascript.md)
-  * [React](./javascript-react-plugin.md)
-  * [React Native](./javascript-react-native-plugin.md)
-  * [Angular](./javascript-angular-plugin.md)
+  * [React](./javascript-framework-extensions.md)
+  * [React Native](./javascript-framework-extensions.md)
+  * [Angular](./javascript-framework-extensions.md)
 * [Windows desktop applications, services, and worker roles](https://github.com/Microsoft/appcenter)
 * [Universal Windows app](https://github.com/Microsoft/appcenter) (App Center)
 * [Android](https://github.com/Microsoft/appcenter) (App Center)
@@ -156,18 +156,23 @@ Several other community-supported Application Insights SDKs exist. However, Azur
 
 ---------------------------
 
-## Troubleshooting
-
-### Frequently asked questions
+## Frequently asked questions
 
 Review [frequently asked questions](../faq.yml).
+
+## Troubleshooting
+
+Review dedicated [troubleshooting articles](/troubleshoot/azure/azure-monitor/welcome-azure-monitor) for Application Insights.
+
+## Help and support
+
 ### Microsoft Q&A questions forum
 
-Post questions to the Microsoft Q&A [answers forum](/answers/topics/24223/azure-monitor.html).
+Post general questions to the Microsoft Q&A [answers forum](/answers/topics/24223/azure-monitor.html).
 
 ### Stack Overflow
 
-Post coding questions to [Stack Overflow]() using an Application Insights tag.
+Post coding questions to [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-application-insights) using an Application Insights tag.
 
 ### User Voice
 
@@ -176,5 +181,7 @@ Leave product feedback for the engineering team on [UserVoice](https://feedback.
 ## Next steps
 
 - [Create a resource](create-workspace-resource.md)
+- [Auto-instrumentation overview](codeless-overview.md)
+- [Overview dashboard](overview-dashboard.md)
+- [Availability overview](availability-overview.md)
 - [Application Map](app-map.md)
-- [Transaction search](diagnostic-search.md)

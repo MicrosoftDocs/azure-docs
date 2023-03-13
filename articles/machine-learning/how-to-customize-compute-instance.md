@@ -31,6 +31,8 @@ Some examples of what you can do in a setup script:
 * Set environment variables
 * Install JupyterLab extensions
 
+[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
 ## Create the setup script
 
 The setup script is a shell script, which runs as `rootuser`.  Create or upload the script into your **Notebooks** files:

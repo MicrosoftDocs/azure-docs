@@ -1,14 +1,12 @@
 ---
-title: Accelerate and secure your web application with Azure Front Door - Azure Front Door | Microsoft Docs
+title: Accelerate and secure your web application with Azure Front Door
 description: This article explains how Front Door can help you to build a well architected solution on Azure.
 services: front-door
-documentationcenter: ''
 author: johndowns
 ms.service: frontdoor
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 02/07/2023
+ms.date: 02/13/2023
 ms.author: jodowns
 ---
 
@@ -39,6 +37,7 @@ Front Door's security capabilities help to protect your application servers from
 - **Managed TLS certificates:** Front Door can [issue and manage certificates](domain.md#https-for-custom-domains), ensuring that your applications are protected by strong encryption and trust.
 - **Custom TLS certificates:** If you need to bring your own TLS certificates, Front Door enables you to use a [managed identity to access the key vault](managed-identity.md) that contains the certificate.
 - **Web application firewall:** Front Door's web application firewall (WAF) provides a range of security capabilities to your application. [Managed rule sets](../web-application-firewall/afds/waf-front-door-drs.md) scan incoming requests for suspicious content. [Bot protection rules](../web-application-firewall/afds/afds-overview.md#bot-protection-rule-set) identify and respond to traffic from bots. [Geo-filtering](../web-application-firewall/afds/waf-front-door-geo-filtering.md) and [rate limiting](../web-application-firewall/afds/waf-front-door-rate-limit.md) features protect your application servers from unexpected traffic.
+- **Protocol blocking:** Front Door only accepts traffic on the HTTP and HTTPS protocols, and will only process valid requests with a known `Host` header. Because of this behavior, your application is protected against many types of attacks across a range of protocols.
 - **DDoS protection:** Because of Front Door's architecture, it can also absorb large [distributed denial of service (DDoS) attacks](front-door-ddos.md) and prevent the traffic from reaching your application.
 - **Private Link origins:** [Private Link integration](private-link.md) helps you to protect your backend applications, ensuring that traffic can only reach your application by passing through Front Door and its security protections.
 

@@ -7,6 +7,7 @@ author: dennispadia
 manager: rdeltcheva
 tags: azure-resource-manager
 ms.service: sap-on-azure
+ms.subservice: sap-vm-workloads
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services

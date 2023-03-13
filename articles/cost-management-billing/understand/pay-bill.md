@@ -8,13 +8,13 @@ tags: billing, past due, pay now, bill, invoice, pay
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 02/08/2023
+ms.date: 02/24/2023
 ms.author: banders
 ---
 
 # Pay your Microsoft Customer Agreement Azure or Microsoft Online Subscription Program Azure bill
 
-This article applies to customers with a Microsoft Customer Agreement (MCA) and to customers who signed up for Azure through the Azure website (for a Microsoft Online Services Program account also called pay-as-you-go account).
+This article applies to customers with a Microsoft Customer Agreement (MCA) and to customers who signed up for Azure through the Azure website, Azure.com (for a Microsoft Online Services Program (MOSP) account also called pay-as-you-go account).
 
 [Check your access to a Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement).
 
@@ -30,6 +30,16 @@ If you have Azure credits, they automatically apply to your invoice each billing
 
 > [!NOTE]
 > Regardless of the payment method selected to complete your payment, you must specify the invoice number in the payment details.
+
+Here's a table summarizing payment methods for different agreement types
+
+|Agreement type| Credit card | Wire transfer¹ |
+| --- | ---- | --- | 
+| Microsoft Customer Agreement<br>purchased through a Microsoft representative | ✔ (with a $50,000.00 USD limit) | ✔ |
+| Enterprise Agreement | ✘ | ✔ |
+| MOSP | ✔ | ✔ if approved to pay by invoice |
+
+¹ If supported by your bank, an ACH credit transaction can be made automatically.
 
 ## Reserve Bank of India 
 

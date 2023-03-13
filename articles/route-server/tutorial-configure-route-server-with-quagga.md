@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Configure peering between Azure Route Server and Network Virtual Appliance"
+title: 'Tutorial: Configure peering between Azure Route Server and Network Virtual Appliance'
 description: This tutorial shows you how to configure an Azure Route Server and peer it with a Network Virtual Appliance (NVA) using the Azure portal.
 author: halkazwini
 ms.author: halkazwini

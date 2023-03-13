@@ -41,7 +41,8 @@ ms.author: eur
 | `ja-JP` | Japanese (Japan) | Custom Neural Voice Pro<br/><br/>Custom Neural Voice Lite (Preview)<br/><br/>Cross-lingual voice (Preview) |
 | `ko-KR` | Korean (Korea) | Custom Neural Voice Pro<br/><br/>Custom Neural Voice Lite (Preview)<br/><br/>Cross-lingual voice (Preview) |
 | `ms-MY` | Malay (Malaysia) | Custom Neural Voice Pro |
-| `nb-NO` | Norwegian Bokm├Ñl (Norway) | Custom Neural Voice Pro |
+| `nb-NO` | Norwegian Bokmål (Norway) | Custom Neural Voice Pro |
+| `nl-BE` | Dutch (Belgium) | Custom Neural Voice Pro |
 | `nl-NL` | Dutch (Netherlands) | Custom Neural Voice Pro |
 | `pl-PL` | Polish (Poland) | Custom Neural Voice Pro |
 | `pt-BR` | Portuguese (Brazil) | Custom Neural Voice Pro<br/><br/>Custom Neural Voice Lite (Preview)<br/><br/>Cross-lingual voice (Preview) |

@@ -40,7 +40,7 @@ The protections include:
 
 - **Advanced post-breach detection sensors**. Defenders for Endpoint's sensors collect a vast array of behavioral signals from your machines.
 
-- **Vulnerability assessment from the Microsoft threat and vulnerability management solution**. With Microsoft Defender for Endpoint installed, Defender for Cloud can show vulnerabilities discovered by the threat and vulnerability management module and also offer this module as a supported vulnerability assessment solution. Learn more in [Investigate weaknesses with Microsoft Defender for Endpoint's threat and vulnerability management](deploy-vulnerability-assessment-defender-vulnerability-management.md).
+- **Vulnerability assessment from Microsoft Defender Vulnerability Management**. With Microsoft Defender for Endpoint installed, Defender for Cloud can show vulnerabilities discovered by Defender Vulnerability Management and also offer this module as a supported vulnerability assessment solution. Learn more in [Investigate weaknesses with Microsoft Defender Vulnerability Management](deploy-vulnerability-assessment-defender-vulnerability-management.md).
 
     This module also brings the software inventory features described in [Access a software inventory](asset-inventory.md#access-a-software-inventory) and can be automatically enabled for supported machines with [the auto deploy settings](auto-deploy-vulnerability-assessment.md).
 

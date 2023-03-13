@@ -4,7 +4,7 @@ description: Learn about deployment considerations and strategy for successful i
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/29/2023
+ms.date: 03/06/2023
 ms.author: justinha
 author: justinha
 manager: amycolannino
@@ -187,7 +187,7 @@ If the user does not have a backup method available, you can:
 
 - Provide them a Temporary Access Pass so that they can manage their own authentication methods. You can also provide a Temporary Access Pass to enable temporary access to resources. 
 - Update their methods as an administrator. To do so, select the user in the Azure portal, then select Authentication methods and update their methods.
-User communications
+
 
 ## Plan integration with on-premises systems
 

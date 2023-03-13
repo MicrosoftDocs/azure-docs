@@ -2,12 +2,10 @@
 title: Routing preference in Azure
 description: Learn about how you can choose how your traffic routes between Azure and the Internet with routing preference.
 services: virtual-network
-documentationcenter: na
 author: asudbring
 ms.service: virtual-network
 # Customer intent: As an Azure customer, I want to learn more about routing choices for my internet egress traffic.
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2021
 ms.author: allensu
@@ -67,8 +65,7 @@ The price difference between both options is reflected in the internet egress da
 ## Limitations
 
 * Internet routing preference is only compatible with zone-redundant standard SKU of public IP address. Basic SKU of public IP address is not supported.
-* Internet routing preference currently supports only IPv4 public IP addresses. IPv6 public IP addresses are not supported.
-* Internet routing preference IPs are not supported in a public IP address prefix.
+* Internet routing preference currently supports only IPv4 public IP addresses. IPv6 public IP addresses aren't supported.
 
 ### Regional Unavailability
 Internet routing preference is available in all regions except:

@@ -34,9 +34,11 @@ When you select **Active Tasks**, the **Analytics** dashboard provides a high-le
     The dashboard only lists tasks that are active. The following components make up the **Active Tasks** dashboard:
 
     - **Authorization System Type**: Select the authorization you want to use: Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP).
-    - **Authorization System**: Select from a **List** of accounts and **Folders***.
+    - **Authorization System**: Select from a **List** of accounts and **Folders**.
+      > [!NOTE]
+      > Folders can be used to organize and group together your list of accounts, or subscriptions. To create a folder, go to **Settings (gear icon) > Folders > Create Folder**.
     - **Tasks Type**: Select **All** tasks, **High Risk tasks** or, for a list of tasks where users have deleted data, select **Delete Tasks**.
-    - **Search**: Enter criteria to find specific tasks.
+    - **Search**: Enter criteria to find specific tasks. 
 
 1. Select **Apply** to display the criteria you've selected.
 

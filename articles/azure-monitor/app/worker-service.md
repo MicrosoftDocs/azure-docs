@@ -314,7 +314,36 @@ The following sections list the full telemetry automatically collected by Applic
 
 ### ILogger logs
 
-Logs emitted via `ILogger` with the severity Warning or greater are automatically captured. Follow [ILogger docs](ilogger.md#logging-level) to customize which log levels are captured by Application Insights.
+Logs emitted via `ILogger` with the severity Warning or greater are automatically captured. To change this behavior, explicitly override the logging configuration for the provider `ApplicationInsights`, as shown in the following code. The following configuration allows Application Insights to capture all `Information` logs and more severe logs.
+
+```json
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Warning"
+    },
+    "ApplicationInsights": {
+      "LogLevel": {
+        "Default": "Information"
+      }
+    }
+  }
+}
+```
+
+It's important to note that the following example doesn't cause the Application Insights provider to capture `Information` logs. It doesn't capture it because the SDK adds a default logging filter that instructs `ApplicationInsights` to capture only `Warning` logs and more severe logs. Application Insights requires an explicit override.
+
+```json
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information"
+    }
+  }
+}
+```
+
+For more information, follow [ILogger docs](/dotnet/core/extensions/logging#configure-logging) to customize which log levels are captured by Application Insights.
 
 ### Dependencies
 
