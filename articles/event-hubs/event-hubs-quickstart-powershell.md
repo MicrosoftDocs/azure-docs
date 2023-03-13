@@ -9,7 +9,11 @@ ms.custom: devx-track-azurepowershell, mode-api
 # Quickstart: Create an event hub using Azure PowerShell
 In this quickstart, you will create an event hub using Azure PowerShell.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+## Prerequisites
+An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+[!INCLUDE [azure-powershell-prepare-your-environment.md](~/articles/reusable-content/azure-powershell/azure-powershell-prepare-your-environment.md)]
+
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
