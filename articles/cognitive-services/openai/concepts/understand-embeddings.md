@@ -1,5 +1,5 @@
 ---
-title: Azure OpenAI embeddings
+title: Azure OpenAI Service embeddings
 titleSuffix: Azure OpenAI - embeddings and cosine similarity
 description: Learn more about Azure OpenAI embeddings API for document search and cosine similarity
 services: cognitive-services
@@ -14,13 +14,13 @@ recommendations: false
 ms.custom:
 ---
 
-# Understanding embeddings in Azure OpenAI
+# Understanding embeddings in Azure OpenAI Service
 
 An embedding is a special format of data representation that can be easily utilized by machine learning models and algorithms. The embedding is an information dense representation of the semantic meaning of a piece of text. Each embedding is a vector of floating-point numbers, such that the distance between two embeddings in the vector space is correlated with semantic similarity between two inputs in the original format. For example, if two texts are similar, then their vector representations should also be similar.
 
 ## Embedding models
 
-Different Azure OpenAI embedding models are specifically created to be good at a particular task. **Similarity embeddings** are good at capturing semantic similarity between two or more pieces of text. **Text search embeddings** help measure long documents are relevant to a short query. **Code search embeddings** are useful for embedding code snippets and embedding nature language search queries.
+Different Azure OpenAI embedding models are specifically created to be good at a particular task. **Similarity embeddings** are good at capturing semantic similarity between two or more pieces of text. **Text search embeddings** help measure long documents are relevant to a short query. **Code search embeddings** are useful for embedding code snippets and embedding natural language search queries.
 
 Embeddings make it easier to do machine learning on large inputs representing words by capturing the semantic similarities in a vector space. Therefore, we can use embeddings to determine if two text chunks are semantically related or similar, and provide a score to assess similarity.
 

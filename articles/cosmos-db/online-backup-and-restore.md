@@ -22,9 +22,6 @@ There are two backup modes:
 
 * **Continuous backup mode** –  This mode has two tiers. One tier includes 7-day retention and the second includes 30-day retention. Continuous backup allows you to restore to any point of time within either 7 or 30 days. You can choose this appropriate tier while creating an Azure Cosmos DB account. For more information about the tiers, see [introduction to continuous backup mode](continuous-backup-restore-introduction.md). To enable continuous backup, see the appropriate articles using [Azure portal](provision-account-continuous-backup.md#provision-portal), [PowerShell](provision-account-continuous-backup.md#provision-powershell), [CLI](provision-account-continuous-backup.md#provision-cli), or [Azure Resource Manager](provision-account-continuous-backup.md#provision-arm-template). You can also [migrate the accounts from periodic to continuous mode](migrate-continuous-backup.md).
 
-    > [!NOTE]
-    > The 7-day retention tier is currently in preview.
-
 * **Periodic backup mode** - This mode is the default backup mode for all existing accounts. In this mode, backup is taken at a periodic interval and the data is restored by creating a request with the support team. In this mode, you configure a backup interval and retention for your account. The maximum retention period extends to a month. The minimum backup interval can be one hour.  To learn more, see [periodic backup mode](configure-periodic-backup-restore.md).
 
   > [!NOTE]

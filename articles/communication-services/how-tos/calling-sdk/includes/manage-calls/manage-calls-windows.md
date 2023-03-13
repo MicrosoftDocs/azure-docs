@@ -110,7 +110,7 @@ var callAgentOptions = new CallAgentOptions()
 this.callAgent = await callClient.CreateCallAgent(tokenCredential, callAgentOptions);
 ```
 
-`<AUTHENTICATION_TOKEN>` must be replaced by a valid credential token for your resource. Refer to the [user access token](../../../../quickstarts/access-tokens.md) documentation if a credential token has to be sourced.
+`<AUTHENTICATION_TOKEN>` must be replaced by a valid credential token for your resource. Refer to the [user access token](../../../../quickstarts/identity/access-tokens.md) documentation if a credential token has to be sourced.
 
 ## Create CallAgent and place a call
 

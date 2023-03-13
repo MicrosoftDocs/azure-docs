@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot Azure Arc resource bridge (preview) issues
 description: This article tells how to troubleshoot and resolve issues with the Azure Arc resource bridge (preview) when trying to deploy or connect to the service.
-ms.date: 12/06/2022
+ms.date: 01/26/2023
 ms.topic: conceptual
 ---
 
@@ -13,9 +13,9 @@ This article provides information on troubleshooting and resolving issues that m
 
 ### Logs
 
-For issues encountered with Arc resource bridge, collect logs for further investigation using the Azure CLI [`az arcappliance logs`](/cli/azure/arcappliance/logs) command. This command needs to be run from the same deployment machine that was used to run commands to deploy the Arc resource bridge. If there is a problem collecting logs, most likely the deployment machine is unable to reach the Appliance VM, and the network administrator needs to allow communication between the deployment machine to the Appliance VM.
+For issues encountered with Arc resource bridge, collect logs for further investigation using the Azure CLI [`az arcappliance logs`](/cli/azure/arcappliance/logs) command. This command needs to be run from the same management machine that was used to run commands to deploy the Arc resource bridge. If there is a problem collecting logs, most likely the management machine is unable to reach the Appliance VM, and the network administrator needs to allow communication between the management machine to the Appliance VM.
 
-The `az arcappliance logs` command requires SSH to the Azure Arc resource bridge VM. The SSH key is saved to the deployment machine. To use a different machine to run the logs command, make sure the following files are copied to the machine in the same location:
+The `az arcappliance logs` command requires SSH to the Azure Arc resource bridge VM. The SSH key is saved to the management machine. To use a different machine to run the logs command, make sure the following files are copied to the machine in the same location:
 
 ```azurecli
 $HOME\.KVA\.ssh\logkey.pub
@@ -36,19 +36,11 @@ For example, if you specified the wrong location, or subscription during deploym
 
 To resolve this issue, delete the appliance and update the appliance YAML file. Then redeploy and create the resource bridge.
 
-### Failure due to previous failed deployments
+### Connection closed before server preface received
 
-If an Arc resource bridge deployment fails, subsequent deployments may fail due to residual cached folders remaining on the machine.
+When there are multiple attempts to deploy Arc resource bridge, expired credentials left on the management machine may cause future deployments to fail. The error will contain the message `Unavailable desc = connection closed before server preface received`. This error will surface in various `az arcappliance` commands including `validate`, `prepare` and `delete`.
 
-To prevent this from happening, be sure to run the `az arcappliance delete` command after any failed deployment. This command must be run with the latest `arcappliance` Azure CLI extension. To ensure that you have the latest version installed on your machine, run the following command:
-
-```azurecli
-az extension update --name arcappliance
-```
-
-If the failed deployment is not successfully removed, residual cached folders may cause future Arc resource bridge deployments to fail. This may cause the error message `Unavailable desc = connection closed before server preface received` to surface when various `az arcappliance` commands are run, including `prepare` and `delete`.
-
-To resolve this error, the .wssd\python and .wssd\kva folders in the user profile directory need to be deleted on the machine where the Arc resource bridge CLI commands are being run. You can delete these manually by navigating to the user profile directory (typically C:\Users\<username>), then deleting the .wssd\python and/or .wssd\kva folders. After they are deleted, try the command again.
+To resolve this error, the .wssd\python and .wssd\kva folders in the user profile directory need to be manually deleted from the management machine. Depending on where  the deployment errored, there may not be a kva folder to delete. You can delete these folders manually by navigating to the user profile directory (typically `C:\Users\<username>`), then deleting the `.wssd\python` and `.wssd\kva` folders. After they are deleted, retry the command that failed.
 
 ### Token refresh error
 
@@ -60,11 +52,35 @@ When using the `az arcappliance createConfig` or `az arcappliance run` command, 
 
 When the appliance is deployed to a host resource pool, there is no high availability if the host hardware fails. Because of this, we recommend that you don't try to deploy the appliance in a host resource pool.
 
+### Resource bridge status "Offline" and `provisioningState` "Failed"
+
+When deploying Arc resource bridge, the bridge may appear to be successfully deployed, because no errors were encountered when running `az arcappliance deploy` or `az arcappliance create`. However, when viewing the bridge in Azure portal, you may see status shows as **Offline**, and `az arcappliance show` may show the `provisioningState` as **Failed**. This happens when required providers are not registered before the bridge is deployed.
+
+To resolve this problem, delete the resource bridge, register the providers, then redeploy the resource bridge.
+
+1. Delete the resource bridge:
+
+   ```azurecli
+   az arcappliance delete <fabric> --config-file <path to appliance.yaml>
+   ```
+
+1. Register the providers:
+
+   ```azurecli
+   az provider register --namespace Microsoft.ExtendedLocation –wait
+   az provider register --namespace Microsoft.ResourceConnector –wait
+   ```
+
+1. Redeploy the resource bridge.
+
+> [!NOTE]
+> Partner products (such as Arc-enabled VMware vSphere) may have their own required providers to register. To see additional providers that must be registered, see the product's documentation.
+
 ## Networking issues
 
 ### Restricted outbound connectivity
 
-If you are experiencing connectivity, check to make sure your network allows all of the firewall and proxy URLs that are required to enable communication from the host machine, Appliance VM, and Control Plane IP to the required Arc resource bridge URLs. For more information, see [Azure Arc resource bridge (preview) network requirements](network-requirements.md).
+If you are experiencing connectivity, check to make sure your network allows all of the firewall and proxy URLs that are required to enable communication from the management machine, Appliance VM, and Control Plane IP to the required Arc resource bridge URLs. For more information, see [Azure Arc resource bridge (preview) network requirements](network-requirements.md).
 
 ### Azure Arc resource bridge is unreachable
 
@@ -78,44 +94,44 @@ To resolve this issue, reboot the resource bridge (preview) VM, and it should re
 
 ### SSL proxy configuration issues
 
-Be sure that the proxy server on your client machine trusts both the SSL certificate for your SSL proxy and the SSL certificate of the Microsoft download servers.
+Be sure that the proxy server on your management machine trusts both the SSL certificate for your SSL proxy and the SSL certificate of the Microsoft download servers.
 
 For more information, see [SSL proxy configuration](network-requirements.md#ssl-proxy-configuration).
 
 ### KVA timeout error
 
-While trying to deploy Arc Resource Bridge, a "KVA timeout error" may appear. The "KVA timeout error" is a generic error that can be the result of a variety of network misconfigurations that involve the deployment machine, Appliance VM, or Control Plane IP not having communication with each other, to the internet, or required URLs. This communication failure is often due to issues with DNS resolution, proxy settings, network configuration, or internet access.  
+While trying to deploy Arc Resource Bridge, a "KVA timeout error" may appear. The "KVA timeout error" is a generic error that can be the result of a variety of network misconfigurations that involve the management machine, Appliance VM, or Control Plane IP not having communication with each other, to the internet, or required URLs. This communication failure is often due to issues with DNS resolution, proxy settings, network configuration, or internet access.  
 
-For clarity, "deployment machine" refers to the machine where deployment CLI commands are being run. "Appliance VM" is the VM that hosts Arc resource bridge. "Control Plane IP" is the IP of the control plane for the Kubernetes management cluster in the Appliance VM.
+For clarity, "management machine" refers to the machine where deployment CLI commands are being run. "Appliance VM" is the VM that hosts Arc resource bridge. "Control Plane IP" is the IP of the control plane for the Kubernetes management cluster in the Appliance VM.
 
 #### Top causes of the KVA timeout error  
 
-- Deployment machine is unable to communicate with Control Plane IP and Appliance VM IP.
-- Appliance VM is unable to communicate with the deployment machine, vCenter endpoint (for VMware), or MOC cloud agent endpoint (for Azure Stack HCI).  
+- Management machine is unable to communicate with Control Plane IP and Appliance VM IP.
+- Appliance VM is unable to communicate with the management machine, vCenter endpoint (for VMware), or MOC cloud agent endpoint (for Azure Stack HCI).  
 - Appliance VM does not have internet access.
 - Appliance VM has internet access, but connectivity to one or more required URLs is being blocked, possibly due to a proxy or firewall.
 - Appliance VM is unable to reach a DNS server that can resolve internal names, such as vCenter endpoint for vSphere or cloud agent endpoint for Azure Stack HCI. The DNS server must also be able to resolve external addresses, such as Azure service addresses and container registry names.  
-- Proxy server configuration on the deployment machine or Arc resource bridge configuration files is incorrect. This can impact both the deployment machine and the Appliance VM. When the `az arcappliance prepare` command is run, the deployment machine won't be able to connect and download OS images if the host proxy isn't correctly configured. Internet access on the Appliance VM might be broken by incorrect or missing proxy configuration, which impacts the VM’s ability to pull container images.  
+- Proxy server configuration on the management machine or Arc resource bridge configuration files is incorrect. This can impact both the management machine and the Appliance VM. When the `az arcappliance prepare` command is run, the management machine won't be able to connect and download OS images if the host proxy isn't correctly configured. Internet access on the Appliance VM might be broken by incorrect or missing proxy configuration, which impacts the VM’s ability to pull container images.  
 
 #### Troubleshoot KVA timeout error
 
 To resolve the error, one or more network misconfigurations may need to be addressed. Follow the steps below to address the most common reasons for this error.
 
-1. When there is a problem with deployment, the first step is to collect logs by Appliance VM IP (not by kubeconfig, as the kubeconfig may be empty if deploy command did not complete). Problems collecting logs are most likely due to the deployment machine being unable to reach the Appliance VM.
+1. When there is a problem with deployment, the first step is to collect logs by Appliance VM IP (not by kubeconfig, as the kubeconfig may be empty if deploy command did not complete). Problems collecting logs are most likely due to the management machine being unable to reach the Appliance VM.
 
    Once logs are collected, extract the folder and open kva.log. Review the kva.log for more information on the failure to help pinpoint the cause of the KVA timeout error.
 
-1. The deployment machine must be able to communicate with the Appliance VM IP and Control Plane IP. Ping the Control Plane IP and Appliance VM IP from the deployment machine and verify there is a response from both IPs.
+1. The management machine must be able to communicate with the Appliance VM IP and Control Plane IP. Ping the Control Plane IP and Appliance VM IP from the management machine and verify there is a response from both IPs.
 
-   If a request times out, the deployment machine is not able to communicate with the IP(s). This could be caused by a closed port, network misconfiguration or a firewall block. Work with your network administrator to allow communication between the deployment machine to the Control Plane IP and Appliance VM IP.
+   If a request times out, the management machine is not able to communicate with the IP(s). This could be caused by a closed port, network misconfiguration or a firewall block. Work with your network administrator to allow communication between the management machine to the Control Plane IP and Appliance VM IP.
 
-1. Appliance VM IP and Control Plane IP must be able to communicate with the deployment machine and vCenter endpoint (for VMware) or MOC cloud agent endpoint (for HCI). Work with your network administrator to ensure the network is configured to permit this. This may require adding a firewall rule to open port 443 from the Appliance VM IP and Control Plane IP to vCenter or port 65000 and 55000 for Azure Stack HCI MOC cloud agent. Review [network requirements for Azure Stack HCI](/azure-stack/hci/manage/azure-arc-vm-management-prerequisites#network-port-requirements) and [VMware](../vmware-vsphere/quick-start-connect-vcenter-to-arc-using-script.md) for Arc resource bridge.
+1. Appliance VM IP and Control Plane IP must be able to communicate with the management machine and vCenter endpoint (for VMware) or MOC cloud agent endpoint (for HCI). Work with your network administrator to ensure the network is configured to permit this. This may require adding a firewall rule to open port 443 from the Appliance VM IP and Control Plane IP to vCenter or port 65000 and 55000 for Azure Stack HCI MOC cloud agent. Review [network requirements for Azure Stack HCI](/azure-stack/hci/manage/azure-arc-vm-management-prerequisites#network-port-requirements) and [VMware](../vmware-vsphere/quick-start-connect-vcenter-to-arc-using-script.md) for Arc resource bridge.
 
 1. Appliance VM IP and Control Plane IP need internet access to [these required URLs](#restricted-outbound-connectivity). Azure Stack HCI requires [additional URLs](/azure-stack/hci/manage/azure-arc-vm-management-prerequisites). Work with your network administrator to ensure that the IPs can access the required URLs.
 
-1. In a non-proxy environment, the deployment machine must have external and internal DNS resolution. The deployment machine must be able to reach a DNS server that can resolve internal names such as vCenter endpoint for vSphere or cloud agent endpoint for Azure Stack HCI. The DNS server also needs to be able to [resolve external addresses](#restricted-outbound-connectivity), such as Azure URLs and OS image download URLs. Work with your system administrator to ensure that the deployment machine has internal and external DNS resolution. In a proxy environment, the DNS resolution on the proxy server should resolve internal endpoints and [required external addresses](#restricted-outbound-connectivity).
+1. In a non-proxy environment, the management machine must have external and internal DNS resolution. The management machine must be able to reach a DNS server that can resolve internal names such as vCenter endpoint for vSphere or cloud agent endpoint for Azure Stack HCI. The DNS server also needs to be able to [resolve external addresses](#restricted-outbound-connectivity), such as Azure URLs and OS image download URLs. Work with your system administrator to ensure that the management machine has internal and external DNS resolution. In a proxy environment, the DNS resolution on the proxy server should resolve internal endpoints and [required external addresses](#restricted-outbound-connectivity).
 
-   To test DNS resolution to an internal address from the deployment machine in a non-proxy scenario, open command prompt and run `nslookup <vCenter endpoint or HCI MOC cloud agent IP>`. You should receive an answer if the deployment machine has internal DNS resolution in a non-proxy scenario.  
+   To test DNS resolution to an internal address from the management machine in a non-proxy scenario, open command prompt and run `nslookup <vCenter endpoint or HCI MOC cloud agent IP>`. You should receive an answer if the management machine has internal DNS resolution in a non-proxy scenario.  
 
 1. Appliance VM needs to be able to reach a DNS server that can resolve internal names such as vCenter endpoint for vSphere or cloud agent endpoint for Azure Stack HCI. The DNS server also needs to be able to resolve external/internal addresses, such as Azure service addresses and container registry names for download of the Arc resource bridge container images from the cloud.
 
@@ -148,7 +164,7 @@ value out of range.
 
 This error occurs when you run the Azure CLI commands in a 32-bit context, which is the default behavior. The vSphere SDK only supports running in a 64-bit context. The specific error returned from the vSphere SDK is `Unable to import ova of size 6GB using govc`. When you install the Azure CLI, it's a 32-bit Windows Installer package. However, the Azure CLI `az arcappliance` extension needs to run in a 64-bit context.
 
-To resolve this issue, perform the following steps to configure your client machine with the Azure CLI 64-bit version:
+To resolve this issue, perform the following steps to configure your management machine with the Azure CLI 64-bit version:
 
 1. Uninstall the current version of the Azure CLI on Windows following these [steps](/cli/azure/install-azure-cli-windows#uninstall).
 1. Install version 3.6 or higher of [Python](https://www.python.org/downloads/windows/) (64-bit).

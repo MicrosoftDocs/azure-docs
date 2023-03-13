@@ -168,6 +168,4 @@ When you click the VeraSMART tile in the Access Panel, you should be automatical
 
 - [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
-- [Try VeraSMART with Azure AD](https://aad.portal.azure.com/)
-
 - [What is session control in Microsoft Defender for Cloud Apps?](/cloud-app-security/proxy-intro-aad)

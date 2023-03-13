@@ -181,7 +181,7 @@ authContext.acquireTokenRedirect("https://graph.microsoft.com", function (error,
 });
 ```
 
-MSAL.js supports both **v1.0** and **v2.0** endpoints. The **v2.0** endpoint employs a *scope-centric* model to access resources. Thus, when you request an access token for a resource, you also need to specify the scope for that resource:
+MSAL.js supports only the **v2.0** endpoint. The **v2.0** endpoint employs a *scope-centric* model to access resources. Thus, when you request an access token for a resource, you also need to specify the scope for that resource:
 
 ```javascript
 msalInstance.acquireTokenRedirect({
@@ -304,7 +304,7 @@ Once your changes are done, run the app and test your authentication scenario:
 npm start
 ```
 
-## Example: Securing web apps with ADAL Node vs. MSAL Node
+## Example: Securing a SPA with ADAL.js vs. MSAL.js
 
 The snippets below demonstrates the minimal code required for a single-page application authenticating users with the Microsoft identity platform and getting an access token for Microsoft Graph using first ADAL.js and then MSAL.js:
 

@@ -42,27 +42,18 @@
     - name: Data visualization in Power BI
       displayName: Stream Analytics
       href: iot-hub-live-data-visualization-in-power-bi.md
-    - name: Using X.509 certificates
+    - name: Use X.509 certificates
       items:
         - name: Introduction
           displayName: X.509 certificates
           href: tutorial-x509-introduction.md
-        - name: Certificate fields
-          displayName: X.509 certificates, PKCS
-          href: tutorial-x509-certificates.md
-        - name: Using the supplied scripts
-          displayName: X.509 certificates, CA certificate
-          href: tutorial-x509-scripts.md
-        - name: Using OpenSSL
+        - name: Use OpenSSL to create test certificates
           displayName: X.509 certificates, root CA
           href: tutorial-x509-openssl.md
-        - name: Creating self-signed certificates
-          displayName: X.509 certificates, OpenSSL, CSR, thumbprint
-          href: tutorial-x509-self-sign.md
-        - name: Proving possession
-          displayName: X.509 certificates, certification authority, CA
+        - name: Upload and verify CA certificates
+          displayName: root certification authority (CA), verify certificate, manual verification, verification code, certificate signing request (CSR)
           href: tutorial-x509-prove-possession.md
-        - name: Testing authentication
+        - name: Test certificate authentication
           displayName: X.509 certificates
           href: tutorial-x509-test-certificate.md
 - name: Concepts
@@ -99,9 +90,6 @@
           href: query-twins.md
         - name: Job queries
           href: query-jobs.md
-      - name: Quotas and throttling
-        displayName: operations, traffic, connections, latency
-        href: iot-hub-devguide-quotas-throttling.md
       - name: Compare IoT Hub and Event Hubs
         href: iot-hub-compare-event-hubs.md
       - name: React to IoT Hub events with Event Grid
@@ -117,6 +105,9 @@
       - name: Choose the right IoT Hub tier
         displayName: basic, standard, partitions, message throughput
         href: iot-hub-scaling.md
+      - name: Quotas and throttling
+        displayName: operations, traffic, connections, latency
+        href: iot-hub-devguide-quotas-throttling.md
       - name: Pricing examples
         href: iot-hub-devguide-pricing.md
     - name: Messaging
@@ -145,9 +136,6 @@
       - name: Use message routing to send device-to-cloud messages
         displayName: endpoints, built-in endpoint, Azure storage, Service Bus Queues, fallback, route
         href: iot-hub-devguide-messages-d2c.md
-      - name: Use custom endpoints and routing rules for device-to-cloud messages
-        displayName: message routing, routing query
-        href: iot-hub-devguide-messages-read-custom.md
       - name: Add queries to message routes
         href: iot-hub-devguide-routing-query-syntax.md
       - name: Compare message and event routing
@@ -200,9 +188,6 @@
         - name: Develop without the SDK
           displayName: MQTT, protocols
           href: iot-hub-devguide-no-sdk.md
-        - name: Manage connectivity and reliable messaging
-          displayName: device SDK, network connection, resiliency, re-connection, retry, connection failures
-          href: iot-hub-reliability-features-in-sdks.md
     - name: Protocol support
       items:
         - name: MQTT support
@@ -223,34 +208,29 @@
         - name: TLS support
           displayName: security, Transport Layer Security
           href: iot-hub-tls-support.md
+        - name: Secure using X.509 CA certificates
+          items:
+            - name: X.509 certificate concepts
+              displayName: Public Key Cryptography, X.509 certificates, public key infrastructure (PKI), certificates, Certification Authorities, encryption, ciphertext 
+              href: iot-hub-x509-certificate-concepts.md
+            - name: X.509 CA certificate security concepts
+              displayName: Device Provisioning Service, DPS, Hardware Secure Modules, HSM, self-signed certificate, Public Key Infrastructure, PKI
+              href: iot-hub-x509ca-concept.md
+            - name: X.509 CA certificates for IoT Hub
+              href: iot-hub-x509ca-overview.md
         - name: Virtual networks support
           displayName: Security, Private Link, network isolation, private endpoint
           href: virtual-network-support.md
         - name: Security baseline
           displayName: security benchmark
           href: /security/benchmark/azure/baselines/iot-hub-security-baseline?toc=/azure/iot-hub/TOC.json
-        - name: Recommendations
-          displayName: security
-          href: ../iot-fundamentals/security-recommendations.md?context=%2fazure%2fiot-hub%2frc%2frc
-        - name: Security from the ground up
-          displayName: Security Development Lifecycle, SDL, Operational Security Assurance, OSA, compliance, secure infrastructure
-          href: ../iot-fundamentals/iot-security-ground-up.md?context=%2fazure%2fiot-hub%2frc%2frc
-        - name: Security best practices
-          href: ../iot-fundamentals/iot-security-best-practices.md?context=%2fazure%2fiot-hub%2frc%2frc
-        - name: Security architecture
-          href: ../iot-fundamentals/iot-security-architecture.md?context=%2fazure%2fiot-hub%2frc%2frc
-        - name: Secure your IoT deployment
-          href: ../iot-fundamentals/iot-security-deployment.md?context=%2fazure%2fiot-hub%2frc%2frc
         - name: Security controls by Azure Policy
           displayName: regulatory, compliance, standards, Azure Security Benchmark, Azure Foundations Benchmark, CMMC, FedRAMP, HIPAA
           href: ./security-controls-policy.md
-        - name: Secure using X.509 CA certificates
-          items:
-            - name: X.509 CA certificate security concepts
-              displayName: Device Provisioning Service, DPS, Hardware Secure Modules, HSM, self-signed certificate, Public Key Infrastructure, PKI
-              href: iot-hub-x509ca-concept.md
-            - name: X.509 CA certificates for IoT Hub
-              href: iot-hub-x509ca-overview.md
+        - name: IoT security best practices
+          href: ../iot-fundamentals/iot-security-best-practices.md?context=%2fazure%2fiot-hub%2frc%2frc
+        - name: IoT security architecture
+          href: ../iot-fundamentals/iot-security-architecture.md?context=%2fazure%2fiot-hub%2frc%2frc
 
 - name: How-to guides
   items:
@@ -360,6 +340,9 @@
               href: iot-hub-java-java-file-upload.md
         - name: Get started with device twins
           items:
+            - name: CLI
+              displayName: device twins
+              href: twin-get-started-cli.md
             - name: .NET
               displayName: device twins
               href: iot-hub-csharp-csharp-twin-getstarted.md
@@ -377,6 +360,9 @@
             - name: Portal
               displayName: module twins, module identity
               href: iot-hub-portal-csharp-module-twin-getstarted.md
+            - name: CLI
+              displayName: module twins, module identity
+              href: module-twin-getstarted-cli.md
             - name: .NET
               displayName: module twins, module identity
               href: iot-hub-csharp-csharp-module-twin-getstarted.md
@@ -391,6 +377,9 @@
               href: iot-hub-c-c-module-twin-getstarted.md
         - name: Get started with device management
           items:
+            - name: CLI
+              displayName: device management, status updates, device maintenance windows
+              href: device-management-cli.md
             - name: .NET
               displayName: device management, status updates, device maintenance windows
               href: iot-hub-csharp-csharp-device-management-get-started.md
@@ -405,6 +394,9 @@
               href: iot-hub-java-java-device-management-getstarted.md
         - name: Schedule and broadcast jobs
           items:
+            - name: CLI
+              displayName: jobs
+              href: schedule-jobs-cli.md
             - name: .NET
               displayName: jobs
               href: iot-hub-csharp-csharp-schedule-jobs.md
@@ -417,30 +409,6 @@
             - name: Java
               displayName: jobs
               href: iot-hub-java-java-schedule-jobs.md
-        - name: Use device and service SDKs
-          items:
-            - name: Azure IoT Embedded C SDK
-              href: iot-hub-device-embedded-c-sdk.md
-            - name: Azure IoT C SDK
-              items:
-                - name: Use the Azure IoT C SDK
-                  href: iot-hub-device-sdk-c-intro.md
-                - name: Use the IoTHubClient
-                  displayName: Azure IoT C SDK
-                  href: iot-hub-device-sdk-c-iothubclient.md
-                - name: Azure IoT C SDK resource information
-                  href: https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md
-                - name: Develop for constrained devices
-                  displayName: Azure IoT C SDK
-                  href: iot-hub-devguide-develop-for-constrained-devices.md
-                - name: Develop for mobile devices
-                  displayName: Azure IoT C SDKs, iOS, C99, Objective-C, Swift
-                  href: iot-hub-how-to-develop-for-mobile-devices.md
-                - name: Develop for Android Things platform
-                  displayName: Azure IoT C SDK
-                  href: iot-hub-how-to-android-things.md
-        - name: Control a device on Android
-          href: quickstart-control-device-android.md
         - name: Query Avro data from a hub route
           displayName: Azure Data Lake, U-SQL
           href: iot-hub-query-avro-data.md
@@ -508,6 +476,8 @@
           href: troubleshoot-message-routing.md
         - name: Resolve error codes
           href: troubleshoot-error-codes.md
+        - name: Capture trace logs
+          href: how-to-collect-device-logs.md
     - name: Migrate TLS certificate root
       href: migrate-tls-certificate.md
 
@@ -570,6 +540,9 @@
       href: /azure/templates/microsoft.devices/iothub-allversions
     - name: Azure Policy built-ins
       href: ./policy-reference.md
+    - name: X.509 certificates
+      displayName: certificate authority (CA), subordinate CA, certificate versions, unique identifier, key identifier, binary certificate, PEM certificate, PKCS, X.509 certificates, OpenSSL, CSR, thumbprint 
+      href: reference-x509-certificates.md
     - name: Feature and API retirement
       items:
         - name: TLS 1.0 and 1.1 deprecation
@@ -615,13 +588,13 @@
         href: https://github.com/Azure/azure-iot-sdk-csharp#samples
       - name: Node.js
         displayName: samples, azure-iot-samples-node
-        href: https://azure.microsoft.com/resources/samples/azure-iot-samples-node/
+        href: https://github.com/Azure/azure-iot-sdk-node/tree/main/device/samples
       - name: Java
         displayName: samples, azure-iot-samples-java
         href: https://github.com/Azure/azure-iot-sdk-java#samples
       - name: Python
         displayName: samples, azure-iot-samples-python 
-        href: https://azure.microsoft.com/resources/samples/azure-iot-samples-python/
+        href: https://github.com/Azure/azure-iot-sdk-python/tree/main/samples
       - name: iOS Platform
         displayName: samples, azure-iot-samples-iot, XCode, CocoaPods, Swift
         href: https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/
@@ -656,7 +629,7 @@
       href: https://azure.microsoft.com/roadmap/?category=iot
     - name: Azure IoT Tools
       displayName:  VS Code, Visual Studio Code, toolkit, azure-iot-toolkit, Azure loT Device Workbench
-      href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools
+      href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit
     - name: Azure IoT Explorer tool
       displayName: azure-iot-explorer, Plug and Play
       href: https://github.com/Azure/azure-iot-explorer

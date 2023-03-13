@@ -9,7 +9,7 @@ manager: femila
 ---
 # Prerequisites for Azure Virtual Desktop
 
-There are a few things you need to start using Azure Virtual Desktop. Here you can find what prerequisites you need to complete to successfully provide your users with virtual desktops and remote apps.
+There are a few things you need to start using Azure Virtual Desktop. Here you can find what prerequisites you need to complete to successfully provide your users with desktops and applications.
 
 At a high level, you'll need:
 
@@ -62,13 +62,15 @@ The following table summarizes identity scenarios that Azure Virtual Desktop cur
 
 | Identity scenario | Session hosts | User accounts |
 |--|--|--|
-| Azure AD + AD DS | Joined to AD DS | In AD DS and Azure AD, synchronized |
+| Azure AD + AD DS | Joined to AD DS | In Azure AD and AD DS, synchronized |
+| Azure AD + AD DS | Joined to Azure AD | In Azure AD and AD DS, synchronized|
 | Azure AD + Azure AD DS | Joined to Azure AD DS | In Azure AD and Azure AD DS, synchronized |
 | Azure AD + Azure AD DS + AD DS | Joined to Azure AD DS | In Azure AD and AD DS, synchronized |
+| Azure AD + Azure AD DS | Joined to Azure AD | In Azure AD and Azure AD DS, synchronized|
 | Azure AD only | Joined to Azure AD | In Azure AD |
 
 > [!NOTE]
-> If you're planning on using Azure AD only with [FSLogix Profile Container](/fslogix/configure-profile-container-tutorial), you will need to [store profiles on Azure Files](create-profile-container-azure-ad.md), which is currently in public preview. In this scenario, user accounts must be [hybrid identities](../active-directory/hybrid/whatis-hybrid-identity.md), which means you'll also need AD DS and [Azure AD Connect](../active-directory/hybrid/whatis-azure-ad-connect.md). You must create these accounts in AD DS and synchronize them to Azure AD. The service doesn't currently support environments where users are managed with Azure AD and synchronized to Azure AD DS. 
+> If you're planning on using Azure AD only with [FSLogix Profile Container](/fslogix/configure-profile-container-tutorial), you will need to [store profiles on Azure Files](create-profile-container-azure-ad.md). In this scenario, user accounts must be [hybrid identities](../active-directory/hybrid/whatis-hybrid-identity.md), which means you'll also need AD DS and [Azure AD Connect](../active-directory/hybrid/whatis-azure-ad-connect.md). You must create these accounts in AD DS and synchronize them to Azure AD. The service doesn't currently support environments where users are managed with Azure AD and synchronized to Azure AD DS. 
 
 > [!IMPORTANT]
 > The user account must exist in the Azure AD tenant you use for Azure Virtual Desktop. Azure Virtual Desktop doesn't support [B2B](../active-directory/external-identities/what-is-b2b.md), [B2C](../active-directory-b2c/overview.md), or personal Microsoft accounts.
@@ -86,7 +88,7 @@ You'll need to enter the following identity parameters when deploying session ho
 > [!IMPORTANT]
 > The account you use for joining a domain can't have multi-factor authentication (MFA) enabled.
 > 
-> When joining an Azure AD DS domain, the account you use must be part of the Azure AD DC administrators group.
+> When joining an Azure AD DS domain, the account you use must be part of the *AAD DC administrators* group.
 
 ## Operating systems and licenses
 
@@ -140,7 +142,7 @@ Users connecting to Azure Virtual Desktop securely establish a reverse connectio
 
 To successfully deploy Azure Virtual Desktop, you'll need to meet the following network requirements:
 
-- You'll need a virtual network for your session hosts. If you create your session hosts at the same time as a host pool, you must create this virtual network in advance for it to appear in the drop-down list. Your virtual network must be in the same Azure region as the session host.
+- You'll need a virtual network and subnet for your session hosts. If you create your session hosts at the same time as a host pool, you must create this virtual network in advance for it to appear in the drop-down list. Your virtual network must be in the same Azure region as the session host.
 
 - Make sure this virtual network can connect to your domain controllers and relevant DNS servers if you're using AD DS or Azure AD DS, since you'll need to join session hosts to the domain.
 
@@ -154,10 +156,20 @@ Also consider the following:
 
 - Use [Azure Firewall for Azure Virtual Desktop deployments](../firewall/protect-azure-virtual-desktop.md) to help you lock down your environment and filter outbound traffic.
 
+- To help secure your Azure Virtual Desktop environment in Azure, we recommend you don't open inbound port 3389 on your session hosts. Azure Virtual Desktop doesn't require an open inbound port to be open. If you must open port 3389 for troubleshooting purposes, we recommend you use [just-in-time VM access](../security-center/security-center-just-in-time.md). We also recommend you don't assign a public IP address to your session hosts.
+
 > [!NOTE]
 > To keep Azure Virtual Desktop reliable and scalable, we aggregate traffic patterns and usage to check the health and performance of the infrastructure control plane. We aggregate this information from all locations where the service infrastructure is, then send it to the US region. The data sent to the US region includes scrubbed data, but not customer data. For more information, see [Data locations for Azure Virtual Desktop](data-locations.md).
 
 To learn more, see [Understanding Azure Virtual Desktop network connectivity](network-connectivity.md).
+
+## Session host management
+
+Consider the following when managing session hosts:
+
+- Don't enable any policies or configurations that disable *Windows Installer*. If you disable Windows Installer, the service won't be able to install agent updates on your session hosts, and your session hosts won't function properly.
+
+- If you're using Azure AD-join with Windows Server for your session hosts, you can't enroll them in Intune as Windows Server is not supported with Intune. You'll need to use hybrid Azure AD-join and Group Policy from an Active Directory domain, or local Group Policy on each session host.
 
 ## Remote Desktop clients
 

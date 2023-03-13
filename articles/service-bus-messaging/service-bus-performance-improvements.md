@@ -93,9 +93,11 @@ For more information on minimum .NET Standard platform support, see [.NET implem
 
 ## Reusing factories and clients
 # [Azure.Messaging.ServiceBus SDK](#tab/net-standard-sdk-2)
-The Service Bus objects that interact with the service, such as [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient), [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender), [ServiceBusReceiver](/dotnet/api/azure.messaging.servicebus.servicebusreceiver), and [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor), should be registered for dependency injection as singletons (or instantiated once and shared). ServiceBusClient can be registered for dependency injection with the [ServiceBusClientBuilderExtensions](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/src/Compatibility/ServiceBusClientBuilderExtensions.cs). 
+The Service Bus clients that interact with the service, such as [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient), [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender), [ServiceBusReceiver](/dotnet/api/azure.messaging.servicebus.servicebusreceiver), and [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor), should be registered for dependency injection as singletons (or instantiated once and shared).  ServiceBusClient can be registered for dependency injection with the [ServiceBusClientBuilderExtensions](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/src/Compatibility/ServiceBusClientBuilderExtensions.cs). 
 
-We recommend that you don't close or dispose these objects after sending or receiving each message. Closing or disposing the entity-specific objects (ServiceBusSender/Receiver/Processor) results in tearing down the link to the Service Bus service. Disposing the ServiceBusClient results in tearing down the connection to the Service Bus service. 
+We recommend that you don't close or dispose these clients after sending or receiving each message. Closing or disposing the entity-specific objects (ServiceBusSender/Receiver/Processor) results in tearing down the link to the Service Bus service. Disposing the ServiceBusClient results in tearing down the connection to the Service Bus service. 
+
+This guidance does not apply to the [ServiceBusSessionReceiver](/dotnet/api/azure.messaging.servicebus.servicebussessionreceiver), as its lifetime is the same as the session itself.  For applications working with the `ServiceBusSessionReceiver`, it is recommended to use a singleton instance of the `ServiceBusClient` to accept each session, which will spawn a new `ServiceBusSessionReceiver` bound to that session.  Once the application finishes processing that session it should dispose the associated `ServiceBusSessionReceiver`.
 
 # [Microsoft.Azure.ServiceBus SDK](#tab/net-standard-sdk)
 
@@ -323,7 +325,7 @@ There are some challenges with having a greedy approach, that is, keeping the pr
 
 ## Multiple queues or topics
 
-If a single queue or topic can't handle the expected, use multiple messaging entities. When using multiple entities, create a dedicated client for each entity, instead of using the same client for all entities.
+If a single queue or topic can't handle the expected number of messages, use multiple messaging entities. When using multiple entities, create a dedicated client for each entity, instead of using the same client for all entities.
 
 More queues or topics mean that you have more entities to manage at deployment time. From a scalability perspective, there really isn't too much of a difference that you would notice as Service Bus already spreads the load across multiple logs internally, so if you use six queues or topics or two queues or topics won't make a material difference.
 

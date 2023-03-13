@@ -1,6 +1,6 @@
 ---
-title: Cost optimization and Azure Monitor
-description: Guidance and recommendations for reducing your cost for Azure Monitor.
+title: Optimize costs in Azure Monitor
+description: Recommendations for reducing costs in Azure Monitor.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -8,7 +8,7 @@ ms.date: 10/17/2022
 ms.reviewer: bwren
 ---
 
-# Cost optimization and Azure Monitor
+# Optimize costs in Azure Monitor
 You can significantly reduce your cost for Azure Monitor by understanding your different configuration options and opportunities to reduce the amount of data that it collects. Before you use this article, you should see [Azure Monitor cost and usage](usage-estimated-costs.md) to understand the different ways that Azure Monitor charges and how to view your monthly bill.
 
 > [!NOTE]
@@ -87,7 +87,8 @@ Since Azure Monitor charges for the collection of data, your goal should be to c
 
 | Recommendation | Description |
 |:---|:---|
-| Configure agent collection to remove unneeded data. |  Analyze the data collected by Container insights as described in [Controlling ingestion to reduce cost](containers/container-insights-cost.md#control-ingestion-to-reduce-cost) and adjust your configuration to stop collection of data you don't need. |
+| Configure agent collection to remove unneeded data. |  Analyze the data collected by Container insights as described in [Controlling ingestion to reduce cost](containers/container-insights-cost.md#control-ingestion-to-reduce-cost) and adjust your configuration to stop collection of data in ContainerLogs you don't need. |
+| Modify settings for collection of metric data |  You can reduce your costs by modifying the default collection settings Container insights uses for the collection of metric data. See [Enable cost optimization settings (preview)](containers/container-insights-cost-config.md) for details on modifying both the frequency that metric data is collected and the namespaces that are collected. |
 | Limit Prometheus metrics collected | If you configured Prometheus metric scraping, then follow the recommendations at [Controlling ingestion to reduce cost](containers/container-insights-cost.md#prometheus-metrics-scraping) to optimize your data collection for cost. |
 | Configure Basic Logs | [Convert your schema to ContainerLogV2](containers/container-insights-logging-v2.md) which is compatible with Basic logs and can provide significant cost savings as described in [Controlling ingestion to reduce cost](containers/container-insights-cost.md#configure-basic-logs). |
 

@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 11/16/2022
+ms.date: 01/29/2023
 
 ms.author: justinha
 author: justinha
@@ -174,7 +174,7 @@ You'll also need access to the following URLs:
 - `https://graph.microsoft.com/*` (or `https://graph.microsoft.us/*` for government cloud customers)
 - `https://login.microsoftonline.com/*` (or `https://login.microsoftonline.us/*` for government cloud customers)
 
-The script will instruct you to grant admin consent to the newly created application. Navigate to the URL provided, or within the Azure AD portal, click **Application Registrations**, find and select the **MFA Server Migration Utility** app, click on **API permissions** and then granting the appropriate permissions.
+The script will instruct you to grant admin consent to the newly created application. Navigate to the URL provided, or within the Azure portal, click **Application Registrations**, find and select the **MFA Server Migration Utility** app, click on **API permissions** and then granting the appropriate permissions.
 
 :::image type="content" border="true" source="./media/how-to-mfa-server-migration-utility/permissions.png" alt-text="Screenshot of permissions.":::
 
@@ -183,6 +183,9 @@ Once complete, navigate to the Multi-factor Authentication Server folder, and op
 :::image type="content" border="true" source="./media/how-to-mfa-server-migration-utility/utility.png" alt-text="Screenshot of MFA Server Migration Utility.":::
 
 You've successfully installed the Migration Utility.
+
+>[!NOTE]
+> To ensure no changes in behavior during migration, if your MFA Server is associated with an MFA Provider with no tenant reference, you'll need to update the default MFA settings (e.g. custom greetings) for the tenant you're migrating to match the settings in your MFA Provider. We recommend doing this before migrating any users.
 
 ### Migrate user data
 Migrating user data doesn't remove or alter any data in the Multi-Factor Authentication Server database. Likewise, this process won't change where a user performs MFA. This process is a one-way copy of data from the on-premises server to the corresponding user object in Azure AD.
