@@ -40,7 +40,7 @@ Let's start by setting up your dev environment.
 
 ### [GitHub Codespaces](#tab/github-codespaces)
 
-For the most straightforward dev environment, we use GitHub Codespaces so that you have the correct developer tools and dependencies pre-installed on your machine. Codespaces also pre-configures your local MongoDB database for testing.
+For the most straightforward dev environment, we use GitHub Codespaces so that you have the correct developer tools and dependencies preinstalled on your machine. Codespaces also preconfigures your local MongoDB database for testing.
 
 1. Create a new GitHub Codespace on the `main` branch of the [`azure-samples/msdocs-azure-cosmos-db-mongodb-mern-web-app`](https://github.com/azure-samples/msdocs-azure-cosmos-db-mongodb-mern-web-app) GitHub repository.
 
@@ -116,7 +116,7 @@ For the most straightforward dev environment, we use GitHub Codespaces so that y
 
 ### [Visual Studio Code](#tab/visual-studio-code)
 
-Alternatively, you can complete this tutorial in [Visual Studio Code](https://code.visualstudio.com) with the following pre-requisites installed:
+Alternatively, you can complete this tutorial in [Visual Studio Code](https://code.visualstudio.com) with the following prerequisites installed:
 
 - [Node.js](https://nodejs.org/)
 - [Docker](https://www.docker.com/)
