@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Deploy your code to Azure Container Apps"
-description: Code to cloud deploying your application to Azure Container Apps
+title: "Tutorial: Build and deploy your app to Azure Container Apps"
+description: Build and deploy your app to Azure Container Apps with az containerapp create command
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
@@ -11,11 +11,16 @@ zone_pivot_groups: container-apps-image-build-type
 ---
 
 
-# Quickstart: Deploy your code to Azure Container Apps
+# Tutorial: Build and deploy your app to Azure Container Apps
 
 This article demonstrates how to build and deploy a microservice to Azure Container Apps from a source repository using the programming language of your choice.
 
 This tutorial is the first in a series of articles that walk you through how to use core capabilities within Azure Container Apps. The first step is to create a back end web API service that returns a static collection of music albums.
+
+> [!NOTE]
+> You can also build and deploy this app using the [az containerapp up](/cli/azure/containerapp?view=azure-cli-latest#az_containerapp_up) by following the instructions in the [Quickstart: Build and deploy an app to Azure Container Apps from a repository](quickstart-code-to-cloud.md) article.  The `az containerapp up` command is a fast and convenient way to build and deploy your app to Azure Container Apps using a single command.  However, it doesn't provide the same level of customization for your container app.
+
+ The next tutorial in the series will build and deploy the front end web application to Azure Container Apps.
 
 The following screenshot shows the output from the album API deployed in this tutorial.
 
@@ -23,14 +28,14 @@ The following screenshot shows the output from the album API deployed in this tu
 
 ## Prerequisites
 
-To complete this project, you'll need the following items:
+To complete this project, you need the following items:
 
 ::: zone pivot="acr-remote"
 
 | Requirement  | Instructions |
 |--|--|
 | Azure account | If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). You need the *Contributor* or *Owner* permission on the Azure subscription to proceed. <br><br>Refer to [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md?tabs=current) for details. |
-| GitHub Account | Sign up for [free](https://github.com/join). |
+| GitHub Account | Sign-up for [free](https://github.com/join). |
 | git | [Install git](https://git-scm.com/downloads) |
 | Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli).|
 
@@ -41,7 +46,7 @@ To complete this project, you'll need the following items:
 | Requirement  | Instructions |
 |--|--|
 | Azure account | If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). You need the *Contributor* or *Owner* permission on the Azure subscription to proceed. Refer to [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md?tabs=current) for details. |
-| GitHub Account | Sign up for [free](https://github.com/join). |
+| GitHub Account | Sign-up for [free](https://github.com/join). |
 | git | [Install git](https://git-scm.com/downloads) |
 | Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli).|
 | Docker Desktop | Docker provides installers that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). <br><br>From your command prompt, type `docker` to ensure Docker is running. |
@@ -127,12 +132,10 @@ az group create \
   --location "$LOCATION"
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
-az group create `
-  --name $RESOURCE_GROUP `
-  --location "$LOCATION"
+```azurepowershell
+New-AzResourceGroup -Location $Location -Name $ResourceGroup
 ```
 
 ---
@@ -151,14 +154,10 @@ az acr create \
   --admin-enabled true
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
-az acr create `
-  --resource-group $RESOURCE_GROUP `
-  --name $ACR_NAME `
-  --sku Basic `
-  --admin-enabled true
+```azurepowershell
+$acr = New-AzContainerRegistry -ResourceGroupName $ResourceGroup -Name $ACRName -Sku Basic -EnableAdminUser
 ```
 
 ---
@@ -179,10 +178,10 @@ Run the following command to initiate the image build and push process using ACR
 az acr build --registry $ACR_NAME --image $API_NAME .
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
-az acr build --registry $ACR_NAME --image $API_NAME .
+```azurepowershell
+az acr build --registry $ACRName --image $APIName .
 ```
 
 ---
@@ -207,10 +206,10 @@ The following command builds a container image for the album API and tags it wit
 docker build --tag $ACR_NAME.azurecr.io/$API_NAME .
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```powershell
-docker build --tag "$ACR_NAME.azurecr.io/$API_NAME" .
+docker build --tag "$ACRName.azurecr.io/$APIName" .
 ```
 
 ---
@@ -225,10 +224,10 @@ First, sign in to your Azure Container Registry.
 az acr login --name $ACR_NAME
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```powershell
-az acr login --name $ACR_NAME
+az acr login --name $ACRName
 ```
 
 ---
@@ -241,10 +240,10 @@ Now, push the image to your registry.
 docker push $ACR_NAME.azurecr.io/$API_NAME
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```powershell
-docker push "$ACR_NAME.azurecr.io/$API_NAME"
+docker push "$ACRName.azurecr.io/$APIName"
 ```
 
 ---
@@ -266,13 +265,36 @@ az containerapp env create \
   --location "$LOCATION"
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```azurecli
-az containerapp env create `
-  --name $ENVIRONMENT `
-  --resource-group $RESOURCE_GROUP `
-  --location $LOCATION
+A Log Analytics workspace is required for the Container Apps environment.  The following commands create a Log Analytics workspace and save the workspace ID and primary shared key to  variables.
+
+```azurepowershell
+$WorkspaceArgs = @{
+    Name = 'my-album-workspace'
+    ResourceGroupName = $ResourceGroup
+    Location = $Location
+    PublicNetworkAccessForIngestion = 'Enabled'
+    PublicNetworkAccessForQuery = 'Enabled'
+}
+New-AzOperationalInsightsWorkspace @WorkspaceArgs
+$WorkspaceId = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $ResourceGroup -Name $WorkspaceArgs.Name).CustomerId
+$WorkspaceSharedKey = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGroupName $ResourceGroup -Name $WorkspaceArgs.Name).PrimarySharedKey
+```
+
+To create the environment, run the following command:
+
+```azurepowershell
+$EnvArgs = @{
+    EnvName = $Environment
+    ResourceGroupName = $ResourceGroup
+    Location = $Location
+    AppLogConfigurationDestination = 'log-analytics'
+    LogAnalyticConfigurationCustomerId = $WorkspaceId
+    LogAnalyticConfigurationSharedKey = $WorkspaceSharedKey
+}
+
+New-AzContainerAppManagedEnv @EnvArgs
 ```
 
 ---
@@ -293,41 +315,89 @@ az containerapp create \
   --image $ACR_NAME.azurecr.io/$API_NAME \
   --target-port 3500 \
   --ingress 'external' \
-  --registry-server $ACR_NAME.azurecr.io
+  --registry-server $ACR_NAME.azurecr.io \
+  --query properties.configuration.ingress.fqdn
 ```
-
-# [PowerShell](#tab/powershell)
-
-```azurecli
-az containerapp create `
-  --name $API_NAME `
-  --resource-group $RESOURCE_GROUP `
-  --environment $ENVIRONMENT `
-  --image "$ACR_NAME.azurecr.io/$API_NAME" `
-  --target-port 3500 `
-  --ingress 'external' `
-  --registry-server "$ACR_NAME.azurecr.io"
-```
-
----
 
 * By setting `--ingress` to `external`, your container app will be accessible from the public internet.
 
-* The `target-port` is set to `3500` to match the port the that the container is listing to for requests.
+* The `target-port` is set to `3500` to match the port that the container is listening to for requests.
 
-* Without a `query` property, the call to `az containerapp create` returns a JSON response that includes a rich set of details about the application. By adding a query, this command filters the response down to just the FQDN.
+* Without a `query` property, the call to `az containerapp create` returns a JSON response that includes a rich set of details about the application. Adding a query parameter filters the output to just the app's fully qualified domain name (FQDN).
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+To create the container app, create template objects that you'll pass in as arguments to the `New-AzContainerApp` command.
+
+Create a template object to define your container image parameters.
+
+```azurepowershell
+$ImageParams = @{
+    Name = $APIName
+    Image = $ACRName + '.azurecr.io/' + $APIName + ':latest'
+}
+$TemplateObj = New-AzContainerAppTemplateObject @ImageParams
+```
+
+You'll need run the following command to get your registry credentials.
+
+```azurepowershell
+$RegistryCredentials = Get-AzContainerRegistryCredential -Name $ACRName -ResourceGroupName $ResourceGroup
+```
+
+Create a registry credential object to define your registry information, and a secret object to define your registry password.  The `PasswordSecretRef` refers to the `Name` in the secret object.  
+
+```azurepowershell
+$RegistryArgs = @{
+    Server = $ACRName + '.azurecr.io'
+    PasswordSecretRef = 'registrysecret'
+    Username = $RegistryCredentials.Username
+}
+$RegistryObj = New-AzContainerAppRegistryCredentialObject @RegistryArgs
+
+$SecretObj = New-AzContainerAppSecretObject -Name 'registrysecret' -Value $RegistryCredentials.Password
+```
+
+Get your environment ID.
+
+```azurepowershell
+$EnvId = (Get-AzContainerAppManagedEnv -EnvName $Environment -ResourceGroup $ResourceGroup).Id
+```
+
+Create the container app.
+
+```azurepowershell
+$AppArgs = @{
+    Name = $APIName
+    Location = $Location
+    ResourceGroupName = $ResourceGroup
+    ManagedEnvironmentId = $EnvId
+    TemplateContainer = $TemplateObj
+    ConfigurationRegistry = $RegistryObj
+    ConfigurationSecret = $SecretObj
+    IngressTargetPort = 3500
+    IngressExternal = $true
+}
+$MyApp = New-AzContainerApp @AppArgs
+
+# show the app's fully qualified domain name (FQDN).
+$MyApp.IngressFqdn
+```
+
+* By setting `IngressExternal` to `external`, your container app will be accessible from the public internet.
+* The `IngressTargetPort` parameter is set to `3500` to match the port that the container is listening to for requests.
+
+---
 
 ## Verify deployment
 
-The `az containerapp create` command returns the fully qualified domain name (FQDN) for the container app. Copy the FQDN to a web browser.
-
-From your web browser, navigate to the `/albums` endpoint of the FQDN.
+Copy the FQDN to a web browser.  From your web browser, navigate to the `/albums` endpoint of the FQDN.
 
 :::image type="content" source="media/quickstart-code-to-cloud/azure-container-apps-album-api.png" alt-text="Screenshot of response from albums API endpoint.":::
 
 ## Clean up resources
 
-If you're not going to continue on to the [Deploy a frontend](communicate-between-microservices.md) tutorial, you can remove the Azure resources created during this tutorial. Run the following command to delete the resource group along with all the resources created in this tutorial.
+If you're not going to continue on to the [Communication between microservices](communicate-between-microservices.md) tutorial, you can remove the Azure resources created during this quickstart. Run the following command to delete the resource group along with all the resources created in this quickstart.
 
 # [Bash](#tab/bash)
 
@@ -335,10 +405,10 @@ If you're not going to continue on to the [Deploy a frontend](communicate-betwee
 az group delete --name $RESOURCE_GROUP
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
-az group delete --name $RESOURCE_GROUP
+```azurepowershell
+Remove-AzResourceGroup -Name $ResourceGroup -Force
 ```
 
 ---
@@ -348,7 +418,7 @@ az group delete --name $RESOURCE_GROUP
 
 ## Next steps
 
-This tutorial is the entrypoint for a set of progressive tutorials that showcase the various features within Azure Container Apps. Continue on to learn how to enable communication from a web front end that calls the API you deployed in this article.
+This quickstart is the entrypoint for a set of progressive tutorials that showcase the various features within Azure Container Apps. Continue on to learn how to enable communication from a web front end that calls the API you deployed in this article.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Communication between microservices](communicate-between-microservices.md)
+> [Tutorial: Communication between microservices](co
