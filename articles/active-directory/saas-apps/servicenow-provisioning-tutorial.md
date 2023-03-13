@@ -2,7 +2,7 @@
 title: Configure ServiceNow for automatic user provisioning with Azure Active Directory
 description: Learn how to automatically provision and deprovision user accounts from Azure AD to ServiceNow.
 services: active-directory
-author: jeevansd
+author: twimmers
 manager: CelesteDG
 ms.reviewer: celested
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: how-to
 ms.date: 3/10/2023
-ms.author: jeedes
+ms.author: thwimmer
 ---
 
 # Configure ServiceNow for automatic user provisioning
@@ -198,7 +198,7 @@ POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronizat
 11. Restore any previous changes you made to the application (Authentication details, Scoping filters, Custom attribute mappings) and re-enable provisioning. 
 
 > [!NOTE] 
-> Failure to restore the previous settings may results in attributes (name.formatted for example) updating in Workplace unexpectedly. Be sure to check the configuration before enabling  provisioning 
+> Failure to restore the previous settings may results in attributes (name.formatted for example) updating in ServiceNow unexpectedly. Be sure to check the configuration before enabling  provisioning 
 
 ## Additional resources
 
