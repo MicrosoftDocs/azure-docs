@@ -13,7 +13,7 @@ This article provides an overview of data lineage in Microsoft Purview Data Cata
 
 - Raw data staged from various platforms
 - Transformed and prepared data
-- Data used by visualization platforms.
+- Data used by visualization platforms
 
 ## Use cases
 
@@ -21,7 +21,7 @@ Data lineage is broadly understood as the lifecycle that spans the data’s orig
 
 ## Lineage experience in Microsoft Purview Data Catalog
 
-Microsoft Purview Data Catalog will connect with other data processing, storage, and analytics systems to extract lineage information. The information is combined to represent a generic, scenario-specific lineage experience in the Catalog.
+Microsoft Purview Data Catalog will connect with other data processing, storage, and analytics systems to extract lineage information. The information is combined to represent a generic, scenario-specific lineage experience in the catalog.
 
 :::image type="content" source="media/concept-lineage/lineage-end-end-inline.png" alt-text="end-end lineage showing data copied from blob store all the way to Power BI dashboard" lightbox="media/concept-lineage/lineage-end-end.png":::
 
