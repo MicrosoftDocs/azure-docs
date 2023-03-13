@@ -14,7 +14,7 @@ ms.author: amgowda
 
 Secure Key Release (SKR) is a functionality of Azure Key Vault (AKV) Managed HSM and Premium offering. Secure key release enables the release of an HSM protected key from AKV to an attested Trusted Execution Environment (TEE), such as a secure enclave, VM based TEEs etc. SKR adds another layer of access protection to your data decryption/encryption keys where you can target an application + TEE runtime environment with known configuration get access to the key material. The SKR policies defined at the time of exportable key creation govern the access to these keys.
 
-## SKR Support with AKV Offerings
+## SKR support with AKV offerings
 
 - [Azure Key Vault Premium](../security/fundamentals/key-management.md)
 - [Azure Key Vault Managed HSM](../key-vault/managed-hsm/overview.md)
