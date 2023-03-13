@@ -44,7 +44,7 @@ Below are some common issues that may occur during the process.
     Go to the [MPN User Management page](https://partner.microsoft.com/pcv/users) and filter the user list to see what users are in various admin roles.
 
 - **I am getting an error saying that my MPN ID is invalid or that I do not have access to it.**
-    See the remediation guidance [here](#mpnaccountnotfoundornoaccess).
+    Follow the [remediation guidance](#mpnaccountnotfoundornoaccess).
 
 - **When I sign into the Azure AD portal, I do not see any apps registered. Why?** 
     Your app registrations may have been created using a different user account in this tenant, a personal/consumer account, or in a different tenant. Ensure you're signed in with the correct account in the tenant where your app registrations were created.
@@ -151,8 +151,8 @@ Most commonly caused by the signed-in user not being a member of the proper role
 
     - The MPN ID is correct. 
     - There are no errors or “pending actions” shown, and the verification status under Legal business profile and Partner info both say “authorized” or “success”.
-2. Go to the [MPN tenant management page](https://partner.microsoft.com/dashboard/account/v3/tenantmanagement) and confirm that the tenant the app is registered in and that you're signing with a user account from is on the list of associated tenants. To add another tenant, follow the instructions [here](/partner-center/multi-tenant-account). Be aware that all Global Admins of any tenant you add will be granted Global Administrator privileges on your Partner Center account.
-3. Go to the [MPN User Management page](https://partner.microsoft.com/pcv/users) and confirm the user you're signing in as is either a Global Administrator, MPN Admin, or Accounts Admin. To add a user to a role in Partner Center, follow the instructions [here](/partner-center/create-user-accounts-and-set-permissions).
+2. Go to the [MPN tenant management page](https://partner.microsoft.com/dashboard/account/v3/tenantmanagement) and confirm that the tenant the app is registered in and that you're signing with a user account from is on the list of associated tenants. To add another tenant, follow the [multi-tenant-account instructions](/partner-center/multi-tenant-account). Be aware that all Global Admins of any tenant you add will be granted Global Administrator privileges on your Partner Center account.
+3. Go to the [MPN User Management page](https://partner.microsoft.com/pcv/users) and confirm the user you're signing in as is either a Global Administrator, MPN Admin, or Accounts Admin. To add a user to a role in Partner Center, follow the instructions for [creating user accounts and setting permissions](/partner-center/create-user-accounts-and-set-permissions).
 
 ### MPNGlobalAccountNotFound
 
@@ -181,7 +181,7 @@ The MPN ID (`MPNID`) you provided hasn't completed the vetting process. Complete
 Most commonly caused by when the MPN account hasn't completed the [verification](/partner-center/verification-responses) process.
 
 **Remediation Steps**
-1. Navigate to your [partner profile](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) and verify that There are no errors or “pending actions” shown, and that the verification status under Legal business profile and Partner info both say “authorized” or “success”.
+1. Navigate to your [partner profile](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) and verify that there are no errors or **pending actions** shown, and that the verification status under Legal business profile and Partner info both say **authorized** or **success**.
 2. If not, view pending action items in Partner Center and troubleshoot with [here](/partner-center/verification-responses)
 
 ### NoPublisherIdOnAssociatedMPNAccount
@@ -211,7 +211,7 @@ The target application (`AppId`) can’t be found. Provide a valid application I
 Most commonly caused when verification is being performed via Graph API, and the ID of the application provided is incorrect. 
 
 **Remediation Steps**
-1. The Object ID of the application must be provided, not the AppId/ClientId. See "id" on the list of application properties [here](/graph/api/resources/application)
+1. The Object ID of the application must be provided, not the AppId/ClientId. See **id** on the list of application properties [here](/graph/api/resources/application)
 2. Log in to [Azure Active Directory](https://aad.portal.azure.com/) with a user account in your organization's primary tenant > Azure Active Directory > App Registrations blade
 3. Find your app's registration to view the Object ID
 
@@ -223,7 +223,7 @@ The target application's object ID is invalid. Please provide a valid ID and try
 Most commonly caused when the verification is being performed via Graph API, and the ID of the application provided does not exist. 
 
 **Remediation Steps**
-1. The Object ID of the application must be provided, not the AppId/ClientId. See "id" on the list of application properties [here](/graph/api/resources/application)
+1. The Object ID of the application must be provided, not the AppId/ClientId. See **id** on the list of application properties [here](/graph/api/resources/application)
 2. Log in to [Azure Active Directory](https://aad.portal.azure.com/) with a user account in your organization's primary tenant > Azure Active Directory > App Registrations blade
 3. Find your app's registration to view the Object ID
 
@@ -257,7 +257,7 @@ See [requirements](publisher-verification-overview.md) for a list of allowed dom
 1. Navigate to your [partner profile](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile), and view the email listed as Primary Contact
 2. The domain used to perform email verification in Partner Center is the portion after the “@” in the Primary Contact’s email
 3. Log in to [Azure Active Directory](https://aad.portal.azure.com/) > Azure Active Directory > App Registrations blade > (`Your App`) > Branding and Properties
-4. Click “Update Publisher Domain” and follow the instructions to “Verify a New Domain”
+4. Select **Update Publisher Domain** and follow the instructions to **Verify a New Domain**.
 5. Add the domain used to perform email verification in Partner Center as a New Domain
 
 
