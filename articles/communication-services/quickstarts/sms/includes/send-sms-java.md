@@ -45,7 +45,7 @@ Open your terminal or command window and navigate to the directory where you wou
 mvn archetype:generate -DgroupId=com.communication.quickstart -DartifactId=communication-quickstart -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
 ```
 
-If you use Windows PowerShell, run instead:
+If you use Windows PowerShell, run the following command instead:
 
 ```console
 mvn archetype:generate -D"groupId=com.communication.quickstart" -D"artifactId=communication-quickstart" -D"archetypeArtifactId=maven-archetype-quickstart" -D"archetypeVersion=1.4" -D"interactiveMode=false"
