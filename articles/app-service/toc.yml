@@ -220,6 +220,8 @@
       items:
       - name: Migrate to availability zone support
         href: ../availability-zones/migrate-app-service.md
+      - name: Disaster recovery
+        href: overview-disaster-recovery.md
       - name: Restore from downed region
         href: manage-disaster-recovery.md
     - name: Security
