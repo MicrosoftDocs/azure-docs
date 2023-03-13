@@ -180,7 +180,7 @@ Log streaming uses the same key as the test endpoint described in [Set up a stag
 
 To ensure the security of your applications when you expose a public endpoint for them, secure the endpoint by filtering network traffic to your service with a network security group. For more information, see [Tutorial: Filter network traffic with a network security group using the Azure portal](../virtual-network/tutorial-filter-network-traffic.md). A network security group contains security rules that allow or deny inbound network traffic to, or outbound network traffic from, several types of Azure resources. For each rule, you can specify source and destination, port, and protocol.
 
-The following is a recommanded basic rule example from us. You could use commands like nslookup with the endpoint 
+The following is a recommanded basic rule example from us. You could use commands like nslookup with the endpoint <service\-name>.private.azuremicroservices.io to get the target IP address.
 
     :::image type="content" source="media/how-to-log-streaming/logstream-nsg.png" alt-text="Screenshot of recommanded network security group rule." lightbox="media/how-to-log-streaming/logstream-nsg.png":::
 
