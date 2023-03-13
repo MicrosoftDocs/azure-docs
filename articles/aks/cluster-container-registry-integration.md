@@ -26,6 +26,7 @@ The AKS to ACR integration assigns the [**AcrPull** role][acr-pull] to the [Azur
   * To avoid needing one of these roles, you can instead use an existing managed identity to authenticate ACR from AKS. For more information, see [Use an Azure managed identity to authenticate to an ACR](../container-registry/container-registry-authentication-managed-identity.md).
 * If you're using Azure CLI, this article requires that you're running Azure CLI version 2.7.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 * If you're using Azure PowerShell, this article requires that you're running Azure PowerShell version 5.9.0 or later. Run `Get-InstalledModule -Name Az` to find the version. If you need to install or upgrade, see [Install Azure PowerShell][azure-powershell-install].
+* Examples and syntax to use Terraform for managing ACR can be found in the [Terraform reference][terraform-reference].
 
 ## Create a new AKS cluster with ACR integration
 
@@ -54,31 +55,6 @@ $MYACR = 'myContainerRegistry'
 
 New-AzContainerRegistry -Name $MYACR -ResourceGroupName myContainerRegistryResourceGroup -Sku Basic
 ```
-
-#### [Terraform](#tab/terraform-example)
-
-```terraform
-# Example Usage
-resource "azurerm_container_registry" "acr" {
-  name                = "containerRegistry1"
-  resource_group_name = azurerm_resource_group.example.name
-  location            = azurerm_resource_group.example.location
-  sku                 = "Premium"
-  admin_enabled       = false
-  georeplications {
-    location                = "East US"
-    zone_redundancy_enabled = true
-    tags                    = {}
-  }
-  georeplications {
-    location                = "North Europe"
-    zone_redundancy_enabled = true
-    tags                    = {}
-  }
-}
-```
-
-For more information about the syntax and argument reference, see [Terraform reference][terraform-reference].
 
 ---
 
@@ -125,39 +101,6 @@ New-AzAksCluster -Name myAKSCluster -ResourceGroupName myResourceGroup -Generate
 
 This command may take several minutes to complete.
 
-#### [Terraform](#tab/terraform-example)
-
-```terraform
-# Example Usage
-resource "azurerm_kubernetes_cluster" "example" {
-  name                = "example-aks1"
-  location            = azurerm_resource_group.example.location
-  resource_group_name = azurerm_resource_group.example.name
-  dns_prefix          = "exampleaks1"
-  default_node_pool {
-    name       = "default"
-    node_count = 1
-    vm_size    = "Standard_D2_v2"
-  }
-  identity {
-    type = "SystemAssigned"
-  }
-  tags = {
-    Environment = "Production"
-  }
-}
-resource "azurerm_role_assignment" "example" {
-  principal_id                     = azurerm_kubernetes_cluster.example.kubelet_identity[0].object_id
-  role_definition_name             = "AcrPull"
-  scope                            = azurerm_container_registry.example.id
-  skip_service_principal_aad_check = true
-}
-```
-
-For more information about the syntax and argument reference, see [Terraform reference][terraform-reference].
-
-This method may take several minutes to complete.
-
 ---
 
 ## Configure ACR integration for existing AKS clusters
@@ -189,20 +132,6 @@ Set-AzAksCluster -Name myAKSCluster -ResourceGroupName myResourceGroup -AcrNameT
 
 > [!NOTE]
 > Running the `Set-AzAksCluster -AcrNameToAttach` cmdlet uses the permissions of the user running the command to create the role ACR assignment. This role is assigned to the [kubelet][kubelet] managed identity. For more information on AKS managed identities, see [Summary of managed identities][summary-msi].
-
-#### [Terraform](#tab/terraform-example)
-
-```terraform
-# Example Usage
-resource "azurerm_role_assignment" "example" {
-  principal_id                     = azurerm_kubernetes_cluster.example.kubelet_identity[0].object_id
-  role_definition_name             = "AcrPull"
-  scope                            = azurerm_container_registry.example.id
-  skip_service_principal_aad_check = true
-}
-```
-
-For more information about the syntax and argument reference, see [Terraform reference][terraform-reference].
 
 ---
 
