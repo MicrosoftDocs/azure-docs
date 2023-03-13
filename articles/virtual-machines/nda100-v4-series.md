@@ -13,13 +13,13 @@ ms.date: 03/13/2023
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-The ND A100 v4 series virtual machine(VM) is a new flagship addition to the Azure GPU family, designed for high-end Deep Learning training and tightly coupled scale-up and scale-out HPC workloads. 
+The ND A100 v4 series virtual machine(VM) is a new flagship addition to the Azure GPU family. It's designed for high-end Deep Learning training and tightly coupled scale-up and scale-out HPC workloads. 
 
-The ND A100 v4 series starts with a single VM and eight NVIDIA Ampere A100 40GB Tensor Core GPUs. ND A100 v4-based deployments can scale up to thousands of GPUs with an 1.6 TB/s of interconnect bandwidth per VM. Each GPU within the VM is provided with its own dedicated, topology-agnostic 200 GB/s NVIDIA Mellanox HDR InfiniBand connection. These connections are automatically configured between VMs occupying the same VMScaleSet, and support GPUDirect RDMA.
+The ND A100 v4 series starts with a single VM and eight NVIDIA Ampere A100 40GB Tensor Core GPUs. ND A100 v4-based deployments can scale up to thousands of GPUs with an 1.6 TB/s of interconnect bandwidth per VM. Each GPU within the VM is provided with its own dedicated, topology-agnostic 200 GB/s NVIDIA Mellanox HDR InfiniBand connection. These connections are automatically configured between VMs occupying the same VM scale set, and support GPUDirect RDMA.
 
 Each GPU features NVLINK 3.0 connectivity for communication within the VM, and the instance is backed by 96 physical 2nd-generation AMD Epyc™ 7V12 (Rome) CPU cores.
 
-These instances provide excellent performance for many AI, ML, and analytics tools that support GPU acceleration 'out-of-the-box,' such as TensorFlow, Pytorch, Caffe, RAPIDS, and other frameworks. Additionally, the scale-out InfiniBand interconnect is supported by a large set of existing AI and HPC tools which are built on NVIDIA's NCCL2 communication libraries for seamless clustering of GPUs.
+These instances provide excellent performance for many AI, ML, and analytics tools that support GPU acceleration 'out-of-the-box,' such as TensorFlow, Pytorch, Caffe, RAPIDS, and other frameworks. Additionally, the scale-out InfiniBand interconnect is supported by a large set of existing AI and HPC tools that are built on NVIDIA's NCCL2 communication libraries for seamless clustering of GPUs.
 
 > [!IMPORTANT]
 > To get started with ND A100 v4 VMs, refer to [HPC Workload Configuration and Optimization](configure.md) for steps including driver and network configuration.
