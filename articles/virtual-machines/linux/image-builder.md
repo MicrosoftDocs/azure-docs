@@ -8,7 +8,7 @@ ms.date: 03/02/2020
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: image-builder
-
+ms.custom: devx-track-azurecli
 ---
 # Create a Linux image and distribute it to an Azure Compute Gallery by using the Azure CLI
 

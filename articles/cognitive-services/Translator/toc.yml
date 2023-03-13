@@ -174,7 +174,7 @@ items:
         href: document-translation/reference/cancel-translation.md
     - name: Document Translation FAQ
       href: document-translation/faq.md
-    - name: Translate documents in Language Studio
+    - name: 🆕 Translate using Language Studio (Preview)
       displayName: quickstart, how to, interface
       href: document-translation/language-studio.md  
 - name: Custom Translator

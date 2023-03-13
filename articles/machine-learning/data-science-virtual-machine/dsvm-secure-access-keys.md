@@ -5,6 +5,7 @@ description: Learn how to securely store access credentials on the Data Science 
 keywords: deep learning, AI, data science tools, data science virtual machine, geospatial analytics, team data science process
 services: machine-learning
 ms.service: data-science-vm
+ms.custom: devx-track-azurecli
 
 author: vijetajo
 ms.author: vijetaj
