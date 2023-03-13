@@ -2345,6 +2345,8 @@
         href: sumologic-tutorial.md
       - name: SumTotalCentral
         href: sumtotalcentral-tutorial.md
+      - name: SuperAnnotate
+        href: superannotate-tutorial.md
       - name: Supermood
         href: supermood-tutorial.md
       - name: SURFsecureID - Azure MFA
