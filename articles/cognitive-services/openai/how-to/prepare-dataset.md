@@ -24,6 +24,7 @@ The first step of customizing your model is to prepare a high quality dataset. T
 - Each completion should start with a whitespace due to our tokenization, which tokenizes most words with a preceding whitespace.
 - Each completion should end with a fixed stop sequence to inform the model when the completion ends. A stop sequence could be `\n`, `###`, or any other token that doesn't appear in any completion.
 - For inference, you should format your prompts in the same way as you did when creating the training dataset, including the same separator. Also specify the same stop sequence to properly truncate the completion.
+- The dataset cannot exceed 100 Mb in total file size.
 
 ## Best practices
 
