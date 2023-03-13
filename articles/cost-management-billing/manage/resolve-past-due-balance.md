@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 02/08/2023
+ms.date: 03/13/2023
 ms.author: banders
 ms.custom: references_regions
 ---
@@ -22,7 +22,7 @@ If your payment isn't received or if we can't process your payment, you'll get a
 
 [!INCLUDE [Pay by check](../../../includes/cost-management-pay-check.md)]
 
-If your default payment method is credit card, the [Account Administrator](add-change-subscription-administrator.md#whoisaa) can settle the outstanding charges in the Azure portal. If you pay by invoice (check/wire transfer), send your payment to the location listed at the bottom of your invoice.
+If your default payment method is credit card, the [Account Administrator](add-change-subscription-administrator.md#whoisaa) can settle the outstanding charges in the Azure portal. If you pay by invoice (wire transfer), send your payment to the location listed at the bottom of your invoice.
 
 > [!IMPORTANT]
 > * If you have multiple subscriptions using the same credit card and they are all past due, you must pay the entire outstanding balance at once.
