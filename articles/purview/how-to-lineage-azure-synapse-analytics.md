@@ -28,7 +28,7 @@ Currently, Microsoft Purview captures runtime lineage from the following Azure S
 > [!IMPORTANT]
 > Microsoft Purview drops lineage if the source or destination uses an unsupported data storage system.
 
-[!INCLUDE[azure-synapse-supported-activity-lineage-capabilities](includes/data-factory-common-supported-capabilities.md)
+[!INCLUDE[azure-synapse-supported-activity-lineage-capabilities](includes/data-factory-common-supported-capabilities.md)]
 
 ## Access secured Microsoft Purview account
 

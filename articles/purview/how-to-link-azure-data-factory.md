@@ -97,7 +97,7 @@ Microsoft Purview captures runtime lineage from the following Azure Data Factory
 
 The integration between Data Factory and Microsoft Purview supports only a subset of the data systems that Data Factory supports, as described in the following sections.
 
-[!INCLUDE[data-factory-supported-lineage-capabilities](includes/data-factory-common-supported-capabilities.md)
+[!INCLUDE[data-factory-supported-lineage-capabilities](includes/data-factory-common-supported-capabilities.md)]
 
 ### Execute SSIS Package support
 
