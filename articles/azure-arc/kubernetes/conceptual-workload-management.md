@@ -62,7 +62,7 @@ Key responsibilities of the application team are:
 * Define and configure application deployment targets.
 * Communicate to platform team, requesting desired compute resources for successful SDLC operations.
 
-## High level fLow
+## High level flow
 
 This diagram shows how the platform and application team personas interact with each other while performing their regular activities.
 
