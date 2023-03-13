@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot connection to failover group - Azure Arc-enabled SQL Managed Instance
-description: Describes how to troubleshoot issues with connections to failover group resources in Azure Arc-enabled data services
+title: Troubleshoot connection to fail over group - Azure Arc-enabled SQL Managed Instance
+description: Describes how to troubleshoot issues with connections to fail over group resources in Azure Arc-enabled data services
 author: MikeRayMSFT
 ms.author: mikeray
 ms.topic: troubleshooting-general 
@@ -11,11 +11,11 @@ ms.date: 03/15/2023
 
 This article identifies potential issues, and describes how to diagnose root causes for these issues for deployments of Azure Arc-enabled data services. 
 
-## Connection to Azure Arc-enabled SQL Managed Instance failover group
+## Connection to Azure Arc-enabled SQL Managed Instance fail over group
 
-This section describes how to troubleshoot issues connecting to a failover group.
+This section describes how to troubleshoot issues connecting to a fail over group.
 
-### Check failover group connections & synchronization state
+### Check fail over group connections & synchronization state
 
 ```console
 kubectl -n $nameSpace get fog $fogName -o jsonpath-as-json='{.status}'
@@ -23,7 +23,7 @@ kubectl -n $nameSpace get fog $fogName -o jsonpath-as-json='{.status}'
 
 **Results**:
 
-On each side, there are two replicas for one failover group. Check the value of `connectedState`, and `synchronizationState` for each replica.
+On each side, there are two replicas for one fail over group. Check the value of `connectedState`, and `synchronizationState` for each replica.
 
 If one of `connectedState` isn't equal to `CONNECTED`, see the instructions under [Check parameters](#check-parameters).
 
@@ -64,7 +64,7 @@ Compare the results from the remote instance with the results from the local ins
 
 * Role from `kubectl -n $nameSpace get fog $fogName -o jsonpath-as-json='{.spec}'` should be different between two sites. One side should be primary, other should be secondary.
 
-If any one of above isn't right, delete failover group on both sites and re-create them.
+If any one of above isn't right, delete fail over group on both sites and re-create them.
 
 If nothing is wrong, follow the instructions under [Check mirroring endpoints for both sides](#check-mirroring-endpoints-for-both-sides).
 
@@ -78,7 +78,7 @@ kubectl -n test get services $sqlmiName-external-svc -o jsonpath-as-json='{.spec
 
 **Results**
 
-* `port-mssql-mirroring` should be presented on the list. The port should be used by failover group `partnerMirroringURL` on other side.
+* `port-mssql-mirroring` should be presented on the list. The port should be used by fail over group `partnerMirroringURL` on other side.
 
 If it'sn't, correct the mistake and retry from the beginning.
 
@@ -147,7 +147,7 @@ If you find it'sn't synchronized or not connected unexpectedly, try to kill the 
 
 ## Check SQLMI SQL engine listener
 
-SQL engine listener is the component which routes connections to the failover group.
+SQL engine listener is the component which routes connections to the fail over group.
 
 ```console
 kubectl exec -ti -n $nameSpace $sqlmiName-0 -c arc-sqlmi -- /opt/mssql-tools/bin/sqlcmd -S localhost,1433 -U $User -P $Password -Q "SELECT @@ServerName"
