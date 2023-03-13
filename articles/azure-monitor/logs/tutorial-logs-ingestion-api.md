@@ -262,6 +262,14 @@ The [DCR](../essentials/data-collection-rule-overview.md) defines the schema of 
                                 {
                                     "name": "AdditionalContext",
                                     "type": "string"
+                                },
+                                {
+                                    "name": "CounterName",
+                                    "type": "string"
+                                },
+                                {
+                                    "name": "CounterValue",
+                                    "type": "real"
                                 }
                             ]
                         }
@@ -282,7 +290,7 @@ The [DCR](../essentials/data-collection-rule-overview.md) defines the schema of 
                             "destinations": [
                                 "clv2ws1"
                             ],
-                            "transformKql": "source | extend jsonContext = parse_json(AdditionalContext) | project TimeGenerated = Time, Computer, AdditionalContext = jsonContext, CounterName=tostring(jsonContext.CounterName), CounterValue=jsonContext.CounterValue",
+                            "transformKql": "source | extend jsonContext = parse_json(AdditionalContext) | project TimeGenerated = Time, Computer, AdditionalContext = jsonContext, CounterName=tostring(jsonContext.CounterName), CounterValue=toreal(jsonContext.CounterValue)",
                             "outputStream": "Custom-MyTable_CL"
                         }
                     ]
