@@ -8,7 +8,7 @@ ms.author: tejaswikolli
 
 # Enable Caching for ACR (Preview) with authentication - Azure CLI
 
-This article is part five of a six-part tutorial series. [Part one](tutorial-registry-cache.md) provides an overview of Caching for ACR, its features, benefits, and preview limitations. In [part two](tutorial-enable-registry-cache.md), you learn how to enable Caching for ACR feature by using the Azure portal. In [part three](tutorial-enable-registry-cache-cli.md), you learn how to enable Caching for ACR feature by using the Azure CLI. In [part four](tutorial-enable-registry-cache-auth.md), you learn how to enable Caching for ACR feature with authentication by using Azure Portal. 
+This article is part five of a six-part tutorial series. [Part one](tutorial-registry-cache.md) provides an overview of Caching for ACR, its features, benefits, and preview limitations. In [part two](tutorial-enable-registry-cache.md), you learn how to enable Caching for ACR feature by using the Azure portal. In [part three](tutorial-enable-registry-cache-cli.md), you learn how to enable Caching for ACR feature by using the Azure CLI. In [part four](tutorial-enable-registry-cache-auth.md), you learn how to enable Caching for ACR feature with authentication by using Azure portal. 
 
 This article walks you through the steps of enabling Caching for ACR with authentication by using the Azure CLI. You have to use the Credential set to make an authenticated pull or to access a private repository.
 
@@ -22,7 +22,7 @@ This article walks you through the steps of enabling Caching for ACR with authen
 
 ### Create a Credential Set - Azure CLI
 
-Before configuring a Credential Set you will require to create and store secrets in the Azure KeyVault and retrieve the secrets from the Key Vault. Learn more about [creating and storing credentials in a Key Vault.][create-and-store-keyvault-credentials] and to [set and retrieve a secret from Key Vault.][set-and-retrieve-a-secret].
+Before configuring a Credential Set, you require to create and store secrets in the Azure KeyVault and retrieve the secrets from the Key Vault. Learn more about [creating and storing credentials in a Key Vault.][create-and-store-keyvault-credentials] and to [set and retrieve a secret from Key Vault.][set-and-retrieve-a-secret].
 
 1. Run [az acr credential set create][az-acr-credential-set-create] command to create a credential set. 
 
@@ -82,7 +82,7 @@ Before configuring a Credential Set you will require to create and store secrets
 
 ### Assign permissions to Key Vault
 
-1. Get the principal Id of system identity used to access Key Vault.
+1. Get the principal Id of system identity in use to access Key Vault.
 
     ```azurecli-interactive
     PRINCIPAL_ID=$(az acr credential-set show 
