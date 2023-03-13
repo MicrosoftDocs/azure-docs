@@ -9,7 +9,6 @@ ms.subservice: calling
 ms.topic: how-to 
 ms.date: 03/01/2023
 ms.custom: template-how-to
-zone_pivot_groups: acs-js
 
 #Customer intent: As a developer, I want to learn how to send and receive Spotlight state using SDK.
 ---
