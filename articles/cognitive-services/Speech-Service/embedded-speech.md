@@ -26,13 +26,13 @@ Embedded speech is included with the Speech SDK (version 1.24.1 and higher) for 
 
 **Choose your target environment**
 
-# [Android](#tab/android)
+# [Android](#tab/android-target)
 
 Requires Android 7.0 (API level 24) or higher on ARM64 (`arm64-v8a`) or ARM32 (`armeabi-v7a`) hardware.
 
 Embedded TTS with neural voices is only supported on ARM64.
 
-# [Linux](#tab/linux)
+# [Linux](#tab/linux-target)
 
 Requires Linux on x64, ARM64, or ARM32 hardware with [supported Linux distributions](quickstarts/setup-platform.md?tabs=linux).
 
@@ -40,11 +40,11 @@ Embedded speech isn't supported on RHEL/CentOS 7.
 
 Embedded TTS with neural voices isn't supported on ARM32.
 
-# [macOS](#tab/macos)
+# [macOS](#tab/macos-target)
 
 Requires 10.14 or newer on x64 or ARM64 hardware.
 
-# [Windows](#tab/windows)
+# [Windows](#tab/windows-target)
 
 Requires Windows 10 or newer on x64 or ARM64 hardware.
 
@@ -86,6 +86,103 @@ The following [text-to-speech](text-to-speech.md) locales and voices are availab
 | `ko-KR` | Korean (Korea) | `ko-KR-SunHiNeural` (Female)<br/>`ko-KR-InJoonNeural` (Male)|
 | `pr-BR` | Portuguese (Brazil) | `pt-BR-FranciscaNeural` (Female)<br/>`pt-BR-AntonioNeural` (Male)|
 | `zh-CN` | Chinese (Mandarin, Simplified) | `zh-CN-XiaoxiaoNeural` (Female)<br/>`zh-CN-YunxiNeural` (Male)|
+
+
+## Embedded speech SDK packages
+
+::: zone pivot="programming-language-csharp"
+
+For C# embedded applications, install following Speech SDK for C# packages:
+
+|Package  |Description  |
+| --------- | --------- |
+|[Microsoft.CognitiveServices.Speech](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech)|Required to use the Speech SDK|
+| [Microsoft.CognitiveServices.Speech.Extension.Embedded.SR](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech.Extension.Embedded.SR) | Required for embedded speech recognition |
+| [Microsoft.CognitiveServices.Speech.Extension.Embedded.TTS](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech.Extension.Embedded.TTS) | Required for embedded speech synthesis |
+| [Microsoft.CognitiveServices.Speech.Extension.ONNX.Runtime](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech.Extension.ONNX.Runtime) | Required for embedded speech recognition and synthesis |
+| [Microsoft.CognitiveServices.Speech.Extension.Telemetry](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech.Extension.Telemetry) | Required for embedded speech recognition and synthesis |
+
+::: zone-end
+
+::: zone pivot="programming-language-cpp"
+
+For C++ embedded applications, install following Speech SDK for C++ packages:
+
+|Package  |Description  |
+| --------- | --------- |
+|[Microsoft.CognitiveServices.Speech](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech)|Required to use the Speech SDK|
+| [Microsoft.CognitiveServices.Speech.Extension.Embedded.SR](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech.Extension.Embedded.SR) | Required for embedded speech recognition |
+| [Microsoft.CognitiveServices.Speech.Extension.Embedded.TTS](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech.Extension.Embedded.TTS) | Required for embedded speech synthesis |
+| [Microsoft.CognitiveServices.Speech.Extension.ONNX.Runtime](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech.Extension.ONNX.Runtime) | Required for embedded speech recognition and synthesis |
+| [Microsoft.CognitiveServices.Speech.Extension.Telemetry](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech.Extension.Telemetry) | Required for embedded speech recognition and synthesis |
+
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+**Choose your target environment**
+
+# [Java Runtime](#tab/jre)
+
+For Java embedded applications, add [client-sdk-embedded](https://mvnrepository.com/artifact/com.microsoft.cognitiveservices.speech/client-sdk-embedded) (`.jar`) as a dependency. This package supports cloud, embedded, and hybrid speech.
+
+> [!IMPORTANT]
+> Don't add [client-sdk](https://mvnrepository.com/artifact/com.microsoft.cognitiveservices.speech/client-sdk) in the same project, since it supports only cloud speech services.
+
+Follow these steps to install the Speech SDK for Java using Apache Maven:
+
+1. Install [Apache Maven](https://maven.apache.org/install.html).
+1. Open a command prompt where you want the new project, and create a new `pom.xml` file. 
+1. Copy the following XML content into `pom.xml`:
+    ```xml
+    <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+        <modelVersion>4.0.0</modelVersion>
+        <groupId>com.microsoft.cognitiveservices.speech.samples</groupId>
+        <artifactId>quickstart-eclipse</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+        <build>
+            <sourceDirectory>src</sourceDirectory>
+            <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.7.0</version>
+                <configuration>
+                <source>1.8</source>
+                <target>1.8</target>
+                </configuration>
+            </plugin>
+            </plugins>
+        </build>
+        <dependencies>
+            <dependency>
+            <groupId>com.microsoft.cognitiveservices.speech</groupId>
+            <artifactId>client-sdk-embedded</artifactId>
+            <version>1.26.0</version>
+            </dependency>
+        </dependencies>
+    </project>
+    ```
+1. Run the following Maven command to install the Speech SDK and dependencies.
+    ```console
+    mvn clean dependency:copy-dependencies
+    ```
+
+# [Android](#tab/android)
+
+For Java embedded applications, add [client-sdk-embedded](https://mvnrepository.com/artifact/com.microsoft.cognitiveservices.speech/client-sdk-embedded) (`.aar`) as a dependency. This package supports cloud, embedded, and hybrid speech.
+
+> [!IMPORTANT]
+> Don't add [client-sdk](https://mvnrepository.com/artifact/com.microsoft.cognitiveservices.speech/client-sdk) in the same project, since it supports only cloud speech services.
+
+Be sure to use the `@aar` suffix when the dependency is specified in `build.gradle`. Here's an example:
+
+```
+dependencies {
+    implementation 'com.microsoft.cognitiveservices.speech:client-sdk-embedded:1.26.0@aar'
+}
+```
+::: zone-end
 
 ## Embedded speech configuration
 
