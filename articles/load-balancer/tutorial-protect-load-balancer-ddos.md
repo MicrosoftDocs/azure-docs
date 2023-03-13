@@ -7,6 +7,7 @@ ms.service: load-balancer
 ms.topic: quickstart
 ms.date: 12/21/2022
 ms.author: duau
+ms.custom: template-tutorial
 ---
 
 # Tutorial: Protect your public load balancer with Azure DDoS Protection Standard

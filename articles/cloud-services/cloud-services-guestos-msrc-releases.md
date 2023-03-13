@@ -11,12 +11,72 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/31/2023
+ms.date: 3/1/2023
 ms.author: gunnarc
+ms.custom: compute-evergreen
 ---
 
 # Azure Guest OS
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in.
+
+
+## February 2023 Guest OS
+ 
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 23-02 |  [5022838]  |  Latest Cumulative Update(LCU) | [5.78] | Feb 14, 2023 |
+|  Rel 23-02 |  [5022835]  |  IE Cumulative Updates | [2.134], [3.121], [4.114] | Feb 14, 2023 |
+|  Rel 23-02 |  [5022842]  |  Latest Cumulative Update(LCU) | [7.22] | Feb 14, 2023 |
+|  Rel 23-02 |  [5022840]  |  Latest Cumulative Update(LCU) | [6.54] | Feb 14, 2023 |
+|  Rel 23-02 |  [5022523]  |  .NET Framework 3.5 Security and Quality Rollup  | [2.134] | Feb 14, 2023 |
+|  Rel 23-02 |  [5022515]  |  .NET Framework 4.6.2 Security and Quality Rollup  | [2.134] | Feb 14, 2023 |
+|  Rel 23-02 |  [5022525]  |  .NET Framework 3.5 Security and Quality Rollup  | [4.114] | Feb 14, 2023 |
+|  Rel 23-02 |  [5022513]  |  .NET Framework 4.6.2 Security and Quality Rollup  | [4.114] | Feb 14, 2023 |
+|  Rel 23-02 |  [5022574]  |  .NET Framework 3.5 Security and Quality Rollup  | [3.121] | Feb 14, 2023 |
+|  Rel 23-02 |  [5022512]  |  .NET Framework 4.6.2 Security and Quality Rollup  | [3.121] | Feb 14, 2023 |
+|  Rel 23-02 |  [5022511]  |  . NET Framework 4.7.2 Cumulative Update  | [6.54] | Feb 14, 2023 |
+|  Rel 23-02 |  [5022507]  |  .NET Framework 4.8 Security and Quality Rollup  | [7.22] | Feb 14, 2023 |
+|  Rel 23-02 |  [5022872]  |  Monthly Rollup  | [2.134] | Feb 14, 2023 |
+|  Rel 23-02 |  [5022903]  |  Monthly Rollup  | [3.121] | Feb 14, 2023 |
+|  Rel 23-02 |  [5022899]  |  Monthly Rollup  | [4.114] | Feb 14, 2023 |
+|  Rel 23-02 |  [5022923]  |  Servicing Stack Update  | [3.121] | Feb 14, 2023 |
+|  Rel 23-02 |  [5018922]  |  Servicing Stack update LKG  | [4.114] | Oct 11, 2022 |
+|  Rel 23-02 |  [4578013]  |  OOB Standalone Security Update  | [4.114] | Aug 19, 2020 |
+|  Rel 23-02 |  [5017396]  |  Servicing Stack Update LKG  | [5.78] | Sep 13, 2022 |
+|  Rel 23-02 |  [5017397]  |  Servicing Stack Update LKG  | [2.134] | Sep 13, 2022 |
+|  Rel 23-02 |  [4494175]  |  Microcode  | [5.78] | Sep 1, 2020 |
+|  Rel 23-02 |  [4494174]  |  Microcode  | [6.54] | Sep 1, 2020 |
+|  Rel 23-02 |  5022947  |  Servicing Stack Update  | [7.22] |  |
+
+[5022838]: https://support.microsoft.com/kb/5022838
+[5022835]: https://support.microsoft.com/kb/5022835
+[5022842]: https://support.microsoft.com/kb/5022842
+[5022840]: https://support.microsoft.com/kb/5022840
+[5022523]: https://support.microsoft.com/kb/5022523
+[5022515]: https://support.microsoft.com/kb/5022515
+[5022525]: https://support.microsoft.com/kb/5022525
+[5022513]: https://support.microsoft.com/kb/5022513
+[5022574]: https://support.microsoft.com/kb/5022574
+[5022512]: https://support.microsoft.com/kb/5022512
+[5022511]: https://support.microsoft.com/kb/5022511
+[5022507]: https://support.microsoft.com/kb/5022507
+[5022872]: https://support.microsoft.com/kb/5022872
+[5022903]: https://support.microsoft.com/kb/5022903
+[5022899]: https://support.microsoft.com/kb/5022899
+[5022923]: https://support.microsoft.com/kb/5022923
+[5018922]: https://support.microsoft.com/kb/5018922
+[4578013]: https://support.microsoft.com/kb/4578013
+[5017396]: https://support.microsoft.com/kb/5017396
+[5017397]: https://support.microsoft.com/kb/5017397
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494174]: https://support.microsoft.com/kb/4494174
+[2.134]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.121]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.114]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.78]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.54]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[7.22]: ./cloud-services-guestos-update-matrix.md#family-7-releases
 
 
 ## January 2023 Guest OS

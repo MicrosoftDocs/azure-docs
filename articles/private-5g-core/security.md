@@ -67,7 +67,7 @@ For more information on how to generate a Key Vault certificate, see [Certificat
 
 ### Access authentication
 
-You can use [Azure Active Directory (Azure AD)](/azure/active-directory/authentication/overview-authentication) or a local username and password to access the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md). 
+You can use [Azure Active Directory (Azure AD)](../active-directory/authentication/overview-authentication.md) or a local username and password to access the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md). 
 
 Azure AD allows you to natively authenticate using passwordless methods to simplify the sign-in experience and reduce the risk of attacks. Therefore, to improve security in your deployment, we recommend setting up Azure AD authentication over local usernames and passwords.
 

@@ -56,9 +56,18 @@ Then, read the values, as shown in the example below.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_ReadContainerMetadata":::
 
-## See also
+## Resources
 
-- [Get started with Azure Blob Storage and .NET](storage-blob-dotnet-get-started.md)
-- [Get Container Properties operation](/rest/api/storageservices/get-container-properties)
-- [Set Container Metadata operation](/rest/api/storageservices/set-container-metadata)
-- [Get Container Metadata operation](/rest/api/storageservices/get-container-metadata)
+To learn more about setting and retrieving container properties and metadata using the Azure Blob Storage client library for .NET, see the following resources.
+
+### REST API operations
+
+The Azure SDK for .NET contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar .NET paradigms. The client library methods for setting and retrieving properties and metadata use the following REST API operations:
+
+- [Get Container Properties](/rest/api/storageservices/get-container-properties) (REST API)
+- [Set Container Metadata](/rest/api/storageservices/set-container-metadata) (REST API)
+- [Get Container Metadata](/rest/api/storageservices/get-container-metadata) (REST API)
+
+The `GetProperties` and `GetPropertiesAsync` methods retrieve container properties and metadata by calling both the [Get Blob Properties](/rest/api/storageservices/get-blob-properties) operation and the [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata) operation.
+
+[!INCLUDE [storage-dev-guide-resources-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-resources-dotnet.md)]

@@ -5,9 +5,9 @@ ms.topic: conceptual
 ms.date: 12/06/2022
 ms.custom: references_regions 
 ms.reviewer: geg
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Support matrix for Azure VM backups

@@ -299,7 +299,7 @@ Use the `--force-deletion` parameter for [az vm delete](/cli/azure/vm?view=azure
 az vm delete \
     --resource-group myResourceGroup \
     --name myVM \
-    --force-deletion
+    --force-deletion none
 ```
 
 ### [PowerShell](#tab/powershell4)
