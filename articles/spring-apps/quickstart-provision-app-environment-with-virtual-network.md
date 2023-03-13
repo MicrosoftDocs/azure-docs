@@ -116,7 +116,7 @@ Use the following steps to create an Azure Spring Apps instance in an Azure Cont
    ```bash
    RESOURCE_GROUP="<resource-group-name>"
    LOCATION="eastus"
-   APP_ENVIRONMENT="<azure-container-apps-environment-name>"
+   AZURE_CONTAINER_APPS_ENVIRONMENT="<Azure-Container-Apps-environment-name>"
    ```
 
 1. Declare a variable for the name of the virtual network:
@@ -157,7 +157,7 @@ Use the following steps to create an Azure Spring Apps instance in an Azure Cont
 
    ```azurecli
    az containerapp env create \
-       --name $APP_ENVIRONMENT \
+       --name $AZURE_CONTAINER_APPS_ENVIRONMENT \
        --resource-group $RESOURCE_GROUP \
        --location $LOCATION \
        --infrastructure-subnet-resource-id $INFRASTRUCTURE_SUBNET

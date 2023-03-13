@@ -23,23 +23,23 @@ This article describes how to create a Standard consumption plan in Azure Spring
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - (Optional) [Azure CLI](/cli/azure/install-azure-cli) version 2.28.0 or higher.
 
-## Standard consumption plan procedures
+## Provision a Standard consumption plan instance
 
 You can use either the Azure portal or the Azure CLI to create a Standard consumption plan.
 
 ### [Azure portal](#tab/Azure-portal)
 
-The following procedure creates an instance of Azure Spring Apps using the Azure portal.
+Use the following steps to create an instance of Azure Spring Apps using the Azure portal.
 
 1. Open the [Azure portal](https://portal.azure.com/).
 
-1. In the search box, search for *Azure Spring Apps*, and then select  **Azure Spring Apps** from the results.
+1. In the search box, search for *Azure Spring Apps*, and then select **Azure Spring Apps** from the results.
 
-   :::image type="content" source="media/quickstart-provision-standard-consumption-plan-service-instance/azure-spring-apps-start.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps service highlighted in the search results." lightbox="media/quickstart-provision-standard-consumption-plan-service-instance/azure-spring-apps-start.png":::
+   :::image type="content" source="media/quickstart-provision-standard-consumption-plan-service-instance/azure-spring-apps-start.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps service highlighted in the search results." lightbox="media/quickstart-provision-standard-consumption-plan-service-instance/azure-spring-apps-start.png":::
 
 1. On the Azure Spring Apps page, select **Create**.
 
-   :::image type="content" source="media/quickstart-provision-standard-consumption-plan-service-instance/azure-spring-apps-create.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps resource with Create button highlighted." lightbox="media/quickstart-provision-standard-consumption-plan-service-instance/azure-spring-apps-create.png":::
+   :::image type="content" source="media/quickstart-provision-standard-consumption-plan-service-instance/azure-spring-apps-create.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps resource with the Create button highlighted." lightbox="media/quickstart-provision-standard-consumption-plan-service-instance/azure-spring-apps-create.png":::
 
 1. Fill out the **Basics** form on the Azure Spring Apps **Create** page using the following guidelines:
 
@@ -58,9 +58,9 @@ The following procedure creates an instance of Azure Spring Apps using the Azure
 
      - Select **Create new** to create a new Azure Container Apps environment, or select an existing environment from the dropdown menu.
 
-     :::image type="content" source="media/quickstart-provision-standard-consumption-plan-service-instance/select-azure-container-apps-environment.png" alt-text="Screenshot of Azure portal showing the Azure Spring Apps Create page." lightbox="media/quickstart-provision-standard-consumption-plan-service-instance/select-azure-container-apps-environment.png":::
+     :::image type="content" source="media/quickstart-provision-standard-consumption-plan-service-instance/select-azure-container-apps-environment.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps Create page." lightbox="media/quickstart-provision-standard-consumption-plan-service-instance/select-azure-container-apps-environment.png":::
 
-1. Fill out the **Basics** form on the **Create Container Apps environment** page, use the default value `asa-standard-consumption-app-env` for the **Environment name** and set **Zone redundancy** to **Enabled**.
+1. Fill out the **Basics** form on the **Create Container Apps environment** page. Use the default value `asa-standard-consumption-app-env` for the **Environment name** and set **Zone redundancy** to **Enabled**.
 
    :::image type="content" source="media/quickstart-provision-standard-consumption-plan-service-instance/create-azure-container-apps-environment.png" alt-text="Screenshot of Azure portal showing Create App Environment blade." lightbox="media/quickstart-provision-standard-consumption-plan-service-instance/create-azure-container-apps-environment.png":::
 
@@ -73,9 +73,9 @@ The following procedure creates an instance of Azure Spring Apps using the Azure
 
 ### [Azure CLI](#tab/Azure-CLI)
 
-The following procedure creates an instance of Azure Spring Apps using the Azure CLI.
+The following sections show you how to create an instance of Azure Spring Apps using the Azure CLI.
 
-## Step 1: Create an Azure Container Apps environment
+## Create an Azure Container Apps environment
 
 An Azure Container Apps environment creates a secure boundary around a group of applications. Apps deployed to the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace.
 
@@ -83,96 +83,101 @@ You can create the Azure Container Apps environment in one of two ways:
 
 - Using your own virtual network. For more information see [Quickstart: Create an Azure Spring Apps instance in an Azure Container Apps environment with a virtual network](quickstart-provision-app-environment-with-virtual-network.md).
 
-- Using a system assigned virtual network as described in the following procedure.
+- Using a system assigned virtual network, as described in the following procedure.
 
-1. Sign in to Azure.
+1. Sign in to Azure by using the following command:
 
    ```azurecli
    az login
    ```
 
-1. Install the Azure Container Apps extension for the Azure CLI.
+1. Install the Azure Container Apps extension for the Azure CLI by using the following command:
 
    ```azurecli
    az extension add --name containerapp --upgrade
    ```
 
-1. Register the `Microsoft.App` namespace.
+1. Register the `Microsoft.App` namespace by using the following command:
 
    ```azurecli
    az provider register --namespace Microsoft.App
    ```
 
-1. If you have not previously used the Azure Monitor Log Analytics workspace, register the `Microsoft.OperationalInsights` provider.
+1. If you haven't previously used the Azure Monitor Log Analytics workspace, register the `Microsoft.OperationalInsights` provider by using the following command:
 
    ```azurecli
    az provider register --namespace Microsoft.OperationalInsights
    ```
 
-1. Set the following environment variables.
+1. Use the following commands to create variables to store name and location information. Be sure to replace the placeholder values with your own values.
 
    ```bash
    RESOURCE_GROUP="<resource-group-name>"
    LOCATION="eastus"
-   MANAGED_ENVIRONMENT="<azure-container-apps-environment-name>"
+   AZURE_CONTAINER_APPS_ENVIRONMENT="<Azure-Container-Apps-environment-name>"
    ```
 
-1. Create the environment with the following command.
+1. Create the Azure Container Apps environment by using the following command:
 
    ```azurecli
    az containerapp env create \
-       --name $MANAGED_ENVIRONMENT \
        --resource-group $RESOURCE_GROUP \
+       --name $AZURE_CONTAINER_APPS_ENVIRONMENT \
        --location $LOCATION
    ```
 
-## Step 2: Deploy an Azure Spring Apps instance
+## Deploy an Azure Spring Apps instance
 
-1. Install the latest `spring` extension for Azure Spring Apps.
+Use the following steps to deploy the service instance:
+
+1. Install the latest `spring` extension for Azure Spring Apps by using the following command:
 
    ```azurecli
    az extension remove --name spring && \
    az extension add --name spring
    ```
 
-1. Register the `Microsoft.AppPlatform` provider for the Azure Spring Apps.
+1. Register the `Microsoft.AppPlatform` provider for the Azure Spring Apps by using the following command:
 
    ```azurecli
    az provider register --namespace Microsoft.AppPlatform
    ```
 
-1. Set the following environment variables.
+1. Use the following commands to create variables to store name and location information. You can skip the first three variables below if you set them in the previous section. Be sure to replace the placeholder values with your own values.
 
    ```azurecli
    RESOURCE_GROUP="<resource-group-name>"
-   SPRING_APPS_NAME="<azure-spring-apps-instance-name>"
-   MANAGED_ENVIRONMENT="<azure-container-apps-environment-name>"
    LOCATION="eastus"
+   AZURE_CONTAINER_APPS_ENVIRONMENT="<Azure-Container-Apps-environment-name>"
+
+   AZURE_SPRING_APPS_INSTANCE="<Azure-Spring-Apps-instance-name>"
    MANAGED_ENV_RESOURCE_ID=$(az containerapp env show \
-       --name $AZURE_CONTAINER_APPS_ENVIRONMENT_NAME" \
        --resource-group $RESOURCE_GROUP \
+       --name $AZURE_CONTAINER_APPS_ENVIRONMENT \
        --query id \
        --output tsv)
    ```
 
-1. Deploy a Standard Consumption plan for an Azure Spring Apps instance on top of the container Environment. Create your Azure Spring Apps instance by specifying the resource  of the Azure Container Apps environment you just created.
+1. Deploy a Standard consumption plan for an Azure Spring Apps instance on top of the container environment. Create your Azure Spring Apps instance by specifying the resource of the Azure Container Apps environment you just created.
 
    ```azurecli
    az spring create \
        --resource-group $RESOURCE_GROUP \
-       --name $SPRING_APPS_NAME \
+       --name $AZURE_SPRING_APPS_INSTANCE \
        --managed-environment $MANAGED_ENV_RESOURCE_ID \
        --sku StandardGen2 \
        --location $LOCATION
    ```
 
-1. After the deployment, an additional infrastructure resource group will be created in your subscription to host the underlying resources for the Standard consumption plan Azure Spring Apps instance. The resource group will be named as `{MANAGED_ENVIRONMENT}_SpringApps_{SPRING_APPS_SERVICE_ID}`.
+1. After the deployment, an additional infrastructure resource group is created in your subscription to host the underlying resources for the Azure Spring Apps Standard consumption plan instance. The resource group is named `{AZURE_CONTAINER_APPS_ENVIRONMENT}_SpringApps_{SPRING_APPS_SERVICE_ID}`.
 
    ```azurecli
    SERVICE_ID=$(az spring show \
        --resource-group $RESOURCE_GROUP \
-       --name $SPRING_APPS_NAME --query properties.serviceId -o tsv)
-   INFRA_RESOURCE_GROUP=${MANAGED_ENVIRONMENT}_SpringApps_${SERVICE_ID}
+       --name $AZURE_SPRING_APPS_INSTANCE \
+       --query properties.serviceId \
+       --output tsv)
+   INFRA_RESOURCE_GROUP=${AZURE_CONTAINER_APPS_ENVIRONMENT}_SpringApps_${SERVICE_ID}
    echo ${INFRA_RESOURCE_GROUP}
    ```
 
