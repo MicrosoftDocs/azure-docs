@@ -224,7 +224,7 @@ To train a machine learning model on data in your Log Analytics workspace:
 1. Define variables you need to pass in the call to the Logs Ingestion API:
 
     ```python
-    os.environ['AZURE_TENANT_ID'] = "<Tenant ID>"; #Tenant ID the data collection endpoint resides in
+    os.environ['AZURE_TENANT_ID'] = "<Tenant ID>"; #ID of the tenant where the data collection endpoint resides
     os.environ['AZURE_CLIENT_ID'] = "<Application ID>"; #Application ID to which you granted permissions to your data collection rule
     os.environ['AZURE_CLIENT_SECRET'] = "<Client secret>"; #Secret created for the application
     
