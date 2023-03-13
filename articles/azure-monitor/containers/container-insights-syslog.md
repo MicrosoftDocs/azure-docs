@@ -96,7 +96,7 @@ provisioningState       : Succeeded
 
 ## How to access Syslog data
 
-### Access using built-in Workbooks
+### Access using built-in workbooks
 
 To get a quick snapshot of your syslog data, customers can use our built-in Syslog workbook. There are two ways to access the built-in workbook.
 
@@ -110,7 +110,7 @@ Navigate to your cluster. Open the _Workbooks_ tab for your cluster and look for
 
 :::image type="content" source="media/container-insights-syslog/SyslogWorkbookCIReportsTab.gif" lightbox="media/container-insights-syslog/SyslogWorkbookCIReportsTab.gif" alt-text="Video of Syslog workbook being accessed from cluster workbooks tab," border="false":::
 
-### Access using Log Queries
+### Access using log queries
 
 Syslog data is stored in the [Syslog](/azure/azure-monitor/reference/tables/syslog) table in your Log Analytics workspace. You can create your own [log queries](../logs/log-query-overview.md) in [Log Analytics](../logs/log-analytics-overview.md) to analyze this data or use any of the [prebuilt queries](../logs/log-query-overview.md).
 
