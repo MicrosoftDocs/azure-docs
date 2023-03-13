@@ -147,7 +147,7 @@ If you find it is not synchronized or not connected unexpectedly, try to kill th
 > If there are some large database in the instance, the seeding process to secondary could take a while. If this happens, wait for seeding to complete.
 
 ## Check SQLMI SQL engine listener
-### Results
+
 SQL engine listener is the component which routes connections to the failover group.
 
 ```console
