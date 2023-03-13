@@ -28,11 +28,11 @@ The bulk executor library helps you use this massive throughput and storage. The
 
 ## Key features of the bulk executor library  
 
-* Using the bulk executor library significantly reduces the client-side compute resources needed to saturate the throughput allocated to a container. A single threaded application that writes data using the bulk import API achieves 10 times greater write throughput when compared to a multi-threaded application that writes data in parallel while saturating the client machine's CPU.  
+* Using the bulk executor library significantly reduces the client-side compute resources needed to saturate the throughput allocated to a container. A single threaded application that writes data using the bulk import API achieves 10 times greater write throughput when compared to a multi-threaded application that writes data in parallel while it saturates the client machine's CPU.  
 
-* The bulk executor library abstracts away the tedious tasks of writing application logic to handle rate limiting of request, request timeouts, and other transient exceptions by efficiently handling them within the library.  
+* The bulk executor library abstracts away the tedious tasks of writing application logic to handle rate limiting of request, request timeouts, and other transient exceptions. It efficiently handles them within the library.  
 
-* It provides a simplified mechanism for applications performing bulk operations to scale out. A single bulk executor instance running on an Azure virtual machine can consume greater than 500 K RU/s. You can achieve a higher throughput rate by adding more instances on individual client virtual machines.  
+* It provides a simplified mechanism for applications to perform bulk operations to scale out. A single bulk executor instance that runs on an Azure virtual machine can consume greater than 500 K RU/s. You can achieve a higher throughput rate by adding more instances on individual client virtual machines.  
 
 * The bulk executor library can bulk import more than a terabyte of data within an hour by using a scale-out architecture.  
 
@@ -40,7 +40,9 @@ The bulk executor library helps you use this massive throughput and storage. The
 
 ## How does the bulk executor operate?
 
-When a bulk operation to import or update documents is triggered with a batch of entities, they're initially shuffled into buckets that correspond to their Azure Cosmos DB partition key range. Within each bucket that corresponds to a partition key range, they're broken down into mini-batches. Each mini-batch act as a payload that is committed on the server-side. The bulk executor library has built in optimizations for concurrent execution of these mini-batches both within and across partition key ranges.
+When a bulk operation to import or update documents is triggered with a batch of entities, they're initially shuffled into buckets that correspond to their Azure Cosmos DB partition key range. Within each bucket that corresponds to a partition key range, they're broken down into mini-batches.
+
+Each mini-batch act as a payload that is committed on the server-side. The bulk executor library has built in optimizations for concurrent execution of the mini-batches both within and across partition key ranges.
 
 The following diagram illustrates how bulk executor batches data into different partition keys:  
 
@@ -48,7 +50,9 @@ The following diagram illustrates how bulk executor batches data into different 
 
 The bulk executor library makes sure to maximally utilize the throughput allocated to a collection. It uses an [AIMD-style congestion control mechanism](https://tools.ietf.org/html/rfc5681) for each Azure Cosmos DB partition key range to efficiently handle rate limiting and timeouts.
 
-For more information about sample applications that consume the bulk executor library, see [.NET](nosql/bulk-executor-dotnet.md) and [Java](bulk-executor-java.md). For reference information, see [.NET](nosql/sdk-dotnet-bulk-executor-v2.md) and [Java](nosql/sdk-java-bulk-executor-v2.md).
+For more information about sample applications that consume the bulk executor library, see [Use the bulk executor .NET library to perform bulk operations in Azure Cosmos DB](nosql/bulk-executor-dotnet.md) and [Perform bulk operations on Azure Cosmos DB data](bulk-executor-java.md).
+
+For reference information, see [.NET bulk executor library: Download information (Legacy)](nosql/sdk-dotnet-bulk-executor-v2.md) and [Java bulk executor library: Download information](nosql/sdk-java-bulk-executor-v2.md).
 
 ## Next steps
   
