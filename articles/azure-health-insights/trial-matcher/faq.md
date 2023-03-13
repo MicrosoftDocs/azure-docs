@@ -15,8 +15,8 @@ ms.author: behoorne
 # Trial Matcher frequently asked questions
 
 ## Is there a workaround for patients whose clinical documents exceed the # characters limit?
-Unfortunately, we do not support patients with clinical documents that exceed # characters limit. You might try excluding the progress notes.
+Unfortunately, we don't support patients with clinical documents that exceed # characters limit. You might try excluding the progress notes.
 
 ## Limits and quotas
-For the public preview you can select the F0 (free) sku. 
+For the public preview, you can select the F0 (free) sku. 
 The Official prices will be released after public preview 

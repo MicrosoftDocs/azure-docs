@@ -14,7 +14,7 @@ ms.author: behoorne
 # Trial Matcher Model configuration
 
 The Trial Matcher includes a built-in Knowledge graph, which uses trials taken from [clinicaltrials.gov](https://clinicaltrials.gov/), and is being updated periodically. When matching patients to trials, customers can define a list of filters to query a subset of clinical trials. Each filter can be defined based on trial conditions, types, recruitment statuses, sponsors, phases, purposes, facility names, locations, or trial IDs.
-- Specifying multiple values for the same filter category will result in a trial set that is a union of the two sets.
+- Specifying multiple values for the same filter category results in a trial set that is a union of the two sets.
 
 
 ```json
@@ -23,7 +23,7 @@ The Trial Matcher includes a built-in Knowledge graph, which uses trials taken f
 
 In the above example, either trials that are in recruitment status ```recruiting``` or ```not yet recruiting``` will be queried.
 
-- Specifying multiple filter categories will result in a trial set that is the intersection of the sets.
+- Specifying multiple filter categories results in a trial set that is the intersection of the sets.
 ```json
 "registryFilters": [
     {
@@ -46,13 +46,13 @@ In the above example, either trials that are in recruitment status ```recruiting
 ]
 ```
 
-In the above example, only trials for diabetes that are currently recruiting in Illinois, United States will be queried.
+In the above example, only trials for diabetes that are currently recruiting in Illinois, United States are queried.
 - Leaving a category empty will not limit trials by that category.
 
 
 
 ## Evidence
-Evidence is an indication of whether the model’s output should include evidence for the inferences. Defaults to true. For each trial that the model concluded the patient is illegible to, the model will return the relevant patient information and the eligibility criteria that were used to exclude the patient from the trial.
+Evidence is an indication of whether the model’s output should include evidence for the inferences. Defaults to true. For each trial that the model concluded the patient is illegible to, the model returns the relevant patient information and the eligibility criteria that were used to exclude the patient from the trial.
 ```json
 {
     "type": "trialEligibility",
@@ -83,8 +83,8 @@ Evidence is an indication of whether the model’s output should include evidenc
 ```
 
 ## Verbose
-Verbose is an indication of whether the model should return trial information. Defaults to false. If set to True, the model will return trial information including Title, Phase, Type, Recruitment status, Sponsors, Contacts, and Facilities.
-When using Gradual matching, this would typically be used in the last stage of the qualification process, before displaying trial results.
+Verbose is an indication of whether the model should return trial information. Defaults to false. If set to True, the model returns trial information including Title, Phase, Type, Recruitment status, Sponsors, Contacts, and Facilities.
+When using Gradual matching, this is typically used in the last stage of the qualification process, before displaying trial results.
 
 ```json
 {

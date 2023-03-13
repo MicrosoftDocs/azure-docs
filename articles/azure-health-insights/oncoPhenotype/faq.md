@@ -24,7 +24,7 @@ It's populated based on ICD-O-3 SEER Site/Histology Validation List [here](https
 No, we don't support 1-digit behavior code. We support only 4-digit histology code.
 
 ## What does inference value ```N+``` mean for clinical/pathologic N category? Why don't you have ```N1, N2, N3``` inference values?
-N+ means there's involvement of regional lymph nodes without explicitly mentioning the extent of spread. Our models were trained to classify whether or not there is regional lymph node involvement but not the extent of spread and hence we do not have ```N1, N2, N3``` inference values. We plan to support these values in the long term.
+N+ means there's involvement of regional lymph nodes without explicitly mentioning the extent of spread. Our models were trained to classify whether or not there is regional lymph node involvement but not the extent of spread and hence we don't have ```N1, N2, N3``` inference values. We plan to support these values in the long term.
 
 ## Do you have plans to support I-IV stage grouping?
 No, we don't have any plans to support I-IV stage grouping at this time.
