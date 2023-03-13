@@ -868,7 +868,7 @@ items:
           href: profiler/profiler-bring-your-own-storage.md
         - name: Snapshot Debugger troubleshooting
           displayName: troubleshoot, troubleshooting
-          href: /troubleshoot/azure/azure-monitor/app-insights/snapshot-debugger-troubleshoot.md
+          href: /troubleshoot/azure/azure-monitor/app-insights/snapshot-debugger-troubleshoot
     - name: Upgrade from classic resources and iKey
       items:
       - name: Migrate to a workspace-based resource
