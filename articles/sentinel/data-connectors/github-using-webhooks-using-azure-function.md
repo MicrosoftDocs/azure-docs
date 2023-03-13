@@ -12,7 +12,7 @@ ms.author: cwatson
 
 The [GitHub](https://www.github.com) webhook data connector provides the capability to ingest GitHub subscribed events into Microsoft Sentinel using [GitHub webhook events](https://docs.github.com/en/developers/webhooks-and-events/webhooks/webhook-events-and-payloads). The connector provides ability to get events into Sentinel which helps to examine potential security risks, analyze your team's use of collaboration, diagnose configuration problems and more. 
 
- **Note:** If you are intended to ingest Github Audit logs, Please refer to GitHub Enterprise Audit Log Connector from "**Data Connectors**" gallery.
+ **Note:** If you are intended to ingest GitHub Audit logs, Please refer to GitHub Enterprise Audit Log Connector from "**Data Connectors**" gallery.
 
 ## Connector attributes
 
@@ -53,7 +53,7 @@ To integrate with GitHub (using Webhooks) (using Azure Function) make sure you h
 
 **Choose ONE from the following two deployment options to deploy the connector and the associated Azure Function**
 
->**IMPORTANT:** Before deploying the Github Webhook connector, have the Workspace ID  and Workspace Primary Key (can be copied from the following).
+>**IMPORTANT:** Before deploying the GitHub Webhook connector, have the Workspace ID  and Workspace Primary Key (can be copied from the following).
 
 
 
@@ -127,7 +127,7 @@ If you're already signed in, go to the next step.
  3. Go to "GetFunctionurl" and copy the function url.
 
 
-**STEP 2 - Configure Webhook to Github Organization**
+**STEP 2 - Configure Webhook to GitHub Organization**
 
  1. Go to [GitHub](https://www.github.com) and open your account and click on "Your Organizations."
  2. Click on Settings.
@@ -136,7 +136,7 @@ If you're already signed in, go to the next step.
  5. Subscribe for events and Click on "Add Webhook"
 
 
-*Now we are done with the github Webhook configuration. Once the github events triggered and after the delay of 20 to 30 mins (As there will be a dealy for LogAnalytics to spin up the resources for the first time), you should be able to see all the transactional events from the Github into LogAnalytics workspace table called "githubscanaudit_CL".*
+*Now we are done with the github Webhook configuration. Once the github events triggered and after the delay of 20 to 30 mins (As there will be a dealy for LogAnalytics to spin up the resources for the first time), you should be able to see all the transactional events from the GitHub into LogAnalytics workspace table called "githubscanaudit_CL".*
 
  For more details, Click [here](https://aka.ms/sentinel-gitHubwebhooksteps)
 
