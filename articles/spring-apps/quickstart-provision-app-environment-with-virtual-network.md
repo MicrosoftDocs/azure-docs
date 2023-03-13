@@ -74,7 +74,7 @@ Use the following steps to create an Azure Spring Apps instance in an Azure Cont
 
    - For **Use your own virtual network**, select **Yes**.
    - Select the names for **Virtual network** and for **Infrastructure subnet** from the dropdown menus or use **Create new** as needed.
-   - Set **Virtual IP** to **External**. You can set the value to **Internal** if you prefer to use use only internal IP addresses available in the virtual network instead of a public static IP.
+   - Set **Virtual IP** to **External**. You can set the value to **Internal** if you prefer to use only internal IP addresses available in the virtual network instead of a public static IP.
 
    :::image type="content" source="media/quickstart-provision-app-environment-with-virtual-network/create-azure-container-apps-environment-virtual-network.png" alt-text="Screenshot of Azure portal showing Create Container Apps environment page with the Networking tab selected." lightbox="media/quickstart-provision-app-environment-with-virtual-network/create-azure-container-apps-environment-virtual-network.png":::
 
@@ -164,7 +164,7 @@ Use the following steps to create an Azure Spring Apps instance in an Azure Cont
    ```
 
    > [!NOTE]
-   > You can create an internal Azure Container Apps environment that doesn't use a public static IP, but instead uses only internal IP addresses available in the custom virtual network. For more information see the [Create an environment](../container-apps/vnet-custom-internal.md?tabs=bash&pivots=azure-cli#create-an-environment) section of [Provide a virtual network to an internal Azure Container Apps environment](../container-apps/vnet-custom-internal.md?tabs=bash&pivots=azure-cli).
+   > You can create an internal Azure Container Apps environment that doesn't use a public static IP, but instead uses only internal IP addresses available in the custom virtual network. For more information, see the [Create an environment](../container-apps/vnet-custom-internal.md?tabs=bash&pivots=azure-cli#create-an-environment) section of [Provide a virtual network to an internal Azure Container Apps environment](../container-apps/vnet-custom-internal.md?tabs=bash&pivots=azure-cli).
 
    The following table describes the parameters used in the `containerapp env create` command.
 

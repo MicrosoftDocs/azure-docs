@@ -43,7 +43,7 @@ The following tables describe how to configure a collection of NSG allow rules.
 
 | Protocol | Port   | IP | Description                                                                                                                                     |
 |----------|--------|----|-------------------------------------------------------------------------------------------------------------------------------------------------|
-| TCP      | `443`  | \* | Set all outbound traffic on port `443` to allow all fully-qualified domain name (FQDN) based outbound dependencies that don't have a static IP. |
+| TCP      | `443`  | \* | Set all outbound traffic on port `443` to allow all fully qualified domain name (FQDN) based outbound dependencies that don't have a static IP. |
 | UDP      | `123`  | \* | NTP server.                                                                                                                                     |
 | TCP      | `5671` | \* | Container Apps control plane.                                                                                                                   |
 | TCP      | `5672` | \* | Container Apps control plane.                                                                                                                   |
