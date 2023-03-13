@@ -104,7 +104,7 @@ If you already have a load testing resource, skip this section and continue to [
 
 If you don't yet have an Azure load testing resource, create one now:
 
-[!INCLUDE [azure-load-testing-create-portal](../includes/azure-load-testing-create-in-portal/azure-load-testing-create-in-portal.md)]
+[!INCLUDE [azure-load-testing-create-portal](./includes/azure-load-testing-create-in-portal/azure-load-testing-create-in-portal.md)]
 
 ### Create a load test
 
