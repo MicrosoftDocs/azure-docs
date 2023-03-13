@@ -18,11 +18,11 @@ This tutorial provides an overview on how to use the OncoPhenotype.
 ## Prerequisites
 To use OncoPhenotype model, you must have Cognitive Services account created. If you haven't already created a Cognitive Services account, see [Deploy Azure Health Insights using the Azure portal](../deploy-portal.md)
 
-Once deployment is complete, you can use the Azure portal to navigate to the newly created Cognitive Services account to see the details including your Service URL. The Service URL to access your DICOM service will be: https://```YOUR-NAME```.cognitiveservices.azure.com/. 
+Once deployment is complete, you can use the Azure portal to navigate to the newly created Cognitive Services account to see the details including your Service URL. The Service URL to access your service is: https://```YOUR-NAME```.cognitiveservices.azure.com/. 
 
 
 ## Submitting a request and getting results
-To send an API request, you will need your Cognitive Services account endpoint and key.
+To send an API request, you need your Cognitive Services account endpoint and key.
 
 ![Screenshot of the Keys and Endpoints for the OncoPhenotype.](../media/keys-and-endpoints.jpg) 
 
@@ -76,7 +76,7 @@ endpoint}/healthdecisionsupport/oncophenotype/jobs/abe71219-b3ce-4def-9e12-3dc51
 ```
 ### Response that contains a case
 
-You can get the status of the job by sending a request to the oncophenotype model and adding the job ID from the initial request in the uri, as seen below in the code snippet:
+You can get the status of the job by sending a request to the oncophenotype model and adding the job ID from the initial request in the uri, as seen in the code snippet:
 
 ```url 
 http://{cognitive-services-account-endpoint}/healthdecisionsupport/oncophenotype/jobs/385903b2-

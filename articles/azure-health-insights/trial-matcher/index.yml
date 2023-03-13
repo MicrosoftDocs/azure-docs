@@ -42,12 +42,6 @@ landingContent:
             url: get-started.md   
           - text: Integrate with Azure Health Bot
             url: azure-healthbot-integration.md
-  - title: Reference
-    linkLists:
-      - linkListType: reference
-        links:
-          - text: .NET SDK
-            url: sdk-dotnet.md
   - title: Help and feedback
     linkLists:
       - linkListType: reference

@@ -38,12 +38,6 @@ landingContent:
         links:
           - text: Using the Portal
             url: get-started.md   
-  - title: Reference
-    linkLists:
-      - linkListType: reference
-        links:
-          - text: .NET SDK
-            url: sdk-dotnet.md
   - title: Help and feedback
     linkLists:
       - linkListType: reference
