@@ -717,7 +717,7 @@ The only operation possible when the encryption key has been revoked is account 
 
 - [Create a new user-assigned managed identity.](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#create-a-user-assigned-managed-identity)
 - [Grant KeyVault key access to this identity.](#choosing-the-preferred-security-model)
-- [Assign this new identity to your restored database account.](https://learn.microsoft.com/cli/azure/cosmosdb/identity?view=azure-cli-latest#az-cosmosdb-identity-assign)
+- [Assign this new identity to your restored database account.](/cli/azure/cosmosdb/identity#az-cosmosdb-identity-assign)
 
 ## Next steps
 
