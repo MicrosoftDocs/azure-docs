@@ -37,4 +37,8 @@ ExpressRoute Direct will be billed for the port pair at a fixed amount. Standard
 
 ExpressRoute Direct's port pairs are billed 45 days into the creation of the ExpressRoute Direct resource or when 1 or both of the links are enabled, whichever comes first. The 45-day grace period is granted to allow customers to complete the cross-connection process with the colocation provider.
 
-You'll stop being charged for ExpressRoute Direct's port pairs after you delete the direct ports and remove the cross-connects. 
+You'll stop being charged for ExpressRoute Direct's port pairs after you delete the direct ports and remove the cross-connects.
+
+### How do I request Express Route Direct Port if bandwidth is not available at a peering location?
+
+If bandwidth is unavailable in the target peering location, open a [support request in the Azure Portal](https://portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/%7E/overview) and select the ExpressRoute Direct support topic.
