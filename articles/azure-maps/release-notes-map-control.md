@@ -41,6 +41,10 @@ The preview is available on [npm][3.0.0-preview.4] and CDN.
 
 - Wider zoom level ranges (1~21) for the Terra style.
 
+- Greater details on public transit including ferries, metros, and bus stops.
+
+- Additional information about the altitude of mountains and the location of waterfalls.
+
 #### Changes (3.0.0-preview.4)
 
 - Traffic data now only support relative mode.
