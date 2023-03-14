@@ -27,7 +27,7 @@ Users receive a notification in Outlook to approve or deny sign-in, or they can 
 
 - Your organization needs to enable Microsoft Authenticator (second factor) push notifications for some users or groups by using the Authentication methods policy. You can edit the Authentication methods policy by using the Azure portal or Microsoft Graph API.
 - If your organization is using the Active Directory Federation Services (AD FS) adapter or Network Policy Server (NPS) extensions, upgrade to the latest versions for a consistent experience.
-- Users enabled for shared device mode on Outlook aren'tt eligible for Authenticator Lite.
+- Users enabled for shared device mode on Outlook aren't eligible for Authenticator Lite.
 - Users must run a minimum Outlook version.
 
   | Operating system | Outlook version |
@@ -80,7 +80,7 @@ Content-Type: application/json
 
 
 ## User Registration
-If enabled for Authenticator Lite, users will be prompted to register their account directly from Outlook. Authenticator Lite registration isn't available by using [MySignIns](https://aka.mysignins). Users can also enable or disable Authenticator Lite from within Outlook. For more information on user experience, please visit the [Authenticator Lite support page](https://aka.ms/authappliteuserdocs). 
+If enabled for Authenticator Lite, users will be prompted to register their account directly from Outlook. Authenticator Lite registration isn't available by using [MySignIns](https://aka.ms/mysignins). Users can also enable or disable Authenticator Lite from within Outlook. For more information on user experience, please visit the [Authenticator Lite support page](https://aka.ms/authappliteuserdocs). 
 
 ## Monitoring Authenticator Lite Usage
 [Sign-in logs](/graph/api/signin-list) can show which app was used to complete user authentication. To view the latest sign-ins, use the following call on the beta API endpoint:
@@ -104,9 +104,7 @@ Push Notifications sent by Authenticator Lite aren't configurable and don't depe
 
 ## AD FS adapters and NPS extensions 
 
-Authenticator Lite enforces number matching in every authentication. If your tenant is using an AD FS adapter or an NPS extension, your users may not be able to complete Authenticator Lite notifications. For more information about how number matching affects these scenarios, see here.
-
-https://learn.microsoft.com/en-us/azure/active-directory/authentication/
+Authenticator Lite enforces number matching in every authentication. If your tenant is using an AD FS adapter or an NPS extension, your users may not be able to complete Authenticator Lite notifications. For more information about how number matching affects these scenarios, see [AD FS adapter](how-to-mfa-number-match.md#ad-fs-adapter) and [NPS extension](how-to-mfa-number-match.md#nps-extension).
 
 To learn more about verification notifications, see [Microsoft Authenticator authentication method](concept-authentication-authenticator-app.md).
 
@@ -119,8 +117,12 @@ No, Authenticator Lite is only available for push notifications and TOTP.
 No, Authenticator Lite is only available for push notifications and TOTP. 
 
 ### Where can users register for Authenticator Lite?
-Users can only register for Authenticator Lite from Outlook. Authenticator Lite registration can be managed from [aka.ms/mysignins](https://aka.mysignins). 
+Users can only register for Authenticator Lite from Outlook. Authenticator Lite registration can be managed from [aka.ms/mysignins](https://aka.ms/mysignins). 
 
 ### Can users register Microsoft Authenticator and Authenticator Lite?
 
 Users that have Microsoft Authenticator on their device will not be able to register Authenticator Lite. If a user has an Authenticator Lite registration and then later downloads Microsoft Authenticator, they can register both. If a user has two devices, they can register Authenticator Lite on one and Microsoft Authenticator on the other.
+
+## Next steps
+
+[Authentication methods in Azure Active Directory](concept-authentication-authenticator-app.md)
