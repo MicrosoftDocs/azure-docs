@@ -59,6 +59,8 @@ To delete a lab plan in the Azure portal:
 
 > [!IMPORTANT]
 > Deleting a lab plan will not delete any labs created from that lab plan.
+> 
+> Before you delete a lab plan, make sure to delete all associated labs and Azure Compute Gallery images.
 
 ## Next steps
 
