@@ -15,6 +15,8 @@ adobe-target: true
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
+
 > [!IMPORTANT]
 > Azure Database for PostgreSQL - Hyperscale (Citus) is now [Azure Cosmos DB for PostgreSQL](../../cosmos-db/postgresql/introduction.md). To learn more about this change, see [Where is Hyperscale (Citus)?](../hyperscale/moved.md).
 
