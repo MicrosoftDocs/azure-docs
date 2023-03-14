@@ -920,6 +920,10 @@ putSecret(akvName, secretName, secretValue): puts AKV secret for a given akvName
 putSecretWithLS(linkedService, secretName, secretValue): puts AKV secret for a given linked service, secretName
 ```
 
+
+> [!NOTE]
+> Currently getSecretWithLS(linkedService, secret) is not supported in C#.
+
 ::: zone-end
 
 :::zone pivot = "programming-language-r"
@@ -938,9 +942,6 @@ putSecretWithLS(linkedService, secretName, secretValue): puts AKV secret for a g
 ```
 
 ::: zone-end
-
-> [!NOTE]
-> Currently getSecretWithLS(linkedService, secret) is not supported in C#.
 
 
 ### Get token
