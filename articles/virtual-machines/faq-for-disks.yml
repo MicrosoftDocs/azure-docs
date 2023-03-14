@@ -21,11 +21,6 @@ sections:
           A standard managed disk created from an 80-GB VHD is treated as the next available standard disk size, which is an S10 disk. You're charged according to the S10 disk pricing. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/managed-disks/).
           
       - question: |
-          Are there any transaction costs for standard managed disks?
-        answer: |
-          Yes. You're charged for each transaction. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/managed-disks/).
-          
-      - question: |
           For a standard managed disk, will I be charged for the actual size of the data on the disk or for the provisioned capacity of the disk?
         answer: |
           You're charged based on the provisioned capacity of the disk. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/managed-disks/).
@@ -41,7 +36,7 @@ sections:
           No.
 
       - question: |
-          Are there any limitations for how many managed disks I can have?
+          Are there limitations on how many managed disks I can have?
         answer: |
           Yes. The maximum limit is 50,000 managed disks per region and per disk type for a subscription.
 
@@ -123,7 +118,7 @@ sections:
       - question: |
           Can I rename a managed or unmanaged disk after it has been created?
         answer: |
-          For managed disks you cannot rename them. However, you may rename an unmanaged disk as long as it is not currently attached to a VHD or VM.
+          Managed disks can't be renamed. However, you may rename an unmanaged disk as long as it is not currently attached to a VHD or VM.
 
       - question: |
           Can I use GPT partitioning on an Azure Disk?
@@ -149,11 +144,6 @@ sections:
         answer: |
           Azure disks reservation are purchased for a specific region and SKU (like P30 in East US 2), and can't be used outside these constructs. You can always purchase an additional Azure Disks Reservation for your disk storage needs in other regions or SKUs.    
 
-      - question: |
-          What happens when my Azure disks reservation expires?    
-        answer: |
-          You will receive email notifications 30 days prior to expiration and again on the expiration date. Once the reservation expires, deployed disks will continue to run and will be billed with the latest [pay-as-you-go rates](https://azure.microsoft.com/pricing/details/managed-disks/).
-          
       - question: |
           Do managed disks support "single instance VM SLA"?
         answer: |
@@ -217,12 +207,12 @@ sections:
       - question: |
           Can shared disks be used as an OS disk?
         answer: |
-          No, shared disks are only supported for data disks.
+          No. Only data disks can be used as shared disks.
           
       - question: |
           If I have an existing disk, can I enable shared disks on it?
         answer: |
-          All managed disks created with API version 2019-07-01 or higher can enable shared disks. To do this, you need to unmount the disk from all VMs that it is attached to. Then, edit the **maxShares** property on the disk.
+          Compatible managed disks created with API version 2019-07-01 or newer can enable shared disks. To do this, you need to unmount the disk from all VMs that it is attached to. Then, edit the **maxShares** property on the disk.
 
       - question: |
           If I no longer want to use a disk in shared mode, how do I disable it?
@@ -233,16 +223,6 @@ sections:
           Can you increase the size of a shared disk?
         answer: |
           Yes.
-
-      - question: |
-          Can I enable write accelerator on a disk that also has shared disks enabled?
-        answer: |
-          No.
-
-      - question: |
-          Can I enable host caching for a disk that has shared disk enabled?
-        answer: |
-          The only supported host caching option is **None**.
 
   - name: Ultra disks
     questions:
@@ -311,7 +291,7 @@ sections:
       - question: |
           Is there any impact of migration on the managed disks performance?
         answer: |
-          Migration involves movement of the disk from one Storage location to another. This is orchestrated via background copy of data, which can take several hours to complete, typically less than 24 Hrs depending on the amount of data in the disks. During that time your application can experience higher than usual read latency as some reads can get redirected to the original location, and can take longer to complete. There is no impact on write latency during this period.  
+          Migration involves movement of the disk from one storage location to another. This is orchestrated via background copy of data, which can take several hours to complete, typically less than 24 Hrs depending on the amount of data in the disks. During that time your application can experience higher than usual read latency as some reads can get redirected to the original location, and can take longer to complete. There is no impact on write latency during this period.  
 
       - question: |
           What changes are required in a pre-existing Azure Backup service configuration prior/after migration to Managed Disks?
@@ -366,11 +346,6 @@ sections:
           Yes. By default, all managed disks are encrypted, including the OS disk.
 
       - question: |
-          Who manages the encryption keys?
-        answer: |
-          Platform managed keys are managed by Microsoft. You can also use and manage your own keys stored in an Azure Key Vault. 
-
-      - question: |
           Can I disable Server-side Encryption for my managed disks?
         answer: |
           No.
@@ -413,11 +388,6 @@ sections:
           No. You can attach only standard data disks to VMs that don't use a size series that supports Premium SSD disks.
 
       - question: |
-          If I create a premium data disk from an existing VHD that was 80 GB, how much will that cost?
-        answer: |
-          A premium data disk created from an 80-GB VHD is treated as the next-available premium disk size, which is a P10 disk. You're charged according to the P10 disk pricing.
-
-      - question: |
           Are there transaction costs to use Premium SSD disks?
         answer: |
           There is a fixed cost for each disk size, which comes provisioned with specific limits on IOPS and throughput. The other costs are outbound bandwidth, snapshot capacity, and costs associated with [on-demand bursting](disk-bursting.md#billing), if applicable. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/managed-disks/).
@@ -430,7 +400,7 @@ sections:
       - question: |
           Is the local SSD supported for a VM using managed disks?
         answer: |
-          The local SSD is temporary storage that is included with a VM using managed disks. There is no extra cost for this temporary storage. You shouldn't use this local SSD to store your application data because it isn't persisted in Azure Storage.
+          The local SSD is temporary storage that is included with a VM using managed disks. There is no extra cost for this temporary storage. You shouldn't use this local SSD to store application data because it isn't persisted in Azure Storage.
 
       - question: |
           Are there any repercussions for the use of TRIM on premium disks?
@@ -494,11 +464,6 @@ sections:
           How can I upgrade my disks (>4 TiB) which were deployed during the larger disk sizes preview in order to get the higher IOPS & bandwidth at GA?
         answer: |
           You can either stop and start the VM that the disk is attached to or, detach and re-attach your disk. The performance targets of larger disk sizes have been increased for both premium SSDs and standard SSDs at GA.
-
-      - question: |
-          What regions are the managed disk sizes of 8 TiB, 16 TiB, and 32 TiB supported in?
-        answer: |
-          The 8 TiB, 16 TiB, and 32 TiB disk SKUs are supported in all regions under global Azure, Microsoft Azure Government, and Azure China 21Vianet.
 
       - question: |
           Do we support enabling Host Caching on all disk sizes?
