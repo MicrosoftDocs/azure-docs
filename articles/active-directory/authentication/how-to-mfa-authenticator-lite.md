@@ -1,5 +1,5 @@
 ---
-title: How to enable Microsoft Authenticator Lite for Outlook mobile
+title: How to enable Microsoft Authenticator Lite for Outlook mobile (preview)
 description: Learn about how to you can set up Microsoft Authenticator Lite for Outlook mobile to help users validate their identity
 
 services: active-directory
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Customer intent: As an identity administrator, I want to encourage users to understand how default protection can improve our security posture.
 ---
-# How to enable Microsoft Authenticator Lite for Outlook mobile
+# How to enable Microsoft Authenticator Lite for Outlook mobile (preview)
 
 Microsoft Authenticator Lite is another surface for Azure Active Directory (Azure AD) users to complete multifactor authentication by using push notifications or time-based one-time passcodes (TOTP) on their Android or iOS device. With Authenticator Lite, users can satisfy a multifactor authentication requirement from the convenience of a familiar app. Authenticator Lite is currently enabled in [Outlook mobile](https://www.microsoft.com/microsoft-365/outlook-mobile-for-android-and-ios). 
 
