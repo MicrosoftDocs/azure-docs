@@ -161,7 +161,7 @@ To prepare your Stream Analytics job to be deployed on an IoT Edge device, you n
 
 1. Select **Save**, if you had to make any changes.
 
-   :::image type="content" source="./media/tutorial-deploy-stream-analytics/add-storage-account.png" alt-text="Screenshot of where to add a storage account in your Stream Analytics job in the Azure portal.":::
+   :::image type="content" source="./media/tutorial-deploy-stream-analytics/add-storage-account.png" alt-text="Screenshot of where to add a storage account in your Stream Analytics job in the Azure portal." lightbox="./media/tutorial-deploy-stream-analytics/add-storage-account.png":::
 
 ## Deploy the job
 
@@ -194,7 +194,7 @@ For this tutorial, you deploy two modules. The first is **SimulatedTemperatureSe
 
  1. After your Stream Analytics addition finishes deployment, confirm that two new modules appear on your **Set modules** page.
 
-   :::image type="content" source="media/tutorial-deploy-stream-analytics/two-new-modules.png" alt-text="Screenshot confirming that two new modules are on your device. The screenshot also shows where the Review + create button is located.":::
+   :::image type="content" source="media/tutorial-deploy-stream-analytics/two-new-modules.png" alt-text="Screenshot confirming that two new modules are on your device. The screenshot also shows where the Review + create button is located." lightbox="media/tutorial-deploy-stream-analytics/two-new-modules.png":::
 
 1. Select **Review + create**. The deployment manifest appears.
 
@@ -202,7 +202,7 @@ For this tutorial, you deploy two modules. The first is **SimulatedTemperatureSe
 
 1. On your **Set modules** page of your device, after a few minutes, you should see the modules listed and running. Refresh the page if you don't see modules, or wait a few more minutes then refresh it again.
 
-   :::image type="content" source="media/tutorial-deploy-stream-analytics/module-confirmation.png" alt-text="Screenshot that shows your modules list of your device in the Azure portal.":::
+   :::image type="content" source="media/tutorial-deploy-stream-analytics/module-confirmation.png" alt-text="Screenshot that shows your modules list of your device in the Azure portal." lightbox="media/tutorial-deploy-stream-analytics/module-confirmation.png":::
 
 ### Understand the two new modules
 
