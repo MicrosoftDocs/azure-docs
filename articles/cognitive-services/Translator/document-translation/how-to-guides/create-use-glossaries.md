@@ -22,7 +22,7 @@ A glossary is a list of terms with definitions that you create for the Document 
 
 1. **Create your glossary file.** Create a file in a supported format (preferably tab-separated values) that contains all the terms and phrases you want to use in your translation.
 
-   To check if your format is supported *see** [Get supported glossary formats](../reference/get-supported-glossary-formats.md).
+   To check if your file format is supported, *see** [Get supported glossary formats](../reference/get-supported-glossary-formats.md).
 
     The following English-source glossary contains words that can have different meanings depending upon the context in which they're used. The glossary provides the expected translation for each word in the file to help ensure accuracy.
 
