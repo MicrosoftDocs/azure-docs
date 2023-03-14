@@ -77,7 +77,7 @@ echo export OPENAI_API_BASE="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/environmen
 In a bash shell run the following:
 
 ```bash
-curl https://$OPENAI_API_BASE/openai/deployments/docs-test/completions?api-version=2022-12-01 \
+curl https://$OPENAI_API_BASE/openai/deployments/gpt-35-turbo/completions?api-version=2022-12-01 \
   -H "Content-Type: application/json" \
   -H "api-key: $OPENAI_API_KEY" \
   -d '{
@@ -86,7 +86,6 @@ curl https://$OPENAI_API_BASE/openai/deployments/docs-test/completions?api-versi
   "temperature": 1,
   "frequency_penalty": 0,
   "presence_penalty": 0,
-  "best_of": 1,
   "top_p": 0.95,
   "stop": ["<|im_end|>"]
 }'
@@ -98,7 +97,7 @@ curl https://$OPENAI_API_BASE/openai/deployments/docs-test/completions?api-versi
 {"id":"cmpl-6mZPEDkBPasCTxueCy9iVRMY4ZGD4",
 "object":"text_completion",
 "created":1677033864,
-"model":"text-chat-davinci-002",
+"model":"gpt-35-turbo",
 "choices":
 [{"text":"\nYes, Azure OpenAI supports customer managed keys. These keys allow customers to manage their own encryption keys for the OpenAI services, rather than relying on Azure's managed keys. This provides an additional layer of security for customers' data and models.","index":0,"logprobs":null,"finish_reason":"stop"}],
 "usage":{"prompt_tokens":66,"completion_tokens":52,"total_tokens":118}}
@@ -123,4 +122,5 @@ If you want to clean up and remove an OpenAI resource, you can delete the resour
 
 ## Next steps
 
-Learn more about how to work with ChatGPT and the new `gpt-35-turbo` model in the [how-to guide on ChatGPT](../how-to/chatgpt.md).
+* Learn more about how to work with ChatGPT and the new `gpt-35-turbo` model in the [how-to guide on ChatGPT](../how-to/chatgpt.md).
+* For more examples check out the [Azure OpenAI Samples GitHub repository](https://github.com/Azure/openai-samples)
