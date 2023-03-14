@@ -90,6 +90,7 @@ Following are optional parameters that you can use with the previous commands.
 
 - `--ksm-metric-annotations-allow-list` is a comma-separated list of Kubernetes annotations keys that will be used in the resource's labels metric. By default the metric contains only name and namespace labels. To include more annotations provide a list of resource names in their plural form and Kubernetes annotation keys, you would like to allow for them. A single `*` can be provided per resource instead to allow any annotations, but that has severe performance implications.
 - `--ksm-metric-labels-allow-list` is a comma-separated list of more Kubernetes label keys that will be used in the resource's labels metric. By default the metric contains only name and namespace labels. To include more labels provide a list of resource names in their plural form and Kubernetes label keys, you would like to allow for them. A single `*` can be provided per resource instead to allow any labels, but that has severe performance implications.
+- `--enable-windows-recording-rules` lets you enable the recording rule groups required for proper functioning of the windows dashboards
 
 **Use annotations and labels.**
 
@@ -333,7 +334,7 @@ As of version `6.4.0-main-02-22-2023-3ee44b9e` windows metric collection has bee
 
 - For accessing windows metrics you must manually install the windows exporter on AKS nodes. Please enable the following collectors : `[defaults],container,memory,process,cpu_info`. You can deploy the following [YAML](https://github.com/prometheus-community/windows_exporter/blob/master/kubernetes/windows-exporter-daemonset.yaml) file using `kubectl apply -f windows-exporter-daemonset.yaml`
 - Please refer to the [customize configuration section](./prometheus-metrics-scrape-configuration.md#metrics-addon-settings-configmap) and enable the `windowsexporter` and `windowsexporter` boolean to true by applying the ama-metrics-settings-configmap on your cluster
-- Please use the CLI option `--enable-windows-recording-rules` and set it to true while onboarding to enable the recording rules required for the default dashboards
+- Please use the CLI option `--enable-windows-recording-rules` while onboarding to enable the recording rules required for the default dashboards
 - If using ARM/Bicep/Policy to onboard please enable the windows recording rules by settings `enableWindowsRecordingRules` to true in the parameters file.
 - If the cluster is already onbaorded to Azure Monitor Metrics and you want to enable windows recording rule groups. Please use the following [ARM Tempalte](https://github.com/Azure/prometheus-collector/blob/kaveesh/windows_recording_rules/AddonArmTemplate/WindowsRecordingRuleGroupTemplate/WindowsRecordingRules.json) and [Parameters](https://github.com/Azure/prometheus-collector/blob/kaveesh/windows_recording_rules/AddonArmTemplate/WindowsRecordingRuleGroupTemplate/WindowsRecordingRulesParameters.json) file to create the rule groups.
 
