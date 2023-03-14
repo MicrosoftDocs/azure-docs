@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/connectors/apis-list.md",
+            "redirect_url": "/azure/connectors/introduction",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/biztalk-services/biztalk-backup-restore.md",
             "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
             "redirect_document_id": false

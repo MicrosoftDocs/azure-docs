@@ -8,7 +8,6 @@ ms.date: 02/10/2023
 ms.topic: troubleshooting
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.custom: devx-track-azurepowershell
 ---
 
 # Troubleshoot Azure VM Image Builder

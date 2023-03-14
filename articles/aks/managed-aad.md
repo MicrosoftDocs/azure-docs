@@ -2,6 +2,7 @@
 title: Use Azure AD in Azure Kubernetes Service
 description: Learn how to use Azure AD in Azure Kubernetes Service (AKS)
 ms.topic: article
+ms.custom: devx-track-azurecli
 ms.date: 01/23/2023
 ms.author: miwithro
 ---

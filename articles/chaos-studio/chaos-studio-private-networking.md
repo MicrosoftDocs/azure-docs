@@ -16,7 +16,7 @@ VNet is the fundamental building block for your private network in Azure. VNet e
 
 VNet injection allows a Chaos resource provider to inject containerized workloads into your VNet so that resources without public endpoints can be accessed via a private IP address on the VNet. To configure VNet injection:
 
-1. Register the `Microsoft.ContainerInstance` resource provider with your subscription (if applicable).
+1. Register the `Microsoft.ContainerInstance` and `Microsoft.Relay` resource providers with your subscription (if applicable).
 
     ```bash
     az provider register --namespace 'Microsoft.ContainerInstance' --wait
