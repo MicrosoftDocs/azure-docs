@@ -111,7 +111,7 @@ For migrating existing virtual machine resources to a zone redundant configurati
 - Move a VM to another subscription or resource group
     - [CLI](./linux/move-vm.md)
     - [PowerShell](./windows/move-vm.md)
-- [Azure Resource Mover](/resource-mover/tutorial-move-region-virtual-machines)
+- [Azure Resource Mover](/azure/resource-mover/tutorial-move-region-virtual-machines)
 - [Move Azure VMs to availability zones](../site-recovery/move-azure-vms-avset-azone.md)
 - [Move region maintenance configuration resources](./move-region-maintenance-configuration-resources.md)
 
@@ -162,10 +162,10 @@ For deploying virtual machines, customers can use [flexible orchestration](../vi
 
 - [Well-Architected Framework for virtual machines](/azure/architecture/framework/services/compute/virtual-machines/virtual-machines-review)
 - [Azure to Azure disaster recovery architecture](../site-recovery/azure-to-azure-architecture.md)
-- [Accelerated networking with Azure VM disaster recovery](/azure-vm-disaster-recovery-with-accelerated-networking)
+- [Accelerated networking with Azure VM disaster recovery](/azure/site-recovery/azure-vm-disaster-recovery-with-accelerated-networking)
 - [Express Route with Azure VM disaster recovery](../site-recovery/azure-vm-disaster-recovery-with-expressroute.md)
 - [Virtual Machine Scale Sets](../virtual-machine-scale-sets/index.yml)
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Resiliency in Azure](/azure/availability-zones/overview.md)
+> [Resiliency in Azure](/azure/reliability/availability-zones-overview)
