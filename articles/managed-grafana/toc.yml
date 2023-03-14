@@ -29,7 +29,7 @@ items:
 - name: How-to guides
   expanded: true
   items:
-  - name: Set up authentication and permissions
+  - name: Configure authentication and permissions
     href: how-to-authentication-permissions.md
   - name: Configure data sources
     href: how-to-data-source-plugins-managed-identity.md
@@ -39,6 +39,8 @@ items:
     href: how-to-create-dashboard.md
   - name: Share an Azure Managed Grafana instance
     href: how-to-share-grafana-workspace.md
+  - name: Configure SMTP settings
+    href: how-to-smtp-settings.md
   - name: Monitor Azure Managed Grafana
     href: how-to-monitor-managed-grafana-workspace.md
   - name: Use service accounts
@@ -47,6 +49,8 @@ items:
     href: how-to-create-api-keys.md
   - name: Enable zone redundancy
     href: how-to-enable-zone-redundancy.md
+  - name: Set up private access
+    href: how-to-set-up-private-access.md 
   - name: Use deterministic outbound IPs
     href: how-to-deterministic-ip.md
   - name: Enable Grafana Enterprise

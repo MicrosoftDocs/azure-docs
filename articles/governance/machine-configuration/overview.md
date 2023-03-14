@@ -2,7 +2,7 @@
 title: Understand Azure Automanage Machine Configuration
 description: Learn how Azure Policy uses the machine configuration feature to audit or configure settings inside virtual machines.
 author: timwarner-msft
-ms.date: 01/03/2023
+ms.date: 03/02/2023
 ms.topic: conceptual
 ms.author: timwarner
 ms.service: machine-configuration
@@ -329,11 +329,30 @@ For more information about troubleshooting machine configuration, see
 
 ### Multiple assignments
 
-Guest Configuration policy definitions now support assigning the same
-guest assignment to more than once per machine when the policy assignment uses different
-parameters.
+At this time, only some built-in Guest Configuration policy definitions support multiple assignments. However, all custom policies support multiple assignments by default if you used the latest version of [the `GuestConfiguration` PowerShell module](/azure/governance/machine-configuration/machine-configuration-create-setup) to create Guest Configuration packages and policies.
 
-### Assignments to Azure Management Groups
+Following is the list of built-in Guest Configuration policy definitions that support multiple assignments:
+
+| ID                                                                                        | DisplayName                                                                                                 |
+|--------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
+| /providers/Microsoft.Authorization/policyDefinitions/5fe81c49-16b6-4870-9cee-45d13bf902ce | Local authentication methods should be disabled on Windows Servers                                          |
+| /providers/Microsoft.Authorization/policyDefinitions/fad40cac-a972-4db0-b204-f1b15cced89a | Local authentication methods should be disabled on Linux machines                                           |
+| /providers/Microsoft.Authorization/policyDefinitions/f40c7c00-b4e3-4068-a315-5fe81347a904 | [Preview]: Add user-assigned managed identity to enable Guest Configuration assignments on virtual machines |
+| /providers/Microsoft.Authorization/policyDefinitions/63594bb8-43bb-4bf0-bbf8-c67e5c28cb65 | [Preview]: Linux machines should meet STIG compliance requirement for Azure compute                         |
+| /providers/Microsoft.Authorization/policyDefinitions/50c52fc9-cb21-4d99-9031-d6a0c613361c | [Preview]: Windows machines should meet STIG compliance requirements for Azure compute                      |
+| /providers/Microsoft.Authorization/policyDefinitions/e79ffbda-ff85-465d-ab8e-7e58a557660f | [Preview]: Linux machines with OMI installed should have version 1.6.8-1 or later                           |
+| /providers/Microsoft.Authorization/policyDefinitions/934345e1-4dfb-4c70-90d7-41990dc9608b | Audit Windows machines that do not contain the specified certificates in Trusted Root                       |
+| /providers/Microsoft.Authorization/policyDefinitions/08a2f2d2-94b2-4a7b-aa3b-bb3f523ee6fd | Audit Windows machines on which the DSC configuration is not compliant                                      |
+| /providers/Microsoft.Authorization/policyDefinitions/c648fbbb-591c-4acd-b465-ce9b176ca173 | Audit Windows machines that do not have the specified Windows PowerShell execution policy                   |
+| /providers/Microsoft.Authorization/policyDefinitions/3e4e2bd5-15a2-4628-b3e1-58977e9793f3 | Audit Windows machines that do not have the specified Windows PowerShell modules installed                  |
+| /providers/Microsoft.Authorization/policyDefinitions/58c460e9-7573-4bb2-9676-339c2f2486bb | Audit Windows machines on which Windows Serial Console is not enabled                                       |
+| /providers/Microsoft.Authorization/policyDefinitions/e6ebf138-3d71-4935-a13b-9c7fdddd94df | Audit Windows machines on which the specified services are not installed and 'Running'                      |
+| /providers/Microsoft.Authorization/policyDefinitions/c633f6a2-7f8b-4d9e-9456-02f0f04f5505 | Audit Windows machines that are not set to the specified time zone                                          |
+
+> [!NOTE]
+> Please check this page periodically for updates to the list of built-in Guest Configuration policy definitions that support multiple assignments.
+
+### Assignments to Azure management groups
 
 Azure Policy definitions in the category `Guest Configuration` can be assigned
 to management groups when the effect is `AuditIfNotExists` or `DeployIfNotExists`.

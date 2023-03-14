@@ -4,6 +4,7 @@ titlesuffix: Azure Virtual Network
 description: Learn what a network interface is and how to create, change settings for, and delete one.
 author: asudbring
 ms.service: virtual-network
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 09/15/2022
 ms.author: allensu

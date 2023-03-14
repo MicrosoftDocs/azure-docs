@@ -39,7 +39,7 @@ If you don't have a reference on Application Insights SDK yet:
 
   * [ASP.NET project](./asp-net.md)
   * [ASP.NET Core project](./asp-net-core.md)
-  * [Java project](./java-in-process-agent.md)
+  * [Java project](./opentelemetry-enable.md?tabs=java)
   * [Node.js project](./nodejs.md)
   * [JavaScript in each webpage](./javascript.md)
 * In your device or web server code, include:
@@ -146,7 +146,7 @@ telemetry.trackEvent({name: "WinGame"});
 
 ### Custom events in Log Analytics
 
-The telemetry is available in the `customEvents` table on the [Application Insights Logs tab](../logs/log-query-overview.md) or [usage experience](usage-overview.md). Events might come from `trackEvent(..)` or the [Click Analytics Auto-collection plug-in](javascript-click-analytics-plugin.md).
+The telemetry is available in the `customEvents` table on the [Application Insights Logs tab](../logs/log-query-overview.md) or [usage experience](usage-overview.md). Events might come from `trackEvent(..)` or the [Click Analytics Auto-collection plug-in](javascript-feature-extensions.md).
 
 If [sampling](./sampling.md) is in operation, the `itemCount` property shows a value greater than `1`. For example, `itemCount==10` means that of 10 calls to `trackEvent()`, the sampling process transmitted only one of them. To get a correct count of custom events, use code such as `customEvents | summarize sum(itemCount)`.
 
@@ -427,7 +427,7 @@ catch (ex)
 The SDKs catch many exceptions automatically, so you don't always have to call `TrackException` explicitly:
 
 * **ASP.NET**: [Write code to catch exceptions](./asp-net-exceptions.md).
-* **Java EE**: [Exceptions are caught automatically](./java-in-process-agent.md).
+* **Java EE**: [Exceptions are caught automatically](./opentelemetry-enable.md?tabs=java).
 * **JavaScript**: Exceptions are caught automatically. If you want to disable automatic collection, add a line to the code snippet that you insert in your webpages:
 
 ```javascript
@@ -468,7 +468,7 @@ Use `TrackTrace` to help diagnose problems by sending a "breadcrumb trail" to Ap
 
 In .NET [Log adapters](./asp-net-trace-logs.md), use this API to send third-party logs to the portal.
 
-In Java, the [Application Insights Java agent](java-in-process-agent.md) autocollects and sends logs to the portal.
+In Java, the [Application Insights Java agent](opentelemetry-enable.md?tabs=java) autocollects and sends logs to the portal.
 
 *C#*
 
@@ -612,7 +612,7 @@ finally
 Remember that the server SDKs include a [dependency module](./asp-net-dependencies.md) that discovers and tracks certain dependency calls automatically, for example, to databases and REST APIs. You have to install an agent on your server to make the module work.
 
 In Java, many dependency calls can be automatically tracked by using the
-[Application Insights Java agent](java-in-process-agent.md).
+[Application Insights Java agent](opentelemetry-enable.md?tabs=java).
 
 You use this call if you want to track calls that the automated tracking doesn't catch.
 

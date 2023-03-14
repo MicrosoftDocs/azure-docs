@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 12/06/2022
+ms.date: 03/03/2023
 ms.author: lajanuar
 recommendations: false
 ---
@@ -72,6 +72,7 @@ This article contains both a quick reference and detailed description of Azure F
 >
 > * [**Custom template model**](concept-custom-template.md)
 > * [**Custom neural model**](concept-custom-neural.md)
+> * [**Composed classification models**](concept-custom-classifier.md)
 > * [**Composed custom models**](concept-composed-models.md)
 
 |Quota|Free (F0) <sup>1</sup>|Standard (S0)|
@@ -80,9 +81,7 @@ This article contains both a quick reference and detailed description of Azure F
 | Adjustable | No | No |
 | **Training dataset size * Neural** | 1 GB <sup>3</sup> | 1 GB (default value) |
 | Adjustable | No | No |
-| **Training file size * Template** | 50 MB <sup>4</sup> | 50 MB (default value) |
-| Adjustable | No | No |
-| **Total Training dataset size * Template** | 150 MB <sup>4</sup> | 150 MB (default value) |
+| **Training dataset size * Template** | 50 MB <sup>4</sup> | 50 MB (default value) |
 | Adjustable | No | No |
 | **Max number of pages (Training) * Template** | 500 | 500 (default value) |
 | Adjustable | No | No |
@@ -90,6 +89,10 @@ This article contains both a quick reference and detailed description of Azure F
 | Adjustable | No | No |
 | **Custom neural model train** | 10 per month | 10 per month |
 | Adjustable | No |Yes <sup>3</sup>|
+| **Max number of pages (Training) * Classifier** | 10,000 | 10,000 (default value) |
+| Adjustable | No | No |
+| **Training dataset size * Classifier** | 1GB | 1GB (default value) |
+| Adjustable | No | No |
 
 ::: moniker-end
 
@@ -104,7 +107,7 @@ This article contains both a quick reference and detailed description of Azure F
 
 | Quota | Free (F0) <sup>1</sup> | Standard (S0) |
 |--|--|--|
-| **Compose Model limit** | 5 | 100 (default value) |
+| **Compose Model limit** | 5 | 200 (default value) |
 | Adjustable | No | No |
 | **Training dataset size** | 50 MB | 50 MB (default value) |
 | Adjustable | No | No |
@@ -135,7 +138,7 @@ To minimize issues related to throttling (Response Code 429), we recommend using
 
 * Implement retry logic in your application
 * Avoid sharp changes in the workload. Increase the workload gradually <br/>
-*Example.* Your application is using Form Recognizer and your current workload is 10 TPS (transactions per second). The next second you increase the load to 40 TPS (that is four times more). The Service immediately starts scaling up to fulfill the new load, but likely it will not be able to do it within a second, so some of the requests will get Response Code 429.
+*Example.* Your application is using Form Recognizer and your current workload is 10 TPS (transactions per second). The next second you increase the load to 40 TPS (that is four times more). The Service immediately starts scaling up to fulfill the new load, but likely it can't do it within a second, so some of the requests get Response Code 429.
 
 The next sections describe specific cases of adjusting quotas.
 Jump to [Form Recognizer: increasing concurrent request limit](#create-and-submit-support-request)
@@ -171,17 +174,17 @@ Initiate the increase of transactions per second(TPS) limit for your resource by
 * Go to [Azure portal](https://portal.azure.com/)
 * Select the Form Recognizer Resource for which you would like to increase the TPS limit
 * Select *New support request* (*Support + troubleshooting* group)
-* A new window will appear with auto-populated information about your Azure Subscription and Azure Resource
+* A new window appears with auto-populated information about your Azure Subscription and Azure Resource
 * Enter *Summary* (like "Increase Form Recognizer TPS limit")
 * In Problem type,* select "Quota or usage validation"
 * Select *Next: Solutions*
 * Proceed further with the request creation
-* Under the *Details* tab enters the following in the *Description* field:
+* Under the *Details* tab, enter the following information in the *Description* field:
   * a note, that the request is about **Form Recognizer** quota.
   * Provide a TPS expectation you would like to scale to  meet.
   * Azure resource information you [collected](#have-the-required-information-ready).
   * Complete entering the required information and select *Create* button in *Review + create* tab
-  * Note the support request number in Azure portal notifications. You'll be contacted shortly for further processing
+  * Note the support request number in Azure portal notifications. You're contacted shortly for further processing
 
 ## Example of a workload pattern best practice
 
@@ -189,7 +192,7 @@ This example presents the approach we recommend following to mitigate possible r
 
  Let us suppose that a Form Recognizer resource has the default limit set. Start the workload to submit your analyze requests. If you find that you're seeing frequent throttling with response code 429, start by implementing an exponential backoff on the GET analyze response request. By using a progressively longer wait time between retries for consecutive error responses, for example a  2-5-13-34 pattern of delays between requests. In general, it's recommended to not call the get analyze response more than once every 2 seconds for a corresponding POST request.
 
-If you find that you're being throttled on the number of POST requests for documents being submitted, consider adding a delay between the requests. If your workload requires a higher degree of concurrent processing, you'll then need to create a support request to increase your service limits on transactions per second.
+If you find that you're being throttled on the number of POST requests for documents being submitted, consider adding a delay between the requests. If your workload requires a higher degree of concurrent processing, you then need to create a support request to increase your service limits on transactions per second.
 
 Generally, it's highly recommended to test the workload and the workload patterns before going to production.
 

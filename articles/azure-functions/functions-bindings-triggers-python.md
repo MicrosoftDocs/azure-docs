@@ -291,8 +291,8 @@ Durable Functions also provides preview support of the V2 programming model. To 
 
 
 > [!NOTE]
-> Using [Extension Bundles](/azure-functions/functions-bindings-register#extension-bundles) is not currently supported when trying out the Python V2 programming model with Durable Functions, so you will need to manage your extensions manually.
-> To do this, remove the `extensionBundles` section of your `host.json` as described [here](/azure-functions/functions-bindings-register#extension-bundles) and run `func extensions install --package Microsoft.Azure.WebJobs.Extensions.DurableTask --version 2.9.1` on your terminal. This will install the Durable Functions extension for your app and will allow you to try out the new experience.
+> Using [Extension Bundles](./functions-bindings-register.md#extension-bundles) is not currently supported when trying out the Python V2 programming model with Durable Functions, so you will need to manage your extensions manually.
+> To do this, remove the `extensionBundle` section of your `host.json` as described [here](./functions-run-local.md#install-extensions) and run `func extensions install --package Microsoft.Azure.WebJobs.Extensions.DurableTask --version 2.9.1` on your terminal. This will install the Durable Functions extension for your app and will allow you to try out the new experience.
 
 The Durable Functions Triggers and Bindings may be accessed from an instance `DFApp`, a subclass of `FunctionApp` that additionally exports Durable Functions-specific decorators. 
 

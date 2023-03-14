@@ -2,6 +2,7 @@
 title: "Azure RBAC for Azure Arc-enabled Kubernetes clusters"
 ms.date: 11/28/2022
 ms.topic: how-to
+ms.custom: devx-track-azurecli
 description: "Use Azure RBAC for authorization checks on Azure Arc-enabled Kubernetes clusters."
 ---
 
