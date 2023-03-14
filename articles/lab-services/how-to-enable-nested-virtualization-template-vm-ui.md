@@ -195,5 +195,5 @@ Next steps are common to setting up any lab.
 
 - [As an educator, add students to a lab](tutorial-setup-lab.md#add-users-to-the-lab)
 - [As an educator, set quota for students](how-to-configure-student-usage.md#set-quotas-for-users)
-- [As an educator, set a schedule for the lab](tutorial-setup-lab.md#set-a-schedule-for-the-lab)
-- [As an educator, publish a lab](tutorial-setup-lab.md#publish-a-lab)
+- [As an educator, set a schedule for the lab](tutorial-setup-lab.md#add-a-lab-schedule)
+- [As an educator, publish a lab](tutorial-setup-lab.md#publish-lab)

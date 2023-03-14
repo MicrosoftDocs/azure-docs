@@ -211,7 +211,7 @@ The single-tenant model and **Logic App (Standard)** resource type include many 
 
   * More managed connectors are now available as built-in connectors in Standard logic app workflows. The built-in versions run natively on the single-tenant Azure Logic Apps runtime. Some built-in connectors are also informally known as [*service provider* connectors](../connectors/built-in.md#service-provider-interface-implementation). For a list, review [Built-in connectors in Consumption and Standard](../connectors/built-in.md#built-in-connectors).
 
-  * You can create your own custom built-in connectors for any service that you need by using the single-tenant Azure Logic Apps extensibility framework. Similar to built-in connectors such as Azure Service Bus and SQL Server, custom built-in connectors provide higher throughput, low latency, and local connectivity because they run in the same process as the single-tenant runtime. However, custom built-in connectors aren't similar to [custom managed connectors](../connectors/apis-list.md#custom-connectors-and-apis), which aren't currently supported. For more information, review [Custom connector overview](custom-connector-overview.md#custom-connector-standard) and [Create custom built-in connectors for Standard logic apps in single-tenant Azure Logic Apps](create-custom-built-in-connector-standard.md).
+  * You can create your own custom built-in connectors for any service that you need by using the single-tenant Azure Logic Apps extensibility framework. Similar to built-in connectors such as Azure Service Bus and SQL Server, custom built-in connectors provide higher throughput, low latency, and local connectivity because they run in the same process as the single-tenant runtime. However, custom built-in connectors aren't similar to [custom managed connectors](../connectors/introduction.md#custom-connectors-and-apis), which aren't currently supported. For more information, review [Custom connector overview](custom-connector-overview.md#custom-connector-standard) and [Create custom built-in connectors for Standard logic apps in single-tenant Azure Logic Apps](create-custom-built-in-connector-standard.md).
 
   * You can use the following actions for Liquid Operations and XML Operations without an integration account. These operations include the following actions:
 
@@ -299,7 +299,7 @@ For the **Logic App (Standard)** resource, these capabilities have changed, or t
 
     * The Gmail connector currently isn't supported.
   
-    * [Custom managed connectors](../connectors/apis-list.md#custom-connectors-and-apis) currently aren't currently supported. However, you can create *custom built-in operations* when you use Visual Studio Code. For more information, review [Create single-tenant based workflows using Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#enable-built-in-connector-authoring).
+    * [Custom managed connectors](../connectors/introduction.md#custom-connectors-and-apis) currently aren't currently supported. However, you can create *custom built-in operations* when you use Visual Studio Code. For more information, review [Create single-tenant based workflows using Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#enable-built-in-connector-authoring).
 
 * **Authentication**: The following authentication types are currently unavailable for the **Logic App (Standard)** resource type:
 

@@ -25,6 +25,8 @@ landingContent:
         links:
           - text: Why use Azure Orbital Ground Station?
             url: overview.md
+          - text: What is the Space Partner Community?
+            url: space-partner-program-overview.md  
 
   # Card
   - title: Get started with Earth Observation

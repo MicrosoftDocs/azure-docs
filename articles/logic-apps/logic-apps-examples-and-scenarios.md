@@ -157,5 +157,5 @@ Learn how Azure Logic Apps, along with other Azure services and Microsoft produc
 
 ## Next steps
 
-* [What are connectors in Azure Logic Apps](../connectors/apis-list.md)
+* [What are connectors in Azure Logic Apps](../connectors/introduction.md)
 * [B2B enterprise integration scenarios with Azure Logic Apps](logic-apps-enterprise-integration-overview.md)

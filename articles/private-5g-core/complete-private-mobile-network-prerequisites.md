@@ -14,6 +14,9 @@ ms.custom: template-how-to
 
 In this how-to guide, you'll carry out each of the tasks you need to complete before you can deploy a private mobile network using Azure Private 5G Core.
 
+> [!TIP]
+> [Private mobile network design requirements](private-mobile-network-design-requirements.md) contains the full network design requirements for a customised network.
+
 ## Get access to Azure Private 5G Core for your Azure subscription
 
 Contact your trials engineer and ask them to register your Azure subscription for access to Azure Private 5G Core. If you don't already have a trials engineer and are interested in trialing Azure Private 5G Core, contact your Microsoft account team, or express your interest through the [partner registration form](https://aka.ms/privateMECMSP).
@@ -33,15 +36,15 @@ Depending on your networking requirements (for example, if a limited set of subn
 ### Management network
 
 - Network address in Classless Inter-Domain Routing (CIDR) notation. 
-- Default gateway. 
+- Default gateway.
 - One IP address for the Azure Stack Edge Pro device's management port. You'll choose a port between 2 and 4 to use as the management port as part of [setting up your Azure Stack Edge Pro device](#order-and-set-up-your-azure-stack-edge-pro-devices).*
 - Six sequential IP addresses for the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster nodes.
 - One IP address for accessing local monitoring tools for the packet core instance.
 
 ### Access network
 
-- Network address in CIDR notation. 
-- Default gateway. 
+- Network address in CIDR notation.
+- Default gateway.
 - One IP address for the control plane interface. For 5G, this interface is the N2 interface, whereas for 4G, it's the S1-MME interface.*
 - One IP address for the user plane interface. For 5G, this interface is the N3 interface, whereas for 4G, it's the S1-U interface.*
 - One IP address for port 5 on the Azure Stack Edge Pro device.
