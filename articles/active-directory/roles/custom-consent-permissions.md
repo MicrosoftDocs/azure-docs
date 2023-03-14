@@ -27,7 +27,7 @@ This article contains the currently available app consent permissions for custom
 Use the permissions listed in this article to manage app consent policies, as well as the permission to grant consent to apps.
 
 > [!NOTE]
-> The Azure AD admin portal does not yet support adding the permissions listed in this article to a custom directory role definition. You must [use Azure AD PowerShell to create a custom directory role](custom-create.md#create-a-role-using-powershell) with the permissions listed in this article.
+> The Azure portal does not yet support adding the permissions listed in this article to a custom directory role definition. You must [use Azure AD PowerShell to create a custom directory role](custom-create.md#create-a-role-using-powershell) with the permissions listed in this article.
 
 #### Granting delegated permissions to apps on behalf of self (user consent)
 

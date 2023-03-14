@@ -586,7 +586,7 @@ Visual Studio IDE onboarding is currently supported only for ASP.NET/ASP.NET Cor
 
 ### Can I enable Application Insights monitoring by using tools like Azure Monitor Application Insights Agent (formerly Status Monitor v2)?
 
-No. [Azure Monitor Application Insights Agent](./status-monitor-v2-overview.md) currently supports .NET [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) only.
+No. [Azure Monitor Application Insights Agent](./application-insights-asp-net-agent.md) currently supports .NET [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) only.
 
 ### Are all features supported if I run my application in Linux?
 

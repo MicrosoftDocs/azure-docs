@@ -43,8 +43,8 @@
   items:
   - name: Connectors
     items:
-    - name: Connectors overview
-      href: ../connectors/apis-list.md
+    - name: About connectors
+      href: ../connectors/introduction.md
     - name: Built-in connectors
       href: ../connectors/built-in.md
     - name: Managed connectors

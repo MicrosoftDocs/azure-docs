@@ -9,8 +9,7 @@ ms.workload: identity
 ms.date: 08/19/2022
 ms.author: ryanwi
 ms.reviewer: stsoneff
-ms.devlang: 
-ms.custom: azureday1, devx-track-azurepowershell
+ms.custom: azureday1
 ms.subservice: web-apps
 ---
 
