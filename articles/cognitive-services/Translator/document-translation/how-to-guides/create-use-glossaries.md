@@ -22,15 +22,22 @@ A glossary is a list of terms with definitions that you create for the Document 
 
 1. **Create your glossary file.** Create a file in a supported format (preferably tab-separated values) that contains all the terms and phrases you want to use in your translation.
 
-   * To check if your format is supported *see** [Get supported glossary formats](../reference/get-supported-glossary-formats.md).
+   To check if your format is supported *see** [Get supported glossary formats](../reference/get-supported-glossary-formats.md).
 
     The following English-source glossary contains words that can have different meanings depending upon the context in which they're used. The glossary provides the expected translation for each word in the file to help ensure accuracy.
 
    For instance, when the word `Bank` appears in a financial document, it would be translated as `Banque` to reflect its financial meaning. If the word `Bank` appears in a geography document, it might be translated as `shore` to reflect its topographical meaning. Similarly, the word `Crane` can refer to either a `bird` or a `machine`.
 
-   ***Example glossary file tab-separated values (.tsv)***
+   ***Example glossary .tsv file: English-to-French***
 
-   :::image type="content" source="../media/tsv-file.png" alt-text="Example of a TSV formatted glossary file formatted":::
+   ```tsv
+      Bank     Banque
+      Card     Carte
+      Crane    Grue
+      Office   Office
+      Tiger    Tiger
+      US       United States
+   ```
 
 1. **Upload your glossary to Azure storage**. To complete this step, you need an [Azure Blob Storage account](https://ms.portal.azure.com/#create/Microsoft.StorageAccount) with [containers](/azure/storage/blobs/storage-quickstart-blobs-portal?branch=main#create-a-container) to store and organize your blob data within your storage account.
 
