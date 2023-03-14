@@ -75,7 +75,8 @@ In this tutorial, you'll need:
 
  ## Integrate your Log Analytics workspace with your notebook 
 
-To enable y
+To be able to query data in your Log Analytics workspace from your notebook:
+
 1. Set up authentication to your Log Analytics workspace using `DefaultAzureCredential` from the `azure-identity` package.
 
     ```python
