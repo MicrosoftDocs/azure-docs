@@ -16,13 +16,11 @@ ms.author: jasteppe
 
 This article provides an overview of the MedTech service device mapping.
 
-The MedTech service requires two types of [JSON-based](https://www.json.org/) mappings. 
+The MedTech service requires two types of [JSON-based](https://www.json.org/) mappings that are added to your MedTech service through the Azure portal or Azure Resource Manager API. 
 
-* The device mapping is the first type and is responsible for mapping the device message data sent to the MedTech service event hub endpoint. The device mapping extracts types, device identifiers, measurement date time, and the measurement value(s). The FHIR destination mapping is the second type and controls the mapping for FHIR Observation resources. 
+* The device mapping is the first type and is responsible for mapping the device message data sent to the MedTech service event hub endpoint. The device mapping extracts types, device identifiers, measurement date time, and the measurement value(s). The FHIR destination mapping is the second type and controls the mapping for FHIR Observations. 
 
-* The FHIR destination mappings allow configuration of the length of the observation period, FHIR data type used to store the values, and terminology code(s). 
-
-The device and FHIR destination mappings are JSON documents based on their type and composed of different templates based on requirements. These JSON documents are then added to your MedTech service through the Azure portal or Azure Resource Manager API.
+* The FHIR destination mapping allows configuration of the length of the observation period, FHIR data type used to store the values, and terminology code(s). 
 
 > [!NOTE]
 > The device and FHIR destination mappings are stored in [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction) and loaded from blob storage per compute execution. Once updated, the mappings should take effect immediately.
