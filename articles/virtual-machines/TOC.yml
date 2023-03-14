@@ -335,6 +335,12 @@
       - name: Overview
         displayName: HPC, high performance compute, sizes, size
         href: sizes-hpc.md
+      - name: Set up Azure HPC or AI VMs
+        displayName: How to setup HPC/AI VMs
+        href: set-up-hpc-vms.md
+      - name: Configure and optimize VMs
+        displayName: Configure and optimize Infiniband enabled VMs
+        href: configure.md        
       - name: HB-series
         href: hb-series.md
         items:
@@ -371,6 +377,14 @@
           href: hc-series-performance.md
       - name: HX-series
         href: hx-series.md
+      - name: HPC for HB-series and N-series VMs
+        href: overview-hb-hc.md
+      - name: Known issues with HB-series and N-series VMs
+        href: hb-hc-known-issues.md
+      - name: Setup MPI for HPC
+        href: setup-mpi.md
+      - name: Scaling HPC applications
+        href: compiling-scaling-applications.md        
     - name: Previous generations
       displayName: older, retired, expired, deprecated
       href: sizes-previous-gen.md
@@ -937,6 +951,9 @@
       - name: Windows
         displayName: InfiniBand Drivers, Infiband, drivers
         href: ./extensions/hpc-compute-infiniband-windows.md
+      - name: Enable Infiniband
+        displayName: InfiniBand Drivers, Infiband, drivers, extensions
+        href: ./extensions/enable-infiniband.md        
     - name: NVIDIA GPU Drivers
       items:
       - name: Linux
