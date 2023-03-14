@@ -32,7 +32,7 @@ landingContent:
           - text: Create a Communication Services resource
             url: quickstarts/create-communication-resource.md
           - text: Create and manage user access tokens
-            url: quickstarts/access-tokens.md
+            url: quickstarts/identity/access-tokens.md
           - text: Get a relay token
             url: quickstarts/relay-token.md
       - linkListType: concept

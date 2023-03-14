@@ -25,8 +25,8 @@ Azure Database for MySQL currently supports the following major and minor versio
 | Version | [Single Server](single-server/overview.md) <br/> Current minor version |[Flexible Server](flexible-server/overview.md) <br/> Current minor version  |
 |:-------------------|:-------------------------------------------|:---------------------------------------------|
 |MySQL Version 5.6 | [5.6.47](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-47.html)(Retired) | Not supported|
-|MySQL Version 5.7 | [5.7.32](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html) | [5.7.37](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-37.html)|
-|MySQL Version 8.0 | [8.0.15](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-15.html) | [8.0.28](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-28.html)|
+|MySQL Version 5.7 | [5.7.32](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html) | [5.7.40](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-40.html)|
+|MySQL Version 8.0 | [8.0.15](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-15.html) | [8.0.31](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-31.html)|
 
 > [!NOTE]
 > In the Single Server deployment option, a gateway is used to redirect the connections to server instances. After the connection is established, the MySQL client displays the version of MySQL set in the gateway, not the actual version running on your MySQL server instance. To determine the version of your MySQL server instance, use the `SELECT VERSION();` command at the MySQL prompt. If your application has a requirement to connect to specific major version say v5.7 or v8.0, you can do so by changing the port in your server connection string as explained in our documentation [here.](concepts-supported-versions.md#connect-to-a-gateway-node-that-is-running-a-specific-mysql-version)
@@ -58,12 +58,12 @@ The table below provides the retirement details for MySQL major versions. The da
 
 After the retirement date for each MySQL database version, if you continue running the retired version, note the following restrictions:
 
-- As the community will not be releasing any further bug fixes or security fixes, Azure Database for MySQL will not patch the retired database engine for any bugs or security issues or otherwise take security measures with regard to the retired database engine. However, Azure will continue to perform periodic maintenance and patching for the host, OS, containers, and any other service-related components.
-- If any support issue you may experience relates to the MySQL database, we may not be able to provide you with support. In such cases, you will have to upgrade your database in order for us to provide you with any support.
-- You will not be able to create new database servers for the retired version. However, you will be able to perform point-in-time recoveries and create read replicas for your existing servers.
+- As the community won't be releasing any further bug fixes or security fixes, Azure Database for MySQL won't patch the retired database engine for any bugs, or security issues or otherwise take security measures regarding the retired database engine. However, Azure will continue to perform periodic maintenance and patching for the host, OS, containers, and any other service-related components.
+- If any support issue you may experience relates to the MySQL database, we may not be able to provide you with support. In such cases, you'll have to upgrade your database in order for us to provide you with any support.
+- You won't be able to create new database servers for the retired version. However, you'll be able to perform point-in-time recoveries and create read replicas for your existing servers.
 - New service capabilities developed by Azure Database for MySQL may only be available to supported database server versions.
-- Uptime SLAs will apply solely to Azure Database for MySQL service-related issues and not to any downtime caused by database engine-related bugs.  
-- In the extreme event of a serious threat to the service caused by the MySQL database engine vulnerability identified in the retired database version, Azure may chose to stop the compute node of your database server to secure the service first. You will be asked to upgrade the server before bringing the server online. During the upgrade process, your data will always be protected using automatic backups performed on the service which can be used to restore back to the older version if desired. 
+- Uptime SLAs apply solely to Azure Database for MySQL service-related issues and not to any downtime caused by database engine-related bugs.  
+- In the extreme event of a serious threat to the service caused by the MySQL database engine vulnerability identified in the retired database version, Azure may choose to stop the compute node of your database server to secure the service first. You will be asked to upgrade the server before bringing the server online. During the upgrade process, your data will always be protected using automatic backups performed on the service which can be used to restore back to the older version if desired. 
 
 ## Next steps
 

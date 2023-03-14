@@ -179,8 +179,6 @@ items:
       href: how-to-translate-speech.md
 - name: Intent recognition
   items:
-    - name: Intent recognition documentation
-      href: index-intent-recognition.yml
     - name: Intent recognition overview
       href: intent-recognition.md
     - name: Pattern matching concepts
@@ -240,6 +238,8 @@ items:
         - name: How to use Pronunciation Assessment
           href: how-to-pronunciation-assessment.md
           displayName: pronounce, learn language, assess pron
+    - name: Azure OpenAI speech to speech chat
+      href: openai-speech.md
     - name: Conversation transcription
       items:
         - name: Conversation Transcription overview

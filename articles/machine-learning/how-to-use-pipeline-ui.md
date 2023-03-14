@@ -19,6 +19,11 @@ Azure Machine Learning studio provides UI to build and debug your pipeline. You 
 
 This article will introduce how to use the studio UI to build and debug machine learning pipelines.
 
+> [!IMPORTANT]
+> Items marked (preview) in this article are currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## Build machine learning pipeline
 
 ### Drag and drop components to build pipeline
