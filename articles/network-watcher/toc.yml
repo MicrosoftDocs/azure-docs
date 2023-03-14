@@ -31,18 +31,6 @@
     href: diagnose-communication-problem-between-networks.md
   - name: Log VM network traffic
     href: network-watcher-nsg-flow-logging-portal.md
-  - name: Configure NSG flow logs
-    items:
-    - name: PowerShell
-      href: network-watcher-nsg-flow-logging-powershell.md
-    - name: Azure CLI
-      href: network-watcher-nsg-flow-logging-cli.md
-    - name: REST
-      href: network-watcher-nsg-flow-logging-rest.md
-    - name: ARM template
-      href: network-watcher-nsg-flow-logging-azure-resource-manager.md
-    - name: Built-in Policy
-      href: nsg-flow-logs-policy-portal.md
 - name: Concepts
   items:
   - name: Connection monitor
@@ -165,6 +153,18 @@
           href: network-watcher-using-open-source-tools.md
   - name: Flow log traffic monitoring
     items:
+    - name: Configure NSG flow logs
+      items:
+      - name: PowerShell
+        href: network-watcher-nsg-flow-logging-powershell.md
+      - name: Azure CLI
+        href: network-watcher-nsg-flow-logging-cli.md
+      - name: REST
+        href: network-watcher-nsg-flow-logging-rest.md
+      - name: ARM template
+        href: network-watcher-nsg-flow-logging-azure-resource-manager.md
+      - name: Built-in Policy
+        href: nsg-flow-logs-policy-portal.md
     - name: Read NSG flow logs
       href: network-watcher-read-nsg-flow-logs.md
     - name: Analyze NSG flow logs
@@ -244,8 +244,6 @@
   items:
   - name: Network Watcher FAQ
     href: frequently-asked-questions.yml
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
   - name: Microsoft Q&A
     href: /answers/topics/azure-network-watcher.html
   - name: Pricing
