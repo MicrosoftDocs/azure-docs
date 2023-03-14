@@ -1,27 +1,24 @@
 ---
-title: QuickStart - Deploy and manage NSG Flow Logs using Azure Policy 
+title: Deploy and manage NSG flow logs using Azure Policy 
 titleSuffix: Azure Network Watcher
-description: This article explains how to use the built-in policies to manage the deployment of NSG flow logs 
+description: Learn how to use built-in policies to manage the deployment of network security group (NSG) flow logs.
 services: network-watcher
 author: halkazwini
 ms.service: network-watcher
-ms.topic: quickstart
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 02/09/2022
 ms.author: halkazwini
 ms.custom: engagement-fy23
 ---
 
-# QuickStart: Deploy and manage NSG Flow Logs using Azure Policy 
-
-## Overview
+# Deploy and manage NSG flow logs using Azure Policy 
 
 Azure Policy helps to enforce organizational standards and to assess compliance at scale. Common use cases for Azure Policy include implementing governance for resource consistency, regulatory compliance, security, cost, and management. In this article, we will use two built-in policies available for NSG Flow Logs to manage your flow logs setup. The first policy  flags any NSGs without flow logs enabled. The second policy automatically deploys Flow logs for NSGs without Flow logs enabled. 
 
 If you are creating an Azure Policy definition for the first time, you can read through: 
 - [Azure Policy overview](../governance/policy/overview.md) 
 - [Tutorial for creating an Azure Policy assignment](../governance/policy/assign-policy-portal.md#create-a-policy-assignment).
-
 
 ## Locate the policies
 
