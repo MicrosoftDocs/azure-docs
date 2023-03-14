@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 05/27/2022
+ms.date: 03/14/2023
 ms.author: anfdocs
 ---
 # Disable showmount in Azure NetApp Files
@@ -25,7 +25,7 @@ Some applications, however, make use of showmount for functionality, such as Ora
 
 ## Register the feature to disable showmount
 
-The disable showmount capability is currently in public preview. If you're using this feature for the first time, you need to register the feature first. By registering the feature, you disable the showmount. By unregistering the feature, you enable the showmount. 
+The disable showmount capability is currently in preview. If you're using this feature for the first time, you need to register the feature first. By registering the feature, you disable the showmount. By unregistering the feature, you enable the showmount. 
 
 1.  Register the feature by running the following commands:
 
