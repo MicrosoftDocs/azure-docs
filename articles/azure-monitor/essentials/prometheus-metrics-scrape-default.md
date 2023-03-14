@@ -15,16 +15,16 @@ This article lists the default targets, dashboards, and recording rules when you
 
  The default scrape frequency for all default targets and scrapes is **30 seconds**.
 
-## Targets scraped 
+## Targets scraped
 
 - `cadvisor` (`job=cadvisor`)
 - `nodeexporter` (`job=node`)
 - `kubelet` (`job=kubelet`)
 - `kube-state-metrics` (`job=kube-state-metrics`)
-   
+
 ## Metrics collected from default targets
 
-The following metrics are collected by default from each default target. All other metrics are dropped through relabeling rules. 
+The following metrics are collected by default from each default target. All other metrics are dropped through relabeling rules.
 
    **cadvisor (job=cadvisor)**<br>
    - `container_memory_rss`
@@ -38,7 +38,7 @@ The following metrics are collected by default from each default target. All oth
    - `container_fs_writes_total`
    - `container_fs_reads_bytes_total`
    - `container_fs_writes_bytes_total|container_cpu_usage_seconds_total`
-  
+
    **kubelet (job=kubelet)**<br>
    - `kubelet_node_name`
    - `kubelet_running_pods`
@@ -79,7 +79,7 @@ The following metrics are collected by default from each default target. All oth
    - `process_cpu_seconds_total`
    - `go_goroutines`
    - `kubernetes_build_info`
-  
+
    **nodexporter (job=node)**<br>
    - `node_memory_MemTotal_bytes`
    - `node_cpu_seconds_total`
@@ -105,7 +105,7 @@ The following metrics are collected by default from each default target. All oth
    - `node_disk_read_bytes_total`
    - `node_disk_written_bytes_total`
    - `node_uname_info`
-  
+
    **kube-state-metrics (job=kube-state-metrics)**<br>
    - `kube_node_status_allocatable`
    - `kube_pod_owner`
@@ -134,6 +134,57 @@ The following metrics are collected by default from each default target. All oth
    - `kubernetes_build_info`
    - `kube_node_status_condition`
    - `kube_node_spec_taint`
+
+## Targets scraped for windows
+
+> [!NOTE]
+> This requires an update in the ama-metrics-settings-configmap and installing windows exporter on all windows nodepools. Please refer to the enablement document for more information.
+
+- `windows-exporter` (`job=windows-exporter`)
+- `kube-proxy-windows` (`job=kube-proxy-windows`)
+
+## Metrics scraped for windows
+
+The following metrics are collected when windows exporter and windows kube proxy are enabled.
+
+**windows-exporter (job=windows-exporter)**<br>
+  - `windows_system_system_up_time`
+  - `windows_cpu_time_total`
+  - `windows_memory_available_bytes`
+  - `windows_os_visible_memory_bytes`
+  - `windows_memory_cache_bytes`
+  - `windows_memory_modified_page_list_bytes`
+  - `windows_memory_standby_cache_core_bytes`
+  - `windows_memory_standby_cache_normal_priority_bytes`
+  - `windows_memory_standby_cache_reserve_bytes`
+  - `windows_memory_swap_page_operations_total`
+  - `windows_logical_disk_read_seconds_total`
+  - `windows_logical_disk_write_seconds_total`
+  - `windows_logical_disk_size_bytes`
+  - `windows_logical_disk_free_bytes`
+  - `windows_net_bytes_total`
+  - `windows_net_packets_received_discarded_total`
+  - `windows_net_packets_outbound_discarded_total`
+  - `windows_container_available`
+  - `windows_container_cpu_usage_seconds_total`
+  - `windows_container_memory_usage_commit_bytes`
+  - `windows_container_memory_usage_private_working_set_bytes`
+  - `windows_container_network_receive_bytes_total`
+  - `windows_container_network_transmit_bytes_total`
+
+**kube-proxy-windows (job=kube-proxy-windows)**<br>
+  - `kubeproxy_sync_proxy_rules_duration_seconds`
+  - `kubeproxy_sync_proxy_rules_duration_seconds_bucket`
+  - `kubeproxy_sync_proxy_rules_duration_seconds_sum`
+  - `kubeproxy_sync_proxy_rules_duration_seconds_count`
+  - `rest_client_requests_total`
+  - `rest_client_request_duration_seconds`
+  - `rest_client_request_duration_seconds_bucket`
+  - `rest_client_request_duration_seconds_sum`
+  - `rest_client_request_duration_seconds_count`
+  - `process_resident_memory_bytes`
+  - `process_cpu_seconds_total`
+  - `go_goroutines`
 
 ## Dashboards
 

@@ -329,8 +329,13 @@ Deploy the template with the parameter file using any valid method for deploying
 
 ## Enable windows metrics collection
 
+As of version `6.4.0-main-02-22-2023-3ee44b9e` windows metric collection has been enabled for the AKS clusters. Onboarding to the Azure Monitor Metrics Addon will enable the windows daemonset pods to start running on your nodepools(Windows Server 2019 and Windows Server 2022 are both supported). Please follow the below mentioned steps so that the pods are able to collect metrics from your windows nodepools.
+
 - For accessing windows metrics you must manually install the windows exporter on AKS nodes. Please enable the following collectors : `[defaults],container,memory,process,cpu_info`. You can deploy the following [YAML](https://github.com/prometheus-community/windows_exporter/blob/master/kubernetes/windows-exporter-daemonset.yaml) file using `kubectl apply -f windows-exporter-daemonset.yaml`
-- Please refer to the [customize configuration section](./prometheus-metrics-scrape-configuration.md#metrics-addon-settings-configmap) and enable the `windowsexporter` boolean to true.
+- Please refer to the [customize configuration section](./prometheus-metrics-scrape-configuration.md#metrics-addon-settings-configmap) and enable the `windowsexporter` and `windowsexporter` boolean to true by applying the ama-metrics-settings-configmap on your cluster
+- Please use the CLI option `--enable-windows-recording-rules` and set it to true while onboarding to enable the recording rules required for the default dashboards
+- If using ARM/Bicep/Policy to onboard please enable the windows recording rules by settings `enableWindowsRecordingRules` to true in the parameters file.
+- If the cluster is already onbaorded to Azure Monitor Metrics and you want to enable windows recording rule groups. Please use the following [ARM Tempalte](https://github.com/Azure/prometheus-collector/blob/kaveesh/windows_recording_rules/AddonArmTemplate/WindowsRecordingRuleGroupTemplate/WindowsRecordingRules.json) and [Parameters](https://github.com/Azure/prometheus-collector/blob/kaveesh/windows_recording_rules/AddonArmTemplate/WindowsRecordingRuleGroupTemplate/WindowsRecordingRulesParameters.json) file to create the rule groups.
 
 
 ## Verify Deployment
