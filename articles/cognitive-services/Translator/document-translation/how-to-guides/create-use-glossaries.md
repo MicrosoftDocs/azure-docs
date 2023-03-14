@@ -8,7 +8,7 @@ author: laujan
 ms.date: 03/14/2023
 ---
 
-# Create and use glossaries Document Translation
+# Use glossaries with Document Translation
 
 A glossary is a list of terms with definitions that you create for the Document Translation service to use during the translation process. Currently, the glossary feature supports one-to-one source-to-target language translation. Common use cases for glossaries include:
 
