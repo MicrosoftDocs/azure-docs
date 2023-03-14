@@ -142,7 +142,7 @@ Here are some sample configurations that use a few different options.
         }
     } 
    ```
-- An more advanced configuration to parse a custom timestamp and a json from unstructured text data and log a selected set of fields into Log Analytics with the extracted timestamp:
+- A more advanced configuration to parse a custom timestamp and a JSON string from unstructured text data and log a selected set of fields into Log Analytics with the extracted timestamp:
 
    ```ruby
     # Example log line below:
