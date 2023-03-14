@@ -5,7 +5,7 @@ author: rothja
 ms.author: jroth
 ms.service: mariadb
 ms.topic: quickstart
-ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm
 ms.date: 06/24/2022
 ---
 

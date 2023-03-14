@@ -18,6 +18,7 @@ The following table provides information on which versions of the ASE device are
 
 | Packet core version  | Compatible ASE versions  |
 |-----|-----|
+| 2302 | 2301  |
 | 2301 | 2210, 2301  |
 | 2211 | 2210  |
 | 2210 | 2209, 2210  |

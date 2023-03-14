@@ -126,6 +126,8 @@ items:
           href: troubleshoot-guide.md
         - name: Get logs
           href: troubleshooting-get-logs.md
+        - name: Troubleshoot deployments
+          href: troubleshoot-managed-instance.md
 - name: Azure Arc-enabled SQL Managed Instance
   items:
     - name: Overview
@@ -258,8 +260,10 @@ items:
               items:
                 - name: Deploy PostgresSQL server - CLI
                   href: deploy-active-directory-postgresql-server-cli.md
-            - name: Back up and restore
+            - name: Automated backup and restore
               href: backup-restore-postgresql.md
+            - name: Restore
+              href: restore-postgresql.md
             - name: Change PostgreSQL port
               href: change-postgresql-port.md
             - name: Configure and scale

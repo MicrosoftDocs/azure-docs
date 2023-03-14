@@ -83,4 +83,8 @@ review the connector's [reference page](/connectors/aci/) or container group [YA
 
 * See a [sample logic app](https://github.com/Azure-Samples/aci-logicapps-integration) that runs a container in Azure Container Instances to analyze the sentiment of e-mail or Twitter text
 
-* Learn about other [Logic Apps connectors](../connectors/apis-list.md)
+* [Managed connectors for Azure Logic Apps](managed.md)
+
+* [Built-in connectors for Azure Logic Apps](built-in.md)
+
+* [What are connectors in Azure Logic Apps](introduction.md)
