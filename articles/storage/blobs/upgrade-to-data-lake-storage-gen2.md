@@ -80,7 +80,7 @@ Renaming a blob is far more efficient because client applications can rename a b
 
 ## Impact on costs
 
-Storage costs aren't impacted, but transactions costs are impacted. Use these pages to assess compare costs. 
+While the operation of upgrade to gen2 itself is free and storage costs aren't impacted, but transactions costs are impacted. Use these pages to assess compare costs. 
 
 - [Block blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
