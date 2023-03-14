@@ -33,7 +33,7 @@ Through the model configuration, the API allows you to explicitly check if a can
 ---------------------- |-----------------------|-------------------
 true |Yes  |Inferences are returned 
 true  |No  |No inferences are returned     
-false  |N/A  |Inferences are always returned but they aren't meaningful if there is no cancer case.
+false  |N/A  |Inferences are always returned but they aren't meaningful if there's no cancer case.
 Set ```checkForCancerCase``` to ```false``` if
 - you're sure that the provided clinical documents definitely contain a case
 - the model is unable to find a case in a valid scenario

@@ -14,12 +14,12 @@ ms.author: behoorne
 
 # Guidance for integration and responsible use with OncoPhenotype
 
-As Microsoft works to help customers safely develop and deploy solutions using the OncoPhenotype model, we are taking a principled approach to upholding personal agency and dignity by considering the AI systems' fairness, reliability & safety, privacy & security, inclusiveness, transparency, and human accountability. These considerations are in line with our commitment to developing Responsible AI.
+As Microsoft works to help customers safely develop and deploy solutions using the OncoPhenotype model, we're taking a principled approach to upholding personal agency and dignity by considering the AI systems' fairness, reliability & safety, privacy & security, inclusiveness, transparency, and human accountability. These considerations are in line with our commitment to developing Responsible AI.
 
 ## General guidelines
 
 When getting ready to integrate and use AI-powered products or features, the following activities help set you up for success:
-- **Understand what it can do**: Fully vet and review the capabilities of any AI model you are using to understand its capabilities and limitations.
+- **Understand what it can do**: Fully vet and review the capabilities of any AI model you're using to understand its capabilities and limitations.
 
 - **Test with real, diverse data**: Understand how your system performs in your scenario by thoroughly testing it with real life conditions and data that reflects the diversity in your users, geography and deployment contexts. Small datasets, synthetic data and tests that don't reflect your end-to-end scenario are unlikely to sufficiently represent your production performance.
 
@@ -38,7 +38,7 @@ When getting ready to integrate and use AI-powered products or features, the fol
 ## Integration and responsible use for PHI
 
   - **Healthcare related data protections**: Healthcare data has special protections in various jurisdictions. Given the sensitive nature of health related data, make sure you know the regulations for your jurisdiction and take special care for security and data requirements when building your system. The Azure architecture center has articles on storing health data and on engineering compliance with HIPAA and HITRUST that you may find helpful.
-  - **Protecting PHI**: The health feature does not anonymize the data you send to the service. If your system presents the response from the system with the original data, you may want to consider appropriate measures to identify and remove these entities.
+  - **Protecting PHI**: The health feature doesn't anonymize the data you send to the service. If your system presents the response from the system with the original data, you may want to consider appropriate measures to identify and remove these entities.
 
 
 ## Learn more about Responsible AI

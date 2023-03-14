@@ -38,7 +38,7 @@ Typically, when using Trial Matcher in Patient centric the service user will pro
 **Clinical Trial Centric** is when the Trial Matcher model finds potentially eligible group of patients to a clinical trial.
 The service user provides patients data and the clinical trial to match to. The Trial Matcher then analyses the data and provides the results per patient, both if they are eligible or ineligible. 
 
-Clinical Trial Centric is also known as **many-to-one** use case, and the extension of it is **many-to-many** when there is a list of clinical trials to match the patients to.
+Clinical Trial Centric is also known as **many-to-one** use case, and the extension of it is **many-to-many** when there's a list of clinical trials to match the patients to.
 The process of matching patients is typically done in two phases. 
 - First phase, done by the service user, starts with all patients in the data repository, and goal is to mark all patients that meet a baseline criteria like a clinical condition. 
 - In second phase, the server user provides the Trial Matcher as input a subset group of patients which was the outcome of first phase, and match only those patients to the detailed exclusion and inclusion criteria of a clinical trial.

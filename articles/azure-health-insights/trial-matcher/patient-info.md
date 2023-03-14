@@ -142,7 +142,7 @@ Trial Matcher can also be used with Gradual Matching. In this mode you can send 
 
 The Gradual Matching uses patient information for matching, including demographics (gender and birthdate) as well as structured clinical information. When sending Clinical information via Gradual Matching, this is then passed as a list of ```clinicalCodedElements```, each is expressed as a code in a clinical coding system, extended by semantic information, and value.
 
-Additional clinical information is derived from the eligibility criteria found in the subset of trials within the query. The model will select **up to three** most differentiating concepts, i.e., that will help the most in qualifying the patient. The model will only indicate concepts that appear in trials and will not suggest collecting information that is not required and will not assist in qualification.
+Additional clinical information is derived from the eligibility criteria found in the subset of trials within the query. The model will select **up to three** most differentiating concepts, i.e., that will help the most in qualifying the patient. The model will only indicate concepts that appear in trials and will not suggest collecting information that isn't required and will not assist in qualification.
 
 When finding potential eligible patients to a clinical trial, same concept of needed clinical info will be provided. In this case, the three most differentiating concepts for the clinical trial provided will be selected. In case more than one trial was provided, three concepts for all the clinical trials provided will be selected. 
 

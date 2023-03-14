@@ -30,7 +30,7 @@ The Azure Health Insights:
 
 - The data sent to the Azure Health Insights is temporarily stored for up to 24 hours and is purged thereafter.
 - The Azure Health Insights job response data is temporarily stored for 24 hours and is purged thereafter.
-- During their transient existence, both request and response data are encrypted and are only accessible to authorized on-call engineers for service support if there is a catastrophic failure. Should on-call engineers access this data, internal audit logs track such operations. 
+- During their transient existence, both request and response data are encrypted and are only accessible to authorized on-call engineers for service support if there's a catastrophic failure. Should on-call engineers access this data, internal audit logs track such operations. 
 - There are no customer controls available at this time.
 
 To learn more about Microsoft's privacy and security commitments, visit the [Microsoft Trust Center](https://www.microsoft.com/trust-center).

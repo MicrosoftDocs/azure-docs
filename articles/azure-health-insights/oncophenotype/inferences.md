@@ -21,14 +21,14 @@ Our models were trained with labels that conform to the following standards.
 
 **INFERENCE TYPE** |**DESCRIPTION**                       |**VALUES**                              
 -------------------|--------------------------------------|----------------------------------------
-tumorSite          |The tumor site                        |None, ICD-O-3 tumor site code (C__. \_ )
-histology          |The histology code                    |None, 4-digit ICD-O-3 histology code    
-clinicalStageT     |The T category of the clinical stage  |None, T0, Tis, T1, T2, T3, T4           
-clinicalStageN     |The N category of the clinical stage  |None, N0, N+                            
-clinicalStageM     |The M category of the clinical stage  |None, M0, M1                            
-pathologicStageT   |The T category of the pathologic stage|None, T0, Tis, T1, T2, T3, T4           
-pathologicStageN   |The N category of the pathologic stage|None, N0, N+                            
-pathologicStageM   |The M category of the pathologic stage|None, M0, M1          
+tumorSite          |The tumor site                        |`None, ICD-O-3 tumor site code (C__. \_ )`
+histology          |The histology code                    |`None, 4-digit ICD-O-3 histology code`    
+clinicalStageT     |The T category of the clinical stage  |`None, T0, Tis, T1, T2, T3, T4`           
+clinicalStageN     |The N category of the clinical stage  |`None, N0, N+`                            
+clinicalStageM     |The M category of the clinical stage  |`None, M0, M1`                            
+pathologicStageT   |The T category of the pathologic stage|`None, T0, Tis, T1, T2, T3, T4`           
+pathologicStageN   |The N category of the pathologic stage|`None, N0, N+`                            
+pathologicStageM   |The M category of the pathologic stage|`None, M0, M1`         
 
 
 ## Confidence score
