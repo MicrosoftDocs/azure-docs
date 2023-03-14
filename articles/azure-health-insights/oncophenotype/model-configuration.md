@@ -14,6 +14,8 @@ ms.author: behoorne
 
 # OncoPhenotype Model configuration
 
+To interact with the OncoPhonetype model you can provide several model configurations parameters, that will modify the outcome of the responses.
+
 > [!IMPORTANT]
 > Model configuration is applied to ALL the patients within a request.
 
@@ -23,7 +25,6 @@ ms.author: behoorne
     "includeEvidence": false
 }
 ```
-<br>
 
 ## Case finding
 Through the model configuration, the API allows you to explicitly check if a cancer case exists in the provided clinical documents and only then generate the inferences

@@ -38,7 +38,7 @@ The [OncoPhenotye](./oncophenotype/overview.md) receives clinical records of onc
 
 ## Architecture
 
-![Architecture of the Azure Health Insights.](media/architecture.png) 
+![Diagram that shows the Azure Health Insights architecture.](media/architecture.png) 
 
 
 ## Next steps

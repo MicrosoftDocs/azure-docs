@@ -13,8 +13,6 @@ ms.author: behoorne
 
 # Transparency Note for OncoPhenotype
 
-## What is a Transparency Note?
-
 An AI system includes not only the technology, but also the people who use it, the people who will be affected by it, and the environment in which it's deployed. Creating a system that is fit for its intended purpose requires an understanding of how the technology works, its capabilities and limitations, and how to achieve the best performance. 
 
 Microsoft's Transparency Notes are intended to help you understand how our AI technology works, the choices system owners can make that influence system performance and behavior, and the importance of thinking about the whole system, including the technology, the people, and the environment. They are also part of a broader effort at Microsoft to put our AI principles into practice. To find out more, see [Microsoft AI principles](https://www.microsoft.com/ai/responsible-ai). 
@@ -38,10 +36,10 @@ Don't use
 
 #### Inference values for tumor site and histology
 Inference values for tumor site and histology are only as exhaustive as the training data set labels. We plan to publish this set of labels soon. 
-If the model is presented with a cancer case for which the true tumor site or histology wan't encountered during training, for example rare tumor sites/histologies, then the model is be unable to produce a correct inference result.
+If the model is presented with a cancer case for which the true tumor site or histology wasn't encountered during training, for example rare tumor sites/histologies, then the model is unable to produce a correct inference result.
 
 ### Multiple cancer cases for a patient
-The API infers only a single set of phenotype values, such ash tumor site, histology, and clinical/pathologic TNM stagin, per patient. If given an input with multiple primary cancer diagnoses, the behavior is undefined and may mix elements from the separate diagnoses.
+The API infers only a single set of phenotype values, such ash tumor site, histology, and clinical/pathologic TNM staging, per patient. If given an input with multiple primary cancer diagnoses, the behavior is undefined and may mix elements from the separate diagnoses.
 
 ### Pathologic and clinical staging
 The models don't currently identify the initiation of a patient's definitive treatment, and therefore may use clinical staging evidence to infer a pathologic staging value, or vice-versa. Manual review should verify that appropriate evidence supports clinical and pathologic staging results.

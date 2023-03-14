@@ -1,5 +1,6 @@
 ---
 title: Use OncoPhenotype 
+titleSuffix: Azure Health Insights
 description: This article describes how to use the OncoPhenotype
 services: azure-health-insights
 author: iBoonZ
