@@ -3,14 +3,14 @@ title: Move from classic to modernized VMware disaster recovery.
 description: Learn about the architecture, necessary infrastructure, and FAQs about moving your VMware replications from classic to modernized protection architecture.
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/09/2023
+ms.date: 03/14/2023
 author: ankitaduttaMSFT
 ms.custom: engagement-fy23
 ---
 
 # Move from classic to modernized VMware disaster recovery   
 
-This article describes the architecture and necessary infrastructure about moving your VMware or physical machine replications from [classic](./vmware-azure-architecture.md) to [modernized](./vmware-azure-architecture-modernized.md) protection architecture. With this capability to migrate, you can successfully transfer your replicated items from a configuration server to an Azure Site Recovery replication appliance. This migration is guided by a smart replication mechanism, which ensures that complete initial replication isn't performed again for non-critical replicated items, and only the differential data is transferred. 
+This article describes the architecture and necessary infrastructure about moving your VMware or physical machine replications from [classic](./vmware-azure-architecture.md) to [modernized](./vmware-azure-architecture-modernized.md) protection architecture. With this capability to migrate, you can successfully transfer your replicated items from a configuration server to an Azure Site Recovery replication appliance. A smart replication mechanism guides this migration, which guarantees that full initial replication is not done again for replicated items that are not critical, and only the differential data is transferred. 
 
 > [!NOTE]
 > Recovery plans aren't migrated, so you need to create them again in the modernized Recovery Services vault.  
@@ -49,7 +49,7 @@ Ensure the following before you move from classic architecture to modernized arc
 
 ### Prepare classic Recovery Services vault   
 
-Ensure the following for the replicated items you are planning to move: 
+Ensure the following for the replicated items you're planning to move: 
  
 - The replicated item is a VMware or Physcial machine replicating via a configuration server. 
 - Replication doesn't happen to an un-managed storage account but to managed disk. 
@@ -83,7 +83,7 @@ The total time required to move any replicated item from classic vault to modern
 
 | State | Time to migrate to modernized vault |
 |-------|---------------------|
-| Replicated item’s protection status is **healthy** and the **last recovery point was created less than 50 minutes ago**|Migration will complete in **1-2 hours**|
+| Replicated item’s protection status is **healthy** and the **last recovery point was created less than 50 minutes ago**|Migration  completes in **1-2 hours**|
 | Replicated item’s protection status is **not healthy** or the **last recovery point was created more than 50 minutes ago**|Migration time will **depend on the disk size**|
 
 If your machines protection status is not healthy, then use the formula below to calculate the time for your machines: 
@@ -92,10 +92,10 @@ Time to migrate = 1 hour + 45 second/GiB
 
 | Machine configuration | Time to migrate |
 |-----------------|------------|
-| 1 machine with 2 disks, both of size 256 GiB|~ 4 hours 15 mins<br></br>*[Both the disks will be migrated in parallel]*|
-| 10 machines with 2 disks each, both of size 256 GiB|~ 4 hours 15 mins<br></br>*[All the VMs and their disks will be migrated in parallel]*|
-| 1 machine with 4 disks, all of size 512 GiB|~ 7 hours 30 mins<br></br>*[Both the disks will be migrated in parallel]*|
-| 10 machines with 4 disks each, all of size 512 GiB|~ 7 hours 30 mins<br></br>*[All the VMs and their disks will be migrated in parallel]*|
+| 1 machine with 2 disks, both of size 256 GiB|~ 4 hours 15 mins<br></br>*[Both the disks are migrated in parallel]*|
+| 10 machines with 2 disks each, both of size 256 GiB|~ 4 hours 15 mins<br></br>*[All the VMs and their disks are migrated in parallel]*|
+| 1 machine with 4 disks, all of size 512 GiB|~ 7 hours 30 mins<br></br>*[Both the disks are migrated in parallel]*|
+| 10 machines with 4 disks each, all of size 512 GiB|~ 7 hours 30 mins<br></br>*[All the VMs and their disks are migrated in parallel]*|
 
 The same formula is used to calculate time for migration and appears on the portal.   
 
@@ -107,9 +107,9 @@ As a rule, you should set up the same number of replication appliances, as the n
 
 ## Pricing 
 
-Azure Site Recovery license fee will continue to be charged on the classic vault until retention period of all recovery points has expired as per the retention policy. Once all recovery points are cleaned up, the pricing will also stop on the classic vault. Once the retention period of all the recovery points has expired, the replicated item will be automatically removed via a system triggered purge replication operation.  
+Azure Site Recovery license fee continues to be charged on the classic vault until retention period of all recovery points has expired as per the retention policy. Once all recovery points are cleaned up, the pricing will also stop on the classic vault. Once the retention period of all the recovery points has expired, the replicated item is automatically removed via a system triggered purge replication operation.  
 
-Azure Site Recovery will start charging license fee on replicated items in the modernized vault, only after the first recovery point is generated and older vault has been cleaned up. If there are any free trial usage days pending on the classic vault, then the same information will be passed on to the modernized vault. Pricing will start on the modernized vault only after this trial period has passed.  
+Azure Site Recovery will start charging license fee on replicated items in the modernized vault, only after the first recovery point is generated and older vault has been cleaned up. If there are any free trial usage days pending on the classic vault, then the same information is passed on to the modernized vault. Pricing will start on the modernized vault only after this trial period has passed.  
 
 >[!Note]
 > At one point in time, pricing will only happen using one vault, either the classic or modernized vault.  
@@ -118,7 +118,7 @@ Azure Site Recovery will start charging license fee on replicated items in the m
 
 ### Why should I migrate my machines to the modernized architecture?
 
-The classic architecture will be deprecated, so one must ensure that the machines are using the modernized architecture. The following table shows a comparison of the two architectures to enable you to select the correct option for enabling disaster recovery for your machines:  
+The classic architecture is deprecated, so one must ensure that the machines are using the modernized architecture. The following table shows a comparison of the two architectures to enable you to select the correct option for enabling disaster recovery for your machines:  
 
 |Classic architecture| Modernized architecture [New]|
 |---------------------|-----------------------------|
@@ -174,7 +174,7 @@ No, the same resources, which were being used previously will be defaulted to in
 
 ### How will my replication policies be moved to the modernized vault?
 
-As a prerequisite, Site Recovery will first create replication policies in the modernized vault, with the same configuration as present in the classic vault. So, if a replicated item is being moved, then the policy associated with it will be first created in the modernized vault and then migration will happen. It is recommended that the configuration of replication policies not be changed in the classic vault after migration has been triggered, as the changed values won't be propagated to the modernized vault. This operation should happen before migration is triggered.  
+As a prerequisite, Site Recovery will first create replication policies in the modernized vault, with the same configuration as present in the classic vault. So, if a replicated item is being moved, then the policy associated with it will be first created in the modernized vault and then migration will happen. It is recommended that the configuration of replication policies are not changed in the classic vault after migration has been triggered, as the changed values won't be propagated to the modernized vault. This operation should happen before migration is triggered.  
  
 The replication policy created in the modernized vault will have its name changed in the modernized vault. It will be prefixed with resource group name and vault name of the modernized Recovery Services vault. So, if the policy name was “default replication policy” in the classic vault, then in the modernized vault, this policy’s name will be “default replication policy contoso-modern-vault_contoso-rg”, given the vault’s name is contoso-modern-vault and the vault’s resource group is contoso-rg.  
 
