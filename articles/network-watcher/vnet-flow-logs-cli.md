@@ -30,7 +30,7 @@ Learn how to create, change, disable, or delete a VNet flow log using the Azure 
 
 - Bash environment in [Azure Cloud Shell](https://shell.azure.com) or the Azure CLI installed locally. To learn more about using Bash in Azure Cloud Shell, see [Azure Cloud Shell Quickstart - Bash](../cloud-shell/quickstart.md). 
 
-	- If you choose to install and use Azure CLI locally, this article requires the Azure CLI version 2.39.0 or later. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). Run `az login` to sign in to Azure. For more information, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli.md).
+	- If you choose to install and use Azure CLI locally, this article requires the Azure CLI version 2.39.0 or later. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). Run `az login` to sign in to Azure.
 
 ## Register insights provider
 

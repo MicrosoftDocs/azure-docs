@@ -30,7 +30,7 @@ Learn how to create, change, disable, or delete a VNet flow log using Azure Powe
 
 - PowerShell environment in [Azure Cloud Shell](https://shell.azure.com) or Azure PowerShell installed locally. To learn more about using PowerShell in Azure Cloud Shell, see [Azure Cloud Shell Quickstart - PowerShell](../cloud-shell/quickstart-powershell.md). 
 
-	- If you choose to install and use PowerShell locally, this article requires the Azure PowerShell version 7.4.0 or later. Run `Get-InstalledModule -Name Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). Run `Connect-AzAccount` to sign in to Azure. For more information, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps.md).
+	- If you choose to install and use PowerShell locally, this article requires the Azure PowerShell version 7.4.0 or later. Run `Get-InstalledModule -Name Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). Run `Connect-AzAccount` to sign in to Azure.
 
 ## Register insights provider
 
