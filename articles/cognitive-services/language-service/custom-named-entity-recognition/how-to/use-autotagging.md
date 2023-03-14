@@ -33,7 +33,7 @@ Before you can use auto-labeling with GPT, you need:
 * A successfully [created project](create-project.md) with a configured Azure blob storage account.
 * Text data that [has been uploaded](design-schema.md#data-preparation) to your storage account.
 * [Labeled data](tag-data.md) is not required but if you've labeled some documents, those labels are be used to more accurately suggest labels.
-* An Azure OpenAI [resource and deployment](../../../openai/how-to/create-resource.md). 
+* An Azure OpenAI [resource and deployment](/articles/cognitive-services/openai/how-to/create-resource.md). 
 
 ---
 
@@ -77,11 +77,11 @@ When you trigger an auto-labeling job based on a model you've trained, there's a
 7.	Select **Auto-label** to trigger the auto-labeling job. 
 You should see the model used, number of documents included in the auto-labeling job, number of text records and entities to be automatically labeled. Auto-labeling jobs can take anywhere from a few seconds to a few minutes, depending on the number of documents you included. 
 
-    :::image type="content" source="../media/review-autotag-trained.png" alt-text="A screenshot showing the review screen for an autotag job." lightbox="../media/review-autotag-trained.png":::
+    :::image type="content" source="../media/review-autotag.png" alt-text="A screenshot showing the review screen for an autotag job." lightbox="../media/review-autotag.png":::
 
 ### [Auto-label with GPT](#tab/auto-label-gpt)
 
-When you trigger an auto-labeling job with GPT, you are billed through the Azure OpenAI resource as per your consumption. You are charged an estimate of the number of tokens in your document. Refer to the [Azure OpenAI pricing page](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/openai-service/) for a detailed breakdown for billing.
+When you trigger an auto-labeling job with GPT, you are billed through the Azure OpenAI resource as per your consumption. You are charged an estimate of the number of tokens in your document. Refer to the [Azure OpenAI pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) for a detailed breakdown for billing.
 
 1.  From the left navigation menu, select **Data labeling**.
 2.  Select the **Auto-label** button under the Activity pane to the right of the page.
@@ -92,7 +92,7 @@ When you trigger an auto-labeling job with GPT, you are billed through the Azure
 
     :::image type="content" source="../media/choose-models.png" alt-text="A screenshot showing model choices for auto labeling." lightbox="../media/choose-models.png":::
 
-5. Choose your Azure OpenAI resource and deployment. You must [create an Azure OpenAI resource and deploy a model](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/how-to/create-resource?pivots=web-portal) in order to proceed.
+5. Choose your Azure OpenAI resource and deployment. You must [create an Azure OpenAI resource and deploy a model](/articles/cognitive-services/openai/how-to/create-resource.md) in order to proceed.
 
     :::image type="content" source="../media/autotag-choose-OpenAI.png" alt-text="A screenshot showing how to choose OpenAI resource and deployments" lightbox="../media/autotag-choose-OpenAI.png":::
     
@@ -106,7 +106,7 @@ When you trigger an auto-labeling job with GPT, you are billed through the Azure
     > * If an entity was automatically labeled, but has a user defined label, only the user defined label will be used and be visible.  
     > * You can view the documents by clicking on the document name.
     
-    :::image `="content" source="../media/choose-files.png" alt-text="A screenshot showing which documents to be included in the autotag job." lightbox="../media/choose-files.png":::
+    :::image type="content" source="../media/choose-files.png" alt-text="A screenshot showing which documents to be included in the autotag job." lightbox="../media/choose-files.png":::
 
 8.	Select **Start job** to trigger the auto-labeling job. 
 You should be directed to the auto-labeling page displaying the auto-labeling jobs initiated. Auto-labeling jobs can take anywhere from a few seconds to a few minutes, depending on the number of documents you included. 
