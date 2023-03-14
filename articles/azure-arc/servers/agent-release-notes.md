@@ -21,7 +21,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 ### Fixed
 
 - Improved reliability of delete requests for extensions
-- More frequent reporting of VM UUID (system firwmare identifier) changes
+- More frequent reporting of VM UUID (system firmware identifier) changes
 - Improved reliability when writing changes to agent configuration files
 - JSON output for `azcmagent connect` now includes Azure portal URL for the server
 - Linux installation script now installs the `gnupg` package if it's missing on Debian operating systems
