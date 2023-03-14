@@ -43,20 +43,20 @@ Ensure the following for a successful movement of replicated item:
 
 Ensure the following before you move from classic architecture to modernized architecture: 
 
-- [Create a Recovery Services vault](./azure-to-azure-tutorial-enable-replication.md#create-a-recovery-services-vault) and ensure the experience has [not been switched to classic](./vmware-azure-common-questions.md#how-do-i-use-the-classic-experience-in-the-recovery-services-vault-rather-than-the-modernized-experience)
+- [Create a Recovery Services vault](./azure-to-azure-tutorial-enable-replication.md#create-a-recovery-services-vault) and ensure the experience [hasn't been switched to classic](./vmware-azure-common-questions.md#how-do-i-use-the-classic-experience-in-the-recovery-services-vault-rather-than-the-modernized-experience)
 - [Deploy an Azure Site Recovery replication appliance](./deploy-vmware-azure-replication-appliance-modernized.md). 
 - [Add the on-premises machine’s vCenter Server details](./deploy-vmware-azure-replication-appliance-modernized.md) to the appliance, so that it successfully performs discovery.   
 
 ### Prepare classic Recovery Services vault   
 
-Ensure the following for the replicated items you are planning to move: 
+Ensure the following for the replicated items you're planning to move: 
  
-- The replicated item is a VMware or Physcial machine replicating via a configuration server. 
-- Replication is not happening to an un-managed storage account but rather to managed disk. 
-- Replication is happening from on-premises to Azure and the replicated item is not in a failed-over or in failed-back state. 
-- The replicated item is not replicating the data from Azure to on-premises.  
-- The initial replication is not under progress and has already been completed.   
-- The replicated item is not in the ‘resynchronization’ state.  
+- The replicated item is a VMware or Physical machine replicating via a configuration server. 
+- Replication isn't happening to an un-managed storage account but rather to managed disk. 
+- Replication is happening from on-premises to Azure and the replicated item isn't in a failed-over or in failed-back state. 
+- The replicated item isn't replicating the data from Azure to on-premises.  
+- The initial replication isn't under progress and has already been completed.   
+- The replicated item isn't in the ‘resynchronization’ state.  
 - The configuration server’s version is 9.50 or later and its health is in a non-critical state.  
 - The configuration server has a healthy heartbeat.  
 - The mobility service agent’s version, installed on the source machine, is 9.50 or later.  
@@ -86,7 +86,7 @@ The total time required to move any replicated item from classic vault to modern
 | Replicated item’s protection status is **healthy** and the **last recovery point was created less than 50 minutes ago**|Migration will be complete in **1-2 hours**|
 | Replicated item’s protection status is **not healthy** or the **last recovery point was created more than 50 minutes ago**|Migration time will vary, and it will **depend on the disk size**|
 
-If your machines protection status is not healthy, then use the formula below to calculate the exact time for your machines: 
+If your machines protection status isn't healthy, then use the formula below to calculate the exact time for your machines: 
 
 Time to migrate = 1 hour + 45 second/GiB  
 
@@ -101,15 +101,15 @@ The same formula will be used to calculate time for migration and is shown on th
 
 ## How to define required infrastructure 
 
-When migrating machines from classic to modernized architecture, you will need to make sure that the required infrastructure has already been registered in the modernized Recovery Services vault. Refer to the replication appliance’s [sizing and capacity details](./deploy-vmware-azure-replication-appliance-modernized.md#sizing-and-capacity) to help define the required infrastructure.  
+When migrating machines from classic to modernized architecture, you'll need to make sure that the required infrastructure has already been registered in the modernized Recovery Services vault. Refer to the replication appliance’s [sizing and capacity details](./deploy-vmware-azure-replication-appliance-modernized.md#sizing-and-capacity) to help define the required infrastructure.  
 
 As a rule, you should set up the same number of replication appliances, as the number of process servers in your classic Recovery Services vault. In the classic vault, if there was one configuration server and four process servers, then you should set up four replication appliances in the modernized Recovery Services vault.  
 
 ## Pricing 
 
-Site Recovery license fee will continue to be charged on the classic vault till retention period of all recovery points has expired. Once all recovery points have been cleaned up, the pricing will also stop on the classic vault. Once the retention period of all the recovery points has expired, the replicated item will be automatically removed via a system triggered purge replication operation.  
+The Site Recovery license fee will still be charged on the classic vault until the retention time for all recovery points is over. Once all recovery points have been cleared, the pricing will also stop for the classic vault. After the retention period for all recovery points has ended, the replicated item will automatically be deleted through a system-initiated purge replication process.  
 
-Site Recovery will start charging license fee on replicated items in the modernized vault, only after the first recovery point has been generated and older vault has been cleaned up. If there are any free trial usage days pending on the classic vault, then the same information will be passed on to the modernized vault. Pricing will start on the modernized vault only after this trial period has passed.  
+Site Recovery will only start charging a license fee for replicated items in the modernized vault once the first recovery point has been created and the older vault is cleaned up. If there are any trial days remaining on the classic vault, that information will be transferred to the updated vault. Pricing will start on the updated vault after the trial period has come to an end.
 
 >[!Note]
 > At one point in time, pricing will only happen using one vault, either the classic or modernized vault.  
@@ -137,15 +137,15 @@ Ultimately, the classic architecture will be deprecated, so one must ensure that
 
 ### What machines should be migrated to the modernized architecture?
 
-All VMware machines, which are replicated using a configuration server, should be migrated to the modernized architecture. As of now, we have released support for VMware machines.   
+All VMware machines that are replicated through a configuration server should be transitioned to the modernized architecture. Currently, support for VMware machines has been made available.  
 
 ### Where should my modernized Recovery Services vault be created?
 
-The modernized Recovery Services vault should be present in the same region and tenant as the classic vault. It can be a part of any subscription or resource group.   
+The modernized Recovery Services vault must be located in the same region and tenant as the classic vault, and can belong to any subscription or resource group.
 
 ### Will my replication continue while the migration is happening?
 
-No, the replication will break for some time while the migration is in progress. During this time, the last created recovery point, in the classic Recovery Services vault, will be available for you to failover to. Once the migration is complete, a new recovery point will be generated in the modernized Recovery Services vault.   
+No, the replication will break for some time while the migration is in progress. During this time, the last created recovery point, in the classic Recovery Services vault, will be available for you to failover to. Once the migration is complete, a new recovery point will be generated in the modernized Recovery Services vault.  
 
 ### When will my migration operation be marked as complete?
 
@@ -155,11 +155,12 @@ Migration operation will only be marked complete once the first recovery point h
 
 You can only perform failover and disable replication from your classic vault after the migration. The failover operation is possible via the classic vault until the recovery points are available in the older vault.
 
-For example, if the retention period for a replicated item is 72 hours (3 days), the latest recovery point on the classic vault will continue to be available for 72 hours (3 days), after a successful post migration. After the stipulated time, Azure Site Recovery will trigger a purge replication operation on the replicated item and perform the cleanup of all associated storage and billing causing items.   
+For example, if the retention time for a replicated item is 72 hours (3 days), the latest recovery point on the classic vault will continue to be available for 72 hours (3 days) following a successful migration. After that time duration, Azure Site Recovery will initiate a purge replication operation on the replicated item and carry out the cleaning of all associated storage and billing-causing items.  
 
 ### What if a disaster strikes my machine while the migration operation is in progress?
 
-Any replicated item on which migration is being performed will continue to support failover operation via the classic Recovery Services vault, till the last recovery point’s retention period expires. In case you try to execute failover operation, it will take a higher priority than migration operation. The job for migration will be aborted. To ensure that your replicated item is migrated, you will need to trigger the migration operation again, at a later point in time.   
+Any replicated item that is undergoing migration can still support the failover operation through the classic Recovery Services vault until the retention period for the final recovery point has ended. If you try to execute a failover operation, it will take precedence over the migration operation and the migration job will be aborted. To ensure that your replicated item is migrated, you'll need to trigger the migration operation again at a later time.
+
 
 >[!Note]
 > The Compute and Network properties of replicated items can be updated while the migration is in progress. However, the changes may not get replicated in the modernized Recovery Services vault. 
@@ -170,23 +171,23 @@ You can migrate up to 10 machines via the portal, in one go.  
 
 ### Should I recreate the virtual networks, storage accounts, and replication policy to be used in the new vault?
 
-No, the same resources, which were being used previously will be defaulted to in the modernized vault also. You can always change those from the Compute and Network blade of your replicated item. You must ensure that the resources continue to have the required access.   
+No, the same resources, that were used previously in the classic vault will be used by default in the modernized vault. If you want to change the resources, you can do so from the **Compute** and **Network** blade of your replicated item. It's important to ensure that the new resources have the necessary access.
 
 ### How will my replication policies be moved to the modernized vault?
 
-As a prerequisite, Site Recovery will first create replication policies in the modernized vault, with the same configuration as present in the classic vault. So, if a replicated item is being moved, then the policy associated with it will be first created in the modernized vault and then migration will happen. It is recommended that the configuration of replication policies not be changed in the classic vault after migration has been triggered, as the changed values won't be propagated to the modernized vault. This operation should happen before migration is triggered.  
+As a prerequisite, Site Recovery will create replication policies in the modernized vault with the same configuration as in the classic vault. So, before a replicated item is moved, the associated policy will be created in the modernized vault. It's recommended that you avoid making changes to the configuration of replication policies in the classic vault after the migration has been triggered, as these changes won't be reflected in the modernized vault. It's best to make these changes before starting the migration process.
  
 The replication policy created in the modernized vault will have its name changed in the modernized vault. It will be prefixed with resource group name and vault name of the modernized Recovery Services vault. So, if the policy name was “default replication policy” in the classic vault, then in the modernized vault, this policy’s name will be “default replication policy contoso-modern-vault_contoso-rg”, given the vault’s name is contoso-modern-vault and the vault’s resource group is contoso-rg.  
 
 ### Can I edit my replication policy during migration or post migration in the classic vault?
 
-If the replica of a replication policy has already been created in the modernized vault, then any changes to the policy in the classic vault won't be propagated to the modernized vault.  
+If the replica of a replication policy has already been created in the modernized vault, changes made to the original policy in the classic vault won't affect the replica in the modernized vault.  
 
-So, if there are 10 replicated items, which are replicated using a policy and you decide to move 5 of those to the modernized experience, then a copy of the policy will be created before migration starts. Now, before performing migration of the remaining 5 items, if any changes are made in the policy in classic vault, the policy from modernized vault won't be updated. You will need to make those configuration changes in the modernized vault too.  
+So, if there are 10 replicated items, that are replicated using a policy and you decide to move 5 of those to the modernized experience, then a copy of the policy will be created before migration starts. Now, before performing migration of the remaining 5 items, if any changes are made in the policy in classic vault, the policy from modernized vault won't be updated. You will need to make those configuration changes in the modernized vault too.  
 
 ### How do I migrate replicated items, which are present in a replication group, also known as multi-vm consistency groups?
 
-All replicated items, which are a part of a replication group will be migrated together. You can either select them all, by selecting the replication group, or skip them all. In case the migration fails for some machines in a replication group and succeeds for others, then a rollback to classic experience will be performed for failed replicated items and migration for failed items can be triggered again.
+All replicated items that are part of a replication group will be migrated together. You have the option to select all of them by selecting the replication group or skip them all. If the migration process fails for some machines in a replication group but succeeds for others, a rollback to the classic experience will be performed for the failed replicated items and the migration process can be triggered again for those items.
 
 ## Next steps
 
