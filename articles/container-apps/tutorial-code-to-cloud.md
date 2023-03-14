@@ -18,7 +18,7 @@ This article demonstrates how to build and deploy a microservice to Azure Contai
 This tutorial is the first in a series of articles that walk you through how to use core capabilities within Azure Container Apps. The first step is to create a back end web API service that returns a static collection of music albums.
 
 > [!NOTE]
-> You can also build and deploy this app using the [az containerapp up](/cli/azure/containerapp?view=azure-cli-latest#az_containerapp_up) by following the instructions in the [Quickstart: Build and deploy an app to Azure Container Apps from a repository](quickstart-code-to-cloud.md) article.  The `az containerapp up` command is a fast and convenient way to build and deploy your app to Azure Container Apps using a single command.  However, it doesn't provide the same level of customization for your container app.
+> You can also build and deploy this app using the [az containerapp up](/cli/azure/containerapp#az_containerapp_up) by following the instructions in the [Quickstart: Build and deploy an app to Azure Container Apps from a repository](quickstart-code-to-cloud.md) article.  The `az containerapp up` command is a fast and convenient way to build and deploy your app to Azure Container Apps using a single command.  However, it doesn't provide the same level of customization for your container app.
 
  The next tutorial in the series will build and deploy the front end web application to Azure Container Apps.
 
@@ -35,7 +35,7 @@ To complete this project, you need the following items:
 | Requirement  | Instructions |
 |--|--|
 | Azure account | If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). You need the *Contributor* or *Owner* permission on the Azure subscription to proceed. <br><br>Refer to [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md?tabs=current) for details. |
-| GitHub Account | Sign-up for [free](https://github.com/join). |
+| GitHub Account | Sign up for [free](https://github.com/join). |
 | git | [Install git](https://git-scm.com/downloads) |
 | Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli).|
 
@@ -46,7 +46,7 @@ To complete this project, you need the following items:
 | Requirement  | Instructions |
 |--|--|
 | Azure account | If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). You need the *Contributor* or *Owner* permission on the Azure subscription to proceed. Refer to [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md?tabs=current) for details. |
-| GitHub Account | Sign-up for [free](https://github.com/join). |
+| GitHub Account | Sign up for [free](https://github.com/join). |
 | git | [Install git](https://git-scm.com/downloads) |
 | Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli).|
 | Docker Desktop | Docker provides installers that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). <br><br>From your command prompt, type `docker` to ensure Docker is running. |
@@ -319,7 +319,7 @@ az containerapp create \
   --query properties.configuration.ingress.fqdn
 ```
 
-* By setting `--ingress` to `external`, your container app will be accessible from the public internet.
+* By setting `--ingress` to `external`, your container app is accessible from the public internet.
 
 * The `target-port` is set to `3500` to match the port that the container is listening to for requests.
 
@@ -327,7 +327,7 @@ az containerapp create \
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-To create the container app, create template objects that you'll pass in as arguments to the `New-AzContainerApp` command.
+To create the container app, create template objects that you pass in as arguments to the `New-AzContainerApp` command.
 
 Create a template object to define your container image parameters.
 
@@ -339,7 +339,7 @@ $ImageParams = @{
 $TemplateObj = New-AzContainerAppTemplateObject @ImageParams
 ```
 
-You'll need run the following command to get your registry credentials.
+You need run the following command to get your registry credentials.
 
 ```azurepowershell
 $RegistryCredentials = Get-AzContainerRegistryCredential -Name $ACRName -ResourceGroupName $ResourceGroup
@@ -384,7 +384,7 @@ $MyApp = New-AzContainerApp @AppArgs
 $MyApp.IngressFqdn
 ```
 
-* By setting `IngressExternal` to `external`, your container app will be accessible from the public internet.
+* By setting `IngressExternal` to `external`, your container app is accessible from the public internet.
 * The `IngressTargetPort` parameter is set to `3500` to match the port that the container is listening to for requests.
 
 ---

@@ -21,7 +21,7 @@ In this quickstart, you create a backend web API service that returns a static c
 > [!NOTE]
 > You can also build and deploy this sample application using the `az containerapp up` command. For more information, see [Tutorial: Build and deploy your app to Azure Container Apps](tutorial-code-to-cloud.md).
 
-The following screenshot shows the output from the album API service you'll deploy.
+The following screenshot shows the output from the album API service you deploy.
 
 :::image type="content" source="media/quickstart-code-to-cloud/azure-container-apps-album-api.png" alt-text="Screenshot of response from albums API endpoint.":::
 
