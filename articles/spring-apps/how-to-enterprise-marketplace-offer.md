@@ -45,9 +45,9 @@ You can use the Azure portal and Azure CLI to provision an Azure Spring Apps Ent
 
 ## Prerequisites
 
-- Your Azure subscription must be registered to the `Microsoft.SaaS` resource provider. For more information, see the [Register resource provider](/azure-resource-manager/management/resource-providers-and-types#register-resource-provider) section of [Azure resource providers and types](/azure-resource-manager/management/resource-providers-and-types).
+- Your Azure subscription must be registered to the `Microsoft.SaaS` resource provider. For more information, see the [Register resource provider](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider) section of [Azure resource providers and types](/azure/azure-resource-manager/management/resource-providers-and-types).
 
-- Your Azure subscription must have an associated payment method. Azure credits or free MSDN subscriptions aren't supported. For more information, see the [Purchasing requirements](https://learn.microsoft.com/marketplace/azure-marketplace-overview#purchasing-requirements) section of [What is Azure Marketplace?](https://learn.microsoft.com/marketplace/azure-marketplace-overview)
+- Your Azure subscription must have an associated payment method. Azure credits or free MSDN subscriptions aren't supported. For more information, see the [Purchasing requirements](/marketplace/azure-marketplace-overview#purchasing-requirements) section of [What is Azure Marketplace?](/marketplace/azure-marketplace-overview)
 
 - Your Azure subscription must belong to a billing account in a supported geographic location defined in [Azure Marketplace Offer](https://aka.ms/ascmpoffer). For more information, see the [Supported geographic locations of billing account](#supported-geographic-locations-of-billing-account).
 
@@ -55,7 +55,7 @@ You can use the Azure portal and Azure CLI to provision an Azure Spring Apps Ent
 
 - Your organization must allow Azure Marketplace purchases. For more information, see the [Enabling Azure Marketplace purchases](../cost-management-billing/manage/ea-azure-marketplace.md#enabling-azure-marketplace-purchases) section of [Azure Marketplace](../cost-management-billing/manage/ea-azure-marketplace.md).
 
-- Your organization must allow acquisition of any Azure Marketplace software application as described in the [Purchase policy management](https://learn.microsoft.com/marketplace/azure-purchasing-invoicing#purchase-policy-management) section of [Azure Marketplace purchasing](https://learn.microsoft.com/marketplace/azure-purchasing-invoicing).
+- Your organization must allow acquisition of any Azure Marketplace software application as described in the [Purchase policy management](/marketplace/azure-purchasing-invoicing#purchase-policy-management) section of [Azure Marketplace purchasing](/marketplace/azure-purchasing-invoicing).
 
 - You must accept the marketplace legal terms and privacy statements while provisioning the tier on the Azure portal, or you can use the following commands to do so in advance.
 
