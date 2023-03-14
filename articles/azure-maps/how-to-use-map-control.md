@@ -21,9 +21,9 @@ This documentation uses the Azure Maps Web SDK, however the Azure Maps services 
 
 To use the Map Control in a web page, you must have one of the following prerequisites:
 
-* [Make an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account) and [obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key.
-
-* Obtain your Azure Active Directory (AAD) credentials with [authentication options](/javascript/api/azure-maps-control/atlas.authenticationoptions).
+1. An [Azure Maps account]
+1. A [subscription key]
+1. Obtain your Azure Active Directory (AAD) credentials with [authentication options]
 
 ## Create a new map in a web page
 
@@ -82,7 +82,7 @@ You can embed a map in a web page by using the Map Control client-side JavaScrip
 
 5. Now, we'll initialize the map control. In order to authenticate the control, you'll either need to own an Azure Maps subscription key or use Azure Active Directory (AAD) credentials with [authentication options](/javascript/api/azure-maps-control/atlas.authenticationoptions).
 
-    If you're using a subscription key for authentication, copy and paste the following script element inside the `<head>` element, and below the first `<script>` element. Replace `<Your Azure Maps Key>` with your Azure Maps primary subscription key.
+    If you're using a subscription key for authentication, copy and paste the following script element inside the `<head>` element, and below the first `<script>` element. Replace `<Your Azure Maps Key>` with your Azure Maps subscription key.
 
     ```html
     <script type="text/javascript">
@@ -282,3 +282,7 @@ For a list of samples showing how to integrate Azure Active Directory (AAD) with
 
 > [!div class="nextstepaction"]
 > [Azure AD authentication samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)
+
+[Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
+[subscription key]: quick-demo-map-app.md#get-the-primary-key-for-your-account
+[authentication options]: /javascript/api/azure-maps-control/atlas.authenticationoptions

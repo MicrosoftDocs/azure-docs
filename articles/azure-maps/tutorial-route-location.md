@@ -26,7 +26,7 @@ See the [route](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/maste
 ## Prerequisites
 
 1. An [Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account).
-2. An [Azure Maps primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account).
+2. An [Azure Maps subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account).
 
 <a id="getcoordinates"></a>
 
@@ -86,12 +86,12 @@ The following steps show you how to create and display the Map control in a web 
    * The `onload` event in the body of the page calls the `GetMap` function when the body of the page has loaded.
    * The `GetMap` function will contain the inline JavaScript code used to access the Azure Maps APIs. It is added in the next step.
 
-3. Next, add the following JavaScript code to the `GetMap` function, just beneath the code added in the last step. This code creates a map control and initializes it using your Azure Maps primary subscription keys that you provide. Make sure and replace the string `<Your Azure Maps Key>` with the Azure Maps primary key that you copied from your Maps account.
+3. Next, add the following JavaScript code to the `GetMap` function, just beneath the code added in the last step. This code creates a map control and initializes it using your Azure Maps subscription keys that you provide. Make sure and replace the string `<Your Azure Maps Key>` with the Azure Maps primary key that you copied from your Maps account.
 
     ```javascript
     //Instantiate a map object
     var map = new atlas.Map('myMap', {
-        // Replace <Your Azure Maps Key> with your Azure Maps primary subscription key. https://aka.ms/am-primaryKey
+        // Replace <Your Azure Maps Key> with your Azure Maps subscription key. https://aka.ms/am-primaryKey
         authOptions: {
            authType: 'subscriptionKey',
            subscriptionKey: '<Your Azure Maps Key>'

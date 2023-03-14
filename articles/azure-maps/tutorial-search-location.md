@@ -94,7 +94,7 @@ The Map Control API is a convenient client library. This API allows you to easil
     var map = new atlas.Map("myMap", {
 	    view: 'Auto',
 
-        // Add your Azure Maps primary subscription key. https://aka.ms/am-primaryKey
+        // Add your Azure Maps subscription key. https://aka.ms/am-primaryKey
         authOptions: {
             authType: 'subscriptionKey',
             subscriptionKey: '<Your Azure Maps Key>'

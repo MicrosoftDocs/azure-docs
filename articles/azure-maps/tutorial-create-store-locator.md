@@ -31,12 +31,12 @@ In this tutorial, you'll learn how to:
 
 ## Prerequisites
 
+1. [Visual Studio Code] is recommended for this tutorial, but you can use any suitable integrated development environment (IDE).
 1. An [Azure Maps account]
-2. A [subscription key]
+1. A [subscription key]
 
-For more information about Azure Maps authentication, see [Manage authentication in Azure Maps].
-
-[Visual Studio Code] is recommended for this tutorial, but you can use any suitable integrated development environment (IDE).
+> [!NOTE]
+> For more information on authentication in Azure Maps, see [manage authentication in Azure Maps].
 
 ## Sample code
 
@@ -481,7 +481,7 @@ To add the JavaScript:
             center: [-90, 40],
             zoom: 2,
 
-            //Add your Azure Maps primary subscription key to the map SDK.
+            //Add your Azure Maps subscription key to the map SDK.
             authOptions: {
                 authType: 'subscriptionKey',
                 subscriptionKey: '<Your Azure Maps Key>'
