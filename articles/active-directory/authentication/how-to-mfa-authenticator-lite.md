@@ -124,8 +124,8 @@ No, Authenticator Lite is only available for push notifications and TOTP.
 ### Can Authenticator Lite be used for SSPR?
 No, Authenticator Lite is only available for push notifications and TOTP. 
 
-### Is this available in Outlook on desktop?  
-No, Authenticator Lite is only available on mobile. 
+### Is this available in Outlook desktop app?  
+No, Authenticator Lite is only available on Outlook mobile. 
 
 ### Where can users register for Authenticator Lite?
 Users can only register for Authenticator Lite from mobile Outlook. Authenticator Lite registration can be managed from [aka.ms/mysignins](https://aka.ms/mysignins). 
