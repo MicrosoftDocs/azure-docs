@@ -76,240 +76,243 @@ See, [Tutorial: Create user flows and custom policies in Azure AD B2C](tutorial-
 
 Obtain custom attributes from Azure AD B2C user objects, federated IdPs, API connectors, or user sign-up. Include attributes in the token that goes to the application.
 
-Legacy applications expect specific attributes, so include them in your user flow. Replace them with attributes your application requires. Or if setting up a test app using the instructions in the pre-requisites then any headers will do as it displays them all.
+Legacy applications expect specific attributes, so include them in your user flow. You can replace them with attributes your application requires. Or if you're setting up a test app using the instructions, then user any headers.
 
-1. Sign into your Azure AD B2C tenant's portal
-
-2. From the left-hand pane select **User attributes**, and then select **Add** to create two custom attributes
-
-   - Agent ID: String **Data Type**
-
-   - Agent Geo: String **Data Type**
+1. Sign in to the [**Azure portal**](https://portal.azure.com/) as Global Administrator.
+2. In the left-hand pane, select **User attributes**.
+3. Select **Add** to create two custom attributes.
+4. For Agent ID, select String **Data Type**.
+5. For Agent Geo, select String **Data Type**.
 
 ### Add attributes to user flow
 
-1. From the left-hand pane go to **Policies** > **User flows**.
+1. In the left-hand menu, navigate go to **Policies** > **User flows**.
+2. Select your policy, for example, **B2C_1_SignupSignin**.
+3. Select **User attributes**.
+4. Add both custom attributes. 
+5. Add the **Display Name** attribute. These attributes are collected during user sign-up.
+6. Select **Application claims**.
+7. Add both custom attributes.
+8. Add the **Display Name**. These attributes got to the BIG-IP.
+9. Select **Run user flow**.
+10. In the user flow menu, on the left navigation bar, verify the prompts for defined attributes.
 
-2. Select your policy, for example, **B2C_1_SignupSignin**
-
-3. Select **User attributes** and add both custom attributes, plus also the **Display Name** attribute. These are the attributes that will be collected during user sign-up.
-
-4. Select **Application claims** and add both custom attributes plus also the **Display Name**. These are the attributes that will be sent to the BIG-IP.
-
-You can use the [Run user flow](tutorial-create-user-flows.md) feature
-in the user flow menu on the left navigation bar to verify it prompts for all defined attributes.
+Learn more: [Tutorial: Create user flows and custom policies in Azure AD B2C](tutorial-create-user-flows.md)
 
 ### Azure AD B2C federation
 
-For the BIG-IP and Azure AD B2C to trust one another they need
-federating, so the BIG-IP must be registered in the Azure AD B2C tenant as an OIDC application.
+Federate BIG-IP and Azure AD B2C for mutual trust. Register the BIG-IP in the Azure AD B2C tenant as an OIDC application.
 
-1. Still in the Azure AD B2C portal, select **App registrations** >  **New registration**.
+1. In the portal, select **App registrations** >  **New registration**.
+2. Enter an app **Name**, for example, **HeaderApp1**.
+3. Under **Supported account types**, select **Accounts in any identity provider or organizational directory (for authenticating users with user flows)**.
+4. Under **Redirect URI**, select **Web**.
+5. Enter protected service public FQDN. 
+6. Enter the path.
+7. Leave the remaining selections. 
+8. Select **Register**.
+9. Navigate to **Certificates & secrets** > **+ New client secret**.
+10. Enter a descriptive name
+11. Enter a TTL for the secret used by the BIG-IP.
+12. Note the Client Secret for BIG-IP configuration.
 
-2. Provide a name for the application. For example, **HeaderApp1**
+The redirect URI is the BIG-IP endpoint. Users are sent to the endpoint by the authorization server (Azure AD B2C), after authentication. 
 
-3. Under **Supported account types**, select **Accounts in any identity provider or organizational directory (for authenticating users with user flows)**
-
-4. Under **Redirect URI**, select **Web**, and enter the public FQDN of the service being protected, along with the path.
-
-5. Leave the rest and select **Register**.
-
-6. Head to **Certificates & secrets** > **+ New client secret**.
-
-7. Provide a descriptive name and TTL for the secret that will be used by the BIG-IP.
-
-8. Note down the client secret, you'll need this later for configuring the BIG-IP.
-
-The redirect URI is the BIG-IP endpoint to which a user is sent back to by the authorization server - Azure AD B2C, after authenticating. [Register an application](tutorial-register-applications.md) for Azure AD B2C.
+Learn more: [Tutorial: Register a web application in Azure AD B2C](tutorial-register-applications.md) for Azure AD B2C.
 
 ## BIG-IP configuration
 
-A BIG-IP offers several methods for configuring Azure AD secure hybrid access, including a wizard based Guided Configuration, minimizing time, and effort to implement several common scenarios. Its workflow-driven framework provides an intuitive experience tailored to specific access topologies and is used for rapid publishing of web services
-requiring minimal configuration to publish.
+For BIG-IP configuration use Guided Configuration v.7/8. The workflow framework is tailored to access topologies and it accomplishes rapid web service publishing.
 
-### Version check
+### Guided Configuration version
 
-This tutorial is based on Guided Configuration v.7/8 but may also apply to previous versions. To check your version, login to the BIG-IP web config with an admin account and go to **Access** > **Guided Configuration**. The version should be displayed in the top right-hand corner. To upgrade your BIG-IP's Guided Configuration, follow [these instructions](https://support.f5.com/csp/article/K85454683).
+1. To confirm version, sign in to the BIG-IP web config with an administrator account.
+2. Go to **Access** > **Guided Configuration**. 
+3. The version appears in the top right-hand corner. 
+
+To upgrade the Guided Configuration, go to my.f5.com for [K85454683: Upgrade F5 BIG-IP Guided Configuration on the BIG-IP system](https://support.f5.com/csp/article/K85454683).
 
 ### SSL profiles
 
-Configuring your BIG-IP with a client SSL profile will allow you to secure the client-side traffic over TLS. To do this you'll need to import a certificate matching the domain name used by the public facing URL for your application. Where possible we recommend using a public certificate authority, but the built-in BIG-IP self-signed certificates can also be used while testing.
-[Add and manage certificates](https://techdocs.f5.com/kb/en-us/products/big-ip_ltm/manuals/product/bigip-ssl-administration-13-0-0.html) in the BIG-IP VE.
+Use BIG-IP configured with a client SSL profile to secure client-side traffic over TLS. Import a certificate that matches the domain name, used by the public-facing URL for your app. We recommend you use a public certificate authority, but you can use BIG-IP self-signed certificates for testing.
 
-## Guided configuration
+To add and manage certificates in the BIG-IP VE, go to techdocs.f5.com for [BIG-IP System: SSL Administration](https://techdocs.f5.com/kb/en-us/products/big-ip_ltm/manuals/product/bigip-ssl-administration-13-0-0.html).
 
-1. In the web config, go to **Access** > **Guided Configuration** to launch the deployment wizard.
+## Guided Configuration
 
-2. Select the **Federation** > **F5 as OAuth Client and Resource
-Server**.
-
-3. Observe the summary of the flow for this scenario, then select **Next** to start the wizard.
+1. To launch the deployment wizard, in the web config, go to **Access** > **Guided Configuration**.
+2. Select **Federation** > **F5 as OAuth Client and Resource Server**.
+3. Observe the flow summary for this scenario.
+4. Select **Next**.
+5. The wizard starts.
 
 ### OAuth properties
 
-This section defines the properties enabling federation between the BIG-IP APM and the OAuth authorization server, your Azure AD B2C tenant. OAuth will be referenced throughout the BIG-IP configuration, but the solution will actually use OIDC, a simple identity layer on top of the OAuth 2.0 protocol allowing OIDC clients to verify the identity of users and obtaining other profile information.
-
-Pay close attention to detail, as any mistakes will impact authentication and access.
+In the following sections you define properties to enable federation between the BIG-IP APM and the OAuth authorization server, the Azure AD B2C tenant. OAuth is referred to throughout BIG-IP configuration. The solution uses OIDC, an identity layer on the OAuth 2.0 protocol. OIDC clients verify user identity and obtain other profile information.
 
 #### Configuration name
 
-Providing a display name for the configuration will help you distinguish between the many deployment configs that could eventually exist in the guided configuration. Once set, the name cannot be changed, and is only visible in the Guided Configuration view.
+A configuration display name helps distinguish between deployment configurations in the Guided Configuration. You can't change the name, and it appears only in the Guided Configuration view.
 
 #### Mode
 
-The BIG-IP APM will act as an OIDC client, so select the Client option only.
+The BIG-IP APM is an OIDC client, therefore select the Client option.
 
 #### DNS resolver
 
-The specified target must be able to resolve the public IP addresses of your Azure AD B2C endpoints. Choose an existing public DNS resolver or create a new one.
+The specified target must resolve the public IP addresses of the Azure AD B2C endpoints. Select a public DNS resolver, or create a new one.
 
 #### Provider settings
 
-Here, we'll configure Azure AD B2C as the OAuth2 IdP. You’ll notice that the Guided Configuration v8 offers Azure AD B2C templates, but as it’s missing several scopes, we’ll use a custom type for now. F5 is looking to include the missing scopes in a future Guided Configuration update. Add a new provider and configure it as follows:
+Configure Azure AD B2C as the OAuth2 IdP. The Guided Configuration has Azure AD B2C templates, but not certain scopes. 
 
-- **OAuth general properties**
+Add a new provider and configure it:
+
+**OAuth general properties**
 
   | Properties | Description |
   |:-------|:---------|
   |OAuth provider type | Custom |
-  | Choose OAuth provider | Create new (or use an existing OAuth provider if it exists) |
-  | Name | A unique display name for the B2C IdP. This name will be displayed to users as a provider option to sign-in against.|
+  | Choose OAuth provider | Create new, or use an OAuth provider |
+  | Name | A display name for the B2C IdP. This name appears to users as a provider option at sign-in|
   | Token type | JSON web token |
 
-- **OAuth policy settings**
+**OAuth policy settings**
 
   | Properties | Description |
   |:-----------|:----------------|
-  | Scope | Leave blank, the OpenID scope to sign users in will be added automatically |
+  | Scope | Leave blank, the OpenID scope for user sign-in will is added automatically |
   | Grant type | Authorization code |
-  | Enable OpenID Connect | Check to put the APM OAuth client in OIDC mode |
+  | Enable OpenID Connect | Select the option to put the APM OAuth client in OIDC mode |
   | Flow type | Authorization code |
 
-- **OAuth provider settings**
+**OAuth provider settings**
 
-  The below OpenID URI refers to the metadata endpoint used by OIDC clients to autodiscover critical IdP information such as the rollover of signing certificates. Locate the metadata endpoint for your Azure AD B2C tenant by navigating to **App registrations** > **Endpoints** and copying the Azure AD B2C OpenID Connect metadata document URI. For example, `https://wacketywackb2c .b2clogin.com/<tenantname>.onmicrosoft.com/<policyname>/v2.0/.well-known/openid-configuration`.
+The following OpenID URI refers to the metadata endpoint used by OIDC clients to discover IdP information such as signing certificate rollover. 
 
-  Then update the URI with your own properties, `https://<tenantname>.b2clogin.com/WacketywackB2C.onmicrosoft.com/B2C_1_SignUpIn/v2.0/.well-known/openid-configuration`.
+1. Locate the metadata endpoint for your Azure AD B2C tenant.Navigating to **App registrations** > **Endpoints**.
+2. Copy the Azure AD B2C OpenID Connect metadata document URI. For example, `https://wacketywackb2c .b2clogin.com/<tenantname>.onmicrosoft.com/<policyname>/v2.0/.well-known/openid-configuration`.
+3. Update the URI with your properties, `https://<tenantname>.b2clogin.com/WacketywackB2C.onmicrosoft.com/B2C_1_SignUpIn/v2.0/.well-known/openid-configuration`.
+4. Paste the URI into the browser.
+5. View the OIDC metadata for your Azure AD B2C tenant.
 
-  Paste this URI into the browser to view the OIDC metadata for your Azure AD B2C tenant.
+| Property | Description |
+|---|---|
+| Audience | The application client ID representing the BIG-IP in the Azure AD B2C tenant |
+| Authentication URI | The authorization endpoint in your B2C OIDC metadata |
+| Token URI | The token endpoint in your Azure AD B2C metadata |
+| Userinfo request URI | Leave empty. Azure AD B2C does not support this feature |
+|OpenID URI | The OpenID URI metadata endpoint you created |
+| Ignore expired certificate validation | Leave unchecked |
+| Allow self-signed JWK config certificate | Check |
+| Trusted CA bundle | Select ca-bundle.crt to use the default F5 trusted authorities |
+| Discovery interval | Provide an interval for the BIG-IP to query your Azure AD B2C tenant for updates. The minimum interval in AGC version 16.1 0.0.19, is 5 minutes.|
 
-  | Properties | Description |
-  |:----------|:----------|
-  | Audience | The client ID of the application representing the BIG-IP in your Azure AD B2C tenant |
-  | Authentication URI | The authorization endpoint in your B2C OIDC metadata |
-  | Token URI | The token endpoint in your Azure AD B2C metadata |
-  | Userinfo request URI | Leave empty. Azure AD B2C does not currently support this feature |
-  |OpenID URI | The OpenID URI metadata endpoint you crafted above |
-  | Ignore expired certificate validation | Leave unchecked |
-  | Allow self-signed JWK config certificate | Check |
-  | Trusted CA bundle | Select ca-bundle.crt to use the default F5 trusted authorities |
-  | Discovery interval | Provide a suitable interval for the BIG-IP to query your Azure AD B2C tenant for updates. The minimum interval time offered by AGC version 16.1 0.0.19 final, is 5 minutes.|
+**OAuth server settings**
 
-- **OAuth server settings**
+For the OIDC authorization server, being your Azure AD B2C tenant.
 
-  This section refers to the OIDC authorization server, being your Azure AD B2C tenant.
+|Property | Descriptions|
+|---|---|
+| Client ID | The application Client ID representing the BIG-IP in the Azure AD B2C tenant|
+| Client Secret | The application Client Secret |
+|Client-server SSL profile | Set an SSL profile to ensure APM communicates with the Azure AD B2C IdP over TLS. Select the default **serverssl**. |
 
-  |Properties | Descriptions|
-  |:---------|:---------|
-  | Client ID | The client ID of the application representing the BIG-IP in your Azure AD B2C tenant. |
-  | Client secret | The application’s corresponding client secret. |
-  |Client-server SSL profile | Setting an SSL profile will ensure the APM communicates with the Azure AD B2C IdP over TLS. Select the default `serverssl` option. |
+**OAuth request settings**
 
-- **OAuth request settings**
+The BIG-IP has required Azure AD B2C requests in its pre-configured request set. However, the requests were malformed, and missing important parameters. So, we created them manually.
 
-  The BIG-IP interestingly has all the required Azure AD B2C requests in its pre-configured request set. However, it was observed that for the build we were implementing on, these requests were malformed, and missing important parameters. So, we opted to create them manually.
+**Token request: Enabled**
 
-- **Token request - Enabled**
+| Property | Description |
+|---|---|
+| Choose OAuth request | Create new |
+| HTTP method | POST |
+| Enable headers| Unchecked |
+| Enable parameters | Checked |
 
-  | Properties | Description |
-  |:-----------|:------------|
-  | Choose OAuth request | Create new |
-  | HTTP method | POST |
-  | Enable headers| Unchecked |
-  | Enable parameters | Checked |
+| Parameter | Parameter name | Parameter value|
+|----|---|---|
+| client-id | client-id |N/A |
+| nonce | nonce| N/A|
+| redirect-uri | redirect-uri | N/A|
+| scope | scope | N/A|
+| response-type | response-type | N/A|
+| client-secret | client-secret |N/A |
+| custom | grant_type | authorization_code |
 
-  | Parameter type | Parameter name | Parameter value|
-  |:---------|:---------------|:----------------|
-  | client-id | client-id | |
-  | nonce | nonce| |
-  | redirect-uri | redirect-uri | |
-  | scope | scope | |
-  | response-type | response-type | |
-  | client-secret | client-secret | |
-  | custom | grant_type | authorization_code |
+**Auth redirect request: Enabled**
 
-- **Auth redirect request - Enabled**
+| Property | Description |
+|----|----|
+| Choose OAuth request | Create new |
+| HTTP method | GET |
+| Prompt type | None |
+| Enable headers | Unchecked |
+| Enable parameters | Checked |
 
-  | Properties | Description |
-  |:-----------|:------------|
-  | Choose OAuth request | Create new |
-  | HTTP method | GET |
-  | Prompt type | None |
-  | Enable headers | Unchecked |
-  | Enable parameters | Checked |
+| Parameter | Parameter name | Parameter value|
+|---|---|----|
+| client-id | client-id | N/A|
+| redirect-uri | redirect-uri |N/A |
+| response-type |response-type |N/A |
+| scope | scope | N/A|
+| nonce | nonce | N/A|
 
-  | Parameter type | Parameter name | Parameter value|
-  |:---------|:---------------|:----------------|
-  | client-id | client-id | |
-  | redirect-uri | redirect-uri | |
-  | response-type |response-type | |
-  | scope | scope | |
-  | nonce | nonce | |
+**Token refresh request**: **Disabled** You can enable and configure as needed.
 
-- **Token refresh request** - **Disabled** - Can be enabled and configured if necessary.
+**OpenID UserInfo request**: **Disabled** Not supported in global Azure AD B2C tenants.
 
-- **OpenID UserInfo request** - **Disabled** - Not currently supported in global Azure AD B2C tenants.
+**Virtual server properties**
 
-- **Virtual server properties**
+Create a BIG-IP virtual server to intercept external client requests for the back-end service protected by secure hybrid access. Assign the virtual server an IP mapped to the public DNS record for the BIG-IP service endpoint representing the application. Use a virtual server if available, otherwise provide the following properties.
 
-  A BIG-IP virtual server must be created to intercept external client requests for the backend service being protected via secure hybrid access. The virtual server must be assigned an IP that is mapped to the public DNS record for the BIG-IP service endpoint representing the application. Go ahead and use an existing Virtual Server if available, otherwise provide the following:
+| Property | Description |
+|----|----|
+| Destination address | Private or public IP that becomes the BIG-IP service endpoint for the back-end application |
+| Service port | HTTPS |
+| Enable redirect port | Select so users are auto redirected from http to https |
+| Redirect port | HTTP |
+| Client SSL profile | Swap the predefined `clientssl` profile with the one that has your SSL certificate. You can test with the default profile. but it likely causes a browser alert. |
 
-  | Properties | Description |
-  |:-----------|:------------|
-  | Destination address | Private or Public IP that will become the BIG-IP service endpoint for the backend application |
-  | Service port | HTTPS |
-  | Enable redirect port | Check to have users auto redirected from http to https |
-  | Redirect port | HTTP |
-  | Client SSL profile | Swap the predefined `clientssl` profile with the one containing your SSL certificate. Testing with the default profile is also ok but will likely cause a browser alert. |
+**Pool properties**
 
-- **Pool properties**
+Back-end services appear in the BIG-IP as a pool, with one or more application servers to which virtual servers direct inbound traffic. Select a pool, otherwise create a new one.
 
-  Backend services are represented in the BIG-IP as a pool, containing one or more application servers that virtual server’s direct inbound traffic to. Select an existing pool, otherwise create a new one.
-
-  | Properties | Description |
-  |:-----------|:------------|
-  | Load-balancing method | Leave as Round Robin |
-  |Pool server | Internal IP of backend application |
-  | Port | Service port of backend application |
+| Property | Description |
+|---|---|
+| Load-balancing method | Select Round Robin |
+|Pool server | Internal IP of the back-end application |
+| Port | Service port of the back-end application |
   
->[!NOTE]
->The BIG-IP must have line of sight to the pool server address specified.
+   >[!NOTE]
+   >Ensure the BIG-IP has line of sight to the pool server address.
 
-- **Single sign-on settings**
+**SSO settings**
 
-  A BIG-IP supports many SSO options, but in OAuth client mode the Guided Config is limited to Kerberos or HTTP Headers. Enable SSO and use the following information to have the APM map inbound attributes you defined earlier, to outbound headers.
+A BIG-IP supports SSO options, but in OAuth client mode the Guided Configuration is limited to Kerberos or HTTP Headers. Enable SSO and use the following information for the APM to map defined inbound attributes to outbound headers.
 
-  | Properties | Description |
-  |:-----------|:------------|
-  | Header Operation |`Insert`|
-  | Header Name | 'name' |
-  | Header Value | `%{session.oauth.client.last.id_token.name}`|
-  | Header Operation | `Insert`|
-  |Header Name| `agentid`|
-  |Header Value | `%{session.oauth.client.last.id_token.extension_AgentGeo}`|
+| Property | Description |
+|---|---|
+| Header Operation |Insert|
+| Header Name | name|
+| Header Value | `%{session.oauth.client.last.id_token.name}`|
+| Header Operation |Inser|
+|Header Name|agentid|
+|Header Value | `%{session.oauth.client.last.id_token.extension_AgentGeo}`|
  
   >[!Note]
-  > APM session variables defined within curly brackets are CASE sensitive. So, entering agentid when the Azure AD B2C attribute name is being sent as AgentID will cause an attribute mapping failure. Unless necessary, we recommend defining all attributes in lowercase. In an Azure AD B2C case, the user flow prompts the user for the additional attributes using the name of the attribute as displayed in the portal, so using normal sentence case instead of lowercase might be preferable.
+  > APM session variables in curly brackets are case-sensitive. Entering agentid when the Azure AD B2C attribute name is sent as AgentID causes an attribute mapping failure. We recommend defining attributes in lowercase. In Azure AD B2C, the user flow prompts the user for more attributes, using the attribute name in the portal. Therefore, sentence case instead of lowercase might be preferable.
 
-  ![Screenshot shows user single sign-on settings](./media/partner-f5/single-sign-on.png)
+   ![Screenshot of single sign-on settings.](./media/partner-f5/single-sign-on.png)
 
-- **Customization properties**
+**Customization properties**
 
-  These settings allow you to customize the language and the look and feel of the screens that your users encounter when they interact with the APM access policy flow. You can personalize the screen messages and prompts, change screen layouts, colors, images, and localize captions, descriptions, and messages that are normally customizable in the access policy items.
+These settings allow you to customize the language and the look and feel of the screens that your users encounter when they interact with the APM access policy flow. You can personalize the screen messages and prompts, change screen layouts, colors, images, and localize captions, descriptions, and messages that are normally customizable in the access policy items.
 
-  Replace the “F5 Networks” string in the Form Header text field with the name of your own organization. For example, “Wacketywack Inc. Secure hybrid access”.
+Replace the “F5 Networks” string in the Form Header text field with the name of your own organization. For example, “Wacketywack Inc. Secure hybrid access”.
 
-- **Session management properties**
+**Session management properties**
 
   A BIG-IPs session management setting is used to define the conditions under which user sessions are terminated or allowed to continue, limits for users and IP addresses, and error pages. These are optional, but we highly recommend implementing single log out (SLO) functionality, which ensures sessions are securely terminated when no longer required, reducing the risk of someone inadvertently gaining unauthorized access to published applications.
 
