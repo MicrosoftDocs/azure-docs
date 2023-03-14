@@ -13,7 +13,7 @@ ms.author: mansha
 # Graph data modeling with Azure Cosmos DB for Apache Gremlin
 [!INCLUDE[Gremlin](../includes/appliesto-gremlin.md)]
 
-This article provides recommendations for graph data models. These best practices are vital for ensuring the scalability and performance of a graph database system as the data evolves. An efficient data model is especially important for large-scale graphs.
+This article provides recommendations for the use of graph data models. These best practices are vital for ensuring the scalability and performance of a graph database system as the data evolves. An efficient data model is especially important for large-scale graphs.
 
 ## Requirements
 
@@ -25,7 +25,7 @@ The process outlined in this guide is based on the following assumptions:
 
 ## When do I need a graph database?
 
-A graph database solution can be optimally applied if the entities and relationships in a data domain have any of the following characteristics: 
+A graph database solution can be optimally used if the entities and relationships in a data domain have any of the following characteristics: 
 
 * The entities are *highly connected* through descriptive relationships. The benefit in this scenario is that the relationships persist in storage.
 * There are *cyclic relationships* or *self-referenced entities*. This pattern is often a challenge when you use relational or document databases.
@@ -71,11 +71,11 @@ One common pitfall is to map properties of a single entity as separate vertices.
 
 * **Vertex-based properties**: In this approach, the entity uses three separate vertices and two edges to describe its properties. While this approach might reduce redundancy, it increases model complexity. An increase in model complexity can result in added latency, query complexity, and computation cost. This model can also present challenges in partitioning.
 
-:::image type="content" source="./media/modeling/graph-modeling-1.png" alt-text="Diagram of entity model with vertices for properties.":::
+    :::image type="content" source="./media/modeling/graph-modeling-1.png" alt-text="Diagram of entity model with vertices for properties.":::
 
 * **Property-embedded vertices**: This approach takes advantage of the key-value pair list to represent all the properties of the entity inside a vertex. This approach reduces model complexity, which leads to simpler queries and more cost-efficient traversals.
 
-:::image type="content" source="./media/modeling/graph-modeling-2.png" alt-text="Diagram of the Luis vertex from the previous diagram with ID, label, and properties.":::
+    :::image type="content" source="./media/modeling/graph-modeling-2.png" alt-text="Diagram of the Luis vertex from the previous diagram with ID, label, and properties.":::
 
 > [!NOTE]
 > The preceding diagrams show a simplified graph model that only compares the two ways of dividing entity properties.
