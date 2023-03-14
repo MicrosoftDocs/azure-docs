@@ -5,7 +5,7 @@ author: nickomang
 ms.author: nickoman
 ms.topic: how-to
 ms.date: 09/30/2022
-ms.custom: devx-track-azurecli, ignite-fall-2022, references_regions
+ms.custom: ignite-fall-2022, references_regions
 ---
 
 # Deploy a container offer from Azure Marketplace (preview)
@@ -21,12 +21,15 @@ Included among these solutions are Kubernetes application-based container offers
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-> [!NOTE]
-> This feature is currently supported only in the following regions:
->
-> - West Central US
-> - West Europe
-> - East US
+## Limitations
+
+This feature is currently supported only in the following regions:
+
+- West Central US
+- West Europe
+- East US
+
+Kubernetes application-based container offers cannot be deployed on AKS for Azure Stack HCI or AKS Edge Essentials.
 
 ## Register resource providers
 

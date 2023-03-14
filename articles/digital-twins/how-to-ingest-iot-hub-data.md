@@ -1,5 +1,4 @@
 ---
-# Mandatory fields.
 title: Ingest telemetry from IoT Hub
 titleSuffix: Azure Digital Twins
 description: Learn how to ingest device telemetry messages from Azure IoT Hub to digital twins in an instance of Azure Digital Twins.
@@ -8,10 +7,10 @@ ms.author: baanders # Microsoft employees only
 ms.date: 11/18/2022
 ms.topic: how-to
 ms.service: digital-twins
+ms.custom: devx-track-azurecli
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
