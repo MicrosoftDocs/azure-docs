@@ -4,7 +4,7 @@ titleSuffix: Azure Web PubSub Service
 description: How to configure a custom domain for Azure Web PubSub Service
 author: ArchangelSDY
 ms.service: azure-web-pubsub
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/07/2022
 ms.author: dayshen
 ---
@@ -168,9 +168,9 @@ It should return `200` status code without any certificate error.
 
 ## Key Vault in private network
 
-If you have configured [Private Endpoint](../private-link/private-endpoint-overview.md) to your Key Vault, Azure Web PubSub Service cannot access the Key Vault via public network. You need to set up a [Shared Private Endpoint](./howto-secure-shared-private-endpoints-key-vault.md) to let Azure Web PubSub Service access your Key Vault via private network.
+If you have configured [Private Endpoint](../private-link/private-endpoint-overview.md) to your Key Vault, Azure Web PubSub Service cannot access the Key Vault via public network. You need to set up a shared private endpoint](./howto-secure-shared-private-endpoints-key-vault.md) to let Azure Web PubSub Service access your Key Vault via private network.
 
-After you create a Shared Private Endpoint, you can create a custom certificate as usual. **You don't have to change the domain in Key Vault URI**. For example, if your Key Vault base URI is `https://contoso.vault.azure.net`, you still use this URI to configure custom certificate.
+After you create a shared private endpoint, you can create a custom certificate as usual. **You don't have to change the domain in Key Vault URI**. For example, if your Key Vault base URI is `https://contoso.vault.azure.net`, you still use this URI to configure custom certificate.
 
 You don't have to explicitly allow Azure Web PubSub Service IPs in Key Vault firewall settings. For more info, see [Key Vault private link diagnostics](../key-vault/general/private-link-diagnostics.md).
 

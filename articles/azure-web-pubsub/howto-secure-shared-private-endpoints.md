@@ -1,16 +1,15 @@
 ---
-title: Secure Azure Web PubSub outbound traffic through Shared Private Endpoints
+title: Secure Azure Web PubSub outbound traffic through shared private endpoints
 titleSuffix: Azure Web PubSub Service
-description: How to secure Azure Web PubSub outbound traffic through Shared Private Endpoints to avoid traffic go to public network
+description: How to secure Azure Web PubSub outbound traffic through shared private endpoints
 author: ArchangelSDY
-
 ms.service: azure-web-pubsub
-ms.topic: article
-ms.date: 11/08/2021
+ms.topic: how-to
+ms.date: 11/08/202
 ms.author: dayshen
 ---
 
-# Secure Azure Web PubSub outbound traffic through Shared Private Endpoints
+# Secure Azure Web PubSub outbound traffic through shared private endpoints
 
 If you're using an [event handler](concept-service-internals.md#event-handler) in Azure Web PubSub Service, you might have outbound traffic to an upstream. Upstream such as
 Azure Web App and Azure Functions, can be configured to accept connections from a list of virtual networks and refuse outside connections that originate from a public network. You can create an outbound [private endpoint connection](../private-link/private-endpoint-overview.md) to reach these endpoints.
