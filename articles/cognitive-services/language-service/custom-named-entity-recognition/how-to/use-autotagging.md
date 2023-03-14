@@ -33,7 +33,7 @@ Before you can use auto-labeling with GPT, you need:
 * A successfully [created project](create-project.md) with a configured Azure blob storage account.
 * Text data that [has been uploaded](design-schema.md#data-preparation) to your storage account.
 * [Labeled data](tag-data.md) is not required but if you've labeled some documents, those labels are be used to more accurately suggest labels.
-* An Azure OpenAI [resource and deployment](/articles/cognitive-services/openai/how-to/create-resource.md). 
+* An Azure OpenAI [resource and deployment](../../../openai/how-to/create-resource.md). 
 
 ---
 
@@ -92,7 +92,7 @@ When you trigger an auto-labeling job with GPT, you are billed through the Azure
 
     :::image type="content" source="../media/choose-models.png" alt-text="A screenshot showing model choices for auto labeling." lightbox="../media/choose-models.png":::
 
-5. Choose your Azure OpenAI resource and deployment. You must [create an Azure OpenAI resource and deploy a model](/articles/cognitive-services/openai/how-to/create-resource.md) in order to proceed.
+5. Choose your Azure OpenAI resource and deployment. You must [create an Azure OpenAI resource and deploy a model](../../../openai/how-to/create-resource.md) in order to proceed.
 
     :::image type="content" source="../media/autotag-choose-OpenAI.png" alt-text="A screenshot showing how to choose OpenAI resource and deployments" lightbox="../media/autotag-choose-OpenAI.png":::
     
