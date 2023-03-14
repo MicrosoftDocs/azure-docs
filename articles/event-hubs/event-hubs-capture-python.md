@@ -1,17 +1,17 @@
 ---
-title: Read Azure Event Hubs captured data from a Python app (latest)
-description: This article shows you how to write Python code to capture data that's sent to an event hub and read the captured event data from an Azure storage account.
+title: 'Quickstart: Read Azure Eevnt Hubs captured data (Python)'
+description: This quickstart shows you how to write Python code to capture data that's sent to an event hub and read the captured event data from an Azure storage account.
 ms.topic: quickstart
-ms.date: 01/04/2021
+ms.date: 03/14/2022
 ms.devlang: python
 ms.custom: mode-api
 ---
 
-# Capture Event Hubs data in Azure Storage and read it by using Python (azure-eventhub)
+# Quickstart: Capture Event Hubs data in Azure Storage and read it by using Python (azure-eventhub)
 
 You can configure an event hub so that the data that's sent to an event hub is captured in an Azure storage account or Azure Data Lake Storage Gen 1 or Gen 2. This article shows you how to write Python code to send events to an event hub and read the captured data from **Azure Blob storage**. For more information about this feature, see [Event Hubs Capture feature overview](event-hubs-capture-overview.md).
 
-This quickstart uses the [Azure Python SDK](https://azure.microsoft.com/develop/python/) to demonstrate the Capture feature. The *sender.py* app sends simulated environmental telemetry to event hubs in JSON format. The event hub is configured to use the Capture feature to write this data to Blob storage in batches. The *capturereader.py* app reads these blobs and creates an append file for each device. The app then writes the data into CSV files.
+This quickstart uses the [Azure Python SDK](https://azure.microsoft.com/develop/python/) to demonstrate the Capture feature. The **sender.py** app sends simulated environmental telemetry to event hubs in JSON format. The event hub is configured to use the Capture feature to write this data to Blob storage in batches. The **capturereader.py** app reads these blobs and creates an append file for each device. The app then writes the data into CSV files.
 
 In this quickstart, you: 
 
@@ -35,10 +35,13 @@ In this quickstart, you:
 - An Azure storage account, a blob container in the storage account, and a connection string to the storage account. If you don't have these items, do the following:  
     1. [Create an Azure storage account](../storage/common/storage-account-create.md?tabs=azure-portal)  
     1. [Create a blob container in the storage account](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)  
-    1. [Get the connection string to the storage account](../storage/common/storage-configure-connection-string.md)
+    1. [Get the connection string to the storage account](../storage/common/storage-account-get-info.md#get-a-connection-string-for-the-storage-account)
+
 
     Be sure to record the connection string and container name for later use in this quickstart.  
-- Enable the Capture feature for the event hub. To do so, follow the instructions in [Enable Event Hubs Capture using the Azure portal](event-hubs-capture-enable-through-portal.md). Select the storage account and the blob container you created in the preceding step. You can also enable the feature when you create an event hub.  
+
+## Enable Capture feature for the event hub
+Enable the Capture feature for the event hub. To do so, follow the instructions in [Enable Event Hubs Capture using the Azure portal](event-hubs-capture-enable-through-portal.md). Select the storage account and the blob container you created in the preceding step. Select **Avro** for **Output event serialziation format**. 
 
 ## Create a Python script to send events to your event hub
 In this section, you create a Python script that sends 200 events (10 devices * 20 events) to an event hub. These events are a sample environmental reading that's sent in JSON format. 
