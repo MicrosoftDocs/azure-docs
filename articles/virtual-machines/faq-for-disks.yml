@@ -70,7 +70,7 @@ sections:
           * Reader: Can view everything, but can't make changes
           
       - question: |
-          Is there a way that I can copy or export a managed disk to a private storage account?
+          Can I copy or export a managed disk to a private storage account?
         answer: |
           You can generate a read-only shared access signature (SAS) URI for the managed disk and use it to copy the contents to a private storage account or on-premises storage. You can use the SAS URI using the Azure portal, Azure PowerShell, the Azure CLI, or [AzCopy](../storage/common/storage-use-azcopy-v10.md)
           
@@ -82,7 +82,7 @@ sections:
       - question: |
           Are unmanaged disks still supported?
         answer: |
-          Yes, but they'll be [retired by September 30, 2025](unmanaged-disks-deprecation.md), and as of November 18, 2022, new customer subscriptions won't be eligible to create unmanaged disks. We recommend that you use managed disks for new workloads and migrate your current workloads to managed disks.
+          Yes, but they'll be [retired by September 30, 2025](unmanaged-disks-deprecation.md), and as of November 18, 2022, new customer subscriptions aren't eligible to create unmanaged disks. We recommend that you use managed disks for new workloads and migrate your current workloads to managed disks.
 
       - question: |
           Can I colocate unmanaged and managed disks on the same VM?
@@ -93,11 +93,6 @@ sections:
           If I create a 128 gibibyte (GiB) disk and then increase the size to 130 GiB, will I be charged for the next disk size (256 GiB)?
         answer: |
           Yes.
-
-      - question: |
-          Can I create locally redundant storage, geo-redundant storage, and zone-redundant storage managed disks?
-        answer: |
-          Azure managed disks currently supports only locally redundant storage and zone-redundant storage managed disks. For details, see [Redundancy options for managed disks](disks-redundancy.md).
 
       - question: |
           Can I shrink or downsize my managed disks?
@@ -284,7 +279,7 @@ sections:
       - question: |
           Can I attach an ultra disk to a VM running in an availability set?
         answer: |
-          No, this is not yet supported.
+          No, this is not currently supported.
 
   - name: Uploading to a managed disk
     questions:
@@ -314,9 +309,9 @@ sections:
   - name: Migrate to Managed Disks
     questions:
       - question: |
-          Is there any impact of migration on the Managed Disks performance?
+          Is there any impact of migration on the managed disks performance?
         answer: |
-          Migration involves movement of the Disk from one Storage location to another. This is orchestrated via background copy of data, which can take several hours to complete, typically less than 24 Hrs depending on the amount of data in the disks. During that time your application can experience higher than usual read latency as some reads can get redirected to the original location, and can take longer to complete. There is no impact on write latency during this period.  
+          Migration involves movement of the disk from one Storage location to another. This is orchestrated via background copy of data, which can take several hours to complete, typically less than 24 Hrs depending on the amount of data in the disks. During that time your application can experience higher than usual read latency as some reads can get redirected to the original location, and can take longer to complete. There is no impact on write latency during this period.  
 
       - question: |
           What changes are required in a pre-existing Azure Backup service configuration prior/after migration to Managed Disks?
@@ -334,17 +329,17 @@ sections:
           No changes are required.
 
       - question: |
-          Is automated migration of an existing virtual machine scale set from unmanaged disks to Managed Disks supported?
+          Is automated migration of an existing virtual machine scale set from unmanaged disks to managed disks supported?
         answer: |
-          No. You can create a new scale set with Managed Disks using the image from your old scale set with unmanaged disks.
+          No. You can create a new scale set with managed disks using the image from your old scale set with unmanaged disks.
 
       - question: |
-          Can I create a Managed Disk from a page blob snapshot taken before migrating to Managed Disks?
+          Can I create a managed disk from a page blob snapshot taken before migrating to managed disks?
         answer: |
-          No. You can export a page blob snapshot as a page blob and then create a Managed Disk from the exported page blob.
+          No. You can export a page blob snapshot as a page blob and then create a managed disk from the exported page blob.
 
       - question: |
-          Can I fail over my on-premises machines protected by Azure Site Recovery to a VM with Managed Disks?
+          Can I fail over my on-premises machines protected by Azure Site Recovery to a VM with managed disks?
         answer: |
           Yes, you can choose to failover to a VM with Managed Disks.
 
@@ -379,11 +374,6 @@ sections:
           Can I disable Server-side Encryption for my managed disks?
         answer: |
           No.
-
-      - question: |
-          Is Server-side Encryption only available in specific regions?
-        answer: |
-          No. Server-side Encryption with both platform and customer managed keys are available in all the regions where Managed Disks are available. 
 
       - question: |
           Does Azure Site Recovery support server-side encryption with customer-managed key for on-premises to Azure and Azure to Azure disaster recovery scenarios?
