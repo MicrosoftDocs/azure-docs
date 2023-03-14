@@ -27,7 +27,7 @@ Following are the supported Kubernetes distributions to which Event Grid can be 
 The operation that installs an Event Grid service instance on a Kubernetes cluster is the creation of an Azure Arc cluster extension, which deploys both an **Event Grid broker** and an **Event Grid operator**. For more information on the function of the broker and operator, see [Event Grid on Kubernetes components](concepts.md#event-grid-on-kubernetes-components). [Azure Arc cluster extension](../../azure-arc/kubernetes/conceptual-extensions.md) feature provides lifecycle management using Azure Resource Manager (ARM) control plane operations to Event Grid deployed to Azure Arc-enabled Kubernetes clusters.
 
 > [!NOTE]
-> The preview version of the service only supports a single instance of the Event Grid extension on a Kubernetes cluster as the Event Grid extension is currently defined as a cluster-scoped extension. There is no support for namespace-scoped deployments for Event Grid yet that would allow for multiple instances to be deployed to a cluster.  For more information on extension scopes, see [Extension scope](../../azure-arc/kubernetes/conceptual-extensions.md#extension-scope).
+> The preview version of the service only supports a single instance of the Event Grid extension on a Kubernetes cluster as the Event Grid extension is currently defined as a cluster-scoped extension. There is no support for namespace-scoped deployments for Event Grid yet that would allow for multiple instances to be deployed to a cluster.  For more information, see [Extension scope](../../azure-arc/kubernetes/conceptual-extensions.md#extension-scope).
 
 ## Prerequisites
 Before proceeding with the installation of Event Grid, make sure the following prerequisites are met. 
@@ -117,7 +117,7 @@ To establish a secure HTTPS communication with the Event Grid broker and Event G
     1. Select **Review + create** at the bottom of the page.
 1. On the **Review + create** tab, select **Create**.
     
-    :::image type="content" source="./media/install-k8s-extension/review-create-page.png" alt-text="Install Event Grid extension - Review and Create page":::   
+    :::image type="content" source="./media/install-k8s-extension/review-create-page.png" alt-text="Install Event Grid extension - Rinformationeview and Create page":::   
     
     > [!IMPORTANT]
     > The installation of Event Grid is an asynchronous operation that may run longer on the Kubernetes cluster than the time you see a notification on the Azure Portal informing the deployment is complete. Wait at least 5 minutes after you see a notification that "Your deployment is complete" before attempting to create a custom location (next step). If you have access to the Kubernetes cluster, on a bash session you can execute the following command to validate if the Event Grid broker and Event Grid operator pods are in Running state, which would indicate the installation has completed:
@@ -191,7 +191,7 @@ To establish a secure HTTPS communication with the Event Grid broker and Event G
    ``release-namespace`` is the namespace where Event Grid components will be deployed into. The default is **eventgrid-system**. You might want to provide a value to override the default. For example, you might want to have a single namespace for all Azure Arc-enabled services deployed to your cluster. If the namespace provided doesn't exist, it's created for you.
 
     > [!IMPORTANT]
-    > During the preview version, ``cluster`` is the only scope supported when creating or updating an Event Grid extension. That means the service only supports a single instance of the Event Grid extension on a Kubernetes cluster.There is no support for namespace-scoped deployments yet. For more information on extension scopes, see [Create extension instance](../../azure-arc/kubernetes/extensions.md#create-extensions-instance) and search for ``scope``.
+    > During the preview version, ``cluster`` is the only scope supported when creating or updating an Event Grid extension. That means the service only supports a single instance of the Event Grid extension on a Kubernetes cluster.There is no support for namespace-scoped deployments yet. For more information, see [Extension scope](../../azure-arc/kubernetes/conceptual-extensions.md#extension-scope).
 
     ```azurecli-interactive
     az k8s-extension create \
