@@ -295,7 +295,7 @@ In addition to using the built-in roles for a Log Analytics workspace, you can c
 - Add the following NonAction to block users from restoring archived logs: `Microsoft.OperationalInsights/workspaces/restoreLogs/write`
 
 
-## Set table-level read access (preview)
+## Set table-level read access
 
 To create a [custom role](../../role-based-access-control/custom-roles.md) that lets specific users or groups read data from specific tables in a workspace:
 
