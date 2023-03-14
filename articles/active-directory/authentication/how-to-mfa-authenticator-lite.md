@@ -51,7 +51,8 @@ Once you identify the single target group, use the following API endpoint to cha
 https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationMethodConfigurations/MicrosoftAuthenticator
 ```
 
-In Graph Explorer, you need to consent to the **Policy.ReadWrite.AuthenticationMethod** permission.
+>[!NOTE]
+>In Graph Explorer, you need to consent to the **Policy.ReadWrite.AuthenticationMethod** permission. 
 
 ### Request
 
@@ -82,6 +83,8 @@ Content-Type: application/json
 ## User Registration
 If enabled for Authenticator Lite, users are prompted to register their account directly from Outlook. Authenticator Lite registration isn't available by using [MySignIns](https://aka.ms/mysignins). Users can also enable or disable Authenticator Lite from within Outlook. For more information on user experience, please visit the [Authenticator Lite support page](https://aka.ms/authappliteuserdocs). 
 
+![Registration prompt in Outlook](https://user-images.githubusercontent.com/108090297/225125196-41e76d67-972c-4bde-b2aa-db458b6ed123.png)
+
 ## Monitoring Authenticator Lite Usage
 [Sign-in logs](/graph/api/signin-list) can show which app was used to complete user authentication. To view the latest sign-ins, use the following call on the beta API endpoint:
 
@@ -94,13 +97,15 @@ If the sign-in was done by phone app notification, under **authenticationAppDeiv
 If a user has registered Authenticator Lite, the user’s registered authentication methods include **Microsoft Authenticator (in Outlook)**. 
 
 ## Push Notifications in Authenticator Lite
-Push Notifications sent by Authenticator Lite aren't configurable and don't depend on the Authenticator feature settings. The default setting for features included in the Authenticator Lite experience are listed in the following table. 
+Push Notifications sent by Authenticator Lite aren't configurable and don't depend on the Authenticator feature settings. The settings for features included in the Authenticator Lite experience are listed in the following table. 
 
 | Authenticator Feature    | Authenticator Lite Experience|
 |:------------------------:|:----------------------------:|
 | Number Matching          | Enabled                      |
 | Location Context         | Disabled                     |
 | Application Context      | Disabled                     |
+
+![Authentication request in Outlook](https://user-images.githubusercontent.com/108090297/225125278-295ac628-63d6-4e35-936a-a8b3c6398dfb.png)
 
 ## AD FS adapters and NPS extensions 
 
