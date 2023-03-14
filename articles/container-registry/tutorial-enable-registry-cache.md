@@ -12,7 +12,6 @@ This article is part two of a six-part tutorial series. [Part one](tutorial-regi
 
 ## Prerequisites
 
->* You have an existing Key Vault to store credentials. Learn more about [creating and storing credentials in a Key Vault.][create-and-store-keyvault-credentials]
 >* Sign in to the [Azure portal](https://ms.portal.azure.com/)
 
 ## Configure Caching for ACR (preview) - Azure portal

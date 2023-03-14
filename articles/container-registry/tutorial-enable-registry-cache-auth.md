@@ -66,7 +66,7 @@ Follow the steps to create cache rule in the [Azure portal](https://portal.azure
     - For example, to assign permissions for the credential set access the KeyVault secret
 
     ```azurecli-interactive
-    az keyvault set-policy --name $KEYVAULT_NAME \
+    az keyvault set-policy --name MyKeyVault \
     --object-id $PRINCIPAL_ID \
     --secret-permissions get
     ```
@@ -99,6 +99,6 @@ Before configuring a Credential Set, you require to create and store secrets in 
 * To enable Caching for ACR (preview) with authentication using the Azure CLI advance to the next article [Enable Caching for ACR - Azure CLI](tutorial-enable-registry-cache-auth-cli.md).
 
 <!-- LINKS - External -->
-[create-and-store-keyvault-credentials]: ../key-vault/secrets/quick-create-portal.md
-[set-and-retrieve-a-secret]: ../key-vault/secrets/quick-create-portal.md
+[create-and-store-keyvault-credentials]: ../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault
+[set-and-retrieve-a-secret]: ../key-vault/secrets/quick-create-portal.md#retrieve-a-secret-from-key-vault
 [az-keyvault-set-policy]: ../key-vault/general/assign-access-policy.md#assign-an-access-policy

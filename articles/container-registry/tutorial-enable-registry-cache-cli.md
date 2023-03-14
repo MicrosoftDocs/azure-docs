@@ -13,7 +13,6 @@ This article is part three of a six-part tutorial series. [Part one](tutorial-re
 ## Prerequisites
 
 >* You can use the [Azure Cloud Shell][Azure Cloud Shell] or a local installation of the Azure CLI to run the command examples in this article. If you'd like to use it locally, version 2.0.74 or later is required. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][Install Azure CLI].
->* You have an existing Key Vault to store credentials. Learn more about [creating and storing credentials in a Key Vault.][create-and-store-keyvault-credentials]
 
 ## Configure Caching for ACR (preview)  - Azure CLI
 

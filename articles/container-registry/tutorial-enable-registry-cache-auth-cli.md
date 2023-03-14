@@ -22,14 +22,19 @@ This article walks you through the steps of enabling Caching for ACR with authen
 
 ### Create a Credential Set - Azure CLI
 
-Before configuring a Credential Set, you require to create and store secrets in the Azure KeyVault and retrieve the secrets from the Key Vault. Learn more about [creating and storing credentials in a Key Vault.][create-and-store-keyvault-credentials] and to [set and retrieve a secret from Key Vault.][set-and-retrieve-a-secret].
+Before configuring a Credential Set, you have to create and store secrets in the Azure KeyVault and retrieve the secrets from the Key Vault. Learn more about [creating and storing credentials in a Key Vault.][create-and-store-keyvault-credentials] and to [set and retrieve a secret from Key Vault.][set-and-retrieve-a-secret].
 
 1. Run [az acr credential set create][az-acr-credential-set-create] command to create a credential set. 
 
     - For example, To create a credential set for a given `MyRegistry` Azure Container Registry.
 
     ```azurecli-interactive
-    az acr credential-set create -r MyRegistry -n MyRule -l docker.io -u https://MyKeyvault.vault.azure.net/secrets/usernamesecret -p https://MyKeyvault.vault.azure.net/secrets/passwordsecret
+    az acr credential-set create 
+    -r MyRegistry \
+    -n MyRule \
+    -l docker.io \ 
+    -u https://MyKeyvault.vault.azure.net/secrets/usernamesecret \
+    -p https://MyKeyvault.vault.azure.net/secrets/passwordsecret
     ```
 
 2. Run [az acr credential set update][az-acr-credential-set-update] to update the username or password KV secret ID on a credential set.
@@ -63,7 +68,7 @@ Before configuring a Credential Set, you require to create and store secrets in 
     - For example, to update the credential set on a cache rule for a given `MyRegistry` Azure Container Registry.
 
     ```azurecli-interactive
-    az acr cache update -r MyRegistry -n MyRule -c NewCredSet-
+    az acr cache update -r MyRegistry -n MyRule -c NewCredSet
     ```
 
     - For example, to remove a credential set from an existing cache rule for a given `MyRegistry` Azure Container Registry.
@@ -77,7 +82,7 @@ Before configuring a Credential Set, you require to create and store secrets in 
     - For example, to show a cache rule for a given `MyRegistry` Azure Container Registry.
  
     ```azurecli-interactive
-     az acr cache show -r MyRegistry -n MyRule""" 
+     az acr cache show -r MyRegistry -n MyRule
     ```
 
 ### Assign permissions to Key Vault
@@ -86,9 +91,9 @@ Before configuring a Credential Set, you require to create and store secrets in 
 
     ```azurecli-interactive
     PRINCIPAL_ID=$(az acr credential-set show 
-                    -n $CRED_SET 
-                    -r $REGISTRY  \
-                    --query 'identity.principalId' 
+                    -n MyCredSet \ 
+                    -r MyRegistry  \
+                    --query 'identity.principalId' \ 
                     -o tsv) 
     ```
 
@@ -97,7 +102,7 @@ Before configuring a Credential Set, you require to create and store secrets in 
     - For example, to assign permissions for the credential set access the KeyVault secret
 
     ```azurecli-interactive
-    az keyvault set-policy --name $KEYVAULT_NAME \
+    az keyvault set-policy --name MyKeyVault \
     --object-id $PRINCIPAL_ID \
     --secret-permissions get
     ```
@@ -108,23 +113,7 @@ Before configuring a Credential Set, you require to create and store secrets in 
 
 ## Clean up the resources
 
-1. Run[az acr credential set list][az-acr-credential-set-list] to list the credential sets in an Azure Container Registry. 
-
-    - For example, to list the credential sets for a given `MyRegistry` Azure Container Registry.
-
-    ```azurecli-interactive
-    az acr credential-set list -r MyRegistry
-    ```
-
-2. Run [az-acr-credential-set-delete][az-acr-credential-set-delete] to delete a credential set. 
-
-    - For example, to delete a credential set for a given `MyRegistry` Azure Container Registry.
-
-    ```azurecli-interactive
-    az acr credential-set delete -r MyRegistry -n MyCredSet
-    ```
-
-3. Run [az acr cache list][az-acr-cache-list] command to list the cache rules in the Azure Container Registry.
+1. Run [az acr cache list][az-acr-cache-list] command to list the cache rules in the Azure Container Registry.
 
     - For example, to list the cache rules for a given `MyRegistry` Azure Container Registry.
 
@@ -132,7 +121,7 @@ Before configuring a Credential Set, you require to create and store secrets in 
      az acr cache list -r MyRegistry
     ```
 
-4.  Run [az acr cache delete][az-acr-cache-delete] command to delete a cache rule.
+2.  Run [az acr cache delete][az-acr-cache-delete] command to delete a cache rule.
 
     - For example, to delete a cache rule for a given `MyRegistry` Azure Container Registry.
 
@@ -140,13 +129,29 @@ Before configuring a Credential Set, you require to create and store secrets in 
     az acr cache delete -r MyRegistry -n MyRule
     ```
 
+3. Run[az acr credential set list][az-acr-credential-set-list] to list the credential sets in an Azure Container Registry. 
+
+    - For example, to list the credential sets for a given `MyRegistry` Azure Container Registry.
+
+    ```azurecli-interactive
+    az acr credential-set list -r MyRegistry
+    ```
+
+4. Run [az-acr-credential-set-delete][az-acr-credential-set-delete] to delete a credential set. 
+
+    - For example, to delete a credential set for a given `MyRegistry` Azure Container Registry.
+
+    ```azurecli-interactive
+    az acr credential-set delete -r MyRegistry -n MyCredSet
+    ```
+
 ## Next steps
 
 * Advance to the [next article](tutorial-troubleshoot-registry-cache.md) to walk through the troubleshoot guide for Registry Cache.
 
 <!-- LINKS - External -->
-[create-and-store-keyvault-credentials]: ../key-vault/secrets/quick-create-cli.md
-[set-and-retrieve-a-secret]: ../key-vault/secrets/quick-create-cli.md
+[create-and-store-keyvault-credentials]: ../key-vault/secrets/quick-create-cli.md#add-a-secret-to-key-vault
+[set-and-retrieve-a-secret]: ../key-vault/secrets/quick-create-cli.md#retrieve-a-secret-from-key-vault
 [az-keyvault-set-policy]: ../key-vault/general/assign-access-policy.md#assign-an-access-policy
 [Install Azure CLI]: /cli/azure/install-azure-cli
 [Azure Cloud Shell]: /azure/cloud-shell/quickstart
