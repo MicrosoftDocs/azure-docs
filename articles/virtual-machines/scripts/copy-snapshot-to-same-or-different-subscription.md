@@ -40,38 +40,38 @@ This article contains two scripts. The first script copies a snapshot of a manag
 
 ```azurecli
 #Provide the subscription Id of the subscription where snapshot exists
-sourceSubscriptionId="<subscriptionId>"
+$sourceSubscriptionId="<subscriptionId>"
 
 #Provide the name of your resource group where snapshot exists
-sourceResourceGroupName=mySourceResourceGroupName
+$sourceResourceGroupName="mySourceResourceGroupName"
 
 #Provide the name of the target disk encryption set
-diskEncryptionSetName=myName
+$diskEncryptionSetName="myName"
 
 #Provide the target disk encryption set resource group
-diskEncryptionResourceGroup=myGroup
+$diskEncryptionResourceGroup="myGroup"
 
 #Provide the name of the snapshot
-snapshotName=mySnapshotName
+$snapshotName="mySnapshotName"
 
 #Set the context to the subscription Id where snapshot exists
 az account set --subscription $sourceSubscriptionId
 
 #Get the snapshot Id 
-snapshotId=$(az snapshot show --name $snapshotName --resource-group $sourceResourceGroupName --query [id] -o tsv)
+$snapshotId=$(az snapshot show --name $snapshotName --resource-group $sourceResourceGroupName --query [id] -o tsv)
 
 #If snapshotId is blank then it means that snapshot does not exist.
 echo 'source snapshot Id is: ' $snapshotId
 
 #Get the disk encryption set ID
-diskEncryptionSetId=$(az disk-encryption-set show --name $diskEncryptionSetName --resource-group $diskEncryptionResourceGroup)
+$diskEncryptionSetId=$(az disk-encryption-set show --name $diskEncryptionSetName --resource-group $diskEncryptionResourceGroup)
 
 #Provide the subscription Id of the subscription where snapshot will be copied to
 #If snapshot is copied to the same subscription then you can skip this step
-targetSubscriptionId=6492b1f7-f219-446b-b509-314e17e1efb0
+$targetSubscriptionId="<subscriptionId>"
 
 #Name of the resource group where snapshot will be copied to
-targetResourceGroupName=mytargetResourceGroupName
+$targetResourceGroupName="mytargetResourceGroupName"
 
 #Set the context to the subscription Id where snapshot will be copied to
 #If snapshot is copied to the same subscription then you can skip this step
