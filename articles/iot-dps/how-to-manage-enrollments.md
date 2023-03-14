@@ -37,6 +37,7 @@ For a walkthrough that demonstrates how to create and use enrollment groups with
 
 To create a symmetric key enrollment group:
 
+<!-- INCLUDE -->
 [!INCLUDE [iot-dps-enrollment-group-key.md](../../includes/iot-dps-enrollment-group-key.md)]
 
 # [X.509 certificate](#tab/x509)
@@ -45,50 +46,8 @@ For a walkthrough that demonstrates how to create and use enrollment groups with
 
 To create an X.509 certificate enrollment group:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Device Provisioning Service instance.
-
-1. Select **Manage enrollments** from the **Settings** section of the navigation menu.
-
-1. At the top of the page, select **Add enrollment group**.
-
-1. On the **Registration + provisioning** tab of the **Add enrollment group** page, provide the following information to configure the enrollment group details:
-
-   | Field | Description |
-   | :--- | :--- |
-   | **Attestation** |Select **X.509 intermediate certificates** as the **Attestation mechanism** if you want to upload intermediate certificates to be used for just this enrollment group, or select **X.509 certificates uploaded to this Device Provisioning Service** if you already have uploaded intermediate certificates.|
-   | **X.509 certificate settings** |Depending on the attestation method that you chose, either upload or select the primary and secondary intermediate certificates for this enrollment group. |
-   | **Group name** | Provide a name for the group of devices. The enrollment group name is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`).|
-   | **Provisioning status** | Check the **Enable this enrollment** box if you want this enrollment group to be available to provision devices. Uncheck this box if you want the group to be disabled. You can change this setting later. |
-   | **Reprovision policy** | Choose a reprovision policy that reflects how you want DPS to handle devices that request reprovisioning. For more information, see [Reprovision policies](./concepts-device-reprovision.md#reprovision-policies) |
-
-   :::image type="content" source="./media/how-to-manage-enrollments/add-enrollment-group-cert.png" alt-text="Screenshot that shows adding an enrollment group for X.509 certificate attestation.":::
-
-1. Select **Next: IoT hubs**.
-
-1. On the **IoT hubs** tab of the **Add enrollment group** page, provide the following information to determine which IoT hubs the enrollment group can provision devices to:
-
-   | Field | Description |
-   | :---- | :---------- |
-   | **Target IoT hubs** |Select one or more of your linked IoT hubs, or add a new link to an IoT hub. To learn more about linking IoT hubs to your DPS instance, see [How to link and manage IoT hubs](how-to-manage-linked-iot-hubs.md).|
-   | **Allocation policy** | If you selected more than one linked IoT hub, select how you want to assign devices to the different hubs. To learn more about allocation policies, see [How to use allocation policies](how-to-use-allocation-policies.md).<br><br>If you selected only one linked IoT hub, we recommend using the **Evenly weighted distribution** policy.|
-
-   :::image type="content" source="./media/how-to-manage-enrollments/add-enrollment-group-key-linked-hub.png" alt-text="Screenshot that shows connecting IoT hubs to the new enrollment group.":::
-
-1. Select **Next: Device settings**
-
-1. On the **Device settings** tab of the **Add enrollment group** page, provide the following information to define how newly provisioned devices will be configured:
-
-   | Field | Description |
-   | :---- | :---------- |
-   | **IoT Edge** | Check the **Enable IoT Edge on provisioned devices** if all the devices provisioned through this group will run [Azure IoT Edge](../iot-edge/about-iot-edge.md). Uncheck this box if this group is for non-IoT Edge-enabled devices only. Either all devices in a group will be IoT Edge-enabled or none can be. |
-   | **Device tags** | Use this text box to provide any tags that you want to apply to the device twins of provisioned devices. |
-   | **Desired properties** | Use this text box to provide any desired properties that you want to apply to the device twins of provisioned devices. |
-
-   For more information, see [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
-
-1. Select **Next: Review + create**.
-
-1. On the **Review + create** tab, verify all of your values then select **Create**.
+<!-- INCLUDE -->
+[!INCLUDE [iot-dps-enrollment-group-x509.md](../../includes/iot-dps-enrollment-group-x509.md)]
 
 # [TPM](#tab/tpm)
 
@@ -106,49 +65,8 @@ For a walkthrough of how to create and use individual enrollments with symmetric
 
 To create a symmetric key individual enrollment:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Device Provisioning Service instance.
-
-1. Select **Manage enrollments** from the **Settings** section of the navigation menu.
-
-1. Select the **Individual enrollments** tab, then select **Add individual enrollment**.
-
-   :::image type="content" source="./media/how-to-manage-enrollments/add-individual-enrollment.png" alt-text="Screenshot that shows the add individual enrollment option.":::
-
-1. On the **Registration + provisioning** of the **Add enrollment** page, provide the following information to configure the enrollment details:
-
-   | Field | Description |
-   | :--- | :--- |
-   | **Attestation** | Select **Symmetric key** as the **Attestation mechanism**. |
-   | **Symmetric key settings** | Check the **Generate symmetric keys automatically** box if you want to use randomly generated keys. Uncheck this box if you want to provide your own keys. |
-   | **Registration ID** | Provide a unique registration ID for the device.|
-   | **Provisioning status** | Check the **Enable this enrollment** box if you want this enrollment to be available to provision its device. Uncheck this box if you want the enrollment to be disabled. You can change this setting later. |
-   | **Reprovision policy** | Choose a reprovision policy that reflects how you want DPS to handle devices that request reprovisioning. For more information, see [Reprovision policies](./concepts-device-reprovision.md#reprovision-policies). |
-
-1. Select **Next: IoT hubs**.
-
-1. On the **IoT hubs** tab of the **Add enrollment** page, provide the following information to determine which IoT hubs the enrollment can provision devices to:
-
-   | Field | Description |
-   | :---- | :---------- |
-   | **Target IoT hubs** |Select one or more of your linked IoT hubs, or add a new link to an IoT hub. To learn more about linking IoT hubs to your DPS instance, see [How to link and manage IoT hubs](how-to-manage-linked-iot-hubs.md).|
-   | **Allocation policy** | If you selected more than one linked IoT hub, select how you want to assign devices to the different hubs. To learn more about allocation policies, see [How to use allocation policies](how-to-use-allocation-policies.md).<br><br>If you selected only one linked IoT hub, we recommend using the **Evenly weighted distribution** policy.|
-
-1. Select **Next: Device settings**
-
-1. On the **Device settings** tab of the **Add enrollment** page, provide the following information to define how newly provisioned devices will be configured:
-
-   | Field | Description |
-   | :---- | :---------- |
-   | **Device ID** | Provide a device ID that will be assigned to the provisioned device in IoT Hub. If you don't provide a device ID, the registration ID will be used. |
-   | **IoT Edge** | Check the **Enable IoT Edge on provisioned devices** if the provisioned device will run [Azure IoT Edge](../iot-edge/about-iot-edge.md). Uncheck this box if this enrollment is for a non-IoT Edge-enabled device. |
-   | **Device tags** | Use this text box to provide any tags that you want to apply to the device twin of the provisioned device. |
-   | **Desired properties** | Use this text box to provide any desired properties that you want to apply to the device twin of the provisioned device. |
-
-   For more information, see [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
-
-1. Select **Next: Review + create**.
-
-1. On the **Review + create** tab, verify all of your values then select **Create**.
+<!-- INCLUDE -->
+[!INCLUDE [iot-dps-individual-enrollment-key.md](../../includes/iot-dps-individual-enrollment-key.md)]
 
 # [X.509 certificate](#tab/x509)
 
@@ -156,101 +74,17 @@ For a walkthrough of how to create and use individual enrollments with X.509 cer
 
 To create a X.509 certificate individual enrollment:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Device Provisioning Service instance.
-
-1. Select **Manage enrollments** from the **Settings** section of the navigation menu.
-
-1. Select the **Individual enrollments** tab, then select **Add individual enrollment**.
-
-   :::image type="content" source="./media/how-to-manage-enrollments/add-individual-enrollment.png" alt-text="Screenshot that shows the add individual enrollment option.":::
-
-1. On the **Registration + provisioning** of the **Add enrollment** page, provide the following information to configure the enrollment details:
-
-   | Field | Description |
-   | :--- | :--- |
-   | **Attestation** | Select **X.509 client certificates** as the **Attestation mechanism**. |
-   | **X.509 certificate settings** | Upload one or two certificates that will be used to verify the device for this enrollment. |
-   | **Provisioning status** | Check the **Enable this enrollment** box if you want this enrollment to be available to provision its device. Uncheck this box if you want the enrollment to be disabled. You can change this setting later. |
-   | **Reprovision policy** | Choose a reprovision policy that reflects how you want DPS to handle devices that request reprovisioning. For more information, see [Reprovision policies](./concepts-device-reprovision.md#reprovision-policies). |
-
-1. Select **Next: IoT hubs**.
-
-1. On the **IoT hubs** tab of the **Add enrollment** page, provide the following information to determine which IoT hubs the enrollment can provision devices to:
-
-   | Field | Description |
-   | :---- | :---------- |
-   | **Target IoT hubs** |Select one or more of your linked IoT hubs, or add a new link to an IoT hub. To learn more about linking IoT hubs to your DPS instance, see [How to link and manage IoT hubs](how-to-manage-linked-iot-hubs.md).|
-   | **Allocation policy** | If you selected more than one linked IoT hub, select how you want to assign devices to the different hubs. To learn more about allocation policies, see [How to use allocation policies](how-to-use-allocation-policies.md).<br><br>If you selected only one linked IoT hub, we recommend using the **Evenly weighted distribution** policy.|
-
-1. Select **Next: Device settings**
-
-1. On the **Device settings** tab of the **Add enrollment** page, provide the following information to define how newly provisioned devices will be configured:
-
-   | Field | Description |
-   | :---- | :---------- |
-   | **Device ID** | Provide a device ID that will be assigned to the provisioned device in IoT Hub. If you don't provide a device ID, the registration ID will be used. |
-   | **IoT Edge** | Check the **Enable IoT Edge on provisioned devices** if the provisioned device will run [Azure IoT Edge](../iot-edge/about-iot-edge.md). Uncheck this box if this enrollment is for a non-IoT Edge-enabled device. |
-   | **Device tags** | Use this text box to provide any tags that you want to apply to the device twin of the provisioned device. |
-   | **Desired properties** | Use this text box to provide any desired properties that you want to apply to the device twin of the provisioned device. |
-
-   For more information, see [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
-
-1. Select **Next: Review + create**.
-
-1. On the **Review + create** tab, verify all of your values then select **Create**.
+<!-- INCLUDE -->
+[!INCLUDE [iot-dps-individual-enrollment-tpm.md](../../includes/iot-dps-individual-enrollment-tpm.md)]
 
 # [TPM](#tab/tpm)
 
-For a walkthrough of how to create and use individual enrollments using TPM attestation, see [Quickstart: Provision a simulated TPM device](quick-create-simulated-device-tpm.md#create-a-device-enrollment-entry) samples.
+For a walkthrough of how to create and use individual enrollments using TPM attestation, see [Quickstart: Provision a simulated TPM device](quick-create-simulated-device-tpm.md#create-a-device-enrollment-entry) samples. If you don't have the endorsement key and registration ID for your device, use the quickstart to try these steps on a simulated device.
 
 To create a TPM individual enrollment:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Device Provisioning Service instance.
-
-1. Select **Manage enrollments** from the **Settings** section of the navigation menu.
-
-1. Select the **Individual enrollments** tab, then select **Add individual enrollment**.
-
-   :::image type="content" source="./media/how-to-manage-enrollments/add-individual-enrollment.png" alt-text="Screenshot that shows the add individual enrollment option.":::
-
-1. On the **Registration + provisioning** of the **Add enrollment** page, provide the following information to configure the enrollment details:
-
-   | Field | Description |
-   | :--- | :--- |
-   | **Attestation** | Select **Trusted Platform Module (TPM)** as the **Attestation mechanism**. |
-   | **Trusted Platform Module (TPM) settings** | Provide the endorsement key that will be used to verify the device for this enrollment. You can retrieve the endorsement key from your device's TPM.|
-   | **Registration ID** | Provide the unique registration ID for the device. You can retrieve the registration ID from your device's TPM. |
-   | **Provisioning status** | Check the **Enable this enrollment** box if you want this enrollment to be available to provision its device. Uncheck this box if you want the enrollment to be disabled. You can change this setting later. |
-   | **Reprovision policy** | Choose a reprovision policy that reflects how you want DPS to handle devices that request reprovisioning. For more information, see [Reprovision policies](./concepts-device-reprovision.md#reprovision-policies). |
-
-   >[!TIP]
-   >If you don't have the endorsement key and registration ID for your device, you can test this process using a simulated TPM by following the steps in [Quickstart: Provision a simulated TPM device](quick-create-simulated-device-tpm.md).
-
-1. Select **Next: IoT hubs**.
-
-1. On the **IoT hubs** tab of the **Add enrollment** page, provide the following information to determine which IoT hubs the enrollment can provision devices to:
-
-   | Field | Description |
-   | :---- | :---------- |
-   | **Target IoT hubs** |Select one or more of your linked IoT hubs, or add a new link to an IoT hub. To learn more about linking IoT hubs to your DPS instance, see [How to link and manage IoT hubs](how-to-manage-linked-iot-hubs.md).|
-   | **Allocation policy** | If you selected more than one linked IoT hub, select how you want to assign devices to the different hubs. To learn more about allocation policies, see [How to use allocation policies](how-to-use-allocation-policies.md).<br><br>If you selected only one linked IoT hub, we recommend using the **Evenly weighted distribution** policy.|
-
-1. Select **Next: Device settings**
-
-1. On the **Device settings** tab of the **Add enrollment** page, provide the following information to define how newly provisioned devices will be configured:
-
-   | Field | Description |
-   | :---- | :---------- |
-   | **Device ID** | Provide a device ID that will be assigned to the provisioned device in IoT Hub. If you don't provide a device ID, the registration ID will be used. |
-   | **IoT Edge** | Check the **Enable IoT Edge on provisioned devices** if the provisioned device will run [Azure IoT Edge](../iot-edge/about-iot-edge.md). Uncheck this box if this enrollment is for a non-IoT Edge-enabled device. |
-   | **Device tags** | Use this text box to provide any tags that you want to apply to the device twin of the provisioned device. |
-   | **Desired properties** | Use this text box to provide any desired properties that you want to apply to the device twin of the provisioned device. |
-
-   For more information, see [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
-
-1. Select **Next: Review + create**.
-
-1. On the **Review + create** tab, verify all of your values then select **Create**.
+<!-- INCLUDE -->
+[!INCLUDE [iot-dps-individual-enrollment-x509.md](../../includes/iot-dps-individual-enrollment-x509.md)]
 
 ---
 

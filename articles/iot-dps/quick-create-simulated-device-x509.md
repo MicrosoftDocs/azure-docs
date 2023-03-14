@@ -433,30 +433,8 @@ The Azure IoT Device Provisioning Service supports two types of enrollments:
 
 This article demonstrates an individual enrollment for a single device to be provisioned with an IoT hub.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-2. On the left-hand menu or on the portal page, select **All resources**.
-
-3. Select your Device Provisioning Service.
-
-4. In the **Settings** menu, select **Manage enrollments**.
-
-5. At the top of the page, select **+ Add individual enrollment**.
-
-6. In the **Add Enrollment** page, enter the following information.
-
-    * **Mechanism:** Select **X.509** as the identity attestation *Mechanism*.
-    * **Primary certificate .pem or .cer file:** Choose **Select a file** and navigate to and select the certificate file, *device-cert.pem*, that you created in the previous section.
-    * Leave **IoT Hub Device ID:** blank. Your device will be provisioned with its device ID set to the common name (CN) in the X.509 certificate, *my-x509-device*. This common name will also be the name used for the registration ID for the individual enrollment entry.
-    * Optionally, you can provide the following information:
-        * Select an IoT hub linked with your provisioning service.
-        * Update the **Initial device twin state** with the desired initial configuration for the device.
-
-    :::image type="content" source="./media/quick-create-simulated-device-x509/add-individual-enrollment-with-cert.png" alt-text="Screenshot that shows adding an individual enrollment with X.509 attestation to DPS in Azure portal.":::
-
-7. Select **Save**. You'll be returned to **Manage enrollments**.
-
-8. Select **Individual Enrollments**. Your X.509 enrollment entry, *my-x509-device*, should appear in the list.
+<!-- INCLUDE -->
+[!INCLUDE [iot-dps-individual-enrollment-x509.md](../../includes/iot-dps-individual-enrollment-x509.md)]
 
 ## Prepare and run the device provisioning code
 
@@ -915,11 +893,9 @@ To see which IoT hub your device was provisioned to, examine the registration de
 
 1. Select **Individual Enrollments**. The X.509 enrollment entry that you created previously, *my-x509-device*, should appear in the list.
 
-1. Select the enrollment entry. The IoT hub that your device was assigned to and its device ID appears under **Registration Status**.
+1. Select the enrollment entry. The IoT hub that your device was assigned to and its device ID appears under **Registration status**.
 
-    :::image type="content" source="./media/quick-create-simulated-device-x509/individual-enrollment-after-registration.png" alt-text="Screenshot that shows the individual enrollment registration status tab for the device on Azure portal.":::
-
-To verify the device on your IoT hub:
+To verify the device in your IoT hub:
 
 1. In Azure portal, go to the IoT hub that your device was assigned to.
 
@@ -927,7 +903,7 @@ To verify the device on your IoT hub:
 
 1. If your device was provisioned successfully, its device ID, *my-x509-device*, should appear in the list, with **Status** set as *enabled*. If you don't see your device, select **Refresh**.
 
-    :::image type="content" source="./media/quick-create-simulated-device-x509/iot-hub-registration.png" alt-text="Screenshot that shows the device is registered with the I o T hub in Azure portal.":::
+    :::image type="content" source="./media/quick-create-simulated-device-x509/iot-hub-registration.png" alt-text="Screenshot that shows the device is registered with the IoT hub in Azure portal.":::
 
 ::: zone pivot="programming-language-csharp,programming-language-nodejs,programming-language-python,programming-language-java"
 
@@ -950,9 +926,9 @@ If you plan to continue working on and exploring the device client sample, don't
 
 4. In the **Settings** menu, select **Manage enrollments**.
 
-5. Select the **Individual Enrollments** tab.
+5. Select the **Individual enrollments** tab.
 
-6. Select the check box next to the *REGISTRATION ID* of the device you enrolled in this quickstart.
+6. Select the check box next to the registration ID of the device you enrolled in this quickstart.
 
 7. At the top of the page, select  **Delete**.
 
@@ -964,7 +940,7 @@ If you plan to continue working on and exploring the device client sample, don't
 
 3. In the **Explorers** menu, select **IoT devices**.
 
-4. Select the check box next to the *DEVICE ID* of the device you registered in this quickstart.
+4. Select the check box next to the device ID of the device you registered in this quickstart.
 
 5. At the top of the page, select  **Delete**.
 

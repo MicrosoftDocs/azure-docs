@@ -391,11 +391,11 @@ AToAAQALAAMAsgAgg3GXZ0SEs/gakMyNRqXXJP1S124GUgtk8qHaGzMUaaoABgCAAEMAEAgAAAAAAAEA
 
 To verify that the individual enrollment has been created:
 
-1. In the Azure portal, select your Device Provisioning Service.
+1. In the [Azure portal](https://portal.azure.com), navigate to your Device Provisioning Service instance.
 
 2. In the **Settings** menu, select **Manage enrollments**.
 
-3. Select **Individual Enrollments**. You should see a new enrollment entry that corresponds to the registration ID that you used in the sample.
+3. Select the **Individual enrollments** tab. You should see a new enrollment entry that corresponds to the registration ID that you used in the sample.
 
 :::zone pivot="programming-language-csharp"
 
@@ -439,29 +439,25 @@ If you've been following steps in the [Create and provision a simulated TPM devi
 
 If you plan to explore the DPS tutorials, don't clean up the resources created in this article. Otherwise, use the following steps to delete all resources created by this article.
 
-1. Close the sample output window on your computer.
+1. In the [Azure portal](https://portal.azure.com), navigate to your Device Provisioning Service instance.
 
-2. From the left-hand menu in the Azure portal, select **All resources**.
+2. In the **Settings** menu, select **Manage enrollments**.
 
-3. Select your Device Provisioning Service.
+3. Select the **Individual enrollments** tab.
 
-4. In the left-hand menu under **Settings**, select **Manage enrollments**.
+4. Select the check box next to the registration ID of the enrollment entry you created in this article.
 
-5. Select the **Individual Enrollments** tab.
-
-6. Select the check box next to the *REGISTRATION ID* of the enrollment entry you created in this article.
-
-7. At the top of the page, select  **Delete**.
+5. At the top of the page, select  **Delete**.
 
 :::zone pivot="programming-language-csharp"
 
-8. If you followed the steps in [Create and provision a simulated TPM device](quick-create-simulated-device-tpm.md?pivot=programming-language-csharp) to create a simulated TPM device, do the following steps:
+6. If you followed the steps in [Create and provision a simulated TPM device](quick-create-simulated-device-tpm.md?pivot=programming-language-csharp) to create a simulated TPM device, do the following steps:
 
     1. In the Azure portal, navigate to the IoT Hub where your device was provisioned.
 
     1. In the left-hand menu under **Device management**, select **Devices**.
 
-    1. Select the check box next to the *Device ID* of the device you registered in this article.
+    1. Select the check box next to the Device ID of the device you registered in this article.
 
     1. At the top of the pane, select **Delete**.
 :::zone-end
@@ -476,7 +472,7 @@ If you plan to explore the DPS tutorials, don't clean up the resources created i
 
     3. In the left-hand menu under **Device management**, select **Devices**.
 
-    4. Select the check box next to the *Device ID* of the device you registered in this article.
+    4. Select the check box next to the device ID of the device you registered in this article.
 
     5. At the top of the pane, select **Delete**.
 :::zone-end
@@ -491,7 +487,7 @@ If you plan to explore the DPS tutorials, don't clean up the resources created i
 
     3. In the left-hand menu under **Device management**, select **Devices**.
 
-    4. Select the check box next to the *Device ID* of the device you registered in this article.
+    4. Select the check box next to the device ID of the device you registered in this article.
 
     5. At the top of the pane, select **Delete**.
 :::zone-end

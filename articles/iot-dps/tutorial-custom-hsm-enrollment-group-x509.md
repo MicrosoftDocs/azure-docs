@@ -827,19 +827,8 @@ Your signing certificates are now trusted on the Windows-based device and the fu
 
 ## Create an enrollment group
 
-1. From your DPS instance in Azure portal, select the **Manage enrollments** tab. then select the **Add enrollment group** button at the top.
-
-1. In the **Add Enrollment Group** panel, enter the following information, then select **Save**.
-
-    * **Group name**: For this tutorial, enter **custom-hsm-x509-devices**. The enrollment group name is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`).
-    * **Attestation Type**: Select **Certificate**.
-    * **IoT Edge device**: Select **False**.
-    * **Certificate Type**: Select **Intermediate Certificate**.
-    * **Primary certificate .pem or .cer file**: Navigate to the intermediate certificate that you created earlier (*./certs/azure-iot-test-only.intermediate.cert.pem*) and upload it.
-
-        Your intermediate certificate is signed by the root certificate that you already uploaded and verified. Because DPS trusts that root certificate, it will trust any intermediate certificate that is either directly signed by the root, or whose signing chain contains the root. DPS will permit any device to register through the enrollment group whose certificate signing chain contains the intermediate certificate and the verified (root) certificate.
-
-    :::image type="content" source="./media/tutorial-custom-hsm-enrollment-group-x509/custom-hsm-enrollment-group-x509.png" alt-text="Screenshot that shows adding an enrollment group in the portal.":::
+<!-- INCLUDE -->
+[!INCLUDE [iot-dps-enrollment-group-x509.md](../../includes/iot-dps-enrollment-group-x509.md)]
 
 ## Prepare and run the device provisioning code
 
@@ -1444,11 +1433,11 @@ Examine the registration records of the enrollment group to see the registration
 
 1. In the **Settings** menu, select **Manage enrollments**.
 
-1. Select **Enrollment Groups**. The X.509 enrollment group entry that you created previously, *custom-hsm-devices*, should appear in the list.
+1. Select **Enrollment groups**. The X.509 enrollment group entry that you created previously should appear in the list.
 
-1. Select the enrollment entry. Then select the **Registration Records** tab to see the devices that have been registered through the enrollment group. The IoT hub that each of your devices was assigned to, their device IDs, and the dates and times they were registered appear in the list.
+1. Select the enrollment entry. Then select **Details** next to the **Registration status** to see the devices that have been registered through the enrollment group. The IoT hub that each of your devices was assigned to, their device IDs, and the dates and times they were registered appear in the list.
 
-    :::image type="content" source="./media/tutorial-custom-hsm-enrollment-group-x509/enrollment-group-registration-records.png" alt-text="Screenshot that shows the registration records tab for the enrollment group on Azure portal.":::
+    :::image type="content" source="./media/how-to-unprovision-devices/view-registration-records.png" alt-text="Screenshot that shows the registration status details for the enrollment group on Azure portal.":::
 
 1. You can select one of the devices to see further details for that device.
 
@@ -1476,18 +1465,18 @@ When you're finished testing and exploring this device client sample, use the fo
 
 1. In the **Settings** menu, select **Manage enrollments**.
 
-1. Select the **Enrollment Groups** tab.
+1. Select the **Enrollment groups** tab.
 
-1. Select the enrollment group you used for this tutorial, *custom-hsm-x509-devices*.
+1. Select the enrollment group you used for this tutorial.
 
-1. On the **Enrollment Group Details** page, select the **Registration Records** tab. Then select the check box next to the **Device Id** column header to select all of the registration records for the enrollment group. Select **Delete Registrations** at the top of the page to delete the registration records.
+1. On the **Enrollment details** page, select **Details** next to the **Registration status**. Then select the check box next to the **Device Id** column header to select all of the registration records for the enrollment group. Select **Delete** at the top of the page to delete the registration records.
 
     > [!IMPORTANT]
     > Deleting an enrollment group doesn't delete the registration records associated with it. These orphaned records will count against the [registrations quota](about-iot-dps.md#quotas-and-limits) for the DPS instance. For this reason, it's a best practice to delete all registration records associated with an enrollment group before you delete the enrollment group itself.
 
-1. Go back to the **Manage Enrollments** page and make sure the **Enrollment Groups** tab is selected.
+1. Go back to the **Manage enrollments** page and make sure the **Enrollment groups** tab is selected.
 
-1. Select the check box next to the *GROUP NAME* of the enrollment group you used for this tutorial, *custom-hsm-x509-devices*.
+1. Select the check box next to the group name of the enrollment group you used for this tutorial.
 
 1. At the top of the page, select  **Delete**.
 
@@ -1503,7 +1492,7 @@ When you're finished testing and exploring this device client sample, use the fo
 
 3. In the **Explorers** menu, select **IoT devices**.
 
-4. Select the check box next to the *DEVICE ID* of the devices you registered in this tutorial. For example, *device-01* and *device-02*.
+4. Select the check box next to the device ID of the devices you registered in this tutorial. For example, *device-01* and *device-02*.
 
 5. At the top of the page, select  **Delete**.
 
