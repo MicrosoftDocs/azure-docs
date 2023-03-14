@@ -83,7 +83,7 @@ landingContent:
     linkLists: 
       - linkListType: learn
         links:
-          - text: Learning path
+          - text: Learning path: Monitor the usage, performance, and availability of resources with Azure Monitor
             url: /training/paths/monitor-usage-performance-availability-resources-azure-monitor/
           - text: Using Azure Monitor Logs
             url: /training/modules/analyze-infrastructure-with-azure-monitor-logs/
