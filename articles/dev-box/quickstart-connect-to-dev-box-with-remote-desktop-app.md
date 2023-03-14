@@ -24,7 +24,6 @@ In this quickstart, you'll perform the following tasks:
 
 Configure the Microsoft Dev Box Preview service: 
 - [Quickstart: Configure the Microsoft Dev Box Preview service](./quickstart-configure-dev-box-service.md)
-- [Quickstart: Configure a Microsoft Dev Box Preview project](./quickstart-configure-dev-box-project.md)
 
 Create a dev box to connect to:
 - [Add a dev box](./quickstart-create-dev-box.md#create-a-dev-box) on the [developer portal](https://aka.ms/devbox-portal) 

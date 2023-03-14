@@ -19,11 +19,11 @@ The Dell PowerEdge R350 is also available for the on-premises management console
 
 The following image shows a view of the Dell PowerEdge R350 front panel:
 
-:::image type="content" source="../media/tutorial-install-components/dell-poweredge-r350-front-panel.png" alt-text="Picture of the Dell PowerEdge R350 front panel.":::
+:::image type="content" source="../media/tutorial-install-components/dell-poweredge-r350-front-panel.png" alt-text="Picture of the Dell PowerEdge R350 front panel." border="false":::
 
 The following image shows a view of the Dell PowerEdge R350 back panel:
 
-:::image type="content" source="../media/tutorial-install-components/dell-poweredge-r350-back-panel.png" alt-text="Picture of the Dell PowerEdge R350 back panel.":::
+:::image type="content" source="../media/tutorial-install-components/dell-poweredge-r350-back-panel.png" alt-text="Picture of the Dell PowerEdge R350 back panel." border="false":::
 
 ## Specifications
 
@@ -54,7 +54,6 @@ The following image shows a view of the Dell PowerEdge R350 back panel:
 |2|	370-AGQU	|	16 GB UDIMM, 3200MT/s, ECC	|
 |1|	384-BBBH	|	Power Saving BIOS Settings	|
 |1|	800-BBDM	|	UEFI BIOS Boot Mode with GPT Partition	|
-|2|	450-AKMP	|	Dual, Hot-Plug, Redundant Power Supply (1+1), 600W	|
 |1|	450-AADY	|	C13 to C14, PDU Style, 10 AMP, 6.5 Feet (2m), Power Cord	|
 |1|	330-BBWS	|	Riser Config 0, 1 x8, 1 x16 slots	|
 |1|	384-BCYX	|	OEM R350 Motherboard with Broadcom 5720 Dual Port 1 Gb On-Board LOM	|
@@ -81,6 +80,12 @@ The following image shows a view of the Dell PowerEdge R350 back panel:
 |4|	400-BLLH	|	1 TB Hard Drive SATA 6 Gbps 7.2K 512n 3.5in Hot-Plug	|
 |1|	540-BBDF	|	Broadcom 5719 Quad Port 1 GbE BASE-T Adapter, PCIe Low Profile	|
 |1|	780-BCDQ	|	RAID 10	|
+|2|	450-AKMP	|	Dual, Hot-Plug, Redundant Power Supply (1+1), 600W	|
+
+## Optional Components
+|Quantity|PN|Description|
+|----|---|----|
+|2| 450-AMJH | Dual, Hot-Plug, Power Supply, 700W MM HLAC (200-220Vac) Titanium, Redundant (1+1), by LiteOn, NAF|
 
 ## Optional Expansion Modules
 

@@ -106,7 +106,6 @@ How to use this API:
 
 
 ## Next steps
-See the following articles: 
+See the following article: 
 
 - [Set policies for a lab](devtest-lab-set-lab-policy.md)
-- [Frequently asked questions](devtest-lab-faq.yml)

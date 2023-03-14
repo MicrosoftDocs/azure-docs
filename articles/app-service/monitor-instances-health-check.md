@@ -127,6 +127,15 @@ function envVarMatchesHeader(headerValue) {
 > [!NOTE]
 > The `x-ms-auth-internal-token` header is only available on Windows App Service.
 
+## Instances
+Once Health Check is enabled, you can restart and monitor the status of your application instances through the instances tab. The instances tab will show your instance's name, the status of that instance and give you the option to manually restart the application instance.
+
+If the status of your instance is unhealthy, you can restart the instance manually using the restart button in the table.  Keep in mind that any other applications hosted on the same App Service Plan as the instance will also be affected by the restart.  If there are other applications using the same App Service Plan as the instance, they will be listed on the opening blade from the restart button.
+
+If you restart the instance and the restart process fails, you will then be given the option to replace the worker (only 1 instance can be replaced per hour).  This will also affect any applications using the same App Service Plan.
+
+Windows applications will also have the option to view processes via the Process Explorer.  This gives you further insight on the instance's processes including thread count, private memory, and total CPU time.
+
 
 ## Monitoring
 
@@ -135,9 +144,6 @@ After providing your application's Health check path, you can monitor the health
 ## Limitations
 
 - Health check can be enabled for **Free** and **Shared** App Service Plans so you can have metrics on the site's health and setup alerts, but because **Free** and **Shared** sites can't scale out, any unhealthy instances won't be replaced. You should scale up to the **Basic** tier or higher so you can scale out to 2 or more instances and utilize the full benefit of Health check. This is recommended for production-facing applications as it will increase your app's availability and performance.
-- Health check should not be enabled on Premium Functions sites. Due to the rapid scaling of Premium Functions, the health check requests can cause unnecessary fluctuations in HTTP traffic. Premium Functions have their own internal health probes that are used to inform scaling decisions.
-
-
 
 ## Frequently Asked Questions
 

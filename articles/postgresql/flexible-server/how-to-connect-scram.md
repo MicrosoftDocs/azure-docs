@@ -1,8 +1,8 @@
 ---
 title: Connectivity using SCRAM in Azure Database for PostgreSQL - Flexible Server
 description: Instructions and information on how to configure and connect using SCRAM in Azure Database for PostgreSQL - Flexible Server.
-author: sr-msft 
-ms.author: srranga
+ms.author: alkuchar
+author: AwdotiaRomanowna
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to

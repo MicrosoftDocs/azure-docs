@@ -11,7 +11,6 @@ ms.workload: identity
 ms.date: 12/13/2022
 ms.author: gasinh
 ms.collection: M365-identity-device-management 
-ms.custom: devx-track-azurepowershell
 ms.reviewer: miccohen
 ---
 
@@ -22,7 +21,7 @@ In this tutorial, learn to deploy BIG-IP Vitural Edition (VE) in Azure infrastru
 - A prepared BIG-IP virtual machine (VM) to model a secure hybrid access (SHA) proof-of-concept
 - A staging instance to test new BIG-IP system updates and hotfixes
 
-Learn more: [SHA: Secure legacy apps with Azure Active Directory](/azure/active-directory/manage-apps/secure-hybrid-access)
+Learn more: [SHA: Secure legacy apps with Azure Active Directory](./secure-hybrid-access.md)
 
 ## Prerequisites
 

@@ -23,6 +23,9 @@ In this article you will find questions to commonly asked questions about [Lifec
 
 Yes, custom workflows can be configured for members or guests in your tenant. Workflows can run for all types of external guests, external members, internal guests and internal members.
 
+### Why do I see "Lifecycle Management" instead of "Lifecycle Workflows"?
+For a small portion of our customers, Lifecycle Workflows may still be listed under the former name Lifecycle Management in the audit logs and enterprise applications.
+
 ### Do I need to map employeeHireDate in provisioning apps like WorkDay?
 
 Yes, key user properties like employeeHireDate and employeeType are supported for user provisioning from HR apps like WorkDay. To use these properties in Lifecycle workflows, you will need to map them in the provisioning process to ensure the values are set. The following is an example of the mapping: 

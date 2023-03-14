@@ -4,7 +4,7 @@ description: This tutorial walks through setting up your development machine and
 author: fcabrera
 
 ms.author: fcabrera
-ms.date: 03/01/2020
+ms.date: 11/15/2022
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -13,7 +13,7 @@ ms.custom: mvc
 
 # Tutorial: Develop IoT Edge modules with Linux containers using IoT Edge for Linux on Windows
 
-[!INCLUDE [iot-edge-version-1.1-or-1.4](includes/iot-edge-version-1.1-or-1.4.md)]
+[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
 Use Visual Studio 2019 to develop, debug and deploy code to devices running IoT Edge for Linux on Windows.
 
@@ -62,7 +62,7 @@ Cloud resources:
 1. If your version is older than what's available on Visual Studio Marketplace, update your tools in Visual Studio as shown in the following section.
 
 > [!NOTE]
-> If you are using Visual Studio 2022, [Cloud Explorer](/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2022&preserve-view=true) is retired. To deploy Azure IoT Edge modules, use [Azure CLI](how-to-deploy-modules-cli.md?view=iotedge-2020-11&preserve-view=true) or [Azure portal](how-to-deploy-modules-portal.md?view=iotedge-2020-11&preserve-view=true).
+> If you are using Visual Studio 2022, [Cloud Explorer](/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2022&preserve-view=true) is retired. To deploy Azure IoT Edge modules, use [Azure CLI](how-to-deploy-modules-cli.md) or [Azure portal](how-to-deploy-modules-portal.md).
 
 ### Update your tools
 
@@ -233,7 +233,7 @@ The IoT Edge project template in Visual Studio creates a solution that can be de
 
 Now, you have an IoT Edge project and an IoT Edge module in your Visual Studio solution.
 
-The module folder contains a file for your module code, named either `program.cs` or `main.c` depending on the language you chose. This folder also contains a file named `module.json` that describes the metadata of your module. Various Docker files provide the information needed to build your module as a Windows or Linux container.
+The module folder contains a file for your module code, named either `Program.cs` or `main.c` depending on the language you chose. This folder also contains a file named `module.json` that describes the metadata of your module. Various Docker files provide the information needed to build your module as a Windows or Linux container.
 
 The project folder contains a list of all the modules included in that project. Right now it should show only one module, but you can add more.
 
@@ -367,7 +367,7 @@ Typically, you'll want to test and debug each module before running it within an
       $moduleId = Invoke-EflowVmCommand "sudo docker ps -aqf name=<iot-edge-module-name>"
       ```
 
-   1. Check that the $moduleId is correct – If the variable is empty, make sure you’re using the correct module name
+   1. Check that the $moduleId is correct - If the variable is empty, make sure you're using the correct module name
 
    1. Start the SSH service inside the Linux container
       
@@ -382,7 +382,7 @@ Typically, you'll want to test and debug each module before running it within an
    >[!WARNING]
    >For security reasons, every time the EFLOW VM reboots, the IP table rule will delete and go back to the original settings. Also, the module SSH service will have to be started again manually.
 
-1. After successfully starting SSH service, select **Debug** -> **Attach to Process**, set Connection Type to SSH, and Connection target to the IP address of your EFLOW VM. If you don’t know the EFLOW VM IP, you can use the `Get-EflowVmAddr` PowerShell cmdlet. First, type the IP and then press enter. In the pop-up window, input the following configurations:
+1. After successfully starting SSH service, select **Debug** -> **Attach to Process**, set Connection Type to SSH, and Connection target to the IP address of your EFLOW VM. If you don't know the EFLOW VM IP, you can use the `Get-EflowVmAddr` PowerShell cmdlet. First, type the IP and then press enter. In the pop-up window, input the following configurations:
 
    | Field               | Value                                                             |
    |---------------------|-------------------------------------------------------------------|
@@ -402,7 +402,7 @@ Typically, you'll want to test and debug each module before running it within an
 
 1. Set a breakpoint to inspect the module.
 
-   * If developing in C#, set a breakpoint in the `PipeMessage()` function in **Program.cs**.
+   * If developing in C#, set a breakpoint in the `PipeMessage()` function in **ModuleBackgroundService.cs**.
    * If using C, set a breakpoint in the `InputQueue1Callback()` function in **main.c**.
 
 1. The output of the **SimulatedTemperatureSensor** should be redirected to **input1** of the custom Linux C# module. The breakpoint should be triggered. You can watch variables in the Visual Studio **Locals** window.

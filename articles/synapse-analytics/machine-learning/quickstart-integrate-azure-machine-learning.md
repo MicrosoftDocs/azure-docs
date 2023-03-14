@@ -36,7 +36,7 @@ In the following sections, you'll find guidance on how to create an Azure Machin
 
 ## Prerequisites
 
-- Azure subscription - [Create one for free](https://azure.microsoft.com/free/).
+- You'll need an Azure subscription. If needed, [create a free Azure account](https://azure.microsoft.com/free/).
 - [Synapse Analytics workspace](../get-started-create-workspace.md) with an ADLS Gen2 storage account configured as the default storage. You need to be the **Storage Blob Data Contributor** of the ADLS Gen2 filesystem that you work with.
 - [Azure Machine Learning workspace](../../machine-learning/how-to-manage-workspace.md).
 - If you chose to use a Service principal, you need permissions (or request from someone who has permissions) to create a service principal and secret which you can use to create the linked service. Note that this service principal needs to be assigned the contributor role in the Azure Machine Learning workspace.

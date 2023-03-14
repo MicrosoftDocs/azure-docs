@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 01/05/2022
+ms.date: 01/26/2023
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -25,7 +25,7 @@ The Azure AD Connector account is supposed to be service free. If you need to re
 If the Azure AD Connector account cannot contact Azure AD due to authentication problems, the password can be reset.
 
 1. Sign in to the Azure AD Connect sync server and open PowerShell.
-2. To provide the Azure AD Global admin credentials, run `$credential = Get-Credential`.
+2. To provide the Azure AD Global Administrator credentials, run `$credential = Get-Credential`.
 3. Run the cmdlet `Add-ADSyncAADServiceAccount -AADCredential $credential`.
 
    If the cmdlet is successful, the PowerShell command prompt appears. 

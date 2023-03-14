@@ -2,7 +2,7 @@
 title: Post-installation validation of OT network monitoring software - Microsoft Defender for IoT
 description: Learn how to test your system post installation of OT network monitoring software for Microsoft Defender for IoT. Use this article after you've reinstalled software on a pre-configured appliance, or if you've chosen to install software on your own appliances.
 ms.date: 12/13/2022
-ms.topic: how-to
+ms.topic: install-set-up-deploy
 ---
 
 # Post-installation validation of OT network monitoring software

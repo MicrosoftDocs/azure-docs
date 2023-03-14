@@ -33,7 +33,7 @@ OT network sensors discover and continuously monitor network traffic across your
 
 - Network sensors use OT-aware analytics engines and Layer-6 Deep Packet Inspection (DPI) to detect threats, such as fileless malware, based on anomalous or unauthorized activity.
 
-Data collection, processing, analysis, and alerting takes place directly on the sensor, which can be ideal for locations with low bandwidth or high-latency connectivity. Only the metadata is transferred on for management, either to the Azure portal or an on-premises management console.
+Data collection, processing, analysis, and alerting takes place directly on the sensor, which can be ideal for locations with low bandwidth or high-latency connectivity. Only telemetry and insights are transferred on for management, either to the Azure portal or an on-premises management console.
 
 For more information, see [Onboard OT sensors to Defender for IoT](onboard-sensors.md).
 
@@ -59,9 +59,9 @@ In contrast, when working with locally managed sensors:
 
 For more information, see [Manage OT sensors from the sensor console](how-to-manage-individual-sensors.md) and [Manage OT sensors from the management console](how-to-manage-sensors-from-the-on-premises-management-console.md).
 
-### Analytics engines on OT network sensors
+### Defender for IoT analytics engines
 
-OT network sensors analyze ingested data using built-in analytics engines, and trigger alerts based on both real-time and pre-recorded traffic.
+Defender for IoT network sensors analyze ingested data using built-in analytics engines, and trigger alerts based on both real-time and pre-recorded traffic.
 
 Analytics engines provide machine learning and profile analytics, risk analysis, a device database and set of insights, threat intelligence, and behavioral analytics.
 
@@ -69,7 +69,7 @@ For example, the **policy violation detection** engine models industry control s
 
 Since many detection algorithms were built for IT, rather than OT networks, the extra baseline for ICS networks helps to shorten the system's learning curve for new detections.
 
-OT network sensors include the following analytics engines:
+Defender for IoT network sensors include the following analytics engines:
 
 |Name  |Description  |
 |---------|---------|
@@ -93,7 +93,7 @@ Defender for IoT provides hybrid network support using the following management 
 
     :::image type="content" source="media/release-notes/new-interface.png" alt-text="Screenshot that shows the updated interface." lightbox="media/release-notes/new-interface.png":::
 
-- **The on-premises management console**. In air-gapped environments, you can get a central view of data from all of your sensors from an on-premises management console. The on-premises management console also lets you organize your network into separate sites and zones to support a [Zero Trust](/security/zero-trust/) mindset, and provides extra maintenance tools and reporting features.
+- **The on-premises management console**. In air-gapped environments, the on-premises management console provides a centralized view and management options for devices and threats detected by connected OT network sensors. The on-premises management console also lets you organize your network into separate sites and zones to support a [Zero Trust](/security/zero-trust/) mindset, and provides extra maintenance tools and reporting features.
 
 ## Next steps
 

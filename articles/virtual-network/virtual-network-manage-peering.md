@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 11/14/2022
 ms.author: allensu
-ms.custom: template-how-to, engagement-fy23
+ms.custom: template-how-to, engagement-fy23, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Create, change, or delete a virtual network peering
@@ -231,7 +231,7 @@ az network vnet peering delete --resource-group myResourceGroup --name VNetBtoVN
 
 - When creating a global peering, the peered virtual networks can exist in any Azure public cloud region or China cloud regions or Government cloud regions. You can't peer across clouds. For example, a VNet in Azure public cloud can't be peered to a VNet in Azure China cloud.
 
-- Resources in one virtual network can't communicate with the front-end IP address of a Basic Internal Load Balancer in a globally peered virtual network. Support for Basic Load Balancer only exists within the same region. Support for Standard Load Balancer exists for both, VNet Peering and Global VNet Peering. Some services that use a Basic load balancer don't work over global virtual network peering. For more information, see [Constraints related to Global VNet Peering and Load Balancers](virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
+- Resources in one virtual network can't communicate with the front-end IP address of a Basic Load Balancer (internal or public) in a globally peered virtual network. Support for Basic Load Balancer only exists within the same region. Support for Standard Load Balancer exists for both, VNet Peering and Global VNet Peering. Some services that use a Basic load balancer don't work over global virtual network peering. For more information, see [Constraints related to Global VNet Peering and Load Balancers](virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
 
 - You can use remote gateways or allow gateway transit in globally peered virtual networks and locally peered virtual networks.
 

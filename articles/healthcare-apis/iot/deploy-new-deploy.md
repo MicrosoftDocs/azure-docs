@@ -5,11 +5,14 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 12/15/2022
+ms.date: 03/10/2023
 ms.author: jasteppe
 ---
 
 # Quickstart: Part 3: Manual deployment and post-deployment of the MedTech service
+
+> [!NOTE]
+> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
 When you're satisfied with your configuration and it has been successfully validated, you can complete the deployment and post-deployment process.
 
@@ -28,14 +31,14 @@ When you're satisfied with your configuration and it has been successfully valid
 
 Your screen should look something like this:
 
-   :::image type="content" source="media\iot-deploy-manual-in-portal\created-medtech-service.png" alt-text="Screenshot of the MedTech service deployment completion." lightbox="media\iot-deploy-manual-in-portal\created-medtech-service.png":::
+   :::image type="content" source="media\deploy-new-deploy\created-medtech-service.png" alt-text="Screenshot of the MedTech service deployment completion." lightbox="media\deploy-new-deploy\created-medtech-service.png":::
 
 ## Manual post-deployment requirements
 
 There are two post-deployment steps you must perform or the MedTech service can't:
 
 1. Read device data from the device message event hub. 
-2. Read or write to the Fast Healthcare Interoperability Resources (FHIR&#174;) service. 
+2. Read or write to the FHIR service. 
 
 These steps are:
 
@@ -76,7 +79,7 @@ Follow these steps to grant access to the device message event hub:
 
 13. After the role assignment has been successfully added to the event hub, a notification will display on your screen with a green check mark. This notification indicates that your MedTech service can now read from your device message event hub. It should look like this:
 
-    :::image type="content" source="media\iot-deploy-manual-in-portal\validate-medtech-service-managed-identity-added-to-event-hub.png" alt-text="Screenshot of the MedTech service system-assigned managed identity being successfully granted access to the event hub with a red box around the message." lightbox="media\iot-deploy-manual-in-portal\validate-medtech-service-managed-identity-added-to-event-hub.png":::
+    :::image type="content" source="media\deploy-new-deploy\validate-medtech-service-managed-identity-added-to-event-hub.png" alt-text="Screenshot of the MedTech service system-assigned managed identity being successfully granted access to the event hub with a red box around the message." lightbox="media\deploy-new-deploy\validate-medtech-service-managed-identity-added-to-event-hub.png":::
 
 For more information about authorizing access to Event Hubs resources, see [Authorize access with Azure Active Directory](../../event-hubs/authorize-access-azure-active-directory.md).  
 
@@ -96,15 +99,9 @@ Now that you have granted access to the device message event hub and the FHIR se
 
 In this article, you learned how to perform the manual deployment and post-deployment steps to implement your MedTech service. 
 
-To learn about other methods of deploying the MedTech service, see
+To learn about other methods for deploying the MedTech service, see
 
 > [!div class="nextstepaction"]
 > [Choose a deployment method for the MedTech service](deploy-new-choose.md)
-
-> [!div class="nextstepaction"]
-> [Deploy the MedTech service with an Azure Resource Manager template](deploy-new-button.md)
-
-> [!div class="nextstepaction"]
-> [Deploy the MedTech service using an Azure Resource Manager template and Azure PowerShell or the Azure CLI](deploy-new-powershell-cli.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

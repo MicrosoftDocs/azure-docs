@@ -1,11 +1,10 @@
 ---
-title: Commonly used Microsoft Sentinel workbooks | Microsoft Docs
+title: Commonly used Microsoft Sentinel workbooks
 description: Learn about the most commonly used workbooks to use popular, out-of-the-box Microsoft Sentinel resources.
-author: batamig
+author: yelevin
 ms.topic: reference
-ms.date: 11/09/2021
-ms.author: bagol
-ms.custom: ignite-fall-2021
+ms.date: 01/09/2023
+ms.author: yelevin
 ---
 
 # Commonly used Microsoft Sentinel workbooks
@@ -35,7 +34,7 @@ Access workbooks in Microsoft Sentinel under **Threat Management** > **Workbooks
 |**Identity & Access**     |   Provides insight into identity and access operations in Microsoft product usage, via security logs that include audit and sign-in logs.     |
 |**Incident Overview**     |   Designed to help with triage and investigation by providing in-depth information about an incident, including general information, entity data, triage time, mitigation time, and comments. <br><br>For more information, see [The Toolkit for Data-Driven SOCs](https://techcommunity.microsoft.com/t5/azure-sentinel/the-toolkit-for-data-driven-socs/ba-p/2143152).      |
 |<a name="investigation-insights"></a>**Investigation Insights**     | Provides analysts with insight into incident, bookmark, and entity data. Common queries and detailed visualizations can help analysts investigate suspicious activities.     |
-|**Microsoft Defender for Cloud Apps - discovery logs**     |   Provides details about the cloud apps that are used in your organization, and insights from usage trends and drill-down data for specific users and applications.  <br><br>For more information, see [Connect data from Microsoft Defender for Cloud Apps](./data-connectors-reference.md#microsoft-defender-for-cloud-apps).|
+|**Microsoft Defender for Cloud Apps - discovery logs**     |   Provides details about the cloud apps that are used in your organization, and insights from usage trends and drill-down data for specific users and applications.  <br><br>For more information, see [Connect data from Microsoft Defender for Cloud Apps](./data-connectors/microsoft-defender-for-cloud-apps.md).|
 |**MITRE ATT&CK Workbook**     |   Provides details about MITRE ATT&CK coverage for Microsoft Sentinel.      |
 |**Office 365**     | Provides insights into Office 365 by tracing and analyzing all operations and activities. Drill down into SharePoint, OneDrive, Teams, and Exchange data.       |
 |**Security Alerts**     |  Provides a Security Alerts dashboard for alerts in your Microsoft Sentinel environment. <br><br>For more information, see [Automatically create incidents from Microsoft security alerts](create-incidents-from-alerts.md).      |

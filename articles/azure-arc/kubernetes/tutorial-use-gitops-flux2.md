@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Deploy applications using GitOps with Flux v2"
 description: "This tutorial shows how to use GitOps with Flux v2 to manage configuration and application deployment in Azure Arc and AKS clusters."
-ms.date: 12/19/2022
+ms.date: 03/10/2023
 ms.topic: tutorial
 ms.custom: template-tutorial, devx-track-azurecli, references_regions, ignite-2022
 ---
@@ -16,6 +16,9 @@ GitOps with Flux v2 can be enabled as a [cluster extension](conceptual-extension
 This tutorial describes how to use GitOps in a Kubernetes cluster. Before you dive in, take a moment to [learn how GitOps with Flux works conceptually](./conceptual-gitops-flux2.md).
 
 In this tutorial, we use an example GitOps configuration with two kustomizations, so that you can see how one kustomization can have a dependency on another. You can add more kustomizations and dependencies as needed, depending on your scenario.
+
+> [!TIP]
+> You can also create Flux configurations by using Bicep, ARM templates, or Terraform AzAPI provider. For more information, see [Microsoft.KubernetesConfiguration fluxConfigurations](/azure/templates/microsoft.kubernetesconfiguration/fluxconfigurations).
 
 > [!IMPORTANT]
 > The `microsoft.flux` extension released major version 1.0.0. This includes the [multi-tenancy feature](conceptual-gitops-flux2.md#multi-tenancy). If you have existing GitOps Flux v2 configurations that use a previous version of the `microsoft.flux` extension, you can upgrade to the latest extension manually using the Azure CLI: `az k8s-extension create -g <RESOURCE_GROUP> -c <CLUSTER_NAME> -n flux --extension-type microsoft.flux -t <CLUSTER_TYPE>` (use `-t connectedClusters` for Arc clusters and `-t managedClusters` for AKS clusters).
@@ -162,7 +165,7 @@ False          whl             k8s-extension          C:\Users\somename\.azure\c
   * `Microsoft.KubernetesConfiguration/extensions`
   * `Microsoft.KubernetesConfiguration/fluxConfigurations`
 
-* [Registration](/azure/azure-resource-manager/management/resource-providers-and-types#azure-portal) of the following Azure resource providers:
+* [Registration](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) of the following Azure resource providers:
 
   * Microsoft.ContainerService
   * Microsoft.Kubernetes
@@ -386,7 +389,7 @@ az k8s-extension create -g <cluster_resource_group> -c <cluster_name> -t <connec
 
 #### Using Kubelet identity as authentication method for AKS clusters
 
-When working with AKS clusters, one of the authentication options to use is kubelet identity. By default, AKS creates its own kubelet identity in the managed resource group. If you prefer, you can use a [pre-created kubelet managed identity](/azure/aks/use-managed-identity#use-a-pre-created-kubelet-managed-identity). To do so, add the parameter `--config useKubeletIdentity=true` at the time of Flux extension installation.
+When working with AKS clusters, one of the authentication options to use is kubelet identity. By default, AKS creates its own kubelet identity in the managed resource group. If you prefer, you can use a [pre-created kubelet managed identity](../../aks/use-managed-identity.md#use-a-pre-created-kubelet-managed-identity). To do so, add the parameter `--config useKubeletIdentity=true` at the time of Flux extension installation.
 
 ```azurecli
 az k8s-extension create --resource-group <resource-group> --cluster-name <cluster-name> --cluster-type managedClusters --name flux --extension-type microsoft.flux --config useKubeletIdentity=true

@@ -5,11 +5,8 @@ services: virtual-network
 documentationcenter: virtual-network
 author: asudbring
 manager: mtillman
-editor: ''
 tags: azure-resource-manager
 # Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
-
-ms.assetid: 
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: how-to
@@ -33,7 +30,7 @@ Virtual network service endpoints enable you to limit network access to some Azu
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 

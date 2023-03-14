@@ -4,8 +4,9 @@ description: Learn how to register, authenticate with, and interact with an Azur
 author: athenads
 ms.author: athenadsouza
 ms.service: purview
+ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 12/05/2022
+ms.date: 01/10/2023
 ms.custom: template-how-to
 ---
 # Discover and govern Azure SQL Database in Microsoft Purview
@@ -456,6 +457,9 @@ Microsoft Purview supports lineage from Azure SQL Database. When you're setting 
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-lineage-extraction-runs.png" alt-text="Screenshot that shows the screen that runs lineage extraction every six hours."lightbox="media/register-scan-azure-sql-database/register-scan-azure-sql-db-lineage-extraction-runs-expanded.png":::
 
+    > [!Note]
+    > Toggle on  **Lineage extraction** will trigger daily scan.
+
 ### Search Azure SQL Database assets and view runtime lineage
 
 You can [browse through the data catalog](how-to-browse-catalog.md) or [search the data catalog](how-to-search-catalog.md) to view asset details for Azure SQL Database. The following steps describe how to view runtime lineage details:
@@ -464,6 +468,10 @@ You can [browse through the data catalog](how-to-browse-catalog.md) or [search t
 
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-lineage.png" alt-text="Screenshot that shows lineage details from stored procedures.":::
+
+    When applicable, you can further drill down to see the lineage at SQL statement level within a stored procedure, along with column level lineage. When using Self-hosted Integration Runtime for scan, retrieving the lineage drilldown information during scan is supported since version 5.25.8374.1.
+
+    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-lineage-drilldown.png" alt-text="Screenshot that shows stored procedure lineage drilldown.":::
 
     For information about supported Azure SQL Database lineage scenarios, refer to the [Supported capabilities](#supported-capabilities) section of this article. For more information about lineage in general, see [Data lineage in Microsoft Purview](concept-data-lineage.md) and [Microsoft Purview Data Catalog lineage user guide](catalog-lineage-user-guide.md).
 

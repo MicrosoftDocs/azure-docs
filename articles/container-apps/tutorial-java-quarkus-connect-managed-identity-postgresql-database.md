@@ -7,7 +7,7 @@ ms.topic: tutorial
 ms.author: karler
 ms.service: container-apps
 ms.date: 09/26/2022
-ms.custom: passwordless-java, service-connector
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-quarkus, passwordless-java, service-connector, devx-track-azurecli
 ---
 
 # Tutorial: Connect to PostgreSQL Database from a Java Quarkus Container App without secrets using a managed identity
@@ -15,9 +15,6 @@ ms.custom: passwordless-java, service-connector
 [Azure Container Apps](overview.md) provides a [managed identity](managed-identity.md) for your app, which is a turn-key solution for securing access to [Azure Database for PostgreSQL](../postgresql/index.yml) and other Azure services. Managed identities in Container Apps make your app more secure by eliminating secrets from your app, such as credentials in the environment variables.
 
 This tutorial walks you through the process of building, configuring, deploying, and scaling Java container apps on Azure. At the end of this tutorial, you'll have a [Quarkus](https://quarkus.io) application storing data in a [PostgreSQL](../postgresql/index.yml) database with a managed identity running on [Container Apps](overview.md).
-
-> [!NOTE]  
-> Azure Active Directory Authentication for PostgreSQL Flexible Server is currently in preview.
 
 What you will learn:
 
@@ -32,7 +29,7 @@ What you will learn:
 
 ## 1. Prerequisites
 
-* [Azure CLI](/cli/azure/install-azure-cli) version 2.41.0 or higher.
+* [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or higher.
 * [Git](https://git-scm.com/)
 * [Java JDK](/azure/developer/java/fundamentals/java-support-on-azure)
 * [Maven](https://maven.apache.org)
@@ -343,6 +340,12 @@ Next, create a PostgreSQL Database and configure your container app to connect t
        --resource-group $RESOURCE_GROUP \
        --server-name $DB_SERVER_NAME \
        --name fruits
+   ```
+
+1. Install the [Service Connector](../service-connector/overview.md) passwordless extension for the Azure CLI:
+
+   ```azurecli
+   az extension add --name serviceconnector-passwordless --upgrade
    ```
 
 1. Connect the database to the container app with a system-assigned managed identity, using the connection command.

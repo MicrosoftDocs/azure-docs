@@ -5,8 +5,8 @@ description: Learn to deploy your AutoML model as a web service that's automatic
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-author: shohei1029
-ms.author:  shnagata
+author: dem108
+ms.author: sehan
 ms.reviewer: mopeakande
 ms.date: 05/11/2022
 ms.topic: how-to
@@ -168,10 +168,10 @@ After you create a deployment, you can score it as described in [Invoke the endp
 If you haven't installed Python SDK v2 yet, please install with this command:
 
 ```azurecli
-pip install --pre azure-ai-ml
+pip install azure-ai-ml
 ```
 
-For more information, see [Install the Azure Machine Learning SDK v2 for Python](/python/api/overview/azure/ml/installv2).
+For more information, see [Install the Azure Machine Learning SDK v2 for Python](/python/api/overview/azure/ai-ml-readme).
 
 ## Put the scoring file in its own directory
 
@@ -197,7 +197,7 @@ Create a directory called `src/` and place the scoring file you downloaded into 
 1. Configure workspace details and get a handle to the workspace:
 
     ```python
-    # enter details of your AzureML workspace
+    # enter details of your Azure Machine Learning workspace
     subscription_id = "<SUBSCRIPTION_ID>"
     resource_group = "<RESOURCE_GROUP>"
     workspace = "<AZUREML_WORKSPACE_NAME>"
