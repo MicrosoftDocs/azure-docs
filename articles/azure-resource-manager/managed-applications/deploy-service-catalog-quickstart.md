@@ -207,8 +207,7 @@ Get-AzManagedApplication -Name demoManagedApplication -ResourceGroupName applica
 Expand the properties to make it easier to read the `Properties` information.
 
 ```azurepowershell
-Get-AzManagedApplication -Name demoManagedApplication -ResourceGroupName applicationGroup |
-  Select-Object -ExpandProperty Properties
+Get-AzManagedApplication -Name demoManagedApplication -ResourceGroupName applicationGroup | Select-Object -ExpandProperty Properties
 ```
 
 # [Portal](#tab/azure-portal)
