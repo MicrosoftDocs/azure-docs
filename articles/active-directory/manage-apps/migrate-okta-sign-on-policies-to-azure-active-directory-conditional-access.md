@@ -69,7 +69,7 @@ Configure Conditional Access policies to match Okta conditions. However, in some
 
 
 * Okta network locations to named locations in Azure AD
-  *  [Using the location condition in a Conditional Access policy](/articles/active-directory/conditional-access/location-condition.md)
+  *  [Using the location condition in a Conditional Access policy](../conditional-access/location-condition.md)
 * Okta device trust to device-based Conditional Access (two options to evaluate user devices):
   * See the following section, **Hybrid Azure AD join configuration** to synchronize Windows devices, such as Windows 10, Windows Server 2016 and 2019, to Azure AD
   * See the following section, **Configure device compliance**
