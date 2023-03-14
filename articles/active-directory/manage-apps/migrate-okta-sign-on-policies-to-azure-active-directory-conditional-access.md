@@ -67,11 +67,14 @@ The Microsoft Office 365 application sign-on policy has four rules:
 
 Configure Conditional Access policies to match Okta conditions. However, in some scenarios, you might need more setup:
 
+
 * Okta network locations to named locations in Azure AD
   *  [Using the location condition in a Conditional Access policy](/articles/active-directory/conditional-access/location-condition.md#named-locations)
 * Okta device trust to device-based Conditional Access (two options to evaluate user devices):
-  * See the following section, **Hybrid Azure AD join configuration** to synchronize Windows devices, such as Windows 10, Windows Server 2016 and 2019, to Azure AD.
+  * See the following section, **Hybrid Azure AD join configuration** to synchronize Windows devices, such as Windows 10, Windows Server 2016 and 2019, to Azure AD
   * See the following section, **Configure device compliance**
+  * See, [Use hybrid Azure AD join](#hybrid-azure-ad-join-configuration), a feature in Azure AD Connect server that synchronizes Windows devices, such as Windows 10, Windows Server 2016, and Windows Server 2019, to Azure AD
+  * See, [Enroll the device in Microsoft Intune](#configure-device-compliance) and assign a compliance policy
 
 ### Hybrid Azure AD join configuration
 
@@ -96,7 +99,7 @@ To enable hybrid Azure AD join on your Azure AD Connect server, run the configur
 
 ### Configure device compliance
 
-Hybrid Azure AD join replaces Okta device trust on Windows. Conditional Access policies can include compliance for devices enrolled in Endpoint Manager:
+Hybrid Azure AD join is a replacement for Okta device trust on Windows. Conditional Access policies recognize compliance for devices enrolled in Microsoft Intune.
 
 #### Device compliance policy
 
@@ -141,7 +144,10 @@ Before you convert to Conditional Access, confirm the base MFA tenant settings f
     >[!NOTE]
     >See [Optimize reauthentication prompts and understand session lifetime for Azure AD MFA](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
 
+
 ## Build a Conditional Access policy
+
+To configure Conditional Access policies, see [Best practices for deploying and designing Conditional Access](../conditional-access/plan-conditional-access.md#conditional-access-policy-components).
 
 After you configure the prerequisites and established base settings, you can build Conditional Access policy. Policy can be targeted to an application, a test group of users, or both.
 

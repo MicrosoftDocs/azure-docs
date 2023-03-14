@@ -9,7 +9,7 @@ ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 12/12/2022
 ms.author: allensu
-ms.custom: template-how-to, engagement-fy23
+ms.custom: template-how-to, engagement-fy23, devx-track-azurepowershell
 ---
 
 # Assign multiple IP addresses to virtual machines using Azure PowerShell

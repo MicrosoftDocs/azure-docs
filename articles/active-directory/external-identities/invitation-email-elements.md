@@ -8,8 +8,8 @@ ms.subservice: B2B
 ms.topic: conceptual
 ms.date: 09/30/2022
 
-ms.author: mimart
-author: msmimart
+ms.author: cmulligan
+author: csmulligan
 manager: celestedg
 ms.custom: "it-pro, seo-update-azuread-jan"
 ms.collection: M365-identity-device-management

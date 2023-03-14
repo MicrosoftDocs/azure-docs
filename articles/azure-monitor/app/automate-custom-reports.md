@@ -2,7 +2,7 @@
 title: Automate custom reports with Application Insights data
 description: Automate custom daily, weekly, and monthly reports with Azure Monitor Application Insights data.
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 01/24/2023
 ms.reviewer: tilee
 ---
 
@@ -148,4 +148,4 @@ These steps only apply if you don't already have a SendGrid account configured.
 * Learn more about creating [Analytics queries](../logs/get-started-queries.md).
 * Learn more about [programmatically querying Application Insights data](/rest/api/application-insights/)
 * Learn more about [Logic Apps](../../logic-apps/logic-apps-overview.md).
-* Learn more about [Power Automate](https://ms.flow.microsoft.com).
+* Learn more about [Power Automate](https://make.powerautomate.com).

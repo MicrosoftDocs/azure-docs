@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rohithah, laveeshb, rarayudu, azla
 ms.topic: reference
-ms.date: 11/03/2022
+ms.date: 01/23/2023
 ---
 
 # Limits and configuration reference for Azure Logic Apps
@@ -496,11 +496,6 @@ If your workflow uses [managed connectors](../connectors/managed.md), such as th
 
 * [Adjust communication settings for the on-premises data gateway](/data-integration/gateway/service-gateway-communication)
 * [Configure proxy settings for the on-premises data gateway](/data-integration/gateway/service-gateway-proxy)
-
-> [!IMPORTANT]
-> If you're using [Microsoft Azure operated by 21Vianet](/azure/china/), managed connectors and custom connectors don't have reserved or fixed IP addresses. 
-> So, you can't set up firewall rules for logic apps that use these connectors in this cloud. For the Azure Logic Apps service IPs, review the 
-> [documentation version for Azure operated by 21Vianet](https://docs.azure.cn/en-us/logic-apps/logic-apps-limits-and-config#firewall-ip-configuration).
 
 <a name="ip-setup-considerations"></a>
 

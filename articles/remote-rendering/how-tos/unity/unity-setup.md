@@ -75,5 +75,6 @@ For an example how to set up and use `ARRServiceUnity` see [Tutorial: Viewing re
 
 ## Next steps
 
+* [Unity Render Pipelines](unity-render-pipelines.md)
 * [Install the Remote Rendering package for Unity](install-remote-rendering-unity-package.md)
 * [Tutorial: Viewing remotely rendered models](../../tutorials/unity/view-remote-models/view-remote-models.md)

@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 
 ms.service: api-management
-ms.topic: reference
+ms.topic: article
 ms.date: 12/08/2022
 ms.author: danlep
 ---
@@ -28,7 +28,7 @@ The policy inserts the policy fragment as-is at the location you select in the p
 
 | Attribute | Description                                                                                        | Required | Default |
 | --------- | -------------------------------------------------------------------------------------------------- | -------- | ------- |
-| fragment-id       | A string. Policy expression allowed. Specifies the identifier (name) of a policy fragment created in the API Management instance. | Yes      | N/A     |
+| fragment-id       | A string. Specifies the identifier (name) of a policy fragment created in the API Management instance. | Yes      | N/A     |
 
 ## Usage
 

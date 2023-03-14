@@ -14,16 +14,11 @@ To ensure proper functioning and performance of your security orchestration, aut
 
 Set up notifications of health events for relevant stakeholders, who can then take action. For example, define and send email or Microsoft Teams messages, create new tickets in your ticketing system, and so on.
 
-This article describes how to use Microsoft Sentinel's health monitoring features to keep track of your automation rules and playbooks' health from within Microsoft Sentinel.
+This article describes how to use Microsoft Sentinel's [health monitoring features](health-audit.md) to keep track of your automation rules and playbooks' health from within Microsoft Sentinel.
 
 ## Summary
 
-Automation health monitoring in Microsoft Sentinel has two parts:
 
-| Feature | Table | Coverage | Enable from |
-| - | - | - | - |
-| **Microsoft Sentinel automation health logs** | *SentinelHealth* | - Automation rules run<br>- Playbooks triggered | Microsoft Sentinel settings > Health monitoring |
-| **Azure Logic Apps diagnostics logs** | *AzureDiagnostics* | - Playbook run started/ended<br>- Playbook actions/triggers started/ended | Logic Apps resource > [Diagnostics settings](../azure-monitor/essentials/diagnostic-settings.md?tabs=portal#create-diagnostic-settings) |
 
 
 - **Microsoft Sentinel automation health logs:**
@@ -110,9 +105,8 @@ For **Playbook was triggered**, you may see the following statuses:
 
 ## Get the complete automation picture
 
-Microsoft Sentinel's health monitoring table allows you to track the triggering of playbooks, but to monitor what happens inside your playbooks and their results when they're run, you must also turn on **Azure Logic Apps diagnostics**.
+Microsoft Sentinel's health monitoring table allows you to track the triggering of playbooks, but to monitor what happens inside your playbooks and their results when they're run, you must also [turn on diagnostics in Azure Logic Apps](../logic-apps/monitor-workflows-collect-diagnostic-data.md) to ingest the following events to the *AzureDiagnostics* table:
 
-By [enabling Azure Logic Apps diagnostics](../logic-apps/monitor-logic-apps-log-analytics.md#set-up-azure-monitor-logs), you'll ingest the following events to the *AzureDiagnostics* table:
 - {Action name} started
 - {Action name} ended
 - Workflow (playbook) started
@@ -120,9 +114,9 @@ By [enabling Azure Logic Apps diagnostics](../logic-apps/monitor-logic-apps-log-
 
 These added events will give you additional insights into the actions being taken in your playbooks.
 
-### Turn on Logic Apps diagnostics
+### Turn on Azure Logic Apps diagnostics
 
-For each playbook you are interested in monitoring, [follow these steps](../logic-apps/monitor-logic-apps-log-analytics.md#set-up-azure-monitor-logs). Make sure to select **Send to Log Analytics workspace** as your log destination, and choose your Microsoft Sentinel workspace.
+For each playbook you are interested in monitoring, [enable Log Analytics for your logic app](../logic-apps/monitor-workflows-collect-diagnostic-data.md). Make sure to select **Send to Log Analytics workspace** as your log destination, and choose your Microsoft Sentinel workspace.
 
 ### Correlate Microsoft Sentinel and Azure Logic Apps logs
 
@@ -175,7 +169,8 @@ Select a particular run to see the results of the actions in the playbook.
 
 ## Next steps
 
-- Learn what [health monitoring in Microsoft Sentinel](health-audit.md) can do for you.
-- [Turn on health monitoring](enable-monitoring.md) in Microsoft Sentinel.
-- Monitor the health of your [data connectors](monitor-data-connector-health.md).
-- See more information about the [*SentinelHealth* table schema](health-table-reference.md).
+- Learn about [auditing and health monitoring in Microsoft Sentinel](health-audit.md).
+- [Turn on auditing and health monitoring](enable-monitoring.md) in Microsoft Sentinel.
+- [Monitor the health of your data connectors](monitor-data-connector-health.md).
+- [Monitor the health and integrity of your analytics rules](monitor-analytics-rule-integrity.md).
+- See more information about the [*SentinelHealth*](health-table-reference.md) and [*SentinelAudit*](audit-table-reference.md) table schemas.

@@ -14,8 +14,8 @@ The HPE ProLiant DL20 Gen10 Plus is also available for the on-premises managemen
 | Appliance characteristic |Details |
 |---------|---------|
 |**Hardware profile** | L500|
-|**Performance** | 	Max bandwidth: 200Mbp/s <br>Max devices: 1,000 <br>Up to 8x Monitoring ports|
-|**Physical specifications** | Mounting: 1U<br>Minimum dimensions ( H x W x D)1.70 x 17.11 x 15.05 in<br>Minimum dimensions ( H x W x D)4.32 x 43.46 x 38.22 cm|
+|**Performance** | 	Max bandwidth: 200 Mbps <br>Max devices: 1,000 <br>Up to 8x Monitoring ports|
+|**Physical specifications** | Mounting: 1U<br>Minimum dimensions (H x W x D) 1.70 x 17.11 x 15.05 in<br>Minimum dimensions (H x W x D) 4.32 x 43.46 x 38.22 cm|
 |**Status** | Supported; available pre-configured |
 
 The following image shows a sample of the HPE ProLiant DL20 Gen10 front panel:
@@ -35,7 +35,7 @@ The following image shows a sample of the HPE ProLiant DL20 Gen10 back panel:
 |Processor| Intel Xeon E-2334 <br> 3.4 GHz 4C 65 W|
 |Chipset|Intel C256|
 |Memory|1x 8-GB Dual Rank x8 DDR4-3200|
-|Storage|4x 1-TB SATA 6G Midline 7.2 K SFF (2.5 in) – RAID 1 |
+|Storage|2x 1-TB SATA 6G Midline 7.2 K SFF (2.5 in) – RAID 1 |
 |Network controller|On-board: 2x 1 Gb|
 |External| 1 x HPE Ethernet 1-Gb 4-port 366FLR Adapter|
 |On-board| iLO Port Card 1 Gb|
@@ -51,8 +51,8 @@ The following image shows a sample of the HPE ProLiant DL20 Gen10 back panel:
 |----|---|----|
 |1|	P44111-B21 | HPE DL20 Gen10+ NHP 2LFF CTO Server|
 |1|	P45252-B21 | Intel Xeon E-2334 FIO CPU for HPE|
-|2|	P28610-B21 | HPE 1TB SATA 7.2K SFF BC HDD|
-|1|	P43016-B21 | HPE 8GB 1Rx8 PC4-3200AA-E Standard Kit|
+|2|	P28610-B21 | HPE 1 TB SATA 7.2K SFF BC HDD|
+|1|	P43016-B21 | HPE 8 GB 1Rx8 PC4-3200AA-E Standard Kit|
 |1|	869079-B21 | HPE Smart Array E208i-a SR G10 LH Ctrlr (RAID10)|
 |1|	P21106-B21 | INT I350 1GbE 4p BASE-T Adapter|
 |1|	P45948-B21 | HPE DL20 Gen10+ RPS FIO Enable Kit|
@@ -73,15 +73,15 @@ Optional modules for port expansion include:
 
 |Location |Type|Specifications|
 |--------------|--------------|---------|
-| PCI Slot 1 (Low profile)  | DP F/O NIC |P26262-B21 - Broadcom BCM57414 Ethernet 10/25Gb 2-port SFP28 Adapter for HPE |
-| PCI Slot 1 (Low profile)  | DP F/O NIC |P28787-B21 - Intel X710-DA2 Ethernet 10Gb 2-port SFP+ Adapter for HPE |
-| PCI Slot 2 (High profile) | Quad Port Ethernet NIC| P21106-B21 - Intel I350-T4 Ethernet 1Gb 4-port BASE-T Adapter for HPE |
-| PCI Slot 2 (High profile) | DP F/O NIC |P26262-B21 - Broadcom BCM57414 Ethernet 10/25Gb 2-port SFP28 Adapter for HPE |
-| PCI Slot 2 (High profile) | DP F/O NIC |P28787-B21 - Intel X710-DA2 Ethernet 10Gb 2-port SFP+ Adapter for HPE |
+| PCI Slot 1 (Low profile)  | DP F/O NIC |P26262-B21 - Broadcom BCM57414 Ethernet 10/25 Gb 2-port SFP28 Adapter for HPE |
+| PCI Slot 1 (Low profile)  | DP F/O NIC |P28787-B21 - Intel X710-DA2 Ethernet 10 Gb 2-port SFP+ Adapter for HPE |
+| PCI Slot 2 (High profile) | Quad Port Ethernet NIC| P21106-B21 - Intel I350-T4 Ethernet 1 Gb 4-port BASE-T Adapter for HPE |
+| PCI Slot 2 (High profile) | DP F/O NIC |P26262-B21 - Broadcom BCM57414 Ethernet 10/25 Gb 2-port SFP28 Adapter for HPE |
+| PCI Slot 2 (High profile) | DP F/O NIC |P28787-B21 - Intel X710-DA2 Ethernet 10 Gb 2-port SFP+ Adapter for HPE |
 | SFPs for Fiber Optic NICs|MultiMode, Short Range|455883-B21 - HPE BLc 10G SFP+ SR Transceiver|
 | SFPs for Fiber Optic NICs|SingleMode, Long Range | 455886-B21 -  HPE BLc 10G SFP+ LR Transceiver|
 
-## HPE ProLiant HPE ProLiant DL20 Gen10 Plus installation
+## HPE ProLiant DL20 Gen10 Plus installation
 
 This section describes how to install Defender for IoT software on the HPE ProLiant DL20 Gen10 Plus appliance.
 
@@ -163,6 +163,8 @@ This procedure describes how to update the HPE BIOS configuration for your OT de
     :::image type="content" source="../media/tutorial-install-components/boot-override-window-one-v2.png" alt-text="Screenshot that shows the first Boot Override window.":::
 
     :::image type="content" source="../media/tutorial-install-components/boot-override-window-two-v2.png" alt-text="Screenshot that shows the second Boot Override window.":::
+
+[!INCLUDE [install iLO remotely from virtual drive and change timeout settings](../includes/ilo-remote-install-hpe.md)]
 
 ### Install Defender for IoT software on the HPE ProLiant DL20 Gen10 Plus
 

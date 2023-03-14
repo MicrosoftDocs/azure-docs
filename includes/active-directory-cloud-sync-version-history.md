@@ -12,13 +12,15 @@ This article lists the versions and features of Azure Active Directory Connect P
 ## Download link
 You can download the latest version of the agent using [this link](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/provisioningAgentInstaller).
 
+Get notified about when to revisit this page for updates by copying and pasting this URL: `https://aka.ms/cloudsyncrss` into your ![RSS feed reader icon](media/active-directory-cloud-sync-version-history/feed-icon-16x16.png) feed reader.
+
 ## 1.1.977.0
 
 Release date: September 23, 2022
 
 ### New or changed functionality
- - We added support for [cloud sync Self Service Password Reset](../articles/active-directory/authentication/tutorial-enable-cloud-sync-sspr-writeback.md) General Availablility.
- - WE added support for password writeback in disconnected forests.
+ - We added support for [cloud sync Self Service Password Reset](../articles/active-directory/authentication/tutorial-enable-cloud-sync-sspr-writeback.md) General Availability.
+ - We added support for password writeback in disconnected forests.
  
 ### Fixed issues
 
@@ -56,8 +58,8 @@ April 18, 2022 - released for download
 
 New features and improvements
 
- - We fix bug where granting logon as a service right to a gMSA would fail.
- - We updated the agent to honor the preferred Domain Controller list that is configured in the agent to also be used for the Self Service Password Reset feature.
+ - Fixed bug where granting logon as a service right to a gMSA would fail.
+ - Updated the agent to honor the preferred Domain Controller list that is configured in the agent to also be used for the Self Service Password Reset feature.
 
 ## 1.1.587.0
 

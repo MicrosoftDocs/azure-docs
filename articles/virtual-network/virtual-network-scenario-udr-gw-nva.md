@@ -1,22 +1,19 @@
 ---
-title: Hybrid connection with 2-tier application | Microsoft Docs
+title: Hybrid connection with 2-tier application
 description: Learn how to deploy virtual appliances and UDR to create a multi-tier application environment in Azure
 services: virtual-network
-documentationcenter: na
 author: asudbring
 manager: carmonm
-
-
 ms.assetid: 1f509bec-bdd1-470d-8aa4-3cf2bb7f6134
 ms.service: virtual-network
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: allensu
-
 ---
+
 # Virtual appliance scenario
+
 A common scenario among larger Azure customer is the need to provide a two-tiered application exposed to the Internet, while allowing access to the back tier from an on-premises datacenter. This document will walk you through a scenario using User Defined Routes (UDR), a VPN Gateway, and network virtual appliances to deploy a two-tier environment that meets the following requirements:
 
 * Web application must be accessible from the public Internet only.

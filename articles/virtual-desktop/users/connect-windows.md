@@ -27,6 +27,9 @@ Before you can access your resources, you'll need to meet the prerequisites:
   - Windows Server 2019
   - Windows Server 2016
   - Windows Server 2012 R2
+   
+   > [!IMPORTANT]
+   > Support for Windows 7 ended on January 10, 2023.
 
 - Download the Remote Desktop client installer, choosing the correct version for your device:
   - [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2068602) *(most common)*
@@ -38,6 +41,9 @@ Before you can access your resources, you'll need to meet the prerequisites:
 ## Install the Remote Desktop client
 
 Once you've downloaded the Remote Desktop client, you'll need to install it by following these steps:
+
+> [!TIP]
+> If you want to deploy the Remote Desktop client in an enterprise, you can use `msiexec` to install the MSI file. For more information, see [Enterprise deployment](client-features-windows.md#enterprise-deployment).
 
 1. Run the installer by double-clicking the file you downloaded.
 

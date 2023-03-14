@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Migrate web services from Bing Maps to Microsoft Azure Maps'
 description: Tutorial on how to migrate web services from Bing Maps to Microsoft Azure Maps.
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 10/28/2021
 ms.topic: tutorial
 ms.service: azure-maps
@@ -53,7 +53,7 @@ Azure Maps has several additional REST web services that may be of interest;
 * [Batch routing](/rest/api/maps/route/postroutedirectionsbatchpreview) – Allows up to 1,000 route requests to be made in a single batch over a period of time. Routes are calculated in parallel on the server for faster processing.
 * [Traffic](/rest/api/maps/traffic) Flow – Access real-time traffic flow data as both raster and vector tiles.
 * [Geolocation API](/rest/api/maps/geolocation/get-ip-to-location) – Get the location of an IP address.
-* [Weather Services](/rest/api/maps/weather) – Gain access to real-time and forecast weather data.
+* [Weather services](/rest/api/maps/weather) – Gain access to real-time and forecast weather data.
 
 Be sure to also review the following best practices guides:
 

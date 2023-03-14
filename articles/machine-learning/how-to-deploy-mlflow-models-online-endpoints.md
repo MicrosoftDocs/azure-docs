@@ -21,11 +21,11 @@ ms.custom: deploy, mlflow, devplatv2, no-code-deployment, devx-track-azurecli, c
 > * [v1](./v1/how-to-deploy-mlflow-models.md)
 > * [v2 (current version)](how-to-deploy-mlflow-models-online-endpoints.md)
 
-In this article, learn how to deploy your [MLflow](https://www.mlflow.org) model to an [online endpoint](concept-endpoints.md) for real-time inference. When you deploy your MLflow model to an online endpoint, you don't need to indicate a scoring script or an environment. This characteristic is usually referred as __no-code deployment__. 
+In this article, learn how to deploy your [MLflow](https://www.mlflow.org) model to an [online endpoint](concept-endpoints.md) for real-time inference. When you deploy your MLflow model to an online endpoint, you don't need to indicate a scoring script or an environment. This characteristic is referred as __no-code deployment__. 
 
 For no-code-deployment, Azure Machine Learning 
 
-* Dynamically installs Python packages provided in the `conda.yaml` file, this means the dependencies are installed during container runtime.
+* Dynamically installs Python packages provided in the `conda.yaml` file. Hence, dependencies are installed during container runtime.
 * Provides a MLflow base image/curated environment that contains the following items:
     * [`azureml-inference-server-http`](how-to-inference-server-http.md) 
     * [`mlflow-skinny`](https://github.com/mlflow/mlflow/blob/master/README_SKINNY.rst)
@@ -37,11 +37,11 @@ For no-code-deployment, Azure Machine Learning
 
 ## About this example
 
-This example shows how you can deploy an MLflow model to an online endpoint to perform predictions. This example uses an MLflow model based on the [Diabetes dataset](https://www4.stat.ncsu.edu/~boos/var.select/diabetes.html). This dataset contains ten baseline variables, age, sex, body mass index, average blood pressure, and six blood serum measurements obtained from n = 442 diabetes patients, as well as the response of interest, a quantitative measure of disease progression one year after baseline (regression).
+This example shows how you can deploy an MLflow model to an online endpoint to perform predictions. This example uses an MLflow model based on the [Diabetes dataset](https://www4.stat.ncsu.edu/~boos/var.select/diabetes.html). This dataset contains ten baseline variables, age, sex, body mass index, average blood pressure, and six blood serum measurements obtained from n = 442 diabetes patients. It also contains the response of interest, a quantitative measure of disease progression one year after baseline (regression).
 
-The model has been trained using an `scikit-learn` regressor and all the required preprocessing has been packaged as a pipeline, making this model an end-to-end pipeline that goes from raw data to predictions.
+The model was trained using an `scikit-learn` regressor and all the required preprocessing has been packaged as a pipeline, making this model an end-to-end pipeline that goes from raw data to predictions.
 
-The information in this article is based on code samples contained in the [azureml-examples](https://github.com/azure/azureml-examples) repository. To run the commands locally without having to copy/paste YAML and other files, clone the repo and then change directories to the `cli/endpoints/online` if you are using the Azure CLI or `sdk/endpoints/online` if you are using our SDK for Python.
+The information in this article is based on code samples contained in the [azureml-examples](https://github.com/azure/azureml-examples) repository. To run the commands locally without having to copy/paste YAML and other files, clone the repo, and then change directories to the `cli/endpoints/online` if you are using the Azure CLI or `sdk/endpoints/online` if you are using our SDK for Python.
 
 ```azurecli
 git clone https://github.com/Azure/azureml-examples --depth 1
@@ -58,15 +58,15 @@ Before following the steps in this article, make sure you have the following pre
 
 - An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 - Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the owner or contributor role for the Azure Machine Learning workspace, or a custom role allowing Microsoft.MachineLearningServices/workspaces/onlineEndpoints/*. For more information, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
-- You must have a MLflow model registered in your workspace. Particularly, this example will register a model trained for the [Diabetes dataset](https://www4.stat.ncsu.edu/~boos/var.select/diabetes.html).
+- You must have a MLflow model registered in your workspace. Particularly, this example registers a model trained for the [Diabetes dataset](https://www4.stat.ncsu.edu/~boos/var.select/diabetes.html).
 
-Additionally, you will need to:
+Additionally, you need to:
 
 # [Azure CLI](#tab/cli)
 
 - Install the Azure CLI and the ml extension to the Azure CLI. For more information, see [Install, set up, and use the CLI (v2)](how-to-configure-cli.md).
 
-# [Python (Azure ML SDK)](#tab/sdk)
+# [Python (Azure Machine Learning SDK)](#tab/sdk)
 
 - Install the Azure Machine Learning SDK for Python
     
@@ -86,7 +86,7 @@ Additionally, you will need to:
 
 # [Studio](#tab/studio)
 
-There are no additional prerequisites when working in Azure Machine Learning studio.
+There are no more prerequisites when working in Azure Machine Learning studio.
 
 ---
 
@@ -102,9 +102,9 @@ az account set --subscription <subscription>
 az configure --defaults workspace=<workspace> group=<resource-group> location=<location>
 ```
 
-# [Python (Azure ML SDK)](#tab/sdk)
+# [Python (Azure Machine Learning SDK)](#tab/sdk)
 
-The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, we'll connect to the workspace in which you'll perform deployment tasks.
+The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, we connect to the workspace in which you perform deployment tasks.
 
 1. Import the required libraries:
 
@@ -160,7 +160,7 @@ MODEL_NAME='sklearn-diabetes'
 az ml model create --name $MODEL_NAME --type "mlflow_model" --path "sklearn-diabetes/model"
 ```
 
-# [Python (Azure ML SDK)](#tab/sdk)
+# [Python (Azure Machine Learning SDK)](#tab/sdk)
 
 ```python
 model_name = 'sklearn-diabetes'
@@ -197,7 +197,7 @@ Alternatively, if your model was logged inside of a run, you can register it dir
 
 # [Azure CLI](#tab/cli)
 
-Use the Azure ML CLI v2 to create a model from a training job output. In the following example, a model named `$MODEL_NAME` is registered using the artifacts of a job with ID `$RUN_ID`. The path where the model is stored is `$MODEL_PATH`.
+Use the Azure Machine Learning CLI v2 to create a model from a training job output. In the following example, a model named `$MODEL_NAME` is registered using the artifacts of a job with ID `$RUN_ID`. The path where the model is stored is `$MODEL_PATH`.
 
 ```bash
 az ml model create --name $MODEL_NAME --path azureml://jobs/$RUN_ID/outputs/artifacts/$MODEL_PATH
@@ -206,7 +206,7 @@ az ml model create --name $MODEL_NAME --path azureml://jobs/$RUN_ID/outputs/arti
 > [!NOTE]
 > The path `$MODEL_PATH` is the location where the model has been stored in the run.
 
-# [Python (Azure ML SDK)](#tab/sdk)
+# [Python (Azure Machine Learning SDK)](#tab/sdk)
 
 ```python
 model_name = 'sklearn-diabetes'
@@ -251,9 +251,9 @@ version = registered_model.version
     
     __endpoint.yaml__
 
-    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/mlflow/create-endpoint.yaml":::
+    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/ncd/create-endpoint.yaml":::
 
-    # [Python (Azure ML SDK)](#tab/sdk)
+    # [Python (Azure Machine Learning SDK)](#tab/sdk)
 
     ```python
     endpoint_name = "sklearn-diabetes-" + datetime.datetime.now().strftime("%m%d%H%M%f")
@@ -295,9 +295,9 @@ version = registered_model.version
     
     # [Azure CLI](#tab/cli)
     
-    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-mlflow.sh" ID="create_endpoint":::
+    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-ncd.sh" ID="create_endpoint":::
 
-    # [Python (Azure ML SDK)](#tab/sdk)
+    # [Python (Azure Machine Learning SDK)](#tab/sdk)
     
     ```python
     ml_client.begin_create_or_update(endpoint)
@@ -322,9 +322,9 @@ version = registered_model.version
 
     __sklearn-deployment.yaml__
 
-    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/mlflow/sklearn-deployment.yaml":::
+    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/ncd/sklearn-deployment.yaml":::
 
-    # [Python (Azure ML SDK)](#tab/sdk)
+    # [Python (Azure Machine Learning SDK)](#tab/sdk)
 
     ```python
     blue_deployment = ManagedOnlineDeployment(
@@ -375,9 +375,9 @@ version = registered_model.version
     
     # [Azure CLI](#tab/cli)
     
-    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-mlflow.sh" ID="create_sklearn_deployment":::
+    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-ncd.sh" ID="create_sklearn_deployment":::
 
-    # [Python (Azure ML SDK)](#tab/sdk)
+    # [Python (Azure Machine Learning SDK)](#tab/sdk)
 
     ```python
     ml_client.online_deployments.begin_create_or_update(blue_deployment)
@@ -410,15 +410,13 @@ version = registered_model.version
 
         :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/review-screen-ncd.png" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/review-screen-ncd.png" alt-text="Screenshot showing NCD review screen":::
 
-1. Assign all the traffic to the deployment
-    
-    So far, the endpoint has one deployment, but none of its traffic is assigned to it. Let's assign it.
+1. Assign all the traffic to the deployment: So far, the endpoint has one deployment, but none of its traffic is assigned to it. Let's assign it.
 
     # [Azure CLI](#tab/cli)
     
-    *This step in not required in the Azure CLI since we used the `--all-traffic` during creation.*
+    *This step in not required in the Azure CLI since we used the `--all-traffic` during creation. If you need to change traffic, you can use the command `az ml online-endpoint update --traffic` as explained at [Progressively update traffic](how-to-deploy-mlflow-models-online-progressive.md#progressively-update-the-traffic).*
     
-    # [Python (Azure ML SDK)](#tab/sdk)
+    # [Python (Azure Machine Learning SDK)](#tab/sdk)
     
     ```python
     endpoint.traffic = { blue_deployment_name: 100 }
@@ -446,9 +444,9 @@ version = registered_model.version
 
     # [Azure CLI](#tab/cli)
     
-    *This step in not required in the Azure CLI since we used the `--all-traffic` during creation.*
+    *This step in not required in the Azure CLI since we used the `--all-traffic` during creation. If you need to change traffic, you can use the command `az ml online-endpoint update --traffic` as explained at [Progressively update traffic](how-to-deploy-mlflow-models-online-progressive.md#progressively-update-the-traffic).*
     
-    # [Python (Azure ML SDK)](#tab/sdk)
+    # [Python (Azure Machine Learning SDK)](#tab/sdk)
     
     ```python
     ml_client.begin_create_or_update(endpoint).result()
@@ -473,7 +471,7 @@ Once your deployment completes, your deployment is ready to serve request. One o
 
 **sample-request-sklearn.json**
 
-:::code language="json" source="~/azureml-examples-main/cli/endpoints/online/mlflow/sample-request-sklearn.json":::
+:::code language="json" source="~/azureml-examples-main/cli/endpoints/online/ncd/sample-request-sklearn.json":::
 
 > [!NOTE]
 > Notice how the key `input_data` has been used in this example instead of `inputs` as used in MLflow serving. This is because Azure Machine Learning requires a different input format to be able to automatically generate the swagger contracts for the endpoints. See [Differences between models deployed in Azure Machine Learning and MLflow built-in server](how-to-deploy-mlflow-models.md#differences-between-models-deployed-in-azure-machine-learning-and-mlflow-built-in-server) for details about expected input format.
@@ -482,9 +480,9 @@ To submit a request to the endpoint, you can do as follows:
 
 # [Azure CLI](#tab/cli)
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-mlflow.sh" ID="test_sklearn_deployment":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-ncd.sh" ID="test_sklearn_deployment":::
 
-# [Python (Azure ML SDK)](#tab/sdk)
+# [Python (Azure Machine Learning SDK)](#tab/sdk)
 
 ```python
 ml_client.online_endpoints.invoke(
@@ -545,45 +543,29 @@ You will typically select this workflow when:
 > If you choose to indicate an scoring script for an MLflow model deployment, you will also have to specify the environment where the deployment will run.
 
 > [!WARNING]
-> Customizing the scoring script for MLflow deployments is only available from the Azure CLI or SDK for Python. If you are creating a deployment using [Azure ML studio](https://ml.azure.com), please switch to the CLI or the SDK.
+> Customizing the scoring script for MLflow deployments is only available from the Azure CLI or SDK for Python. If you are creating a deployment using [Azure Machine Learning studio](https://ml.azure.com), please switch to the CLI or the SDK.
 
 ### Steps
 
 Use the following steps to deploy an MLflow model with a custom scoring script.
 
-1. Create a scoring script:
+1. Identify the folder where your MLflow model is placed.
+
+    a. Go to [Azure Machine Learning portal](https://ml.azure.com).
+
+    b. Go to the section __Models__.
+
+    c. Select the model you are trying to deploy and click on the tab __Artifacts__.
+
+    d. Take note of the folder that is displayed. This folder was indicated when the model was registered.
+
+    :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/mlflow-model-folder-name.png" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/mlflow-model-folder-name.png" alt-text="Screenshot showing the folder where the model artifacts are placed.":::
+
+1. Create a scoring script. Notice how the folder name `model` you identified before has been included in the `init()` function.
 
     __score.py__
 
-    ```python
-    import logging
-    import mlflow
-    import os
-    from io import StringIO
-    from mlflow.pyfunc.scoring_server import infer_and_parse_json_input, predictions_to_json
-
-    def init():
-        global model
-        global input_schema
-        # The path 'model' corresponds to the path where the MLflow artifacts where stored when
-        # registering the model using MLflow format.
-        model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'model')
-        model = mlflow.pyfunc.load_model(model_path)
-        input_schema = model.metadata.get_input_schema()
-    
-    def run(raw_data):
-        json_data = json.loads(raw_data)
-        if "input_data" not in json_data.keys():
-            raise Exception("Request must contain a top level key named 'input_data'")
-        
-        serving_input = json.dumps(json_data["input_data"])
-        data = infer_and_parse_json_input(raw_data, input_schema)
-        result = model.predict(data)
-        
-        result = StringIO()
-        predictions_to_json(raw_predictions, result)
-        return result.getvalue()
-    ```
+    :::code language="python" source="~/azureml-examples-main/cli/endpoints/online/ncd/sklearn-diabetes/src/score.py" highlight="14":::
 
     > [!TIP]
     > The previous scoring script is provided as an example about how to perform inference of an MLflow model. You can adapt this example to your needs or change any of its parts to reflect your scenario.
@@ -597,21 +579,7 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
 
     __conda.yml__
 
-    ```yaml
-    channels:
-    - conda-forge
-    dependencies:
-    - python=3.7.11
-    - pip
-    - pip:
-      - mlflow
-      - scikit-learn==0.24.1
-      - cloudpickle==2.0.0
-      - psutil==5.8.0
-      - pandas==1.3.5
-      - azureml-inference-server-http
-    name: mlflow-env
-    ```
+    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/ncd/sklearn-diabetes/environment/conda.yml":::
 
     > [!NOTE]
     > Note how the package `azureml-inference-server-http` has been added to the original conda dependencies file. 
@@ -622,7 +590,7 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
     
     *The environment will be created inline in the deployment configuration.*
     
-    # [Python (Azure ML SDK)](#tab/sdk)
+    # [Python (Azure Machine Learning SDK)](#tab/sdk)
     
     ```pythonS
     environment = Environment(
@@ -637,7 +605,7 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
 
     # [Studio](#tab/studio)
     
-    On [Azure ML studio portal](https://ml.azure.com), follow these steps:
+    On [Azure Machine Learning studio portal](https://ml.azure.com), follow these steps:
     
     1. Navigate to the __Environments__ tab on the side menu.
     1. Select the tab __Custom environments__ > __Create__.
@@ -663,9 +631,9 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
     model: azureml:sklearn-diabetes@latest
     environment: 
       image: mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04
-      conda_file: mlflow/sklearn-diabetes/environment/conda.yml
+      conda_file: sklearn-diabetes/environment/conda.yml
     code_configuration:
-      source: mlflow/sklearn-diabetes/src
+      code: sklearn-diabetes/src
       scoring_script: score.py
     instance_type: Standard_F2s_v2
     instance_count: 1
@@ -677,7 +645,7 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
     az ml online-deployment create -f deployment.yml
     ```
     
-    # [Python (Azure ML SDK)](#tab/sdk)
+    # [Python (Azure Machine Learning SDK)](#tab/sdk)
     
     ```python
     blue_deployment = ManagedOnlineDeployment(
@@ -701,7 +669,7 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
     # [Studio](#tab/studio)
     
     > [!IMPORTANT]
-    > You can't create custom MLflow deployments in Online Endpoints using the Azure Machine Learning portal. Switch to [Azure ML CLI](?tabs=azure-cli) or the [Azure ML SDK for Python](?tabs=python).
+    > You can't create custom MLflow deployments in Online Endpoints using the Azure Machine Learning portal. Switch to [Azure Machine Learning CLI](?tabs=azure-cli) or the [Azure Machine Learning SDK for Python](?tabs=python).
 
     ---
 
@@ -709,7 +677,7 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
 
     **sample-request-sklearn.json**
     
-    :::code language="json" source="~/azureml-examples-main/cli/endpoints/online/mlflow/sample-request-sklearn.json":::
+    :::code language="json" source="~/azureml-examples-main/cli/endpoints/online/ncd/sample-request-sklearn.json":::
 
     To submit a request to the endpoint, you can do as follows:
     
@@ -719,7 +687,7 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
     az ml online-endpoint invoke --name $ENDPOINT_NAME --request-file endpoints/online/mlflow/sample-request-sklearn-custom.json
     ```
     
-    # [Python (Azure ML SDK)](#tab/sdk)
+    # [Python (Azure Machine Learning SDK)](#tab/sdk)
     
     ```python
     ml_client.online_endpoints.invoke(
@@ -766,9 +734,9 @@ Once you're done with the endpoint, you can delete the associated resources:
 
 # [Azure CLI](#tab/cli)
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-mlflow.sh" ID="delete_endpoint":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-ncd.sh" ID="delete_endpoint":::
 
-# [Python (Azure ML SDK)](#tab/sdk)
+# [Python (Azure Machine Learning SDK)](#tab/sdk)
     
 ```python
 ml_client.online_endpoints.begin_delete(endpoint_name)

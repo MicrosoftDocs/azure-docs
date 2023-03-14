@@ -4,6 +4,7 @@ titlesuffix: Azure Virtual Network
 description: Learn what a network interface is and how to create, change settings for, and delete one.
 author: asudbring
 ms.service: virtual-network
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 09/15/2022
 ms.author: allensu
@@ -41,7 +42,7 @@ If you need to add, change, or remove IP addresses for a network interface, see 
 
     - The example network interface name used in this article is **myNIC**. Replace the example value with the name of your network interface.
     
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 - This how-to article requires version 2.31.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 

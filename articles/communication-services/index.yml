@@ -32,7 +32,7 @@ landingContent:
           - text: Create a Communication Services resource
             url: quickstarts/create-communication-resource.md
           - text: Create and manage user access tokens
-            url: quickstarts/access-tokens.md
+            url: quickstarts/identity/access-tokens.md
           - text: Get a relay token
             url: quickstarts/relay-token.md
       - linkListType: concept
@@ -57,8 +57,8 @@ landingContent:
             url: quickstarts/voice-video-calling/getting-started-with-calling.md
           - text: Add video calling to your app
             url: quickstarts/voice-video-calling/get-started-with-video-calling.md
-          - text: Add video calling to your Android WebView app
-            url: quickstarts/voice-video-calling/get-started-android-webview.md
+          - text: Add video calling to your WebView app
+            url: quickstarts/voice-video-calling/get-started-webview.md
       - linkListType: concept
         links:
           - text: Voice and video concepts

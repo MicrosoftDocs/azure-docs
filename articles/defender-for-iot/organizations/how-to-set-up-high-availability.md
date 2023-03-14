@@ -1,7 +1,7 @@
 ---
 title: Set up high availability
 description: Increase the resiliency of your Defender for IoT deployment by installing an on-premises management console high availability appliance. High availability deployments ensure your managed sensors continuously report to an active on-premises management console.
-ms.date: 06/12/2022 
+ms.date: 01/24/2023 
 ms.topic: how-to
 ---
 # About high availability
@@ -37,98 +37,90 @@ During failover, sensors continue attempts to communicate with the primary appli
 
 Sign back in to the primary appliance after redirection.
 
-## High availability setup overview
+## Prerequisites
 
-The installation and configuration procedures are performed in four main stages:
+Before you perform the procedures in this article, verify that you've met the following prerequisites:
 
-1. Install an on-premises management console primary appliance. 
+- Make sure that you have an [on-premises management console installed](./ot-deploy/install-software-on-premises-management-console.md) on both a primary appliance and a secondary appliance.
 
-1. Configure the on-premises management console primary appliance. For example, scheduled backup settings, VLAN settings. For more information, see [Manage the on-premises management console](how-to-manage-the-on-premises-management-console.md). All settings are applied to the secondary appliance automatically after pairing.
+    - Both your primary and secondary on-premises management console appliances must be running identical hardware models and software versions.
+    - You must be able to access to both the primary and secondary on-premises management consoles as a [privileged user](references-work-with-defender-for-iot-cli-commands.md), for running CLI commands. For more information, see [On-premises users and roles for OT monitoring](roles-on-premises.md).
 
-1. Install an on-premises management console secondary appliance. For more information, see [About the Defender for IoT Installation](how-to-install-software.md).
+- Make sure that the primary on-premises management console is fully [configured](how-to-manage-the-on-premises-management-console.md), including at least two [OT network sensors connected](how-to-manage-individual-sensors.md#connect-a-sensor-to-the-management-console) and visible in the console UI, and scheduled backups or VLAN settings. All settings are applied to the secondary appliance automatically after pairing.
 
-1. Pair the primary and secondary on-premises management console appliances. The primary on-premises management console must manage at least two sensors in order to carry out the setup. 
+- Make sure that your SSL/TLS certificates meet required criteria. For more information, see [Deploy OT appliance certificates](how-to-deploy-certificates.md).
 
-    For more information, see [Create the primary and secondary pair](#create-the-primary-and-secondary-pair).
+- Make sure that your organizational security policy grants you access to the following services, on the primary and secondary on-premises management console. These services also allow the connection between the sensors and secondary on-premises management console:
 
-## High availability requirements
-
-Verify that you've met the following high availability requirements:
-
-- [Certificate requirements](how-to-manage-the-on-premises-management-console.md#manage-certificates)
-
-- Software and hardware requirements
-
-- Network access requirements
-
-### Software and hardware requirements
-
-- Both the primary and secondary on-premises management console appliances must be running identical hardware models and software versions.
-
-- The high availability system can be set up by Defender for IoT users only, using CLI tools.
-
-### Network access requirements
-
-Verify if your organizational security policy allows you to have access to the following services, on the primary and secondary on-premises management console. These services also allow the connection between the sensors and secondary on-premises management console:
-
-|Port|Service|Description|
-|----|-------|-----------|
-|**443 or TCP**|HTTPS|Grants access to the on-premises management console web console.|
-|**22 or TCP**|SSH|Syncs the data between the primary and secondary on-premises management console appliances|
-|**123 or UDP**|NTP| The on-premises management console's NTP time sync. Verify that the active and passive appliances are defined with the same timezone.|
+    |Port|Service|Description|
+    |----|-------|-----------|
+    |**443 or TCP**|HTTPS|Grants access to the on-premises management console web console.|
+    |**22 or TCP**|SSH|Syncs the data between the primary and secondary on-premises management console appliances|
+    |**123 or UDP**|NTP| The on-premises management console's NTP time sync. Verify that the active and passive appliances are defined with the same timezone.|
 
 ## Create the primary and secondary pair
 
-Verify that both the primary and secondary on-premises management console appliances are powered on before starting the procedure.
+  > [!IMPORTANT]
+> Run commands with sudo only where indicated. If not indicated, do not run with sudo.
 
-### On the primary
+1. Power on both the primary and secondary on-premises management console appliances.
 
-1. Sign in to the management console.
+1. **On the secondary appliance**, use the following steps to copy the connection string to your clipboard:
 
-1. Select **System Settings** from the side menu.
+    1. Sign in to the secondary on-premises management console, and select **System Settings** on the left.
 
-1. Copy the Connection String.
+    1. In the **Sensor Setup - Connection String** area, under **Copy Connection String**, select the :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/eye-icon.png" border="false"::: button to view the full connection string.
 
-    :::image type="content" source="../media/how-to-set-up-high-availability/connection-string.png" alt-text="Copy the connection string to use in the following command.":::
+    1.  The connection string is composed of the IP address and the token. The IP address is before the colon, and the token is after the colon. Copy the IP address and token separately. For example, if your connection string is ```172.10.246.232:a2c4gv9de23f56n078a44e12gf2ce77f```, copy the IP address ```172.10.246.232``` and the token ```a2c4gv9de23f56n078a44e12gf2ce77f``` separately.
 
-1. Run the following command on the primary:
+        :::image type="content" source="media/how-to-set-up-high-availability/copy-connection-string-second-part.png" alt-text="Screenshot showing to copy each part of the connection string to use in the following command." lightbox="media/how-to-set-up-high-availability/copy-connection-string-second-part.png":::
 
+1. **On the primary appliance**, use the following steps to connect the secondary appliance to the primary via CLI:
+
+    1. Sign in to the primary on-premises management console via SSH to access the CLI, and then run:
+
+        ```bash
+        sudo cyberx-management-trusted-hosts-add -ip <Secondary IP> -token <Secondary token>
+        ```
+
+        where `<Secondary IP>` is the IP address of the secondary appliance and `<Secondary token>` is the second part of the connection string after the colon, which you'd copied to the clipboard earlier.
+        
+        For example:
+
+        ```sudo cyberx-management-trusted-hosts-add -ip 172.10.246.232 -token a2c4gv9de23f56n078a44e12gf2ce77f```
+
+        The IP address is validated, the SSL/TLS certificate is downloaded to the primary appliance, and all sensors that are connected to the primary appliance are connected to the secondary appliance.
+
+    1. Apply your changes on the primary appliance. Run:
+
+        ```bash
+        sudo cyberx-management-trusted-hosts-apply
+        ```
+    1. Verify that the certificate is installed correctly on the primary appliance. Run:
+
+        ```bash
+        cyberx-management-trusted-hosts-list
+        ```
+
+1. Allow the connection between the primary and secondary appliances' backup and restore process:
+
+    - **On the primary appliance**, run:
+    
+        ```bash
+        cyberx-management-deploy-ssh-key <secondary appliance IP address>
+        ```
+  
+    - **On the secondary appliance**, sign in via SSH to access the CLI, and run:
+
+        ```bash
+        cyberx-management-deploy-ssh-key <primary appliance IP address>
+        ```
+
+1. Verify that the changes have been applied on the secondary appliance. **On the secondary appliance**, run: 
+    
     ```bash
-    sudo cyberx-management-trusted-hosts-add -ip <Secondary IP> -token <connection string>
+    cyberx-management-trusted-hosts-list
     ```
-
-
-1. Enter the IP address of the secondary appliance in the ```<Secondary ip>``` field and select Enter. The IP address is then validated, and the SSL certificate is downloaded to the primary. Entering the IP address also associates the sensors to the secondary appliance.
-
-1. Run the following command on the primary to verify that the certificate is installed properly:
-
-    ```bash
-    sudo cyberx-management-trusted-hosts-apply
-    ```
-
-1. Run the following command on the primary. **Do not run with sudo.**
-
-    ```bash
-    cyberx-management-deploy-ssh-key <Secondary IP>
-    ```
-
-   This allows the connection between the primary and secondary appliances for backup and restoration purposes between them.
-
-1. Enter the IP address of the secondary and select Enter.
-
-### On the secondary
-
-1. Sign in to the CLI as a Defender for IoT user.
-
-1. Run the following command on the secondary. **Do not run with sudo**:
-
-    ```bash
-    cyberx-management-deploy-ssh-key <Primary ip>
-    ```
-
-    This allows the connection between the Primary and Secondary appliances for backup and restore purposes between them.
-
-1. Enter the IP address of the primary and press Enter.
 
 ### Track high availability activity
 
@@ -136,14 +128,14 @@ The core application logs can be exported to the Defender for IoT support team t
 
 **To access the core logs**:
 
-1. Select **Export** from the **System Settings** window.
+1. Sign into the on-premises management console and select **System Settings** > **Export**. For more information on exporting logs to send to the support team, see [Export logs from the on-premises management console for troubleshooting](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md#export-logs-from-the-on-premises-management-console-for-troubleshooting).
 
 ## Update the on-premises management console with high availability
 
 To update an on-premises management console that has high availability configured, you'll need to:
 
-1. Disconnect the high availability from both the primary and secondary appliances. 
-1. Update the appliances to the new version. 
+1. Disconnect the high availability from both the primary and secondary appliances.
+1. Update the appliances to the new version.
 1. Reconfigure the high availability back onto both appliances.
 
 Perform the update in the following order. Make sure each step is complete before you begin a new step.
@@ -162,7 +154,7 @@ Perform the update in the following order. Make sure each step is complete befor
 
     1. Find the domain associated with the secondary appliance and copy it to your clipboard. For example:
 
-        :::image type="content" source="media/how-to-set-up-high-availability/update-high-availability-domain.jpg" alt-text="Screenshot showing the domain associated with the secondary appliance.":::
+        :::image type="content" source="media/how-to-set-up-high-availability/update-high-availability-domain.jpg" alt-text="Screenshot showing the domain associated with the secondary appliance." lightbox="media/how-to-set-up-high-availability/update-high-availability-domain.jpg":::
 
     1. Remove the secondary domain from the list of trusted hosts. Run:
     

@@ -6,10 +6,10 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: tutorial
-ms.date: 01/07/2022
+ms.date: 02/03/2023
 
-ms.author: mimart
-author: msmimart
+ms.author: cmulligan
+author: csmulligan
 manager: CelesteDG
 ms.custom: "engagement-fy23, it-pro, seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
@@ -130,7 +130,7 @@ To complete the scenario in this tutorial, you need:
 ## Test your Conditional Access policy
 
 1. Use your test user name and password to sign in to your [Azure portal](https://portal.azure.com/).
-1. You should see a request for additional authentication methods. It can take some time for the policy to take effect.
+1. You should see a request for more authentication methods. It can take some time for the policy to take effect.
 
     :::image type="content" source="media/tutorial-mfa/mfa-required.PNG" alt-text="Screenshot showing the More information required message.":::
 

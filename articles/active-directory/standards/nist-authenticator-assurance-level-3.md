@@ -113,7 +113,7 @@ To meet the requirement for reauthentication, regardless of user activity, Micro
 
 Use NIST for compensating controls to confirm subscriber presence:
 
-* Set a session inactivity time out of 15 minutes: Lock the device at the OS level by using Microsoft Endpoint Configuration Manager, Group Policy Object (GPO), or Intune. For the subscriber to unlock it, require local authentication.
+* Set a session inactivity time out of 15 minutes: Lock the device at the OS level by using Microsoft Configuration Manager, Group Policy Object (GPO), or Intune. For the subscriber to unlock it, require local authentication.
 
 * Set timeout, regardless of activity, by running a scheduled task using Configuration Manager, GPO, or Intune. Lock the machine after 12 hours, regardless of activity.
 
