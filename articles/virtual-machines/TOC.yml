@@ -1952,16 +1952,11 @@
   - name: Move and migrate VMs
     items:
     - name: Change subscription or resource group
-      items:
-      - name: CLI
-        displayName: Change subscription or resource group
-        href: ./linux/move-vm.md
-      - name: PowerShell
-        displayName: Change subscription or resource group
-        href: ./windows/move-vm.md
-      - name: Change subscription for Marketplace VMs
-        displayName: Change subscription or resource group
-        href: azure-cli-change-subscription-marketplace.md
+      displayName: move migrate
+      href: ../azure-resource-manager/management/move-resource-group-and-subscription.md
+    - name: Change subscription for Marketplace VMs
+      displayName: offer plan sku marketplace
+      href: azure-cli-change-subscription-marketplace.md
     - name: Move VMs to another region
       href: ../site-recovery/azure-to-azure-tutorial-migrate.md?context=/azure/virtual-machines/context/context
     - name: Move to an availability zone
@@ -1970,15 +1965,8 @@
       href: move-region-maintenance-configuration.md
     - name: Move Maintenance Control configuration resources to another region
       href: move-region-maintenance-configuration-resources.md
-    - name: Migrate AWS and on-premises VMs
-      href: ./windows/on-prem-to-azure.md
-      items:
-      - name: Migrate from Amazon Web Services (AWS) to Azure
-        href: ./windows/aws-to-azure.md
-      - name: Upload on-premises VM
-        href: ./linux/upload-vhd.md
-      - name: Use Azure Site Recovery
-        href: ../site-recovery/migrate-overview.md?context=/azure/virtual-machines/context/context
+    - name: Migrate AWS VMs to Azure
+      href: /migrate/tutorial-migrate-aws-virtual-machines
 - name: Infrastructure automation
   items:
   - name: Overview

@@ -16,6 +16,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/virtual-machines/linux/move-vm.md",
+            "redirect_url": "/azure-resource-manager/management/move-resource-group-and-subscription#use-azure-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/move-vm.md",
+            "redirect_url": "/azure-resource-manager/management/move-resource-group-and-subscription",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/virtual-machines/windows/tutorial-load-balancer.md",
             "redirect_url": "/previous-versions/azure/virtual-machines/windows/tutorial-load-balancer",
             "redirect_document_id": false
