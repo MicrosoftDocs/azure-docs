@@ -63,16 +63,14 @@ DDoS Network Protection have the following limitations:
 - Scenarios in which a single VM is running behind a public IP isn't supported. 
 - Protected resources that include public IPs created from public IP address prefix aren't supported.
 
-For more information, see [Azure DDoS Protection reference architectures](./ddos-protection-reference-architectures.md).
-
 DDoS IP Protection is similar to Network Protection, but has the following additional limitations:
 
 - Public IP Basic SKU protection isn't supported. 
-- Protecting a public IP resource attached to a Public Load Balancer isn't supported.
 - Protecting a public IP resource attached to a Virtual Network Gateway and NAT Gateway isn't supported.
 
+For more information, see [Azure DDoS Protection reference architectures](./ddos-protection-reference-architectures.md).
 
 ## Next steps
 
-* [Quickstart: Create an Azure DDoS Protection Plan](manage-ddos-protection.md)
 * [Azure DDoS Protection features](ddos-protection-features.md)
+* [Azure DDoS Protection reference architectures](./ddos-protection-reference-architectures.md).
