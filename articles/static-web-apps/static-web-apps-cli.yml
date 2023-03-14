@@ -177,13 +177,10 @@ directCommands:
 
     To start your application with a [database connection](database-overview.md), use the `--data-api-location` parameter and point to the folder containing the *staticwebapp.database.config.json* file. 
 
-    ```azstatic-cli
-    swa start ./src --data-api-location swa-db-connections
-    ```
+      ```azstatic-cli
+      swa start ./src --data-api-location swa-db-connections
+      ```
 
-  syntax: >-
-    swa start
-              [--yes]
   examples:
   - summary: Start the application with defaults.
     syntax: swa start
