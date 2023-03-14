@@ -101,7 +101,6 @@
       items:
         - name: Train a TensorFlow image classification model
           href: tutorial-train-deploy-image-classification-model-vscode.md
-    # v1
     - name: Python get started (Day 1)
       items:
         - name: 1. Run a Python script
@@ -119,7 +118,6 @@
       items:
         - name: "Part 1: Train and deploy models"
           href: ./v1/tutorial-power-bi-custom-model.md
-    # end v1
 - name: Samples
   items:
     - name: Jupyter Notebooks
