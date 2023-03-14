@@ -39,6 +39,11 @@ The purpose of the configuration file is to:
 
 If you're using Azure Cosmos DB with GraphQL, you also need to provide a [`gql` schema file](https://github.com/Azure/data-api-builder/blob/main/docs/getting-started/getting-started-azure-cosmos-db.md).
 
+> [!NOTE]
+> Static Web Apps database connections requires a folder containing the configuration files.  This folder must contain the *staticwebapp.database.config.json* configuration file for all database types. For Cosmos DB for NoSQL databases, a *staticwebapp.database.schema.gql* schema file is also required. 
+> 
+> By convention, this folder is named *swa-db-connections* and placed at the root of the repository. This convention can be overridden with a [custom-configuration-folder](#custom-configuration-folder).
+
 ## Sample configuration file
 
 The following sample configuration file shows you how to connect to an Azure SQL database and expose both REST and GraphQL endpoints. For full details on the configuration file and its supported features, refer to the [Data API Builder documentation](https://github.com/Azure/data-api-builder/blob/main/docs/configuration-file.md).

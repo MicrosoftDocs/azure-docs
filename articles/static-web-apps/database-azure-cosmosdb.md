@@ -68,7 +68,7 @@ Create a sample table and seed it with sample data to match the tutorial.
 
 1. Enter the Container ID of `MyTestPersonContainer`.
 
-1. Enter a partition key of `Id` (this value is prefixed with `/`).
+1. Enter a partition key of `id` (this value is prefixed with `/`).
 
 1. Select **OK**.
 
@@ -183,7 +183,7 @@ Next, create the configuration file that your static web app uses to interface w
 
     ```gql
     type Person @model {
-      Id: Id
+      id: ID
       Name: String
     }
     ```
@@ -315,7 +315,7 @@ async function list() {
       {
         people {
           items {
-            Id
+            id
             Name
           }
         }
@@ -342,7 +342,7 @@ Refresh the page and select the **List** button.
 
 The browser's console window now displays a table that lists all the records in the database.
 
-| ID | Name |
+| id | Name |
 |---|---|
 | 1 | Sunny |
 | 2 | Dheeraj |
@@ -388,7 +388,7 @@ async function get() {
 
 In this example:
 
-* The GraphQL query selects the `Id` and `Name` fields from the database.
+* The GraphQL query selects the `id` and `Name` fields from the database.
 * The request passed to the server requires a payload where the `query` property holds the query definition.
 * Data in the response payload is found in the `data.person_by_pk` property.
 
@@ -396,7 +396,7 @@ Refresh the page and select the **Get** button.
 
 The browser's console window now displays a table listing the single record requested from the database.
 
-| ID | Name |
+| id | Name |
 |---|---|
 | 1 | Sunny |
 
@@ -414,8 +414,8 @@ async function update() {
 
   const gql = `
     mutation update($id: Int!, $item: UpdatePersonInput!) {
-      updatePerson(Id: $id, item: $item) {
-        Id
+      updatePerson(id: $id, item: $item) {
+        id
         Name
       }
     }`;
@@ -442,7 +442,7 @@ async function update() {
 
 In this example:
 
-* The GraphQL query selects the `Id` and `Name` fields from the database.
+* The GraphQL query selects the `id` and `Name` fields from the database.
 * The `query` object holds the GraphQL query in the `query` property.
 * The argument values to the GraphQL function are passed in via the `query.variables` property.
 * The request passed to the server requires a payload where the `query` property holds the query definition.
@@ -452,7 +452,7 @@ Refresh the page and select the **Update** button.
 
 The browser's console window now displays a table showing the updated data.
 
-| ID | Name |
+| id | Name |
 |---|---|
 | 1 | Molly |
 
@@ -464,13 +464,14 @@ Add the following code between the `script` tags in *index.html*.
 async function create() {
 
   const data = {
+    id: "6",
     Name: "Pedro"
   };
 
   const gql = `
     mutation create($item: CreatePersonInput!) {
       createPerson(item: $item) {
-        Id
+        id
         Name
       }
     }`;
@@ -496,7 +497,7 @@ async function create() {
 
 In this example:
 
-* The GraphQL query selects the `Id` and `Name` fields from the database.
+* The GraphQL query selects the `id` and `Name` fields from the database.
 * The `query` object holds the GraphQL query in the `query` property.
 * The argument values to the GraphQL function are passed in via the `query.variables` property.
 * The request passed to the server requires a payload where the `query` property holds the query definition.
@@ -506,7 +507,7 @@ Refresh the page and select the **Create** button.
 
 The browser's console window now displays a table showing the new record in the database.
 
-| ID | Name |
+| id | Name |
 |---|---|
 | 3 | Pedro |
 
@@ -521,8 +522,8 @@ async function del() {
 
   const gql = `
     mutation del($id: Int!) {
-      deletePerson(Id: $id) {
-        Id
+      deletePerson(id: $id) {
+        id
       }
     }`;
 
