@@ -87,13 +87,13 @@ landingContent:
       - linkListType: deploy
         links:
           - text: Multicloud monitoring
-            url: best-practices-multicloud
+            url: best-practices-multicloud.md
           - text: Migrate to Azure Monitor Logs
-            url: ./logs/migrate-splunk-to-azure-monitor-logs
+            url: ./logs/migrate-splunk-to-azure-monitor-logs.md
           - text: Monitor virtual machines
-            url: ./vm/monitor-virtual-machine
+            url: ./vm/monitor-virtual-machine.md
           - text: Monitor containers
-            url: ./containers/container-insights-overview
+            url: ./containers/container-insights-overview.md
 
   # Card
   - title: Training
