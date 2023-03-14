@@ -27,7 +27,7 @@ You can also mount your own persistent storage to not only Azure Spring Apps but
   - [Create Azure Spring Apps Consumption Plan (Standard Gen2)](./create-asa-standard-gen2.md)
   - [Build and deploy Spring apps](./create-and-deploy-apps.md)
 
-## Step 1: Set up the environment
+## Set up the environment
 
 Set the following variables to the names of your resources and current region setting.
 
@@ -39,7 +39,7 @@ SPRING_APPS_NAME="<Azure-Spring-Apps-instance-name>"
 APP_NAME="<Spring-app-name>"
 ```
 
-## Step 2: Set up a storage account
+## Set up a storage account
 
 Create a storage account and establish a file share to mount to the Spring app.
 
@@ -92,7 +92,7 @@ Create a storage account and establish a file share to mount to the Spring app.
 
 The storage account key is required to create the storage link in your Azure Container Apps Environment.
 
-## Step 3: Link the storage to the managed environment
+## Link the storage to the managed environment
 
 1. Define the storage mount name.
 
@@ -116,7 +116,7 @@ The storage account key is required to create the storage link in your Azure Con
 
 Now that the storage account and environment are linked, you can use the storage mount in your Azure Spring Apps instance.
 
-## Step 4: Add storage to an app
+## Add storage to an app
 
 Add the persistent storage to your existing app.
 
@@ -131,3 +131,5 @@ az spring app append-persistent-storage \
 ```
 
 ## Next steps
+
+- [Azure Spring Apps](./index.yml)
