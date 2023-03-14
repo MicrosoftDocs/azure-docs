@@ -219,7 +219,7 @@ To configure your DMS migration project, perform the following steps.
     > Alternately, if you were performing an online migration, you would select the **Enable Transactional Consistency** check box on the Select source screen. For more information about consistent backup, see [MySQL Consistent Backup](./migrate-azure-mysql-consistent-backup.md).
 
 2. Navigate back to your migration project configuration screen and on the **Select source** screen, specify the connection details for the source MySQL instance.
-       :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/dms-offline-migration-wizard.png" alt-text="Screenshot of an Add source details screen.":::
+       :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/offline-migration-wizard-updated.png" alt-text="Screenshot of an Add source details screen.":::
 
 3. Select **Next : Select target>>**, and then, on the **Select target** screen, specify the connection details for the target flexible server.
        :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/15-select-target.png" alt-text="Screenshot of a Select target.":::
