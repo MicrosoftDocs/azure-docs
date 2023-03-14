@@ -63,7 +63,7 @@ Before you begin the tutorial:
   >
   > Nevertheless, the login migration process can be performed at any time, to update the user mapping synchronization for recently migrated databases.
 
-- For Windows accounts, ensure that the target SQL managed instance has Azure Active Directory read access. This option can be configured via the Azure portal by a user with the Global Administrator role. For more information, see [Provision Azure AD admin (SQL Managed Instance)](/sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-managed-instance).
+- For Windows accounts, ensure that the target SQL managed instance has Azure Active Directory read access. This option can be configured via the Azure portal by a user with the Global Administrator role. For more information, see [Provision Azure AD admin (SQL Managed Instance)](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-managed-instance).
 
   Domain federation between local Active Directory Domain Services (AD DS) and Azure Active Directory (Azure AD) has to be set up by an administrator. This configuration is required so that the on-premises Windows users can be synced with the company Azure AD. The login migrations process would then be able to create an external login for the corresponding Azure AD user in the target managed instance. 
   
