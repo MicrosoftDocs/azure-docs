@@ -37,15 +37,15 @@ Follow this procedure to learn how set up diagnostic log events from Azure VPN G
 
 2. Find your VPN gateway on the Monitor > Diagnostics settings blade.
 
-:::image type="content" source="./media/troubleshoot-vpn-with-azure-diagnostics/setup_step2.png " alt-text="Diagnostic settings blade." lightbox="./media/troubleshoot-vpn-with-azure-diagnostics/setup_step2.png":::
+:::image type="content" source="./media/troubleshoot-vpn-with-azure-diagnostics/setup_step2.png " alt-text="Screenshot of the Diagnostic settings blade." lightbox="./media/troubleshoot-vpn-with-azure-diagnostics/setup_step2.png":::
 
 3. Select the gateway and click on "Add Diagnostic Setting".
 
-:::image type="content" source="./media/troubleshoot-vpn-with-azure-diagnostics/setup_step3.png " alt-text="Add diagnostic setting interface." lightbox="./media/troubleshoot-vpn-with-azure-diagnostics/setup_step3.png":::
+:::image type="content" source="./media/troubleshoot-vpn-with-azure-diagnostics/setup_step3.png " alt-text="Screenshot of the Add diagnostic setting interface." lightbox="./media/troubleshoot-vpn-with-azure-diagnostics/setup_step3.png":::
 
-4. Fill in the diagnostic setting name, select all the log categories and choose the Log Analytics Workspace  
+4. Fill in the diagnostic setting name, select all the log categories and choose the Log Analytics Workspace.
 
-:::image type="content" source="./media/troubleshoot-vpn-with-azure-diagnostics/setup_step4.png " alt-text="Add diagnostic setting details." lightbox="./media/troubleshoot-vpn-with-azure-diagnostics/setup_step4.png":::
+:::image type="content" source="./media/troubleshoot-vpn-with-azure-diagnostics/setup_step4.png " alt-text="Detailed screenshot of the Add diagnostic setting properties." lightbox="./media/troubleshoot-vpn-with-azure-diagnostics/setup_step4.png":::
 
    > [!NOTE]
    > It may take a few hours for the data to show up initially.
