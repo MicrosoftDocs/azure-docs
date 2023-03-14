@@ -201,7 +201,7 @@ Upon Azure Machine Learning extension deployment completes, you can use `kubectl
 Update, list, show and delete an Azure Machine Learning extension.
 
 - For AKS cluster without Azure Arc connected, refer to  [Usage of AKS extensions](../aks/cluster-extensions.md#usage-of-cluster-extensions).
-- For Azure Arc-enabled Kubernetes, refer to [Usage of cluster extensions](../azure-arc/kubernetes/extensions.md#usage-of-cluster-extensions).
+- For Azure Arc-enabled Kubernetes, refer to [Deploy and manage Azure Arc-enabled Kubernetes cluster extensions](../azure-arc/kubernetes/extensions.md).
 
 
 ## Next steps
