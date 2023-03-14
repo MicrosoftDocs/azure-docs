@@ -15,7 +15,7 @@ ms.author: jeedes
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with GitHub Enterprise Cloud - Enterprise Account
 
-In this tutorial, you'll learn how to integrate GitHub Enterprise Cloud - Enterprise Account with Azure Active Directory (Azure AD). When you integrate GitHub Enterprise Cloud - Enterprise Account with Azure AD, you can:
+In this tutorial, you'll learn how to setup an Azure Active Directory (Azure AD) SAML integration with a GitHub Enterprise Cloud - Enterprise Account. When you integrate GitHub Enterprise Cloud - Enterprise Account with Azure AD, you can:
 
 * Control in Azure AD who has access to a GitHub Enterprise Account and any organizations within the Enterprise Account.
 
@@ -30,10 +30,12 @@ To get started, you need the following items:
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in a test environment.
+In this tutorial, you will configure a SAML integration for a GitHub Enterprise Account, and test enterprise account owner and enterprise/organization member authentication and access. 
+
+> [!NOTE]
+> The GitHub `Enterprise Cloud - Enterprise Account` application does not support enabling [automatic SCIM provisioning](https://learn.microsoft.com/en-us/azure/active-directory/fundamentals/sync-scim). If you need to setup provisioning for your GitHub Enterprise Cloud environment, SAML must be configured at the organization level and the `GitHub Enterprise Cloud - Organization` Azure AD application must be used instead. If you are setting up a SAML and SCIM provisioning integration for an enterprise that is enabled for [Enterprise Managed Users (EMUs)](https://docs.github.com/en/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users), then you must use the `GitHub Enterprise Managed User` Azure AD application for SAML/Provisioning integrations or the `GitHub Enterprise Managed User (OIDC)` Azure AD application for OIDC/Provisioning integrations. 
 
 * GitHub Enterprise Cloud - Enterprise Account supports **SP** and **IDP** initiated SSO.
-* GitHub Enterprise Cloud - Enterprise Account supports **Just In Time** user provisioning.
 
 ## Adding GitHub Enterprise Cloud - Enterprise Account from the gallery
 
