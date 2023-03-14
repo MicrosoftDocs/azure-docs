@@ -14,8 +14,8 @@ This article is part one in a six-part tutorial series. The tutorial covers:
 > [!div class="checklist"]
 > * Caching for ACR (preview) 
 > * Enable Caching for ACR - Azure portal
-> * Enable Caching for ACR - Azure CLI
 > * Enable Caching for ACR with authentication - Azure portal
+> * Enable Caching for ACR - Azure CLI
 > * Enable Caching for ACR with authentication - Azure CLI
 > * Troubleshooting guide for Caching for ACR
 
