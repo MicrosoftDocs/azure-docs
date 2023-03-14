@@ -17,8 +17,6 @@ zone_pivot_groups: acs-js-csharp
 
 Learn to use a classification policy in Job Router to dynamically resolve the queue and priority while also attaching worker selectors to a Job.
 
-[!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
-
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 

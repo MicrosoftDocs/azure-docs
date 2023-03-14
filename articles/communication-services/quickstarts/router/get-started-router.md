@@ -104,7 +104,7 @@ var queue = await routerAdministrationClient.CreateQueueAsync(
 
 ## Submit a job
 
-Now, we can submit a job directly to that queue, with a worker selector the requires the worker to have the label `Some-Skill` greater than 10.
+Now, we can submit a job directly to that queue, with a worker selector that requires the worker to have the label `Some-Skill` greater than 10.
 
 ```csharp
 var job = await routerClient.CreateJobAsync(
@@ -127,7 +127,7 @@ var job = await routerClient.CreateJobAsync(
 
 ## Create a worker
 
-Now, we create a worker to receive work from that queue, with a label of `Some-Skill` equal to 11 and capacity on `my-channel`.  Inorder for the worker to receive offers make sure that the property **AvailableForOffers** is set to **true**.
+Now, we create a worker to receive work from that queue, with a label of `Some-Skill` equal to 11 and capacity on `my-channel`.  In order for the worker to receive offers make sure that the property **AvailableForOffers** is set to **true**.
 
 ```csharp
 var worker = await routerClient.CreateWorkerAsync(
@@ -154,7 +154,7 @@ var worker = await routerClient.CreateWorkerAsync(
 
 ### Offer
 
-We should get a [RouterWorkerOfferIssued][offer_issued_event] from our [EventGrid subscription][subscribe_events].
+We should get a [RouterWorkerOfferIssued][offer_issued_event] from our [Event Grid subscription][subscribe_events].
 However, we could also wait a few seconds and then query the worker directly against the JobRouter API to see if an offer was issued to it.
 
 ```csharp

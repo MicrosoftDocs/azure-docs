@@ -14,8 +14,6 @@ ms.service: azure-communication-services
 
 # Azure function rule engine
 
-[!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
-
 As part of the customer extensibility model, Azure Communication Services Job Router supports an Azure Function based rule engine. It gives you the ability to bring your own Azure function. With Azure Functions, you can incorporate custom and complex logic into the process of routing.
 
 ## Creating an Azure function

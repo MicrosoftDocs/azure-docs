@@ -16,8 +16,6 @@ ms.custom: template-how-to
 
 This guide shows you how to escalate a Job in a Queue by using an Exception Policy.
 
-[!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
-
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 

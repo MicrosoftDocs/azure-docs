@@ -16,8 +16,6 @@ ms.custom: template-how-to
 
 This guide outlines the steps to create and manage a Job Router queue.
 
-[!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
-
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
