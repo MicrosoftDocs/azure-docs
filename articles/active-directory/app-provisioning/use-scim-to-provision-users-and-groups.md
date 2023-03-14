@@ -18,7 +18,7 @@ As an application developer, you can use the System for Cross-Domain Identity Ma
 
 ![Provisioning from Azure AD to an app with SCIM](media/use-scim-to-provision-users-and-groups/scim-provisioning-overview.png)
 
-SCIM 2.0 is a standardized definition of two endpoints: a `/Users` endpoint and a `/Groups` endpoint. It uses common REST API endpoints to create, update, and delete objects. The SCIM consists of a pre-defined schema for common attributes like group name, username, first name, last name and email. 
+SCIM 2.0 is a standardized definition of two endpoints: a `/Users` endpoint and a `/Groups` endpoint. It uses common REST API endpoints to create, update, and delete objects. The SCIM consists of a predefined schema for common attributes like group name, username, first name, last name and email. 
 
 Apps that offer a SCIM 2.0 REST API can reduce or eliminate the pain of working with a proprietary user management API. For example, any compliant SCIM client knows how to make an HTTP POST of a JSON object to the `/Users` endpoint to create a new user entry. Instead of needing a slightly different API for the same basic actions, apps that conform to the SCIM standard can instantly take advantage of pre-existing clients, tools, and code. 
 
