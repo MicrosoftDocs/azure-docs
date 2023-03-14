@@ -97,7 +97,7 @@ sections:
       - question: |
           Can I create locally redundant storage, geo-redundant storage, and zone-redundant storage managed disks?
         answer: |
-          Azure Managed Disks currently supports only locally redundant storage and zone-redundant storage managed disks. For details, see [Redundancy options for managed disks](disks-redundancy.md).
+          Azure managed disks currently supports only locally redundant storage and zone-redundant storage managed disks. For details, see [Redundancy options for managed disks](disks-redundancy.md).
 
       - question: |
           Can I shrink or downsize my managed disks?
@@ -142,12 +142,12 @@ sections:
         answer: |
           Azure disk reservation provides the option to purchase Premium SSDs in the specified SKUs from P30 (1 TiB) up to P80 (32 TiB) for a one-year term. There is no limitation on the minimum amount of disks necessary to purchase a disk reservation. Additionally, you can choose to pay with a single, upfront payment or monthly payments. There is no additional transactional cost applied for Premium SSD Managed Disks.    
           
-          Reservations are made in the form of disks, not capacity. In other words, when you reserve a P80 (32 TiB) disk, you get a single P80 disk, you cannot then divide that specific reservation up into two smaller P70 (16 TiB) disks. You can, of course, reserve as many or as few disks as you like, including two separate P70 (16 TiB) disks.
+          Reservations are made in the form of disks, not capacity. In other words, when you reserve a P80 (32 TiB) disk, you get a single P80 disk, you can't then divide that specific reservation up into two smaller P70 (16 TiB) disks. You can reserve as many or as few disks as you like, including two separate P70 (16 TiB) disks.
           
       - question: |
           How is Azure disk reservation applied?    
         answer: |
-          Disks reservation follows a model similar to reserved virtual machine (VM) instances. The difference being that a disk reservation cannot be applied to different SKUs, while a VM instance can. See [Save costs with Azure Reserved VM Instances](./prepay-reserved-vm-instances.md) for more information on VM instances.     
+          Disks reservation follows a model similar to reserved virtual machine (VM) instances. The difference is that a disk reservation can't be applied to different SKUs, while a VM instance can. See [Save costs with Azure Reserved VM Instances](./prepay-reserved-vm-instances.md) for more information on VM instances.     
           
       - question: |
           Can I use my data storage purchased through Azure disks reservation across multiple regions?    
@@ -194,12 +194,12 @@ sections:
       - question: |
           Can I copy snapshots in an order other than their order of creation to another region?
         answer: |
-          No, snapshots must be copied to other regions in creation order.
+          No. Snapshots must be copied to other regions in creation order.
       
       - question: |
           If a source incremental snapshot is deleted before a copy across regions completes, what happens?
         answer: |
-          The copy will fail.
+          The copy fails.
       
       - question: |
           Are managed snapshots and images encrypted?
@@ -214,7 +214,7 @@ sections:
       - question: |
           What happens if I have multiple incremental snapshots and delete one of them?
         answer: |
-          Deleting one of your incremental snapshots does not affect subsequent incremental snapshots. The system merges the data occupied by the first snapshot with the next snapshot under the hood to ensure that the subsequent snapshots are not impacted due to the deletion of the first snapshot.
+          Deleting one of your incremental snapshots doesn't affect subsequent incremental snapshots. The system merges the data occupied by the first snapshot with the next snapshot under the hood to ensure that the subsequent snapshots are not impacted due to the deletion of the first snapshot.
           
   - name: Azure shared disks
     questions:
@@ -227,7 +227,7 @@ sections:
       - question: |
           If I have an existing disk, can I enable shared disks on it?
         answer: |
-          All managed disks created with API version 2019-07-01 or higher can enable shared disks. To do this, you need to unmount the disk from all VMs that it is attached to. Next, edit the **maxShares** property on the disk.
+          All managed disks created with API version 2019-07-01 or higher can enable shared disks. To do this, you need to unmount the disk from all VMs that it is attached to. Then, edit the **maxShares** property on the disk.
 
       - question: |
           If I no longer want to use a disk in shared mode, how do I disable it?
@@ -329,7 +329,7 @@ sections:
           Yes, backups work seamlessly.
 
       - question: |
-          What changes are required in a pre-existing Azure Disks Encryption configuration prior/after migration to Managed Disks?
+          What changes are required in a pre-existing Azure Disks Encryption configuration prior/after migration to managed disks?
         answer: |
           No changes are required.
 
@@ -430,7 +430,7 @@ sections:
       - question: |
           Are there transaction costs to use Premium SSD disks?
         answer: |
-          There is a fixed cost for each disk size, which comes provisioned with specific limits on IOPS and throughput. The other costs are outbound bandwidth and snapshot capacity, if applicable. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/managed-disks/).
+          There is a fixed cost for each disk size, which comes provisioned with specific limits on IOPS and throughput. The other costs are outbound bandwidth, snapshot capacity, and costs associated with [on-demand bursting](disk-bursting.md#billing), if applicable. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/managed-disks/).
           
       - question: |
           What are the limits for IOPS and throughput that I can get from the disk cache?
@@ -461,7 +461,7 @@ sections:
           The partition type that Azure supports for Gen2 operating system disks is GUID Partition Table (GPT). Gen2 VMs support up to a 4 TiB OS disk. Azure supports up to 32 TiB for managed data disks.
           
       - question: |
-          What is the largest Unmanaged Disk size supported for operating system and data disks?
+          What is the largest umanaged Disk size supported for operating system and data disks?
         answer: |
           The partition type that Azure supports for an operating system disk using unmanaged disks is the master boot record (MBR).  While you can allocate up to a 4 TiB OS disk, the MBR partition type can only use up to 2 TiB of this disk space for the operating system. Azure supports up to 4 TiB for Unmanaged data disks.
           
@@ -545,10 +545,10 @@ sections:
       - question: |
           How many exports or imports using the same disk access object can happen at the same time?
         answer: |
-          5
+          Five.
 
       - question: |
-          Can I use a SAS URI of a disk/snapshot to download the underlying VHD of a VM in the same subnet as the subnet of the private endpoint associated with the disk?
+          Can I use the SAS URI of a disk or snapshot to download the underlying VHD of a VM in the same subnet as the subnet of the private endpoint associated with the disk?
         answer: |
           Yes.
 
