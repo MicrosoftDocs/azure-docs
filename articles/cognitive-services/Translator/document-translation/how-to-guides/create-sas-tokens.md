@@ -70,6 +70,7 @@ Go to the [Azure portal](https://portal.azure.com/#home) and navigate to your co
     * When you create a shared access signature (SAS), the default duration is 48 hours. After 48 hours, you'll need to create a new token.
     * Consider setting a longer duration period for the time you'll be using your storage account for Translator Service operations.
     * The value for the expiry time is a maximum of seven days from the creation of the SAS token.
+    * There's no maximum time limit imposed by Azure on the expiry of a SAS URL, however, it's recommended to configure an expiration policy for shared access signatures on your storage accounts.https://learn.microsoft.com/en-us/azure/storage/common/sas-expiration-policy
 
 1. The **Allowed IP addresses** field is optional and specifies an IP address or a range of IP addresses from which to accept requests. If the request IP address doesn't match the IP address or address range specified on the SAS token, it won't be authorized.
 
