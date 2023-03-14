@@ -58,16 +58,18 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
-          - text: .NET
-            url: app/asp-net.md
-          - text: .NET Core
-            url: app/asp-net-core.md
-          - text: Node.js
-            url: ./app/nodejs-quick-start.md
-          - text: Mobile
-            url: https://github.com/Microsoft/appcenter
-          - text: Website
-            url: app/website-monitoring.md
+          - text: Application Insights overview
+            url: app/app-insights-overview.md
+          - text: Create a resource
+            url: app/create-workspace-resource.md
+          - text: Auto-instrumentation overview
+            url: app/codeless-overview.md
+          - text: Application Dashboard
+            url: app/overview-dashboard.md
+          - text: Availability tests
+            url: app/availability-overview.md
+          - text: Application map
+            url: app/app-map.md
 
   # Card 
   - title: 10-minute quickstarts
@@ -106,8 +108,6 @@ landingContent:
             url: /training/modules/configure-azure-monitor/
           - text: Analyze logs in Azure Monitor with KQL
             url: /training/modules/analyze-logs-with-kql/
-          - text: Add the Application Insights SDK to your server-side code
-            url: /training/modules/instrument-web-app-code-with-application-insights/
           - text: Monitor performance of virtual machines by using Azure Monitor VM Insights
             url: /training/modules/monitor-performance-using-azure-monitor-for-vms/
           - text: Visualize data combined from multiple data sources by using Azure Workbooks
