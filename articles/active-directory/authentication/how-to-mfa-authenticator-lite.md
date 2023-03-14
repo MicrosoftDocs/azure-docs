@@ -1,6 +1,6 @@
 ---
 title: How to enable Authenticator Lite for Microsoft Outlook
-description: Learn about how to you can set up Authenticator Lite for Microsoft Outlook to help users validate their identity when they use email
+description: Learn about how to you can set up Authenticator Lite for Microsoft Outlook to help users validate their identity
 
 services: active-directory
 ms.service: active-directory
@@ -9,7 +9,8 @@ ms.topic: conceptual
 ms.date: 03/14/2023
 
 ms.author: justinha
-author: mjsantani
+author: sabina-smith
+ms.reviewer: sabina-smith
 manager: amycolannino
 
 ms.collection: M365-identity-device-management

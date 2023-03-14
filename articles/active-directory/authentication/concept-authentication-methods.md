@@ -66,7 +66,7 @@ The following table outlines when an authentication method can be used during a 
 |--------------------------------|:----------------------:|:-------------------------:|
 | Windows Hello for Business     | Yes                    | MFA\*                     |
 | Microsoft Authenticator        | Yes                    | MFA and SSPR              |
-| Authenticator Lite             | Yes                    | MFA                       |
+| Authenticator Lite             | No                     | MFA                       |
 | FIDO2 security key             | Yes                    | MFA                       |
 | Certificate-based authentication | Yes                  | No                        |
 | OATH hardware tokens (preview) | No                     | MFA and SSPR              |
