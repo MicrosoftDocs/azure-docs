@@ -6,7 +6,7 @@ ms.workload: storage
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 03/13/2023
+ms.date: 03/15/2023
 ---
 # NFS FAQs for Azure NetApp Files
 
@@ -51,6 +51,7 @@ For example, if a client mounting a volume becomes unresponsive or crashes beyon
 A grace period defines a period of special processing in which clients can try to reclaim their locking state during a server recovery. The default timeout for the leases is 30 seconds with a grace period of 45 seconds. After that time, the client's lease will be released. 
 
 Azure NetApp Files also supports [breaking file locks](troubleshoot-file-locks.md).
+
 
 ## Why is the `.snapshot` directory not visible in an NFSv4.1 volume, but it's visible in an NFSv3 volume?
 

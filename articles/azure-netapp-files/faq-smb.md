@@ -6,7 +6,7 @@ ms.workload: storage
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 03/13/2023
+ms.date: 03/15/2023
 ---
 # SMB FAQs for Azure NetApp Files
 
