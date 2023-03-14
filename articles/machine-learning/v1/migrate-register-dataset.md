@@ -14,7 +14,7 @@ ms.date: 09/28/2022
 
 # Migrate a Studio (classic) dataset to Azure Machine Learning
 
-[!INCLUDE [ML Studio (classic) retirement](../../includes/machine-learning-studio-classic-deprecation.md)]
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
 
 In this article, you learn how to migrate a Studio (classic) dataset to Azure Machine Learning. For more information on migrating from Studio (classic), see [the migration overview article](migrate-overview.md).
 
@@ -27,12 +27,12 @@ You have three options to migrate a dataset to Azure Machine Learning. Read each
 |Cloud storage     | Option 2: [Register a dataset from a cloud source](#import-data-from-cloud-sources). <br><br>  Option 3: [Use the Import Data module to get data from a cloud source](#import-data-from-cloud-sources).        |
 
 > [!NOTE]
-> Azure Machine Learning also supports [code-first workflows](./v1/how-to-create-register-datasets.md) for creating and managing datasets. 
+> Azure Machine Learning also supports [code-first workflows](how-to-create-register-datasets.md) for creating and managing datasets. 
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- An Azure Machine Learning workspace. [Create workspace resources](quickstart-create-resources.md).
+- An Azure Machine Learning workspace. [Create workspace resources](../quickstart-create-resources.md).
 - A Studio (classic) dataset to migrate.
 
 
@@ -82,7 +82,7 @@ After you download the data file, you can register it as a data asset in Azure M
 1. Navigate to [Azure Machine Learning studio](https://ml.azure.com)
 
 1. Under __Assets__ in the left navigation, select __Data__. On the Data assets tab, select Create
-:::image type="content" source="./media/how-to-create-data-assets/data-assets-create.png" alt-text="Screenshot highlights Create in the Data assets tab.":::
+:::image type="content" source="./media/migrate-register-dataset/data-assets-create.png" alt-text="Screenshot highlights Create in the Data assets tab.":::
 
 1. Give your data asset a name and optional description. Then, select the **Tabular** option under **Type**, in the **Dataset types** section of the dropdown.
     > [!NOTE]
@@ -91,7 +91,7 @@ After you download the data file, you can register it as a data asset in Azure M
 
 1. For data source, select the "From local files" option to upload your dataset.
 
-1. For file selection, first choose where you want your data to be stored in Azure. You will be selecting an Azure Machine Learning datastore. For more information on datastores, see [Connect to storage services](v1/how-to-access-data.md). Next, upload the dataset you downloaded earlier.
+1. For file selection, first choose where you want your data to be stored in Azure. You will be selecting an Azure Machine Learning datastore. For more information on datastores, see [Connect to storage services](how-to-access-data.md). Next, upload the dataset you downloaded earlier.
 
 1. Follow the steps to set the data parsing settings and schema for your data asset.
 
@@ -120,9 +120,9 @@ If your data is already in a cloud storage service, and you want to keep your da
 
 Use the following steps to register a dataset to Azure Machine Learning from a cloud service: 
 
-1. [Create a datastore](v1/how-to-connect-data-ui.md#create-datastores), which links the cloud storage service to your Azure Machine Learning workspace. 
+1. [Create a datastore](how-to-connect-data-ui.md#create-datastores), which links the cloud storage service to your Azure Machine Learning workspace. 
 
-1. [Register a dataset](v1/how-to-connect-data-ui.md#create-data-assets). If you are migrating a Studio (classic) dataset, select the **Tabular** dataset setting.
+1. [Register a dataset](how-to-connect-data-ui.md#create-data-assets). If you are migrating a Studio (classic) dataset, select the **Tabular** dataset setting.
 
 After you register a dataset in Azure Machine Learning, you can use it in designer:
  
@@ -134,9 +134,9 @@ After you register a dataset in Azure Machine Learning, you can use it in design
 
 Use the following steps to import data directly to your designer pipeline:
 
-1. [Create a datastore](v1/how-to-connect-data-ui.md#create-datastores), which links the cloud storage service to your Azure Machine Learning workspace. 
+1. [Create a datastore](how-to-connect-data-ui.md#create-datastores), which links the cloud storage service to your Azure Machine Learning workspace. 
 
-After you create the datastore, you can use the [**Import Data**](algorithm-module-reference/import-data.md) module in the designer to ingest data from it:
+After you create the datastore, you can use the [**Import Data**](../algorithm-module-reference/import-data.md) module in the designer to ingest data from it:
 
 1. Create a new designer pipeline draft.
 1. In the module palette to the left, find the **Import Data** module and drag it to the canvas.
