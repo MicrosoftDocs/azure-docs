@@ -160,7 +160,7 @@ To view a task's history of runs along with their statuses, inputs, outputs, and
 
    The **Logic app run** pane opens and shows the underlying workflow that ran.
 
-   * A workflow always starts with a [*trigger*](../connectors/apis-list.md#triggers). For this task, the workflow starts with the [**Recurrence** trigger](../connectors/connectors-native-recurrence.md).
+   * A workflow always starts with a [*trigger*](../connectors/introduction.md#triggers). For this task, the workflow starts with the [**Recurrence** trigger](../connectors/connectors-native-recurrence.md).
 
    * Each step shows its status and run duration. Steps that have 0-second durations took less than 1 second to run.
 
@@ -266,7 +266,7 @@ When you change the underlying workflow for an automation task, your changes aff
 
    ![Screenshot that shows the expanded Recurrence trigger with the Frequency list open to show available frequency options.](./media/create-automation-tasks-azure-resources/edit-recurrence-trigger.png)
 
-   For more information about the Recurrence trigger, see [Create, schedule, and run recurring tasks and workflows with the Recurrence trigger.](../connectors/connectors-native-recurrence.md). For more information about other triggers and actions that you can use, see [Connectors for Azure Logic Apps](../connectors/apis-list.md).
+   For more information about the Recurrence trigger, see [Create, schedule, and run recurring tasks and workflows with the Recurrence trigger.](../connectors/connectors-native-recurrence.md).
 
 1. To save your changes, on the designer toolbar, select **Save**.
 
