@@ -140,7 +140,7 @@ Invoke-AzKeyVaultKeyRotation -VaultName <vault-name> -Name <key-name>
 
 ## Configure key near expiry notification
 
-Configuration of expiry notification for Event Grid key near expiry event. You can configure notification with days, months and years before expiry to trigger near expiry event. 
+Configuration of expiry notification for Event Grid key near expiry event. In case when automated rotation cannot be used, like when a key is imported from local HSM, near expiry notification can be used as a reminder for manual rotation or as a trigger to custom automated rotation through integration with Event Grid. You can configure notification with days, months and years before expiry to trigger near expiry event. 
 
 :::image type="content" source="../media/keys/key-rotation/key-rotation-5.png" alt-text="Configure Notification":::
 
