@@ -43,31 +43,7 @@ A glossary is a list of terms with definitions that you create for the Document 
 
 1. **Specify your glossary in the translation request.** Include the **`glossary URL`**, **`format`**, and **`version`** in your **`POST`** request:
 
-   ```json
-     {
-      "inputs": [
-          {
-              "source": {
-                  "sourceUrl": "https://my.blob.core.windows.net/source-en?sv=2019-12-12&st=2021-03-05T17%3A45%3A25Z&se=2021-03-13T17%3A45%3A00Z&sr=c&sp=rl&sig=SDRPMjE4nfrH3csmKLILkT%2Fv3e0Q6SWpssuuQl1NmfM%3D"
-              },
-              "targets": [
-                  {
-                      "targetUrl": "https://my.blob.core.windows.net/target-fr?sv=2019-12-12&st=2021-03-05T17%3A49%3A02Z&se=2021-03-13T17%3A49%3A00Z&sr=c&sp=wdl&sig=Sq%2BYdNbhgbq4hLT0o1UUOsTnQJFU590sWYo4BOhhQhs%3D",
-                      "language": "fr",
-                      "glossaries": [
-                          {
-                              "glossaryUrl": "https://my.blob.core.windows.net/glossaries/en-fr.tsv?sv=2019-12-12&st=2021-03-05T17%3A45%3A25Z&se=2021-03-13T17%3A45%3A00Z&sr=c&sp=rl&sig=BsciG3NWoOoRjOYesTaUmxlXzyjsX4AgVkt2AsxJ9to%3D",
-                              "format": "tsv",
-                              "version": "1.2"
-                          }
-                      ]
-  
-                  }
-              ]
-          }
-      ]
-     }
-   ```
+      :::code language="json" source="../../../../../cognitive-services-rest-samples/curl/Translator/translate-with-glossary.json" range="1-23" highlight="13-15":::
 
 ### Case sensitivity
 
