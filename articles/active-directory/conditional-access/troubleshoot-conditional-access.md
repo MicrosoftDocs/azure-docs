@@ -114,5 +114,5 @@ If you're locked out of the Azure portal due to an incorrect setting in a Condit
 ## Next steps
 
 - [Use the What If tool to troubleshoot Conditional Access policies](what-if-tool.md)
-- [Sign-in activity reports in the Azure Active Directory portal](../reports-monitoring/concept-sign-ins.md)
+- [Sign-in activity reports in the Azure portal](../reports-monitoring/concept-sign-ins.md)
 - [Troubleshooting Conditional Access using the What If tool](troubleshoot-conditional-access-what-if.md)

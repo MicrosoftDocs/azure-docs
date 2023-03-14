@@ -357,6 +357,9 @@
         - name: Attach and Manage a Synapse Spark pool
           displayName: Attach and Manage a Synapse Spark pool
           href: how-to-manage-synapse-spark-pool.md
+        - name: Reference checkpoint performance with Nebula
+          displayName: Reference checkpoint performance with Nebula
+          href: reference-checkpoint-performance-with-nebula.md
     - name: AKS and Azure Arc-enabled Kubernetes
       items:
         - name: What is Kubernetes compute target
@@ -708,6 +711,8 @@
       items:
         - name: Setup MLOps with Azure DevOps
           href: how-to-setup-mlops-azureml.md
+        - name: Setup MLOps with GitHub
+          href: how-to-setup-mlops-github-azure-ml.md
         - name: Manage models
           href: how-to-manage-models.md
         - name: Automation
