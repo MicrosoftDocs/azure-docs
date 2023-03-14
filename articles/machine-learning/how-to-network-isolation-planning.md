@@ -40,7 +40,7 @@ In this diagram, you have a hub and spoke network architecture. The spoke VNet h
 
 ### DNS resolution of private link resources and application on compute instance
 
-If you have your own DNS server hosted in Azure or on-premises, you need to create a conditional forwarder in your DNS server. The conditional forwarder sends DNS requests to the Azure DNS for all private link enabled PaaS services. For more information, see the [DNS configuration scenarios](/azure/private-link/private-endpoint-dns#dns-configuration-scenarios) and [Azure Machine Learning specific DNS configuration](how-to-custom-dns.md) articles.
+If you have your own DNS server hosted in Azure or on-premises, you need to create a conditional forwarder in your DNS server. The conditional forwarder sends DNS requests to the Azure DNS for all private link enabled PaaS services. For more information, see the [DNS configuration scenarios](../private-link/private-endpoint-dns.md#dns-configuration-scenarios) and [Azure Machine Learning specific DNS configuration](how-to-custom-dns.md) articles.
 
 ### Data exfiltration protection
 
@@ -52,7 +52,7 @@ You can mitigate this data exfiltration risk using [our data exfiltration preven
 
 In this diagram, the compute instance and cluster need to access Azure Machine Learning managed storage accounts to get set-up scripts. Instead of opening the outbound to storage, you can use service endpoint policy with Azure Machine Learning alias to allow the storage access only to Azure Machine Learning storage accounts.
 
-The following tables list the required outbound [Azure Service Tags](/azure/virtual-network/service-tags-overview) and fully qualified domain names (FQDN) with data exfiltration protection setting:
+The following tables list the required outbound [Azure Service Tags](../virtual-network/service-tags-overview.md) and fully qualified domain names (FQDN) with data exfiltration protection setting:
 
 | Outbound service tag | Protocol | Port |
 | ---- | ---- | ---- |
@@ -121,7 +121,7 @@ You can automate this environments creation using [a template](tutorial-create-s
 
 ### Removing firewall requirement
 
-If you want to remove the firewall requirement, you can use network security groups and [Azure virtual network NAT](/azure/virtual-network/nat-gateway/nat-overview) to allow internet outbound from your private computing resources.
+If you want to remove the firewall requirement, you can use network security groups and [Azure virtual network NAT](../virtual-network/nat-gateway/nat-overview.md) to allow internet outbound from your private computing resources.
 
 :::image type="content" source="media/how-to-network-isolation-planning/recommended-network-diagram-no-firewall.png" alt-text="Diagram of the recommended network architecture without a firewall.":::
 
@@ -143,7 +143,7 @@ This diagram shows the recommended architecture to make all resources private an
 
 :::image type="content" source="media/how-to-network-isolation-planning/recommended-network-data-exfiltration.png" alt-text="Diagram of recommended network with data exfiltration protection configuration.":::
 
-The following tables list the required outbound [Azure Service Tags](/azure/virtual-network/service-tags-overview) and fully qualified domain names (FQDN) with data exfiltration protection setting:
+The following tables list the required outbound [Azure Service Tags](../virtual-network/service-tags-overview.md) and fully qualified domain names (FQDN) with data exfiltration protection setting:
 
 | Outbound service tag | Protocol | Port |
 | ---- | ----- | ---- |

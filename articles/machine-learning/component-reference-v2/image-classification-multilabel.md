@@ -22,7 +22,7 @@ Multi-label image classification is a computer vision task where the goal is to 
 
 ## How to configure 
 
-[Follow this link](/azure/machine-learning/reference-automl-images-cli-multilabel-classification) for a full list of configurable parameters of this component.
+[Follow this link](../reference-automl-images-cli-multilabel-classification.md) for a full list of configurable parameters of this component.
 
 [Follow this link](/machine-learning/reference-automl-images-cli-multilabel-classification) for a full list of configurable parameters of this component.
 
@@ -48,4 +48,4 @@ AutoML runs a number of trials (specified in `max_trials`) in parallel (`specifi
 
 ## Next steps
 
-See the [set of components available](../component-reference/component-reference.md) to Azure Machine Learning. 
+See the [set of components available](../component-reference/component-reference.md) to Azure Machine Learning.
