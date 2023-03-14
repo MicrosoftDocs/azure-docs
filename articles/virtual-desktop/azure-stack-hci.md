@@ -56,7 +56,7 @@ Create a new virtual machine with a supported operating system on your Azure Sta
 
 ### Step 2: Install Connected Machine agent on the virtual machine
 
-To manage the new VM from Azure via Azure Arc, install the Connected Machine agent on the VM. For step-by-step instructions on how to install the Windows agent on the VM, see [Connect hybrid machines with Azure Arc-enabled servers](/azure/azure-arc/servers/learn/quick-enable-hybrid-vm).
+To manage the new VM from Azure via Azure Arc, install the Connected Machine agent on the VM. For step-by-step instructions on how to install the Windows agent on the VM, see [Connect hybrid machines with Azure Arc-enabled servers](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
 
 ### Step 3: Deploy a custom template
 
