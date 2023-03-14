@@ -41,7 +41,7 @@ Checkpoints can help deal with these problems. Periodic checkpoints snapshot the
 
 When large model training operations experience failures and terminations, data scientists and researchers can restore the training process from a previously saved checkpoint. Unfortunately, the process between the checkpoint and the termination itself is wasted, because the computation must re-execute operations to cover the unsaved, intermediate results. Shorter checkpoint intervals could solve this problem. The following diagram shows the time cost to restore a training process from checkpoints:
 
-:::image type="content" source="./media/reference-checkpoint-performance-with-nebula/checkpoint-time-flow-diagram.png" lightbox="./media/reference-checkpoint-performance-with-nebula/checkpoint-time-flow-diagram.png" alt-text="Screenshot that shows the time cost to restore a training process from checkpoints.":::
+:::image type="content" source="./media/reference-checkpoint-performance-for-large-models/checkpoint-time-flow-diagram.png" lightbox="./media/reference-checkpoint-performance-for-large-models/checkpoint-time-flow-diagram.png" alt-text="Screenshot that shows the time cost to restore a training process from checkpoints.":::
 
 However, the checkpoint saves process itself generates large overheads. A TB-sized checkpoint save can often become a training process bottleneck. The synchronized checkpoint process blocks the training process for hours. Checkpoint-related overheads can take up 12% of total training time, on average, and can rise to 43% [(Maeng et al., 2021)](https://cs.stanford.edu/people/trippel/pubs/cpr-mlsys-21.pdf).
 
@@ -55,7 +55,7 @@ Nebula can
 
 * **Boost checkpoint speeds as much as 1000 times** with a simple API that asynchronously works with your training process. Nebula can reduce checkpoint times from hours to seconds - a potential reduction of 95% to 99%.
 
-  :::image type="content" source="media/reference-checkpoint-performance-with-nebula/nebula-checkpoint-time-savings.png" lightbox="media/reference-checkpoint-performance-with-nebula/nebula-checkpoint-time-savings.png" alt-text="Screenshot that shows the time savings benefit of Nebula.":::
+  :::image type="content" source="media/reference-checkpoint-performance-for-large-models/nebula-checkpoint-time-savings.png" lightbox="media/reference-checkpoint-performance-for-large-models/nebula-checkpoint-time-savings.png" alt-text="Screenshot that shows the time savings benefit of Nebula.":::
 
   This example shows the checkpoint and end-to-end training time reduction for four checkpoint saves of Huggingface GPT2, GPT2-Large, and GPT-XL training jobs. For the medium-sized Huggingface GPT2-XL checkpoint saves (20.6 GB), Nebula achieved a 96.9% time reduction for one checkpoint.
   
@@ -112,7 +112,7 @@ Nebula provides APIs to handle checkpoint saves. You can use these APIs in your 
 ### View your checkpointing histories
 When your training job finishes, navigate to the Job `Name> Outputs + logs` pane. In the left panel, expand the **Nebula** folder, and select `checkpointHistories.csv` to see detailed information about Nebula checkpoint saves - duration, throughput, and checkpoint size.
 
-:::image type="content" source="./media/reference-checkpoint-performance-with-nebula/checkpoint-save-metadata.png" lightbox="./media/reference-checkpoint-performance-with-nebula/checkpoint-save-metadata.png" alt-text="Screenshot that shows metadata about the checkpoint saves.":::
+:::image type="content" source="./media/reference-checkpoint-performance-for-large-models/checkpoint-save-metadata.png" lightbox="./media/reference-checkpoint-performance-for-large-models/checkpoint-save-metadata.png" alt-text="Screenshot that shows metadata about the checkpoint saves.":::
 
 ## Examples
 
