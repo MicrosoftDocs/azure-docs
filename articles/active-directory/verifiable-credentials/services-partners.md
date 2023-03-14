@@ -12,7 +12,7 @@ ms.author: barclayn
 
 # Entra Verified ID Services partners
 
-Our Services partner network extends and accelerates Microsoft Entra Verified ID adoption. Service partners offers advisory, implementation, integration and managed service capabilities that can help you build seamless end-user experiences using Entra Verified ID.
+Our Services partner network extends and accelerates Microsoft Entra Verified ID adoption. Service partners offer advisory, implementation, integration and managed service capabilities that can help you build seamless end-user experiences using Entra Verified ID.
 
 ## Services partner list
 
