@@ -56,7 +56,7 @@ The following diagram illustrates user flows with session information.
 
 1. The user browses to the web service, which returns HTML, CSS, or JavaScript values, then loads the BioCatch JavaScript SDK. Client-side JavaScript configures a client session ID for the BioCatch SDK. Alternately, the web service pre-configures client session ID and sends it to the client. You can configure the instantiated BioCatch JavaScript SDK for BioCatch, which sends user behavior to BioCatch from the client device, using the client session ID.
 2. User signs-up or signs-in and is redirected to Azure AD B2C. 
-3. The user journey includes a self-asserted claimsprovider, which inputs the client session ID. This field is hidden. Use JavaScript to input the session ID into the field. Select **Next**, to continue sign-up or sign-in. The session ID goes to BioCatch for a risk score. BioCatch returns session information, and recommends allow or block. The user journey has a conditional check, which acts upon the returned claims.
+3. The user journey includes a self-asserted claims provider, which inputs the client session ID. This field is hidden. Use JavaScript to input the session ID into the field. Select **Next**, to continue sign-up or sign-in. The session ID goes to BioCatch for a risk score. BioCatch returns session information, and recommends allow or block. The user journey has a conditional check, which acts upon the returned claims.
 4. Based on the conditional check result, an action is invoked.
 5. The web service can use the session ID to query BioCatch API to determine risk and session information.
 
@@ -234,9 +234,9 @@ document.getElementById("clientSessionId").style.display = 'none';
 
 7. Configure the user journey using the following example:
 
-  * Get the clientSessionID as a claim.
-  * Call BioCatch API to get the session information.
-  * If the returned claim risk is **low**, skip the step for MFA, otherwise enforce user MFA.
+   * Get the clientSessionID as a claim.
+   * Call BioCatch API to get the session information.
+   * If the returned claim risk is **low**, skip the step for MFA, otherwise enforce user MFA.
 
     ```xml
     <OrchestrationStep Order="8" Type="ClaimsExchange"> 
