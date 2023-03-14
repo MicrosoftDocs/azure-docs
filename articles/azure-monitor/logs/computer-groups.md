@@ -4,7 +4,7 @@ description: Computer groups in Azure Monitor allow you to scope log queries to 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/20/2021
+ms.date: 03/14/2023
 
 ---
 
