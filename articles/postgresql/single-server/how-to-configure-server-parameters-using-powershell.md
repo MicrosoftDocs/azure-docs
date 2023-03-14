@@ -15,6 +15,8 @@ ms.date: 06/24/2022
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
+
 You can list, show, and update configuration parameters for an Azure Database for PostgreSQL server using
 PowerShell. A subset of engine configurations is exposed at the server-level and can be modified.
 

@@ -15,6 +15,8 @@ ms.date: 02/15/2023
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
+
 **APPLIES TO:** :::image type="icon" source="./media/applies-to/yes.png" border="false":::Azure Database for PostgreSQL - Single Server :::image type="icon" source="./media/applies-to/yes.png" border="false":::Azure Database for PostgreSQL - Flexible Server
 
 Get started with [GitHub Actions](https://docs.github.com/en/actions) by using a workflow to deploy database updates to [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/).

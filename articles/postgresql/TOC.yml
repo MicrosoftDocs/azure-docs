@@ -44,10 +44,12 @@
     href: single-server/concepts-known-issues-limitations.md
     displayName: issues, limitations, postgresql
 - name: Single Server
-  expanded: true
+  expanded: false
   items:
   - name: Single Server documentation
     href: single-server/index.yml
+  - name: What's happening to Single Server?
+    href: single-server/whats-happening-to-postgresql-single-server.md
   - name: Overview
     href: single-server/overview-single-server.md
   - name: Quickstarts
