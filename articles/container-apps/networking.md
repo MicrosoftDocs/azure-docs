@@ -118,6 +118,7 @@ If you're using the Azure CLI and the [platformReservedCidr](vnet-custom-interna
 There's no forced tunneling in Container Apps routes.
 
 ## DNS
+
 -	**Custom DNS**: If your VNET uses a custom DNS server instead of the default Azure-provided DNS server, configure your DNS server to forward unresolved DNS queries to `168.63.129.16`. [Azure recursive resolvers](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) uses this IP address to resolve requests. If you don't use the Azure recursive resolvers, the Container Apps environment won't function.
 
 -	**VNET-scope ingress**: If you plan to use VNET-scope [ingress](ingress-concept.md#ingress-configuration) in an internal Container Apps environment, configure your domains in one of the following ways:

@@ -27,7 +27,7 @@ Ingress supports:
 
 
 > [!NOTE]
-> Add diagram here
+> Add diagram here,  Talked with Anthony about this.  He thought that we should consult Sanchit.  I think that we should have a diagram that shows the ingress options and how they work together.
 
 Each container app can be configured with different ingress settings. For example, you can have one container app that is exposed to the public web and another that is only accessible from within your Container Apps environment.
 
@@ -42,9 +42,9 @@ When you enable ingress, you can choose between two ingress types: external and 
 
 Container Apps supports two types of ingress: HTTPS and TCP.
 
-### HTTPS
+### HTTP
 
-With HTTPS ingress enabled, your container app features the following characteristics:
+With HTTP ingress enabled, your container app features the following characteristics:
 
 - Supports TLS termination
 - Supports HTTP/1.1 and HTTP/2
@@ -82,12 +82,22 @@ With TCP ingress enabled, your container app features the following characterist
 - The container app is accessed via its fully qualified domain name (FQDN) and exposed port number.
 - Other container apps in the same environment can also access a TCP ingress-enabled container app by using its name (defined by the `name` property in the Container Apps resource) and exposed port number.
 
-## Fully qualified domain name
+## DNS
 
-> [!NOTE]
-> should we mention that there is an FQDN for each revision?
+Container Apps automatically provides a built-in DNS domain for each Container Apps environment. Each app in the environment is assigned a fully qualified domain name (FQDN) that is based on the DNS domain.  For more information, see [DNS](./networking.md#dns).
 
-With ingress enabled, your application is assigned a fully qualified domain name (FQDN). The domain name takes the following forms:
+You can also configure a custom DNS domain for your Container Apps environment.  For more information, see [Custom DNS](./custom-domains-certificates.md).  
+
+For VNET-scope ingress, you can configure:
+
+- a custom DNS domain in your Container Apps environment
+- a non-custom domain with Azure Private
+
+### Automatic fully qualified domain names
+
+When you enable ingress, Container Apps automatically assigns a fully qualified domain name (FQDN) to your container app. The FQDN is based on the DNS domain for your Container Apps environment.  For more information, see [DNS](./networking.md#dns).
+
+The domain name takes the following forms:
 
 |Ingress visibility setting | Fully qualified domain name |
 |---|---|
@@ -99,12 +109,9 @@ For HTTP ingress, traffic is routed to individual applications based on the FQDN
 For TCP ingress, traffic is routed to individual applications based on the FQDN and its *exposed* port number. Other container apps in the same environment can also access a TCP ingress-enabled container app by using its name (defined by the container app's `name` property) and its *exposedPort* number.
 
 For applications with external ingress visibility, the following conditions apply:
+
 - An internal Container Apps environment has a single private IP address for applications. For container apps in internal environments, you must configure [DNS](./networking.md#dns) for VNET-scope ingress.
 - An external Container Apps environment or Container Apps environment that isn't in a VNET has a single public IP address for applications.
-
-You can get access to the environment's unique identifier by querying the environment settings.
-
-[!INCLUDE [container-apps-get-fully-qualified-domain-name](../../includes/container-apps-get-fully-qualified-domain-name.md)]
 
 ## IP restrictions
 
@@ -112,12 +119,13 @@ Container Apps supports IP restrictions for ingress. You can restrict access to 
 
 ## Ingress authentication
 
+Azure Container Apps provides built-in authentication and authorization features to secure your external ingress-enabled container app.  For more information, see [Authentication](authentication.md).
+
 Container Apps supports the following authentication methods for ingress:
 
-- TLS server certificate authentication (default).
 - mTLS client certificate authentication.  For more information, see [Configure client certificate authorization in Azure Container Apps](client-certificate-authorization-howto.md).
 - OAUTH2 authentication.  For more information, see [Set up OAUTH in Azure Container Apps](oauth2-authorization-howto.md).
-- Do we have anything else?
+
 
 ## Ingress configuration
 
@@ -125,7 +133,6 @@ When you enable ingress, you configure the following options:
 
 - Public and private ingress
 - Transport type: HTTPS or TCP
-- Target port: The port your container listens to for incoming requests
 - Authentication: Enable authentication for your app
 - Access restrictions: Restrict access to your app by IP address
 - Allow insecure traffic to your app
@@ -133,113 +140,9 @@ When you enable ingress, you configure the following options:
 
 For configuration details, see [Configure ingress](ingress.md).
 
-## <a name="scenarios"></a>Ingress Scenarios
-
-
-### Public Container Apps environment
-
-- TLS authentication (server certificate)
-- OAUTH2 authentication
-- IP Restrictions
-
->[!NOTE]
-> Should we include the other ingress scenarios, like access restrictions?
-
-### Private Container Apps VNET environment
-
-- mTLS authentication (client certificate)
-- IP Restrictions
-
-
 ## Traffic splitting
 
-By default, when ingress is enabled all traffic is routed to the latest deployed revision. You can configure traffic splitting rules to route portions of your traffic to a specific revision. Traffic splitting is useful for testing updates to your container app.  For more information, see [Traffic splitting](revisions-manage.md#traffic-splitting)
-
-
-## Traffic splitting scenarios
-
-The following scenarios describe configuration settings for common use cases.
-
-
->[!NOTE]
-> add eample of traffic splitting based on revision label.
-
-### Rapid iteration
-
-In situations where you're frequently iterating development of your container app, you can set traffic rules to always shift all traffic to the latest deployed revision.
-
-The following example template routes all traffic to the latest deployed revision:
-
-```jso
-"ingress": { 
-  "traffic": [
-    {
-      "latestRevision": true,
-      "weight": 100
-    }
-  ]
-}
-```
-
-Once you're satisfied with the latest revision, you can lock traffic to that revision by updating the `ingress` settings to:
-
-```json
-"ingress": { 
-  "traffic": [
-    {
-      "latestRevision": false, // optional
-      "revisionName": "myapp--knowngoodrevision",
-      "weight": 100
-    }
-  ]
-}
-```
-
-### Update existing revision
-
-Consider a situation where you have a known good revision that's serving 100% of your traffic, but you want to issue an update to your app. You can deploy and test new revisions using their direct endpoints without affecting the main revision serving the app.
-
-Once you're satisfied with the updated revision, you can shift a portion of traffic to the new revision for testing and verification.
-
-The following template moves 20% of traffic over to the updated revision:
-
-```json
-"ingress": {
-  "traffic": [
-    {
-      "revisionName": "myapp--knowngoodrevision",
-      "weight": 80
-    },
-    {
-      "revisionName": "myapp--newerrevision",
-      "weight": 20
-    }
-  ]
-}
-```
-
-### Staging microservices
-
-When building microservices, you may want to maintain production and staging endpoints for the same app. Use labels to ensure that traffic doesn't switch between different revisions.
-
-The following example template applies labels to different revisions.
-
-```json
-"ingress": { 
-  "traffic": [
-    {
-      "revisionName": "myapp--knowngoodrevision",
-      "weight": 100
-    },
-    {
-      "revisionName": "myapp--98fdgt",
-      "weight": 0,
-      "label": "staging"
-    }
-  ]
-}
-```
-
+Containers Apps allows you to set up traffic rules that split incoming traffic between active revisions.  The rules are based on the percent of traffic going to each revision.  For more information, see [Traffic splitting](traffic-splitting.md).
 
 ## Next steps
 

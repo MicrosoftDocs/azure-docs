@@ -29,21 +29,19 @@ When you enable ingress, you have the following options:
 > [!NOTE] 
 > Need information about the flags that are available in the CLI and the portal.  But this table shows what I have so far
 
-The following settings are available when configuring ingress:
+You can set the following ingress properties:
 
 | Property | Description | Values | Required |
 |---|---|---|---|
-| `type` | Allow ingress to your app from outside its Container Apps environment. |`external` or `external` | Yes |
+| `allowInsecure` | Allows insecure traffic to your container app. | `false` (default), `true`<br><br>If set to `true`, HTTP requests to port 80 aren't automatically redirected to port 443 using HTTPS, allowing insecure connections.| No |
+| `clientCertificateMode` | Client certificate mode for mTLS authentication. Ignore indicates server drops client certificate on forwarding. Accept indicates server forwards client certificate but doesn't require a client certificate. Require indicates server requires a client certificate. | `Required`, `Accept`, `Ignore` (default) | No |
+| `customDomains` |Custom domain bindings for Container Apps' hostnames. | Array of bindings | No |
+| `exposedPort` | (TCP ingress only) An port for TCP ingress. If `external` is `true`, the value must be unique in the Container Apps environment if ingress is external. | A port number from `1` to `65535`. (can't be `80` or `443`) | No |
+| `external` | Allow ingress to your app from outside its Container Apps environment. |`true` or `false` | Yes |
+| `ipSecurityRestrictions` | IP ingress restrictions. See [Set up IP ingress restrictions](ip-restrictions.md) | array of rules | No |
 | `targetPort` | The port your container listens to for incoming requests. | Set this value to the port number that your container uses. Your application ingress endpoint is always exposed on port `443`. | Yes |
-| `exposedPort` | (TCP ingress only) An additional exposed port used to access the app. If `external` is `true`, the value must be unique in the Container Apps environment if ingress is external. | A port number from `1` to `65535`. (can't be `80` or `443`) | No |
+|`traffic` | Traffic weights based on revision name or [revision label](revisions.md#revision-labels) | array of rules | No |
 | `transport` | The transport protocol type. | auto (default) detects HTTP/1 or HTTP/2,  `http` for HTTP/1, `http2` for HTTP/2, `tcp` for TCP. | No |
-| `allowInsecure` | Allows insecure traffic to your container app. | `false` (default), `true`<br><br>If set to `true`, HTTP requests to port 80 aren't automatically redirected to port 443 using HTTPS, allowing insecure connections. | No |
-| `autoTLS` | Enables automatic TLS certificate provisioning. If set to `true`, Container Apps automatically provisions a TLS certificate for your container app. |`true` (default), `false`<br><br> | No | 
-| `access-restriction` | Configure IP ingress restrictions. | See [Set up IP ingress restrictions](ip-restrictions.md)| No |
-|`traffic` | Configure traffic splitting.  Set the weight based on revision name or [revision label](revisions.md#revision-labels) | 0 - 100 | No |
-
->[!NOTE]
-> Should we add the customDomain property here?
 
 ## Enable ingress
 
@@ -206,8 +204,26 @@ Disable ingress for your container app by using the `ingress` configuration prop
 
 ## Configure HTTP headers
 
+The header is added to an HTTP request or response using a *name: value* format.  The following table lists the HTTP headers that are relevant to ingress in Container Apps:
+
+> [!NOTE]
+> Do we have response headers we need to document?
+
+| Header | Description | Values | Required |
+|---|---|---|---|
+| `X-Forwarded-Proto` | The protocol that the client used to connect with the Container Apps service. | `http` or `https` | Yes |
+| `X-Forwarded-For` | The IP address of the client that sent the request. | Yes |
+| 'X-Forwarded-Host | The host name that the client used to connect with the Container Apps service. | Yes |
+
+
 > [!NOTE] 
 > Add information about how to configure HTTP headers.
+
+## How to get the fully qualified domain name (FQDN)
+
+You can get access to the environment's unique identifier by querying the environment settings.
+
+[!INCLUDE [container-apps-get-fully-qualified-domain-name](../../includes/container-apps-get-fully-qualified-domain-name.md)]
 
 ## Next steps
 
