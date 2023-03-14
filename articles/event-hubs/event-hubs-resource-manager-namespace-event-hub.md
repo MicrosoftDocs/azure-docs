@@ -7,12 +7,12 @@ ms.date: 06/08/2021
 ---
 
 # Quickstart: Create an event hub by using an ARM template
-In this quickstart, you will create an event hub by using an [Azure Resource Manager template (ARM template)](../azure-resource-manager/management/overview.md). You deploy an ARM template to create a namespace of type [Event Hubs](./event-hubs-about.md), with one event hub.
+In this quickstart, you create an event hub by using an [Azure Resource Manager template (ARM template)](../azure-resource-manager/management/overview.md). You deploy an ARM template to create a namespace of type [Event Hubs](./event-hubs-about.md), with one event hub.
 
 ## Prerequisites
 
 - If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
-- If you are new to Azure Event Hubs, see [Event Hubs overview](event-hubs-about.md) and [Event Hubs features](event-hubs-features.md). 
+- If you're new to Azure Event Hubs, see [Event Hubs overview](event-hubs-about.md) and [Event Hubs features](event-hubs-features.md). 
 
 
 ## Review the template
@@ -32,16 +32,16 @@ To find more template samples, see [Azure Quickstart Templates](https://azure.mi
 
 ### Using Azure portal user interface
 
-1. If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal. 
+1. If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template opens in the Azure portal. 
 
     [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.eventhub%2Feventhubs-create-namespace-and-eventhub%2Fazuredeploy.json)
 2. Select an existing **resource group** or create a resource group and select it. 
 1. Select the **region**.
-1. Enter a unique **name** for the **project**. This name will be used to generate names for an Event Hubs namespace and an event hub in the namespace. 
+1. Enter a unique **name** for the **project**. This name is used to generate names for an Event Hubs namespace and an event hub in the namespace. 
 1. Select **Review + create**.
 1. On the **Review + create** page, select **Create**.
 
-### Using Azure CloudShell
+### Using Azure Cloud Shell
 
 To deploy the template using Azure Cloud Shell: 
 
