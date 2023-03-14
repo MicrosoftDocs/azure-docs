@@ -14,14 +14,14 @@ Computer groups in Azure Monitor allow you to scope [log queries](./log-query-ov
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## Creating a computer group
-You can create a computer group in Azure Monitor using any of the methods in the following table.  Details on each method are provided in the sections below. 
+You can create a computer group in Azure Monitor using the methods in the following table.  Details on each method are provided in the sections below. 
 
 | Method | Description |
 |:--- |:--- |
 | Log query |Create a log query that returns a list of computers. |
-| Active Directory |Automatically scan the group membership of any agent computers that are members of an Active Directory domain and create a group in Azure Monitor for each security group. (Windows machines only)|
-| Configuration Manager | Import collections from Microsoft Configuration Manager and create a group in Azure Monitor for each. |
-| Windows Server Update Services |Automatically scan WSUS servers or clients for targeting groups and create a group in Azure Monitor for each. |
+| Active Directory | No longer supported |
+| Configuration Manager | No longer supported |
+| Windows Server Update Services | No longer supported |
 
 ### Log query
 Computer groups created from a log query contain all of the computers returned by a query that you define.  This query is run every time the computer group is used so that any changes since the group was created is reflected.  
@@ -50,22 +50,13 @@ The following table describes the properties that define a computer group.
 
 
 ### Active Directory
-When you configure Azure Monitor to import Active Directory group memberships, it analyzes the group membership of any Windows domain joined computers with the Log Analytics agent.  A computer group is created in Azure Monitor for each security group in Active Directory, and each Windows computer is added to the computer groups corresponding to the security groups they are members of.  This membership is continuously updated every 4 hours.  
-
-> [!NOTE]
-> Imported Active Directory groups only contain Windows machines.
-
-You configure Azure Monitor to import Active Directory security groups from the **Legacy computer groups** menu item in your Log Analytics workspace in the Azure portal.  Select the **Active Directory** tab, and then **Import Active Directory group memberships from computers**.  When groups have been imported, the menu lists the number of computers with group membership detected and the number of groups imported.  You can click on either of these links to return the **ComputerGroup** records with this information.
+No longer supported
 
 ### Windows Server Update Service
-When you configure Azure Monitor to import WSUS group memberships, it analyzes the targeting group membership of any computers with the Log Analytics agent.  If you are using client-side targeting, any computer that is connected to Azure Monitor and is part of any WSUS targeting groups has its group membership imported to Azure Monitor. If you are using server-side targeting, the Log Analytics agent should be installed on the WSUS server in order for the group membership information to be imported to Azure Monitor.  This membership is continuously updated every 4 hours. 
-
-You configure Azure Monitor to import WSUS groups from the **Legacy computer groups** menu item in your Log Analytics workspace in the Azure portal.  Select the **Windows Server Update Service** tab, and then **Import WSUS group memberships**.  When groups have been imported, the menu lists the number of computers with group membership detected and the number of groups imported.  You can click on either of these links to return the **ComputerGroup** records with this information.
+No longer supported
 
 ### Configuration Manager
-When you configure Azure Monitor to import Configuration Manager collection memberships, it creates a computer group for each collection.  The collection membership information is retrieved every 3 hours to keep the  computer groups current. Before you can import Configuration Manager collections, you must [connect Configuration Manager to Azure Monitor](collect-sccm.md).  
-
-You configure Azure Monitor to import Configuration Manager collections from the **Legacy computer groups** menu item in your Log Analytics workspace in the Azure portal.  Select the **System Center Configuration Manager** tab, and then **Import Configuration Manager collection memberships**. When collections have been imported, the menu lists the number of computers with group membership detected and the number of groups imported.  You can click on either of these links to return the **ComputerGroup** records with this information.
+No longer supported
 
 ## Managing computer groups
 You can view computer groups that were created from a log query from the **Legacy computer groups** menu item in your Log Analytics workspace in the Azure portal.  Select the **Saved Groups** tab to view the list of groups.  
@@ -99,21 +90,6 @@ The following query would return UpdateSummary records for only computers in Dom
 let ADComputers = ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer;
   UpdateSummary | where Computer in (ADComputers)
 ```
-
-## Computer group records
-A record is created in the Log Analytics workspace for each computer group membership created from Active Directory or WSUS.  These records have a type of **ComputerGroup** and have the properties in the following table.  Records are not created for computer groups based on log queries.
-
-| Property | Description |
-|:--- |:--- |
-| `Type` |*ComputerGroup* |
-| `SourceSystem` |*SourceSystem* |
-| `Computer` |Name of the member computer. |
-| `Group` |Name of the group. |
-| `GroupFullName` |Full path to the group including the source and source name. |
-| `GroupSource` |Source that group was collected from. <br><br>ActiveDirectory<br>WSUS<br>WSUSClientTargeting |
-| `GroupSourceName` |Name of the source that the group was collected from.  For Active Directory, this is the domain name. |
-| `ManagementGroupName` |Name of the management group for SCOM agents.  For other agents, this is AOI-\<workspace ID\> |
-| `TimeGenerated` |Date and time the computer group was created or updated. |
 
 ## Next steps
 * Learn about [log queries](./log-query-overview.md) to analyze the data collected from data sources and solutions.
