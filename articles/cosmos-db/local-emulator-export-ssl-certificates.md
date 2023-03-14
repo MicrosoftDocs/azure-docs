@@ -14,7 +14,7 @@ ms.custom: devx-track-python, devx-track-java, contperf-fy21q1, ignite-2022
 
 The Azure Cosmos DB Emulator provides a local environment that emulates the Azure Cosmos DB service for development purposes. Azure Cosmos DB Emulator supports only secure communication through TLS connections.
 
-Certificates in the Azure Cosmos DB local emulator are generated the first time you run the emulator. There are two certificates. One of them is used to connect to the local emulator and the other is used to manage default encryption of the emulator data within the emulator. The certificate you want to export is the connection certificate with the friendly name **DocumentDBEmulatorCertificate**.
+The first time you run the emulator, it generates two certificates. One of them is used to connect to the local emulator and the other is used to manage default encryption of the emulator data within the emulator. The certificate you want to export is the connection certificate with the friendly name `DocumentDBEmulatorCertificate`.
 
 When you use the emulator to develop apps in different languages, such as Java, Python, or Node.js, you need to export the emulator certificate and import it into the required certificate store.
 
@@ -24,7 +24,7 @@ This article demonstrates how to export the TLS/SSL certificates for use in diff
 
 ## <a id="export-emulator-certificate"></a>Export the Azure Cosmos DB TLS/SSL certificate
 
-You need to export the emulator certificate to successfully use the emulator endpoint from languages and runtime environments that don't integrate with the Windows Certificate Store. You can export the certificate using the Windows Certificate Manager. After the first time you run the emulator, use the following procedure to export the **DocumentDBEmulatorCertificate** certificate as a *BASE-64 encoded X.509 (.cer)* file:
+You need to export the emulator certificate to successfully use the emulator endpoint from languages and runtime environments that don't integrate with the Windows Certificate Store. You can export the certificate using the Windows Certificate Manager. After the first time you run the emulator, use the following procedure to export the `DocumentDBEmulatorCertificate` certificate as a *BASE-64 encoded X.509 (.cer)* file:
 
 1. Run *certlm.msc* to start the Windows Certificate manager. Navigate to the **Personal** > **Certificates** folder.
 
