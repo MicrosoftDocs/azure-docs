@@ -18,7 +18,7 @@ This article describes reliability support in Virtual Machines (VM), and covers 
 
 Azure availability zones are at least three physically separate groups of datacenters within each Azure region. Datacenters within each zone are equipped with independent power, cooling, and networking infrastructure. In the case of a local zone failure, availability zones are designed so that if the one zone is affected, regional services, capacity, and high availability are supported by the remaining two zones.
 
-Failures can range from software and hardware failures to events such as earthquakes, floods, and fires. Tolerance to failures is achieved with redundancy and logical isolation of Azure services. For more detailed information on availability zones in Azure, see [Regions and availability zones](/azure/availability-zones/az-overview.md).
+Failures can range from software and hardware failures to events such as earthquakes, floods, and fires. Tolerance to failures is achieved with redundancy and logical isolation of Azure services. For more detailed information on availability zones in Azure, see [Regions and availability zones](/azure/availability-zones/az-overview).
 
 Azure availability zones-enabled services are designed to provide the right level of reliability and flexibility. They can be configured in two ways. They can be either zone redundant, with automatic replication across zones, or zonal, with instances pinned to a specific zone. You can also combine these approaches. For more information on zonal vs. zone-redundant architecture, see [Build solutions with availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability).
 
@@ -111,7 +111,7 @@ For migrating existing virtual machine resources to a zone redundant configurati
 - Move a VM to another subscription or resource group
     - [CLI](/azure/virtual-machines/linux/move-vm)
     - [PowerShell](/azure/virtual-machines/windows/move-vm)
-- [Azure Resource Mover](/resource-mover/tutorial-move-region-virtual-machines)
+- [Azure Resource Mover](/azure/resource-mover/tutorial-move-region-virtual-machines)
 - [Move Azure VMs to availability zones](/azure/site-recovery/move-azure-vms-avset-azone)
 - [Move region maintenance configuration resources](/azure/virtual-machines/move-region-maintenance-configuration-resources)
 
@@ -165,10 +165,10 @@ For deploying virtual machines, customers can use [flexible orchestration](/azur
 
 - [Well-Architected Framework for virtual machines](/azure/architecture/framework/services/compute/virtual-machines/virtual-machines-review)
 - [Azure to Azure disaster recovery architecture](/azure/site-recovery/azure-to-azure-architecture)
-- [Accelerated networking with Azure VM disaster recovery](/azure-vm-disaster-recovery-with-accelerated-networking)
+- [Accelerated networking with Azure VM disaster recovery](/azure/site-recovery/azure-vm-disaster-recovery-with-accelerated-networking)
 - [Express Route with Azure VM disaster recovery](/azure/site-recovery/azure-vm-disaster-recovery-with-expressroute)
 - [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/)
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Resiliency in Azure](/azure/availability-zones/overview.md)
+> [Resiliency in Azure](/azure/availability-zones/overview)
