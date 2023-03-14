@@ -33,14 +33,14 @@ You must enable the feature for your subscription before you can use encryption 
 
 1. **Azure portal**: Select the Cloud Shell icon on the [Azure portal](https://portal.azure.com):
 
-    ![Screenshot of icon to launch the Cloud Shell from the Azure portal.](../Cloud-Shell/media/overview/portal-launch-icon.png)
+   ![Screenshot of icon to launch the Cloud Shell from the Azure portal.](../Cloud-Shell/media/overview/portal-launch-icon.png)
 
 1. Execute the following command to register the feature for your subscription
 
    ### [Azure PowerShell](#tab/azure-powershell)
 
    ```powershell
-    Register-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute"
+   Register-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute"
    ```
 
    ### [Azure CLI](#tab/azure-cli)
@@ -56,7 +56,7 @@ You must enable the feature for your subscription before you can use encryption 
    ### [Azure PowerShell](#tab/azure-powershell)
 
    ```powershell
-    Get-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute"
+   Get-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute"
    ```
 
    ### [Azure CLI](#tab/azure-cli)
