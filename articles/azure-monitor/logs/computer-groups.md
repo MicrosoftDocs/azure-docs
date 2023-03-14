@@ -61,9 +61,9 @@ No longer supported
 ## Managing computer groups
 You can view computer groups that were created from a log query from the **Legacy computer groups** menu item in your Log Analytics workspace in the Azure portal.  Select the **Saved Groups** tab to view the list of groups.  
 
-Click the **Delete** icon to delete the computer group.  Click the **Run query** icon for a group to run the group's log search that returns its members.  You can't modify a computer group but instead must delete and then recreate it with the modified settings.
+Click the **Run query** icon for a group to run the group's log search that returns its members.  Click the **Delete** icon to delete the computer group.  You can't modify a computer group but instead must delete and then recreate it with the modified settings.
 
-:::image type="content" source="media/computer-groups/configure-saved.png" alt-text="Screenshot of a Log Analytics resource in Azure with Legacy computer groups pane,  Saved Groups tab, Run query icon, and Delete icon highlighted." border="false" lightbox="media/computer-groups/configure-saved.png":::
+:::image type="content" source="media/computer-groups/configure-saved.png" alt-text="Screenshot of a Log Analytics resource in Azure with Legacy computer groups pane,  Saved Groups tab, Run query icon, and Delete icon highlighted." lightbox="media/computer-groups/configure-saved.png":::
 
 ## Using a computer group in a log query
 You use a Computer group created from a log query in a query by treating its alias as a function, typically with the following syntax:
@@ -76,19 +76,6 @@ For example, you could use the following to return UpdateSummary records for onl
 
 ```kusto
 UpdateSummary | where Computer in (mycomputergroup)
-```
-
-Imported computer groups and their included computers are stored in the **ComputerGroup** table.  For example, the following query would return a list of computers in the Domain Computers group from Active Directory. 
-
-```kusto
-ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer
-```
-
-The following query would return UpdateSummary records for only computers in Domain Computers.
-
-```kusto
-let ADComputers = ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer;
-  UpdateSummary | where Computer in (ADComputers)
 ```
 
 ## Next steps
