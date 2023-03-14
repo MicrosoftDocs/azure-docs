@@ -285,7 +285,7 @@ To issue or verify a verifiable credential, follow these steps:
 
 1. Submit the request to the Request Service REST API.
 
-The Request Service API returns an HTTP Status Code `201 Created` on a successful call. If the API call returns an error, please check the [error reference documentation](error-codes.md). //TODO
+The Request Service API returns an HTTP Status Code `201 Created` on a successful call. If the API call returns an error, please check the [error reference documentation](error-codes.md).
 
 ## Issuance request example
 
