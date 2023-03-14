@@ -2029,6 +2029,26 @@
             "source_path_from_root": "/articles/vs-azure-tools-storage-emulator-using.md",
             "redirect_url": "/azure/storage/common/storage-use-emulator",
             "redirect_document_id": false
-        }
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-troubleshoot-windows-file-connection-problems.md",
+            "redirect_url": "/azure/storage/files/files-troubleshoot",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-troubleshoot-linux-file-connection-problems.md",
+            "redirect_url": "/azure/storage/files/files-troubleshoot",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-troubleshooting-files-performance.md",
+            "redirect_url": "/azure/storage/files/files-troubleshoot-performance",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-troubleshooting-files-nfs.md",
+            "redirect_url": "/azure/storage/files/files-troubleshoot-linux-nfs",
+            "redirect_document_id": false
+        }            
     ]
 }

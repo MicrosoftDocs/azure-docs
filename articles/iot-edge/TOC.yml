@@ -84,6 +84,8 @@
       href: iot-edge-security-manager.md
     - name: IoT Edge certificates
       href: iot-edge-certs.md
+    - name: Using Private Link with IoT Edge
+      href: using-private-link.md   
     - name: Confidential computing
       href: deploy-confidential-applications.md
   - name: Offline capabilities
@@ -96,6 +98,10 @@
     items:
     - name: Create an IoT Edge device
       href: how-to-create-iot-edge-device.md
+    - name: Configure device settings
+      href: configure-device.md
+    - name: Configure proxy support
+      href: how-to-configure-proxy-support.md
     - name: Linux containers on Linux hosts
       items:
       - name: Provision a single device
@@ -195,8 +201,6 @@
         href: how-to-connect-downstream-iot-edge-device.md
       - name: Configure the API proxy module
         href: how-to-configure-api-proxy-module.md
-  - name: Configure proxy support
-    href: how-to-configure-proxy-support.md
   - name: Azure Blob Storage on IoT Edge
     items:
     - name: Understand blob storage at the edge
@@ -262,6 +266,14 @@
         href: how-to-provision-devices-at-scale-linux-on-windows-symmetric.md
   - name: Configure
     items:
+    - name: Access TPM secrets
+      href: how-to-access-dtpm.md
+    - name: Configure nested virtualization for Windows VMs
+      href: nested-virtualization.md
+    - name: Connect a USB device
+      href: how-to-connect-usb-devices.md
+    - name: GPU acceleration
+      href: gpu-acceleration.md
     - name: Networking
       items:
       - name: Understand VM networking
@@ -272,16 +284,8 @@
         href: how-to-configure-multiple-nics.md
       - name: VM on a DMZ
         href: how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz.md
-    - name: Configure nested virtualization for Windows VMs
-      href: nested-virtualization.md
-    - name: Access TPM secrets
-      href: how-to-access-dtpm.md
-    - name: GPU acceleration
-      href: gpu-acceleration.md
     - name: Shared folders
       href: how-to-share-windows-folder-to-vm.md
-    - name: Connect a USB device
-      href: how-to-connect-usb-devices.md
   - name: Develop and debugging
     href: tutorial-develop-for-linux-on-windows.md
   - name: Create a hierarchy of IoT Edge devices

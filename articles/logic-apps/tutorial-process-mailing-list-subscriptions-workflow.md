@@ -61,6 +61,7 @@ When you're done, your logic app looks like this workflow at a high level:
    | **Resource group** | LA-MailingList-RG | The name for the [Azure resource group](../azure-resource-manager/management/overview.md), which is used to organize related resources. This example creates a new resource group named `LA-MailingList-RG`. |
    | **Name** | LA-MailingList | Your logic app's name, which can contain only letters, numbers, hyphens (`-`), underscores (`_`), parentheses (`(`, `)`), and periods (`.`). This example uses `LA-MailingList`. |
    | **Location** | West US | The region where to store your logic app information. This example uses `West US`. |
+   | **Plan type** | Consumption |
    | **Log Analytics** | Off | Keep the **Off** setting for diagnostic logging. |
    ||||
 

@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
-ms.date: 06/30/2022
+ms.date: 02/14/2023
 ms.author: mimart
 author: msmimart
 manager: celestedg
@@ -112,7 +112,7 @@ For more information, see [Cross-tenant access in Azure AD External Identities](
 
 Azure AD has a new feature for multi-tenant organizations called cross-tenant synchronization (preview), which allows for a seamless collaboration experience across Azure AD tenants. Cross-tenant synchronization settings are configured under the **Organization-specific access settings**. To learn more about multi-tenant organizations and cross-tenant synchronization see the [Multi-tenant organizations documentation](../multi-tenant-organizations/index.yml).
 
-### Microsoft cloud settings for B2B collaboration (preview)
+### Microsoft cloud settings for B2B collaboration
 
 Microsoft Azure cloud services are available in separate national clouds, which are physically isolated instances of Azure. Increasingly, organizations are finding the need to collaborate with organizations and users across global cloud and national cloud boundaries. With Microsoft cloud settings, you can establish mutual B2B collaboration between the following Microsoft Azure clouds:
 
