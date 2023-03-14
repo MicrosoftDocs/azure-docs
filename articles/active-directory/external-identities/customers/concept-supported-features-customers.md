@@ -33,6 +33,15 @@ A CIAM tenant is different than an Azure Active Directory tenant, which you may 
 - API for custom branding	
 - API for CIAM user flows
 
+## Azure AD customer (CIAM) tenant
+Create a tenant specifically for your customer-facing apps and services. Register your customer-facing apps in this tenant, and manage customer identities and access in the dedicated directory.
+
+## User flows
+Configure sign-up and sign-in user flows that are tailored to your needs. When a customer signs up for your app or service, an account with email + password is created for them in your customer tenant. You can determine the user attributes you want to collect during the sign-up process.
+
+## Company branding
+Customize the look and feel of your sign-up and sign-in experiences, including both the default experience and the experience for specific browser languages.
+
 ## Next steps
 - [Planning for CIAM](concept-planning-your-solution.md)
 
