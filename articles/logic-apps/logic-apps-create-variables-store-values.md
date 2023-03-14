@@ -459,4 +459,5 @@ If you switch from the designer to the code view editor, here is the way that th
 
 ## Next steps
 
-* Learn about [Logic Apps connectors](../connectors/apis-list.md)
+* [Managed connectors for Azure Logic Apps](../connectors/managed.md)
+* [Built-in connectors for Azure Logic Apps](../connectors/built-in.md)

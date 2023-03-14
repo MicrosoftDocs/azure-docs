@@ -183,14 +183,14 @@ Next, download the SAP installation media to the VM using a script.
 
 1. Run the Ansible script **playbook_bom_download** with your own information. Enter the actual values **within** double quotes but **without** the triangular brackets. The Ansible command that you run should look like:
 
-    ```git bash
+    ```bash
     export bom_base_name="<Enter bom base name>"
     export s_user="<s-user>"
     export s_password="<password>"
     export storage_account_access_key="<storageAccountAccessKey>"
     export sapbits_location_base_path="<containerBasePath>"
     export BOM_directory="<BOM_directory_path>"
-    export orchestration_ansible_user="<orchestration_ansible_user>"
+    export orchestration_ansible_user="root"
     export playbook_path="<playbook_bom_downloader_yaml_path>"
     sudo ansible-playbook ${playbook_path} \
     -e "bom_base_name=${bom_base_name}" \
@@ -236,7 +236,7 @@ Next, download the SAP installation media to the VM using a script.
 
 1. Where `BOM_directory_path` is the absolute path to **SAP-automation-samples/SAP**. e.g. */home/loggedinusername/SAP-automation-samples/SAP*
 
-1. Where `orchestration_ansible_user` is the user with **admin** privileges. e.g. *loggedinusername*
+1. Where `orchestration_ansible_user` is the user with **admin** privileges. e.g. root.
 
 
 Now you can [install the SAP software](install-software.md) through Azure Center for SAP solutions.
@@ -467,4 +467,4 @@ Now you can [install the SAP software](install-software.md) through Azure Center
 
 ## Next steps
 
-- [Install the SAP software](install-software.md) through Azure Center for SAP solutions
+- [Find SAP and HANA passwords](manage-virtual-instance.md) through Azure Center for SAP solutions
