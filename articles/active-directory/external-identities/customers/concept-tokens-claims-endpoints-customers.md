@@ -28,14 +28,14 @@ A custom authentication extension allows you to enrich or customize application 
 Use custom extensions for the following scenarios:
 
 - **Migration of legacy systems** - You may have legacy identity systems such as Active Directory Federation Services (AD FS) or data stores (such as LDAP directory) that hold information about users. You'd like to migrate applications, but can't fully migrate the user information onto Azure AD. Your apps may depend on certain information on the token and can't be re-architected.
-- **Integration with other data stores that can't be synced to the directory** - You may have third-party systems or your own systems that store user information. Ideally this information could be consolidated, either through [synchronization](../cloud-sync/what-is-cloud-sync.md) or direct migration, in the Azure AD directory. However, that isn't always feasible.
+- **Integration with other data stores that can't be synced to the directory** - You may have third-party systems or your own systems that store user information. Ideally this information could be consolidated, either through synchronization or direct migration, in the Azure AD directory. However, that isn't always feasible.
 
     With custom extension you can pull information from other sources, like a legacy identity or an HR system, and include them in your tokens. The custom extension is useful when many applications rely on a piece of information in an external service and can't be updated to fetch the attributes from that service directly.
 - **Sensitive information** - You may have sensitive information about users that you can't store in Azure AD. The restriction may be because of sensitive customer content, data residency, or other requirements.
 
 ## How it works
 
-Custom extensions allow you to create custom extension and [claims mapping policies](./reference-claims-mapping-policy-type.md) to customize the Azure AD authentication experience, by integrating with external systems.  Attributes are retrieved from an external system and returned to Azure AD, which issues these attributes as claims into the token.
+Custom extensions allow you to create custom extension and claims mapping policies to customize the Azure AD authentication experience, by integrating with external systems.  Attributes are retrieved from an external system and returned to Azure AD, which issues these attributes as claims into the token.
 
 1. A user attempts to sign into an app and is redirected to the Azure AD sign-in or sign-up page.
 1. Once a user completes a certain step, for example, the user has successfully authenticated and a token is about to be issued by Azure AD, the **token issuance start event** is triggered. This flow is dependent on the custom extension event type that is configured.
@@ -112,7 +112,7 @@ Once you create your claims mapping policy, the next step is to upload it to you
 > The **definition** element should be an array with a single string value. The string should be the stringified and escaped version of your claims mapping policy. You can use tools like [https://jsontostring.com/](https://jsontostring.com/) to stringify your claims mapping policy.
 ## Developing a custom extension REST API
 
-You can use any programming language, framework, and hosting environment to create and host your custom extensions REST API. For a quick way to get started, we recommend you use a C# Azure Function. Azure Functions lets you run your code in a serverless environment without having to first create a virtual machine (VM) or publish a web application. Check out the [get started with custom extension](custom-extension-get-started.md) article.
+You can use any programming language, framework, and hosting environment to create and host your custom extensions REST API. For a quick way to get started, we recommend you use a C# Azure Function. Azure Functions lets you run your code in a serverless environment without having to first create a virtual machine (VM) or publish a web application. Check out the get started with custom extension article.
 
 Your custom extension REST API must handle:
 
@@ -219,5 +219,5 @@ To setup and integrate a custom extension with your application requires multipl
 
 ## Next steps
 
-- Learn how to [create and register a custom extension and API endpoint](custom-extension-get-started.md).
-- If you already have a custom extension registered, you can configure a [SAML application](custom-extension-configure-saml-app.md) to receive tokens with claims sourced from an external store.
+- Learn how to create and register a custom extension and API endpoint.
+- If you already have a custom extension registered, you can configure a SAML application to receive tokens with claims sourced from an external store.
