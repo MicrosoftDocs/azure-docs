@@ -22,7 +22,6 @@ Temporary disks and ephemeral OS disks are encrypted at rest with platform-manag
 
 [!INCLUDE [virtual-machines-disks-encryption-at-host-restrictions](../../includes/virtual-machines-disks-encryption-at-host-restrictions.md)]
 
-
 ### Supported VM sizes
 
 Legacy VM Sizes aren't supported. You can find the list of supported VM sizes by either using the [Azure PowerShell module](windows/disks-enable-host-based-encryption-powershell.md#finding-supported-vm-sizes) or [Azure CLI](linux/disks-enable-host-based-encryption-cli.md#finding-supported-vm-sizes).
