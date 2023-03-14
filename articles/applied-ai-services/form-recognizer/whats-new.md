@@ -37,7 +37,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 > * East US
 
 * **Document classification** is now a new capability within Form Recognizer starting with the ```2023-02-28-preview``` API. Try out the document classification capability in the [Studio](https://formrecognizer-dogfood.appliedai.azure.com/studio/) or the REST API.
-* **Query fields** added to the General Document model uses Open AI model to extract specific fields from documents. See the [general document](concept-general-document.md) model to learn more or try the feature in the [Studio](https://formrecognizer-dogfood.appliedai.azure.com/studio/). Query fields are currently only active for resources in the East US region.
+* **Query fields** added to the General Document model uses Open AI model to extract specific fields from documents. See the [general document](concept-general-document.md) model to learn more or try the feature in the [Studio](https://formrecognizer.appliedai.azure.com/studio/). Query fields are currently only active for resources in the East US region.
 * **Additions to the Read and Layout APIs**
   * **Barcodes** are now supported with the ```2023-02-28-preview``` API.
   * **Fonts** are now recognized with the ```2023-02-28-preview``` API.
