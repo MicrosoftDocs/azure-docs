@@ -593,17 +593,8 @@ items:
           href: app/monitor-functions.md
         - name: Azure Kubernetes Service
           href: app/kubernetes-codeless.md
-        - name: ASP.NET on-premises
-          items:
-            - name: Overview
-              displayName: IIS monitoring, on premises monitoring, on prem
-              href: app/status-monitor-v2-overview.md
-            - name: Getting started
-              href: app/status-monitor-v2-get-started.md
-            - name: Detailed instructions
-              href: app/status-monitor-v2-detailed-instructions.md
-            - name: API reference
-              href: app/status-monitor-v2-api-reference.md
+        - name: ASP.NET on-premises agent
+          href: app/application-insights-asp-net-agent.md
       - name: Application Insights SDKs
         items:
         - name: .NET
