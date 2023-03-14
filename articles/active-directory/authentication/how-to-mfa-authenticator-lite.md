@@ -109,7 +109,7 @@ Push Notifications sent by Authenticator Lite aren't configurable and don't depe
 
 ## AD FS adapters and NPS extensions 
 
-Authenticator Lite enforces number matching in every authentication. If your tenant is using an AD FS adapter or an NPS extension, your users may not be able to complete Authenticator Lite notifications. For more information about how number matching affects these scenarios, see [AD FS adapter](how-to-mfa-number-match.md#ad-fs-adapter) and [NPS extension](how-to-mfa-number-match.md#nps-extension).
+Authenticator Lite enforces number matching in every authentication. If your tenant is using an AD FS adapter or an NPS extension, your users may not be able to complete Authenticator Lite notifications. For more information, see [AD FS adapter](how-to-mfa-number-match.md#ad-fs-adapter) and [NPS extension](how-to-mfa-number-match.md#nps-extension).
 
 To learn more about verification notifications, see [Microsoft Authenticator authentication method](concept-authentication-authenticator-app.md).
 
@@ -120,6 +120,9 @@ No, Authenticator Lite is only available for push notifications and TOTP.
 
 ### Can Authenticator Lite be used for SSPR?
 No, Authenticator Lite is only available for push notifications and TOTP. 
+
+### Is this available in Outlook on desktop?  
+No, Authenticator Lite is only available on mobile. 
 
 ### Where can users register for Authenticator Lite?
 Users can only register for Authenticator Lite from Outlook. Authenticator Lite registration can be managed from [aka.ms/mysignins](https://aka.ms/mysignins). 
