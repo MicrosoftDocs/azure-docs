@@ -192,7 +192,7 @@ For this tutorial, you deploy two modules. The first is **SimulatedTemperatureSe
 
    Once you save your changes, the details of your Stream Analytics job are published to the storage container that you created.
 
- 1. After your Stream Analytics addition finishes deployment, confirm that two new modules appear on your **Set modules** page.
+1. After your Stream Analytics addition finishes deployment, confirm that two new modules appear on your **Set modules** page.
 
    :::image type="content" source="media/tutorial-deploy-stream-analytics/two-new-modules.png" alt-text="Screenshot confirming that two new modules are on your device. The screenshot also shows where the Review + create button is located." lightbox="media/tutorial-deploy-stream-analytics/two-new-modules.png":::
 
