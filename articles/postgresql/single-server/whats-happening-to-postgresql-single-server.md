@@ -4,7 +4,7 @@ description: The Azure Database for PostgreSQL Single Server service is being de
 author: markingmyname
 ms.author: maghan
 ms.reviewer: sunila
-ms.date: 03/31/2023
+ms.date: 03/30/2023
 ms.service: postgresql
 ms.subservice: single-server
 ms.topic: overview
