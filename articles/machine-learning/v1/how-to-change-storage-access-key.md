@@ -14,7 +14,7 @@ ms.custom: cliv1, sdkv1, event-tier1-build-2022, ignite-2022
 ---
 
 # Regenerate storage account access keys
-[!INCLUDE [cli v1](../../includes/machine-learning-dev-v1.md)]
+[!INCLUDE [cli v1](../../../includes/machine-learning-dev-v1.md)]
 
 Learn how to change the access keys for Azure Storage accounts used by Azure Machine Learning. Azure Machine Learning can use storage accounts to store data or trained models.
 
@@ -100,7 +100,7 @@ To update Azure Machine Learning to use the new key, use the following steps:
         az ml workspace sync-keys -w myworkspace -g myresourcegroup
         ```
 
-        [!INCLUDE [install extension](../../includes/machine-learning-service-install-extension.md)]
+        [!INCLUDE [install extension](../../../includes/machine-learning-service-install-extension.md)]
 
         This command automatically syncs the new keys for the Azure storage account used by the workspace.
 

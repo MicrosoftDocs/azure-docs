@@ -107,7 +107,7 @@ Depending on your needs, you may have more compute or data services that are use
 
 __Compute resources__
 
-* **Azure Kubernetes Service**: See [Best practices for business continuity and disaster recovery in Azure Kubernetes Service (AKS)](../aks/operator-best-practices-multi-region.md) and [Create an Azure Kubernetes Service (AKS) cluster that uses availability zones](../aks/availability-zones.md). If the AKS cluster was created by using the Azure Machine Learning Studio, SDK, or CLI, cross-region high availability is not supported.
+* **Azure Kubernetes Service**: See [Best practices for business continuity and disaster recovery in Azure Kubernetes Service (AKS)](../../aks/operator-best-practices-multi-region.md) and [Create an Azure Kubernetes Service (AKS) cluster that uses availability zones](../../aks/availability-zones.md). If the AKS cluster was created by using the Azure Machine Learning Studio, SDK, or CLI, cross-region high availability is not supported.
 * **Azure Databricks**: See [Regional disaster recovery for Azure Databricks clusters](/azure/databricks/scenarios/howto-regional-disaster-recovery).
 * **Container Instances**: An orchestrator is responsible for failover. See [Azure Container Instances and container orchestrators](../../container-instances/container-instances-orchestrator-relationship.md).
 * **HDInsight**: See [High availability services supported by Azure HDInsight](../../hdinsight/hdinsight-high-availability-components.md).
@@ -153,7 +153,7 @@ Jobs in Azure Machine Learning are defined by a job specification. This specific
 
 * Manage configurations as code.
 
-    * Avoid hardcoded references to the workspace. Instead, configure a reference to the workspace instance using a [config file](../how-to-configure-environment.md#local-and-dsvm-only-create-a-workspace-configuration-file) and use [Workspace.from_config()](/python/api/azureml-core/azureml.core.workspace.workspace#remarks) to initialize the workspace. To automate the process, use the [Azure CLI extension for machine learning](v1/reference-azure-machine-learning-cli.md) command [az ml folder attach](/cli/azure/ml(v1)/folder#az-ml(v1)-folder-attach).
+    * Avoid hardcoded references to the workspace. Instead, configure a reference to the workspace instance using a [config file](../how-to-configure-environment.md#local-and-dsvm-only-create-a-workspace-configuration-file) and use [Workspace.from_config()](/python/api/azureml-core/azureml.core.workspace.workspace#remarks) to initialize the workspace. To automate the process, use the [Azure CLI extension for machine learning](reference-azure-machine-learning-cli.md) command [az ml folder attach](/cli/azure/ml(v1)/folder#az-ml(v1)-folder-attach).
     * Use job submission helpers such as [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) and [Pipeline](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline(class)).
     * Use [Environments.save_to_directory()](/python/api/azureml-core/azureml.core.environment(class)#save-to-directory-path--overwrite-false-) to save your environment definitions.
     * Use a Dockerfile if you use custom Docker images.
@@ -177,7 +177,7 @@ Azure Machine Learning cannot sync or recover artifacts or metadata between work
 
 Depending on your recovery approach, you may need to copy artifacts such as dataset and model objects between the workspaces to continue your work. Currently, the portability of artifacts between workspaces is limited. We recommend managing artifacts as code where possible so that they can be recreated in the failover instance.
 
-The following artifacts can be exported and imported between workspaces by using the [Azure CLI extension for machine learning](v1/reference-azure-machine-learning-cli.md):
+The following artifacts can be exported and imported between workspaces by using the [Azure CLI extension for machine learning](reference-azure-machine-learning-cli.md):
 
 | Artifact | Export | Import |
 | ----- | ----- | ----- |
