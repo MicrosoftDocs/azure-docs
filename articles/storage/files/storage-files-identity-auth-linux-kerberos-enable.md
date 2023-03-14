@@ -444,14 +444,14 @@ wbinfo -K 'contososmbadmin%SUPERSECRETPASSWORD'
 
 ## Mount the file share
 
-After you've enabled AD (or Azure AD) Kerberos authentication and domain-joined your Linux VM, you can mount the file share. The mount options differ somewhat depending on the [access control model](#choose-an-access-control-model) you're using. These mount options are specific to Linux clients connecting to an Azure file share. Your scenario could span multiple use cases, in which case you can merge the mount options.
+After you've enabled AD (or Azure AD) Kerberos authentication and domain-joined your Linux VM, you can mount the file share.
 
 For detailed mounting instructions, see [Mount the Azure file share on-demand with mount](storage-how-to-use-files-linux.md?tabs=smb311#mount-the-azure-file-share-on-demand-with-mount).
 
 Use the following additional mount option with all access control models to enable Kerberos security: `sec=krb5`
 
 > [!Note]
-> This feature only supports using server-enforced access control using NT ACLs with no mode bits. Linux tools that update NT ACLs are minimal, so update ACLs through Windows. Client-enforced access control (`modefromsid,idsfromsid`) and client-translated access control (`cifsacl`) models aren't currently supported.
+> This feature only supports a server-enforced access control model using NT ACLs with no mode bits. Linux tools that update NT ACLs are minimal, so update ACLs through Windows. Client-enforced access control (`modefromsid,idsfromsid`) and client-translated access control (`cifsacl`) models aren't currently supported.
 
 ### Other mount options
 
