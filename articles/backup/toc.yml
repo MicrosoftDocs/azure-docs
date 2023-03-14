@@ -129,7 +129,11 @@
     - name: Architecture
       href: azure-backup-architecture-for-sap-hana-backup.md
   - name: Azure Kubernetes Service backup
-    href: azure-kubernetes-service-cluster-backup-concept.md      
+    items:
+    - name: Overview
+      href: azure-kubernetes-service-backup-overview.md
+    - name: Prerequisites  
+      href: azure-kubernetes-service-cluster-backup-concept.md      
   - name: Azure Blob backup
     href: blob-backup-overview.md          
   - name: Monitor and Alerts
@@ -693,6 +697,8 @@
       href: backup-azure-system-state-troubleshoot.md
     - name: Archive tier
       href: troubleshoot-archive-tier.md
+    - name: Azure Kubernetes Service
+      href: azure-kubernetes-service-backup-troubleshoot.md  
 - name: Reference
   items:
   - name: Archived release notes
