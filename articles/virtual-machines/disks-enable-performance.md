@@ -30,7 +30,7 @@ Either use the Azure Cloud Shell to run your commands or install a version of th
 
 ## Enable performance plus
 
-You'll need to create a new disk to use performance plus. The following script will create a disk that has performance plus enabled and attach it to a VM:
+You need to create a new disk to use performance plus. The following script creates a disk that has performance plus enabled and attach it to a VM:
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -65,7 +65,7 @@ az disk create --name $myDisk --resource-group $myRG --size-gb $size -- --perfor
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-You'll need to create a new disk to use performance plus. The following script will create a disk that has performance plus enabled and attach it to a VM:
+You need to create a new disk to use performance plus. The following script creates a disk that has performance plus enabled and attach it to a VM:
 
 ```azurepowershell
 $myRG=yourResourceGroupName
