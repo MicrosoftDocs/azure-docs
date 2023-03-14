@@ -46,7 +46,7 @@ await routerAdministrationClient.CreateClassificationPolicyAsync(
                     new QueueSelector("Id", LabelOperator.Equal, new LabelValue("XBOX_NA_QUEUE"))
                 }),
             new ConditionalQueueSelectorAttachment(
-                condition: new ExpressionRule("If(job.Escalated = \"NA\", false, true)"),
+                condition: new ExpressionRule("If(job.Region != \"NA\", true, false)"),
                 labelSelectors: new List<QueueSelector>()
                 {
                     new QueueSelector("Id", LabelOperator.Equal, new LabelValue("XBOX_DEFAULT_QUEUE"))
