@@ -177,7 +177,7 @@ items:
   - name: Python (Management)
     href: /python/api/azure-mgmt-iothubprovisioningservices
   - name: Azure IoT SDK for C API documentation
-    href: ../iot-hub/iot-hub-device-sdk-c-intro.md
+    href: https://github.com/Azure/azure-iot-sdk-c/blob/main/readme.md
   - name: REST API
     href: /rest/api/iot-dps
   - name: Resource Manager template

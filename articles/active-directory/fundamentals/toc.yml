@@ -17,7 +17,7 @@ items:
     href: active-directory-how-subscriptions-associated-directory.md
   - name: Add your privacy info
     href: active-directory-properties-area.md
-  - name: Add company branding
+  - name: Add company branding (preview)
     href: how-to-customize-branding.md
 - name: Users, groups, and licenses
   expanded: false
@@ -62,12 +62,10 @@ items:
     href: concept-fundamentals-mfa-get-started.md
   - name: Identity secure score
     href: identity-secure-score.md
-  - name: Secure remote workers
+  - name: Improve your security posture
     href: concept-secure-remote-workers.md
   - name: Integrating all your apps with Azure AD
     href: five-steps-to-full-application-integration-with-azure-ad.md
-  - name: Deployment 30, 90, and beyond
-    href: active-directory-deployment-checklist-p2.md
   - name: Security defaults
     href: concept-fundamentals-security-defaults.md
   - name: Block less secure authentications
@@ -173,6 +171,8 @@ items:
       items:
       - name: Overview
         href: auth-sync-overview.md
+      - name: Passwordless authentication
+        href: auth-passwordless.md
       - name: SAML authentication
         href: auth-saml.md
       - name: Open ID Connect authentication

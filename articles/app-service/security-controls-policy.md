@@ -4,7 +4,7 @@ description: Lists Azure Policy Regulatory Compliance controls available for Azu
 ms.date: 02/14/2023
 ms.topic: sample
 ms.service: app-service
-ms.custom: subject-policy-compliancecontrols
+ms.custom: "UpdateFrequency3, subject-policy-compliancecontrols"
 ---
 # Azure Policy Regulatory Compliance controls for Azure App Service
 

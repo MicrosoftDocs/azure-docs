@@ -61,12 +61,21 @@
           href: application-model.md
         - name: Workload identities
           href: workload-identities-overview.md
+        - name: Workload identities FAQs
+          href: workload-identities-faqs.md
         - name: Applications and service principals
           href: app-objects-and-service-principals.md
         - name: How and why apps are added to Azure AD
           href: active-directory-how-applications-are-added.md
         - name: Single-tenant and multi-tenant apps
           href: single-and-multi-tenant-apps.md
+    - name: Custom Authentication Extensions
+      displayName: Custom Authentication Extensions
+      items:
+        - name: Overview
+          href: custom-extension-overview.md
+        - name: Custom claims provider
+          href: custom-claims-provider-overview.md
     - name: Security best practices
       displayName: least privilege, secure app configuration, conditional access
       items:
@@ -133,6 +142,16 @@
             - name: SAML app multi-instancing
               displayName: Configure SAML app multi-instancing for an application
               href: reference-app-multi-instancing.md
+        - name: Custom claims provider
+          items:
+            - name: Token issuance start event
+              items:
+                - name: Create and register a custom claims provider API
+                  href: custom-extension-get-started.md
+                - name: Configure a SAML app to call a custom claims provider
+                  href: custom-extension-configure-saml-app.md
+                - name: Troubleshoot your custom claims provider API
+                  href: custom-extension-troubleshoot.md
         - name: Handle browser cookie restrictions
           items:
             - name: Handle ITP in Safari
@@ -824,6 +843,8 @@
       href: authentication-national-cloud.md
     - name: Microsoft Graph API reference (identity operations)
       href: /graph/api/resources/azure-ad-overview
+    - name: Custom claims provider reference
+      href: custom-claims-provider-reference.md
 - name: Resources
   items:
     - name: Help and support options
@@ -833,7 +854,7 @@
       href: reference-breaking-changes.md
     - name: Video learning
       href: identity-videos.md
-    - name: "Blog: M365 Developer - Microsoft identity platform"
+    - name: "Blog: Microsoft 365 Developer - Microsoft identity platform"
       href: https://devblogs.microsoft.com/microsoft365dev/category/microsoft-identity-platform/
     - name: "Blog: Azure AD - Identity"
       href: https://techcommunity.microsoft.com/t5/azure-active-directory-identity/bg-p/Identity

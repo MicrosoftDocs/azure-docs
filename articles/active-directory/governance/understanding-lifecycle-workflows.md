@@ -25,7 +25,7 @@ The following document provides an overview of a workflow created using Lifecycl
 
 ## Permissions and Roles
 
-For a full list of supported delegate and application permissions required to use Lifecycle Workflows, see: [Lifecycle workflows permissions](/graph/permissions-reference#lifecycle-workflows-permissions).
+For a full list of supported delegated and application permissions required to use Lifecycle Workflows, see: [Lifecycle workflows permissions](/graph/permissions-reference#lifecycle-workflows-permissions).
 
 For delegated scenarios, the admin needs one of the following [Azure AD roles](/azure/active-directory/users-groups-roles/directory-assign-admin-roles#available-roles):
 
@@ -33,10 +33,10 @@ For delegated scenarios, the admin needs one of the following [Azure AD roles](/
 - Global reader
 - Lifecycle workflows administrator
 
-## Restrictions
+## Limits
 
 
-|Column1  |Limit  |
+|Category  |Limit  |
 |---------|---------|
 |Number of Workflows     |   50 per tenant      |
 |Number of Tasks     |  25 per workflow       |

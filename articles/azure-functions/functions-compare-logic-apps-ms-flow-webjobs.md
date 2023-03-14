@@ -23,9 +23,9 @@ For a good summary and comparison of automation service options in Azure, see [C
 
 ## Compare Microsoft Power Automate and Azure Logic Apps
 
-Power Automate and Logic Apps are both *designer-first* integration services that can create workflows. Both services integrate with various SaaS and enterprise applications. 
+Power Automate and Azure Logic Apps are both *designer-first* integration services that can create workflows. Both services integrate with various SaaS and enterprise applications.
 
-Power Automate is built on top of Logic Apps. They share the same workflow designer and the same [connectors](../connectors/apis-list.md). 
+Power Automate is built on the Azure Logic Apps platform. Both provide similar workflow designers and [connectors](/connectors/connector-reference/).
 
 Power Automate empowers any office worker to perform simple integrations (for example, an approval process on a SharePoint Document Library) without going through developers or IT. Logic Apps can also enable advanced integrations (for example, B2B processes) where enterprise-level Azure DevOps and security practices are required. It's typical for a business workflow to grow in complexity over time.
 

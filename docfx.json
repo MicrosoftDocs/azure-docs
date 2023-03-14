@@ -190,6 +190,7 @@
       "uhfHeaderId": "azure",
       "ms.suite": "office",
       "contributors_to_exclude": [
+        "alexbuckgit",
         "atookey",
         "chbain",
         "Court72",
@@ -314,7 +315,7 @@
         "articles/backup/**/*.md": "jyothisuri",
         "articles/backup/**/*.yml": "jyothisuri",
         "articles/baremetal-infrastructure/**/*.md": "dineshga",
-        "articles/batch/**/*.md": "harperche",
+        "articles/batch/**/*.md": "padmalathas",
         "articles/blockchain/**/*.md": "PatAltimore",
         "articles/sap/**/*.md": "lauradolan",
         "articles/chef/**/*.md": "TomArcherMsft",
@@ -695,7 +696,7 @@
         "articles/backup/**/*.md": "jsuri",
         "articles/backup/**/*.yml": "jyothisuri",
         "articles/baremetal-infrastructure/**/*.md": "kalyank",
-        "articles/batch/**/*.md": "prkannap",
+        "articles/batch/**/*.md": "padmalathas",
         "articles/blockchain/**/*.md": "patricka",
         "articles/chef/**/*.md": "tarcher",
         "articles/applied-ai-services/**/*.md": "mbullwin",
@@ -963,7 +964,8 @@
         "articles/cosmos-db/cassandra/*.md": "cosmosdb-cassandra",
         "articles/cosmos-db/graph/*.md": "cosmosdb-graph",
         "articles/cosmos-db/table/*.md": "cosmosdb-table",
-        "articles/cosmos-db/sql/*.md": "cosmosdb-sql"
+        "articles/cosmos-db/sql/*.md": "cosmosdb-sql",
+        "articles/defender-for-iot/device-builders/*.md": "device-builders"
       },
       "monikerRange": {
         "articles/iot-edge/**/*.md": ">=iotedge-1.4",
@@ -1205,6 +1207,9 @@
         "articles/cost-management-billing/**/*.yml": "Microsoft Cost Management",
         "articles/azure-center-sap-solutions/*.md": "Azure Center for SAP solutions",
         "articles/azure-center-sap-solutions/*.yml": "Azure Center for SAP solutions"
+      },
+      "ms.custom": {
+        "articles/machine-learning/v1/*.md": "UpdateFrequency5"
       }
     },
     "template": [
@@ -1277,6 +1282,7 @@
       "sensitive-language-bl": {
         "exclude": [
           "articles/azure-monitor/app/opencensus-python-request.md",
+          "articles/hdinsight/kafka/apache-kafka-mirror-maker-2.md",
           "articles/sap/large-instances/**/**.md",
           "articles/governance/blueprints/**/*.md",
           "articles/governance/policy/**/*.md",
