@@ -10,7 +10,7 @@ ms.date: 03/14/2023
 
 # Create and use a glossary with Document Translation
 
-A glossary is a custom dictionary that you create for the Document Translation service to use during the translation process. Currently, the glossary feature supports one-to-one source-to-target (not one-to-many language) language translations. Common use cases for glossaries include:
+A glossary is a custom dictionary that you create for the Document Translation service to use during the translation process. Currently, the glossary feature supports one-to-one (not one-to-many language) source-to-target language translation. Common use cases for glossaries include:
 
 * **Domain-specific terminology**. Create a glossary that designates specific meanings for your unique context.
 
@@ -28,37 +28,39 @@ When your glossary is applied to **part of a sentence**, the Document Translatio
 
 #### Complete sentence application
 
-When your glossary is applied to a **complete sentence**, the service becomes **case-insensitive**. It matches the glossary term regardless of its casing in the source text. This provision applies the correct results for use cases involving idioms and quotes.
+When your glossary is applied to a **complete sentence**, the service becomes **case-insensitive**. It matches the glossary term regardless of its case in the source text. This provision applies the correct results for use cases involving idioms and quotes.
 
 ## Create, upload, and use a glossary file
 
-1. **Create your glossary file.** Create a file in a supported format that contains all the terms and phrases you want to use in your translation. You can check to see if your format is supported using the [Get supported glossary formats](../reference/get-supported-glossary-formats.md). To follow, is a sample REST API call using PowerShell. Update `your-document-translation-key` and `your-document-translation-endpoint` with values from the Azure portal. Only one key is necessary to make an API call.
+1. **Create your glossary file.** Create a file in a supported format that contains all the terms and phrases you want to use in your translation.
 
-   :::image type="content" source="../media/key-endpoint.png" alt-text="Screenshot showing the key and endpoint fields in the Azure portal.":::
+   * You can check to see if your format is supported using the [Get supported glossary formats](../reference/get-supported-glossary-formats.md).
 
-   ***Get supported glossary formats request***
+   * To follow, is a sample REST API call using PowerShell. To use the sample, update `your-document-translation-key` and `your-document-translation-endpoint` with values from the Azure portal. Only one key is necessary to make an API call.
 
-    ```powershell
-   @"
-   $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
-   $headers.Add("Ocp-Apim-Subscription-Key", "your-document-translation-key")
+      ***Get supported glossary formats request***
 
-   $response = Invoke-RestMethod 'your-document-translation-endpoint/translator/text/batch/v1.0/glossaries/formats' -Method 'GET' -Headers $headers
-   $response | ConvertTo-Json
-   "@
-    ```
+       ```powershell
+      @"
+      $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
+      $headers.Add("Ocp-Apim-Subscription-Key", "your-document-translation-key")
+
+      $response = Invoke-RestMethod 'your-document-translation-endpoint/translator/text/batch/v1.0/glossaries/formats' -Method 'GET' -Headers $headers
+      $response | ConvertTo-Json
+      "@
+       ```
+
+   In the following English-source glossary, the words can have different meanings depending upon the context in which they're used. The glossary provides translations for each word in the file to help ensure accurate translations.
+
+   For instance, when the word `Bank` appears in a financial document, it would be translated as `Banque` to reflect its financial meaning. If the word `Bank` appears in a geography document, it might be translated as `land beside a river` to reflect its topographical meaning. Similarly, the word `Crane` can refer to either a `bird` or a `machine`.
 
    ***Example glossary file tab-separated values (.tsv)***
 
    :::image type="content" source="../media/tsv-file.png" alt-text="Example of a TSV formatted glossary file formatted":::
 
-In this English-source glossary, the words can have different meanings depending upon the context in which they're used. The glossary provides translations for each word in the file to help ensure accurate translations.
+1. **Upload your glossary to Azure storage**. To complete this step, you need an [Azure Blob Storage account](https://ms.portal.azure.com/#create/Microsoft.StorageAccount) with [containers](/azure/storage/blobs/storage-quickstart-blobs-portal?branch=main#create-a-container) to store and organize your blob data within your storage account.
 
-For instance, when the word `Bank` appears in a financial document, it would be translated as `Banque` to reflect its financial meaning. If the word `Bank` appears in a geography document, it might be translated as `land beside a river` to reflect its topographical meaning. Similarly, the word `Crane` can refer to either a `bird` or a `machine`.
-
-1. **Upload your glossary to the Azure storage**. To complete this step, you need an [Azure Blob Storage account](https://ms.portal.azure.com/#create/Microsoft.StorageAccount) with [containers](/azure/storage/blobs/storage-quickstart-blobs-portal?branch=main#create-a-container) to store and organize your blob data within your storage account.
-
-1. **Specify your glossary in the translation request.** Include the glossary URL, format, and version in your **`POST`** request:
+1. **Specify your glossary in the translation request.** Include the **`glossary URL`**, **`format`**, and **`version`** in your **`POST`** request:
 
    :::code language="json" source="translate-with-glossary.json" range="1-23" highlight="13-15":::
 
