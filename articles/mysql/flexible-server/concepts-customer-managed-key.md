@@ -29,7 +29,7 @@ Data encryption with customer-managed keys for Azure Database for MySQL - Flexib
 
 Managed identities in Azure Active Directory (Azure AD) provide Azure services an alternative to storing credentials in the code by provisioning an automatically assigned identity that can be used to authenticate to any service supporting Azure AD authentication, such as Azure Key Vault (AKV). Azure Database for MySQL - Flexible Server currently supports only User-assigned Managed Identity (UMI). For more information, see [Managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) in Azure.
 
-To configure the CMK for an Azure Database for MySQL - Flexible Server, you need to link the UMI to the server and specify the Azure Key vault and key to use.
+To configure the CMK for an Azure Database for MySQL flexible server, you need to link the UMI to the server and specify the Azure Key vault and key to use.
 
 The UMI must have the following access to the key vault:
 
@@ -76,7 +76,7 @@ Before you attempt to configure the CMK, be sure to address the following requir
 - If you're [importing an existing key](/rest/api/keyvault/keys/import-key/import-key?tabs=HTTP) into the key vault, make sure to provide it in the supported file formats (.pfx, .byok, .backup).
 
 > [!NOTE]  
-> For detailed, step-by-step instructions about how to configure date encryption for an Azure Database for MySQL - Flexible Server via the Azure portal, see [Configure data encryption for MySQL Flexible server](how-to-data-encryption-portal.md).
+> For detailed, step-by-step instructions about how to configure date encryption for an Azure Database for MySQL flexible server via the Azure portal, see [Configure data encryption for MySQL Flexible server](how-to-data-encryption-portal.md).
 
 ## Recommendations for configuring data encryption
 
@@ -121,7 +121,7 @@ Once Azure Database for MySQL - Flexible Server is encrypted with a customer's m
 
 ## Restore with a customer managed key in Key Vault
 
-When attempting to restore an Azure Database for MySQL - Flexible Server, you can select the user-managed identity and key to encrypt the restore server. Suppose the flexible server is configured with geo-redundancy backup. In that case, you must configure the restore server with the managed identity and key to which the identity has access and which resides in the server's geo-paired region.
+When attempting to restore an Azure Database for MySQL flexible server, you can select the user-managed identity and key to encrypt the restore server. Suppose the flexible server is configured with geo-redundancy backup. In that case, you must configure the restore server with the managed identity and key to which the identity has access and which resides in the server's geo-paired region.
 
 To avoid issues while setting up customer-managed data encryption during restore or read replica creation, it's essential to follow these steps on the source and restored/replica servers:
 
