@@ -5,7 +5,7 @@ items:
   expanded: true
   items: 
     - name: What is Azure Deployment Environments Preview?
-      displayName: ADE Overview
+      displayName: Azure Deployment Environments overview
       href: overview-what-is-azure-deployment-environments.md
 - name: Quickstarts
   displayName: Quickstarts
@@ -22,9 +22,9 @@ items:
   items:
     - name: Key concepts
       href: concept-environments-key-concepts.md
-    - name: Usage scenarios
+    - name: Use scenarios
       href: concept-environments-scenarios.md
-    - name: Components common to ADE and Dev Box
+    - name: Components common to Deployment Environments & Dev Box
       href: concept-common-components.md
 - name: How-to guides
   expanded: true
