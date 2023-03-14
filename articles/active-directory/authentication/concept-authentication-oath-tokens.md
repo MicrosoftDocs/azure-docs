@@ -16,6 +16,7 @@ ms.collection: M365-identity-device-management
 
 # Customer intent: As an identity administrator, I want to understand how to use OATH tokens in Azure AD to improve and secure user sign-in events.
 ---
+
 # Authentication methods in Azure Active Directory - OATH tokens 
 
 OATH TOTP (Time-based One Time Password) is an open standard that specifies how one-time password (OTP) codes are generated. OATH TOTP can be implemented using either software or hardware to generate the codes. Azure AD doesn't support OATH HOTP, a different code generation standard.
@@ -48,7 +49,7 @@ Once tokens are acquired they must be uploaded in a comma-separated values (CSV)
 ```csv
 upn,serial number,secret key,time interval,manufacturer,model
 Helga@contoso.com,1234567,2234567abcdef2234567abcdef,60,Contoso,HardwareKey
-```  
+```
 
 > [!NOTE]
 > Make sure you include the header row in your CSV file. 
@@ -61,9 +62,11 @@ Once any errors have been addressed, the administrator then can activate each ke
 
 Users may have a combination of up to five OATH hardware tokens or authenticator applications, such as the Microsoft Authenticator app, configured for use at any time. Hardware OATH tokens cannot be assigned to guest users in the resource tenant. 
 
-.[!IMPORTANT]
->Make sure to only assign each token to a single user.
->In the future, support for the assignment of a single token to multiple users will stop to prevent a security risk.
+> [!IMPORTANT]
+> Make sure to only assign each token to a single user.
+> In the future, support for the assignment of a single token to multiple users will stop to prevent a security risk.
+
+
 
 
 ## Determine OATH token registration type in mysecurityinfo 
@@ -75,7 +78,9 @@ OATH software token   | <img width="63" alt="Software OATH token" src="media/con
 OATH hardware token | <img width="63" alt="Hardware OATH token" src="media/concept-authentication-methods/hardware-oath-token-icon.png">
 
 
+
 ## Next steps
 
 Learn more about configuring authentication methods using the [Microsoft Graph REST API](/graph/api/resources/authenticationmethods-overview).
 Learn about [FIDO2 security key providers](concept-authentication-passwordless.md#fido2-security-key-providers) that are compatible with passwordless authentication.
+

@@ -103,7 +103,7 @@ Like using a secret:
 
 Volumes defined and created as part of the pod lifecycle only exist until you delete the pod. Pods often expect their storage to remain if a pod is rescheduled on a different host during a maintenance event, especially in StatefulSets. A *persistent volume* (PV) is a storage resource created and managed by the Kubernetes API that can exist beyond the lifetime of an individual pod.
 
-You can use Azure Disks or Files to provide the PersistentVolume. As noted in the [Volumes](#volumes) section, the choice of Disks or Files is often determined by the need for concurrent access to the data or the performance tier.
+You can use [Azure Disks](/azure-csi-disk-storage-provision.md) or [Azure Files](/azure-csi-files-storage-provision.md) to provide the PersistentVolume. As noted in the [Volumes](#volumes) section, the choice of Disks or Files is often determined by the need for concurrent access to the data or the performance tier.
 
 ![Persistent volumes in an Azure Kubernetes Services (AKS) cluster](media/concepts-storage/persistent-volumes.png)
 
@@ -114,9 +114,9 @@ A PersistentVolume can be *statically* created by a cluster administrator, or *d
 
 ## Storage classes
 
-To define different tiers of storage, such as Premium and Standard, you can create a *StorageClass*. 
+To define different tiers of storage, such as Premium and Standard, you can create a *StorageClass*.
 
-The StorageClass also defines the *reclaimPolicy*. When you delete the pod and the persistent volume is no longer required, the reclaimPolicy controls the behavior of the underlying Azure storage resource. The underlying storage resource can either be deleted or kept for use with a future pod.
+The StorageClass also defines the *reclaimPolicy*. When you delete the persistent volume, the reclaimPolicy controls the behavior of the underlying Azure storage resource. The underlying storage resource can either be deleted or kept for use with a future pod.
 
 For clusters using the [Container Storage Interface (CSI) drivers][csi-storage-drivers] the following extra `StorageClasses` are created:
 
@@ -153,6 +153,8 @@ allowVolumeExpansion: true
 
 > [!NOTE]
 > AKS reconciles the default storage classes and will overwrite any changes you make to those storage classes.
+
+For more information about storage classes, see [StorageClass in Kubernetes](https://kubernetes.io/docs/concepts/storage/storage-classes/).
 
 ## Persistent volume claims
 

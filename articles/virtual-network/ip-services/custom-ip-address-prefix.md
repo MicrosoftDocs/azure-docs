@@ -55,7 +55,7 @@ When ready, you can issue the command to have your range advertised from Azure a
 
 * In regions with [availability zones](../../availability-zones/az-overview.md), a custom IPv4 prefix (or a regional custom prefix) must be specified as either zone-redundant or assigned to a specific zone. It can't be created with no zone specified in these regions. All IPs from the prefix must have the same zonal properties.
 
-* The advertisements of IPs from a custom IP prefix over Azure ExpressRoute aren't currently supported.
+* The advertisements of IPs from a custom IP prefix over an Azure ExpressRoute Microsoft peering isn't currently supported.
 
 * Once provisioned, custom IP prefix ranges can't be moved to another subscription. Custom IP address prefix ranges can't be moved within resource groups in a single subscription. It is possible to derive a public IP prefix from a custom IP prefix in another subscription with the proper permissions as described [here](manage-custom-ip-address-prefix.md#permissions).
 

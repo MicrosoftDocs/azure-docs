@@ -56,6 +56,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/saas-apps/trello-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/atlassian-cloud-tutorial",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/saas-apps/iauditor-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/safety-culture-tutorial",
       "redirect_document_id": false
@@ -67,6 +72,11 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/saas-apps/icertisicm-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/saas-apps/usertesting-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
       "redirect_document_id": false
     },
@@ -1868,6 +1878,11 @@
     {
       "source_path_from_root": "/articles/active-directory/hybrid/plan-migrate-adfs-password-hash-sync.md",
       "redirect_url": "/azure/active-directory/hybrid/migrate-from-federation-to-cloud-authentication",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-deployment-checklist-p2.md",
+      "redirect_url": "/azure/active-directory/fundamentals/concept-secure-remote-workers",
       "redirect_document_id": true
     },
     {
@@ -4395,7 +4410,7 @@
       "source_path_from_root": "/articles/active-directory/reports-monitoring/recommendations-integrate-third-party-apps.md",
       "redirect_url": "/azure/active-directory/reports-monitoring/overview-recommendations",
       "redirect_document_id": false
-     },
+    },
     {
       "source_path_from_root": "/articles/active-directory/reports-monitoring/workbook-legacy authentication.md",
       "redirect_url": "/azure/active-directory/reports-monitoring/workbook-legacy-authentication",

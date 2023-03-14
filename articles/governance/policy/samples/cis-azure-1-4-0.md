@@ -1,10 +1,9 @@
 ---
 title: Regulatory Compliance details for CIS Microsoft Azure Foundations Benchmark 1.4.0
-description: This article describes the CIS Microsoft Azure Foundations Benchmark 1.4.0 Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 01/18/2023
+description: Details of the CIS Microsoft Azure Foundations Benchmark 1.4.0 Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
+ms.date: 02/14/2023
 ms.topic: sample
 ms.custom: generated
-ms.author: timwarner
 ---
 # Details of the CIS Microsoft Azure Foundations Benchmark 1.4.0 Regulatory Compliance built-in initiative
 
@@ -189,7 +188,7 @@ initiative definition.
 |[Adopt biometric authentication mechanisms](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7d7a8356-5c34-9a95-3118-1424cfaf192a) |CMA_0005 - Adopt biometric authentication mechanisms |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0005.json) |
 |[MFA should be enabled on accounts with read permissions on your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe3576e28-8b17-4677-84c3-db2990658d64) |Multi-Factor Authentication (MFA) should be enabled for all subscription accounts with read privileges to prevent a breach of accounts or resources. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableMFAForReadPermissions_Audit.json) |
 
-### Ensure that no custom subscription owner roles are created
+### Ensure That No Custom Subscription Owner Roles Are Created
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 1.20
 **Ownership**: Shared
@@ -332,7 +331,7 @@ initiative definition.
 |[Review threat protection status weekly](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffad161f5-5261-401a-22dd-e037bae011bd) |CMA_0479 - Review threat protection status weekly |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0479.json) |
 |[Update antivirus definitions](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fea9d7c95-2f10-8a4d-61d8-7469bd2e8d65) |CMA_0517 - Update antivirus definitions |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0517.json) |
 
-### Ensure that Microsoft Defender for Cloud Apps (MCAS) integration with Microsoft Defender for Cloud is selected
+### Ensure that Microsoft Defender for Cloud Apps (MCAS) Integration with Microsoft Defender for Cloud is Selected
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 2.10
 **Ownership**: Shared
@@ -348,7 +347,7 @@ initiative definition.
 |[Review threat protection status weekly](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffad161f5-5261-401a-22dd-e037bae011bd) |CMA_0479 - Review threat protection status weekly |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0479.json) |
 |[Update antivirus definitions](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fea9d7c95-2f10-8a4d-61d8-7469bd2e8d65) |CMA_0517 - Update antivirus definitions |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0517.json) |
 
-### Ensure That auto provisioning of Log Analytics Agent for Azure VMs' is set to 'On'
+### Ensure That Auto provisioning of 'Log Analytics agent for Azure VMs' is Set to 'On'
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 2.11
 **Ownership**: Shared
@@ -359,7 +358,7 @@ initiative definition.
 |[Document security operations](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2c6bee3a-2180-2430-440d-db3c7a849870) |CMA_0202 - Document security operations |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0202.json) |
 |[Turn on sensors for endpoint security solution](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5fc24b95-53f7-0ed1-2330-701b539b97fe) |CMA_0514 - Turn on sensors for endpoint security solution |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0514.json) |
 
-### Ensure ASC Default Policy settings are not set to 'Disabled'
+### Ensure Any of the ASC Default Policy Setting is Not Set to 'Disabled'
 
 **ID**: CIS Microsoft Azure Foundations Benchmark recommendation 2.12
 **Ownership**: Shared

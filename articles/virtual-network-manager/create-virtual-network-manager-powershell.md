@@ -6,7 +6,7 @@ ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: quickstart
 ms.date: 08/9/2022
-ms.custom: template-quickstart, ignite-fall-2021, mode-api
+ms.custom: template-quickstart, ignite-fall-2021, mode-api, devx-track-azurepowershell
 ---
 
 # Quickstart: Create a mesh network with Azure Virtual Network Manager using Azure PowerShell

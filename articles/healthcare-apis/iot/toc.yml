@@ -41,29 +41,32 @@ items:
   - name: Map
     expanded: false
     items:
+    - name: Mapping debugger
+      expanded: false
+      items:
+        - name: Use the Mapping debugger
+          href: how-to-use-mapping-debugger.md
     - name: Device
       expanded: false
       items:
-      - name: Device mappings
+      - name: Configure the device mapping
         href: how-to-configure-device-mappings.md
-      - name: CalculatedContent mappings
+      - name: Use CalculatedContent mappings
         href: how-to-use-calculatedcontent-mappings.md
-      - name: IotJsonPathContentTemplate mappings
+      - name: Use IotJsonPathContentTemplate mappings
         href: how-to-use-iotjsonpathcontenttemplate-mappings.md
-      - name: Custom functions
-        href: how-to-use-custom-functions.md
-      - name: Create copies of mappings
-        href: how-to-create-mappings-copies.md  
+      - name: Use custom functions
+        href: how-to-use-custom-functions.md 
     - name: Destination
       expanded: false
       items:
-      - name: FHIR destination mappings
+      - name: Configure the FHIR destination mapping
         href: how-to-configure-fhir-mappings.md
   - name: Monitor
     expanded: false
     items:
-    - name: Use the monitoring tab
-      href: how-to-use-monitoring-tab.md
+    - name: Use the monitoring and health checks tabs
+      href: how-to-use-monitoring-and-health-checks-tabs.md
     - name: Configure metrics
       href: how-to-configure-metrics.md
     - name: Enable diagnostic settings
@@ -71,8 +74,10 @@ items:
   - name: Troubleshoot
     expanded: false
     items:
-    - name: Errors
-      href: troubleshoot-errors.md
+    - name: Deployment errors
+      href: troubleshoot-errors-deployment.md
+    - name: Error logs
+      href: troubleshoot-errors-logs.md   
 - name: Concepts
   expanded: false
   items:

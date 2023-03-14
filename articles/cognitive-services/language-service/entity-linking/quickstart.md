@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: quickstart
-ms.date: 02/13/2023
+ms.date: 02/17/2023
 ms.author: aahi
 ms.devlang: csharp, java, javascript, python
 ms.custom: language-service-entity-linking, ignite-fall-2021, mode-api
