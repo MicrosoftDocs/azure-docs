@@ -64,7 +64,6 @@ Follow the steps to create a cache rule without using a Credential set.
 * To enable Caching for ACR (preview) with authentication using the Azure CLI advance to the next article [Enable Caching for ACR - Azure CLI](tutorial-enable-registry-cache-auth-cli.md).
 
 <!-- LINKS - External -->
-[create-and-store-keyvault-credentials]:../key-vault/secrets/quick-create-cli.md
 [Install Azure CLI]: /cli/azure/install-azure-cli
 [Azure Cloud Shell]: /azure/cloud-shell/quickstart
 [az-acr-cache-create]:/cli/azure/acr/cache#az-acr-cache-create

@@ -96,7 +96,7 @@ Before configuring a Credential Set, you require to create and store secrets in 
 
 ## Next steps
 
-* To enable Caching for ACR (preview) with authentication using the Azure CLI advance to the next article [Enable Caching for ACR - Azure CLI](tutorial-enable-registry-cache-auth-cli.md).
+* Advance to the [next article](tutorial-enable-registry-cache-cli.md) to enable the Caching for ACR (preview) using Azure CLI.
 
 <!-- LINKS - External -->
 [create-and-store-keyvault-credentials]: ../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault
