@@ -35,7 +35,7 @@ The following list presents the set of features that are currently available in 
 | Group of features | Capability                                                                                                          | JS  | Windows | Java (Android) | Objective-C (iOS) |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------- | --- | ------- | -------------- | ----------------- |
 | Core Capabilities | Place a one-to-one call between two users                                                                           | ✔️   | ✔️       | ✔️              | ✔️                 |
-|                   | Place a group call with more than two users (up to 350 users)                                                       | ✔️   | ✔️       | ✔️              | ✔️                 |
+|                   | Place a group call with more than two users (up to 100 users)                                                       | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Promote a one-to-one call with two users into a group call with more than two users                                 | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Join a group call after it has started                                                                              | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Invite another VoIP participant to join an ongoing group call                                                       | ✔️   | ✔️       | ✔️              | ✔️                 |

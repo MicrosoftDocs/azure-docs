@@ -6005,6 +6005,26 @@
             "source_path_from_root": "/articles/azure-monitor/app/availability-multistep.md",
             "redirect_url": "/previous-versions/azure/azure-monitor/app/availability-multistep",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/status-monitor-v2-overview.md",
+            "redirect_url": "/azure/azure-monitor/app/application-insights-asp-net-agent",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/status-monitor-v2-get-started.md",
+            "redirect_url": "/azure/azure-monitor/app/application-insights-asp-net-agent",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/status-monitor-v2-detailed-instructions.md",
+            "redirect_url": "/azure/azure-monitor/app/application-insights-asp-net-agent",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/status-monitor-v2-api-reference.md",
+            "redirect_url": "/azure/azure-monitor/app/application-insights-asp-net-agent",
+            "redirect_document_id": false
         }
     ]
 }

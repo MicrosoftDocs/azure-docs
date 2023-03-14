@@ -20,11 +20,11 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 Updates in March include:
 
-- [New alert in Azure Defender for Key Vault](#new-alert-in-azure-defender-for-key-vault)
+- [New alert in Defender for Key Vault](#new-alert-in-defender-for-key-vault)
 
-### New alert in Azure Defender for Key Vault
+### New alert in Defender for Key Vault
 
-Azure Defender for Key Vault has the following new alert:
+Defender for Key Vault has the following new alert:
 
 | Alert (alert type) | Description | MITRE tactics | Severity |
 |---|---|:-:|---|

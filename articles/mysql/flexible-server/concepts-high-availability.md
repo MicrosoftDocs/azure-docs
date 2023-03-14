@@ -79,7 +79,8 @@ Forced failover triggers a failover that activates the standby replica to become
 
 The overall failover time depends on the current workload and the last checkpoint. In general, it's expected to take between 60 and 120 seconds.
 
-[!Note]Azure Resource Health event is generated in the event of planned failover, representing the failover time during which server was unavailable. The triggered events can be seen when clicked on "Resource Health" in the left pane. User initiated/ Manual failover is represented by status as **"Unavailable"** and tagged as **"Planned"**. Example - "A failover operation was triggered by an authorized user (Planned)". If your resource remains in this state for an extended period of time, please open a [support ticket](https://azure.microsoft.com/support/create-ticket/) and we will assist you.
+>[!Note]
+>Azure Resource Health event is generated in the event of planned failover, representing the failover time during which server was unavailable. The triggered events can be seen when clicked on "Resource Health" in the left pane. User initiated/ Manual failover is represented by status as **"Unavailable"** and tagged as **"Planned"**. Example - "A failover operation was triggered by an authorized user (Planned)". If your resource remains in this state for an extended period of time, please open a [support ticket](https://azure.microsoft.com/support/create-ticket/) and we will assist you.
 
  
 ### Unplanned: Automatic failover 
@@ -88,7 +89,8 @@ Unplanned service downtime can be caused by software bugs or infrastructure faul
 
 The overall failover time is expected to be between 60 and 120 seconds. But, depending on the activity in the primary database server at the time of the failover (like large transactions and recovery time), the failover might take longer.
 
-[!Note]Azure Resource Health event is generated in the event of unplanned failover, representing the failover time during which server was unavailable. The triggered events can be seen when clicked on "Resource Health" in the left pane. Automatic failover is represented by status as **"Unavailable"** and tagged as **"Unplanned"**. Example - "Unavailable : A failover operation was triggered automatically (Unplanned)". If your resource remains in this state for an extended period of time, please open a [support ticket](https://azure.microsoft.com/support/create-ticket/) and we will assist you.
+>[!Note]
+>Azure Resource Health event is generated in the event of unplanned failover, representing the failover time during which server was unavailable. The triggered events can be seen when clicked on "Resource Health" in the left pane. Automatic failover is represented by status as **"Unavailable"** and tagged as **"Unplanned"**. Example - "Unavailable : A failover operation was triggered automatically (Unplanned)". If your resource remains in this state for an extended period of time, please open a [support ticket](https://azure.microsoft.com/support/create-ticket/) and we will assist you.
 
 #### How automatic failover detection works in HA enabled servers
 

@@ -30,7 +30,7 @@ Read [Adobe’s article on licensing](https://helpx.adobe.com/enterprise/using/l
 
 ### Lab plan settings
 
-[!INCLUDE [must have lab plan](./includes/lab-services-class-type-lab-plan.md)]
+Once you have an Azure subscription, you can create a new lab plan in Azure Lab Services. For more information about creating a new lab plan, see the quickstart on [how to set up a lab plan](./quick-create-resources.md). You can also use an existing lab plan.
 
 This lab uses a Windows 10 Azure Marketplace images as the base VM image. You first need to enable this image in your lab plan. This lets lab creators then select the image as a base image for their lab.
 
