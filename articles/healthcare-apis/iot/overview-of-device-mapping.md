@@ -50,7 +50,7 @@ The normalized data model has a few required properties that must be found and e
 
 ## Device mapping validations
 
-The validation process validates the device mapping before allowing them to be saved for use. These elements are required in the device mapping templates.
+The validation process validates the device mapping before allowing it to be saved for use. These elements are required in the device mapping templates.
 
 **Device mapping**
 
