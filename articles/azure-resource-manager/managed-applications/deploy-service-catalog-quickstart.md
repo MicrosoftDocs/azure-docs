@@ -50,10 +50,10 @@ Get-AzManagedApplicationDefinition -ResourceGroupName appDefinitionGroup
 Create a variable for the managed application definition's resource ID.
 
 ```azurepowershell
-$managedappid = (Get-AzManagedApplicationDefinition -ResourceGroupName appDefinitionGroup -Name sampleManagedApplication).ManagedApplicationDefinitionId
+$definitionid = (Get-AzManagedApplicationDefinition -ResourceGroupName appDefinitionGroup -Name sampleManagedApplication).ManagedApplicationDefinitionId
 ```
 
-You use the `$managedappid` variable's value when you deploy the managed application.
+You use the `$definitionid` variable's value when you deploy the managed application.
 
 # [Portal](#tab/azure-portal)
 
@@ -165,7 +165,7 @@ New-AzManagedApplication `
   -ResourceGroupName applicationGroup `
   -Location westus3 `
   -ManagedResourceGroupName $mrgname `
-  -ManagedApplicationDefinitionId $managedappid `
+  -ManagedApplicationDefinitionId $definitionid `
   -Kind ServiceCatalog `
   -Parameter $params
 ```
@@ -176,7 +176,7 @@ The parameters used in the deployment command:
 - `ResourceGroupName`: Name of the resource group you created for the managed application.
 - `Location`: Specify the region to deploy the resources. For this example, use _westus3_.
 - `ManagedResourceGroupName`: Uses the `$mrgname` parameters value. The managed resource group is created when the managed application is deployed.
-- `ManagedApplicationDefinitionId`: Uses the `$managedappid` variable's value for the managed application definition's resource ID.
+- `ManagedApplicationDefinitionId`: Uses the `$definitionid` variable's value for the managed application definition's resource ID.
 - `Kind`: Specifies that type of managed application. This example uses _ServiceCatalog_.
 - `Parameter`: Uses the `$parms` variable's value in the JSON formatted string.
 
@@ -207,7 +207,8 @@ Get-AzManagedApplication -Name demoManagedApplication -ResourceGroupName applica
 Expand the properties to make it easier to read the `Properties` information.
 
 ```azurepowershell
-Get-AzManagedApplication -Name demoManagedApplication -ResourceGroupName applicationGroup | Select-Object -ExpandProperty Properties
+Get-AzManagedApplication -Name demoManagedApplication -ResourceGroupName applicationGroup |
+  Select-Object -ExpandProperty Properties
 ```
 
 # [Portal](#tab/azure-portal)
@@ -228,26 +229,28 @@ You can view the resources deployed to the managed resource group.
 
 # [PowerShell](#tab/azure-powershell)
 
-To display the managed resource group's resources, run the following command. The variable `$mrgresources` parses the managed resource group's name from its ID.
+To display the managed resource group's resources, run the following command. You created the `$mrgname` variable when you created the parameters.
 
 ```azurepowershell
-$mrg=(Get-AzManagedApplication -Name demoManagedApplication -ResourceGroupName applicationGroup | Select-Object -ExpandProperty Properties).managedResourceGroupId
-
-$mrgresources = ($mrg  -split "/")[-1]
-
-Get-AzResource -ResourceGroupName $mrgresources
+Get-AzResource -ResourceGroupName $mrgname
 ```
 
 To display all the role assignments for the managed resource group.
 
 ```azurepowershell
-Get-AzRoleAssignment -ResourceGroupName $mrgresources
+Get-AzRoleAssignment -ResourceGroupName $mrgname
+```
+
+The managed application definition you created in the quickstart articles used a group with the Owner role assignment. You can view the group with the following command.
+
+```azurepowershell
+Get-AzRoleAssignment -ResourceGroupName $mrgname -RoleDefinitionName Owner
 ```
 
 You can also list the deny assignments for the managed resource group.
 
 ```azurepowershell
-Get-AzDenyAssignment -ResourceGroupName $mrgresources
+Get-AzDenyAssignment -ResourceGroupName $mrgname
 ```
 
 # [Portal](#tab/azure-portal)
@@ -275,6 +278,8 @@ When you're finished with the managed application, you can delete the resource g
 
 # [PowerShell](#tab/azure-powershell)
 
+The command prompts you to confirm that you want to remove the resource group.
+
 ```azurepowershell
 Remove-AzResourceGroup -Name applicationGroup
 ```
@@ -287,8 +292,6 @@ Remove-AzResourceGroup -Name applicationGroup
 1. To confirm the deletion, enter the resource group name and select **Delete**.
 
 ---
-
-When the resource group that contains the managed application is deleted, the managed resource group is also deleted. In this example, when _applicationGroup_ is deleted the  _rg-sampleManagedApplication_ resource group is deleted.
 
 If you want to delete the managed application definition, delete the resource groups you created in the quickstart articles.
 
