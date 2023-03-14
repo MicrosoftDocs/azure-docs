@@ -1,10 +1,10 @@
 ---
-title: "Tutorial`:` Use managed identity to access Azure Resource Manager - Windows - Azure AD"
+title: "Tutorial: Use managed identity to access Azure Resource Manager - Windows - Azure AD"
 description: A tutorial that walks you through the process of using a Windows VM system-assigned managed identity to access Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: karenhoran
+manager: amycolannino
 editor: daveba
 ms.custom: subject-rbac-steps, mode-other
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.subservice: msi
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/11/2022
+ms.date: 10/30/2022
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ---
@@ -35,19 +35,32 @@ This tutorial shows you how to access the Azure Resource Manager API using a Win
 - You also need a Windows Virtual machine that has system assigned managed identities enabled.
   - If you need to create  a virtual machine for this tutorial, you can follow the article titled [Create a virtual machine with system-assigned identity enabled](./qs-configure-portal-windows-vm.md#system-assigned-managed-identity)
 
+## Enable
+
+[!INCLUDE [msi-tut-enable](../../../includes/active-directory-msi-tut-enable.md)]
+
 ## Grant your VM access to a resource group in Resource Manager
 
-Using managed identities for Azure resources, your code can get access tokens to authenticate to resources that support Azure AD authentication and Azure Resource Manager supports Azure AD authentication.  We need to grant this VM’s system-assigned managed identity access to a resource in Resource Manager, in this case the Resource Group where you created the VM. Assign the [Reader](../../role-based-access-control/built-in-roles.md#reader) role to the managed-identity at the scope of the resource group we created for your **Windows VM**.
- 
-For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+Using managed identities for Azure resources, your application can get access tokens to authenticate to resources that support Azure AD authentication. The Azure Resource Manager API supports Azure AD authentication. We grant this VM's identity access to a resource in Azure Resource Manager, in this case a Resource Group. We assign the [Reader](../../role-based-access-control/built-in-roles.md#reader) role to the managed-identity at the scope of the resource group. 
+
+1. Sign in to the [Azure portal](https://portal.azure.com) with your administrator account.
+1. Navigate to the tab for **Resource Groups**.
+1. Select the **Resource Group** you want to grant the VM's managed identity access.
+1. In the left panel, select **Access control (IAM)**.
+1. Select **Add**, and then select **Add role assignment**.
+1. In the **Role** tab, select **Reader**. This role allows view all resources, but doesn't allow you to make any changes.
+1. In the **Members** tab, for the **Assign access to**, select **Managed identity**. Then, select **+ Select members**.
+1. Ensure the proper subscription is listed in the **Subscription** dropdown. And for **Resource Group**, select **All resource groups**.
+1. For the **Manage identity** dropdown, select **Virtual Machine**.
+1. Finally, in **Select** choose your Windows Virtual Machine in the dropdown and select **Save**.
 
 ## Get an access token using the VM's system-assigned managed identity and use it to call Azure Resource Manager 
 
-You will need to use **PowerShell** in this portion.  If you don’t have **PowerShell** installed, download it [here](/powershell/azure/). 
+You'll need to use **PowerShell** in this portion.  If you don’t have **PowerShell** installed, download it [here](/powershell/azure/). 
 
-1.	In the portal, navigate to **Virtual Machines** and go to your Windows virtual machine and in the **Overview**, click **Connect**. 
+1.	In the portal, navigate to **Virtual Machines** and go to your Windows virtual machine and in the **Overview**, select **Connect**. 
 2.	Enter in your **Username** and **Password** for which you added when you created the Windows VM. 
-3.	Now that you have created a **Remote Desktop Connection** with the virtual machine, open **PowerShell** in the remote session. 
+3.	Now that you've created a **Remote Desktop Connection** with the virtual machine, open **PowerShell** in the remote session. 
 4.	Using the Invoke-WebRequest cmdlet, make a request to the local managed identity for Azure resources endpoint to get an access token for Azure Resource Manager.
 
     ```powershell

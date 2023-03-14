@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 03/07/2022
+ms.date: 12/11/2022
 ms.author: victorh
 ---
 
@@ -23,7 +23,7 @@ There are three types of certificates used in a typical deployment:
 
 - **Server Certificate (Website certificate)**
 
-   A certificate associated with to specific domain name. If a website has a valid certificate, it means that a certificate authority has taken steps to verify that the web address actually belongs to that organization. When you type a URL or follow a link to a secure website, your browser checks the certificate for the following characteristics:
+   A certificate associated with a specific domain name. If a website has a valid certificate, it means that a certificate authority has taken steps to verify that the web address actually belongs to that organization. When you type a URL or follow a link to a secure website, your browser checks the certificate for the following characteristics:
    - The website address matches the address on the certificate.
    - The certificate is signed by a certificate authority that the browser recognizes as a *trusted* authority.
    
@@ -68,8 +68,7 @@ To configure your key vault:
 - It's recommended to use a CA certificate import because it allows you to configure an alert based on certificate expiration date.
 - After you've imported a certificate or a secret, you need to define access policies in the key vault to allow the identity to be granted get access to the certificate/secret.
 - The provided CA certificate needs to be trusted by your Azure workload. Ensure they are deployed correctly.
-- The Key Vault Networking must be set to allow access from **All networks**.
-   :::image type="content" source="media/premium-certificates/keyvault-networking.png" alt-text="Screenshot showing Key Vault networking" lightbox="media/premium-certificates/keyvault-networking.png":::
+- Since Azure Firewall Premium is listed as Key Vault [Trusted Service](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services), it allows you to bypass Key Vault internal Firewall and to eliminate any exposure of your Key Vault to the Internet.
 
 You can either create or reuse an existing user-assigned managed identity, which Azure Firewall uses to retrieve certificates from Key Vault on your behalf. For more information, see [What is managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md) 
 
@@ -196,17 +195,17 @@ Write-Host "================"
 
 ```
 
-## Certificate auto-generation (preview)
+## Certificate auto-generation
 
-For non-production deployments, you can use the Azure Firewall Premium Certification Auto-Generation mechanism, which automatically creates  the following three resources for you:
+For non-production deployments, you can use the Azure Firewall Premium Certification Auto-Generation mechanism, which automatically creates the following three resources for you:
 
 - Managed Identity
 - Key Vault
 - Self-signed Root CA certificate
 
-Just choose the new preview managed identity, and it ties the three resources together in your Premium policy and sets up TLS inspection. 
+Just choose the new managed identity, and it ties the three resources together in your Premium policy and sets up TLS inspection. 
 
-:::image type="content" source="media/premium-certificates/auto-gen-certs.png" alt-text="Auto-generated certificates":::
+:::image type="content" source="media/premium-certificates/auto-gen-certs.png" alt-text="Screenshot showing auto-generated certificates.":::
 
 ## Troubleshooting
 

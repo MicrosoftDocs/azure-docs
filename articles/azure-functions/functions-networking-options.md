@@ -29,7 +29,10 @@ You can host function apps in a couple of ways:
 
 Use the following resources to quickly get started with Azure Functions networking scenarios. These resources are referenced throughout the article.
 
-* ARM templates:
+* ARM, Bicep, and Terraform templates:
+    * [Private HTTP Triggered Function App](https://github.com/Azure-Samples/function-app-with-private-http-endpoint)
+    * [Private Event Hubs Triggered Function App](https://github.com/Azure-Samples/function-app-with-private-eventhub)
+* ARM templates only:
     * [Function App with Azure Storage private endpoints](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/function-app-storage-private-endpoints).
     * [Azure Function App with Virtual Network Integration](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-vnet-integration).
 * Tutorials:
@@ -90,7 +93,7 @@ Azure Functions supports two kinds of virtual network integration:
 Virtual network integration in Azure Functions uses shared infrastructure with App Service web apps. To learn more about the two types of virtual network integration, see:
 
 * [Regional virtual network integration](../app-service/overview-vnet-integration.md#regional-virtual-network-integration)
-* [Gateway-required virtual network integration](../app-service/overview-vnet-integration.md#gateway-required-virtual-network-integration)
+* [Gateway-required virtual network integration](../app-service/configure-gateway-required-vnet-integration.md)
 
 To learn how to set up virtual network integration, see [Enable virtual network integration](#enable-virtual-network-integration).
 
@@ -211,11 +214,25 @@ When you run a Premium plan, you can connect non-HTTP trigger functions to servi
 
 :::image type="content" source="media/functions-networking-options/virtual-network-trigger-toggle.png" alt-text="VNETToggle":::
 
+### [Azure CLI](#tab/azure-cli)
+
 You can also enable virtual network triggers by using the following Azure CLI command:
 
 ```azurecli-interactive
 az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.functionsRuntimeScaleMonitoringEnabled=1 --resource-type Microsoft.Web/sites
 ```
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+You can also enable virtual network triggers by using the following Azure PowerShell command:
+
+```azurepowershell-interactive
+$Resource = Get-AzResource -ResourceGroupName <resource_group> -ResourceName <function_app_name>/config/web -ResourceType Microsoft.Web/sites
+$Resource.Properties.functionsRuntimeScaleMonitoringEnabled = $true
+$Resource | Set-AzResource -Force
+```
+
+---
 
 > [!TIP]
 > Enabling virtual network triggers may have an impact on the performance of your application since your App Service plan instances will need to monitor your triggers to determine when to scale. This impact is likely to be very small.

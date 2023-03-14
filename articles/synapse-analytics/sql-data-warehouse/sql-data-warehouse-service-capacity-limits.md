@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 2/19/2020
 ms.author: martinle
-ms.reviewer: igorstan
+ms.reviewer: wiassaf
 
 ms.custom: azure-synapse
 ---
@@ -26,7 +26,7 @@ Maximum values allowed for various components of dedicated SQL pool in Azure Syn
 | Database connection |Maximum Concurrent open sessions |1024<br/><br/>The number of concurrent open sessions will vary based on the selected DWU. DWU1000c and above support a maximum of 1024 open sessions. DWU500c and below, support a maximum concurrent open session limit of 512. Note, there are limits on the number of queries that can execute concurrently. When the concurrency limit is exceeded, the request goes into an internal queue where it waits to be processed. |
 | Database connection |Maximum memory for prepared statements |20 MB |
 | [Workload management](resource-classes-for-workload-management.md) |Maximum concurrent queries |128<br/><br/>  A maximum of 128 concurrent queries will execute and remaining queries will be queued.<br/><br/>The number of concurrent queries can decrease when users are assigned to higher resource classes or when the [data warehouse unit](memory-concurrency-limits.md) setting is lowered. Some queries, like DMV queries, are always allowed to run and do not impact the concurrent query limit. For more information on concurrent query execution, see the [concurrency maximums](memory-concurrency-limits.md) article. |
-| [tempdb](sql-data-warehouse-tables-temporary.md) |Maximum GB |399 GB per DW100c. At DWU1000c, tempdb is sized to 3.99 TB. |
+| [tempdb](sql-data-warehouse-tables-temporary.md) |Maximum GB |399 GB per DW100c. For example, at DWU1000c, tempdb is sized to 3.99 TB. |
 ||||
 
 ## Database objects

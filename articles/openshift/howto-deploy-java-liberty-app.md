@@ -57,7 +57,7 @@ After creating and connecting to the cluster, install the Open Liberty Operator.
 4. Select **Install**.
 5. In the page **Install Operator**, check **beta2** for **Update channel**, **All namespaces on the cluster (default)** for **Installation mode**, and **Automatic** for **Update approval**:
 
-   ![create operator subscription for Open Liberty Operator](./media/howto-deploy-java-liberty-app/install-operator.png)
+   ![Screenshot of creating operator subscription for Open Liberty Operator.](./media/howto-deploy-java-liberty-app/install-operator.png)
 6. Select **Install** and wait a minute or two until the installation completes.
 7. Observe the Open Liberty Operator is successfully installed and ready for use. If you don't, diagnose and resolve the problem before continuing.
 
@@ -71,7 +71,7 @@ Follow the instructions below to create an OpenShift namespace for use with your
 2. Navigate to **Administration** > **Namespaces** > **Create Namespace**.
 3. Fill in `open-liberty-demo` for **Name** and select **Create**, as shown next.
 
-   ![create namespace](./media/howto-deploy-java-liberty-app/create-namespace.png)
+   ![Screenshot of creating namespace.](./media/howto-deploy-java-liberty-app/create-namespace.png)
 
 ### Create an Azure Database for MySQL
 
@@ -87,7 +87,7 @@ Follow the instructions below to set up an Azure Database for MySQL for use with
    2. Select **Add current client IP address**. 
    3. Set **Minimal TLS Version** to **>1.0** and select **Save**.
 
-   ![configure mysql database connection security rule](./media/howto-deploy-java-liberty-app/configure-mysql-database-connection-security.png)
+   ![Screenshot of configuring mysql database connection security rule.](./media/howto-deploy-java-liberty-app/configure-mysql-database-connection-security.png)
 
 3. Open **your SQL database** > **Connection strings** > Select **JDBC**. Write down the **Port number** following sql server address. For example, **3306** is the port number in the example below.
 
@@ -202,7 +202,7 @@ In the sample application, we've prepared Dockerfile-local and Dockerfile-wlp-lo
 
 1. Open `http://localhost:9080/` in your browser to visit the application home page. The application will look similar to the following image:
 
-   ![JavaEE Cafe Web UI](./media/howto-deploy-java-liberty-app/javaee-cafe-web-ui.png)
+   ![Screenshot of JavaEE Cafe Web UI.](./media/howto-deploy-java-liberty-app/javaee-cafe-web-ui.png)
 1. Press **Control-C** to stop the application and Open Liberty server.
 
 The directory `2-simple` of your local clone shows the Maven project with the above changes already applied.
@@ -338,7 +338,7 @@ Because we use the Open Liberty Operator to manage Liberty applications, we need
 1. In the middle of the page, select **Open Liberty Operator**.
 1. In the middle of the page, select **Open Liberty Application**. The navigation of items in the user interface mirrors the actual containment hierarchy of technologies in use.
    <!-- Diagram source https://github.com/Azure-Samples/open-liberty-on-aro/blob/master/diagrams/aro-java-containment.vsdx -->
-   ![ARO Java Containment](./media/howto-deploy-java-liberty-app/aro-java-containment.png)
+   ![Diagram of ARO Java Containment.](./media/howto-deploy-java-liberty-app/aro-java-containment.png)
 1. Select **Create OpenLibertyApplication**
 1. Replace the generated yaml with yours, which is located at `<path-to-repo>/3-integration/connect-db/mysql/target/openlibertyapplication.yaml`.
 1. Select **Create**. You'll be returned to the list of OpenLibertyApplications.
@@ -403,7 +403,7 @@ Because we use the Open Liberty Operator to manage Liberty applications, we need
 1. In the middle of the page, select **Open Liberty Operator**.
 1. In the middle of the page, select **Open Liberty Application**. The navigation of items in the user interface mirrors the actual containment hierarchy of technologies in use.
    <!-- Diagram source https://github.com/Azure-Samples/open-liberty-on-aro/blob/master/diagrams/aro-java-containment.vsdx -->
-   ![ARO Java Containment](./media/howto-deploy-java-liberty-app/aro-java-containment.png)
+   ![Diagram of ARO Java Containment.](./media/howto-deploy-java-liberty-app/aro-java-containment.png)
 1. Select **Create OpenLibertyApplication**
 1. Replace the generated yaml with yours, which is located at `<path-to-repo>/2-simple/openlibertyapplication.yaml`.
 1. Select **Create**. You'll be returned to the list of OpenLibertyApplications.

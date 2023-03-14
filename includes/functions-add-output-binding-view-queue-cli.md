@@ -2,12 +2,13 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 03/25/2020
+ms.date: 06/10/2022
 ms.author: glenga
+ms.custom: devdivchpfy22
 ---
 You can view the queue in the [Azure portal](../articles/storage/queues/storage-quickstart-queues-portal.md) or in the  [Microsoft Azure Storage Explorer](https://storageexplorer.com/). You can also view the queue in the Azure CLI, as described in the following steps:
 
-1. Open the function project's *local.setting.json* file and copy the connection string value. In a terminal or command window, run the following command to create an environment variable named `AZURE_STORAGE_CONNECTION_STRING`, pasting your specific connection string in place of  `<MY_CONNECTION_STRING>`. (This environment variable means you don't need to supply the connection string to each subsequent command using the `--connection-string` argument.)
+1. Open the function project's *local.setting.json* file and copy the connection string value. In a terminal or command window, run the following command to create an environment variable named `AZURE_STORAGE_CONNECTION_STRING`, and paste your specific connection string in place of `<MY_CONNECTION_STRING>`. (This environment variable means you don't need to supply the connection string to each subsequent command using the `--connection-string` argument.)
 
     # [bash](#tab/bash)
     
@@ -29,23 +30,24 @@ You can view the queue in the [Azure portal](../articles/storage/queues/storage-
     
     ---
     
-1. (Optional) Use the [`az storage queue list`](/cli/azure/storage/queue#az-storage-queue-list) command to view the Storage queues in your account. The output from this command should include a queue named `outqueue`, which was created when the function wrote its first message to that queue.
+1. (Optional) Use the [`az storage queue list`](/cli/azure/storage/queue#az-storage-queue-list) command to view the Storage queues in your account. The output from this command must include a queue named `outqueue`, which was created when the function wrote its first message to that queue.
     
     ```azurecli
     az storage queue list --output tsv
     ```
 
-1. Use the [`az storage message get`](/cli/azure/storage/message#az-storage-message-get) command to read the message from this queue, which should be the first name you used when testing the function earlier. The command reads and removes the first message from the queue. 
+
+1. Use the [`az storage message get`](/cli/azure/storage/message#az-storage-message-get) command to read the message from this queue, which should be the value you supplied when testing the function earlier. The command reads and removes the first message from the queue. 
 
     # [bash](#tab/bash)
     
-    ```bash
+    ```azurecli
     echo `echo $(az storage message get --queue-name outqueue -o tsv --query '[].{Message:content}') | base64 --decode`
     ```
     
     # [PowerShell](#tab/powershell)
     
-    ```powershell
+    ```azurecli
     [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($(az storage message get --queue-name outqueue -o tsv --query '[].{Message:content}')))
     ```
     
@@ -55,7 +57,7 @@ You can view the queue in the [Azure portal](../articles/storage/queues/storage-
     az storage message get --queue-name outqueue -o tsv --query [].{Message:content} > %TEMP%out.b64 && certutil -decode -f %TEMP%out.b64 %TEMP%out.txt > NUL && type %TEMP%out.txt && del %TEMP%out.b64 %TEMP%out.txt /q
     ```
 
-    This script uses certutil to decode the base64-encoded message collection from a local temp file. If there's no output, try removing `> NUL` from the script to stop suppressing certutil output, in case there's an error. 
+    This script uses certutil to decode the base64-encoded message collection from a local temp file. If there's no output, try removing `> NUL` from the script to stop suppressing certutil output, in case there's an error.
     
     ---
     

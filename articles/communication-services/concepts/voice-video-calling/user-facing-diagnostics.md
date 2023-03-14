@@ -2,8 +2,8 @@
 title: Azure Communication Services User Facing Diagnostics
 titleSuffix: An Azure Communication Services concept document
 description: Provides an overview of the User Facing Diagnostics feature.
-author: probableprime
-ms.author: rifox
+author: tophpalmer
+ms.author: chpalm
 manager: chpalm
 
 services: azure-communication-services
@@ -24,7 +24,7 @@ When working with calls in Azure Communication Services, problems may arise that
 User-facing diagnostics is an extended feature of the core `Call` API and allows you to diagnose an active call.
 
 ```js
-const userFacingDiagnostics = call.api(Features.UserFacingDiagnostics);
+const userFacingDiagnostics = call.feature(Features.UserFacingDiagnostics);
 ```
 
 ## Diagnostic values

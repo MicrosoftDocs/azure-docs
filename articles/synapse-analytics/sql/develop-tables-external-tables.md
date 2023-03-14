@@ -6,9 +6,8 @@ ms.author: jovanpop
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
-ms.date: 02/15/2022
+ms.date: 02/15/2023
 ms.reviewer: wiassaf
-ms.custom: ignite-fall-2021
 ---
 
 # Use external tables with Synapse SQL
@@ -16,8 +15,8 @@ ms.custom: ignite-fall-2021
 An external table points to data located in Hadoop, Azure Storage blob, or Azure Data Lake Storage. External tables are used to read data from files or write data to files in Azure Storage. With Synapse SQL, you can use external tables to read external data using dedicated SQL pool or serverless SQL pool.
 
 Depending on the type of the external data source, you can use two types of external tables:
-- Hadoop external tables that you can use to read and export data in various data formats such as CSV, Parquet, and ORC. Hadoop external tables are available in dedicated SQL pools, but they aren't available in serverless SQL pools.
-- Native external tables that you can use to read and export data in various data formats such as CSV and Parquet. Native external tables are available in serverless SQL pools, and they are in **public preview** in dedicated SQL pools.
+- **Hadoop external tables** that you can use to read and export data in various data formats such as CSV, Parquet, and ORC. Hadoop external tables are available in dedicated SQL pools, but they aren't available in serverless SQL pools.
+- **Native external tables** that you can use to read and export data in various data formats such as CSV and Parquet. Native external tables are available in serverless SQL pools, and they are in **public preview** in dedicated SQL pools. Writing/exporting data using CETAS and the native external tables is available only in the serverless SQL pool, but not in the dedicated SQL pools.
 
 The key differences between Hadoop and native external tables are presented in the following table:
 
@@ -26,11 +25,13 @@ The key differences between Hadoop and native external tables are presented in t
 | Dedicated SQL pool | Available | Only Parquet tables are available in **public preview**. |
 | Serverless SQL pool | Not available | Available |
 | Supported formats | Delimited/CSV, Parquet, ORC, Hive RC, and RC | Serverless SQL pool: Delimited/CSV, Parquet, and [Delta Lake](query-delta-lake-format.md)<br/>Dedicated SQL pool: Parquet (preview) |
-| [Folder partition elimination](#folder-partition-elimination) | No | Only for partitioned tables synchronized from Apache Spark pools in Synapse workspace to serverless SQL pools |
-| [File elimination](#file-elimination) (predicate pushdown) | No | Yes in serverless SQL pool. For the string pushdown, you need to use `Latin1_General_100_BIN2_UTF8` collation on the `VARCHAR` columns to enable pushdown. |
-| Custom format for location | Yes | Yes, using wildcards like `/year=*/month=*/day=*` |
-| Recursive folder scan | No | Only in serverless SQL pools when specified `/**` at the end of the location path |
-| Storage authentication | Storage Access Key(SAK), AAD passthrough, Managed identity, Custom application Azure AD identity | [Shared Access Signature(SAS)](develop-storage-files-storage-access-control.md?tabs=shared-access-signature), [AAD passthrough](develop-storage-files-storage-access-control.md?tabs=user-identity), [Managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity), [Custom application Azure AD identity](develop-storage-files-storage-access-control.md?tabs=service-principal). |
+| [Folder partition elimination](#folder-partition-elimination) | No | Partition elimination is available only in the partitioned tables created on Parquet or CSV formats that are synchronized from Apache Spark pools. You might create external tables on Parquet partitioned folders, but the partitioning columns will be inaccessible and ignored, while the partition elimination will not be applied. Do not create [external tables on Delta Lake folders](create-use-external-tables.md#delta-tables-on-partitioned-folders) because they are not supported. Use [Delta partitioned views](create-use-views.md#delta-lake-partitioned-views) if you need to query partitioned Delta Lake data. |
+| [File elimination](#file-elimination) (predicate pushdown) | No | Yes in serverless SQL pool. For the string pushdown, you need to use `Latin1_General_100_BIN2_UTF8` collation on the `VARCHAR` columns to enable pushdown. For more information on collations, refer to [Collation types supported for Synapse SQL](reference-collation-types.md).|
+| Custom format for location | No | Yes, using wildcards like `/year=*/month=*/day=*` for Parquet or CSV formats. Custom folder paths are not available in Delta Lake. In the serverless SQL pool you can also use recursive wildcards `/logs/**` to reference Parquet or CSV files in any sub-folder beneath the referenced folder. |
+| Recursive folder scan | Yes | Yes. In serverless SQL pools must be specified `/**` at the end of the location path. In Dedicated pool the folders are always scanned recursively. |
+| Storage authentication | Storage Access Key(SAK), Azure Active Directory passthrough, Managed identity, custom application Azure Active Directory identity | [Shared Access Signature(SAS)](develop-storage-files-storage-access-control.md?tabs=shared-access-signature), [Azure Active Directory passthrough](develop-storage-files-storage-access-control.md?tabs=user-identity), [Managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity), [Custom application Azure AD identity](develop-storage-files-storage-access-control.md?tabs=service-principal). |
+| Column mapping | Ordinal - the columns in the external table definition are mapped to the columns in the underlying Parquet files by position. | Serverless pool: by name. The columns in the external table definition are mapped to the columns in the underlying Parquet files by column name matching. <br/> Dedicated pool: ordinal matching. The columns in the external table definition are mapped to the columns in the underlying Parquet files by position.|
+| CETAS (exporting/transformation) | Yes | CETAS with the native tables as a target works only in the serverless SQL pool. You cannot use the dedicated SQL pools to export data using native tables. |
 
 > [!NOTE]
 > The native external tables are the recommended solution in the pools where they are generally available. If you need to access external data, always use the native tables in serverless pools. In dedicated pools, you should switch to the native tables for reading Parquet files once they are in GA. Use the Hadoop tables only if you need to access some types that are not supported in native external tables (for example - ORC, RC), or if the native version is not available.
@@ -58,14 +59,14 @@ You can create external tables in Synapse SQL pools via the following steps:
  
 ### Folder partition elimination
 
-The native external tables in Synapse pools are able to ignore the files placed in the folders that are not relevant for the queries. If your files are stored in a folder hierarchy (for example - **/year=2020/month=03/day=16**) and the values for **year**, **month**, and **day** are exposed as the columns, the queries that contain filters like `year=2020` will read the files only from the subfolders placed within the **year=2020** folder. The files and folders placed in other folders (**year=2021** or **year=2022**) will be ignored in this query. This elimination is known as **partition elimination**. 
+The native external tables in Synapse pools are able to ignore the files placed in the folders that are not relevant for the queries. If your files are stored in a folder hierarchy (for example - `/year=2020/month=03/day=16`) and the values for `year`, `month`, and `day` are exposed as the columns, the queries that contain filters like `year=2020` will read the files only from the subfolders placed within the `year=2020` folder. The files and folders placed in other folders (`year=2021` or `year=2022`) will be ignored in this query. This elimination is known as **partition elimination**. 
 
 The folder partition elimination is available in the native external tables that are synchronized from the Synapse Spark pools. If you have partitioned data set and you would like to leverage the partition elimination with the external tables that you create, use [the partitioned views](create-use-views.md#partitioned-views) instead of the external tables.
 
 ### File elimination
 
 Some data formats such as Parquet and Delta contain file statistics for each column (for example, min/max values for each column). The queries that filter data will not read the files where the required column values do not exist. The query will first explore min/max values for the columns used in the query predicate to find the files that do not contain the required data. These files will be ignored and eliminated from the query plan.
-This technique is also known as filter predicate pushdown and it can improve the performance of your queries. Filter pushdown is available in the serverless SQL pools on Parquet and Delta formats. To leverage filter pushdown for the string types, use the VARCHAR type with the `Latin1_General_100_BIN2_UTF8` collation.
+This technique is also known as filter predicate pushdown and it can improve the performance of your queries. Filter pushdown is available in the serverless SQL pools on Parquet and Delta formats. To leverage filter pushdown for the string types, use the VARCHAR type with the `Latin1_General_100_BIN2_UTF8` collation. For more information on collations, refer to [Collation types supported for Synapse SQL](reference-collation-types.md).
 
 ### Security
 
@@ -74,11 +75,9 @@ External tables access underlying Azure storage using the database scoped creden
 - Data source without credential enables external tables to access publicly available files on Azure storage.
 - Data source can have a credential that enables external tables to access only the files on Azure storage using SAS token or workspace Managed Identity - For examples, see [the Develop storage files storage access control](develop-storage-files-storage-access-control.md#examples) article.
 
-
-
 ## CREATE EXTERNAL DATA SOURCE
 
-External data sources are used to connect to storage accounts. The complete documentation is outlined [here](/sql/t-sql/statements/create-external-data-source-transact-sql?view=azure-sqldw-latest&preserve-view=true).
+External data sources are used to connect to storage accounts. For more information, see [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
 ### Syntax for CREATE EXTERNAL DATA SOURCE
 
@@ -181,6 +180,8 @@ CREATE EXTERNAL DATA SOURCE SqlOnDemandDemo WITH (
     CREDENTIAL = sqlondemand
 );
 ```
+> [!NOTE]
+> The SQL users needs to have proper permissions on database scoped credentials to access the data source in Azure Synapse Analytics Serverless SQL Pool. [Access external storage using serverless SQL pool in Azure Synapse Analytics](./develop-storage-files-overview.md?tabs=impersonation#permissions).
 
 The following example creates an external data source for Azure Data Lake Gen2 pointing to the publicly available New York data set:
 
@@ -260,12 +261,15 @@ Specifies the row number that is read first and applies to all files. Setting th
 USE_TYPE_DEFAULT = { TRUE | **FALSE** } -
 Specifies how to handle missing values in delimited text files when retrieving data from the text file.
 
+> [!NOTE]
+> Please note that USE_TYPE_DEFAULT=true is not supported for FORMAT_TYPE = DELIMITEDTEXT, PARSER_VERSION = '2.0'.
+
 TRUE -
 If you're retrieving data from the text file, store each missing value by using the default value's data type for the corresponding column in the external table definition. For example, replace a missing value with:
 
 - 0 if the column is defined as a numeric column. Decimal columns aren't supported and will cause an error.
 - Empty string ("") if the column is a string column.
-- 1900-01-01 if the column is a date column.
+- "1900-01-01" if the column is a date column.
 
 FALSE -
 Store all missing values as NULL. Any NULL values that are stored by using the word NULL in the delimited text file are imported as the string 'NULL'.

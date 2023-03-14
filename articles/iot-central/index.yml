@@ -9,7 +9,7 @@ metadata:
   ms.topic: landing-page 
   author: dominicbetts 
   ms.author: dobett 
-  ms.date: 12/16/2021
+  ms.date: 05/18/2022
   ms.custom: contperf-fy21q3
 
 landingContent:
@@ -27,6 +27,8 @@ landingContent:
         links:
           - text: Azure IoT Central architecture
             url: core/concepts-architecture.md
+          - text: Industrial IoT patterns
+            url: core/concepts-iiot-architecture.md
       - linkListType: quickstart
         links:
           - text: Connect your first device
@@ -36,22 +38,14 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Why should I start with IoT Central?
-            url: core/concepts-faq-start-iot-central.md
           - text: What does it mean for IoT Central to have high availability, disaster recovery, and elastic scale?
-            url: core/concepts-faq-scalability-availability.md
-          - text: What's the difference between aPaaS and PaaS solution offerings?
-            url: ../iot-fundamentals/iot-solution-apaas-paas.md?toc=/azure/iot-central/toc.json&bc=/azure/iot-central/breadcrumb/toc.json
+            url: core/concepts-scalability-availability.md
           - text: How do I move between aPaaS and PaaS solution approaches?
             url: core/concepts-faq-apaas-paas.md
           - text: How do I extend IoT Central if it's missing something I need?
             url: core/concepts-faq-extend.md
           - text: What are IoT Central's scale limits?
             url: core/concepts-quotas-limits.md 
-      - linkListType: learn
-        links:
-          - text: How can I try out a detailed end-to-end scenario?
-            url: /learn/modules/create-your-first-iot-central-app/
           - text: Where can I find demo IoT Central applications?
             url: retail/tutorial-in-store-analytics-create-app.md
 
@@ -65,38 +59,24 @@ landingContent:
         links:
           - text: Device implementation
             url: core/concepts-device-implementation.md
-          - text: Device authentication
-            url: core/concepts-device-authentication.md
-          - text: Message payloads sent and received by devices
-            url: core/concepts-telemetry-properties-commands.md
       - linkListType: learn
         links:
           - text: Create and connect a device
             url: core/tutorial-connect-device.md
-          - text: Set up device groups for data analysis
-            url: core/tutorial-use-device-groups.md
-          - text: Troubleshoot device connectivity
-            url: core/troubleshoot-connection.md
           - text: Connect an IoT Edge device
-            url: /learn/modules/connect-iot-edge-device-to-iot-central/
-  - title: Manage devices and analyze IoT data
+            url: /training/modules/connect-iot-edge-device-to-iot-central/
+  - title: Manage your devices and analyze your data
     linkLists:
       - linkListType: overview
         links:
           - text: Device management guide
             url: core/overview-iot-central-operator.md
-      - linkListType: concept
+      - linkListType: learn
         links:
           - text: Dashboard examples
             url: retail/tutorial-in-store-analytics-create-app.md
-      - linkListType: learn
-        links:
-          - text: Manage devices in bulk with jobs
-            url: core/howto-manage-devices-in-bulk.md
           - text: Create a custom dashboard to monitor devices
             url: core/howto-manage-dashboards.md
-          - text: Find anomalies with analytics
-            url: core/howto-create-analytics.md
 
   - title: Extend your application
     linkLists:
@@ -106,14 +86,10 @@ landingContent:
             url: core/overview-iot-central-solution-builder.md
       - linkListType: learn
         links:
-          - text: Use rules to take action on telemetry data
-            url: /learn/modules/set-up-rules-take-actions-telemetry-data-azure-iot-central/
-          - text: Export data to cloud destinations
-            url: core/howto-export-data.md           
-          - text: Transform data inside your application for export
-            url: core/howto-transform-data-internally.md
-          - text: Administer an application with the REST API
-            url: /learn/modules/manage-iot-central-apps-with-rest-api/
+          - text: Export data from IoT Central
+            url: core/overview-iot-central-solution-builder.md#data-export          
+          - text: Manage an application with the REST API
+            url: core/tutorial-use-rest-api.md
 
   - title: Secure and administer your application
     linkLists:
@@ -123,31 +99,10 @@ landingContent:
             url: core/overview-iot-central-admin.md
       - linkListType: learn
         links:
-          - text: Manage your application
-            url: core/howto-administer.md
           - text: Add users and roles
             url: core/howto-manage-users-roles.md 
           - text: Use organizations to manage user access
             url: core/howto-create-organizations.md
-          - text: Configure a managed identity
-            url: core/howto-manage-iot-central-from-portal.md#configure-a-managed-identity
-
-  - title: Resources
-    linkLists:
-      - linkListType: whats-new
-        links:
-          - text: Product updates
-            url: https://azure.microsoft.com/updates/?status=nowavailable&updateType=features&category=iot&query=azure%20iot%20central
-      - linkListType: learn
-        links:
-          - text: YouTube channel
-            url: https://www.youtube.com/playlist?list=PL1ljc761XCiYlm8Rx58jLsUp4gAspw1SG
-          - text: Blog
-            url: https://techcommunity.microsoft.com/t5/internet-of-things/bg-p/IoTBlog/label-name/Azure%20IoT%20Central
-          - text: Guided learning path
-            url: /learn/paths/develop-iot-solutions-with-azure-iot-central/
-
-
 
             
             

@@ -3,6 +3,7 @@ title: Configure a site-to-site VPN in vWAN for Azure VMware Solution
 description: Learn how to establish a VPN (IPsec IKEv1 and IKEv2) site-to-site tunnel into Azure VMware Solutions.
 ms.topic: how-to
 ms.custom: contperf-fy22q1
+ms.service: azure-vmware
 ms.date: 04/11/2022
 ---
 
@@ -27,7 +28,7 @@ A virtual hub is a virtual network that is created and used by Virtual WAN. It's
 >You can also [create a gateway in an existing hub](../virtual-wan/virtual-wan-expressroute-portal.md#existinghub).
 
 
-[!INCLUDE [Create a hub](../../includes/virtual-wan-tutorial-s2s-hub-include.md)]
+[!INCLUDE [Create a hub](../../includes/virtual-wan-hub-basics.md)]
 
 ## Create a VPN gateway 
 

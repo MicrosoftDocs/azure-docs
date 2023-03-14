@@ -2,22 +2,15 @@
 title: Create an Azure VM with Accelerated Networking using Azure CLI
 description: Learn how to create a Linux virtual machine with Accelerated Networking enabled.
 services: virtual-network
-documentationcenter: na
-author: steveesp
+author: asudbring
 manager: gedegrac
-editor: ''
 tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: virtual-network
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/24/2022
-ms.author: steveesp
-ms.custom: 
-
+ms.author: allensu
+ms.custom: fasttrack-edit, devx-track-azurecli
 ---
 # Create a Linux virtual machine with Accelerated Networking using Azure CLI
 
@@ -27,6 +20,8 @@ Though this article provides steps to create a virtual machine with accelerated 
 You can also enable or disable accelerated networking through the portal after VM creation by navigating to the network interface and clicking the button at the top of the **Overview** blade.
 
 >[!NOTE]
+> The Accelerated Networking setting in the portal reflects the user-selected state. AccelNet allows choosing “Disabled” even if the VM size requires AccelNet. For those AccelNet-required VM sizes, AccelNet will be enabled at runtime regardless of the user setting seen in the portal.
+> 
 > Only supported operating systems can be enabled through the portal. If you're using a custom image, and your image supports Accelerated Networking, create your VM using CLI or PowerShell. 
 
 After the VM is created, you can confirm that Accelerated Networking is enabled by following the [confirmation instructions](#confirm-that-accelerated-networking-is-enabled).
@@ -185,9 +180,10 @@ For more details on application binding requirements, see [How Accelerated Netwo
 ## Enable Accelerated Networking on existing VMs
 If you've created a VM without Accelerated Networking, it's possible to enable this feature on an existing VM. The VM must support Accelerated Networking by meeting the following prerequisites that are also outlined:
 
-* The VM must be a supported size for Accelerated Networking
-* The VM must be a supported Azure Gallery image (and kernel version for Linux)
-* All VMs in an availability set or VMSS must be stopped/deallocated before enabling Accelerated Networking on any NIC
+* The VM must be a supported size for Accelerated Networking.
+* The VM must be a supported Azure Gallery image (and kernel version for Linux).
+* All VMs in an availability set or VMSS must be stopped/deallocated before enabling Accelerated Networking on any NIC.
+* All individual VMs that are not in an availability set or VMSS must also be stopped/deallocated before enabling Accelerated Networking on any NIC.
 
 ### Individual VMs & VMs in an availability set
 First stop/deallocate the VM or, if an Availability Set, all the VMs in the Set:

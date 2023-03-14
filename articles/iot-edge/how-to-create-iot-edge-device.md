@@ -5,13 +5,13 @@ author: PatAltimore
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 11/11/2021
+ms.date: 10/01/2022
 ms.author: patricka
 ---
 
 # Create an IoT Edge device
 
-[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
 This article provides an overview of the options available to you for installing and provisioning IoT Edge on your devices.
 
@@ -29,33 +29,13 @@ If you know what type of platform, provisioning, and authentication options you 
 
 If you want more information about how to choose the right option for you, continue through this article to learn more.
 
-<!--1.1-->
-:::moniker range="iotedge-2018-06"
-
-|    | Linux containers on Linux hosts | Linux containers on Windows hosts | Windows containers on Windows hosts |
-|--| ----- | ---------------- | ------- |
-| **Manual provisioning (single device)** | [X.509 certificates](how-to-provision-single-device-linux-x509.md)<br><br>[Symmetric keys](how-to-provision-single-device-linux-symmetric.md) | [X.509 certificates](how-to-provision-single-device-linux-on-windows-x509.md)<br><br>[Symmetric keys](how-to-provision-single-device-linux-on-windows-symmetric.md) | [X.509 certificates](how-to-provision-single-device-windows-x509.md)<br><br>[Symmetric keys](how-to-provision-single-device-windows-symmetric.md) |
-| **Autoprovisioning (devices at scale)** | [X.509 certificates](how-to-provision-devices-at-scale-linux-x509.md)<br><br>[TPM](how-to-provision-devices-at-scale-linux-tpm.md)<br><br>[Symmetric keys](how-to-provision-devices-at-scale-linux-symmetric.md) | [X.509 certificates](how-to-provision-devices-at-scale-linux-on-windows-x509.md)<br><br>[TPM](how-to-provision-devices-at-scale-linux-on-windows-tpm.md)<br><br>[Symmetric keys](how-to-provision-devices-at-scale-linux-on-windows-symmetric.md) | [X.509 certificates](how-to-provision-devices-at-scale-windows-x509.md)<br><br>[TPM](how-to-provision-devices-at-scale-windows-tpm.md)<br><br>[Symmetric keys](how-to-provision-devices-at-scale-windows-symmetric.md) |
-
-:::moniker-end
-
-<!--1.2-->
-:::moniker range=">=iotedge-2020-11"
-
 >[!NOTE]
->The following table reflects the supported scenarios for IoT Edge version 1.2. To see content about Windows containers, switch to the [IoT Edge 1.1](?view=iotedge-2018-06&preserve-view=true) version of this article.
-
-|    | Linux containers on Linux hosts |
-|--| ----- |
-| **Manual provisioning (single device)** | [X.509 certificates](how-to-provision-single-device-linux-x509.md)<br><br>[Symmetric keys](how-to-provision-single-device-linux-symmetric.md) |
-| **Autoprovisioning (devices at scale)** | [X.509 certificates](how-to-provision-devices-at-scale-linux-x509.md)<br><br>[TPM](how-to-provision-devices-at-scale-linux-tpm.md)<br><br>[Symmetric keys](how-to-provision-devices-at-scale-linux-symmetric.md) |
+>The following table reflects the supported scenarios for IoT Edge version 1.4.
 
 |    | Linux containers on Linux hosts | Linux containers on Windows hosts |
 |--| ----- | ---------------- |
 | **Manual provisioning (single device)** | [X.509 certificates](how-to-provision-single-device-linux-x509.md)<br><br>[Symmetric keys](how-to-provision-single-device-linux-symmetric.md) | [X.509 certificates](how-to-provision-single-device-linux-on-windows-x509.md)<br><br>[Symmetric keys](how-to-provision-single-device-linux-on-windows-symmetric.md) |
 | **Autoprovisioning (devices at scale)** | [X.509 certificates](how-to-provision-devices-at-scale-linux-x509.md)<br><br>[TPM](how-to-provision-devices-at-scale-linux-tpm.md)<br><br>[Symmetric keys](how-to-provision-devices-at-scale-linux-symmetric.md) | [X.509 certificates](how-to-provision-devices-at-scale-linux-on-windows-x509.md)<br><br>[TPM](how-to-provision-devices-at-scale-linux-on-windows-tpm.md)<br><br>[Symmetric keys](how-to-provision-devices-at-scale-linux-on-windows-symmetric.md) |
-
-:::moniker-end
 
 ## Terms and concepts
 
@@ -85,7 +65,7 @@ For the latest information about which operating systems are currently supported
 
 For Linux devices, the IoT Edge runtime is installed directly on the host device.
 
-IoT Edge supports X64, ARM32, and ARM64 Linux devices. Microsoft provides official installation packages for Ubuntu and Raspberry Pi OS Stretch operating systems.
+IoT Edge supports X64, ARM32, and ARM64 Linux devices. Microsoft provides official installation packages for a variety of operating systems.
 
 ### Linux containers on Windows
 
@@ -95,20 +75,7 @@ IoT Edge for Linux on Windows is the recommended way to run IoT Edge on Windows 
 
 ### Windows containers on Windows
 
-<!--1.1-->
-:::moniker range="iotedge-2018-06"
-For Windows devices, the IoT Edge runtime is installed directly on the host device. This platform allows you to build, deploy, and run your IoT Edge modules as Windows containers.
-
-   > [!NOTE]
-   > Windows containers are not the recommended way to run IoT Edge on Windows devices, as they are not supported beyond version 1.1 of Azure IoT Edge.
-   >
-   > Consider using IoT Edge for Linux on Windows, which will be supported in future versions.
-:::moniker-end
-
-<!--1.2-->
-:::moniker range=">=iotedge-2020-11"
-IoT Edge version 1.2 does not support Windows containers. Windows containers will not be supported beyond version 1.1. To learn more about IoT Edge with Windows containers, see the [IoT Edge 1.1](?view=iotedge-2018-06&preserve-view=true) version of this article.
-:::moniker-end
+IoT Edge version 1.4 doesn't support Windows containers. Windows containers are not supported beyond version 1.1.
 
 ## Choose how to provision your devices
 
@@ -120,7 +87,7 @@ The options available for authenticating communications between your IoT Edge de
 
 Single device provisioning refers to provisioning an IoT Edge device without the assistance of the [IoT Hub Device Provisioning Service](../iot-dps/about-iot-dps.md) (DPS). You'll see single device provisioning also referred to as **manual provisioning**.
 
-Using single device provisioning, you will need to manually enter provisioning information, like a connection string, on your devices. Manual provisioning is quick and easy to set up for only a few devices, but your workload will increase with the number of devices. Keep this is mind when you are considering the scalability of your solution.
+Using single device provisioning, you'll need to manually enter provisioning information, like a connection string, on your devices. Manual provisioning is quick and easy to set up for only a few devices, but your workload will increase with the number of devices. Provisioning helps when you're considering the scalability of your solution.
 
 **Symmetric key** and **X.509 self-signed** authentication methods are available for manual provisioning. You can read more about those options in the [Choose an authentication method section](#choose-an-authentication-method).
 
@@ -128,7 +95,7 @@ Using single device provisioning, you will need to manually enter provisioning i
 
 Provisioning devices at-scale refers to provisioning one or more IoT Edge devices with the assistance of the [IoT Hub Device Provisioning Service](../iot-dps/about-iot-dps.md). You'll see provisioning at-scale also referred to as **autoprovisioning**.
 
-If your IoT Edge solution requires more than one device, autoprovisioning using DPS saves you the effort of manually entering provisioning information into the configuration files of each device you want to use. This automated model can be scaled to millions of IoT Edge devices. You can see the automated provisioning flow in the [Behind the scenes section of IoT Hub DPS overview page](../iot-dps/about-iot-dps.md#behind-the-scenes).
+If your IoT Edge solution requires more than one device, autoprovisioning using DPS saves you the effort of manually entering provisioning information into the configuration files of each device. This automated model can be scaled to millions of IoT Edge devices.
 
 You can secure your IoT Edge solution with the authentication method of your choice. **Symmetric key**, **X.509 certificates**, and **trusted platform module (TPM) attestation** authentication methods are available for provisioning devices at-scale. You can read more about those options in the [Choose an authentication method section](#choose-an-authentication-method).
 
@@ -136,31 +103,31 @@ To see more of the features of DPS, see the [Features section of the overview pa
 
 ## Choose an authentication method
 
-### Symmetric keys attestation
-
-Symmetric key attestation is a simple approach to authenticating a device. This attestation method represents a "Hello world" experience for developers who are new to device provisioning, or do not have strict security requirements.
-
-When you create a new device identity in IoT Hub, the service creates two keys. You place one of the keys on the device, and it presents the key to IoT Hub when authenticating.
-
-This authentication method is faster to get started but not as secure. Device provisioning using a TPM or X.509 certificates is more secure and should be used for solutions with more stringent security requirements.
-
 ### X.509 certificate attestation
 
-Using X.509 certificates as an attestation mechanism is an excellent way to scale production and simplify device provisioning. Typically, X.509 certificates are arranged in a certificate chain of trust. Starting with a self-signed or trusted root certificate, each certificate in the chain signs the next lower certificate. This pattern creates a delegated chain of trust from the root certificate down through each intermediate certificate to the final "leaf" certificate installed on a device.
+Using X.509 certificates as an attestation mechanism is the recommended way to scale production and simplify device provisioning. Typically, X.509 certificates are arranged in a certificate chain of trust. Starting with a self-signed or trusted root certificate, each certificate in the chain signs the next lower certificate. This pattern creates a delegated chain of trust from the root certificate down through each intermediate certificate to the final downstream device certificate installed on a device. 
 
-You create two X.509 identity certificates and place them on the device. When you create a new device identity in IoT Hub, you provide thumbprints from both certificates. When the device authenticates to IoT Hub, it presents one certificate and IoT Hub verifies that the certificate matches its thumbprint.
+You create two X.509 identity certificates and place them on the device. When you create a new device identity in IoT Hub, you provide thumbprints from both certificates. When the device authenticates to IoT Hub, it presents one certificate and IoT Hub verifies that the certificate matches its thumbprint. The X.509 keys on the device should be stored in a Hardware Security Module (HSM). For example, PKCS#11 modules, ATECC, dTPM, etc.
 
-This authentication method is more secure than symmetric keys and is recommended for production scenarios.
+This authentication method is more secure than symmetric keys and supports group enrollments which provides a simplified management experience for a high number of devices. This authentication method is recommended for production scenarios.
 
 ### Trusted platform module (TPM) attestation
 
-Using TPM attestation is the most secure method for device provisioning, as it provides authentication features in both software and hardware. Each TPM chip uses a unique endorsement key to verify its authenticity.
+Using TPM attestation is a method for device provisioning that uses authentication features in both software and hardware. Each TPM chip uses a unique endorsement key to verify its authenticity.
 
-TPM attestation is only available for provisioning at-scale with DPS, and only supports individual enrollments not group enrollments. Group enrollments are not available because of the device-specific nature of TPM.
+TPM attestation is only available for provisioning at-scale with DPS, and only supports individual enrollments not group enrollments. Group enrollments aren't available because of the device-specific nature of TPM.
 
 TPM 2.0 is required when you use TPM attestation with the device provisioning service.
 
 This authentication method is more secure than symmetric keys and is recommended for production scenarios.
+
+### Symmetric keys attestation
+
+Symmetric key attestation is a simple approach to authenticating a device. This attestation method represents a "Hello world" experience for developers who are new to device provisioning, or don't have strict security requirements.
+
+When you create a new device identity in IoT Hub, the service creates two keys. You place one of the keys on the device, and it presents the key to IoT Hub when authenticating.
+
+This authentication method is faster to get started but not as secure. Device provisioning using a TPM or X.509 certificates is more secure and should be used for solutions with more stringent security requirements.
 
 ## Next steps
 
@@ -194,19 +161,3 @@ You can also use the links below to go to the relevant article.
 * [Provision Linux on Windows devices at-scale using TPM attestation](how-to-provision-devices-at-scale-linux-on-windows-tpm.md)
 * [Provision Linux on Windows devices at-scale using symmetric keys](how-to-provision-devices-at-scale-linux-on-windows-symmetric.md)
 
-<!--1.1-->
-:::moniker range="iotedge-2018-06"
-
-### Windows containers on Windows hosts
-
-**Manually provision a single device**:
-
-* [Provision a single Windows device using X.509 certificates](how-to-provision-single-device-windows-x509.md)
-* [Provision a single Windows device using symmetric keys](how-to-provision-single-device-windows-symmetric.md)
-
-**Provision multiple devices at-scale**:
-
-* [Provision Windows devices at-scale using X.509 certificates](how-to-provision-devices-at-scale-windows-x509.md)
-* [Provision Windows devices at-scale using TPM attestation](how-to-provision-devices-at-scale-windows-tpm.md)
-* [Provision Windows devices at-scale using symmetric keys](how-to-provision-devices-at-scale-windows-symmetric.md)
-:::moniker-end

@@ -1,9 +1,9 @@
 ---
 title: Configure cross-origin resource sharing in FHIR service
 description: This article describes how to configure cross-origin resource sharing in FHIR service
-author: dougseven
-ms.author: dseven
-ms.date: 03/02/2022
+author: expekesheth
+ms.author: kesheth
+ms.date: 06/06/2022
 ms.topic: reference
 ms.service: healthcare-apis
 ms.subservice: fhir
@@ -42,3 +42,5 @@ In this tutorial, we walked through how to configure a CORS setting in the FHIR 
 
 >[!div class="nextstepaction"]
 >[CARIN Implementation Guide for Blue Button&#174;](carin-implementation-guide-blue-button-tutorial.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

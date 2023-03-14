@@ -13,7 +13,7 @@ ms.author: gasinh
 ms.collection: M365-identity-device-management
 ---
 
-# Tutorial: Configure F5’s BIG-IP Easy Button for SSO to Oracle JDE
+# Tutorial: Configure F5’s BIG-IP Easy Button for SSO to Oracle JDE 
 
 In this article, learn to secure Oracle JD Edwards (JDE) using Azure Active Directory (Azure AD), through F5’s BIG-IP Easy Button guided configuration.
 
@@ -97,7 +97,7 @@ Before a client or service can access Microsoft Graph, it must be trusted by the
 
 This first step creates a tenant app registration that will be used to authorize the **Easy Button** access to Graph. Through these permissions, the BIG-IP will be allowed to push the configurations required to establish a trust between a SAML SP instance for published application, and Azure AD as the SAML IdP.
 
-1. Sign in to the [Azure AD portal](https://portal.azure.com/) with Application Administrative rights
+1. Sign in to the [Azure portal](https://portal.azure.com/) with Application Administrative rights
 
 2. From the left navigation pane, select the **Azure Active Directory** service
 

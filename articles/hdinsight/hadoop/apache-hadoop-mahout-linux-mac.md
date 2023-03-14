@@ -4,7 +4,7 @@ description: Learn how to use the Apache Mahout machine learning library to gene
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 05/14/2020
+ms.date: 10/25/2022
 ---
 
 # Generate recommendations using Apache Mahout in Azure HDInsight
@@ -12,8 +12,6 @@ ms.date: 05/14/2020
 Learn how to use the [Apache Mahout](https://mahout.apache.org) machine learning library with Azure HDInsight to generate movie recommendations.
 
 Mahout is a [machine learning](https://en.wikipedia.org/wiki/Machine_learning) library for Apache Hadoop. Mahout contains algorithms for processing data, such as filtering, classification, and clustering. In this article, you use a recommendation engine to generate movie recommendations that are based on movies your friends have seen.
-
-Mahout is avaiable in HDInsight 3.6, and is not available in HDInsight 4.0. For more information about the version of Mahout in HDInsight, see [HDInsight 3.6 component versions](../hdinsight-36-component-versioning.md).
 
 ## Prerequisites
 

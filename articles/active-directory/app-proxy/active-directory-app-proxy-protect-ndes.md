@@ -3,12 +3,12 @@ title: Integrate with Azure Active Directory Application Proxy on an NDES server
 description: Guidance on deploying an Azure Active Directory Application Proxy to protect your NDES server.
 services: active-directory
 author: kenwith
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/27/2021
+ms.date: 03/14/2023
 ms.author: kenwith
 ---
 
@@ -77,11 +77,11 @@ Azure AD Application Proxy is built on Azure. It gives you a massive amount of n
 
 1. As a final test, add the *mscep.dll* path to the existing URL you pasted in the previous step:
 
-   https://scep-test93635307549127448334.msappproxy.net/certsrv/mscep/mscep.dll
+  `https://scep-test93635307549127448334.msappproxy.net/certsrv/mscep/mscep.dll`
 
 1. You should see an **HTTP Error 403 – Forbidden** response.
 
-1. Change the NDES URL provided (via Microsoft Intune) to devices. This change could either be in Microsoft Endpoint Configuration Manager or the Microsoft Endpoint Manager admin center.
+1. Change the NDES URL provided (via Microsoft Intune) to devices. This change could either be in Microsoft Configuration Manager or the Microsoft Intune admin center.
 
    * For Configuration Manager, go to the certificate registration point and adjust the URL. This URL is what devices call out to and present their challenge.
    * For Intune standalone, either edit or create a new SCEP policy and add the new URL.

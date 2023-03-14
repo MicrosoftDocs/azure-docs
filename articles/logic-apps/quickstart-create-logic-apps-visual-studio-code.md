@@ -12,6 +12,8 @@ ms.date: 02/02/2022
 
 # Quickstart: Create and manage logic app workflow definitions with multi-tenant Azure Logic Apps and Visual Studio Code
 
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+
 This quickstart shows how to create and manage logic app workflows that help you automate tasks and processes that integrate apps, data, systems, and services across organizations and enterprises by using multi-tenant [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and Visual Studio Code. You can create and edit the underlying workflow definitions, which use JavaScript Object Notation (JSON), for logic apps through a code-based experience. You can also work on existing logic apps that are already deployed to Azure. For more information about multi-tenant versus single-tenant model, review [Single-tenant versus multi-tenant and integration service environment](single-tenant-overview-compare.md).
 
 Although you can perform these same tasks in the [Azure portal](https://portal.azure.com) and in Visual Studio, you can get started faster in Visual Studio Code when you're already familiar with logic app definitions and want to work directly in code. For example, you can disable, enable, delete, and refresh already created logic apps. Also, you can work on logic apps and integration accounts from any development platform where Visual Studio Code runs, such as Linux, Windows, and Mac.
@@ -134,7 +136,7 @@ Before you start, make sure that you have these items:
    > for example, @fabrikam.com. Make sure that you replace the fictitious email address with your own 
    > email address. To use a different email connector, such as Outlook.com or Gmail, replace the 
    > `Send_an_email_action` action with a similar action available from an 
-   > [email connector that's supported by Azure Logic Apps](../connectors/apis-list.md).
+   > [email connector that's supported by Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors).
    >
    > If you want to use the Gmail connector, only G-Suite business accounts can use this connector without restriction in logic apps. 
    > If you have a Gmail consumer account, you can use this connector with only specific Google-approved services, or you can 

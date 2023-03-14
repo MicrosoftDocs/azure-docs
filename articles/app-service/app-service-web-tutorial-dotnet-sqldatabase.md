@@ -10,7 +10,7 @@ ms.custom: "devx-track-csharp, mvc, devcenter, vs-azure, seodec18"
 
 # Tutorial: Deploy an ASP.NET app to Azure with Azure SQL Database
 
-[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. This tutorial shows you how to deploy a data-driven ASP.NET app in App Service and connect it to [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md). When you're finished, you have an ASP.NET app running in Azure and connected to SQL Database.
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. This tutorial shows you how to deploy a data-driven ASP.NET app in App Service and connect it to [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview). When you're finished, you have an ASP.NET app running in Azure and connected to SQL Database.
 
 ![Published ASP.NET application in Azure App Service](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
@@ -46,7 +46,10 @@ The sample project contains a basic [ASP.NET MVC](https://www.asp.net/mvc) creat
 
 1. Open the *dotnet-sqldb-tutorial-master/DotNetAppSqlDb.sln* file in Visual Studio.
 
-1. Type `Ctrl+F5` to run the app without debugging. The app is displayed in your default browser.
+1. Type `F5` to run the app. The app is displayed in your default browser.
+
+   > [!NOTE] 
+   > If you only installed Visual Studio and the prerequisites, you may have to [install missing packages via NuGet](/nuget/consume-packages/install-use-packages-visual-studio).
 
 1. Select the **Create New** link and create a couple *to-do* items.
 
@@ -120,7 +123,7 @@ You can keep the generated web app name, or change it to another unique name (va
 
 #### Create a server and database
 
-Before creating a database, you need a [logical SQL server](../azure-sql/database/logical-servers.md). A logical SQL server is a logical construct that contains a group of databases managed as a group.
+Before creating a database, you need a [logical SQL server](/azure/azure-sql/database/logical-servers). A logical SQL server is a logical construct that contains a group of databases managed as a group.
 
 1. In the **Publish** dialog, scroll down to the **Service Dependencies** section. Next to **SQL Server Database**, click **Configure**.
 

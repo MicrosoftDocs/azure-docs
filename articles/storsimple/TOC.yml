@@ -327,7 +327,7 @@
         href: https://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf
     - name: Update
       items:
-      - name: Install Update 5.1 - current
+      - name: Install Update 5.1
         href: storsimple-8000-install-update-51.md
       - name: Install Update 5
         href: storsimple-8000-install-update-5.md
@@ -335,7 +335,9 @@
         href: storsimple-8000-install-update-4.md
   - name: Release notes
     items:
-    - name: Update 5.1 - current
+    - name: Update 5.2 - current
+      href: storsimple-update52-release-notes.md    
+    - name: Update 5.1
       href: storsimple-update51-release-notes.md
     - name: Update 5
       href: storsimple-update5-release-notes.md

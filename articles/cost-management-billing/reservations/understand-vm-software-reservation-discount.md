@@ -2,11 +2,11 @@
 title: Understand how the Azure virtual machine software reservation discount is applied
 description: Learn how Azure virtual machine software reservation discount is applied before you buy.
 author: bandersmsft
-ms.reviewer: primittal
+ms.reviewer: nitinarora
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 03/09/2022
+ms.date: 12/06/2022
 ms.author: banders
 ---
 
@@ -43,7 +43,7 @@ To learn more about Azure Reservations, see the following articles:
 - [What are reservations for Azure?](save-compute-costs-reservations.md)
 - [Prepay for Azure virtual machine software reservations](buy-vm-software-reservation.md)
 - [Prepay for Virtual Machines with Azure Reserved VM Instances](../../virtual-machines/prepay-reserved-vm-instances.md)
-- [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](../../azure-sql/database/reserved-capacity-overview.md)
+- [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](/azure/azure-sql/database/reserved-capacity-overview)
 - [Manage reservations for Azure](manage-reserved-vm-instance.md)
 - [Understand reservation usage for your Pay-As-You-Go subscription](understand-reserved-instance-usage.md)
 - [Understand reservation usage for your Enterprise enrollment](understand-reserved-instance-usage-ea.md)

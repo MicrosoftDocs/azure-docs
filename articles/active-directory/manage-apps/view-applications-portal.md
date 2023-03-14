@@ -1,24 +1,23 @@
 ---
 title: 'Quickstart: View enterprise applications'
 description: View the enterprise applications that are registered to use your Azure Active Directory tenant.
-titleSuffix: Azure AD
 services: active-directory
-author: davidmu1
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: quickstart
 ms.date: 03/24/2022
-ms.author: davidmu
-ms.reviewer: arvinh
+ms.author: jomondi
+ms.reviewer: alamaral
 ms.custom: mode-other
 #Customer intent: As an administrator of an Azure AD tenant, I want to search for and view the enterprise applications in the tenant.
 ---
 
 # Quickstart: View enterprise applications
 
-In this quickstart, you learn how to use the Azure Active Directory Admin Center to search for and view the enterprise applications that are already configured in your Azure Active Directory (Azure AD) tenant.
+In this quickstart, you learn how to use the Azure portal to search for and view the enterprise applications that are already configured in your Azure Active Directory (Azure AD) tenant.
 
 It is recommended that you use a non-production environment to test the steps in this quickstart.
 
@@ -34,8 +33,8 @@ To view applications that have been registered in your Azure AD tenant, you need
 
 To view the enterprise applications registered in your tenant:
 
-1. Go to the [Azure Active Directory Admin Center](https://aad.portal.azure.com) and sign in using one of the roles listed in the prerequisites.
-1. In the left menu, select **Enterprise applications**. The **All applications** pane opens and displays a list of the applications in your Azure AD tenant.
+1. Go to the [Azure portal](https://portal.azure.com) and sign in using one of the roles listed in the prerequisites.
+1. Browse to **Azure Active Directory** > **Enterprise applications**. The **All applications** pane opens and displays a list of the applications in your Azure AD tenant.
 
     :::image type="content" source="media/view-applications-portal/view-enterprise-applications.png" alt-text="View the registered applications in your Azure AD tenant.":::
 
@@ -79,4 +78,4 @@ If you created a test application named **Azure AD SAML Toolkit 1** that was use
 
 Learn how to delete an enterprise application.
 > [!div class="nextstepaction"]
-> [Delete an application](add-application-portal.md)
+> [Delete an application](delete-application-portal.md)

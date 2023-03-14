@@ -23,7 +23,7 @@ When the sample application makes a request to Azure Storage, it must be authori
 
 ### Configure your storage connection string
 
-After you have copied your connection string, set it to a class level variable in your *MainPage.xaml.cs* file. Open up *MainPaage.xaml.cs* and find the `storageConnectionString` variable. Replace `<yourconnectionstring>` with your actual connection string.
+After you have copied your connection string, set it to a class level variable in your *MainPage.xaml.cs* file. Open up *MainPage.xaml.cs* and find the `storageConnectionString` variable. Replace `<yourconnectionstring>` with your actual connection string.
 
 Here's the code:
 

@@ -4,11 +4,11 @@ description: Learn how to create Azure custom roles using the Azure portal and A
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 08/27/2021
+ms.date: 07/28/2022
 ms.author: rolyon
 ---
 
@@ -318,9 +318,9 @@ Follow these steps to view your custom roles.
 
 ## Delete a custom role
 
-1. As described earlier in this article, open your list of custom roles.
+1. Remove any role assignments that use the custom role. For more information, see [Find role assignments to delete a custom role](custom-roles.md#find-role-assignments-to-delete-a-custom-role).
 
-1. Remove any role assignments that using the custom role.
+1. As described earlier in this article, open your list of custom roles.
 
 1. Click the ellipsis (**...**) for the custom role you want to delete and then click **Delete**.
 

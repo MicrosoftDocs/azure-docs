@@ -15,7 +15,7 @@ ms.devlang: cpp, csharp, java
 ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
-# How to: Monitor and control service connections with the Speech SDK
+# How to monitor and control service connections with the Speech SDK
 
 `SpeechRecognizer` and other objects in the Speech SDK automatically connect to the Speech Service when it's appropriate. Sometimes, you may either want additional control over when connections begin and end or want more information about when the Speech SDK establishes or loses its connection. The supporting `Connection` class provides this capability.
 

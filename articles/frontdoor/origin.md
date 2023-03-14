@@ -1,5 +1,6 @@
 ---
-title: Origins and origin groups - Azure Front Door
+title: Origins and origin groups
+titleSuffix: Azure Front Door
 description: This article explains the concept of what an origin and origin group is in a Front Door configuration.
 services: front-door
 author: duongau
@@ -16,7 +17,7 @@ zone_pivot_groups: front-door-tiers
 ::: zone pivot="front-door-classic"
 
 > [!NOTE]
-> An *Origin* and a *origin group* in this article refers to the backend and backend pool of the Azure Front Door (classic) configuration.
+> *Origin* and *origin group* in this article refers to the backend and backend pool of the Azure Front Door (classic) configuration.
 >
 
 ::: zone-end

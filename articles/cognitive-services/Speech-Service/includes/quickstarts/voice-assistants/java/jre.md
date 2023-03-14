@@ -11,7 +11,7 @@ ms.author: travisw
 Before you get started, make sure to:
 
 > [!div class="checklist"]
-> * [Create an Azure Speech resource](../../../../overview.md#try-the-speech-service-for-free)
+> * [Create a Speech resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)
 > * [Set up your development environment and create an empty project](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?tabs=jre&pivots=programming-language-java)
 > * Create a bot connected to the [Direct Line Speech channel](/azure/bot-service/bot-service-channel-connect-directlinespeech)
 > * Make sure that you have access to a microphone for audio capture
@@ -21,7 +21,7 @@ Before you get started, make sure to:
 
 ## Create and configure project
 
-[!INCLUDE [](~/includes/cognitive-services-speech-service-quickstart-java-create-proj.md)]
+Create an Eclipse project and [install the Speech SDK](../../../../quickstarts/setup-platform.md?pivots=programming-language-java&tabs=jre).
 
 Additionally, to enable logging, update the _pom.xml_ file to include the following dependency:
 
@@ -110,8 +110,8 @@ Additionally, to enable logging, update the _pom.xml_ file to include the follow
 
 1. In the `main` method, you first configure your `DialogServiceConfig` and use it to create a `DialogServiceConnector` instance. This instance connects to the Direct Line Speech channel to interact with your bot. An `AudioConfig` instance is also used to specify the source for audio input. In this example, the default microphone is used with `AudioConfig.fromDefaultMicrophoneInput()`.
 
-   - Replace the string `YourSubscriptionKey` with your subscription key, which you can get from [this website](../../../../overview.md#try-the-speech-service-for-free).
-   - Replace the string `YourServiceRegion` with the [region](~/articles/cognitive-services/speech-service/regions.md) associated with your subscription.
+   - Replace the string `YourSubscriptionKey` with your Speech resource key, which you can get from the [Azure portal](https://portal.azure.com).
+   - Replace the string `YourServiceRegion` with the [region](~/articles/cognitive-services/speech-service/regions.md) associated with your Speech resource.
 
    > [!NOTE]
    > Please refer to [the list of supported regions for voice assistants](~/articles/cognitive-services/speech-service/regions.md#voice-assistants) and ensure your resources are deployed in one of those regions.

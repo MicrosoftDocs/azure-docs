@@ -7,10 +7,13 @@ author: aahill
 ms.manager: nitinme
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/05/2022
+ms.date: 07/19/2022
 ---
 
 # Language Understanding Frequently Asked Questions (FAQ)
+
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
 
 
 ## What are the maximum limits for LUIS application?
@@ -122,7 +125,7 @@ By default, your LUIS app logs utterances from users. To download a log of utter
 
 ## How can I disable the logging of utterances?
 
-You can turn off the logging of user utterances by setting log=false in the Endpoint URL that your client application uses to query LUIS. However, turning off logging disables your LUIS app's ability to suggest utterances or improve performance that's based on [active learning](luis-concept-review-endpoint-utterances.md#what-is-active-learning). If you set log=false because of data-privacy concerns, you can't download a record of those user utterances from LUIS or use those utterances to improve your app.
+You can turn off the logging of user utterances by setting `log=false` in the Endpoint URL that your client application uses to query LUIS. However, turning off logging disables your LUIS app's ability to suggest utterances or improve performance that's based on [active learning](luis-concept-review-endpoint-utterances.md#what-is-active-learning). If you set `log=false` because of data-privacy concerns, you can't download a record of those user utterances from LUIS or use those utterances to improve your app.
 
 Logging is the only storage of utterances.
 

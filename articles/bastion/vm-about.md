@@ -5,7 +5,7 @@ description: Learn about VM connections and features when connecting using Azure
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 03/16/2022
+ms.date: 04/19/2022
 ms.author: cherylmc
 
 ---
@@ -22,7 +22,7 @@ You can use a variety of different methods to connect to a target VM. Some conne
 
 ## <a name="copy-paste"></a>Copy and paste
 
-For browsers that support the advanced Clipboard API access, you can copy and paste text between your local device and the remote session in the same way you copy and paste between applications on your local device. For other browsers, you can use the Bastion clipboard access tool palette. Only text copy/paste is supported.
+You can copy and paste text between your local device and the remote session. Only text copy/paste is supported. By default, this feature is enabled. If you want to disable this feature for web-based clients, you can change the setting on the configuration page for your bastion host. To disable, your bastion host must be configured with the Standard SKU tier.
 
 For steps and more information, see [Copy and paste - Windows VMs](bastion-vm-copy-paste.md).
 
@@ -42,7 +42,7 @@ For steps and more information, see [Upload or download files to a VM using a na
 
 ## <a name="faq"></a>FAQ
 
-For FAQs, see [Bastion FAQ - VM connectons and features](bastion-faq.md#vm).
+For FAQs, see [Bastion FAQ - VM connections and features](bastion-faq.md#vm).
 
 ## Next steps
 

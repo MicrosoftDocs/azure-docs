@@ -11,9 +11,9 @@ metadata:
   ms.subservice: fhir
   ms.topic: landing-page 
   ms.collection: collection
-  author: ginalee-dotcom
-  ms.author: ginle
-  ms.date: 04/01/2022
+  author: expekesheth
+  ms.author: kesheth
+  ms.date: 09/30/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -25,14 +25,14 @@ landingContent:
         links:
           - text: What is Azure API for FHIR?
             url: overview.md
-          - text: What is Azure IoT Connector for FHIR (preview)?
-            url: overview.md#azure-iot-connector-for-fhir-preview
       - linkListType: quickstart
+        links:
+          - text: Get started with Azure API for FHIR
+            url: get-started-with-azure-api-fhir.md
+      - linkListType: deploy
         links:
           - text: Deploy Azure API for FHIR
             url: fhir-paas-portal-quickstart.md
-          - text: Deploy Azure IoT Connector for FHIR (preview)
-            url: iot-fhir-portal-quickstart.md 
 
   - title: Accessing Azure API for FHIR
     linkLists:

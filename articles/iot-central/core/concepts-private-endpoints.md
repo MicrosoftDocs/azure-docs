@@ -15,19 +15,19 @@ The standard IoT Central endpoints for device connectivity are accessible using 
 
 Use private endpoints to limit and secure device connectivity to your IoT Central application and only allow access through your private virtual network.
 
-Private endpoints use private IP addresses from a virtual network address space to connect your devices privately to your IoT Central application. Network traffic between devices on the virtual network and the IoT platform traverses the virtual network and a private link on the [Microsoft backbone network](/azure/networking/microsoft-global-network), eliminating exposure on the public internet.
+Private endpoints use private IP addresses from a virtual network address space to connect your devices privately to your IoT Central application. Network traffic between devices on the virtual network and the IoT platform traverses the virtual network and a private link on the [Microsoft backbone network](../../networking/microsoft-global-network.md), eliminating exposure on the public internet.
 
 To learn more about Azure Virtual Networks, see:
 
-- [Azure Virtual Networks](/azure/virtual-network/virtual-networks-overview)
-- [Azure private endpoints](/azure/private-link/private-endpoint-overview)
-- [Azure private links](/azure/private-link/private-link-overview)
+- [Azure Virtual Networks](../../virtual-network/virtual-networks-overview.md)
+- [Azure private endpoints](../../private-link/private-endpoint-overview.md)
+- [Azure private links](../../private-link/private-link-overview.md)
 
 Private endpoints in your IoT Central application enable you to:
 
 - Secure your cluster by configuring the firewall to block all device connections on the public endpoint.
 - Increase security for the virtual network by enabling you to block exfiltration of data from the virtual network.
-- Securely connect devices to IoT Central from on-premises networks that connect to the virtual network by using a [VPN gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) or [ExpressRoute](/azure/expressroute) private peering.
+- Securely connect devices to IoT Central from on-premises networks that connect to the virtual network by using a [VPN gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoute](../../expressroute/index.yml) private peering.
 
 The use of private endpoints in IoT Central is appropriate for devices connected to an on-premises network. You shouldn't use private endpoints for devices deployed in a wide-area network such as the internet.
 
@@ -64,7 +64,7 @@ Use the following information to help determine the total number of IP addresses
 | Azure reserved addresses             | 5                                           |
 | Total                                | 11-107                                      |
 
-To learn more, see the Azure [Azure Virtual Network FAQ](/azure/virtual-network/virtual-networks-faq).
+To learn more, see the Azure [Azure Virtual Network FAQ](../../virtual-network/virtual-networks-faq.md).
 
 > [!NOTE]
 > The minimum size for the subnet is `/28` (14 usable IP addresses). For use with an IoT Central private endpoint `/24` is recommended, which helps with extreme workloads.

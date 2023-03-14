@@ -1,141 +1,114 @@
 ---
-title: Analyze programming details and changes
-description: Enhance forensics by displaying programming events carried out on your network devices and analyzing code changes. This information helps you discover suspicious programming activity.
-ms.date: 01/30/2022
+title: Analyze programming details and changes on an OT sensor - Microsoft Defender for IoT
+description: Discover suspicious programming activity by investigating programming events occurring on your network devices.
+ms.date: 02/28/2023
 ms.topic: how-to
 ---
 
-
 # Analyze programming details and changes
 
-Enhance forensics by displaying programming events carried out on your network devices and analyzing code changes. This information helps you discover suspicious programming activity, for example:
+Enhance forensics by displaying programming events occurring on your network devices and analyzing any code changes using the OT sensor. Watching for programming events helps you investigate suspicious programming activity, such as:
 
-  - Human error: An engineer is programming the wrong device.
+  - **Human error**: An engineer programming the wrong device.
+  - **Corrupted programming automation**: Programming errors due to automation failures.
+  - **Hacked systems**: Unauthorized users logged into a programming device.
 
-  - Corrupted programming automation: Programming is erroneously carried out because of automation failure.
+Use the **Programming Timeline** tab on your OT network sensor to review programming data, such as when investigating an alert about unauthorized programming, after a planned controller update, or when a process or machine isn't working correctly and you want to understand who made the last update and when.
 
-  - Hacked systems: Unauthorized users logged into a programming device.
+Programming activity shown on OT sensors include both *authorized* and *unauthorized* events. Authorized events are performed by devices that are either learned or manually defined as programming devices. Unauthorized events are performed by devices that haven't been learned or manually defined as programming devices.
 
-You can display a programmed device and scroll through various programming changes carried out on it by other devices.
+> [!NOTE]
+> Programming data is available for devices using text based programming protocols, such as DeltaV.
 
-View code that was added, changed, removed, or reloaded by the programming device. Search for programming changes based on file types, dates, or times of interest.
+## Prerequisites
 
-## When to review programming activity 
+To perform the procedures in this article, make sure that you have:
 
-You may need to review programming activity:
+- An OT sensor installed and configured, with text based programming protocol traffic.
 
-  - After viewing an alert regarding unauthorized programming
+- Access to the sensor as a **Viewer**, **Security analyst** or **Admin** user.
 
-  - After a planned update to controllers
+## Access programming data
 
-  - When a process or machine is not working correctly (to see who carried out the last update and when)
+The **Programming Timeline** tab can be accessed from the **Device map**, **Device inventory**, and **Event timeline** pages in the sensor console.
 
-   :::image type="content" source="media/how-to-work-with-maps/differences.png" alt-text="Screenshot of a Programming Change Log":::
+### Access programming data from the device map
 
-Other options let you:
+1. Sign into the OT sensor console and select **Device map**.
 
-  - Mark events of interest with a star.
+1. In the **Groups** area to the left of the map, select **Filter** > **OT Protocols** > select a text based programming protocol, such as DeltaV.
 
-  - Download a *.txt file with the current code.
+1. In the map, right-click on the device you want to analyze, and select **Programming timeline**.
 
-## About authorized versus unauthorized programming events 
+      :::image type="content" source="media/analyze-programming/select-programming-timeline-from-device-map.png" alt-text="Screenshot of the programming timeline option from the device map." lightbox="media/analyze-programming/select-programming-timeline-from-device-map.png":::
 
-Unauthorized programming events are carried out by devices that have not been learned or manually defined as programming devices. Authorized programming events are carried out by devices that were resolved or manually defined as programming devices.
+      The device details page opens with the **Programming Timeline** tab open.
+  
+### Access programming data from the device inventory
 
-The Programming Analysis window displays both authorized and unauthorized programming events.
+1. Sign into the OT sensor console and select **Device inventory**.
 
-## Accessing programming details and changes
+1. Filter the device inventory to show devices using text based programming protocols, such as DeltaV.
 
-Access the Programming Analysis window from the:
+1. Select the device you want to analyze, and then select **View full details** to open the device details page.
 
-- [Event Timeline](how-to-track-sensor-activity.md)
+1. On the device details page, select the **Programming Timeline** tab.
 
-- [Unauthorized Programming Alerts](#unauthorized-programming-alerts)
+    For example: 
 
-### Event timeline
+    :::image type="content" source="media/analyze-programming/programming-timeline-window-device-inventory.png" alt-text="Screenshot of programming timeline tab on device details page." lightbox="media/analyze-programming/programming-timeline-window-device-inventory.png":::
+
+### Access programming data from the event timeline
 
 Use the event timeline to display a timeline of events in which programming changes were detected.
 
-:::image type="content" source="media/how-to-work-with-maps/timeline.png" alt-text="Screenshot of the event timeline.":::
+1. Sign into the OT sensor console and select **Event timeline**.
 
-### Unauthorized programming alerts
+1. Filter the event timeline for devices using text based programming protocols, such as **DeltaV**.
 
-Alerts are triggered when unauthorized programming devices carry out programming activities.
+1. Select the event you want to analyze to open the event details pane on the right, and then select **Programming timeline**.
 
-:::image type="content" source="media/how-to-work-with-maps/unauthorized.png" alt-text="Screenshot of unauthorized programming alerts":::
+## View programming details
 
-> [!NOTE]
-> You can also view basic programming information in the Device Properties window and Device Inventory.
+The **Programming Timeline** tab shows details about each device that was programmed. Select an event and a file to view full programming details on the right. In the **Programming Timeline** tab:
 
-## Working in the programming timeline window
+- The **Recent Events** area lists the 50 most recent events detected by the OT sensor. Hover over an event period select the star to mark the event as an **Important** event.
 
-This section describes how to view programming files and compare versions. Search for specific files sent to a programmed device. Search for files based on:
+- The **Files** area lists programming files detected for the selected device. The OT sensor can display a maximum of 300 files per device, where each file has a maximum size of 15 MB. The **Files** area lists each file's name and size, and one of the following statuses to indicate the programming event that occurred:
 
-  - Date
+  - **Added**: The programming file was added to the endpoint
+  - **Updated**: The programming file was updated on the endpoint
+  - **Deleted**: The programming file was removed from the endpoint
+  - **Unknown**: No changes were detected for the programming file
 
-  - File type
+- When a programming file is opened on the right, the device that was programmed is listed as the *programmed asset*. Multiple devices may have made programming changes on the device. Devices that made changes are listed as the *programming assets*, and details include the hostname, when the change was made, and the user that was signed in to the device at the time.
 
-   :::image type="content" source="media/how-to-work-with-maps/timeline-view.png" alt-text="Screenshot of a programming timeline window.":::
+> [!TIP]
+> Select the :::image type="icon" source="media/analyze-programming/download-icon.png" border="false"::: download button to download a copy of the currently displayed programming file.
 
-|Programming timeline type | Description |
-|--|--|
-| Programmed Device | Provides details about the device that was programmed, including the hostname and file. |
-| Recent Events | Displays the 50 most recent events detected by the sensor. <br />To highlight an event, hover over it and click the star. :::image type="icon" source="media/how-to-work-with-maps/star.png" border="false"::: <br /> The last 50 events can be viewed. |
-| Files | Displays the files detected for the chosen date and the file size on the programmed device. <br /> By default, the maximum number of files available for display per device is 300. <br /> By default, the maximum file size for each file is 15 MB. |
-| File status :::image type="icon" source="media/how-to-work-with-maps/status-v2.png" border="false"::: | File labels indicate the status of the file on the device, including: <br /> **Added**: the file was added to the endpoint on the date or time selected. <br /> **Updated**: The file was updated on the date or time selected. <br /> **Deleted**: This file was removed. <br /> **No label**: The file was not changed.   |
-| Programming Device | The device that made the programming change. Multiple devices may have carried out programming changes on one programmed device. The hostname, date, or time of change and logged in user are displayed. |
-| :::image type="icon" source="media/how-to-work-with-maps/current.png" border="false"::: | Displays the current file installed on the programmed device. |
-| :::image type="icon" source="media/how-to-work-with-maps/download-text.png" border="false"::: | Download a text file of the code displayed. |
-| :::image type="icon" source="media/how-to-work-with-maps/compare.png" border="false"::: | Compare the current file with the file detected on a selected date. |
+For example:
 
-### Choose a file to review
+:::image type="content" source="media/analyze-programming/programming-timeline-2.png" alt-text="Screenshot of viewing programming details in programming timeline." lightbox="media/analyze-programming/programming-timeline-2.png":::
 
-This section describes how to choose a file to review.
+## Compare programming detail files
 
-**To choose a file to review:**
+This procedure describes how to compare multiple programming detail files to identify discrepancies or investigate them for suspicious activity.
 
-1. Select an event from the **Recent Events** pane
+**To compare files:**
 
-2. Select a file from the File pane. The file appears in the Current pane.
+1. Open a programming file from an alert or from the **Device map** or **Device inventory** pages.
 
-   :::image type="content" source="media/how-to-work-with-maps/choose-file.png" alt-text="Screenshot of selecting the file you want to work with.":::
+1. With your first file open, select the compare :::image type="icon" source="media/analyze-programming/compare-icon.png" border="false"::: button.
 
-### Compare files
+1. In the **Compare** pane, select a file for comparison by selecting the scale icon under **Action** next to the file. For example:
 
-This section describes how to compare programming files.
+    :::image type="content" source="media/analyze-programming/compare-file-pane.png" alt-text="Screenshot of compare files pane." lightbox="media/analyze-programming/compare-file-pane.png":::
 
-**To compare:**
+    The selected file opens up in a new pane for side-by-side comparison with the first file. The current file installed on the programmed device is labeled *Current* at the top of the file.
 
-1. Select an event from the Recent Events pane.
+    :::image type="content" source="media/analyze-programming/compare-files-side-by-side.png" alt-text="Screenshot of programming file comparison side by side." lightbox="media/analyze-programming/compare-files-side-by-side.png":::
 
-2. Select a file from the File pane. The file appears in the  Current pane. You can compare this file to other files.
-
-3. Select the compare indicator.
-
-   :::image type="content" source="media/how-to-work-with-maps/compare.png" alt-text="Screenshot of the compare indicator.":::
-
-   The window displays all dates the selected file was detected on the programmed device. The file may have been updated on the programmed device by multiple programming devices.
-
-   The number of differences detected appears in the upper right-hand corner of the window. You may need to scroll down to view differences.
-
-   :::image type="content" source="media/how-to-work-with-maps/scroll.png" alt-text="Screenshot of scrolling down to your selection.":::
-
-   The number is calculated by adjacent lines of changed text. For example, if eight consecutive lines of code were changed (deleted, updated, or added) this will be calculated as one difference.
-
-   :::image type="content" source="media/how-to-work-with-maps/program-timeline.png" alt-text="Screenshot of the programming timeline view." lightbox="media/how-to-work-with-maps/program-timeline.png":::
-
-4. Select a date. The file detected on the selected date appears in the window.
-
-5. The file selected from the Recent Events/Files pane always appears on the right.
-
-## Device programming information: Other locations
-
-In addition to reviewing details in the Programming Timeline, you can access programming information in the Device Properties window and the Device Inventory.
-
-| Device type | Description |
-|--|--|
-| Device properties | The device properties window provides information on the last programming event detected on the device. |
-| The device inventory | The device inventory indicates if the device is a programming device. <br> :::image type="content" source="media/how-to-work-with-maps/inventory-v2.png" alt-text="Screenshot of the device inventory page."::: |
+    Scroll through the files to see the programming details and any differences between the files. Differences between the two files are highlighted in green and red.
 
 ## Next steps
 

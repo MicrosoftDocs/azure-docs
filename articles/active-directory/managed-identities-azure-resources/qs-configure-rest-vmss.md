@@ -4,7 +4,7 @@ description: Step-by-step instructions for configuring a system and user-assigne
 services: active-directory
 documentationcenter: 
 author: barclayn
-manager: karenhoran
+manager: amycolannino
 editor: 
 ms.service: active-directory
 ms.subservice: msi
@@ -46,7 +46,7 @@ If you don't already have an Azure account, [sign up for a free account](https:/
   > [!NOTE]
   > No additional Azure AD directory role assignments required.
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## System-assigned managed identity
 

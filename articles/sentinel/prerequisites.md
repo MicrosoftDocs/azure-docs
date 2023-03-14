@@ -1,11 +1,10 @@
 ---
 title: Prerequisites for deploying Microsoft Sentinel
 description: Learn about pre-deployment activities and prerequisites for deploying Microsoft Sentinel.
-author: batamig
-ms.author: bagol
+author: limwainstein
+ms.author: lwainstein
 ms.topic: conceptual
-ms.date: 11/09/2021
-ms.custom: ignite-fall-2021
+ms.date: 01/09/2023
 ---
 
 # Pre-deployment activities and prerequisites for deploying Microsoft Sentinel
@@ -60,7 +59,7 @@ Before deploying Microsoft Sentinel, make sure that your Azure tenant has the fo
 
 - A [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md) is required to house all of the data that Microsoft Sentinel will be ingesting and using for its detections, analytics, and other features. For more information, see [Microsoft Sentinel workspace architecture best practices](best-practices-workspace-architecture.md). Microsoft Sentinel doesn't support Log Analytics workspaces with a resource lock applied.
 
-We recommend that when you set up your Microsoft Sentinel workspace, [create a resource group](../azure-resource-manager/management/manage-resource-groups-portal.md) that's dedicated to Microsoft Sentinel and the resources that Microsoft Sentinel users including the Log Analytics workspace, any playbooks, workbooks, and so on.
+We recommend that when you set up your Microsoft Sentinel workspace, [create a resource group](../azure-resource-manager/management/manage-resource-groups-portal.md) that's dedicated to Microsoft Sentinel and the resources that Microsoft Sentinel uses, including the Log Analytics workspace, any playbooks, workbooks, and so on.
 
 A dedicated resource group allows for permissions to be assigned once, at the resource group level, with permissions automatically applied to any relevant resources. Managing access via a resource group helps to ensure that you're using Microsoft Sentinel efficiently without potentially issuing improper permissions. Without a resource group for Microsoft Sentinel, where resources are scattered among multiple resource groups, a user or service principal may find themselves unable to perform a required action or view data due to insufficient permissions.
 To implement more access control to resources by tiers, use extra resource groups to house the resources that should be accessed only by those groups. Using multiple tiers of resource groups enables you to separate access between those tiers.

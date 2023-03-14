@@ -1,16 +1,13 @@
 ---
 title: Best practices for Microsoft Sentinel
 description: Learn about best practices to employ when managing your Microsoft Sentinel workspace.
-author: batamig
-ms.author: bagol
+author: limwainstein
+ms.author: lwainstein
 ms.topic: conceptual
-ms.date: 11/09/2021
-ms.custom: ignite-fall-2021
+ms.date: 01/09/2023
 ---
 
 # Best practices for Microsoft Sentinel
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This collection of best practices provides guidance to use when deploying, managing, and using Microsoft Sentinel, including links to other articles for more information.
 
@@ -140,7 +137,7 @@ Entity behavior in Microsoft Sentinel allows users to review and investigate act
 
 - [Enable User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel](enable-entity-behavior-analytics.md)
 - [Investigate incidents with UEBA data](investigate-with-ueba.md)
-- [Microsoft Sentinel UEBA enrichments reference](ueba-enrichments.md)
+- [Microsoft Sentinel UEBA enrichments reference](ueba-reference.md)
 
 ### Handle incidents with watchlists and threat intelligence
 

@@ -1,7 +1,6 @@
 ---
 title: Troubleshooting Open Service Mesh
 description: How to troubleshoot Open Service Mesh
-services: container-service
 ms.topic: article
 ms.date: 8/26/2021
 ms.author: pgibson
@@ -103,7 +102,7 @@ aks-osm-webhook-osm   1      102m
 ### Check for the service and the CA bundle of the Validating webhook
 
 ```azurecli-interactive
-kubectl get ValidatingWebhookConfiguration aks-osm-webhook-osm -o json | jq '.webhooks[0].clientConfig.service'
+kubectl get ValidatingWebhookConfiguration aks-osm-validator-mesh-osm -o json | jq '.webhooks[0].clientConfig.service'
 ```
 
 A well configured Validating Webhook Configuration would look exactly like this:

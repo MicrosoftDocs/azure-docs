@@ -61,12 +61,9 @@ For an example of setting an expiration, see [Subscribe with advanced filters](h
 
 ## Event handlers
 
-From an Event Grid perspective, an event handler is the place where the event is sent. The handler takes some further action to process the event. Event Grid supports several handler types. You can use a supported Azure service, your own webhook or a [partner destination](#partner-destination) as the handler. Depending on the type of handler, Event Grid follows different mechanisms to guarantee the delivery of the event. For HTTP webhook event handlers, the event is retried until the handler returns a status code of `200 – OK`. For Azure Storage Queue, the events are retried until the Queue service successfully processes the message push into the queue.
+From an Event Grid perspective, an event handler is the place where the event is sent. The handler takes some further action to process the event. Event Grid supports several handler types. You can use a supported Azure service, or your own webhook as the handler. Depending on the type of handler, Event Grid follows different mechanisms to guarantee the delivery of the event. For HTTP webhook event handlers, the event is retried until the handler returns a status code of `200 – OK`. For Azure Storage Queue, the events are retried until the Queue service successfully processes the message push into the queue.
 
 For information about delivering events to any of the supported Event Grid handlers, see [Event handlers in Azure Event Grid](event-handlers.md).
-
-### Partner destination
-A partner destination is a resource that is provisioned by a [partner](#partners) and represents a webhook URL on a partner service or application. Partner destinations are created for the purpose of forwarding events to a partner system to enable event-driven integration across platforms. This way, a partner destination can be seen as a type of [event handler](#event-handlers) that you can configure in your event subscription for any kind of topic. For more information, see [Partner Events Overview](partner-events-overview.md).
 
 ## Security
 
@@ -80,6 +77,8 @@ If Event Grid can't confirm that an event has been received by the subscriber's 
 
 When you use a custom topic, events must always be published in an array. This can be a batch of one for low-throughput scenarios, however, for high volume use cases, it's recommended that you batch several events together per publish to achieve higher efficiency. Batches can be up to 1 MB and the maximum size of an event is 1 MB. 
 
+## Inline event type definitions
+Event Grid lets you define the types of events that will be published to a channel. With inline event type definitions, subscribers will be able to easily filter by event type when creating an event subscription. 
 
 ## Next steps
 

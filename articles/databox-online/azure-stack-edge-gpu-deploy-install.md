@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 11/11/2021
+ms.date: 07/05/2022
 ms.author: alkohli
 zone_pivot_groups: azure-stack-edge-device-deployment
 # Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Pro in datacenter so I can use it to transfer data to Azure.  
@@ -196,7 +196,7 @@ Before you start cabling your device, you need the following things:
 - At least one 1-GbE RJ-45 network cable to connect to the management interface. There are two 1-GbE network interfaces, one management and one data, on the device.
 - One 25/10-GbE SFP+ copper cable for each data network interface to be configured. At least one data network interface from among PORT 2, PORT 3, PORT 4, PORT 5, or PORT 6 needs to be connected to the Internet (with connectivity to Azure).  
 - Access to two power distribution units (recommended).
-- At least one 1-GbE network switch to connect a 1-GbE network interface to the Internet for data. The local web UI will not be accessible if the connected switch is not at least 1 GbE. If using 25/10-GbE interface for data, you will need a 25-GbE or 10-GbE switch.
+- At least one 1-GbE network switch to connect a 1-GbE network interface to the Internet for data. The local web UI won't be accessible if the connected switch isn't at least 1 GbE. If using 25/10-GbE interface for data, you'll need a 25-GbE or 10-GbE switch.
 
 > [!NOTE]
 > - If you are connecting only one data network interface, we recommend that you use a 25/10-GbE network interface such as PORT 3, PORT 4, PORT 5, or PORT 6 to send data to Azure. 
@@ -210,10 +210,10 @@ Before you start cabling your device, you need the following things:
 Before you start cabling your device, you need the following things:
 
 - Both of your Azure Stack Edge physical devices, unpacked, and rack mounted.
-- 4 power cables, 2 for each device node. <!-- check w/ PIT team around how the bezel is shipped or attached to the device -->
+- Four power cables, two for each device node. <!-- check w/ PIT team around how the bezel is shipped or attached to the device -->
 - At least two 1-GbE RJ-45 network cables to connect Port 1 on each device node for initial configuration. <!-- check with Ernie if is clustered in the factory, only 1 node may be connected to mgmt -->
 - At least two 1-GbE RJ-45 network cables to connect Port 2 on each device node to the internet (with connectivity to Azure).
-- 25/10-GbE SFP+ copper cables for Port 3 and Port 4 to be configured. Additional 25/10-GbR SFP+ copper cables if you will also connect Port 5 and Port 6. Port 5 and Port 6 must be connected if you intend to [Deploy network functions on Azure Stack Edge](../network-function-manager/deploy-functions.md).
+- 25/10-GbE SFP+ copper cables for Port 3 and Port 4 to be configured. Additional 25/10-GbR SFP+ copper cables if you'll also connect Port 5 and Port 6. Port 5 and Port 6 must be connected if you intend to [Deploy network functions on Azure Stack Edge](../network-function-manager/deploy-functions.md).
 - 25-GbE or 10-GbE switches if opting for a switched network topology. See [Supported network topologies](azure-stack-edge-gpu-clustering-overview.md).
 - Access to two power distribution units (recommended).
 
@@ -253,7 +253,10 @@ The backplane of Azure Stack Edge device:
 For a full list of supported cables, switches, and transceivers for these network adapter cards, see:
 
 - [`Qlogic` Cavium 25G NDC adapter interoperability matrix](https://www.marvell.com/documents/xalflardzafh32cfvi0z/).
-- 25 GbE and 10 GbE cables and modules in [Mellanox dual port 25G ConnectX-4 channel network adapter compatible products](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products).  
+- 25 GbE and 10 GbE cables and modules in [Mellanox dual port 25G ConnectX-4 channel network adapter compatible products](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products).
+
+> [!NOTE]
+> Using USB ports to connect any external device, including keyboards and monitors, is not supported for Azure Stack Edge devices.
 
 ### Power cabling 
 
@@ -301,8 +304,17 @@ Take the following steps to cable your device for power and network.
 
 1. Identify the various ports on the back plane of your device. <!--You may have received one of the following devices from the factory depending on the number of GPUs in your device.-->
 
-    ![Back plane of a cabled device](./media/azure-stack-edge-gpu-deploy-install/backplane-ports.png)
+    - Device with two Peripheral Component Interconnect (PCI) slots and one GPU
+     
+        ![Back plane of a cabled device 1.](./media/azure-stack-edge-gpu-deploy-install/backplane-ports.png)
 
+    - Device with three PCI slots and one GPU
+
+        ![Back plane of a cabled device 2.](./media/azure-stack-edge-gpu-deploy-install/backplane-ports-3.png)
+     
+    - Device with three PCI slots and two GPUs
+
+        ![Back plane of a cabled device 3.](./media/azure-stack-edge-gpu-deploy-install/backplane-ports-2.png)   
 
 2. Locate the disk slots and the power button on the front of the device.
 
@@ -350,7 +362,7 @@ Use this configuration when you need port level redundancy through teaming.
 
 #### Connect Port 3 via switch
 
-Use this configuration if you need an extra port for workload traffic and port level redundancy is not required.
+Use this configuration if you need an extra port for workload traffic and port level redundancy isn't required.
 
 ![Back plane of clustered device cabled for networking with switches and without NIC teaming](./media/azure-stack-edge-gpu-deploy-install/backplane-clustered-device-networking-switches-without-nic-teaming.png)
 

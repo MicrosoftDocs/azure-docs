@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 06/25/2020
 ms.author: travisw
 ms.devlang: csharp, golang, java
-ms.custom: devx-track-csharp, mode-other
+ms.custom: cogserv-non-critical-speech, devx-track-csharp, mode-other
 zone_pivot_groups: programming-languages-voice-assistants
 ---
 

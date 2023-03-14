@@ -4,7 +4,7 @@ description: Explains the declarative provisioning configuration model in Azure 
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 editor: ''
 
 ms.assetid: cfbb870d-be7d-47b3-ba01-9e78121f0067
@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/05/2022
+ms.date: 01/26/2023
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -98,7 +98,7 @@ In the attribute flows there is a setting to determine if multi-valued attribute
 
 ![Screenshot that shows the "Add transformations" section with the "Merge Types" drop-down menu open.](./media/concept-azure-ad-connect-sync-declarative-provisioning/mergetype.png)  
 
-There is also **Merge** and **MergeCaseInsensitive**. These options allow you to merge values from different sources. For example, it can be used to merge the member or proxyAddresses attribute from several different forests. When you use this option, all sync rules in scope for an object must use the same merge type. You cannot define **Update** from one Connector and **Merge** from another. If you try, you receive an error.
+There is also **Merge** and **MergeCaseInsensitive**. These options allow you to merge values from different sources. For example, it can be used to merge the proxyAddresses attribute from several different forests. When you use this option, all sync rules in scope for an object must use the same merge type. You cannot define **Update** from one Connector and **Merge** from another. If you try, you receive an error.
 
 The difference between **Merge** and **MergeCaseInsensitive** is how to process duplicate attribute values. The sync engine makes sure duplicate values are not inserted into the target attribute. With **MergeCaseInsensitive**, duplicate values with only a difference in case are not going to be present. For example, you should not see both "SMTP:bob@contoso.com" and "smtp:bob@contoso.com" in the target attribute. **Merge** is only looking at the exact values and multiple values where there only is a difference in case might be present.
 
@@ -122,13 +122,19 @@ In *Out to AD - User Exchange hybrid* the following flow can be found:
 This expression should be read as: if the user mailbox is located in Azure AD, then flow the attribute from Azure AD to AD. If not, do not flow anything back to Active Directory. In this case, it would keep the existing value in AD.
 
 ### ImportedValue
-The function ImportedValue is different than all other functions since the attribute name must be enclosed in quotes rather than square brackets:  
+
+The function ImportedValue is different than all other functions since the attribute name must be enclosed in quotes rather than square brackets:
+
 `ImportedValue("proxyAddresses")`.
 
-Usually during synchronization an attribute uses the expected value, even if it hasn’t been exported yet or an error was received during export (“top of the tower”). An inbound synchronization assumes that an attribute that hasn’t yet reached a connected directory eventually reaches it. In some cases, it is important to only synchronize a value that has been confirmed by the connected directory (“hologram and delta import tower”).
+Inbound synchronization has a concept of assuming that an attribute that hasn’t yet reached a connected directory will eventually reach it at some point so, normally, synchronization gets an attribute value from the respective connector space, even if it hasn’t been yet exported or an error occurred during export. 
+In some cases, however, it is important to only synchronize a value that has been exported and confirmed during import from the connected directory. This function can be found in multiple “In From AD/AAD” out-of-box transformation rules where the attribute should only be synchronized when it has been confirmed that the value was exported successfully.
 
-An example of this function can be found in the out-of-box Synchronization Rule *In from AD – User Common from Exchange*. In Hybrid Exchange, the value added by Exchange online should only be synchronized when it has been confirmed that the value was exported successfully:  
+An example of this function can be found in the out-of-box Synchronization Rule *In from AD – User Common from Exchange*, for ProxyAddresses attribute flow with Hybrid Exchange. E.g., when a user’s ProxyAddresses is added, the ImportedValue function will only return the new value after it has been confirmed from the following import step:
+
 `proxyAddresses` <- `RemoveDuplicates(Trim(ImportedValue("proxyAddresses")))`
+
+This function is required when the target directory might change or discard an exported attribute value silently, and we want the synchronization to only process confirmed attribute values. 
 
 ## Precedence
 When several sync rules try to contribute the same attribute value to the target, the precedence value is used to determine the winner. The rule with highest precedence, lowest numeric value, is going to contribute the attribute in a conflict.
@@ -140,11 +146,9 @@ This ordering can be used to define more precise attribute flows for a small sub
 Precedence can be defined between Connectors. That allows Connectors with better data to contribute values first.
 
 ### Multiple objects from the same connector space
-If you have several objects in the same connector space joined to the same metaverse object, precedence must be adjusted. If several objects are in scope of the same sync rule, then the sync engine is not able to determine precedence. It is ambiguous which source object should contribute the value to the metaverse. This configuration is reported as ambiguous even if the attributes in the source have the same value.  
-![Diagram that shows multiple objects joined to the same mv object with a transparent red X overlay. ](./media/concept-azure-ad-connect-sync-declarative-provisioning/multiple1.png)  
+It is not possible to have several objects in the same connector space joined to the same metaverse object. This configuration is reported as ambiguous even if the attributes in the source have the same value.
 
-For this scenario, you need to change the scope of the sync rules so the source objects have different sync rules in scope. That allows you to define different precedence.  
-![Multiple objects joined to the same mv object](./media/concept-azure-ad-connect-sync-declarative-provisioning/multiple2.png)  
+![Diagram that shows multiple objects joined to the same mv object with a transparent red X overlay. ](./media/concept-azure-ad-connect-sync-declarative-provisioning/multiple1.png) 
 
 ## Next steps
 * Read more about the expression language in [Understanding Declarative Provisioning Expressions](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md).

@@ -23,7 +23,7 @@ The header includes a `render` property in the response that specifies the type 
 For example, the following request specifies a visualization of a bar chart with title "Perf events in the last day":
 
 ```
-    POST https://api.loganalytics.io/v1/workspaces/{workspace-id}/query
+    POST https://api.loganalytics.azure.com/v1/workspaces/{workspace-id}/query
     Authorization: Bearer <access token>
     Prefer: include-render=true
     Content-Type: application/json

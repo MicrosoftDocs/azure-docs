@@ -1,7 +1,7 @@
 ---
 title: Customize the node configuration for Azure Kubernetes Service (AKS) node pools
 description: Learn how to customize the configuration on Azure Kubernetes Service (AKS) cluster nodes and node pools.
-ms.service: container-service
+ms.custom: event-tier1-build-2022
 ms.topic: article
 ms.date: 12/03/2020
 ms.author: jpalma
@@ -133,7 +133,7 @@ Create a `linuxosconfig.json` file with the following contents:
 Create a new cluster specifying the kubelet and OS configurations using the JSON files created in the previous step. 
 
 > [!NOTE]
-> When you create a cluster, you can specify the kubelet configuration, OS configuration, or both. If you specify a configuration when creating a cluster, only the nodes in the initial node pool will have that configuration applied. Any settings not configured in the JSON file will retain the default value.
+> When you create a cluster, you can specify the kubelet configuration, OS configuration, or both. If you specify a configuration when creating a cluster, only the nodes in the initial node pool will have that configuration applied. Any settings not configured in the JSON file will retain the default value. CustomKubeletConfig or CustomLinuxOsConfig isn't supported for OS type: Windows.
 
 ```azurecli
 az aks create --name myAKSCluster --resource-group myResourceGroup --kubelet-config ./kubeletconfig.json --linux-os-config ./linuxosconfig.json
@@ -148,7 +148,6 @@ Add a new node pool specifying the Kubelet parameters using the JSON file you cr
 az aks nodepool add --name mynodepool1 --cluster-name myAKSCluster --resource-group myResourceGroup --kubelet-config ./kubeletconfig.json
 ```
 
-
 ## Other configuration
 
 The settings below can be used to modify other Operating System settings.
@@ -157,18 +156,21 @@ The settings below can be used to modify other Operating System settings.
 
 Pass the ```--message-of-the-day``` flag with the location of the file to replace the Message of the Day on Linux nodes at cluster  creation or node pool creation.
 
-
 #### Cluster creation
+
 ```azurecli
 az aks create --cluster-name myAKSCluster --resource-group myResourceGroup --message-of-the-day ./newMOTD.txt
 ```
 
 #### Nodepool creation
+
 ```azurecli
 az aks nodepool add --name mynodepool1 --cluster-name myAKSCluster --resource-group myResourceGroup --message-of-the-day ./newMOTD.txt
 ```
 
+## Confirm settings have been applied
 
+After you have applied custom node configuration, you can confirm the settings have been applied to the nodes by [connecting to the host][node-access] and verifying `sysctl` or configuration changes have been made on the filesystem.
 
 ## Next steps
 
@@ -184,6 +186,7 @@ az aks nodepool add --name mynodepool1 --cluster-name myAKSCluster --resource-gr
 [aks-scale-apps]: tutorial-kubernetes-scale.md
 [aks-support-policies]: support-policies.md
 [aks-upgrade]: upgrade-cluster.md
+[node-access]: node-access.md
 [aks-view-master-logs]: ../azure-monitor/containers/container-insights-log-query.md#enable-resource-logs
 [autoscaler-profile-properties]: #using-the-autoscaler-profile
 [azure-cli-install]: /cli/azure/install-azure-cli

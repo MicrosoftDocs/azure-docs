@@ -2,8 +2,13 @@
 title: Azure Service Fabric differences between Linux and Windows 
 description: Differences between the Azure Service Fabric on Linux and Azure Service Fabric on Windows.
 ms.topic: conceptual
-ms.date: 2/23/2018
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Differences between Service Fabric on Linux and Windows
 
 There are some features that are supported on Windows, but not yet on Linux. Eventually, the feature sets will be at parity and with each release this feature gap will shrink. The following differences exist between the latest available releases.
@@ -15,6 +20,8 @@ There are some features that are supported on Windows, but not yet on Linux. Eve
 * DNS service for Service Fabric services (DNS service is supported for containers on Linux)
 * CLI command equivalents of certain PowerShell commands (list below, most of which apply only to standalone clusters)
 * [Differences in log implementation that may affect scalability](service-fabric-concepts-scalability.md#choosing-a-platform)
+* [Difference in Service Fabric Events Channel](service-fabric-diagnostics-overview.md#platform-cluster-monitoring)
+
 
 ## PowerShell cmdlets that do not work against a Linux Service Fabric cluster
 

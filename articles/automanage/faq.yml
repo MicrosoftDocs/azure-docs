@@ -10,9 +10,9 @@ metadata:
   ms.author: memccror
 title: Frequently asked questions for Azure Automanage for VMs
 summary: |
-  This article provides answers to some of the most common questions about [Azure Automanage for virtual machines](automanage-virtual-machines.md).
+  This article provides answers to some of the most common questions about [Azure Automanage for virtual machines](overview-about.md).
   
-  If your Azure issue is not addressed in this article, visit the Azure forums on [MSDN and Stack Overflow](https://azure.microsoft.com/support/forums/). You can post your issue in these forums, or post to [@AzureSupport on Twitter](https://twitter.com/AzureSupport). You can also submit an Azure support request. To submit a support request, on the [Azure support page](https://azure.microsoft.com/support/options/), select **Get support**.
+  If your Azure issue isn't addressed in this article, visit the Azure forums on [Microsoft Q & A and Stack Overflow](https://azure.microsoft.com/support/forums/). You can post your issue in these forums, or post to [@AzureSupport on Twitter](https://twitter.com/AzureSupport). You can also submit an Azure support request. To submit a support request, on the [Azure support page](https://azure.microsoft.com/support/options/), select **Get support**.
   
   
 
@@ -28,11 +28,12 @@ sections:
           - User must have correct permissions
           - Non-scale set VMs only
           - Automanage does not support Sandbox subscriptions at this time
+          - Automanage does not support Trusted Launch VMs at this time
           
       - question: |
           What Azure RBAC permission is needed to enable Automanage?
         answer: |
-          If you are enabling Automanage, you need Contributor role to the Resource Group where the VM resides.
+          If you are enabling Automanage, you need Contributor role to the Resource Group where the VM resides. You will also need contributor access to the subscription of the log analytics workspace connected to the machine. 
           
           If you are enabling Automanage for the first time on a subscription, you must have either the Owner role or have Contributor + User Access Administrator role to the subscription.
           
@@ -40,13 +41,13 @@ sections:
       - question: |
           What regions are supported?
         answer: |
-          The full list of supported regions is available [here](./automanage-virtual-machines.md#supported-regions).
+          The full list of supported regions is available [here](./overview-about.md#supported-regions).
           
           
       - question: |
           Which capabilities does Azure Automanage automate?
         answer: |
-          Automanage enrolls, configures, and monitors throughout the lifecycle of the VM the services listed [here](automanage-virtual-machines.md).
+          Automanage enrolls, configures, and monitors throughout the lifecycle of the VM the services listed [here](overview-about.md).
           
       - question: |
           Does Azure Automanage work with Azure Arc-enabled servers?
@@ -61,7 +62,7 @@ sections:
       - question: |
           Can I customize configurations on Azure Automanage?
         answer: |
-          Customers can customize settings for specific services, like Azure Backup retention, through custom profiles. For the full list of settings that can be changed, see our documentation [here](automanage-virtual-machines.md#custom-profiles).
+          Customers can customize settings for specific services, like Azure Backup retention, through custom profiles. For the full list of settings that can be changed, see our documentation [here](overview-configuration-profiles.md#custom-profiles).
           
           
       - question: |
@@ -85,13 +86,13 @@ sections:
       - question: |
           How much does Azure Automanage cost?
         answer: |
-          Azure Automanage is available at no additional cost in public preview. Attached Azure resources, such as Azure Backup, will incur cost.
+          Azure Automanage is available at no extra cost. Attached Azure resources, such as Azure Backup, will incur cost.
           
           
       - question: |
           Can I apply Automanage through Azure Policy?
         answer: |
-          Yes, we have a built-in policy that will automatically apply Automanage to all VMs within your defined scope. You will also specify the environment configuration (DevTest or Production) along with your Automanage account. Learn more about enabling Automanage through Azure Policy [here](virtual-machines-policy-enable.md).
+          Yes, we have a built-in policy that will automatically apply Automanage to all VMs within your defined scope. You will also specify the configuration profile (DevTest, Production, or Custom). Learn more about enabling Automanage through Azure Policy [here](virtual-machines-policy-enable.md).
           
           
       - question: |
@@ -103,18 +104,11 @@ sections:
       - question: |
           What is a Configuration Preference?
         answer: |
-          The Configuration Preference is only used for machines that were onboarded using an earlier version of Automanage (version 2020-06-30-preview). It supports customizing a subset of settings. This has been upgraded to Custom Profiles in the latest version of Automanage.
-          
-          
-          
-      - question: |
-          When enabling Automanage, does it impact any additional machines besides the machine(s) I selected?
-        answer: |
-          If your VM is linked to an existing Log Analytics workspace, we will reuse that workspace to apply these solutions: Change Tracking, Inventory, and Update Management. All machines connected to that workspace will have those solutions enabled.
+          The Configuration Preference is only used for machines that were onboarded using an earlier version of Automanage (version 2020-06-30-preview). It supports customizing a subset of settings. Configuration preferences have been upgraded to Custom Profiles in the latest version of Automanage.
           
           
       - question: |
-          Can I change the environment of my machine?
+          Can I change the configuration profile of my machine?
         answer: |
           At this time, you will need to disable Automanage for that machine and then re-enable Automanage with the desired environment and preferences.
           
@@ -128,7 +122,7 @@ sections:
       - question: |
           Why does my machine have a Failed status in the Automanage portal?
         answer: |
-          If you see the status as *Failed*, you can troubleshoot the deployment in a few different ways:
+          If you see the status as *Error* or *Non conformant*, you can troubleshoot the deployment in a few different ways:
           * Go to **Resource groups**, select your resource group, click on **Deployments** and see the *Failed* status there along with error details.
           * Go to **Subscriptions**, select your resource group, click on **Deployments** and see the *Failed* status there along with error details.
           * You can also visit the activity log of a machine, which will contain an entry for "Create or Update Configuration Profile Assignments". This may also contain more details on your deployment.

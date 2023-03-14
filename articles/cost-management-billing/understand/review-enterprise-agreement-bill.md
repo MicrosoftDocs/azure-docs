@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: tutorial
-ms.date: 09/08/2021
+ms.date: 12/19/2022
 ms.author: banders
 
 ---
@@ -16,6 +16,13 @@ ms.author: banders
 Azure customers with an Enterprise Agreement receive an invoice when they exceed the organization's credit or use services that aren't covered by the credit.
 
 Your organization's credit includes your Azure Prepayment (previously called monetary commitment). Azure Prepayment is the amount your organization paid upfront for usage of Azure services. You can add Azure Prepayment funds to your Enterprise Agreement by contacting your Microsoft account manager or reseller.
+
+> [!NOTE]
+> We recommend that both direct and indirect EA Azure customers use Cost Management + Billing in the Azure portal to manage their enrollment and billing instead of using the EA portal. For more information about enrollment management in the Azure portal, see [Get started with EA billing in the Azure portal](../manage/ea-direct-portal-get-started.md).
+>
+> As of February 20, 2023 indirect EA customers won’t be able to manage their billing account in the EA portal. Instead, they must use the Azure portal. 
+> 
+> This change doesn’t affect Azure Government EA enrollments. They continue using the EA portal to manage their enrollment.
 
 This tutorial applies only to Azure customers with an Azure Enterprise Agreement.
 
@@ -391,28 +398,6 @@ See [Power BI self-service sign up](https://powerbi.microsoft.com/documentation/
 
     You can get the API key in the Azure Enterprise portal under the **Download Usage** tab. Select **API Access Key**, and then paste the key into the **Account Key** box.
 1. Data takes approximately 5-30 minutes to load in Power BI, depending on the size of the data sets.
-
-### Glossary of processes for calculating the resource rate
-
-- **Total RAW Units:** Consumed quantity in the detailed usage report.
-- **MOCP Resource Per Unit:** The upstream usage system emits the usages for each service in different units. (Preset)
-- **Consumption Per Unit:** Azure Enterprise unit of measure. (Preset)
-- **Price:** Unit price from the Azure Enterprise portal.
-- **Total Cost:** Extended cost from the detailed usage report, or the commitment usage plus overage from the Azure Enterprise portal.
-
-### Charges calculations
-
-- **Convert to consumed MOCP resources** = `ROUND(Total RAW Units * MOCP Resource Per Unit,4)`
-- **Convert to consumed units** = `Consumed MOCP Resources / Consumption per Unit`
-- **Calculate total cost** = `Consumed Units * Price`
-
-### Logic in the Usage Calculation Logic
-
-**Resource Rate** = `Total Cost /(Total RAW Units / MOCP Resource Per Unit)`
-
-The resource rate is derived based on your charges. It might not match the actual unit price in the price sheet.
-
-In the download usage data report, you can see raw resource usage up to six decimal places. This data is used for overage charge calculations. However, usage data shown in the Azure Enterprise portal is rounded to four decimal places for commitment units and truncated to zero decimals for overage units. Under the Azure Enterprise portal, all overage usage is charged for full units only. You might see a large difference between the unit price and the resource rate for usage that is charged as overage or in mixed months.
 
 ## Next steps
 

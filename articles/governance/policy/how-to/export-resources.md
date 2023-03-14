@@ -1,10 +1,12 @@
 ---
 title: Export Azure Policy resources
 description: Learn to export Azure Policy resources to GitHub, such as policy definitions and policy assignments.
-ms.date: 08/17/2021
+ms.date: 04/18/2022
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
+author: timwarner-msft
+ms.author: timwarner
 ---
 # Export Azure Policy resources
 
@@ -104,18 +106,18 @@ az policy definition show --name 'VirtualMachineStorage'
 
 Azure Policy definitions, initiatives, and assignments can each be exported as JSON with [Azure
 PowerShell](/powershell/azure/). Each of these cmdlets uses a **Name** parameter to specify which
-object to get the JSON for. The **Name** property is often a _GUID_ and isn't the **displayName** of
+object to get the JSON for. The **Name** property is often a _GUID_ (Globally Unique Identifier) and isn't the **displayName** of
 the object.
 
 - Definition - [Get-AzPolicyDefinition](/powershell/module/az.resources/get-azpolicydefinition)
 - Initiative - [Get-AzPolicySetDefinition](/powershell/module/az.resources/get-azpolicysetdefinition)
 - Assignment - [Get-AzPolicyAssignment](/powershell/module/az.resources/get-azpolicyassignment)
 
-Here is an example of getting the JSON for a policy definition with **Name** of
-_VirtualMachineStorage_:
+Here is an example of getting the JSON for a policy definition with **Name** (as mentioned previously, GUID) of
+_d7fff7ea-9d47-4952-b854-b7da261e48f2_:
 
 ```azurepowershell-interactive
-Get-AzPolicyDefinition -Name 'VirtualMachineStorage' | ConvertTo-Json -Depth 10
+Get-AzPolicyDefinition -Name 'd7fff7ea-9d47-4952-b854-b7da261e48f2' | ConvertTo-Json -Depth 10
 ```
 
 ## Next steps

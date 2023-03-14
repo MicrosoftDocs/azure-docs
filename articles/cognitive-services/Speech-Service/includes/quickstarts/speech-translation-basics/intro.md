@@ -1,16 +1,9 @@
 ---
 author: eric-urban
 ms.service: cognitive-services
-ms.subservice: speech-service
 ms.topic: include
-ms.date: 01/25/2022
+ms.date: 06/08/2022
 ms.author: eur
 ---
 
-In this quickstart, you learn how to recognize human speech and translate it to another language.
-
-See the speech translation [overview](../../../speech-translation.md) for more information about:
-
-* Translating speech to text
-* Translating speech to multiple target languages
-* Performing direct speech-to-speech translation
+In this quickstart, you run an application to translate speech from one language to text in another language.

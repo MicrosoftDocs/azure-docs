@@ -108,7 +108,7 @@ adlCreds = lib.auth(tenant_id='FILL-IN-HERE', resource = 'https://datalake.azure
 
 ## End-user authentication without multi-factor authentication
 
-This is deprecated. For more information, see [Azure Authentication using Python SDK](/azure/python/python-sdk-azure-authenticate).
+This is deprecated. For more information, see [Azure Authentication using Python SDK](/azure/developer/python/sdk/authentication-overview).
 
 ## Next steps
 In this article, you learned how to use end-user authentication to authenticate with Azure Data Lake Storage Gen1 using Python. You can now look at the following articles that talk about how to use Python to work with Azure Data Lake Storage Gen1.

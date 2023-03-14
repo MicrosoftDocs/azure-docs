@@ -12,11 +12,6 @@ ms.custom: devx-track-azurecli
 
 Learn how to use Azure CLI with [Azure Resource Manager](overview.md) to manage your Azure resource groups. For managing Azure resources, see [Manage Azure resources by using Azure CLI](manage-resources-cli.md).
 
-Other articles about managing resource groups:
-
-- [Manage Azure resource groups by using the Azure portal](manage-resources-portal.md)
-- [Manage Azure resource groups by using Azure PowerShell](manage-resources-powershell.md)
-
 ## What is a resource group
 
 A resource group is a container that holds related resources for an Azure solution. The resource group can include all the resources for the solution, or only those resources that you want to manage as a group. You decide how you want to add resources to resource groups based on what makes the most sense for your organization. Generally, add resources that share the same lifecycle to the same resource group so you can easily deploy, update, and delete them as a group.
@@ -25,7 +20,7 @@ The resource group stores metadata about the resources. When you specify a locat
 
 ## Create resource groups
 
-to create a resource group, use [az group create](/cli/azure/group#az-group-create).
+To create a resource group, use [az group create](/cli/azure/group#az-group-create).
 
 ```azurecli-interactive
 az group create --name demoResourceGroup --location westus
@@ -91,7 +86,7 @@ To get the locks for a resource group, use [az lock list](/cli/azure/lock#az-loc
 az lock list --resource-group exampleGroup
 ```
 
-To delete a lock, use [az lock delete](/cli/azure/lock#az-lock-delete)
+To delete a lock, use [az lock delete](/cli/azure/lock#az-lock-delete).
 
 ```azurecli-interactive
 az lock delete --name exampleLock --resource-group exampleGroup

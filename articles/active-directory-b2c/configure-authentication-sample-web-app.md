@@ -44,7 +44,7 @@ A computer that's running either of the following:
 
 # [Visual Studio](#tab/visual-studio)
 
-* [Visual Studio 2022 17.0 or later](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019), with the ASP.NET and web development workload
+* [Visual Studio 2022 17.0 or later](https://visualstudio.microsoft.com/downloads), with the ASP.NET and web development workload
 * [.NET 6.0 SDK](https://dotnet.microsoft.com/download/dotnet)
 
 # [Visual Studio Code](#tab/visual-studio-code)
@@ -75,6 +75,7 @@ To create the web app registration, use the following steps:
 1. Under **Name**, enter a name for the application (for example, *webapp1*).
 1. Under **Supported account types**, select **Accounts in any identity provider or organizational directory (for authenticating users with user flows)**. 
 1. Under **Redirect URI**, select **Web** and then, in the URL box, enter `https://localhost:44316/signin-oidc`.
+1. Under  **Authentication**, go to **Implicit grant and hybrid flows**, select the **ID tokens (used for implicit and hybrid flows)** checkbox.
 1. Under **Permissions**, select the **Grant admin consent to openid and offline access permissions** checkbox.
 1. Select **Register**.
 1. Select **Overview**.
@@ -101,8 +102,8 @@ Under the project root folder, open the *appsettings.json* file. This file conta
 
 |Section  |Key  |Value  |
 |---------|---------|---------|
-|AzureAdB2C|Instance| The first part of your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name) (for example, `https://contoso.b2clogin.com`).|
-|AzureAdB2C|Domain| Your Azure AD B2C tenant full [tenant name](tenant-management.md#get-your-tenant-name) (for example, `contoso.onmicrosoft.com`).|
+|AzureAdB2C|Instance| The first part of your Azure AD B2C [tenant name]( tenant-management-read-tenant-name.md#get-your-tenant-name) (for example, `https://contoso.b2clogin.com`).|
+|AzureAdB2C|Domain| Your Azure AD B2C tenant full [tenant name]( tenant-management-read-tenant-name.md#get-your-tenant-name) (for example, `contoso.onmicrosoft.com`).|
 |AzureAdB2C|ClientId| The Web App Application (client) ID from [step 2](#step-2-register-a-web-application).|
 |AzureAdB2C|SignUpSignInPolicyId|The user flows or custom policy you created in [step 1](#step-1-configure-your-user-flow).|
 

@@ -3,8 +3,8 @@ title: PowerShell for Azure AD roles in PIM - Azure AD | Microsoft Docs
 description: Manage Azure AD roles using PowerShell cmdlets in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: amsliu
+manager: amycolannino
 editor: ''
 
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/07/2021
-ms.author: curtand
+ms.author: amsliu
 ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 # PowerShell for Azure AD roles in Privileged Identity Management
 
-This article contains instructions for using Azure Active Directory (Azure AD) PowerShell cmdlets to manage Azure AD roles in Privileged Identity Management (PIM). It also tells you how to get set up with the Azure AD PowerShell module.
+This article tells you how to use PowerShell cmdlets to manage Azure AD roles using Privileged Identity Management (PIM) in Azure Active Directory (Azure AD), part of Microsoft Entra. It also tells you how to get set up with the Azure AD PowerShell module.
 
 ## Installation and Setup
 
@@ -69,7 +69,7 @@ Use the following cmdlet to retrieve all role assignments in your Azure AD organ
 Get-AzureADMSPrivilegedRoleAssignment -ProviderId "aadRoles" -ResourceId "926d99e7-117c-4a6a-8031-0cc481e9da26"
 ```
 
-Use the following cmdlet to retrieve all role assignments for a particular user. This list is also known as "My Roles" in the Azure AD portal. The only difference here is that you have added a filter for the subject ID. The subject ID in this context is the user ID or the group ID.
+Use the following cmdlet to retrieve all role assignments for a particular user. This list is also known as "My Roles" in the Azure portal. The only difference here is that you have added a filter for the subject ID. The subject ID in this context is the user ID or the group ID.
 
 ```powershell
 Get-AzureADMSPrivilegedRoleAssignment -ProviderId "aadRoles" -ResourceId "926d99e7-117c-4a6a-8031-0cc481e9da26" -Filter "subjectId eq 'f7d1887c-7777-4ba3-ba3d-974488524a9d'" 

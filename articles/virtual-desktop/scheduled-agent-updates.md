@@ -1,30 +1,20 @@
 ---
-title: Azure Virtual Desktop Scheduled Agent Updates preview
+title: Azure Virtual Desktop Scheduled Agent Updates
 description: How to use the Scheduled Agent Updates feature to choose a date and time to update your Azure Virtual Desktop agent components.
 author: Sefriend
 ms.topic: how-to
-ms.date: 03/28/2022
+ms.date: 07/20/2022
 ms.author: sefriend
 manager: rkiran
 ---
-# Scheduled Agent Updates (preview) for Azure Virtual Desktop host pools
+# Scheduled Agent Updates for Azure Virtual Desktop host pools
 
-> [!IMPORTANT]
-> The Scheduled Agent Updates feature is currently in preview.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-The Scheduled Agent Updates feature (preview) lets you create up to two maintenance windows for the Azure Virtual Desktop agent, side-by-side stack, and Geneva Monitoring agent to get updated so that updates don't happen during peak business hours. To monitor agent updates, you can use Log Analytics to see when agent component updates are available and when updates are unsuccessful. 
+The Scheduled Agent Updates feature lets you create up to two maintenance windows for the Azure Virtual Desktop agent, side-by-side stack, and Geneva Monitoring agent to get updated so that updates don't happen during peak business hours. To monitor agent updates, you can use Log Analytics to see when agent component updates are available and when updates are unsuccessful.
 
 This article describes how the Scheduled Agent Updates feature works and how to set it up.
 
 >[!NOTE]
-> Azure Virtual Desktop (classic) doesn't support the Scheduled Agent Updates feature. 
-
->[!IMPORTANT]
->The preview version of this feature currently has the following limitations:
->
-> - You can only use the Scheduled Agent Updates feature in the Azure public cloud.
-> - You can only configure the Scheduled Agent Updates feature with the Azure portal or REST API.
+> Azure Virtual Desktop (classic) doesn't support the Scheduled Agent Updates feature.
 
 ## Configure the Scheduled Agent Updates feature using the Azure portal
 
@@ -63,13 +53,13 @@ The agent component update won't succeed if the session host VM is shut down or 
 
 - All maintenance windows are two hours long to account for situations where all three agent components must be updated at the same time. For example, if your maintenance window is Saturday at 9:00 AM PST, the updates will happen between 9:00 AM PST and 11:00 AM PST.
 
-- The **Use session host local time** parameter isn't selected by default. If you want the agent component update to be in the same time zone for all session hosts in your host pool, you'll need to specify a single time zone for your maintenance windows. Having a single time zone helps when all your session hosts or users are located in the same time zone. 
+- The **Use session host local time** parameter isn't selected by default. If you want the agent component update to be in the same time zone for all session hosts in your host pool, you'll need to specify a single time zone for your maintenance windows. Having a single time zone helps when all your session hosts or users are located in the same time zone.
 
 - If you select **Use session host local time**, the agent component update will be in the local time zone of each session host in the host pool. Use this setting when all session hosts in your host pool or their assigned users are in different time zones. For example, let's say you have one host pool with session hosts in West US in the Pacific Standard Time zone and session hosts in East US in the Eastern Standard Time zone, and you've set the maintenance window to be Saturday at 9:00 PM. Enabling **Use session host local time** ensures that updates to all session hosts in the host pool will happen at 9:00 PM in their respective time zones. Disabling **Use session host local time** and setting the time zone to be Central Standard Time ensures that updates to the session hosts in the host pool will happen at 9:00 PM Central Standard Time, regardless of the session hosts' local time zones.
 
-- The local time zone for VMs you create using the Azure portal is set to Coordinated Universal Time (UTC) by default. If you want to change the VM time zone, run the [Set-TimeZone PowerShell cmdlet](/powershell/module/microsoft.powershell.management/set-timezone?view=powershell-7.1&preserve-view=true) on the VM.
+- The local time zone for VMs you create using the Azure portal is set to Coordinated Universal Time (UTC) by default. If you want to change the VM time zone, run the [Set-TimeZone PowerShell cmdlet](/powershell/module/microsoft.powershell.management/set-timezone) on the VM.
 
-- To get a list of available time zones for a VM, run the [Get-TimeZone PowerShell cmdlet]/powershell/module/microsoft.powershell.management/get-timezone?view=powershell-7.1&preserve-view=true) on the VM.
+- To get a list of available time zones for a VM, run the [Get-TimeZone PowerShell cmdlet](/powershell/module/microsoft.powershell.management/get-timezone) on the VM.
 
 ## Next steps
 

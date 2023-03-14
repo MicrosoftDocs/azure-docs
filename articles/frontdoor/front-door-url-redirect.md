@@ -1,10 +1,11 @@
 ---
-title: Azure Front Door - URL Redirect | Microsoft Docs
+title: URL Redirect
+titleSuffix: Azure Front Door
 description: This article helps you understand how Azure Front Door supports URL redirection for their routing rules.
 services: front-door
 author: duongau
 ms.service: frontdoor
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 03/09/2022
 ms.author: duau
@@ -20,11 +21,6 @@ Azure Front Door can redirect traffic at each of the following levels: protocol,
 In Azure Front Door Standard/Premium tier, you can configure URL redirect using a Rule Set.
 
 :::image type="content" source="./media/front-door-url-redirect/front-door-url-redirect-rule-set.png" alt-text="Screenshot of creating url redirect with Rule Set." lightbox="./media/front-door-url-redirect/front-door-url-redirect-expanded.png":::
-
-> [!IMPORTANT]
-> Azure Front Door Standard/Premium (Preview) is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ::: zone-end
 
