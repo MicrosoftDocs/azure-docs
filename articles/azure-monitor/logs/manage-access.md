@@ -385,7 +385,7 @@ To create a [custom role](../../role-based-access-control/custom-roles.md) that 
 
 ### Legacy method of setting table-level read access
 
-[Azure custom roles](../../role-based-access-control/custom-roles.md) let you grant access to specific tables in the workspace, although we recommend defining [table-level read access](#set-table-level-read-access-preview) as described above. 
+[Azure custom roles](../../role-based-access-control/custom-roles.md) let you grant access to specific tables in the workspace, although we recommend defining [table-level read access](#set-table-level-read-access) as described above. 
 
 Azure custom roles apply to workspaces with either workspace-context or resource-context [access control modes](#access-control-mode) regardless of the user's [access mode](#access-mode).
 
