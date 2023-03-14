@@ -1,9 +1,9 @@
 ---
-title: "Azure Arc-enabled Kubernetes cluster extensions"
+title: "Deploy and manage Azure Arc-enabled Kubernetes cluster extensions"
 ms.custom: event-tier1-build-2022, ignite-2022
 ms.date: 03/08/2023
 ms.topic: how-to
-description: "Deploy and manage lifecycle of extensions on Azure Arc-enabled Kubernetes clusters."
+description: "Create and manage extension instances on Azure Arc-enabled Kubernetes clusters."
 ---
 
 # Deploy and manage Azure Arc-enabled Kubernetes cluster extensions
@@ -268,5 +268,6 @@ az extension update --name k8s-extension
 
 ## Next steps
 
+* Review the [az k8s-extension CLI reference](/cli/azure/k8s-extension) for a comprehensive list of commands and parameters.
 * Learn more about [how extensions work with Arc-enabled Kubernetes clusters](conceptual-extensions.md).
 * Review the [cluster extensions currently available for Azure Arc-enabled Kubernetes](extensions-release.md).
