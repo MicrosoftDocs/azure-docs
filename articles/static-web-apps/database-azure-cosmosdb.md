@@ -362,7 +362,7 @@ async function get() {
 
   const gql = `
     query getById($id: Int!) {
-      person_by_pk(Id: $id) {
+      person_by_pk(id: $id) {
         Id
         Name
       }
