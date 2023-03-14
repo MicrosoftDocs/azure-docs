@@ -218,7 +218,7 @@ For this tutorial, you deploy two modules. The first is **SimulatedTemperatureSe
 
 ### Assign routes to your modules
 
-1. On the **Set modules on device:<your-device-name>** page, select **Next: Routes**.
+1. On the **Set modules on device:\<your-device-name\>** page, select **Next: Routes**.
 
 1. On the **Routes** tab, you define how messages are passed between modules and the IoT Hub. Messages are constructed using name and value pairs. 
  
@@ -246,7 +246,7 @@ For this tutorial, you deploy two modules. The first is **SimulatedTemperatureSe
 Now you can go to your IoT Edge device to see the interaction between the Azure Stream Analytics module and the SimulatedTemperatureSensor module.
 
 > [!NOTE]
-> If you're using a virtual machine for a device, you can use the [Azure Cloud Shell](/azure/cloud-shell/overview.md) to directly access all Azure authenticated services.
+> If you're using a virtual machine for a device, you can use the [Azure Cloud Shell](https://learn.microsoft.com/azure/cloud-shell/overview) to directly access all Azure authenticated services.
 
 1. Check that all the modules are running in Docker:
 
