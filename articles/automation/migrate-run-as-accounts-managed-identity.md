@@ -162,16 +162,16 @@ foreach ($ResourceGroup in $ResourceGroups)
 
 ---
 
-### View client Id of user assigned identity
+### View client ID of user assigned identity
 
 1. In your Automation account, under **Account Settings**, select **Identity**. 
-1. In **User assigned** tab , select **user assigned identity**.
+1. In **User assigned** tab, select user assigned identity.
 
-    :::image type="content" source="./media/migrate-run-as-account-managed-identity/user-assigned-inline.png" alt-text="Screenshot that shows the navigation path to view client id /user-assigned-expanded.png":::
+    :::image type="content" source="./media/migrate-run-as-account-managed-identity/user-assigned-inline.png" alt-text="Screenshot that shows the navigation path to view client ID" lightbox="./media/migrate-run-as-account-managed-identity/user-assigned-expanded.png":::
 
-1. In the **Overview** page > **Essentials**, you can view the **Client ID**.
+1. Go to **Overview**> **Essentials**, to view the **Client ID**.
 
-:::image type="content" source="./media/migrate-run-as-account-managed-identity/view-client-id-inline.png" alt-text="Screenshot that shows how to view a client ID." lightbox="./media/migrate-run-as-account-managed-identity/view-client-id-expanded.png":::
+    :::image type="content" source="./media/migrate-run-as-account-managed-identity/view-client-id-inline.png" alt-text="Screenshot that shows how to view a client ID." lightbox="./media/migrate-run-as-account-managed-identity/view-client-id-expanded.png":::
 
 
 ## Graphical runbooks
