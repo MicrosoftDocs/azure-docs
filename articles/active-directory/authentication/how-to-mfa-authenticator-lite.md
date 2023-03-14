@@ -1,6 +1,6 @@
 ---
-title: How to enable Authenticator Lite for Microsoft Outlook
-description: Learn about how to you can set up Authenticator Lite for Microsoft Outlook to help users validate their identity
+title: How to enable Microsoft Authenticator Lite for Outlook mobile
+description: Learn about how to you can set up Microsoft Authenticator Lite for Outlook mobile to help users validate their identity
 
 services: active-directory
 ms.service: active-directory
@@ -17,18 +17,18 @@ ms.collection: M365-identity-device-management
 
 # Customer intent: As an identity administrator, I want to encourage users to understand how default protection can improve our security posture.
 ---
-# How to enable Authenticator Lite for Microsoft Outlook
+# How to enable Microsoft Authenticator Lite for Outlook mobile
 
-Authenticator Lite is another surface for Azure Active Directory (Azure AD) users to complete multifactor authentication by using push notifications or time-based one-time passcodes (TOTP) on their Android or iOS device. With Authenticator Lite, users can satisfy a multifactor authentication requirement from the convenience of a familiar app. Authenticator Lite is currently enabled in Microsoft Outlook. 
+Microsoft Authenticator Lite is another surface for Azure Active Directory (Azure AD) users to complete multifactor authentication by using push notifications or time-based one-time passcodes (TOTP) on their Android or iOS device. With Authenticator Lite, users can satisfy a multifactor authentication requirement from the convenience of a familiar app. Authenticator Lite is currently enabled in [Outlook mobile](https://www.microsoft.com/microsoft-365/outlook-mobile-for-android-and-ios). 
 
-Users receive a notification in Outlook to approve or deny sign-in, or they can copy a TOTP to use during sign-in. 
+Users receive a notification in Outlook mobile to approve or deny sign-in, or they can copy a TOTP to use during sign-in. 
 
 ## Prerequisites
 
 - Your organization needs to enable Microsoft Authenticator (second factor) push notifications for some users or groups by using the Authentication methods policy. You can edit the Authentication methods policy by using the Azure portal or Microsoft Graph API.
 - If your organization is using the Active Directory Federation Services (AD FS) adapter or Network Policy Server (NPS) extensions, upgrade to the latest versions for a consistent experience.
-- Users enabled for shared device mode on Outlook aren't eligible for Authenticator Lite.
-- Users must run a minimum Outlook version.
+- Users enabled for shared device mode on Outlook mobile aren't eligible for Authenticator Lite.
+- Users must run a minimum Outlook mobile version.
 
   | Operating system | Outlook version |
   |:----------------:|:---------------:|
@@ -37,7 +37,7 @@ Users receive a notification in Outlook to approve or deny sign-in, or they can 
 
 ## Enable Authenticator Lite
 
-By default, Authenticator Lite is [Microsoft managed](concept-authentication-default-enablement.md#microsoft-managed-settings) and disabled during preview. After generally availability, the Microsoft managed state default value will change to enable Authenticator Lite. 
+By default, Authenticator Lite is [Microsoft managed](concept-authentication-default-enablement.md#microsoft-managed-settings) and disabled during preview. After general availability, the Microsoft managed state default value will change to enable Authenticator Lite. 
 
 | Property | Type | Description |
 |----------|------|-------------|
@@ -125,7 +125,7 @@ No, Authenticator Lite is only available for push notifications and TOTP.
 No, Authenticator Lite is only available on mobile. 
 
 ### Where can users register for Authenticator Lite?
-Users can only register for Authenticator Lite from Outlook. Authenticator Lite registration can be managed from [aka.ms/mysignins](https://aka.ms/mysignins). 
+Users can only register for Authenticator Lite from mobile Outlook. Authenticator Lite registration can be managed from [aka.ms/mysignins](https://aka.ms/mysignins). 
 
 ### Can users register Microsoft Authenticator and Authenticator Lite?
 
