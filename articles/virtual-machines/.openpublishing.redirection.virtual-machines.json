@@ -4958,6 +4958,41 @@
             "source_path_from_root": "/articles/virtual-machines/workloads/hpc/hc-series-performance.md",
             "redirect_url": "/azure/virtual-machines/hc-series-performance",
             "redirect_document_id": false
-        }
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/hpc/overview.md",
+            "redirect_url": "/azure/virtual-machines/overview-hb-hc",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/hpc/set-up-hpc-vms.md",
+            "redirect_url": "/azure/virtual-machines/set-up-hpc-vms",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/hpc/configure.md",
+            "redirect_url": "/azure/virtual-machines/configure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/hpc/enable-infiniband.md",
+            "redirect_url": "/azure/virtual-machines/extensions/enable-infiniband",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/hpc/setup-mpi.md",
+            "redirect_url": "/azure/virtual-machines/setup-mpi",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/hpc/compiling-scaling-applications.md",
+            "redirect_url": "/azure/virtual-machines/compiling-scaling-applications",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/hpc/hb-hc-known-issues.md",
+            "redirect_url": "/azure/virtual-machines/hb-hc-known-issues",
+            "redirect_document_id": false
+        }        
     ]
 }
