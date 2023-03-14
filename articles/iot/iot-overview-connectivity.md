@@ -124,15 +124,6 @@ The open source IoT Central Device Bridge acts as a translator that forwards tel
 
 ## Next steps
 
-Connections and HA/DR
-Connections and security including private networks
-Connection monitoring
+Now that you've seen an overview of device connectivity in Azure IoT solutions, some suggested next steps include
 
-<!-- Add a context sentence for the following links -->
-- [Write an overview](contribute-how-to-write-overview.md)
-- [Links](links-how-to.md)
-
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
+- [Device management and control in IoT solutions](iot-overview-device-management.md).
