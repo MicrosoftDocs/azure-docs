@@ -13,6 +13,9 @@ ms.reviewer: aul
 # Enable the ContainerLogV2 schema 
 Azure Monitor Container insights offers a schema for container logs, called ContainerLogV2. As part of this schema, there are fields to make common queries to view Azure Kubernetes Service (AKS) and Azure Arc-enabled Kubernetes data. In addition, this schema is compatible with [Basic Logs](../logs/basic-logs-configure.md), which offers a low-cost alternative to standard analytics logs.
 
+>[!NOTE]
+>For Windows containers the PodName is not currently collected with ContainerLogV2
+
 The new fields are:
 * `ContainerName`
 * `PodName`
