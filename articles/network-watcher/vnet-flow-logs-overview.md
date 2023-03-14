@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: conceptual
-ms.date: 03/12/2023
+ms.date: 03/14/2023
 ms.custom: template-concept, engagement-fy23
 ---
 
@@ -94,7 +94,7 @@ VNet flow logs have the following properties:
 					- `NX_NOT_ACCEPTED`: Drop due to no encryption.
 					- `NX_NOT_SUPPORTED`: Discovery not supported.
 					- `NX_LOCAL_DST`: Destination on same host.
-					- `NX_FALLBACK`: Fallback to no encryption. 
+					- `NX_FALLBACK`: Fall back to no encryption. 
 				- `Packets sent`: Total number of packets sent from source to destination since the last update. 
 				- `Bytes sent`: Total number of packet bytes sent from source to destination since the last update. Packet bytes include the packet header and payload. 
 				- `Packets received`: Total number of packets sent from destination to source since the last update. 
@@ -174,7 +174,5 @@ In the following examples of VNet flow log, multiple records that follow the pro
 
 
 ```
-
-## Next steps
 
 
