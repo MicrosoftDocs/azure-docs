@@ -469,7 +469,7 @@
     items:
     - name: Pay your Azure bill
       href: understand/pay-bill.md
-    - name: Set up pay by check or wire transfer
+    - name: Set up pay by wire transfer
       href: manage/pay-by-invoice.md
     - name: Resolve pay-as-you-go past due balance
       href: manage/resolve-past-due-balance.md
