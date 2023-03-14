@@ -37,7 +37,7 @@ Container monitoring view available in default ADF studio [Learn more](how-to-ma
 
 ### Orchestration
 
-- Set pipeline output value (Public preview) [Learn more](https://learn.microsoft.com/azure/data-factory/tutorial-pipeline-return-value)
+- Set pipeline output value (Public preview) [Learn more](tutorial-pipeline-return-value.md)
 - Managed Airflow (Public preview) [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/introducing-managed-airflow-in-azure-data-factory/ba-p/3730151)
 
 ### Developer productivity
