@@ -477,7 +477,7 @@ sections:
           *I get no data from my server:*
           
           * [Set firewall exceptions](app/ip-addresses.md)
-          * [Set up an ASP.NET server](app/status-monitor-v2-overview.md)
+          * [Set up an ASP.NET server](app/application-insights-asp-net-agent.md)
           * [Set up a Java server](/previous-versions/azure/azure-monitor/app/deprecated-java-2x#monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps)
           
           *How many Application Insights resources should I deploy:*
@@ -569,7 +569,7 @@ sections:
           * HTTP requests
           * [Dependencies](app/asp-net-dependencies.md). Calls to: SQL Databases; HTTP calls to external services; Azure Cosmos DB, table, blob storage, and queue.
           * [Exceptions](app/asp-net-exceptions.md) and stack traces.
-          * [Performance Counters](app/performance-counters.md) - If you use [Azure Monitor Application Insights Agent](app/status-monitor-v2-overview.md), [Azure monitoring for VM or Virtual Machine Scale Set](app/azure-vm-vmss-apps.md), or the [Application Insights collectd writer](/previous-versions/azure/azure-monitor/app/deprecated-java-2x#collectd-linux-performance-metrics-in-application-insights-deprecated).
+          * [Performance Counters](app/performance-counters.md) - If you use [Azure Monitor Application Insights Agent](app/application-insights-asp-net-agent.md), [Azure monitoring for VM or Virtual Machine Scale Set](app/azure-vm-vmss-apps.md), or the [Application Insights collectd writer](/previous-versions/azure/azure-monitor/app/deprecated-java-2x#collectd-linux-performance-metrics-in-application-insights-deprecated).
           * [Custom events and metrics](app/api-custom-events-metrics.md) that you code.
           * [Trace logs](app/asp-net-trace-logs.md) if you configure the appropriate collector.
           
@@ -681,8 +681,8 @@ sections:
           | What you should see | How to get it | Why you want it |
           | --- | --- | --- |
           | Availability charts |[Web tests](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability) |Know your web app is up |
-          | Server app perf: response times, ... |[Add Application Insights to your project](app/asp-net.md) or [Install Azure Monitor Application Insights Agent on server](app/status-monitor-v2-overview.md) (or write your own code to [track dependencies](app/api-custom-events-metrics.md#trackdependency)) |Detect perf issues |
-          | Dependency telemetry |[Install Azure Monitor Application Insights Agent on server](app/status-monitor-v2-overview.md) |Diagnose issues with databases or other external components |
+          | Server app perf: response times, ... |[Add Application Insights to your project](app/asp-net.md) or [Install Azure Monitor Application Insights Agent on server](app/application-insights-asp-net-agent.md) (or write your own code to [track dependencies](app/api-custom-events-metrics.md#trackdependency)) |Detect perf issues |
+          | Dependency telemetry |[Install Azure Monitor Application Insights Agent on server](app/application-insights-asp-net-agent.md) |Diagnose issues with databases or other external components |
           | Get stack traces from exceptions |[Insert TrackException calls in your code](app/asp-net-exceptions.md) (but some are reported automatically) |Detect and diagnose exceptions |
           | Search log traces |[Add a logging adapter](app/asp-net-trace-logs.md) |Diagnose exceptions, perf issues |
           | Client usage basics: page views, sessions, ... |[JavaScript initializer in web pages](app/javascript.md) |Usage analytics |
