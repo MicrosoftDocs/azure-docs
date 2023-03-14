@@ -660,4 +660,4 @@ When you no longer need this sample, delete the resource group that contains you
 In this tutorial, you created a logic app workflow that processes and stores email attachments by integrating Azure services, such as Azure Storage and Azure Functions. Now, learn more about other connectors that you can use to build logic app workflows.
 
 > [!div class="nextstepaction"]
-> [Learn more about connectors for Logic Apps](../connectors/apis-list.md)
+> [Learn about connectors in Azure Logic Apps](../connectors/introduction.md)
