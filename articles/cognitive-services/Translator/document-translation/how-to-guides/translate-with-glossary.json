@@ -10,8 +10,8 @@
                     "language": "fr",
                     "glossaries": [
                         {
-                            "glossaryUrl": "https://my.blob.core.windows.net/glossaries/en-fr.xlf?sv=2019-12-12&st=2021-03-05T17%3A45%3A25Z&se=2021-03-13T17%3A45%3A00Z&sr=c&sp=rl&sig=BsciG3NWoOoRjOYesTaUmxlXzyjsX4AgVkt2AsxJ9to%3D",
-                            "format": "xliff",
+                            "glossaryUrl": "https://my.blob.core.windows.net/glossaries/en-fr.tsv?sv=2019-12-12&st=2021-03-05T17%3A45%3A25Z&se=2021-03-13T17%3A45%3A00Z&sr=c&sp=rl&sig=BsciG3NWoOoRjOYesTaUmxlXzyjsX4AgVkt2AsxJ9to%3D",
+                            "format": "tsv",
                             "version": "1.2"
                         }
                     ]
