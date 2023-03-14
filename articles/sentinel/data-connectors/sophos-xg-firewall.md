@@ -19,7 +19,7 @@ The [Sophos XG Firewall](https://www.sophos.com/products/next-gen-firewall.aspx)
 | **Kusto function alias** | SophosXGFirewall |
 | **Kusto function url** | https://aka.ms/sentinelgithubparserssophosfirewallxg |
 | **Log Analytics table(s)** | Syslog (SophosXGFirewall)<br/> |
-| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
+| **Data collection rules support** | [Workspace transform DCR](../../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com/) |
 
 ## Query samples
