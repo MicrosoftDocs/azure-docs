@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 Authenticator Lite is another surface for Azure Active Directory (Azure AD) users to complete multifactor authentication by using push notifications or time-based one-time passcodes (TOTP) on their Android or iOS device. With Authenticator Lite, users can satisfy a multifactor authentication requirement from the convenience of a familiar app. Authenticator Lite is currently enabled in Microsoft Outlook. 
 
-Users receive a notification in Outlook to approve or deny sign-in, or they can enter the TOTP of Authenticator in Outlook during sign-in. 
+Users receive a notification in Outlook to approve or deny sign-in, or they can copy a TOTP to use during sign-in. 
 
 ## Prerequisites
 
