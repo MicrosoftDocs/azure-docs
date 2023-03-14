@@ -78,8 +78,8 @@ To start the configuration, sign in to your Azure account and select the subscri
    > CKN must be an even-length string up to 64 hexadecimal digits (0-9, A-F).
    >
    > CAK length depends on cipher suite specified:
-   > * For GcmAes128, the CAK must be an even-length string up to 32 hexadecimal digits (0-9, A-F).
-   > * For GcmAes256, the CAK must be an even-length string up to 64 hexadecimal digits (0-9, A-F).
+   > * For GcmAes128, the CAK must be an even-length string with 32 hexadecimal digits (0-9, A-F). You cannot configure a CAK with less than 32 hexadecimal digits.
+   > * For GcmAes256, the CAK must be an even-length string with 64 hexadecimal digits (0-9, A-F). You cannot configure a CAK with less than 64 hexadecimal digits.
    >
 
 1. Assign the GET permission to the user identity.
