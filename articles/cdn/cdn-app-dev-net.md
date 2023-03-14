@@ -206,7 +206,7 @@ private static void ListProfilesAndEndpoints(CdnManagementClient cdn)
 
         //List all the CDN endpoints on this CDN profile
         Console.WriteLine("Endpoints:");
-        var endpointList = cdn.Endpoints.ListByProfile(p.Name, resourceGroupName);
+        var endpointList = cdn.Endpoints.ListByProfile(resourceGroupName, p.Name);
         foreach (Endpoint e in endpointList)
         {
             Console.WriteLine("-{0} ({1})", e.Name, e.HostName);
