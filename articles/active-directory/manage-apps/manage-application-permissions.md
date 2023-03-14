@@ -1,6 +1,6 @@
 ---
 title: Review permissions granted to applications
-description: Learn how to review and manage permissions for an application in Azure Active Directory.
+description: Learn how to review and revoke permissions, and invalidate refresh tokens for an application in Azure Active Directory.
 services: active-directory
 author: Jackson-Woods
 manager: CelesteDG
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/22/2022
+ms.date: 03/14/2023
 ms.author: jawoods
 ms.reviewer: phsignor
 zone_pivot_groups: enterprise-apps-all
@@ -20,9 +20,9 @@ ms.collection: M365-identity-device-management
 
 # Review permissions granted to enterprise applications
 
-In this article, you'll learn how to review permissions granted to applications in your Azure Active Directory (Azure AD) tenant. You may need to review permissions when you've detected a malicious application or the application has been granted more permissions than is necessary.
+In this article, you'll learn how to review permissions granted to applications in your Azure Active Directory (Azure AD) tenant. You may need to review permissions when you've detected a malicious application or the application has been granted more permissions than is necessary. You'll learn how to revoke permissions granted to the application using Microsoft Graph API and existing versions of PowerShell.
 
-The steps in this article apply to all applications that were added to your Azure Active Directory (Azure AD) tenant via user or admin consent. For more information on consenting to applications, see [User and admin consent](user-admin-consent-overview.md).
+The steps in this article apply to all applications that were added to your Azure AD tenant via user or admin consent. For more information on consenting to applications, see [User and admin consent](user-admin-consent-overview.md).
 
 ## Prerequisites
 
@@ -51,9 +51,11 @@ Each option generates PowerShell scripts that enable you to control user access 
 
 :::zone-end
 
+## Revoke permissions
+
 :::zone pivot="aad-powershell"
 
-Using the following Azure AD PowerShell script revokes all permissions granted to an application.
+Use the following Azure AD PowerShell script to revoke all permissions granted to an application.
 
 ```powershell
 Connect-AzureAD -Scopes "Application.ReadWrite.All", "Directory.ReadWrite.All", "DelegatedPermissionGrant.ReadWrite.All" "AppRoleAssignment.ReadWrite.All", 
@@ -100,7 +102,7 @@ $assignments | ForEach-Object {
 
 :::zone pivot="ms-powershell"
 
-Using the following Microsoft Graph PowerShell script revokes all permissions granted to an application.
+Use the following Microsoft Graph PowerShell script to revoke all permissions granted to an application.
 
 ```powershell
 Connect-MgGraph -Scopes "Application.ReadWrite.All", "Directory.ReadWrite.All", "DelegatedPermissionGrant.ReadWrite.All", "AppRoleAssignment.ReadWrite.All"
