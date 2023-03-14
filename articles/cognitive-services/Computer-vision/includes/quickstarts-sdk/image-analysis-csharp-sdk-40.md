@@ -90,6 +90,7 @@ From the project directory, open the *Program.cs* file that was created previous
 
 [!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/2/Program.cs?name=snippet-single)]
 
+:::code language="csharp" source="~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/2/Program.cs" id="snippet-single":::
 
 ```csharp
 using Azure.AI.Vision.Core.Input;
