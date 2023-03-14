@@ -14,7 +14,7 @@ ms.author: behoorne
 
 # OncoPhenotype Model configuration
 
-To interact with the OncoPhonetype model you can provide several model configurations parameters, that will modify the outcome of the responses.
+To interact with the OncoPhonetype model you can provide several model configurations parameters that will modify the outcome of the responses.
 
 > [!IMPORTANT]
 > Model configuration is applied to ALL the patients within a request.
@@ -33,10 +33,9 @@ Through the model configuration, the API allows you to explicitly check if a can
 ---------------------- |-----------------------|-------------------
 true |Yes  |Inferences are returned 
 true  |No  |No inferences are returned     
-false  |N/A  |Inferences are always returned but they are not meaningful in the event of no cancer case in the provided clinical documents     
-
+false  |N/A  |Inferences are always returned but they aren't meaningful if there is no cancer case.
 Set ```checkForCancerCase``` to ```false``` if
-- you are sure that the provided clinical documents definitely contain a case
+- you're sure that the provided clinical documents definitely contain a case
 - the model is unable to find a case in a valid scenario
 
 If there exists a case in the provided clinical documents and the model is able to find that case, inferences returned are same irrespective of ```checkForCancerCase``` configuration.

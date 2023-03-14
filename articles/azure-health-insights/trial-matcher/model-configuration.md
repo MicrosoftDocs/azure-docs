@@ -13,7 +13,8 @@ ms.author: behoorne
 
 # Trial Matcher Model configuration
 
-The Trial Matcher includes a built-in Knowledge graph, which uses trials taken from [clinicaltrials.gov](https://clinicaltrials.gov/), and is being updated periodically. When matching patients to trials, customers can define a list of filters to query a subset of clinical trials. Each filter can be defined based on trial conditions, types, recruitment statuses, sponsors, phases, purposes, facility names, locations, or trial IDs.
+The Trial Matcher includes a built-in Knowledge graph, which uses trials taken from [clinicaltrials.gov](https://clinicaltrials.gov/), and is being updated periodically. 
+When you are matching patients to trials, you can define a list of filters to query a subset of clinical trials. Each filter can be defined based on trial conditions, types, recruitment statuses, sponsors, phases, purposes, facility names, locations, or trial IDs.
 - Specifying multiple values for the same filter category results in a trial set that is a union of the two sets.
 
 
@@ -47,7 +48,7 @@ In the above example, either trials that are in recruitment status ```recruiting
 ```
 
 In the above example, only trials for diabetes that are currently recruiting in Illinois, United States are queried.
-- Leaving a category empty will not limit trials by that category.
+- Leaving a category empty won't limit trials by that category.
 
 
 
@@ -84,7 +85,7 @@ Evidence is an indication of whether the model’s output should include evidenc
 
 ## Verbose
 Verbose is an indication of whether the model should return trial information. Defaults to false. If set to True, the model returns trial information including Title, Phase, Type, Recruitment status, Sponsors, Contacts, and Facilities.
-When using Gradual matching, this is typically used in the last stage of the qualification process, before displaying trial results.
+When you are using Gradual matching then this is typically used in the last stage of the qualification process, before displaying trial results.
 
 ```json
 {
