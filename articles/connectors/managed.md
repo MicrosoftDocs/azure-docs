@@ -354,7 +354,7 @@ For more information, review the following documentation:
 
 ## ISE connectors
 
-In an integration service environment (ISE), these managed connectors also have [ISE versions](apis-list.md#ise-and-connectors), which have different capabilities than their multi-tenant versions:
+In an integration service environment (ISE), these managed connectors also have [ISE versions](introduction.md#ise-and-connectors), which have different capabilities than their multi-tenant versions:
 
 > [!NOTE]
 >

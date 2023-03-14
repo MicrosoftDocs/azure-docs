@@ -65,7 +65,7 @@ transformations:
         encoding: ascii
 ```
 
-You can now define an input data object, which is required to start a training job, using the AzureML Python SDK as follows: 
+You can now define an input data object, which is required to start a training job, using the Azure Machine Learning Python SDK as follows: 
 
 ```python
 from azure.ai.ml.constants import AssetTypes
@@ -82,7 +82,7 @@ You can specify [validation data](concept-automated-ml.md#training-validation-an
 Learn more about how AutoML applies cross validation to [prevent over fitting](concept-manage-ml-pitfalls.md#prevent-overfitting).
 
 ## Compute to run experiment
-AutoML uses AzureML Compute, which is a fully managed compute resource, to run the training job. In the following example, a compute cluster named `cpu-compute` is created:
+AutoML uses Azure Machine Learning Compute, which is a fully managed compute resource, to run the training job. In the following example, a compute cluster named `cpu-compute` is created:
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/jobs/configuration.ipynb?name=create-cpu-compute)]
 
@@ -167,16 +167,16 @@ Now, the job searches over all model classes _except_ Prophet. For a list of for
 
 #### Enable deep learning
 
-AutoML ships with a custom deep neural network (DNN) model called `ForecastTCN`. This model is a [temporal convolutional network](https://arxiv.org/abs/1803.01271), or TCN, that applies common imaging task methods to time series modeling. Namely, one-dimensional "causal" convolutions form the backbone of the network and enable the model to learn complex patterns over long durations in the training history.  
+AutoML ships with a custom deep neural network (DNN) model called `TCNForecaster`. This model is a [temporal convolutional network](https://arxiv.org/abs/1803.01271), or TCN, that applies common imaging task methods to time series modeling. Namely, one-dimensional "causal" convolutions form the backbone of the network and enable the model to learn complex patterns over long durations in the training history. For more details, see our [TCNForecaster article](./concept-automl-forecasting-deep-learning.md#introduction-to-tcnforecaster). 
 
-:::image type="content" source="media/how-to-auto-train-forecast/tcn-basic.png" alt-text="Diagram showing major components of AutoML's ForecastTCN.":::
+:::image type="content" source="media/how-to-auto-train-forecast/tcn-basic.png" alt-text="Diagram showing major components of AutoML's TCNForecaster.":::
 
-The ForecastTCN often achieves higher accuracy than standard time series models when there are thousands or more observations in the training history. However, it also takes longer to train and sweep over ForecastTCN models due to their higher capacity.
+The TCNForecaster often achieves higher accuracy than standard time series models when there are thousands or more observations in the training history. However, it also takes longer to train and sweep over TCNForecaster models due to their higher capacity.
 
-You can enable the ForecastTCN in AutoML by setting the `enable_dnn_training` flag in the set_training() method as follows:
+You can enable the TCNForecaster in AutoML by setting the `enable_dnn_training` flag in the set_training() method as follows:
 
 ```python
-# Include ForecastTCN models in the model search
+# Include TCNForecaster models in the model search
 forecasting_job.set_training(
     enable_dnn_training=True
 )
@@ -447,7 +447,7 @@ Repeat the necessary steps to load this future data to a data frame and then run
 [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 > [!IMPORTANT]
-> Many models and hierarchical time series are currently only supported in AzureML v1. Support for AzureML v2 is forthcoming.
+> Many models and hierarchical time series are currently only supported in Azure Machine Learning v1. Support for Azure Machine Learning v2 is forthcoming.
 
 There are scenarios where a single machine learning model is insufficient and multiple machine learning models are needed. For instance, predicting sales for each individual store for a brand, or tailoring an experience to individual users. Building a model for each instance can lead to improved results on many machine learning problems. 
 

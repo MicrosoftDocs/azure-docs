@@ -1,14 +1,14 @@
 ---
-title: Quickstart - create an orchestration workflow project
+title: Quickstart - Orchestration workflow
 titleSuffix: Azure Cognitive Services
-description: Use this article to quickly get started with orchestration workflows
+description: Quickly start creating an AI model to connect your Conversational Language Understanding, question answering and LUIS applications.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: quickstart
-ms.date: 06/29/2022
+ms.date: 02/28/2023
 ms.author: aahi
 ms.custom: language-service-clu, mode-other
 zone_pivot_groups: usage-custom-language-features

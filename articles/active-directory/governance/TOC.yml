@@ -148,6 +148,8 @@
         href: entitlement-management-access-package-resources.md
       - name: Change request settings
         href: entitlement-management-access-package-request-policy.md
+      - name: Configure verified ID settings (Preview)
+        href: entitlement-management-verified-id-settings.md  
       - name: Change approval settings
         href: entitlement-management-access-package-approval-policy.md
       - name: Change lifecycle settings

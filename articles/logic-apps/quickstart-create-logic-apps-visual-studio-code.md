@@ -136,7 +136,7 @@ Before you start, make sure that you have these items:
    > for example, @fabrikam.com. Make sure that you replace the fictitious email address with your own 
    > email address. To use a different email connector, such as Outlook.com or Gmail, replace the 
    > `Send_an_email_action` action with a similar action available from an 
-   > [email connector that's supported by Azure Logic Apps](../connectors/apis-list.md).
+   > [email connector that's supported by Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors).
    >
    > If you want to use the Gmail connector, only G-Suite business accounts can use this connector without restriction in logic apps. 
    > If you have a Gmail consumer account, you can use this connector with only specific Google-approved services, or you can 
