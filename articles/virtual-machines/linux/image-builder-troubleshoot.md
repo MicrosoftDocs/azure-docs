@@ -105,7 +105,7 @@ There are cases where [Managed Service Identities (MSI)](./image-builder-permiss
 
 #### Solution
 
-Use Azure CLI to reset identity on the image template. Ensure you [update](/azure/update-azure-cli) Azure CLI to the 2.45.0 version or later.
+Use Azure CLI to reset identity on the image template. Ensure you [update](/cli/azure/update-azure-cli) Azure CLI to the 2.45.0 version or later.
 
 Remove the managed identity from the target image builder template
 
