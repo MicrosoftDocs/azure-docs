@@ -62,6 +62,8 @@ New-AzRoleAssignment -SignInName <userupn> -RoleDefinitionName "Desktop Virtuali
 
 Unlike automatic assignment, when you use direct assignment, you must assign the user to both the personal desktop host pool and a specific session host before they can connect to their personal desktop. If the user is only assigned to a host pool without a session host assignment, they won't be able to access resources and will see an error message that says, "No resources available."
 
+
+
 To configure a host pool to require direct assignment of users to session hosts, run the following PowerShell cmdlet:
 
 ```powershell
@@ -74,26 +76,33 @@ To assign a user to the personal desktop host pool, run the following PowerShell
 New-AzRoleAssignment -SignInName <userupn> -RoleDefinitionName "Desktop Virtualization User" -ResourceName <appgroupname> -ResourceGroupName $resourceGroupName -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups'
 ```
 
+### Directly assign users to session hosts
+
+#### [Azure portal](#tab/azure)
+
+To directly assign a user to a session host in the Azure portal:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Enter **Azure Virtual Desktop** into the search bar.
+1. Under **Services**, select **Azure Virtual Desktop**.
+1. At the Azure Virtual Desktop page, go the menu on the left side of the window and select **Host pools**.
+1. Select the host pool you want to assign users to.
+1. Next, go to the menu on the left side of the window and select **Application groups**.
+1. Select the name of the app group you want to assign users to, then select **Assignments** in the menu on the left side of the window.
+1. Select **+ Add**, then select the users or user groups you want to assign to this app group.
+1. Select **Assign VM** in the Information bar to assign a session host to a user.
+1. Select the session host you want to assign to the user, then select **Assign**. You can also select **Assignment** > **Assign user**.
+1. Select the user you want to assign the session host to from the list of available users.
+1. When you're done, select **Select**.
+
+#### [PowerShell](#tab/azure)
+
 To assign a user to a specific session host, run the following PowerShell cmdlet:
 
 ```powershell
 Update-AzWvdSessionHost -HostPoolName $hostPoolName -Name $sessionHostName -ResourceGroupName $resourceGroupName -AssignedUser <userupn>
 ```
-
-To directly assign a user to a session host in the Azure portal:
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Enter **Azure Virtual Desktop** into the search bar.
-3. Under **Services**, select **Azure Virtual Desktop**.
-4. At the Azure Virtual Desktop page, go the menu on the left side of the window and select **Host pools**.
-5. Select the host pool you want to assign users to.
-6. Next, go to the menu on the left side of the window and select **Application groups**.
-7. Select the name of the app group you want to assign users to, then select **Assignments** in the menu on the left side of the window.
-8. Select **+ Add**, then select the users or user groups you want to assign to this app group.
-9. Select **Assign VM** in the Information bar to assign a session host to a user.
-10. Select the session host you want to assign to the user, then select **Assign**. You can also select **Assignment** > **Assign user**.
-11. Select the user you want to assign the session host to from the list of available users.
-12. When you're done, select **Select**.
+---
 
 ## Unassign a personal desktop
 
