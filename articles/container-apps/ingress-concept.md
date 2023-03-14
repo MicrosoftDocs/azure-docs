@@ -62,13 +62,21 @@ The HTTP headers are used to pass protocol and metadata related information betw
 The header is added to an HTTP request or response using a *name: value* format.  The following table lists the HTTP headers that are relevant to ingress in Container Apps:
 
 > [!NOTE]
-> Do we have response headers we need to document?
+> Are there more to document here? Do we have response headers we need to document?
 
 | Header | Description | Values | Required |
 |---|---|---|---|
 | `X-Forwarded-Proto` | The protocol that the client used to connect with the Container Apps service. | `http` or `https` | Yes |
 | `X-Forwarded-For` | The IP address of the client that sent the request. | Yes |
 | 'X-Forwarded-Host | The host name that the client used to connect with the Container Apps service. | Yes |
+
+## Configure HTTP headers
+
+
+> [!NOTE] 
+> We need to find a different home for this.  We don't want to get technical in this document.
+> Add information about how to configure HTTP headers.
+
 
 ### <a name="tcp"></a>TCP (preview) 
 
@@ -112,6 +120,10 @@ For applications with external ingress visibility, the following conditions appl
 
 - An internal Container Apps environment has a single private IP address for applications. For container apps in internal environments, you must configure [DNS](./networking.md#dns) for VNET-scope ingress.
 - An external Container Apps environment or Container Apps environment that isn't in a VNET has a single public IP address for applications.
+
+You can get access to the environment's unique identifier by querying the environment settings.
+
+[!INCLUDE [container-apps-get-fully-qualified-domain-name](../../includes/container-apps-get-fully-qualified-domain-name.md)]
 
 ## IP restrictions
 
