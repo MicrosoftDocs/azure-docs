@@ -24,11 +24,11 @@ The sample pub/sub project includes:
 :::image type="content" source="media/microservices-dapr-azd/pubsub-quickstart.png" alt-text="Diagram of the Dapr pub/sub sample.":::
 
 > [!NOTE]
-> This tutorial uses [Azure Developer CLI (`azd`)](/developer/azure-developer-cli/overview.md), which is currently in preview. Preview features are available on a self-service, opt-in basis. Previews are provided "as is" and "as available," and they're excluded from the service-level agreements and limited warranty. The `azd` previews are partially covered by customer support on a best-effort basis.
+> This tutorial uses [Azure Developer CLI (`azd`)](/azure/developer/azure-developer-cli/overview.md), which is currently in preview. Preview features are available on a self-service, opt-in basis. Previews are provided "as is" and "as available," and they're excluded from the service-level agreements and limited warranty. The `azd` previews are partially covered by customer support on a best-effort basis.
 
 ## Prerequisites
 
-- Install [Azure Developer CLI](/developer/azure-developer-cli/install-azd.md)
+- Install [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd.md)
 - [Install](https://docs.dapr.io/getting-started/install-dapr-cli/) and [init](https://docs.dapr.io/getting-started/install-dapr-selfhost/) Dapr
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 - Install [Git](https://git-scm.com/downloads)
@@ -140,7 +140,7 @@ Start by running the `order-processor` subscriber service with Dapr.
 
 ## Deploy the Dapr application template using `azd`
 
-Deploy the Dapr application to Azure Container Apps using [`azd`](/developer/azure-developer-cli/overview.md).
+Deploy the Dapr application to Azure Container Apps using [`azd`](/azure/developer/azure-developer-cli/overview.md).
 
 ### Prepare the project
 
@@ -341,7 +341,7 @@ Start by running the `order-processor` subscriber service with Dapr.
 
 ## Deploy the Dapr application template using `azd`
 
-Deploy the Dapr application to Azure Container Apps using [`azd`](/developer/azure-developer-cli/overview.md).
+Deploy the Dapr application to Azure Container Apps using [`azd`](/azure/developer/azure-developer-cli/overview.md).
 
 ### Prepare the project
 
@@ -543,7 +543,7 @@ Start by running the `order-processor` subscriber service with Dapr.
 
 ## Deploy the Dapr application template using `azd`
 
-Deploy the Dapr application to Azure Container Apps using [`azd`](/developer/azure-developer-cli/overview.md).
+Deploy the Dapr application to Azure Container Apps using [`azd`](/azure/developer/azure-developer-cli/overview.md).
 
 ### Prepare the project
 
@@ -646,4 +646,4 @@ azd down
 ## Next steps
 
 - Learn more about [deploying Dapr applications to Azure Container Apps](./microservices-dapr.md).
-- Learn more about [Azure Developer CLI](/developer/azure-developer-cli/overview.md) and [making your applications compatible with `azd`](/developer/azure-developer-cli/make-azd-compatible.md).
+- Learn more about [Azure Developer CLI](/azure/developer/azure-developer-cli/overview.md) and [making your applications compatible with `azd`](/azure/developer/azure-developer-cli/make-azd-compatible.md).
