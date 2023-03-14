@@ -193,7 +193,7 @@ Next, create the configuration file that your static web app uses to interface w
 
 ```json
 {
-  "$schema": "https://go.microsoft.com/fwlink/?linkid=2226079",
+  "$schema": "https://dataapibuilder.azureedge.net/schemas/latest/dab.draft.schema.json",
   "data-source": {
     "database-type": "mysql",
     "options": {
@@ -287,7 +287,7 @@ Once you've connected your database to your static web app and the site is finis
 
     The output should resemble what's shown in this screenshot.
 
-    :::image type="content" source="../articles/static-web-apps/media/database-add/static-web-apps-database-connections-list.png" alt-text="Web browser showing results from listing records from the database in the developer tools console window.":::
+    :::image type="content" source="media/database-add/static-web-apps-database-connections-list.png" alt-text="Web browser showing results from listing records from the database in the developer tools console window.":::
 
 ## Clean up resources
 
