@@ -479,7 +479,7 @@ curl -X POST -H "Ocp-Apim-Subscription-Key: {API-KEY}" -H "Content-Type: applica
   }' -i 'https://{ENDPOINT}.api.cognitive.microsoft.com/language/query-knowledgebases/projects/{PROJECT-NAME}/:import?api-version=2021-10-01&format=tsv'
 ```
 
-A successful call to deploy a project results in an `Operation-Location` header being returned, which can be used to check the status of the import job. In many of our examples, we haven't needed to look at the response headers and thus haven't been displaying them. To retrieve the response headers our curl command uses `-i`. Without this additional parameter prior to the endpoint address, the response to this command would appear empty as if no response occurred.
+A successful call to import a project results in an `Operation-Location` header being returned, which can be used to check the status of the import job. In many of our examples, we haven't needed to look at the response headers and thus haven't been displaying them. To retrieve the response headers our curl command uses `-i`. Without this additional parameter prior to the endpoint address, the response to this command would appear empty as if no response occurred.
 
 ### Example response
 
