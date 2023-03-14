@@ -80,7 +80,7 @@ Content-Type: application/json
 
 
 ## User Registration
-If enabled for Authenticator Lite, users will be prompted to register their account directly from Outlook. Authenticator Lite registration isn't available by using [MySignIns](https://aka.ms/mysignins). Users can also enable or disable Authenticator Lite from within Outlook. For more information on user experience, please visit the [Authenticator Lite support page](https://aka.ms/authappliteuserdocs). 
+If enabled for Authenticator Lite, users are prompted to register their account directly from Outlook. Authenticator Lite registration isn't available by using [MySignIns](https://aka.ms/mysignins). Users can also enable or disable Authenticator Lite from within Outlook. For more information on user experience, please visit the [Authenticator Lite support page](https://aka.ms/authappliteuserdocs). 
 
 ## Monitoring Authenticator Lite Usage
 [Sign-in logs](/graph/api/signin-list) can show which app was used to complete user authentication. To view the latest sign-ins, use the following call on the beta API endpoint:
@@ -89,9 +89,9 @@ If enabled for Authenticator Lite, users will be prompted to register their acco
 GET auditLogs/signIns
 ```
 
-If the sign-in was done by phone app notification, under **authenticationAppDeivceDetails** the **clientApp** field will return **microsoftAuthenticator** or **Outlook**.
+If the sign-in was done by phone app notification, under **authenticationAppDeivceDetails** the **clientApp** field returns **microsoftAuthenticator** or **Outlook**.
 
-If a user has registered Authenticator Lite, the user’s registered authentication methods will include **Microsoft Authenticator (in Outlook)**. 
+If a user has registered Authenticator Lite, the user’s registered authentication methods include **Microsoft Authenticator (in Outlook)**. 
 
 ## Push Notifications in Authenticator Lite
 Push Notifications sent by Authenticator Lite aren't configurable and don't depend on the Authenticator feature settings. The default setting for features included in the Authenticator Lite experience are listed in the following table. 
@@ -121,7 +121,7 @@ Users can only register for Authenticator Lite from Outlook. Authenticator Lite 
 
 ### Can users register Microsoft Authenticator and Authenticator Lite?
 
-Users that have Microsoft Authenticator on their device will not be able to register Authenticator Lite. If a user has an Authenticator Lite registration and then later downloads Microsoft Authenticator, they can register both. If a user has two devices, they can register Authenticator Lite on one and Microsoft Authenticator on the other.
+Users that have Microsoft Authenticator on their device can't register Authenticator Lite. If a user has an Authenticator Lite registration and then later downloads Microsoft Authenticator, they can register both. If a user has two devices, they can register Authenticator Lite on one and Microsoft Authenticator on the other.
 
 ## Next steps
 
