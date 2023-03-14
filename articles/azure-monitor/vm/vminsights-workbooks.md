@@ -1,5 +1,5 @@
 ---
-title: Create interactive reports VM insights with workbooks
+title: Create interactive reports with VM insights workbooks
 description: Simplify complex reporting with predefined and custom parameterized workbooks for VM insights.
 ms.topic: conceptual
 author: bwren
@@ -8,19 +8,19 @@ ms.date: 05/27/2022
 
 ---
 
-# Create interactive reports VM insights with workbooks
+# Create interactive reports with VM insights workbooks
 
-Workbooks combine text, [log queries](/azure/data-explorer/kusto/query/), metrics, and parameters into rich interactive reports. Workbooks are editable by any other team members who have access to the same Azure resources.
+Workbooks combine text, [log queries](/azure/data-explorer/kusto/query/), metrics, and parameters into rich interactive reports. Workbooks can be edited by any other team members who have access to the same Azure resources.
 
 Workbooks help you to:
 
-* Explore the usage of your virtual machine when you don't know the metrics of interest in advance, like CPU utilization, disk space, memory, and network dependencies. Unlike other usage analytics tools, workbooks let you combine multiple kinds of visualizations and analyses, which makes them great for this kind of freeform exploration.
+* Explore the usage of your virtual machine (VM) when you don't know the metrics of interest in advance, like CPU utilization, disk space, memory, and network dependencies. Unlike other usage analytics tools, workbooks let you combine multiple kinds of visualizations and analyses, making them great for this kind of freeform exploration.
 * Explain to your team how a recently provisioned VM is performing by showing metrics for key counters and other log events.
 * Share the results of a resizing experiment of your VM with other members of your team. You can explain the goals for the experiment with text. Then you can show each usage metric and the analytics queries used to evaluate the experiment, along with clear call-outs for whether each metric was above or below target.
 * Report the impact of an outage on the usage of your VM. You can combine data, text explanation, and a discussion of next steps to prevent outages in the future.
 
 ## VM insights workbooks
-VM insights includes the following workbooks. You can use these workbooks or use them as a start to create custom workbooks to address your particular requirements.
+VM insights includes the following workbooks. You can use these workbooks or use them as a starting point to create custom workbooks to address your particular requirements.
 
 ### Single virtual machine
 
@@ -49,7 +49,7 @@ A workbook is made up of sections that consist of independently editable charts,
 
 1. Go to the **Monitor** menu in the Azure portal.
 
-1. Select a virtual machine.
+1. Select a VM.
 
 1. On the VM insights page, select the **Performance** or **Map** tab and then select **View Workbooks** from the link on the page. From the dropdown list, select **Go To Gallery**.
 
@@ -69,7 +69,7 @@ Workbooks have two modes: editing and reading. A new workbook opens in editing m
 
 1. After you finish editing a section, select **Done Editing** in the lower-left corner of the section.
 
-1. To create a duplicate of a section, select the **Clone this section** icon. Creating duplicate sections is a great to way to iterate on a query without losing previous iterations.
+1. To create a duplicate of a section, select the **Clone this section** icon. Creating duplicate sections is a great way to iterate on a query without losing previous iterations.
 
 1. To move up a section in a workbook, select the **Move up** or **Move down** icon.
 
@@ -93,15 +93,15 @@ Query sections are highly flexible and can be used to answer questions like:
 * What was the trend in available disk space over the last month?
 * How many network connection failures did my VM experience over the last two weeks?
 
-You also aren't limited to querying from the context of the virtual machine from which you opened the workbook. To query across multiple virtual machines and Log Analytics workspaces, you must have access permission to those resources.
+You also aren't limited to querying from the context of the VM from which you opened the workbook. To query across multiple VMs and Log Analytics workspaces, you must have access permission to those resources.
 
-To include data from other Log Analytics workspaces or from a specific Application Insights app, use the **workspace** identifier. To learn more about cross-resource queries, see the [official guidance](../logs/cross-workspace-query.md).
+To include data from other Log Analytics workspaces or from a specific Application Insights app, use the workspace identifier. To learn more about cross-resource queries, see the [official guidance](../logs/cross-workspace-query.md).
 
 ### Advanced analytic query settings
 
 Each section has its own advanced settings, which are accessible via the settings ![Workbooks section editing controls](media/vminsights-workbooks/006-settings.png) icon located to the right of **Add parameters**.
 
-![Screenshot that shows the Advanced Settings dialog in the Virtual Machines Workbook section of Azure Monitor. The icon that opens the dialog is highlighted.](media/vminsights-workbooks/007-settings-expanded.png)
+![Screenshot that shows the Advanced Settings dialog with the icon highlighted in the Virtual Machines Workbook section of Azure Monitor.](media/vminsights-workbooks/007-settings-expanded.png)
 
 | Setting | Description |
 | ---------------- |:-----|
@@ -123,7 +123,7 @@ The behavior is possible through use of the **When an item is selected, export a
 
 ![Screenshot that shows the Advanced Settings dialog for a Virtual Machines workbook with the "When an item is selected, export a parameter" option checked.](media/vminsights-workbooks/009-settings-export.png)
 
-The second log query then utilizes the exported values when a row is selected to create a set of values that are then used by the section heading and charts. If no row is selected, it hides the section heading and charts.
+The second log query then utilizes the exported values when a row is selected to create a set of values that are used by the section heading and charts. If no row is selected, it hides the section heading and charts.
 
 For example, the hidden parameter in the second section uses the following reference from the row selected in the grid:
 
@@ -136,9 +136,9 @@ VMConnection
 
 ## Add metrics sections
 
-Metrics sections give you full access to incorporate Azure Monitor metrics data into your interactive reports. In VM insights, the prebuilt workbooks typically contain analytic query data rather than metric data. You may choose to create workbooks with metric data, which allows you to take full advantage of the best of both features all in one place. You also have the ability to pull in metric data from resources in any of the subscriptions to which you have access.
+Metrics sections give you full access to incorporate Azure Monitor metrics data into your interactive reports. In VM insights, the prebuilt workbooks typically contain analytic query data rather than metric data. You can create workbooks with metric data, which allows you to take full advantage of the best of both features all in one place. You also have the ability to pull in metric data from resources in any of the subscriptions to which you have access.
 
-Here's an example of virtual machine data being pulled into a workbook to provide a grid visualization of CPU performance:
+Here's an example of VM data being pulled into a workbook to provide a grid visualization of CPU performance.
 
 ![Screenshot that shows the metrics section of a virtual machine workbook in Azure Monitor. The C P U performance for each virtual machine is shown graphically.](media/vminsights-workbooks/010-metrics-grid.png)
 
@@ -146,24 +146,24 @@ Here's an example of virtual machine data being pulled into a workbook to provid
 
 Workbook parameters allow you to change values in the workbook without having to manually edit the query or text sections. This removes the requirement of needing to understand the underlying analytics query language and greatly expands the potential audience of workbook-based reporting.
 
-The values of parameters are replaced in query, text, or other parameter sections by putting the name of the parameter in braces, like ``{parameterName}``. Parameter names are limited to similar rules as JavaScript identifiers, alphabetic characters or underscores, followed by alphanumeric characters or underscores. For example, **a1** is allowed, but **1a** isn't allowed.
+The values of parameters are replaced in query, text, or other parameter sections by putting the name of the parameter in braces, like ``{parameterName}``. Parameter names are limited to similar rules as JavaScript identifiers, alphabetic characters, or underscores, followed by alphanumeric characters or underscores. For example, *a1* is allowed but *1a* isn't allowed.
 
-Parameters are linear, starting from the top of a workbook and flowing down to later steps. Parameters declared later in a workbook can override parameters that were declared earlier. This also lets parameters that use queries to access the values from parameters defined earlier. Within a parameter's step itself, parameters are also linear, left to right, where parameters to the right can depend on a parameter declared earlier in that same step.
+Parameters are linear, starting from the top of a workbook and flowing down to later steps. Parameters declared later in a workbook can override parameters that were declared earlier. Parameters that use queries can access the values from parameters defined earlier. Within a parameter's step itself, parameters are also linear, left to right, where parameters to the right can depend on a parameter declared earlier in that same step.
 
-four different types of parameters are currently supported:
+Four different types of parameters are currently supported:
 
 | Parameter | Description |
 | ---------------- |:-----|
-| Text    | Allows the user to edit a text box, and you can optionally supply a query to fill in the default value. |
+| Text    | Allows the user to edit a text box. You can optionally supply a query to fill in the default value. |
 | Drop down | Allows the user to choose from a set of values. |
 | Time range picker| Allows the user to choose from a predefined set of time range values or pick from a custom time range.|
 | Resource picker | Allows the user to choose from the resources selected for the workbook.|
 
 ### Use a text parameter
 
-The value a user types in the text box is replaced directly in the query, with no escaping or quoting. If the value you need is a string, the query should have quotes around the parameter. An example is **'{parameter}'**).
+The value a user enters in the text box is replaced directly in the query, with no escaping or quoting. If the value you need is a string, the query should have single quotation marks around the parameter. An example is **'{parameter}'**.
 
-The text parameter allows the value in a text box to be used anywhere. It can be a table name, column name, function name, or operator.  The text parameter type has a setting **Get default value from analytics query**, which allows the workbook author to use a query to populate the default value for that text box.
+The text parameter allows the value in a text box to be used anywhere. It can be a table name, column name, function name, or operator. The text parameter type has a setting **Get default value from analytics query**, which allows the workbook author to use a query to populate the default value for that text box.
 
 When the default value is used from a log query, only the first value of the first row (row 0, column 0) is used as the default value. For this reason, we recommend that you limit your query to return only one row and one column. Any other data returned by the query is ignored.
 
@@ -181,9 +181,9 @@ Let's look at the parameters present in the Connections Overview report. Select 
 
 ![Screenshot that shows the section for adding and editing report parameters in Azure Monitor. The Edit icon for the Direction parameter is selected.](media/vminsights-workbooks/011-workbook-using-dropdown.png)
 
-This action opens the **Edit Parameter** menu item.
+This action opens the **Edit Parameter** pane.
 
-![Screenshot that shows the Edit Parameter dialog. The Parameter name is Direction, the Parameter type is Drop down, and Get data from JSON is selected.](media/vminsights-workbooks/012-workbook-edit-parameter.png)
+![Screenshot that shows the Edit Parameter pane. The Parameter name is Direction, the Parameter type is Drop down, and Get data from JSON is selected.](media/vminsights-workbooks/012-workbook-edit-parameter.png)
 
 The JSON lets you generate an arbitrary table populated with content. For example, the following JSON generates two values in the dropdown:
 
@@ -207,7 +207,7 @@ The query shows the following results:
 
 ![Screenshot that shows the Perf counter dropdown.](media/vminsights-workbooks/013-workbook-edit-parameter-perf-counters.png)
 
-Dropdown lists are incredibly powerful tools you can use to customize and create interactive reports.
+Dropdown lists are powerful tools you can use to customize and create interactive reports.
 
 ### Time range parameters
 
@@ -223,23 +223,23 @@ The resource picker parameter type gives you the ability to scope your report to
 
 ## Save and share workbooks with your team
 
-Workbooks are saved within a Log Analytics workspace or a virtual machine resource, depending on how you access the workbooks gallery. The workbook can be saved to the **My Reports** section that's private to you or in the **Shared Reports** section that's accessible to everyone with access to the resource. To view all the workbooks in the resource, select **Open** in the action bar.
+Workbooks are saved within a Log Analytics workspace or a VM resource, depending on how you access the workbooks gallery. The workbook can be saved to the **My Reports** section that's private to you or in the **Shared Reports** section that's accessible to everyone with access to the resource. To view all the workbooks in the resource, select **Open**.
 
 To share a workbook that's currently in **My Reports**:
 
-1. Select **Open** in the action bar.
-1. Select the "..." button beside the workbook you want to share.
+1. Select **Open**.
+1. Select the ellipsis (**...**) next to the workbook you want to share.
 1. Select **Move to Shared Reports**.
 
-To share a workbook with a link or via email, click **Share** in the action bar. Keep in mind that recipients of the link need access to this resource in the Azure portal to view the workbook. To make edits, recipients need at least Contributor permissions for the resource.
+To share a workbook with a link or via email, select **Share**. Keep in mind that recipients of the link need access to this resource in the Azure portal to view the workbook. To make edits, recipients need at least Contributor permissions for the resource.
 
-To pin a link to a workbook to an Azure Dashboard:
+To pin a link to a workbook to an Azure dashboard:
 
-1. Select **Open** in the action bar.
-1. Select the "..." button beside the workbook you want to pin.
+1. Select **Open**.
+1. Select the ellipsis (**...**) next to the workbook you want to pin.
 1. Select **Pin to dashboard**.
 
 ## Next steps
 
-- To identify limitations and overall VM performance, see [View Azure VM Performance](vminsights-performance.md).
-- To learn about discovered application dependencies, see [View VM insights Map](vminsights-maps.md).
+- To identify limitations and overall VM performance, see [View Azure VM performance](vminsights-performance.md).
+- To learn about discovered application dependencies, see [View VM insights map](vminsights-maps.md).
