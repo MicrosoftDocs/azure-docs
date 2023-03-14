@@ -5,7 +5,7 @@ author: StefArroyo
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
-ms.date: 03/09/2023
+ms.date: 03/14/2023
 ms.author: esarroyo
 ms.reviewer: mjbrown
 ms.custom: cosmos-db-video
@@ -53,7 +53,7 @@ Watch the video below to learn more about using the .NET SDK from an Azure Cosmo
 
 ## Best practices for HTTP connections
 
-The .NET SDK uses `HttpClient` to perform HTTP requests regardless of the connectivity mode configured. In [Direct mode](sdk-connection-modes.md#direct-mode) HTTP is used for metadata operations and in Gateway mode it is used for both data plane and metadata operations. One of the [fundamentals of HttpClient](/dotnet/fundamentals/networking/http/httpclient-guidelines#dns-behavior) is to make sure the `HttpClient` can react to DNS changes on your account by **customizing the pooled connection lifetime**. As long as pooled connections are kept open, they do not react to DNS changes.  This setting forces pooled **connections to be closed** periodically, ensuring that your application reacts to DNS changes. Our recommendation is that you customize this value according to your [connectivity mode](sdk-connection-modes.md) and workload to balance the performance impact of frequently creating new connections, with needing to react to DNS changes (a 5 minute value would be a good start for Direct mode clients).
+The .NET SDK uses `HttpClient` to perform HTTP requests regardless of the connectivity mode configured. In [Direct mode](sdk-connection-modes.md#direct-mode) HTTP is used for metadata operations and in Gateway mode it is used for both data plane and metadata operations. One of the [fundamentals of HttpClient](/dotnet/fundamentals/networking/http/httpclient-guidelines#dns-behavior) is to make sure the `HttpClient` can react to DNS changes on your account by **customizing the pooled connection lifetime**. As long as pooled connections are kept open, they do not react to DNS changes.  This setting forces pooled **connections to be closed** periodically, ensuring that your application reacts to DNS changes. Our recommendation is that you customize this value according to your [connectivity mode](sdk-connection-modes.md) and workload to balance the performance impact of frequently creating new connections, with needing to react to DNS changes (availability). A 5 minute value would be a good start that can be increased if it's impacting performance particularly for Gateway mode.
 
 You can inject your custom HttpClient through `CosmosClientOptions.HttpClientFactory`, for example:
 
