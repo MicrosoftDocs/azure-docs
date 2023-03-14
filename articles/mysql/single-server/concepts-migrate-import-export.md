@@ -13,11 +13,13 @@ ms.date: 06/20/2022
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+
 This article explains two common approaches to importing and exporting data to an Azure Database for MySQL server by using MySQL Workbench.
 
 For detailed and comprehensive migration guidance, see the [migration guide resources](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide). 
 
-For other migration scenarios, see the [Database Migration Guide](https://datamigration.microsoft.com/).
+For other migration scenarios, see the [Database Migration Guide](/data-migration/).
 
 ## Prerequisites
 

@@ -6,7 +6,7 @@ ms.author: shuji
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 6/8/2020
+ms.date: 12/21/2022
 
 ---
 
@@ -86,9 +86,9 @@ Esv4-series sizes run on the 3rd Generation Intel® Xeon® Platinum 8370C (Ice L
 
 <sup>4</sup> Accelerated networking can only be applied to a single NIC. 
 
-<sup>5</sup> Attaching Ultra Disk or Premium v2 SSDs to **Standard_E80is_v4** results in higher IOPs and MBps than standard premium disks:
-- Max uncached Ultra Disk and Premium v2 SSD throughput (IOPS/ MBps): 120000/1800 
-- Max burst uncached Ultra Disk and Premium v2 SSD disk throughput (IOPS/ MBps): 120000/2000
+<sup>5</sup> Attaching Ultra Disk or Premium SSDs V2 to **Standard_E80is_v4** results in higher IOPs and MBps than standard premium disks:
+- Max uncached Ultra Disk and Premium SSD V2throughput (IOPS/ MBps): 120000/1800 
+- Max burst uncached Ultra Disk and Premium SSD V2 disk throughput (IOPS/ MBps): 120000/2000
 
 
 

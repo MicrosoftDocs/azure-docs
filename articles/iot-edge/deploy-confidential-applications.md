@@ -11,7 +11,7 @@ ms.author: patricka
 
 # Confidential computing at the edge
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 Azure IoT Edge supports confidential applications that run within secure enclaves on the device. Encryption provides security for data while in transit or at rest, but enclaves provide security for data and workloads while in use. IoT Edge supports Open Enclave as a standard for developing confidential applications.
 
@@ -27,7 +27,7 @@ Confidential applications are encrypted in transit and at rest, and only decrypt
 
 The developer creates the confidential application and packages it as an IoT Edge module. The application is encrypted before being pushed to the container registry. The application remains encrypted throughout the IoT Edge deployment process until the module is started on the IoT Edge device. Once the confidential application is within the device's TEE, it is decrypted and can begin executing.
 
-![Diagram - Confidential applications are encrypted within IoT Edge modules until deployed into the secure enclave](./media/deploy-confidential-applications/confidential-applications-encrypted.png)
+:::image type="content" source="./media/deploy-confidential-applications/confidential-applications-encrypted.png" alt-text="Diagram that show confidential applications are encrypted within IoT Edge modules until deployed into the secure enclave.":::
 
 Confidential applications on IoT Edge are a logical extension of [Azure confidential computing](../confidential-computing/overview.md). Workloads that run within secure enclaves in the cloud can also be deployed to run within secure enclaves at the edge.
 

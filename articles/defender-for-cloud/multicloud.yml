@@ -28,6 +28,8 @@ landingContent:
             url: /azure/cloud-adoption-framework/scenarios/hybrid/
           - text: Why protect multicloud resources with Microsoft Defender for Cloud
             url: https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/protect-your-google-cloud-workloads-with-microsoft-defender-for/ba-p/3073360
+          - text: Get started planning multicloud security
+            url: plan-multicloud-security-get-started.md
       - linkListType: how-to-guide
         links:
           - text: Connect your non-Azure machines to Defender for Cloud
@@ -72,8 +74,6 @@ landingContent:
             url: file-integrity-monitoring-overview.md
           - text: Scan your AWS virtual machines for vulnerabilities
             url: deploy-vulnerability-assessment-vm.md
-          - text: Create custom assessments and standards for AWS workloads
-            url: https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/custom-assessments-and-standards-in-microsoft-defender-for-cloud/ba-p/3066575
       - linkListType: video
         links:
           - text: How to connect AWS to Microsoft Defender for Cloud
@@ -104,10 +104,6 @@ landingContent:
             url: defender-for-containers-enable.md?tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api&pivots=defender-for-container-gke
           - text: Enable Defender for SQL servers for your GCP SQL databases
             url: defender-for-sql-usage.md
-      - linkListType: how-to-guide
-        links:
-          - text: Create custom assessments and standards for GCP workloads
-            url: https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/custom-assessments-and-standards-in-microsoft-defender-for-cloud/ba-p/3251252
       - linkListType: video
         links:
           - text: How to connect GCP to Microsoft Defender for Cloud

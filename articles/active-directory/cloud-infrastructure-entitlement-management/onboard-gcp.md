@@ -2,13 +2,14 @@
 title:  Onboard a Google Cloud Platform (GCP) project in Permissions Management
 description: How to onboard a Google Cloud Platform (GCP) project on Permissions Management.
 services: active-directory
-author: kenwith
-manager: rkarlin
-ms.service: ciem
+author: jenniferf-skc
+manager: amycolannino
+ms.service: active-directory 
+ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 04/20/2022
-ms.author: kenwith
+ms.author: jfields
 ---
 
 # Onboard a Google Cloud Platform (GCP) project
@@ -17,6 +18,20 @@ This article describes how to onboard a Google Cloud Platform (GCP) project on P
 
 > [!NOTE]
 > A *global administrator* or *super admin* (an admin for all authorization system types) can perform the tasks in this article after the global administrator has initially completed the steps provided in [Enable Permissions Management on your Azure Active Directory tenant](onboard-enable-tenant.md).
+
+## Explanation
+
+For GCP, permissions management is scoped to a *GCP project*. A GCP project is a logical collection of your resources in GCP, like a subscription in Azure, albeit with further configurations you can perform such as application registrations and OIDC configurations.
+
+<!-- Diagram from Gargi-->
+
+There are several moving parts across GCP and Azure, which are required to be configured before onboarding.
+
+* An Azure AD OIDC App
+* A Workload Identity in GCP
+* OAuth2 confidential client grants utilized
+* A GCP service account with permissions to collect
+
 
 ## Onboard a GCP project
 
@@ -37,8 +52,7 @@ This article describes how to onboard a Google Cloud Platform (GCP) project on P
     > [!NOTE]
     > 1. To confirm that the app was created, open **App registrations** in Azure and, on the **All applications** tab, locate your app.
     > 1. Select the app name to open the **Expose an API** page. The **Application ID URI** displayed in the **Overview** page is the *audience value* used while making an OIDC connection with your GCP account.
-
-    1. Return to Permissions Management, and in the **Permissions Management Onboarding - Azure AD OIDC App Creation**, select **Next**.
+    > 1. Return to the Permissions Management window, and in the **Permissions Management Onboarding - Azure AD OIDC App Creation**, select **Next**.
 
 ### 2. Set up a GCP OIDC project.
 
@@ -46,13 +60,13 @@ Choose from 3 options to manage GCP projects.
 
 #### Option 1: Automatically manage 
 
-This option allows projects to be automatically detected and monitored without additional configuration. Steps to detect list of projects and onboard for collection:  
+The automatically manage option allows projects to be automatically detected and monitored without extra configuration. Steps to detect list of projects and onboard for collection:  
 
 Firstly, grant Viewer and Security Reviewer role to service account created in previous step at organization, folder or project scope. 
 
-Once done, the steps are listed in the screen to do this manually in the GPC console, or programatically with the gcloud CLI.
+Once done, the steps are listed in the screen, which shows how to further configure in the GPC console, or programatically with the gcloud CLI.
 
-Once this has been configured, click next, then 'Verify Now & Save'.
+Once everything has been configured, click next, then 'Verify Now & Save'.
 
 Any current or future projects found get onboarded automatically. 
 
@@ -81,7 +95,7 @@ To view status of onboarding after saving the configuration:
 This option detects all projects that are accessible by the Cloud Infrastructure Entitlement Management application.  
 
 - Firstly, grant Viewer and Security Reviewer role to service account created in previous step at organization, folder or project scope
-- Once done, the steps are listed in the screen to do this manually in the GPC console, or programatically with the gcloud CLI
+- Once done, the steps are listed in the screen to do configure manually in the GPC console, or programatically with the gcloud CLI
 - Click Next
 - Click 'Verify Now & Save' 
 - Navigate to newly create Data Collector row under GCP data collectors
@@ -108,7 +122,7 @@ This option detects all projects that are accessible by the Cloud Infrastructure
 
     The **Welcome to Permissions Management GCP onboarding** screen appears, displaying steps you must complete to onboard your GCP project.
 
-### 5. Paste the environment vars from the Permissions Management portal.
+### 5. Paste the environmental variables from the Permissions Management portal.
 
 1. Return to Permissions Management and select **Copy export variables**.
 1. In the GCP Onboarding shell editor, paste the variables you copied, and then press **Enter**.

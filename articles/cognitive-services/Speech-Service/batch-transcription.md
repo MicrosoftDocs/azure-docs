@@ -9,7 +9,7 @@ ms.author: eur
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
-ms.date: 09/11/2022
+ms.date: 10/21/2022
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
@@ -35,8 +35,11 @@ To get started with batch transcription, refer to the following how-to guides:
 
 Batch transcription jobs are scheduled on a best-effort basis. You can't estimate when a job will change into the running state, but it should happen within minutes under normal system load. When the job is in the running state, the transcription occurs faster than the audio runtime playback speed.
 
+>[!NOTE]
+> You can also use Batch Transcription in Power Platform applications (Power Automate, Power Apps, Logic Apps) via the [Batch Speech-to-text Connector](https://learn.microsoft.com/connectors/cognitiveservicesspe/) with your own Speech resource. Learn more about [Power Platform](https://learn.microsoft.com/power-platform/) and the [connectors](https://learn.microsoft.com/connectors/).
+> 
 ## Next steps
 
 - [Locate audio files for batch transcription](batch-transcription-audio-data.md)
-- [Review quotas and limits](speech-services-quotas-and-limits.md#batch-transcription)
+- [Create a batch transcription](batch-transcription-create.md)
 - [Get batch transcription results](batch-transcription-get.md)

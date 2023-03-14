@@ -16,6 +16,9 @@ ms.date: 05/17/2021
 
 # Add contributors to your app
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
+
 An app owner can add contributors to apps. These contributors can modify the model, train, and publish the app. Once you have [migrated](luis-migration-authoring.md) your account, _contributors_ are managed in the Azure portal for the authoring resource, using the **Access control (IAM)** page. Add a user, using the collaborator's email address and the _contributor_ role.
 
 ## Add contributor to Azure authoring resource

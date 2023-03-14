@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 05/12/2022
+ms.date: 10/12/2022
 ms.author: aahi
 ms.custom: language-service-clu, ignite-fall-2021, references_regions
 ---
@@ -23,7 +23,7 @@ Use this article to learn about the data and service limits when using conversat
 
   |Tier|Description|Limit|
   |--|--|--|
-  |F0|Free tier|You are only allowed **One** Language resource **per subscription**.|
+  |F0|Free tier|You are only allowed **one** F0 Language resource **per subscription**.|
   |S |Paid tier|You can have up to 100 Language resources in the S tier per region.| 
 
 
@@ -35,20 +35,41 @@ See [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/lan
 
 ### Regional availability
 
-Conversational language understanding is only available in some Azure regions. To use conversational language understanding, you must choose a Language resource in one of following regions:
-* Australia East
-* Central India
-* East US 
-* East US 2
-* North Europe
-* South Central US
-* Switzerland North
-* UK South
-* West Europe
-* West US 2
-* West US 3
+Conversational language understanding is only available in some Azure regions. Some regions are available for **both authoring and prediction**, while other regions are **prediction only**. Language resources in authoring regions allow you to create, edit, train, and deploy your projects. Language resources in prediction regions allow you to get [predictions from a deployment](../concepts/custom-features/multi-region-deployment.md).
 
-
+| Region             | Authoring | Prediction  |
+|--------------------|-----------|-------------|
+| Australia East     | ✓         | ✓           |
+| Brazil South       |           | ✓           |
+| Canada Central     |           | ✓           |
+| Central India      | ✓         | ✓           |
+| Central US         |           | ✓           |
+| China East 2       | ✓         | ✓           |
+| China North 2      |           | ✓           |
+| East Asia          |           | ✓           |
+| East US            | ✓         | ✓           |
+| East US 2          | ✓         | ✓           |
+| France Central     |           | ✓           |
+| Japan East         |           | ✓           |
+| Japan West         |           | ✓           |
+| Jio India West     |           | ✓           |
+| Korea Central      |           | ✓           |
+| North Central US   |           | ✓           |
+| North Europe       | ✓         | ✓           |
+| Norway East        |           | ✓           |
+| Qatar Central      |           | ✓           |
+| South Africa North |           | ✓           |
+| South Central US   | ✓         | ✓           |
+| Southeast Asia     |           | ✓           |
+| Sweden Central     |           | ✓           |
+| Switzerland North  | ✓         | ✓           |
+| UAE North          |           | ✓           |
+| UK South           | ✓         | ✓           |
+| West Central US    |           | ✓           |
+| West Europe        | ✓         | ✓           |
+| West US            |            | ✓           |
+| West US 2          | ✓         | ✓           |
+| West US 3          | ✓         | ✓           |
 
 ## API limits
 
@@ -73,20 +94,23 @@ The following limits are observed for the conversational language understanding.
 
 |Item|Lower Limit| Upper Limit |
 | --- | --- | --- |
-|Count of utterances per project | 1 | 15,000|
-|Utterance length in characters | 1 | 500 |
-|Count of intents per project | 1 | 500|
-|Count of entities per project | 1 | 500|
-|Count of list synonyms per entity| 0 | 20,000 |
-|Count of prebuilt components per entity| 0 | 7 |
-|Count of trained models per project| 0 | 10 |
-|Count of deployments per project| 0 | 10 |
+|Number of utterances per project | 1 | 25,000|
+|Utterance length in characters (authoring) | 1 | 500 |
+|Utterance length in characters (prediction) | 1 | 1000 |
+|Number of intents per project | 1 | 500|
+|Number of entities per project | 0 | 350|
+|Number of list synonyms per entity| 0 | 20,000 |
+|Number of list synonyms per project| 0 | 2,000,000 |
+|Number of prebuilt components per entity| 0 | 7 |
+|Number of regular expressions per project| 0 | 20 |
+|Number of trained models per project| 0 | 10 |
+|Number of deployments per project| 0 | 10 |
 
 ## Naming limits
 
 | Item | Limits |
 |--|--|
-| Project name |  You can only use letters `(a-z, A-Z)`, and numbers `(0-9)` ,symbols  `_ . -`,with no spaces. Maximum allowed length is 50 characters. |
+| Project name |  You can only use letters `(a-z, A-Z)`, and numbers `(0-9)` , symbols  `_ . -`, with no spaces. Maximum allowed length is 50 characters. |
 | Model name |  You can only use letters `(a-z, A-Z)`, numbers `(0-9)` and symbols `_ . -`. Maximum allowed length is 50 characters.  |
 | Deployment name |  You can only use letters `(a-z, A-Z)`, numbers `(0-9)` and symbols `_ . -`. Maximum allowed length is 50 characters.  |
 | Intent name| You can only use letters `(a-z, A-Z)`, numbers `(0-9)` and all symbols except ":", `$ & %  * (  ) + ~ # / ?`. Maximum allowed length is 50 characters.|

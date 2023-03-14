@@ -2,8 +2,8 @@
 title: Azure Kubernetes Service plugin for confidential VMs
 description: How to use the Intel SGX device plugin and Intel SGX quote helper daemon sets for confidential VMs with Azure Kubernetes Service.
 author: agowdamsft
-ms.service: virtual-machines
-ms.subservice: workloads
+ms.service: virtual-machines 
+ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: article
 ms.date: 11/01/2021
@@ -67,7 +67,7 @@ Each container needs to opt in to use out-of-proc quote generation by setting th
 An application can still use the in-proc attestation as before. However, you can't simultaneously use both in-proc and out-of-proc within an application. The out-of-proc infrastructure is available by default and consumes resources.
 
 > [!NOTE]
-> If you are using a Intel SGX wrapper software (OSS/ISV) to run you unmodified containers the attestation interaction with hardware is typically handled for your higher level apps. Please refer to the attestation implementation per provider. 
+> If you are using a Intel SGX wrapper software (OSS/ISV) to run your unmodified containers the attestation interaction with hardware is typically handled for your higher level apps. Please refer to the attestation implementation per provider. 
 
 ### Sample implementation
 
@@ -106,7 +106,7 @@ RUN apt-get update && apt-get install -y \
     libsgx-quote-ex \
     az-dcap-client \
     open-enclave
-WORKDIR /opt/openenclave/share/openenclave/samples/remote_attestation
+WORKDIR /opt/openenclave/share/openenclave/samples/attestation
 RUN . /opt/openenclave/share/openenclave/openenclaverc \
     && make build
 # this sets the flag for out of proc attestation mode, alternatively you can set this flag on the deployment files

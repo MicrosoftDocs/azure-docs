@@ -1,5 +1,5 @@
 ---
-title: Structure of transformation in Azure Monitor (preview)
+title: Structure of transformation in Azure Monitor
 description: Structure of transformation in Azure Monitor including limitations of KQL allowed in a transformation.
 ms.topic: conceptual
 ms.date: 06/29/2022
@@ -7,7 +7,7 @@ ms.reviwer: nikeist
 
 ---
 
-# Structure of transformation in Azure Monitor (preview)
+# Structure of transformation in Azure Monitor
 [Transformations in Azure Monitor](./data-collection-transformations.md) allow you to filter or modify incoming data before it's stored in a Log Analytics workspace. They are implemented as a Kusto Query Language (KQL) statement in a [data collection rule (DCR)](data-collection-rule-overview.md). This article provides details on how this query is structured and limitations on the KQL language allowed.
 
 
@@ -39,6 +39,8 @@ Transformations in a [data collection rule (DCR)](data-collection-rule-overview.
 
 
 
+### Required columns
+The output of every transformation must contain a valid timestamp in a column called `TimeGenerated` of type `datetime`. Make sure to include it in the final `extend` or `project` block! Creating or updating a DCR without `TimeGenerated` in the output of a transformation will lead to an error.
 
 ## Inline reference table
 The [datatable](/azure/data-explorer/kusto/query/datatableoperator?pivots=azuremonitor) operator isn't supported in the subset of KQL available to use in transformations. This operator would normally be used in KQL to define an inline query-time table. Use dynamic literals instead to work around this limitation.
@@ -291,6 +293,7 @@ The following [Bitwise operators](/azure/data-explorer/kusto/query/binoperators)
 - [isempty](/azure/data-explorer/kusto/query/isemptyfunction)
 - [isnotempty](/azure/data-explorer/kusto/query/isnotemptyfunction)
 - [parse_json](/azure/data-explorer/kusto/query/parsejsonfunction)
+- [replace](https://github.com/microsoft/Kusto-Query-Language/blob/master/doc/replacefunction.md)
 - [split](/azure/data-explorer/kusto/query/splitfunction)
 - [strcat](/azure/data-explorer/kusto/query/strcatfunction)
 - [strcat_delim](/azure/data-explorer/kusto/query/strcat-delimfunction)
@@ -306,10 +309,24 @@ The following [Bitwise operators](/azure/data-explorer/kusto/query/binoperators)
 - [isnotnull](/azure/data-explorer/kusto/query/isnotnullfunction)
 - [isnull](/azure/data-explorer/kusto/query/isnullfunction)
 
+#### Special functions 
+
+##### parse_cef_dictionary
+
+Given a string containing a CEF message, `parse_cef_dictionary` parses the Extension property of the message into a dynamic key/value object. Semicolon is a reserved character that should be replaced prior to passing the raw message into the method, as shown in the example below.
+
+```kusto
+| extend cefMessage=iff(cefMessage contains_cs ";", replace(";", " ", cefMessage), cefMessage) 
+| extend parsedCefDictionaryMessage =parse_cef_dictionary(cefMessage) 
+| extend parsecefDictionaryExtension = parsedCefDictionaryMessage["Extension"]
+| project TimeGenerated, cefMessage, parsecefDictionaryExtension
+```
+
+:::image type="content" source="media/data-collection-transformations-structure/parse_cef_dictionary.png" alt-text="Sample output of parse_cef_dictionary function." lightbox="media/data-collection-transformations-structure/parse_cef_dictionary.png":::
+
+
 ### Identifier quoting
 Use [Identifier quoting](/azure/data-explorer/kusto/query/schema-entities/entity-names?q=identifier#identifier-quoting) as required.
-
-
 
 
 ## Next steps

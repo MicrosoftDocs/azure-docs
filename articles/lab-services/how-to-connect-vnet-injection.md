@@ -10,7 +10,7 @@ ms.custom: devdivchpfy22
 
 [!INCLUDE [preview focused article](./includes/lab-services-new-update-focused-article.md)]
 
-This article provides information about connecting a [lab plan](tutorial-setup-lab-plan.md) to your virtual network.
+This article provides information about connecting a lab plan to your virtual network.
 
 Some organizations have advanced network requirements and configurations that they want to apply to labs. For example, network requirements can include a network traffic control, ports management, access to resources in an internal network, etc.  Certain on-premises networks are connected to Azure Virtual Network either through [ExpressRoute](../expressroute/expressroute-introduction.md) or [Virtual Network Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md). These services must be set up outside of Azure Lab Services. To learn more about connecting an on-premises network to Azure using ExpressRoute, see [ExpressRoute overview](../expressroute/expressroute-introduction.md). For on-premises connectivity using a Virtual Network Gateway, the gateway, specified virtual network, network security group, and the lab plan all must be in the same region.
 
@@ -30,7 +30,7 @@ Before you configure advanced networking for your lab plan, complete the followi
 1. [Create a subnet](../virtual-network/virtual-network-manage-subnet.md) for the virtual network.
 1. [Delegate the subnet](#delegate-the-virtual-network-subnet-for-use-with-a-lab-plan) to **Microsoft.LabServices/labplans**.
 1. [Create a network security group (NSG)](../virtual-network/manage-network-security-group.md).
-1. [Create an inbound rule to allow traffic from SSH and RDP ports](/azure/virtual-network/manage-network-security-group).
+1. [Create an inbound rule to allow traffic from SSH and RDP ports](../virtual-network/manage-network-security-group.md).
 1. [Associate the NSG to the delegated subnet](#associate-delegated-subnet-with-nsg).
 
 Now that the prerequisites have been completed, you can [use advanced networking to connect your virtual network during lab plan creation](#connect-the-virtual-network-during-lab-plan-creation).
@@ -92,7 +92,7 @@ For connectivity to lab VMs, it's required to associate an NSG with the subnet d
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select **Create a resource** in the upper left-hand corner of the Azure portal.
 1. Search for **lab plan**.  (**Lab plan** can also be found under the **DevOps** category.)
-1. Enter required information on the **Basics** tab of the **Create a lab plan** page.  For more information, see [Tutorial: Create a lab plan with Azure Lab Services](tutorial-setup-lab-plan.md).
+1. Enter required information on the **Basics** tab of the **Create a lab plan** page.  For more information, see [Create a lab plan with Azure Lab Services](quick-create-resources.md).
 1. From the **Basics** tab of the **Create a lab plan** page, select **Next: Networking** at the bottom of the page.
 1. Select **Enable advanced networking**.
 

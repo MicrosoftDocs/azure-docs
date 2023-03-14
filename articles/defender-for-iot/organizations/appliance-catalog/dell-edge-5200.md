@@ -12,9 +12,13 @@ This article describes the Dell Edge 5200 appliance for OT sensors.
 | Appliance characteristic |Details |
 |---------|---------|
 |**Hardware profile** | E500|
-|**Performance** | Max bandwidth: 1 Gbp/s<br>Max devices: 10,000 |
+|**Performance** | Max bandwidth: 1 Gbps<br>Max devices: 10,000 |
 |**Physical specifications** | Mounting: Wall Mount<br>Ports: 3x RJ45 |
-|**Status** | Supported, Not available preconfigured|
+|**Status** | Supported, Not available pre-configured|
+
+The following image shows the hardware elements on the Dell Edge 5200 that are used by Defender for IoT:
+
+:::image type="content" source="../media/tutorial-install-components/dell-5200-panel.png" alt-text="Diagram of ports on the Dell Edge 5200 appliance." border="false":::
 
 ## Specifications
 
@@ -36,7 +40,7 @@ This article describes the Dell Edge 5200 appliance for OT sensors.
 
 |Quantity|PN|Description|
 |:----|:----|:----|
-|1|210-BCNV|Dell EMC Edge Gateway 5200,Core i7-9700TE.32G.512G, Win 10 IoT.TPM,OEM|
+|1|210-BCNV|Dell EMC Edge Gateway 5200,Core i7-9700TE.32G.512G, Win 10 IoT.TPM, OEM|
 |1|631-ADIJ|User Documentation EMEA 2|
 |1|683-1187|No Installation Service Selected (Contact Sales Rep for more details)|
 |1|709-BDGW|Parts Only Warranty 15 Months|

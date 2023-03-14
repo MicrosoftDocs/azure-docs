@@ -4,6 +4,8 @@
   items:
   - name: About Azure Arc-enabled servers
     href: overview.md
+  - name: VMware FAQ
+    href: vmware-faq.md
   - name: What's new with Connected Machine agent?
     href: agent-release-notes.md
   - name: Archive for Connected Machine agent release notes
@@ -26,7 +28,7 @@
   items:
     - name: Connected Machine agent overview
       href: agent-overview.md
-    - name: Log Analytics agent deployment options
+    - name: Deploy Azure Monitor agent
       href: concept-log-analytics-extension-deployment.md
     - name: Security
       items:
@@ -37,6 +39,8 @@
          href: security-overview.md
        - name: Private Link networking
          href: private-link-security.md
+       - name: Security baseline
+         href: /security/benchmark/azure/baselines/azure-arc-enabled-servers-security-baseline?toc=/azure/azure-arc/servers/toc.json
 - name: How-to guides
   items:
   - name: Deploy
@@ -67,10 +71,8 @@
          href: onboard-configuration-manager-powershell.md
        - name: Connect machines using Configuration Manager custom task sequence
          href: onboard-configuration-manager-custom-task.md 
-       - name: Connect machines using group policy
-         href: onboard-group-policy.md
-       - name: Connect machines using group policy with service principal encryption
-         href: onboard-group-policy-service-principal-encryption.md
+       - name: Connect machines at scale using group policy
+         href: onboard-group-policy-powershell.md
        - name: Connect machines using Ansible playbooks
          href: onboard-ansible-playbooks.md
        - name: Connect machines from Automation Update Management
@@ -107,6 +109,10 @@
       href: plan-evaluate-on-azure-virtual-machine.md
     - name: Onboard to Microsoft Sentinel
       href: scenario-onboard-azure-sentinel.md
+    - name: Migrate to Azure Monitor Agent using Ansible
+      href: migrate-azure-monitor-agent-ansible.md
+    - name: Organize and inventory servers
+      href: organize-inventory-servers.md
     - name: Onboard to Microsoft Defender for Cloud
       href: ../../defender-for-cloud/quickstart-onboard-machines.md?toc=/azure/azure-arc/servers/toc.json&bc=/azure/azure-arc/servers/breadcrumb/toc.json
     - name: Manage with Windows Admin Center
@@ -130,7 +136,7 @@
   - name: Azure PowerShell
     href: /powershell/module/az.connectedmachine/
   - name: .NET
-    href: /dotnet/api/overview/azure/hybridcompute/management
+    href: /dotnet/api/overview/azure/hybridcompute/management/management-hybridcompute
   - name: Azure Stack HCI REST
     href: /rest/api/stackhci/
   - name: REST

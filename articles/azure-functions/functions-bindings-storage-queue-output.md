@@ -349,11 +349,11 @@ You can use the `StorageAccount` attribute to specify the storage account at cla
 
 # [Isolated process](#tab/isolated-process)
 
-When running in an isolated process, you use the [QueueOutputAttribute](https://github.com/Azure/azure-functions-dotnet-worker/blob/main/extensions/Worker.Extensions.Storage.Queues/src/QueueOutputAttribute.cs), which takes the name of the queue, as shown in the following example:
+When running in an isolated worker process, you use the [QueueOutputAttribute](https://github.com/Azure/azure-functions-dotnet-worker/blob/main/extensions/Worker.Extensions.Storage.Queues/src/QueueOutputAttribute.cs), which takes the name of the queue, as shown in the following example:
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" id="docsnippet_queue_trigger" :::
 
-Only returned variables are supported when running in an isolated process. Output parameters can't be used. 
+Only returned variables are supported when running in an isolated worker process. Output parameters can't be used. 
 
 # [C# script](#tab/csharp-script)
 
@@ -432,7 +432,7 @@ An in-process class library is a compiled C# function runs in the same process a
  
 # [Isolated process](#tab/isolated-process)
 
-An isolated process class library compiled C# function runs in a process isolated from the runtime. Isolated process is required to support C# functions running on .NET 5.0.  
+An isolated worker process class library compiled C# function runs in a process isolated from the runtime.   
    
 # [C# script](#tab/csharp-script)
 
@@ -482,11 +482,11 @@ You can write multiple messages to the queue by using one of the following types
 
 # [Extension 5.x+](#tab/extensionv5/isolated-process)
 
-Isolated process currently only supports binding to string parameters.
+Isolated worker process currently only supports binding to string parameters.
 
 # [Extension 2.x+](#tab/extensionv2/isolated-process)
 
-Isolated process currently only supports binding to string parameters.
+Isolated worker process currently only supports binding to string parameters.
 
 # [Extension 5.x+](#tab/extensionv5/csharp-script)
 

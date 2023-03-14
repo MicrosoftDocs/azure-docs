@@ -7,7 +7,6 @@ ms.reviewer: shijain
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav 
-ms.custom: devx-track-azurepowershell
 ---
 # Send Guest OS metrics to the Azure Monitor metric store classic Cloud Services 
 
@@ -35,7 +34,7 @@ The process that's outlined in this article works only for performance counters 
 
 1. Create and deploy a classic cloud service. A sample classic Cloud Services application and deployment can be found at [Get started with Azure Cloud Services and ASP.NET](../../cloud-services/cloud-services-dotnet-get-started.md). 
 
-2. You can use an existing storage account or deploy a new storage account. It's best if the storage account is in the same region as the classic cloud service that you created. In the Azure portal, go to the **Storage accounts** resource blade, and then select **Keys**. Take note of the storage account name and the storage account key. You'll need this information in later steps.
+2. You can use an existing storage account or deploy a new storage account. It's best if the storage account is in the same region as the classic cloud service that you created. In the Azure portal, go to the **Storage accounts** resource pane, and then select **Keys**. Take note of the storage account name and the storage account key. You'll need this information in later steps.
 
    ![Storage account keys](./media/collect-custom-metrics-guestos-vm-cloud-service-classic/storage-keys.png)
 
@@ -172,7 +171,7 @@ Set-AzureServiceDiagnosticsExtension -ServiceName <classicCloudServiceName> -Sto
 
 2. On the left menu, select **Monitor.**
 
-3. On the **Monitor** blade, select the **Metrics Preview** tab.
+3. On the **Monitor** pane, select the **Metrics Preview** tab.
 
 4. In the resources drop-down menu, select your classic cloud service.
 

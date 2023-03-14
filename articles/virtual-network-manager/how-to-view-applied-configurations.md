@@ -20,7 +20,7 @@ All network group memberships are recorded and available for query inside [Azure
 
 Open the [Azure portal](https://portal.azure.com) to find and use the Resource Graph Explorer with the following steps:
 
-1. Select **All services** in the left pane. Search for and select **Resource Graph Explorer**, or connect directly to the [Resource Graph Explorer](https://ms.portal.azure.com/#view/HubsExtension/ArgQueryBlade) 
+1. Select **All services** in the left pane. Search for and select **Resource Graph Explorer**, or connect directly to the [Resource Graph Explorer](https://portal.azure.com/#view/HubsExtension/ArgQueryBlade) 
 
 1. In the **Query 1** portion of the window, enter the following query to find all network groups containing your virtual network:
     ```kusto

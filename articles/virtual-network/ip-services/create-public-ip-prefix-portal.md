@@ -42,12 +42,14 @@ In this section, you'll create a public IP prefix using the Azure portal.
     | ------- | ----- |
     | **Project details** |   |
     | Subscription | Select your subscription |
-    | Resource group | Select **Create new**. </br> Enter **QuickStartCreateIPPrefix-rg**. </br> Select **OK**. |
+    | Resource group | Select **Create new**. </br> Enter **myRG**. </br> Select **OK**. |
     | **Instance details** |   |
     | Name | Enter **myPublicIPPrefix**. |
     | Region | Select **(US) West US 2**. |
     | IP version | Leave the default of **IPv4**. |
+    | Prefix ownership | Leave the default of **Microsoft owned** |
     | Prefix size | Select your prefix size. |
+    | Availability Zone | Leave the default of **Zone-redundant** |
 
     :::image type="content" source="./media/create-public-ip-prefix-portal/create-public-ip-prefix.png" alt-text="Screenshot of create public IP address prefix in the Azure portal":::
     

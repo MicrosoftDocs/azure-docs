@@ -2,14 +2,15 @@
 title: Configure sign-in auto-acceleration using Home Realm Discovery
 description: Learn how to force federated IdP acceleration for an application using Home Realm Discovery policy.
 services: active-directory
-author: nickludwig
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 02/09/2022
-ms.author: ludwignick
+ms.date: 01/02/2023
+ms.author: jomondi
+ms.reviewer: ludwignick
 ms.custom: seoapril2019, contperf-fy22q2
 ms.collection: M365-identity-device-management
 zone_pivot_groups: home-realm-discovery
@@ -19,7 +20,11 @@ zone_pivot_groups: home-realm-discovery
 
 # Configure sign-in behavior using Home Realm Discovery
 
-This article provides an introduction to configuring Azure Active Directory(Azure AD) authentication behavior for federated users using Home Realm Discovery (HRD) policy.  It covers using auto-acceleration to skip the username entry screen and automatically forward users to federated login endpoints. To learn more about HRD policy, see [Home Realm Discovery](home-realm-discovery-policy.md)
+This article provides an introduction to configuring Azure Active Directory (Azure AD) authentication behavior for federated users using Home Realm Discovery (HRD) policy. It covers using auto-acceleration sign-in to skip the username entry screen and automatically forward users to federated login endpoints. To learn more about HRD policy, check out the [Home Realm Discovery](home-realm-discovery-policy.md) article.
+
+## Auto-acceleration sign-in
+
+Some organizations configure domains in their Azure AD tenant to federate with another identity provider (IDP), such as AD FS for user authentication. When a user signs into an application, they're first presented with an Azure AD sign-in page. After they've typed their UPN, if they are in a federated domain they're then taken to the sign-in page of the IDP serving that domain. Under certain circumstances, administrators might want to direct users to the sign-in page when they're signing in to specific applications. As a result users can skip the initial Azure AD page. This process is referred to as "sign-in auto-acceleration." 
 
 For federated users with cloud-enabled credentials, such as SMS sign-in or FIDO keys, you should prevent sign-in auto-acceleration. See [Disable auto-acceleration sign-in](prevent-domain-hints-with-home-realm-discovery.md) to learn how to prevent domain hints with HRD. 
 
@@ -77,11 +82,11 @@ If nothing is returned, it means you have no policies created in your tenant.
 
 In this example, you create a policy that when it's assigned to an application either:
 
-- Auto-accelerates users to an federated identity provider sign-in screen when they are signing in to an application when there is a single domain in your tenant.
-- Auto-accelerates users to an federated identity provider sign-in screen if there is more than one federated domain in your tenant.
+- Auto-accelerates users to a federated identity provider sign-in screen when they're signing in to an application when there's a single domain in your tenant.
+- Auto-accelerates users to a federated identity provider sign-in screen if there's more than one federated domain in your tenant.
 - Enables non-interactive username/password sign-in directly to Azure AD for federated users for the applications the policy is assigned to.
 
-The following policy auto-accelerates users to an federated identity provider sign-in screen when they're signing in to an application when there's a single domain in your tenant.
+The following policy auto-accelerates users to a federated identity provider sign-in screen when they're signing in to an application when there's a single domain in your tenant.
 
 ::: zone pivot="powershell-hrd"
 
@@ -99,7 +104,7 @@ New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFe
 ```
 ::: zone-end
 
-The following policy auto-accelerates users to an federated identity provider sign-in screen when there is more than one federated domain in your tenant. If you have more than one federated domain that authenticates users for applications, you need to specify the domain to auto-accelerate.
+The following policy auto-accelerates users to a federated identity provider sign-in screen when there's more than one federated domain in your tenant. If you've more than one federated domain that authenticates users for applications, you need to specify the domain to auto-accelerate.
 
 ::: zone pivot="powershell-hrd"
 
@@ -147,7 +152,7 @@ To see your new policy and get its **ObjectID**, run the following command:
 Get-AzureADPolicy
 ```
 
-To apply the HRD policy after you have created it, you can assign it to multiple application service principals.
+To apply the HRD policy after you've created it, you can assign it to multiple application service principals.
 
 ## Locate the service principal to which to assign the policy
 
@@ -155,7 +160,7 @@ You need the **ObjectID** of the service principals to which you want to assign 
 
 You can use the [Azure portal](https://portal.azure.com), or you can query [Microsoft Graph](/graph/api/resources/serviceprincipal). You can also go to the [Graph Explorer Tool](https://developer.microsoft.com/graph/graph-explorer) and sign in to your Azure AD account to see all your organization's service principals.
 
-Because you are using PowerShell, you can use the following cmdlet to list the service principals and their IDs.
+Because you're using PowerShell, you can use the following cmdlet to list the service principals and their IDs.
 
 ```powershell
 Get-AzureADServicePrincipal
@@ -255,4 +260,5 @@ From the Microsoft Graph explorer window:
 
 ## Next steps
 
-[Prevent sign-in auto-acceleration](prevent-domain-hints-with-home-realm-discovery.md).
+- [Prevent sign-in auto-acceleration](prevent-domain-hints-with-home-realm-discovery.md)
+- [Home Realm Discovery for an application](./home-realm-discovery-policy.md)

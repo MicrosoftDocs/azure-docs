@@ -3,18 +3,17 @@ title: Industrial IoT patterns with Azure IoT Central | Microsoft Docs
 description: This article introduces common Industrial IoT patterns that you can implement using Azure IoT Central
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/27/2022
+ms.date: 11/28/2022
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-
 ---
 
 # Industrial IoT (IIoT) architecture patterns with Azure IoT Central
 
-:::image type="content" source="media/concepts-iiot-architecture/industrial-iot-architecture.svg" alt-text="Diagram of high-level industrial I O T architecture." border="false":::
+:::image type="content" source="media/concepts-iiot-architecture/industrial-iot-architecture.svg" alt-text="Diagram of high-level industrial IoT architecture." border="false":::
 
-IoT Central enables you to implement your IIoT scenario by using the following built-in capabilities:
+IoT Central lets you evaluate your IIoT scenario by using the following built-in capabilities:
 
 - Connect industrial assets either directly or through a gateway device
 - Collect data at scale from your industrial assets
@@ -22,7 +21,7 @@ IoT Central enables you to implement your IIoT scenario by using the following b
 - Model and organize the data from your industrial assets and use the built-in analytics and monitoring capabilities
 - Integrate and extend your solution by connecting to first and third party applications and services
 
-IoT Central enables you to build highly available, scalable, and secure solutions.
+By using the Azure IoT platform, IoT Central lets you evaluate solutions that are scalable and secure.
 
 ## Connect your industrial assets
 
@@ -76,6 +75,8 @@ Secure your IIoT solution by using the following IoT Central features:
 - Create private endpoints to limit and secure industrial assets/gateway connectivity to your Azure IoT Central application with Private Link.
 
 - Ensure safe, secure data exports with Azure Active Directory managed identities.
+
+- Use audit logs to track activity in your IoT Central application.
 
 ## Patterns
 
@@ -136,3 +137,4 @@ Industrial networks are crucial to the working of a manufacturing facility. With
 ## Next steps
 
 Now that you've learned about IIoT architecture patterns with Azure IoT Central, the suggested next step is to learn about [device connectivity](overview-iot-central-developer.md) in Azure IoT Central.
+

@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: overview
-ms.date: 07/20/2022
+ms.date: 11/06/2022
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: image recognition, image identifier, image recognition app, custom vision
@@ -19,6 +19,9 @@ keywords: image recognition, image identifier, image recognition app, custom vis
 # What is Custom Vision?
 
 Azure Custom Vision is an image recognition service that lets you build, deploy, and improve your own image identifier models. An image identifier applies labels to images, according to their visual characteristics. Each label represents a classification or object. Unlike the [Computer Vision](../computer-vision/overview.md) service, Custom Vision allows you to specify your own labels and train custom models to detect them.
+
+> [!TIP]
+> The Azure Computer Vision Image Analysis API now supports custom models. [Use Image Analysis 4.0](../computer-vision/how-to/model-customization.md) to create custom image identifier models using the latest technology from Azure. To migrate a Custom Vision project to the new Image Analysis 4.0 system, see the [Migration guide](../computer-vision/how-to/migrate-from-custom-vision.md).
 
 You can use Custom Vision through a client library SDK, REST API, or through the [Custom Vision web portal](https://customvision.ai/). Follow a quickstart to get started.
 
@@ -33,7 +36,7 @@ This documentation contains the following types of articles:
 * The [tutorials](./iot-visual-alerts-tutorial.md) are longer guides that show you how to use this service as a component in broader business solutions.
 <!--* The [conceptual articles](Vision-API-How-to-Topics/call-read-api.md) provide in-depth explanations of the service's functionality and features.-->
 
-For a more structured approach, follow a Learn module for Custom Vision:
+For a more structured approach, follow a Training module for Custom Vision:
 * [Classify images with the Custom Vision service](/training/modules/classify-images-custom-vision/)
 * [Classify endangered bird species with Custom Vision](/training/modules/cv-classify-bird-species/)
 

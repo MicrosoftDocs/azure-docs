@@ -1,16 +1,16 @@
 ---
 title: How to manage a dev center
-titleSuffix: Microsoft Dev Box
-description: This article describes how to create, delete, and manage Microsoft Dev Box dev centers.
+titleSuffix: Microsoft Dev Box Preview
+description: This article describes how to create, delete, and manage Microsoft Dev Box Preview dev centers.
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 08/18/2022
+ms.date: 10/12/2022
 ms.topic: how-to
 ---
 
-<!-- Intent: As a dev infrastructure manager, I want to be able to manage dev centers so that I can manage my Microsoft Dev Box implementation. -->
+<!-- Intent: As a dev infrastructure manager, I want to be able to manage dev centers so that I can manage my Microsoft Dev Box Preview implementation. -->
 
 # Manage a dev center
 Development teams vary in the way they function and may have different needs. A dev center helps you to manage these different scenarios by enabling you to group similar sets of projects together and apply similar settings.
@@ -48,7 +48,7 @@ The following steps show you how to create a dev center.
  
    :::image type="content" source="./media/how-to-manage-dev-center/create-dev-center-basics.png" alt-text="Screenshot showing the Create dev center Basics tab."::: 
        
-   The currently supported Azure locations with capacity are listed here: [Microsoft Dev Box](https://aka.ms/devbox_acom).
+   The currently supported Azure locations with capacity are listed here: [Microsoft Dev Box Preview](https://aka.ms/devbox_acom).
 
 1. [Optional] On the **Tags** tab, enter a name and value pair that you want to assign.
    :::image type="content" source="./media/how-to-manage-dev-center/create-dev-center-tags.png" alt-text="Screenshot showing the Create dev center Tags tab."::: 
@@ -118,25 +118,16 @@ To make role assignments, use the following steps:
 
 1. Select **Access Control (IAM)** from the left menu.
 
-   :::image type="content" source="./media/how-to-manage-dev-center/dev-center-access-control.png" alt-text="Screenshot showing the dev center page with the Access Control link highlighted.":::
-
 1. Select **Add** > **Add role assignment**.
 
-   :::image type="content" source="./media/how-to-manage-dev-center/add-role-assignment.png" alt-text="Screenshot showing the Add menu with Add role assignment highlighted.":::
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+    
+    | Setting | Value |
+    | --- | --- |
+    | **Role** | Select **Owner**, **Contributor**, or **Reader**. |
+    | **Assign access to** | Select **User, group, or service principal**. |
+    | **Members** | Select the users or groups you want to have access to the dev center. |
 
-1. On the Add role assignment page, choose the built-in role you want to assign, and then select **Next**.
-
-   :::image type="content" source="./media/how-to-manage-dev-center/dev-center-built-in-roles.png" alt-text="Screenshot showing the Add role assignment search box highlighted.":::
-
-1. On the Members page, select **+ Select Members**.
-
-   :::image type="content" source="./media/how-to-manage-dev-center/dev-center-owner-select-members.png" alt-text="Screenshot showing the Members tab with Select members highlighted.":::
-
-1. On the **Select members** pane, select the Active Directory Users or Groups you want to add, and then select **Select**.
-
-   :::image type="content" source="./media/how-to-manage-dev-center/select-members-search.png" alt-text="Screenshot showing the Select members pane with a user account highlighted.":::
-
-1. On the Add role assignment page, select **Review + assign**.
 ## Next steps
 
 - [Provide access to projects for project admins](./how-to-project-admin.md)

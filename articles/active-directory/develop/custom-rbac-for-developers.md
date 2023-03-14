@@ -4,22 +4,20 @@ description: Learn about what custom RBAC is and why it's important to implement
 services: active-directory
 author: davidmu1
 manager: CelesteDG
- 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity 
-ms.date: 08/19/2022
-ms.custom: template-concept
+ms.date: 01/06/2023
+ms.custom: template-concept, ignite-2022
 ms.author: davidmu
-ms.reviewer: john.garland, maggie.marxen, ian.bennett, marsma
-
+ms.reviewer: john.garland, maggie.marxen, ian.bennett
 #Customer intent: As a developer, I want to learn about custom RBAC and why I need to use it in my application.
 ---
 
 # Role-based access control for application developers
 
-Role-based access control (RBAC) allows certain users or groups to have specific permissions to access and manage resources. Application RBAC differs from [Azure role-based access control](../../role-based-access-control/overview.md) and [Azure AD role-based access control](../roles/custom-overview.md#understand-azure-ad-role-based-access-control). Azure custom roles and built-in roles are both part of Azure RBAC, which is used to help manage Azure resources. Azure AD RBAC is used to manage Azure AD resources. This article explains application-specific RBAC.
+Role-based access control (RBAC) allows certain users or groups to have specific permissions to access and manage resources. Application RBAC differs from [Azure role-based access control](../../role-based-access-control/overview.md) and [Azure AD role-based access control](../roles/custom-overview.md#understand-azure-ad-role-based-access-control). Azure custom roles and built-in roles are both part of Azure RBAC, which is used to help manage Azure resources. Azure AD RBAC is used to manage Azure AD resources. This article explains application-specific RBAC. For information about implementing application-specific RBAC, see [How to add app roles to your application and receive them in the token](./howto-add-app-roles-in-azure-ad-apps.md).
 
 ## Roles definitions
 
@@ -56,7 +54,7 @@ Developers can also use [Azure AD groups](../fundamentals/active-directory-manag
 
 ### Custom data store
 
-App roles and groups both store information about user assignments in the Azure AD directory. Another option for managing user role information that is available to developers is to maintain the information outside of the directory in a custom data store. For example, in a SQL Database, Azure Table storage or Azure Cosmos DB Table API.
+App roles and groups both store information about user assignments in the Azure AD directory. Another option for managing user role information that is available to developers is to maintain the information outside of the directory in a custom data store. For example, in a SQL database, Azure Table storage, or Azure Cosmos DB for Table.
 
 Using custom storage allows developers extra customization and control over how to assign roles to users and how to represent them. However, the extra flexibility also introduces more responsibility. For example, there's no mechanism currently available to include this information in tokens returned from Azure AD. If developers maintain role information in a custom data store, they'll need to have the applications retrieve the roles. Retrieving the roles is typically done using extensibility points defined in the middleware available to the platform that's being used to develop the application. Developers are responsible for properly securing the custom data store.
 
@@ -81,5 +79,4 @@ Although either app roles or groups can be used for authorization, key differenc
 
 ## Next steps
 
-- [How to add app roles to your application and receive them in the token](./howto-add-app-roles-in-azure-ad-apps.md)
 - [Azure Identity Management and access control security best practices](../../security/fundamentals/identity-management-best-practices.md)

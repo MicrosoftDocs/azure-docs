@@ -34,7 +34,7 @@
   - name: Using App Service Environment
     href: using.md
   - name: Create App Service Environment from template
-    href: create-from-template.md
+    href: how-to-create-from-template.md
   - name: App Service Environment custom settings
     href: app-service-app-service-environment-custom-settings.md
   - name: App Service Environment v3 network settings
@@ -77,6 +77,8 @@
     items:
     - name: About App Service Environment v2
       href: intro.md
+    - name: Create ASE v2 from template
+      href: create-from-template.md
     - name: Create external ASE v2
       href: create-external-ase.md
     - name: Create internal ASE v2

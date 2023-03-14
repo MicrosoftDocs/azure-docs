@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 01/21/2022
+ms.date: 01/26/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -34,7 +34,7 @@ This article covers how to configure the different filtering methods.
 ## Basics and important notes
 In Azure AD Connect sync, you can enable filtering at any time. If you start with a default configuration of directory synchronization and then configure filtering, the objects that are filtered out are no longer synchronized to Azure AD. Because of this change, any objects in Azure AD that were previously synchronized but were then filtered are deleted in Azure AD.
 
-Before you start making changes to filtering, make sure that you [disable the scheduled task](#disable-the-scheduled-task) so you don't accidentally export changes that you haven't yet verified to be correct.
+Before you start making changes to filtering, make sure that you [disable the built-in scheduler](#disable-the-synchronization-scheduler) so you don't accidentally export changes that you haven't yet verified to be correct.
 
 Because filtering can remove many objects at the same time, you want to make sure that your new filters are correct before you start exporting any changes to Azure AD. After you've completed the configuration steps, we strongly recommend that you follow the [verification steps](#apply-and-verify-changes) before you export and make changes to Azure AD.
 
@@ -50,23 +50,21 @@ The filtering configuration is retained when you install or upgrade to a newer v
 
 If you have more than one forest, then you must apply the filtering configurations that are described in this topic to every forest (assuming that you want the same configuration for all of them).
 
-### Disable the scheduled task
+### Disable the synchronization scheduler
 To disable the built-in scheduler that triggers a synchronization cycle every 30 minutes, follow these steps:
 
-1. Go to a PowerShell prompt.
-2. Run `Set-ADSyncScheduler -SyncCycleEnabled $False` to disable the scheduler.
-3. Make the changes that are documented in this article.
-4. Run `Set-ADSyncScheduler -SyncCycleEnabled $True` to enable the scheduler again.
+1. Open Windows Powershell, import the ADSync module and disable the scheduler using the follwoing commands
 
-**If you use an Azure AD Connect build before 1.1.105.0**  
-To disable the scheduled task that triggers a synchronization cycle every three hours, follow these steps:
+```Powershell
+import-module ADSync
+Set-ADSyncScheduler -SyncCycleEnabled $False
+```
 
-1. Start **Task Scheduler** from the **Start** menu.
-2. Directly under **Task Scheduler Library**, find the task named **Azure AD Sync Scheduler**, right-click, and select **Disable**.  
-   ![Task Scheduler](./media/how-to-connect-sync-configure-filtering/taskscheduler.png)  
-3. You can now make configuration changes and run the sync engine manually from the **Synchronization Service Manager** console.
+2. Make the changes that are documented in this article. Then re-enable the scheduler again with the following command
 
-After you've completed all your filtering changes, don't forget to come back and **Enable** the task again.
+```Powershell
+Set-ADSyncScheduler -SyncCycleEnabled $True
+```
 
 ## Filtering options
 You can apply the following filtering configuration types to the directory synchronization tool:
@@ -88,6 +86,8 @@ To change domain-based filtering, run the installation wizard: [domain and OU fi
 ## Organizational unit–based filtering
 To change OU-based filtering, run the installation wizard: [domain and OU filtering](how-to-connect-install-custom.md#domain-and-ou-filtering). The installation wizard automates all the tasks that are documented in this topic.
 
+> [!IMPORTANT]
+> If you explicitly select an OU for synchronization, Azure AD Connect will add the DistinguishedName of that OU in the inclusion list for the domain's sync scope. However, if you later rename that OU in Active Directory, the DistinguishedName of the OU is changed, and consequently, Azure AD Connect will no longer consider that OU in sync scope. This will not cause an immediate issue, but upon a full import step, Azure AD Connect will reevaluate the sync scope and delete (i.e. obsolete) any objects out of sync scope, which can potentially cause an unexpected mass deletion of objects in Azure AD. To prevent this issue, after renaming a OU, run Azure AD Connect Wizard and re-select the OU to be again included in sync scope.
 
 ## Attribute-based filtering
 Make sure that you're using the November 2015 ([1.0.9125](reference-connect-version-history.md)) or later build for these steps to work.

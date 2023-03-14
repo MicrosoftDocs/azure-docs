@@ -1,8 +1,8 @@
 ---
-title: Understand the machine configuration feature of Azure Policy
+title: Understand Azure Automanage Machine Configuration
 description: Learn how Azure Policy uses the machine configuration feature to audit or configure settings inside virtual machines.
 author: timwarner-msft
-ms.date: 07/25/2022
+ms.date: 03/02/2023
 ms.topic: conceptual
 ms.author: timwarner
 ms.service: machine-configuration
@@ -81,7 +81,7 @@ servers because it's included in the Arc Connected Machine agent.
 > manage Azure virtual machines.
 
 To deploy the extension at scale across many machines, assign the policy initiative
-`Deploy prerequisites to enable machine configuration policies on virtual machines`
+`Deploy prerequisites to enable guest configuration policies on virtual machines`
 to a management group, subscription, or resource group containing the machines
 that you plan to manage.
 
@@ -161,11 +161,66 @@ definitions as long as they're one of the operating systems in the table above.
 
 ## Network requirements
 
-Virtual machines in Azure can use either their local network adapter or a
-private link to communicate with the machine configuration service.
+Azure virtual machines can use either their local virtual network adapter (vNIC)
+or Azure Private Link to communicate with the machine configuration service.
 
-Azure Arc machines connect using the on-premises network infrastructure to reach
+Azure Arc-enabled machines connect using the on-premises network infrastructure to reach
 Azure services and report compliance status.
+
+Following is a list of the Azure Storage endpoints required for Azure and Azure Arc-enabled
+virtual machines to communicate with the machine configuration resource provider in Azure:
+
+- oaasguestconfigac2s1.blob.core.windows.net
+- oaasguestconfigacs1.blob.core.windows.net
+- oaasguestconfigaes1.blob.core.windows.net
+- oaasguestconfigases1.blob.core.windows.net
+- oaasguestconfigbrses1.blob.core.windows.net
+- oaasguestconfigbrss1.blob.core.windows.net
+- oaasguestconfigccs1.blob.core.windows.net
+- oaasguestconfigces1.blob.core.windows.net
+- oaasguestconfigcids1.blob.core.windows.net
+- oaasguestconfigcuss1.blob.core.windows.net
+- oaasguestconfigeaps1.blob.core.windows.net
+- oaasguestconfigeas1.blob.core.windows.net
+- oaasguestconfigeus2s1.blob.core.windows.net
+- oaasguestconfigeuss1.blob.core.windows.net
+- oaasguestconfigfcs1.blob.core.windows.net
+- oaasguestconfigfss1.blob.core.windows.net
+- oaasguestconfiggewcs1.blob.core.windows.net
+- oaasguestconfiggns1.blob.core.windows.net
+- oaasguestconfiggwcs1.blob.core.windows.net
+- oaasguestconfigjiws1.blob.core.windows.net
+- oaasguestconfigjpes1.blob.core.windows.net
+- oaasguestconfigjpws1.blob.core.windows.net
+- oaasguestconfigkcs1.blob.core.windows.net
+- oaasguestconfigkss1.blob.core.windows.net
+- oaasguestconfigncuss1.blob.core.windows.net
+- oaasguestconfignes1.blob.core.windows.net
+- oaasguestconfignres1.blob.core.windows.net
+- oaasguestconfignrws1.blob.core.windows.net
+- oaasguestconfigqacs1.blob.core.windows.net
+- oaasguestconfigsans1.blob.core.windows.net
+- oaasguestconfigscuss1.blob.core.windows.net
+- oaasguestconfigseas1.blob.core.windows.net
+- oaasguestconfigsecs1.blob.core.windows.net
+- oaasguestconfigsfns1.blob.core.windows.net
+- oaasguestconfigsfws1.blob.core.windows.net
+- oaasguestconfigsids1.blob.core.windows.net
+- oaasguestconfigstzns1.blob.core.windows.net
+- oaasguestconfigswcs1.blob.core.windows.net
+- oaasguestconfigswns1.blob.core.windows.net
+- oaasguestconfigswss1.blob.core.windows.net
+- oaasguestconfigswws1.blob.core.windows.net
+- oaasguestconfiguaecs1.blob.core.windows.net
+- oaasguestconfiguaens1.blob.core.windows.net
+- oaasguestconfigukss1.blob.core.windows.net
+- oaasguestconfigukws1.blob.core.windows.net
+- oaasguestconfigwcuss1.blob.core.windows.net
+- oaasguestconfigwes1.blob.core.windows.net
+- oaasguestconfigwids1.blob.core.windows.net
+- oaasguestconfigwus2s1.blob.core.windows.net
+- oaasguestconfigwus3s1.blob.core.windows.net
+- oaasguestconfigwuss1.blob.core.windows.net
 
 ### Communicate over virtual networks in Azure
 
@@ -194,30 +249,34 @@ Traffic is routed using the Azure
 [virtual public IP address](../../virtual-network/what-is-ip-address-168-63-129-16.md)
 to establish a secure, authenticated channel with Azure platform resources.
 
-### Azure Arc-enabled servers
+### Communicate over public endpoints outside of Azure
 
-Nodes located outside Azure that are connected by Azure Arc require connectivity
-to the machine configuration service. Details about network and proxy requirements
-provided in the
-[Azure Arc documentation](../../azure-arc/servers/overview.md).
+Servers located on-premises or in other clouds can be managed with machine configuration
+by connecting them to [Azure Arc](../../azure-arc/servers/overview.md).
 
-For Arc-enabled servers in private datacenters, allow traffic using the
-following patterns:
+For Azure Arc-enabled servers, allow traffic using the following patterns:
 
 - Port: Only TCP 443 required for outbound internet access
 - Global URL: `*.guestconfiguration.azure.com`
+
+See the [Azure Arc-enabled servers network requirements](../../azure-arc/servers/network-requirements.md) for a full list
+of all network endpoints required by the Azure Connected Machine Agent for core Azure Arc and machine configuration scenarios.
+
+### Communicate over Private Link outside of Azure
+
+When using [private link with Arc-enabled servers](../../azure-arc/servers/private-link-security.md), built-in policy packages will automatically be downloaded over the private link.
+You do not need to set any tags on the Arc-enabled server to enable this feature.
 
 ## Assigning policies to machines outside of Azure
 
 The Audit policy definitions available for machine configuration include the
 **Microsoft.HybridCompute/machines** resource type. Any machines onboarded to
-[Azure Arc for servers](../../azure-arc/servers/overview.md) that are in the
+[Azure Arc-enabled servers](../../azure-arc/servers/overview.md) that are in the
 scope of the policy assignment are automatically included.
 
 ## Managed identity requirements
 
-Policy definitions in the initiative _Deploy prerequisites to enable guest
-configuration policies on virtual machines_ enable a system-assigned managed
+Policy definitions in the initiative `Deploy prerequisites to enable guest configuration policies on virtual machines` enable a system-assigned managed
 identity, if one doesn't exist. There are two policy definitions in the
 initiative that manage identity creation. The IF conditions in the policy
 definitions ensure the correct behavior based on the current state of the
@@ -270,16 +329,33 @@ For more information about troubleshooting machine configuration, see
 
 ### Multiple assignments
 
-Guest Configuration policy definitions now support assigning the same
-guest assignment to more than once per machine when the policy assignment uses different
-parameters. 
+At this time, only some built-in Guest Configuration policy definitions support multiple assignments. However, all custom policies support multiple assignments by default if you used the latest version of [the `GuestConfiguration` PowerShell module](/azure/governance/machine-configuration/machine-configuration-create-setup) to create Guest Configuration packages and policies.
 
-### Assignments to Azure Management Groups
+Following is the list of built-in Guest Configuration policy definitions that support multiple assignments:
 
-Azure Policy definitions in the category 'Guest Configuration' can be assigned
-to Management Groups only when the effect is 'AuditIfNotExists'. Policy
-definitions with effect 'DeployIfNotExists' aren't supported as assignments to
-Management Groups.
+| ID                                                                                        | DisplayName                                                                                                 |
+|--------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
+| /providers/Microsoft.Authorization/policyDefinitions/5fe81c49-16b6-4870-9cee-45d13bf902ce | Local authentication methods should be disabled on Windows Servers                                          |
+| /providers/Microsoft.Authorization/policyDefinitions/fad40cac-a972-4db0-b204-f1b15cced89a | Local authentication methods should be disabled on Linux machines                                           |
+| /providers/Microsoft.Authorization/policyDefinitions/f40c7c00-b4e3-4068-a315-5fe81347a904 | [Preview]: Add user-assigned managed identity to enable Guest Configuration assignments on virtual machines |
+| /providers/Microsoft.Authorization/policyDefinitions/63594bb8-43bb-4bf0-bbf8-c67e5c28cb65 | [Preview]: Linux machines should meet STIG compliance requirement for Azure compute                         |
+| /providers/Microsoft.Authorization/policyDefinitions/50c52fc9-cb21-4d99-9031-d6a0c613361c | [Preview]: Windows machines should meet STIG compliance requirements for Azure compute                      |
+| /providers/Microsoft.Authorization/policyDefinitions/e79ffbda-ff85-465d-ab8e-7e58a557660f | [Preview]: Linux machines with OMI installed should have version 1.6.8-1 or later                           |
+| /providers/Microsoft.Authorization/policyDefinitions/934345e1-4dfb-4c70-90d7-41990dc9608b | Audit Windows machines that do not contain the specified certificates in Trusted Root                       |
+| /providers/Microsoft.Authorization/policyDefinitions/08a2f2d2-94b2-4a7b-aa3b-bb3f523ee6fd | Audit Windows machines on which the DSC configuration is not compliant                                      |
+| /providers/Microsoft.Authorization/policyDefinitions/c648fbbb-591c-4acd-b465-ce9b176ca173 | Audit Windows machines that do not have the specified Windows PowerShell execution policy                   |
+| /providers/Microsoft.Authorization/policyDefinitions/3e4e2bd5-15a2-4628-b3e1-58977e9793f3 | Audit Windows machines that do not have the specified Windows PowerShell modules installed                  |
+| /providers/Microsoft.Authorization/policyDefinitions/58c460e9-7573-4bb2-9676-339c2f2486bb | Audit Windows machines on which Windows Serial Console is not enabled                                       |
+| /providers/Microsoft.Authorization/policyDefinitions/e6ebf138-3d71-4935-a13b-9c7fdddd94df | Audit Windows machines on which the specified services are not installed and 'Running'                      |
+| /providers/Microsoft.Authorization/policyDefinitions/c633f6a2-7f8b-4d9e-9456-02f0f04f5505 | Audit Windows machines that are not set to the specified time zone                                          |
+
+> [!NOTE]
+> Please check this page periodically for updates to the list of built-in Guest Configuration policy definitions that support multiple assignments.
+
+### Assignments to Azure management groups
+
+Azure Policy definitions in the category `Guest Configuration` can be assigned
+to management groups when the effect is `AuditIfNotExists` or `DeployIfNotExists`.
 
 ### Client log files
 

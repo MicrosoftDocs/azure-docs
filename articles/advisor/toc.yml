@@ -46,6 +46,8 @@
     href: advisor-cost-recommendations.md
   - name: Improve security
     href: advisor-security-recommendations.md
+  - name: Improve the performance of highly used VMs
+    href: advisor-how-to-performance-resize-high-usage-vm-recommendations.md
   - name: Use tags to filter recommendations and score
     href: advisor-tag-filtering.md
   - name: Configure recommendations
@@ -65,7 +67,7 @@
 - name: Reference
   items:
   - name: Security baseline
-    href: /security/benchmark/azure/baselines/advisor-security-baseline?toc=/azure/advisor/toc.json
+    href: /security/benchmark/azure/baselines/azure-advisor-security-baseline?toc=/azure/advisor/toc.json
   - name: Defender for Cloud
     href: https://azure.microsoft.com/services/security-center/
   - name: SQL Database Advisor

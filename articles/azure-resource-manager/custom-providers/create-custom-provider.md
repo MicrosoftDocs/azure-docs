@@ -5,12 +5,12 @@ ms.topic: tutorial
 ms.date: 09/20/2022
 ms.author: evanhi
 author: MSEvanhi
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurecli
 ---
 
-# Quickstart: Create a custom resource provider and deploy custom resources
+# Quickstart: Create Azure Custom Resource Provider and deploy custom resources
 
-In this quickstart, you create a custom resource provider and deploy custom resources for that resource provider. For more information about custom providers, see [Azure Custom Resource Providers Overview](overview.md).
+In this quickstart, you create a custom resource provider and deploy custom resources for that resource provider. For more information about custom resource providers, see [Azure Custom Resource Providers Overview](overview.md).
 
 ## Prerequisites
 
@@ -21,7 +21,7 @@ In this quickstart, you create a custom resource provider and deploy custom reso
 
 Prepare your environment for the Azure CLI.
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 Azure CLI examples use `az rest` for `REST` requests. For more information, see [az rest](/cli/azure/reference-index#az-rest).
 
@@ -33,14 +33,14 @@ Azure CLI examples use `az rest` for `REST` requests. For more information, see 
 
 ---
 
-## Deploy custom provider
+## Deploy custom resource provider
 
 To set up the custom resource provider, deploy an [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/custom-providers/customprovider.json) to your Azure subscription.
 
 The template deploys the following resources to your subscription:
 
 - Function app with the operations for the resources and actions.
-- Storage account for storing users that are created through the custom provider.
+- Storage account for storing users that are created through the custom resource provider.
 - Custom resource provider that defines the custom resource types and actions. It uses the function app endpoint for sending requests.
 - Custom resource from the custom resource provider.
 
@@ -408,7 +408,7 @@ Remove-AzResourceGroup -Name $rgName
 
 ## Next steps
 
-For an introduction to custom providers, see the following article:
+For an introduction to custom resource providers, see the following article:
 
 > [!div class="nextstepaction"]
-> [Azure Custom Providers Preview overview](overview.md)
+> [Azure Custom Resource Providers Overview](overview.md)

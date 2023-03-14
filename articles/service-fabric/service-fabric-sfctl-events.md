@@ -12,7 +12,7 @@ ms.date: 07/11/2022
 # sfctl events
 Retrieve events from the events store (if EventStore service is already installed).
 
-The EventStore system service can be added through a config upgrade to any SFRP cluster running >=6.4. To check, see [EventStore overview](/azure/service-fabric/service-fabric-diagnostics-eventstore).
+The EventStore system service can be added through a config upgrade to any SFRP cluster running >=6.4. To check, see [EventStore overview](./service-fabric-diagnostics-eventstore.md).
 
 ## Commands
 

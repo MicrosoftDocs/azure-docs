@@ -28,7 +28,7 @@ The Admin API is server over HTTPS. All URLs referenced in the documentation hav
 
 ## Authentication
 
-The API is protected through Azure Active Directory and uses OAuth2 bearer tokens. The app registration needs to have the API Permission for `Verifiable Credentials Service Admin` and then when acquiring the access token the app should use scope `6a8b4b39-c021-437c-b060-5a14a3fd65f3/full_access`. 
+The API is protected through Azure Active Directory and uses OAuth2 bearer tokens. The app registration needs to have the API Permission for `Verifiable Credentials Service Admin` and then when acquiring the access token the app should use scope `6a8b4b39-c021-437c-b060-5a14a3fd65f3/full_access`. The access token must be for a user with the [global administrator](../../active-directory/roles/permissions-reference.md#global-administrator) or the [authentication policy administrator](../../active-directory/roles/permissions-reference.md#authentication-policy-administrator) role.
 
 ## Onboarding
 
@@ -408,7 +408,7 @@ This method can be used to update the display name of this specific instance of 
 
 #### HTTP request
 
-`POST /v1.0/verifiableCredentials/authorities/:authorityId`
+`PATCH /v1.0/verifiableCredentials/authorities/:authorityId`
 
 Replace the value of `:authorityId` with the value of the authority ID you want to update.
 
@@ -545,7 +545,7 @@ Although it is technically possible to publish multiple domains, we currently on
 
 ### Well-known DID configuration
 
-The `generateWellknownDidConfiguration` method generates the signed did-configuration.json file. The file must be uploaded to the `.well-known` folder in the root of the website hosted for the domain in the linked domain of this verifiable credential instance. Instructions can be found [here](how-to-dnsbind.md#distribute-well-known-config).
+The `generateWellknownDidConfiguration` method generates the signed did-configuration.json file. The file must be uploaded to the `.well-known` folder in the root of the website hosted for the domain in the linked domain of this verifiable credential instance. Instructions can be found [here](how-to-dnsbind.md#verify-domain-ownership-and-distribute-did-configurationjson-file).
 
 #### HTTP request
 
@@ -829,7 +829,7 @@ The response contains the following properties
 
 | Property | Type | Description |
 | -------- | -------- | -------- |
-|`attestations`| [attestions](#attestations-type)| describing supported inputs for the rules |
+|`attestations`| [attestations](#attestations-type)| describing supported inputs for the rules |
 |`validityInterval` | number | this value shows the lifespan of the credential |
 |`vc`| vcType array | types for this contract |
 |`customStatusEndpoint`| [customStatusEndpoint] (#customstatusendpoint-type) (optional) | status endpoint to include in the verifiable credential for this contract |
@@ -840,8 +840,8 @@ If the property `customStatusEndpoint` property isn't specified then the `anonym
 
 | Property | Type | Description |
 | -------- | -------- | -------- |
-|`idTokens`| [idTokenAttestation](#idtokenattestation-type) (array) (optional) | describes id token inputs|
-|`idTokenHints`| [idTokenHintAttestation](#idtokenhintattestation-type) (array) (optional) | describes id token hint inputs |
+|`idTokens`| [idTokenAttestation](#idtokenattestation-type) (array) (optional) | describes ID token inputs|
+|`idTokenHints`| [idTokenHintAttestation](#idtokenhintattestation-type) (array) (optional) | describes ID token hint inputs |
 |`presentations`| [verifiablePresentationAttestation](#verifiablepresentationattestation-type) (array) (optional) | describes verifiable presentations inputs |
 |`selfIssued`| [selfIssuedAttestation](#selfissuedattestation-type) (array) (optional) | describes self issued inputs |
 |`accessTokens`| [accessTokenAttestation](#accesstokenattestation-type) (array) (optional) | describes access token inputs |
@@ -1221,11 +1221,11 @@ You are able to [search](how-to-issuer-revoke.md) for verifiable credentials wit
   }
 ```
 
-The following request shows how to add the calculated value to the filter parameter of the request. At this moment only the filter=indexclaim eq format is supported.
+The following request shows how to add the calculated value to the filter parameter of the request. At this moment only the filter=indexclaimhash eq format is supported.
 
 ### HTTP request
 
-`GET /v1.0/verifiableCredentials/authorities/:authorityId/contracts/:contractId/credentials?filter=indexclaim eq {hashedsearchclaimvalue}`
+`GET /v1.0/verifiableCredentials/authorities/:authorityId/contracts/:contractId/credentials?filter=indexclaimhash eq {hashedsearchclaimvalue}`
 
 #### Request headers
 

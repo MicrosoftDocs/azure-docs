@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: chat
 zone_pivot_groups: acs-azcli-js-csharp-java-python-swift-android
-ms.custom: mode-other
+ms.custom: mode-other, devx-track-azurecli
 ---
 # Quickstart: Add Chat to your App
 
 Get started with Azure Communication Services by using the Communication Services Chat SDK to add real-time chat to your application. In this quickstart, we'll use the Chat SDK to create chat threads that allow users to have conversations with one another. To learn more about Chat concepts, visit the [chat conceptual documentation](../../concepts/chat/concepts.md).
 
 ::: zone pivot="platform-azcli"
-[!INCLUDE [Chat with Azure CLI](./includes/chat-azcli.md)]
+[!INCLUDE [Chat with Azure CLI](./includes/chat-az-cli.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
@@ -69,4 +69,3 @@ You may also want to:
  - Learn about [chat concepts](../../concepts/chat/concepts.md)
  - Familiarize yourself with [Chat SDK](../../concepts/chat/sdk-features.md)
  - Using [Chat SDK in your React Native](./react-native.md) application.
-

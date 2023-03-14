@@ -5,28 +5,39 @@ description: The workspace is the top-level resource for Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, ignite-2022
 ms.topic: conceptual
-ms.author: sgilley
-author: sdgilley
-ms.date: 08/26/2022
+ms.author: deeikele
+author: deeikele
+ms.reviewer: sgilley
+ms.date: 03/13/2023
 #Customer intent: As a data scientist, I want to understand the purpose of a workspace for Azure Machine Learning.
 ---
 
 
 # What is an Azure Machine Learning workspace?
 
-The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning.  The workspace keeps a history of all training runs, including logs, metrics, output, and a snapshot of your scripts. You use this information to determine which training run produces the best model.  
+Workspaces are places to collaborate with colleagues and group related work. For example, experiments, jobs, datasets, components, and inference endpoints. 
 
-Once you have a model you like, you register it with the workspace. You then use the registered model and scoring scripts to deploy to an [online endpoint](concept-endpoints.md) as a REST-based HTTP endpoint.
+:::image type="content" source="./media/concept-workspace/workspace.png" alt-text="Screenshot of the Azure Machine Learning workspace.":::
+
+We recommend creating a workspace _per project_. While a workspace can be used for multiple projects, limiting it to one project per workspace allows for cost reporting accrued to a project level. It also allows you to manage configurations like datastores in the scope of each project.
+
+
+## Working with a workspace
+
+Machine learning tasks read and/or write artifacts to your workspace.
+
++ Run an experiment to train a model - writes job run results to the workspace.
++ Use automated ML to train a model - writes training results to the workspace.
++ Register a model in the workspace.
++ Deploy a model - uses the registered model to create a deployment.
++ Create and run reusable workflows.
++ View machine learning artifacts such as jobs, pipelines, models, deployments.
++ Track and monitor models.
++ You can share assets between workspaces using [Azure Machine Learning registries (preview)](how-to-share-models-pipelines-across-workspaces-with-registries.md).
 
 ## Taxonomy 
-
-A taxonomy of the workspace is illustrated in the following diagram:
-
-[![Workspace taxonomy](./media/concept-workspace/azure-machine-learning-taxonomy.png)](./media/concept-workspace/azure-machine-learning-taxonomy.png#lightbox)
-
-The diagram shows the following components of a workspace:
 
 + A workspace can contain [Azure Machine Learning compute instances](concept-compute-instance.md), cloud resources configured with the Python environment necessary to run Azure Machine Learning.
 
@@ -46,21 +57,9 @@ You can interact with your workspace in the following ways:
 + On the web:
     + [Azure Machine Learning studio ](https://ml.azure.com) 
     + [Azure Machine Learning designer](concept-designer.md) 
-+ In any Python environment with the [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro).
++ In any Python environment with the [Azure Machine Learning SDK for Python](https://aka.ms/sdk-v2-install).
 + On the command line using the Azure Machine Learning [CLI extension](how-to-configure-cli.md)
 + [Azure Machine Learning VS Code Extension](how-to-manage-resources-vscode.md#workspaces)
-
-## Machine learning with a workspace
-
-Machine learning tasks read and/or write artifacts to your workspace.
-
-+ Run an experiment to train a model - writes job run results to the workspace.
-+ Use automated ML to train a model - writes training results to the workspace.
-+ Register a model in the workspace.
-+ Deploy a model - uses the registered model to create a deployment.
-+ Create and run reusable workflows.
-+ View machine learning artifacts such as jobs, pipelines, models, deployments.
-+ Track and monitor models.
 
 ## Workspace management
 
@@ -91,9 +90,9 @@ There are multiple ways to create a workspace:
 
 ## Sub resources
 
-These sub resources are the main resources that are made in the AzureML workspace.
+These sub resources are the main resources that are made in the Azure Machine Learning workspace.
 
-* VMs: provide computing power for your AzureML workspace and are an integral part in deploying and training models.
+* VMs: provide computing power for your Azure Machine Learning workspace and are an integral part in deploying and training models.
 * Load Balancer: a network load balancer is created for each compute instance and compute cluster to manage traffic even while the compute instance/cluster is stopped.
 * Virtual Network: these help Azure resources communicate with one another, the internet, and other on-premises networks.
 * Bandwidth: encapsulates all outbound data transfers across regions.
@@ -108,12 +107,12 @@ When you create a new workspace, it automatically creates several Azure resource
   > By default, the storage account is a general-purpose v1 account. You can [upgrade this to general-purpose v2](../storage/common/storage-account-upgrade.md) after the workspace has been created. 
   > Do not enable hierarchical namespace on the storage account after upgrading to general-purpose v2.
 
-  To use an existing Azure Storage account, it cannot be of type BlobStorage or a premium account (Premium_LRS and Premium_GRS). It also cannot have a hierarchical namespace (used with Azure Data Lake Storage Gen2). Neither premium storage nor hierarchical namespaces are supported with the _default_ storage account of the workspace. You can use premium storage or hierarchical namespace with _non-default_ storage accounts.
+  To use an existing Azure Storage account, it can't be of type BlobStorage or a premium account (Premium_LRS and Premium_GRS). It also can't have a hierarchical namespace (used with Azure Data Lake Storage Gen2). Neither premium storage nor hierarchical namespaces are supported with the _default_ storage account of the workspace. You can use premium storage or hierarchical namespace with _non-default_ storage accounts.
   
 + [Azure Container Registry](https://azure.microsoft.com/services/container-registry/): Registers docker containers that are used for the following components:
     * [Azure Machine Learning environments](concept-environments.md) when training and deploying models
     * [AutoML](concept-automated-ml.md) when deploying
-    * [Data profiling](v1/how-to-connect-data-ui.md#data-profile-and-preview)
+    * [Data profiling](v1/how-to-connect-data-ui.md#data-preview-and-profile)
 
     To minimize costs, ACR is **lazy-loaded** until images are needed.
 
@@ -138,6 +137,7 @@ To get started with Azure Machine Learning, see:
 
 + [What is Azure Machine Learning?](overview-what-is-azure-machine-learning.md)
 + [Create and manage a workspace](how-to-manage-workspace.md)
++ [Recover a workspace after deletion (soft-delete)](concept-soft-delete.md)
 + [Tutorial: Get started with Azure Machine Learning](quickstart-create-resources.md)
 + [Tutorial: Create your first classification model with automated machine learning](tutorial-first-experiment-automated-ml.md) 
 + [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md)

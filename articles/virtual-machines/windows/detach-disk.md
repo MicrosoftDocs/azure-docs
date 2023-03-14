@@ -9,8 +9,6 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 06/08/2022
 ms.author: rogarana 
-ms.custom: devx-track-azurepowershell
-
 ---
 # How to detach a data disk from a Windows virtual machine
 

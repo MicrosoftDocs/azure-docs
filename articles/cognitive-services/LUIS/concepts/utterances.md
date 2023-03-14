@@ -11,6 +11,9 @@ ms.date: 07/19/2022
 ---
 # Utterances
 
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
+
+
 Utterances are inputs from users that your app needs to interpret. To train LUIS to extract intents and entities from these inputs, it's important to capture various different example utterances for each intent. Active learning, or the process of continuing to train on new utterances, is essential to the machine-learning intelligence that LUIS provides.
 
 Collect utterances that you think users will enter. Include utterances, which mean the same thing but are constructed in various ways:

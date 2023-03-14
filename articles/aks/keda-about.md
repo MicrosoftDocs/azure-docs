@@ -1,7 +1,6 @@
 ---
 title: Kubernetes Event-driven Autoscaling (KEDA) (Preview)
 description: Simplified application autoscaling with Kubernetes Event-driven Autoscaling (KEDA) add-on.
-services: container-service
 author: tomkerkhove
 ms.topic: article
 ms.date: 05/24/2022
@@ -71,7 +70,7 @@ For general KEDA questions, we recommend [visiting the FAQ overview][keda-faq].
 [keda-azure-cli]: keda-deploy-addon-az-cli.md
 [keda-cli]: keda-deploy-add-on-cli.md
 [keda-arm]: keda-deploy-add-on-arm.md
-[keda-troubleshoot]: keda-troubleshoot.md
+[keda-troubleshoot]: /troubleshoot/azure/azure-kubernetes/troubleshoot-kubernetes-event-driven-autoscaling-add-on?context=/azure/aks/context/aks-context
 
 <!-- LINKS - external -->
 [keda]: https://keda.sh/

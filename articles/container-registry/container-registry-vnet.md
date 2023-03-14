@@ -2,8 +2,10 @@
 title: Restrict access using a service endpoint
 description: Restrict access to an Azure container registry using a service endpoint in an Azure virtual network. Service endpoint access is a feature of the Premium service tier.
 ms.topic: article
-ms.date: 05/04/2020
+ms.custom: devx-track-azurecli
+author: tejaswikolli-web
 ms.author: tejaswikolli
+ms.date: 10/11/2022
 ---
 
 # Restrict access to a container registry using a service endpoint in an Azure virtual network

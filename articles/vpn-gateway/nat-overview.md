@@ -4,10 +4,10 @@ titleSuffix: Azure VPN Gateway
 description: Learn about NAT (Network Address Translation) in Azure VPN to connect networks with overlapping address spaces.
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/11/2022
 ms.author: cherylmc
-
+ms.custom: template-concept
 ---
 # About NAT on Azure VPN Gateway
 
@@ -40,6 +40,7 @@ Another consideration is the address pool size for translation. If the target ad
 > [!IMPORTANT]
 > * NAT is supported on the following SKUs: VpnGw2~5, VpnGw2AZ~5AZ.
 > * NAT is supported on IPsec cross-premises connections only. VNet-to-VNet connections or P2S connections are not supported.
+> * Every Dynamic NAT rule can be assigned to a single connection.
 
 ## <a name="mode"></a>NAT mode: ingress & egress
 
@@ -51,9 +52,9 @@ Each NAT rule defines an address mapping or translating relationship for the cor
 
 For each NAT rule, the following two fields specify the address spaces before and after the translation:
 
-* **Internal Mappings**: This is the address space **before** the translation. For an ingress rule, this field corresponds to the original address space of the on-premises network. For an egress rule, this is the original VNet address space.
+* **Internal Mappings**: The address space **before** the translation. For an ingress rule, this field corresponds to the original address space of the on-premises network. For an egress rule, this is the original VNet address space.
 
-* **External Mappings**: This is the address space **after** the translation for on-premises networks (ingress) or VNet (egress). For different networks connected to an Azure VPN gateway, the address spaces for all **External Mappings** must not overlap with each other and with the networks connected without NAT.
+* **External Mappings**: The address space **after** the translation for on-premises networks (ingress) or VNet (egress). For different networks connected to an Azure VPN gateway, the address spaces for all **External Mappings** must not overlap with each other and with the networks connected without NAT.
 
 ## <a name="routing"></a>NAT and routing
 

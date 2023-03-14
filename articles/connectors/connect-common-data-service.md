@@ -6,10 +6,13 @@ ms.suite: integration
 ms.reviewer: jdaly, estfan, azla
 ms.topic: how-to
 ms.date: 09/07/2022
+ms.custom: engagement-fy23
 tags: connectors
 ---
 
 # Connect to Microsoft Dataverse (previously Common Data Service) from workflows in Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 > [!IMPORTANT]
 >
@@ -316,5 +319,6 @@ To stop unwanted notifications, delete the `callbackregistrations` entity from t
 
 ## Next steps
 
-* [Managed connectors in Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
-* [Connector overview for Azure Logic Apps](../connectors/apis-list.md)
+* [Managed connectors for Azure Logic Apps](managed.md)
+* [Built-in connectors for Azure Logic Apps](built-in.md)
+* [What are connectors in Azure Logic Apps](introduction.md)
