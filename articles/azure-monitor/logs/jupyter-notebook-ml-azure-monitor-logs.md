@@ -59,7 +59,6 @@ In this tutorial, you'll need:
     - A CPU compute instance type. To use distributed GPU training code, see [Distributed GPU training guide](../../machine-learning/v1/how-to-train-distributed-gpu).  
     - Kernel set to Python 3.8 or higher.
     - [A notebook](../../machine-learning/quickstart-run-notebooks#create-a-new-notebook). 
-- A Log Analytics workspace with data in the `AzureDiagnostics` table. 
 - The following roles and permissions: 
 
     |Type  |Details  |
@@ -76,6 +75,7 @@ In this tutorial, you'll need:
 
  ## Integrate your Log Analytics workspace with your notebook 
 
+To enable y
 1. Set up authentication to your Log Analytics workspace using `DefaultAzureCredential` from the `azure-identity` package.
 
     ```python
