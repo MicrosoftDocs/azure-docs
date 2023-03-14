@@ -1836,7 +1836,7 @@ This issue can happen when Docker doesn't recognize an instruction in the Docker
 * Ensure Dockerfile is formatted correctly and is encoded in UTF-8
 
 **Resources**
-[Dockerfile reference](https://docs.docker.com/engine/reference/builder/)
+* [Dockerfile reference](https://docs.docker.com/engine/reference/builder/)
 
 ## *Miscellaneous build issues*
 ### Build log unavailable
