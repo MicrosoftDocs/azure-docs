@@ -27,7 +27,7 @@ As the most advanced tier in Azure Spring Apps, a Microsoft provided first party
 
 For more information about pricing, see [Azure Spring Apps pricing](https://azure.microsoft.com/pricing/details/spring-apps/).
 
-To provide the best customer experience to manage the Tanzu component license purchasing and metering, VMware creates a [Azure Marketplace Offer](https://aka.ms/ascmpoffer) that provides the following services and support:
+To provide the best customer experience to manage the Tanzu component license purchasing and metering, VMware creates a [Azure Marketplace Offer](https://aka.ms/ascmpoffer) that represents a Tanzu component license and provides the following capabilities:
 
 - Automatically acquires a Tanzu component license that can be metered against.
 
@@ -35,9 +35,9 @@ To provide the best customer experience to manage the Tanzu component license pu
 
 To purchase the Tanzu component license successfully, your billing account of your subscription must be included in the [Supported geographic locations of billing account](#supported-geographic-locations-of-billing-account). Because of tax management restrictions from VMware in some countries, not all countries are supported.
 
-In comparison to Azure Spring Apps standard tier, there are no extra license fees because the managed Spring components use the OSS config server and Eureka server.
+In comparison to Azure Spring Apps standard tier, there are no extra license fees because the managed Spring components use the OSS config server and Eureka server. No additional third party license fees are required.
 
-On the [Azure Marketplace Offer](https://aka.ms/ascmpoffer) page, you can find out the Tanzu component license pricing as shown in the following image.
+On the [Azure Marketplace Offer](https://aka.ms/ascmpoffer) page, you can review the Tanzu component license pricing as shown in the following image.
 
 :::image type="content" source="media/how-to-enterprise-marketplace-offer/enterprise-plan.png" alt-text="Azure Marketplace screenshot showing Azure Spring Apps Enterprise tier VMware Tanzu offering.":::
 
@@ -51,7 +51,7 @@ You can use the Azure portal and Azure CLI to provision an Azure Spring Apps Ent
 
 - Your Azure subscription must belong to a billing account in a supported geographic location defined in [Azure Marketplace Offer](https://aka.ms/ascmpoffer). For more information, see the [Supported geographic locations of billing account](#supported-geographic-locations-of-billing-account).
 
-- Choose an Azure region currently available. For more information, see [Available Regions for Enterprise Tier](./faq.md#in-which-regions-is-azure-spring-apps-enterprise-tier-available).
+- Your region must be available. Choose an Azure region currently available. For more information, see [Available Regions for Enterprise Tier](./faq.md#in-which-regions-is-azure-spring-apps-enterprise-tier-available).
 
 - Your organization must allow Azure Marketplace purchases. For more information, see the [Enabling Azure Marketplace purchases](../cost-management-billing/manage/ea-azure-marketplace.md#enabling-azure-marketplace-purchases) section of [Azure Marketplace](../cost-management-billing/manage/ea-azure-marketplace.md).
 
