@@ -8,12 +8,7 @@ description: "Deploy and manage lifecycle of extensions on Azure Arc-enabled Kub
 
 # Deploy and manage Azure Arc-enabled Kubernetes cluster extensions
 
-The Kubernetes extensions feature enables the following on Azure Arc-enabled Kubernetes clusters:
-
-* Azure Resource Manager-based deployment of cluster extension.
-* Lifecycle management of extension Helm charts.
-
-This article describes how to how to create extension instances in a cluster, including required and optional parameters. It also describes how to view, list, update, and delete extension instances.
+You can create extension instances in an Arc-enabled Kubernetes cluster, setting required and optional parameters including options related to updates and configurations. You can also view, list, update, and delete extension instances.
 
 Before you begin, read the [conceptual overview of Arc-enabled Kubernetes cluster extensions](conceptual-extensions.md) and review the [list of currently available extensions](extensions-release.md).
 
@@ -114,17 +109,17 @@ Use one or more of these optional parameters as needed for your scenarios, along
 
 | Parameter name | Description |
 |--------------|------------|
-| `--auto-upgrade-minor-version` | Boolean property that determines whether the extension minor version will be upgraded automatically or not. The default setting is `true`. If this parameter is set to `true`, you can't set the `version` parameter, as the version will be dynamically updated. If set to `false`, the extension will not be auto-upgraded, even for patch versions. |
+| `--auto-upgrade-minor-version` | Boolean property that determines whether the extension minor version is automatically upgraded. The default setting is `true`. If this parameter is set to `true`, you can't set the `version` parameter, as the version will be dynamically updated. If set to `false`, the extension won't be automatically upgraded, even for patch versions. |
 | `--version` | Version of the extension to be installed (specific version to pin the extension instance to). Must not be supplied if `auto-upgrade-minor-version` is set to `true`. |
 | `--configuration-settings` | Settings that can be passed into the extension to control its functionality. These are passed in as space-separated `key=value` pairs after the parameter name. If this parameter is used in the command, then `--configuration-settings-file` can't be used in the same command. |
 | `--configuration-settings-file` | Path to a JSON file with `key=value` pairs to be used for passing configuration settings into the extension. If this parameter is used in the command, then `--configuration-settings` can't be used in the same command. |
-| `--configuration-protected-settings` | Settings that are not retrievable using `GET` API calls or `az k8s-extension show` commands. Typically used to pass in sensitive settings. These are passed in as space-separated `key=value` pairs after the parameter name. If this parameter is used in the command, then `--configuration-protected-settings-file` can't be used in the same command. |
+| `--configuration-protected-settings` | Settings that aren't retrievable using `GET` API calls or `az k8s-extension show` commands. Typically used to pass in sensitive settings. These are passed in as space-separated `key=value` pairs after the parameter name. If this parameter is used in the command, then `--configuration-protected-settings-file` can't be used in the same command. |
 | `--configuration-protected-settings-file` | Path to a JSON file with `key=value` pairs to be used for passing sensitive settings into the extension. If this parameter is used in the command, then `--configuration-protected-settings` can't be used in the same command. |
-| `--release-namespace` | This parameter indicates the namespace within which the release is to be created. Only relevant if `scope` is set to `cluster`. |
-| `--release-train` |  Extension authors can publish versions in different release trains such as `Stable`, `Preview`, etc. If this parameter is not set explicitly, `Stable` is used as default. This parameter can't be used when `--auto-upgrade-minor-version` is set to `false`. |
+| `--release-namespace` | This parameter indicates the namespace within which the release will be created. Only relevant if `scope` is set to `cluster`. |
+| `--release-train` |  Extension authors can publish versions in different release trains such as `Stable`, `Preview`, etc. If this parameter isn't set explicitly, `Stable` is used as default. This parameter can't be used when `--auto-upgrade-minor-version` is set to `false`. |
 | `--target-namespace` | Indicates the namespace within which the release will be created. Permission of the system account created for this extension instance will be restricted to this namespace. Only relevant if `scope` is set to `namespace`. |
 
-### Show details of an extension instance
+## Show extension details
 
 To view details of a currently installed extension instance, use `k8s-extension show`, passing in values for the mandatory parameters.
 
@@ -168,9 +163,9 @@ az k8s-extension show --name azuremonitor-containers --cluster-name <clusterName
 }
 ```
 
-### List all extensions installed on the cluster
+## List all extensions installed on the cluster
 
-To list all extensions installed on a cluster, use  `k8s-extension list`, passing in values for the mandatory parameters.
+To view a list of all extensions installed on a cluster, use  `k8s-extension list`, passing in values for the mandatory parameters.
 
 ```azurecli
 az k8s-extension list --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type connectedClusters
@@ -232,7 +227,7 @@ az k8s-extension list --cluster-name <clusterName> --resource-group <resourceGro
 ]
 ```
 
-### Delete extension instance
+## Delete extension instance
 
 To delete an extension instance on a cluster, use `k8s-extension delete`, passing in values for the mandatory parameters.
 
