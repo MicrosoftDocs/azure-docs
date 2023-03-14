@@ -205,7 +205,7 @@ cd pubsub-dapr-nodejs-servicebus
      - Endpoint: https://ca-orders-name.endpoint.region.azurecontainerapps.io/
    
    SUCCESS: Your Azure app has been deployed!
-   You can view the resources created under the resource group hhhhhunter-azd-rg in Azure Portal:
+   You can view the resources created under the resource group resource-group-name in Azure Portal:
    https://portal.azure.com/#@/resource/subscriptions/subscription-id/resourceGroups/resource-group-name/overview
    ```
 
@@ -406,7 +406,7 @@ cd pubsub-dapr-python-servicebus
      - Endpoint: https://ca-orders-name.endpoint.region.azurecontainerapps.io/
    
    SUCCESS: Your Azure app has been deployed!
-   You can view the resources created under the resource group hhhhhunter-azd-rg in Azure Portal:
+   You can view the resources created under the resource group resource-group-name in Azure Portal:
    https://portal.azure.com/#@/resource/subscriptions/subscription-id/resourceGroups/resource-group-name/overview
    ```
 
@@ -608,7 +608,7 @@ cd pubsub-dapr-csharp-servicebus
      - Endpoint: https://ca-orders-name.endpoint.region.azurecontainerapps.io/
    
    SUCCESS: Your Azure app has been deployed!
-   You can view the resources created under the resource group hhhhhunter-azd-rg in Azure Portal:
+   You can view the resources created under the resource group resource-group-name in Azure Portal:
    https://portal.azure.com/#@/resource/subscriptions/subscription-id/resourceGroups/resource-group-name/overview
    ```
 
