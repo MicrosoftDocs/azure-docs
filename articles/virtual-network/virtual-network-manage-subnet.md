@@ -1,7 +1,7 @@
 ---
 title: Add, change, or delete a subnet
 titlesuffix: Azure Virtual Network
-description: Learn how to add, change, or delete virtual network subnets in the Azure portal, with Azure CLI, or with PowerShell.
+description: Learn how to add, change, or delete virtual network subnets by using the Azure portal, Azure CLI, or Azure PowerShell.
 services: virtual-network
 author: asudbring
 ms.service: virtual-network
@@ -13,7 +13,7 @@ ms.author: allensu
 
 # Add, change, or delete a virtual network subnet
 
-All Azure resources deployed into a virtual network are deployed into subnets within the virtual network. This article explains how to add, change, or delete virtual network subnets.
+All Azure resources deployed into a virtual network are deployed into subnets within the virtual network. This article explains how to add, change, or delete virtual network subnets by using the Azure portal, Azure CLI, or Azure PowerShell.
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ If you don't have one, set up an Azure account with an active subscription. [Cre
 
 Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
-# [CLI](#tab/azure-cli)
+# [Azure CLI](#tab/azure-cli)
 
 You can run the commands either in the [Azure Cloud Shell](/azure/cloud-shell/overview) or from Azure CLI on your computer.
 
@@ -56,20 +56,6 @@ To do tasks on subnets, your account must be assigned to the [Network contributo
 
 ## Add a subnet
 
-You can configure the following settings for a subnet:
-
-   | Setting | Description |
-   | --- | --- |
-   | **Name** | The name must be unique within the virtual network. For maximum compatibility with other Azure services, use a letter as the first character of the name. For example, Azure Application Gateway won't deploy into a subnet that has a name that starts with a number. |
-   | **Subnet address range** | The range must be unique within the address space and can't overlap with other subnet address ranges in the virtual network. You must specify the address space by using Classless Inter-Domain Routing (CIDR) notation.<br><br>For example, in a virtual network with address space `10.0.0.0/16`, you might define a subnet address space of `10.0.0.0/22`. The smallest range you can specify is `/29`, which provides eight IP addresses for the subnet. Azure reserves the first and last address in each subnet for protocol conformance, and three more addresses for Azure service usage. So defining a subnet with a */29* address range gives three usable IP addresses in the subnet.<br><br>If you plan to connect a virtual network to a virtual private network (VPN) gateway, you must create a gateway subnet. For more information, see [Gateway subnet](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub).|
-   | **Add IPv6 address space** | You can create a dual-stack virtual network that supports IPv4 and IPv6 by adding an existing IPv6 address space. Currently, IPv6 isn't fully supported for all services in Azure. For more information, see [Overview of IPv6 for Azure Virtual Network](ip-services/ipv6-overview.md)|
-   | **Network Address Translation (NAT) gateway** | To provide network address translation to resources on a subnet, you can associate an existing NAT gateway to a subnet. The NAT gateway must exist in the same subscription and location as the virtual network. For more information, see [Virtual network NAT](./nat-gateway/nat-overview.md) and [Quickstart: Create a NAT gateway by using the Azure portal](./nat-gateway/quickstart-create-nat-gateway-portal.md).|
-   | **Network security group (NSG)** | To filter inbound and outbound network traffic for the subnet, you can associate an existing NSG to a subnet. The NSG must exist in the same subscription and location as the virtual network. For more information, see [Network security groups](./network-security-groups-overview.md) and [Tutorial: Filter network traffic with a network security group by using the Azure portal](tutorial-filter-network-traffic.md). |
-   | **Route table** | To control network traffic routing to other networks, you can optionally associate an existing route table to a subnet. The route table must exist in the same subscription and location as the virtual network. For more information, see [Virtual network traffic routing](virtual-networks-udr-overview.md) and [Tutorial: Route network traffic with a route table by using the Azure portal](tutorial-create-route-table-portal.md). |
-   | **Service endpoints** | You can optionally enable one or more service endpoints for a subnet. To enable a service endpoint for a service during portal subnet setup, select the service or services that you want to enable service endpoints for from the **Services** list. Azure configures the location automatically for an endpoint.<br><br>By default, Azure configures the service endpoints for the virtual network's region. To support regional failover scenarios, Azure automatically configures endpoints to [Azure paired regions](../availability-zones/cross-region-replication-azure.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for Azure Storage.<br><br>To remove a service endpoint, deselect the service you want to remove the service endpoint for. For more information, see [Virtual network service endpoints](virtual-network-service-endpoints-overview.md).<br><br>Once you enable a service endpoint, you must also enable subnet access for resources the service creates. For example, if you enable the service endpoint for **Microsoft.Storage**, you must also enable network access to all Azure Storage accounts you want to grant network access to. To enable network access to subnets that a service endpoint is enabled for, see the documentation for the individual service.<br><br>To validate that a service endpoint is enabled for a subnet, view the [effective routes](diagnose-network-routing-problem.md) for any network interface in the subnet. When you configure an endpoint, you see a default route with the address prefixes of the service, and a next hop type of **VirtualNetworkServiceEndpoint**. For more information, see [Virtual network traffic routing](virtual-networks-udr-overview.md).|
-   | **Subnet delegation** | You can optionally enable one or more delegations for a subnet. Subnet delegation gives explicit permissions to the service to create service-specific resources in the subnet by using a unique identifier during service deployment. To delegate for a service during portal subnet setup, select the service you want to delegate to from the **Services** list. |
-   | **Network policy for private endpoints**| To control traffic going to a private endpoint, you can use NSGs, application security groups, or user-defined routes. During portal subnet setup, set the private endpoint network policy to **Enabled** to use these controls on a subnet. Once enabled, network policy applies to all private endpoints on the subnet. For more information, see [Manage network policies for private endpoints](../private-link/disable-private-endpoint-network-policy.md). |
-
 # [Portal](#tab/azure-portal)
 
 1. In the [Azure portal](https://portal.azure.com), search for and select **virtual networks**.
@@ -79,7 +65,7 @@ You can configure the following settings for a subnet:
 1. On the **Add subnet** screen, enter values for the subnet settings.
 1. Select **OK**.
 
-# [CLI](#tab/azure-cli)
+# [Azure CLI](#tab/azure-cli)
 
 Run the [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) command with the options you want to configure.
 
@@ -103,17 +89,21 @@ az network vnet subnet create --name <subnetName> --resource-group <resourceGrou
 
 ---
 
+You can configure the following settings for a subnet:
+
+   | Setting | Description |
+   | --- | --- |
+   | **Name** | The name must be unique within the virtual network. For maximum compatibility with other Azure services, use a letter as the first character of the name. For example, Azure Application Gateway won't deploy into a subnet that has a name that starts with a number. |
+   | **Subnet address range** | The range must be unique within the address space and can't overlap with other subnet address ranges in the virtual network. You must specify the address space by using Classless Inter-Domain Routing (CIDR) notation.<br><br>For example, in a virtual network with address space `10.0.0.0/16`, you might define a subnet address space of `10.0.0.0/22`. The smallest range you can specify is `/29`, which provides eight IP addresses for the subnet. Azure reserves the first and last address in each subnet for protocol conformance, and three more addresses for Azure service usage. So defining a subnet with a */29* address range gives three usable IP addresses in the subnet.<br><br>If you plan to connect a virtual network to a virtual private network (VPN) gateway, you must create a gateway subnet. For more information, see [Gateway subnet](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub).|
+   | **Add IPv6 address space** | You can create a dual-stack virtual network that supports IPv4 and IPv6 by adding an existing IPv6 address space. Currently, IPv6 isn't fully supported for all services in Azure. For more information, see [Overview of IPv6 for Azure Virtual Network](ip-services/ipv6-overview.md)|
+   | **Network Address Translation (NAT) gateway** | To provide network address translation to resources on a subnet, you can associate an existing NAT gateway to a subnet. The NAT gateway must exist in the same subscription and location as the virtual network. For more information, see [Virtual network NAT](./nat-gateway/nat-overview.md) and [Quickstart: Create a NAT gateway by using the Azure portal](./nat-gateway/quickstart-create-nat-gateway-portal.md).|
+   | **Network security group (NSG)** | To filter inbound and outbound network traffic for the subnet, you can associate an existing NSG to a subnet. The NSG must exist in the same subscription and location as the virtual network. For more information, see [Network security groups](./network-security-groups-overview.md) and [Tutorial: Filter network traffic with a network security group by using the Azure portal](tutorial-filter-network-traffic.md). |
+   | **Route table** | To control network traffic routing to other networks, you can optionally associate an existing route table to a subnet. The route table must exist in the same subscription and location as the virtual network. For more information, see [Virtual network traffic routing](virtual-networks-udr-overview.md) and [Tutorial: Route network traffic with a route table by using the Azure portal](tutorial-create-route-table-portal.md). |
+   | **Service endpoints** | You can optionally enable one or more service endpoints for a subnet. To enable a service endpoint for a service during portal subnet setup, select the service or services that you want to enable service endpoints for from the **Services** list. Azure configures the location automatically for an endpoint.<br><br>By default, Azure configures the service endpoints for the virtual network's region. To support regional failover scenarios, Azure automatically configures endpoints to [Azure paired regions](../availability-zones/cross-region-replication-azure.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for Azure Storage.<br><br>To remove a service endpoint, deselect the service you want to remove the service endpoint for. For more information, see [Virtual network service endpoints](virtual-network-service-endpoints-overview.md).<br><br>Once you enable a service endpoint, you must also enable subnet access for resources the service creates. For example, if you enable the service endpoint for **Microsoft.Storage**, you must also enable network access to all Azure Storage accounts you want to grant network access to. To enable network access to subnets that a service endpoint is enabled for, see the documentation for the individual service.<br><br>To validate that a service endpoint is enabled for a subnet, view the [effective routes](diagnose-network-routing-problem.md) for any network interface in the subnet. When you configure an endpoint, you see a default route with the address prefixes of the service, and a next hop type of **VirtualNetworkServiceEndpoint**. For more information, see [Virtual network traffic routing](virtual-networks-udr-overview.md).|
+   | **Subnet delegation** | You can optionally enable one or more delegations for a subnet. Subnet delegation gives explicit permissions to the service to create service-specific resources in the subnet by using a unique identifier during service deployment. To delegate for a service during portal subnet setup, select the service you want to delegate to from the **Services** list. |
+   | **Network policy for private endpoints**| To control traffic going to a private endpoint, you can use NSGs, application security groups, or user-defined routes. During portal subnet setup, set the private endpoint network policy to **Enabled** to use these controls on a subnet. Once enabled, network policy applies to all private endpoints on the subnet. For more information, see [Manage network policies for private endpoints](../private-link/disable-private-endpoint-network-policy.md). |
+
 ## Change subnet settings
-
-You can change the following subnet settings after the subnet is created.
-
-| Setting | Description |
-| --- | --- |
-| **Subnet address range** | If no resources are deployed within the subnet, you can change the address range. If any resources exist in the subnet, you must either move the resources to another subnet, or delete them from the subnet first. The steps you take to move or delete a resource vary depending on the resource. To learn how to move or delete resources that are in subnets, read the documentation for each resource type.|
-| **Add IPv6 address space**, **NAT Gateway**, **Network security group**, and **Route table** | You can add IPv6, NAT gateway, NSG, or route table support after you create the subnet.|
-| **Service endpoints** | To enable a service endpoint for an existing subnet, ensure that no critical tasks are running on any resource in the subnet. Service endpoints switch routes on every network interface in the subnet. The service endpoints change from using the default route with the `0.0.0.0/0` address prefix and next hop type of `Internet` to using a new route with the address prefixes of the service and a next hop type of `VirtualNetworkServiceEndpoint`.<br><br>>During the switch, any open TCP connections may be terminated. The service endpoint isn't enabled until traffic to the service for all network interfaces updates with the new route. For more information, see [Virtual network traffic routing](virtual-networks-udr-overview.md).|
-| **Subnet delegation** | You can modify subnet delegation to enable zero or multiple delegations. If a resource for a service is already deployed in the subnet, you can't add or remove subnet delegations until you remove all the resources for the service. To delegate for a different service in the portal, select the service you want to delegate to from the **Services** list. |
-| **Network policy for private endpoints**| You can change network policy for private endpoints after subnet creation.|
 
 # [Portal](#tab/azure-portal)
 
@@ -125,7 +115,7 @@ You can change the following subnet settings after the subnet is created.
 1. Select **Save**.
 
 
-# [CLI](#tab/azure-cli)
+# [Azure CLI](#tab/azure-cli)
 
 Run the [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update) command with the options you want to change.
 
@@ -139,6 +129,16 @@ Run the [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azv
 
 ---
 
+You can change the following subnet settings after the subnet is created.
+
+| Setting | Description |
+| --- | --- |
+| **Subnet address range** | If no resources are deployed within the subnet, you can change the address range. If any resources exist in the subnet, you must either move the resources to another subnet, or delete them from the subnet first. The steps you take to move or delete a resource vary depending on the resource. To learn how to move or delete resources that are in subnets, read the documentation for each resource type.|
+| **Add IPv6 address space**, **NAT Gateway**, **Network security group**, and **Route table** | You can add IPv6, NAT gateway, NSG, or route table support after you create the subnet.|
+| **Service endpoints** | To enable a service endpoint for an existing subnet, ensure that no critical tasks are running on any resource in the subnet. Service endpoints switch routes on every network interface in the subnet. The service endpoints change from using the default route with the `0.0.0.0/0` address prefix and next hop type of `Internet` to using a new route with the address prefixes of the service and a next hop type of `VirtualNetworkServiceEndpoint`.<br><br>>During the switch, any open TCP connections may be terminated. The service endpoint isn't enabled until traffic to the service for all network interfaces updates with the new route. For more information, see [Virtual network traffic routing](virtual-networks-udr-overview.md).|
+| **Subnet delegation** | You can modify subnet delegation to enable zero or multiple delegations. If a resource for a service is already deployed in the subnet, you can't add or remove subnet delegations until you remove all the resources for the service. To delegate for a different service in the portal, select the service you want to delegate to from the **Services** list. |
+| **Network policy for private endpoints**| You can change network policy for private endpoints after subnet creation.|
+
 ## Delete a subnet
 
 # [Portal](#tab/azure-portal)
@@ -151,7 +151,7 @@ You can delete a subnet only if there are no resources in the subnet. If resourc
 1. On **Subnets** page, select the subnet you want to delete.
 1. Select **Delete**, and then select **Yes** in the confirmation dialog box.
 
-# [CLI](#tab/azure-cli)
+# [Azure CLI](#tab/azure-cli)
 
 Run the [az network vnet subnet delete](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-delete) command.
 
