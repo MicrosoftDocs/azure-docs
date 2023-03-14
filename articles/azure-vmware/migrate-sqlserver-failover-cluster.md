@@ -13,7 +13,7 @@ In this article, you learn how to migrate a Microsoft SQL Server Failover Cluste
 
 VMware HCX doesn't support migrating virtual machines with SCSI controllers in physical sharing mode attached to a virtual machine. However, we can overcome this limitation by performing the steps detailed in this procedure and using VMware HCX Cold Migration to move the different virtual machines that make up the cluster. 
 
-:::image type="content" source="media/sql-server-hybrid-benefit/sql-alwayson-architecture.png" alt-text="Diagram showing the architecture of always on SQL server for  Azure VMware Solution." border="false"::: 
+:::image type="content" source="media/sql-server-hybrid-benefit/migrated-sql-failover-cluster.png" alt-text="Diagram showing the architecture of always on SQL server for  Azure VMware Solution." border="false"::: 
 
 > [!NOTE]
 > This procedure requires a full shutdown of the cluster. Plan accordingly for the downtime period during the migration since the Microsoft SQL Server service will be unavailable. 
@@ -110,12 +110,12 @@ During the process, you'll create placement policies that can recreate the Affin
 
 ## Next steps
 
-- [Enable SQL Azure hybrid benefit for Azure VMware Solution](https://learn.microsoft.com/azure/azure-vmware/enable-sql-azure-hybrid-benefit). 
-- [Create a placement policy in Azure VMware Solution](https://learn.microsoft.com/azure/azure-vmware/create-placement-policy)  
-- [Windows Server Failover Clustering Documentation](https://learn.microsoft.com/windows-server/failover-clustering/failover-clustering-overview)
-- [Microsoft SQL Server 2019 Documentation](https://learn.microsoft.com/sql/sql-server/?view=sql-server-ver15)
+- [Enable SQL Azure hybrid benefit for Azure VMware Solution](enable-sql-azure-hybrid-benefit.md). 
+- [Create a placement policy in Azure VMware Solution](create-placement-policy.md)  
+- [Windows Server Failover Clustering Documentation](./windows-server/failover-clustering/failover-clustering-overview)
+- [Microsoft SQL Server 2019 Documentation](./sql/sql-server/?view=sql-server-ver15)
 - [Microsoft SQL Server 2022 Documentation](https://learn.microsoft.com/sql/sql-server/?view=sql-server-ver16)
-- [Windows Server Technical Documentation](https://learn.microsoft.com/en-us/windows-server/)
+- [Windows Server Technical Documentation](https://learn.microsoft.com/windows-server/)
 - [Planning Highly Available, Mission Critical SQL Server Deployments with VMware vSphere](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/solutions/vmware-vsphere-highly-available-mission-critical-sql-server-deployments.pdf)
 - [Microsoft SQL Server on VMware vSphere Availability and Recovery Options](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/solutions/sql-server-on-vmware-availability-and-recovery-options.pdf)
 - [VMware KB 100 2951 – Tips for configuring Microsoft SQL Server in a virtual machine](https://kb.vmware.com/s/article/1002951)

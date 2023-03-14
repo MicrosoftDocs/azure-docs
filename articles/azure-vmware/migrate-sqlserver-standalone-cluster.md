@@ -18,7 +18,7 @@ When migrating Microsoft SQL Server Standalone to Azure VMware Solution, VMware 
 
 In both cases, consider the size and criticality of the database being migrated. For this procedure we have validated VMware HCX vMotion. HCX Cold Migration is also valid, but it will require a longer downtime period. 
 
-:::image type="content" source="media/sql-server-hybrid-benefit/sql-alwayson-architecture.png" alt-text="Diagram showing the architecture of always on SQL server for  Azure VMware Solution." border="false"::: 
+:::image type="content" source="media/sql-server-hybrid-benefit/migrated-sql-standalone-cluster.png" alt-text="Diagram showing the architecture of always on SQL server for  Azure VMware Solution." border="false"::: 
 
 ## Prerequisites
 
