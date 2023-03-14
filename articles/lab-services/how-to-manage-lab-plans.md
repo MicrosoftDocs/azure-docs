@@ -51,7 +51,7 @@ To delete a lab plan in the Azure portal:
 
 1. Select **Delete** from the toolbar.
 
-    :::image type="content" source="./media/how-to-manage-lab-plans/azure-portal-delete-lab-plan.png" alt-text="Screenshot that shows how to delete a lab plan in the Azure portal by selecting from the list and selecting Delete.":::
+    :::image type="content" source="./media/how-to-manage-lab-plans/azure-portal-delete-lab-plan.png" alt-text="Screenshot that shows how to delete a lab plan in the Azure portal.":::
 
 1. Enter **Yes** to confirm the delete action, and then select **Delete**.
 
