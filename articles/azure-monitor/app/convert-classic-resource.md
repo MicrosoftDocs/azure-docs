@@ -3,7 +3,6 @@ title: Migrate an Application Insights classic resource to a workspace-based res
 description: Learn how to upgrade your Application Insights classic resource to the new workspace-based model. 
 ms.topic: conceptual
 ms.date: 02/14/2023
-ms.custom: devx-track-azurepowershell
 ms.reviewer: cawa
 ---
 
@@ -401,7 +400,7 @@ Legacy table: availability
 |operation_ParentId|string|OperationParentId|string|
 |operation_SyntheticSource|string|OperationSyntheticSource|string|
 |performanceBucket|string|PerformanceBucket|string|
-|sdkVersion|string|SdkVersion|string|
+|sdkVersion|string|SDKVersion|string|
 |session_Id|string|SessionId|string|
 |size|real|Size|real|
 |success|string|Success|Bool|
@@ -444,7 +443,7 @@ Legacy table: browserTimings
 |performanceBucket|string|PerformanceBucket|string|
 |processingDuration|real|ProcessingDurationMs|real|
 |receiveDuration|real|ReceiveDurationMs|real|
-|sdkVersion|string|SdkVersion|string|
+|sdkVersion|string|SDKVersion|string|
 |sendDuration|real|SendDurationMs|real|
 |session_Id|string|SessionId|string|
 |timestamp|datetime|TimeGenerated|datetime|
@@ -489,7 +488,7 @@ Legacy table: dependencies
 |operation_SyntheticSource|string|OperationSyntheticSource|string|
 |performanceBucket|string|PerformanceBucket|string|
 |resultCode|string|ResultCode|string|
-|sdkVersion|string|SdkVersion|string|
+|sdkVersion|string|SDKVersion|string|
 |session_Id|string|SessionId|string|
 |success|string|Success|Bool|
 |target|string|Target|string|
@@ -529,7 +528,7 @@ Legacy table: customEvents
 |operation_Name|string|OperationName|string|
 |operation_ParentId|string|OperationParentId|string|
 |operation_SyntheticSource|string|OperationSyntheticSource|string|
-|sdkVersion|string|SdkVersion|string|
+|sdkVersion|string|SDKVersion|string|
 |session_Id|string|SessionId|string|
 |timestamp|datetime|TimeGenerated|datetime|
 |user_AccountId|string|UserAccountId|string|
@@ -564,7 +563,7 @@ Legacy table: customMetrics
 |operation_Name|string|OperationName|string|
 |operation_ParentId|string|OperationParentId|string|
 |operation_SyntheticSource|string|OperationSyntheticSource|string|
-|sdkVersion|string|SdkVersion|string|
+|sdkVersion|string|SDKVersion|string|
 |session_Id|string|SessionId|string|
 |timestamp|datetime|TimeGenerated|datetime|
 |user_AccountId|string|UserAccountId|string|
@@ -612,7 +611,7 @@ Legacy table: pageViews
 |operation_ParentId|string|OperationParentId|string|
 |operation_SyntheticSource|string|OperationSyntheticSource|string|
 |performanceBucket|string|PerformanceBucket|string|
-|sdkVersion|string|SdkVersion|string|
+|sdkVersion|string|SDKVersion|string|
 |session_Id|string|SessionId|string|
 |timestamp|datetime|TimeGenerated|datetime|
 |url|string|Url|string|
@@ -651,7 +650,7 @@ Legacy table: performanceCounters
 |operation_Name|string|OperationName|string|
 |operation_ParentId|string|OperationParentId|string|
 |operation_SyntheticSource|string|OperationSyntheticSource|string|
-|sdkVersion|string|SdkVersion|string|
+|sdkVersion|string|SDKVersion|string|
 |session_Id|string|SessionId|string|
 |timestamp|datetime|TimeGenerated|datetime|
 |user_AccountId|string|UserAccountId|string|
@@ -693,7 +692,7 @@ Legacy table: requests
 |operation_SyntheticSource|string|OperationSyntheticSource|string|
 |performanceBucket|string|PerformanceBucket|String|
 |resultCode|string|ResultCode|String|
-|sdkVersion|string|SdkVersion|string|
+|sdkVersion|string|SDKVersion|string|
 |session_Id|string|SessionId|string|
 |source|string|Source|String|
 |success|string|Success|Bool|
@@ -746,7 +745,7 @@ Legacy table: exceptions
 |outerMethod|string|OuterMethod|string|
 |outerType|string|OuterType|string|
 |problemId|string|ProblemId|string|
-|sdkVersion|string|SdkVersion|string|
+|sdkVersion|string|SDKVersion|string|
 |session_Id|string|SessionId|string|
 |severityLevel|int|SeverityLevel|int|
 |timestamp|datetime|TimeGenerated|datetime|
@@ -785,7 +784,7 @@ Legacy table: traces
 |operation_Name|string|OperationName|string|
 |operation_ParentId|string|OperationParentId|string|
 |operation_SyntheticSource|string|OperationSyntheticSource|string|
-|sdkVersion|string|SdkVersion|string|
+|sdkVersion|string|SDKVersion|string|
 |session_Id|string|SessionId|string|
 |severityLevel|int|SeverityLevel|int|
 |timestamp|datetime|TimeGenerated|datetime|

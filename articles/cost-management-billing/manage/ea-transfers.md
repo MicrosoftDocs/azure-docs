@@ -2,11 +2,11 @@
 title: Transfer Azure Enterprise enrollment accounts and subscriptions
 description: Describes how Azure Enterprise enrollment accounts and subscriptions are transferred.
 author: bandersmsft
-ms.reviewer: baolcsva
+ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 01/25/2023
+ms.date: 03/07/2023
 ms.author: banders
 ms.custom: contperf-fy21q1
 ---
@@ -101,6 +101,8 @@ Other points to keep in mind before an enrollment transfer:
         :::image type="content" source="./media/ea-transfers/cross-currency-reservation-transfer-effects.png" alt-text="Diagram illustrating the effects  of cross currency reservation transfers." border="false" lightbox="./media/ea-transfers/cross-currency-reservation-transfer-effects.png":::
   - Whenever there's is a currency change during or after an enrollment transfer, reservations paid for monthly are canceled for the source enrollment at the time of next monthly payment for an individual reservation. This cancellation is intentional and affects only the monthly reservation purchases.
   - You may have to repurchase the canceled monthly reservations from the source enrollment using the new enrollment in the local or new currency. If you repurchase a reservation, the purchase term (one or three years) is reset. The repurchase doesn't continue under the previous term.
+- In case of backdated enrollment transfer, Savings plan benefit is applicable from the transfer request submission date and not from the effective transfer date.
+
 
 
 ### Auto enrollment transfer
