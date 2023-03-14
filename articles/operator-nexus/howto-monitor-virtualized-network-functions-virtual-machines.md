@@ -168,7 +168,7 @@ To collect data from virtual machines by using Azure Monitor Agent, you'll need 
 
 #### Data Collection Rule via Portal
 
-The steps to create a DCR and associate it to a Log Analytics Workspace can be found [here](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md?tabs=portal#create-data-collection-rule-and-association).
+The steps to create a DCR and associate it to a Log Analytics Workspace can be found [here](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md?tabs=portal).
 
 Lastly verify if you're getting the logs in the Log Analytics Workspace specified.
 
@@ -187,17 +187,11 @@ An example rules-file:
 <!--- IMG ![Sample DCR rule file](Docs/media/sample-data-collection-rule.png) IMG --->
 :::image type="content" source="media/sample-data-collection-rule.png" alt-text="Screenshot of Sample DCR rule file.":::
 
-Figure: Sample DCR rule file
-
-For more information, please refer to this [link](/azure/monitor/data-collection/rule#az-monitor-data-collection-rule-create).
-
 **Associate DCR:**
 
 ```azurecli
 az monitor data-collection rule association create --name \<name-for-dcr-association\> --resource \<connected-machine-resource-id\> --rule-id \<dcr-resource-id\> [--description]
 ```
-
-For more information, please refer to this [link](/azure/monitor/data-collection/rule/association#az-monitor-data-collection-rule-association-create).
 
 ## Additional resources
 
