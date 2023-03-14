@@ -243,7 +243,7 @@ Code sample goes here.
 
 ---
 
-## Create a client object using the service endpoint
+## Create a client object using the endpoint
 
 Once you have the Blob Storage endpoint for a storage account, you can instantiate a client object to work with data resources. The following code sample creates a `BlobServiceClient` object using the endpoint we retrieved in the earlier example:
 
