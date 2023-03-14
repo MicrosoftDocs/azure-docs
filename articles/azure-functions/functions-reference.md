@@ -164,7 +164,7 @@ Choose a tab below to learn about permissions for each component:
 [!INCLUDE [functions-cosmos-permissions](../../includes/functions-cosmos-permissions.md)]
 
 # [Azure SignalR extension](#tab/signalr)
-[!INCLUDE [functions-signalr-permissions](../../includes/functions-signalr-permissions.md)]
+You'll need to create a role assignment that provides access to Azure SignalR Service data plane REST APIs. We recommend you to use the built-in role [SignalR Service Owner](../role-based-access-control/built-in-roles.md#signalr-service-owner). Management roles like [Owner](../role-based-access-control/built-in-roles.md#owner) aren't sufficient.
 
 # [Durable Functions storage provider (preview)](#tab/durable)
 
