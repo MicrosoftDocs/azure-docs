@@ -1,5 +1,5 @@
 ---
-title: Optimize Checkpoint Performance for Large Model Training Jobs with Nebula (Preview)
+title: Optimize Checkpoint Performance for Large Models
 titleSuffix: Azure Machine Learning
 description: Learn how Nebula can save time, resources, and money for large model training applications
 services: machine-learning
@@ -9,7 +9,7 @@ ms.custom: ----, ----, ----
 
 author: ziqiwang
 ms.author: ziqiwang
-ms.date: 03/06/2023
+ms.date: 03/14/2023
 ms.reviewer: franksolomon
 ---
 
