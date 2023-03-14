@@ -1,6 +1,6 @@
 ---
-title: "Google Cloud Platform DNS (using Azure Function) connector for Microsoft Sentinel"
-description: "Learn how to install the connector Google Cloud Platform DNS (using Azure Function) to connect your data source to Microsoft Sentinel."
+title: "Google Cloud Platform DNS (using Azure Functions) connector for Microsoft Sentinel"
+description: "Learn how to install the connector Google Cloud Platform DNS (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
 ms.date: 02/23/2023
@@ -8,7 +8,7 @@ ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# Google Cloud Platform DNS (using Azure Function) connector for Microsoft Sentinel
+# Google Cloud Platform DNS (using Azure Functions) connector for Microsoft Sentinel
 
 The Google Cloud Platform DNS data connector provides the capability to ingest [Cloud DNS query logs](https://cloud.google.com/dns/docs/monitoring#using_logging) and [Cloud DNS audit logs](https://cloud.google.com/dns/docs/audit-logging) into Microsoft Sentinel using the GCP Logging API. Refer to [GCP Logging API documentation](https://cloud.google.com/logging/docs/api) for more information.
 
@@ -16,7 +16,7 @@ The Google Cloud Platform DNS data connector provides the capability to ingest [
 
 | Connector attribute | Description |
 | --- | --- |
-| **Azure function app code** | https://aka.ms/sentinel-GCPDNSDataConnector-functionapp |
+| **Azure functions app code** | https://aka.ms/sentinel-GCPDNSDataConnector-functionapp |
 | **Log Analytics table(s)** | GCP_DNS_CL<br/> |
 | **Data collection rules support** | Not currently supported |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com/) |
@@ -34,7 +34,7 @@ GCP_DNS_CL
 
 ## Prerequisites
 
-To integrate with Google Cloud Platform DNS (using Azure Function) make sure you have: 
+To integrate with Google Cloud Platform DNS (using Azure Functions) make sure you have: 
 
 - **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
 - **GCP service account**: GCP service account with permissions to read logs (with "logging.logEntries.list" permission) is required for GCP Logging API. Also json file with service account key is required. See the documentation to learn more about [permissions](https://cloud.google.com/logging/docs/access-control#permissions_and_roles), [creating service account](https://cloud.google.com/iam/docs/creating-managing-service-accounts) and [creating service account key](https://cloud.google.com/iam/docs/creating-managing-service-account-keys).
