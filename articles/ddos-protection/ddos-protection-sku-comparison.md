@@ -5,7 +5,7 @@ author: AbdullahBell
 ms.author: Abell
 ms.service: ddos-protection
 ms.topic: conceptual 
-ms.date: 01/17/2023
+ms.date: 03/14/2023
 ms.custom: template-concept, ignite-2022
 ---
 
@@ -19,15 +19,9 @@ The sections in this article discuss the resources and settings of Azure DDoS Pr
 
 Azure DDoS Network Protection, combined with application design best practices, provides enhanced DDoS mitigation features to defend against DDoS attacks. It's automatically tuned to help protect your specific Azure resources in a virtual network. For more information about enabling DDoS Network Protection, see [Quickstart: Create and configure Azure DDoS Network Protection using the Azure portal](manage-ddos-protection.md).
 
-## DDoS IP Protection Preview
+## DDoS IP Protection 
 
  DDoS IP Protection is a pay-per-protected IP model. DDoS IP Protection contains the same core engineering features as DDoS Network Protection, but will differ in the following value-added services: DDoS rapid response support, cost protection, and discounts on WAF. For more information about enabling DDoS IP Protection, see [Quickstart: Create and configure Azure DDoS IP Protection using Azure PowerShell](manage-ddos-protection-powershell-ip.md).
-
-> [!NOTE]
-> DDoS IP Protection is currently only available in Azure Preview PowerShell.
-
-> [!NOTE]
-> Protecting a public IP resource attached to a Public Load Balancer is not supported for DDoS IP Protection SKU.
 
 ## SKUs
 
@@ -59,6 +53,23 @@ The following table shows features and corresponding SKUs.
 
 >[!Note]
 >At no additional cost, Azure DDoS infrastructure protection protects every Azure service that uses public IPv4 and IPv6 addresses. This DDoS protection service helps to protect all Azure services, including platform as a service (PaaS) services such as Azure DNS. For more information on supported PaaS services, see [DDoS Protection reference architectures](ddos-protection-reference-architectures.md). Azure DDoS infrastructure protection requires no user configuration or application changes. Azure provides continuous protection against DDoS attacks. DDoS protection does not store customer data.
+
+## Limitations
+
+DDoS Network Protection have the following limitations:
+
+- PaaS services (multi-tenant), which includes Azure App Service Environment for Power Apps, Azure API Management in deployment modes other than those supported above, or Azure Virtual WAN aren't currently supported. 
+- Virtual machines in Classic/RDFE deployments aren't supported.
+- Scenarios in which a single VM is running behind a public IP isn't supported. 
+- Protected resources that include public IPs created from public IP address prefix aren't supported.
+
+For more information, see [Azure DDoS Protection reference architectures](./ddos-protection-reference-architectures.md).
+
+DDoS IP Protection is similar to Network Protection, but has the following additional limitations:
+
+- Public IP Basic SKU protection isn't supported. 
+- Protecting a public IP resource attached to a Public Load Balancer isn't supported.
+- Protecting a public IP resource attached to a Virtual Network Gateway and NAT Gateway isn't supported.
 
 
 ## Next steps
