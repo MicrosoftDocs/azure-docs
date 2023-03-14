@@ -380,6 +380,10 @@ And the log for a disconnection event looks like this:
 
 ## Log Analytics Queries
 
+> [!NOTE]
+> For a tutorial on how to use Azure Log Analytics, see [Overview of Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-overview.md). Remember that it may take up to 90 minutes before logs show up in Log Analtyics. 
+>
+
 Here are some basic queries to use as models.
 
 ### [Queries for Basic, Standard, and Premium tiers](#tab/basic-standard-premium)
