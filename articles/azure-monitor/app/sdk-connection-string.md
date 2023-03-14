@@ -280,7 +280,7 @@ tracer = Tracer(exporter=AzureExporter(connection_string='InstrumentationKey=000
 Get started at runtime with:
 
 * [Azure VM and Azure Virtual Machine Scale Sets IIS-hosted apps](./azure-vm-vmss-apps.md)
-* [IIS server](./status-monitor-v2-overview.md)
+* [IIS server](./application-insights-asp-net-agent.md)
 * [Web Apps feature of Azure App Service](./azure-web-apps.md)
 
 Get started at development time with:
