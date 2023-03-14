@@ -22,7 +22,7 @@ A glossary is a list of terms with definitions that you create for the Document 
 
 1. **Create your glossary file.** Create a file in a supported format (preferably tab-separated values) that contains all the terms and phrases you want to use in your translation.
 
-   To check if your file format is supported, *see** [Get supported glossary formats](../reference/get-supported-glossary-formats.md).
+   To check if your file format is supported, *see* [Get supported glossary formats](../reference/get-supported-glossary-formats.md).
 
     The following English-source glossary contains words that can have different meanings depending upon the context in which they're used. The glossary provides the expected translation for each word in the file to help ensure accuracy.
 
@@ -43,7 +43,31 @@ A glossary is a list of terms with definitions that you create for the Document 
 
 1. **Specify your glossary in the translation request.** Include the **`glossary URL`**, **`format`**, and **`version`** in your **`POST`** request:
 
-   :::code language="json" source="translate-with-glossary.json" range="1-23" highlight="13-15":::
+   ```json
+   {
+    "inputs": [
+        {
+            "source": {
+                "sourceUrl": "https://my.blob.core.windows.net/source-en?sv=2019-12-12&st=2021-03-05T17%3A45%3A25Z&se=2021-03-13T17%3A45%3A00Z&sr=c&sp=rl&sig=SDRPMjE4nfrH3csmKLILkT%2Fv3e0Q6SWpssuuQl1NmfM%3D"
+            },
+            "targets": [
+                {
+                    "targetUrl": "https://my.blob.core.windows.net/target-fr?sv=2019-12-12&st=2021-03-05T17%3A49%3A02Z&se=2021-03-13T17%3A49%3A00Z&sr=c&sp=wdl&sig=Sq%2BYdNbhgbq4hLT0o1UUOsTnQJFU590sWYo4BOhhQhs%3D",
+                    "language": "fr",
+                    "glossaries": [
+                        {
+                            "glossaryUrl": "https://my.blob.core.windows.net/glossaries/en-fr.tsv?sv=2019-12-12&st=2021-03-05T17%3A45%3A25Z&se=2021-03-13T17%3A45%3A00Z&sr=c&sp=rl&sig=BsciG3NWoOoRjOYesTaUmxlXzyjsX4AgVkt2AsxJ9to%3D",
+                            "format": "tsv",
+                            "version": "1.2"
+                        }
+                    ]
+
+                }
+            ]
+        }
+    ]
+  }
+   ```
 
 ### Case sensitivity
 
