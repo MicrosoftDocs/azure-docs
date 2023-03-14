@@ -678,13 +678,13 @@ Make note of both IP addresses. Use the IPs to verify the outbound connectivity 
 
 1. On the desktop of **myVM**, open **Microsoft Edge**.
 
-1. To confirm the IPv4 address, enter **http://v4.testmyipv6.com** in the address bar.
+1. To confirm the IPv4 address, enter `http://v4.testmyipv6.com` in the address bar.
 
 1. You should see the IPv4 address displayed. In this example, the IP of **20.230.191.5** is displayed.
 
     :::image type="content" source="./media/tutorial-dual-stack-outbound-nat-load-balancer/portal-verify-ipv4.png" alt-text="Screenshot of outbound IPv4 public IP address from portal steps.":::
 
-1. In the address bar, enter **http://v6.testmyipv6.com**
+1. In the address bar, enter `http://v6.testmyipv6.com`
 
 1. You should see the IPv6 address displayed. In this example, the IP of **2603:1030:c02:8::14** is displayed.
 
@@ -709,13 +709,13 @@ Make note of both IP addresses. Use the IPs to verify the outbound connectivity 
 
 1. On the desktop of **myVM**, open **Microsoft Edge**.
 
-1. To confirm the IPv4 address, enter **http://v4.testmyipv6.com** in the address bar.
+1. To confirm the IPv4 address, enter `http://v4.testmyipv6.com` in the address bar.
 
 1. You should see the IPv4 address displayed. In this example, the IP of **40.90.217.214** displayed.
 
     :::image type="content" source="./media/tutorial-dual-stack-outbound-nat-load-balancer/cli-verify-ipv4.png" alt-text="Screenshot of outbound IPv4 public IP address from CLI steps.":::
 
-1. In the address bar, enter **http://v6.testmyipv6.com**
+1. In the address bar, enter `http://v6.testmyipv6.com`
 
 1. You should see the IPv6 address displayed. In this example, the IP of **2603:1030:c04:3::4d**  is displayed.
 
