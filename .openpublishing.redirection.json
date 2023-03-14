@@ -1,6 +1,11 @@
 {
     "redirections": [
     {
+      "source_path": "articles/databox-online/azure-stack-edge-zero-touch-provisioning.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-powershell-based-configuration",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-video-analyzer/video-analyzer-docs/access-policies.md",
       "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/access-policies",
       "redirect_document_id": false
