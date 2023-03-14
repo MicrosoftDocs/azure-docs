@@ -6,7 +6,7 @@
       displayName: AML, services, overview, introduction
       href: overview-what-is-azure-machine-learning.md
     - name: Azure Machine Learning SDK & CLI v1
-      href ./v1/introduction.md
+      href: ./v1/introduction.md
     - name: Glossary
       href: azure-machine-learning-glossary.md
     - name: Architecture & terms
