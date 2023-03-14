@@ -55,7 +55,7 @@ Run an assessment as follows:
 
    ![Screenshot of Get started screen.](./media/tutorial-assess-vmware-azure-vm/assess.png)
 
-2. In **Azure Migrate: Discovery and assessment**, select **Assess** > **Azure VM**
+2. In **Azure Migrate: Discovery and assessment**, select **Assess** > **Azure VM**.
 
     ![Screenshot of Discovery and assessment screen.](./media/tutorial-assess-vmware-azure-vm/assess-servers.png)
 

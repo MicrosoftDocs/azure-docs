@@ -55,11 +55,11 @@ Run an assessment as follows:
 
    ![Screenshot of Get started screen.](./media/tutorial-assess-vmware-azure-vm/assess.png)
 
-2. In **Azure Migrate: Discovery and assessment**, select **Assess** and select **Azure VM**
+2. In **Azure Migrate: Discovery and assessment**, select **Assess** and select **Azure VM**.
 
     ![Screenshot of Discovery and assessment screen.](./media/tutorial-assess-vmware-azure-vm/assess-servers.png)
 
-3. In **Assess servers** > **Assessment type**, and select **Azure VM**.
+3. In **Assess servers** > **Assessment type**, select **Azure VM**.
 4. In **Discovery source**:
 
     - If you discovered servers using the appliance, select **Servers discovered from Azure Migrate appliance**.

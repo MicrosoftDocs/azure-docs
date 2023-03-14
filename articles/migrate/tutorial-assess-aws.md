@@ -141,7 +141,7 @@ To view an assessment:
  
 ### Review readiness
 
-1. select **Azure readiness**.
+1. Select **Azure readiness**.
 2. In **Azure readiness**, review the VM status:
     - **Ready for Azure**: Used when Azure Migrate recommends a VM size and cost estimates, for VMs in the assessment.
     - **Ready with conditions**: Shows issues and suggested remediation.
