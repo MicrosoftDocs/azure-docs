@@ -200,7 +200,7 @@ You can also [export your cost data](../../cost-management-billing/costs/tutoria
 
 ## Avoid billing surprises
 
-The use of some features can lead to unexpected charges. In many cases, you can make tweaks to the way that you use a feature to hedge against surprise statements. Use the following table as a guide.
+Some actions, such as changing the default access tier of your account, can lead to costs that you might not expect. While articles about each feature contain information about how to avoid unexpected costs, this table captures common causes.  
 
 | Category | Action | Potential impact on your bill |
 |----------|--------|-------------------------------|
