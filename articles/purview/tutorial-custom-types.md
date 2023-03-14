@@ -5,9 +5,8 @@ author: adinastoll
 ms.author: adnegrau
 ms.service: purview
 ms.topic: how-to
-ms.date: 03/08/2023
+ms.date: 03/14/2023
 ---
-
 
 # Type definitions and how to create custom types
 
@@ -31,7 +30,7 @@ For this tutorial you'll need:
 * Apache Atlas endpoint of your Microsoft Purview account. To get your Apache Atlas endpoint, follow the *Apache Atlas endpoint* section from [here](tutorial-atlas-2-2-apis.md#atlas-endpoint).
 
 > [!NOTE]
-> Before moving to the hands-on part of the tutorial, the first four sections will explain what System Type is and how it is used in Microsoft Purview.
+> Before moving to the hands-on part of the tutorial, the first four sections will explain what a System Type is and how it is used in Microsoft Purview.
 > All the REST API calls described further will use the **bearer token** and the **endpoint** which are described in the prerequisites.
 >
 > To skip directly to the steps, use these links:
@@ -39,7 +38,8 @@ For this tutorial you'll need:
 >* [Create custom type definitions](#create-definitions)
 >* [Initialize assets of custom types](#initialize-assets-of-custom-types)
 
-## What is *asset* and *type* in Microsoft Purview
+## What are *asset* and *type* in Microsoft Purview?
+
 An *asset* is a metadata element that describes a digital or physical resource. The digital or physical resources that are expected to be cataloged as assets include:
 
 * Data sources such as databases, files, and data feed.
@@ -51,8 +51,8 @@ Microsoft Purview provides users a flexible *type system* to expand the definiti
 
 Essentially, a *Type* can be seen as a *Class* from Object Oriented Programming (OOP):
 
-* It defines the properties that represent that type
-* Each type is uniquely identified by its *name*
+* It defines the properties that represent that type.
+* Each type is uniquely identified by its *name*.
 * A *type* can inherit from a *supertType*. This is an equivalent concept as inheritance from OOP. A type that extends a superType will inherit the attributes of the superType.
 
 You can see all type definitions in your Microsoft Purview account by sending a `GET` request to the [All Type Definitions](/rest/api/purview/catalogdataplane/types/get-all-type-definitions) endpoint:
@@ -61,7 +61,7 @@ You can see all type definitions in your Microsoft Purview account by sending a 
 GET https://{{ENDPOINT}}/catalog/api/atlas/v2/types/typedefs
 ```
 
-Apache Atlas has few pre-defined system types that are commonly used as supertypes.
+Apache Atlas has few predefined system types that are commonly used as supertypes.
 
 For example:
 
@@ -73,7 +73,7 @@ For example:
 
 * **Lineage**: Lineage information helps one understand the origin of data and the transformations it may have gone through before arriving in a file or table. Lineage is calculated through *DataSet* and *Process*: DataSets (input of process) impact some other DataSets (output of process) through Process.
 
-:::image type="content" source="./media/tutorial-custom-types/base-model-diagram.png" alt-text="Diagram showing the relationships between system types." border="false":::
+:::image type="content" source="./media/tutorial-custom-types/base-model-diagram.png" alt-text="Diagram showing the relationships between system types." border="false" lightbox="./media/tutorial-custom-types/base-model-diagram.png":::
 
 ## Example of a *Type* definition
  
@@ -86,7 +86,7 @@ GET https://{{ENDPOINT}}/catalog/api/atlas/v2/types/typedef/name/{name}
 ```
 
 >[!TIP]
-> The **{name}** property tells which defintion you are interested in. In this case, you should use **azure_sql_table**.
+> The **{name}** property tells which definition you are interested in. In this case, you should use **azure_sql_table**.
 
 Below you can see a simplified JSON result:
 
@@ -149,7 +149,7 @@ Based on the JSON type definition, let's look at some properties:
 
    Below you can see an example of how the **Schema** tab looks like for an asset of type Azure SQL Table:
 
-   :::image type="content" source="./media/tutorial-custom-types/schema-tab.png" alt-text="Screenshot of the schema tab for an Azure SQL Table asset.":::
+   :::image type="content" source="./media/tutorial-custom-types/schema-tab.png" alt-text="Screenshot of the schema tab for an Azure SQL Table asset." lightbox="./media/tutorial-custom-types/schema-tab.png":::
 
 * **relationshipAttributeDefs** are calculated through the relationship type definitions. In our JSON, we can see that **schemaElementsAttributes**  points to the relationship attribute called **columns** - which is one of elements from **relationshipAttributeDefs** array, as shown below:
 
@@ -231,8 +231,9 @@ Below you can see a simplified JSON result:
 
 ## Schema tab
 
-### What is **Schema** in Microsoft Purview?
-Schema is an important concept that reflects how data is stored and organized in the data store. It reflects the structure of the data and the data restrictions of the elements that construct the structure. 
+### What is *Schema* in Microsoft Purview?
+
+Schema is an important concept that reflects how data is stored and organized in the data store. It reflects the structure of the data and the data restrictions of the elements that construct the structure.
 
 Elements on the same schema can be classified differently (due to their content). Also, different transformation (lineage) can happen to only a subset of elements. Due to these aspects, Purview can model schema and schema elements **as entities**, hence schema is usually a relationship attribute to the data asset entity. Examples of schema elements are: **columns** of a table, **json properties** of json schema, **xml elements** of xml schema etc.
 
@@ -242,20 +243,21 @@ There are two types of schemas:
 
    For data store with predefined schema, Purview uses the corresponding relationship between the data asset and the schema elements to reflect the schema. This relationship attribute is specified by the keyword **schemaElementsAttribute** in **options** property of the entity type definition.
 
-* **Non Intrinsic Schema** - Some systems don't enforce such schema restrictions, but users can use it to store structural data by applying some schema protocols to the data. For example, Azure Blobs store binary data and do not care about the data in the binary stream. Therefore, it's unaware of any schema, but the user can serialize their data with schema protocols like json before storing it in the blob. In this sense, schema is maintained by some extra protocols and corresponding validation enforced by the user. 
+* **Non Intrinsic Schema** - Some systems don't enforce such schema restrictions, but users can use it to store structural data by applying some schema protocols to the data. For example, Azure Blobs store binary data and don't care about the data in the binary stream. Therefore, it's unaware of any schema, but the user can serialize their data with schema protocols like json before storing it in the blob. In this sense, schema is maintained by some extra protocols and corresponding validation enforced by the user. 
 
-   For data store without inherent schema, schema model is independent of this data store. For such cases, Purview defines an interface for schema and a relationship between DataSet and schema, called **dataset_attached_schemas** - this extends any entity type that inherits form DataSet to have an **attachedSchema** relationship attribute to link to their schema representation.
+   For data store without inherent schema, schema model is independent of this data store. For such cases, Purview defines an interface for schema and a relationship between DataSet and schema, called **dataset_attached_schemas** - this extends any entity type that inherits from DataSet to have an **attachedSchema** relationship attribute to link to their schema representation.
 
-### Example of **Schema tab**
+### Example of *Schema tab*
+
 The Azure SQL Table example from above has an intrinsic schema. The information that shows up in the Schema tab of the Azure SQL Table comes from the Azure SQL Column themselves.
 
 Selecting one column item, we would see the following:
 
-:::image type="content" source="./media/tutorial-custom-types/azure-sql-column.png" alt-text="Screenshot of the addressID column page with the properties tab open and the data type highlighted.":::
+:::image type="content" source="./media/tutorial-custom-types/azure-sql-column.png" alt-text="Screenshot of the addressID column page with the properties tab open and the data type highlighted." lightbox="./media/tutorial-custom-types/azure-sql-column.png":::
 
 The question is, how did Microsoft Purview select the *data_tye* property from the column and showed it in the Schema tab of the table?
 
-:::image type="content" source="./media/tutorial-custom-types/schema-tab-data-type.png" alt-text="Screenshot of the Azure SQL Table page with the schema page open.":::
+:::image type="content" source="./media/tutorial-custom-types/schema-tab-data-type.png" alt-text="Screenshot of the Azure SQL Table page with the schema page open." lightbox="./media/tutorial-custom-types/schema-tab-data-type.png":::
 
 You can get the type definition of an Azure SQL Column by making a `GET` request to the [endpoint](/rest/api/purview/catalogdataplane/types/get-type-definition-by-name):
 
