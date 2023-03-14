@@ -20,13 +20,13 @@ highlightedContent:
       url: ./overview.md
     - title: What's new for developers in Azure Communication Services?
       itemType: whats-new
-      url: ./whats-new.md #TODO
+      url: ./whats-new.md 
     - title: Explore our scenario-based solutions
       itemType: get-started
-      url: ./overview.md #TODO
+      url: ./overview.md 
     - title: Learn how others use Azure Communication Services
       itemType: learn
-      url: ./overview.md #TODO
+      url: ./overview.md 
     - title: SDK reference
       itemType: reference
       url: ./concepts/reference.md
