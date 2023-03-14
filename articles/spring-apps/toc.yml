@@ -16,6 +16,13 @@ items:
   items:
   - name: Launch your first app
     href: quickstart.md
+  - name: Run apps on Standard consumption plan
+    expanded: true
+    items:
+    - name: Provision a service instance
+      href: quickstart-provision-standard-consumption-plan-service-instance.md
+    - name: Provision in an Azure Container Apps environment with VNet
+      href: quickstart-provision-app-environment-with-virtual-network.md
   - name: Run apps on Basic/Standard tier
     expanded: true
     items:
@@ -256,6 +263,8 @@ items:
       href: how-to-configure-ingress.md
     - name: Customer responsibilities running Azure Spring Apps in a virtual network
       href: vnet-customer-responsibilities.md
+    - name: Customer responsibilities for Standard consumption plan in a virtual network
+      href: standard-consumption-customer-responsibilities.md
     - name: Troubleshooting Azure Spring Apps in virtual networks
       href: troubleshooting-vnet.md
   - name: Secure
