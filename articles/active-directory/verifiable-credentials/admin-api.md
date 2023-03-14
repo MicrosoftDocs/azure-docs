@@ -408,7 +408,7 @@ This method can be used to update the display name of this specific instance of 
 
 #### HTTP request
 
-`POST /v1.0/verifiableCredentials/authorities/:authorityId`
+`PATCH /v1.0/verifiableCredentials/authorities/:authorityId`
 
 Replace the value of `:authorityId` with the value of the authority ID you want to update.
 
