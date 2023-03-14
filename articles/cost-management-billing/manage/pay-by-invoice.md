@@ -46,8 +46,8 @@ Users with a Microsoft Customer Agreement must always submit a request to Azure 
 1. On the Payment methods page, select **Pay by wire transfer**.
 1. On the **Pay by wire transfer** page, you see a message stating that you can request to use wire transfer instead of automatic payment using a credit or debit card. Select **Continue** to start the check.
 1. Depending on your approval status:
-  - If you're automatically approved, the page shows a message stating that you've been approved to pay by wire transfer. Enter your **Company name** and then select **Save**.  
-  - If the request couldn't be processed or if you're not approved, you need to follow the steps in the next [Submit a request to set up pay by wire transfer](#submit-a-request-to-set-up-pay-by-wire-transfer) section.
+    - If you're automatically approved, the page shows a message stating that you've been approved to pay by wire transfer. Enter your **Company name** and then select **Save**.  
+    - If the request couldn't be processed or if you're not approved, you need to follow the steps in the next [Submit a request to set up pay by wire transfer](#submit-a-request-to-set-up-pay-by-wire-transfer) section.
 1. If you've been approved, on the Payment methods page under **Other payment methods**, to the right of **Wire transfer**, select the ellipsis (**...**) symbol and then select **Make default**.  
     You're all set to pay by wire transfer.
 
