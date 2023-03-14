@@ -12,7 +12,7 @@ This article is part two of a six-part tutorial series. [Part one](tutorial-regi
 
 ## Prerequisites
 
->* Sign in to the [Azure portal](https://ms.portal.azure.com/)
+* Sign in to the [Azure portal](https://ms.portal.azure.com/)
 
 ## Configure Caching for ACR (preview) - Azure portal
 

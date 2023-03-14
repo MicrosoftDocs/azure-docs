@@ -14,8 +14,8 @@ This article walks you through the steps of enabling Caching for ACR with authen
 
 ## Prerequisites
 
->* Sign in to the [Azure portal](https://ms.portal.azure.com/). 
->* You have an existing Key Vault to store credentials. Learn more about [creating and storing credentials in a Key Vault.][create-and-store-keyvault-credentials]
+* Sign in to the [Azure portal](https://ms.portal.azure.com/). 
+* You have an existing Key Vault to store credentials. Learn more about [creating and storing credentials in a Key Vault.][create-and-store-keyvault-credentials]
 
 ## Configure Caching for ACR (preview) with authentication - Azure portal
 
