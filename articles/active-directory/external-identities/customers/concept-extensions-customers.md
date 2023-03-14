@@ -1,6 +1,6 @@
 ---
 title: Integrating CIAM tenant with other systems
-description: Learn how to use integrate the CIAM tenant with external systems.  
+description: Learn how to integrate the CIAM tenant with external systems.  
 services: active-directory
 author: csmulligan
 manager: celestedg
