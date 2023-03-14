@@ -6,7 +6,7 @@ manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
 ms.subservice: iot-edge
-ms.date: 05/10/2021
+ms.date: 02/15/2022
 ms.topic: article
 ---
 
@@ -18,6 +18,11 @@ This article walks through all the steps needed to forward edge events to Event 
 * Forward events to Event Grid in the cloud and use Azure Event Hubs or Azure Storage queues to buffer events before processing them in the cloud.
 
  To complete this tutorial, you need have an understanding of Event Grid concepts on [edge](concepts.md) and [Azure](../concepts.md). For additional destination types, see [event handlers](event-handlers.md). 
+
+> [!IMPORTANT]
+> On March 31, 2023, Event Grid on Azure IoT Edge support will be retired, so make sure to transition to IoT Edge native capabilities prior to that date. For more information, see [Transition from Event Grid on Azure IoT Edge to Azure IoT Edge](transition.md). 
+
+
 
 ## Prerequisites 
 In order to complete this tutorial, you will need:

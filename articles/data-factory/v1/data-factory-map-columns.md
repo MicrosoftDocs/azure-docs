@@ -1,8 +1,8 @@
 ---
 title: Mapping dataset columns in Azure Data Factory 
 description: 'Learn how to map source columns to destination columns.'
-author: linda33wj
-ms.author: jingwang
+author: jianleishen
+ms.author: jianleishen
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual

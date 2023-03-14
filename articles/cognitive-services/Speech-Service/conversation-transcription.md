@@ -1,5 +1,5 @@
 ---
-title: Conversation transcription (preview) - Speech service
+title: Conversation transcription overview - Speech service
 titleSuffix: Azure Cognitive Services
 description: You use the conversation transcription feature for meetings. It combines recognition, speaker ID, and diarization to provide transcription of any conversation.
 services: cognitive-services
@@ -7,15 +7,18 @@ author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 01/23/2022
 ms.author: eur
-ms.custom: ignite-fall-2021
+ms.custom: cogserv-non-critical-speech, ignite-fall-2021
 ---
 
-# What is conversation transcription (preview)?
+# What is conversation transcription?
 
 Conversation transcription is a [speech-to-text](speech-to-text.md) solution that provides real-time or asynchronous transcription of any conversation. This feature, which is currently in preview, combines speech recognition, speaker identification, and sentence attribution to determine who said what, and when, in a conversation. 
+
+> [!NOTE]
+> Multi-device conversation access is a preview feature.
 
 ## Key features
 
@@ -55,6 +58,9 @@ Conversation transcription uses two types of inputs:
 - **Multi-channel audio stream:** For specification and design details, see [Microphone array recommendations](./speech-sdk-microphone.md). 
 - **User voice samples:** Conversation transcription needs user profiles in advance of the conversation for speaker identification. Collect audio recordings from each user, and then send the recordings to the [signature generation service](https://aka.ms/cts/signaturegenservice) to validate the audio and generate user profiles.
 
+> [!NOTE]
+> Single channel audio configuration for conversation transcription is currently only available in private preview.
+
 User voice samples for voice signatures are required for speaker identification. Speakers who don't have voice samples are recognized as *unidentified*. Unidentified speakers can still be differentiated when the `DifferentiateGuestSpeakers` property is enabled (see the following example). The transcription output then shows speakers as, for example, *Guest_0* and *Guest_1*, instead of recognizing them as pre-enrolled specific speaker names.
 
 ```csharp
@@ -79,7 +85,7 @@ Audio data is processed live to return the speaker identifier and transcript, an
 
 ## Language support
 
-Currently, conversation transcription supports [all speech-to-text languages](language-support.md#speech-to-text) in the following regions: `centralus`, `eastasia`, `eastus`, `westeurope`.
+Currently, conversation transcription supports [all speech-to-text languages](language-support.md?tabs=stt) in the following regions: `centralus`, `eastasia`, `eastus`, `westeurope`.
 
 ## Next steps
 

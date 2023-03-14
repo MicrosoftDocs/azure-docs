@@ -1,10 +1,14 @@
 ---
 title: Run a service under system and local security accounts
 description: Learn how to run a Service Fabric application under system and local security accounts.  Create security principals and apply the Run-As policy to securely run your services.
-
-ms.topic: conceptual
-ms.date: 03/29/2018
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Run a service as a local user account or local system account
 By using Azure Service Fabric, you can secure applications that are running in the cluster under different user accounts. By default, Service Fabric applications run under the account that the Fabric.exe process runs under. Service Fabric also provides the capability to run applications under a local user or system account. Supported local system account types are **LocalUser**, **NetworkService**, **LocalService**, and **LocalSystem**.  If you're running Service Fabric on a Windows standalone cluster, you can run a service under [Active Directory domain accounts](service-fabric-run-service-as-ad-user-or-group.md) or [group managed service accounts](service-fabric-run-service-as-gmsa.md).
 

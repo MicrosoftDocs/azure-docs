@@ -1,27 +1,24 @@
 ---
 title: Parameterize load tests with secrets and environment variables
 titleSuffix: Azure Load Testing
-description: 'Learn how to conduct configurable load tests by using secrets and environment variables as parameters in Azure Load Testing.'
+description: 'Learn how to create configurable load tests by using secrets and environment variables as parameters in Azure Load Testing.'
 services: load-testing
 ms.service: load-testing
 ms.author: ninallam
 author: ninallam
-ms.date: 11/30/2021
+ms.date: 01/15/2023
 ms.topic: how-to
 ---
 
-# Conduct configurable load tests with secrets and environment variables
+# Create configurable load tests with secrets and environment variables
 
-Learn how to change the behavior of a load test without having to edit the Apache JMeter script. With Azure Load Testing Preview, you can use parameters to make a configurable test script. For example, turn the application endpoint into a parameter to reuse your test script across multiple environments.
+Learn how to change the behavior of a load test without having to edit the Apache JMeter script. With Azure Load Testing, you can use parameters to make a configurable test script. For example, turn the application endpoint into a parameter to reuse your test script across multiple environments.
 
 The Azure Load Testing service supports two types of parameters:
 
 - **Secrets**: Contain sensitive information and are passed securely to the load test engine. For example, secrets provide web service credentials instead of hard-coding them in the test script. For more information, see [Configure load tests with secrets](#secrets).
 
 - **Environment variables**: Contain non-sensitive information and are available as environment variables in the load test engine. For example, environment variables make the application endpoint URL configurable. For more information, see [Configure load tests with environment variables](#envvars).
-
-> [!IMPORTANT]
-> Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites  
 
@@ -31,19 +28,139 @@ The Azure Load Testing service supports two types of parameters:
 
 ## <a name="secrets"></a> Configure load tests with secrets
 
-In this section, you configure your load test to pass secrets to your load test script.
+In this section, you learn how to pass secrets to your load test script in Azure Load Testing. For example, you might use a secret to pass the API key to a web service endpoint that you're load testing. Instead of storing the API key in configuration or hard-coding it in the script, you can save it in a secret store to tightly control access to the secret.
 
-1. Update the Apache JMeter script to accept and use a secret input parameter. An example of such a parameter is a web service authentication token that you pass into an HTTP header.
+Azure Load Testing enables you to store secrets in Azure Key Vault. Alternatively, when you run your load test in a CI/CD pipeline, you can also use the secret store that's associated with your CI/CD technology, such as Azure Pipelines or GitHub Actions.
 
-1. Store the secret value in a secret store, which allows you to tightly control access. Azure Load Testing integrates with your Azure key vault, or with the secret store that's linked to your continuous integration and continuous delivery (CI/CD) workflow.
+To use secrets with Azure Load Testing, you perform the following steps:
 
-1. Configure the load test and pass a reference for the secret to the test script.
+1. Store the secret value in the secret store (Azure Key Vault or the CI/CD secret store).
+1. Pass a reference to the secret into the Apache JMeter test script.
+1. Use the secret value in the Apache JMeter test script by using the `GetSecret` custom function.
 
-### Use secrets in Apache JMeter
+### <a name="akv_secrets"></a> Use Azure Key Vault to store load test secrets
 
-In this section, you update the Apache JMeter script to use a secret as an input parameter.
+You can use Azure Key Vault to pass secret values to your test script in Azure Load Testing. You'll add a reference to the secret in the Azure Load Testing configuration. Azure Load Testing then uses this reference to retrieve the secret value in the Apache JMeter script.
 
-You first define a user-defined variable that retrieves the secret value, and then you can use this variable in the test execution (for example, to set an HTTP request header).
+You'll also need to grant Azure Load Testing access to your Azure key vault to retrieve the secret value.
+
+> [!NOTE]
+> If you run a load test as part of your CI/CD process, you might also use the related secret store. Skip to [Use the CI/CD secret store](#cicd_secrets).
+
+1. [Add the secret value to your key vault](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault), if you haven't already done so.
+
+1. Retrieve the key vault **secret identifier** for your secret. You'll use this secret identifier to configure your load test.
+
+    :::image type="content" source="media/how-to-parameterize-load-tests/key-vault-secret.png" alt-text="Screenshot that shows the details of a secret in an Azure key vault.":::
+    
+    The **secret identifier** is the full URI of the secret in the Azure key vault. Optionally, you can also include a version number. For example, `https://myvault.vault.azure.net/secrets/mysecret/` or `https://myvault.vault.azure.net/secrets/mysecret/abcdef01-2345-6789-0abc-def012345678`.
+
+1. Grant your Azure Load Testing resource access to the key vault.
+    
+    To retrieve the secret from your Azure key vault, you need to give read permission to your Azure Load Testing resource. To enable this, you need to first specify an identity for your load testing resource. Azure Load Testing can use a system-assigned or user-assigned identity.
+    
+    To provide Azure Load Testing access to your key vault, see [Use managed identities for Azure Load Testing](how-to-use-a-managed-identity.md).
+
+1. Reference the secret in the load test configuration.
+    
+    You define a load test secret parameter for each secret that you reference in the Apache JMeter script. The parameter name should match the secret name that you use in the Apache JMeter test script. The parameter value is the key vault security identifier.
+
+    You can specify secret parameters by doing either of the following:
+
+    * In the Azure portal, select your load test, select **Configure**, select the **Parameters** tab, and then enter the parameter details.
+    
+      :::image type="content" source="media/how-to-parameterize-load-tests/test-creation-secrets.png" alt-text="Screenshot that shows where to add secret details to a load test in the Azure portal.":::
+
+    * If you're configuring a CI/CD workflow and use Azure Key Vault, you can specify a secret in the YAML configuration file by using the `secrets` property. For more information about the syntax, see the [Test configuration YAML reference](./reference-test-config-yaml.md).
+
+1. Specify the identity that Azure Load Testing uses to access your secrets in Azure Key Vault.
+
+    The identity can be the system-assigned identity of the load testing resource, or one of the user-assigned identities. Make sure you use the same identity you've granted access previously.
+
+    You can specify the key vault reference identity by doing either of the following:
+
+    * In the Azure portal, select your load test, select **Configure**, select the **Parameters** tab, and then configure the **Key Vault reference identity**.
+
+    :::image type="content" source="media/how-to-parameterize-load-tests/key-vault-reference-identity.png" alt-text="Screenshot that shows how to select key vault reference identity.":::
+
+    * If you're configuring a CI/CD workflow and use Azure Key Vault, you can specify the reference identity in the YAML configuration file by using the `keyVaultReferenceIdentity` property. For more information about the syntax, see the [Test configuration YAML reference](./reference-test-config-yaml.md).
+
+You've now specified a secret in Azure Key Vault and configured your Azure Load Testing resource to retrieve its value. You can now move to [Use secrets in Apache JMeter](#jmeter_secrets).
+
+### <a name="cicd_secrets"></a> Use the CI/CD secret store to save load test secrets 
+
+You can use Azure Key Vault to pass secret values to your test script in Azure Load Testing. You'll add a reference to the secret in the Azure Load Testing configuration. Azure Load Testing then uses this reference to retrieve the secret value in the Apache JMeter script.
+
+You'll also need to grant Azure Load Testing access to your Azure key vault to retrieve the secret value.
+
+If you're using Azure Load Testing in your CI/CD workflow, you can also use the associated secret store. For example, you can use [GitHub repository secrets](https://docs.github.com/actions/security-guides/encrypted-secrets), or [secret variables in Azure Pipelines](/azure/devops/pipelines/process/variables?view=azure-devopsd&tabs=yaml%2Cbatch#secret-variables&preserve-view=true).
+
+You'll first add a secret to the CI/CD secret store. In the CI/CD workflow you'll then pass the secret value to the Azure Load Testing task/action.
+
+> [!NOTE]
+> If you're already using a key vault, you might also use it to store the load test secrets. Skip to [Use Azure Key Vault](#akv_secrets).
+
+1. Add the secret value to the CI/CD secret store, if it doesn't exist yet.
+
+    In Azure Pipelines, you can edit the pipeline and [add a variable](/azure/devops/pipelines/process/variables?view=azure-devopsd&tabs=yaml%2Cbatch#secret-variables&preserve-view=true).
+
+    :::image type="content" source="media/how-to-parameterize-load-tests/new-variable.png" alt-text="Screenshot that shows how to add a variable to Azure Pipelines.":::
+
+    In GitHub, you can use [GitHub repository secrets](https://docs.github.com/actions/security-guides/encrypted-secrets).
+
+    :::image type="content" source="media/how-to-parameterize-load-tests/github-new-secret.png" alt-text="Screenshot that shows how to add a GitHub repository secret.":::
+
+    > [!NOTE]
+    > Be sure to use the actual secret value and not the key vault secret identifier as the value.
+
+1. Pass the secret as an input parameter to the Load Testing task/action in the CI/CD workflow.
+    
+    The following YAML snippet shows how to pass the secret to the [Load Testing GitHub action](https://github.com/marketplace/actions/azure-load-testing):
+
+    ```yaml
+    - name: 'Azure Load Testing'
+      uses: azure/load-testing@v1
+      with:
+        loadtestConfigFile: 'SampleApp.yaml'
+        loadtestResource: 'MyTest'
+        resourceGroup: 'loadtests-rg'
+        secrets: |
+        [
+            {
+            "name": "appToken",
+            "value": "${{ secrets.MY_SECRET }}"
+            }
+        ]
+    ```
+
+    The following YAML snippet shows how to pass the secret to the [Azure Pipelines task](/azure/devops/pipelines/tasks/test/azure-load-testing):
+
+    ```yml
+    - task: AzureLoadTest@1
+      inputs:
+        azureSubscription: 'MyAzureLoadTestingRG'
+        loadTestConfigFile: 'SampleApp.yaml'
+        loadTestResource: 'MyTest'
+        resourceGroup: 'loadtests-rg'
+        secrets: |
+          [
+              {
+              "name": "appToken",
+              "value": "$(mySecret)"
+              }
+          ]
+    ```
+
+    > [!IMPORTANT]
+    > The name of the secret input parameter needs to match the name that's used in the Apache JMeter script.
+
+You've now specified a secret in the CI/CD secret store and passed a reference to Azure Load Testing. You can now use the secret in the Apache JMeter script.
+
+### <a name="jmeter_secrets"></a> Use secrets in Apache JMeter
+
+In this section, you'll update the Apache JMeter script to use the secret that you specified earlier.
+
+You first create a user-defined variable that retrieves the secret value. Then, you can use this variable in your test (for example, to pass an API token in an HTTP request header).
 
 1. Create a user-defined variable in your JMX file, and assign the secret value to it by using the `GetSecret` custom function.
 
@@ -82,101 +199,6 @@ You first define a user-defined variable that retrieves the secret value, and th
         </collectionProp>
       </HeaderManager>
     ```
-
-### <a name="akv_secrets"></a> Use your Azure key vault
-
-When you create a load test in the Azure portal, or you use a [YAML test configuration file](./reference-test-config-yaml.md), you'll use a reference to a secret in your Azure key vault.
-
-> [!NOTE]
-> If you run a load test as part of your CI/CD process, you might also use the related secret store. Skip to [Use the CI/CD secret store](#cicd_secrets).
-
-1. [Add the secret to your key vault](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault), if you haven't already done so.
-
-1. Retrieve the key vault secret identifier for your secret. You'll use this secret identifier to configure your load test.
-
-    :::image type="content" source="media/how-to-parameterize-load-tests/key-vault-secret.png" alt-text="Screenshot that shows the details of a secret in an Azure key vault.":::
-    
-    The secret identifier is the full URI of the secret in the key vault. Optionally, you can also include a version number. For example, `https://myvault.vault.azure.net/secrets/mysecret/` or `https://myvault.vault.azure.net/secrets/mysecret/abcdef01-2345-6789-0abc-def012345678`.
-
-1. Grant your Azure Load Testing resource access to the key vault.
-
-    Your Azure Load Testing resource doesn't have permission to retrieve secrets from the key vault. You'll first enable a system-assigned managed identity for your Load Testing resource. Then, you'll grant read permissions to this managed identity. 
-    
-    To provide Azure Load Testing access to your key vault, see [Use managed identities for Azure Load Testing](how-to-use-a-managed-identity.md).
-
-1. Reference the secret in the load test configuration.
-    
-    You define a load test secret parameter for each secret that you reference in the Apache JMeter script. The parameter name should match the name you used in the test script. The secret parameter value is the key vault security identifier.
-
-    You can specify secret parameters by doing either of the following: 
-
-    * In the Azure portal, select your load test, select **Configure**, select the **Parameters** tab, and then enter the parameter details.
-    
-      :::image type="content" source="media/how-to-parameterize-load-tests/test-creation-secrets.png" alt-text="Screenshot that shows where to add secret details to a load test in the Azure portal.":::
-
-    * Alternatively, you can specify a secret in the YAML configuration file. For more information about the syntax, see the [Test configuration YAML reference](./reference-test-config-yaml.md).
-
-### <a name="cicd_secrets"></a> Use the CI/CD secret store
-
-If you're using Azure Load Testing in your CI/CD workflow, you can also use the associated secret store. For example, you can use [GitHub repository secrets](https://docs.github.com/actions/security-guides/encrypted-secrets), or [secret variables in Azure Pipelines](/azure/devops/pipelines/process/variables?view=azure-devopsd&tabs=yaml%2Cbatch#secret-variables&preserve-view=true).
-
-> [!NOTE]
-> If you're already using a key vault, you might also use it to store the load test secrets. Skip to [Use Azure Key Vault](#akv_secrets).
-
-1. Add the secret value to the CI/CD secret store, if it doesn't exist yet.
-
-    In Azure Pipelines, you can edit the pipeline and [add a variable](/azure/devops/pipelines/process/variables?view=azure-devopsd&tabs=yaml%2Cbatch#secret-variables&preserve-view=true).
-
-    :::image type="content" source="media/how-to-parameterize-load-tests/new-variable.png" alt-text="Screenshot that shows how to add a variable to Azure Pipelines.":::
-
-    In GitHub, you can use [GitHub repository secrets](https://docs.github.com/actions/security-guides/encrypted-secrets).
-
-    :::image type="content" source="media/how-to-parameterize-load-tests/github-new-secret.png" alt-text="Screenshot that shows how to add a GitHub repository secret.":::
-
-    > [!NOTE]
-    > Be sure to use the actual secret value and not the key vault secret identifier as the value.
-
-1. Pass the secret as an input parameter for the Load Testing task/action in the CI/CD workflow.
-    
-    The following YAML snippet shows a GitHub Actions example:
-
-    ```yaml
-    - name: 'Azure Load Testing'
-      uses: azure/load-testing@v1
-      with:
-        loadtestConfigFile: 'SampleApp.yaml'
-        loadtestResource: 'MyTest'
-        resourceGroup: 'loadtests-rg'
-        secrets: |
-        [
-            {
-            "name": "appToken",
-            "value": "${{ secrets.MY_SECRET }}"
-            }
-        ]
-    ```
-
-    The following YAML snippet shows an Azure Pipelines example:
-
-    ```yml
-    - task: AzureLoadTest@1
-      inputs:
-        azureSubscription: 'MyAzureLoadTestingRG'
-        loadTestConfigFile: 'SampleApp.yaml'
-        loadTestResource: 'MyTest'
-        resourceGroup: 'loadtests-rg'
-        secrets: |
-          [
-              {
-              "name": "appToken",
-              "value": "$(mySecret)"
-              }
-          ]
-    ```
-
-    > [!IMPORTANT]
-    > The name of the secret parameter needs to match the name that's used in the Apache JMeter script.
-
 
 ## <a name="envvars"></a> Configure load tests with environment variables
 
@@ -240,7 +262,7 @@ To specify an environment variable to the load test by using the Azure portal, d
     
 If you run your load test in a CI/CD workflow, you can define environment variables in the YAML test configuration file. For more information about the syntax, see the [Test configuration YAML reference](./reference-test-config-yaml.md).
 
-Alternatively, you can directly specify environment variables in the CI/CD workflow definition. You use input parameters for the GitHub Action or Azure Pipelines task to pass environment variables to the Apache JMeter script.
+Alternatively, you can directly specify environment variables in the CI/CD workflow definition. You use input parameters for the Azure Load Testing action or Azure Pipelines task to pass environment variables to the Apache JMeter script.
 
 The following YAML snippet shows a GitHub Actions example:
 
@@ -286,7 +308,7 @@ No. The Azure Load Testing service doesn't store the values of secrets. When you
 
 ### What happens if I have parameters in both my YAML configuration file and the CI/CD workflow?  
 
-If a parameter exists in both the YAML configuration file and the Azure Pipelines task or GitHub Action, the Azure Pipelines task or GitHub Action value will be used for the test run.
+If a parameter exists in both the YAML configuration file and the Azure Load Testing action or Azure Pipelines task, the value from the CI/CD workflow will be used for the test run.
 
 ### I created and ran a test from my CI/CD workflow by passing parameters using the Azure Load Testing task or action. Can I run this test from the Azure portal with the same parameters?
 
@@ -298,4 +320,4 @@ The values of the parameters aren't stored when they're passed from the CI/CD wo
 
 - For information about high-scale load tests, see [Set up a high-scale load test](./how-to-high-scale-load.md).
 
-- To learn about performance test automation, see [Configure automated performance testing](./tutorial-cicd-azure-pipelines.md).
+- To learn about performance test automation, see [Configure automated performance testing](./tutorial-identify-performance-regression-with-cicd.md).

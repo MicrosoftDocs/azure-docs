@@ -3,7 +3,7 @@ title: Use the REST API to query devices in Azure IoT Central
 description: How to use the IoT Central REST API to query devices in an application
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/12/2021
+ms.date: 06/14/2022
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -28,27 +28,34 @@ Every IoT Central REST API call requires an authorization header. To learn more,
 
 For the reference documentation for the IoT Central REST API, see [Azure IoT Central REST API reference](/rest/api/iotcentral/).
 
+> [!NOTE]
+> The support for property queries is being deprecated from the IoT Central REST API and we will soon remove this from the existing API releases. 
+
+[!INCLUDE [iot-central-postman-collection](../../../includes/iot-central-postman-collection.md)]
+
+To learn how to query devices by using the IoT Central UI, see [How to use data explorer to analyze device data.](../core/howto-create-analytics.md)
+
 ## Run a query
 
 Use the following request to run a query:
 
 ```http
-POST https://{your app subdomain}.azureiotcentral.com/api/query?api-version=1.1-preview
+POST https://{your app subdomain}.azureiotcentral.com/api/query?api-version=2022-10-31-preview
 ```
 
 The query is in the request body and looks like the following example:
 
 ```json
 {
-  "query": "SELECT $id, $ts, temperature, humidity FROM urn:modelDefinition:fupmoiu28b:ymju9efv9 WHERE WITHIN_WINDOW(P1D)"
+  "query": "SELECT $id, $ts, temperature, humidity FROM dtmi:azurertos:devkit:hlby5jgib2o WHERE WITHIN_WINDOW(P1D)"
 }
 ```
 
-The `urn:modelDefinition:fupmoiu28b:ymju9efv9` value in the `FROM` clause is a *device template ID*. To find a device template ID, navigate to the **Devices** page in your IoT Central application and hover over a device that uses the template. The card includes the device template ID:
+The `dtmi:azurertos:devkit:hlby5jgib2o` value in the `FROM` clause is a *device template ID*. To find a device template ID, navigate to the **Devices** page in your IoT Central application and hover over a device that uses the template. The card includes the device template ID:
 
 :::image type="content" source="media/howto-query-with-rest-api/show-device-template-id.png" alt-text="Screenshot that shows how to find the device template ID in the page URL.":::
 
-The response to this request looks like the following example:
+The response includes telemetry from multiple devices that share the same device template. The response to this request looks like the following example:
 
 ```json
 {
@@ -109,19 +116,21 @@ If your device template uses components such as the **Device information** compo
 
 ```json
 {
-  "query": "SELECT deviceInformation.model, deviceInformation.swVersion FROM urn:modelDefinition:fupmoiu28b:ymju9efv9"
+  "query": "SELECT deviceInformation.model, deviceInformation.swVersion FROM dtmi:azurertos:devkit:hlby5jgib2o"
 }
 ```
 
 You can find the component name in the device template:
 
-:::image type="content" source="media/howto-query-with-rest-api/show-component-name.png" alt-text="Screenshot that shows how to find the component name.":::
+:::image type="content" source="media/howto-query-with-rest-api/show-component-name.png" alt-text="Screenshot that shows how to find the component name." lightbox="media/howto-query-with-rest-api/show-component-name.png":::
 
 The following limits apply in the `SELECT` clause:
 
 - There's no wildcard operator.
 - You can't have more than 15 items in the select list.
 - In a single query, you either select telemetry or properties but not both. A property query can include both reported properties and cloud properties.
+- A property-based query returns a maximum of 1,000 records.
+- A telemetry-based query returns a maximum of 10,000 records.  
 
 ### Aliases
 
@@ -129,7 +138,7 @@ Use the `AS` keyword to define an alias for an item in the `SELECT` clause. The 
 
 ```json
 {
-  "query": "SELECT $id as ID, $ts as timestamp, temperature as t, pressure as p FROM urn:modelDefinition:fupmoiu28b:ymju9efv9 WHERE WITHIN_WINDOW(P1D) AND t > 0 AND p > 50"
+  "query": "SELECT $id as ID, $ts as timestamp, temperature as t, pressure as p FROM dtmi:azurertos:devkit:hlby5jgib2o WHERE WITHIN_WINDOW(P1D) AND t > 0 AND p > 50"
 }
 ```
 
@@ -163,11 +172,11 @@ Use the `TOP` to limit the number of results the query returns. For example, the
 
 ```json
 {
-    "query": "SELECT TOP 10 $id as ID, $ts as timestamp, temperature, humidity FROM urn:modelDefinition:fupmoiu28b:ymju9efv9"
+    "query": "SELECT TOP 10 $id as ID, $ts as timestamp, temperature, humidity FROM dtmi:azurertos:devkit:hlby5jgib2o"
 }
 ```
 
-If you don't use `TOP`, the query returns a maximum of 10,000 results.
+If you don't use `TOP`, the query returns a maximum of 10,000 results for a telemetry-based query and a maximum of 1,000 results for a property-based query.
 
 To sort the results before `TOP` limits the number of results, use [ORDER BY](#order-by-clause).
 
@@ -177,9 +186,9 @@ The `FROM` clause must contain a device template ID. The `FROM` clause specifies
 
 To find a device template ID, navigate to the **Devices** page in your IoT Central application and hover over a device that uses the template. The card includes the device template ID:
 
-:::image type="content" source="media/howto-query-with-rest-api/show-device-template-id.png" alt-text="Screenshot that shows how to find the device template ID in the page URL.":::
+:::image type="content" source="media/howto-query-with-rest-api/show-device-template-id.png" alt-text="Screenshot that shows how to find the device template ID on the devices page." lightbox="media/howto-query-with-rest-api/show-device-template-id.png":::
 
-You can also use the [Devices - Get](/rest/api/iotcentral/1.1-previewdataplane/devices/get) REST API call to get the device template ID for a device.
+You can also use the [Devices - Get](/rest/api/iotcentral/2022-07-31dataplane/devices/get) REST API call to get the device template ID for a device.
 
 ## WHERE clause
 
@@ -191,7 +200,7 @@ To get telemetry received by your application within a specified time window, us
 
 ```json
 {
-  "query": "SELECT $id, $ts, temperature, humidity FROM urn:modelDefinition:fupmoiu28b:ymju9efv9 WHERE WITHIN_WINDOW(P1D)"
+  "query": "SELECT $id, $ts, temperature, humidity FROM dtmi:azurertos:devkit:hlby5jgib2o WHERE WITHIN_WINDOW(P1D)"
 }
 ```
 
@@ -215,7 +224,7 @@ You can get telemetry or property values based on specific values. For example, 
 
 ```json
 {
-  "query": "SELECT $id, $ts, temperature AS t, pressure AS p FROM urn:modelDefinition:fupmoiu28b:ymju9efv9 WHERE WITHIN_WINDOW(P1D) AND t > 0 AND p > 50 AND $id IN ['sample-002', 'sample-003']"
+  "query": "SELECT $id, $ts, temperature AS t, pressure AS p FROM dtmi:azurertos:devkit:hlby5jgib2o WHERE WITHIN_WINDOW(P1D) AND t > 0 AND p > 50 AND $id IN ['sample-002', 'sample-003']"
 }
 ```
 
@@ -232,6 +241,8 @@ The following limits apply in the `WHERE` clause:
 - You can use a maximum of 10 operators in a single query.
 - In a telemetry query, the `WHERE` clause can only contain telemetry and device metadata filters.
 - In a property query, the `WHERE` clause can only contain reported properties, cloud properties, and device metadata filters.
+- In a telemetry query, you can retrieve up to 10,000 records.
+- In property query, you can retrieve up to 1,000 records.
 
 ## Aggregations and GROUP BY clause
 
@@ -239,7 +250,7 @@ Aggregation functions let you calculate values such as average, maximum, and min
 
 ```json
 {
-  "query": "SELECT AVG(temperature), AVG(pressure) FROM urn:modelDefinition:fupmoiu28b:ymju9efv9 WHERE WITHIN_WINDOW(P1D) AND $id='{{DEVICE_ID}}' GROUP BY WINDOW(PT10M)"
+  "query": "SELECT AVG(temperature), AVG(pressure) FROM dtmi:azurertos:devkit:hlby5jgib2o WHERE WITHIN_WINDOW(P1D) AND $id='{{DEVICE_ID}}' GROUP BY WINDOW(PT10M)"
 }
 ```
 
@@ -280,7 +291,7 @@ The `ORDER BY` clause lets you sort the query results by a telemetry value, the 
 
 ```json
 {
-  "query": "SELECT $id as ID, $ts as timestamp, temperature, humidity FROM urn:modelDefinition:fupmoiu28b:ymju9efv9 ORDER BY timestamp DESC"
+  "query": "SELECT $id as ID, $ts as timestamp, temperature, humidity FROM dtmi:azurertos:devkit:hlby5jgib2o ORDER BY timestamp DESC"
 }
 ```
 
@@ -293,9 +304,10 @@ The current limits for queries are:
 
 - No more than 15 items in the `SELECT` clause list.
 - No more than 10 logical operations in the `WHERE` clause.
-- Queries return a maximum of 10,000 records.
 - The maximum length of a query string is 350 characters.
 - You can't use the wildcard (`*`) in the `SELECT` clause list.
+- Telemetry-based queries can retrieve up to 10,000 records.
+- Property-based queries can retrieve up to 1,000 records.
 
 ## Next steps
 

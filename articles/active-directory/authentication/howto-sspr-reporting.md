@@ -5,11 +5,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 10/25/2021
+ms.date: 01/29/2023
 ms.author: justinha
 author: justinha
-manager: karenhoran
-ms.reviewer: rhicock
+manager: amycolannino
+ms.reviewer: tilarso
 ms.collection: M365-identity-device-management
 ms.custom: ignite-fall-2021
 ---

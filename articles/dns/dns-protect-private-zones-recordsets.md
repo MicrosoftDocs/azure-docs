@@ -6,7 +6,7 @@ ms.service: dns
 author: duongau
 ms.author: duau
 ms.topic: how-to
-ms.date: 05/07/2021 
+ms.date: 09/27/2022
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
 ---
@@ -215,7 +215,7 @@ $rsg = "<resource group name>"
 New-AzResourceLock -LockLevel $lvl -LockName $lnm -ResourceName $rsc -ResourceType $rty -ResourceGroupName $rsg
 ```
 
-The equivalent command is also [available via the Azure CLI](/cli/azure/lock#az_lock_create):
+The equivalent command is also [available via the Azure CLI](/cli/azure/lock#az-lock-create):
 
 ```azurecli-interactive
 # Lock a DNS zone

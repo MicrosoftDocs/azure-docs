@@ -3,7 +3,7 @@ title: Join a RHEL VM to Azure AD Domain Services | Microsoft Docs
 description: Learn how to configure and join a Red Hat Enterprise Linux virtual machine to an Azure AD Domain Services managed domain.
 services: active-directory-ds
 author: justinha
-manager: karenhoran
+manager: amycolannino
 
 ms.assetid: 16100caa-f209-4cb0-86d3-9e218aeb51c6
 ms.service: active-directory

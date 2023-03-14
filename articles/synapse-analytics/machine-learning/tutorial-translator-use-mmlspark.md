@@ -1,7 +1,6 @@
 ---
 title: 'Tutorial: Translator with Cognitive Service'
 description: Learn how to use translator in Azure Synapse Analytics.
-services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: machine-learning
 ms.topic: tutorial

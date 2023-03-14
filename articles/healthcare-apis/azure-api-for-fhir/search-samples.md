@@ -1,17 +1,18 @@
 ---
 title: Search examples for Azure API for FHIR
 description: How to search using different search parameters, modifiers, and other FHIR search tools
-author: ginalee-dotcom
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
+ms.custom: ignite-2022
 ms.topic: reference
-ms.date: 05/21/2021
-ms.author: cavoeg
+ms.date: 06/03/2022
+ms.author: kesheth
 ---
 
 # FHIR search examples for Azure API for FHIR
 
-Below are some examples of using FHIR search operations, including search parameters and modifiers, chain and reverse chain search, composite search, viewing the next entry set for search results, and searching with a `POST` request. For more information about search, see [Overview of FHIR Search](overview-of-search.md).
+Below are some examples of using Fast Healthcare Interoperability Resources (FHIR&#174;) search operations, including search parameters and modifiers, chain and reverse chain search, composite search, viewing the next entry set for search results, and searching with a `POST` request. For more information about search, see [Overview of FHIR Search](overview-of-search.md).
    
 ## Search result parameters
 
@@ -50,14 +51,14 @@ In this request, you'll get back a bundle of patients, but each resource will on
 
 ### :not
 
-`:not` allows you to find resources where an attribute is not true. For example, you could search for patients where the gender is not female:
+`:not` allows you to find resources where an attribute isn't true. For example, you could search for patients where the gender isn't female:
 
 ```rest
 GET [your-fhir-server]/Patient?gender:not=female
 
 ```
 
-As a return value, you would get all patient entries where the gender is not female, including empty values (entries specified without gender). This is different than searching for Patients where gender is male, since that would not include the entries without a specific gender.
+As a return value, you would get all patient entries where the gender isn't female, including empty values (entries specified without gender). This is different than searching for Patients where gender is male, since that wouldn't include the entries without a specific gender.
 
 ### :missing
 
@@ -76,7 +77,7 @@ GET [your-fhir-server]/Patient?name:exact=Jon
 
 ```
 
-This request returns `Patient` resources that have the name exactly the same as `Jon`. If the resource had Patients with names such as `Jonathan` or `joN`, the search would ignore and skip the resource as it does not exactly match the specified value.
+This request returns `Patient` resources that have the name exactly the same as `Jon`. If the resource had Patients with names such as `Jonathan` or `joN`, the search would ignore and skip the resource as it doesn't exactly match the specified value.
 
 ### :contains
 `:contains` is used for `string` parameters and searches for resources with partial matches of the specified value anywhere in the string within the field being searched. `contains` is case insensitive and allows character concatenating. For example:
@@ -106,7 +107,7 @@ GET [your-fhir-server]/Encounter?subject=Patient/78a14cbe-8968-49fd-a231-d43e661
 
 ```
 
-Using chained search, you can find all the `Encounter` resources that matches a particular piece of `Patient` information, such as the `birthdate`:
+Using chained search, you can find all the `Encounter` resources that match a particular piece of `Patient` information, such as the `birthdate`:
 
 ```rest
 GET [your-fhir-server]/Encounter?subject:Patient.birthdate=1987-02-20
@@ -124,7 +125,7 @@ GET [your-fhir-server]/Patient?general-practitioner:Practitioner.name=Sarah&gene
 
 This would return all `Patient` resources that have "Sarah" as the `generalPractitioner` and have a `generalPractitioner` that has the address with the state WA. In other words, if a patient had Sarah from the state NY and Bill from the state WA both referenced as the patient's `generalPractitioner`, the would be returned.
 
-For scenarios in which the search has to be an AND operation that covers all conditions as a group, refer to the **composite search** example below.
+For scenarios in which the search has to be an `AND` operation that covers all conditions as a group, refer to the **composite search** example below.
 
 ## Reverse chain search
 
@@ -145,7 +146,7 @@ GET [base]/Patient?_has:Observation:patient:_has:AuditEvent:entity:agent:Practit
 ``` 
 
 > [!NOTE]
-> In the Azure API for FHIR and the open-source FHIR server backed by Cosmos, the chained search and reverse chained search is an MVP implementation. To accomplish chained search on Cosmos DB, the implementation walks down the search expression and issues sub-queries to resolve the matched resources. This is done for each level of the expression. If any query returns more than 100 results, an error will be thrown.
+> In the Azure API for FHIR and the open-source FHIR server backed by Azure Cosmos DB, the chained search and reverse chained search is an MVP implementation. To accomplish chained search on Azure Cosmos DB, the implementation walks down the search expression and issues sub-queries to resolve the matched resources. This is done for each level of the expression. If any query returns more than 100 results, an error will be thrown.
 
 ## Composite search
 
@@ -213,5 +214,9 @@ name=John
 ```
 ## Next steps
 
+In this article, you learned about how to search using different search parameters, modifiers, and FHIR search tools. For more information about FHIR Search, see
+
 >[!div class="nextstepaction"]
 >[Overview of FHIR Search](overview-of-search.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

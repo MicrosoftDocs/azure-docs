@@ -1,7 +1,6 @@
 ---
 title: Create virtual nodes using the portal in Azure Kubernetes Services (AKS)
 description: Learn how to use the Azure portal to create an Azure Kubernetes Services (AKS) cluster that uses virtual nodes to run pods.
-services: container-service
 ms.topic: conceptual
 ms.date: 03/15/2021
 ms.custom: references_regions
@@ -153,7 +152,7 @@ The pod is assigned an internal IP address from the Azure virtual network subnet
 To test the pod running on the virtual node, browse to the demo application with a web client. As the pod is assigned an internal IP address, you can quickly test this connectivity from another pod on the AKS cluster. Create a test pod and attach a terminal session to it:
 
 ```console
-kubectl run -it --rm virtual-node-test --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
+kubectl run -it --rm virtual-node-test --image=mcr.microsoft.com/dotnet/runtime-deps:6.0
 ```
 
 Install `curl` in the pod using `apt-get`:

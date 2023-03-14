@@ -1,11 +1,11 @@
 ---
 title: Understanding cloud-init 
 description: Deep dive for understanding provisioning an Azure VM using cloud-init.
-author: danielsollondon 
+author: mattmcinnes 
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 07/06/2020
-ms.author: danis
+ms.author: mattmcinnes
 ms.reviewer: cynthn
 ms.subservice: cloud-init
 ---
@@ -24,7 +24,7 @@ Configuring a VM to run on a platform, means cloud-init needs to apply multiple 
 
 Some configurations are already baked into Azure Marketplace images that come with cloud-init, such as:
 
-1. **Cloud data source** - cloud-init contains code that can interact with cloud platforms, these are called 'datasources'. When a VM is created from a cloud-init image in [Azure](https://cloudinit.readthedocs.io/en/latest/topics/datasources/azure.html#azure), cloud-init loads the Azure datasource, which will interact with the Azure metadata endpoints to get the VM specific configuration.
+1. **Cloud data source** - cloud-init contains code that can interact with cloud platforms, these are called 'datasources'. When a VM is created from a cloud-init image in [Azure](https://cloudinit.readthedocs.io/en/latest/reference/datasources/azure.html#azure), cloud-init loads the Azure datasource, which will interact with the Azure metadata endpoints to get the VM specific configuration.
 2. **Runtime config** (/run/cloud-init)
 3. **Image config** (/etc/cloud), like `/etc/cloud/cloud.cfg`, `/etc/cloud/cloud.cfg.d/*.cfg`. An example of where this is used in Azure, it is common for the Linux OS images with cloud-init to have an Azure datasource directive, that tells cloud-init what datasource it should use, this saves cloud-init time:
 

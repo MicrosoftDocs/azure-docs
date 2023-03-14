@@ -2,10 +2,10 @@
 title: 'Azure AD Connect: ADConnectivityTools PowerShell Reference | Microsoft Docs'
 description: This document provides reference information for the ADConnectivityTools.psm1 PowerShell module.
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
-ms.date: 05/31/2019
+ms.date: 01/19/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.topic: reference
@@ -14,7 +14,7 @@ ms.custom: devx-track-azurepowershell
 ---
 # Azure AD Connect:  ADConnectivityTools PowerShell Reference
 
-The following documentation provides reference information for the ADConnectivityTools.psm1 PowerShell Module that is included with Azure AD Connect.
+The following documentation provides reference information for the ADConnectivityTools PowerShell Module that is included with Azure AD Connect in `C:\Program Files\Microsoft Azure Active Directory Connect\Tools\ADConnectivityTool.psm1`.
 
 ## Confirm-DnsConnectivity
 
@@ -31,8 +31,8 @@ Confirm-DnsConnectivity [-Forest] <String> [-DCs] <Array> [-ReturnResultAsPSObje
 ### DESCRIPTION
 
 Runs local Dns connectivity tests.
-In order to configure the Active Directory connector, user must have both name resolutionthe 
-for the forest they is attempting to connect to as well as in the domain controllers
+In order to configure the Active Directory connector, AADConnect server must have both name resolution 
+for the forest it's attempting to connect to as well as to the domain controllers
 associated to this forest.
 
 ### EXAMPLES

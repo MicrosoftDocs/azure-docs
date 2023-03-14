@@ -1,9 +1,9 @@
 ---
-author: msftradford
+author: pamistel
 ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 11/20/2020
-ms.author: parkerra
+ms.author: pamistel
 ---
 
 With **Create & Share Anchor**, you can create an anchor and save it to your sharing service. In return, you will get back an identifier for it that you can use to retrieve it from the sharing service. You can then run the second scenario, **Locate Shared Anchor**, from either your device or a different one. 

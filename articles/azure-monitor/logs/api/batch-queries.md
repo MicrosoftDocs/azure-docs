@@ -11,7 +11,7 @@ ms.topic: article
 The Azure Monitor Log Analytics API supports batching queries together. Batch queries currently require Azure AD authentication.
 
 ## Request format
-To batch queries, use the API endpoint, adding $batch at the end of the URL: <https://api.loganalytics.io/v1/$batch>.
+To batch queries, use the API endpoint, adding $batch at the end of the URL: `https://api.loganalytics.azure.com/v1/$batch`.
 
 If no method is included, batching defaults to the GET method. On GET requests, the API ignores the body parameter of the request object.
 
@@ -33,7 +33,7 @@ The body of the request is an array of objects containing the following properti
 Example:
 
 ```
-    POST https://api.loganalytics.io/v1/$batch
+    POST https://api.loganalytics.azure.com/v1/$batch
     Content-Type: application/json
     Authorization: Bearer <user token>
     Cache-Control: no-cache

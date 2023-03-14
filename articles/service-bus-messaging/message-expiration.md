@@ -2,7 +2,7 @@
 title: Azure Service Bus - message expiration
 description: This article explains about expiration and time to live (TTL) of Azure Service Bus messages. After such a deadline, the message is no longer delivered.
 ms.topic: conceptual
-ms.date: 11/17/2021
+ms.date: 02/18/2022
 ms.custom: contperf-fy22q2
 ---
 
@@ -44,6 +44,10 @@ Service Bus queues, topics, and subscriptions can be created as temporary entiti
 Automatic cleanup is useful in development and test scenarios in which entities are created dynamically and aren't cleaned up after use, due to some interruption of the test or debugging run. It's also useful when an application creates dynamic entities, such as a reply queue, for receiving responses back into a web server process, or into another relatively short-lived object where it's difficult to reliably clean up those entities when the object instance disappears.
 
 The feature is enabled using the **auto delete on idle** property on the namespace. This property is set to the duration for which an entity must be idle (unused) before it's automatically deleted. The minimum value for this property is 5 minutes.
+
+> [!IMPORTANT] 
+> Setting the Azure Resource Manager lock-level to [`CanNotDelete`](../azure-resource-manager/management/lock-resources.md), on the namespace or at a higher level doesn't prevent entities with `AutoDeleteOnIdle` from being deleted. If you don't want the entity to be deleted, set the `AutoDeleteOnIdle` property to `DataTime.MaxValue`.
+
  
 ## Idleness
 
@@ -55,11 +59,11 @@ Here's what considered idleness of entities (queues, topics, and subscriptions):
 | Topic | <ul><li>No sends</li><li>No updates to the topic</li><li>No scheduled messages</li><li>No operations on the topic's subscriptions (see the next row)</li></ul> |
 | Subscription | <ul><li>No receives</li><li>No updates to the subscription</li><li>No new rules added to the subscription</li><li>No browse/peek</li></ul> |
 
-## SDKS
+## SDKs
 
-- To set time-to-live on a message: [.NET](/dotnet/api/azure.messaging.servicebus.servicebusmessage.timetolive), [Java](/java/api/com.azure.messaging.servicebus.servicebusmessage.settimetolive), [Python](/python/api/azure-servicebus/azure.servicebus.servicebusmessage), [JavaScript](/javascript/api/@azure/service-bus/servicebusmessage#timeToLive)
-- To set the default time-to-live on a queue: [.NET](/dotnet/api/azure.messaging.servicebus.administration.createqueueoptions.defaultmessagetimetolive), [Java](/java/api/com.azure.messaging.servicebus.administration.models.createqueueoptions.setdefaultmessagetimetolive), [Python](/python/api/azure-servicebus/azure.servicebus.management.queueproperties), [JavaScript](/javascript/api/@azure/service-bus/queueproperties#defaultMessageTimeToLive)
-- To set the default time-to-live on a topic: [.NET](/dotnet/api/azure.messaging.servicebus.administration.createtopicoptions.defaultmessagetimetolive), [Java](/java/api/com.azure.messaging.servicebus.administration.models.createtopicoptions.setdefaultmessagetimetolive), [Python](/python/api/azure-servicebus/azure.servicebus.management.topicproperties), [JavaScript](/javascript/api/@azure/service-bus/topicproperties#defaultMessageTimeToLive)
+- To set time-to-live on a message: [.NET](/dotnet/api/azure.messaging.servicebus.servicebusmessage.timetolive), [Java](/java/api/com.azure.messaging.servicebus.servicebusmessage.settimetolive), [Python](/python/api/azure-servicebus/azure.servicebus.servicebusmessage), [JavaScript](/javascript/api/@azure/service-bus/servicebusmessage#@azure-service-bus-servicebusmessage-timetolive)
+- To set the default time-to-live on a queue: [.NET](/dotnet/api/azure.messaging.servicebus.administration.createqueueoptions.defaultmessagetimetolive), [Java](/java/api/com.azure.messaging.servicebus.administration.models.createqueueoptions.setdefaultmessagetimetolive), [Python](/python/api/azure-servicebus/azure.servicebus.management.queueproperties), [JavaScript](/javascript/api/@azure/service-bus/queueproperties#@azure-service-bus-queueproperties-defaultmessagetimetolive)
+- To set the default time-to-live on a topic: [.NET](/dotnet/api/azure.messaging.servicebus.administration.createtopicoptions.defaultmessagetimetolive), [Java](/java/api/com.azure.messaging.servicebus.administration.models.createtopicoptions.setdefaultmessagetimetolive), [Python](/python/api/azure-servicebus/azure.servicebus.management.topicproperties), [JavaScript](/javascript/api/@azure/service-bus/topicproperties#@azure-service-bus-topicproperties-defaultmessagetimetolive)
 - To set the default time-to-live on a subscription: [.NET](/dotnet/api/azure.messaging.servicebus.administration.createsubscriptionoptions.defaultmessagetimetolive), [Java](), [Python](), [JavaScript](/java/api/com.azure.messaging.servicebus.administration.models.createsubscriptionoptions.setdefaultmessagetimetolive), [Python](/python/api/azure-servicebus/azure.servicebus.management.subscriptionproperties), [JavaScript](/javascript/api/@azure/service-bus/subscriptionproperties)
  
 

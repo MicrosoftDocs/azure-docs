@@ -3,7 +3,7 @@ title: Link templates for deployment
 description: Describes how to use linked templates in an Azure Resource Manager template (ARM template) to create a modular template solution. Shows how to pass parameters values, specify a parameter file, and dynamically created URLs.
 ms.topic: conceptual
 ms.date: 01/06/2022
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurepowershell
 ---
 
 # Using linked and nested templates when deploying Azure resources
@@ -19,6 +19,9 @@ For a tutorial, see [Tutorial: Deploy a linked template](./deployment-tutorial-l
 >
 > If the linked or nested template targets a different resource group, that deployment uses incremental mode.
 >
+
+> [!TIP]
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [modules](../bicep/modules.md).
 
 ## Nested template
 

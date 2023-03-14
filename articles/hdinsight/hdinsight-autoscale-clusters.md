@@ -4,7 +4,7 @@ description: Use the Autoscale feature to automatically scale Azure HDInsight cl
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: contperf-fy21q1, contperf-fy21q2
-ms.date: 02/11/2022
+ms.date: 11/30/2022
 ---
 
 # Automatically scale Azure HDInsight clusters
@@ -66,12 +66,12 @@ For scale-down, Autoscale issues a request to remove a certain number of nodes. 
 
 The following table describes the cluster types and versions that are compatible with the Autoscale feature.
 
-| Version | Spark | Hive | Interactive Query | HBase | Kafka | Storm | ML |
-|---|---|---|---|---|---|---|---|
-| HDInsight 3.6 without ESP | Yes | Yes | Yes* | No | No | No | No |
-| HDInsight 4.0 without ESP | Yes | Yes | Yes* | No | No | No | No |
-| HDInsight 3.6 with ESP | Yes | Yes | Yes* | No | No | No | No |
-| HDInsight 4.0 with ESP | Yes | Yes | Yes* | No | No | No | No |
+| Version | Spark | Hive | Interactive Query | HBase | Kafka |
+|---|---|---|---|---|---|---|
+| HDInsight 3.6 without ESP | Yes | Yes | Yes* | No | No |
+| HDInsight 4.0 without ESP | Yes | Yes | Yes* | No | No |
+| HDInsight 3.6 with ESP | Yes | Yes | Yes* | No | No |
+| HDInsight 4.0 with ESP | Yes | Yes | Yes* | No | No |
 
 \* Interactive Query clusters can only be configured for schedule-based scaling, not load-based.
 
@@ -247,7 +247,8 @@ It can take 10 to 20 minutes for the overall scaling operation to complete. When
 
 During the cluster scaling down process, Autoscale decommissions the nodes to meet the target size. In case of load based autoscaling, If tasks are running on those nodes, Autoscale waits until the tasks are completed for Spark and Hadoop clusters. Since each worker node also serves a role in HDFS, the temporary data is shifted to the remaining worker nodes. Make sure there's enough space on the remaining nodes to host all temporary data.
 
-In case of schedule-based Autoscale scale-down, graceful decommission is not supported. This can cause job failures during a scale down operation, and it is recommended to plan schedules based on the anticipated job schedule patterns to include sufficient time for the ongoing jobs to conclude. You can set the schedules looking at historical spread of completion times so as to avoid job failures.
+> [!Note]
+> In case of schedule-based Autoscale scale-down, graceful decommission is not supported. This can cause job failures during a scale down operation, and it is recommended to plan schedules based on the anticipated job schedule patterns to include sufficient time for the ongoing jobs to conclude. You can set the schedules looking at historical spread of completion times so as to avoid job failures.
 
 ### Configure schedule-based Autoscale based on usage pattern
 

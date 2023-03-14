@@ -1,3 +1,6 @@
+---
+ms.custom: devx-track-azurepowershell
+---
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
@@ -28,7 +31,7 @@ PS C:\> New-AzCommunicationService -ResourceGroupName ContosoResourceProvider1 -
 
 You can configure your Communication Services resource with the following options:
 
-* The resource group
+* The [resource group](../../../azure-resource-manager/management/manage-resource-groups-powershell.md)
 * The name of the Communication Services resource
 * The geography the resource will be associated with
 

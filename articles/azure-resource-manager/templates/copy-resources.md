@@ -13,6 +13,10 @@ You can also use copy loop with [properties](copy-properties.md), [variables](co
 
 If you need to specify whether a resource is deployed at all, see [condition element](conditional-resource-deployment.md).
 
+
+> [!TIP]
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [loops](../bicep/loops.md).
+
 ## Syntax
 
 Add the `copy` element to the resources section of your template to deploy multiple instances of the resource. The `copy` element has the following general format:
@@ -190,21 +194,26 @@ You can't use a copy loop for a child resource. To create more than one instance
 For example, suppose you typically define a dataset as a child resource within a data factory.
 
 ```json
-"resources": [
 {
-  "type": "Microsoft.DataFactory/factories",
-  "name": "exampleDataFactory",
-  ...
   "resources": [
     {
-      "type": "datasets",
-      "name": "exampleDataSet",
-      "dependsOn": [
-        "exampleDataFactory"
-      ],
+      "type": "Microsoft.DataFactory/factories",
+      "name": "exampleDataFactory",
+      ...
+      "resources": [
+        {
+          "type": "datasets",
+          "name": "exampleDataSet",
+          "dependsOn": [
+            "exampleDataFactory"
+          ],
+          ...
+        }
+      ]
       ...
     }
   ]
+}
 ```
 
 To create more than one data set, move it outside of the data factory. The dataset must be at the same level as the data factory, but it's still a child resource of the data factory. You preserve the relationship between data set and data factory through the type and name properties. Since type can no longer be inferred from its position in the template, you must provide the fully qualified type in the format: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`.
@@ -249,7 +258,7 @@ The following examples show common scenarios for creating more than one instance
 
 - To set dependencies on resources that are created in a copy loop, see [Define the order for deploying resources in ARM templates](./resource-dependency.md).
 - To go through a tutorial, see [Tutorial: Create multiple resource instances with ARM templates](template-tutorial-create-multiple-instances.md).
-- For a Microsoft Learn module that covers resource copy, see [Manage complex cloud deployments by using advanced ARM template features](/learn/modules/manage-deployments-advanced-arm-template-features/).
+- For a Learn module that covers resource copy, see [Manage complex cloud deployments by using advanced ARM template features](/training/modules/manage-deployments-advanced-arm-template-features/).
 - For other uses of the copy loop, see:
   - [Property iteration in ARM templates](copy-properties.md)
   - [Variable iteration in ARM templates](copy-variables.md)

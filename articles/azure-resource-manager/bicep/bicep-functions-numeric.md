@@ -49,7 +49,7 @@ The output from the preceding example with the default values is:
 
 ## max
 
-`max (arg1)`
+`max(arg1)`
 
 Returns the maximum value from an array of integers or a comma-separated list of integers.
 
@@ -91,7 +91,7 @@ The output from the preceding example with the default values is:
 
 ## min
 
-`min (arg1)`
+`min(arg1)`
 
 Returns the minimum value from an array of integers or a comma-separated list of integers.
 

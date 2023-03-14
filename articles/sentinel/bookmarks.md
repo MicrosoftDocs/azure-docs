@@ -10,26 +10,13 @@ ms.date: 11/09/2021
 
 # Keep track of data during hunting with Microsoft Sentinel
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
-[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
-
 Threat hunting typically requires reviewing mountains of log data looking for evidence of malicious behavior. During this process, investigators find events that they want to remember, revisit, and analyze as part of validating potential hypotheses and understanding the full story of a compromise.
 
 Hunting bookmarks in Microsoft Sentinel help you do this, by preserving the queries you ran in **Microsoft Sentinel - Logs**, along with the query results that you deem relevant. You can also record your contextual observations and reference your findings by adding notes and tags. Bookmarked data is visible to you and your teammates for easy collaboration.
 
 Now you can identify and address gaps in MITRE ATT&CK technique coverage, across all hunting queries, by mapping your custom hunting queries to MITRE ATT&CK techniques.
 
-> [!IMPORTANT]
->
-> The mapping of MITRE ATT&CK techniques to bookmarks is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 You can also investigate more types of entities while hunting with bookmarks, by mapping the full set of entity types and identifiers supported by Microsoft Sentinel Analytics in your custom queries. This enables you to use bookmarks to explore the entities returned in hunting query results using [entity pages](entities.md#entity-pages), [incidents](investigate-cases.md) and the [investigation graph](investigate-cases.md#use-the-investigation-graph-to-deep-dive). If a bookmark captures results from a hunting query, it automatically inherits the query's MITRE ATT&CK technique and entity mappings.
-
-> [!IMPORTANT]
->
-> The mapping of an expanded set of entity types and identifiers to bookmarks is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
 
 If you find something that urgently needs to be addressed while hunting in your logs, you can easily create a bookmark and either promote it to an incident or add it to an existing incident. For more information about incidents, see [Investigate incidents with Microsoft Sentinel](investigate-cases.md).
 
@@ -42,6 +29,8 @@ Alternatively, you can view your bookmarked data directly in the **HuntingBookma
 :::image type="content" source="media/bookmarks/bookmark-table.png" alt-text="Screenshot of viewing hunting bookmarks table." lightbox="media/bookmarks/bookmark-table.png":::
 
 Viewing bookmarks from the table enables you to filter, summarize, and join bookmarked data with other data sources, making it easy to look for corroborating evidence.
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)] 
 
 ## Add a bookmark
 
@@ -63,20 +52,20 @@ Viewing bookmarks from the table enables you to filter, summarize, and join book
 
 1. On the right, in the **Add bookmark** pane, optionally, update the bookmark name, add tags, and notes to help you identify what was interesting about the item.
 
-1. **(Preview)** Bookmarks can be optionally mapped to MITRE ATT&CK techniques or sub-techniques. MITRE ATT&CK mappings are inherited from mapped values in hunting queries, but you can also create them manually. Select the MITRE ATT&CK tactic associated with the desired technique from the drop-down menu in the **Tactics & Techniques (Preview)** section of the **Add bookmark** pane. The menu will expand to show all the MITRE ATT&CK techniques, and you can select multiple techniques and sub-techniques in this menu.
+1. Bookmarks can be optionally mapped to MITRE ATT&CK techniques or sub-techniques. MITRE ATT&CK mappings are inherited from mapped values in hunting queries, but you can also create them manually. Select the MITRE ATT&CK tactic associated with the desired technique from the drop-down menu in the **Tactics & Techniques** section of the **Add bookmark** pane. The menu will expand to show all the MITRE ATT&CK techniques, and you can select multiple techniques and sub-techniques in this menu.
 
     :::image type="content" source="media/bookmarks/mitre-attack-mapping.png" alt-text="Screenshot of how to map Mitre Attack tactics and techniques to bookmarks.":::
 
-1. **(Preview)** Now an expanded set of entities can be extracted from bookmarked query results for further investigation. In the **Entity mapping (Preview)** section, use the drop-downs to select [entity types and identifiers](entities-reference.md). Then map the column in the query results containing the corresponding identifier. For example:
+1. Now an expanded set of entities can be extracted from bookmarked query results for further investigation. In the **Entity mapping** section, use the drop-downs to select [entity types and identifiers](entities-reference.md). Then map the column in the query results containing the corresponding identifier. For example:
 
     :::image type="content" source="media/bookmarks/map-entity-types-bookmark.png" alt-text="Screenshot to map entity types for hunting bookmarks.":::
 
-    To view the bookmark in the investigation graph, you must map at least one entity. Entity mappings to account, host, IP, and URL entity types created before this preview are still supported, preserving backwards compatibility.
+    To view the bookmark in the investigation graph, you must map at least one entity. Entity mappings to account, host, IP, and URL entity types you've previously created are supported, preserving backwards compatibility.
 
 1. Click **Save** to commit your changes and add the bookmark. All bookmarked data is shared with other analysts, and is a first step toward a collaborative investigation experience.
 
 > [!NOTE]
-> The log query results support bookmarks whenever this pane is opened from Microsoft Sentinel. For example, you select **General** > **Logs** from the navigation bar, select event links in the investigations graph, or select an alert ID from the full details of an incident (currently in preview). You can't create bookmarks when the **Logs** pane is opened from other locations, such as directly from Azure Monitor.
+> The log query results support bookmarks whenever this pane is opened from Microsoft Sentinel. For example, you select **General** > **Logs** from the navigation bar, select event links in the investigations graph, or select an alert ID from the full details of an incident. You can't create bookmarks when the **Logs** pane is opened from other locations, such as directly from Azure Monitor.
 
 ## View and update bookmarks
 
@@ -149,4 +138,4 @@ In this article, you learned how to run a hunting investigation using bookmarks 
 
 - [Proactively hunt for threats](hunting.md)
 - [Use notebooks to run automated hunting campaigns](notebooks.md)
-- [Threat hunting with Microsoft Sentinel (Learn module)](/learn/modules/hunt-threats-sentinel/)
+- [Threat hunting with Microsoft Sentinel (Learn module)](/training/modules/hunt-threats-sentinel/)

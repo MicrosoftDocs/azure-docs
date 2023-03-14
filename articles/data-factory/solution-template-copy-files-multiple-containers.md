@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/31/2022
+ms.date: 09/22/2022
 ---
 
 # Copy multiple folders with Azure Data Factory
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article describes a solution template that you can use multiple copy activities to copy containers or folders between file-based stores, where each copy activity is supposed to copy single container or folder. 
 

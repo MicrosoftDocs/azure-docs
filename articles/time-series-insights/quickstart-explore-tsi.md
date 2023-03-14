@@ -15,6 +15,8 @@ ms.date: 03/01/2021
 
 # Quickstart: Explore the Azure Time Series Insights Gen2 demo environment
 
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
+
 This quickstart gets you started with an Azure Time Series Insights Gen2 environment. In the free demo, you tour key features that have been added to Azure Time Series Insights Gen2.
 
 The Azure Time Series Insights Gen2 demo environment contains a scenario company, Contoso, that operates two wind turbine farms. Each farm has 10 turbines. Each turbine has 20 sensors that report data every minute to Azure IoT Hub. The sensors gather information about weather conditions, blade pitch, and yaw position. Information about generator performance, gearbox behavior, and safety monitors also is recorded.

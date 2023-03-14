@@ -3,20 +3,17 @@ title: Add IPv6 to an IPv4 application in Azure virtual network - Azure CLI
 titlesuffix: Azure Virtual Network
 description: This article shows how to deploy IPv6 addresses to an existing application in Azure virtual network using Azure CLI.
 services: virtual-network
-documentationcenter: na
-author: KumudD
-manager: mtillman
+author: asudbring
 ms.service: virtual-network
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
-ms.author: kumud 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.author: allensu
+ms.custom: devx-track-azurecli, template-how-to
 ms.devlang: azurecli
 ---
 
-# Add IPv6 to an IPv4 application in Azure virtual network - Azure CLI
+# Add IPv6 to an IPv4 application in Azure virtual network using Azure CLI
 
 This article shows you how to add IPv6 addresses to an application that is using IPv4 public IP address in an Azure virtual network for a Standard Load Balancer using Azure CLI. The in-place upgrade includes a virtual network and subnet, a Standard Load Balancer with IPv4 + IPV6 frontend configurations, VMs with NICs that have a IPv4 + IPv6 configurations, network security group, and public IPs.
 
@@ -24,7 +21,7 @@ This article shows you how to add IPv6 addresses to an application that is using
 
 - This article assumes that you deployed a Standard Load Balancer as described in [Quickstart: Create a Standard Load Balancer - Azure CLI](../load-balancer/quickstart-load-balancer-standard-public-cli.md).
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 - This article requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -44,7 +41,7 @@ az network public-ip create \
 
 ## Configure IPv6 load balancer frontend
 
-Configure the load balancer with the new IPv6 IP address using [az network lb frontend-ip create](/cli/azure/network/lb/frontend-ip#az_network_lb_frontend_ip_create) as follows:
+Configure the load balancer with the new IPv6 IP address using [az network lb frontend-ip create](/cli/azure/network/lb/frontend-ip#az-network-lb-frontend-ip-create) as follows:
 
 ```azurecli-interactive
 az network lb frontend-ip create \
@@ -56,7 +53,7 @@ az network lb frontend-ip create \
 
 ## Configure IPv6 load balancer backend pool
 
-Create the backend pool for NICs with IPv6 addresses using [az network lb address-pool create](/cli/azure/network/lb/address-pool#az_network_lb_address_pool_create) as follows:
+Create the backend pool for NICs with IPv6 addresses using [az network lb address-pool create](/cli/azure/network/lb/address-pool#az-network-lb-address-pool-create) as follows:
 
 ```azurecli-interactive
 az network lb address-pool create \
@@ -67,7 +64,7 @@ az network lb address-pool create \
 
 ## Configure IPv6 load balancer rules
 
-Create IPv6 load balancer rules with [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create).
+Create IPv6 load balancer rules with [az network lb rule create](/cli/azure/network/lb/rule#az-network-lb-rule-create).
 
 ```azurecli-interactive
 az network lb rule create \
@@ -100,7 +97,7 @@ az network vnet subnet update \
 
 ## Add IPv6 configuration to NICs
 
-Configure the VM NICs with an IPv6 address using [az network nic ip-config create](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_create) as follows:
+Configure the VM NICs with an IPv6 address using [az network nic ip-config create](/cli/azure/network/nic/ip-config#az-network-nic-ip-config-create) as follows:
 
 ```azurecli-interactive
 az network nic ip-config create \

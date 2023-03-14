@@ -1,15 +1,20 @@
 ---
 title: Deploy container image from Azure Container Registry using a managed identity
 description: Learn how to deploy containers in Azure Container Instances by pulling container images from an Azure container registry using a managed identity.
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
 services: container-instances
-ms.topic: article
-ms.date: 11/11/2021
+ms.date: 06/17/2022
 ms.custom: mvc, devx-track-azurecli
 ---
 
 # Deploy to Azure Container Instances from Azure Container Registry using a managed identity
 
 [Azure Container Registry][acr-overview] (ACR) is an Azure-based, managed container registry service used to store private Docker container images. This article describes how to pull container images stored in an Azure container registry when deploying to container groups with Azure Container Instances. One way to configure registry access is to create an Azure Active Directory managed identity.
+
+When access to an Azure Container Registry (ACR) is [restricted using a private endpoint](../container-registry/container-registry-private-link.md), using a managed identity allows Azure Container Instances [deployed into a virtual network](container-instances-vnet.md) to access the container registry through the private endpoint.
 
 ## Prerequisites
 
@@ -18,15 +23,9 @@ ms.custom: mvc, devx-track-azurecli
 **Azure CLI**: The command-line examples in this article use the [Azure CLI](/cli/azure/) and are formatted for the Bash shell. You can [install the Azure CLI](/cli/azure/install-azure-cli) locally, or use the [Azure Cloud Shell][cloud-shell-bash].
 
 ## Limitations
-
-> [!IMPORTANT]
-> Managed identity-authenticated container image pulls from ACR are not supported in Canada Central, South India, and West Central US at this time.  
-
-* Virtual Network injected container groups don't support managed identity authentication image pulls with ACR.
-
 * Windows containers don't support managed identity-authenticated image pulls with ACR.
 
-* Container groups don't support pulling images from an Azure Container Registry using [private DNS zones][private-dns-zones].
+* The Azure container registry must have [Public Access set to either 'Select networks' or 'None'](../container-registry/container-registry-access-selected-networks.md). To set the Azure container registry's Public Access to 'All networks', visit ACI's article on [how to authenticate with ACR with service principal based authentication](container-instances-using-azure-container-registry.md).
 
 ## Configure registry authentication
 
@@ -165,6 +164,66 @@ To deploy a container group using managed identity to authenticate image pulls v
 az container create --name my-containergroup --resource-group myResourceGroup --image <loginServer>/hello-world:v1 --acr-identity $userID --assign-identity $userID --ports 80 --dns-name-label <dns-label>
 ```
 
+## Deploy in a virtual network using the Azure CLI
+
+To deploy a container group to a virtual network using managed identity to authenticate image pulls from an ACR that runs behind a private endpoint via the Azure CLI, use the following command:
+
+```azurecli-interactive
+az container create --name my-containergroup --resource-group myResourceGroup --image <loginServer>/hello-world:v1 --acr-identity $userID --assign-identity $userID --vnet "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/myVNetResourceGroup/providers/ --subnet mySubnetName
+```
+
+For more info on how to deploy to a virtual network see [Deploy container instances into an Azure virtual network](./container-instances-vnet.md).
+
+## Deploy a multi-container group in a virtual network using YAML and the Azure CLI
+
+To deploy a multi-container group to a virtual network using managed identity to authenticate image pulls from an ACR that runs behind a private endpoint via the Azure CLI, you can specify the container group configuration in a YAML file. Then pass the YAML file as a parameter to the command.
+
+```yaml
+apiVersion: '2021-10-01'
+location: eastus
+type: Microsoft.ContainerInstance/containerGroups
+identity: 
+  type: UserAssigned
+  userAssignedIdentities: {
+    '/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myACRId': {}
+    }
+properties:
+  osType: Linux
+  imageRegistryCredentials:
+  - server: myacr.azurecr.io
+    identity: '/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myACRId'
+  subnetIds:
+  - id: '/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/myVNetResourceGroup/providers/Microsoft.Network/virtualNetworks/myVNetName/subnets/mySubnetName'
+    name: mySubnetName
+  containers:
+  - name: myContainer-1
+    properties:
+      resources:
+        requests:
+          cpu: '.4'
+          memoryInGb: '1'
+      environmentVariables:
+        - name: CONTAINER
+          value: 1
+      image: 'myacr.azurecr.io/myimage:latest'
+  - name: myContainer-2
+    properties:
+      resources:
+        requests:
+          cpu: '.4'
+          memoryInGb: '1'
+      environmentVariables:
+        - name: CONTAINER
+          value: 2
+      image: 'myacr.azurecr.io/myimage:latest'
+```
+
+```azurecli-interactive
+az container create --name my-containergroup --resource-group myResourceGroup --file my-YAML-file.yaml
+```
+
+For more info on how to deploy to a multi-container group see [Deploy a multi-container group](./container-instances-multi-container-yaml.md).
+
 ## Clean up resources
 
 To remove all resources from your Azure subscription, delete the resource group:
@@ -180,8 +239,8 @@ az group delete --name myResourceGroup
 <!-- Links Internal -->
 
 [use-service-principal]: ./container-instances-using-azure-container-registry.md
-[az-identity-show]: /cli/azure/identity#az_identity_show
-[az-identity-create]: /cli/azure/identity#az_identity_create
+[az-identity-show]: /cli/azure/identity#az-identity-show
+[az-identity-create]: /cli/azure/identity#az-identity-create
 [acr-overview]: ../container-registry/container-registry-intro.md
 [acr-get-started]: ../container-registry/container-registry-get-started-azure-cli.md
 [private-dns-zones]: ../dns/private-dns-privatednszone.md

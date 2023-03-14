@@ -12,6 +12,8 @@ QnA Maker learns best in an iterative cycle of model changes, utterance examples
 
 ![Authoring cycle](../media/qnamaker-concepts-lifecycle/kb-lifecycle.png)
 
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
+
 ## Creating a QnA Maker knowledge base
 QnA Maker knowledge base (KB) endpoint provides a best-match answer to a user query based on the content of the KB. Creating a knowledge base is a one-time action to setting up a content repository of questions, answers, and associated metadata. A KB can be created by crawling pre-existing content such the following sources:
 

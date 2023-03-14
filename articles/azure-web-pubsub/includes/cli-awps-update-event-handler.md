@@ -6,7 +6,7 @@ ms.date: 08/06/2021
 ms.author: lianwei
 ---
 
-Use the Azure CLI [az webpubsub hub create](/cli/azure/webpubsub/hub#az_webpubsub_hub_create) command to create the event handler settings for the hub
+Use the Azure CLI [az webpubsub hub create](/cli/azure/webpubsub/hub#az-webpubsub-hub-create) command to create the event handler settings for the hub
 
   > [!Important]
   > Replace &lt;your-unique-resource-name&gt; with the name of your Web PubSub resource created from the previous steps.

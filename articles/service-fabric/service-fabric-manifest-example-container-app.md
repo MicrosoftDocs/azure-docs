@@ -1,11 +1,12 @@
 ---
 title: Azure Service Fabric container application manifest examples
 description: Learn how to configure application and service manifest settings for a multi-container Service Fabric application.
-author: peterpogorski
-
 ms.topic: conceptual
-ms.date: 06/08/2018
-ms.author: pepogors
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
 
 # Multi-container application and service manifest examples
@@ -253,7 +254,7 @@ See [Application manifest elements](#application-manifest-elements), [FrontEndSe
 
 ## Application manifest elements
 ### ApplicationManifest Element
-Declaratively describes the application type and version. One or more service manifests of the constituent services are referenced to compose an application type. Configuration settings of the constituent services can be overridden using parameterized application settings. Default services, service templates, principals, policies, diagnostics set-up, and certificates can also declared at the application level. For more information, see [ApplicationManifest Element](service-fabric-service-model-schema-elements.md#ApplicationManifestElementApplicationManifestTypeComplexType)
+Declaratively describes the application type and version. One or more service manifests of the constituent services are referenced to compose an application type. Configuration settings of the constituent services can be overridden using parameterized application settings. Default services, service templates, principals, policies, diagnostics set-up, and certificates can also be declared at the application level. For more information, see [ApplicationManifest Element](service-fabric-service-model-schema-elements.md#ApplicationManifestElementApplicationManifestTypeComplexType)
 
 ### Parameters Element
 Declares the parameters that are used in this application manifest. The value of these parameters can be supplied when the application is instantiated and can be used to override application or service configuration settings. For more information, see [Parameters Element](service-fabric-service-model-schema-elements.md#ParametersElementanonymouscomplexTypeComplexTypeDefinedInApplicationManifestTypecomplexType)
@@ -298,7 +299,7 @@ Windows Server containers may not be compatible across different versions of the
         is assumed to work across all versions of the OS and overrides the image specified in the service manifest. For more information, see [ImageOverrides Element](service-fabric-service-model-schema-elements.md#ImageOverridesElementImageOverridesTypeComplexTypeDefinedInContainerHostPoliciesTypecomplexType)
 
 ### Image Element
-Container image corresponding to OS build version number to be launched. If the Os attribute is not specified, the container image
+Container image corresponding to OS build version number to be launched. If the OS attribute is not specified, the container image
             is assumed to work across all versions of the OS and overrides the image specified in the service manifest. For more information, see [Image Element](service-fabric-service-model-schema-elements.md#ImageElementImageTypeComplexTypeDefinedInImageOverridesTypecomplexType)
 
 ### EnvironmentOverrides Element

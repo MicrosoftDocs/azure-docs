@@ -38,7 +38,8 @@ Resource Logs aren't collected and stored until you create a diagnostic setting 
 See [Create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings.md) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for Azure Service Bus are listed in [Azure Service Bus monitoring data reference](monitor-service-bus-reference.md#resource-logs).
 
 > [!NOTE]
-> Azure Monitor doesn't include dimensions in the exported metrics data that's sent to a destination (Azure Storage, Azure Event Hubs, or Log Analytics).
+> Azure Monitor doesn't include dimensions in the exported metrics data, that's sent to a destination like Azure Storage, Azure Event Hubs, Log Analytics, etc.
+
 
 ### Azure Storage 
 The diagnostic logging information is stored in containers named **insights-logs-operationlogs** and **insights-metrics-pt1m**.

@@ -1,13 +1,14 @@
 ---
 title: Move an Azure Synapse Analytics workspace from region to another
 description: This article teaches you how to move an Azure Synapse Analytics workspace from one region to another. 
-author: phanir
-ms.service: synapse-analytics
-ms.subservice: 
+services: synapse-analytics 
+ms.service:  synapse-analytics 
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 08/16/2021
-ms.author: phanir
-ms.reviewer: sngun
+ms.date: 03/30/2022
+author: matt1883
+ms.author: mahi
+ms.reviewer: wiassaf
 ---
 
 # Move an Azure Synapse Analytics workspace from one region to another
@@ -20,7 +21,7 @@ This article is a step-by-step guide that shows you how to move an Azure Synapse
 ## Prerequisites
 
 - Integrate the source region Azure Synapse workspace with Azure DevOps or GitHub. For more information, see [Source control in Synapse Studio](cicd/source-control.md).
-- Have [Azure PowerShell](/powershell/azure/new-azureps-module-az?view=azps-6.3.0&preserve-view=true) and [Azure CLI](/cli/azure/install-azure-cli) modules installed on the server where scripts are executed.
+- Have [Azure PowerShell](/powershell/azure/new-azureps-module-az) and [Azure CLI](/cli/azure/install-azure-cli) modules installed on the server where scripts are executed.
 - Make sure all dependent services, for example, Azure Machine Learning, Azure Storage, and Azure Private Link hubs, are re-created in the target region or moved to the target region if the service supports a region move. 
 - Move Azure Storage to a different region. For more information, see [Move an Azure Storage account to another region](../storage/common/storage-account-move.md).
 - Ensure the dedicated SQL pool name and the Apache Spark pool name are the same in the source region and the target region workspace.
@@ -107,7 +108,7 @@ New-AzSynapseWorkspace -ResourceGroupName $resourceGroupName `
                         -SqlAdministratorLoginCredential $creds 
 ```
 
-If you want to create the workspace with a Managed Virtual Network, add the extra parameter "ManagedVirtualNetwork" to the script. To learn more about the options available, see [Managed Virtual Network Config](/powershell/module/az.synapse/new-azsynapsemanagedvirtualnetworkconfig?view=azps-6.3.0&preserve-view=true).
+If you want to create the workspace with a Managed Virtual Network, add the extra parameter "ManagedVirtualNetwork" to the script. To learn more about the options available, see [Managed Virtual Network Config](/powershell/module/az.synapse/new-azsynapsemanagedvirtualnetworkconfig).
 
 
 ```powershell
@@ -120,7 +121,7 @@ New-AzSynapseWorkspace -ResourceGroupName $resourceGroupName `
                         -DefaultDataLakeStorageAccountName $storageAccountName `
                         -DefaultDataLakeStorageFilesystem $containerName `
                         -SqlAdministratorLoginCredential $creds `
-			                  -ManagedVirtualNetwork $config
+                              -ManagedVirtualNetwork $config
 ```
 
 
@@ -136,16 +137,17 @@ az group create --name $resourceGroupName --location $regionName
 
 #### Create a Data Lake Storage Gen2 account
 
+The following script creates a storage account and container.
+
 ```azurecli
 # Checking if name is not used only then creates it.
-
 $StorageAccountNameAvailable=(az storage account check-name --name $storageAccountName --subscription $subscriptionId | ConvertFrom-Json).nameAvailable
 
 if($StorageAccountNameAvailable)
 {
 Write-Host "Storage account Name is available to be used...creating storage account"
 
-#Creating an Data Lake Storage Gen2 account
+#Creating a Data Lake Storage Gen2 account
 $storgeAccountProvisionStatus=az storage account create `
   --name $storageAccountName `
   --resource-group $resourceGroupName `
@@ -265,8 +267,7 @@ You can also create the Spark pool from Synapse Studio by following the steps in
 
 ### Azure PowerShell
 
-The following script creates a Spark pool with two workers and one driver node. Update the values to match your source region workspace Spark pool.
-
+The following script creates a Spark pool with two workers and one driver node, and a small cluster size with 4 cores and 32-GB RAM. Update the values to match your source region workspace Spark pool.
 
 ```powershell
 #Creating a Spark pool with 3 nodes (2 worker + 1 driver) and a small cluster size with 4 cores and 32 GB RAM. 
@@ -310,25 +311,22 @@ Run the following PowerShell script to restore the workspace. This script uses t
 > [!IMPORTANT]
 > The dedicated SQL pool name should be the same on both the workspaces.
 
+Get the restore points:
 
 ```powershell
-#Getting the restore points
 $restorePoint=Get-AzSynapseSqlPoolRestorePoint -WorkspaceName $sourceRegionWSName -Name $sqlPoolName|Sort-Object  -Property RestorePointCreationDate -Descending `
                                                                                          | SELECT RestorePointCreationDate -ExpandProperty  RestorePointCreationDate -First 1
 ```
  
- 
+Transform the Azure Synapse SQL pool resource ID to SQL database ID because currently the command only accepts the SQL database ID. 
+For example: `/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Sql/servers/<WorkspaceName>/databases/<DatabaseName>`
 
 ```powershell
-<#
-Transform Synapse SQL pool resource ID to SQL database ID because currently the command only accepts the SQL database ID. 
-For example: /subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Sql/servers/<WorkspaceName>/databases/<DatabaseName>
-#>
 $pool = Get-AzSynapseSqlPool -ResourceGroupName $sourceRegionRGName -WorkspaceName $sourcRegionWSName -Name $sqlPoolName
 $databaseId = $pool.Id `
     -replace "Microsoft.Synapse", "Microsoft.Sql" `
     -replace "workspaces", "servers" `
-	-replace "sqlPools", "databases" 
+    -replace "sqlPools", "databases" 
  
 
 $restoredPool = Restore-AzSynapseSqlPool -FromRestorePoint `
@@ -338,16 +336,17 @@ $restoredPool = Restore-AzSynapseSqlPool -FromRestorePoint `
                                          -WorkspaceName $workspaceName `
                                          -ResourceId $databaseId `
                                          -PerformanceLevel DW100c -AsJob
+```
 
+The following tracks the status of the restore operation:
 
-#Tracks the status of the restore 
-
+```powershell
 Get-Job | Where-Object Command -In ("Restore-AzSynapseSqlPool") | `
 Select-Object Id,Command,JobStateInfo,PSBeginTime,PSEndTime,PSJobTypeName,Error |Format-Table
 ```
 After the dedicated SQL pool is restored, create all the SQL logins in Azure Synapse. To create all the logins, follow the steps in [Create login](/sql/t-sql/statements/create-login-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
-## Step 5: Create a serverless SQL pool, Spark pool database and objects
+## Step 5: Create a serverless SQL pool, Spark pool database, and objects
 
 You can't back up and restore serverless SQL pool databases and Spark pools. As a possible workaround, you could:
 
@@ -391,13 +390,12 @@ Follow the steps in [Grant permissions to workspace managed identity](security/h
 ### Azure PowerShell
 Assign a Storage Blob Data Contributor role to the managed identity of the workspace.
 
-```powershell
+Adding Storage Blob Data Contributor to the workspace managed identity on the storage account. The execution of `New-AzRoleAssignment` errors out with the message `Exception of type 'Microsoft.Rest.Azure.CloudException' was thrown.` however it creates the required permissions on the storage account.
 
+```powershell
 $workSpaceIdentityObjectID= (Get-AzSynapseWorkspace -ResourceGroupName $resourceGroupName -Name $workspaceName).Identity.PrincipalId 
 $scope = "/subscriptions/$($subscriptionId)/resourceGroups/$($resourceGroupName)/providers/Microsoft.Storage/storageAccounts/$($storageAccountName)"
 
-# Adding Storage Blob Data Contributor to WS Managed Identity on the storage account. This errors out with the message New-AzRoleAssignment : Exception of type 'Microsoft.Rest.Azure.CloudException' was thrown.
-# But it creates the required permissions on the storage account.
 $roleAssignedforManagedIdentity=New-AzRoleAssignment -ObjectId $workSpaceIdentityObjectID `
     -RoleDefinitionName "Storage Blob Data Contributor" `
     -Scope $scope -ErrorAction SilentlyContinue
@@ -406,6 +404,8 @@ $roleAssignedforManagedIdentity=New-AzRoleAssignment -ObjectId $workSpaceIdentit
 
 ### Azure CLI
 
+Get the role name, resource ID, and principal ID for the workspace managed identity, then add the Storage Blob Data Contributor Azure role to the SA-MI.
+
 ```azurecli
 # Getting Role name
 $roleName =az role definition list --query "[?contains(roleName, 'Storage Blob Data Contributor')].{roleName:roleName}" --output tsv
@@ -413,7 +413,7 @@ $roleName =az role definition list --query "[?contains(roleName, 'Storage Blob D
 #Getting resource id for storage account
 $scope= (az storage account show --name $storageAccountName|ConvertFrom-Json).id
 
-#Getting principal ID for WS Managed Identity
+#Getting principal ID for workspace managed identity
 $workSpaceIdentityObjectID=(az synapse workspace show --name $workspaceName --resource-group $resourceGroupName|ConvertFrom-Json).Identity.PrincipalId 
                     
 # Adding Storage Blob Data Contributor Azure role to SA-MI
@@ -425,6 +425,7 @@ az role assignment create --assignee $workSpaceIdentityObjectID `
 ## Step 9: Assign Azure Synapse RBAC roles
 
 Add all the users who need access to the target workspace with separate roles and permissions. The following PowerShell and CLI script adds an Azure AD user to the Synapse Administrator role in the target region workspace. 
+
 To get all the Azure Synapse RBAC role names, see [Azure Synapse RBAC roles](security/synapse-workspace-synapse-rbac-roles.md).
 
 ### Synapse Studio
@@ -436,25 +437,25 @@ To add or delete Azure Synapse RBAC assignments from Synapse Studio, follow the 
 
 The following PowerShell script adds the Synapse Administrator role assignment to an Azure AD user or group. You can use -RoleDefinitionId instead of -RoleDefinitionName with the following command to add the users to the workspace:
 
+
 ```powershell
-# Add the Synapse RBAC assignment. Use the objectId of the Azure AD user or group you want to assign.
 New-AzSynapseRoleAssignment `
    -WorkspaceName $workspaceName  `
    -RoleDefinitionName "Synapse Administrator" `
    -ObjectId 1c02d2a6-ed3d-46ec-b578-6f36da5819c6
 
-# Check if user is added to the access control by running this command.
 Get-AzSynapseRoleAssignment -WorkspaceName $workspaceName  
 ```
 
-To get the ObjectIds and RoleIds in the source region workspace, run the Get-AzSynapseRoleAssignment command. Assign the same Azure Synapse RBAC roles to the Azure AD users or groups in the target region workspace.
+To get the ObjectIds and RoleIds in the source region workspace, run the `Get-AzSynapseRoleAssignment` command. Assign the same Azure Synapse RBAC roles to the Azure AD users or groups in the target region workspace.
 
-Instead of using -ObjectId as the parameter, you can also use -SignInName, where you provide the email address or the user principal name of the user. To find out more about the available options, see [Azure Synapse RBAC - PowerShell cmdlet](/powershell/module/az.synapse/new-azsynapseroleassignment?view=azps-6.3.0&preserve-view=true). 
+Instead of using `-ObjectId` as the parameter, you can also use `-SignInName`, where you provide the email address or the user principal name of the user. To find out more about the available options, see [Azure Synapse RBAC - PowerShell cmdlet](/powershell/module/az.synapse/new-azsynapseroleassignment). 
 
 ### Azure CLI
 
+Get the Object ID of the user and assign the required Azure Synapse RBAC permissions to the Azure AD user. You can provide the email address of the user (username@contoso.com) for the `--assignee` parameter.
+
 ```azurecli
-#Get the Object Id of the user and assign the required Azure Synapse RBAC permissions to the Azure AD user. You can provide the email address of the user (username@contoso.com) for the --assignee parameter.
 az synapse role assignment create `
 --workspace-name $workspaceName `
 --role "Synapse Administrator" --assignee adasdasdd42-0000-000-xxx-xxxxxxx
@@ -472,7 +473,7 @@ To learn more about available options, see [Azure Synapse RBAC - CLI](/cli/azure
 Upload all required workspace packages to the new workspace. To automate the process of uploading the workspace packages, see the [Microsoft Azure Synapse Analytics Artifacts client library](https://www.nuget.org/packages/Azure.Analytics.Synapse.Artifacts/1.0.0-preview.10).
 
 ## Step 11: Permissions
-	
+    
 To set up the access control for the target region Azure Synapse workspace, follow the steps in [How to set up access control for your Azure Synapse workspace](security/how-to-set-up-access-control.md). 
 
 
@@ -484,7 +485,7 @@ To re-create the managed private endpoints from the source region workspace in y
 If you wish to discard the target region workspace, delete the target region workspace. To do so, go to the resource group from your dashboard in the portal and select the workspace and select Delete at the top of the Resource group page.
 
 ## Clean up
-To commit the changes and complete the move of the workspace, delete the source region workspace after testing the workspace in the target region. To do so, go to the resource group which has the source region workspace from your dashboard in the portal and select the workspace and select Delete at the top of the Resource group page.
+To commit the changes and complete the move of the workspace, delete the source region workspace after testing the workspace in the target region. To do so, go to the resource group that has the source region workspace from your dashboard in the portal and select the workspace and select Delete at the top of the Resource group page.
 
 ## Next steps
 

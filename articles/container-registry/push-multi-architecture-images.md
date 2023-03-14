@@ -2,7 +2,9 @@
 title: Multi-architecture images in your registry
 description: Use your Azure container registry to build, import, store, and deploy multi-architecture (multi-arch) images
 ms.topic: article
-ms.date: 02/07/2021
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ms.custom: 
 ---
 
@@ -41,7 +43,7 @@ A basic manifest for a Linux `hello-world` image looks similar to the following:
   }
   ```
     
-You can view a manifest in Azure Container Registry using the Azure portal or tools such as the [az acr repository show-manifests](/cli/azure/acr/repository#az_acr_repository_show_manifests) command in the Azure CLI.
+You can view a manifest in Azure Container Registry using the Azure portal or tools such as the [az acr manifest list-metadata](/cli/azure/acr/manifest#az-acr-manifest-list-metadata) command in the Azure CLI.
 
 ### Manifest list
 
@@ -90,11 +92,11 @@ You can view a manifest list using the `docker manifest inspect` command. The fo
 }
 ```
 
-When a multi-arch manifest list is stored in Azure Container Registry, you can also view the manifest list using the Azure portal or with tools such as the [az acr repository show-manifests](/cli/azure/acr/repository#az_acr_repository_how_manifests) command.
+When a multi-arch manifest list is stored in Azure Container Registry, you can also view the manifest list using the Azure portal or with tools such as the [az acr manifest list-metadata](/cli/azure/acr/manifest#az-acr-manifest-list-metadata) command.
 
 ## Import a multi-arch image 
 
-An existing multi-arch image can be imported to an Azure container registry using the [az acr import](/cli/azure/acr#az_acr_import) command. The image import syntax is the same as with a single-architecture image. Like import of a single-architecture image, import of a multi-arch image doesn't use Docker commands. 
+An existing multi-arch image can be imported to an Azure container registry using the [az acr import](/cli/azure/acr#az-acr-import) command. The image import syntax is the same as with a single-architecture image. Like import of a single-architecture image, import of a multi-arch image doesn't use Docker commands. 
 
 For details, see [Import container images to a container registry](container-registry-import-images.md).
 
@@ -132,7 +134,7 @@ When you have build workflows to create container images for different architect
 
 1. Use the `docker manifest inspect` command to view the manifest list. An example of command output is shown in a preceding section.
 
-After you push the multi-arch manifest to your registry, work with the multi-arch image the same way that you do with a single-architecture image. For example, pull the image using `docker pull`, and use [az acr repository](/cli/azure/acr/repository#az_acr_repository) commands to view tags, manifests, and other properties of the image.
+After you push the multi-arch manifest to your registry, work with the multi-arch image the same way that you do with a single-architecture image. For example, pull the image using `docker pull`, and use [az acr repository](/cli/azure/acr/repository#az-acr-repository) commands to view tags, manifests, and other properties of the image.
 
 ## Build and push a multi-arch image
 

@@ -56,7 +56,7 @@ To optimize routing for both office users, you need to know which prefix is from
 ![ExpressRoute Case 1 solution - use BGP Communities](./media/expressroute-optimize-routing/expressroute-case1-solution.png)
 
 > [!NOTE]
-> The same technique, using Local Preference, can be applied to routing from customer to Azure Virtual Network. We don't tag BGP Community value to the prefixes advertised from Azure to your network. However, since you know which of your Virtual Network deployment is close to which of your office, you can configure your routers accordingly to prefer one ExpressRoute circuit to another.
+> The same technique, using Local Preference, can be applied to routing from customer to Azure virtual network when using private peering. Microsoft doesn't tag BGP community values to the prefixes advertised from Azure to your network. However, since you know which of your virtual network deployment is close to which of your office, you can configure your routers accordingly to prefer one ExpressRoute circuit over another.
 >
 >
 

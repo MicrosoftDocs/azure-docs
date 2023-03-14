@@ -2,8 +2,8 @@
 title: Authentication with Microsoft Azure Maps
 titleSuffix: Azure Maps
 description: "Learn about two ways of authenticating requests in Azure Maps: shared key authentication and Azure Active Directory (Azure AD) authentication."
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 05/25/2021
 ms.topic: conceptual
 ms.service: azure-maps
@@ -13,7 +13,7 @@ ms.custom: mvc
 
 # Authentication with Azure Maps
 
-Azure Maps supports three ways to authenticate requests: Shared Key authentication, [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) authentication, and Shared Access Signature (SAS) Token authentication. This article explains authentication methods to help guide your implementation of Azure Maps services. The article also describes additional account controls such as disabling local authentication for Azure Policy and Cross-Origin Resource Sharing (CORS).
+Azure Maps supports three ways to authenticate requests: Shared Key authentication, [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) authentication, and Shared Access Signature (SAS) Token authentication. This article explains authentication methods to help guide your implementation of Azure Maps services. The article also describes other account controls such as disabling local authentication for Azure Policy and Cross-Origin Resource Sharing (CORS).
 
 > [!NOTE]
 > To improve secure communication with Azure Maps, we now support Transport Layer Security (TLS) 1.2, and we're retiring support for TLS 1.0 and 1.1. If you currently use TLS 1.x, evaluate your TLS 1.2 readiness and develop a migration plan with the testing described in [Solving the TLS 1.0 Problem](/security/solving-tls1-problem).
@@ -27,7 +27,7 @@ Primary and secondary keys are generated after the Azure Maps account is created
 Example using the _subscription key_ as a parameter in your URL:
 
 ```http
-https://atlas.microsoft.com/mapData/upload?api-version=1.0&dataFormat=zip&subscription-key={Azure-Maps-Primary-Subscription-key}
+https://atlas.microsoft.com/mapData/upload?api-version=1.0&dataFormat=zip&subscription-key={Your-Azure-Maps-Subscription-key}
 ```
 
 > [!IMPORTANT]
@@ -51,7 +51,7 @@ For general information about authenticating with Azure AD, see [Authentication 
 
 ## Managed identities for Azure resources and Azure Maps
 
-[Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md) provide Azure services with an automatically managed application based security principal that can authenticate with Azure AD. With Azure role-based access control (Azure RBAC), the managed identity security principal can be authorized to access Azure Maps services. Some examples of managed identities include: Azure App Service, Azure Functions, and Azure Virtual Machines. For a list of managed identities, see [Services that support managed identities for Azure resources](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md). To add and remove managed identities read more on [Manage authentication in Azure Maps](./how-to-manage-authentication.md).
+[Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md) provide Azure services with an automatically managed application based security principal that can authenticate with Azure AD. With Azure role-based access control (Azure RBAC), the managed identity security principal can be authorized to access Azure Maps services. Some examples of managed identities include: Azure App Service, Azure Functions, and Azure Virtual Machines. For a list of managed identities, see [Azure services that can use managed identities to access other services](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md). For more information on managed identities, see [Manage authentication in Azure Maps](./how-to-manage-authentication.md).
 
 ### Configure application Azure AD authentication
 
@@ -99,7 +99,7 @@ For information about viewing your client ID, see [View authentication details](
 
 ### Prerequisites
 
-If you are new to Azure RBAC, [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) overview provides Principal types are granted a set of permissions, also known as a role definition. A role definition provides permissions to REST API actions. Azure Maps supports access to all principal types for [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) including: individual Azure AD users, groups, applications, Azure resources, and Azure managed identities. Applying access to one or more Azure Maps accounts is known as a scope. When applying a principal, role definition, and scope then a role assignment is created.
+If you're new to Azure RBAC, [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) overview provides Principal types are granted a set of permissions, also known as a role definition. A role definition provides permissions to REST API actions. Azure Maps supports access to all principal types for [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) including: individual Azure AD users, groups, applications, Azure resources, and Azure managed identities. Applying access to one or more Azure Maps accounts is known as a scope. A role assignment is created when a principal, role definition, and scope are applied.
 
 ### Overview
 
@@ -120,11 +120,11 @@ The following role definition types exist to support application scenarios.
 
 Some Azure Maps services may require elevated privileges to perform write or delete actions on Azure Maps REST APIs. Azure Maps Data Contributor role is required for services, which provide write or delete actions. The following table describes what services Azure Maps Data Contributor is applicable when using write or delete actions. When only read actions are required, the Azure Maps Data Reader role can be used in place of the Azure Maps Data Contributor role.
 
-| Azure Maps Service     | Azure Maps Role Definition  |
+| Azure Maps service     | Azure Maps Role Definition  |
 | :--------------------- | :-------------------------- |
-| [Data](/rest/api/maps/data)             | Azure Maps Data Contributor |
-| [Creator](/rest/api/maps-creator/)                | Azure Maps Data Contributor |
-| [Spatial](/rest/api/maps/spatial)                | Azure Maps Data Contributor |
+| [Data](/rest/api/maps/data)        | Azure Maps Data Contributor |
+| [Creator](/rest/api/maps-creator/) | Azure Maps Data Contributor |
+| [Spatial](/rest/api/maps/spatial)  | Azure Maps Data Contributor |
 | Batch [Search](/rest/api/maps/search) and [Route](/rest/api/maps/route) | Azure Maps Data Contributor |
 
 For information about viewing your Azure RBAC settings, see [How to configure Azure RBAC for Azure Maps](./how-to-manage-authentication.md).
@@ -141,12 +141,12 @@ Here are some example scenarios where custom roles can improve application secur
 | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------ |
 | A public facing or interactive sign-in web page with base map tiles and no other REST APIs.                                                                                                                                | `Microsoft.Maps/accounts/services/render/read`                                                                                              |
 | An application, which only requires reverse geocoding and no other REST APIs.                                                                                                                                              | `Microsoft.Maps/accounts/services/search/read`                                                                                              |
-| A role for a security principal, which requests reading of Azure Maps Creator based map data and base map tile REST APIs.                                                                                                  | `Microsoft.Maps/accounts/services/data/read`, `Microsoft.Maps/accounts/services/render/read`                                                |
-| A role for a security principal, which requires reading, writing, and deleting of Creator based map data. This can be defined as a map data editor role, but does not allow access to other REST APIs like base map tiles. | `Microsoft.Maps/accounts/services/data/read`, `Microsoft.Maps/accounts/services/data/write`, `Microsoft.Maps/accounts/services/data/delete` |
+| A role for a security principal, which requests a reading of Azure Maps Creator based map data and base map tile REST APIs.                                                                                                  | `Microsoft.Maps/accounts/services/data/read`, `Microsoft.Maps/accounts/services/render/read`                                                |
+| A role for a security principal, which requires reading, writing, and deleting of Creator based map data. This can be defined as a map data editor role, but doesn't allow access to other REST APIs like base map tiles. | `Microsoft.Maps/accounts/services/data/read`, `Microsoft.Maps/accounts/services/data/write`, `Microsoft.Maps/accounts/services/data/delete` |
 
 ### Understand scope
 
-When creating a role assignment, it is defined within the Azure resource hierarchy. At the top of the hierarchy is a [management group](../governance/management-groups/overview.md) and the lowest is an Azure resource, like an Azure Maps account.
+When creating a role assignment, it's defined within the Azure resource hierarchy. At the top of the hierarchy is a [management group](../governance/management-groups/overview.md) and the lowest is an Azure resource, like an Azure Maps account.
 Assigning a role assignment to a resource group can enable access to multiple Azure Maps accounts or resources in the group.
 
 > [!TIP]
@@ -154,7 +154,7 @@ Assigning a role assignment to a resource group can enable access to multiple Az
 
 ## Disable local authentication
 
-Azure Maps accounts support the standard Azure property in the [Azure Maps Management REST API](/rest/api/maps-management/) for `Microsoft.Maps/accounts` called `disableLocalAuth`. When `true`, all authentication to the Azure Maps data-plane REST API is disabled, except [Azure AD authentication](./azure-maps-authentication.md#azure-ad-authentication). This is configured using Azure Policy to control distribution and management of shared keys and SAS tokens. For more information, see [What is Azure Policy?](../governance/policy/overview.md).
+Azure Maps accounts support the standard Azure property in the [Management API](/rest/api/maps-management/) for `Microsoft.Maps/accounts` called `disableLocalAuth`. When `true`, all authentication to the Azure Maps data-plane REST API is disabled, except [Azure AD authentication](./azure-maps-authentication.md#azure-ad-authentication). This is configured using Azure Policy to control distribution and management of shared keys and SAS tokens. For more information, see [What is Azure Policy?](../governance/policy/overview.md).
 
 Disabling local authentication doesn't take effect immediately. Allow a few minutes for the service to block future authentication requests. To re-enable local authentication, set the property to `false` and after a few minutes local authentication will resume.
 
@@ -177,27 +177,27 @@ Shared access signature (SAS) tokens are authentication tokens created using the
 
 Functional key differences of SAS token from Azure AD Access tokens:
 
-- Lifetime of a token for a max expiration of 1 year (365 days).
+- Lifetime of a token for a max expiration of one year (365 days).
 - Azure location and geography access control per token.
 - Rate limits per token for an approximate of 1 to 500 requests per second.
 - Private keys of the token are the primary and secondary keys of an Azure Maps account resource.
 - Service Principal object for authorization is supplied by a user-assigned managed identity.
 
-SAS tokens are immutable. This means that once a token is created, the SAS token is valid until the expiry has been met and the configuration of the allowed regions, rate limits, and user-assigned managed identity cannot be changed. Read more below on [understanding access control](./azure-maps-authentication.md#understand-sas-token-access-control) for SAS token revocation and changes to access control.
+SAS tokens are immutable. This means that once a token is created, the SAS token is valid until the expiry has been met and the configuration of the allowed regions, rate limits, and user-assigned managed identity can't be changed. Read more below on [understanding access control](./azure-maps-authentication.md#understand-sas-token-access-control) for SAS token revocation and changes to access control.
 
 ### Understand SAS token rate limits
 
 #### SAS token maximum rate limit can control billing for an Azure Maps resource
 
-By specifying a maximum rate limit on the token (`maxRatePerSecond`), the excess rate will not be billed to the account allowing you to set an upper limit of billable transactions for the account, when using the token. However, the application will receive client error responses with `429 (TooManyRequests)` for all transactions once that limit it reached. It is the responsibility of the application to manage retry and distribution of SAS tokens. There is no limit on how many SAS tokens can be created for an account. To allow for an increase or decrease in an existing token's limit; a new SAS token must be created but remember that the old SAS token is still valid until its expiration.
+By specifying a maximum rate limit on the token (`maxRatePerSecond`), the excess rate won't be billed to the account allowing you to set an upper limit of billable transactions for the account, when using the token. However, the application will receive client error responses with `429 (TooManyRequests)` for all transactions once that limit it reached. It's the responsibility of the application to manage retry and distribution of SAS tokens. There's no limit on how many SAS tokens can be created for an account. To allow for an increase or decrease in an existing token's limit; a new SAS token must be created. The old SAS token is still valid until its expiration.
 
 Estimated Example:
 
 | Approximate Maximum Rate Per Second | Actual Rate Per Second | Duration of sustained rate in seconds | Total billable transactions |
 | :---------------------------------- | :--------------------- | :------------------------------------ | :-------------------------- |
-| 10                                  | 20                     | 600                                   | 6000                        |
+| 10                                  | 20                     | 600                                   | 6,000                       |
 
-This is an estimate, actual rate limits vary slightly based on Azure Maps ability to enforce consistency within a span of time. However, this allows for preventive control of billing cost.
+These are estimates, actual rate limits vary slightly based on Azure Maps ability to enforce consistency within a span of time. However, this allows for preventive control of billing cost.
 
 #### Rate limits are enforced per Azure location, not globally or geographically
 
@@ -206,21 +206,21 @@ For example, a single SAS token with a `maxRatePerSecond` of 10 can be used to l
 1. Create SAS tokens with designated allowed Azure locations for targeted geography. Continue reading to understand creating SAS tokens.
 1. Use geographic data-plane REST API endpoints, `https://us.atlas.microsoft.com` or `https://eu.atlas.microsoft.com`.
 
-Consider the application topology where the endpoint `https://us.atlas.microsoft.com` routes to the same US locations that the Azure Maps services are hosted, such as `East US`, `West Central US`, or `West US 2`. The same idea applies to other geographical endpoints such as `https://eu.atlas.microsoft.com` between `West Europe` and `North Europe`. To prevent unexpected authorization denials, leverage a SAS token that uses the same Azure locations that the application consumes. The endpoint location is defined using the Azure Maps Management REST API.
+Consider the application topology where the endpoint `https://us.atlas.microsoft.com` routes to the same US locations that the Azure Maps services are hosted, such as `East US`, `West Central US`, or `West US 2`. The same idea applies to other geographical endpoints such as `https://eu.atlas.microsoft.com` between `West Europe` and `North Europe`. To prevent unexpected authorization denials, use a SAS token that uses the same Azure locations that the application consumes. The endpoint location is defined using the Azure Maps Management REST API.
 
 #### Default rate limits take precedent over SAS token rate limits
 
-As described in [Azure Maps rate limits](./azure-maps-qps-rate-limits.md), individual service offerings have varying rate limits which are enforced as an aggregate of the account.
+As described in [Azure Maps rate limits](./azure-maps-qps-rate-limits.md), individual service offerings have varying rate limits that are enforced as an aggregate of the account.
 
-Consider the case of **Search Service - Non-Batch Reverse**, with its limit of 250 queries per second (QPS) for the following tables. Each table represents estimated total successful transactions from example usage.
+Consider the case of **Search service - Non-Batch Reverse**, with its limit of 250 queries per second (QPS) for the following tables. Each table represents estimated total successful transactions from example usage.
 
-The first table shows 1 token which has a maximum request per second of 500, and then actual usage of the application was 500 request per second for a duration of 60 seconds. **Search Service - Non-Batch Reverse** has a rate limit of 250, this means of the total 30000 requests made in the 60 seconds; 15000 of those requests will be billable transactions. The remaining requests will result in status code `429 (TooManyRequests)`.
+The first table shows one token that has a maximum request per second of 500, and then actual usage of the application was 500 request per second for a duration of 60 seconds. **Search service - Non-Batch Reverse** has a rate limit of 250, meaning of the total 30,000 requests made in the 60 seconds; 15,000 of those requests will be billable transactions. The remaining requests will result in status code `429 (TooManyRequests)`.
 
 | Name  | Approximate Maximum Rate Per Second | Actual Rate Per Second | Duration of sustained rate in seconds | Approximate total successful transactions |
 | :---- | :---------------------------------- | :--------------------- | :------------------------------------ | :---------------------------------------- |
-| token | 500                                 | 500                    | 60                                    | ~15000                                    |
+| token | 500                                 | 500                    | 60                                    | ~15,000                                    |
 
-For example, if two SAS tokens are created in, and use the same location as an Azure Maps account, each token now shares the default rate limit of 250 QPS. If each token are used at the same time with the same throughput token 1 and token 2 would successfully grant 7500 successful transactions each.
+For example, if two SAS tokens are created in, and use the same location as an Azure Maps account, each token now shares the default rate limit of 250 QPS. If each token is used at the same time with the same throughput token 1 and token 2 would successfully grant 7500 successful transactions each.
 
 | Name    | Approximate Maximum Rate Per Second | Actual Rate Per Second | Duration of sustained rate in seconds | Approximate total successful transactions |
 | :------ | :---------------------------------- | :--------------------- | :------------------------------------ | :---------------------------------------- |
@@ -229,13 +229,13 @@ For example, if two SAS tokens are created in, and use the same location as an A
 
 ### Understand SAS token access control
 
-SAS tokens use RBAC to control access to the REST API. When you create a SAS token, the prerequisite managed identity on the Map Account is assigned an Azure RBAC role which grants access to specific REST API actions. See [Picking a role definition](./azure-maps-authentication.md#picking-a-role-definition) to determine which API should be allowed by the application.
+SAS tokens use RBAC to control access to the REST API. When you create a SAS token, the prerequisite managed identity on the Map Account is assigned an Azure RBAC role that grants access to specific REST API actions. See [Picking a role definition](./azure-maps-authentication.md#picking-a-role-definition) to determine which API should be allowed by the application.
 
-If you want to assign temporary access and remove access for before the SAS token expires, you will want to revoke the token. Other reasons to revoke access may be if the token is distributed with `Azure Maps Data Contributor` role assignment unintentionally and anyone with the SAS token may be able to read and write data to Azure Maps REST APIs which may expose sensitive data or unexpected financial cost from usage.
+If you want to assign temporary access and remove access for before the SAS token expires, you'll want to revoke the token. Other reasons to revoke access may be if the token is distributed with `Azure Maps Data Contributor` role assignment unintentionally and anyone with the SAS token may be able to read and write data to Azure Maps REST APIs that may expose sensitive data or unexpected financial cost from usage.
 
-there are 2 options to revoke access for SAS token(s):
+there are two options to revoke access for SAS token(s):
 
-1. Regenerate the key which was used by the SAS token, the primaryKey or secondaryKey of the map account.
+1. Regenerate the key that was used by the SAS token, the primaryKey or secondaryKey of the map account.
 1. Remove the role assignment for the Managed Identity on the associated map account.
 
 > [!WARNING]
@@ -250,7 +250,7 @@ there are 2 options to revoke access for SAS token(s):
 
 ### Create SAS tokens
 
-To create SAS tokens you must have `Contributor` role access to both manage Azure Maps accounts and user-assigned identities in the Azure subscription.
+To create SAS tokens, you must have `Contributor` role access to both manage Azure Maps accounts and user-assigned identities in the Azure subscription.
 
 > [!IMPORTANT]
 > Existing Azure Maps accounts created in the Azure location `global` don't support managed identities.
@@ -266,16 +266,16 @@ After the account has been successfully created or updated with the managed iden
 
 Next, you'll need to create a SAS token using the Azure Management SDK tooling, List SAS operation on Account Management API, or the Azure portal Shared Access Signature page of the Map account resource.
 
-SAS token parameters :
+SAS token parameters:
 
 | Parameter Name   | Example Value                              | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | :--------------- | :----------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | signingKey       | `primaryKey`                               | Required, the string enum value for the signingKey either `primaryKey` or `secondaryKey` is used to create the signature of the SAS.                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| principalId      | `<GUID>`                                   | Required, the principalId is the Object (principal) id of the user-assigned managed identity attached to the map account.                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| regions          | `[ "eastus", "westus2", "westcentralus" ]` | Optional, the default value is `null`. The regions control which regions the SAS token is allowed to be used in the Azure Maps REST [data-plane](../azure-resource-manager/management/control-plane-and-data-plane.md) API. Omitting regions parameter will allow the SAS token to be used without any constraints. When used in combination with an Azure Maps data-plane geographic endpoint like `us.atlas.microsoft.com` and `eu.atlas.microsoft.com` will allow the application to control usage with-in the specified geography. This allows prevention of usage in other geographies. |
+| principalId      | `<GUID>`                                   | Required, the principalId is the Object (principal) ID of the user-assigned managed identity attached to the map account.                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| regions          | `[ "eastus", "westus2", "westcentralus" ]` | Optional, the default value is `null`. The regions control which regions the SAS token can be used in the Azure Maps REST [data-plane](../azure-resource-manager/management/control-plane-and-data-plane.md) API. Omitting regions parameter will allow the SAS token to be used without any constraints. When used in combination with an Azure Maps data-plane geographic endpoint like `us.atlas.microsoft.com` and `eu.atlas.microsoft.com` will allow the application to control usage with-in the specified geography. This allows prevention of usage in other geographies. |
 | maxRatePerSecond | 500                                        | Required, the specified approximate maximum request per second which the SAS token is granted. Once the limit is reached, additional throughput will be rate limited with HTTP status code `429 (TooManyRequests)`.                                                                                                                                                                                                                                                                                                                                                                          |
 | start            | `2021-05-24T10:42:03.1567373Z`             | Required, a UTC date that specifies the date and time the token becomes active.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| expiry           | `2021-05-24T11:42:03.1567373Z`             | Required, a UTC date that specifies the date and time the token expires. The duration between start and expiry cannot be more than 365 days.                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| expiry           | `2021-05-24T11:42:03.1567373Z`             | Required, a UTC date that specifies the date and time the token expires. The duration between start and expiry can't be more than 365 days.                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 
 ### Configuring application with SAS token
 
@@ -285,7 +285,7 @@ After the application receives a SAS token, the Azure Maps SDK and/or applicatio
 | :------------ | :------------------- |
 | Authorization | jwt-sas eyJ0e….HNIVN |
 
-> [!NOTE] 
+> [!NOTE]
 > `jwt-sas` is the authentication scheme to denote using SAS token. Do not include `x-ms-client-id` or other Authorization headers or `subscription-key` query string parameter.
 
 ## Cross origin resource sharing (CORS)
@@ -296,13 +296,13 @@ Cross Origin Resource Sharing (CORS) is in preview.
 
 ### Prerequisites
 
-To prevent malicious code execution on the client, modern browsers block requests from web applications to resources running in a separate domain. 
+To prevent malicious code execution on the client, modern browsers block requests from web applications to resources running in a separate domain.
 
-- If you're unfamiliar with CORS check out [Cross-origin resource sharing (CORS)](https://developer.mozilla.org/docs/Web/HTTP/CORS), it lets an `Access-Control-Allow-Origin` header declare which origins are allowed to call endpoints of an Azure Maps account. CORS protocol is non-specific to Azure Maps.
+- If you're unfamiliar with CORS, see [Cross-origin resource sharing (CORS)](https://developer.mozilla.org/docs/Web/HTTP/CORS), it lets an `Access-Control-Allow-Origin` header declare which origins are allowed to call endpoints of an Azure Maps account. CORS protocol isn't specific to Azure Maps.
 
 ### Account CORS
 
-[CORS](https://fetch.spec.whatwg.org/#http-cors-protocol) is an HTTP protocol that enables a web application running under one domain to access resources in another domain. Web browsers implement a security restriction known as [same-origin policy](https://www.w3.org/Security/wiki/Same_Origin_Policy) that prevents a web page from calling APIs in a different domain; CORS provides a secure way to allow one domain (the origin domain) to call APIs in another domain. Azure Maps account resource supports the ability to configure allowed origins for your app which can access the Azure Maps REST API.
+[CORS](https://fetch.spec.whatwg.org/#http-cors-protocol) is an HTTP protocol that enables a web application running under one domain to access resources in another domain. Web browsers implement a security restriction known as [same-origin policy](https://www.w3.org/Security/wiki/Same_Origin_Policy) that prevents a web page from calling APIs in a different domain; CORS provides a secure way to allow one domain (the origin domain) to call APIs in another domain. Using the Azure Maps account resource, you can configure which origins are allowed to access the Azure Maps REST API from your applications.
 
 > [!IMPORTANT]
 > CORS is not an authorization mechanism. Any request made to a map account using REST API, when CORS is enabled, also needs a valid map account authentication scheme such as Shared Key, Azure AD, or SAS token.
@@ -313,7 +313,7 @@ To prevent malicious code execution on the client, modern browsers block request
 
 A CORS request from an origin domain may consist of two separate requests:
 
-- A preflight request, which queries the CORS restrictions imposed by the service. The preflight request is required unless the request is standard method GET, HEAD, POST, or requests which contain `Authorization` request header.
+- A preflight request, which queries the CORS restrictions imposed by the service. The preflight request is required unless the request is standard method GET, HEAD, POST, or requests that contain `Authorization` request header.
 
 - The actual request, made against the desired resource.
 
@@ -321,20 +321,20 @@ A CORS request from an origin domain may consist of two separate requests:
 
 The preflight request is done not only as a security measure to ensure that the server understands the method and headers that will be sent in the actual request and that the server knows and trusts the source of the request, but it also queries the CORS restrictions that have been established for the map account. The web browser (or other user agent) sends an OPTIONS request that includes the request headers, method and origin domain. The map account service tries to fetch any CORS rules if account authentication is possible through the CORS preflight protocol. 
 
-If authentication is not possible, the maps service evaluates pre-configured set of CORS rules that specify which origin domains, request methods, and request headers may be specified on an actual request against the maps service. By default, a maps account is configured to allow all origins to enable seamless integration into web browsers.
+If authentication isn't possible, the maps service evaluates pre-configured set of CORS rules that specify which origin domains, request methods, and request headers may be specified on an actual request against the maps service. By default, a maps account is configured to allow all origins to enable seamless integration into web browsers.
 
 The service will respond to the preflight request with the required Access-Control headers if the following criteria are met:
 
 1. The OPTIONS request contains the required CORS headers (the Origin and Access-Control-Request-Method headers)
-1. Authentication was successful and A CORS rule is enabled for the account which matches the preflight request.
-1. Authentication was skipped due to required `Authorization` request headers which cannot be specified on preflight request.
+1. Authentication was successful and A CORS rule is enabled for the account that matches the preflight request.
+1. Authentication was skipped due to required `Authorization` request headers that can't be specified on preflight request.
 
 When preflight request is successful, the service responds with status code `200 (OK)`, and includes the required Access-Control headers in the response.
 
 The service will reject preflight requests if the following conditions occur:
 
 1. If the OPTIONS request doesn’t contain the required CORS headers (the Origin and Access-Control-Request-Method headers), the service will respond with status code `400 (Bad request)`.
-1. If authentication was successful on preflight request and no CORS rule matches the preflight request, the service will respond with status code `403 (Forbidden)`. This may occur if the CORS rule is configured to accept an origin which does not match the current browser client origin request header.
+1. If authentication was successful on preflight request and no CORS rule matches the preflight request, the service will respond with status code `403 (Forbidden)`. This may occur if the CORS rule is configured to accept an origin that doesn't match the current browser client origin request header.
 
 > [!NOTE]
 > A preflight request is evaluated against the service and not against the requested resource. The account owner must have enabled CORS by setting the appropriate account properties in order for the request to succeed.
@@ -343,11 +343,11 @@ The service will reject preflight requests if the following conditions occur:
 
 Once the preflight request is accepted and the response is returned, the browser will dispatch the actual request against the map service. The browser will deny the actual request immediately if the preflight request is rejected.
 
-The actual request is treated as a normal request against the map service. The presence of the `Origin` header indicates that the request is a CORS request and the service will then validate against the CORS rules. If a match is found, the Access-Control headers are added to the response and sent back to the client. If a match is not found, the response will return a `403 (Forbidden)` indicating a CORS origin error.
+The actual request is treated as a normal request against the map service. The presence of the `Origin` header indicates that the request is a CORS request and the service will then validate against the CORS rules. If a match is found, the Access-Control headers are added to the response and sent back to the client. If a match isn't found, the response will return a `403 (Forbidden)` indicating a CORS origin error.
 
 ### Enable CORS policy
 
-When creating or updating an existing Map account, the Map account properties can specify the allowed origins to be configured. You can set a CORS rule on the Azure Maps account properties through Azure Maps Management SDK, Azure Maps Management REST API, and portal. Once you set the CORS rule for the service, then a properly authorized request made to the service from a different domain will be evaluated to determine whether it is allowed according to the rule you have specified. See an example below:
+When creating or updating an existing Map account, the Map account properties can specify the allowed origins to be configured. You can set a CORS rule on the Azure Maps account properties through Azure Maps Management SDK, Azure Maps Management REST API, and portal. Once you set the CORS rule for the service, then a properly authorized request made to the service from a different domain will be evaluated to determine whether it's allowed according to the rule you've specified. See an example below:
 
 ```json
 {
@@ -398,24 +398,30 @@ You can remove CORS manually in the Azure portal, or programmatically using the 
 
 ## Understand billing transactions
 
-Azure Maps does not count billing transactions for:
+Azure Maps doesn't count billing transactions for:
 
 - 5xx HTTP Status Codes
 - 401 (Unauthorized)
 - 403 (Forbidden)
+- 408 (Timeout)
 - 429 (TooManyRequests)
 - CORS preflight requests
 
-See [Azure Maps pricing](https://azure.microsoft.com/pricing/details/azure-maps) for additional information on billing transactions as well as other Azure Maps pricing information.
+See [Azure Maps pricing](https://azure.microsoft.com/pricing/details/azure-maps) for additional information on billing transactions and other Azure Maps pricing information.
 
 ## Next steps
 
-To learn more about authenticating an application with Azure AD and Azure Maps, see
+To learn more about security best practices, see:
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
+> [Authentication and authorization best practices](authentication-best-practices.md)
+
+To learn more about authenticating an application with Azure AD and Azure Maps, see:
+
+> [!div class="nextstepaction"]
 > [Manage authentication in Azure Maps](./how-to-manage-authentication.md)
 
-To learn more about authenticating the Azure Maps Map Control with Azure AD, see
+To learn more about authenticating the Azure Maps Map Control with Azure AD, see:
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Use the Azure Maps Map Control](./how-to-use-map-control.md)

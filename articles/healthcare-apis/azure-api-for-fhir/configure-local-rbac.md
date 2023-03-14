@@ -1,18 +1,18 @@
 ---
 title: Configure local role-based access control (local RBAC) for Azure API for FHIR
 description: This article describes how to configure the Azure API for FHIR to use a secondary Azure AD tenant for data plane
-author: matjazl
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 01/05/2022
-ms.author: zxue
+ms.date: 06/03/2022
+ms.author: kesheth
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
 ---
 # Configure local RBAC for FHIR
 
-This article explains how to configure the Azure API for FHIR to use a secondary Azure Active Directory (Azure AD) tenant for data access. Use this mode only if it is not possible for you to use the Azure AD tenant associated with your subscription.
+This article explains how to configure the Azure API for FHIR to use a secondary Azure Active Directory (Azure AD) tenant for data access. Use this mode only if it isn't possible for you to use the Azure AD tenant associated with your subscription.
 
 > [!NOTE]
 > If your FHIR service is configured to use your primary Azure AD tenant associated with your subscription, [use Azure RBAC to assign data plane roles](configure-azure-rbac.md).
@@ -60,9 +60,9 @@ In the authority box, enter a valid secondary Azure Active Directory tenant. Onc
 
 You can read the article on how to [find identity object IDs](find-identity-object-ids.md) for more details.
 
-After entering the required Azure AD object IDs, click **Save** and wait for changes to be saved before trying to access the data plane using the assigned users, service principals, or groups. The object IDs are granted with all permissions, an equivalent of the "FHIR Data Contributor" role.
+After entering the required Azure AD object IDs, select **Save** and wait for changes to be saved before trying to access the data plane using the assigned users, service principals, or groups. The object IDs are granted with all permissions, an equivalent of the "FHIR Data Contributor" role.
 
-The local RBAC setting is only visible from the authentication blade; it is not visible from the Access Control (IAM) blade.
+The local RBAC setting is only visible from the authentication blade; it isn't visible from the Access Control (IAM) blade.
 
 > [!NOTE]
 > Only a single tenant is supported for RBAC or local RBAC. To disable the local RBAC function, you can change it back to the valid tenant (or primary tenant) associated with your subscription, and remove all Azure AD object IDs in the "Allowed object IDs" box.
@@ -80,4 +80,6 @@ In this article, you learned how to assign FHIR data plane access using an exter
 
 >[!div class="nextstepaction"]
 >[Configure Private Link](configure-private-link.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
 

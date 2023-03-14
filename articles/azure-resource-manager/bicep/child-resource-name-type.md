@@ -15,13 +15,13 @@ Each parent resource accepts only certain resource types as child resources. The
 
 This article show different ways you can declare a child resource.
 
-### Microsoft Learn
+### Training resources
 
-If you would rather learn about about child resources through step-by-step guidance, see [Deploy child and extension resources by using Bicep](/learn/modules/child-extension-bicep-templates) on **Microsoft Learn**.
+If you would rather learn about child resources through step-by-step guidance, see [Deploy child and extension resources by using Bicep](/training/modules/child-extension-bicep-templates).
 
 ## Name and type pattern
 
-In Bicep, you can specify the child resource either within the parent resource or outside of the parent resource. The values you provide for the resource name and resource type vary based on how you declare the child resource. However, the full name and type always resolve to the same pattern. 
+In Bicep, you can specify the child resource either within the parent resource or outside of the parent resource. The values you provide for the resource name and resource type vary based on how you declare the child resource. However, the full name and type always resolve to the same pattern.
 
 The **full name** of the child resource uses the pattern:
 
@@ -29,7 +29,7 @@ The **full name** of the child resource uses the pattern:
 {parent-resource-name}/{child-resource-name}
 ```
 
-If you have more two levels in the hierarchy, keep repeating parent names:
+If you have more than two levels in the hierarchy, keep repeating parent names:
 
 ```bicep
 {parent-resource-name}/{child-level1-resource-name}/{child-level2-resource-name}
@@ -47,7 +47,7 @@ If you have more than two levels in the hierarchy, keep repeating parent resourc
 {resource-provider-namespace}/{parent-resource-type}/{child-level1-resource-type}/{child-level2-resource-type}
 ```
 
-If you count the segments between `/` characters, the number of segments in the type is always one more than the number of segments in the name. 
+If you count the segments between `/` characters, the number of segments in the type is always one more than the number of segments in the name.
 
 ## Within parent resource
 
@@ -113,7 +113,7 @@ You can also use the full resource name and type when declaring the child resour
 :::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/child-resource-name-type/fullnamedeclaration.bicep" highlight="10,11,17,18":::
 
 > [!IMPORTANT]
-> Setting the full resource name and type isn't the recommended approach. It's not as type safe as using one of the other approaches.
+> Setting the full resource name and type isn't the recommended approach. It's not as type safe as using one of the other approaches. For more information, see [Linter rule: use parent property](./linter-rule-use-parent-property.md).
 
 ## Next steps
 

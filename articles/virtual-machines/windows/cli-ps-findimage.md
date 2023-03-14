@@ -1,13 +1,13 @@
 ---
 title: Find and use marketplace purchase plan information using PowerShell 
 description: Use Azure PowerShell to find image URNs and purchase plan parameters, like the publisher, offer, SKU, and version, for Marketplace VM images.
-author: cynthn
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 03/17/2021
-ms.author: cynthn
+author: ebolton-cyber
+ms.author: edewebolton
 ms.custom: contperf-fy21q3, devx-track-azurepowershell
 ---
 # Find and use Azure Marketplace VM images with Azure PowerShell

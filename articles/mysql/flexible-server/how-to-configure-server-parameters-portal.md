@@ -1,10 +1,11 @@
 ---
-title: Configure server parameters - Azure portal - Azure Database for MySQL Flexible Server
-description: This article describes how to configure MySQL server parameters in Azure Database for MySQL flexible server using the Azure portal.
-author: savjani
-ms.author: pariks
+title: Configure server parameters - Azure portal - Azure Database for MySQL - Flexible Server
+description: This article describes how to configure MySQL server parameters in Azure Database for MySQL - Flexible Server using the Azure portal.
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: how-to
+author: code-sidd
+ms.author: sisawant
 ms.date: 11/10/2020
 ---
 
@@ -13,7 +14,7 @@ ms.date: 11/10/2020
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 
-You can manage Azure Database for MySQL Flexible Server configuration using server parameters. The server parameters are configured with the default and recommended value when you create the server.
+You can manage Azure Database for MySQL - Flexible Server configuration using server parameters. The server parameters are configured with the default and recommended value when you create the server.
 
 This article describes how to view and configure server parameters by using the Azure portal. The server parameter blade on Azure portal shows both the modifiable and non-modifiable server parameter. The non-modifiable server parameters are greyed out.
 
@@ -22,8 +23,8 @@ This article describes how to view and configure server parameters by using the 
 
 ## Configure server parameters
 
-1. Sign in to the [Azure portal](https://portal.azure.com), then locate your Azure Database for MySQL flexible server.
-2. Under the **SETTINGS** section, click **Server parameters** to open the server parameters page for the Azure Database for MySQL flexible server.
+1. Sign in to the [Azure portal](https://portal.azure.com), then locate your Azure Database for MySQL - Flexible Server.
+2. Under the **SETTINGS** section, click **Server parameters** to open the server parameters page for the Azure Database for MySQL - Flexible Server.
 [:::image type="content" source="./media/how-to-server-parameters/azure-portal-server-parameters.png" alt-text="Azure portal server parameters page":::](./media/how-to-server-parameters/azure-portal-server-parameters.png#lightbox)
 3. Locate any server parameter you need to adjust. Review the **Description** column to understand the purpose and allowed values.
 [:::image type="content" source="./media/how-to-server-parameters/3-toggle-parameter.png" alt-text="Enumerate drop down":::](./media/how-to-server-parameters/3-toggle-parameter.png#lightbox)
@@ -50,26 +51,6 @@ If the server parameter you want to update is non-modifiable, you can optionally
 
 ## Working with the time zone parameter
 
-### Populating the time zone tables
-
-The time zone tables on your server can be populated by calling the `mysql.az_load_timezone` stored procedure from a tool like the MySQL command line or MySQL Workbench.
-
-> [!NOTE]
-> If you are running the `mysql.az_load_timezone` command from MySQL Workbench, you may need to turn off safe update mode first using `SET SQL_SAFE_UPDATES=0;`.
-
-```sql
-CALL mysql.az_load_timezone();
-```
-
-> [!IMPORTANT]
->You should restart the server to ensure the time zone tables are properly populated.<!-- FIX ME To restart the server, use the [Azure portal](how-to-restart-server-portal.md) or [CLI](how-to-restart-server-cli.md).-->
-
-To view available time zone values, run the following command:
-
-```sql
-SELECT name FROM mysql.time_zone_name;
-```
-
 ### Setting the global level time zone
 
 The global level time zone can be set from the **Server parameters** page in the Azure portal. The below sets the global time zone to the value "US/Pacific".
@@ -85,6 +66,10 @@ SET time_zone = 'US/Pacific';
 ```
 
 Refer to the MySQL documentation for [Date and Time Functions](https://dev.mysql.com/doc/refman/5.7/en/date-and-time-functions.html#function_convert-tz).
+
+>[!Note]
+> To change time zone at session level, Server parameter time_zone has to be updated globally to required timezone at least once, in order to update the [mysql.time_zone_name](https://dev.mysql.com/doc/refman/8.0/en/time-zone-support.html) table.
+
 
 ## Next steps
 

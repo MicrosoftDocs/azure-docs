@@ -2,13 +2,13 @@
 title: Tutorial - Create a management VM for Azure Active Directory Domain Services | Microsoft Docs
 description: In this tutorial, you learn how to create and configure a Windows virtual machine that you use to administer Azure Active Directory Domain Services managed domain.
 author: justinha
-manager: karenhoran
+manager: amycolannino
 
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/06/2020
+ms.date: 06/16/2022
 ms.author: justinha
 
 #Customer intent: As an identity administrator, I want to create a management VM and install the required tools to connect to and manage an Azure Active Directory Domain Services managed domain.

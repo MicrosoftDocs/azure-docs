@@ -8,7 +8,7 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
-ms.date: 06/07/2021
+ms.date: 08/10/2022
 ---
 
 # Send an email with an Azure Data Factory or Azure Synapse pipeline
@@ -58,7 +58,7 @@ For the **Send Email (V2)** action, customize how you wish to format the email, 
 
 :::image type="content" source="media/how-to-send-email/logic-app-email-action.png" alt-text="Shows the Logic App workflow designer for the Send Email (V2) action.":::
 
-Save the workflow. Browse to the Overview page for the workflow.  Make a note of the Workflow URL for your new workflow then:
+Save the workflow. Browse to the Overview page for the workflow.  Make a note of the Workflow URL for your new workflow then, highlighted in the image below:
 
 :::image type="content" source="media/how-to-send-email/logic-app-workflow-url.png" alt-text="Shows the Logic App workflow Overview tab with the Workflow URL highlighted.":::
 

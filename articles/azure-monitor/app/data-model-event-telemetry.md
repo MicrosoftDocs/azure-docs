@@ -1,23 +1,22 @@
 ---
-title: Azure Application Insights Telemetry Data Model - Event Telemetry | Microsoft Docs
-description: Application Insights data model for event telemetry
+title: Application Insights telemetry data model - Event telemetry | Microsoft Docs
+description: Learn about the Application Insights data model for event telemetry.
 ms.topic: conceptual
 ms.date: 04/25/2017
-
-ms.reviewer: sergkanz
+ms.reviewer: mmcc
 ---
 
 # Event telemetry: Application Insights data model
 
-You can create event telemetry items (in [Application Insights](./app-insights-overview.md)) to represent an event that occurred in your application. Typically it is a user interaction such as button click or order checkout. It can also be an application life cycle event like initialization or configuration update. 
+You can create event telemetry items (in [Application Insights](./app-insights-overview.md)) to represent an event that occurred in your application. Typically, it's a user interaction such as a button click or order checkout. It can also be an application lifecycle event like initialization or a configuration update.
 
-Semantically, events may or may not be correlated to requests. However, if used properly, event telemetry is more important than requests or traces. Events represent business telemetry and should be a subject to separate, less aggressive [sampling](./api-filtering-sampling.md).
+Semantically, events may or may not be correlated to requests. However, if used properly, event telemetry is more important than requests or traces. Events represent business telemetry and should be subject to separate, less aggressive [sampling](./api-filtering-sampling.md).
 
 ## Name
 
-Event name. To allow proper grouping and useful metrics, restrict your application so that it generates a small number of separate event names. For example, don't use a separate name for each generated instance of an event.
+Event name: To allow proper grouping and useful metrics, restrict your application so that it generates a few separate event names. For example, don't use a separate name for each generated instance of an event.
 
-Max length: 512 characters
+**Maximum length:** 512 characters
 
 ## Custom properties
 
@@ -29,7 +28,6 @@ Max length: 512 characters
 
 ## Next steps
 
-- See [data model](data-model.md) for Application Insights types and data model.
-- [Write custom event telemetry](./api-custom-events-metrics.md#trackevent)
-- Check out [platforms](./platforms.md) supported by Application Insights.
-
+- See [Data model](data-model.md) for Application Insights types and data models.
+- [Write custom event telemetry](./api-custom-events-metrics.md#trackevent).
+- Check out [platforms](./app-insights-overview.md#supported-languages) supported by Application Insights.

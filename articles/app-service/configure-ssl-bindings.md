@@ -3,8 +3,8 @@ title: Secure a custom DNS with a TLS/SSL binding
 description: Secure HTTPS access to your custom domain by creating a TLS/SSL binding with a certificate. Improve your website's security by enforcing HTTPS or TLS 1.2.
 tags: buy-ssl-certificates
 
-ms.topic: tutorial
-ms.date: 05/13/2021
+ms.topic: article
+ms.date: 04/27/2022
 ms.reviewer: yutlin
 ms.custom: seodec18
 ---
@@ -19,15 +19,6 @@ Securing a [custom domain](app-service-web-tutorial-custom-domain.md) with a cer
 - [Add a private certificate to App Service](configure-ssl-certificate.md) that satisfies all the [private certificate requirements](configure-ssl-certificate.md#private-certificate-requirements).
 -  Create a TLS binding to the corresponding custom domain. This second step is covered by this article.
 
-In this tutorial, you learn how to:
-
-> [!div class="checklist"]
-> * Upgrade your app's pricing tier
-> * Secure a custom domain with a certificate
-> * Enforce HTTPS
-> * Enforce TLS 1.1/1.2
-> * Automate TLS management with scripts
-
 ## Prerequisites
 
 To follow this how-to guide:
@@ -37,7 +28,8 @@ To follow this how-to guide:
 - [Add a private certificate to your app](configure-ssl-certificate.md)
 
 > [!NOTE]
-> The easiest way to add a private certificate is to [create a free App Service managed certificate](configure-ssl-certificate.md#create-a-free-managed-certificate).
+> The easiest way to add a private certificate is to [create a free App Service managed certificate with your custom domain](tutorial-secure-domain-certificate.md).
+
 
 [!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
@@ -65,7 +57,7 @@ If your app already has a certificate for the selected custom domain, go to [Cre
 If your app has no certificate for the selected custom domain, then you have two options:
 
 - **Upload PFX Certificate** - Follow the workflow at [Upload a private certificate](configure-ssl-certificate.md#upload-a-private-certificate), then select this option here.
-- **Import App Service Certificate** - Follow the workflow at [Import an App Service certificate](configure-ssl-certificate.md#import-an-app-service-certificate), then select this option here.
+- **Import App Service Certificate** - Follow the workflow at [Import an App Service certificate](configure-ssl-certificate.md#buy-and-import-app-service-certificate), then select this option here.
 
 > [!NOTE]
 > You can also [Create a free certificate](configure-ssl-certificate.md#create-a-free-managed-certificate) or [Import a Key Vault certificate](configure-ssl-certificate.md#import-a-certificate-from-key-vault), but you must do it separately and then return to the **TLS/SSL Binding** dialog.
@@ -74,11 +66,7 @@ If your app has no certificate for the selected custom domain, then you have two
 
 Use the following table to help you configure the TLS binding in the **TLS/SSL Binding** dialog, then click **Add Binding**.
 
-| Setting | Description |
-|-|-|
-| Custom domain | The domain name to add the TLS/SSL binding for. |
-| Private Certificate Thumbprint | The certificate to bind. |
-| TLS/SSL Type | <ul><li>**[SNI SSL](https://en.wikipedia.org/wiki/Server_Name_Indication)** - Multiple SNI SSL bindings may be added. This option allows multiple TLS/SSL certificates to secure multiple domains on the same IP address. Most modern browsers (including Internet Explorer, Chrome, Firefox, and Opera) support SNI (for more information, see [Server Name Indication](https://wikipedia.org/wiki/Server_Name_Indication)).</li><li>**IP SSL** - Only one IP SSL binding may be added. This option allows only one TLS/SSL certificate to secure a dedicated public IP address. After you configure the binding, follow the steps in [Remap records for IP SSL](#remap-records-for-ip-ssl).<br/>IP SSL is supported only in **Standard** tier or above. </li></ul> |
+[!INCLUDE [Certificate binding types](../../includes/app-service-ssl-binding-types.md)]
 
 Once the operation is complete, the custom domain's TLS/SSL state is changed to **Secure**.
 
@@ -95,9 +83,9 @@ There are two changes you need to make, potentially:
 
 - By default, your app uses a shared public IP address. When you bind a certificate with IP SSL, App Service creates a new, dedicated IP address for your app. If you mapped an A record to your app, update your domain registry with this new, dedicated IP address.
 
-    Your app's **Custom domain** page is updated with the new, dedicated IP address. [Copy this IP address](app-service-web-tutorial-custom-domain.md#info), then [remap the A record](app-service-web-tutorial-custom-domain.md#3-create-the-dns-records) to this new IP address.
+    Your app's **Custom domain** page is updated with the new, dedicated IP address. Copy this IP address, then [remap the A record](app-service-web-tutorial-custom-domain.md#2-create-the-dns-records) to this new IP address.
 
-- If you have an SNI SSL binding to `<app-name>.azurewebsites.net`, [remap any CNAME mapping](app-service-web-tutorial-custom-domain.md#3-create-the-dns-records) to point to `sni.<app-name>.azurewebsites.net` instead (add the `sni` prefix).
+- If you have an SNI SSL binding to `<app-name>.azurewebsites.net`, [remap any CNAME mapping](app-service-web-tutorial-custom-domain.md#2-create-the-dns-records) to point to `sni.<app-name>.azurewebsites.net` instead (add the `sni` prefix).
 
 ## Test HTTPS
 
@@ -122,9 +110,9 @@ Your inbound IP address can change when you delete a binding, even if that bindi
 
 ## Enforce HTTPS
 
-By default, anyone can still access your app using HTTP. You can redirect all HTTP requests to the HTTPS port.
-
 In your app page, in the left navigation, select **TLS/SSL settings**. Then, in **HTTPS Only**, select **On**.
+
+If selected **HTTPS Only**, **Off** It means anyone can still access your app using HTTP. You can redirect all HTTP requests to the HTTPS port by selecting **On**. 
 
 ![Enforce HTTPS](./media/configure-ssl-bindings/enforce-https.png)
 
@@ -154,7 +142,7 @@ Language specific configuration guides, such as the [Linux Node.js configuration
 
 ### Azure CLI
 
-[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom TLS/SSL certificate to a web app")] 
+[Bind a custom TLS/SSL certificate to a web app](scripts/cli-configure-ssl-certificate.md)
 
 ### PowerShell
 

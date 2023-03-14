@@ -10,5 +10,5 @@ ms.author: glenga
 ms.custom: include file
 ---
 
->[!IMPORTANT]  
-> Do not mix local development with portal development in the same function app. When you create and publish functions from a local project, you should not try to maintain or modify project code in the portal.
+>[!NOTE]  
+> Don't mix local development with portal development in the same function app. When you create and publish functions from a local project, you won't be able to maintain or modify project code in the portal.

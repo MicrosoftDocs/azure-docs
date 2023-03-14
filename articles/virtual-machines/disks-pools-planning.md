@@ -4,13 +4,16 @@ description: Learn how to get the most performance out of an Azure disk pool.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 02/28/2023
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: ignite-fall-2021
 ---
 
 # Azure disk pools (preview) planning guide
+
+> [!IMPORTANT]
+> Disk pools are being retired soon. If you're looking for an alternative solution, see either [Azure Elastic SAN (preview)](../storage/elastic-san/elastic-san-introduction.md) or [Azure NetApp Files](../aks/azure-netapp-files.md).
 
 It's important to understand the performance requirements of your workload before you deploy an Azure disk pool (preview). Determining your requirements in advance allows you to get the most performance out of your disk pool. The performance of a disk pool is determined by three main factors, adjusting any of them will tweak your disk pool's performance:
 

@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Reference documentation for the Azure Digital Twins query language FROM clause
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 03/31/2021
+ms.date: 02/25/2022
 ms.topic: article
 ms.service: digital-twins
 
@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Azure Digital Twins query language reference: FROM clause
 
-This document contains reference information on the **FROM clause** for the [Azure Digital Twins query language](concepts-query-language.md).
+This document contains reference information on the *FROM clause* for the [Azure Digital Twins query language](concepts-query-language.md).
 
 The FROM clause is the second part of a query. It specifies the collection and any joins that the query will act on.
 
@@ -98,7 +98,7 @@ No subqueries are supported within the `FROM` statement.
 
 #### Example (negative)
 
-The following query shows an example of what **cannot** be done as per this limitation.
+The following query shows an example of what can't be done as per this limitation.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="FromNegativeExample":::
 

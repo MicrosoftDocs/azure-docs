@@ -128,7 +128,7 @@ az deployment group create --resource-group myResourceGroup --parameters webAppN
 <ul>
 <li>Create a default <abbr title="A logical container for related Azure resources that you can manage as a unit.">resource group</abbr>.</li>
 <li>Create a default <abbr title="The plan that specifies the location, size, and features of the web server farm that hosts your app.">App Service plan</abbr>.</li>
-<li><a href="/cli/azure/webapp#az_webapp_create">Create an <abbr title="The representation of your web app, which contains your app code, DNS hostnames, certificates, and related resources.">App Service app</abbr></a> with the specified name.</li>
+<li><a href="/cli/azure/webapp#az-webapp-create">Create an <abbr title="The representation of your web app, which contains your app code, DNS hostnames, certificates, and related resources.">App Service app</abbr></a> with the specified name.</li>
 </ul>
 </details>
 
@@ -185,4 +185,4 @@ When no longer needed, [delete the resource group](../azure-resource-manager/man
 - [ASP.NET Core with SQL Database](tutorial-dotnetcore-sqldb-app.md)
 - [Python with Postgres](tutorial-python-postgresql-app.md)
 - [PHP with MySQL](tutorial-php-mysql-app.md)
-- [Connect to Azure SQL database with Java](../azure-sql/database/connect-query-java.md?toc=%2fazure%2fjava%2ftoc.json)
+- [Connect to Azure SQL database with Java](/azure/azure-sql/database/connect-query-java?toc=%2fazure%2fjava%2ftoc.json)

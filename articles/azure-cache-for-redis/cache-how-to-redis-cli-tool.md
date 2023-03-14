@@ -6,7 +6,6 @@ ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
 ms.date: 01/25/2022
-ms.custom: devx-track-azurepowershell
 ---
 # Use the Redis command-line tool with Azure Cache for Redis
 
@@ -20,7 +19,7 @@ If you want to run the command-line tool on another platform, download open-sour
 
 You can gather the information needed to access the cache using three methods:
 
-1. Azure CLI using [az redis list-keys](/cli/azure/redis#az_redis_list_keys)
+1. Azure CLI using [az redis list-keys](/cli/azure/redis#az-redis-list-keys)
 2. Azure PowerShell using [Get-AzRedisCacheKey](/powershell/module/az.rediscache/Get-AzRedisCacheKey)
 3. Using the Azure portal
 

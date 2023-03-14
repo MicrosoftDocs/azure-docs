@@ -2,9 +2,8 @@
 title: Connect computers by using the Log Analytics gateway | Microsoft Docs
 description: Connect your devices and Operations Manager-monitored computers by using the Log Analytics gateway to send data to the Azure Automation and Log Analytics service when they do not have internet access.
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
-ms.date: 12/24/2019
+ms.date: 04/06/2022
+ms.reviewer: luki
 
 ---
 
@@ -12,12 +11,12 @@ ms.date: 12/24/2019
 
 This article describes how to configure communication with Azure Automation and Azure Monitor by using the Log Analytics gateway when computers that are directly connected or that are monitored by Operations Manager have no internet access. 
 
-The Log Analytics gateway is an HTTP forward proxy that supports HTTP tunneling using the HTTP CONNECT command. This gateway sends data to Azure Automation and a Log Analytics workspace in Azure Monitor on behalf of the computers that cannot directly connect to the internet. 
+The Log Analytics gateway is an HTTP forward proxy that supports HTTP tunneling using the HTTP CONNECT command. This gateway sends data to Azure Automation and a Log Analytics workspace in Azure Monitor on behalf of the computers that cannot directly connect to the internet. The gateway is only for log agent related connectivity and does not support Azure Automation features like runbook, DSC, and others.
 
 The Log Analytics gateway supports:
 
 * Reporting up to the same Log Analytics workspaces configured on each agent behind it and that are configured with Azure Automation Hybrid Runbook Workers.  
-* Windows computers on which either the [Azure Monitor Agent](./azure-monitor-agent-overview.md) or the legacy Microsoft Monitoring Agent is directly connected to a Log Analytics workspace in Azure Monitor.
+* Windows computers on which either the [Azure Monitor Agent](./azure-monitor-agent-overview.md) or the legacy Microsoft Monitoring Agent is directly connected to a Log Analytics workspace in Azure Monitor. Both the source and the gateway server must be running the same agent. You can't stream events from a server running Azure Monitor agent through a server running the gateway with the Log Analytics agent.
 * Linux computers on which either the [Azure Monitor Agent](./azure-monitor-agent-overview.md) or the legacy Log Analytics agent for Linux is directly connected to a Log Analytics workspace in Azure Monitor.  
 * System Center Operations Manager 2012 SP1 with UR7, Operations Manager 2012 R2 with UR3, or a management group in Operations Manager 2016 or later that is integrated with Log Analytics.  
 
@@ -33,9 +32,9 @@ To provide high availability for directly connected or Operations Management gro
 
 The computer that runs the Log Analytics gateway requires the agent to identify the service endpoints that the gateway needs to communicate with. The agent also needs to direct the gateway to report to the same workspaces that the agents or Operations Manager management group behind the gateway are configured with. This configuration allows the gateway and the agent to communicate with their assigned workspace.
 
-A gateway can be multihomed to up to ten workspaces using the Azure Monitor Agent and [data dollection rules](./data-collection-rule-azure-monitor-agent.md). Using the legacy Microsoft Monitor Agent, you can only multihome up to four workspaces as that is the total number of workspaces the legacy Windows agent supports.  
+A gateway can be multihomed to up to ten workspaces using the Azure Monitor Agent and [data collection rules](./data-collection-rule-azure-monitor-agent.md). Using the legacy Microsoft Monitor Agent, you can only multihome up to four workspaces as that is the total number of workspaces the legacy Windows agent supports.  
 
-Each agent must have network connectivity to the gateway so that agents can automatically transfer data to and from the gateway. Avoid installing the gateway on a domain controller. Linux computers that are behind a gateway server cannot use the [wrapper script installation](../agents/agent-linux.md#install-the-agent-using-wrapper-script) method to install the Log Analytics agent for Linux. The agent must be downloaded manually, copied to the computer, and installed manually because the gateway only supports communicating with the Azure services mentioned earlier.
+Each agent must have network connectivity to the gateway so that agents can automatically transfer data to and from the gateway. Avoid installing the gateway on a domain controller. Linux computers that are behind a gateway server cannot use the [wrapper script installation](../agents/agent-linux.md#install-the-agent) method to install the Log Analytics agent for Linux. The agent must be downloaded manually, copied to the computer, and installed manually because the gateway only supports communicating with the Azure services mentioned earlier.
 
 The following diagram shows data flowing from direct agents, through the gateway, to Azure Automation and Log Analytics. The agent proxy configuration must match the port that the Log Analytics gateway is configured with.  
 
@@ -96,22 +95,7 @@ The following table shows approximately how many agents can communicate with a g
 
 ## Download the Log Analytics gateway
 
-Get the latest version of the Log Analytics gateway Setup file from either Microsoft Download Center ([Download Link](https://go.microsoft.com/fwlink/?linkid=837444)) or the Azure portal.
-
-To get the Log Analytics gateway from the Azure portal, follow these steps:
-
-1. Browse the list of services, and then select **Log Analytics**. 
-1. Select a workspace.
-1. In your workspace blade, under **General**, select **Quick Start**. 
-1. Under **Choose a data source to connect to the workspace**, select **Computers**.
-1. In the **Direct Agent** blade, select **Download Log Analytics gateway**.
- 
-   ![Screenshot of the steps to download the Log Analytics gateway](./media/gateway/download-gateway.png)
-
-or 
-
-1. In your workspace blade, under **Settings**, select **Advanced settings**.
-1. Go to **Connected Sources** > **Windows Servers** and select **Download Log Analytics gateway**.
+Get the latest version of the Log Analytics gateway Setup file from Microsoft Download Center ([Download Link](https://go.microsoft.com/fwlink/?linkid=837444)).
 
 ## Install Log Analytics gateway using setup wizard
 
@@ -187,7 +171,7 @@ To learn how to design and deploy a Windows Server 2016 network load balancing c
 
 1. Sign onto the Windows server that is a member of the NLB cluster with an administrative account.  
 2. Open Network Load Balancing Manager in Server Manager, click **Tools**, and then click **Network Load Balancing Manager**.
-3. To connect an Log Analytics gateway server with the Microsoft Monitoring Agent installed, right-click the cluster's IP address, and then click **Add Host to Cluster**. 
+3. To connect a Log Analytics gateway server with the Microsoft Monitoring Agent installed, right-click the cluster's IP address, and then click **Add Host to Cluster**. 
 
     ![Network Load Balancing Manager – Add Host To Cluster](./media/gateway/nlb02.png)
  
@@ -213,11 +197,11 @@ After the load balancer is created, a backend pool needs to be created, which di
 
 To configure the Azure Monitor agent (installed on the gateway server) to use the gateway to upload data for Windows or Linux:
 1. Follow the instructions to [configure proxy settings on the agent](./azure-monitor-agent-overview.md#proxy-configuration) and provide the IP address and port number corresponding to the gateway server. If you have deployed multiple gateway servers behind a load balancer, the agent proxy configuration is the virtual IP address of the load balancer instead.  
-2. Add the **configuration endpoint URL** to fetch data collection rules to the allow list for the gateway  
+2. Add the **configuration endpoint URL** to fetch data collection rules to the allowlist for the gateway  
    `Add-OMSGatewayAllowedHost -Host global.handler.control.monitor.azure.com`  
    `Add-OMSGatewayAllowedHost -Host <gateway-server-region-name>.handler.control.monitor.azure.com`  
-   (If using private links on the agent, you must also add the [dce endpoints](./data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint))  
-3. Add the **data ingestion endpoint URL** to the allow list for the gateway  
+   (If using private links on the agent, you must also add the [dce endpoints](../essentials/data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint))  
+3. Add the **data ingestion endpoint URL** to the allowlist for the gateway  
    `Add-OMSGatewayAllowedHost -Host <log-analytics-workspace-id>.ods.opinsights.azure.com`  
 3. Restart the **OMS Gateway** service to apply the changes  
    `Stop-Service -Name <gateway-name>`  

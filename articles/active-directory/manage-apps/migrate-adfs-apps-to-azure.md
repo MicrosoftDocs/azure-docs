@@ -1,16 +1,15 @@
 ---
 title: Moving application authentication from AD FS to Azure Active Directory
 description: Learn how to use Azure Active Directory to replace Active Directory Federation Services (AD FS), giving users single sign-on to all their applications.
-titleSuffix: Azure AD
 services: active-directory
-author: davidmu1
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
 ms.date: 03/01/2021
-ms.author: davidmu
+ms.author: jomondi
 ms.reviewer: alamaral
 ---
 
@@ -396,11 +395,11 @@ No matter how your existing external users are configured, they likely have perm
 
 ## Migrate and test your apps
 
-Follow the migration process detailed in this article. Then go to the [Azure portal](https://aad.portal.azure.com/) to test if the migration was a success.
+Follow the migration process detailed in this article. Then go to the [Azure portal](https://portal.azure.com/) to test if the migration was a success.
 
 Follow these instructions:
 
-1. Select **Enterprise Applications** > **All applications** and find your app from the list.
+1. Browse to **Azure Active Directory** > **Enterprise Applications** > **All applications** and find your app from the list.
 1. Select **Manage** > **Users and groups** to assign at least one user or group to the app.
 1. Select **Manage** > **Conditional Access**. Review your list of policies and ensure that you are not blocking access to the application with a [conditional access policy](../conditional-access/overview.md).
 

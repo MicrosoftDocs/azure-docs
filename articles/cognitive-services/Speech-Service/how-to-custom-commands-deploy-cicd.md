@@ -3,13 +3,14 @@ title: 'Continuous Deployment with Azure DevOps (Preview)'
 titleSuffix: Azure Cognitive Services
 description: In this article, you learn how to set up continuous deployment for your Custom Commands applications. You create the scripts to support the continuous deployment workflows.
 services: cognitive-services
-author: xiaojul
-manager: yetian
+author: eric-urban
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/18/2020
-ms.author: xiaojul
+ms.author: eur
+ms.custom: cogserv-non-critical-speech
 ---
 
 # Continuous Deployment with Azure DevOps
@@ -82,8 +83,8 @@ The scripts are hosted at [Cognitive Services Voice Assistant - Custom Commands]
     | ------- | --------------- | ----------- |
     | SourceAppId | ID of the DEV application |
     | TargetAppId | ID of the PROD application |
-    | SubscriptionKey | Subscription key used for both applications |
-    | Culture | Culture of the applications (i.e. en-us) |
+    | SubscriptionKey | The key used for both applications |
+    | Culture | Culture of the applications (en-us) |
 
     > [!div class="mx-imgBorder"]
     > ![Send Activity payload](media/custom-commands/cicd-edit-pipeline-variables.png)
@@ -107,8 +108,8 @@ The scripts are hosted at [Cognitive Services Voice Assistant - Custom Commands]
     ```
     | Arguments | Description |
     | ------- | --------------- | ----------- |
-    | region | region of the application, i.e. westus2. |
-    | subscriptionkey | subscription key of your speech resource. |
+    | region | Your Speech resource region. For example: `westus2` |
+    | subscriptionkey | Your Speech resource key. |
     | appid | the Custom Commands' application ID you want to export. |
 
 1. Push these changes to your repository.
@@ -157,8 +158,8 @@ The scripts are hosted at [Cognitive Services Voice Assistant - Custom Commands]
     | Variable | Description |
     | ------- | --------------- | ----------- |
     | TargetAppId | ID of the PROD application |
-    | SubscriptionKey | Subscription key used for both applications |
-    | Culture | Culture of the applications (i.e. en-us) |
+    | SubscriptionKey | The key used for both applications |
+    | Culture | Culture of the applications (en-us) |
 
 1. Click "Run" and then click in the "Job" running.
     You should see a list of tasks running that contains: "Import app" & "Train and Publish app"

@@ -1,7 +1,6 @@
 ---
 title: 'Quickstart: Use serverless SQL pool'
 description: In this quickstart, you'll see and learn how easy is to query various types of files using serverless SQL pool.
-services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: quickstart

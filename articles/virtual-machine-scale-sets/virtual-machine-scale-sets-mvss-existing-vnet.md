@@ -6,15 +6,13 @@ ms.author: jushiman
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.subservice: networking
-ms.date: 03/30/2021
+ms.date: 11/22/2022
 ms.reviewer: mimckitt
 ms.custom: mimckitt
 
 ---
 
 # Reference an existing virtual network in an Azure scale set template
-
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
 
 This article shows how to modify the [basic scale set template](virtual-machine-scale-sets-mvss-start.md) to deploy into an existing virtual network instead of creating a new one.
 

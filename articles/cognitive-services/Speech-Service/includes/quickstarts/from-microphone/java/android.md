@@ -17,7 +17,7 @@ ms.author: wolfma
 Before you get started:
 
 > [!div class="checklist"]
-> * [Create an Azure Speech Resource](../../../../overview.md#try-the-speech-service-for-free)
+> * [Create a Speech resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)
 > * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=android&pivots=programming-language-java)
 > * Make sure that you have access to a microphone for audio capture
 

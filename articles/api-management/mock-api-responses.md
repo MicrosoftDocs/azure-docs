@@ -100,9 +100,9 @@ Although not required for this example, you can configure more settings for an A
 
 To begin using Azure CLI:
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
-To add an operation to your test API, run the [az apim api operation create](/cli/azure/apim/api/operation#az_apim_api_operation_create) command:
+To add an operation to your test API, run the [az apim api operation create](/cli/azure/apim/api/operation#az-apim-api-operation-create) command:
 
 ```azurecli
 az apim api operation create --resource-group apim-hello-word-resource-group \
@@ -110,14 +110,14 @@ az apim api operation create --resource-group apim-hello-word-resource-group \
     --url-template /test --service-name apim-hello-world 
 ```
 
-Run the [az apim api operation list](/cli/azure/apim/api/operation#az_apim_api_operation_list) command to see all your operations for an API:
+Run the [az apim api operation list](/cli/azure/apim/api/operation#az-apim-api-operation-list) command to see all your operations for an API:
 
 ```azurecli
 az apim api operation list --resource-group apim-hello-word-resource-group \
     --api-id test-api --service-name apim-hello-world --output table
 ```
 
-To remove an operation, use the [az apim api operation delete](/cli/azure/apim/api/operation#az_apim_api_operation_delete) command. Get the operation ID from the previous command.
+To remove an operation, use the [az apim api operation delete](/cli/azure/apim/api/operation#az-apim-api-operation-delete) command. Get the operation ID from the previous command.
 
 ```azurecli
 az apim api operation delete --resource-group apim-hello-word-resource-group \
@@ -149,7 +149,7 @@ Keep this operation for use in the rest of this article.
 1. Select **Save**.
 
     > [!TIP]
-    > A yellow bar with the text **Mocking is enabled** displays. This indicates that the responses returned from API Management are mocked by the [mocking policy](api-management-advanced-policies.md#mock-response) and aren't produced by the backend.
+    > A yellow bar with the text **Mocking is enabled** displays. This indicates that the responses returned from API Management are mocked by the [mocking policy](mock-response-policy.md) and aren't produced by the backend.
 
 ## Test the mocked API
 

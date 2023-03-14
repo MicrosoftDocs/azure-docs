@@ -1,12 +1,13 @@
 ---
 title: 'Quickstart: Connect using Node.js - Azure Database for MySQL - Flexible Server'
 description: This quickstart provides several Node.js code samples you can use to connect and query data from Azure Database for MySQL - Flexible Server.
+ms.service: mysql
+ms.subservice: flexible-server
+ms.topic: quickstart
 author: shreyaaithal
 ms.author: shaithal
-ms.service: mysql
-ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js, mode-api
 ms.devlang: javascript
-ms.topic: quickstart
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js, mode-api
 ms.date: 01/27/2022
 ---
 # Quickstart: Use Node.js to connect and query data in Azure Database for MySQL - Flexible Server
@@ -21,8 +22,8 @@ This topic assumes that you're familiar with developing using Node.js, but you'r
 
 This quickstart uses the resources created in either of these guides as a starting point:
 
-- [Create an Azure Database for MySQL Flexible Server using Azure portal](./quickstart-create-server-portal.md)
-- [Create an Azure Database for MySQL Flexible Server using Azure CLI](./quickstart-create-server-cli.md)
+- [Create an Azure Database for MySQL - Flexible Server using Azure portal](./quickstart-create-server-portal.md)
+- [Create an Azure Database for MySQL - Flexible Server using Azure CLI](./quickstart-create-server-cli.md)
 
 > [!IMPORTANT] 
 > Ensure the IP address you're connecting from has been added the server's firewall rules using the [Azure portal](./how-to-manage-firewall-portal.md) or [Azure CLI](./how-to-manage-firewall-cli.md)
@@ -344,6 +345,6 @@ az group delete \
 ## Next steps
 
 - [Encrypted connectivity using Transport Layer Security (TLS 1.2) in Azure Database for MySQL - Flexible Server](./how-to-connect-tls-ssl.md).
-- Learn more about [Networking in Azure Database for MySQL Flexible Server](./concepts-networking.md).
-- [Create and manage Azure Database for MySQL Flexible Server firewall rules using the Azure portal](./how-to-manage-firewall-portal.md).
-- [Create and manage Azure Database for MySQL Flexible Server virtual network using Azure portal](./how-to-manage-virtual-network-portal.md).
+- Learn more about [Networking in Azure Database for MySQL - Flexible Server](./concepts-networking.md).
+- [Create and manage Azure Database for MySQL - Flexible Server firewall rules using the Azure portal](./how-to-manage-firewall-portal.md).
+- [Create and manage Azure Database for MySQL - Flexible Server virtual network using Azure portal](./how-to-manage-virtual-network-portal.md).

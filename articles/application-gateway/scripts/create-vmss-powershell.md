@@ -3,7 +3,7 @@ title: Azure PowerShell Script Sample - Manage web traffic | Microsoft Docs
 description: Azure PowerShell Script Sample - Manage web traffic with an application gateway and a virtual machine scale set.
 services: application-gateway
 documentationcenter: networking
-author: vhorne
+author: greg-lindsay
 
 
 tags: azure-resource-manager
@@ -13,7 +13,7 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/29/2018
-ms.author: victorh
+ms.author: greglin
 ms.custom: mvc, devx-track-azurepowershell
 ---
 

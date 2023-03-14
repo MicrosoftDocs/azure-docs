@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 08/26/2022
 
 # Generated from YAML source.
 ---
@@ -584,6 +584,12 @@ Casing rules: Always lowercase.
 
 Applies to: Iot Hub, Device Provisioning Service
 
+### Industry 4.0
+
+Refers to the fourth revolution that's occurred in manufacturing. Companies can build connected [solutions](#solution) to manage the manufacturing facility and equipment more efficiently by enabling manufacturing equipment to be cloud connected, allowing remote access and management from the cloud, and enabling OT personnel to have a single pane view of their entire facility.
+
+Applies to: Iot Hub, IoT Central
+
 ### Interface
 
 In IoT Plug and Play, an interface describes related capabilities that are implemented by a [IoT Plug and Play device](#iot-plug-and-play-device) or [digital twin](#digital-twin). You can reuse interfaces across different [device models](#device-model). When an interface is used in a [device](#device) [model](#model), it defines a [component](#component) of the device. A simple device only contains a default interface.
@@ -847,6 +853,16 @@ In the context of [Digital Twins](#digital-twin), a set of [models](#model) for 
 [Learn more](../digital-twins/concepts-ontologies.md)
 
 Applies to: Digital Twins
+
+### Operational technology
+
+That hardware and software in an industrial facility that monitors and controls equipment, processes, and infrastructure.
+
+Casing rules: Always lowercase.
+
+Abbreviation: OT
+
+Applies to: Iot Hub, IoT Central, IoT Edge
 
 ### Operations monitoring
 

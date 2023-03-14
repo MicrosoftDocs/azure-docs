@@ -2,13 +2,13 @@
 title: Quickstart for adding feature flags to Azure Functions | Microsoft Docs
 description: In this quickstart, use Azure Functions with feature flags from Azure App Configuration and test the function locally.
 services: azure-app-configuration
-author: AlexandraKemperMS
+author: maud-lv
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-other
 ms.topic: quickstart
 ms.date: 8/26/2020
-ms.author: alkemper
+ms.author: malev
 ---
 # Quickstart: Add feature flags to an Azure Functions app
 
@@ -193,7 +193,7 @@ This project will use [dependency injection in .NET Azure Functions](../azure-fu
 
 ## Next steps
 
-In this quickstart, you created a feature flag and used it with an Azure Functions app via the [Microsoft.FeatureManagement](/dotnet/api/microsoft.featuremanagement) library.
+In this quickstart, you created a feature flag and used it with an Azure Functions app via the [Microsoft.FeatureManagement](https://www.nuget.org/packages/Microsoft.FeatureManagement/) library.
 
 - Learn more about [feature management](./concept-feature-management.md)
 - [Manage feature flags](./manage-feature-flags.md)

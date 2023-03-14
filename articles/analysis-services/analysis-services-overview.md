@@ -1,10 +1,10 @@
 ---
-title: What is Azure Analysis Services | Microsoft Docs
+title: What is Azure Analysis Services?
 description: Learn about Azure Analysis Services, a fully managed platform as a service (PaaS) that provides enterprise-grade data models in the cloud.
 author: minewiskan
-ms.service: azure-analysis-services
+ms.service: analysis-services
 ms.topic: overview
-ms.date: 10/12/2021
+ms.date: 02/15/2022
 ms.author: owend
 ms.reviewer: minewiskan
 recommendations: false
@@ -19,13 +19,11 @@ Azure Analysis Services is a fully managed platform as a service (PaaS) that pro
 
 ![Data sources](./media/analysis-services-overview/aas-overview-overall.png)
 
-**Video:** Check out [Azure Analysis Services Overview](https://sec.ch9.ms/ch9/d6dd/a1cda46b-ef03-4cea-8f11-68da23c5d6dd/AzureASoverview_high.mp4)  to learn how Azure Analysis Services fits in with Microsoft's overall BI capabilities.
+**Video:** Check out [Azure Analysis Services Overview](https://www.youtube.com/watch?v=m1jnG1zIvTo&t=31s) to learn how Azure Analysis Services fits in with Microsoft's overall BI capabilities.
 
 ## Get up and running quickly
 
 In Azure portal, you can [create a server](analysis-services-create-server.md) within minutes. And with Azure Resource Manager [templates](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md) and PowerShell, you can create servers using a declarative template. With a single template, you can deploy server resources along with other Azure components such as storage accounts and Azure Functions. 
-
-**Video:** Check out Automating deployment to learn more about how you can use Azure Automation to speed server creation.
 
 Azure Analysis Services integrates with many Azure services enabling you to build sophisticated analytics solutions. Integration with [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) provides secure, role-based access to your critical data. Integrate with [Azure Data Factory](../data-factory/introduction.md) pipelines by including an activity that loads data into the model. [Azure Automation](../automation/automation-intro.md) and [Azure Functions](../azure-functions/functions-overview.md) can be used for lightweight orchestration of models using custom code. 
 
@@ -160,7 +158,7 @@ Compatibility level refers to release-specific behaviors in the Analysis Service
 
 ## Your data is secure
 
-Azure Analysis Services provides security for your sensitive data at multiple levels. As an Azure service, Analysis Services provides the **Basic** level protection of Distributed denial of service (DDoS) attacks automatically enabled as part of the Azure platform. To learn more, see [Azure DDoS Protection Standard overview](../ddos-protection/ddos-protection-overview.md). 
+Azure Analysis Services provides security for your sensitive data at multiple levels. As an Azure service, Analysis Services provides the **Basic** level protection of Distributed denial of service (DDoS) attacks automatically enabled as part of the Azure platform. To learn more, see [Azure DDoS Protection overview](../ddos-protection/ddos-protection-overview.md). 
 
 At the server level, Analysis Services provides firewall, Azure authentication, server administrator roles, and Server-Side Encryption. At the data model level, user roles, row-level, and object-level security ensure your data is safe and gets seen by only those users who are meant to see it.
 
@@ -250,7 +248,7 @@ Because tabular models in Azure Analysis Services are much the same as tabular m
 
 ### Contribute!
 
-Analysis Services documentation, like this article, is open source. To learn more about how you can contribute, see the [Docs contributor guide](/contribute/). 
+Analysis Services documentation, like this article, is open source. To learn more about how you can contribute, see our [contributor guide](/contribute/). 
 
 Azure Analysis Services documentation also uses [GitHub Issues](/teamblog/a-new-feedback-system-is-coming-to-docs). You can provide feedback about the product or documentation. Use **Feedback** at the bottom of an article. GitHub Issues are not enabled for the shared Analysis Services documentation. 
 
@@ -258,9 +256,9 @@ Azure Analysis Services documentation also uses [GitHub Issues](/teamblog/a-new-
 
 Things are changing rapidly. Get the latest information on the [Power BI blog](https://powerbi.microsoft.com/blog/category/analysis-services/) and [Azure blog](https://azure.microsoft.com/blog/).
 
-## Community
+## Q&A
 
-Analysis Services has a vibrant community of users. Join the conversation on [Azure Analysis Services forum](https://aka.ms/azureanalysisservicesforum).
+Microsoft [Q&A](/answers/products/) is a technical community platform that provides a rich online experience in answering your technical questions. Join the conversation on [Q&A - Azure Analysis Services forum](/answers/topics/azure-analysis-services.html).
 
 ## Next steps
 

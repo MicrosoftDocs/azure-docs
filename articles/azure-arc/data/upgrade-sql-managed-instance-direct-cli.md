@@ -1,42 +1,49 @@
 ---
-title: Upgrade a directly connected Azure Arc-enabled Managed Instance using the CLI
-description: Article describes how to upgrade a directly connected Azure Arc-enabled Managed Instance using the CLI
+title: Upgrade a directly connected Azure SQL Managed Instance for Azure Arc using the CLI
+description: Article describes how to upgrade a directly connected Azure SQL Managed Instance for Azure Arc using the CLI
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-data
-author: grrlgeek
-ms.author: jeschult
+ms.subservice: azure-arc-data-sqlmi
+ms.custom: event-tier1-build-2022
+author: dnethi
+ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 11/10/2021
+ms.date: 10/11/2022
 ms.topic: how-to
 ---
 
-# Upgrade a directly connected Azure Arc-enabled Managed Instance using the CLI
+# Upgrade an Azure SQL Managed Instance directly connected to Azure Arc using the CLI
 
-This article describes how to upgrade a SQL Managed Instance deployed on a directly connected Azure Arc-enabled data controller using the Azure CLI (`az`).
+This article describes how to upgrade an Azure SQL Managed Instance deployed on a directly connected Azure Arc-enabled data controller using the Azure CLI (`az`).
 
 ## Prerequisites
 
 ### Install tools
 
-Before you can proceed with the tasks in this article you need to install:
+Before you can proceed with the tasks in this article, install:
 
-- The [Azure CLI (az)](/cli/azure/install-azure-cli)
+- The [Azure CLI (`az`)](/cli/azure/install-azure-cli)
 - The [`arcdata` extension for Azure CLI](install-arcdata-extension.md)
+
+The `arcdata` extension version and the image version are related. Check that you have the correct `arcdata` extension version that corresponds to the image version you want to upgrade to in the [Version log](version-log.md).
 
 ## Limitations
 
-The Azure Arc Data Controller must be upgraded to the new version before the Managed Instance can be upgraded.
+The Azure Arc data controller must be upgraded to the new version before the managed instance can be upgraded.
 
-Currently, only one Managed Instance can be upgraded at a time.
+If Active Directory integration is enabled then Active Directory connector must be upgraded to the new version before the managed instance can be upgraded.
 
-## Upgrade the Managed Instance
+The managed instance must be at the same version as the data controller and active directory connector before a data controller is upgraded.
 
-A dry run can be performed first. This will validate the version schema and list which instance(s) will be upgraded.
+There's no batch upgrade process available at this time.
 
-````cli
+## Upgrade the managed instance
+
+You can perform a dry run first. The dry run validates the version schema and lists which instance(s) will be upgraded. Use `--dry-run`. For example:
+
+```azurecli
 az sql mi-arc upgrade --resource-group <resource group> --name <instance name> --dry-run 
-````
+```
 
 The output will be:
 
@@ -45,33 +52,28 @@ Preparing to upgrade sql sqlmi-1 in namespace arc to data controller version.
 ****Dry Run****1 instance(s) would be upgraded by this commandsqlmi-1 would be upgraded to <version-tag>.
 ```
 
-### General Purpose
+[!INCLUDE [upgrade-sql-managed-instance-service-tiers](includes/upgrade-sql-managed-instance-service-tiers.md)]
 
-During a SQL Managed Instance General Purpose upgrade, the containers in the pod will be upgraded and will be reprovisioned. This will cause a short amount of downtime as the new pod is created. You will need to build resiliency into your application, such as connection retry logic, to ensure minimal disruption. Read [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview) for more information on architecting resiliency and [retry guidance for Azure Services](/azure/architecture/best-practices/retry-service-specific#sql-database-using-adonet).
-
-### Business Critical 
-
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-business-critical-upgrade.md)]
 
 ### Upgrade
 
-To upgrade the Managed Instance, use the following command:
+To upgrade the managed instance, use the following command:
 
-````cli
-az sql mi-arc upgrade --resource-group <resource group> --name <instance name> [--no-wait]
-````
+```azurecli
+az sql mi-arc upgrade --resource-group <resource group> --name <instance name> --desired-version <imageTag> [--no-wait]
+```
 
 Example:
 
-````cli
-az sql mi-arc upgrade --resource-group rgarc --name sql1 [--no-wait]
-````
+```azurecli
+az sql mi-arc upgrade --resource-group myresource-group --name sql1 --desired-version v1.6.0_2022-05-02 [--no-wait]
+```
 
 ## Monitor
 
 You can monitor the progress of the upgrade with CLI.
 
-### CLI
+### CLI example
 
 ```cli
 az sql mi-arc show --resource-group <resource group> --name <instance name>
@@ -90,7 +92,7 @@ Status:
   Observed Generation:   2
   Primary Endpoint:      30.76.129.38,1433
   Ready Replicas:        1/1
-  Running Version:       v1.0.0_2021-07-30
+  Running Version:       v1.5.0_2022-04-05
   State:                 Updating
 ```
 
@@ -103,10 +105,8 @@ Status:
   Observed Generation:   2
   Primary Endpoint:      30.76.129.38,1433
   Ready Replicas:        1/1
-  Running Version:       <version-tag>
+  Running Version:       v1.6.0_2022-05-02
   State:                 Ready
 ```
 
-## Troubleshoot upgrade problems
-
-If you encounter any troubles with upgrading, see the [troubleshooting guide](troubleshoot-guide.md).
+[!INCLUDE [upgrade-rollback](includes/upgrade-rollback.md)]

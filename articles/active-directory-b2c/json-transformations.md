@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/17/2022
+ms.date: 02/14/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -20,7 +20,7 @@ This article provides examples for using the JSON claims transformations of the 
 
 ## CreateJsonArray
 
-Create a JSON single element array from a claim value.
+Create a JSON single element array from a claim value. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/json#createjsonarray) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -51,11 +51,97 @@ The following example creates a JSON single array.
 
 Use either claim values or constants to generate a JSON string. The path string following dot notation is used to indicate where to insert the data into a JSON string. After splitting by dots, any integers are interpreted as the index of a JSON array and non-integers are interpreted as the index of a JSON object.
 
+Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/json#generatejson) of this claims transformation.
+
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | Any string following dot notation | string | The JsonPath of the JSON where the claim value will be inserted into. |
 | InputParameter | Any string following dot notation | string | The JsonPath of the JSON where the constant string value will be inserted into. |
 | OutputClaim | outputClaim | string | The generated JSON string. |
+
+### JSON Arrays
+
+To add JSON objects to a JSON array, use the format of **array name** and the **index** in the array. The array is zero based. Start with zero to N, without skipping any number. The items in the array can contain any object. For example, the first item contains two objects, *app* and *appId*. The second item contains a single object, *program*. The third item contains four objects, *color*, *language*, *logo* and *background*.
+
+The following example demonstrates how to configure JSON arrays. The **emails** array uses the `InputClaims` with dynamic values. The **values** array uses the `InputParameters` with static values. 
+
+```xml
+<ClaimsTransformation Id="GenerateJsonPayload" TransformationMethod="GenerateJson">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="mailToName1" TransformationClaimType="emails.0.name" />
+    <InputClaim ClaimTypeReferenceId="mailToAddress1" TransformationClaimType="emails.0.address" />
+    <InputClaim ClaimTypeReferenceId="mailToName2" TransformationClaimType="emails.1.name" />
+    <InputClaim ClaimTypeReferenceId="mailToAddress2" TransformationClaimType="emails.1.address" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="values.0.app" DataType="string" Value="Mobile app" />
+    <InputParameter Id="values.0.appId" DataType="string" Value="123" />
+    <InputParameter Id="values.1.program" DataType="string" Value="Holidays" />
+    <InputParameter Id="values.2.color" DataType="string" Value="Yellow" />
+    <InputParameter Id="values.2.language" DataType="string" Value="Spanish" />
+    <InputParameter Id="values.2.logo" DataType="string" Value="contoso.png" />
+    <InputParameter Id="values.2.background" DataType="string" Value="White" />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="result" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+The result of this claims transformation:
+
+```json
+{
+  "values": [
+    {
+      "app": "Mobile app",
+      "appId": "123"
+    },
+    {
+      "program": "Holidays"
+    },
+    {
+      "color": "Yellow",
+      "language": "Spanish",
+      "logo": "contoso.png",
+      "background": "White"
+    }
+  ],
+  "emails": [
+    {
+      "name": "Joni",
+      "address": "joni@contoso.com"
+    },
+    {
+      "name": "Emily",
+      "address": "emily@contoso.com"
+    }
+  ]
+}
+```
+
+To specify a JSON array in both the input claims and the input parameters, you must start the array in the `InputClaims` element, zero to N. Then, in the `InputParameters` element continue the index from the last index. 
+
+The following example demonstrates an array that is defined in both the input claims and the input parameters. The first item of the *values* array `values.0` is defined in the input claims. The input parameters continue from index one `values.1` through two index  `values.2`. 
+
+```xml
+<ClaimsTransformation Id="GenerateJsonPayload" TransformationMethod="GenerateJson">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="app" TransformationClaimType="values.0.app" />
+    <InputClaim ClaimTypeReferenceId="appId" TransformationClaimType="values.0.appId"  />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="values.1.program" DataType="string" Value="Holidays" />
+    <InputParameter Id="values.2.color" DataType="string" Value="Yellow" />
+    <InputParameter Id="values.2.language" DataType="string" Value="Spanish" />
+    <InputParameter Id="values.2.logo" DataType="string" Value="contoso.png" />
+    <InputParameter Id="values.2.background" DataType="string" Value="White" />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="result" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
 
 ### Example of GenerateJson
 
@@ -66,6 +152,7 @@ The following example generates a JSON string based on the claim value of "email
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="personalizations.0.to.0.email" />
     <InputClaim ClaimTypeReferenceId="otp" TransformationClaimType="personalizations.0.dynamic_template_data.otp" />
+    <InputClaim ClaimTypeReferenceId="copiedEmail" TransformationClaimType="personalizations.0.dynamic_template_data.verify-email" />
   </InputClaims>
   <InputParameters>
     <InputParameter Id="template_id" DataType="string" Value="d-4c56ffb40fa648b1aa6822283df94f60"/>
@@ -82,6 +169,7 @@ The following claims transformation outputs a JSON string claim that will be the
 
 - Input claims:
   - **email**,  transformation claim type  **personalizations.0.to.0.email**: "someone@example.com"
+  - **copiedEmail**,  transformation claim type  **personalizations.0.dynamic_template_data.verify-email**: "someone@example.com"
   - **otp**, transformation claim type **personalizations.0.dynamic_template_data.otp** "346349"
 - Input parameter:
   - **template_id**: "d-4c56ffb40fa648b1aa6822283df94f60"
@@ -163,9 +251,29 @@ The following claims transformation outputs a JSON string claim that will be the
     }
     ```
 
+The **GenerateJson** claims transformation accepts plain strings. If an input claim contains a JSON string, that string will be escaped. In the following example, if you use email output from [CreateJsonArray above](json-transformations.md#example-of-createjsonarray), that is ["someone@contoso.com"], as an input parameter, the email will look like as shown in the following JSON claim:
+
+- Output claim:
+  - **requestBody**:
+
+    ```json
+    {
+       "customerEntity":{
+          "email":"[\"someone@contoso.com\"]",
+          "userObjectId":"01234567-89ab-cdef-0123-456789abcdef",
+          "firstName":"John",
+          "lastName":"Smith",
+          "role":{
+             "name":"Administrator",
+             "id": 1
+          }
+       }
+    }
+    ```
+
 ## GetClaimFromJson
 
-Get a specified element from a JSON data.
+Get a specified element from a JSON data. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/json#getclaimfromjson) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -225,7 +333,7 @@ The GetClaimFromJson claims transformation gets a single element from a JSON dat
 
 ## GetClaimsFromJsonArray
 
-Get a list of specified elements from Json data.
+Get a list of specified elements from Json data. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/json#getclaimsfromjsonarray) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -301,9 +409,107 @@ In the following example, the claims transformation extracts the following claim
   - **active**: true
   - **birthDate**: 2005-09-23T00:00:00Z
 
+
+## GetClaimsFromJsonArrayV2
+
+Get a list of specified elements from a string collection JSON elements. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/json#getclaimsfromjsonarrayv2) of this claims transformation.
+
+| Element | TransformationClaimType | Data Type | Notes |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | jsonSourceClaim | stringCollection | The string collection claim with the JSON payloads. This claim is used by the claims transformation to get the claims. |
+| InputParameter | errorOnMissingClaims | boolean | Specifies whether to throw an error if one of the claims is missing. |
+| InputParameter | includeEmptyClaims | string | Specify whether to include empty claims. |
+| InputParameter | jsonSourceKeyName | string | Element key name |
+| InputParameter | jsonSourceValueName | string | Element value name |
+| OutputClaim | Collection | string, int, boolean, and datetime |List of claims to extract. The name of the claim should be equal to the one specified in _jsonSourceClaim_ input claim. |
+
+### Example of GetClaimsFromJsonArrayV2
+
+In the following example, the claims transformation extracts the following claims: email (string), displayName (string), membershipNum (int), active (boolean) and  birthDate (datetime) from the JSON data.
+
+```xml
+<ClaimsTransformation Id="GetClaimsFromJson" TransformationMethod="GetClaimsFromJsonArrayV2">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="jsonSourceClaim" TransformationClaimType="jsonSource" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="errorOnMissingClaims" DataType="boolean" Value="false" />
+    <InputParameter Id="includeEmptyClaims" DataType="boolean" Value="false" />
+    <InputParameter Id="jsonSourceKeyName" DataType="string" Value="key" />
+    <InputParameter Id="jsonSourceValueName" DataType="string" Value="value" />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="email" />
+    <OutputClaim ClaimTypeReferenceId="displayName" />
+    <OutputClaim ClaimTypeReferenceId="membershipID" />
+    <OutputClaim ClaimTypeReferenceId="active" />
+    <OutputClaim ClaimTypeReferenceId="birthDate" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+- Input claims:
+  - **jsonSourceClaim[0]** (string collection first element):
+      
+      ```json
+        {
+          "key": "email",
+          "value": "someone@example.com"
+        }
+      ```
+
+  - **jsonSourceClaim[1]** (string collection second element):
+
+      ```json
+        {
+          "key": "displayName",
+          "value": "Someone"
+        }
+      ```
+
+  - **jsonSourceClaim[2]** (string collection third element):
+  
+      ```json
+        {
+          "key": "membershipID",
+          "value": 6353399
+        }
+      ```
+
+  - **jsonSourceClaim[3]** (string collection fourth element):
+
+      ```json
+        {
+          "key": "active",
+          "value": true
+        }
+      ```
+
+  - **jsonSourceClaim[4]** (string collection fifth element):
+    
+      ```json
+        {
+          "key": "birthDate",
+          "value": "2005-09-23T00:00:00Z"
+        }
+      ```
+
+- Input parameters:
+  - **errorOnMissingClaims**: false
+  - **includeEmptyClaims**: false
+  - **jsonSourceKeyName**: key
+  - **jsonSourceValueName**: value
+- Output claims:
+  - **email**: "someone@example.com"
+  - **displayName**: "Someone"
+  - **membershipID**: 6353399
+  - **active**: true
+  - **birthDate**: 2005-09-23T00:00:00Z
+
+
 ## GetNumericClaimFromJson
 
-Gets a specified numeric (long) element from a JSON data.
+Gets a specified numeric (long) element from a JSON data. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/json#getnumericclaimfromjson) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -347,7 +553,7 @@ In the following example, the claims transformation extracts the `id` element fr
 
 ## GetSingleItemFromJson
 
-Gets the first element from a JSON data.
+Gets the first element from a JSON data. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/json#getsingleitemfromjson) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -388,7 +594,7 @@ In the following example, the claims transformation extracts the first element (
 
 ## GetSingleValueFromJsonArray
 
-Gets the first element from a JSON data array.
+Gets the first element from a JSON data array. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/json#getsinglevaluefromjsonarray) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -417,7 +623,7 @@ In the following example, the claims transformation extracts the first element (
 
 ## XmlStringToJsonString
 
-Convert XML data to JSON format.
+Convert XML data to JSON format. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/json#xmlstringtojsonstring) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -462,4 +668,4 @@ Output claim:
 
 ## Next steps
 
-- Find more [claims transformation samples](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation) on the Azure AD B2C community GitHub repo
+- Find more [claims transformation samples](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/json) on the Azure AD B2C community GitHub repo

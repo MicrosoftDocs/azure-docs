@@ -2,6 +2,8 @@
 title: Create an image factory
 description: This article shows you how to set up a custom image factory by using sample scripts available in the Git repository (Azure DevTest Labs). 
 ms.topic: how-to
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 06/26/2020
 ---
 

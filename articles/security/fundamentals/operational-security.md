@@ -71,7 +71,7 @@ The core functionality of Azure Monitor logs is provided by a set of services th
 
 ### Azure Monitor logs
 
-[Azure Monitor logs](https://azure.microsoft.com/documentation/services/log-analytics) provides monitoring services by collecting data from managed resources into a central repository. This data could include events, performance data, or custom data provided through the API. Once collected, the data is available for alerting, analysis, and export.
+[Azure Monitor logs](/azure/log-analytics) provides monitoring services by collecting data from managed resources into a central repository. This data could include events, performance data, or custom data provided through the API. Once collected, the data is available for alerting, analysis, and export.
 
 
 This method allows you to consolidate data from various sources, so you can combine data from your Azure services with your existing on-premises environment. It also clearly separates the collection of the data from the action taken on that data so that all actions are available to all kinds of data.
@@ -89,7 +89,7 @@ The Azure Monitor service manages your cloud-based data securely by using the fo
 
 ### Azure Backup
 
-[Azure Backup](https://azure.microsoft.com/documentation/services/backup) provides data backup and restore services and is part of the Azure Monitor suite of products and services.
+[Azure Backup](../../backup/index.yml) provides data backup and restore services and is part of the Azure Monitor suite of products and services.
  It protects your application data and retains it for years without any capital investment and with minimal operating costs. It can back up data from physical and virtual Windows servers in addition to application workloads such as SQL Server and SharePoint. It can also be used by [System Center Data Protection Manager (DPM)](https://en.wikipedia.org/wiki/System_Center_Data_Protection_Manager) to replicate protected data to Azure for redundancy and long-term storage.
 
 
@@ -99,7 +99,7 @@ Protected data in Azure Backup is stored in a backup vault located in a particul
 [Azure Monitor](../../security-center/security-center-introduction.md) is Microsoft's cloud-based IT management solution that helps you manage and protect your on-premises and cloud infrastructure.
 
 
-[Management Solutions](../../azure-monitor/insights/solutions.md) are prepackaged sets of logics that implement a particular management scenario using one or more Azure Monitor services. Different solutions are available from Microsoft and from partners that you can easily add to your Azure subscription to increase the value of your investment in Azure Monitor. As a partner, you can create your own solutions to support your applications and services and provide them to users through the Azure Marketplace or quickstart templates.
+[Management Solutions](/previous-versions/azure/azure-monitor/insights/solutions) are prepackaged sets of logics that implement a particular management scenario using one or more Azure Monitor services. Different solutions are available from Microsoft and from partners that you can easily add to your Azure subscription to increase the value of your investment in Azure Monitor. As a partner, you can create your own solutions to support your applications and services and provide them to users through the Azure Marketplace or quickstart templates.
 
 
 ![Management Solutions](./media/operational-security/azure-operational-security-fig4.png)
@@ -221,7 +221,7 @@ Auditing your network security is vital for detecting network vulnerabilities an
 
 Network Watcher currently has the following capabilities:
 
--	**<a href="/azure/network-watcher/network-watcher-monitoring-overview">Audit Logs</a>**- Operations performed as part of the configuration of networks are logged. These logs can be viewed in the Azure portal or retrieved using Microsoft tools such as Power BI or third-party tools. Audit logs are available through the portal, PowerShell, CLI, and Rest API. For more information on Audit logs, see Audit operations with Resource Manager. Audit logs are available for operations done on all network resources.
+-	**<a href="/azure/network-watcher/network-watcher-monitoring-overview">Audit Logs</a>**- Operations performed as part of the configuration of networks are logged. These logs can be viewed in the Azure portal or retrieved using Microsoft tools such as Power BI or third-party tools. Audit logs are available through the portal, PowerShell, CLI, and REST API. For more information on Audit logs, see Audit operations with Resource Manager. Audit logs are available for operations done on all network resources.
 
 
 -	**<a href="/azure/network-watcher/network-watcher-ip-flow-verify-overview">IP flow verifies </a>** - Checks if a packet is allowed or denied based on flow information 5-tuple packet parameters (Destination IP, Source IP, Destination Port, Source Port, and Protocol). If the packet is denied by a Network Security Group, the rule and Network Security Group that denied the packet is returned.
@@ -337,5 +337,5 @@ Microsoft designs its services and software with security in mind to help ensure
 
 Use Microsoft security data and analysis to perform more intelligent and effective threat detection.
 
-- [Microsoft Defender for Cloud planning and operations](../../security-center/security-center-planning-and-operations-guide.md)
+- [Microsoft Defender for Cloud planning and operations](../../defender-for-cloud/defender-for-cloud-planning-and-operations-guide.md)
 A set of steps and tasks that you can follow to optimize your use of Defender for Cloud based on your organization’s security requirements and cloud management model.

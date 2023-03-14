@@ -1,17 +1,18 @@
 ---
 title: Slow query logs - Azure Database for MySQL - Flexible Server
-description: Describes the slow query logs available in Azure Database for MySQL Flexible Server.
-author: savjani
-ms.author: pariks
+description: Describes the slow query logs available in Azure Database for MySQL - Flexible Server.
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: conceptual
+author: code-sidd
+ms.author: sisawant
 ms.date: 9/21/2020
 ---
-# Slow query logs in Azure Database for MySQL Flexible Server
+# Slow query logs in Azure Database for MySQL - Flexible Server
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-In Azure Database for MySQL Flexible Server, the slow query log is available to users to configure and access. Slow query logs are disabled by default and can be enabled to assist with identifying performance bottlenecks during troubleshooting.
+In Azure Database for MySQL - Flexible Server, the slow query log is available to users to configure and access. Slow query logs are disabled by default and can be enabled to assist with identifying performance bottlenecks during troubleshooting.
 
 For more information about the MySQL slow query log, see the [slow query log section](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) in the MySQL engine documentation.
 
@@ -35,7 +36,7 @@ See the MySQL [slow query log documentation](https://dev.mysql.com/doc/refman/5.
 Slow query logs are integrated with Azure Monitor diagnostic settings. Once you've enabled slow query logs on your MySQL flexible server, you can emit them to Azure Monitor logs, Event Hubs, or Azure Storage. To learn more about diagnostic settings, see the [diagnostic logs documentation](../../azure-monitor/essentials/platform-logs-overview.md). To learn more about how to enable diagnostic settings in the Azure portal, see the [slow query log portal article](tutorial-query-performance-insights.md#set-up-diagnostics).
 
 >[!Note]
->Premium Storage accounts are not supported if you sending the logs to Azure storage via diagnostics and settings 
+>Premium Storage accounts are not supported if you are sending the logs to Azure storage via diagnostics and settings. 
 
 The following table describes the output of the slow query log. Depending on the output method, the fields included and the order in which they appear may vary.
 

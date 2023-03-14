@@ -79,6 +79,9 @@ let worker = await client.registerWorker({
 
 ::: zone-end
 
+> [!NOTE]
+> If a worker is registered and idle for more than 7 days, it'll be automatically deregistered and you'll receive a `WorkerDeregistered` event from EventGrid.
+
 ## Job Submission
 
 In the following example, we'll submit a job that
@@ -153,6 +156,9 @@ Once a match is made, an offer is created. The distribution policy that is attac
 ```
 
 The [OfferIssued Event][offer_issued_event] includes details about the job, worker, how long the offer is valid and the `offerId` which you'll need to accept or decline the job.
+
+> [!NOTE]
+> The maximum lifetime of a job is 90 days, after which it'll automatically expire.
 
 <!-- LINKS -->
 [subscribe_events]: ../../how-tos/router-sdk/subscribe-events.md

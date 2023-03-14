@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 01/31/2022
+ms.date: 02/28/2022
 ms.author: victorh
 ---
 
@@ -76,19 +76,23 @@ You can use `curl` to control various HTTP headers and simulate malicious traffi
 1. On the WorkerVM virtual machine, open an administrator command prompt window.
 2. Type the following command at the command prompt:
 
-   `curl -A "BlackSun" <your web server address>`
+   `curl -A "HaxerMen" <your web server address>`
 3. You'll see your Web server response.
 4. Go to the Firewall Network rule logs on the Azure portal to find an alert similar to the following message:
 
-   :::image type="content" source="media/premium-deploy/alert-message.png" alt-text="Alert message":::
+   ```
+   { “msg” : “TCP request from 10.0.100.5:16036 to 10.0.20.10:80. Action: Alert. Rule: 2032081. IDS: 
+   USER_AGENTS Suspicious User Agent (HaxerMen). Priority: 1. Classification: A Network Tojan was 
+   detected”}
+   ```
 
    > [!NOTE]
    > It can take some time for the data to begin showing in the logs. Give it at least a couple minutes to allow for the logs to begin showing the data.
-5. Add a signature rule for signature 2008983:
+5. Add a signature rule for signature 2032081:
 
    1. Select the **DemoFirewallPolicy** and under **Settings** select **IDPS**.
    1. Select the **Signature rules** tab.
-   1. Under **Signature ID**, in the open text box type *2008983*.
+   1. Under **Signature ID**, in the open text box type *2032081*.
    1. Under **Mode**, select **Deny**.
    1. Select **Save**.
    1. Wait for the deployment to complete before proceeding.
@@ -97,7 +101,7 @@ You can use `curl` to control various HTTP headers and simulate malicious traffi
 
 6. On WorkerVM, run the `curl` command again:
 
-   `curl -A "BlackSun" <your web server address>`
+   `curl -A "HaxerMen" <your web server address>`
 
    Since the HTTP request is now blocked by the firewall, you'll see the following output after the connection timeout expires:
 
@@ -109,13 +113,13 @@ You can use `curl` to control various HTTP headers and simulate malicious traffi
    1. On the **IDPS (preview)** page, select the **Bypass list** tab.
    2. Edit **MyRule** and set **Destination** to *10.0.20.10, which is the ServerVM private IP address.
    3. Select **Save**.
-1. Run the test again: `curl -A "BlackSun" http://server.2020-private-preview.com` and now you should get the `Hello World` response and no log alert. --->
+1. Run the test again: `curl -A "HaxerMen" http://server.2020-private-preview.com` and now you should get the `Hello World` response and no log alert. --->
 
 #### To test IDPS for HTTPS traffic
 
 Repeat these curl tests using HTTPS instead of HTTP. For example:
 
-`curl --ssl-no-revoke -A "BlackSun" <your web server address>`
+`curl --ssl-no-revoke -A "HaxerMen" <your web server address>`
 
 You should see the same results that you had with the HTTP tests.
 

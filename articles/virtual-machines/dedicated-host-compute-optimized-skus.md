@@ -1,13 +1,12 @@
 ---
 title: Compute Optimized Azure Dedicated Host SKUs
 description: Specifications for VM packing of Compute Optimized ADH SKUs.
-author: brittanyrowe
-ms.author: brittanyrowe
-ms.reviewer: mimckitt
-ms.service: virtual-machines
-ms.subservice: dedicated-hosts
+author: vamckMS
+ms.author: vakavuru
+ms.reviewer: mattmcinnes
+ms.service: azure-dedicated-host
 ms.topic: conceptual
-ms.date: 12/01/2021
+ms.date: 01/23/2023
 ---
 
 # Compute Optimized Azure Dedicated Host SKUs
@@ -39,13 +38,13 @@ The following packing configuration outlines the max packing of uniform VMs you 
 
 ### Fsv2-Type3
 
-The Fsv2-Type3 is a Dedicated Host SKU utilizing the Intel® Cascade Lake (Xeon® Platinum 8272CL) processor. It offers 52 physical cores, 84 vCPUs, and 504 GiB of RAM. The Fsv2-Type3 runs [Fsv2-series](fsv2-series.md) VMs.
+The Fsv2-Type3 is a Dedicated Host SKU utilizing the Intel® Cascade Lake (Xeon® Platinum 8272CL) processor. It offers 52 physical cores, 80 vCPUs, and 504 GiB of RAM. The Fsv2-Type3 runs [Fsv2-series](fsv2-series.md) VMs.
 
 The following packing configuration outlines the max packing of uniform VMs you can put onto a Fsv2-Type3 host.
 
 | Physical cores | Available vCPUs | Available RAM | VM Size | # VMs |
 |----------------|-----------------|---------------|---------|-------|
-| 52             | 84              | 504 GiB       | F2s v2  | 32    |
+| 52             | 80              | 504 GiB       | F2s v2  | 32    |
 |                |                 |               | F4s v2  | 21    |
 |                |                 |               | F8s v2  | 10    |
 |                |                 |               | F16s v2 | 5     |
@@ -56,13 +55,13 @@ The following packing configuration outlines the max packing of uniform VMs you 
 
 ### Fsv2-Type4
 
-The Fsv2-Type4 is a Dedicated Host SKU utilizing the Intel® Ice Lake (Xeon® Platinum 8370C) processor. It offers 64 physical cores, 96 vCPUs, and 768 GiB of RAM. The Fsv2-Type4 runs [Fsv2-series](fsv2-series.md) VMs.
+The Fsv2-Type4 is a Dedicated Host SKU utilizing the Intel® Ice Lake (Xeon® Platinum 8370C) processor. It offers 64 physical cores, 119 vCPUs, and 768 GiB of RAM. The Fsv2-Type4 runs [Fsv2-series](fsv2-series.md) VMs.
 
 The following packing configuration outlines the max packing of uniform VMs you can put onto a Fsv2-Type4 host.
 
 | Physical cores | Available vCPUs | Available RAM | VM Size | # VMs |
 |----------------|-----------------|---------------|---------|-------|
-| 64             | 96              | 768 GiB       | F2s v2  | 32    |
+| 64             | 119             | 768 GiB       | F2s v2  | 32    |
 |                |                 |               | F4s v2  | 24    |
 |                |                 |               | F8s v2  | 12    |
 |                |                 |               | F16s v2 | 6     |

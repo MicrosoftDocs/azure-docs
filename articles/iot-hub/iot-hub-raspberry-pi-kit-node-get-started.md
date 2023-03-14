@@ -1,15 +1,15 @@
 ---
 title: Connect Raspberry Pi to Azure IoT Hub in the cloud (Node.js)
 description: Learn how to set up and connect Raspberry Pi to Azure IoT Hub for Raspberry Pi to send data to the Azure cloud platform in this tutorial.
-author: wesmc7777
+author: kgremban
 manager:  eliotgra
 keywords: azure iot raspberry pi, raspberry pi iot hub, raspberry pi send data to cloud, raspberry pi to cloud
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: javascript
 ms.topic: conceptual
-ms.date: 06/18/2021
-ms.author: wesmc
+ms.date: 02/22/2022
+ms.author: kgremban
 ms.custom: ['Role: Cloud Development', devx-track-js]
 ---
 
@@ -160,8 +160,6 @@ After you've successfully connected BME280 to your Raspberry Pi, it should be li
 ### Connect Pi to the network
 
 Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet cable to connect Pi to your wired network or follow the [instructions from the Raspberry Pi Foundation](https://www.raspberrypi.org/documentation/configuration/wireless/) to connect Pi to your wireless network. After your Pi has been successfully connected to the network, you need to take a note of the [IP address of your Pi](https://www.raspberrypi.org/documentation/remote-access/ip-address.md).
-
-![Connected to wired network](./media/iot-hub-raspberry-pi-kit-node-get-started/5-power-on-pi.png)
 
 > [!NOTE]
 > Make sure that Pi is connected to the same network as your computer. For example, if your computer is connected to a wireless network while Pi is connected to a wired network, you might not see the IP address in the devdisco output.

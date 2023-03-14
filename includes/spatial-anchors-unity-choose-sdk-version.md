@@ -1,9 +1,9 @@
 ---
-author: msftradford
+author: pamistel
 ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 11/12/2021
-ms.author: parkerra
+ms.author: pamistel
 ---
 
 To determine which ASA SDK version to use in your Unity project, please select your version of Unity below.

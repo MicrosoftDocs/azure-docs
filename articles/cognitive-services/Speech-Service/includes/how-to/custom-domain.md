@@ -2,6 +2,7 @@
 author: rhurey
 ms.service: cognitive-services
 ms.subservice: speech-service
+ms.custom: devx-track-azurepowershell
 ms.topic: include
 ms.date: 06/18/2021
 ms.author: rhurey
@@ -13,7 +14,7 @@ Follow these steps to create a [custom subdomain name for Cognitive Services](..
 > [!CAUTION]
 > When you turn on a custom domain name, the operation is [not reversible](../../../cognitive-services-custom-subdomains.md#can-i-change-a-custom-domain-name). The only way to go back to the [regional name](../../../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) is to create a new Speech resource.
 >
-> If your Speech resource has a lot of associated custom models and projects created via [Speech Studio](https://speech.microsoft.com/), we strongly recommend trying the configuration with a test resource before you modify the resource used in production.
+> If your Speech resource has a lot of associated custom models and projects created via [Speech Studio](https://aka.ms/speechstudio/customspeech), we strongly recommend trying the configuration with a test resource before you modify the resource used in production.
 
 # [Azure portal](#tab/portal)
 
@@ -120,7 +121,7 @@ Set-AzCognitiveServicesAccount -ResourceGroupName $resourceGroup `
 
 # [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 This section requires the latest version of the Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed.
 
@@ -163,7 +164,7 @@ If the name is already taken, then you'll see the following response:
 ```
 ## Turn on a custom domain name
 
-To use a custom domain name with the selected Speech resource, use the [az cognitiveservices account update](/cli/azure/cognitiveservices/account#az_cognitiveservices_account_update) command.
+To use a custom domain name with the selected Speech resource, use the [az cognitiveservices account update](/cli/azure/cognitiveservices/account#az-cognitiveservices-account-update) command.
 
 (If your Azure account has only one active subscription, you can skip this step.) Select the Azure subscription that contains the Speech resource. Replace `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` with your Azure subscription ID.
 ```azurecli-interactive
@@ -174,7 +175,7 @@ Set the custom domain name to the selected resource. Replace the sample paramete
 > [!CAUTION]
 > After successful execution of the following command, you'll create a custom domain name for your Speech resource. Remember that this name *cannot* be changed.
 
-```azurecli
+```azurecli-interactive
 az cognitiveservices account update --name my-speech-resource-name --resource-group my-resource-group-name --custom-domain my-custom-name
 ```
 

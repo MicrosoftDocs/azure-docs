@@ -11,9 +11,6 @@ ms.author: cachai
 
 This article describes the concurrency behaviors of event-driven triggers in Azure Functions. It also describes a new dynamic model for optimizing concurrency behaviors. 
 
->[!NOTE]
->The dynamic concurrency model is currently in preview. Support for dynamic concurrency is limited to specific binding extensions.
-
 The hosting model for Functions allows multiple function invocations to run concurrently on a single compute instance. For example, consider a case where you have three different functions in your function app, which is scaled out and running on multiple instances. In this scenario, each function processes invocations on each VM instance on which your function app is running. The function invocations on a single instance share the same VM compute resources, such as memory, CPU, and connections. When your app is hosted in a dynamic plan (Consumption or Premium), the platform scales the number of function app instances up or down based on the number of incoming events. To learn more, see [Event Driven Scaling](./Event-Driven-Scaling.md)). When you host your functions in a Dedicated (App Service) plan, you manually configure your instances or [set up an autoscale scheme](dedicated-plan.md#scaling).
 
 Because multiple function invocations can run on each instance concurrently, each function needs to have a way to throttle how many concurrent invocations it's processing at any given time.
@@ -28,7 +25,7 @@ While such concurrency configurations give you control of certain trigger behavi
 
 Ideally, we want the system to allow instances to process as much work as they can while keeping each instance healthy and latencies low, which is what dynamic concurrency is designed to do.
 
-## Dynamic concurrency (preview)
+## Dynamic concurrency
 
 Functions now provides a dynamic concurrency model that simplifies configuring concurrency for all function apps running in the same plan. 
 
@@ -46,7 +43,7 @@ Using dynamic concurrency provides the following benefits:
 
 ### Dynamic concurrency configuration
 
-Dynamic concurrency can be enabled at the host level in the host.json file. When, enabled any binding extensions used by your function app that support dynamic concurrency will adjust concurrency dynamically as needed. Dynamic concurrency settings override any manually configured concurrency settings for triggers that support dynamic concurrency. 
+Dynamic concurrency can be enabled at the host level in the host.json file. When, enabled any binding extensions used by your function app that support dynamic concurrency adjust concurrency dynamically as needed. Dynamic concurrency settings override any manually configured concurrency settings for triggers that support dynamic concurrency. 
 
 By default, dynamic concurrency is disabled. With dynamic concurrency enabled, concurrency starts at 1 for each function, and is adjusted up to an optimal value, which is determined by the host.
 
@@ -74,7 +71,7 @@ When dynamic concurrency is enabled, you'll see dynamic concurrency decisions in
 
 ### Extension support 
 
-Dynamic concurrency is enabled for a function app at the host level, and any extensions that support dynamic concurrency run in that mode. Dynamic concurrency requires collaboration between the host and individual trigger extensions. For preview, only the listed versions of the following extensions support dynamic concurrency.
+Dynamic concurrency is enabled for a function app at the host level, and any extensions that support dynamic concurrency run in that mode. Dynamic concurrency requires collaboration between the host and individual trigger extensions. Only the listed versions of the following extensions support dynamic concurrency.
 
 #### Azure Queues
 

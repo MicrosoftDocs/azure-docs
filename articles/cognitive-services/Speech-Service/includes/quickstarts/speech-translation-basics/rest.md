@@ -1,9 +1,11 @@
 ---
-author: v-jaswel
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/09/2020
-ms.author: v-jawe
+ms.date: 06/08/2022
+ms.author: eur
 ---
 
-You can use the REST API for speech translation, but we haven't yet included a guide here. Please select another programming language to get started and learn about the concepts. 
+[!INCLUDE [Header](../../common/rest.md)]
+
+The REST API does not support speech translation. Please select another programming language or tool from the top of this page. 

@@ -1,16 +1,14 @@
 ---
 title: Troubleshoot a connection between Microsoft Sentinel and a CEF or Syslog data connector| Microsoft Docs
 description: Learn how to troubleshoot issues with your Microsoft Sentinel CEF or Syslog data connector.
-author: batamig
+author: limwainstein
 ms.topic: how-to
-ms.date: 11/09/2021
-ms.author: bagol
+ms.date: 01/09/2023
+ms.author: lwainstein
 ms.custom: ignite-fall-2021
 ---
 
 # Troubleshoot your CEF or Syslog data connector
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This article describes common methods for verifying and troubleshooting a CEF or Syslog data connector for Microsoft Sentinel.
 
@@ -21,6 +19,10 @@ Other symptoms of a failed connector deployment include when either the **securi
 For more information, see [Connect your external solution using Common Event Format](connect-common-event-format.md) and [Collect data from Linux-based sources using Syslog](connect-syslog.md).
 
 If you've deployed your connector using a method different than the documented procedure and are having issues, we recommend that you purge the deployment and install again as documented.
+
+> [!IMPORTANT]
+>
+> On **February 28th 2023**, we will introduce [changes to the CommonSecurityLog table schema](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/upcoming-changes-to-the-commonsecuritylog-table/ba-p/3643232). This means that custom queries will require being reviewed and updated. Out-of-the-box content (detections, hunting queries, workbooks, parsers, etc.) will be updated by Microsoft Sentinel.
 
 ## How to use this article
 
@@ -40,7 +42,7 @@ This procedure is relevant only for CEF connections, and is *not* relevant for S
 
     - You must have elevated permissions (sudo) on your log forwarder machine.
 
-    - You must have **python 2.7** or **3** installed on your log forwarder machine. Use the `python –version` command to check.
+    - You must have **python 2.7** or **3** installed on your log forwarder machine. Use the `python --version` command to check.
 
     - You may need the Workspace ID and Workspace Primary Key at some point in this process. You can find them in the workspace resource, under **Agents management**.
 
@@ -273,7 +275,7 @@ Use the following sections to check your CEF or Syslog data connector prerequisi
 
 If you're using an Azure Virtual Machine as a CEF collector, verify the following:
 
-- Before you deploy the [Common Event Format Data connector python script](./connect-log-forwarder.md), make sure that your Virtual Machine isn't already connected to an existing Log Analytics workspace. You can find this information on the Log Analytics Workspace Virtual Machine list, where a VM that's connected to a Syslog workspace is listed as **Connected**.
+- Before you deploy the [Common Event Format Data connector Python script](./connect-log-forwarder.md), make sure that your Virtual Machine isn't already connected to an existing Log Analytics workspace. You can find this information on the Log Analytics Workspace Virtual Machine list, where a VM that's connected to a Syslog workspace is listed as **Connected**.
 
 - Make sure that Microsoft Sentinel is connected to the correct Log Analytics workspace, with the **SecurityInsights** solution installed.
 

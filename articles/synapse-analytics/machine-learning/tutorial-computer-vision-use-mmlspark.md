@@ -1,7 +1,6 @@
 ---
 title: 'Tutorial: Computer Vision with Cognitive Service'
 description: Learn how to use computer vision in Azure Synapse Analytics.
-services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: machine-learning
 ms.topic: tutorial
@@ -183,3 +182,4 @@ To ensure the Spark instance is shut down, end any connected sessions(notebooks)
 
 * [Check out Synapse sample notebooks](https://github.com/Azure-Samples/Synapse/tree/main/MachineLearning) 
 * [SynapseML GitHub Repo](https://github.com/Azure/mmlspark)
+* [SynapseML documentation](https://microsoft.github.io/SynapseML/docs/documentation/transformers/transformers_cognitive/)

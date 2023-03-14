@@ -1,18 +1,16 @@
 ---
-title: Plan Azure virtual networks | Microsoft Docs
+title: Plan Azure virtual networks
 description: Learn how to plan for virtual networks based on your isolation, connectivity, and location requirements.
 services: virtual-network
-documentationcenter: na
-author: KumudD
+author: asudbring
 manager: mtillman
 ms.service: virtual-network
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/08/2020
-ms.author: kumud
-
+ms.author: allensu
 ---
+
 # Plan virtual networks
 
 Creating a virtual network to experiment with is easy enough, but chances are, you will deploy multiple virtual networks over time to support the production needs of your organization. With some planning, you will be able to deploy virtual networks and connect the resources you need more effectively. The information in this article is most helpful if you're already familiar with virtual networks and have some experience working with them. If you are not familiar with virtual networks, it's recommended that you read [Virtual network overview](virtual-networks-overview.md).
@@ -67,6 +65,7 @@ You can filter network traffic to and from resources in a virtual network using 
 - You can filter network traffic between resources in a virtual network using a network security group, an NVA that filters network traffic, or both. To deploy an NVA, such as a firewall, to filter network traffic, see the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?subcategories=appliances&page=1). When using an NVA, you also create custom routes to route traffic from subnets to the NVA. Learn more about [traffic routing](#traffic-routing).
 - A network security group contains several default security rules that allow or deny traffic to or from resources. A network security group can be associated to a network interface, the subnet the network interface is in, or both. To simplify management of security rules, it's recommended that you associate a network security group to individual subnets, rather than individual network interfaces within the subnet, whenever possible.
 - If different VMs within a subnet need different security rules applied to them, you can associate the network interface in the VM to one or more application security groups. A security rule can specify an application security group in its source, destination, or both. That rule then only applies to the network interfaces that are members of the application security group. Learn more about [network security groups](./network-security-groups-overview.md) and [application security groups](./network-security-groups-overview.md#application-security-groups).
+- When a network security group is associated at the subnet level, it applies to all the NICs in the subnet, not just to the traffic coming from outside the subnet. This means that the traffic between the VMs contained in the subnet can be affected as well.
 - Azure creates several default security rules within each network security group. One default rule allows all traffic to flow between all resources in a virtual network. To override this behavior, use network security groups, custom routing to route traffic to an NVA, or both. It's recommended that you familiarize yourself with all of Azure's [default security rules](./network-security-groups-overview.md#default-security-rules) and understand how network security group rules are applied to a resource.
 
 You can view sample designs for implementing a perimeter network (also known as a DMZ) between Azure and the internet using an [NVA](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json).
