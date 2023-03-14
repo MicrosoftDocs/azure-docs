@@ -32,6 +32,9 @@ In the user attributes, to mitigate any issues with mangled user profile disk (U
 
 To enable users to sign in using their organization account, you must manually configure Dropbox Business to use Azure AD as a Security Assertion Markup Language (SAML) identity provider. If Dropbox Business has not been configured to do so, it cannot prompt or otherwise allow users to sign in using Azure AD.
 
+## Box
+You can enable users to authenticate Box guest users with their Azure AD account by using federation that's based on the SAML protocol. In this procedure, you upload metadata to Box.com.
+
 ## Next steps
 - [Customizing the sign-in look and feel](concept-branding-customers.md)
 
