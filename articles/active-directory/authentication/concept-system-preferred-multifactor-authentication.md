@@ -50,7 +50,7 @@ System-preferred MFA can be enabled only for a single group, which can be a dyna
 Use the following API endpoint to enable **systemCredentialPreferences** and include or exclude groups:
 
 ```
-https://graph.microsoft.com/beta/authenticationMethodsPolicy
+https://graph.microsoft.com/beta/policies/authenticationMethodsPolicy
 ```
 
 >[!NOTE]
