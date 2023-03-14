@@ -42,7 +42,7 @@ To view the list of lab plans in the Azure portal:
 > [!CAUTION]
 > Deleting a lab plan will not delete any labs created from that lab plan.
 > 
-> Before you delete a lab plan, make sure to delete all associated labs and Azure Compute Gallery images. If you're unable to delete these resources, create an [Azure Support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/) for Azure Lab Services.
+> Before you delete a lab plan, make sure to delete all associated labs, Azure Compute Gallery images, and other resources. If you're unable to delete these resources, create an [Azure Support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/) for Azure Lab Services.
 
 To delete a lab plan in the Azure portal:
 
