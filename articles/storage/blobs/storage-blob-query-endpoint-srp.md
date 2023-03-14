@@ -1,7 +1,7 @@
 ---
-title: Query for a storage service endpoint using the Azure Storage management library
+title: Query for a Blob Storage endpoint using the Azure Storage management library
 titleSuffix: Azure Storage
-description: Query for a storage service endpoint using the Azure Storage management library.
+description: Query for a Blob Storage endpoint using the Azure Storage management library.
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
@@ -13,11 +13,18 @@ ms.subservice: blobs
 ms.custom: devguide-csharp, devguide-java, devguide-javascript, devguide-python
 ---
 
-# Query for a storage service endpoint using the Azure Storage management library
+# Query for a Blob Storage endpoint using the Azure Storage management library
 
-A storage service endpoint forms the base address for all objects within a storage account. When an application connects to a storage service to work with data resources, a URI representing the endpoint is passed to the client constructor. A [standard endpoint](../common/storage-account-overview.md#standard-endpoints) includes the unique storage account name along with a fixed domain name, while an [Azure DNS zone endpoint](../common/storage-account-overview.md#azure-dns-zone-endpoints-preview) dynamically selects an Azure DNS zone and assigns it to the storage account when it's created. 
+A Blob Storage endpoint forms the base address for all objects within a storage account. Blob Storage supports two types of endpoints:
+ 
+- A [standard endpoint](../common/storage-account-overview.md#standard-endpoints) includes the unique storage account name along with a fixed domain name. The format of a standard endpoint is `https://<storage-account>.blob.core.windows.net`.
+- An [Azure DNS zone endpoint](../common/storage-account-overview.md#azure-dns-zone-endpoints-preview) dynamically selects an Azure DNS zone and assigns it to the storage account when it's created. The format of an Azure DNS Zone endpoint is `https://<storage-account>.z[00-99].blob.storage.azure.net`. 
 
-When creating a client object in your application, you can construct the URI string manually, or you can query for the service endpoint at runtime. In this article, you learn how to query a blob service endpoint using the management library.
+When your application creates a service client object that connects to Blob Storage data resources, you pass a URI referencing the endpoint to the service client constructor. You can construct the URI string manually, or you can query for the service endpoint at runtime using the Azure Storage management library.
+
+The Azure Storage management library provides programmatic access to the [Azure Storage resource provider](/rest/api/storagerp). The resource provider is the Azure Storage implementation of the Azure Resource Manager. The management library enables developers to manage storage accounts and account configuration, as well as configure lifecycle management policies, object replication policies, and immutability policies.
+
+In this article, you learn how to query a Blob Storage endpoint using the Azure Storage management library. Then you use that endpoint to create a `BlobServiceClient` object to connect with Blob Storage data resources.
 
 ## Set up your project 
 
@@ -190,9 +197,9 @@ Client library information:
 
 ---
 
-## Query for the blob service endpoint
+## Query for the Blob Storage endpoint
 
-To retrieve the blob service endpoint for a given storage account, we need to get the storage account properties by calling the [Get Properties (REST API)](/rest/api/storagerp/storage-accounts/get-properties) operation. The following code samples use client libraries to get a blob service endpoint for a specified storage account:
+To retrieve the Blob Storage endpoint for a given storage account, we need to get the storage account properties by calling the [Get Properties](/rest/api/storagerp/storage-accounts/get-properties) operation. The following code samples use both the data access and management libraries to get a Blob Storage endpoint for a specified storage account:
 
 ## [.NET](#tab/dotnet)
 
@@ -238,7 +245,7 @@ Code sample goes here.
 
 ## Create a client object using the service endpoint
 
-Once you have the blob service endpoint for a storage account, you can instantiate a client object to work with data resources. The following code sample creates a `BlobServiceClient` object using the endpoint we retrieved in the earlier example:
+Once you have the Blob Storage endpoint for a storage account, you can instantiate a client object to work with data resources. The following code sample creates a `BlobServiceClient` object using the endpoint we retrieved in the earlier example:
 
 ## [.NET](#tab/dotnet)
 
