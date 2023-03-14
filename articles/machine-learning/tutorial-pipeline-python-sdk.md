@@ -1,20 +1,20 @@
 ---
 title: "Tutorial: ML pipelines with Python SDK v2"
 titleSuffix: Azure Machine Learning
-description: Use Azure Machine Learning to create your production-ready  ML project in a cloud-based Python Jupyter Notebook using Azure Machine Learning  Python SDK v2. 
+description: Use Azure Machine Learning to create your production-ready ML project in a cloud-based Python Jupyter Notebook using Azure Machine Learning Python SDK v2. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 author: msdpalam
 ms.author: meeral
-ms.reviewer: sgilley
-ms.date: 02/27/2023
+ms.reviewer: lagayhar
+ms.date: 03/14/2023
 ms.custom: sdkv2, event-tier1-build-2022, ignite-2022
 #Customer intent: This tutorial is intended to introduce Azure Machine Learning to data scientists who want to scale up or publish their ML projects. By completing a familiar end-to-end project, which starts by loading the data and ends by creating and calling an online inference endpoint, the user should become familiar with the core concepts of Azure Machine Learning and their most common usage. Each step of this tutorial can be modified or performed in other ways that might have security or scalability advantages. We will cover some of those in the Part II of this tutorial, however, we suggest the reader use the provide links in each section to learn more on each topic.
 ---
 
-# Tutorial: Create production Machine Learning pipelines
+# Tutorial: Create production machine learning pipelines
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
@@ -49,97 +49,192 @@ The two steps are first data preparation and second training.
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An Azure Machine Learning workspace. See [Create resources to get started](quickstart-create-resources.md) for information on how to create one.
 
-## Open the notebook
-
-1. Sign in to [Azure Machine Learning studio](https://ml.azure.com).
-1. Open your workspace if it isn't already open.
-1. From the navigation bar on the left, select **Notebook**.
-1. At the top, select **Samples**.
-
-1. Select the **e2e-ml-workflow.ipynb** file from **tutorials/azureml-examples/tutorials/e2e-ds-experience/** folder.
-
-    :::image type="content" source="media/tutorial-pipeline-python-sdk/expand-folder.png" alt-text="Screenshot shows the open tutorials folder.":::
-1. Select **Clone this notebook**.
-1. On the top bar, select the compute instance you created during the  [Create resources to get started](quickstart-create-resources.md) to use for running the notebook. Start the compute if it isn't already started.
-
-> [!Important]
-> The rest of this article contains the same content as you see in the notebook.  
->
-> Switch to the Jupyter Notebook now if you want to run the code while you read along.
-> To run a single code cell in a notebook, click the code cell and hit **Shift+Enter**. Or, run the entire notebook by choosing **Run all** from the top toolbar
+<!-- nbstart https://raw.githubusercontent.com/Azure/azureml-examples/new-tutorial-series/tutorials/get-started-notebooks/pipeline.ipynb -->
 
 ## Set up the pipeline resources
 
-The Azure Machine Learning framework can be used from CLI, Python SDK, or studio interface. In this example, you use the Azure Machine Learning Python SDK v2 to create a pipeline.
+The Azure Machine Learning framework can be used from CLI, Python SDK, or studio interface. In this example, you use the Azure Machine Learning Python SDK v2 to create a pipeline. 
 
 Before creating the pipeline, you need the following resources:
 
-- The data asset for training
-- The software environment to run the pipeline
-- A compute resource to where the job runs
+* The data asset for training
+* The software environment to run the pipeline
+* A compute resource to where the job runs
 
-### Connect to the workspace
+## Connect to the workspace
 
-Before we dive in the code, you need to connect to your Azure Machine Learning  workspace. The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning.
+Before we dive in the code, you need to connect to your Azure Machine Learning workspace. The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning.
 
-[!Notebook-python[] (~/azureml-examples-tutorials/tutorials/get-started-notebooks/pipeline.ipynb?name=import-mlclient)]
+
+
+```python
+# Handle to the workspace
+from azure.ai.ml import MLClient
+
+# Authentication package
+from azure.identity import DefaultAzureCredential, InteractiveBrowserCredential
+
+try:
+    credential = DefaultAzureCredential()
+    # Check if given credential can get token successfully.
+    credential.get_token("https://management.azure.com/.default")
+except Exception as ex:
+    # Fall back to InteractiveBrowserCredential in case DefaultAzureCredential not work
+    credential = InteractiveBrowserCredential()
+```
 
 In the next cell, enter your Subscription ID, Resource Group name and Workspace name. To find your Subscription ID:
-
 1. In the upper right Azure Machine Learning studio toolbar, select your workspace name.
 1. You see the values you need for **<SUBSCRIPTION_ID>**, **<RESOURCE_GROUP>**, and **<AML_WORKSPACE_NAME>**.
 1. Copy a value, then close the window and paste that into your code.  Open the tool again to get the next value.
 
-:::image type="content" source="media/tutorial-pipeline-python-sdk/find-info.png" alt-text="Screenshot shows how to find values needed for your code.":::
 
-[!Notebook-python[] (~/azureml-examples-tutorials/tutorials/get-started-notebooks/pipeline.ipynb?name=ml_client)]
+
+```python
+# Get a handle to the workspace
+ml_client = MLClient(
+    credential=credential,
+    subscription_id="<SUBSCRIPTION_ID>",
+    resource_group_name="<RESOURCE_GROUP>",
+    workspace_name="<AML_WORKSPACE_NAME>",
+)
+```
 
 The result is a handler to the workspace that you use to manage other resources and jobs.
 
 > [!IMPORTANT]
 > Creating MLClient will not connect to the workspace. The client initialization is lazy, it will wait for the first time it needs to make a call (in the notebook, that will happen during dataset registration).
 
-### Register data from an external url
+## Register data from an external url
 
 If you have been following along with the other tutorials in this series and already registered the data, you can fetch the same dataset from the workspace using `credit_dataset = ml_client.data.get("<DATA ASSET NAME>", version='<VERSION>')`. Then you may skip this section. To learn about data more in depth or if you would rather complete the data tutorial first, see [Upload, access and explore your data in Azure Machine Learning](tutorial-explore-data.md).
- 
-Azure Machine Learning uses a `Data` object to register a reusable definition of data, and consume data within a pipeline. In the next section, you consume some data from web url as one example. Data from other sources can be created as well. `Data` assets from other sources can be created as well.
 
-[!Notebook-python[] (~/azureml-examples-tutorials/tutorials/get-started-notebooks/pipeline.ipynb?name=credit_data)]
+* Azure Machine Learning uses a `Data` object to register a reusable definition of data, and consume data within a pipeline. In the next section, you consume some data from web url as one example. Data from other sources can be created as well. `Data` assets from other sources can be created as well.
+
+
+
+
+```python
+from azure.ai.ml.entities import Data
+from azure.ai.ml.constants import AssetTypes
+
+web_path = "https://archive.ics.uci.edu/ml/machine-learning-databases/00350/default_of_credit_card_clients.xls"
+
+credit_data = Data(
+    name="creditcard_defaults",
+    path=web_path,
+    type=AssetTypes.URI_FILE,
+    description="Dataset for credit card defaults",
+    tags={"source_type": "web", "source": "UCI ML Repo"},
+    version="1.0.0",
+)
+```
 
 This code just created a `Data` asset, ready to be consumed as an input by the pipeline that you'll define in the next sections. In addition, you can register the data to your workspace so it becomes reusable across pipelines.
 
 Since this is the first time that you're making a call to the workspace, you may be asked to authenticate. Once the authentication is complete, you then see the dataset registration completion message.
 
-[!Notebook-python[] (~/azureml-examples-tutorials/tutorials/get-started-notebooks/pipeline.ipynb?name=update-credit_data)]
+
+
+
+```python
+credit_data = ml_client.data.create_or_update(credit_data)
+print(
+    f"Dataset with name {credit_data.name} was registered to workspace, the dataset version is {credit_data.version}"
+)
+```
 
 In the future, you can fetch the same dataset from the workspace using `credit_dataset = ml_client.data.get("<DATA ASSET NAME>", version='<VERSION>')`.
 
-### Create a compute resource to run your pipeline
+## Create a compute resource to run your pipeline
 
 Each step of an Azure Machine Learning pipeline can use a different compute resource for running the specific job of that step. It can be single or multi-node machines with Linux or Windows OS, or a specific compute fabric like Spark.
 
-In this section, you provision a Linux [compute cluster](how-to-create-attach-compute-cluster.md?tabs=python). See the [full list on VM sizes and prices](https://azure.microsoft.com/pricing/details/machine-learning/) .
+In this section, you provision a Linux  [compute cluster](how-to-create-attach-compute-cluster.md?tabs=python). See the [full list on VM sizes and prices](https://azure.microsoft.com/pricing/details/machine-learning/) .
 
-For this tutorial, you only need a basic cluster so use a Standard_DS3_v2 model with 2 vCPU cores, 7-GB RAM and create an Azure Machine Learning Compute.  
-
+For this tutorial, you only need a basic cluster so use a Standard_DS3_v2 model with 2 vCPU cores, 7-GB RAM and create an Azure Machine Learning Compute.
 > [!TIP]
 > If you already have a compute cluster, replace "cpu-cluster" in the next code block with the name of your cluster.  This will keep you from creating another one.
 
-[!Notebook-python[] (~/azureml-examples-tutorials/tutorials/get-started-notebooks/pipeline.ipynb?name=cpu_cluster)]
 
-### Create a job environment for pipeline steps
+
+```python
+from azure.ai.ml.entities import AmlCompute
+
+cpu_compute_target = "cpu-cluster"
+
+try:
+    # let's see if the compute target already exists
+    cpu_cluster = ml_client.compute.get(cpu_compute_target)
+    print(
+        f"You already have a cluster named {cpu_compute_target}, we'll reuse it as is."
+    )
+
+except Exception:
+    print("Creating a new cpu compute target...")
+
+    # Let's create the Azure Machine Learning compute object with the intended parameters
+    cpu_cluster = AmlCompute(
+        # Name assigned to the compute cluster
+        name="cpu-cluster",
+        # Azure Machine Learning Compute is the on-demand VM service
+        type="amlcompute",
+        # VM Family
+        size="STANDARD_DS3_V2",
+        # Minimum running nodes when there is no job running
+        min_instances=0,
+        # Nodes in cluster
+        max_instances=4,
+        # How many seconds will the node running after the job termination
+        idle_time_before_scale_down=180,
+        # Dedicated or LowPriority. The latter is cheaper but there is a chance of job termination
+        tier="Dedicated",
+    )
+
+    # Now, we pass the object to MLClient's create_or_update method
+    cpu_cluster = ml_client.begin_create_or_update(cpu_cluster)
+
+print(
+    f"AMLCompute with name {cpu_cluster.name} is created, the compute size is {cpu_cluster.size}"
+)
+```
+
+## Create a job environment for pipeline steps
 
 So far, you've created a development environment on the compute instance, your development machine. You also need an environment to use for each step of the pipeline. Each step can have its own environment, or you can use some common environments for multiple steps.
 
 In this example, you create a conda environment for your jobs, using a conda yaml file.
 First, create a directory to store the file in.
 
-[!Notebook-python[] (~/azureml-examples-tutorials/tutorials/get-started-notebooks/pipeline.ipynb?name=dependencies_dir)]
+
+```python
+import os
+
+dependencies_dir = "./dependencies"
+os.makedirs(dependencies_dir, exist_ok=True)
+```
 
 Now, create the file in the dependencies directory.
 
-[!Notebook-python[] (~/azureml-examples-tutorials/tutorials/get-started-notebooks/pipeline.ipynb?name=conda.yml)]
+
+```python
+%%writefile {dependencies_dir}/conda.yml
+name: model-env
+channels:
+  - conda-forge
+dependencies:
+  - python=3.8
+  - numpy=1.21.2
+  - pip=21.2.4
+  - scikit-learn=0.24.2
+  - scipy=1.7.1
+  - pandas>=1.1,<1.2
+  - pip:
+    - inference-schema[numpy-support]==1.3.0
+    - xlrd==2.0.1
+    - mlflow== 1.26.1
+    - azureml-mlflow==1.42.0
+```
 
 The specification contains some usual packages, that you use in your pipeline (numpy, pip), together with some Azure Machine Learning specific packages (azureml-defaults, azureml-mlflow).
 
@@ -147,7 +242,27 @@ The Azure Machine Learning packages aren't mandatory to run Azure Machine Learni
 
 Use the *yaml* file to create and register this custom environment in your workspace:
 
-[!Notebook-python[] (~/azureml-examples-tutorials/tutorials/get-started-notebooks/pipeline.ipynb?name=custom_env_name)]
+
+
+```python
+from azure.ai.ml.entities import Environment
+
+custom_env_name = "aml-scikit-learn"
+
+pipeline_job_env = Environment(
+    name=custom_env_name,
+    description="Custom environment for Credit Card Defaults pipeline",
+    tags={"scikit-learn": "0.24.2"},
+    conda_file=os.path.join(dependencies_dir, "conda.yml"),
+    image="mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04:latest",
+    version="0.1.0",
+)
+pipeline_job_env = ml_client.environments.create_or_update(pipeline_job_env)
+
+print(
+    f"Environment with name {pipeline_job_env.name} is registered to workspace, the environment version is {pipeline_job_env.version}"
+)
+```
 
 ## Build the training pipeline
 
@@ -169,21 +284,115 @@ Let's start by creating the first component. This component handles the preproce
 
 First create a source folder for the data_prep component:
 
-[!Notebook-python[] (~/azureml-examples-tutorials/tutorials/get-started-notebooks/pipeline.ipynb?name=data_prep_src_dir)]
 
-This script performs the simple task of splitting the data into train and test datasets. Azure Machine Learning mounts datasets as folders to the computes, therefore, we created an auxiliary `select_first_file` function to access the data file inside the mounted input folder.
+```python
+import os
+
+data_prep_src_dir = "./components/data_prep"
+os.makedirs(data_prep_src_dir, exist_ok=True)
+```
+
+This script performs the simple task of splitting the data into train and test datasets. Azure Machine Learning mounts datasets as folders to the computes, therefore, we created an auxiliary `select_first_file` function to access the data file inside the mounted input folder. 
 
 [MLFlow](https://mlflow.org/docs/latest/tracking.html) is used to log the parameters and metrics during our pipeline run.
 
-[!Notebook-python[] (~/azureml-examples-tutorials/tutorials/get-started-notebooks/pipeline.ipynb?name=def-main)]
+
+```python
+%%writefile {data_prep_src_dir}/data_prep.py
+import os
+import argparse
+import pandas as pd
+from sklearn.model_selection import train_test_split
+import logging
+import mlflow
+
+
+def main():
+    """Main function of the script."""
+
+    # input and output arguments
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--data", type=str, help="path to input data")
+    parser.add_argument("--test_train_ratio", type=float, required=False, default=0.25)
+    parser.add_argument("--train_data", type=str, help="path to train data")
+    parser.add_argument("--test_data", type=str, help="path to test data")
+    args = parser.parse_args()
+
+    # Start Logging
+    mlflow.start_run()
+
+    print(" ".join(f"{k}={v}" for k, v in vars(args).items()))
+
+    print("input data:", args.data)
+
+    credit_df = pd.read_excel(args.data, header=1, index_col=0)
+
+    mlflow.log_metric("num_samples", credit_df.shape[0])
+    mlflow.log_metric("num_features", credit_df.shape[1] - 1)
+
+    credit_train_df, credit_test_df = train_test_split(
+        credit_df,
+        test_size=args.test_train_ratio,
+    )
+
+    # output paths are mounted as folder, therefore, we are adding a filename to the path
+    credit_train_df.to_csv(os.path.join(args.train_data, "data.csv"), index=False)
+
+    credit_test_df.to_csv(os.path.join(args.test_data, "data.csv"), index=False)
+
+    # Stop Logging
+    mlflow.end_run()
+
+
+if __name__ == "__main__":
+    main()
+```
 
 Now that you have a script that can perform the desired task, create an Azure Machine Learning Component from it.
 
 Use the general purpose **CommandComponent** that can run command line actions. This command line action can directly call system commands or run a script. The inputs/outputs are specified on the command line via the `${{ ... }}` notation.
 
-[!Notebook-python[] (~/azureml-examples-tutorials/tutorials/get-started-notebooks/pipeline.ipynb?name=data_prep_component)]
+
+
+```python
+from azure.ai.ml import command
+from azure.ai.ml import Input, Output
+
+data_prep_component = command(
+    name="data_prep_credit_defaults",
+    display_name="Data preparation for training",
+    description="reads a .xl input, split the input to train and test",
+    inputs={
+        "data": Input(type="uri_folder"),
+        "test_train_ratio": Input(type="number"),
+    },
+    outputs=dict(
+        train_data=Output(type="uri_folder", mode="rw_mount"),
+        test_data=Output(type="uri_folder", mode="rw_mount"),
+    ),
+    # The source folder of the component
+    code=data_prep_src_dir,
+    command="""python data_prep.py \
+            --data ${{inputs.data}} --test_train_ratio ${{inputs.test_train_ratio}} \
+            --train_data ${{outputs.train_data}} --test_data ${{outputs.test_data}} \
+            """,
+    environment=f"{pipeline_job_env.name}:{pipeline_job_env.version}",
+)
+```
 
 Optionally, register the component in the workspace for future reuse.
+
+
+
+```python
+# Now we register the component to the workspace
+data_prep_component = ml_client.create_or_update(data_prep_component.component)
+
+# Create (register) the component in your workspace
+print(
+    f"Component {data_prep_component.name} with Version {data_prep_component.version} is registered"
+)
+```
 
 ### Create component 2: training (using yaml definition)
 
@@ -193,31 +402,182 @@ You used the `CommandComponent` class to create your first component. This time 
 
 Create the directory for this component:
 
-[!Notebook-python[] (~/azureml-examples-tutorials/tutorials/get-started-notebooks/pipeline.ipynb?name=train_src_dir)]
+
+```python
+import os
+
+train_src_dir = "./components/train"
+os.makedirs(train_src_dir, exist_ok=True)
+```
 
 Create the training script in the directory:
 
-[!Notebook-python[] (~/azureml-examples-tutorials/tutorials/get-started-notebooks/pipeline.ipynb?name=train.py)]
+
+
+```python
+%%writefile {train_src_dir}/train.py
+import argparse
+from sklearn.ensemble import GradientBoostingClassifier
+from sklearn.metrics import classification_report
+import os
+import pandas as pd
+import mlflow
+
+
+def select_first_file(path):
+    """Selects first file in folder, use under assumption there is only one file in folder
+    Args:
+        path (str): path to directory or file to choose
+    Returns:
+        str: full path of selected file
+    """
+    files = os.listdir(path)
+    return os.path.join(path, files[0])
+
+
+# Start Logging
+mlflow.start_run()
+
+# enable autologging
+mlflow.sklearn.autolog()
+
+os.makedirs("./outputs", exist_ok=True)
+
+
+def main():
+    """Main function of the script."""
+
+    # input and output arguments
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--train_data", type=str, help="path to train data")
+    parser.add_argument("--test_data", type=str, help="path to test data")
+    parser.add_argument("--n_estimators", required=False, default=100, type=int)
+    parser.add_argument("--learning_rate", required=False, default=0.1, type=float)
+    parser.add_argument("--registered_model_name", type=str, help="model name")
+    parser.add_argument("--model", type=str, help="path to model file")
+    args = parser.parse_args()
+
+    # paths are mounted as folder, therefore, we are selecting the file from folder
+    train_df = pd.read_csv(select_first_file(args.train_data))
+
+    # Extracting the label column
+    y_train = train_df.pop("default payment next month")
+
+    # convert the dataframe values to array
+    X_train = train_df.values
+
+    # paths are mounted as folder, therefore, we are selecting the file from folder
+    test_df = pd.read_csv(select_first_file(args.test_data))
+
+    # Extracting the label column
+    y_test = test_df.pop("default payment next month")
+
+    # convert the dataframe values to array
+    X_test = test_df.values
+
+    print(f"Training with data of shape {X_train.shape}")
+
+    clf = GradientBoostingClassifier(
+        n_estimators=args.n_estimators, learning_rate=args.learning_rate
+    )
+    clf.fit(X_train, y_train)
+
+    y_pred = clf.predict(X_test)
+
+    print(classification_report(y_test, y_pred))
+
+    # Registering the model to the workspace
+    print("Registering the model via MLFlow")
+    mlflow.sklearn.log_model(
+        sk_model=clf,
+        registered_model_name=args.registered_model_name,
+        artifact_path=args.registered_model_name,
+    )
+
+    # Saving the model to a file
+    mlflow.sklearn.save_model(
+        sk_model=clf,
+        path=os.path.join(args.model, "trained_model"),
+    )
+
+    # Stop Logging
+    mlflow.end_run()
+
+
+if __name__ == "__main__":
+    main()
+```
 
 As you can see in this training script, once the model is trained, the model file is saved and registered to the workspace. Now you can use the registered model in inferencing endpoints.
 
 For the environment of this step, you use one of the built-in (curated) Azure Machine Learning environments. The tag `azureml`, tells the system to use look for the name in curated environments.
-
 First, create the *yaml* file describing the component:
 
-[!Notebook-python[] (~/azureml-examples-tutorials/tutorials/get-started-notebooks/pipeline.ipynb?name=train.yml)]
+
+```python
+%%writefile {train_src_dir}/train.yml
+# <component>
+name: train_credit_defaults_model
+display_name: Train Credit Defaults Model
+# version: 1 # Not specifying a version will automatically update the version
+type: command
+inputs:
+  train_data: 
+    type: uri_folder
+  test_data: 
+    type: uri_folder
+  learning_rate:
+    type: number     
+  registered_model_name:
+    type: string
+outputs:
+  model:
+    type: uri_folder
+code: .
+environment:
+  # for this step, we'll use an AzureML curate environment
+  azureml:AzureML-sklearn-1.0-ubuntu20.04-py38-cpu:1
+command: >-
+  python train.py 
+  --train_data ${{inputs.train_data}} 
+  --test_data ${{inputs.test_data}} 
+  --learning_rate ${{inputs.learning_rate}}
+  --registered_model_name ${{inputs.registered_model_name}} 
+  --model ${{outputs.model}}
+# </component>
+
+```
 
 Now create and register the component:
 
-[!Notebook-python[] (~/azureml-examples-tutorials/tutorials/get-started-notebooks/pipeline.ipynb?name=train_component)]
 
-[!Notebook-python[] (~/azureml-examples-tutorials/tutorials/get-started-notebooks/pipeline.ipynb?name=update-train_component)]
+
+```python
+# importing the Component Package
+from azure.ai.ml import load_component
+
+# Loading the component from the yml file
+train_component = load_component(source=os.path.join(train_src_dir, "train.yml"))
+```
+
+
+```python
+# Now we register the component to the workspace
+train_component = ml_client.create_or_update(train_component)
+
+# Create (register) the component in your workspace
+print(
+    f"Component {train_component.name} with Version {train_component.version} is registered"
+)
+```
 
 ### Create the pipeline from components
 
 Now that both your components are defined and registered, you can start implementing the pipeline.
 
+
 Here, you use *input data*, *split ratio* and *registered model name* as input variables. Then call the components and connect them via their inputs/outputs identifiers. The outputs of each step can be accessed via the `.outputs` property.
+
 
 The Python functions returned by `load_component()` work as any regular Python function that we use within a pipeline to call each step.
 
@@ -225,13 +585,60 @@ To code the pipeline, you use a specific `@dsl.pipeline` decorator that identifi
 
 Here, we used *input data*, *split ratio* and *registered model name* as input variables. We then call the components and connect them via their inputs/outputs identifiers. The outputs of each step can be accessed via the `.outputs` property.
 
-[!Notebook-python[] (~/azureml-examples-tutorials/tutorials/get-started-notebooks/pipeline.ipynb?name=pipeline)]
+
+```python
+# the dsl decorator tells the sdk that we are defining an Azure Machine Learning pipeline
+from azure.ai.ml import dsl, Input, Output
+
+
+@dsl.pipeline(
+    compute=cpu_compute_target,
+    description="E2E data_perp-train pipeline",
+)
+def credit_defaults_pipeline(
+    pipeline_job_data_input,
+    pipeline_job_test_train_ratio,
+    pipeline_job_learning_rate,
+    pipeline_job_registered_model_name,
+):
+    # using data_prep_function like a python call with its own inputs
+    data_prep_job = data_prep_component(
+        data=pipeline_job_data_input,
+        test_train_ratio=pipeline_job_test_train_ratio,
+    )
+
+    # using train_func like a python call with its own inputs
+    train_job = train_component(
+        train_data=data_prep_job.outputs.train_data,  # note: using outputs from previous step
+        test_data=data_prep_job.outputs.test_data,  # note: using outputs from previous step
+        learning_rate=pipeline_job_learning_rate,  # note: using a pipeline input as parameter
+        registered_model_name=pipeline_job_registered_model_name,
+    )
+
+    # a pipeline returns a dictionary of outputs
+    # keys will code for the pipeline output identifier
+    return {
+        "pipeline_job_train_data": data_prep_job.outputs.train_data,
+        "pipeline_job_test_data": data_prep_job.outputs.test_data,
+    }
+```
 
 Now use your pipeline definition to instantiate a pipeline with your dataset, split rate of choice and the name you picked for your model.
 
-[!Notebook-python[] (~/azureml-examples-tutorials/tutorials/get-started-notebooks/pipeline.ipynb?name=registered_model_name)]
 
-## Submit the job
+```python
+registered_model_name = "credit_defaults_model"
+
+# Let's instantiate the pipeline with the parameters of our choice
+pipeline = credit_defaults_pipeline(
+    pipeline_job_data_input=Input(type="uri_file", path=credit_data.path),
+    pipeline_job_test_train_ratio=0.25,
+    pipeline_job_learning_rate=0.05,
+    pipeline_job_registered_model_name=registered_model_name,
+)
+```
+
+## Submit the job 
 
 It's now time to submit the job to run in Azure Machine Learning. This time you use `create_or_update`  on `ml_client.jobs`.
 
@@ -239,36 +646,49 @@ Here you also pass an experiment name. An experiment is a container for all the 
 
 Once completed, the pipeline registers a model in your workspace as a result of training.
 
-[!Notebook-python[] (~/azureml-examples-tutorials/tutorials/get-started-notebooks/pipeline.ipynb?name=returned_job)]
 
-An output of "False" is expected from the previous cell. You can track the progress of your pipeline, by using the link generated in the previous cell.
+```python
+import webbrowser
 
+# submit the pipeline job
+pipeline_job = ml_client.jobs.create_or_update(
+    pipeline,
+    # Project's name
+    experiment_name="e2e_registered_components",
+)
+# open the pipeline in web browser
+webbrowser.open(pipeline_job.studio_url)
+```
+
+An output of "False" is expected from the previous cell. You can track the progress of your pipeline, by using the link generated in the previous cell. 
 When you select on each component, you see more information about the results of that component.
 There are two important parts to look for at this stage:
-
-- `Outputs+logs` > `user_logs` > `std_log.txt`
+* `Outputs+logs` > `user_logs` > `std_log.txt`
 This section shows the script run sdtout.
-
     :::image type="content" source="media/tutorial-pipeline-python-sdk/user-logs.jpg" alt-text="Screenshot of std_log.txt." lightbox="media/tutorial-pipeline-python-sdk/user-logs.jpg":::
 
 
-- `Outputs+logs` > `Metric`
+* `Outputs+logs` > `Metric`
 This section shows different logged metrics. In this example. mlflow `autologging`, has automatically logged the training metrics.
-
     :::image type="content" source="media/tutorial-pipeline-python-sdk/metrics.jpg" alt-text="Screenshot shows logged metrics.txt." lightbox="media/tutorial-pipeline-python-sdk/metrics.jpg":::
 
 ## Deploy the model as an online endpoint
-
 To learn how to deploy your model to an online endpoint, see [Deploy a model as an online endpoint tutorial](tutorial-deploy-model.md).
+
 
 ## Clean up resources
 
 If you're not going to use the endpoint, delete it to stop using the resource.  Make sure no other deployments are using an endpoint before you delete it.
 
+
 > [!NOTE]
 > Expect this step to take approximately 6 to 8 minutes.
 
-[!Notebook-python[] (~/azureml-examples-tutorials/tutorials/get-started-notebooks/pipeline.ipynb?name=ml_client.online_endpoints.begin_delete)]
+
+```python
+ml_client.online_endpoints.begin_delete(name=online_endpoint_name)
+```
+<!-- nbend -->
 
 ## Next steps
 
