@@ -56,7 +56,7 @@ The following table shows features and corresponding SKUs.
 
 ## Limitations
 
-DDoS Network Protection have the following limitations:
+DDoS Network Protection has the following limitations:
 
 - PaaS services (multi-tenant), which includes Azure App Service Environment for Power Apps, Azure API Management in deployment modes other than those supported above, or Azure Virtual WAN aren't currently supported. 
 - Virtual machines in Classic/RDFE deployments aren't supported.
