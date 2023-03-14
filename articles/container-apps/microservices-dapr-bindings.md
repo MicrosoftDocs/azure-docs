@@ -22,11 +22,11 @@ The service listens to input binding events from a system CRON and then outputs 
 :::image type="content" source="media/microservices-dapr-azd/bindings-quickstart.png" alt-text="Diagram of the Dapr binding application.":::
 
 > [!NOTE]
-> This tutorial uses [Azure Developer CLI (`azd`)](/developer/azure-developer-cli/overview.md), which is currently in preview. Preview features are available on a self-service, opt-in basis. Previews are provided "as is" and "as available," and they're excluded from the service-level agreements and limited warranty. The `azd` previews are partially covered by customer support on a best-effort basis.
+> This tutorial uses [Azure Developer CLI (`azd`)](/azure/developer/azure-developer-cli/overview), which is currently in preview. Preview features are available on a self-service, opt-in basis. Previews are provided "as is" and "as available," and they're excluded from the service-level agreements and limited warranty. The `azd` previews are partially covered by customer support on a best-effort basis.
 
 ## Prerequisites
 
-- Install [Azure Developer CLI](/developer/azure-developer-cli/install-azd.md)
+- Install [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd)
 - [Install](https://docs.dapr.io/getting-started/install-dapr-cli/) and [init](https://docs.dapr.io/getting-started/install-dapr-selfhost/) Dapr
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 - Install [Git](https://git-scm.com/downloads)
@@ -111,7 +111,7 @@ Before deploying the application to Azure Container Apps, start by running the P
 
 ## Deploy the Dapr application template using `azd`
 
-Now that you've run the application locally using PostgreSQL and Docker Compose, let's deploy the Dapr bindings application to Azure Container Apps using [`azd`](/developer/azure-developer-cli/overview.md). During deployment, we will swap the local containerized PostgreSQL for an Azure PostgreSQL component.
+Now that you've run the application locally using PostgreSQL and Docker Compose, let's deploy the Dapr bindings application to Azure Container Apps using [`azd`](/azure/developer/azure-developer-cli/overview). During deployment, we will swap the local containerized PostgreSQL for an Azure PostgreSQL component.
 
 ### Prepare the project
 
@@ -175,7 +175,7 @@ cd bindings-dapr-nodejs-cron-postgres
      - Endpoint: https://your-container-app-endpoint.region.azurecontainerapps.io/
    
    SUCCESS: Your Azure app has been deployed!
-   You can view the resources created under the resource group rg-hh-azd-test in Azure Portal:
+   You can view the resources created under the resource group resource-group-name in Azure Portal:
    https://portal.azure.com/#@/resource/subscriptions/your-subscription-ID/resourceGroups/your-resource-group/overview
    ```
 
@@ -282,7 +282,7 @@ Before deploying the application to Azure Container Apps, start by running the P
 
 ## Deploy the Dapr application template using `azd`
 
-Now that you've run the application locally using PostgreSQL and Docker Compose, let's deploy the Dapr bindings application to Azure Container Apps using [`azd`](/developer/azure-developer-cli/overview.md). During deployment, we will swap the local containerized PostgreSQL for an Azure PostgreSQL component.
+Now that you've run the application locally using PostgreSQL and Docker Compose, let's deploy the Dapr bindings application to Azure Container Apps using [`azd`](/azure/developer/azure-developer-cli/overview). During deployment, we will swap the local containerized PostgreSQL for an Azure PostgreSQL component.
 
 ### Prepare the project
 
@@ -346,7 +346,7 @@ cd bindings-dapr-python-cron-postgres
      - Endpoint: https://your-container-app-endpoint.region.azurecontainerapps.io/
    
    SUCCESS: Your Azure app has been deployed!
-   You can view the resources created under the resource group rg-hh-azd-test in Azure Portal:
+   You can view the resources created under the resource group resource-group-name in Azure Portal:
    https://portal.azure.com/#@/resource/subscriptions/your-subscription-ID/resourceGroups/your-resource-group/overview
    ```
 
@@ -453,7 +453,7 @@ Before deploying the application to Azure Container Apps, start by running the P
 
 ## Deploy the Dapr application template using `azd`
 
-Now that you've run the application locally using PostgreSQL and Docker Compose, let's deploy the Dapr bindings application to Azure Container Apps using [`azd`](/developer/azure-developer-cli/overview.md). During deployment, we will swap the local containerized PostgreSQL for an Azure PostgreSQL component.
+Now that you've run the application locally using PostgreSQL and Docker Compose, let's deploy the Dapr bindings application to Azure Container Apps using [`azd`](/azure/developer/azure-developer-cli/overview). During deployment, we will swap the local containerized PostgreSQL for an Azure PostgreSQL component.
 
 ### Prepare the project
 
@@ -517,7 +517,7 @@ cd bindings-dapr-csharp-cron-postgres
      - Endpoint: https://your-container-app-endpoint.region.azurecontainerapps.io/
    
    SUCCESS: Your Azure app has been deployed!
-   You can view the resources created under the resource group rg-hh-azd-test in Azure Portal:
+   You can view the resources created under the resource group resource-group-name in Azure Portal:
    https://portal.azure.com/#@/resource/subscriptions/your-subscription-ID/resourceGroups/your-resource-group/overview
    ```
 
@@ -557,4 +557,4 @@ azd down
 ## Next steps
 
 - Learn more about [deploying Dapr applications to Azure Container Apps](./microservices-dapr.md).
-- Learn more about [Azure Developer CLI](/developer/azure-developer-cli/overview.md) and [making your applications compatible with `azd`](/developer/azure-developer-cli/make-azd-compatible.md).
+- Learn more about [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) and [making your applications compatible with `azd`](/azure/developer/azure-developer-cli/make-azd-compatible).
