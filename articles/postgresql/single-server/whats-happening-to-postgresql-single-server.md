@@ -166,13 +166,13 @@ Online and Offline migrations are compared in the following table:
 
 | Area | Online migration | Offline migration |
 | ---- | ---------------- | ----------------- |
-|Database availability for reads during migration  |Available  |Available   |
-|Database availability for writing during migration  |Available  |Generally, not recommended. Any ‘writes’ initiated after the migration isn't captured or migrated  |
-|Application Suitability  |Applications that need maximum uptime  |Applications that can afford a planned downtime window or have schema/workload  [restrictions](http://tps//www.postgresql.org/docs/13/logical-replication-restrictions.html) that prohibit online migration |
-|Suitability for Write-heavy workloads  | Suitable but expected to reduce the workload during migration  |Not Applicable. Writes at source after the migration begins aren't replicated to the target.  |
-|Manual Cutover  |Required  |Not required  |
-|Downtime required  |Less  |More  |
-|Migration time  |Depends on Database size and the writing activity until cutover  |Depends on Database size  |
+| Database availability for reads during migration  |Available  |Available   |
+| Database availability for writing during migration  |Available  |Generally, not recommended. Any ‘writes’ initiated after the migration isn't captured or migrated |
+| Application Suitability  |Applications that need maximum uptime  |Applications that can afford a planned downtime window or have schema/workload  [restrictions](https://www.postgresql.org/docs/current/logical-replication-restrictions.html) that prohibit online migration |
+| Suitability for Write-heavy workloads  | Suitable but expected to reduce the workload during migration  |Not Applicable. Writes at source after the migration begins aren't replicated to the target.  |
+| Manual Cutover | Required | Not required |
+| Downtime required | Less | More |
+| Migration time | Depends on Database size and the writing activity until cutover. | Depends on the database size. |
 
 **Q. Are there any recommendations for optimizing the performance of the Single to Flex migration tool?** 
 
@@ -222,8 +222,6 @@ Contact the Azure Database for PostgreSQL product team at [AskAzureDBforPostgreS
 
 > [!WARNING]  
 > This article is not for Azure Database for PostgreSQL - Flexible Server users. It is for Azure Database for PostgreSQL - Single Server customers who need to upgrade to PostgreSQL - Flexible Server.
-
-Visit the **[FAQ](../../dms/faq-postgresql-single-to-flex.md)** for information about using the Azure Database Migration Service (classic) for Azure Database for PostgreSQL - Single Server to Flexible Server migrations.
 
 We know migrating services can be a frustrating experience, and we apologize in advance for any inconvenience this might cause you. You can choose what scenario best works for you and your environment.
 
