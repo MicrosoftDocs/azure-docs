@@ -358,10 +358,10 @@ Add the following code between the `script` tags in *index.html*.
 ```javascript
 async function get() {
 
-  const id = 1;
+  const id = '1';
 
   const gql = `
-    query getById($id: Int!) {
+    query getById($id: ID!) {
       person_by_pk(id: $id) {
         id
         Name
@@ -407,14 +407,15 @@ Add the following code between the `script` tags in *index.html*.
 ```javascript
 async function update() {
 
-  const id = 1;
+  const id = '1';
   const data = {
+    id: id,
     Name: "Molly"
   };
 
   const gql = `
-    mutation update($id: Int!, $item: UpdatePersonInput!) {
-      updatePerson(id: $id, item: $item) {
+    mutation update($id: ID!, $_partitionKeyValue: String!, $item: UpdatePersonInput!) {
+      updatePerson(id: $id, _partitionKeyValue: $_partitionKeyValue, item: $item) {
         id
         Name
       }
@@ -424,6 +425,7 @@ async function update() {
     query: gql,
     variables: {
       id: id,
+      _partitionKeyValue: id,
       item: data
     } 
   };
@@ -464,7 +466,7 @@ Add the following code between the `script` tags in *index.html*.
 async function create() {
 
   const data = {
-    id: "6",
+    id: "3",
     Name: "Pedro"
   };
 
@@ -518,11 +520,11 @@ Add the following code between the `script` tags in *index.html*.
 ```javascript
 async function del() {
 
-  const id = 3;
+  const id = '3';
 
   const gql = `
-    mutation del($id: Int!) {
-      deletePerson(id: $id) {
+    mutation del($id: ID!, $_partitionKeyValue: String!) {
+      deletePerson(id: $id, _partitionKeyValue: $_partitionKeyValue) {
         id
       }
     }`;
@@ -530,7 +532,8 @@ async function del() {
   const query = {
     query: gql,
     variables: {
-      id: id
+      id: id,
+    _partitionKeyValue: id
     }
   };
 
@@ -542,7 +545,7 @@ async function del() {
   });
 
   const result = await response.json();
-  console.log(`Record deleted: ${ result.data.deletePerson.Id }`);
+  console.log(`Record deleted: ${ JSON.stringify(result.data) }`);
 }
 ```
 
