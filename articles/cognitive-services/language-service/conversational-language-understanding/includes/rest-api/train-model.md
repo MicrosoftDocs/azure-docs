@@ -67,4 +67,5 @@ Once you send your API request, you will receive a `202` response indicating suc
 ```rest
 {ENDPOINT}/language/authoring/analyze-conversations/projects/{PROJECT-NAME}/train/jobs/{JOB-ID}?api-version={API-VERSION}
 ``` 
+
 You can use this URL to get the training job status.

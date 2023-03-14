@@ -36,7 +36,7 @@ Use the following header to authenticate your request.
 
 ### Body
 
-Use the following sample JSON as your body.
+The JSON body you send will look similar to the below. See the [reference documentation](/rest/api/language/2022-10-01-preview/conversational-analysis-authoring/import?tabs=HTTP#successful-import-project) for more details about the JSON object.
 
 ```json
 {
@@ -101,3 +101,8 @@ Use the following sample JSON as your body.
 | `multilingual` | `true`| A boolean value that enables you to have documents in multiple languages in your dataset. When your model is deployed, you can query the model in any [supported language](../../language-support.md#multi-lingual-option). This includes languages that aren't included in your training documents.  | `true`|
 | `dataset` | `{DATASET}` |  See [how to train a model](../../how-to/tag-utterances.md) for information on splitting your data between a testing and training set. Possible values for this field are `Train` and `Test`.      |`Train`|
 
+Upon a successful request, the API response will contain an `operation-location` header with a URL you can use to check the status of the import job. It will be formatted like this: 
+
+```http
+{ENDPOINT}/language/authoring/analyze-conversations/projects/{PROJECT-NAME}/import/jobs/{JOB-ID}?api-version={API-VERSION}
+``` 
