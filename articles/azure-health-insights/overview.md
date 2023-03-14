@@ -15,7 +15,7 @@ ms.author: behoorne
 
 The Azure Health Insights is an Azure Applied AI Service built with the Azure Cognitive Services Framework that uses multiple Cognitive Services, Healthcare API services and other Azure resources. 
 
-The Azure Health Insights provides an API that that serves insight models, specific for Health & Life Sciences, that performs analysis and provide inferences to be used by a human. 
+The Azure Health Insights provides an API that that serves models specific for Health & Life Sciences, that performs analysis and provide inferences to be used by a human. 
 
 The models can receive input in different modalities, from one or more patients, and returns insight as a result, with potential reasoning. 
 
