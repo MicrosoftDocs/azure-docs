@@ -58,17 +58,8 @@ The following locations are in the process of being added to the list. For now, 
 
 ## EU Data Boundary
 
-The EU Data Boundary is Microsoft's commitment for our public sector and commercial customers in the EU and EFTA to process and store their customer data in the EU.  
-
-### Services temporarily excluded from the EU Data Boundary
-
-Some services have work in progress to be EU Data Boundary compliant, but this work is delayed beyond January 1, 2023. The services listed will become compliant over the coming months. The following details explain the customer data that these features currently transfer out of the EU Data Boundary as part of their service operations:
-
-* **Reason for customer data egress** - These features haven't completed changes to fully process admin actions and user sign-in actions within the EU Data Boundary.
-* **Types of customer data being egressed** - User account and usage data, and service configuration such as policy.
-* **Customer data location at rest** - In the EU Data Boundary.
-* **Customer data processing** - Some processing may occur globally.
-* **Services** - Administrator actions in the Azure portal or APIs, and User Sign-In Service
+> [!IMPORTANT]
+> For comprehensive details about Microsoft's EU Data Boundary commitment, see [Microsoft's EU Data Boundary documentation](https://learn.microsoft.com/privacy/eudb/eu-data-boundary-learn).
 
 ## Remote profile solution
 

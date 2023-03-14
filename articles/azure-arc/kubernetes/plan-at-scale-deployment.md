@@ -30,7 +30,7 @@ The purpose of this article is to ensure you're prepared for a successful deploy
     - Create a Kubernetes cluster using Docker for [Mac](https://docs.docker.com/docker-for-mac/#kubernetes) or [Windows](https://docs.docker.com/docker-for-windows/#kubernetes)
     - Self-managed Kubernetes cluster using [Cluster API](https://cluster-api.sigs.k8s.io/user/quick-start.html)
 
-* Your machines have connectivity from your on-premises network or other cloud environment to resources in Azure, either directly or through a proxy server. More details can be found under [network prerequisites](quickstart-connect-cluster.md#meet-network-requirements).
+* Your machines have connectivity from your on-premises network or other cloud environment to resources in Azure, either directly or through a proxy server. More details can be found under [network prerequisites](network-requirements.md).
 
 * A `kubeconfig` file pointing to the cluster you want to connect to Azure Arc.
 * 'Read' and 'Write' permissions for the user or service principal creating the Azure Arc-enabled Kubernetes resource type of `Microsoft.Kubernetes/connectedClusters`.

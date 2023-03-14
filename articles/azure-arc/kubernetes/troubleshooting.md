@@ -1,7 +1,8 @@
 ---
 title: "Troubleshoot common Azure Arc-enabled Kubernetes issues"
-ms.date: 01/23/2023
+ms.date: 03/13/2023
 ms.topic: how-to
+ms.custom: devx-track-azurecli
 description: "Learn how to resolve common issues with Azure Arc-enabled Kubernetes clusters and GitOps."
 ---
 
@@ -78,28 +79,13 @@ For more information, see [Debugging DNS Resolution](https://kubernetes.io/docs/
 
 ### Outbound network connectivity issues
 
-Issues with outbound network connectivity from the cluster may arise for different reasons. First make sure all of the [network requirements](quickstart-connect-cluster.md#meet-network-requirements) have been met.
+Issues with outbound network connectivity from the cluster may arise for different reasons. First make sure all of the [network requirements](network-requirements.md) have been met.
 
 If you encounter this issue, and your cluster is behind an outbound proxy server, make sure you have passed proxy parameters during the onboarding of your cluster and that the proxy is configured correctly. For more information, see [Connect using an outbound proxy server](quickstart-connect-cluster.md#connect-using-an-outbound-proxy-server).
 
 ### Unable to retrieve MSI certificate
 
-Problems retrieving the MSI certificate are usually due to network issues. Check to make sure all of the [network requirements](quickstart-connect-cluster.md#meet-network-requirements) have been met, then try again.
-
-### Azure CLI is unable to download Helm chart for Azure Arc agents
-
-With Helm version >= 3.7.0, you may run into the following error when using `az connectedk8s connect` to connect the cluster to Azure Arc:
-
-```azurecli
-az connectedk8s connect -n AzureArcTest -g AzureArcTest
-```
-
-```output
-Unable to pull helm chart from the registry 'mcr.microsoft.com/azurearck8s/batch1/stable/azure-arc-k8sagents:1.4.0': Error: unknown command "chart" for "helm"
-Run 'helm --help' for usage.
-```
-
-To resolve this issue, you'll need to install a prior version of [Helm 3](https://helm.sh/docs/intro/install/), where the version is less than 3.7.0. After you've installed that version, run the `az connectedk8s connect` command again to connect the cluster to Azure Arc.
+Problems retrieving the MSI certificate are usually due to network issues. Check to make sure all of the [network requirements](network-requirements.md) have been met, then try again.
 
 ### Insufficient cluster permissions
 
@@ -183,7 +169,7 @@ To resolve this issue, try the following steps.
    name: azure-identity-certificate
    ```
 
-   To resolve this issue, try deleting the Arc deployment by running the `az connectedk8s delete` command and reinstalling it. If the issue continues to happen, it could be an issue with your proxy settings. In that case, [try connecting your cluster to Azure Arc via a proxy](./quickstart-connect-cluster.md#connect-using-an-outbound-proxy-server) to connect your cluster to Arc via a proxy. Please also verify if all the [network prerequisites](quickstart-connect-cluster.md#meet-network-requirements) have been met.
+   To resolve this issue, try deleting the Arc deployment by running the `az connectedk8s delete` command and reinstalling it. If the issue continues to happen, it could be an issue with your proxy settings. In that case, [try connecting your cluster to Azure Arc via a proxy](./quickstart-connect-cluster.md#connect-using-an-outbound-proxy-server) to connect your cluster to Arc via a proxy. Please also verify if all the [network prerequisites](network-requirements.md) have been met.
 
 4. If the `clusterconnect-agent` and the `config-agent` pods are running, but the `kube-aad-proxy` pod is missing, check your pod security policies. This pod uses the `azure-arc-kube-aad-proxy-sa` service account, which doesn't have admin permissions but requires the permission to mount host path.
 
@@ -487,7 +473,7 @@ az connectedk8s proxy -n AzureArcTest -g AzureArcTest
 Hybrid connection for the target resource does not exist. Agent might not have started successfully.
 ```
 
-Be sure to use the `connectedk8s` Azure CLI extension with version >= 1.2.0, then [connect your cluster again](quickstart-connect-cluster.md) to Azure Arc. Also, verify that you've met all the [network prerequisites](quickstart-connect-cluster.md#meet-network-requirements) needed for Arc-enabled Kubernetes.
+Be sure to use the `connectedk8s` Azure CLI extension with version >= 1.2.0, then [connect your cluster again](quickstart-connect-cluster.md) to Azure Arc. Also, verify that you've met all the [network prerequisites](network-requirements.md) needed for Arc-enabled Kubernetes.
 
 If your cluster is behind an outbound proxy or firewall, verify that websocket connections are enabled for `*.servicebus.windows.net`, which is required specifically for the [Cluster Connect](cluster-connect.md) feature.
 
