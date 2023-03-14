@@ -11,6 +11,7 @@ ms.reviewer: lagayhar
 author: lgayhardt
 ms.date: 08/03/2022
 ms.custom: designer, FY21Q4-aml-seo-hack, contperf-fy21q4, event-tier1-build-2022
+monikerRange: 'azureml-api1 || azureml-api-2'
 ---
 
 # What is Azure Machine Learning designer? 
