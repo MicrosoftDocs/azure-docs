@@ -6,9 +6,8 @@ author: normesta
 
 ms.topic: how-to
 ms.author: normesta
-ms.date: 03/09/2023
+ms.date: 03/14/2023
 ms.service: storage
-ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
 ---
 
@@ -16,30 +15,20 @@ ms.subservice: data-lake-storage-gen2
 
 On **Feb. 29, 2024** Azure Data Lake Storage Gen1 will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/action-required-switch-to-azure-data-lake-storage-gen2-by-29-february-2024/). If you use Azure Data Lake Storage Gen1, make sure to migrate to Azure Data Lake Storage Gen2 prior to that date.
 
-This article shows you how to simplify the migration by using the Azure portal. You can provide your consent in the Azure portal and then migrate your data and metadata (such as timestamps and ACLs) automatically from Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2. For easier reading, this article uses the term *Gen1* to refer to Azure Data Lake Storage Gen1, and the term *Gen2* to refer to Azure Data Lake Storage Gen2.
+This article shows you how to simplify the migration by using the Azure portal. You can provide your consent in the Azure portal and then migrate your data and metadata (such as timestamps and ACLs) automatically from Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2. 
 
-> [!NOTE]
-> Your account may not qualify for portal-based migration based on certain constraints. When the **Migrate data** button is not enabled in the Azure portal for your Gen1 account, if you have a support plan, you can [file a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). You can also get answers from community experts in [Microsoft Q&A](/answers/topics/azure-data-lake-storage.html).
+Here's a video that tells you more about it.
 
-> [!WARNING]
-> Azure Data Lake Storage Gen2 doesn't support Azure Data Lake Analytics. If you're using Azure Data Lake Analytics, you'll need to migrate before proceeding. See [Migrate Azure Data Lake Analytics workloads](#migrate-azure-data-lake-analytics-workloads) for more information.
-
-To migrate to Gen2 using the Azure portal, follow these steps:
-
-Step 1: Assess readiness
-
-- [Verify Azure role-based access control (Azure RBAC) role assignments](#verify-azure-role-based-access-control-azure-rbac-role-assignments)
-- [Migrate Azure Data Lake Analytics workloads](#migrate-azure-data-lake-analytics-workloads) (if any)
-
-Step 2: [Create a storage account with Gen2 capabilities](#create-a-storage-account-with-gen2-capabilities)
-
-Step 3: [Migrate data using the Azure portal](#perform-the-migration)
-
-Step 4: [Migrate workloads and applications](#migrate-workloads-and-applications)
+> [!VIDEO https://learn-video.azurefd.net/vod/player?show=inside-azure-for-it&ep=migrate-azure-data-lake-storage-adls-from-gen1-to-gen2-by-using-the-azure-portal]
 
 Before you start, be sure to read the general guidance on how to migrate from Gen1 to Gen2 in [Azure Data Lake Storage migration guidelines and patterns](data-lake-storage-migrate-gen1-to-gen2.md).
 
-## Create a storage account with Gen2 capabilities
+Your account might not qualify for portal-based migration based on certain constraints. When the **Migrate data** button is not enabled in the Azure portal for your Gen1 account, if you have a support plan, you can [file a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). You can also get answers from community experts in [Microsoft Q&A](/answers/topics/azure-data-lake-storage.html).
+
+> [!NOTE]
+> For easier reading, this article uses the term *Gen1* to refer to Azure Data Lake Storage Gen1, and the term *Gen2* to refer to Azure Data Lake Storage Gen2.
+
+## Step 1: Create a storage account with Gen2 capabilities
 
 Azure Data Lake Storage Gen2 isn't a dedicated storage account or service type. It's a set of capabilities that you can obtain by enabling the **Hierarchical namespace** feature of an Azure storage account. To create an account that has Gen2 capabilities, see [Create a storage account to use with Azure Data Lake Storage Gen2](create-data-lake-storage-account.md).
 
@@ -60,30 +49,30 @@ As you create the account, make sure to configure settings with the following va
 > [!IMPORTANT]
 > Ensure that you use a fresh, newly created storage account that has no history of use. **Don't** migrate to a previously used account or use an account in which containers have been deleted to make the account empty.
 
-## Verify Azure role-based access control (Azure RBAC) role assignments
+## Step 2: Verify Azure role-based access control (Azure RBAC) role assignments
 
 For Gen2, ensure that the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role has been assigned to your Azure Active Directory (Azure AD) user identity in the scope of the storage account, parent resource group, or subscription.
 
 For Gen1, ensure that the [Owner](../../role-based-access-control/built-in-roles.md#owner) role has been assigned to your Azure AD identity in the scope of the Gen1 account, parent resource group, or subscription.
 
-## Migrate Azure Data Lake Analytics workloads
+## Step 3: Migrate Azure Data Lake Analytics workloads
 
 Azure Data Lake Storage Gen2 doesn't support Azure Data Lake Analytics. Azure Data Lake Analytics [will be retired](https://azure.microsoft.com/updates/migrate-to-azure-synapse-analytics/) on February 29, 2024. If you attempt to use the Azure portal to migrate an Azure Data Lake Storage Gen1 account that is used for Azure Data Lake Analytics, it's possible that you'll break your Azure Data Lake Analytics workloads. You must first [migrate your Azure Data Lake Analytics workloads to Azure Synapse Analytics](../../data-lake-analytics/migrate-azure-data-lake-analytics-to-synapse.md) or another supported compute platform before attempting to migrate your Gen1 account.
 
 For more information, see [Manage Azure Data Lake Analytics using the Azure portal](../../data-lake-analytics/data-lake-analytics-manage-use-portal.md).
 
-## Prepare the Gen1 account
+## Step 4: Prepare the Gen1 account
 
 File or directory names with only spaces or tabs, ending with a `.`, containing a `:`, or with multiple consecutive forward slashes (`//`) aren't compatible with Gen2. You need to rename these files or directories before you migrate. 
 
-## Perform the migration
+## Step 5: Perform the migration
 
 Before you begin, review the two migration options below, and decide whether to only copy data from Gen1 to Gen2 (recommended) or perform a complete migration.
 
 > [!NOTE]
 > No matter which option you select, a container named **gen1** will be created in the Gen2-enabled account, and all data from the Gen1 account will be copied to this new **gen1** container. When the migration is complete, in order to find the data on a path that existed on Gen1, you must add the prefix **gen1/** to the same path to access it on Gen2. For example, a path that was named 'FolderRoot/FolderChild/FileName.csv' on Gen1 will be available at 'gen1/FolderRoot/FolderChild/FileName.csv' on Gen2. Container names can't be renamed on Gen2, so this **gen1** container on Gen2 can't be renamed post migration. However, the data can be copied to a new container in Gen2 if needed.
 
-## Choose a migration option
+## Step 6: Choose a migration option
 
 **Option 1: Copy data only (recommended).** In this option, data is copied from Gen1 to Gen2. As the data is being copied, the Gen1 account becomes read-only. After the data is copied, both the Gen1 and Gen2 accounts will be accessible. However, you must update the applications and compute workloads to use the new Gen2 endpoint.
 
@@ -153,7 +142,7 @@ Whichever option you choose, after you've migrated and verified that all your wo
    > [!div class="mx-imgBorder"]
    > ![Migration stop button](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-stop.png)
 
-## Migrate workloads and applications
+## Step 7: Migrate workloads and applications
 
 1. Configure [services in your workloads](./data-lake-storage-supported-azure-services.md) to point to your Gen2 endpoint. For links to articles that help you configure Azure Databricks, HDInsight, and other Azure services to use Gen2, see [Azure services that support Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md).
 
