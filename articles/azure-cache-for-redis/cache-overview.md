@@ -81,7 +81,7 @@ Consider the following options when choosing an Azure Cache for Redis tier:
 - **Network isolation**: Azure Private Link and Virtual Network (VNET) deployments provide enhanced security and traffic isolation for your Azure Cache for Redis. VNET allows you to further restrict access through network access control policies. For more information, see [Azure Cache for Redis with Azure Private Link](cache-private-link.md) and [How to configure Virtual Network support for a Premium Azure Cache for Redis](cache-how-to-premium-vnet.md).
 - **Redis Modules**: Enterprise tiers support [RediSearch](https://docs.redis.com/latest/modules/redisearch/), [RedisBloom](https://docs.redis.com/latest/modules/redisbloom/), [RedisTimeSeries](https://docs.redis.com/latest/modules/redistimeseries/), and [RedisJSON](https://docs.redis.com/latest/modules/redisjson/) (preview). These modules add new data types and functionality to Redis.
 
-You can scale your cache from the Basic tier up to Premium after it has been created. Scaling down to a lower tier isn't supported currently. For step-by-step scaling instructions, see [How to Scale Azure Cache for Redis](cache-how-to-scale.md) and [How to automate a scaling operation](cache-how-to-scale.md#how-to-automate-a-scaling-operation).
+You can scale your cache from the Basic tier up to Premium after it has been created. Scaling down to a lower tier isn't supported currently. For step-by-step scaling instructions, see [How to Scale Azure Cache for Redis](cache-how-to-scale.md) and [How to scale - Basic, Standard, and Premium tiers](cache-how-to-scale.md#how-to-scale---basic-standard-and-premium-tiers).
 
 ### Special considerations for Enterprise tiers
 

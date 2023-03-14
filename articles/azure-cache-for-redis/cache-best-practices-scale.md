@@ -36,7 +36,9 @@ When you scale a cache up or down in the portal, both `maxmemory-reserved` and `
 
 When you scale a cache up or down programmatically, using PowerShell, CLI or Rest API, any `maxmemory-reserved` or `maxfragmentationmemory-reserved` are ignored as part of the update request. Only your scaling change is honored. You can update these memory settings after the scaling operation has completed.
 
-For more information on scaling and memory, see [How to automate a scaling operation](cache-how-to-scale.md#how-to-automate-a-scaling-operation).
+For more information on scaling and memory and depending your tier, see either:
+- [How to scale - Basic, Standard, and Premium tiers](cache-how-to-scale.md#how-to-scale---basic-standard-and-premium-tiers), or 
+- [How to scale up and out - Enterprise and Enterprise Flash tiers](cache-how-to-scale.md#how-to-scale-up-and-out---enterprise-and-enterprise-flash-tiers).
 
 > [!NOTE]
 > When you scale a cache up or down programmatically, any `maxmemory-reserved` or `maxfragmentationmemory-reserved` are ignored as part of the update request. Only your scaling change is honored. You can update these memory settings after the scaling operation has completed.
