@@ -213,7 +213,7 @@ In a new terminal window, navigate into the sample's root directory.
      (✓) Done: Deploying service worker
    
    SUCCESS: Your Azure app has been deployed!
-   You can view the resources created under the resource group rg-hhhhhunter-azd-svc in Azure Portal:
+   You can view the resources created under the resource group rg-name in Azure Portal:
    https://portal.azure.com/#@/resource/subscriptions/<your-azure-subscription>/resourceGroups/rg-name/overview
    ```
 
@@ -426,7 +426,7 @@ Deploy the Dapr application to Azure Container Apps using [`azd`](/developer/azu
      (✓) Done: Deploying service worker
    
    SUCCESS: Your Azure app has been deployed!
-   You can view the resources created under the resource group rg-hhhhhunter-azd-svc in Azure Portal:
+   You can view the resources created under the resource group rg-name in Azure Portal:
    https://portal.azure.com/#@/resource/subscriptions/<your-azure-subscription>/resourceGroups/rg-name/overview
    ```
 
@@ -640,7 +640,7 @@ In a new terminal window, navigate into the [sample's](https://github.com/Azure-
      (✓) Done: Deploying service worker
    
    SUCCESS: Your Azure app has been deployed!
-   You can view the resources created under the resource group rg-hhhhhunter-azd-svc in Azure Portal:
+   You can view the resources created under the resource group rg-name in Azure Portal:
    https://portal.azure.com/#@/resource/subscriptions/<your-azure-subscription>/resourceGroups/rg-name/overview
    ```
 
