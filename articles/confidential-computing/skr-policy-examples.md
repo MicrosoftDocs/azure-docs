@@ -12,9 +12,9 @@ ms.author: amgowda
 
 # Secure Key Release Policy (SKR) Examples for Confidential Computing (ACC)
 
-SKR can only release exportable marked keys based on the Microsoft Azure Attestation (MAA) generated claims. There's a tight integration on the SKR policy definition to MAA claims. MAA claims by trusted execution environment (TEE)can be found [here.](../attestation/attestation-token-examples.md)
+SKR can only release exportable marked keys based on the Microsoft Azure Attestation (MAA) generated claims. There's a tight integration on the SKR policy definition to MAA claims. MAA claims by trusted execution environment (TEE) can be found [here.](../attestation/attestation-token-examples.md)
 
-Follow the policy [grammer](../key-vault/keys/policy-grammar.md) for more examples on how you can customize the SKR policies. 
+Follow the policy [grammar](../key-vault/keys/policy-grammar.md) for more examples on how you can customize the SKR policies. 
 
 ## Intel SGX Application Enclaves SKR policy examples
 
@@ -94,7 +94,7 @@ Follow the policy [grammer](../key-vault/keys/policy-grammar.md) for more exampl
 
 ## Confidential VM AMD SEV-SNP based VM TEE SKR policy examples
 
-**Example 1:** A SKR policy that validates if this is azure compliant CVM and is running on a genuine AMD SEV-SNP hardware and the MAA URL authority is spread across many regions.
+**Example 1:** A SKR policy that validates if this is Azure compliant CVM and is running on a genuine AMD SEV-SNP hardware and the MAA URL authority is spread across many regions.
 
 ```json
 {
@@ -131,7 +131,7 @@ Follow the policy [grammer](../key-vault/keys/policy-grammar.md) for more exampl
 
 ```
 
-**Example 2:** A SKR policy that validates if the CVM is an Azure compliant CVM and is running on a genuine AMD SEV-SNP hardware and is of a known Virtual Machine ID. (VMIDs are unique across azure)
+**Example 2:** A SKR policy that validates if the CVM is an Azure compliant CVM and is running on a genuine AMD SEV-SNP hardware and is of a known Virtual Machine ID. (VMIDs are unique across Azure)
 
 ```json
 {
