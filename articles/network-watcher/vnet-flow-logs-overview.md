@@ -56,7 +56,7 @@ Key properties of VNet flow logs include:
 
 ## Log format
 
-:::image type="content" source="./media/vnet-flow-logs-overview/vnet-flow-log-format.png" alt-text="Table showing the format of a virtual network flow log.":::
+:::image type="content" source="media/vnet-flow-logs-overview/vnet-flow-log-format.png" alt-text="Table showing the format of a virtual network flow log."lightbox="media/vnet-flow-logs-overview/vnet-flow-log-format.png"
 
 VNet flow logs have the following properties:
 
