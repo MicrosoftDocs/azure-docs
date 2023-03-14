@@ -54,17 +54,19 @@ The following error types are available:
 
 - `InteractionRequiredAuthError`: Error class, extends `ServerError` to represent server errors, which require an interactive call. This error is thrown by `acquireTokenSilent` if the user is required to interact with the server to provide credentials or consent for authentication/authorization. Error codes include `"interaction_required"`, `"login_required"`, and `"consent_required"`.
 
-For error handling in authentication flows with redirect methods (`loginRedirect`, `acquireTokenRedirect`), you'll need to register the callback, which is called with success or failure after the redirect using `handleRedirectCallback()` method as follows:
+For error handling in authentication flows with redirect methods (`loginRedirect`, `acquireTokenRedirect`), you'll need to handle the promise, which is called with success or failure after the redirect using `handleRedirectPromise()` method as follows:
 
 ```javascript
-function authCallback(error, response) {
-    //handle redirect response
-}
-
-var myMSALObj = new Msal.UserAgentApplication(msalConfig);
+var myMSALObj = new Msal.PublicClientApplication(msalConfig);
 
 // Register Callbacks for redirect flow
-myMSALObj.handleRedirectCallback(authCallback);
+myMSALObj.handleRedirectPromise()
+    .then(function (response) {
+        //success response
+    })
+    .catch((error) => {
+        console.log(error);
+    })
 myMSALObj.acquireTokenRedirect(request);
 ```
 
@@ -140,13 +142,65 @@ myMSALObj.acquireTokenSilent(accessTokenRequest).then(function(accessTokenRespon
 
 Interactively acquiring the token prompts the user and gives them the opportunity to satisfy the required Conditional Access policy.
 
-When calling an API requiring Conditional Access, you can receive a claims challenge in the error from the API. In this case, you can pass the claims returned in the error to the `claimsRequest` field of the `AuthenticationParameters.ts` class to satisfy the appropriate policy. 
+When calling an API requiring Conditional Access, you can receive a claims challenge in error from the API. In this case, you can extract the claims challenge from the `WWW-Authenticate` header from the API error response object as shown in the `handleClaimsChallenge` method.
 
-See [Requesting Additional Claims](active-directory-optional-claims.md) for more detail.
+```javascript
+fetch(apiEndpoint, options)
+    .catch((response) => {
+        if (response.status === 401 && response.headers.get('www-authenticate')) {
+
+            const authenticateHeader = response.headers.get('www-authenticate');
+            const claimsChallenge = parseChallenges(authenticateHeader).claims;
+            // use the claims challenge to acquire a new access token...
+        }
+    })
+
+/**
+ * This method parses WWW-Authenticate authentication headers
+ * @param header
+ * @return {Object} challengeMap
+ */
+const parseChallenges = (header) => {
+    const schemeSeparator = header.indexOf(' ');
+    const challenges = header.substring(schemeSeparator + 1).split(', ');
+    const challengeMap = {};
+
+    challenges.forEach((challenge) => {
+        const [key, value] = challenge.split('=');
+        challengeMap[key.trim()] = window.decodeURI(value.replace(/(^"|"$)/g, ''));
+    });
+
+    return challengeMap;
+}
+```
+
+Then pass the claims returned in the respond error to the request object in the `acquireToken` APIs to receive a new token that contains the claims.
+
+```javascript
+const accessTokenRequest = {
+    claims: window.atob(claimsChallenge), // decode the base64 string
+    scopes: [],
+};
+
+myMSALObj.acquireTokenSilent(accessTokenRequest).then(function(accessTokenResponse) {
+    // call API
+}).catch(function(error) {
+    if (error instanceof InteractionRequiredAuthError) {
+        
+        myMSALObj.acquireTokenPopup(accessTokenRequest).then(function(accessTokenResponse) {
+            // call API
+        }).catch(function(error) {
+            console.log(error);
+        });
+    }
+});
+```
+
+See [Requesting Additional Claims](active-directory-optional-claims.md) and [How to use Continuous Access Evaluation enabled APIs in your applications](./app-resilience-continuous-access-evaluation.md) for more detail.
 
 
 [!INCLUDE [Active directory error handling retries](../../../includes/active-directory-develop-error-handling-retries.md)]
 
 ## Next steps
 
-Consider enabling [Logging in MSAL.js](msal-logging-js.md) to help you diagnose and debug issues.
+Consider enabling [Logging in MSAL.js](msal-logging-js.md) to help you diagnose and debug issues
