@@ -1,6 +1,6 @@
 ---
-title: "Oracle Cloud Infrastructure (using Azure Function) connector for Microsoft Sentinel"
-description: "Learn how to install the connector Oracle Cloud Infrastructure (using Azure Function) to connect your data source to Microsoft Sentinel."
+title: "Oracle Cloud Infrastructure (using Azure Functions) connector for Microsoft Sentinel"
+description: "Learn how to install the connector Oracle Cloud Infrastructure (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
 ms.date: 02/23/2023
@@ -8,7 +8,7 @@ ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# Oracle Cloud Infrastructure (using Azure Function) connector for Microsoft Sentinel
+# Oracle Cloud Infrastructure (using Azure Functions) connector for Microsoft Sentinel
 
 The Oracle Cloud Infrastructure (OCI) data connector provides the capability to ingest OCI Logs from [OCI Stream](https://docs.oracle.com/iaas/Content/Streaming/Concepts/streamingoverview.htm) into Microsoft Sentinel using the [OCI Streaming REST API](https://docs.oracle.com/iaas/api/#/streaming/streaming/20180418).
 
@@ -16,7 +16,7 @@ The Oracle Cloud Infrastructure (OCI) data connector provides the capability to 
 
 | Connector attribute | Description |
 | --- | --- |
-| **Azure function app code** | https://aka.ms/sentinel-OracleCloudInfrastructureLogsConnector-functionapp |
+| **Azure functions app code** | https://aka.ms/sentinel-OracleCloudInfrastructureLogsConnector-functionapp |
 | **Log Analytics table(s)** | OCI_Logs_CL<br/> |
 | **Data collection rules support** | Not currently supported |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
@@ -34,7 +34,7 @@ OCI_Logs_CL
 
 ## Prerequisites
 
-To integrate with Oracle Cloud Infrastructure (using Azure Function) make sure you have: 
+To integrate with Oracle Cloud Infrastructure (using Azure Functions) make sure you have: 
 
 - **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
 - **OCI API Credentials**:  **API Key Configuration File** and **Private Key** are required for OCI API connection. See the documentation to learn more about [creating keys for API access](https://docs.oracle.com/en-us/iaas/Content/API/Concepts/apisigningkey.htm)
