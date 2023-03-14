@@ -479,9 +479,9 @@ Use the Azure portal to add a scoring profile to the existing hotels-sample-inde
 
 ## Next steps
 
-In this tutorial, you create an ASP.NET Core (MVC) project that connects to a search service and calls Search APIs for server-side filtering and sorting.
+In this tutorial, you created an ASP.NET Core (MVC) project that connected to a search service and called Search APIs for server-side filtering and sorting.
 
-If you want to explore client-side operations that respond to user actions, consider adding a React template to your solution:
+If you want to explore client-side code that respond to user actions, consider adding a React template to your solution:
 
 > [!div class="nextstepaction"]
 > [C# Tutorial: Add search to a website with .NET](tutorial-csharp-overview.md)
