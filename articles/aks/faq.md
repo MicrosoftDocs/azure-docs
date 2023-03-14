@@ -313,8 +313,8 @@ Any patch, including security patches, is automatically applied to the AKS clust
 
 The AKS Linux Extension is an Azure VM extension whose purpose is to install and configure monitoring tools on Kubernetes worker nodes. The extension is installed on all new and existing Linux nodes. It configures the following monitoring tools:  
 
-- [Node-exporter](https://github.com/prometheus/node_exporter): collects hardware telemetry from the virtual machine and makes it available via a metrics endpoint. These metrics are then able to be scraped by a monitoring tool such as Prometheus.
-- [Node-problem-detector](https://github.com/kubernetes/node-problem-detector): aims to make various node problems visible to upstream layers in the cluster management stack. It is a systemd unit that runs on each node, detects node problems, and reports them to the cluster’s API server via Events and NodeConditions.
+- [Node-exporter](https://github.com/prometheus/node_exporter): collects hardware telemetry from the virtual machine and makes it available using a metrics endpoint. These metrics are then able to be scraped by a monitoring tool such as Prometheus.
+- [Node-problem-detector](https://github.com/kubernetes/node-problem-detector): aims to make various node problems visible to upstream layers in the cluster management stack. It is a systemd unit that runs on each node, detects node problems, and reports them to the cluster’s API server using Events and NodeConditions.
 - [Local-gadget](https://www.inspektor-gadget.io/docs/latest/local-gadget/): uses in-kernel eBPF helper programs to monitor events mainly related to syscalls from userspace programs in a pod.
 
 These tools assist in providing observability around many node health related problems such as: 
@@ -324,7 +324,7 @@ These tools assist in providing observability around many node health related pr
 - Kernel issues: Kernel deadlock, corrupted file system
 - Container runtime issues: Unresponsive runtime daemon 
 
-The extension **does not** require any additional outbound access to any URLs, IP Address or Port beyond the AKS egress requirements that are documented [here](./limit-egress-traffic.md) nor does the extension require any special permissions at the Azure level. It uses kubeconfig to connect to the API server to send the information/telemetry.
+The extension **does not** require any additional outbound access to any URLs, IP addresses, or ports beyond the AKS egress requirements that are documented [here](./limit-egress-traffic.md). It does not require any special permissions granted in Azure. It uses kubeconfig to connect to the API server to send the monitoring data collected.
 
 <!-- LINKS - internal -->
 
