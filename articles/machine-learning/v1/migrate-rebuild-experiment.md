@@ -71,7 +71,7 @@ Now that your compute target is set, you can submit a pipeline job:
     Experiments organize similar pipeline jobs together. If you run a pipeline multiple times, you can select the same experiment for successive jobs. This is useful for logging and tracking.
 1. Enter an experiment name. Then, select **Submit**.
 
-    The first job may take up to 20 minutes. Since the default compute settings have a minimum node size of 0, the designer must allocate resources after being idle. Successive jobs take less time, since the nodes are already allocated. To speed up the running time, you can create a compute resources with a minimum node size of 1 or greater.
+    The first job may take up to 20 minutes. Since the default compute settings have a minimum node size of 0, the designer must allocate resources after being idle. Successive jobs take less time, since the nodes are already allocated. To speed up the running time, you can create a compute resource with a minimum node size of 1 or greater.
 
 After the job finishes, you can check the results of each module:
 
