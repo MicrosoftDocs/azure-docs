@@ -18,7 +18,7 @@ The Trend Micro TippingPoint connector allows you to easily connect your Tipping
 | --- | --- |
 | **Kusto function url** | https://aka.ms/sentinel-trendmicrotippingpoint-function |
 | **Log Analytics table(s)** | CommonSecurityLog (TrendMicroTippingPoint)<br/> |
-| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
+| **Data collection rules support** | [Workspace transform DCR](../../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Supported by** | [Trend Micro](https://success.trendmicro.com/dcx/s/contactus?language=en_US) |
 
 ## Query samples

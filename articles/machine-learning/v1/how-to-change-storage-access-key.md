@@ -14,22 +14,22 @@ ms.custom: cliv1, sdkv1, event-tier1-build-2022, ignite-2022
 ---
 
 # Regenerate storage account access keys
-[!INCLUDE [cli v1](../../includes/machine-learning-dev-v1.md)]
+[!INCLUDE [cli v1](../../../includes/machine-learning-dev-v1.md)]
 
 Learn how to change the access keys for Azure Storage accounts used by Azure Machine Learning. Azure Machine Learning can use storage accounts to store data or trained models.
 
 For security purposes, you may need to change the access keys for an Azure Storage account. When you regenerate the access key, Azure Machine Learning must be updated to use the new key. Azure Machine Learning may be using the storage account for both model storage and as a datastore.
 
 > [!IMPORTANT]
-> Credentials registered with datastores are saved in your Azure Key Vault associated with the workspace. If you have [soft-delete](../key-vault/general/soft-delete-overview.md) enabled for your Key Vault, this article provides instructions for updating credentials. If you unregister the datastore and try to re-register it under the same name, this action will fail. See [Turn on Soft Delete for an existing key vault](../key-vault/general/soft-delete-change.md#turn-on-soft-delete-for-an-existing-key-vault) for how to enable soft delete in this scenario.
+> Credentials registered with datastores are saved in your Azure Key Vault associated with the workspace. If you have [soft-delete](../../key-vault/general/soft-delete-overview.md) enabled for your Key Vault, this article provides instructions for updating credentials. If you unregister the datastore and try to re-register it under the same name, this action will fail. See [Turn on Soft Delete for an existing key vault](../../key-vault/general/soft-delete-change.md#turn-on-soft-delete-for-an-existing-key-vault) for how to enable soft delete in this scenario.
 
 ## Prerequisites
 
-* An Azure Machine Learning workspace. For more information, see the [Create workspace resources](quickstart-create-resources.md) article.
+* An Azure Machine Learning workspace. For more information, see the [Create workspace resources](../quickstart-create-resources.md) article.
 
 * The [Azure Machine Learning SDK](/python/api/overview/azure/ml/install).
 
-* The [Azure Machine Learning CLI extension v1](v1/reference-azure-machine-learning-cli.md).
+* The [Azure Machine Learning CLI extension v1](reference-azure-machine-learning-cli.md).
 
 > [!NOTE]
 > The code snippets in this document were tested with version 1.0.83 of the Python SDK.
@@ -82,7 +82,7 @@ To update Azure Machine Learning to use the new key, use the following steps:
 > [!IMPORTANT]
 > Perform all steps, updating both the workspace using the CLI, and datastores using Python. Updating only one or the other may cause errors until both are updated.
 
-1. Regenerate the key. For information on regenerating an access key, see [Manage storage account access keys](../storage/common/storage-account-keys-manage.md). Save the new key.
+1. Regenerate the key. For information on regenerating an access key, see [Manage storage account access keys](../../storage/common/storage-account-keys-manage.md). Save the new key.
 
 1. The Azure Machine Learning workspace will automatically synchronize the new key and begin using it after an hour. To force the workspace to synch to the new key immediately, use the following steps:
 
@@ -92,7 +92,7 @@ To update Azure Machine Learning to use the new key, use the following steps:
         az login
         ```
 
-        [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)]
+        [!INCLUDE [select-subscription](../../../includes/machine-learning-cli-subscription.md)]
 
     1. To update the workspace to use the new key, use the following command. Replace `myworkspace` with your Azure Machine Learning workspace name, and replace `myresourcegroup` with the name of the Azure resource group that contains the workspace.
 
@@ -100,7 +100,7 @@ To update Azure Machine Learning to use the new key, use the following steps:
         az ml workspace sync-keys -w myworkspace -g myresourcegroup
         ```
 
-        [!INCLUDE [install extension](../../includes/machine-learning-service-install-extension.md)]
+        [!INCLUDE [install extension](../../../includes/machine-learning-service-install-extension.md)]
 
         This command automatically syncs the new keys for the Azure storage account used by the workspace.
 

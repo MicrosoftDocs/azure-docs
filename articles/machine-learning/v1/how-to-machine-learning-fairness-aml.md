@@ -15,18 +15,18 @@ ms.custom: devx-track-python, responsible-ml, sdkv1, event-tier1-build-2022
 
 # Use Azure Machine Learning with the Fairlearn open-source package to assess the fairness of ML models (preview)
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 In this how-to guide, you will learn to use the [Fairlearn](https://fairlearn.github.io/) open-source Python package with Azure Machine Learning to perform the following tasks:
 
-* Assess the fairness of your model predictions. To learn more about fairness in machine learning, see the [fairness in machine learning article](concept-fairness-ml.md).
+* Assess the fairness of your model predictions. To learn more about fairness in machine learning, see the [fairness in machine learning article](../concept-fairness-ml.md).
 * Upload, list and download fairness assessment insights to/from Azure Machine Learning studio.
 * See a fairness assessment dashboard in Azure Machine Learning studio to interact with your model(s)' fairness insights.
 
 >[!NOTE]
 > Fairness assessment is not a purely technical exercise. **This package can help you assess the fairness of a machine learning model, but only you can configure and make decisions as to how the model performs.**  While this package helps to identify quantitative metrics to assess fairness, developers of machine learning models must also perform a qualitative analysis to evaluate the fairness of their own models.
 
-[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+[!INCLUDE [machine-learning-preview-generic-disclaimer](../../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## Azure Machine Learning Fairness SDK 
 
@@ -348,6 +348,6 @@ Uploading multiple models' fairness insights in a single Run allows for comparis
 
 ## Next steps
 
-[Learn more about model fairness](concept-fairness-ml.md)
+[Learn more about model fairness](../concept-fairness-ml.md)
 
 [Check out Azure Machine Learning Fairness sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness)
