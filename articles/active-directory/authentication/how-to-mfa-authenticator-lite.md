@@ -97,8 +97,8 @@ If the sign-in was done by phone app notification, under **authenticationAppDeiv
 
 If a user has registered Authenticator Lite, the user’s registered authentication methods include **Microsoft Authenticator (in Outlook)**. 
 
-## Push Notifications in Authenticator Lite
-Push Notifications sent by Authenticator Lite aren't configurable and don't depend on the Authenticator feature settings. The settings for features included in the Authenticator Lite experience are listed in the following table. 
+## Push notifications in Authenticator Lite
+Push notifications sent by Authenticator Lite aren't configurable and don't depend on the Authenticator feature settings. The settings for features included in the Authenticator Lite experience are listed in the following table. 
 
 | Authenticator Feature    | Authenticator Lite Experience|
 |:------------------------:|:----------------------------:|
@@ -110,13 +110,13 @@ The following screenshots show what users see when Authenticator Lite sends a pu
 
 :::image type="content" border="true" source="./media/how-to-mfa-authenticator-lite/notification.png" alt-text="Screenshot of push notification in Outlook mobile.":::
 
-## AD FS adapters and NPS extensions 
+## AD FS adapter and NPS extension 
 
 Authenticator Lite enforces number matching in every authentication. If your tenant is using an AD FS adapter or an NPS extension, your users may not be able to complete Authenticator Lite notifications. For more information, see [AD FS adapter](how-to-mfa-number-match.md#ad-fs-adapter) and [NPS extension](how-to-mfa-number-match.md#nps-extension).
 
 To learn more about verification notifications, see [Microsoft Authenticator authentication method](concept-authentication-authenticator-app.md).
 
-## FAQs 
+## Common questions
 
 ### Does Authenticator Lite work as a broker app?
 No, Authenticator Lite is only available for push notifications and TOTP. 
