@@ -81,7 +81,7 @@ Content-Type: application/json
 
 
 ## User Registration
-If enabled for Authenticator Lite, users are prompted to register their account directly from Outlook mobile. Authenticator Lite registration isn't available by using [MySignIns](https://aka.ms/mysignins). Users can also enable or disable Authenticator Lite from within Outlook mobile. For more information about the user experience, please visit the [Authenticator Lite support page](https://aka.ms/authappliteuserdocs). 
+If enabled for Authenticator Lite, users are prompted to register their account directly from Outlook mobile. Authenticator Lite registration isn't available by using [MySignIns](https://aka.ms/mysignins). Users can also enable or disable Authenticator Lite from within Outlook mobile. For more information about the user experience, see [Authenticator Lite support](https://aka.ms/authappliteuserdocs). 
 
 
 :::image type="content" border="true" source="./media/how-to-mfa-authenticator-lite/registration.png" alt-text="Screenshot of how to register Authenticator Lite.":::
