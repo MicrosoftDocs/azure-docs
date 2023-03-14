@@ -216,7 +216,7 @@ mlflow.end_run()
 
 ## Examine results
 
-Now that you've tried two different models, use the results tracked with `MLflow` to decide which model is better. You can dive into these results in more details by looking at the jobs created by `MLflow`.
+Now that you've tried two different models, use the results tracked by `MLFfow` to decide which model is better. You can reference metrics like accuracy, or other indicators that matter most for your scenarios. You can dive into these results in more detail by looking at the jobs created by `MLflow`.
 
 1. On the left navigation, select **Jobs**.
 
