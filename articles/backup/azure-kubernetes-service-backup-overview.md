@@ -55,8 +55,8 @@ Azure Backup provides an instant restore experience because the snapshots are st
 
 You won't incur any management charges or instance fee when using AKS backup for Operational Tier in preview. However, you'll incur the  charges for:
 
-1. Retention of backup data stored in the blob container. 
-1. Disk-based persistent volume snapshots are created by AKS backup are stored in the resource group in your Azure subscription and incur Snapshot Storage charges. Because the snapshots aren't copied to the Backup vault, Backup Storage cost doesn't apply. For more information on the snapshot pricing, see [Managed Disk Pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
+- Retention of backup data stored in the blob container. 
+- Disk-based persistent volume snapshots are created by AKS backup are stored in the resource group in your Azure subscription and incur Snapshot Storage charges. Because the snapshots aren't copied to the Backup vault, Backup Storage cost doesn't apply. For more information on the snapshot pricing, see [Managed Disk Pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 AKS backup uses incremental snapshots of the Disk-based persistent volumes. Incremental snapshots are charged *per GiB of the storage occupied by the delta changes* since the last snapshot. For example, if you're using a disk-based persistent volume with a provisioned size of *128 GiB*, with *100 GiB* used, then the first incremental snapshot is charged only for the used size of *100 GiB*. *20 GiB* of data is added on the disk before you create the second snapshot. Now, the second incremental snapshot is charged for only *20 GiB*.
 
