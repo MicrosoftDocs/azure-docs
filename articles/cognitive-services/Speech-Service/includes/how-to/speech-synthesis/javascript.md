@@ -50,18 +50,18 @@ function synthesizeSpeech() {
     const speechConfig = sdk.SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
     const audioConfig = sdk.AudioConfig.fromDefaultSpeakerOutput();
 
-    const synthesizer = new SpeechSynthesizer(speechConfig, audioConfig);
-    synthesizer.speakTextAsync(
+    const speechSynthesizer = new SpeechSynthesizer(speechConfig, audioConfig);
+    speechSynthesizer.speakTextAsync(
         "I'm excited to try text to speech",
         result => {
             if (result) {
-                synthesizer.close();
+                speechSynthesizer.close();
                 return result.audioData;
             }
         },
         error => {
             console.log(error);
-            synthesizer.close();
+            speechSynthesizer.close();
         });
 }
 ```
@@ -84,18 +84,18 @@ function synthesizeSpeech() {
 }
 ```
 
-Next, instantiate a `SpeechSynthesizer` instance. Pass your `speechConfig` and `audioConfig` objects as parameters. Now, writing synthesized speech to a file is as simple as running `speakTextAsync()` with a string of text. The result callback is a great place to call `synthesizer.close()`. The call to `synthesizer.close()` is needed for synthesis to function correctly.
+Next, instantiate a `SpeechSynthesizer` instance. Pass your `speechConfig` and `audioConfig` objects as parameters. Now, writing synthesized speech to a file is as simple as running `speakTextAsync()` with a string of text. The result callback is a great place to call `speechSynthesizer.close()`. The call to `speechSynthesizer.close()` is needed for synthesis to function correctly.
 
 ```javascript
 function synthesizeSpeech() {
     const speechConfig = sdk.SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
     const audioConfig = sdk.AudioConfig.fromAudioFileOutput("path-to-file.wav");
 
-    const synthesizer = new SpeechSynthesizer(speechConfig, audioConfig);
-    synthesizer.speakTextAsync(
+    const speechSynthesizer = new SpeechSynthesizer(speechConfig, audioConfig);
+    speechSynthesizer.speakTextAsync(
         "I'm excited to try text-to-speech",
         result => {
-            synthesizer.close();
+            speechSynthesizer.close();
             if (result) {
                 // return result as stream
                 return fs.createReadStream("path-to-file.wav");
@@ -103,7 +103,7 @@ function synthesizeSpeech() {
         },
         error => {
             console.log(error);
-            synthesizer.close();
+            speechSynthesizer.close();
         });
 }
 ```
@@ -134,17 +134,17 @@ The following code works for the client side:
 ```javascript
 function synthesizeSpeech() {
     const speechConfig = sdk.SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
-    const synthesizer = new sdk.SpeechSynthesizer(speechConfig);
+    const speechSynthesizer = new sdk.SpeechSynthesizer(speechConfig);
 
-    synthesizer.speakTextAsync(
+    speechSynthesizer.speakTextAsync(
         "I'm excited to try text-to-speech",
         result => {
-            synthesizer.close();
+            speechSynthesizer.close();
             return result.audioData;
         },
         error => {
             console.log(error);
-            synthesizer.close();
+            speechSynthesizer.close();
         });
 }
 ```
@@ -156,14 +156,14 @@ For any server-based code, if you need to work with the data as a stream, you ne
 ```javascript
 function synthesizeSpeech() {
     const speechConfig = sdk.SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
-    const synthesizer = new sdk.SpeechSynthesizer(speechConfig);
+    const speechSynthesizer = new sdk.SpeechSynthesizer(speechConfig);
 
-    synthesizer.speakTextAsync(
+    speechSynthesizer.speakTextAsync(
         "I'm excited to try text-to-speech",
         result => {
             const { audioData } = result;
 
-            synthesizer.close();
+            speechSynthesizer.close();
 
             // convert arrayBuffer to stream
             // return stream
@@ -173,7 +173,7 @@ function synthesizeSpeech() {
         },
         error => {
             console.log(error);
-            synthesizer.close();
+            speechSynthesizer.close();
         });
 }
 ```
@@ -193,17 +193,17 @@ The following code works for the client side:
 ```javascript
 function synthesizeSpeech() {
     const speechConfig = sdk.SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
-    const synthesizer = new sdk.SpeechSynthesizer(speechConfig);
+    const speechSynthesizer = new sdk.SpeechSynthesizer(speechConfig);
 
-    synthesizer.speakTextAsync(
+    speechSynthesizer.speakTextAsync(
         "I'm excited to try text-to-speech",
         result => {
-            synthesizer.close();
+            speechSynthesizer.close();
             return result.audioData;
         },
         error => {
             console.log(error);
-            synthesizer.close();
+            speechSynthesizer.close();
         });
 }
 ```
@@ -215,14 +215,14 @@ For any server-based code, if you need to work with the data as a stream, you ne
 ```javascript
 function synthesizeSpeech() {
     const speechConfig = sdk.SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
-    const synthesizer = new sdk.SpeechSynthesizer(speechConfig);
+    const speechSynthesizer = new sdk.SpeechSynthesizer(speechConfig);
 
-    synthesizer.speakTextAsync(
+    speechSynthesizer.speakTextAsync(
         "I'm excited to try text-to-speech",
         result => {
             const { audioData } = result;
 
-            synthesizer.close();
+            speechSynthesizer.close();
 
             // convert arrayBuffer to stream
             const bufferStream = new PassThrough();
@@ -231,7 +231,7 @@ function synthesizeSpeech() {
         },
         error => {
             console.log(error);
-            synthesizer.close();
+            speechSynthesizer.close();
         });
 }
 ```
@@ -262,19 +262,19 @@ function synthesizeSpeech() {
     // Set the output format
     speechConfig.speechSynthesisOutputFormat = sdk.SpeechSynthesisOutputFormat.Riff24Khz16BitMonoPcm;
 
-    const synthesizer = new sdk.SpeechSynthesizer(speechConfig, null);
-    synthesizer.speakTextAsync(
+    const speechSynthesizer = new sdk.SpeechSynthesizer(speechConfig, null);
+    speechSynthesizer.speakTextAsync(
         "I'm excited to try text-to-speech",
         result => {
             // Interact with the audio ArrayBuffer data
             const audioData = result.audioData;
             console.log(`Audio data byte size: ${audioData.byteLength}.`)
 
-            synthesizer.close();
+            speechSynthesizer.close();
         },
         error => {
             console.log(error);
-            synthesizer.close();
+            speechSynthesizer.close();
         });
 }
 ```
@@ -309,10 +309,10 @@ For more information on `readFileSync`, see <a href="https://nodejs.org/api/fs.h
 ```javascript
 function synthesizeSpeech() {
     const speechConfig = sdk.SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
-    const synthesizer = new sdk.SpeechSynthesizer(speechConfig, null);
+    const speechSynthesizer = new sdk.SpeechSynthesizer(speechConfig, null);
 
     const ssml = xmlToString("ssml.xml");
-    synthesizer.speakSsmlAsync(
+    speechSynthesizer.speakSsmlAsync(
         ssml,
         result => {
             if (result.errorDetails) {
@@ -321,11 +321,11 @@ function synthesizeSpeech() {
                 console.log(JSON.stringify(result));
             }
 
-            synthesizer.close();
+            speechSynthesizer.close();
         },
         error => {
             console.log(error);
-            synthesizer.close();
+            speechSynthesizer.close();
         });
 }
 ```

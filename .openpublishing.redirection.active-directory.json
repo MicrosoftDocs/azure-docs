@@ -76,6 +76,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/saas-apps/usertesting-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/saas-apps/otsuka-shokai-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
       "redirect_document_id": false
@@ -4405,7 +4410,7 @@
       "source_path_from_root": "/articles/active-directory/reports-monitoring/recommendations-integrate-third-party-apps.md",
       "redirect_url": "/azure/active-directory/reports-monitoring/overview-recommendations",
       "redirect_document_id": false
-     },
+    },
     {
       "source_path_from_root": "/articles/active-directory/reports-monitoring/workbook-legacy authentication.md",
       "redirect_url": "/azure/active-directory/reports-monitoring/workbook-legacy-authentication",
@@ -10934,6 +10939,11 @@
     {
       "source_path_from_root": "/articles/active-directory-b2c/tenant-management.md",
       "redirect_url": "/azure/active-directory-b2c/tenant-management-add-administrator",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-b2c/support-options.md",
+      "redirect_url": "/azure/active-directory-b2c/find-help-open-support-ticket",
       "redirect_document_id": false
     },
     {

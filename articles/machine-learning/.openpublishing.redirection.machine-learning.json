@@ -1,9 +1,19 @@
 {
     "redirections": [
     {
-    "source_path_from_root": "/articles/machine-learning/how-to-train-with-custom-image.md",
-    "redirect_url": "/azure/machine-learning/v1/how-to-train-with-custom-image",
-    "redirect_document_id": true
+        "source_path_from_root": "/articles/machine-learning/referencemanaged-online-endpoints-vm-sku-list.md",
+        "redirect_url": "/azure/machine-learning/reference-managed-online-endpoints-vm-sku-list",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/quickstart-spark-data-wrangling.md",
+        "redirect_url": "/azure/machine-learning/apache-spark-environment-configuration",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/how-to-train-with-custom-image.md",
+        "redirect_url": "/azure/machine-learning/v1/how-to-train-with-custom-image",
+        "redirect_document_id": true
     },
     {
         "source_path_from_root": "/articles/machine-learning/how-to-monitor-tensorboard.md",
@@ -1722,8 +1732,13 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/how-to-use-reinforcement-learning.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-use-reinforcement-learning",
-        "redirect_document_id": true
+        "redirect_url": "/azure/machine-learning/",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v1/how-to-use-reinforcement-learning.md",
+        "redirect_url": "/azure/machine-learning/",
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/service/how-to-create-dataset-snapshots.md",

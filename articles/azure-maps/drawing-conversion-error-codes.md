@@ -12,7 +12,7 @@ services: azure-maps
 
 # Drawing conversion errors and warnings
 
-The [Azure Maps Conversion service](/rest/api/maps/v2/conversion) lets you convert uploaded Drawing packages into map data. Drawing packages must adhere to the [Drawing package requirements](drawing-requirements.md). If one or more requirements aren't met, then the Conversion service will return errors or warnings. This article lists the conversion error and warning codes, with recommendations on how to resolve them. It also provides some examples of drawings that can cause the Conversion service to return these codes.
+The [Azure Maps Conversion service](/rest/api/maps/v2/conversion) lets you convert uploaded drawing packages into map data. Drawing packages must adhere to the [Drawing package requirements](drawing-requirements.md). If one or more requirements aren't met, then the Conversion service will return errors or warnings. This article lists the conversion error and warning codes, with recommendations on how to resolve them. It also provides some examples of drawings that can cause the Conversion service to return these codes.
 
 The Conversion service will succeed if there are any conversion warnings. However, it's recommended that you review and resolve all warnings. A warning means part of the conversion was ignored or automatically fixed. Failing to resolve the warnings could result in errors in latter processes.
 
@@ -72,7 +72,7 @@ The image below shows an unsupported entity type as a multi-line text object on 
 
 #### *How to fix unsupportedFeatureRepresentation*
 
-Ensure that your DWG files contain only the supported entity types. Supported types are listed under the [Drawing files requirements section in the Drawing package requirements article](drawing-requirements.md#drawing-package-requirements).
+Ensure that your DWG files contain only the supported entity types. Supported types are listed under the [Drawing files requirements](drawing-requirements.md#drawing-package-requirements) section in the drawing package requirements article.
 
 ### **automaticRepairPerformed**
 
@@ -318,15 +318,15 @@ An **invalidUserData** error occurs when the Conversion service is unable to rea
 
 #### *Example scenario for invalidUserData*
 
-You attempted to upload a Drawing package with an incorrect `udid` parameter.
+You attempted to upload a drawing package with an incorrect `udid` parameter.
 
 #### *How to fix invalidUserData*
 
 To fix an **invalidUserData** error, verify that:
 
 * You've provided a correct `udid` for the uploaded package.
-* Azure Maps Creator has been enabled for the Azure Maps account you used for uploading the Drawing package.
-* The API request to the Conversion service contains the subscription key to the Azure Maps account you used for uploading the Drawing package.
+* Azure Maps Creator has been enabled for the Azure Maps account you used for uploading the drawing package.
+* The API request to the Conversion service contains the subscription key to the Azure Maps account you used for uploading the drawing package.
 
 ### **dwgError**
 

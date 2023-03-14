@@ -32,6 +32,11 @@ ms.custom: devx-track-python, cliv2, sdkv2, event-tier1-build-2022, ignite-2022
 > [!NOTE]
 > Unlike the Azure Machine Learning SDK v1, there's no logging functionality in the SDK v2 and we recommend using MLflow for logging. Such strategy allows your training routines to become cloud-agnostic and portable, removing any dependency in your code with Azure Machine Learning.
 
+> [!IMPORTANT]
+> Items marked (preview) in this article are currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## Tracking with MLflow
 
 Azure Machine Learning uses MLflow Tracking for metric logging and artifact storage for your experiments. When connected to Azure Machine Learning, all tracking performed using MLflow is materialized in the workspace you are working on. To learn more about how to instrument your experiments for tracking experiments and training routines, see [Log metrics, parameters, and files with MLflow](how-to-log-view-metrics.md). You can also use MLflow to [Query & compare experiments and runs with MLflow](how-to-track-experiments-mlflow.md).
@@ -102,7 +107,7 @@ The following table shows which operations are supported by each of the tools av
 | Track and log metrics, parameters, and models | **&check;** | | |
 | Retrieve metrics, parameters, and models | **&check;** | <sup>1</sup> | **&check;** |
 | Submit training jobs | **&check;** <sup>2</sup> | **&check;** | **&check;** |
-| Submit training jobs with Azure Machine learning data assets |  | **&check;** | **&check;** |
+| Submit training jobs with Azure Machine Learning data assets |  | **&check;** | **&check;** |
 | Submit training jobs with machine learning pipelines | | **&check;** | **&check;** |
 | Manage experiments and runs | **&check;** | **&check;** | **&check;** |
 | Manage MLflow models | **&check;**<sup>3</sup> | **&check;** | **&check;** |
