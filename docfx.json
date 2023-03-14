@@ -315,7 +315,7 @@
         "articles/backup/**/*.md": "jyothisuri",
         "articles/backup/**/*.yml": "jyothisuri",
         "articles/baremetal-infrastructure/**/*.md": "dineshga",
-        "articles/batch/**/*.md": "harperche",
+        "articles/batch/**/*.md": "padmalathas",
         "articles/blockchain/**/*.md": "PatAltimore",
         "articles/sap/**/*.md": "lauradolan",
         "articles/chef/**/*.md": "TomArcherMsft",
@@ -696,7 +696,7 @@
         "articles/backup/**/*.md": "jsuri",
         "articles/backup/**/*.yml": "jyothisuri",
         "articles/baremetal-infrastructure/**/*.md": "kalyank",
-        "articles/batch/**/*.md": "prkannap",
+        "articles/batch/**/*.md": "padmalathas",
         "articles/blockchain/**/*.md": "patricka",
         "articles/chef/**/*.md": "tarcher",
         "articles/applied-ai-services/**/*.md": "mbullwin",
@@ -1282,6 +1282,7 @@
       "sensitive-language-bl": {
         "exclude": [
           "articles/azure-monitor/app/opencensus-python-request.md",
+          "articles/hdinsight/kafka/apache-kafka-mirror-maker-2.md",
           "articles/sap/large-instances/**/**.md",
           "articles/governance/blueprints/**/*.md",
           "articles/governance/policy/**/*.md",
