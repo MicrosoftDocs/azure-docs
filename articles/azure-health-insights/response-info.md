@@ -12,7 +12,7 @@ ms.author: behoorne
 
 # Azure Health Insights Response Info  
 
-This page describes the response models and parameters that is being returned by the Azure Health Insights service.
+This page describes the response models and parameters that are being returned by the Azure Health Insights service.
 
 
 ## Response
@@ -33,7 +33,7 @@ Name      |Required|Type      |Description
 ----------|--------|----------|------------------------------------------------------------------------
 code      |yes     |string    |Error code                                                              
 message   |yes     |string    |A human-readable error message.                                         
-target    |no      |string    |Target of the particular error (e.g., the name of the property in error)
+target    |no      |string    |Target of the particular error (for example, the name of the property in error)
 details   |no      |collection|A list of related errors that occurred during the request.              
 innererror|no      |object    |An object containing more specific information about the error.         
 

@@ -21,11 +21,11 @@ As Microsoft works to help customers safely develop and deploy solutions using t
 When getting ready to integrate and use AI-powered products or features, the following activities help set you up for success:
 - **Understand what it can do**: Fully vet and review the capabilities of any AI model you are using to understand its capabilities and limitations.
 
-- **Test with real, diverse data**: Understand how your system will perform in your scenario by thoroughly testing it with real life conditions and data that reflects the diversity in your users, geography and deployment contexts. Small datasets, synthetic data and tests that don't reflect your end-to-end scenario are unlikely to sufficiently represent your production performance.
+- **Test with real, diverse data**: Understand how your system performs in your scenario by thoroughly testing it with real life conditions and data that reflects the diversity in your users, geography and deployment contexts. Small datasets, synthetic data and tests that don't reflect your end-to-end scenario are unlikely to sufficiently represent your production performance.
 
 - **Respect an individual's right to privacy**: Only collect data and information from individuals for lawful and justifiable purposes. Only use data and information that you have consent to use for this purpose.
 
-- **Legal review**: Obtain appropriate legal advice to review your solution, particularly if you will use it in sensitive or high-risk applications. Understand what restrictions you might need to work within and your responsibility to resolve any issues that might come up in the future.
+- **Legal review**: Obtain appropriate legal advice to review your solution, particularly if you use it in sensitive or high-risk applications. Understand what restrictions you might need to work within and your responsibility to resolve any issues that might come up in the future.
 
 - **System review**: If you're planning to integrate and responsibly use an AI-powered product or feature into an existing system of software, customers and organizational processes, take the time to understand how each part of your system will be affected. Consider how your AI solution aligns with Microsoft's Responsible AI principles.
 
@@ -37,8 +37,8 @@ When getting ready to integrate and use AI-powered products or features, the fol
 
 ## Integration and responsible use for PHI
 
-  - **Healthcare related data protections**: Healthcare data has special protections in various jurisdictions. Given the sensitive nature of health related data, make sure you know the regulations for your jurisdiction and take special care for security and data requirements when building your system. The Azure architecture center has articles on storing health data as well as engineering compliance with HIPAA and HITRUST that you may find helpful.
-  - **Protecting PHI**: The health feature does not anonymize the data you send to the service. If your system will present the response from the system with the original data, you may want to consider appropriate measures to identify and remove these entities.
+  - **Healthcare related data protections**: Healthcare data has special protections in various jurisdictions. Given the sensitive nature of health related data, make sure you know the regulations for your jurisdiction and take special care for security and data requirements when building your system. The Azure architecture center has articles on storing health data and on engineering compliance with HIPAA and HITRUST that you may find helpful.
+  - **Protecting PHI**: The health feature does not anonymize the data you send to the service. If your system presents the response from the system with the original data, you may want to consider appropriate measures to identify and remove these entities.
 
 
 ## Learn more about Responsible AI

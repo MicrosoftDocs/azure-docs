@@ -28,7 +28,7 @@ When getting ready to integrate and use AI-powered products or features, the fol
 
 - **System review**: If you're planning to integrate and responsibly use an AI-powered product or feature into an existing system of software, customers and organizational processes, take the time to understand how each part of your system will be affected. Consider how your AI solution aligns with Microsoft's Responsible AI principles.
 
-- **Human in the loop**: Keep a human in the loop. This means ensuring constant human oversight of the AI-powered product or feature and maintaining the role of humans in decision-making. Ensure you can have real-time human intervention in the solution to prevent harm. This enables you to manage where the AI model doesn't perform as required.
+- **Human in the loop**: Keep a human in the loop. This means ensuring constant human oversight of the AI-powered product or feature and maintaining the role of humans in decision-making. Ensure you can have real-time human intervention in the solution to prevent harm. It enables you to manage where the AI model doesn't perform as required.
 
 - **Security**: Ensure your solution is secure and has adequate controls to preserve the integrity of your content and prevent any unauthorized access.
 
@@ -37,8 +37,8 @@ When getting ready to integrate and use AI-powered products or features, the fol
 
 ## Integration and responsible use for PHI
 
-  - **Healthcare related data protections**: Healthcare data has special protections in various jurisdictions. Given the sensitive nature of health related data, make sure you know the regulations for your jurisdiction and take special care for security and data requirements when building your system. The Azure architecture center has articles on storing health data as well as engineering compliance with HIPAA and HITRUST that you may find helpful.
-  - **Protecting PHI**: The health feature does not anonymize the data you send to the service. If your system will present the response from the system with the original data, you may want to consider appropriate measures to identify and remove these entities.
+  - **Healthcare related data protections**: Healthcare data has special protections in various jurisdictions. Given the sensitive nature of health related data, make sure you know the regulations for your jurisdiction and take special care for security and data requirements when building your system. The Azure architecture center has articles on storing health data and engineering compliance with HIPAA and HITRUST that you may find helpful.
+  - **Protecting PHI**: The health feature does not anonymize the data you send to the service. If your system presents the response from the system with the original data, you may want to consider appropriate measures to identify and remove these entities.
 
 
 ## Learn more about Responsible AI

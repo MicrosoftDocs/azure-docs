@@ -32,7 +32,7 @@ pathologicStageM   |The M category of the pathologic stage|None, M0, M1
 
 
 ## Confidence score
-Each inference has an attribute called ```confidenceScore```  that expresses the confidence level for the inference value, ranging from 0 to 1. The higher the confidence score is, the more certain the model was about the inference value provided. The inference values should **not** be consumed without additional human review, no matter how high the confidence score is.
+Each inference has an attribute called ```confidenceScore```  that expresses the confidence level for the inference value, ranging from 0 to 1. The higher the confidence score is, the more certain the model was about the inference value provided. The inference values should **not** be consumed without human review, no matter how high the confidence score is.
 
 ## Importance
 
