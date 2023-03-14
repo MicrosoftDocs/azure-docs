@@ -454,7 +454,6 @@ startsWith('hello world', 'greetings')
 
 And returns this result: `false`
 
-
 ## Next steps
 
 For more information about workflows, see these articles:

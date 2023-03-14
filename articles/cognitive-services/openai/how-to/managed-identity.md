@@ -65,7 +65,7 @@ Assigning yourself to the Cognitive Services User role will allow you to use you
 Use the access token to authorize your API call by setting the `Authorization` header value.
 
     ```bash
-    curl ${endpoint%/}/openai/deployment/YOUR_DEPLOYMENT_NAME/completions?api-version=2022-12-01 \
+    curl ${endpoint%/}/openai/deployments/YOUR_DEPLOYMENT_NAME/completions?api-version=2022-12-01 \
     -H "Content-Type: application/json" \
     -H "Authorization: Bearer $accessToken" \
     -d '{ "prompt": "Once upon a time" }'

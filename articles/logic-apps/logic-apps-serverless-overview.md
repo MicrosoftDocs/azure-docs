@@ -31,8 +31,8 @@ To get started with Azure Logic Apps, try a [quickstart to create your first log
 For other information, review the following documentation:
 
 * [What is Azure Logic Apps?](logic-apps-overview.md)
-* [About connectors in Azure Logic Apps](../connectors/apis-list.md)
-* [Connectors - Azure Logic Apps, Microsoft Power Automate, Microsoft Power Apps](/connectors/connectors)
+* [Managed connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
+* [Built-in connectors for Azure Logic Apps](../connectors/built-in.md)
 * [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md)
 * [Usage metering, billing, and pricing models for Azure Logic Apps](logic-apps-pricing.md)
 
