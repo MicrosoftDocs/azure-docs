@@ -164,29 +164,29 @@ When using our embeddings models, keep in mind their limitations and risks.
 
 |  Model ID  | Supports Completions | Supports Embeddings |  Base model Regions   | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
 |  --------- | -------------------- | ------------------- | --------------------- | ------------------- | -------------------- | ---------------------- |
-| ada | 	Yes	| No	|	N/A	| East US<sup>2</sup>, South Central US, West Europe | 2,049 | Oct 2019|
-| text-ada-001 | Yes | No | East US<sup>2</sup>, South Central US, West Europe | N/A | 2,049 | Oct 2019|
-| babbage | Yes | No | N/A | East US<sup>2</sup>, South Central US, West Europe | 2,049 | Oct 2019 |
-| text-babbage-001 | Yes | No | East US<sup>2</sup>, South Central US, West Europe | N/A | 2,049 | Oct 2019 |
-| curie | Yes | No | N/A | East US<sup>2</sup>, South Central US, West Europe | 2,049 | Oct 2019 |
-| text-curie-001 | Yes | No | East US<sup>2</sup>, South Central US, West Europe | N/A | 2,049 | Oct 2019 |
-| davinci<sup>1</sup> | Yes | No | N/A | East US<sup>2</sup>, South Central US, West Europe | 2,049 | Oct 2019|
+| ada | 	Yes	| No	|	N/A	| East US<sup>2</sup>, South Central US, West Europe<sup>2</sup> | 2,049 | Oct 2019|
+| text-ada-001 | Yes | No | East US, South Central US, West Europe | N/A | 2,049 | Oct 2019|
+| babbage | Yes | No | N/A | East US<sup>2</sup>, South Central US, West Europe<sup>2</sup> | 2,049 | Oct 2019 |
+| text-babbage-001 | Yes | No | East US, South Central US, West Europe | N/A | 2,049 | Oct 2019 |
+| curie | Yes | No | N/A | East US<sup>2</sup>, South Central US, West Europe<sup>2</sup> | 2,049 | Oct 2019 |
+| text-curie-001 | Yes | No | East US, South Central US, West Europe | N/A | 2,049 | Oct 2019 |
+| davinci<sup>1</sup> | Yes | No | N/A | East US<sup>2</sup>, South Central US, West Europe<sup>2</sup> | 2,049 | Oct 2019|
 | text-davinci-001 | Yes | No | South Central US, West Europe | N/A |  |  |
 | text-davinci-002 | Yes | No | East US, South Central US, West Europe | N/A | 4,097 | Jun 2021 |
 | text-davinci-003 | Yes | No | East US | N/A | 4,097 | Jun 2021 |
-| text-davinci-fine-tune-002<sup>1</sup> | Yes | No | N/A | East US, West Europe |  |  |
+| text-davinci-fine-tune-002<sup>1</sup> | Yes | No | N/A | East US, West Europe<sup>2</sup> |  |  |
 | gpt-35-turbo<sup>3</sup> (ChatGPT) | Yes | No | N/A | East US, South Central US | 4,096 | Sep 2021
 
 <sup>1</sup> The model is available by request only. Currently we aren't accepting new requests to use the model.
-<br><sup>2</sup> East US is currently unavailable for new customers to fine-tune due to high demand. Please use US South Central region for US based training.
+<br><sup>2</sup> East US and West Europe are currently unavailable for new customers to fine-tune due to high demand. Please use US South Central region for fine-tuning. 
 <br><sup>3</sup> Currently, only version `"0301"` of this model is available. This version of the model will be deprecated on 8/1/2023 in favor of newer version of the gpt-35-model. See [ChatGPT model versioning](../how-to/chatgpt.md#model-versioning) for more details.
 
 ### Codex Models
 |  Model ID  | Supports Completions | Supports Embeddings |  Base model Regions   | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
 |  --- | --- | --- | --- | --- | --- | --- |
-| code-cushman-001<sup>1</sup> | Yes | No | South Central US, West Europe | East US<sup>2</sup> , South Central US, West Europe | 2,048 | |
+| code-cushman-001<sup>1</sup> | Yes | No | South Central US, West Europe | East US<sup>2</sup> , South Central US, West Europe<sup>2</sup> | 2,048 | |
 | code-davinci-002 | Yes | No | East US,  West Europe |  N/A | 8,001 | Jun 2021 |
-| code-davinci-fine-tune-002<sup>1</sup> | Yes | No | N/A | East US<sup>2</sup> , West Europe | | |
+| code-davinci-fine-tune-002<sup>1</sup> | Yes | No | N/A | East US<sup>2</sup> , West Europe<sup>2</sup> | | |
 
 <sup>1</sup> The model is available for fine-tuning by request only. Currently we aren't accepting new requests to fine-tune the model.
 <br><sup>2</sup> East US is currently unavailable for new customers to fine-tune due to high demand. Please use US South Central region for US based training.
@@ -194,7 +194,7 @@ When using our embeddings models, keep in mind their limitations and risks.
 ### Embeddings Models
 |  Model ID  | Supports Completions | Supports Embeddings |  Base model Regions   | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
 |  --- | --- | --- | --- | --- | --- | --- |
-| text-ada-embeddings-002 | No | Yes | East US, South Central US, West Europe | N/A | 8,191 | Sep 2021 |
+| text-ada-embeddings-002 | No | Yes | East US, South Central US, West Europe | N/A |2,046 | Sep 2021 |
 | text-similarity-ada-001 | No | Yes | East US, South Central US, West Europe | N/A | 2,046 | Aug 2020 |
 | text-similarity-babbage-001 | No | Yes | South Central US, West Europe | N/A | 2,046 | Aug 2020 |
 | text-similarity-curie-001 | No | Yes | East US, South Central US, West Europe | N/A |  2046 | Aug 2020 |

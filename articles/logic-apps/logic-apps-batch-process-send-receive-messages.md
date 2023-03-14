@@ -28,7 +28,7 @@ Your batch receiver and batch sender need to share the same Azure subscription *
 
 * An Azure account and subscription. If you don't have a subscription, you can [start with a free Azure account](https://azure.microsoft.com/free/). Or, [sign up for a Pay-As-You-Go subscription](https://azure.microsoft.com/pricing/purchase-options/).
 
-* An email account with any [email provider supported by Azure Logic Apps](../connectors/apis-list.md)
+* An email account with any [email provider supported by Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
 
   > [!IMPORTANT]
   > If you want to use the Gmail connector, only G-Suite business accounts can use this connector without restriction in logic apps. 
