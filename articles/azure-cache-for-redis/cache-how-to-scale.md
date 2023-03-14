@@ -20,7 +20,8 @@ Azure Cache for Redis has different cache offerings that provide flexibility in 
 There are fundamentally two ways to scale an Azure Cache for Redis Instance:
 
 - **Scaling up** increases the size of the VM running Redis, adding additional memory, vCPUs, and network bandwidth. This is also called _vertical scaling_. The opposite of scaling up is **Scaling down**. 
-- **Scaling out** divides the cache instance into additional nodes of the same size, increasing memory, vCPUs, and network bandwidth through parallelization. This is also referred to as _horizontal scaling_ or _sharding_. The opposite of scaling out is **Scaling in**. In the Redis world, scaling out is frequently called [**clustering**](https://redis.io/docs/management/scaling/).
+<!-- can we say 'the Redis server' here -->
+- **Scaling out** divides the cache instance into additional nodes of the same size, increasing memory, vCPUs, and network bandwidth through parallelization. Scaling out is also referred to as _horizontal scaling_ or _sharding_. The opposite of scaling out is **Scaling in**. In the Redis world, scaling out is frequently called [**clustering**](https://redis.io/docs/management/scaling/).
 
 
 ## Scope of availability
@@ -34,13 +35,13 @@ There are fundamentally two ways to scale an Azure Cache for Redis Instance:
 
 ## When to scale
 
-You can use the [monitoring](cache-how-to-monitor.md) features of Azure Cache for Redis to monitor the health and performance of your cache. Use that information determine when to scale the cache.
+You can use the [monitoring](cache-how-to-monitor.md) features of Azure Cache for Redis to monitor the health and performance of your cache. Use that information to determine when to scale the cache.
 
-You can monitor the following metrics to help determine if you need to scale.
+You can monitor the following metrics to determine if you need to scale.
 
 - **Redis Server Load**
-  - High Redis server load means that the server is unable to keep pace with requests from all the clients. Because Redis server is a single threaded process, it is typically more helpful to _scale out_ rather than _scale up_. Scaling out by enabling clustering helps distribute overhead functions across multiple Redis processes. Scaling out also helps distribute TLS encryption/decryption and connection/disconnection, speeding up cache instances using TLS. 
-  - Scaling up can still be helpful in reducing server load because background tasks will take advantage of the additional vCPUs and free up the thread for the main Redis server process.
+  - High Redis server load means that the server is unable to keep pace with requests from all the clients. Because a Redis server is a single threaded process, it is typically more helpful to _scale out_ rather than _scale up_. Scaling out by enabling clustering helps distribute overhead functions across multiple Redis processes. Scaling out also helps distribute TLS encryption/decryption and connection/disconnection, speeding up cache instances using TLS. 
+  - Scaling up can still be helpful in reducing server load because background tasks can take advantage of the additional vCPUs and free up the thread for the main Redis server process.
   - The Enterprise and Enterprise Flash tiers use Redis Enterprise rather than open source Redis. One of the advantages of these tiers is that the Redis server process can take advantage of multiple vCPUs. Because of that, both scaling up and scaling out in these tiers can be helpful in reducing server load. For more information, see [Best Practices for the Enterprise and Enterprise Flash tiers of Azure Cache for Redis](cache-best-practices-enterprise-tiers.md).
   - For more information, see [Set up clustering](cache-how-to-premium-clustering.md#set-up-clustering).
 - **Memory Usage**
@@ -227,22 +228,22 @@ For more information on scaling with Azure CLI, see [Change settings of an exist
 1. To scale your cache, [browse to the cache](cache-configure.md#configure-azure-cache-for-redis-settings) in the [Azure portal](https://portal.azure.com) and select **Scale** on the left.
 
     :::image type="content" source="media/cache-how-to-scale/scale-a-cache.png" alt-text="scale on the resource menu":::
-**Fran, need a new screenshot here**
+<!-- **Fran, need a new screenshot here** -->
 
 1. To scale up, choose a different pricing tier from the drop-down and then choose **Save**.
     
     :::image type="content" source="media/cache-how-to-scale/select-a-tier.png" alt-text="Azure Cache for Redis tiers":::
-    **Fran, need a new screenshot here**
+    <!-- **Fran, need a new screenshot here** -->
 
 1. To scale out, increase the **Capacity** slider. Note that capacity increases in increments of two. This number reflects how many underlying Redis Enterprise nodes are being added. This number is always a multiple of two to reflect nodes being added for both primary and replica shards. 
 
 :::image type="content" source="media/cache-how-to-scale/scaling-notification.png" alt-text="notification of scaling":::
-**Fran, need a new screenshot here**
+<!-- **Fran, need a new screenshot here** -->
 
 While the cache is scaling to the new tier, a **Scaling Redis Cache** notification is displayed.
 
 :::image type="content" source="media/cache-how-to-scale/scaling-notification.png" alt-text="notification of scaling":::
-**Fran, need a new screenshot here**
+<!-- **Fran, need a new screenshot here** -->
 
 When scaling is complete, the status changes from **Scaling** to **Running**.
 
