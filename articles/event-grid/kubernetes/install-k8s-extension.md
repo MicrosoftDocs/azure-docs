@@ -70,7 +70,7 @@ To establish a secure HTTPS communication with the Event Grid broker and Event G
 ## Install using Azure portal
 
 1. On the Azure portal, search (field on top) for **Azure Arc**
-1. Select **Kuberntes cluster** on the left-hand-side menu in the **Infrastructure** section
+1. Select **Kubernetes cluster** on the left-hand-side menu in the **Infrastructure** section
 1. Under the list of clusters, locate the one to which you want to install Event Grid, and select it. The **Overview** page for the cluster is displayed.
 
     :::image type="content" source="./media/install-k8s-extension/select-kubernetes-cluster.png" alt-text="Select your Kubernetes cluster":::
@@ -117,7 +117,7 @@ To establish a secure HTTPS communication with the Event Grid broker and Event G
     1. Select **Review + create** at the bottom of the page.
 1. On the **Review + create** tab, select **Create**.
     
-    :::image type="content" source="./media/install-k8s-extension/review-create-page.png" alt-text="Install Event Grid extension - Rinformationeview and Create page":::   
+    :::image type="content" source="./media/install-k8s-extension/review-create-page.png" alt-text="Install Event Grid extension - Review and Create page":::   
     
     > [!IMPORTANT]
     > The installation of Event Grid is an asynchronous operation that may run longer on the Kubernetes cluster than the time you see a notification on the Azure Portal informing the deployment is complete. Wait at least 5 minutes after you see a notification that "Your deployment is complete" before attempting to create a custom location (next step). If you have access to the Kubernetes cluster, on a bash session you can execute the following command to validate if the Event Grid broker and Event Grid operator pods are in Running state, which would indicate the installation has completed:
@@ -225,7 +225,7 @@ To establish a secure HTTPS communication with the Event Grid broker and Event G
         "eventgridbroker.diagnostics.metrics.reporterType": "prometheus"
     }    
     ```
-1. Validate that the event grid extension has successfully installed.
+1. Validate that the Event Grid extension has successfully installed.
 
     ```azurecli-interactive
     az k8s-extension show  --cluster-type connectedClusters --cluster-name <connected_cluster_name> --resource-group <resource_group_of_connected_cluster> --name <event_grid_extension_name>
