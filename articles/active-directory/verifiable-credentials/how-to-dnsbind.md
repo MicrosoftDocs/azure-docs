@@ -34,14 +34,14 @@ The domain you will verify ownership of to your DID is defined in the organizati
 
 1. Copy or download the `did-configuration.json` file shown in the image below.
 
-   ![Download well known config](media/how-to-dnsbind/verify-download.png) 
+   ![Screenshot of download well-known config.](media/how-to-dnsbind/verify-download.png) 
 
 1. Host the `did-configuration.json` file at the location specified. Example: `https://www.example.com/.well-known/did-configuration.json`
 There can be no additional path in the URL other than the .well-known path name.
 
 1. When the `did-configuration.json` is publicly available at the .well-known/did-configuration.json URL, verify it by pressing the **Refresh verification status** button.
 
-   ![Verified well known config](media/how-to-dnsbind/verify-download-verified.png) 
+   ![Screenshot of verified well-known config.](media/how-to-dnsbind/verify-download-verified.png) 
 
 1. Test out issuing or presenting with Microsoft Authenticator to validate. Make sure the setting in Authenticator 'Warn about unsafe apps' is toggled on.
 
@@ -108,7 +108,7 @@ Before Microsoft Authenticator displays a **Verified** icon, a few things need t
 
 If all of the previously mentioned are true, then Microsoft Authenticator displays a verified page and includes the domain that was validated.
 
-![new permission request](media/how-to-dnsbind/new-permission-request.png) 
+![Screenshot of new permission request.](media/how-to-dnsbind/new-permission-request.png) 
 
 ## Unverified domain
 
@@ -120,7 +120,7 @@ If any of the above aren't true, Microsoft Authenticator displays a full page wa
 
 It is of high importance that you link your DID to a domain recognizable to the user.
 
-![unverified domain warning in the add credential screen](media/how-to-dnsbind/add-credential-not-verified-authenticated.png)
+![Screenshot of unverified domain warning in the add credential screen.](media/how-to-dnsbind/add-credential-not-verified-authenticated.png)
 
 ## How do you update the linked domain on your DID?
 

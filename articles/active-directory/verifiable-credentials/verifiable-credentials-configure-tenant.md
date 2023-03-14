@@ -61,7 +61,7 @@ After you create your key vault, Verifiable Credentials generates a set of keys 
 
 1. For **Key permissions**, verify that the following permissions are selected: **Create**, **Delete**, and **Sign**. By default, **Create** and **Delete** are already enabled. **Sign** should be the only key permission you need to update.
 
-:::image type="content" source="media/verifiable-credentials-configure-tenant/set-key-vault-admin-access-policy.png" alt-text="Screenshot that shows how to configure the admin access policy." border="false":::
+    :::image type="content" source="media/verifiable-credentials-configure-tenant/set-key-vault-admin-access-policy.png" alt-text="Screenshot that shows how to configure the admin access policy." border="false":::
 
 1. To save the changes, select **Save**.
 
@@ -165,8 +165,8 @@ After Azure Key Vault is setup, and the service have a signing key, you must com
 
 1. Navigate to the Verified ID service in the Azure portal.  
 1. From the left menu, select **Setup**.
-1. From the middle menu, select **Register decentralized ID** to register your DID document, as per instructions in articel [How to register your website ID for did:web](how-to-register-didwebsite.md). You must complete this step before you can continue to verify your domain. If you selected did:ion as your trust system, you should skip this step.
-1. From the middle menu, select **Verify domain ownership** to verify your domain, as per instructions in articel [Link your domain to your Decentralized Identifier (DID)](how-to-dnsbind.md)
+1. From the middle menu, select **Register decentralized ID** to register your DID document, as per instructions in article [How to register your decentralized ID for did:web](how-to-register-didwebsite.md). You must complete this step before you can continue to verify your domain. If you selected did:ion as your trust system, you should skip this step.
+1. From the middle menu, select **Verify domain ownership** to verify your domain, as per instructions in article [Verify domain ownership to your Decentralized Identifier (DID)](how-to-dnsbind.md)
 
 Once that you have successfully completed the verification steps, and have green checkmarks on all three steps, you are ready to continue to the next tutorial.
 

@@ -23,13 +23,12 @@ If you are a Services Partner and would like to be considered into Entra Verifie
 | Services partner | Website |
 |:-------------------------|:--------------|
 | ![Affinitiquest logo](media/services-partners/affinitiquest.png) | [Secure Personally Identifiable Information | AffinitiQuest](https://affinitiquest.io/) |
-| ![Avanade logo](media/services-partners/avanade.png) | [Avanade Entra Verified ID Consulting Services](https://appsource.microsoft.com/en-us/marketplace/consulting-services/avanadeinc.ava_entra_verified_id_fy23?exp=ubp8) |
+| ![Avanade logo](media/services-partners/avanade.png) | [Avanade Entra Verified ID Consulting Services](https://appsource.microsoft.com/marketplace/consulting-services/avanadeinc.ava_entra_verified_id_fy23?exp=ubp8) |
 | ![Credivera logo](media/services-partners/credivera.png) | [Credivera: Digital Identity Solutions | Verifiable Credentials](https://www.credivera.com/) |
 | ![Condatis logo](media/services-partners/condatis.png) | [Decentralized Identity | Condatis](https://condatis.com/technology/decentralized-identity/) |
 | ![DXC logo](media/services-partners/dxc.png) | [Digital Identity - Connect with DXC](https://dxc.com/us/en/services/security/digital-identity) |
 | ![CTC logo](media/services-partners/ctc.png) | [CTC's  SELMID offering](https://ctc-insight.com/selmid) |
-| ![Kocho logo](media/services-partners/kocho.png) | [Connect with Kocho. See Verified Identity in Action](https://kocho.co.uk/contact-us/)
-[See Verified Identity in Action](https://kocho.co.uk/verified-id-in-action/) |
+| ![Kocho logo](media/services-partners/kocho.png) | [Connect with Kocho. See Verified Identity in Action](https://kocho.co.uk/contact-us/)<br/>[See Verified Identity in Action](https://kocho.co.uk/verified-id-in-action/) |
 | ![Predica logo](media/services-partners/predica.png) | [Verified ID - Predica Group](https://www.predicagroup.com/en/verified-id/) |
 | ![Sphereon logo](media/services-partners/sphereon.png) | [Sphereon supports customers on Microsoft's Entra Verified ID](https://sphereon.com/sphereon-supports-microsofts-entra-verified-id/) |
 | ![Unify logo](media/services-partners/unify.png) | [Microsoft Entra Verified ID - UNIFY Solutions](https://unifysolutions.net/entra/verified-id/) |
