@@ -1738,7 +1738,7 @@ For more information about the metrics that each class provides, review the [SAP
 
 Before you can send SAP telemetry for your gateway installation to Application Insights, you need to have created and set up your Application Insights resource. For more information, review the following documentation:
 
-* [Create an Application Insights resource (classic)](../azure-monitor/app/create-new-resource.md)
+* [Create an Application Insights resource (classic)](/previous-versions/azure/azure-monitor/app/create-new-resource)
 
 * [Workspace-based Application Insights resources](../azure-monitor/app/create-workspace-resource.md)
 
@@ -2181,4 +2181,5 @@ For more information about the SAP connector, review the [connector reference](/
 
 * [Connect to on-premises systems](logic-apps-gateway-connection.md) from Azure Logic Apps
 * Learn how to validate, transform, and use other message operations with the [Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md)
-* Learn about other [Logic Apps connectors](../connectors/apis-list.md)
+* [Managed connectors for Azure Logic Apps](../connectors/managed.md)
+* [Built-in connectors for Azure Logic Apps](../connectors/built-in.md)

@@ -108,16 +108,30 @@ items:
       href: quickstarts-sdk/image-analysis-client-library-40.md
     - name: Version 3.2 quickstart
       href: quickstarts-sdk/image-analysis-client-library.md
-  - name: Samples  
-    href: /samples/browse/?products=azure&terms=analyze-image
+  - name: Samples
+    items:
+    - name: Version 4.0 (preview)
+      items:
+      - name: Azure Image Analysis samples
+        href: https://github.com/Azure-Samples/azure-ai-vision-sdk
+    - name: Version 3.2
+      items:
+      - name: Cognitive Services .NET SDK samples
+        href: https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples
+      - name: Cognitive Services Java SDK samples
+        href: https://github.com/Azure-Samples/cognitive-services-java-sdk-samples
+      - name: Cognitive Services Node.js SDK samples
+        href: https://github.com/Azure-Samples/cognitive-services-node-sdk-samples
+      - name: JavaScript Static Web app
+        href: https://github.com/azure-samples/js-e2e-client-cognitive-services/tree/main/
+      - name: Cognitive Services Python SDK samples
+        href: https://github.com/Azure-Samples/cognitive-services-python-sdk-samples
+      - name: Cognitive Services Go SDK Samples
+        href: https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/cognitiveservices
   - name: Responsible use of AI
     items:
     - name: Transparency note
       href: /legal/cognitive-services/computer-vision/imageanalysis-transparency-note?context=/azure/cognitive-services/computer-vision/context/context
-    - name: Characteristics and limitations
-      href: /legal/cognitive-services/computer-vision/imageanalysis-characteristics-and-limitations?context=/azure/cognitive-services/computer-vision/context/context
-    - name: Integration and responsible use 
-      href: /legal/cognitive-services/computer-vision/imageanalysis-guidance-for-integration?context=/azure/cognitive-services/computer-vision/context/context
     - name: Data, privacy, and security 
       href: /legal/cognitive-services/computer-vision/imageanalysis-data-privacy-security?context=/azure/cognitive-services/computer-vision/context/context
     - name: Limited Access features
@@ -132,7 +146,7 @@ items:
         href: how-to/model-customization.md
       - name: Migrate a Custom Vision project to Image Analysis
         href: how-to/migrate-from-custom-vision.md
-      - name: Call the Image Retrieval APIs
+      - name: Call the Image retrieval APIs
         href: how-to/image-retrieval.md
       - name: Call the Background removal API
         href: how-to/background-removal.md
@@ -164,6 +178,8 @@ items:
         href: concept-people-detection.md
       - name: Model customization
         href: concept-model-customization.md
+      - name: Image retrieval
+        href: concept-image-retrieval.md
       - name: Background removal
         href: concept-background-removal.md
     - name: Version 3.2

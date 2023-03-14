@@ -99,7 +99,7 @@ The following table describes several rules. On a search service, throttling or 
 | Delete Search Service (activity log alert) | Whenever the Activity Log has an event with Category='Administrative', Signal name='Delete Search Service (searchServices)', Level='critical' | Send an email if a search service is deleted in the subscription. |
 
 > [!NOTE]
-> Currently, there are no storage-related alerts (storage consumption data isn't aggregated or logged into the **AzureMetrics** table). To get storage alerts, you could [build a custom solution](../azure-monitor/insights/solutions.md) that emits resource-related notifications, where your code checks for storage size and handles the response.
+> Currently, there are no storage-related alerts (storage consumption data isn't aggregated or logged into the **AzureMetrics** table). To get storage alerts, you could [build a custom solution](/previous-versions/azure/azure-monitor/insights/solutions) that emits resource-related notifications, where your code checks for storage size and handles the response.
 
 ## Enable resource logging
 

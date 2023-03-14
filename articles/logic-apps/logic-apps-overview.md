@@ -69,7 +69,7 @@ To access and run operations on resources in services such as Azure, Microsoft, 
 
 For more information, review the following documentation:
 
-* [Connectors overview for Azure Logic Apps](../connectors/apis-list.md)
+* [About connectors in Azure Logic Apps](../connectors/introduction.md)
 
 * [Managed connectors](../connectors/managed.md)
 

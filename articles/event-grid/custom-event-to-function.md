@@ -172,11 +172,11 @@ The second example uses PowerShell to perform similar steps.
 2. Set the following variables. After you copy and paste each command, update the **topic name** and **resource group name** before you run the command:
 
     ```powershell
-    $resourceGroupName = <resource group name>
+    $resourceGroupName = "RESOURCEGROUPNAME"
     ```
 
     ```powershell
-    $topicName = <topic name>
+    $topicName = "TOPICNAME"
     ```
 3. Run the following commands to get the **endpoint** and the **keys** for the topic:
 

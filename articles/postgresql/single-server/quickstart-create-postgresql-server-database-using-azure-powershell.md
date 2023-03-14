@@ -8,7 +8,7 @@ ms.author: sunila
 author: sunilagarwal
 ms.devlang: azurepowershell
 ms.tool: azure-powershell
-ms.custom: mvc, mode-api
+ms.custom: mvc, mode-api, devx-track-azurepowershell
 ms.date: 06/24/2022
 ---
 

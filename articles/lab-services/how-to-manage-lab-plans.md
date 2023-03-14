@@ -13,7 +13,7 @@ In Azure Lab Services, a lab plan is a container for managed lab types such as l
 
 ## Create a lab plan
 
-To create a lab plan, see [Tutorial: Set up a lab plan with Azure Lab Services](tutorial-setup-lab-plan.md).
+To create a lab plan, see [Set up a lab plan with Azure Lab Services](quick-create-resources.md).
 
 ## View lab plans
 

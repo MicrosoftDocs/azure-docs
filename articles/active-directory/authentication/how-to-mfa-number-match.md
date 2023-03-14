@@ -115,9 +115,9 @@ In the upcoming Microsoft Authenticator release in January 2023 for iOS, there w
 
 ## Enable number matching in the portal
 
-To enable number matching in the Azure AD portal, complete the following steps:
+To enable number matching in the Azure portal, complete the following steps:
 
-1. In the Azure AD portal, click **Security** > **Authentication methods** > **Microsoft Authenticator**.
+1. In the Azure portal, click **Security** > **Authentication methods** > **Microsoft Authenticator**.
 1. On the **Enable and Target** tab, click **Yes** and **All users** to enable the policy for everyone or add selected users and groups. Set the **Authentication mode** for these users/groups to **Any** or **Push**. 
 
    Only users who are enabled for Microsoft Authenticator here can be included in the policy to require number matching for sign-in, or excluded from it. Users who aren't enabled for Microsoft Authenticator can't see the feature.
@@ -258,7 +258,7 @@ GET https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationM
 ### Example of how to enable number matching for a single group
  
 In **featureSettings**, you'll need to change the **numberMatchingRequiredState** value from **default** to **enabled.** 
-Inside the **includeTarget**, you'll need to change the **id** from **all_users** to the ObjectID of the group from the Azure AD portal.
+Inside the **includeTarget**, you'll need to change the **id** from **all_users** to the ObjectID of the group from the Azure portal.
 To remove an excluded group from number matching, change the **id** of the **excludeTarget** to `00000000-0000-0000-0000-000000000000`.
 
 You need to PATCH the entire configuration to prevent overwriting any previous configuration. We recommend that you do a GET first, and then update only the relevant fields and then PATCH. The example below only shows the update to the **numberMatchingRequiredState**. 
