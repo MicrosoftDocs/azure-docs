@@ -111,21 +111,16 @@ Use the following steps to create an Azure Spring Apps instance in an Azure Cont
    az provider register --namespace Microsoft.OperationalInsights
    ```
 
-1. Use the following commands to create variables to store various values:
+1. Use the following commands to create variables to store various values. If you're using an existing virtual network, specify the name of that network and its resource group. Otherwise, specify the name of a new virtual network and resource group to create.
 
    ```bash
    RESOURCE_GROUP="<resource-group-name>"
    LOCATION="eastus"
    AZURE_CONTAINER_APPS_ENVIRONMENT="<Azure-Container-Apps-environment-name>"
-   ```
-
-1. Use the following command to create a variable for the name of the virtual network:
-
-   ```bash
    VNET_NAME="<virtual-network-name>"
    ```
 
-1. Use the following commands to create an Azure virtual network and subnet to associate with the Azure Container Apps environment. The virtual network must have a subnet available for the environment deployment.
+1. If you aren't using an existing virtual network, use the following commands to create an Azure virtual network and subnet to associate with the Azure Container Apps environment. The virtual network must have a subnet available for the environment deployment.
 
    ```azurecli
    az network vnet create \
