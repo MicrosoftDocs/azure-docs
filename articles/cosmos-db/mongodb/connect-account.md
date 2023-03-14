@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: mongodb
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 03/10/2023
+ms.date: 03/14/2023
 ms.reviewer: mjbrown
 adobe-target: true
 adobe-target-activity: DocsExp-A/B-384740-MongoDB-2.8.2021
@@ -80,5 +80,5 @@ Specifically, client drivers must support the Service Name Identification (SNI) 
 
 ## Next steps
 
-* Learn how to [use Studio 3T](connect-using-mongochef.md) with Azure Cosmos DB's API for MongoDB.
-* Learn how to [use Robo 3T](connect-using-robomongo.md) with Azure Cosmos DB's API for MongoDB.
+* [Connect to an Azure Cosmos DB account using Studio 3T](connect-using-mongochef.md).
+* [Use Robo 3T with Azure Cosmos DB's API for MongoDB](connect-using-robomongo.md)
