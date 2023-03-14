@@ -197,7 +197,7 @@ In a new terminal window, navigate into the sample's root directory.
      You can view detailed progress in the Azure Portal:
      https://portal.azure.com
    
-     (✓) Done: Resource group: rg-name
+     (✓) Done: Resource group: resource-group-name
      (✓) Done: Log Analytics workspace: log-analytics-name
      (✓) Done: Application Insights: app-insights-name
      (✓) Done: Portal dashboard: dashboard-name
@@ -213,8 +213,8 @@ In a new terminal window, navigate into the sample's root directory.
      (✓) Done: Deploying service worker
    
    SUCCESS: Your Azure app has been deployed!
-   You can view the resources created under the resource group rg-name in Azure Portal:
-   https://portal.azure.com/#@/resource/subscriptions/<your-azure-subscription>/resourceGroups/rg-name/overview
+   You can view the resources created under the resource group resource-group-name in Azure Portal:
+   https://portal.azure.com/#@/resource/subscriptions/<your-azure-subscription>/resourceGroups/resource-group-name/overview
    ```
 
 ### Confirm successful deployment 
@@ -226,6 +226,8 @@ In the Azure portal, verify the `checkout` service is passing orders to the `ord
 1. Navigate to the [Azure portal](https://ms.portal.azure.com) and search for the container app resource by name.
 
 1. In the Container Apps dashboard, select **Monitoring** > **Log stream**.
+
+   :::image type="content" source="media/microservices-dapr-azd/log-streams-menu.png" alt-text="Screenshot of navigating to the Log stream page in the Azure portal.":::
 
 1. Confirm the `checkout` container is logging the same output as in the terminal earlier.
 
@@ -410,7 +412,7 @@ Deploy the Dapr application to Azure Container Apps using [`azd`](/azure/develop
      You can view detailed progress in the Azure Portal:
      https://portal.azure.com
    
-     (✓) Done: Resource group: rg-name
+     (✓) Done: Resource group: resource-group-name
      (✓) Done: Log Analytics workspace: log-analytics-name
      (✓) Done: Application Insights: app-insights-name
      (✓) Done: Portal dashboard: dashboard-name
@@ -426,8 +428,8 @@ Deploy the Dapr application to Azure Container Apps using [`azd`](/azure/develop
      (✓) Done: Deploying service worker
    
    SUCCESS: Your Azure app has been deployed!
-   You can view the resources created under the resource group rg-name in Azure Portal:
-   https://portal.azure.com/#@/resource/subscriptions/<your-azure-subscription>/resourceGroups/rg-name/overview
+   You can view the resources created under the resource group resource-group-name in Azure Portal:
+   https://portal.azure.com/#@/resource/subscriptions/<your-azure-subscription>/resourceGroups/resource-group-name/overview
    ```
 
 ### Confirm successful deployment 
@@ -439,6 +441,8 @@ In the Azure portal, verify the `checkout` service is passing orders to the `ord
 1. Navigate to the [Azure portal](https://ms.portal.azure.com) and search for the container app resource by name.
 
 1. In the Container Apps dashboard, select **Monitoring** > **Log stream**.
+
+   :::image type="content" source="media/microservices-dapr-azd/log-streams-menu.png" alt-text="Screenshot of navigating to the Log stream page in the Azure portal.":::
 
 1. Confirm the `checkout` container is logging the same output as in the terminal earlier.
 
@@ -624,7 +628,7 @@ In a new terminal window, navigate into the [sample's](https://github.com/Azure-
      You can view detailed progress in the Azure Portal:
      https://portal.azure.com
    
-     (✓) Done: Resource group: rg-name
+     (✓) Done: Resource group: resource-group-name
      (✓) Done: Log Analytics workspace: log-analytics-name
      (✓) Done: Application Insights: app-insights-name
      (✓) Done: Portal dashboard: dashboard-name
@@ -640,8 +644,8 @@ In a new terminal window, navigate into the [sample's](https://github.com/Azure-
      (✓) Done: Deploying service worker
    
    SUCCESS: Your Azure app has been deployed!
-   You can view the resources created under the resource group rg-name in Azure Portal:
-   https://portal.azure.com/#@/resource/subscriptions/<your-azure-subscription>/resourceGroups/rg-name/overview
+   You can view the resources created under the resource group resource-group-name in Azure Portal:
+   https://portal.azure.com/#@/resource/subscriptions/<your-azure-subscription>/resourceGroups/resource-group-name/overview
    ```
 
 ### Confirm successful deployment 
@@ -653,6 +657,9 @@ In the Azure portal, verify the `checkout` service is passing orders to the `ord
 1. Navigate to the [Azure portal](https://ms.portal.azure.com) and search for the container app resource by name.
 
 1. In the Container Apps dashboard, select **Monitoring** > **Log stream**.
+   
+   :::image type="content" source="media/microservices-dapr-azd/log-streams-menu.png" alt-text="Screenshot of navigating to the Log stream page in the Azure portal.":::
+
 
 1. Confirm the `checkout` container is logging the same output as in the terminal earlier.
 
