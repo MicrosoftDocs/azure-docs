@@ -28,7 +28,7 @@ You need to export the emulator certificate to successfully use the emulator end
 
 1. Start the Windows Certificate manager by running certlm.msc and navigate to the Personal->Certificates folder and open the certificate with the friendly name **DocumentDbEmulatorCertificate**.
 
-    :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-1.png" alt-text="Azure Cosmos DB local emulator export step 1":::
+    :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-1.png" alt-text="Azure Cosmos DB local emulator export step 1" lightbox="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-1.png":::
 
 1. Click on **Details** then **OK**.
 
@@ -62,7 +62,7 @@ You need to export the emulator certificate to successfully use the emulator end
 
 When running Java applications or MongoDB applications that uses a Java based client, it is easier to install the certificate into the Java default certificate store than passing the `-Djavax.net.ssl.trustStore=<keystore> -Djavax.net.ssl.trustStorePassword="<password>"` flags. For example, the included Java Demo application (`https://localhost:8081/_explorer/index.html`) depends on the default certificate store.
 
-Follow the instructions in the [Adding a Certificate to the Java Certificates Store](https://docs.oracle.com/cd/E54932_01/doc.705/e54936/cssg_create_ssl_cert.htm) to import the X.509 certificate into the default Java certificate store. Keep in mind you will be working in the *%JAVA_HOME%* directory when running keytool. After the certificate is imported into the certificate store, clients for SQL and Azure Cosmos DB's API for MongoDB will be able to connect to the Azure Cosmos DB Emulator.
+Follow the instructions in the [Creating, Exporting, and Importing SSL Certificates](https://docs.oracle.com/cd/E54932_01/doc.705/e54936/cssg_create_ssl_cert.htm) to import the X.509 certificate into the default Java certificate store. Keep in mind you will be working in the *%JAVA_HOME%* directory when running keytool. After the certificate is imported into the certificate store, clients for SQL and Azure Cosmos DB's API for MongoDB will be able to connect to the Azure Cosmos DB Emulator.
 
 Alternatively you can run the following bash script to import the certificate:
 
