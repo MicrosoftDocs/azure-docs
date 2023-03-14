@@ -17,9 +17,11 @@ ms.author: justinha
 
 To provide authentication services, Azure Active Directory Domain Services (Azure AD DS) synchronizes users and groups from Azure AD. In a hybrid environment, users and groups from an on-premises Active Directory Domain Services (AD DS) environment can be first synchronized to Azure AD using Azure AD Connect, and then synchronized to an Azure AD DS managed domain.
 
-By default, all users and groups from an Azure AD directory are synchronized to a managed domain. If you have specific needs, you can instead choose to synchronize only a defined set of users.
+By default, all users and groups from an Azure AD directory are synchronized to a managed domain. If only some users need to use Azure AD DS, you can instead choose to synchronize only groups of users.
 
 This article shows you how to configure scoped synchronization and then change or disable the set of scoped users using the Azure portal. You can also [complete these steps using PowerShell][scoped-sync-powershell].
+
+:::image type="content" border="true" source="./media/scoped-synchronization/filter.png" alt-text="Screenshot of group filter option.":::
 
 ## Before you begin
 
@@ -35,7 +37,7 @@ To complete this article, you need the following resources and privileges:
 
 ## Scoped synchronization overview
 
-By default, all users and groups from an Azure AD directory are synchronized to a managed domain. If only a few users need to access the managed domain, you can synchronize only those user accounts. This scoped synchronization is group-based. When you configure group-based scoped synchronization, only the user accounts that belong to the groups you specify are synchronized to the managed domain. Nested groups aren't synchronized, only the specific groups you select.
+By default, all users and groups from an Azure AD directory are synchronized to a managed domain. If only a few groups of users need to access the managed domain, you can select **Filter by group entitlement** to synchronize only those groups. This scoped synchronization is only group-based. When you configure group-based scoped synchronization, only the user accounts that belong to the groups you specify are synchronized to the managed domain. Nested groups aren't synchronized; only the groups you specify get synchronized.
 
 You can change the synchronization scope before or after you create the managed domain. The scope of synchronization is defined by a service principal with the application identifier 2565bd9d-da50-47d4-8b85-4c97f669dc36. To prevent scope loss, don't delete or change the service principal. If it is accidentally deleted, the synchronization scope can't be recovered. 
 
