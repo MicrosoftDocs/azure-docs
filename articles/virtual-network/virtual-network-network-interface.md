@@ -1,7 +1,7 @@
 ---
 title: Create, change, or delete an Azure network interface
 titlesuffix: Azure Virtual Network
-description: Learn what a network interface is and how to create, change settings for, and delete one.
+description: Learn how to create, delete, and view and change settings for network interfaces by using the Azure portal, Azure PowerShell, or Azure CLI.
 author: asudbring
 ms.service: virtual-network
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
@@ -12,11 +12,9 @@ ms.author: allensu
 
 # Create, change, or delete a network interface
 
-A network interface enables an Azure virtual machine (VM) to communicate with internet, Azure, and on-premises resources. This article explains how to create, change settings for, and delete a network interface.
+A network interface enables an Azure virtual machine (VM) to communicate with internet, Azure, and on-premises resources. This article explains how to create, view and change settings for, and delete a network interface.
 
 A VM you create in the Azure portal has one network interface with default settings. You can create network interfaces with custom settings instead, and add one or more network interfaces to a VM when or after you create it. You can also change network interface settings for an existing network interface.
-
-To add, change, or remove IP addresses for a network interface, see [Manage IP addresses](./ip-services/virtual-network-network-interface-addresses.md). To add or remove network interfaces for VMs, see [Add or remove network interfaces](virtual-network-network-interface-vm.md).
 
 ## Prerequisites
 
@@ -686,8 +684,12 @@ The next hop feature of Azure Network Watcher can also help you determine if rou
 
 ## Next steps
 
-- Create a VM with multiple NICs by using [Azure CLI](/azure/virtual-machines/linux/multiple-nics?toc=%2fazure%2fvirtual-network%2ftoc.json) or [PowerShell](/azure/virtual-machines/windows/multiple-nics?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- To add, change, or remove IP addresses for a network interface, see [Manage IP addresses](./ip-services/virtual-network-network-interface-addresses.md).
 
-- Create a single NIC VM with multiple IPv4 addresses by using [Azure CLI](./ip-services/virtual-network-multiple-ip-addresses-cli.md) or [PowerShell](./ip-services/virtual-network-multiple-ip-addresses-powershell.md).
+- To add or remove network interfaces for VMs, see [Add or remove network interfaces](virtual-network-network-interface-vm.md).
 
-- Create a single NIC VM with a private IPv6 address behind Azure Load Balancer by using [Azure CLI](/azure/load-balancer/load-balancer-ipv6-internet-cli?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](/azure/load-balancer/load-balancer-ipv6-internet-ps?toc=%2fazure%2fvirtual-network%2ftoc.json), or an [Azure Resource Manager template](/azure/load-balancer/load-balancer-ipv6-internet-template?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- To create a VM with multiple NICs, see [How to create a Linux virtual machine in Azure with multiple network interface cards](/azure/virtual-machines/linux/multiple-nics?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Create and manage a Windows virtual machine that has multiple NICs](/azure/virtual-machines/windows/multiple-nics?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+- To create a single NIC VM with multiple IPv4 addresses, see [Assign multiple IP addresses to virtual machines by using the Azure CLI](./ip-services/virtual-network-multiple-ip-addresses-cli.md) or [Assign multiple IP addresses to virtual machines by using Azure PowerShell](./ip-services/virtual-network-multiple-ip-addresses-powershell.md).
+
+- To create a single NIC VM with a private IPv6 address behind Azure Load Balancer, see [Create a public load balancer with IPv6 using Azure CLI](/azure/load-balancer/load-balancer-ipv6-internet-cli?toc=%2fazure%2fvirtual-network%2ftoc.json), [Create an internet facing load balancer with IPv6 using PowerShell](/azure/load-balancer/load-balancer-ipv6-internet-ps?toc=%2fazure%2fvirtual-network%2ftoc.json), or [Deploy an Internet-facing load-balancer solution with IPv6 by using a template](/azure/load-balancer/load-balancer-ipv6-internet-template?toc=%2fazure%2fvirtual-network%2ftoc.json).
