@@ -61,7 +61,7 @@ Azure Cache for Redis is continually expanding into new regions. To check the av
    :::image type="content" source="media/cache-create/cache-clustering-policy.png" alt-text="Screenshot that shows the Enterprise tier Advanced tab.":::
 
    > [!NOTE]
-   > Redis Enterprise supports two clustering policies. Use the **Enterprise** policy to access your cache using the regular Redis API. Use **OSS** to use the OSS Cluster API.
+   > Enterprise and Enterprise Flash tiers are inherently clustered, in contrast to the Basic, Standard, and Premium tiers. Redis Enterprise supports two clustering policies. Use the **Enterprise** policy to access your cache using the regular Redis API. Use **OSS** to use the OSS Cluster API.
    >
 
    > [!NOTE]
