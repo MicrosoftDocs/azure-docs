@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory SSO integration with HawkeyeBSB
-description: Learn how to configure single sign-on between Azure Active Directory and HawkeyeBSB.
+title: Azure Active Directory SSO integration with Hawkeye Platform
+description: Learn how to configure single sign-on between Azure Active Directory and Hawkeye Platform.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -9,37 +9,37 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 03/08/2023
 ms.author: jeedes
 
 ---
 
-# Azure Active Directory SSO integration with HawkeyeBSB
+# Azure Active Directory SSO integration with Hawkeye Platform
 
-In this article, you'll learn how to integrate HawkeyeBSB with Azure Active Directory (Azure AD). HawkeyeBSB was developed by Redbridge Debt & Treasury Advisory to help Clients manage their bank fees. When you integrate HawkeyeBSB with Azure AD, you can:
+In this article, you learn how to integrate Hawkeye Platform with Azure Active Directory (Azure AD). Hawkeye Platform was developed by Redbridge Debt & Treasury Advisory to help Clients manage their bank fees. When you integrate Hawkeye Platform with Azure AD, you can:
 
-* Control in Azure AD who has access to HawkeyeBSB.
-* Enable your users to be automatically signed-in to HawkeyeBSB with their Azure AD accounts.
+* Control in Azure AD who has access to Hawkeye Platform.
+* Enable your users to be automatically signed-in to Hawkeye Platform with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-You'll configure and test Azure AD single sign-on for HawkeyeBSB in a test environment. HawkeyeBSB supports both **SP** and **IDP** initiated single sign-on.
+You'll configure and test Azure AD single sign-on for Hawkeye Platform in a test environment. Hawkeye Platform supports both **SP** and **IDP** initiated single sign-on.
 
 ## Prerequisites
 
-To integrate Azure Active Directory with HawkeyeBSB, you need:
+To integrate Azure Active Directory with Hawkeye Platform, you need:
 
 * An Azure AD user account. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* HawkeyeBSB single sign-on (SSO) enabled subscription.
+* Hawkeye Platform single sign-on (SSO) enabled subscription.
 
 ## Add application and assign a test user
 
-Before you begin the process of configuring single sign-on, you need to add the HawkeyeBSB application from the Azure AD gallery. You need a test user account to assign to the application and test the single sign-on configuration.
+Before you begin the process of configuring single sign-on, you need to add the Hawkeye Platform application from the Azure AD gallery. You need a test user account to assign to the application and test the single sign-on configuration.
 
-### Add HawkeyeBSB from the Azure AD gallery
+### Add Hawkeye Platform from the Azure AD gallery
 
-Add HawkeyeBSB from the Azure AD application gallery to configure single sign-on with HawkeyeBSB. For more information on how to add application from the gallery, see the [Quickstart: Add application from the gallery](../manage-apps/add-application-portal.md).
+Add Hawkeye Platform from the Azure AD application gallery to configure single sign-on with Hawkeye Platform. For more information on how to add application from the gallery, see the [Quickstart: Add application from the gallery](../manage-apps/add-application-portal.md).
 
 ### Create and assign Azure AD test user
 
@@ -51,7 +51,7 @@ Alternatively, you can also use the [Enterprise App Configuration Wizard](https:
 
 Complete the following steps to enable Azure AD single sign-on in the Azure portal.
 
-1. In the Azure portal, on the **HawkeyeBSB** application integration page, find the **Manage** section and select **single sign-on**.
+1. In the Azure portal, on the **Hawkeye Platform** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, select the pencil icon for **Basic SAML Configuration** to edit the settings.
 
@@ -71,23 +71,23 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
     `https://hawkeye.redbridgeanalytics.com/sso/saml/login/<uniqueSlugPerCustomer>`
 
     > [!NOTE]
-    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [HawkeyeBSB Client support team](mailto:casemanagement@redbridgedta.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [Hawkeye Platform Client support team](mailto:casemanagement@redbridgedta.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set-up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
     ![Screenshot shows the Certificate download link.](common/metadataxml.png "Certificate")
 
-1. On the **Set up HawkeyeBSB** section, copy the appropriate URL(s) based on your requirement.
+1. On the **Set up Hawkeye Platform** section, copy the appropriate URL(s) based on your requirement.
 
 	![Screenshot shows to copy configuration appropriate URL.](common/copy-configuration-urls.png "Metadata")
 
-## Configure HawkeyeBSB SSO
+## Configure Hawkeye Platform SSO
 
-To configure single sign-on on **HawkeyeBSB** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [HawkeyeBSB support team](mailto:casemanagement@redbridgedta.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Hawkeye Platform** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Hawkeye Platform support team](mailto:casemanagement@redbridgedta.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
-### Create HawkeyeBSB test user
+### Create Hawkeye Platform test user
 
-In this section, you create a user called Britta Simon at HawkeyeBSB. Work with [HawkeyeBSB support team](mailto:casemanagement@redbridgedta.com) to add the users in the HawkeyeBSB platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon at Hawkeye Platform. Work with [Hawkeye Platform support team](mailto:casemanagement@redbridgedta.com) to add the users in the Hawkeye Platform platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
@@ -95,15 +95,15 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-1. Click on **Test this application** in Azure portal. This will redirect to HawkeyeBSB Sign-on URL where you can initiate the login flow.  
+1. Click on **Test this application** in Azure portal. This will redirect to Hawkeye Platform Sign-on URL where you can initiate the login flow.  
 
-1. Go to HawkeyeBSB Sign-on URL directly and initiate the login flow from there.
+1. Go to Hawkeye Platform Sign-on URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
-1. Click on **Test this application** in Azure portal and you should be automatically signed in to the HawkeyeBSB for which you set up the SSO. 
+1. Click on **Test this application** in Azure portal and you should be automatically signed in to the Hawkeye Platform for which you set up the SSO. 
 
-1. You can also use Microsoft My Apps to test the application in any mode. When you click the HawkeyeBSB tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the HawkeyeBSB for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+1. You can also use Microsoft My Apps to test the application in any mode. When you click the Hawkeye Platform tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Hawkeye Platform for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
@@ -112,4 +112,4 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 ## Next steps
 
-Once you configure HawkeyeBSB you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Once you configure Hawkeye Platform you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

@@ -129,4 +129,3 @@ With HTTP-based actions, certificates exported or created with AES256 encryption
 ## Next steps
 
 * [Business continuity and disaster recovery for Azure Logic Apps](business-continuity-disaster-recovery-guidance.md)
-* [Connectors in Azure Logic Apps](../connectors/apis-list.md)

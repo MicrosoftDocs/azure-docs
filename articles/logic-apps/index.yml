@@ -32,7 +32,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: About connectors in Azure Logic Apps
-            url: ../connectors/apis-list.md
+            url: ../connectors/introduction.md
           - text: Recurrence schedules for workflows
             url: concepts-schedule-automated-recurring-tasks-workflows.md
           - text: B2B enterprise integration

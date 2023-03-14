@@ -8,8 +8,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 12/20/2022
-ms.custom: mqtt, devx-track-azurecli
-
+ms.custom: mqtt
 ---
 
 # Send cloud-to-device messages from an IoT hub
