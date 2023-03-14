@@ -2,7 +2,7 @@
 title: 'Quickstart: Read Azure Event Hubs captured data (Python)'
 description: This quickstart shows you how to write Python code to capture data that's sent to an event hub and read the captured event data from an Azure storage account.
 ms.topic: quickstart
-ms.date: 03/14/2022
+ms.date: 03/14/2023
 ms.devlang: python
 ms.custom: mode-api
 ---
