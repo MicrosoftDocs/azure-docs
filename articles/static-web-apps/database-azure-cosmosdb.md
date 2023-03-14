@@ -603,28 +603,6 @@ Use the following steps to create a connection between the Static Web Apps insta
     |---|---|
     | Database Type | Select your database type from the dropdown list. |
     | Subscription | Select your Azure subscription from the dropdown list. |
-    | Resource Name | Select **Cosmos DB for NoSQL**. |
-    | Database Name | Select the name of the database you want to link to your static web app. |
-    | Authentication Type | Select **Connection string**, and enter the SQL server user name and password |
-
-1. Select **OK**.
-
-## Connect the database to your static web app
-
-Use the following steps to create a connection between the Static Web Apps instance of your site and your database.
-
-1. Open your static web app in the Azure portal.
-
-1. In the *Settings* section, select **Database connection**.
-
-1. Under the *Production* section, select the **Link existing database** link.
-
-1. In the *Link existing database* window, enter the following values:
-
-    | Property | Value |
-    |---|---|
-    | Database Type | Select your database type from the dropdown list. |
-    | Subscription | Select your Azure subscription from the dropdown list. |
     | Database Name | Select the name of the database you want to link to your static web app. |
     | Authentication Type | Select **Connection string**. |
 
