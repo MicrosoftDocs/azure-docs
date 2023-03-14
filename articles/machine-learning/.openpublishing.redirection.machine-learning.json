@@ -3,7 +3,7 @@
     {
         "source_path_from_root": "/articles/machine-learning/reference-checkpoint-performance-with-Nebula.md",
         "redirect_url": "/articles/machine-learning/reference-checkpoint-performance-for-large-models.md",
-        "redirect_document_id": "true"
+        "redirect_document_id": true
     },
     {
         "source_path_from_root": "/articles/machine-learning/referencemanaged-online-endpoints-vm-sku-list.md",
