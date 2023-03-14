@@ -5,6 +5,8 @@
     - name: What is Azure Machine Learning?
       displayName: AML, services, overview, introduction
       href: overview-what-is-azure-machine-learning.md
+    - name: Azure Machine Learning SDK & CLI v1
+      href ./v1/introduction.md
     - name: Glossary
       href: azure-machine-learning-glossary.md
     - name: Architecture & terms
@@ -99,6 +101,25 @@
       items:
         - name: Train a TensorFlow image classification model
           href: tutorial-train-deploy-image-classification-model-vscode.md
+    # v1
+    - name: Python get started (Day 1)
+      items:
+        - name: 1. Run a Python script
+          href: ./v1/tutorial-1st-experiment-hello-world.md
+        - name: 2. Train your model
+          href: ./v1/tutorial-1st-experiment-sdk-train.md
+        - name: 3. Use your own data
+          href: ./v1/tutorial-1st-experiment-bring-data.md
+    - name: Train & deploy image classification
+      displayName: MNIST
+      href: ./v1/tutorial-train-deploy-notebook.md
+    - name: "Build a training pipeline (Python)"
+      href: "./v1/tutorial-pipeline-python-sdk.md"
+    - name: Microsoft Power BI integration
+      items:
+        - name: "Part 1: Train and deploy models"
+          href: ./v1/tutorial-power-bi-custom-model.md
+    # end v1
 - name: Samples
   items:
     - name: Jupyter Notebooks
