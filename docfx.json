@@ -1282,6 +1282,7 @@
       "sensitive-language-bl": {
         "exclude": [
           "articles/azure-monitor/app/opencensus-python-request.md",
+          "articles/hdinsight/kafka/apache-kafka-mirror-maker-2.md",
           "articles/sap/large-instances/**/**.md",
           "articles/governance/blueprints/**/*.md",
           "articles/governance/policy/**/*.md",

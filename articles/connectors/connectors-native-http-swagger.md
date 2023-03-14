@@ -165,4 +165,5 @@ This section provides more information about the outputs from an **HTTP + Swagge
 
 ## Next steps
 
-* Learn about other [connectors in Azure Logic Apps](../connectors/apis-list.md)
+* [Managed connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
+* [Built-in connectors for Azure Logic Apps](built-in.md)
