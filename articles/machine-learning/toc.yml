@@ -359,7 +359,7 @@
           href: how-to-manage-synapse-spark-pool.md
         - name: Reference checkpoint performance with Nebula
           displayName: Reference checkpoint performance with Nebula
-          href: reference-checkpoint-performance-with-Nebula.md
+          href: reference-checkpoint-performance-with-nebula.md
     - name: AKS and Azure Arc-enabled Kubernetes
       items:
         - name: What is Kubernetes compute target
