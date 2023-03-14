@@ -7,7 +7,7 @@ ms.subservice: disks
 ms.collection: windows
 ms.topic: how-to
 ms.author: mbaldwin
-ms.date: 08/06/2019
+ms.date: 03/16/2023
 ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
 
 ---
@@ -316,6 +316,7 @@ Azure Disk Encryption does not work for the following scenarios, features, and t
 - Migrating a VM that is encrypted with ADE, or has **ever** been encrypted with ADE, to [server-side encryption with customer-managed keys](../disk-encryption.md).
 - Encrypting VMs in failover clusters.
 - Encryption of [Azure ultra disks](../disks-enable-ultra-ssd.md).
+- Encryption of VMs in subscriptions with the "Secrets should have the specified maximum validity period" policy set to DENY.
 
 ## Next steps
 
