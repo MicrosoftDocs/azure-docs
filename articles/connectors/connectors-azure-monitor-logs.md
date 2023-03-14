@@ -69,7 +69,7 @@ For technical information about this connector's operations, see the [connector'
   > [!NOTE]
   > 
   > Although you can turn on the Log Analytics setting in a logic app resource to collect information about runtime data 
-  > and events as described in the how-to guide [Set up Azure Monitor logs and collect diagnostics data for Azure Logic Apps](https://learn.microsoft.com/en-us/azure/logic-apps/monitor-workflows-collect-diagnostic-data), this setting isn't required 
+  > and events as described in the how-to guide [Set up Azure Monitor logs and collect diagnostics data for Azure Logic Apps](../logic-apps/monitor-workflows-collect-diagnostic-data.md), this setting isn't required 
   > for you to use the Azure Monitor Logs connector.
 
 - An Office 365 Outlook account to complete the example in this guide. Otherwise, you can use any email provider that has an available connector in Azure Logic Apps.
