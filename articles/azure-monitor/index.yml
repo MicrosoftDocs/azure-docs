@@ -85,7 +85,7 @@ landingContent:
         links:
           - text: Learning path: Monitor the usage, performance, and availability of resources with Azure Monitor
             url: /training/paths/monitor-usage-performance-availability-resources-azure-monitor/
-          - text: Using Azure Monitor Logs
+          - text: Analyze Azure infrastructure using Azure Monitor logs
             url: /training/modules/analyze-infrastructure-with-azure-monitor-logs/
           - text: Analyze logs in Azure Monitor with KQL
             url: /training/modules/analyze-logs-with-kql/
