@@ -268,7 +268,7 @@ Now you can go to your IoT Edge device to see the interaction between the Azure 
 
    You can watch the machine's temperature gradually rise until it reaches 70 degrees for 30 seconds. Then the Stream Analytics module triggers a reset, and the machine temperature drops back to 21.
 
-   :::image type="content" source="./media/tutorial-deploy-stream-analytics/docker-log.png" alt-text="Screenshot that shows the reset command in your output from your module logs.":::
+   :::image type="content" source="./media/tutorial-deploy-stream-analytics/docker-log.png" alt-text="Screenshot that shows the reset command in your output from your module logs." lightbox="./media/tutorial-deploy-stream-analytics/docker-log.png":::
 
 ## Clean up resources
 
