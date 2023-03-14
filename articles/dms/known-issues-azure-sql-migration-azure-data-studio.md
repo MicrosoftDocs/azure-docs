@@ -2,16 +2,12 @@
 title: "Known issues, limitations, and troubleshooting"
 titleSuffix: Azure Database Migration Service
 description: Known issues, limitations and troubleshooting guide for Azure SQL Migration extension for Azure Data Studio
-services: database-migration
 author: croblesm
 ms.author: roblescarlos
-manager: 
-ms.reviewer: 
-ms.service: dms
-ms.workload: data-services
-ms.custom: "seo-lt-2019"
-ms.topic: troubleshooting
 ms.date: 01/05/2023
+ms.service: dms
+ms.topic: troubleshooting
+ms.custom: seo-lt-2019
 ---
 
 # Known issues, limitations, and troubleshooting
@@ -36,7 +32,7 @@ Known issues and troubleshooting steps associated with the Azure SQL Migration e
 
 - **Cause**: The source SQL Server instance certificate from a database protected by Transparent Data Encryption (TDE) hasn't been migrated to the target Azure SQL Managed Instance or SQL Server on Azure Virtual Machine before migrating data.
 
-- **Recommendation**: Migrate the TDE certificate to the target instance and retry the process. For more information about this article, see [Migrate a certificate of a TDE-protected database to Azure SQL Managed Instance](/azure/azure-sql/managed-instance/tde-certificate-migrate) and [Move a TDE Protected Database to Another SQL Server](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server).  
+- **Recommendation**: Migrate the TDE certificate to the target instance and retry the process. For more information about migrating TDE-enabled databases, see [Tutorial: Migrate TDE-enabled databases (preview) to Azure SQL in Azure Data Studio](/azure/dms/tutorial-transparent-data-encryption-migration-ads).  
 
 
 - **Message**: `Migration for Database <DatabaseName> failed with error 'Non retriable error occurred while restoring backup with index 1 - 3169 The database was backed up on a server running version %ls. That version is incompatible with this server, which is running version %ls. Either restore the database on a server that supports the backup, or use a backup that is compatible with this server.`

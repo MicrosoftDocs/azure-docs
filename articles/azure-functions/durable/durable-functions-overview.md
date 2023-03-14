@@ -28,7 +28,7 @@ Durable Functions is designed to work with all Azure Functions programming langu
 | Java | Functions 4.0+ | Java 8+ | 4.x bundles |
 
 > [!NOTE]
-> The new programming model for authoring Functions in Python (V2) is currently in preview. Compared to the current model, the new experience is designed to have a more idiomatic and intuitive. To learn more, see Azure Functions Python [developer guide](/azure/azure-functions/functions-reference-python.md?pivots=python-mode-decorators).
+> The new programming model for authoring Functions in Python (V2) is currently in preview. Compared to the current model, the new experience is designed to have a more idiomatic and intuitive. To learn more, see Azure Functions Python [developer guide](../functions-reference-python.md?pivots=python-mode-decorators).
 >
 > In the following code snippets, Python (PM2) denotes programming model V2, the new experience.
 
@@ -1116,7 +1116,7 @@ Durable entities are currently not supported in Java.
 
 Clients can enqueue *operations* for (also known as "signaling") an entity function using the [entity client binding](durable-functions-bindings.md#entity-client).
 
-# [C# (InProc)](#tab/csharp-isolated)
+# [C# (InProc)](#tab/csharp-inproc)
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
@@ -1136,7 +1136,7 @@ public static async Task Run(
 > [!NOTE]
 > Dynamically generated proxies are also available in .NET for signaling entities in a type-safe way. And in addition to signaling, clients can also query for the state of an entity function using [type-safe methods](durable-functions-dotnet-entities.md#accessing-entities-through-interfaces) on the orchestration client binding.
 
-# [C# (Isolated)](#tab/csharp-inproc)
+# [C# (Isolated)](#tab/csharp-isolated)
 
 Durable entities are currently not supported in the .NET-isolated worker.
 

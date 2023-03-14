@@ -6,7 +6,7 @@ ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 02/24/2022
+ms.date: 03/01/2023
 ---
 # Asset certification in the Microsoft Purview data catalog
 
@@ -24,7 +24,7 @@ To certify an asset, you must be a **data curator** for the collection containin
 
     :::image type="content" source="media/how-to-certify-assets/toggle-certification-on.png" alt-text="Toggle an asset to be certified" border="true":::
 
-1. Save your changes. The asset will now have a "Certified" label next to the asset name.
+2. Save your changes. The asset has a "Certified" label next to the asset name.
     
     :::image type="content" source="media/how-to-certify-assets/view-certified-asset.png" alt-text="An asset with a certified label" border="true":::
 
@@ -50,17 +50,17 @@ You can use the Microsoft Purview [bulk edit experience](how-to-bulk-edit-assets
 
 1. Select **Apply**
 
-All assets selected will have the "Certified" label. 
+All assets selected have the "Certified" label. 
 
 ## Viewing certification labels in Search
 
-When search or browsing the data catalog, you'll see a certification label on any asset that is certified. Certified assets will also be boosted in search results to help data consumers discover them easily.
+When search or browsing the data catalog, you see a certification label on any asset that is certified. Certified assets boosted in search results to help data consumers discover them easily.
 
 :::image type="content" source="media/how-to-certify-assets/search-certified-assets.png" alt-text="Search results with certified assets" border="true":::
 
 
 ## Next steps
 
-Discover your assets in the Microsoft Purview data catalog by either:
+Discover your assets in the Microsoft Purview Data Catalog by either:
 - [Browsing the data catalog](how-to-browse-catalog.md)
 - [Searching the data catalog](how-to-search-catalog.md)

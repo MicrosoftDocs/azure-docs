@@ -108,3 +108,5 @@ landingContent:
             url: how-to-create-lockbox.md
           - text: Set up use Managed Identity
             url: how-to-use-managed-identity.md
+          - text: Enable resource sharing (CORS)
+            url: how-to-enable-cors.md

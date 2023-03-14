@@ -4,6 +4,7 @@ description: Learn how to register, authenticate with, and interact with an Azur
 author: athenads
 ms.author: athenadsouza
 ms.service: purview
+ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 01/10/2023
 ms.custom: template-how-to
@@ -455,6 +456,9 @@ Microsoft Purview supports lineage from Azure SQL Database. When you're setting 
 3. After you successfully set up the scan, a new scan type called **Lineage extraction** will run incremental scans every six hours to extract lineage from Azure SQL Database. Lineage is extracted based on the stored procedure runs in the SQL database.
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-lineage-extraction-runs.png" alt-text="Screenshot that shows the screen that runs lineage extraction every six hours."lightbox="media/register-scan-azure-sql-database/register-scan-azure-sql-db-lineage-extraction-runs-expanded.png":::
+
+    > [!Note]
+    > Toggle on  **Lineage extraction** will trigger daily scan.
 
 ### Search Azure SQL Database assets and view runtime lineage
 

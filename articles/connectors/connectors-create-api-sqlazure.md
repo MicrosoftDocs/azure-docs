@@ -126,7 +126,7 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
 1. To add other properties available for this trigger, open the **Add new parameter** list and select those properties.
 
-   This trigger returns only one row from the selected table, and nothing else. To perform other tasks, continue by adding either a [SQL Server connector action](#add-sql-action) or [another action](../connectors/apis-list.md) that performs the next task that you want in your logic app workflow.
+   This trigger returns only one row from the selected table, and nothing else. To perform other tasks, continue by adding either a [SQL Server connector action](#add-sql-action) or another action that performs the next task that you want in your logic app workflow.
 
    For example, to view the data in this row, you can add other actions that create a file that includes the fields from the returned row, and then send email alerts. To learn about other available actions for this connector, see the [SQL Server managed connector reference](/connectors/sql/).
 
@@ -158,7 +158,7 @@ In Standard logic app workflows, only the SQL Server managed connector has trigg
 
 1. To add other properties available for this trigger, open the **Add new parameter** list and select those properties.
 
-   This trigger returns only one row from the selected table, and nothing else. To perform other tasks, continue by adding either a [SQL Server connector action](#add-sql-action) or [another action](../connectors/apis-list.md) that performs the next task that you want in your logic app workflow.
+   This trigger returns only one row from the selected table, and nothing else. To perform other tasks, continue by adding either a [SQL Server connector action](#add-sql-action) or another action that performs the next task that you want in your logic app workflow.
 
    For example, to view the data in this row, you can add other actions that create a file that includes the fields from the returned row, and then send email alerts. To learn about other available actions for this connector, see the [SQL Server managed connector reference](/connectors/sql/).
 

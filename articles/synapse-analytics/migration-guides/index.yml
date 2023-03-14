@@ -51,12 +51,6 @@ landingContent:
             url: https://customers.microsoft.com/story/845578-co-op-retailers-azure
           - text: "Customer story: Neogrid"
             url: https://customers.microsoft.com/en-GB/story/816187-neogrid-professional-services-azure-synapse-analytics
-          - text: "Customer story: Walgreens"
-            url: https://customers.microsoft.com/en-us/story/778746-walgreens-retailers-azure-analytics
-      - linkListType: deploy
-        links:
-          - text: "Preferred migration accelerator: Next Pathway"
-            url: https://www.nextpathway.com/
   - title: From IBM Netezza
     linkLists: 
       - linkListType: overview

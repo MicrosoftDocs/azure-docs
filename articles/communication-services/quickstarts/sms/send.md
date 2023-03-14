@@ -21,8 +21,6 @@ zone_pivot_groups: acs-azcli-js-csharp-java-python
 
 > [!IMPORTANT]
 > SMS capabilities depend on the phone number you use and the country that you're operating within as determined by your Azure billing address. For more information, visit the [Subscription eligibility](../../concepts/numbers/sub-eligibility-number-capability.md) documentation.
-> 
-> Currently, SMS messages can only be sent to and received from United States phone numbers. For more information, see [Phone number types](../../concepts/telephony/plan-solution.md).
 
 <br/>
 
@@ -65,7 +63,7 @@ If you have a new toll-free number and want to send [high volume of SMS messages
 In this quickstart, you learned how to send SMS messages by using Communication Services.
 
 > [!div class="nextstepaction"]
-> [Receive SMS and Delivery Report Events](./handle-sms-events.md)
+> [Receive and reply to SMS](./receive-sms.md)
 
 > [!div class="nextstepaction"]
 > [Phone number types](../../concepts/telephony/plan-solution.md)

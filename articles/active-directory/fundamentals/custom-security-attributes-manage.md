@@ -112,7 +112,7 @@ To grant access to the appropriate people, follow these steps to assign one of t
 
 #### Azure portal
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Click **Azure Active Directory**.
 
@@ -160,7 +160,7 @@ Content-type: application/json
 
 #### Azure portal
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Click **Azure Active Directory**.
 
