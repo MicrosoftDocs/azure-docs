@@ -673,7 +673,7 @@ This section shows different logged metrics. In this example. mlflow `autologgin
     :::image type="content" source="media/tutorial-pipeline-python-sdk/metrics.jpg" alt-text="Screenshot shows logged metrics.txt." lightbox="media/tutorial-pipeline-python-sdk/metrics.jpg":::
 
 ## Deploy the model as an online endpoint
-To learn how to deploy your model to an online endpoint, see [Deploy a model as an online endpoint tutorial](https://learn.microsoft.com/azure/machine-learning/tutorial-deploy-model).
+To learn how to deploy your model to an online endpoint, see [Deploy a model as an online endpoint tutorial](tutorial-deploy-model.md).
 
 
 ## Clean up resources
