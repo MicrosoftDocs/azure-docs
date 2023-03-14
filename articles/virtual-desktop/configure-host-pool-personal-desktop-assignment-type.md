@@ -3,7 +3,7 @@ title: Azure Virtual Desktop personal desktop assignment type - Azure
 description: How to configure automatic or direct assignment for an Azure Virtual Desktop personal desktop host pool.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/03/2023
+ms.date: 03/14/2023
 ms.author: helohr 
 ms.custom: devx-track-azurepowershell
 manager: femila
@@ -95,17 +95,21 @@ To directly assign a user to a session host in the Azure portal:
 11. Select the user you want to assign the session host to from the list of available users.
 12. When you're done, select **Select**.
 
-## Unassign a personal desktop using the Azure portal
+## Unassign a personal desktop
+
+To unassign a personal desktop:
+
+#### [Azure portal](#tab/azure)
 
 To unassign a personal desktop in the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Enter **Azure Virtual Desktop** into the search bar.
-3. Under **Services**, select **Azure Virtual Desktop**.
-4. At the Azure Virtual Desktop page, go the menu on the left side of the window and select **Host pools**.
-5. Select the host pool you want to modify user assignment for.
-6. Next, go to the menu on the left side of the window and select **Session hosts**.
-7. Select the checkbox next to the session host you want to unassign a user from, select the ellipses at the end of the row, and then select **Unassign user**. You can also select **Assignment** > **Unassign user**.
+1. Enter **Azure Virtual Desktop** into the search bar.
+1. Under **Services**, select **Azure Virtual Desktop**.
+1. At the Azure Virtual Desktop page, go the menu on the left side of the window and select **Host pools**.
+1. Select the host pool you want to modify user assignment for.
+1. Next, go to the menu on the left side of the window and select **Session hosts**.
+1. Select the checkbox next to the session host you want to unassign a user from, select the ellipses at the end of the row, and then select **Unassign user**. You can also select **Assignment** > **Unassign user**.
 
     > [!div class="mx-imgBorder"]
     > ![A screenshot of the unassign user menu option from the ellipses menu for unassigning a personal desktop.](media/unassign.png)
@@ -113,9 +117,9 @@ To unassign a personal desktop in the Azure portal:
     > [!div class="mx-imgBorder"]
     > ![A screenshot of the unassign user menu option from the assignment menu for unassigning a personal desktop.](media/unassign-2.png)
 
-8. Select **Unassign** when prompted with the warning.
+1. Select **Unassign** when prompted with the warning.
 
-## Unassign a personal desktop using PowerShell
+#### [PowerShell](#tab/powershell)
 
 To unassign a personal desktop in PowerShell, run the following command:
 
@@ -130,17 +134,23 @@ $unassignDesktopParams = @{
 }
 Invoke-AzRestMethod @unassignDesktopParams
 ```
+---
 
-## Reassign a personal desktop using the Azure portal
+## Reassign a personal desktop
+
+To reassign a personal desktop:
+
+#### [Azure portal](#tab/azure)
 
 To reassign a personal desktop in the Azure portal:
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Enter **Azure Virtual Desktop** into the search bar.
-3. Under **Services**, select **Azure Virtual Desktop**.
-4. At the Azure Virtual Desktop page, go the menu on the left side of the window and select **Host pools**.
-5. Select the host pool you want to modify user assignment for.
-6. Next, go to the menu on the left side of the window and select **Session hosts**.
-7. Select the checkbox next to the session host you want to reassign to a different user, select the ellipses at the end of the row, and then select **Assign to a different user**. You can also select **Assignment** > **Assign to a different user**.
+1. Enter **Azure Virtual Desktop** into the search bar.
+1. Under **Services**, select **Azure Virtual Desktop**.
+1. At the Azure Virtual Desktop page, go the menu on the left side of the window and select **Host pools**.
+1. Select the host pool you want to modify user assignment for.
+1. Next, go to the menu on the left side of the window and select **Session hosts**.
+1. Select the checkbox next to the session host you want to reassign to a different user, select the ellipses at the end of the row, and then select **Assign to a different user**. You can also select **Assignment** > **Assign to a different user**.
 
     > [!div class="mx-imgBorder"]
     > ![A screenshot of the assign to a different user menu option from the ellipses menu for reassigning a personal desktop.](media/reassign-doc.png)
@@ -148,10 +158,10 @@ To reassign a personal desktop in the Azure portal:
     > [!div class="mx-imgBorder"]
     > ![A screenshot of the assign to a different user menu option from the assignment menu for reassigning a personal desktop.](media/reassign.png)
 
-8. Select the user you want to assign the session host to from the list of available users.
-9. When you're done, select **Select**.
+1. Select the user you want to assign the session host to from the list of available users.
+1. When you're done, select **Select**.
 
-## Reassign a personal desktop using PowerShell
+#### [Azure portal](#tab/powershell)
 
 Before you start, first define the `$reassignUserUpn` variable by running the following command:
 
@@ -172,6 +182,7 @@ $reassignDesktopParams = @{
 }
 Invoke-AzRestMethod @reassignDesktopParams
 ```
+---
 
 ## Give session hosts in a personal host pool a friendly name
 
