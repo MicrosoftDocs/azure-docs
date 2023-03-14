@@ -81,11 +81,6 @@ You can export your DSC configurations to script files using either the Azure po
 You specify a region during the creation of an Azure Automation account. Service data such as assets, configuration, logs are stored in that region and may transit or be processed in other regions within the same geography. These global endpoints are necessary to provide end-users with a high-performance, low-latency experience regardless of location. Only for the Brazil South (Sao Paulo State) region of Brazil geography, Southeast Asia region (Singapore) and East Asia region (Hongkong) of the Asia Pacific geography, we store Azure Automation data in the same region to accommodate data-residency requirements for these regions.
 
 
-> [!NOTE]
-> Azure Automation stores customer data in the region selected by the customer. For the purpose of BCDR, for all regions except Brazil South and Southeast Asia, Azure Automation data is stored in a different region (Azure paired region). Only for the Brazil South (Sao Paulo State) region of Brazil geography and Southeast Asia region (Singapore) of the Asia Pacific geography, we store Azure Automation data in the same region to accommodate data-residency requirements for these regions.
-
-The Automation geo-replication service isn't accessible directly to external customers if there is a regional failure. If you want to maintain Automation configuration and runbooks during regional failures, set up disaster recovery of the Automation accounts and their dependent resources, such as Modules, Connections, Credentials, Certificates, Variables and Schedules. [Learn more](automation-disaster-recovery.md).
-
 ## Next steps
 
 * To learn about security guidelines, see [Security best practices in Azure Automation](automation-security-guidelines.md).
