@@ -46,6 +46,4 @@
   items:
   - name: Pricing for Azure Container Storage
     href: https://azure.microsoft.com/pricing/details/storage/container-storage
-  - name: Azure pricing calculator
-    href: https://azure.microsoft.com/pricing/calculator/
   

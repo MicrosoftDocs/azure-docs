@@ -31,7 +31,10 @@ An Azure resource group is a logical group in which Azure resources are deployed
 * The storage location of your resource group metadata.
 * Where your resources will run in Azure if you don't specify another region during resource creation.
 
-The following example creates a resource group named *myContainerStorageRG* in the *eastus* location.
+> [!IMPORTANT]
+> Azure Container Storage Preview is only available in *eastus* and *westeurope* regions.
+
+The following example creates a resource group named *myContainerStorageRG* in the *eastus* region.
 
 1. Set your subscription context using the `az account set` command. You can view the subscription IDs for all the subscriptions you have access to by running the `az account list --output table` command.
 

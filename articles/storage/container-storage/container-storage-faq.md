@@ -23,13 +23,13 @@ Azure Container Storage is a cloud-based volume management offering built native
     See [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products). 
 
 * <a id="azure-container-storage-preview-limitations"></a>
-**Which other Azure services does Azure Container Storage support?**
+  **Which other Azure services does Azure Container Storage support?**
     During public preview, Azure Container Storage supports only Azure Kubernetes Service (AKS).
 
 ## Billing and pricing
 
 * <a id="azure-container-storage-billing"></a>
-**How much does Azure Container Storage cost to use?**
+  **How much does Azure Container Storage cost to use?**
     See the [Azure Container Storage pricing page](https://aka.ms/AzureContainerStoragePricingPage).
 
 ## See also
