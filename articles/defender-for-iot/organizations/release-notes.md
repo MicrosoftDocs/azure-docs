@@ -38,7 +38,7 @@ Cloud features may be dependent on a specific sensor version. Such features are 
 | Version / Patch |  Release date | Scope     | Supported until |
 | ------- |  ------------ | ----------- | ------------------- |
 | **22.3** | | | |
-| 22.3.7 | 02/2023 | Patch | 01/2024 |
+| 22.3.7 | 03/2023 | Patch | 02/2024 |
 | 22.3.5 | 01/2023 | Patch | 12/2023 |
 | 22.3.4 | 01/2023 | Major | 12/2023 |
 | **22.2** | | | |
@@ -94,21 +94,20 @@ To understand whether a feature is supported in your sensor version, check the r
 
 ### 22.3.7
 
-**Release date**: 02/2023
+**Release date**: 03/2023
 
-**Supported until**: 01/2024
+**Supported until**: 02/2024
 
-<!--draft, needs better descriptions and links-->
-- Support for transient devices
-- Auto-resolved notifications
-- Device data retention updated to 90 days
+- [Support for transient devices](device-inventory.md#supported-devices)
+- [Auto-resolved notifications](how-to-work-with-the-sensor-device-map.md#device-notification-responses)
+- [Device data retention updated to 90 days](references-data-retention.md#device-data-retention-periods)
 - [Merging](how-to-investigate-sensor-detections-in-a-device-inventory.md#merge-devices) and [deleting](how-to-investigate-sensor-detections-in-a-device-inventory.md#delete-devices) devices now include confirmation messages
 - Support for [deleting multiple devices](how-to-investigate-sensor-detections-in-a-device-inventory.md#delete-devices)
 - An enhanced [editing device details](how-to-investigate-sensor-detections-in-a-device-inventory.md#edit-device-details) process, using an **Edit** button in the toolbar at the top of the page
-- Enhanced UI for uploading an SSL/TLS certificate
-- Activation files for cloud-connected sensors no longer expire
-- Severity of all Suspicion of Malicious Activity alerts updated from ? to ?
-- Configuration for a DNS allowlist to resolve IP addresses to domains
+- [Enhanced UI for uploading an SSL/TLS certificate](how-to-deploy-certificates.md#deploy-ssltls-certificates-on-ot-appliances)
+- [Activation files for cloud-connected sensors no longer expire](how-to-manage-individual-sensors.md#upload-a-new-activation-file)
+- Severity for all [**Suspicion of Malicious Activity**](alert-engine-messages.md#malware-engine-alerts) alerts is now **Critical**
+- [Allow internet connections on an OT network in bulk](how-to-accelerate-alert-incident-response.md#allow-internet-connections-on-an-ot-network)
 
 ## Versions 22.3.x
 
