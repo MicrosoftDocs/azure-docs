@@ -261,7 +261,7 @@ items:
       href: how-to-resource-set-pattern-rules.md
     - name: Monitor data map population
       href: how-to-monitor-data-map-population.md
-    - name: Troubleshoot connection issues
+    - name: Troubleshoot scans & connections
       href: troubleshoot-connections.md
   - name: Data catalog
     items:
@@ -284,9 +284,11 @@ items:
     - name: Azure Data Factory lineage
       href: how-to-link-azure-data-factory.md
     - name: Azure Data Share lineage
-      href: how-to-lineage-purview-data-sharing.md
+      href: how-to-link-azure-data-share.md
     - name: Azure Synapse Analytics lineage
       href: how-to-lineage-azure-synapse-analytics.md
+    - name: Microsoft Purview Data Sharing lineage
+      href: how-to-lineage-purview-data-sharing.md
     - name: Power BI lineage
       href: how-to-lineage-powerbi.md
     - name: Spark lineage

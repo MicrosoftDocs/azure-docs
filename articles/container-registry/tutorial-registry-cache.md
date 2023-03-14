@@ -57,7 +57,7 @@ Implementing Caching for ACR provides the following benefits:
 
 - Quarantine functions like signing, scanning, and manual compliance approval are on the roadmap but not included in this release.
 
-- Caching will only occur after at least one pull request is complete on the available container image. For every new image available, a new pull request must be complete. Caching for ACR does not automatically pull new versions of images when a new version is available. It is on the roadmap but not supported in this release. 
+- Caching will only occur after at least one image pull request is complete on the available container image. For every new image available, a new image pull request must be complete. Caching for ACR does not automatically pull new versions of images when a new version is available. It is on the roadmap but not supported in this release. 
 
 -  Caching for ACR only supports Docker Hub and Microsoft Artifact Registry. Multiple other registries  including self-hosted registries are on the roadmap but aren't included in this release.
 

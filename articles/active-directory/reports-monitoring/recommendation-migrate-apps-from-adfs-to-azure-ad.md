@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/02/2023
+ms.date: 03/07/2023
 ms.author: sarahlipsey
 ms.reviewer: hafowler
 
@@ -23,11 +23,7 @@ This article covers the recommendation to migrate apps from Active Directory Fed
 
 ## Description
 
-As an admin responsible for managing applications, I want my applications to use Azure AD’s security features and maximize their value. 
-
-## Logic 
-
-If a tenant has apps on AD FS, and any of these apps are deemed 100% migratable, this recommendation shows up. 
+As an admin responsible for managing applications, you want your applications to use Azure AD’s security features and maximize their value. This recommendation shows up if your tenant has apps on ADFS that can 100% be migrated to Azure AD.
 
 ## Value 
 
