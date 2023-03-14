@@ -161,6 +161,8 @@ To train a machine learning model on data in your Log Analytics workspace:
  
 ## Train and test regression models on historical data
 
+Let's experiment with two types of regression models and check which :
+
 1. Train and evaluate a [linear regression model](https://scikit-learn.org/stable/modules/linear_model.html).
 
     This script creates a machine learning pipeline that trains and evaluates a machine learning model using the `scikit-learn` library by:  
@@ -211,7 +213,7 @@ To train a machine learning model on data in your Log Analytics workspace:
 
     There are multiple methods of detecting anomalies, including the [elliptic envelope model](https://scikit-learn.org/stable/modules/generated/sklearn.covariance.EllipticEnvelope.html), [one-class support vector machine (SVM) model](https://scikit-learn.org/stable/modules/generated/sklearn.svm.OneClassSVM.html) and [isolation forest model](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.IsolationForest.html).
     
-    In this tutorial, we'll use our example we'll use a method called [Tukey's fences method](https://en.wikipedia.org/wiki/Outlier#Tukey%27s_fences) to identify anomalies. 
+    In this tutorial, we'll use a method called [Tukey's fences method](https://en.wikipedia.org/wiki/Outlier#Tukey%27s_fences) to identify anomalies. 
     
     > [!NOTE]
     > The KQL [series_decompse_anomalies](../../data-explorer/kusto/query/series-decompose-anomaliesfunction) function also uses the Tukey's fences method to detect anomalies.
