@@ -34,6 +34,8 @@ landingContent:
             url: ./logs/data-platform-logs.md
           - text: What is Azure Monitor for SCOM?
             url:  azure-monitor-operations-manager.md
+          - text: What is Application Insights?
+            url: /azure-monitor/insights/insights-overview
 
 # Card 
   - title: Get started with Azure Monitor
@@ -66,6 +68,7 @@ landingContent:
             url: https://github.com/Microsoft/appcenter
           - text: Website
             url: app/website-monitoring.md
+
   # Card 
   - title: 10-minute quickstarts
     linkLists:
@@ -78,23 +81,37 @@ landingContent:
           - text: Alert on Subscription events
             url: ./alerts/alerts-activity-log.md
 
+  # Card 
+  - title: End-to-end scenarios
+    linkLists:
+      - linkListType: deploy
+        links:
+          - text: Multicloud monitoring
+            url: best-practices-multicloud
+          - text: Migrate to Azure Monitor Logs
+            url: ./logs/migrate-splunk-to-azure-monitor-logs
+          - text: Monitor virtual machines
+            url: ./vm/monitor-virtual-machine
+          - text: Monitor containers
+            url: ./containers/container-insights-overview
+
   # Card
   - title: Training
     linkLists: 
       - linkListType: learn
         links:
-          - text: Learning path
+          - text: Azure Monitor Learning path 
             url: /training/paths/monitor-usage-performance-availability-resources-azure-monitor/
-          - text: Using Azure Monitor Logs
-            url: /training/modules/analyze-infrastructure-with-azure-monitor-logs/
+          - text: Configure Azure Monitor
+            url: /training/modules/configure-azure-monitor/
           - text: Analyze logs in Azure Monitor with KQL
             url: /training/modules/analyze-logs-with-kql/
           - text: Add the Application Insights SDK to your server-side code
             url: /training/modules/instrument-web-app-code-with-application-insights/
-          - text: Monitor VM performance with VM Insights
+          - text: Monitor performance of virtual machines by using Azure Monitor VM Insights
             url: /training/modules/monitor-performance-using-azure-monitor-for-vms/
-          - text: Respond to incidents with Azure Monitor alerts
-            url: /training/modules/incident-response-with-alerting-on-azure/
+          - text: Visualize data combined from multiple data sources by using Azure Workbooks
+            url: /training/modules/visualize-data-workbooks/
 
   # Card
   - title: Videos
