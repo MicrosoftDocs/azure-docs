@@ -18,9 +18,10 @@ This article provides recommendations for graph data models. These best practice
 ## Requirements
 
 The process outlined in this guide is based on the following assumptions:
- * The *entities* in the problem-space are identified. These entities are meant to be consumed *atomically* for each request. In other words, the database system isn't designed to retrieve a single entity's data in multiple query requests.
- * There's an understanding of *read and write requirements* for the database system. These requirements guide the optimizations needed for the graph data model.
- * The principles of the [Apache Tinkerpop property graph standard](https://tinkerpop.apache.org/docs/current/reference/#graph-computing) are well understood.
+
+* The *entities* in the problem-space are identified. These entities are meant to be consumed *atomically* for each request. In other words, the database system isn't designed to retrieve a single entity's data in multiple query requests.
+* There's an understanding of *read and write requirements* for the database system. These requirements guide the optimizations needed for the graph data model.
+* The principles of the [Apache Tinkerpop property graph standard](https://tinkerpop.apache.org/docs/current/reference/#graph-computing) are well understood.
 
 ## When do I need a graph database?
 
@@ -57,7 +58,7 @@ The following are best practices for the properties in the graph objects:
 
 ## Entity and relationship modeling guidelines
 
-The following guidelines help you approach data modeling for an Azure Cosmos DB for Apache Gremlin graph database. These guidelines assume that there's an existing definition of a data domain and queries for it.
+The following guidelines help you approach data modeling for an [Azure Cosmos DB for Apache Gremlin](introduction.md) graph database. These guidelines assume that there's an existing definition of a data domain and queries for it.
 
 > [!NOTE]
 > The following steps are presented as recommendations. You should evaluate and test the final model before considering it as production-ready. Additionally, the recommendations are specific to Azure Cosmos DB's Gremlin API implementation. 
