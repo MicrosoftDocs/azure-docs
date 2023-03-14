@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 03/01/2023
+ms.date: 03/14/2023
 ms.author: anfdocs
 ---
 # What's new in Azure NetApp Files
@@ -20,6 +20,10 @@ ms.author: anfdocs
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
 ## March 2023
+
+* [Disable showmount](disable-showmount.md) (Preview)
+
+    By default, Azure NetApp Files enables [showmount functionality](/windows-server/administration/windows-commands/showmount) to show NFS exported paths. The setting allows NFS clients tp use the `showmount -e` command to see a list of exports available on the Azure NetApp Files NFS-enabled storage endpoint. This functionality might cause security scanners to flag the Azure NetApp Files NFS service as having a vulnerability because these scanners often use showmount to see what is being returned. In those scenarios, you might want to disable showmount on Azure NetApp Files. This setting allows you to enable/disable showmount for your NFS-enabled storage endpoints. 
 
 * [Active Directory support improvement](create-active-directory-connections.md#preferred-server-ldap) (Preview)
 
@@ -105,10 +109,6 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 * [Azure Virtual WAN](configure-virtual-wan.md) (Preview)
 
     [Azure Virtual WAN](../virtual-wan/virtual-wan-about.md) is now supported on Azure NetApp Files with Standard network features. Azure Virtual WAN is a spoke-and-hub architecture, enabling cloud-hosted network hub connectivity between endpoints, creating networking, security, and routing functionalities in one interface. Use cases for Azure Virtual WAN include remote user VPN connectivity (point-to-site), private connectivity (ExpressRoute), intra-cloud connectivity, and VPN ExpressRoute inter-connectivity. 
-
-* [Disable showmount](disable-showmount.md) (Preview)
-
-    By default, Azure NetApp Files enables [showmount functionality](/windows-server/administration/windows-commands/showmount) to show NFS exported paths. The setting allows NFS clients tp use the `showmount -e` command to see a list of exports available on the Azure NetApp Files NFS-enabled storage endpoint. This functionality might cause security scanners to flag the Azure NetApp Files NFS service as having a vulnerability because these scanners often use showmount to see what is being returned. In those scenarios, you might want to disable showmount on Azure NetApp Files. This setting allows you to enable/disable showmount for your NFS-enabled storage endpoints. 
 
 ## November 2022 
 
