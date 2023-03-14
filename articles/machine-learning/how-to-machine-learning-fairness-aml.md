@@ -26,10 +26,12 @@ In this how-to guide, you will learn to use the [Fairlearn](https://fairlearn.gi
 >[!NOTE]
 > Fairness assessment is not a purely technical exercise. **This package can help you assess the fairness of a machine learning model, but only you can configure and make decisions as to how the model performs.**  While this package helps to identify quantitative metrics to assess fairness, developers of machine learning models must also perform a qualitative analysis to evaluate the fairness of their own models.
 
+[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
 ## Azure Machine Learning Fairness SDK 
 
 The Azure Machine Learning Fairness SDK, `azureml-contrib-fairness`, integrates the open-source Python package, [Fairlearn](http://fairlearn.github.io),
-within Azure Machine Learning. To learn more about Fairlearn's integration within Azure Machine Learning, check out these [sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness). For more information on Fairlearn, see the [example guide](https://fairlearn.org/main/auto_examples/) and [sample notebooks](https://github.com/fairlearn/fairlearn/tree/master/notebooks). 
+within Azure Machine Learning. To learn more about Fairlearn's integration within Azure Machine Learning, check out these [sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness). For more information on Fairlearn, see the [example guide](https://fairlearn.org/main/auto_examples/) and [sample notebooks](https://github.com/fairlearn/fairlearn/blob/main/docs/contributor_guide/contributing_example_notebooks.rst). 
 
 Use the following commands to install the `azureml-contrib-fairness` and `fairlearn` packages:
 ```bash
@@ -336,7 +338,7 @@ To compare multiple models and see how their fairness assessments differ, you ca
 
 You can use Fairlearn's [mitigation algorithms](https://fairlearn.org/main/user_guide/mitigation/index.html), compare their generated mitigated model(s) to the original unmitigated model, and navigate the performance/fairness trade-offs among compared models.
 
-To see an example that demonstrates the use of the [Grid Search](https://fairlearn.org/main/api_reference/fairlearn.reductions.html#fairlearn.reductions.GridSearch) mitigation algorithm (which creates a collection of mitigated models with different fairness and performance trade offs) check out this [sample notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/contrib/fairness/fairlearn-azureml-mitigation.ipynb). 
+To see an example that demonstrates the use of the [Grid Search](https://fairlearn.org/v0.7.0/api_reference/fairlearn.reductions.html#fairlearn.reductions.GridSearch) mitigation algorithm (which creates a collection of mitigated models with different fairness and performance trade offs) check out this [sample notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/contrib/fairness/fairlearn-azureml-mitigation.ipynb). 
 
 Uploading multiple models' fairness insights in a single Run allows for comparison of models with respect to fairness and performance. You can click on any of the models displayed in the model comparison chart to see the detailed fairness insights of the particular model.
 

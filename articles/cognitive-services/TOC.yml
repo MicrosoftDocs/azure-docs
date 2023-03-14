@@ -35,8 +35,6 @@
     href: diagnostic-logging.md
   - name: Manage resources
     href: manage-resources.md
-  - name: Disaster recovery
-    href: disaster-recovery.md
   - name: Deploy
     items:
     - name: Containers

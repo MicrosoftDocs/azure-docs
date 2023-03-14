@@ -5,7 +5,7 @@ description: Learn how to build a Bicep file or an Azure Resource Manager templa
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 08/30/2022
-ms.custom: fasttrack-edit, devx-track-azurepowershell
+ms.custom: fasttrack-edit
 ---
 
 # Automate resource deployment for your function app in Azure Functions
@@ -614,7 +614,7 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
 
 The function app must have set `"kind": "functionapp,linux"`, and it must have set property `"reserved": true`. Linux apps should also include a `linuxFxVersion` property under siteConfig. If you're just deploying code, the value for this property is determined by your desired runtime stack in the format of runtime|runtimeVersion. For example: `python|3.7`, `node|14` and `dotnet|3.1`.
 
-The [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring) and [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) settings aren't supported on Linux Consumption plan.
+For Linux Consumption plan it is also required to add the two other settings in the site configuration: [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring) and [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare).
 
 For a sample Bicep file/Azure Resource Manager template, see [Azure Function App Hosted on Linux Consumption Plan](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-linux-consumption).
 

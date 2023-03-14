@@ -7,8 +7,6 @@
     href: understanding-inventory-assets.md
   - name: What is Discovery?
     href: what-is-discovery.md
-  - name: Data Connections overview (preview)
-    href: data-connections-overview.md
 - name: How-to
   items:
   - name: Understanding asset details
@@ -19,6 +17,8 @@
     href: using-and-managing-discovery.md
   - name: Understand billable assets
     href: understanding-billable-assets.md
+  - name: Labeling inventory assets 
+    href: labeling-inventory-assets.md
   - name: Inventory filters 
     expanded: true
     items: 

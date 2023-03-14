@@ -4,9 +4,9 @@ description: Learn how to restore a disk and create a recover a VM in Azure with
 ms.topic: tutorial
 ms.date: 10/28/2022
 ms.custom: mvc, devx-track-azurecli
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Restore a VM with Azure CLI

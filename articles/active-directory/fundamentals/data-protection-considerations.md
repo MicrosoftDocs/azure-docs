@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 01/19/2023
+ms.date: 01/31/2023
 ms.author: jricketts
 ms.reviewer: jricketts
 ms.custom: "it-pro"
@@ -80,8 +80,14 @@ For more information about Secret encryption at rest, see the following table.
 |Microsoft Authenticator app: Backup and restore of enterprise account metadata |AES-256  |
 
 ## Resources
-* [Azure AD and data residency](azure-ad-data-residency.md)
+
 * [Microsoft Service Trust Documents](https://servicetrust.microsoft.com/Documents/TrustDocuments)
 * [Microsoft Azure Trust Center](https://azure.microsoft.com/overview/trusted-cloud/)
-* [Where is my data? - Office 365 documentation](http://o365datacentermap.azurewebsites.net/)
 * [Recover from deletions in Azure Active Directory](recover-from-deletions.md)
+
+## Next steps
+
+* [Azure Active Directory and data residency](azure-ad-data-residency.md) 
+
+* [Data operational considerations](data-operational-considerations.md)
+* [Data protection considerations](data-protection-considerations.md) (You're here)

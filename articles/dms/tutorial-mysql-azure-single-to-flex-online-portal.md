@@ -2,10 +2,9 @@
 title: "Tutorial: Migrate Azure Database for MySQL - Single Server to Flexible Server online using DMS via the Azure portal"
 titleSuffix: "Azure Database Migration Service"
 description: "Learn to perform an online migration from Azure Database for MySQL - Single Server to Flexible Server by using Azure Database Migration Service."
-author: aditivgupta
-ms.author: adig
-ms.reviewer: "maghan"
-manager: "pariks"
+author: karlaescobar
+ms.author: karlaescobar
+ms.reviewer: maghan
 ms.date: 09/17/2022
 ms.service: dms
 ms.topic: tutorial

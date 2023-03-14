@@ -94,19 +94,21 @@ There are two ways to add a policy through the Azure portal.
 
 1. Select **Add a rule** and name your rule on the **Details** form. You can also set the **Rule scope**, **Blob type**, and **Blob subtype** values. The following example sets the scope to filter blobs. This causes the **Filter set** tab to be added.
 
-   :::image type="content" source="media/lifecycle-management-policy-configure/lifecycle-management-details.png" alt-text="Lifecycle management add a rule details page in Azure portal":::
+  :::image type="content" source="media/lifecycle-management-policy-configure/lifecycle-management-details.png" alt-text="Lifecycle management add a rule details page in Azure portal":::
 
 1. Select **Base blobs** to set the conditions for your rule. In the following example, blobs are moved to cool storage if they haven't been modified for 30 days.
 
-   :::image type="content" source="media/lifecycle-management-policy-configure/lifecycle-management-base-blobs.png" alt-text="Lifecycle management base blobs page in Azure portal":::
+  :::image type="content" source="media/lifecycle-management-policy-configure/lifecycle-management-base-blobs.png" alt-text="Lifecycle management base blobs page in Azure portal":::
 
-   The **Last accessed** option is available only if you have enabled access time tracking. To learn how to enable access tracking, see [Optionally enable access time tracking](#optionally-enable-access-time-tracking).
+  The **Last accessed** option is available only if you have enabled access time tracking. To learn how to enable access tracking, see [Optionally enable access time tracking](#optionally-enable-access-time-tracking).
 
 1. If you selected **Limit blobs with filters** on the **Details** page, select **Filter set** to add an optional filter. The following example filters on blobs whose name begins with *log* in a container called *sample-container*.
 
-   :::image type="content" source="media/lifecycle-management-policy-configure/lifecycle-management-filter-set.png" alt-text="Lifecycle management filter set page in Azure portal":::
+  :::image type="content" source="media/lifecycle-management-policy-configure/lifecycle-management-filter-set.png" alt-text="Lifecycle management filter set page in Azure portal":::
 
 1. Select **Add** to add the new policy.
+
+Keep in mind that a lifecycle management policy will not delete the current version of a blob until any previous versions or snapshots associated with that blob have been deleted. If blobs in your storage account have previous versions or snapshots, then you should select **Base blobs**, **Snapshots**, and **Versions** in the **Blob Subtype** section when you are specifying a delete action as part of the policy.
 
 #### Code view
 

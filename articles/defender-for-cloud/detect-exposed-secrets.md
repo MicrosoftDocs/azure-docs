@@ -4,7 +4,7 @@ titleSuffix: Defender for Cloud
 description: Prevent passwords and other secrets that may be stored in your code from being accessed by outside individuals by using Defender for Cloud's secret scanning for Defender for DevOps.
 ms.topic: how-to
 ms.custom: ignite-2022
-ms.date: 01/24/2023
+ms.date: 01/31/2023
 ---
 
 # Detect exposed secrets in code
@@ -14,7 +14,7 @@ When passwords and other secrets are stored in source code, it poses a significa
 > [!NOTE]
 > During the Defender for DevOps preview period, GitHub Advanced Security for Azure DevOps (GHAS for AzDO) is also providing a free trial of secret scanning.
 
-Check the list of [supported file types and exit codes](#supported-file-types-and-exit-codes).
+Check the list of supported [file types](concept-credential-scanner-rules.md#supported-file-types), [exit codes](concept-credential-scanner-rules.md#supported-exit-codes) and [rules and descriptions](concept-credential-scanner-rules.md#rules-and-descriptions).
 
 ## Prerequisites
 
@@ -45,23 +45,71 @@ You can run secret scanning as part of the Azure DevOps build process by using t
 
 1.  Select **Save**.
 
-By adding the additions to your yaml file, you will ensure that secret scanning only runs when you execute a build to your Azure DevOps pipeline.
+By adding the additions to your yaml file, you'll ensure that secret scanning only runs when you execute a build to your Azure DevOps pipeline.
+
+## Remediate secrets findings
+
+When credentials are discovered in your code, you can remove them. Instead you can use an alternative method that won't expose the secrets directly in your source code. Some of the best practices that exist to handle this type of situation include:
+
+- Eliminating the use of credentials (if possible).
+
+- Using secret storage such as Azure Key Vault (AKV).
+
+- Updating your authentication methods to take advantage of managed identities (MSI) via Azure Active Directory (AAD).
+  
+### Remediate secrets findings using Azure Key Vault
+
+1. Create a [key vault using PowerShell](../key-vault/general/quick-create-powershell.md).
+
+1. [Add any necessary secrets](../key-vault/secrets/quick-create-net.md) for your application to your Key Vault.
+
+1. Update your application to connect to Key Vault using managed identity with one of the following:
+
+    - [Azure Key Vault for App Service application](../key-vault/general/tutorial-net-create-vault-azure-web-app.md)
+    - [Azure Key Vault for applications deployed to a VM](../key-vault/general/tutorial-net-virtual-machine.md)
+
+Once you have remediated findings, you can review the [Best practices for using Azure Key Vault](../key-vault/general/best-practices.md).
+
+### Remediate secrets findings using managed identities
+
+Before you can remediate secrets findings using managed identities, you need to ensure that the Azure resource you're authenticating to in your code supports managed identities. You can check the full list of [Azure services that can use managed identities to access other services](../active-directory/managed-identities-azure-resources/managed-identities-status.md).
+
+If your Azure service is listed, you can [manage your identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
+
 
 ## Suppress false positives
 
 When the scanner runs, it may detect credentials that are false positives. Inline-suppression tools can be used to suppress false positives. 
+
+Some reasons to suppress false positives include:
+
+- Fake or mocked credentials in the test files. These credentials can't access resources.
+
+- Placeholder strings. For example, placeholder strings may be used to initialize a variable, which is then populated using a secret store such as AKV.
+
+- External library or SDKs that 's directly consumed. For example, openssl.
+
+- Hard-coded credentials for an ephemeral test resource that only exists for the lifetime of the test being run.
+
+- Self-signed certificates that are used locally and not used as a root. For example, they may be used when running localhost to allow HTTPS.
+
+- Source-controlled documentation with non-functional credential for illustration purposes only
+
+- Invalid results. The output isn't a credential or a secret.
 
 You may want to suppress fake secrets in unit tests or mock paths, or inaccurate results. We don't recommend using suppression to suppress test credentials. Test credentials can still pose a security risk and should be securely stored.
 
 > [!NOTE]
 > Valid inline suppression syntax depends on the language, data format and CredScan version you are using. 
 
+Credentials that are used for test resources and environments shouldn't be suppressed. They're being used to demonstration purposes only and don't affect anything else. 
+
 ### Suppress a same line secret
 
 To suppress a secret that is found on the same line, add the following code as a comment at the end of the line that has the secret:
 
 ```bash
-[SuppressMessage("Microsoft.Security", "CS001:SecretInLine", Justification="... .")]
+#[SuppressMessage("Microsoft.Security", "CS001:SecretInLine", Justification="... .")]
 ```
 
 ### Suppress a secret in the next line 
@@ -69,83 +117,8 @@ To suppress a secret that is found on the same line, add the following code as a
 To suppress the secret found in the next line, add the following code as a comment before the line that has the secret:
 
 ```bash
-[SuppressMessage("Microsoft.Security", "CS002:SecretInNextLine", Justification="... .")]
+#[SuppressMessage("Microsoft.Security", "CS002:SecretInNextLine", Justification="... .")]
 ```
-
-## Supported file types and exit codes
-
-CredScan supports the following file types:
-
-| Supported file types |  |  |  |  |  |
-|--|--|--|--|--|--|
-| 0.001 |\*.conf | id_rsa |\*.p12 |\*.sarif |\*.wadcfgx |
-| 0.1 |\*.config |\*.iis |\*.p12* |\*.sc |\*.waz |
-| 0.8 |\*.cpp |\*.ijs |\*.params |\*.scala |\*.webtest |
-| *_sk |\*.crt |\*.inc | password |\*.scn |\*.wsx |
-| *password |\*.cs |\*.inf |\*.pem | scopebindings.json |\*.wtl |
-| *pwd*.txt |\*.cscfg |\*.ini |\*.pfx* |\*.scr |\*.xaml |
-|\*.*_/key |\*.cshtm |\*.ino | pgpass |\*.script |\*.xdt |
-|\*.*__/key |\*.cshtml |\*.insecure |\*.php |\*.sdf |\*.xml |
-|\*.1/key |\*.csl |\*.install |\*.pkcs12* |\*.secret |\*.xslt |
-|\*.32bit |\*.csv |\*.ipynb |\*.pl |\*.settings |\*.yaml |
-|\*.3des |\*.cxx |\*.isml |\*.plist |\*.sh |\*.yml |
-|\*.added_cluster |\*.dart |\*.j2 |\*.pm |\*.shf |\*.zaliases |
-|\*.aes128 |\*.dat |\*.ja |\*.pod |\*.side |\*.zhistory |
-|\*.aes192 |\*.data |\*.jade |\*.positive |\*.side2 |\*.zprofile |
-|\*.aes256 |\*.dbg |\*.java |\*.ppk* |\*.snap |\*.zsh_aliases |
-|\*.al |\*.defaults |\*.jks* |\*.priv |\*.snippet |\*.zsh_history |
-|\*.argfile |\*.definitions |\*.js | privatekey |\*.sql |\*.zsh_profile |
-|\*.as |\*.deployment |\*.json | privatkey |\*.ss |\*.zshrc |
-|\*.asax | dockerfile |\*.jsonnet |\*.prop | ssh\\config |  |
-|\*.asc | _dsa |\*.jsx |\*.properties | ssh_config |  |
-|\*.ascx |\*.dsql | kefile |\*.ps |\*.ste |  |
-|\*.asl |\*.dtsx | key |\*.ps1 |\*.svc |  |
-|\*.asmmeta | _ecdsa | keyfile |\*.psclass1 |\*.svd |  |
-|\*.asmx | _ed25519 |\*.key |\*.psm1 |\*.svg |  |
-|\*.aspx |\*.ejs |\*.key* | psql_history |\*.svn-base |  |
-|\*.aurora |\*.env |\*.key.* |\*.pub |\*.swift |  |
-|\*.azure |\*.erb |\*.keys |\*.publishsettings |\*.tcl |  |
-|\*.backup |\*.ext |\*.keystore* |\*.pubxml |\*.template |  |
-|\*.bak |\*.ExtendedTests |\*.linq |\*.pubxml.user | template |  |
-|\*.bas |\*.FF |\*.loadtest |\*.pvk* |\*.test |  |
-|\*.bash_aliases |\*.frm |\*.local |\*.py |\*.textile |  |
-|\*.bash_history |\*.gcfg |\*.log |\*.pyo |\*.tf |  |
-|\*.bash_profile |\*.git |\*.m |\*.r |\*.tfvars |  |
-|\*.bashrc |\*.git/config |\*.managers |\*.rake | tmdb |  |
-|\*.bat |\*.gitcredentials |\*.map |\*.razor |\*.trd |  |
-|\*.Beta |\*.go |\*.md |\*.rb |\*.trx |  |
-|\*.BF |\*.gradle |\*.md-e |\*.rc |\*.ts |  |
-|\*.bicep |\*.groovy |\*.mef |\*.rdg |\*.tsv |  |
-|\*.bim |\*.grooy |\*.mst |\*.rds |\*.tsx |  |
-|\*.bks* |\*.gsh |\*.my |\*.reg |\*.tt |  |
-|\*.build |\*.gvy |\*.mysql_aliases |\*.resx |\*.txt |  |
-|\*.c |\*.gy |\*.mysql_history |\*.retail |\*.user |  |
-|\*.cc |\*.h |\*.mysql_profile |\*.robot | user |  |
-|\*.ccf | host | npmrc |\*.rqy | userconfig* |  |
-|\*.cfg |\*.hpp |\*.nuspec | _rsa |\*.usersaptinstall |  |
-|\*.clean |\*.htm |\*.ois_export |\*.rst |\*.usersaptinstall |  |
-|\*.cls |\*.html |\*.omi |\*.ruby |\*.vb |  |
-|\*.cmd |\*.htpassword |\*.opn |\*.runsettings |\*.vbs |  |
-|\*.code-workspace | hubot |\*.orig |\*.sample |\*.vizfx |  |
-|\*.coffee |\*.idl |\*.out |\*.SAMPLE |\*.vue |  |
-
-The following exit codes are available in CredScan:
-
-| Code | Description |
-|--|--|
-| 0 | Scan completed successfully with no application warning, no suppressed match, no credential match. |
-| 1 | Partial scan completed with nothing but application warning. |
-| 2 | Scan completed successfully with nothing but suppressed match(es). |
-| 3 | Partial scan completed with both application warning(s) and suppressed match(es). |
-| 4 | Scan completed successfully with nothing but credential match(es). |
-| 5 | Partial scan completed with both application warning(s) and credential match(es). |
-| 6 | Scan completed successfully with both suppressed match(es) and credential match(es). |
-| 7 | Partial scan completed with application warning(s), suppressed match(es) and credential match(es). |
-| -1000 | Scan failed with command line argument error. |
-| -1100 | Scan failed with app settings error. |
-| -1500 | Scan failed with other configuration error. |
-| -1600 | Scan failed with IO error. |
-| -9000 | Scan failed with unknown error. |
 
 ## Next steps
 + Learn how to [configure pull request annotations](enable-pull-request-annotations.md) in Defender for Cloud to remediate secrets in code before they're shipped to production.

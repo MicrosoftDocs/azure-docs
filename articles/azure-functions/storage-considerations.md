@@ -49,7 +49,7 @@ The storage account connection string must be updated when you regenerate storag
 
 It's possible for multiple function apps to share the same storage account without any issues. For example, in Visual Studio you can develop multiple apps using the [Azurite storage emulator](functions-develop-local.md#local-storage-emulator). In this case, the emulator acts like a single storage account. The same storage account used by your function app can also be used to store your application data. However, this approach isn't always a good idea in a production environment.
 
-You may need to use separate store accounts to [avoid host ID collisions](#avoiding-host-id-collisions).
+You may need to use separate storage accounts to [avoid host ID collisions](#avoiding-host-id-collisions).
 
 ### Lifecycle management policy considerations
 

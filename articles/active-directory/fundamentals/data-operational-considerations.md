@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 01/26/2023
+ms.date: 01/31/2023
 ms.author: jricketts
 ms.reviewer: jricketts
 ms.custom: "it-pro"
@@ -49,7 +49,13 @@ To roll out changes to the service across data centers, the Azure AD team define
 
 ## Resources
 
-* [Azure AD and data residency](azure-ad-data-residency.md)
 * [Microsoft Service Trust Documents](https://servicetrust.microsoft.com/Documents/TrustDocuments)
 * [Microsoft Azure Trusted Cloud](https://azure.microsoft.com/explore/trusted-cloud/)
 * [Office 365 data centers](https://social.technet.microsoft.com/wiki/contents/articles/37502.office-365-how-to-change-data-center-regions.aspx#Moving_Office_365_Data_Centers)
+
+## Next steps
+
+* [Azure Active Directory and data residency](azure-ad-data-residency.md)
+
+* [Data operational considerations](data-operational-considerations.md) (You're here)
+* [Data protection considerations](data-protection-considerations.md)

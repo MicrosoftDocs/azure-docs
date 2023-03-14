@@ -89,7 +89,7 @@ We recommend that you harden your Azure AD Connect server to decrease the securi
 ### SQL Server used by Azure AD Connect
 * Azure AD Connect requires a SQL Server database to store identity data. By default, a SQL Server 2019 Express LocalDB (a light version of SQL Server Express) is installed. SQL Server Express has a 10-GB size limit that enables you to manage approximately 100,000 objects. If you need to manage a higher volume of directory objects, point the installation wizard to a different installation of SQL Server. The type of SQL Server installation can impact the [performance of Azure AD Connect](./plan-connect-performance-factors.md#sql-database-factors).
 * If you use a different installation of SQL Server, these requirements apply:
-  * Azure AD Connect support all mainstream supported SQL Server versions up to SQL Server 2019. Please refer to the [SQL Server lifecycle article](/lifecycle/products/?products=sql-server) to verify the support status of your SQL Server version. Azure SQL Database *isn't supported* as a database.  This includes both Azure SQL Database and Azure SQL Managed Instance.
+  * Azure AD Connect support all mainstream supported SQL Server versions up to SQL Server 2019. Please refer to the [SQL Server lifecycle article](/lifecycle/products/?products=sql-server) to verify the support status of your SQL Server version. SQL Server 2012 is no longer supported. Azure SQL Database *isn't supported* as a database.  This includes both Azure SQL Database and Azure SQL Managed Instance.
   * You must use a case-insensitive SQL collation. These collations are identified with a \_CI_ in their name. Using a case-sensitive collation identified by \_CS_ in their name *isn't supported*.
   * You can have only one sync engine per SQL instance. Sharing a SQL instance with FIM/MIM Sync, DirSync, or Azure AD Sync *isn't supported*.
 
@@ -219,10 +219,10 @@ The following table shows the minimum requirements for the Azure AD Connect sync
 
 | Number of objects in Active Directory | CPU | Memory | Hard drive size |
 | --- | --- | --- | --- |
-| Fewer than 10,000 |1.6 GHz |4 GB |70 GB |
-| 10,000–50,000 |1.6 GHz |4 GB |70 GB |
+| Fewer than 10,000 |1.6 GHz |6 GB |70 GB |
+| 10,000–50,000 |1.6 GHz |6 GB |70 GB |
 | 50,000–100,000 |1.6 GHz |16 GB |100 GB |
-| For 100,000 or more objects, the full version of SQL Server is required. For performance reasons, installing locally is preferred. | | | |
+| For 100,000 or more objects, the full version of SQL Server is required. For performance reasons, installing locally is preferred. The following values are valid only for Azure AD Connect installation. If SQL Server will be installed on the same server, further memory, drive, and CPU is required. | | | |
 | 100,000–300,000 |1.6 GHz |32 GB |300 GB |
 | 300,000–600,000 |1.6 GHz |32 GB |450 GB |
 | More than 600,000 |1.6 GHz |32 GB |500 GB |
