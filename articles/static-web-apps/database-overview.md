@@ -21,7 +21,7 @@ Features supported by database connections include:
 | Feature | Description |
 |---|---|
 | **Integrated security** | Built-in integration with Azure Static Web Apps authentication and authorization security model. The same role-based security used to secure routes is available for API endpoints. |
-| **Full CRUD-based operations**  | Refer to the tutorials for [Azure Cosmos DB](database-azure-cosmosdb.md), [Azure SQL](database-azure-sql.md), [MySQL](database-mysql.md), or [PostgreSQL](database-postgresql.md) for an example on how to manipulate data in your application. |
+| **Full CRUD-based operations**  | Refer to the tutorials for [Azure Cosmos DB](database-azure-cosmos-db.md), [Azure SQL](database-azure-sql.md), [MySQL](database-mysql.md), or [PostgreSQL](database-postgresql.md) for an example on how to manipulate data in your application. |
 | **Supports SQL and NoSQL** | You can use relational and document databases as your application's database. |
 | **Serverless architecture** | Connections scale from 0 to 1 worker (during preview). |
 | **Database relationships** | Supported only via the GraphQL  endpoint. |

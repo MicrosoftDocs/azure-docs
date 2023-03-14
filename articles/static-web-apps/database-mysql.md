@@ -16,7 +16,7 @@ In this tutorial, you learn how to connect an Azure Database for MySQL Flexible 
 For the sake of simplicity, this tutorial shows you how to use an Azure database for local development purposes, but you may also use a local database server for your local development needs.
 
 > [!NOTE]
-> This tutorial shows how to use Azure Database for MySQL Flexible Server. If you would like to use another database, refer to the [Azure Cosmos DB](database-azure-cosmosdb.md), [Azure SQL](database-azure-sql.md), or [PostgreSQL](database-postgresql.md) tutorials.
+> This tutorial shows how to use Azure Database for MySQL Flexible Server. If you would like to use another database, refer to the [Azure Cosmos DB](database-azure-cosmos-db.md), [Azure SQL](database-azure-sql.md), or [PostgreSQL](database-postgresql.md) tutorials.
 
 :::image type="content" source="media/database-add/static-web-apps-database-connections-list.png" alt-text="Web browser showing results from MySQL in the developer tools console window.":::
 

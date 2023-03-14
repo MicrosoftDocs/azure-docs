@@ -16,7 +16,7 @@ In this tutorial, you learn how to connect an Azure Database for PostgreSQL Sing
 For the sake of simplicity, this tutorial shows you how to use an Azure database for local development purposes, but you may also use a local database server for your local development needs.
 
 > [!NOTE]
-> This tutorial shows how to use Azure Database for PostgreSQL Flexible Server or Single Server. If you would like to use another database, refer to the [Azure Cosmos DB](database-azure-cosmosdb.md), [Azure SQL](database-azure-sql.md), or [MySQL](database-mysql.md) tutorials.
+> This tutorial shows how to use Azure Database for PostgreSQL Flexible Server or Single Server. If you would like to use another database, refer to the [Azure Cosmos DB](database-azure-cosmos-db.md), [Azure SQL](database-azure-sql.md), or [MySQL](database-mysql.md) tutorials.
 
 :::image type="content" source="media/database-add/static-web-apps-database-connections-list.png" alt-text="Web browser showing results from PostgreSQL selection in the developer tools console window.":::
 

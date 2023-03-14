@@ -164,7 +164,7 @@ Linking a database to your static web app establishes the production connection 
 
 Add a database to your static web app using one of the following databases:
 
-- [Azure Cosmos DB](database-azure-cosmosdb.md)
+- [Azure Cosmos DB](database-azure-cosmos-db.md)
 - [Azure SQL](database-azure-sql.md)
 - [MySQL](database-mysql.md)
 - [PostgreSQL](database-postgresql.md)
