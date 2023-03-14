@@ -73,6 +73,21 @@
         "exclude": [
           "**/_themes/**",
           "**/includes/**",
+          "**/obj/**",
+          "**/v1/**"
+        ]
+      },
+      {
+        "group": "grp-machine-learningv1",
+        "src": "articles/machine-learning/v1",
+        "dest": "./machine-learning",
+        "files": [
+          "**/*.md",
+          "**/*.yml"
+        ],
+        "exclude": [
+          "**/_themes/**",
+          "**/includes/**",
           "**/obj/**"
         ]
       },
@@ -171,6 +186,23 @@
         ],
         "exclude": [
           "**/_themes/**",
+          "**/obj/**",
+          "**/v1/**"
+        ]
+      },
+      {
+        "group": "grp-machine-learningv1",
+        "src": "articles/machine-learning/v1",
+        "dest": "./machine-learning/",
+        "files": [
+          "**/*.gif",
+          "**/*.jpeg",
+          "**/*.jpg",
+          "**/*.png",
+          "**/*.svg"
+        ],
+        "exclude": [
+          "**/_themes/**",
           "**/obj/**"
         ]
       },
@@ -202,6 +234,10 @@
       "grp-machine-learning": {
         "dest": "destmachinelearning",
         "moniker_range": "azureml-api-2 || azureml-api-1"
+      },
+      "grp-machine-learningv1": {
+        "dest": "destmachinelearningv1",
+        "moniker_range": "azureml-api-1"
       }
     },
     "overwrite": [],
