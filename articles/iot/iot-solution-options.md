@@ -2,8 +2,8 @@
 title: Azure Internet of Things (IoT) solution options
 description: Guidance on using platform services and a managed app platform when you're evaluating and building an IoT solution. Platform services, such as IoT Hub and Digital Twins, are building blocks for your IoT solutions. A managed app platform, such as IoT Central, lets you quickly get started evaluating an IoT solution.
 author: dominicbetts
-ms.service: iot-fundamentals
-services: iot-fundamentals
+ms.service: iot
+services: iot
 ms.topic: overview
 ms.date: 11/29/2022
 ms.author: dobett
