@@ -81,9 +81,10 @@ Content-Type: application/json
 
 
 ## User Registration
-If enabled for Authenticator Lite, users are prompted to register their account directly from Outlook. Authenticator Lite registration isn't available by using [MySignIns](https://aka.ms/mysignins). Users can also enable or disable Authenticator Lite from within Outlook. For more information on user experience, please visit the [Authenticator Lite support page](https://aka.ms/authappliteuserdocs). 
+If enabled for Authenticator Lite, users are prompted to register their account directly from Outlook mobile. Authenticator Lite registration isn't available by using [MySignIns](https://aka.ms/mysignins). Users can also enable or disable Authenticator Lite from within Outlook mobile. For more information about the user experience, please visit the [Authenticator Lite support page](https://aka.ms/authappliteuserdocs). 
 
-![Registration prompt in Outlook](https://user-images.githubusercontent.com/108090297/225125196-41e76d67-972c-4bde-b2aa-db458b6ed123.png)
+
+:::image type="content" border="true" source="./media/how-to-mfa-authenticator-lite/registration.png" alt-text="Screenshot of how to register Authenticator Lite.":::
 
 ## Monitoring Authenticator Lite Usage
 [Sign-in logs](/graph/api/signin-list) can show which app was used to complete user authentication. To view the latest sign-ins, use the following call on the beta API endpoint:
@@ -105,7 +106,9 @@ Push Notifications sent by Authenticator Lite aren't configurable and don't depe
 | Location Context         | Disabled                     |
 | Application Context      | Disabled                     |
 
-![Authentication request in Outlook](https://user-images.githubusercontent.com/108090297/225125278-295ac628-63d6-4e35-936a-a8b3c6398dfb.png)
+The following screenshots show what users see when Authenticator Lite sends a push notification.
+
+:::image type="content" border="true" source="./media/how-to-mfa-authenticator-lite/notification.png" alt-text="Screenshot of push notification in Outlook mobile.":::
 
 ## AD FS adapters and NPS extensions 
 
