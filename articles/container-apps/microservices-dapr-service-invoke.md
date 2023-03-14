@@ -479,7 +479,7 @@ Before deploying the application to Azure Container Apps, start by running the `
 1. Navigate into the sample's root directory.
 
    ```bash
-   cd svc-invoke-dapr-nodejs
+   cd svc-invoke-dapr-csharp
    ```
 
 ### Run the Dapr applications using the Dapr CLI
