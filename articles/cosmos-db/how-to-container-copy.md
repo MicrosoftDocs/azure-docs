@@ -19,7 +19,7 @@ This article describes how to create, monitor, and manage intra-account containe
 
 ## Pre-requisites
 
-* You may use the portal [Cloud Shell](../cloud-shell/quickstart-powershell.md#start-cloud-shell) to run container copy commands. Alternately, you may run the commands locally; make sure you have [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps-msi) downloaded and installed on your machine.
+* You may use the portal [Cloud Shell](/azure/cloud-shell/quickstart?tabs=powershell) to run container copy commands. Alternately, you may run the commands locally; make sure you have [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps-msi) downloaded and installed on your machine.
 * Currently, container copy is only supported in [these regions](intra-account-container-copy.md#supported-regions). Make sure your account's write region belongs to this list.
 
 
@@ -51,7 +51,7 @@ Create a job to copy a container within an Azure Cosmos DB API for NoSQL account
 
 ```azurepowershell-interactive
 az cosmosdb dts copy `
-    --resource-group $resourceGroup ` 
+    --resource-group $resourceGroup `
     --account-name $accountName `
     --job-name $jobName `
     --source-sql-container database=$sourceDatabase container=$sourceContainer `

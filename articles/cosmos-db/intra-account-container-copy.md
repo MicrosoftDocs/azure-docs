@@ -141,7 +141,7 @@ Currently, container copy is supported in the following regions:
 
 * Error - (Request) is blocked by your Cosmos DB account firewall settings.
 
-    The job creation request could be blocked if the client IP isn't allowed as per the VNet and Firewall IPs configured on the account. In order to get past this issue, you need to [allow access to the IP through the Firewall setting](how-to-configure-firewall.md). Alternately, you may set **Accept connections from within public Azure datacenters** in your firewall settings and run the container copy commands through the portal [Cloud Shell](../cloud-shell/quickstart-powershell.md#start-cloud-shell).
+    The job creation request could be blocked if the client IP isn't allowed as per the VNet and Firewall IPs configured on the account. In order to get past this issue, you need to [allow access to the IP through the Firewall setting](how-to-configure-firewall.md). Alternately, you may set **Accept connections from within public Azure datacenters** in your firewall settings and run the container copy commands through the portal [Cloud Shell](/azure/cloud-shell/quickstart?tabs=powershell).
 
     ```output
     InternalServerError Request originated from IP xxx.xxx.xxx.xxx through public internet. This is blocked by your Cosmos DB account firewall settings. More info: https://aka.ms/cosmosdb-tsg-forbidden

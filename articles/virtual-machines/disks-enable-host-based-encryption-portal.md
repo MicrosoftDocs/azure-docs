@@ -33,7 +33,7 @@ You must enable the feature for your subscription before you can use encryption 
 
 1. **Azure portal**: Select the Cloud Shell icon on the [Azure portal](https://portal.azure.com):
 
-   ![Screenshot of icon to launch the Cloud Shell from the Azure portal.](../Cloud-Shell/media/overview/portal-launch-icon.png)
+   ![Screenshot of icon to launch the Cloud Shell from the Azure portal.](./media/disks-enable-host-based-encryption-portal/portal-launch-icon.png)
 
 1. Execute the following command to register the feature for your subscription
 
@@ -48,7 +48,6 @@ You must enable the feature for your subscription before you can use encryption 
    ```azurecli
    az feature register --name EncryptionAtHost  --namespace Microsoft.Compute
    ```
-
    ---
 
 1. Confirm that the registration state is **Registered** (registration may take a few minutes) using the following command before trying out the feature.
@@ -64,7 +63,6 @@ You must enable the feature for your subscription before you can use encryption 
    ```azurecli
    az feature show --name EncryptionAtHost --namespace Microsoft.Compute
    ```
-
    ---
 
 ## Deploy a VM with platform-managed keys

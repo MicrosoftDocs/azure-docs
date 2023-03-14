@@ -129,46 +129,46 @@ To update the template by using Azure portal:
       1. Under the "properties", add `"password": "RANDOM_PASSWORD"`
 
          > [!Note]
-         > A "password" property is required to create a new VM. We input a random password because we will later be swapping the OS disk with the original VM. 
+         > A "password" property is required to create a new VM. We input a random password because we will later be swapping the OS disk with the original VM.
 
       1. For Shared IP virtual machines, add this snippet under the "properties.networkInterface",
 
          Windows VM with RDP:
 
          ```
-         "networkInterface": { 
-           "sharedPublicIpAddressConfiguration": { 
-             "inboundNatRules": [ 
-               { 
-                 "transportProtocol": "tcp", 
-                 "backendPort": 3389 
-               } 
-             ] 
-           } 
-         } 
+         "networkInterface": {
+           "sharedPublicIpAddressConfiguration": {
+             "inboundNatRules": [
+               {
+                 "transportProtocol": "tcp",
+                 "backendPort": 3389
+               }
+             ]
+           }
+         }
          ```
 
          Linux VM with SSH:
 
          ```
-          "networkInterface": { 
-             "sharedPublicIpAddressConfiguration": { 
-               "inboundNatRules": [ 
-                 { 
-                   "transportProtocol": "tcp", 
-                   "backendPort": 22 
-                 } 
-               ] 
-             } 
+          "networkInterface": {
+             "sharedPublicIpAddressConfiguration": {
+               "inboundNatRules": [
+                 {
+                   "transportProtocol": "tcp",
+                   "backendPort": 22
+                 }
+               ]
+             }
            }
          ```
 
    1. Under the `microsoft.devtestlab/labs/users/secrets` resources, the following parameter the "properties". Replace `YOUR_STORED_PASSWORD` with your password.
 
       > [!IMPORTANT]
-      > Use secureString for password values.  
+      > Use secureString for password values.
       ```json
-      "value": "YOUR_STORED_PASSWORD" 
+      "value": "YOUR_STORED_PASSWORD"
       ```
 
    1. Under the `microsoft.devtestlab/labs/artifactsources` resources, the following parameter the "properties". Replace `YOUR_STORED_PASSWORD` with your password. Again, use secureString for password values.
@@ -194,7 +194,7 @@ Deploy the template to create a new lab in the target region.
    |**Location**|Select a location for the lab. For example, **Central US**. |
    |**Lab Name**|Must be a different name. |
    |**Vnet ID**|Must be the moved one, or the new one you just created. |
-   
+
 
 1. Select **Review + create**.
 
@@ -217,29 +217,29 @@ Note the VMs under the new Lab have the same specs as the ones under the old Lab
 
    - Get the target Compute VM OS disk name under the new Lab.  You can fnd the Compute VM and its disk under the Resource group on the lab's Virtual Machine page.
 
-   - Use [AzCopy](../storage/common/storage-use-azcopy-v10.md) to copy the old disk content into the new/empty disks in the new region. You can run the Powershell commands from your Dev Box or from the [Azure Cloud Shell](../cloud-shell/quickstart-powershell.md).
+   - Use [AzCopy](../storage/common/storage-use-azcopy-v10.md) to copy the old disk content into the new/empty disks in the new region. You can run the Powershell commands from your Dev Box or from the [Azure Cloud Shell](/azure/cloud-shell/quickstart?tabs=powershell).
 
      AzCopy is the preferred tool to move your data over. It's optimized for performance.  One way that it's faster, is that data is copied directly, so AzCopy doesn't use the network bandwidth of your computer. Use AzCopy at the command line or as part of a custom script. See [Get started with AzCopy](../storage/common/storage-use-azcopy-v10.md).
 
      ```powershell
-     # Fill in the source/target disk names and their resource group names 
-     $sourceDiskName = "SOURCE_DISK" 
-     $sourceRG = "SOURCE_RG" 
-     $targetDiskName = "TARGET_DISK" 
-     $targetRG = "TARGET_RG" 
-     $targetRegion = "TARGET_LOCATION" 
-     
-     # Create an empty target disk from the source disk 
-     $sourceDisk = Get-AzDisk -ResourceGroupName $sourceRG -DiskName $sourceDiskName 
-     $targetDiskconfig = New-AzDiskConfig -SkuName $sourceDisk.Sku.Name -UploadSizeInBytes $($sourceDisk.DiskSizeBytes+512) -Location $targetRegion -OsType $sourceDisk.OsType -CreateOption 'Upload' 
-     $targetDisk = New-AzDisk -ResourceGroupName $targetRG -DiskName $targetDiskName -Disk $targetDiskconfig 
-     
-     # Copy the disk content from source to target 
-     $sourceDiskSas = Grant-AzDiskAccess -ResourceGroupName $sourceRG -DiskName $sourceDiskName -DurationInSecond 1800 -Access 'Read' 
-     $targetDiskSas = Grant-AzDiskAccess -ResourceGroupName $targetRG -DiskName $targetDiskName -DurationInSecond 1800 -Access 'Write' 
-     azcopy copy $sourceDiskSas.AccessSAS $targetDiskSas.AccessSAS --blob-type PageBlob 
-     Revoke-AzDiskAccess -ResourceGroupName $sourceRG -DiskName $sourceDiskName 
-     Revoke-AzDiskAccess -ResourceGroupName $targetRG -DiskName $targetDiskName 
+     # Fill in the source/target disk names and their resource group names
+     $sourceDiskName = "SOURCE_DISK"
+     $sourceRG = "SOURCE_RG"
+     $targetDiskName = "TARGET_DISK"
+     $targetRG = "TARGET_RG"
+     $targetRegion = "TARGET_LOCATION"
+
+     # Create an empty target disk from the source disk
+     $sourceDisk = Get-AzDisk -ResourceGroupName $sourceRG -DiskName $sourceDiskName
+     $targetDiskconfig = New-AzDiskConfig -SkuName $sourceDisk.Sku.Name -UploadSizeInBytes $($sourceDisk.DiskSizeBytes+512) -Location $targetRegion -OsType $sourceDisk.OsType -CreateOption 'Upload'
+     $targetDisk = New-AzDisk -ResourceGroupName $targetRG -DiskName $targetDiskName -Disk $targetDiskconfig
+
+     # Copy the disk content from source to target
+     $sourceDiskSas = Grant-AzDiskAccess -ResourceGroupName $sourceRG -DiskName $sourceDiskName -DurationInSecond 1800 -Access 'Read'
+     $targetDiskSas = Grant-AzDiskAccess -ResourceGroupName $targetRG -DiskName $targetDiskName -DurationInSecond 1800 -Access 'Write'
+     azcopy copy $sourceDiskSas.AccessSAS $targetDiskSas.AccessSAS --blob-type PageBlob
+     Revoke-AzDiskAccess -ResourceGroupName $sourceRG -DiskName $sourceDiskName
+     Revoke-AzDiskAccess -ResourceGroupName $targetRG -DiskName $targetDiskName
      ```
 
      After that, you'll have a new disk under the new region.
