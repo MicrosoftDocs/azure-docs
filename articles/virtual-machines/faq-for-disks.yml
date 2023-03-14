@@ -472,35 +472,11 @@ sections:
 
   - name: Private Links for securely exporting and importing Managed Disks
     questions:
-      - question: |
-          What is the benefit of using Private Links for exporting and importing Managed Disks?
-        answer: |
-          You can leverage Private Links for restricting the export and import to Managed Disks only from your Azure virtual network. 
 
       - question: |
           How can I ensure that a disk can be exported or imported only via Private Links?
         answer: |
           Set the `DiskAccessId` property to an instance of a disk access object and set the NetworkAccessPolicy property to `AllowPrivate`.
-
-      - question: |
-          Can I link multiple virtual networks to the same disk access object?
-        answer: |
-          No. Currently, you can link a disk access object to only one virtual network.
-
-      - question: |
-          Can I link a virtual network to a disk access object in another subscription?
-        answer: |
-          No. Currently, you can link a disk access object to a virtual network in the same subscription.
-
-      - question: |
-          Can I link a virtual network to a disk access object in another subscription?
-        answer: |
-          No. Currently, you can link a disk access object to a virtual network in the same subscription.
-
-      - question: |
-          How many exports or imports using the same disk access object can happen at the same time?
-        answer: |
-          Five.
 
       - question: |
           Can I use the SAS URI of a disk or snapshot to download the underlying VHD of a VM in the same subnet as the subnet of the private endpoint associated with the disk?
