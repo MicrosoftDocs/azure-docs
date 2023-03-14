@@ -30,7 +30,7 @@ In this quickstart, you will incorporate Azure App Configuration provider for Ku
 ## Create an Azure App Configuration store
 [!INCLUDE[Azure App Configuration resource creation steps](../../includes/azure-app-configuration-create.md)]
 
-9. Select **Operations** > **Configuration explorer** > **Create** > **Key-value** to add the following key-value pairs:
+1. Select **Operations** > **Configuration explorer** > **Create** > **Key-value** to add the following key-values:
 
     |**Key**|**Value**|
     |---|---|
@@ -256,7 +256,7 @@ kubectl create namespace quickstart-appconfig
 kubectl apply -f ./AKS-AppConfiguration-Demo -n quickstart-appconfig
 ```
 
-To check the synchronization status of AppConfigurationProvider, run the following command in your terminal, if the `phase` property in the `status` section of the output is `COMPLETE` , means the key-value pairs have been successfully synced from Azure App Configuration. 
+To check the synchronization status of AppConfigurationProvider, run the following command in your terminal, if the `phase` property in the `status` section of the output is `COMPLETE` , means the key-values have been successfully synced from Azure App Configuration. 
 ``` bash
 kubectl get AppConfigurationProvider appconfigurationprovider-sample -n quickstart-appconfig -o yaml
 ```
