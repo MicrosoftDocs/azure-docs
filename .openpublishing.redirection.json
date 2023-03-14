@@ -22406,10 +22406,15 @@
             "redirect_url": "/azure/orbital/overview",
             "redirect_document_id": false
           },
-        {
+          {
             "source_path": "articles/private-multi-access-edge-compute-mec/metaswitch-fusion-core-overview.md",
             "redirect_URL": "/azure/private-5g-core",
             "redirect_document_id": false
+        }        
+        {
+            "source_path": "articles/private-5g-core/modify-site-plan.md",
+            "redirect_URL": "/azure/private-5g-core/modify-service-plan",
+            "redirect_document_id": true
         }
     ]
 }
