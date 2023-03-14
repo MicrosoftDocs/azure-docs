@@ -2,11 +2,9 @@
 title: 'Tutorial: View and configure Azure DDoS Protection diagnostic logging'
 description: Learn how to configure reports and flow logs.
 services: ddos-protection
-documentationcenter: na
 author: AbdullahBell
 ms.service: ddos-protection
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: tutorial
 ms.custom: ignite-2022
 ms.workload: infrastructure-services
 ms.date: 10/12/2022
@@ -15,7 +13,7 @@ ms.author: abell
 
 # Tutorial: View and configure Azure DDoS Protection diagnostic logging
 
-Azure DDoS Protection provides detailed attack insights and visualization with DDoS Attack Analytics. Customers protecting their virtual networks against DDoS attacks have detailed visibility into attack traffic and actions taken to mitigate the attack via attack mitigation reports & mitigation flow logs. Rich telemetry is exposed via Azure Monitor including detailed metrics during the duration of a DDoS attack. Alerting can be configured for any of the Azure Monitor metrics exposed by DDoS Protection. Logging can be further integrated with [Microsoft Sentinel](../sentinel/data-connectors-reference.md#azure-ddos-protection), Splunk (Azure Event Hubs), OMS Log Analytics, and Azure Storage for advanced analysis via the Azure Monitor Diagnostics interface.
+Azure DDoS Protection provides detailed attack insights and visualization with DDoS Attack Analytics. Customers protecting their virtual networks against DDoS attacks have detailed visibility into attack traffic and actions taken to mitigate the attack via attack mitigation reports & mitigation flow logs. Rich telemetry is exposed via Azure Monitor including detailed metrics during the duration of a DDoS attack. Alerting can be configured for any of the Azure Monitor metrics exposed by DDoS Protection. Logging can be further integrated with [Microsoft Sentinel](../sentinel/data-connectors/azure-ddos-protection.md), Splunk (Azure Event Hubs), OMS Log Analytics, and Azure Storage for advanced analysis via the Azure Monitor Diagnostics interface.
 
 The following diagnostic logs are available for Azure DDoS Protection:
 
@@ -59,6 +57,7 @@ If you want to automatically enable diagnostic logging on all public IPs within 
 
 ### Query Azure DDOS Protection logs in log analytics workspace
 
+For more information on log schemas, see [Monitoring Azure DDoS Protection](monitor-ddos-protection-reference.md#diagnostic-logs).
 #### DDoSProtectionNotifications logs
 
 1. Under the **Log analytics workspaces** blade, select your log analytics workspace.
@@ -86,71 +85,6 @@ If you want to automatically enable diagnostic logging on all public IPs within 
     | where Category == "DDoSMitigationReports"
     ```
 
-### Log schemas
-
-The following table lists the field names and descriptions:
-
-# [DDoSProtectionNotifications](#tab/DDoSProtectionNotifications)
-
-| Field name | Description |
-| --- | --- |
-| **TimeGenerated** | The date and time in UTC when the notification was created. |
-| **ResourceId** | The resource ID of your public IP address. |
-| **Category** | For notifications, this will be `DDoSProtectionNotifications`.|
-| **ResourceGroup** | The resource group that contains your public IP address and virtual network. |
-| **SubscriptionId** | Your DDoS protection plan subscription ID. |
-| **Resource** | The name of your public IP address. |
-| **ResourceType** | This will always be `PUBLICIPADDRESS`. |
-| **OperationName** | For notifications, this will be `DDoSProtectionNotifications`.  |
-| **Message** | Details of the attack. |
-| **Type** | Type of notification. Possible values include `MitigationStarted`. `MitigationStopped`. |
-| **PublicIpAddress** | Your public IP address. |
-
-# [DDoSMitigationFlowLogs](#tab/DDoSMitigationFlowLogs)
-
-| Field name | Description |
-| --- | --- |
-| **TimeGenerated** | The date and time in UTC when the flow log was created. |
-| **ResourceId** | The resource ID of your public IP address. |
-| **Category** | For flow logs, this will be `DDoSMitigationFlowLogs`.|
-| **ResourceGroup** | The resource group that contains your public IP address and virtual network. |
-| **SubscriptionId** | Your DDoS protection plan subscription ID. |
-| **Resource** | The name of your public IP address. |
-| **ResourceType** | This will always be `PUBLICIPADDRESS`. |
-| **OperationName** | For flow logs, this will be `DDoSMitigationFlowLogs`. |
-| **Message** | Details of the attack. |
-| **SourcePublicIpAddress** | The public IP address of the client generating traffic to your public IP address. |
-| **SourcePort** | Port number ranging from 0 to 65535. |
-| **DestPublicIpAddress** | Your public IP address. |
-| **DestPort** | Port number ranging from 0 to 65535. |
-| **Protocol** | Type of protocol. Possible values include `tcp`, `udp`, `other`.|
-
-# [DDoSMitigationReports](#tab/DDoSMitigationReports)
-
-| Field name | Description |
-| --- | --- |
-| **TimeGenerated** | The date and time in UTC when the report was created. |
-| **ResourceId** | The resource ID of your public IP address. |
-| **Category** | For notifications, this will be `DDoSMitigationReports`.|
-| **ResourceGroup** | The resource group that contains your public IP address and virtual network. |
-| **SubscriptionId** | Your DDoS protection plan subscription ID. |
-| **Resource** | The name of your public IP address. |
-| **ResourceType** | This will always be `PUBLICIPADDRESS`. |
-| **OperationName** | For mitigation reports, this will be `DDoSMitigationReports`. |
-| **ReportType** | Possible values include `Incremental`, `PostMitigation`.|
-| **MitigationPeriodStart** | The date and time in UTC when the mitigation started.  |
-| **MitigationPeriodEnd** | The date and time in UTC when the mitigation ended. |
-| **IPAddress** | Your public IP address. |
-| **AttackVectors** |  Breakdown of attack types. Keys include `TCP SYN flood`, `TCP flood`, `UDP flood`, `UDP reflection`, `Other packet flood`.|
-| **TrafficOverview** |  Breakdown of attack traffic. Keys include `Total packets`, `Total packets dropped`, `Total TCP packets`, `Total TCP packets dropped`, `Total UDP packets`, `Total UDP packets dropped`, `Total Other packets`, `Total Other packets dropped`. |
-| **Protocols** | Breakdown of protocols involved. Keys include `TCP`, `UDP`, `Other`. |
-| **DropReasons** | Breakdown of reasons for dropped packets. Keys include `Protocol violation invalid TCP syn`, `Protocol violation invalid TCP`, `Protocol violation invalid UDP`, `UDP reflection`, `TCP rate limit exceeded`, `UDP rate limit exceeded`, `Destination limit exceeded`, `Other packet flood`, `Rate limit exceeded`, `Packet was forwarded to service`. |
-| **TopSourceCountries** | Breakdown of top 10 source countries of incoming traffic. |
-| **TopSourceCountriesForDroppedPackets** | Breakdown of top 10 source countries of attack traffic that is/was mitigated. |
-| **TopSourceASNs** | Breakdown of top 10 source autonomous system numbers (ASN) of the incoming traffic.  |
-| **SourceContinents** | Breakdown of the source continents of incoming traffic. |
-***
-
 ## Enable diagnostic logging on all public IPs
 
 This [built-in policy](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F752154a7-1e0f-45c6-a880-ac75a7e4f648) automatically enables diagnostic logging on all public IP logs in a defined scope. See [Azure Policy built-in definitions for Azure DDoS Protection](policy-reference.md) for full list of built-in policies.
@@ -159,7 +93,7 @@ This [built-in policy](https://portal.azure.com/#blade/Microsoft_Azure_Policy/Po
 
 ### Microsoft Sentinel data connector
 
-You can connect logs to Microsoft Sentinel, view and analyze your data in workbooks, create custom alerts, and incorporate it into investigation processes. To connect to Microsoft Sentinel, see [Connect to Microsoft Sentinel](../sentinel/data-connectors-reference.md#azure-ddos-protection).
+You can connect logs to Microsoft Sentinel, view and analyze your data in workbooks, create custom alerts, and incorporate it into investigation processes. To connect to Microsoft Sentinel, see [Connect to Microsoft Sentinel](../sentinel/data-connectors/azure-ddos-protection.md).
 
 
 :::image type="content" source="./media/ddos-attack-telemetry/azure-sentinel-ddos.png" alt-text="Screenshot of Microsoft Sentinel DDoS Connector." lightbox="./media/ddos-attack-telemetry/azure-sentinel-ddos.png":::

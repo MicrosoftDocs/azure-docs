@@ -1,10 +1,10 @@
 ---
 title: Automatic deployment for device groups - Azure IoT Edge | Microsoft Docs 
 description: Use automatic deployments in Azure IoT Edge to manage groups of devices based on shared tags
-author: lizross
+author: PatAltimore
 
-ms.author: lizross
-ms.date: 10/18/2021
+ms.author: patricka
+ms.date: 11/17/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -12,11 +12,13 @@ services: iot-edge
 
 # Understand IoT Edge automatic deployments for single devices or at scale
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 Automatic deployments and layered deployment help you manage and configure modules on large numbers of IoT Edge devices.
 
 Azure IoT Edge provides two ways to configure the modules to run on IoT Edge devices. The first method is to deploy modules on a per-device basis. You create a deployment manifest and then apply it to a particular device by name. The second method is to deploy modules automatically to any registered device that meets a set of defined conditions. You create a deployment manifest and then define which devices it applies to based on [tags](../iot-edge/how-to-deploy-at-scale.md#identify-devices-using-tags) in the device twin.
+
+You can't combine per-device and automatic deployments. Once you start targeting IoT Edge devices with automatic deployments (with or without layered deployments), per-device deployments are no longer supported.
 
 This article focuses on configuring and monitoring fleets of devices, collectively referred to as *IoT Edge automatic deployments*. The basic deployment steps are as follows:
 

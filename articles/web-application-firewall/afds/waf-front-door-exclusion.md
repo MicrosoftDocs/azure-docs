@@ -4,7 +4,7 @@ description: This article provides information on exclusion lists configuration 
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 10/18/2022
+ms.date: 03/07/2023
 ms.author: victorh
 ms.topic: conceptual
 ---
@@ -57,9 +57,9 @@ Header and cookie names are case insensitive. Query strings, POST arguments, and
 
 ### Body contents inspection
 
-Some of the managed rules evaluate the raw payload of the request body, before it's parsed into POST arguments or JSON arguments. So, in some situations you might see log entries with a matchVariableName of `InitialBodyContents`.
+Some of the managed rules evaluate the raw payload of the request body, before it's parsed into POST arguments or JSON arguments. So, in some situations you might see log entries with a matchVariableName of `InitialBodyContents` or `DecodedInitialBodyContents`.
 
-For example, suppose you create an exclusion with a match variable of *Request body POST args* and a selector to identify and ignore POST arguments named *FOO*. You'll no longer see any log entries with a matchVariableName of `PostParamValue:FOO`. However, if a POST argument named *FOO* contains text that triggers a rule, the log might show the detection in the initial body contents.
+For example, suppose you create an exclusion with a match variable of *Request body POST args* and a selector to identify and ignore POST arguments named *FOO*. You'll no longer see any log entries with a matchVariableName of `PostParamValue:FOO`. However, if a POST argument named *FOO* contains text that triggers a rule, the log might show the detection in the initial body contents. You can't currently create exclusions for initial body contents.
 
 ## <a name="define-exclusion-based-on-web-application-firewall-logs"></a> Define exclusion rules based on Web Application Firewall logs
 

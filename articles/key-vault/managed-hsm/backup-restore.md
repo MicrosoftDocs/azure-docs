@@ -8,7 +8,7 @@ tags: azure-key-vault
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
-ms.date: 09/15/2020
+ms.date: 01/04/2023
 ms.author: mbaldwin
 # Customer intent: As a developer using Key Vault I want to know the best practices so I can implement them.
 ---
@@ -75,7 +75,7 @@ You must provide the following information to execute a full restore:
 - Storage account name
 - Storage account blob container
 - Storage container SAS token with permissions `rl`
-- Storage container folder name where the source backup is store
+- Storage container folder name where the source backup is stored
 
 Restore is a long running operation but will immediately return a Job ID. You can check the status of the restore process using this Job ID. When the restore process is in progress, the HSM enters a restore mode and all data plane command (except check restore status) are disabled.
 

@@ -38,7 +38,7 @@ Call Recording supports multiple media outputs and content types to address your
 
 | Channel Type | Content Format | Resolution | Sampling Rate | Output | Description |
 | :----------- | :------------- | :----------- | :---- | :--------------------------- | :------------ |
-| mixed | mp4 | 1920x1080, eight (8) FPS (frames per second) | 16 kHz | single file, single channel | mixed audio+video of all participants in a default tile arrangement |
+| mixed | mp4 | 1920x1080, 16 FPS (frames per second) | 16 kHz | single file, single channel | mixed audio+video of all participants in a default tile arrangement |
 
 ### Audio
 
@@ -77,7 +77,7 @@ An Event Grid notification `Microsoft.Communication.RecordingFileStatusUpdated` 
 {
     "id": string, // Unique guid for event
     "topic": string, // /subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}
-    "subject": string, // /recording/call/{call-id}/serverCallId/{serverCallId}
+    "subject": string, // /recording/call/{call-id}/serverCallId/{serverCallId}/recordingId/{recordingId}
     "data": {
         "recordingStorageInfo": {
             "recordingChunks": [

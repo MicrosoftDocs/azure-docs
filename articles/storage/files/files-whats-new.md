@@ -93,13 +93,13 @@ For more information, see:
 - [Overview of SMB features in the Windows Server documentation](/windows-server/storage/file-server/file-server-smb-overview)
 
 ### 2021 quarter 2 (April, May, June)
-#### Premium, hot, and cool storage capacity reservations 
-Azure Files supports storage capacity reservations (also referred to as *reserve instances*). Storage capacity reservations allow you to achieve a discount on storage by pre-committing to storage utilization. Azure Files supports capacity reservations on the premium, hot, and cool tiers. Capacity reservations are sold in units of 10 TiB or 100 TiB, for terms of either one year or three years. 
+#### Premium, hot, and cool storage reservations 
+Azure Files supports storage reservations (also referred to as *reserved instances*). Azure Files Reservations allow you to achieve a discount on storage by pre-committing to storage utilization. Azure Files supports Reservations on the premium, hot, and cool tiers. Reservations are sold in units of 10 TiB or 100 TiB, for terms of either one year or three years. 
 
 For more information, see:
 
 - [Understanding Azure Files billing](understanding-billing.md)
-- [Optimized costs for Azure Files with reserved capacity](files-reserve-capacity.md)
+- [Optimized costs for Azure Files with reservations](files-reserve-capacity.md)
 - [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/)
 
 #### Improved portal experience for domain joining to Active Directory

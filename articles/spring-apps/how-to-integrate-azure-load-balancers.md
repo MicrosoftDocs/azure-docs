@@ -20,7 +20,7 @@ ms.custom: devx-track-java, event-tier1-build-2022
 
 Azure Spring Apps supports Spring applications on Azure. Increasing business can require multiple data centers with management of multiple instances of Azure Spring Apps.
 
-Azure already provides [different load-balance solutions](/azure/architecture/guide/technology-choices/load-balancing-overview.md). There are three common options to integrate Azure Spring Apps with Azure load-balance solutions:
+Azure already provides [different load-balance solutions](/azure/architecture/guide/technology-choices/load-balancing-overview). There are three common options to integrate Azure Spring Apps with Azure load-balance solutions:
 
 1. Integrate Azure Spring Apps with Azure Traffic Manager
 1. Integrate Azure Spring Apps with Azure App Gateway

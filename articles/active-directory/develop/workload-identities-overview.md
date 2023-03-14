@@ -7,7 +7,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/02/2022
+ms.date: 12/15/2022
 ms.author: ryanwi
 ms.reviewer: udayh, ilanas
 ms.custom: aaddev 
@@ -46,10 +46,11 @@ Here are some ways you can use workload identities:
 - Access Azure AD protected resources without needing to manage secrets for workloads that run on Azure using [managed identity](../managed-identities-azure-resources/overview.md).
 - Access Azure AD protected resources without needing to manage secrets for supported scenarios such as GitHub Actions, workloads running on Kubernetes, or workloads running in compute platforms outside of Azure using [workload identity federation](workload-identity-federation.md).
 - Review service principals and applications that are assigned to privileged directory roles in Azure AD using [access reviews for service principals](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md).
-- Apply Conditional Access policies to service principals owned by your organization using [Conditional Access for workload identities](../conditional-access/workload-identity.md).
+- Apply Conditional Access policies to service principals owned by your organization using [Conditional Access for workload identities](../conditional-access/workload-identity.md), and [Continuous access evaluation for workload identities](../conditional-access/concept-continuous-access-evaluation-workload.md).
 - Secure workload identities with [Identity Protection](../identity-protection/concept-workload-identity-risk.md).
 
 
 ## Next steps
 
-Learn how to [secure access of workload identities](../conditional-access/workload-identity.md) with adaptive policies.
+- Learn how to [secure access of workload identities](../conditional-access/workload-identity.md) with adaptive policies.
+- Get answers to [frequently asked questions about workload identities](workload-identities-faqs.md). 

@@ -16,8 +16,6 @@ ms.custom: avverma, devx-track-azurepowershell
 > [!NOTE]
 > This tutorial uses Uniform Orchestration mode. We recommend using Flexible Orchestration for new workloads. For more information, see [Orchestration modes for Virtual Machine Scale Sets in Azure](virtual-machine-scale-sets-orchestration-modes.md).
 
-[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
-
 When you create a scale set, you define the number of VM instances that you wish to run. As your application demand changes, you can automatically increase or decrease the number of VM instances. The ability to autoscale lets you keep up with customer demand or respond to application performance changes throughout the lifecycle of your app. In this tutorial you learn how to:
 
 > [!div class="checklist"]
@@ -243,7 +241,6 @@ To remove your scale set and additional resources, delete the resource group and
 ```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name "myResourceGroup" -Force -AsJob
 ```
-
 
 ## Next steps
 In this tutorial, you learned how to automatically scale in or out a scale set with Azure PowerShell:

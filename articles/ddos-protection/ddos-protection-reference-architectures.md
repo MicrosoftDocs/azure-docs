@@ -4,7 +4,7 @@ description: Learn Azure DDoS protection reference architectures.
 services: ddos-protection
 author: AbdullahBell
 ms.service: ddos-protection
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 10/12/2022
 ms.author: abell
@@ -17,6 +17,9 @@ Azure DDoS Protection is designed [for services that are deployed in a virtual n
 
 > [!NOTE]
 > Protected resources include public IPs attached to an IaaS VM (except for single VM running behind a public IP), Load Balancer (Classic & Standard Load Balancers), Application Gateway (including WAF) cluster, Firewall, Bastion, VPN Gateway, Service Fabric, IaaS based Network Virtual Appliance (NVA) or Azure API Management (Premium tier only), connected to a virtual network (VNet) in the external mode. Protection also covers public IP ranges brought to Azure via Custom IP Prefixes (BYOIPs). PaaS services (multi-tenant), which includes Azure App Service Environment for Power Apps, Azure API Management in deployment modes other than those supported above, or Azure Virtual WAN are not supported at present.
+
+> [!NOTE]
+> Protected resources that include public IPs created from public IP address prefix are not supported at present.
 
 ## Virtual machine (Windows/Linux) workloads
 

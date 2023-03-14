@@ -5,7 +5,7 @@ ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 11/10/2022
 ms.devlang: csharp
-ms.custom: contperf-fy22q2, mode-api
+ms.custom: contperf-fy22q2, mode-api, passwordless-dotnet
 ---
 
 # Quickstart: Send and receive messages from an Azure Service Bus queue (.NET)
@@ -40,7 +40,8 @@ You can authorize access to the service bus namespace using the following steps:
 1. Launch Visual Studio. If you see the **Get started** window, select the **Continue without code** link in the right pane.
 1. Select the **Sign in** button in the top right of Visual Studio.
 
-    :::image type="content" source="./media/service-bus-dotnet-get-started-with-queues/azure-sign-button-visual-studio.png" alt-text="Screenshot showing the button to sign in to Azure using Visual Studio.":::
+    :::image type="content" source="./media/service-bus-dotnet-get-started-with-queues/azure-sign-button-visual-studio.png" alt-text="Screenshot showing a button to sign in to Azure using Visual Studio.":::
+
 1. Sign-in using the Azure AD account you assigned a role to previously.
 
     :::image type="content" source="..//storage/blobs/media/storage-quickstart-blobs-dotnet/sign-in-visual-studio-account-small.png" alt-text="Screenshot showing the account selection.":::
@@ -684,6 +685,7 @@ See the following documentation and samples:
 - [Azure Service Bus client library for .NET - Readme](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus)
 - [Samples on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples)
 - [.NET API reference](/dotnet/api/azure.messaging.servicebus)
+- [Abstract away infrastructure concerns with higher-level frameworks like NServiceBus](/azure/service-bus-messaging/build-message-driven-apps-nservicebus)
 
 ## Next steps
 

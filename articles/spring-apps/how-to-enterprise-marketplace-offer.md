@@ -6,7 +6,7 @@ ms.author: yuwzho
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 10/12/2022
-ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022, engagement-fy23, references_regions
+ms.custom: devx-track-java, event-tier1-build-2022, engagement-fy23, references_regions
 ---
 
 # View Azure Spring Apps Enterprise tier offering in Azure Marketplace
@@ -37,7 +37,7 @@ To purchase in Azure Marketplace, you must meet the following prerequisites:
    az term accept \
        --publisher vmware-inc \
        --product azure-spring-cloud-vmware-tanzu-2 \
-       --plan tanzu-asc-ent-mtr
+       --plan asa-ent-hr-mtr
    ```
 
 ## View Azure Spring Apps Enterprise tier offering from Azure Marketplace

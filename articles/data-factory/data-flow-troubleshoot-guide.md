@@ -511,6 +511,12 @@ This section lists common error codes and messages reported by mapping data flow
 - **Cause**: Unable to reach the given storage account. 
 - **Recommendation**: Check the name of the storage account and make sure the storage account exists. 
 
+### Error code: DF-Executor-UserError 
+
+- **Message**: Job Failed due to reason: GetjobStatus, Job Failed - com.microsoft.dataflow.issues: DF-MICROSOFT365-CONSENTPENDING 
+- **Cause**: Privileged access approval is needed to copy data. It's a user configuration issue.
+- **Recommendation**: Ask the tenant admin to approve  your **Data Access Request** in Office365 in privileged access management (PAM) module.
+
 ### Error code: DF-File-InvalidSparkFolder
 
 - **Message**: Failed to read footer for file.

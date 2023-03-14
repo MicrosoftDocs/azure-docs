@@ -8,13 +8,19 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 08/26/2019
+ms.date: 02/17/2023
 ms.custom: mqtt, devx-track-java
 ---
 
 # Get started with device twins (Java)
 
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
+
+This article shows you how to:
+
+* Use a simulated device app to report its connectivity channel as a reported property on the device twin.
+
+* Query devices from your back-end app using filters on the tags and properties previously created.
 
 In this article, you create two Java console apps:
 
@@ -67,7 +73,7 @@ In this section, you create a Java console app that connects to your hub as **my
    > [!NOTE]
    > You can check for the latest version of **iot-device-client** using [Maven search](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
-1. Add the following dependency to the **dependencies** node. This dependency configures a NOP for the Apache [SLF4J](https://www.slf4j.org/) logging facade, which is used by the device client SDK to implement logging. This configuration is optional, but, if you omit it, you may see a warning in the console when you run the app. For more information about logging in the device client SDK, see [Logging](https://github.com/Azure/azure-iot-sdk-java/blob/main/device/iot-device-samples/readme.md#logging) in the *Samples for the Azure IoT device SDK for Java* readme file.
+1. Add the following dependency to the **dependencies** node. This dependency configures a NOP for the Apache [SLF4J](https://www.slf4j.org/) logging facade, which is used by the device client SDK to implement logging. This configuration is optional, but, if you omit it, you may see a warning in the console when you run the app. For more information about logging in the device client SDK, see [Logging](https://github.com/Azure/azure-iot-sdk-java/blob/main/iothub/device/iot-device-samples/readme.md#logging) in the *Samples for the Azure IoT device SDK for Java* readme file.
 
    ```xml
    <dependency>

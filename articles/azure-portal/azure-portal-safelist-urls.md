@@ -27,6 +27,8 @@ The URL endpoints to allow for the Azure portal are specific to the Azure cloud 
 ```
 *.login.microsoftonline.com
 *.aadcdn.msftauth.net
+*.aadcdn.msftauthimages.net
+*.aadcdn.msauthimages.net
 *.logincdn.msftauth.net
 *.login.live.com
 *.msauth.net

@@ -27,6 +27,8 @@ landingContent:
         links:
           - text: Understand the Azure IoT Edge runtime and its architecture
             url: iot-edge-runtime.md
+          - text: Azure IoT Edge versions and release notes
+            url: version-history.md
           - text: Azure IoT Edge supported systems
             url: support.md
       - linkListType: how-to-guide

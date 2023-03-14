@@ -7,7 +7,7 @@ ms.service: azure-app-configuration
 ms.devlang: python
 ms.topic: quickstart
 ms.custom: devx-track-python, mode-other, engagement-fy23
-ms.date: 11/17/2022
+ms.date: 03/10/2023
 ms.author: malev
 #Customer intent: As a Python developer, I want to manage all my app settings in one place.
 ---
@@ -15,7 +15,7 @@ ms.author: malev
 
 In this quickstart, you will use the Python provider for Azure App Configuration to centralize storage and management of application settings using the [Azure App Configuration Python provider client library](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appconfiguration/azure-appconfiguration-provider).
 
-The Python App Configuration provider is a library running on top of the Azure SDK for Python, helping Python developers easily consume the App Configuration service. It enables configuration settings to be used like a dictionary.
+The Python App Configuration provider is a library running on top of the [Azure SDK for Python](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appconfiguration/azure-appconfiguration), helping Python developers easily consume the App Configuration service. It enables configuration settings to be used like a dictionary.
 
 ## Prerequisites
 
@@ -60,7 +60,7 @@ The Python App Configuration provider is a library running on top of the Azure S
 
     ```python
     from azure.appconfiguration.provider import (
-        AzureAppConfigurationProvider,
+        load,
         SettingSelector
     )
     import os
@@ -68,8 +68,7 @@ The Python App Configuration provider is a library running on top of the Azure S
     connection_string = os.environ.get("AZURE_APPCONFIG_CONNECTION_STRING")
 
     # Connect to Azure App Configuration using a connection string.
-    config = AzureAppConfigurationProvider.load(
-        connection_string=connection_string)
+    config = load(connection_string=connection_string)
 
     # Find the key "message" and print its value.
     print(config["message"])
@@ -78,15 +77,13 @@ The Python App Configuration provider is a library running on top of the Azure S
 
     # Connect to Azure App Configuration using a connection string and trimmed key prefixes.
     trimmed = {"test."}
-    config = AzureAppConfigurationProvider.load(
-        connection_string=connection_string, trimmed_key_prefixes=trimmed)
+    config = load(connection_string=connection_string, trim_prefixes=trimmed)
     # From the keys with trimmed prefixes, find a key with "message" and print its value.
     print(config["message"])
 
     # Connect to Azure App Configuration using SettingSelector.
-    selects = {SettingSelector("message*", "\0")}
-    config = AzureAppConfigurationProvider.load(
-        connection_string=connection_string, selects=selects)
+    selects = {SettingSelector(key_filter="message*", label_filter="\0")}
+    config = load(connection_string=connection_string, selects=selects)
 
    # Print True or False to indicate if "message" is found in Azure App Configuration.
     print("message found: " + str("message" in config))
@@ -189,4 +186,6 @@ In this quickstart, you created a new App Configuration store and learned how to
 For additional code samples, visit:
 
 > [!div class="nextstepaction"]
+> [Django Sample](https://github.com/Azure/AppConfiguration/tree/main/examples/Python/python-django-webapp-sample)
+> [Flask Sample](https://github.com/Azure/AppConfiguration/tree/main/examples/Python/python-flask-webapp-sample)
 > [Azure App Configuration Python provider](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appconfiguration/azure-appconfiguration-provider)

@@ -2,7 +2,7 @@
 title: Understand how effects work
 description: Azure Policy definitions have various effects that determine how compliance is managed and reported.
 author: timwarner-msft
-ms.date: 10/20/2022
+ms.date: 02/22/2023
 ms.topic: conceptual
 ms.author: timwarner
 ---
@@ -18,6 +18,7 @@ These effects are currently supported in a policy definition:
 - [Audit](#audit)
 - [AuditIfNotExists](#auditifnotexists)
 - [Deny](#deny)
+- [DenyAction (preview)](#denyaction-preview)
 - [DeployIfNotExists](#deployifnotexists)
 - [Disabled](#disabled)
 - [Manual (preview)](#manual-preview)
@@ -50,7 +51,10 @@ manages the evaluation and outcome and reports the results back to Azure Policy.
   Resource Manager mode.
 - **Deny** is then evaluated. By evaluating deny before audit, double logging of an undesired
   resource is prevented.
-- **Audit** is evaluated last.
+- **Audit** is evaluated.
+- **Manual** is evaluated.
+- **AuditIfNotExists** is evaluated.
+- **denyAction** is evaluated last.
 
 After the Resource Provider returns a success code on a Resource Manager mode request,
 **AuditIfNotExists** and **DeployIfNotExists** evaluate to determine whether additional compliance
@@ -385,7 +389,7 @@ definitions as `constraintTemplate` is deprecated.
   - An _array_ of
     [Kubernetes namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)
     to limit policy evaluation to.
-  - An empty or missing value causes policy evaluation to include all namespaces, except those
+  - An empty or missing value causes policy evaluation to include all namespaces, except the ones
     defined in _excludedNamespaces_.
 - **excludedNamespaces** (required)
   - An _array_ of
@@ -449,6 +453,70 @@ location of the Constraint template to use in Kubernetes to limit the allowed co
     }
 }
 ```
+## DenyAction (preview)
+
+`DenyAction` is used to block requests on intended action to resources. The only supported action today is `DELETE`. This effect will help prevent any accidental deletion of critical resources.
+
+### DenyAction evaluation
+
+When a request call with an applicable action name and targeted scope is submitted, `denyAction` prevents the request from succeeding. The request is returned as a `403 (Forbidden)`. In the portal, the Forbidden can be viewed as a status on the deployment that was prevented by the policy
+assignment.
+
+`Microsoft.Authorization/policyAssignments`, `Microsoft.Authorization/denyAssignments`, `Microsoft.Blueprint/blueprintAssignments`, `Microsoft.Resources/deploymentStacks`, and `Microsoft.Authorization/locks` are all exempt from DenyAction enforcement to prevent lockout scenarios.
+
+> [!NOTE]
+> Under preview, assignments with `denyAction` effect will show a `Not Started` compliance state.
+
+#### Subscription deletion
+Policy won't block removal of resources that happens during a subscription deletion.
+
+#### Resource group deletion
+Policy will evaluate resources that support location and tags against `DenyAction` policies during a resource group deletion. Only policies that have the `cascadeBehaviors` set to `deny` in the policy rule will block a resource group deletion. Policy won't block removal of resources that don't support location and tags nor any policy with `mode:all`.
+
+#### Cascade deletion
+Cascade deletion occurs when deleting of a parent resource is implicitly deletes all its child resources. Policy won't block removal of child resources when a delete action targets the parent resources. For example, `Microsoft.Insights/diagnosticSettings` is a child resource of `Microsoft.Storage/storageaccounts`. If a `denyAction` policy targets `Microsoft.Insights/diagnosticSettings`, a delete call to the diagnostic setting (child) will fail, but a delete to the storage account (parent) will implicitly delete the diagnostic setting (child).
+
+[!INCLUDE [policy-denyAction](../../../../includes/azure-policy-deny-action.md)]
+
+### DenyAction properties
+
+The **details** property of the DenyAction effect has all the subproperties that define the action and behaviors.
+
+- **actionNames** (required)
+  - An _array_  that specifies what actions to prevent from being executed.
+  - Supported action names are: `delete`.
+- **cascadeBehaviors** (optional)
+  - An _object_ that defines what behavior will be followed when the resource is being implicitly deleted by the removal of a resource group.
+  - Only supported in policy definitions with [mode](./definition-structure.md#resource-manager-modes) set to `indexed`.
+  - Allowed values are `allow` or `deny`.
+  - Default value is `deny`.
+
+### DenyAction example
+Example: Deny any delete calls targeting database accounts that have a tag environment that equals prod. Since cascade behavior is set to deny, block any DELETE call that targets a resource group with an applicable database account.
+
+```json
+{
+   "if": {
+      "allOf": [
+         {
+            "field": "type",
+            "equals": "Microsoft.DocumentDb/accounts"
+         },
+         {
+            "field": "tags.environment",
+            "equals": "prod"
+         }
+      ]
+   },
+   "then": {
+      "effect": "DenyAction",
+      "details": {
+         "actionNames": [ "delete" ],
+         "cascadeBehaviors": { "resourceGroup": "deny" }
+      }
+   }
+}
+```
 
 ## DeployIfNotExists
 
@@ -497,8 +565,7 @@ related resources to match and the template deployment to execute.
   - Allowed values are _Subscription_ and _ResourceGroup_.
   - Sets the scope of where to fetch the related resource to match from.
   - Doesn't apply if **type** is a resource that would be underneath the **if** condition resource.
-  - For _ResourceGroup_, would limit to the **if** condition resource's resource group or the
-    resource group specified in **ResourceGroupName**.
+  - For _ResourceGroup_, would limit to the resource group in **ResourceGroupName** if specified. If **ResourceGroupName** isn't specified, would limit to the **if** condition resource's resource group, which is the default behavior.
   - For _Subscription_, queries the entire subscription for the related resource. Assignment scope should be set at subscription or higher for proper evaluation.
   - Default is _ResourceGroup_.
 - **EvaluationDelay** (optional)
@@ -622,7 +689,7 @@ logs, and the policy effect don't occur. For more information, see
 
 ## Manual (preview)
 
-The new `manual` (preview) effect enables you to self-attest the compliance of resources or scopes. Unlike other policy definitions that actively scan for evaluation, the Manual effect allows for manual changes to the compliance state. To change the compliance of a resource or scope targeted by a manual policy, you'll need to create an [attestation](attestation-structure.md). The [best practice](attestation-structure.md#best-practices) is to design manual policies that target the scope which defines the boundary of resources whose compliance need attesting.
+The new `manual` (preview) effect enables you to self-attest the compliance of resources or scopes. Unlike other policy definitions that actively scan for evaluation, the Manual effect allows for manual changes to the compliance state. To change the compliance of a resource or scope targeted by a manual policy, you'll need to create an [attestation](attestation-structure.md). The [best practice](attestation-structure.md#best-practices) is to design manual policies that target the scope that defines the boundary of resources whose compliance need attesting.
 
 > [!NOTE]
 > During Public Preview, support for manual policy is available through various Microsoft Defender
@@ -690,8 +757,7 @@ operations. Policy assignments with effect set as Modify require a [managed iden
 
 The following operations are supported by Modify:
 
-- Add, replace, or remove resource tags. For tags, a Modify policy should have `mode` set to
-  _Indexed_ unless the target resource is a resource group.
+- Add, replace, or remove resource tags. For tags, a Modify policy should have [mode](./definition-structure.md#resource-manager-modes) set to `indexed` unless the target resource is a resource group.
 - Add or replace the value of managed identity type (`identity.type`) of virtual machines and
   Virtual Machine Scale Sets.
 - Add or replace the values of certain aliases.

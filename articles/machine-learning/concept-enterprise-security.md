@@ -23,6 +23,11 @@ In this article, you'll learn about security and governance features available f
 * Scan for vulnerabilities
 * Apply and audit configuration policies
 
+> [!IMPORTANT]
+> Items marked (preview) in this article are currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## Restrict access to resources and operations
 
 [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) is the identity service provider for Azure Machine Learning. It allows you to create and manage the security objects (user, group, service principal, and managed identity) that are used to _authenticate_ to Azure resources. Multi-factor authentication is supported if Azure AD is configured to use it.

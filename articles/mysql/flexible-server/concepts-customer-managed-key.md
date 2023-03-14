@@ -14,7 +14,7 @@ ms.topic: conceptual
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-With data encryption with customer-managed keys for Azure Database for MySQL - Flexible Server Preview, you can bring your own key (BYOK) for data protection at rest and implement separation of duties for managing keys and data. With customer managed keys (CMKs), the customer is responsible for and ultimately controls the key lifecycle management (key creation, upload, rotation, deletion), key usage permissions, and auditing operations on keys.
+With data encryption with customer-managed keys for Azure Database for MySQL - Flexible Server, you can bring your own key (BYOK) for data protection at rest and implement separation of duties for managing keys and data. With customer managed keys (CMKs), the customer is responsible for and ultimately controls the key lifecycle management (key creation, upload, rotation, deletion), key usage permissions, and auditing operations on keys.
 
 ## Benefits
 
@@ -87,13 +87,16 @@ As you configure Key Vault to use data encryption using a customer-managed key, 
 - Keep a copy of the customer-managed key in a secure place or escrow it to the escrow service.
 - If Key Vault generates the key, create a key backup before using the key for the first time. You can only restore the backup to Key Vault. For more information about the backup command, see [Backup-AzKeyVaultKey](/powershell/module/az.keyVault/backup-azkeyVaultkey).
 
+> [!NOTE]  
+> It is advised to use a key vault from the same region, but if necessary, you can use a key vault from another region by specifying the "enter key identifier" information.
+
 ## Inaccessible customer-managed key condition
 
 When you configure data encryption with a CMK in Key Vault, continuous access to this key is required for the server to stay online. If the flexible server loses access to the customer-managed key in Key Vault, the server begins denying all connections within 10 minutes. The flexible server issues a corresponding error message and changes the server state to Inaccessible. The server can reach this state for various reasons.
 
 - If you delete the KeyVault, the Azure Database for MySQL Flexible server will be unable to access the key and will move to _Inaccessible_ state. Recover the [Key Vault](../../key-vault/general/key-vault-recovery.md) and revalidate the data encryption to make the Flexible server _Available_.
 - If we delete the key from the KeyVault, the Azure Database for MySQL Flexible server will be unable to access the key and will move to _Inaccessible_ state. Recover the [Key](../../key-vault/general/key-vault-recovery.md) and revalidate the data encryption to make the Flexible server _Available_.
-- If the key stored in the Azure KeyVault expires, the key will become invalid, and the Azure Database for MySQL Flexible server will transition into _Inaccessible_ state. Extend the key expiry date using [CLI](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-set-attributes) and then revalidate the data encryption to make the Flexible server _Available_.
+- If the key stored in the Azure KeyVault expires, the key will become invalid, and the Azure Database for MySQL Flexible server will transition into _Inaccessible_ state. Extend the key expiry date using [CLI](/cli/azure/keyvault/key#az-keyvault-key-set-attributes) and then revalidate the data encryption to make the Flexible server _Available_.
 
 ## Accidental key access revocation from Key Vault
 
@@ -128,9 +131,15 @@ To avoid issues while setting up customer-managed data encryption during restore
 > [!NOTE]  
 > Using the same identity and key as on the source server is not mandatory when performing a restore.
 
+## Limitations
+
+For Azure Database for MySQL flexible server, the support for encryption of data at rest using customers managed key (CMK) has a limitation -
+
+* This feature is only supported for key vaults, which allow public access from all networks.
+
 ## Next steps
 
-- [Data encryption with Azure CLI (Preview)](how-to-data-encryption-cli.md)
-- [Data encryption with Azure portal (Preview)](how-to-data-encryption-portal.md)
+- [Data encryption with Azure CLI](how-to-data-encryption-cli.md)
+- [Data encryption with Azure portal](how-to-data-encryption-portal.md)
 - [Security in encryption rest](../../security/fundamentals/encryption-atrest.md)
-- [Active Directory authentication (Preview)](concepts-azure-ad-authentication.md)
+- [Active Directory authentication](concepts-azure-ad-authentication.md)

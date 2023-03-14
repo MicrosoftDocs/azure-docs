@@ -37,10 +37,10 @@ To force the request to be handled within a specific geography, use the desired 
 |Europe|    api-eur.cognitive.microsofttranslator.com|North Europe, West Europe|
 |United States|    api-nam.cognitive.microsofttranslator.com|East US, South Central US, West Central US, and West US 2|
 
-<sup>1</sup> Customers with a resource located in Switzerland North or Switzerland West can ensure that their Text API requests are served within Switzerland. To ensure that requests are handled in Switzerland, create the Translator resource in the 'Resource region' 'Switzerland North' or 'Switzerland West', then use the resource's custom endpoint in your API requests. For example: If you create a Translator resource in Azure portal with 'Resource region' as 'Switzerland North' and your resource name is 'my-ch-n', then your custom endpoint is "https://my-ch-n.cognitiveservices.azure.com". And a sample request to translate is:
+<sup>1</sup> Customers with a resource located in Switzerland North or Switzerland West can ensure that their Text API requests are served within Switzerland. To ensure that requests are handled in Switzerland, create the Translator resource in the 'Resource region' 'Switzerland North' or 'Switzerland West', then use the resource's custom endpoint in your API requests. For example: If you create a Translator resource in Azure portal with 'Resource region' as 'Switzerland North' and your resource name is 'my-swiss-n', then your custom endpoint is "https://my-swiss-n.cognitiveservices.azure.com". And a sample request to translate is:
 ```curl
 // Pass secret key and region using headers to a custom endpoint
-curl -X POST " my-ch-n.cognitiveservices.azure.com/translator/text/v3.0/translate?to=fr" \
+curl -X POST "https://my-swiss-n.cognitiveservices.azure.com/translator/text/v3.0/translate?to=fr" \
 -H "Ocp-Apim-Subscription-Key: xxx" \
 -H "Ocp-Apim-Subscription-Region: switzerlandnorth" \
 -H "Content-Type: application/json" \

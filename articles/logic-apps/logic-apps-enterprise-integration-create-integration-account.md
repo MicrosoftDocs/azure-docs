@@ -5,6 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, divyaswarnkar, azla
 ms.topic: how-to
+ms.custom: devx-track-azurecli
 ms.date: 08/23/2022
 ---
 
@@ -117,7 +118,7 @@ For this task, you can use the Azure portal, [Azure CLI](/cli/azure/resource#az-
 
 ### [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
 1. To add the [az logic integration-account](/cli/azure/logic/integration-account) extension, use the [az extension add](/cli/azure/extension#az-extension-add) command:
 

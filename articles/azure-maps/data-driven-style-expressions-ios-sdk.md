@@ -2,8 +2,8 @@
 title: Data-driven style expressions in iOS maps
 titleSuffix: Microsoft Azure Maps
 description: Learn about data-driven style expressions. See how to use these expressions in the Azure Maps iOS SDK to adjust styles in maps.
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 11/18/2021
 ms.topic: how-to
 ms.service: azure-maps
@@ -706,7 +706,7 @@ The following image demonstrates how the colors are chosen for the above express
 
 ##### Step expression
 
-A step expression can be used to calculate discrete, stepped result values by evaluating a [piecewise-constant function](http://mathworld.wolfram.com/PiecewiseConstantFunction.html) defined by stops.
+A step expression can be used to calculate discrete, stepped result values by evaluating a [piecewise-constant function](https://mathworld.wolfram.com/PiecewiseConstantFunction.html) defined by stops.
 
 Step expressions return the output value of the stop just before the input value, or the from value if the input is less than the first stop.
 

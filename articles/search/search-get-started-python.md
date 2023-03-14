@@ -8,7 +8,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 08/31/2022
+ms.date: 01/27/2023
 ms.custom: devx-track-python, mode-api
 ---
 
@@ -22,7 +22,7 @@ ms.custom: devx-track-python, mode-api
 > * [Portal](search-get-started-portal.md)
 >
 
-In this exercise, build a Jupyter Notebook that creates, loads, and queries an Azure Cognitive Search index using Python and the [azure-search-documents library](/python/api/overview/azure/search-documents-readme) in the Azure SDK for Python. This article explains how to build a notebook step by step. Alternatively, you can [download and run a finished Jupyter Python notebook](https://github.com/Azure-Samples/azure-search-python-samples).
+In this exercise, build a Jupyter Notebook that creates, loads, and queries an Azure Cognitive Search index using Python and the [azure-search-documents library](/python/api/overview/azure/search-documents-readme) in the Azure SDK for Python. This article explains how to build a notebook step by step. Alternatively, you can [download and run a finished Jupyter Python notebook](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Quickstart/v11).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -275,7 +275,7 @@ This step shows you how to query an index using the **search** method of the [se
 1. The following step executes an empty search (`search=*`), returning an unranked list (search score = 1.0) of arbitrary documents. Because there are no criteria, all documents are included in results. This query prints just two of the fields in each document. It also adds `include_total_count=True` to get a count of all documents (4) in the results.
 
     ```python
-    results =  search_client.search(search_text="*", include_total_count=True)
+    results = search_client.search(search_text="*", include_total_count=True)
     
     print ('Total Documents Matching Query:', results.get_count())
     for result in results:
@@ -285,7 +285,7 @@ This step shows you how to query an index using the **search** method of the [se
 1. The next query adds whole terms to the search expression ("wifi"). This query specifies that results contain only those fields in the `select` statement. Limiting the fields that come back minimizes the amount of data sent back over the wire and reduces search latency.
 
     ```python
-    results =  search_client.search(search_text="wifi", include_total_count=True, select='HotelId,HotelName,Tags')
+    results = search_client.search(search_text="wifi", include_total_count=True, select='HotelId,HotelName,Tags')
     
     print ('Total Documents Matching Query:', results.get_count())
     for result in results:
@@ -295,16 +295,16 @@ This step shows you how to query an index using the **search** method of the [se
 1. Next, apply a filter expression, returning only those hotels with a rating greater than 4, sorted in descending order.
 
     ```python
-    results =  search_client.search(search_text="hotels", select='HotelId,HotelName,Rating', filter='Rating gt 4', order_by='Rating desc')
+    results = search_client.search(search_text="hotels", select='HotelId,HotelName,Rating', filter='Rating gt 4', order_by='Rating desc')
     
     for result in results:
         print("{}: {} - {} rating".format(result["HotelId"], result["HotelName"], result["Rating"]))
     ```
 
-1. Add `search_fields` to scope query matching to a single field.
+1. Add `search_fields` (an array) to scope query matching to a single field.
 
     ```python
-    results =  search_client.search(search_text="sublime", search_fields='HotelName', select='HotelId,HotelName')
+    results = search_client.search(search_text="sublime", search_fields=['HotelName'], select='HotelId,HotelName')
     
     for result in results:
         print("{}: {}".format(result["HotelId"], result["HotelName"]))
@@ -313,7 +313,7 @@ This step shows you how to query an index using the **search** method of the [se
 1. Facets are labels that can be used to compose facet navigation structure. This query returns facets and counts for Category.
 
     ```python
-    results =  search_client.search(search_text="*", facets=["Category"])
+    results = search_client.search(search_text="*", facets=["Category"])
     
     facets = results.get_facets()
     

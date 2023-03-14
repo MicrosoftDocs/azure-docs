@@ -5,7 +5,7 @@ author: lauradolan
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 04/07/2020
+ms.date: 12/20/2022
 ms.author: ayshak
 ---
 
