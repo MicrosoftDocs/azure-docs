@@ -87,7 +87,7 @@ Before configuring a Credential Set, you have to create and store secrets in the
 
 ### Assign permissions to Key Vault
 
-1. Get the principal Id of system identity in use to access Key Vault.
+1. Get the principal ID of system identity in use to access Key Vault.
 
     ```azurecli-interactive
     PRINCIPAL_ID=$(az acr credential-set show 
