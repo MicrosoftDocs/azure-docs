@@ -69,7 +69,7 @@ Configure Conditional Access policies to match Okta conditions. However, in some
 
 
 * Okta network locations to named locations in Azure AD
-  *  [Using the location condition in a Conditional Access policy](/articles/active-directory/conditional-access/location-condition.md#named-locations)
+  *  [Using the location condition in a Conditional Access policy](/articles/active-directory/conditional-access/location-condition.md)
 * Okta device trust to device-based Conditional Access (two options to evaluate user devices):
   * See the following section, **Hybrid Azure AD join configuration** to synchronize Windows devices, such as Windows 10, Windows Server 2016 and 2019, to Azure AD
   * See the following section, **Configure device compliance**
@@ -83,7 +83,7 @@ To enable hybrid Azure AD join on your Azure AD Connect server, run the configur
 >[!NOTE]
 >Hybrid Azure AD join isn't supported with the Azure AD Connect cloud provisioning agents.
 
-1. [Configure hybrid Azure AD join](/articles/active-directory/devices/howto-hybrid-azure-ad-join.md).
+1. [Configure hybrid Azure AD join](../devices/howto-hybrid-azure-ad-join.md).
 2. On the **SCP configuration** page, select the **Authentication Service** dropdown. 
 
     ![Screenshot of the Authentication Service dropdown on the Microsoft Azure Active Directory Connect dialog.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/scp-configuration.png)
@@ -153,12 +153,12 @@ After you configure the prerequisites and established base settings, you can bui
 
 Before you get started: 
 
-* [Understand Conditional Access policy components](/articles/active-directory/conditional-access/plan-conditional-access.md#understand-conditional-access-policy-components)
-* [Building a Conditional Access policy](/azure/active-directory/conditional-access/concept-conditional-access-policies)
+* [Understand Conditional Access policy components](../conditional-access/plan-conditional-access.md#understand-conditional-access-policy-components)
+* [Building a Conditional Access policy](../conditional-access/concept-conditional-access-policies.md)
 
 1. Go to the [Azure portal](https://portal.azure.com). 
 2. On **Manage Azure Active Directory**, select **View**.
-3. Create a policy. See, [Common Conditional Access policy: Require MFA for all users](/articles/active-directory/conditional-access/howto-conditional-access-policy-all-users-mfa.md).
+3. Create a policy. See, [Common Conditional Access policy: Require MFA for all users](../conditional-access/howto-conditional-access-policy-all-users-mfa.md).
 4. Create a device trust-based Conditional Access rule.
 
    ![Screenshot of entries for Require Trusted Devices for Access, under Conditional Access.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/test-user.png)
@@ -177,7 +177,7 @@ For individual registration, users go to [Microsoft Sign-in pane](https://aka.ms
 
 To manage registration, users go to [Microsoft My Sign-Ins | Security Info](https://aka.ms/mysecurityinfo).
 
-Learn more: [Enable combined security information registration in Azure Active Directory](/articles/active-directory/authentication/howto-registration-mfa-sspr-combined.md).
+Learn more: [Enable combined security information registration in Azure Active Directory](../authentication/howto-registration-mfa-sspr-combined.md).
 
 >[!NOTE]
 >If users registered, they're redirected to the **My Security** page, after they satisfy MFA.
