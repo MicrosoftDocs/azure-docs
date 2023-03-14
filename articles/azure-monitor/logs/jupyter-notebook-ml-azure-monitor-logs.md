@@ -56,9 +56,9 @@ In this tutorial, you'll need:
 
 - An [Azure Machine Learning workspace with a compute instance](../../machine-learning/quickstart-create-resources.md) with:
 
-    - A CPU compute instance type. To use distributed GPU training code, see [Distributed GPU training guide](../../machine-learning/v1/how-to-train-distributed-gpu).  
+    - A CPU compute instance type.  
     - Kernel set to Python 3.8 or higher.
-    - [A notebook](../../machine-learning/quickstart-run-notebooks#create-a-new-notebook). 
+    - [Create a notebook](../../machine-learning/quickstart-run-notebooks#create-a-new-notebook). 
 - The following roles and permissions: 
 
     |Type  |Details  |
