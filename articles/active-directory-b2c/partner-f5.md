@@ -1,5 +1,5 @@
 ---
-title: Tutorial to enable Secure Hybrid Access to applications with Azure AD B2C and F5 BIG-IP
+title: Tutorial to enable secure hybrid access for applications with Azure Active Directory B2C and F5 BIG-IP
 titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with F5 BIG-IP for secure hybrid access 
 author: gargi-sinha
@@ -13,77 +13,70 @@ ms.topic: how-to
 ms.date: 03/14/2023
 ---
 
-# Tutorial: Secure Hybrid Access to applications with Azure AD B2C and F5 BIG-IP
+# Tutorial: Enable secure hybrid access for applications with Azure Active Directory B2C and F5 BIG-IP
 
-In this sample tutorial, learn how to integrate Azure Active Directory (Azure AD) B2C with [F5 BIG-IP Access Policy Manager (APM)](https://www.f5.com/services/resources/white-papers/easily-configure-secure-access-to-all-your-applications-via-azure-active-directory). This tutorial demonstrates how legacy applications can be securely exposed to the internet through BIG-IP security combined with Azure AD B2C pre-authentication, Conditional Access (CA), and Single sign-on (SSO).
+Learn to integrate Azure Active Directory B2C (Azure AD B2C) with F5 BIG-IP Access Policy Manager (APM). You can expose legacy applications securely to the internet through BIG-IP security, with Azure AD B2C pre-authentication, Conditional Access (CA), and single sign-on (SSO). F5 Inc. focuses on delivery, security, performance, and availability of connected services, including computing, storage, and network resources. It provides hardware, modularized software, and cloud-ready virtual appliance solutions.
 
-F5 Inc. focus on the delivery, security, performance, and availability of connected services, including the availability of computing, storage, and network resources. It provides hardware, modularized software, and cloud-ready virtual appliance solutions.
+Deploy F5 BIG-IP Application Delivery Controller (ADC) as a secure gateway between private networks and the internet. There are features for application-level inspection and customizable access controls. If deployed as a reverse proxy, use the BIG-IP to enable secure hybrid access to business applications, with a federated identity access layer managed by APM.
 
-F5's BIG-IP Application Delivery Controller (ADC) is often deployed as a secure gateway between private networks and the internet.
-It provides an abundance of features including application-level inspection and fully customizable access controls. When deployed as a reverse proxy, the BIG-IP can also be used to enable secure hybrid access to critical business applications, by front-ending services with a federated Identity access layer managed by F5’s APM.
+Go to f5.com resources and white papers for: [Easily Configure Secure Access to All Your Applications via Azure AD](https://www.f5.com/services/resources/white-papers/easily-configure-secure-access-to-all-your-applications-via-azure-active-directory)
 
 ## Prerequisites
 
-To get started, you'll need:
+To get started, you need:
 
-- An [Azure AD B2C tenant](tutorial-create-tenant.md) linked to your Azure subscription
-
-- An existing BIG-IP or deploy a trial [BIG-IP Virtual Environment (VE) on Azure](../active-directory/manage-apps/f5-bigip-deployment-guide.md)
-
-- Any of the following F5 BIG-IP license SKUs
-
-  - F5 BIG-IP® Best bundle
-
-  - F5 BIG-IP Access Policy Manager™  standalone license
-
-  - F5 BIG-IP Access Policy Manager™ add-on license on an existing BIG-IP F5 BIG-IP® Local Traffic Manager™ (LTM)
-
-  - 90-day BIG-IP full feature [trial license](https://www.f5.com/trial/big-ip-trial.php)
-
-- An existing header-based web application or [setup an IIS app](/previous-versions/iis/6.0-sdk/ms525396(v=vs.90)) for testing
-
-- [SSL certificate](../active-directory/manage-apps/f5-bigip-deployment-guide.md#ssl-profile) for publishing services over HTTPS or use default while testing.
+* An Azure subscription
+  * If you don't have one, get an [Azure free account](https://azure.microsoft.com/free/)
+* An Azure AD B2C tenant linked to the Azure subscription
+  * See, [Tutorial: Create an Azure Active Directory B2C tenant](tutorial-create-tenant.md)
+* A BIG-IP or a deployed trial BIG-IP Virtual Environment (VE) on Azure
+  * See, [Deploy F5 BIG-IP Virtual Edition VM in Azure](../active-directory/manage-apps/f5-bigip-deployment-guide.md)
+* Any of the following F5 BIG-IP licenses:
+  * F5 BIG-IP® Best bundle
+  * F5 BIG-IP Access Policy Manager™  standalone license
+  * F5 BIG-IP Access Policy Manager™ add-on license on a BIG-IP F5 BIG-IP® Local Traffic Manager™ (LTM)
+  * 90-day BIG-IP full feature [trial license](https://www.f5.com/trial/big-ip-trial.php)
+* A header-based web application or an IIS app for testing
+  * See, [Set up an IIS app](/previous-versions/iis/6.0-sdk/ms525396(v=vs.90))
+* SSL certificate to publish services over HTTPS, or use default while testing
+  * See, [SSL profile](../active-directory/manage-apps/f5-bigip-deployment-guide.md#ssl-profile)
 
 ## Scenario description
-**The following scenario is header-based but you can also use these methods to achieve Kerberos SSO.**
 
-For this scenario, we have an internal application whose access relies on receiving HTTP authorization headers from a legacy broker system, enabling sales agents to be directed to their respective areas of content. The service needs expanding to a broader consumer base, so the application either needs upgrading to offer a choice of consumer authentication options or replacing altogether with more suitable solution.
+The following scenario is header-based, but you can use these methods to achieve Kerberos SSO.
 
-In an ideal world, the application would be upgraded to support being directly managed and governed through a modern control plane. But as it lacks any form of modern interop, it would take considerable effort and time to modernize, introducing inevitable costs and risks of potential downtime. Instead, a BIG-IP Virtual Edition (VE) deployed between the public internet and the internal Azure VNet our application is connected to will be used to gate access with Azure AD B2C for its extensive choice of sign-in and sign-up capabilities.
+For this scenario, access for an internal application relies on receiving HTTP authorization headers from a legacy broker system. Sales agents can be directed to respective areas of content. The service needs to be expanded to a broader consumer base. The application gets upgraded for consumer authentication options, or gets replaced.
 
-Having a BIG-IP in front of the application enables us to overlay the service with Azure AD B2C pre-authentication and header-based SSO, significantly improving the overall security posture of the application, allowing the business to continue growing at pace, without interruption.
+Ideally, an application upgrade supports direct management and governance with a modern control plane. However, time and effort to modernize introduces costs and potential downtime. Instead, deploy a BIG-IP Virtual Edition (VE) between the public internet and the internal Azure virtual network (VNet) to gate access with Azure AD B2C. BIG-IP in front of the application enables overlay of the service with Azure AD B2C pre-authentication and header-based SSO, improving the app security posture.
 
-The secure hybrid access solution for this scenario is made up of the following components:
+The secure hybrid access solution has of the following components:
 
-- **Application** - Backend service being protected by Azure AD B2C and BIG-IP secure hybrid access
+* **Application** - back-end service protected by Azure AD B2C and BIG-IP secure hybrid access
+* **Azure AD B2C** - identity provider (IdP) and Open ID Connect (OIDC) authorization server that verifies user credentials, multifactor authentication, and SSO to the BIG-IP APM
+* **BIG-IP** - reverse proxy for the application. The BIG-IP APM is the OIDC client, delegating authentication to the OIDC authorization server, before header-based SSO to the back-end service.
 
-- **Azure AD B2C** - The IdP and Open ID Connect (OIDC) authorization server, responsible for verification of user credentials, multifactor authentication (MFA), and SSO to the BIG-IP APM.
+The following diagram illustrates the service provider (SP) initiated flow for this scenario.
 
-- **BIG-IP** - As the reverse proxy for the application, the BIG-IP APM also becomes the OIDC client, delegating authentication to the OIDC authorization server, before performing header-based SSO to the backend service.
+![Screenshot of the service-provider initiated flow.](./media/partner-f5/flow-diagram.png)
 
-The following diagram illustrates the Service Provider (SP) initiated flow for this scenario.
+1. User connects to the application endpoint. BIG-IP is service provider.
+2. BIG-IP APM OIDC client redirects user to Azure AD B2C tenant endpoint, the OIDC authorization server
+3. Azure AD B2C tenant pre-authenticates user and applies Conditional Access policies
+4. Azure AD B2C redirects user back to the SP with authorization code
+5. OIDC client asks the authorization server to exchange authorization code for an ID token
+6. BIG-IP APM grants user access and injects the HTTP headers in the client request forwarded on to the application
 
-![Screenshot showing the SP initiated flow for this scenario](./media/partner-f5/flow-diagram.png)
+## Azure AD B2C configuration
 
-|Step| Description|
-|:----|:-------|
-| 1. | User connects to the application endpoint, where BIG-IP is service provider |
-| 2. | BIG-IP APM that is the OIDC client redirects user to Azure AD B2C tenant endpoint, the OIDC authorization server |
-| 3. | Azure AD B2C tenant pre-authenticates user and applies any enforced Conditional Access policies |
-|4. | Azure AD B2C redirects user back to the SP with authorization code |
-| 5. | OIDC client asks the authorization server to exchange authorization code for an ID token |
-| 6. | BIG-IP APM grants user access and injects the HTTP headers in the client request forwarded on to the application |
+To enable a BIG-IP with Azure AD B2C authentication, use an Azure AD B2C tenant with a user flow or custom policy. 
 
-## Azure AD B2C Configuration
-
-Enabling a BIG-IP with Azure AD B2C authentication requires an Azure AD B2C tenant with a suitable user flow or custom policy. [Set up an Azure AD B2C user flow](tutorial-create-user-flows.md).
+See, [Tutorial: Create user flows and custom policies in Azure AD B2C](tutorial-create-user-flows.md)
 
 ### Create custom attributes
 
-Custom attributes can be obtained from various sources, including directly from existing Azure AD B2C user objects, requested from federated IdPs, API connectors, or collected during the sign-up journey of a user. When required, they can be included in the token sent to the application.
+Obtain custom attributes from Azure AD B2C user objects, federated IdPs, API connectors, or user sign-up. Include attributes in the token that goes to the application.
 
-As your legacy application expects specific attributes, include these attributes in your user flow. But feel free to replace these with whatever attributes your application requires. Or if setting up a test app using the instructions in the pre-requisites then any headers will do as it
-displays them all.
+Legacy applications expect specific attributes, so include them in your user flow. Replace them with attributes your application requires. Or if setting up a test app using the instructions in the pre-requisites then any headers will do as it displays them all.
 
 1. Sign into your Azure AD B2C tenant's portal
 
