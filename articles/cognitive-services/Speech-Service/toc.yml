@@ -240,8 +240,6 @@ items:
           displayName: pronounce, learn language, assess pron
     - name: Azure OpenAI speech to speech chat
       href: openai-speech.md
-    - name: Power automate batch transcription
-      href: power-automate-batch-transcription.md
     - name: Conversation transcription
       items:
         - name: Conversation Transcription overview
@@ -384,6 +382,8 @@ items:
       displayName: rest, swagger
     - name: Embedded Speech
       href: embedded-speech.md
+    - name: Power automate batch transcription
+      href: power-automate-batch-transcription.md
     - name: Speech containers
       items:
         - name: Cognitive Services containers documentation
