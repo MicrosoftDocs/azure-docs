@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: msjasteppe
   ms.author: jasteppe
-  ms.date: 03/13/2023
+  ms.date: 03/14/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -51,15 +51,23 @@ landingContent:
 
   - title: Configure the MedTech service mappings
     linkLists:
-      - linkListType: how-to-guide
+      - linkListType: overview
         links:
-          - text: Mapping debugger
-            url: how-to-use-mapping-debugger.md
           - text: Device mapping
             url: overview-of-device-mapping.md
           - text: FHIR destination mapping
             url: how-to-configure-fhir-mappings.md 
- 
+      - linkListType: how-to-guide
+        links:
+          - text: Mapping debugger
+            url: how-to-use-mapping-debugger.md
+          - text: CalculatedContent templates
+            url: how-to-use-calculatedcontent-mappings.md
+          - text: IotJsonPathContentTemplate templates
+            url: how-to-use-iotjsonpathcontenttemplate-mappings.md
+          - text: Custom functions
+            url: how-to-use-custom-functions.md
+          
   - title: Monitor the MedTech service
     linkLists:
       - linkListType: how-to-guide
