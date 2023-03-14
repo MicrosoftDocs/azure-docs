@@ -29,8 +29,8 @@ ms.author: kgremban
 
    | Field | Description |
    | :---- | :---------- |
-   | **Target IoT hubs** |Select one or more of your linked IoT hubs, or add a new link to an IoT hub. To learn more about linking IoT hubs to your DPS instance, see [How to link and manage IoT hubs](how-to-manage-linked-iot-hubs.md).|
-   | **Allocation policy** | If you selected more than one linked IoT hub, select how you want to assign devices to the different hubs. To learn more about allocation policies, see [How to use allocation policies](how-to-use-allocation-policies.md).<br><br>If you selected only one linked IoT hub, we recommend using the **Evenly weighted distribution** policy.|
+   | **Target IoT hubs** |Select one or more of your linked IoT hubs, or add a new link to an IoT hub. To learn more about linking IoT hubs to your DPS instance, see [How to link and manage IoT hubs](../articles/iot-dps/how-to-manage-linked-iot-hubs.md).|
+   | **Allocation policy** | If you selected more than one linked IoT hub, select how you want to assign devices to the different hubs. To learn more about allocation policies, see [How to use allocation policies](../articles/iot-dps/how-to-use-allocation-policies.md).<br><br>If you selected only one linked IoT hub, we recommend using the **Evenly weighted distribution** policy.|
 
 1. Select **Next: Device settings**
 

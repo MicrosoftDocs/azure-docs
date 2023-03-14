@@ -68,7 +68,7 @@ With enrollment groups, there are two scenarios to consider:
       - If you have the device (end-entity) certificate, you can create a disabled X.509 individual enrollment.
       - If you don't have the device certificate, you can create a disabled symmetric key individual enrollment based on the device ID in the registration record for that device.
 
-      To learn more, see [Disallow specific devices in an enrollment group](how-to-revoke-device-access-portal.md#disallow-specific-devices-in-an-enrollment-group).
+      To learn more, see [Disallow specific devices in an enrollment group](./how-to-revoke-device-access-portal.md#disallow-specific-devices-from-an-x509-enrollment-group).
   
       The presence of a disabled individual enrollment for a device revokes access to the provisioning service for that device while still permitting access for other devices that have the enrollment group's signing certificate in their chain. Do not delete the disabled individual enrollment for the device. Doing so will allow the device to re-enroll through the enrollment group.
 
