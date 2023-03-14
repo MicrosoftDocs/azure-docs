@@ -126,6 +126,8 @@ items:
           href: troubleshoot-guide.md
         - name: Get logs
           href: troubleshooting-get-logs.md
+        - name: Troubleshoot deployments
+          href: troubleshoot-managed-instance.md
 - name: Azure Arc-enabled SQL Managed Instance
   items:
     - name: Overview
