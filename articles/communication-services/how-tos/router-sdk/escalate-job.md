@@ -46,9 +46,9 @@ await routerClient.CreateExceptionPolicyAsync(
                         {
                             "EscalateReclassifyExceptionAction" = new ReclassifyExceptionAction(
                                 classificationPolicyId: "<classification policy id>", 
-                                labelsToUpsert: new Dictionary<string, object>()
+                                labelsToUpsert: new Dictionary<string, LabelValue>()
                                 {
-                                    ["Escalated"] = true,
+                                    ["Escalated"] = new LabelValue(true),
                                 })
                         })
                 }
@@ -126,12 +126,7 @@ await routerClient.CreateJobAsync(
     {
         RequestedWorkerSelectors = new List<WorkerSelector>
         {
-            new WorkerSelector()
-            {
-                Key = "XBOX_Hardware",
-                Operator = LabelOperator.GreaterThanEqual,
-                Value = 7
-            }
+            new WorkerSelector(key: "XBOX_Hardware", labelOperator: LabelOperator.GreaterThanEqual, value: new LabelValue(7))
         }
     });
 );

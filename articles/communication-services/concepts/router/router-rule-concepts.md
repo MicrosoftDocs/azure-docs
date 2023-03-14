@@ -75,7 +75,7 @@ In this example a `ExpressionRule`, which is a subtype of `RouterRule` can be us
 await routerAdministration.CreateClassificationPolicyAsync(
     new CreateClassificationPolicyOptions(classificationPolicyId: "my-policy-id")
     {
-        PrioritizationRule = new ExpressionRule("If(job.Urgent = true, 10, 5)") // this will check whether the job has a label "Escalated" set to "true"
+        PrioritizationRule = new ExpressionRule("If(job.Escalated = true, 10, 5)") // this will check whether the job has a label "Escalated" set to "true"
     });
 ```
 
@@ -88,7 +88,7 @@ await client.upsertClassificationPolicy({
     id: "my-policy-id",
     prioritizationRule: {
         kind: "expression-rule",
-        expression: "If(job.Urgent = true, 10, 5)"
+        expression: "If(job.Escalated = true, 10, 5)"
     }
 });
 ```
