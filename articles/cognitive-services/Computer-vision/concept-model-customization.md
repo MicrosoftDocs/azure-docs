@@ -71,7 +71,7 @@ The following table describes the limits on the scale of your custom model proje
 | ------------------------- | ------------------------------- | ------------------------------- |
 | Max # training hours                | 288 (12 days)                   | 288 (12 days)                   |
 | Max # training images               | 1,000,000                       | 200,000                         |
-| Max # evaluation images             | 1,00,000                        | 100,000                         |
+| Max # evaluation images             | 100,000                        | 100,000                         |
 | Min # training images per category  | 2                               | 2                               |
 | Max # tags per image                | multiclass: 1                   | NA                              |
 | Max # regions per image             | NA                              | 1,000                           |
