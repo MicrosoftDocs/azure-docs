@@ -221,35 +221,31 @@ Upon receipt of confirmation from your ADP representative, configure your ADP se
 
 ### Configure ADP to support multiple instances in the same tenant
 
-1. If you want to override the **Identifier (Entity ID)** value in the Azure portal then please follow the below steps:
+1. Go to **Basic SAML Configuration** section and configure another test instance value in **Identifier (Entity ID)** textbox.
+
+    ![Configure another test instance value.](./media/adpfederatedsso-tutorial/append.png)
+
+1. To support multiple instances in the same tenant, please follow the below steps:
 
     ![Configure audience claim value.](./media/adpfederatedsso-tutorial/audience.png)
 
-    1. In the **Attributes & Claims** section, navigate to **Advanced settings** > **Advanced SAML claims options** and click **Edit**.
+    1. Navigate to **Attributes & Claims** section > **Advanced settings** > **Advanced SAML claims options** and click **Edit**.
+
+    1. Enable **Append application ID to issuer** checkbox.
 
     1. Enable **Override audience claim** checkbox.
 
-    1. Copy **Identifier (Entity ID)** value and paste in the **Audience claim value** textbox.
+    1. In the **Audience claim value** textbox, enter another test instance **Identifier (Entity ID)** value, which you've copied from **Basic SAML Configuration** section and click **Save**.
 
-    1. Click **Save**.
+1. Navigate to **Properties** tab under Manage section and copy **Application ID** from the Azure portal.
 
-1. If you want to append **Application ID** to **Issuer** value then perform the following steps in the Azure portal:
+    ![Copy application value from properties tab.](./media/adpfederatedsso-tutorial/app.png)
+
+1. Download and open the **Federation Metadata XML** file from the Azure portal and edit the **entityID** value by adding **Application ID** manually at the end.
+
+    ![Adding application value in the federation file.](./media/adpfederatedsso-tutorial/federation.png)
     
-    ![Append application ID to issuer.](./media/adpfederatedsso-tutorial/append.png)
-
-    1. Go to the **Advanced settings** > **Advanced SAML claims options** and click **Edit** in the **Attributes & Claims** section.
-
-    1. Enable **Append application ID to issuer** checkbox and click **Save**.
-
-    1. Navigate to **Properties** tab under Manage section and copy **Application ID** from the Azure portal.
-
-        ![Copy application value from properties tab.](./media/adpfederatedsso-tutorial/app.png)
-
-    1. Download and open the **Federation Metadata XML** file from the Azure portal and edit the **entityID** value by adding **Application ID** manually at the end.
-
-        ![Adding application value in the federation file.](./media/adpfederatedsso-tutorial/federation.png)
-    
-    1. **Save** the xml file and use in the ADP side.
+1. **Save** the xml file and use in the ADP side.
 
 ### Create ADP test user
 
