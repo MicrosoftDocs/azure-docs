@@ -59,13 +59,18 @@ Create a new Virtual Machine Scale Set using [New-AzVmss](/powershell/module/az.
 
 ```azurepowershell-interactive
 New-AzVmss `
-    -ResourceGroup "myVMSSResourceGroup" `
+    -ResourceGroup "myResourceGroup" `
     -Name "myScaleSet" ` 
     -UpgradePolicyMode "Rolling" `
     -MaxSurge "True" `
     -Location "East US" `
     -InstanceCount "2" `
     -ImageName "Win2019Datacenter"
+
+Set-AzVmssRollingUpgradePoilicy -VirtualMachineScaleSet "myScaleSet" -MaxSurge "True"
+
+Update-AzVmss -ResourcegroupName "myResourceGroup" -VirtualMachineScaleSet "myScaleSet"
+
 ```
 
 ### Template
@@ -81,7 +86,7 @@ When using an ARM template, add the upgradePolicy to the properties section:
             "maxUnhealthyInstancePercent": 20,
             "maxUnhealthyUpgradedInstancePercent": 20,
             "pauseTimeBetweenBatches": "PT2S",
-	          "MaxSurge": "true"
+	        "MaxSurge": "true"
 ```
 
 
@@ -130,7 +135,7 @@ Add the following to your ARM template:
             "maxUnhealthyInstancePercent": 20,
             "maxUnhealthyUpgradedInstancePercent": 20,
             "pauseTimeBetweenBatches": "PT2S",
-	           "MaxSurge": "true"
+	        "MaxSurge": "true"
 ```
 
 ## Performing Manual Upgrades
