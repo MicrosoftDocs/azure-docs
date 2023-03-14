@@ -82,7 +82,7 @@ After you download the data file, you can register it as a data asset in Azure M
 1. Navigate to [Azure Machine Learning studio](https://ml.azure.com)
 
 1. Under __Assets__ in the left navigation, select __Data__. On the Data assets tab, select Create
-:::image type="content" source="./media/migrate-register-dataset/data-assets-create-2.png" alt-text="Screenshot highlights Create in the Data assets tab.":::
+:::image type="content" source="./media/migrate-register-dataset/data-assets-create.png" alt-text="Screenshot highlights Create in the Data assets tab.":::
 
 1. Give your data asset a name and optional description. Then, select the **Tabular** option under **Type**, in the **Dataset types** section of the dropdown.
     > [!NOTE]
