@@ -374,7 +374,7 @@ az network nsg create \
     --resource-group TutorialIPv6NATLB-rg
 ```
 
-Use [az network nsg rule create](/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create) to create a rule for RDP connectivity to the virtual machine.
+Use [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create) to create a rule for RDP connectivity to the virtual machine.
 
 ```azurecli-interactive
 az network nsg rule create \
