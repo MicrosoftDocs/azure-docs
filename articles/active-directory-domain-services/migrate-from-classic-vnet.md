@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/10/2023
+ms.date: 03/14/2023
 ms.author: justinha 
 ---
 
@@ -177,10 +177,11 @@ Before you begin the migration process, complete the following initial checks an
     | Source      | Source service tag                 | Source port ranges |  Destination  | Service | Destination port ranges | Protocol | Action | Required | Purpose |
     |:-----------:|:----------------------------------:|:------------------:|:-------------:|:-------:|:-----------------------:|:--------:|:------:|:--------:|:--------|
     | Service tag | AzureActiveDirectoryDomainServices | *                  | Any           | WinRM   | 5986        | TCP       | Allow  | Yes       | Management of your domain |
-    | Service tag | CorpNetSaw                         | *                  | Any           | WinRM   | 3389        | TCP       | Allow  | Optional  | Debugging for support |
-    | Service tag | AzureActiveDirectoryDomainServices | *                  | Any           | WinRM   | 636         | TCP       | Allow  | Optional  | Secure LDAP |
-
+    | Service tag | CorpNetSaw                         | *                  | Any           | RDP   | 3389        | TCP       | Allow  | Optional  | Debugging for support |
+    
     Make a note of this target resource group, target virtual network, and target virtual network subnet. These resource names are used during the migration process.
+
+    Please note that the **CorpNetSaw** service tag isn't available by using Azure portal, and the network security group rule for **CorpNetSaw** has to be added by using PowerShell (powershell-create-instance.md#create-a-network-security-group).
 
 1. Check the managed domain health in the Azure portal. If you have any alerts for the managed domain, resolve them before you start the migration process.
 1. Optionally, if you plan to move other resources to the Resource Manager deployment model and virtual network, confirm that those resources can be migrated. For more information, see [Platform-supported migration of IaaS resources from Classic to Resource Manager][migrate-iaas].

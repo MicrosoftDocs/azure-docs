@@ -17,7 +17,7 @@ Contrast Protect mitigates security threats in production applications with runt
 | Connector attribute | Description |
 | --- | --- |
 | **Log Analytics table(s)** | CommonSecurityLog (ContrastProtect)<br/> |
-| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
+| **Data collection rules support** | [Workspace transform DCR](../../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Supported by** | [Contrast Protect](https://docs.contrastsecurity.com/) |
 
 ## Query samples
