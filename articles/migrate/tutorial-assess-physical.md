@@ -5,7 +5,7 @@ author: rashi-ms
 ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 02/18/2022
+ms.date: 03/14/2023
 ms.custom: MVC, engagement-fy23
 #Customer intent: As a server admin, I want to assess my on-premises physical servers in preparation for migration to Azure.
 ---
@@ -50,11 +50,11 @@ Decide whether you want to run an assessment using sizing criteria based on serv
 
 Run an assessment as follows:
 
-1. On the **Overview** page > **Windows, Linux and SQL Server**, click **Assess and migrate servers**.
+1. On the **Get started** page > **Servers, databases and web apps**, select **Assess and migrate servers**.
 
    ![Location of Assess and migrate servers button.](./media/tutorial-assess-vmware-azure-vm/assess.png)
 
-2. In **Azure Migrate: Discovery and assessment**, click **Assess**.
+2. In **Azure Migrate: Discovery and assessment**, select **Assess** > **Azure VM**.
 
     ![Location of the Assess button](./media/tutorial-assess-vmware-azure-vm/assess-servers.png)
 
@@ -64,7 +64,7 @@ Run an assessment as follows:
     - If you discovered servers using the appliance, select **Servers discovered from Azure Migrate appliance**.
     - If you discovered servers using an imported CSV file, select **Imported servers**. 
     
-1. Click **Edit** to review the assessment properties.
+1. Select **Edit** to review the assessment properties.
 
     :::image type="content" source="./media/tutorial-assess-vmware-azure-vm/assessment-name.png" alt-text="Location of the edit button to review assessment properties":::
 
@@ -100,23 +100,23 @@ Run an assessment as follows:
    High availability and disaster recovery properties | **Internet Access** | Defaulted to Available.<br/><br/> Select **Available** if you allow outbound internet access from Azure VMs. This allows the use of [Cloud Witness](/azure/azure-sql/virtual-machines/windows/hadr-cluster-quorum-configure-how-to.md?view=azuresql&tabs=powershell#cloud-witness) which is the recommended approach for Windows Server Failover Clusters in Azure Virtual Machines. <br/><br/> Select **Not available** if the Azure VMs have no outbound internet access. This requires the use of a Shared Disk as a witness for Windows Server Failover Clusters in Azure Virtual Machines. 
    High availability and disaster recovery properties | **Async commit mode intent** | Defaulted to Disaster recovery. <br/><br/> Select **Disaster recovery** if you're using asynchronous commit availability mode to enable higher durability for the data without affecting performance. In the event of failover, data that hasn't yet been replicated may be lost. <br/><br/> Select **High availability** if you're using asynchronous commit data availability mode to improve availability and scale out read traffic. This setting allows assessment to leverage built-in high availability features in Azure SQL Databases, Azure SQL Managed Instances, and Azure Virtual Machines to provide higher availability and scale out.
 
-1. Click **Save** if you make changes.
+1. Select **Save** if you make changes.
 
-1. In **Assess Servers** > click **Next**.
+1. In **Assess Servers**, select **Next**.
 
-1. In **Select servers to assess** > **Assessment name** > specify a name for the assessment. 
+1. In **Select servers to assess** > **Assessment name**, specify a name for the assessment. 
 
-1. In **Select or create a group** > select **Create New** and specify a group name. 
-    
+1. In **Select or create a group**, select **Create New** and specify a group name.   
 
-1. Select the appliance, and select the VMs you want to add to the group. Then click **Next**.
+1. Select the appliance, and select the VMs you want to add to the group. Then select **Next**.
 
 
-1. In **Review + create assessment**, review the assessment details, and click **Create Assessment** to create the group and run the assessment.
+1. In **Review + create assessment**, review the assessment details, and select **Create Assessment** to create the group and run the assessment.
 
 1. After the assessment is created, view it in **Servers** > **Azure Migrate: Discovery and assessment** > **Assessments**.
 
-1. Click **Export assessment**, to download it as an Excel file.
+1. Select **Export assessment**, to download it as an Excel file.
+    
     > [!NOTE]
     > For performance-based assessments, we recommend that you wait at least a day after starting discovery before you create an assessment. This provides time to collect performance data with higher confidence. Ideally, after you start discovery, wait for the performance duration you specify (day/week/month) for a high-confidence rating.
 
@@ -130,7 +130,7 @@ An assessment describes:
 
 To view an assessment:
 
-1. In **Windows, Linux and SQL Server** > **Azure Migrate: Discovery and assessment**, click the number next to **Assessments**.
+1. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select the number next to **Assessments**.
 2. In **Assessments**, select an assessment to open it. As an example (estimations and costs for example only): 
 
     ![Assessment summary](./media/tutorial-assess-physical/assessment-summary.png)
@@ -140,7 +140,7 @@ To view an assessment:
  
 ### Review readiness
 
-1. Click **Azure readiness**.
+1. Select **Azure readiness**.
 2. In **Azure readiness**, review the VM status:
     - **Ready for Azure**: Used when Azure Migrate recommends a VM size and cost estimates, for VMs in the assessment.
     - **Ready with conditions**: Shows issues and suggested remediation.
