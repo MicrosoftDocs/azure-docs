@@ -31,7 +31,7 @@ The following script uses named values that appear in {{property_name}}. To lear
 
 Paste the code into the **inbound** block.
 
-[!code-xml[Main](../../../api-management-policy-samples/examples/Get OAuth2 access token from Azure AD and forward it to the backend.policy.xml)]
+[!code-xml[Main](../../../api-management-policy-samples/examples/Get OAuth2 access token from AAD and forward it to the backend.policy.xml)]
   
 ## Next steps
 
