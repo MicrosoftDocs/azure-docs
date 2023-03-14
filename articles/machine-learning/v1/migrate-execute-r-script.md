@@ -14,7 +14,7 @@ ms.date: 03/08/2021
 
 # Migrate Execute R Script modules in Studio (classic)
 
-[!INCLUDE [ML Studio (classic) retirement](../../includes/machine-learning-studio-classic-deprecation.md)]
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
 
 In this article, you learn how to rebuild a Studio (classic) **Execute R Script** module in Azure Machine Learning.
 
@@ -84,7 +84,7 @@ azureml_main <- function(dataframe1, dataframe2){
   return(list(dataset1=data.set)) 
 } 
 ```
-For more information, see the designer [Execute R Script module reference](./algorithm-module-reference/execute-r-script.md).
+For more information, see the designer [Execute R Script module reference](../algorithm-module-reference/execute-r-script.md).
 
 ### Install R packages from the internet
 
