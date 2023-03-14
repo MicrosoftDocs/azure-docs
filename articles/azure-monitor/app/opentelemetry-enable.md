@@ -484,11 +484,11 @@ provider.register();
 
 #### [Python](#tab/python)
 
-Calling `configure_azure_monitor` will already automatically use the
-`ApplicationInsightsSampler` under the hood, which offers compatibility with
-Application Insights SDKs and performs sampling for your telemetry. You can pass
-the `sampling_ratio` parameter, which takes a value between 0 and 1 inclusive. A
-rate of 0.1 means approximately 10% of your traces will be sent.
+The `configure_azure_monitor()` function will automatically utilize
+ApplicationInsightsSampler for compatibility with Application Insights SDKs and
+to sample your telemetry. The `sampling_ratio` parameter can be used to specify
+the sampling rate, with a valid range of 0 to 1, where 0 is 0% and 1 is 100%.
+For example, a value of 0.1 means 10% of your traces will be sent.
 
 ```python
 from azure.monitor.opentelemetry import configure_azure_monitor
@@ -1347,9 +1347,11 @@ Coming soon.
 
 #### Use the OpenTelemetry API
 
-The simplest way to add your own spans is by using OpenTelemetry's `@WithSpan` annotation.
+The OpenTelemetry API can be used to add your own spans, which will appear in
+the `requests` and `dependencies` tables in Application Insights.
 
-Spans populate the `requests` and `dependencies` tables in Application Insights.
+The code example shows how to use the `tracer.start_as_current_span()` method to
+start, make the span current, and end the span within its context.
 
 ```python
 ...
@@ -1367,7 +1369,7 @@ with tracer.start_as_current_span("my first span") as span:
 
 ```
 
-By default, the span will end up in the `dependencies` table with dependency type `InProc`.
+By default, the span will be in the `dependencies` table with a dependency type of `InProc`.
 
 If your method represents a background job that isn't already captured by
 auto-instrumentation, we recommend that you set the attribute `kind =
@@ -1798,11 +1800,11 @@ Coming soon.
 
 #### [Python](#tab/python)
   
-The Python [logging](https://docs.python.org/3/howto/logging.html) library is [auto-instrumented](#logs). Attaching custom dimensions to your logs by passing a dictionary into the `extra` argument of your logs.
+The Python [logging](https://docs.python.org/3/howto/logging.html) library is [auto-instrumented](#logs). You can attach custom dimensions to your logs by passing a dictionary into the `extra` argument of your logs.
 
 ```python
 ...
-logger.warning("WARNGIN: Warning log with properties", extra={"key1": "value1"})
+logger.warning("WARNING: Warning log with properties", extra={"key1": "value1"})
 ...
 
 ```
@@ -1919,7 +1921,7 @@ Use the add [custom property example](#add-a-custom-property-to-a-span), but rep
 
 1. Exclude the URL option provided by many HTTP instrumentation libraries.
 
-    The following example shows how to exclude a certain URL from being tracked by using the [Flask](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-flask) instrumentation configuration options in `configure_azure_monitor()`.
+    The following example shows how to exclude a specific URL from being tracked by using the [Flask](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-flask) instrumentation configuration options in the `configure_azure_monitor()` function.
     
     ```python
     ...
