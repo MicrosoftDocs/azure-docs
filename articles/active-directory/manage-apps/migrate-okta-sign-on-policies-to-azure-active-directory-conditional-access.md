@@ -153,7 +153,7 @@ After you configure the prerequisites and established base settings, you can bui
 
 Before you get started: 
 
-* [Understand Conditional Access policy components](../conditional-access/plan-conditional-access.md#understand-conditional-access-policy-components)
+* [Understand Conditional Access policy components](../conditional-access/plan-conditional-access.md)
 * [Building a Conditional Access policy](../conditional-access/concept-conditional-access-policies.md)
 
 1. Go to the [Azure portal](https://portal.azure.com). 
