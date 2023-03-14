@@ -1,7 +1,7 @@
 ---
 title: Common questions about VMware disaster recovery with Azure Site Recovery
 description: Get answers to common questions about disaster recovery of on-premises VMware VMs to Azure by using Azure Site Recovery.
-ms.date: 03/02/2023
+ms.date: 03/14/2023
 ms.topic: conceptual
 ms.service: site-recovery
 ms.author: ankitadutta
@@ -200,7 +200,7 @@ No, Site Recovery doesn't support replication to Azure Storage on virtual networ
 
 Site Recovery generates crash-consistent recovery points every 5 minutes.
 
-### Can I change an already replicating machine from one to another another Recovery Services vault?
+### Can I change an already replicating machine from one to another Recovery Services vault?
 
 Switching Recovery Services vaults, when the replication is already ongoing, is not supported. To do so, replication will need to be disabled and enabled again. Additionally, the mobility service agent, installed on the source machine, will need to be unconfigured so that it can be configured to a new vault. Use the below commands to perform the unregistration - 
 
@@ -367,7 +367,7 @@ Crash-consistent recovery points are generated in every five minutes. App-consis
 
 ### Do increases in recovery point retention increase storage costs?
 
-Yes. For example, if you increase retention from 1 day to 3 days, Site Recovery saves recovery points for an additional 2 days.The added time incurs storage changes. Earlier, it was saving recovery points per hour for 1 day. Now, it is saving recovery points per two hours for 3 days. Refer [pruning of recovery points](#how-does-the-pruning-of-recovery-points-happen). So additional 12 recovery points are saved.  As an example only, if a single recovery point had delta changes of 10 GB, with a per-GB cost of $0.16 per month, then additional charges would be $1.60 × 12 per month.
+Yes. For example, if you increase retention from 1 day to three days, Site Recovery saves recovery points for an additional 2 days. The added time incurs storage changes. Earlier, it was saving recovery points per hour for one day. Now, it is saving recovery points per two hours for 3 days. Refer [pruning of recovery points](#how-does-the-pruning-of-recovery-points-happen). So additional 12 recovery points are saved.  As an example only, if a single recovery point had delta changes of 10 GB, with a per-GB cost of $0.16 per month, then additional charges would be $1.60 × 12 per month.
 
 ### How do I access Azure VMs after failover?
 
