@@ -172,21 +172,6 @@ For example, Insights measures the time for a desktop experience to launch based
 >[!NOTE]
 >If a user launches more than one remote application, sometimes the shell app can execute multiple times during a single connection. For an accurate measurement of time to connect, you should only use the first execution checkpoint for each connection.
 
-Example query:
-
-```kusto
-WVDConnections
-| where State == 'Started' and TimeGenerated > ago(1d)
-| extend StartTime=TimeGenerated
-| join kind=inner
-(
-    WVDCheckpoints    
-    | where Name == 'RdpShellAppExecuted'    
-    | summarize AppExecutedTime=min(TimeGenerated) by CorrelationId
-) on CorrelationId
-| project CorrelationId, SessionHostName, UserName, StartTime, TimeToConnect = (AppExecutedTime - StartTime)
-```
-
 - Establishing new sessions usually takes longer than reestablishing connections to existing sessions due to differences in the "logon" process for new and established connections. 
 
 - The time it takes for the user to provide credentials is subtracted from their time to connect to account for situations where a user either takes a while to enter credentials or use alternative authentication methods to sign in.
