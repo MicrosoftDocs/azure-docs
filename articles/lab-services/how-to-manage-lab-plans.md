@@ -39,28 +39,26 @@ To view the list of lab plans in the Azure portal:
 
 ## Delete a lab plan
 
+> [!CAUTION]
+> Deleting a lab plan will not delete any labs created from that lab plan.
+> 
+> Before you delete a lab plan, make sure to delete all associated labs and Azure Compute Gallery images. If you're unable to delete these resources, create an [Azure Support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/) for Azure Lab Services.
+
 To delete a lab plan in the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. View the list of lab plans.
 
-1. In the list, check the checkbox for the lab plan that you want to delete.
-
-    Alternately, select the lab plan to view the lab plan **Overview** page.
-
-1. Select **Delete** from the toolbar.
+1. In the list, check the checkbox for the lab plan that you want to delete, and then select **Delete**.
 
     :::image type="content" source="./media/how-to-manage-lab-plans/azure-portal-delete-lab-plan.png" alt-text="Screenshot that shows how to delete a lab plan in the Azure portal.":::
+
+    Alternately, select the lab plan from the list, and then select **Delete** on the lab plan **Overview** page.
 
 1. Enter **Yes** to confirm the delete action, and then select **Delete**.
 
     :::image type="content" source="./media/how-to-manage-lab-plans/delete-lab-plan-confirmation.png" alt-text="Screenshot that shows the delete lab plan confirmation page in the Azure portal.":::
-
-> [!IMPORTANT]
-> Deleting a lab plan will not delete any labs created from that lab plan.
-> 
-> Before you delete a lab plan, make sure to delete all associated labs and Azure Compute Gallery images.
 
 ## Next steps
 
