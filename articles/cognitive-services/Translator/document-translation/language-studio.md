@@ -36,7 +36,7 @@ Document Translation in Language Studio requires the following resources:
 
 * A [**single-service Translator resource**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**not** a multi-service Cognitive Services resource) with [**system-assigned managed identity**](how-to-guides/create-use-managed-identities.md#enable-a-system-assigned-managed-identity) enabled and a [**Storage Blob Data Contributor**](how-to-guides/create-use-managed-identities.md#grant-access-to-your-storage-account) role assigned. For more information, *see* [**Managed identities for Document Translation**](how-to-guides/create-use-managed-identities.md). Also, make sure the region and pricing sections are completed as follows:
 
-  * **Resource Region**. For this project, choose a **non-global** region. For Document Translation, [system-assigned managed identity](how-to-guides/create-use-managed-identities.md) isn't supported in the global region.
+  * **Resource Region**. For this project, choose a non-global region such as **East US**. For Document Translation, [system-assigned managed identity](how-to-guides/create-use-managed-identities.md) isn't supported for the **Global** region.
   * **Pricing tier**. Select Standard S1 or D3 to try the service. Document Translation isn't supported in the free tier.
 
 * An [**Azure blob storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). An active Azure blob storage account is required to use Document Translation in the Language Studio.
