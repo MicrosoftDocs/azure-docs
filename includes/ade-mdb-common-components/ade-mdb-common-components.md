@@ -2,11 +2,11 @@ Microsoft Dev Box and Azure Deployment Environments are complementary services t
 
 ## Common components
 
-The diagram shows the components of Dev Box and Deployments Environments. Dev centers and projects are common to both services. Both use managed identities to support authentication, and both services provide access for developers through the developer portal.
+The diagram shows the components of Dev Box and Deployment Environments. Dev centers and projects are common to both services. Both use managed identities to support authentication, and both services provide access for developers through the developer portal.
 
 :::image type="content" source="media/common-elements.png" border="false" alt-text="Diagram showing components of Microsoft Dev Box and Azure Deployment Environments.":::
 
-The following table lists Dev Box and Deployments Environments components:
+The following table lists Dev Box and Deployment Environments components:
 
 |  Component             |   Dev Box    | Deployment Environments |
 |------------------------|--------------|-------------------------|
@@ -24,7 +24,7 @@ The following table lists Dev Box and Deployments Environments components:
 
 ## How components appear in the Azure portal
 
-As you work with Dev Box or Deployments Environments in the Azure portal, you can access components from both services.
+As you work with Dev Box or Deployment Environments in the Azure portal, you can access components from both services.
 
 In the dev center overview, you can access options to:
 
