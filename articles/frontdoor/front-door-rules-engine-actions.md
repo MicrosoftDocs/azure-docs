@@ -470,10 +470,10 @@ Use these settings to control how files get cached for requests that contain que
 
 | Cache behavior |  Description |
 | -------------- | ------------ |
-| Ignore query strings | Once the asset is cached, all ensuing requests ignore the query strings until the cached asset expires. |
-| Cache every unique URL | Each request with a unique URL, including the query string, is treated as a unique asset with its own cache. |
-| Ignore specified query strings | Request URL query strings listed in "Query parameters" setting are ignored for caching. |
-| Include specified query strings | Request URL query strings listed in "Query parameters" setting are used for caching. |
+| Ignore Query String | Once the asset is cached, all ensuing requests ignore the query strings until the cached asset expires. |
+| Use Query String | Each request with a unique URL, including the query string, is treated as a unique asset with its own cache. |
+| Ignore Specified Query Strings | Request URL query strings listed in "Query parameters" setting are ignored for caching. |
+| Include Specified Query Strings | Request URL query strings listed in "Query parameters" setting are used for caching. |
 
 | Additional fields |  Description 
 ------------------|---------------

@@ -57,7 +57,7 @@ During preview, if in-place major version upgrade pre-check operations fail then
 -	Upgrading the **PostGIS** extension is currently unsupported from PostgreSQL 12, while upgrading the **orafce** extension is unsupported from PostgreSQL 11. All other versions of these extensions are supported for in-place major version upgrade. 
 
 -	During preview, in-place major version upgrade is currently available in the following regions.  
-  Australia East / Australia Southeast/ Canada East/ China North 3/China East 3/ East Asia / East US / France South / India Central / India South /Japan East /Jio India West /Korea Central / Norway East/ North Europe/South Central US /Sweden Central /Switzerland North /Switzerland West /UAE north /West Central US/ West US / West US3/ Qatar  Central
+  Australia East / Australia Southeast/ Canada East/ China North 3/China East 3/ East Asia / East US / France South / India Central / India South /Japan East /Jio India West /Korea Central / Norway East/ North Europe/South Central US /Sweden Central /Switzerland North /Switzerland West /UAE north /UK South /West Central US/ West US / West US3/ Qatar  Central
 
 -	Servers configured with logical replication slots aren't supported. 
 

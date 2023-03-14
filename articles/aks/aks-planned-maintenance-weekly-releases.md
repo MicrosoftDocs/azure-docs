@@ -2,7 +2,6 @@
 title: Use Planned Maintenance for your Azure Kubernetes Service (AKS) cluster weekly releases (preview)
 titleSuffix: Azure Kubernetes Service
 description: Learn how to use Planned Maintenance in Azure Kubernetes Service (AKS) for cluster weekly releases
-services: container-service
 ms.topic: article
 ms.date: 09/16/2021
 ms.author: kaarthis

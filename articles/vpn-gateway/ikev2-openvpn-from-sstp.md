@@ -43,6 +43,10 @@ To add IKEv2 to an existing gateway, go to the "point-to-site configuration" tab
 
 :::image type="content" source="./media/ikev2-openvpn-from-sstp/add-tunnel-type.png" alt-text="Screenshot that shows the Point-to-site configuration page with the Tunnel type drop-down open, and IKEv2 and SSTP(SSL) selected." lightbox="./media/ikev2-openvpn-from-sstp/add-tunnel-type.png":::
 
+>[!NOTE]
+> When you have both SSTP and IKEv2 enabled on the Gateway, the point-to-site address pool will be statically split between the two, so clients using different protocols will be assigned IP addresses from either sub-range. Note that the maximum amount of SSTP clients is always 128 even if the address range is larger than /24 resulting in a bigger amount of addresses available for IKEv2 clients. For smaller ranges, the pool will be equally halved. Traffic Selectors used by the gateway may not include the Point to Site address range CIDR, but the two sub-range CIDRs.
+>
+
 ### Option 2 - Remove SSTP and enable OpenVPN on the Gateway
 
 Since SSTP and OpenVPN are both TLS-based protocol, they can't coexist on the same gateway. If you decide to move away from SSTP to OpenVPN, you'll have to disable SSTP and enable OpenVPN on the gateway. This operation will cause the existing clients to lose connectivity to the VPN gateway until the new profile has been configured on the client.

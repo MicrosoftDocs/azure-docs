@@ -8,7 +8,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
-ms.date: 07/20/2022
+ms.date: 03/10/2023
 ---
 
 # Optimizing performance of the Azure Integration Runtime
@@ -48,6 +48,20 @@ Data flows are priced at vcore-hrs meaning that both cluster size and execution-
 > [!TIP]
 > There is a ceiling on how much the size of a cluster affects the performance of a data flow. Depending on the size of your data, there is a point where increasing the size of a cluster will stop improving performance. For example, If you have more nodes than partitions of data, adding additional nodes won't help. 
 A best practice is to start small and scale up to meet your performance needs. 
+
+## Custom shuffle partition
+
+Dataflow divides the data into partitions and transforms it using different processes. If the data size in a partition is more than the process can hold in memory,  the process fails with OOM(out of memory) errors. If dataflow contains huge amounts of data having joins/aggregations,  you may want to try changing shuffle partitions in incremental way. You can set it from  50 up to 2000,  to avoid OOM errors. **Compute Custom properties** in dataflow runtime, is a way to control your compute requirements.  Property name is **Shuffle partitions** and it's  integer type. This customization should only be used in known scenarios, otherwise it can cause unnecessary dataflow failures.
+
+While increasing the shuffle partitions, make sure data is spread across well. A rough number is to have  approximately 1.5 GB of data per partition. If data is skewed, increasing the "Shuffle partitions" won't be helpful. For example, if you have 500 GB of data, having a value between 400 to 500 should work. Default limit for shuffle partitions is 200 that works well for approximately 300 GB of data.
+
+Here are the steps on how it's  set in a custom integration runtime. You can't  set it for autoresolve integrtaion runtime.
+
+1. From ADF portal under **Manage**, select a custom integration run time and you go to edit mode.
+2. Under dataflow run time tab, go to **Compute Cusotm Properties** section.
+3. Select **Shuffle Partitions** under Property name, input value of your choice, like 250, 500 etc.
+
+You can do same by editing JSON file of runtime by adding array with property name and value after *cleanup* property.
 
 ## Time to live
 
