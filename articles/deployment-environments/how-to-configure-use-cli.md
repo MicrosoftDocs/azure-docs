@@ -26,7 +26,7 @@ This article shows you how to use the Azure Deployment Environments Preview Azur
 
       - **Automated installation**
 
-        To install, execute the script https://aka.ms/DevCenter/Install-DevCenterCli.ps1 directly in PowerShell:
+        To install, execute the script *https://aka.ms/DevCenter/Install-DevCenterCli.ps1* directly in PowerShell:
 
         ```powershell
         iex "& { $(irm https://aka.ms/DevCenter/Install-DevCenterCli.ps1 ) }"
@@ -80,14 +80,14 @@ az devcenter dev <command> --help
 
 **Dev centers**
 
-### Create a dev center by using a user-assigned identity
+### Create a dev center with an associated user-assigned identity
 
 ```azurecli
 az devcenter admin devcenter create --identity-type "UserAssigned" --user-assigned-identity
     "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/identityGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testidentity1" --location <location-name> -g <resource-group-name> - <name>
 ```
 
-### Create a dev center by using a system-assigned identity
+### Create a dev center with an associated system-assigned identity
 
 ```azurecli
 az devcenter admin devcenter create --location <location-name> -g <resource-group-name> -n <name> \

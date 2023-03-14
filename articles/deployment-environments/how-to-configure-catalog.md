@@ -56,7 +56,7 @@ You can choose from two types of repositories:
 1. [Get the GitHub repo clone URL](/azure/devops/repos/git/clone#get-the-clone-url-of-a-github-repo).
 1. Copy and save the URL. You use it later.
 
-#### Get the clone URL of an Azure DevOps Git repository
+#### Get the clone URL of an Azure DevOps repository
 
 1. Go to the home page of your team collection (for example, `https://contoso-web-team.visualstudio.com`), and then select your project.
 1. [Get the Git repo clone URL](/azure/devops/repos/git/clone#get-the-clone-url-of-an-azure-repos-git-repo).
@@ -102,7 +102,7 @@ To store the personal access token that you generated as a [key vault secret](..
     | Field | Value |
     | ----- | ----- |
     | **Name** | Enter a name for the catalog. |
-    | **Git clone URI**  | Enter or paste the [clone URL](#get-the-clone-url-for-your-repository) for either your GitHub repository or your Git repository in Azure DevOps.<br />*Sample catalog example:* `https://github.com/Azure/deployment-environments.git` |
+    | **Git clone URI**  | Enter or paste the [clone URL](#get-the-clone-url-for-your-repository) for either your GitHub repository or your Azure DevOps repository.<br />*Sample catalog example:* `https://github.com/Azure/deployment-environments.git` |
     | **Branch**  | Enter the repository branch to connect to.<br />*Sample catalog example:* `main`|
     | **Folder path**  | Enter the folder path relative to the clone URI that contains subfolders that hold your catalog items. <br /> This folder path should be the path to the folder that contains the subfolders that have the catalog item manifests, and not the path to the folder that has the catalog item manifest itself.<br />*Sample catalog example:* `/Environments`<br /> The folder path can begin with or without a forward slash (`/`).|
     | **Secret identifier**| Enter the [secret identifier](#create-a-personal-access-token) that contains your personal access token for the repository.<br /> When you copy a secret identifier, the connection string includes a version identifier at the end, like in this example: `https://contoso-kv.vault.azure.net/secrets/GitHub-repo-pat/9376b432b72441a1b9e795695708ea5a`.<br />Removing the version identifier ensures that Deployment Environments fetches the latest version of the secret from the key vault. If your personal access token expires, only the key vault needs to be updated. <br />*Example secret identifier:* `https://contoso-kv.vault.azure.net/secrets/GitHub-repo-pat`|
