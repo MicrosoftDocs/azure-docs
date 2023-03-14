@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure Monitor documentation
-summary: Monitoring Azure and on-premises services. Aggregate and analyze metrics, logs, and traces. Fire alerts and send notifications or call automated solutions. 
+summary: Learn about monitoring Azure and on-premises services. Understand how to aggregate and analyze metrics, logs, and traces. Respond to issues by firing alerts that can send notifications or by calling automated solutions.
 
 metadata:
   title: Azure Monitor documentation
@@ -80,7 +80,7 @@ landingContent:
             url: alerts/alerts-metric.md
           - text: Analyze logs
             url: ./logs/log-analytics-tutorial.md
-          - text: Alert on Subscription events
+          - text: Alert on subscription events
             url: ./alerts/alerts-activity-log.md
 
   # Card 
@@ -102,15 +102,15 @@ landingContent:
     linkLists: 
       - linkListType: learn
         links:
-          - text: Azure Monitor Learning path 
+          - text: Azure Monitor learning path 
             url: /training/paths/monitor-usage-performance-availability-resources-azure-monitor/
           - text: Configure Azure Monitor
             url: /training/modules/configure-azure-monitor/
           - text: Analyze logs in Azure Monitor with KQL
             url: /training/modules/analyze-logs-with-kql/
-          - text: Monitor performance of virtual machines by using Azure Monitor VM Insights
+          - text: Monitor performance of virtual machines using Azure Monitor VM Insights
             url: /training/modules/monitor-performance-using-azure-monitor-for-vms/
-          - text: Visualize data combined from multiple data sources by using Azure Workbooks
+          - text: Visualize data combined from multiple data sources using Azure Workbooks
             url: /training/modules/visualize-data-workbooks/
 
   # Card
@@ -118,15 +118,15 @@ landingContent:
     linkLists: 
       - linkListType: video
         links:
-          - text: Create Azure Monitor Dashboards
+          - text: Create Azure Monitor dashboards
             url: https://www.microsoft.com/en-us/videoplayer/embed/RE4AslH
-          - text: How to create metric charts
+          - text: Create metric charts
             url: https://www.microsoft.com/videoplayer/embed/RE4qO59
           - text: Get started with log queries
             url: https://www.microsoft.com/videoplayer/embed/RE42pGX
           - text: Advanced query troubleshooting
             url:  https://www.microsoft.com/en-us/videoplayer/embed/RE4NUH0
-          - text: How to run Autoscale
+          - text: How to run autoscale
             url: https://www.microsoft.com/en-us/videoplayer/embed/RE4u7ts
           - text: Container Insights overview
             url: https://www.youtube.com/embed/XEdwGvS2AwA
