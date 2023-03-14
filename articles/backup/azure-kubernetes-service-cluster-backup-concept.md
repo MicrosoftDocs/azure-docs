@@ -1,22 +1,20 @@
 ---
-title: Azure Kubernetes Service (AKS) backup using Azure Backup overview 
-description: This article explains the concept of Azure Kubernetes Service (AKS) backup using Azure Backup.
+title: Azure Kubernetes Service (AKS) backup using Azure Backup prerequisites 
+description: This article explains the prerequisites for Azure Kubernetes Service (AKS) backup.
 ms.topic: conceptual
 ms.service: backup
-ms.date: 03/03/2023
+ms.date: 03/14/2023
 author: jyothisuri
 ms.author: jsuri
 ---
 
-# Overview of Azure Kubernetes Service backup using Azure Backup (preview)
+# Prerequisites for Azure Kubernetes Service backup using Azure Backup (preview)
 
-Azure Backup now allows you to back up AKS clusters (cluster resources and persistent volumes attached to the cluster) using a backup extension, which must be installed in the cluster. Backup vault communicates with the cluster via this Backup Extension to perform backup and restore operations. 
+This article describes the prerequisites for Azure Kubernetes Sercuce (AKS) backup.
 
-## Least privilege security models
+Azure Backup now allows you to back up AKS clusters (cluster resources and persistent volumes attached to the cluster) using a backup extension, which must be installed in the cluster. Backup vault communicates with the cluster via this Backup Extension to perform backup and restore operations. Based on the least privileged security model, a Backup vault must have *Trusted Access* enabled to communicate with the AKS cluster. 
 
-This section explains the least privilege security models required for a Backup vault (to have Trusted Access enabled) to communicate with the AKS cluster.
-
-### Backup Extension
+## Backup Extension
 
 - The extension enables backup and restore capabilities for the containerized workloads and persistent volumes used by the workloads running in AKS clusters. 
 
@@ -28,7 +26,7 @@ This section explains the least privilege security models required for a Backup 
 
 Learn [how to manage the operation to install Backup Extension using Azure CLI](azure-kubernetes-service-cluster-manage-backups.md#manage-operations).
 
-### Trusted Access
+## Trusted Access
 
 Many Azure services depend on *clusterAdmin kubeconfig* and the *publicly accessible kube-apiserver endpoint* to access AKS clusters. The **AKS Trusted Access** feature enables you to bypass the private endpoint restriction. Without using Microsoft Azure Active Directory (Azure AD) application, this feature enables you to give explicit consent to your system-assigned identity of allowed resources to access your AKS clusters using an Azure resource RoleBinding. The Trusted Access feature allows you to access AKS clusters with different configurations, which aren't limited to private clusters, clusters with local accounts disabled, Azure AD clusters, and authorized IP range clusters.
 
@@ -38,7 +36,7 @@ For AKS backup, the Backup vault accesses your AKS clusters via Trusted Access t
 
 Learn [how to enable Trusted Access](azure-kubernetes-service-cluster-manage-backups.md#enable-trusted-access).
 
-### AKS Cluster
+## AKS Cluster
 
 To enable backup for an AKS cluster, see the following prerequisites: .
 
@@ -85,6 +83,7 @@ Also, as part of the backup and restore operations, the following roles are assi
 
 ## Next steps
 
+- [About Azure Kubernetes Service backup (preview)](azure-kubernetes-service-backup-overview.md)
 - [Supported scenarios for Azure Kubernetes Service cluster backup (preview)](azure-kubernetes-service-cluster-backup-support-matrix.md)
 - [Back up Azure Kubernetes Service cluster (preview)](azure-kubernetes-service-cluster-backup.md)
 - [Restore Azure Kubernetes Service cluster (preview)](azure-kubernetes-service-cluster-restore.md)
