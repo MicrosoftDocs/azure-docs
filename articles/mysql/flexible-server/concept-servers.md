@@ -38,7 +38,7 @@ An Azure Database for MySQL - Flexible Server:
 
 Within an Azure Database for MySQL - Flexible Server, you can create one or multiple databases. You can opt to create a single database per server to use all the resources or to create multiple databases to share the resources. The pricing is structured per-server, based on the configuration of compute tier, vCores, and storage (GB). For more information, see [compute and storage](./concepts-compute-storage.md).
 
-## Stop/Start an Azure Database for MySQL - Flexible Server
+## Stop/Start an Azure Database for MySQL flexible server
 
 Azure Database for MySQL - Flexible Server gives you the ability to **Stop** the server when not in use and **Start** the server when you resume activity. This is essentially done to save costs on the database servers and only pay for the resource when in use. This becomes even more important for dev-test workloads and when you are only using the server for part of the day. When you stop the server, all active connections will be dropped. Later, when you want to bring the server back online, you can either use the [Azure portal](how-to-stop-start-server-portal.md) or CLI.
 

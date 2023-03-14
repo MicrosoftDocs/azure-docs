@@ -22,7 +22,7 @@ If you don't have an Azure subscription, create a [free Azure account](https://a
 ## Sign in to the Azure portal
 Go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
 
-## Create an Azure Database for MySQL - Flexible Server
+## Create an Azure Database for MySQL flexible server
 
 You create a flexible server with a defined set of [compute and storage resources](./concepts-compute-storage.md). You create the server within an [Azure resource group](../../azure-resource-manager/management/overview.md).
 
