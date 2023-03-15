@@ -4,7 +4,7 @@ description: Describes the lambda functions to use in an Azure Resource Manager 
 author: mumian
 ms.topic: conceptual
 ms.author: jgao
-ms.date: 02/09/2023
+ms.date: 03/15/2023
 ---
 
 # Lambda functions for ARM templates
@@ -415,7 +415,7 @@ The output from the preceding example sorts the dog objects from the youngest to
 
 `toObject(inputArray, lambda function, [lambda function])`
 
-Converts an array to an object with a custom key function and optional custom value function.
+Converts an array to an object with a custom key function and optional custom value function. See [items](template-functions-object.md#items) about converting an object to an array.
 
 In Bicep, use the [toObject](../templates/template-functions-lambda.md#toobject) function.
 
