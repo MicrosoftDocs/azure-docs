@@ -6,8 +6,7 @@ ms.author: serooney #Required; microsoft alias of author; optional team alias.
 ms.service: azure-communication-services #Required; service per approved list. slug assigned by ACOM.
 ms.topic: conceptual #Required; leave this attribute/value as-is.
 ms.date: 03/12/2023 #Required; mm/dd/yyyy format.
-ms.custom: template-concept #Required; leave this attribute/value as-is.
-ms.custom: references_regions #added per reviewer
+ms.custom: template-concept, references_regions #Required; leave this attribute/value as-is.
 ---
 
 
@@ -74,7 +73,7 @@ Data indicates that ~40% of customers abandon the Sample Builder due to the chal
 *Figure 2: Scheduling experience options.*
 
 
-:::image type="content" lightbox="./media/whats-new-images/cy23Q1/sample-builder-feedback-lightbox.png" source="./media/whats-new-images/cy23Q1/sample-builder-feedback.png" alt-text="Screenshot showing sample Builder feedback form.":::  
+:::image type="content" lightbox="./media/whats-new-images/cy23Q1/2023-03-15_10-40-38-lightbox.png" source="./media/whats-new-images/cy23Q1/sample-builder-feedback.png" alt-text="Screenshot showing sample Builder feedback form.":::  
 *Figure 3:  Feedback form.*
 
 
