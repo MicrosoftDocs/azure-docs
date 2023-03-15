@@ -95,7 +95,7 @@ az storage account create -n $storageName -g $resourceGroupName -l westus --sku 
 az storage queue create --name $queueName --account-name $storageName --auth-mode login
 ```
 
-[!INCLUDE [event-grid-register-provider-cli.md](../../includes/event-grid-register-provider-cli.md)]
+[!INCLUDE [register-provider-cli.md](../../articles/event-grid/includes/register-provider-cli.md)]
 
 ## Subscribe to your App Configuration store events
 

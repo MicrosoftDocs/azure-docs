@@ -95,7 +95,7 @@ The deployment may take a few minutes to complete. After the deployment has succ
 
 You should see the site with no messages currently displayed.
 
-[!INCLUDE [event-grid-register-provider-powershell.md](../../../includes/event-grid-register-provider-powershell.md)]
+[!INCLUDE [register-provider-powershell.md](../../../articles/event-grid/register-provider-powershell.md)]
 
 ## Subscribe to your storage account
 

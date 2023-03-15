@@ -90,7 +90,7 @@ You should see the sample app rendered with no event messages displayed:
 
 ![Web browser showing sample web app with no events displayed][sample-app-02]
 
-[!INCLUDE [event-grid-register-provider-cli.md](../../includes/event-grid-register-provider-cli.md)]
+[!INCLUDE [register-provider-cli.md](../../articles/event-grid/includes/register-provider-cli.md)]
 
 ## Subscribe to registry events
 
