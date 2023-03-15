@@ -15,7 +15,7 @@ ms.author: aahi
 
 # How to use auto-labeling
 
-[Labeling process](tag-data.md) is an important part of preparing your dataset. Since this process requires a lot of time and effort, you can use the auto-labeling feature to automatically label your entities. You can start auto-labeling jobs based on a model you've previously trained in the Language Studio or using GPT models. With auto-labeling based on a model you've previously trained, you would start labeling a few of your documents, train a model, then create an auto-labeling job to produce labeling entities on your behalf based on that model. With auto-labeling with GPT, you may immediately trigger an auto-labeling job without any prior model training. This feature can save you the time and effort of manually labeling your entities. 
+[Labeling process](tag-data.md) is an important part of preparing your dataset. Since this process requires a lot of time and effort, you can use the auto-labeling feature to automatically label your entities. You can start auto-labeling jobs based on a model you've previously trained or using GPT models. With auto-labeling based on a model you've previously trained, you can start labeling a few of your documents, train a model, then create an auto-labeling job to produce entity labels for other documents based on that model. With auto-labeling with GPT, you may immediately trigger an auto-labeling job without any prior model training. This feature can save you the time and effort of manually labeling your entities. 
 
 ## Prerequisites
 
@@ -32,7 +32,8 @@ Before you can use auto-labeling based on a model you've trained, you need:
 Before you can use auto-labeling with GPT, you need:
 * A successfully [created project](create-project.md) with a configured Azure blob storage account.
 * Text data that [has been uploaded](design-schema.md#data-preparation) to your storage account.
-* [Labeled data](tag-data.md) is not required but if you've labeled some documents, those labels are be used to more accurately suggest labels.
+* Entity names that are meaningful. The GPT models will label entities in your documents based on the name of the entity you've provided.
+* [Labeled data](tag-data.md) is not required.
 * An Azure OpenAI [resource and deployment](../../../openai/how-to/create-resource.md). 
 
 ---
@@ -81,7 +82,7 @@ You should see the model used, number of documents included in the auto-labeling
 
 ### [Auto-label with GPT](#tab/auto-label-gpt)
 
-When you trigger an auto-labeling job with GPT, you are billed through the Azure OpenAI resource as per your consumption. You are charged an estimate of the number of tokens in your document. Refer to the [Azure OpenAI pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) for a detailed breakdown for billing.
+When you trigger an auto-labeling job with GPT, you will be charged to your Azure OpenAI resource as per your consumption. You are charged an estimate of the number of tokens in each document being auto-labelled. Refer to the [Azure OpenAI pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) for a detailed breakdown of pricing per token of different models.
 
 1.  From the left navigation menu, select **Data labeling**.
 2.  Select the **Auto-label** button under the Activity pane to the right of the page.
