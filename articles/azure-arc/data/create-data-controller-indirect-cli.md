@@ -248,7 +248,7 @@ az arcdata dc config replace --path ./custom/control.json --json-values "spec.st
 By default, the kubeadm deployment profile uses `NodePort` as the service type. If you are using a Kubernetes cluster that is integrated with a load balancer, you can change the configuration using the following command.
 
 ```azurecli
-az arcdata dc config replace --path ./custom/control.json --json-values "$.spec.services[*].serviceType=LoadBalancer" --k8s-namespace <namespace> --use-k8s
+az arcdata dc config replace --path ./custom/control.json --json-values "$.spec.services[*].serviceType=LoadBalancer"
 ```
 
 Now you are ready to create the data controller using the following command.
