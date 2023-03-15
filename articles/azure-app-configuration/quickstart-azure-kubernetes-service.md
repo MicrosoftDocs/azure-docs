@@ -277,8 +277,6 @@ kubectl get service configmap-demo-service -n quickstart-appconfig
 ```
 
 > [!TIP]
-> Note:
-> 
 > Currently, the provider doesn't support real-time configuration updating, if you update the configuration in Azure App Configuration, the setting in ConfigMap would not be updated automatically, you have three options to update the ConfigMap accordingly.
 > 
 > Option 1: Delete and re-deploy that AzureAppConfigurationProvider.
@@ -288,6 +286,7 @@ kubectl get service configmap-demo-service -n quickstart-appconfig
 > Option 3: Set a dedicated annotation in the AzureAppConfigurationProvider, trigger settings update in ConfigMap via updating the value of that annotation
 >
 > For example, set an annotation dynamic/timestamp with a time stamp, just need to refresh the time to trigger a setting update in ConfigMap
+> 
 > ``` yaml
 > apiVersion: azconfig.io/v1beta1
 > kind: AzureAppConfigurationProvider
@@ -300,7 +299,9 @@ kubectl get service configmap-demo-service -n quickstart-appconfig
 >   target:
 >     configMapName: demo-configmap
 > ```
-> Caution! In spite of the data in ConfigMap being updated, if the ConfigMap change is not watched by your workload (Deployment, Pod, etc.), your workload will not be able to apply the updated key-values in ConfigMap. We recommend using 3rd-party tools like [stakater/Reloader](https://github.com/stakater/Reloader) to watch the changes in ConfigMap, perform automatic rolling update of correlated workloads.
+
+> [!NOTE]
+> In spite of the data in ConfigMap being updated, if the ConfigMap change is not watched by your workload (Deployment, Pod, etc.), your workload will not be able to apply the updated key-values in ConfigMap. We recommend using 3rd-party tools like [stakater/Reloader](https://github.com/stakater/Reloader) to watch the changes in ConfigMap, perform automatic rolling update of correlated workloads.
 
 
 
