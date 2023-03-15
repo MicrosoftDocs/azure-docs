@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: how-to
-ms.date: 02/09/2023
+ms.date: 03/15/2023
 ms.author: lajanuar
 ---
 
@@ -242,7 +242,7 @@ See the request parameters [noted previously](#post-request-body) for more detai
 }
 ```
 
- Great! You've learned how to enable and use a system-assigned managed identity. With managed identity for Azure Resources and `Azure RBAC`, you granted Translator specific access rights to your storage resource without including SAS tokens with your HTTP requests.
+Great! You've learned how to enable and use a system-assigned managed identity. With managed identity for Azure Resources and `Azure RBAC`, you granted Translator specific access rights to your storage resource without including SAS tokens with your HTTP requests.
 
 ## Next steps
 
