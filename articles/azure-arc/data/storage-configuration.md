@@ -165,7 +165,7 @@ Important factors to consider when choosing a storage class for the data control
 
 Each database instance has data, logs, and backup persistent volumes. The storage classes for these persistent volumes can be specified at deployment time. If no storage class is specified the default storage class is used.
 
-When creating an instance using either `az sql mi-arc create` or `az postgres server-arc create`, there are four parameters that can be used to set the storage classes:
+When you create an instance using either `az sql mi-arc create` or `az postgres server-arc create`, there are four parameters that you can use to set the storage classes:
 
 |Parameter name, short name|Used for|
 |---|---|
@@ -218,7 +218,7 @@ Every pod that contains stateful data uses at least two persistent volumes - one
 |Azure SQL Managed Instance|1|2|
 |Azure PostgreSQL|1|2|
 
-The table below shows the total number of persistent volume required for a sample deployment:
+The table below shows the total number of persistent volumes required for a sample deployment:
 
 |Resource Type|Number of instances|Required number of persistent volumes|
 |---|---|---|
@@ -233,7 +233,7 @@ This calculation can be used to plan the storage for your Kubernetes cluster bas
 
 ### On-premises and edge sites
 
-Microsoft and its OEM, OS, and Kubernetes partners have a validation program for Azure Arc data services. This program provides comparable test results from a certification testing toolkit. The tests evaluate feature compatibility, stress testing results, and performance and scalability. Each of these test results indicate the OS used, Kubernetes distribution used, HW used, the CSI add-on used, and the storage classes used. This helps customers choose the best storage class, OS, Kubernetes distribution, and hardware for their requirements. More information on this program and test results can be found [here](validation-program.md).
+Microsoft and its OEM, OS, and Kubernetes partners have a validation program for Azure Arc data services. This program provides comparable test results from a certification testing toolkit. The tests evaluate feature compatibility, stress testing results, and performance and scalability. The test results indicate the OS used, Kubernetes distribution used, HW used, the CSI add-on used, and the storage classes used. This helps customers choose the best storage class, OS, Kubernetes distribution, and hardware for their requirements. More information on this program and test results can be found [here](validation-program.md).
 
 #### Public cloud, managed Kubernetes services
 
