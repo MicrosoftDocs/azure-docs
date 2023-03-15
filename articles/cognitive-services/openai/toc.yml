@@ -46,6 +46,8 @@ items:
       href: ./how-to/fine-tuning.md
     - name: Manage identity
       href: ./how-to/managed-identity.md
+    - name: Use virutal networks
+      href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/openai/context/context
     - name: Use with large datasets
       href: ./how-to/integrate-synapseml.md
     - name: Encryption of data at rest
@@ -61,7 +63,7 @@ items:
     - name: Embeddings
       href: ./tutorials/embeddings.md
     - name: Speech to speech chat
-      href: /azure/cognitive-services/speech-service/openai-speech?context=/azure/cognitive-services/openai/context/context
+      href: ../speech-service/openai-speech.md?context=%2fazure%2fcognitive-services%2fopenai%2fcontext%2fcontext
 - name: Responsible AI
   items:
     - name : Transparency note
@@ -101,4 +103,3 @@ items:
 
 
 
-  
