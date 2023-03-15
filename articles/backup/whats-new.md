@@ -17,7 +17,6 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 ## Updates summary
 
 - March 2023
-  - [Immutable vault for Azure Backup is now generally available](#immutable-vault-for-azure-backup-is-now-generally-available)
   - [Azure Kubernetes Service backup (preview)](#azure-kubernetes-service-backup-preview)
   - [Azure Blob vaulted backups (preview)](#azure-blob-vaulted-backups-preview)
 - October 2022
@@ -54,12 +53,6 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
 
-
-## Immutable vault for Azure Backup is now generally available
-
-Azure Backup now supports immutable vaults that help you ensure that recovery points once created can't be deleted before their expiry as per the backup policy (expiry at the time at which the recovery point was created). You can also choose to make the immutability irreversible to offer maximum protection to your backup data, thus helping you protect your data better against various threats, including ransomware attacks and malicious actors.
-
-For more information, see the [concept of Immutable vault for Azure Backup](backup-azure-immutable-vault-concept.md).
 
 ## Azure Kubernetes Service backup (preview)
 
