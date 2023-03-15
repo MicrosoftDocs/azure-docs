@@ -556,15 +556,15 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 * Form Recognizer model data extraction
 
-  | **Model**   | **Text extraction** |**Key-Value pairs** |**Selection Marks**   | **Tables**   |**Entities** |
-  | --- | :---: |:---:| :---: | :---: |:---: |
-  |General document  | ✓  |  ✓ | ✓  | ✓  | ✓  |
-  | Layout  | ✓  |   | ✓  | ✓  |   |
-  | Invoice  | ✓ | ✓  | ✓  | ✓ ||
-  |Receipt  | ✓  |   ✓ |   |  ||
-  | ID document | ✓  |   ✓  |   |   ||
-  | Business card    | ✓  |   ✓ |   |   ||
-  | Custom             |✓  |  ✓ | ✓  | ✓  | ✓  |
+  | **Model**   | **Text extraction** |**Key-Value pairs** |**Selection Marks**   | **Tables**   |
+  | --- | :---: |:---:| :---: | :---: |
+  |General document  | ✓  |  ✓ | ✓  | ✓  |
+  | Layout  | ✓  |   | ✓  | ✓  |
+  | Invoice  | ✓ | ✓  | ✓  | ✓ |
+  |Receipt  | ✓  |   ✓ |   |  |
+  | ID document | ✓  |   ✓  |   |   |
+  | Business card    | ✓  |   ✓ |   |   |
+  | Custom             |✓  |  ✓ | ✓  | ✓  |
 
 ---
 

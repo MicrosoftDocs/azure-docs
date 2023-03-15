@@ -184,12 +184,6 @@ Key-Value Pairs:
   Value: "Common Stock, $0.00000625 par value per share" (0.748)
 - Key  : "Outstanding as of April 24, 2020"
   Value: "7,583,440,247 shares" (0.838)
-Entities:
-- "$0.00000625" Quantity - Currency (0.8)
-- "MSFT" Organization - <none> (0.99)
-- "NASDAQ" Organization - StockExchange (0.99)
-- "2.125%" Quantity - Percentage (0.8)
-- "2021" DateTime - DateRange (0.8)
 ```
 
 To view the entire output, visit the Azure samples repository on GitHub to view the [general document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/FormRecognizer/v3-javascript-sdk-general-document-output.md)
