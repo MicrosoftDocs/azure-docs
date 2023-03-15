@@ -1,6 +1,15 @@
 {
   "redirections": [    
-    
+    {
+      "source_path": "scripts/event-grid-cli-subscribe-custom-topic.md",
+      "redirect_url": "/azure/event-grid/scripts/cli-subscribe-custom-topic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "monitor-virtual-machine-changes-event-grid-logic-app.md",
+      "redirect_url": "/azure/event-grid/monitor-virtual-machine-changes-logic-app",
+      "redirect_document_id": false
+    },
     {
       "source_path": "event-grid-event-hubs-integration.md",
       "redirect_url": "/azure/event-grid/event-hubs-integration",
