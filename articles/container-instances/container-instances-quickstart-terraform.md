@@ -74,7 +74,7 @@ In this article, you learn how to:
 
 ## Verify the results
 
-1. The public IP address displays when you apply the execution plan. You can also run [terraform output](https://developer.hashicorp.com/terraform/cli/commands/output) to display the IP address.
+1. When you apply the execution plan, Terraform outputs the public IP address. To display the IP address again, run [terraform output](https://developer.hashicorp.com/terraform/cli/commands/output).
 
     ```console
     terraform output -raw container_ipv4_address
