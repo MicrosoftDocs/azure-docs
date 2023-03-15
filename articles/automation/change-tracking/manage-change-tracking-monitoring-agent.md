@@ -3,7 +3,7 @@ title: Manage change tracking and inventory in Azure Automation using Azure Moni
 description: This article tells how to use change tracking and inventory to track software and Microsoft service changes in your environment using Azure Monitoring Agent (Preview)
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 12/14/2022
+ms.date: 12/28/2022
 ms.topic: conceptual
 ---
 
@@ -76,6 +76,32 @@ To configure the monitoring of files and folders using wildcards, do the followi
 - When setting the path avoid general paths such as c:.** which will result in too many folders being traversed. 
 
 
+## Disable Change Tracking from a virtual machine 
+
+To remove change tracking with Azure Monitoring Agent from a virtual machine, follow these steps:
+
+### Disassociate Data Collection Rule (DCR) from a VM
+
+1. In Azure portal, select **Virtual Machines** and in the search, select the specific Virtual Machine. 
+1. In the Virtual Machine page, under **Operations**, select **Change tracking** or in the search, enter Change tracking and select it from the search result.
+1. Select **Settings** > **DCR** to view all the virtual machines associated with the DCR.
+1. Select the specific VM for which you want to disable the DCR.
+1. Select **Delete**.
+   
+   :::image type="content" source="media/manage-change-tracking-monitoring-agent/disable-dcr-inline.png" alt-text="Screenshot of selecting a VM to dissociate the DCR from the VM." lightbox="media/manage-change-tracking-monitoring-agent/disable-dcr-expanded.png":::
+
+   A notification appears to confirm the disassociation of the DCR for the selected VM.
+
+### Uninstall change tracking extension
+
+1. In the Azure portal, select **Virtual Machines** and in the search, select the specific VM for which you have already disassociated the DCR.
+1. In the Virtual Machines page, under **Settings**, select **Extensions + applications**.
+1. In the **VM |Extensions + applications** page, under **Extensions** tab, select **MicrosoftAzureChangeTrackingAndInventoryChangeTracking-Windows/Linux**.
+
+   :::image type="content" source="media/manage-change-tracking-monitoring-agent/uninstall-extensions-inline.png" alt-text="Screenshort of selecting the extension for a VM that is already disassociated from the DCR." lightbox="media/manage-change-tracking-monitoring-agent/uninstall-extensions-expanded.png":::
+
+1. Select **Uninstall**.
+
 ## Next steps
 
-* To learn about alerts, see [Configuring alerts](../change-tracking/configure-alerts.md)
+* To learn about alerts, see [Configuring alerts](../change-tracking/configure-alerts.md).

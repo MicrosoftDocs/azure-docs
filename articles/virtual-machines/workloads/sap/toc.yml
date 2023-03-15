@@ -220,6 +220,8 @@
     items:
     - name: Install PAS and AAS with SAP NetWeaver HA cluster - RHEL
       href: high-availability-guide-rhel-with-dialog-instance.md
+    - name: Install SAP NetWeaver with HANA HA cluster - RHEL
+      href: high-availability-guide-rhel-with-hana-ascs-ers-dialog-instance.md 
 - name: Disaster Recovery (Azure VMs)
   items:
   - name: DR overview and infrastructure guidelines for SAP Workload

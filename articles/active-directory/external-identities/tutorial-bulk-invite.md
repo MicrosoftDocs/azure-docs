@@ -9,8 +9,8 @@ ms.subservice: B2B
 ms.topic: tutorial
 ms.date: 10/24/2022
 
-ms.author: mimart
-author: msmimart
+ms.author: cmulligan
+author: csmulligan
 manager: celestedg
 
 # Customer intent: As a tenant administrator, I want to send B2B invitations to multiple external users at the same time so that I can avoid having to send individual invitations to each user.

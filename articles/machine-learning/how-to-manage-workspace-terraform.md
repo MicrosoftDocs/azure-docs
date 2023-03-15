@@ -7,6 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: deeikele
 author: denniseik
+ms.reviewer: larryfr
 ms.date: 01/05/2022
 ms.topic: how-to
 ms.tool: terraform

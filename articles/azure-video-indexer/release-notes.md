@@ -13,11 +13,28 @@ ms.author: juliako
 
 To stay up-to-date with the most recent Azure Video Indexer developments, this article provides you with information about:
 
-<!--* [Important notice](#upcoming-critical-changes) about planned changes-->
+* [Important notice](#important-notice) about planned changes
 * The latest releases
 * Known issues
 * Bug fixes
 * Deprecated functionality
+
+## Important notice
+
+[!INCLUDE [announcement](./includes/deprecation-announcement.md)]
+
+## January 2023
+
+### Language support
+
+* New languages are now supported: Irish, Bulgarian, Catalan, Greek, Estonian, Croatian, Latvian, Romanian, Slovak, Slovenian, Telugu, Malayalam, Kannada, Icelandic,  Armenian, Gujarati, Malay, and Tamil.
+* Use an API to get all supported languages: [Get Supported Languages](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Supported-Languages).
+
+For more information, see [supported languages](language-support.md).
+
+### Face grouping
+
+Significantly reduced number of low-quality face detection occurrences in the UI and [insights.json](video-indexer-output-json-v2.md#insights). Enhancing the quality and usability through improved grouping algorithm.
 
 ## November 2022
 

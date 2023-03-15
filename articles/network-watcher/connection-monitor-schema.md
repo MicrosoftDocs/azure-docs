@@ -3,14 +3,13 @@ title: Azure Network Watcher Connection Monitor schemas | Microsoft Docs
 description: Understand the Tests data schema and the Path data schema of Azure Network Watcher Connection Monitor.
 services: network-watcher
 documentationcenter: na
-author: mjha
-manager: vinigam
+author: halkazwini
 ms.service: network-watcher
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 08/14/2021
-ms.author: mjha
+ms.author: halkazwini
 ms.custom: engagement-fy23
 ---
 

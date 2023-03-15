@@ -34,8 +34,21 @@ The **alerts details** page provides details about the selected alert.
  - To see all closed alerts, select the **History** tab.  
 
 :::image type="content" source="media/alerts-managing-alert-instances/alerts-details-page.png" alt-text="Screenshot of the alerts details page in the Azure portal.":::
+
+## Manage your alerts programmatically
+
+You can query your alerts instances to create custom views outside of the Azure portal, or to analyze your alerts to identify patterns and trends.
+We recommended that you use [Azure Resource Graphs](https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade) with the 'AlertsManagementResources' schema for managing alerts across multiple subscriptions. For a sample query, see [Azure Resource Graph sample queries for Azure Monitor](../resource-graph-samples.md).
+
+You can use Azure Resource Graphs:
+ - with [Azure PowerShell](/powershell/module/az.monitor/)
+ - with the [Azure CLI](/cli/azure/monitor?view=azure-cli-latest&preserve-view=true)
+ - in the Azure portal
+ 
+You can also use the [Alert Management REST API](/rest/api/monitor/alertsmanagement/alerts) for lower scale querying or to update fired alerts.
+
 ## Next steps
 
 - [Learn about Azure Monitor alerts](./alerts-overview.md)
 - [Create a new alert rule](alerts-log.md)
-- [Manage your alerts programmatically](alerts-overview.md#manage-your-alerts-programmatically)
+

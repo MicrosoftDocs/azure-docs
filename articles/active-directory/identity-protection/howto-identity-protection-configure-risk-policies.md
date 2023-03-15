@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 10/04/2022
+ms.date: 01/06/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -77,7 +77,7 @@ Before organizations enable remediation policies, they may want to [investigate]
    1. Under **Configure user risk levels needed for policy to be enforced**, select **High**. ([This guidance is based on Microsoft recommendations and may be different for each organization](#choosing-acceptable-risk-levels))
    1. Select **Done**.
 1. Under **Access controls** > **Grant**.
-   1. Select **Grant access**, **Require password change**.
+   1. Select **Grant access**, **Require multifactor authentication** and **Require password change**.
    1. Select **Select**.
 1. Under **Session**.
    1. Select **Sign-in frequency**.

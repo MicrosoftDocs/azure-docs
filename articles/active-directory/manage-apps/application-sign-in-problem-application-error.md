@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 In this scenario, Azure Active Directory (Azure AD) signs the user in. But the application displays an error message and doesn't let the user finish the sign-in flow. The problem is that the app didn't accept the response that Azure AD issued.
 
-There are several possible reasons why the app didn't accept the response from Azure AD. If there is an error message or code displayed, use the following resources to diagnose the error:
+There are several possible reasons why the app didn't accept the response from Azure AD. If there's an error message or code displayed, use the following resources to diagnose the error:
 
 * [Azure AD Authentication and authorization error codes](../develop/reference-aadsts-error-codes.md)
 
@@ -96,7 +96,7 @@ To change the User Identifier value, follow these steps:
 
 ### Change the NameID format
 
-If the application expects another format for the **NameID** (User Identifier) attribute, see [Editing nameID](../develop/active-directory-saml-claims-customization.md#editing-nameid) to change the NameID format.
+If the application expects another format for the **NameID** (User Identifier) attribute, see the [Edit nameID](../develop/active-directory-saml-claims-customization.md#edit-nameid) section to change the NameID format.
 
 Azure AD selects the format for the **NameID** attribute (User Identifier) based on the value that's selected or the format that's requested by the app in the SAML AuthRequest. For more information, see the "NameIDPolicy" section of [Single sign-on SAML protocol](../develop/single-sign-on-saml-protocol.md#nameidpolicy).
 

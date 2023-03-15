@@ -5,7 +5,7 @@ author: msmbaldwin #Required; your GitHub user alias, with correct capitalizatio
 ms.author: mbaldwin #Required; microsoft alias of author; optional team alias.
 ms.service: key-vault #Required; service per approved list. service slug assigned to your service by ACOM.
 ms.topic: tutorial
-ms.date: 06/16/2020 #Required; mm/dd/yyyy format.
+ms.date: 01/20/2023
 ---
 
 # Tutorial: Access Azure Blob Storage using Azure Databricks and Azure Key Vault

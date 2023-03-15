@@ -45,7 +45,8 @@ The development VM will be set up with:
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [Azure PowerShell](/powershell/azure/)
 * [VS Code Extensions](https://marketplace.visualstudio.com/search?target=VSCode)
-  * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
+  * [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge)
+  * [Azure IoT Hub](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)
   * [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
   * [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
   * [Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
@@ -145,7 +146,8 @@ Now that you have connected to the development machine, add some useful extensio
 
 1. The script will run for a few minutes installing VS code extensions:
 
-    * Azure IoT Tools
+    * Azure IoT Edge
+    * Azure IoT Hub
     * Python
     * C#
     * Docker

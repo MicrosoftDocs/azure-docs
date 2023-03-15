@@ -9,7 +9,7 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.topic: overview
-ms.date: 09/28/2021
+ms.date: 01/05/2023
 ---
 # What is Azure Database Migration Service?
 
@@ -31,6 +31,8 @@ For up-to-date info about the regional availability of Azure Database Migration 
 ## Pricing
 
 For up-to-date info about Azure Database Migration Service pricing, see [Azure Database Migration Service pricing](https://azure.microsoft.com/pricing/details/database-migration/).
+
+
 
 ## Next steps
 

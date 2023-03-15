@@ -1,20 +1,18 @@
 ---
-title: Create a simplified node communication pool without public IP addresses (preview)
+title: Create a simplified node communication pool without public IP addresses
 description: Learn how to create an Azure Batch simplified node communication pool without public IP addresses.
 ms.topic: how-to
-ms.date: 11/18/2022
+ms.date: 12/16/2022
 ms.custom: references_regions
 ---
 
-# Create a simplified node communication pool without public IP addresses (preview)
+# Create a simplified node communication pool without public IP addresses
 
 > [!NOTE]
 > This replaces the previous preview version of [Azure Batch pool without public IP addresses](batch-pool-no-public-ip-address.md). This new version requires [using simplified compute node communication](simplified-compute-node-communication.md).
 
 > [!IMPORTANT]
-> - Support for pools without public IP addresses in Azure Batch is currently in public preview for [selected regions](simplified-compute-node-communication.md#supported-regions).
-> - This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> - For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Support for pools without public IP addresses in Azure Batch is currently available for [select regions](simplified-compute-node-communication.md#supported-regions).
 
 When you create an Azure Batch pool, you can provision the virtual machine (VM) configuration pool without a public IP address. This article explains how to set up a Batch pool without public IP addresses.
 
@@ -27,7 +25,7 @@ To restrict access to these nodes and reduce the discoverability of these nodes 
 ## Prerequisites
 
 > [!IMPORTANT]
-> The prerequisites have changed from the previous version of this preview. Make sure to review each item for changes before proceeding.
+> The prerequisites have changed from the previous preview version of this feature. Make sure to review each item for changes before proceeding.
 
 - Use simplified compute node communication. For more information, see [Use simplified compute node communication](simplified-compute-node-communication.md).
 
@@ -39,24 +37,16 @@ To restrict access to these nodes and reduce the discoverability of these nodes 
 
   - The subnet specified for the pool must have enough unassigned IP addresses to accommodate the number of VMs targeted for the pool; that is, the sum of the `targetDedicatedNodes` and `targetLowPriorityNodes` properties of the pool. If the subnet doesn't have enough unassigned IP addresses, the pool partially allocates the compute nodes, and a resize error occurs.
 
-  - If you plan to use a [private endpoint with Batch accounts](private-connectivity.md), you must disable private endpoint network policies. Run the following Azure CLI command:
-
-```azurecli-interactive
-az network vnet subnet update \
-  --vnet-name <vnetname> \
-  -n <subnetname> \
-  --resource-group <resourcegroup> \
-  --disable-private-endpoint-network-policies
-```
+  - If you plan to use private endpoint, and your virtual network has [private endpoint network policy](../private-link/disable-private-endpoint-network-policy.md) enabled, make sure the inbound connection with TCP/443 to the subnet hosting the private endpoint must be allowed from Batch pool's subnet.
 
 - Enable outbound access for Batch node management. A pool with no public IP addresses doesn't have internet outbound access enabled by default. Choose one of the following options to allow compute nodes to access the Batch node management service (see [Use simplified compute node communication](simplified-compute-node-communication.md)):
 
-  - Use [**nodeManagement**](private-connectivity.md) private endpoint with Batch accounts, which provides private access to Batch node management service from the virtual network. This solution is the preferred method.
+  - Use [**nodeManagement private endpoint**](private-connectivity.md) with Batch accounts, which provides private access to Batch node management service from the virtual network. This solution is the preferred method.
 
   - Alternatively, provide your own internet outbound access support (see [Outbound access to the internet](#outbound-access-to-the-internet)).
 
 > [!IMPORTANT]
-> There are two sub-resources for private endpoints with Batch accounts. Please use the **nodeManagement** private endpoint for the Batch pool without public IP addresses.
+> There are two sub-resources for private endpoints with Batch accounts. Please use the **nodeManagement** private endpoint for the Batch pool without public IP addresses. For more details please check [Use private endpoints with Azure Batch accounts](private-connectivity.md).
 
 ## Current limitations
 
@@ -73,18 +63,18 @@ az network vnet subnet update \
 1. On the **Add Pool** window, select the option you intend to use from the **Image Type** dropdown.
 1. Select the correct **Publisher/Offer/Sku** of your image.
 1. Specify the remaining required settings, including the **Node size**, **Target dedicated nodes**, and **Target Spot/low-priority nodes**.
-1. For **Node communication mode**, select **simplified** under Optional Settings.
+1. For **Node communication mode**, select **Simplified** under Optional Settings.
 1. Select a virtual network and subnet you wish to use. This virtual network must be in the same location as the pool you're creating.
 1. In **IP address provisioning type**, select **NoPublicIPAddresses**.
 
-The following screenshot shows the elements that are required to be modified to enable a pool without public
-IP addresses as specified above.
+The following screenshot shows the elements that's required to be modified to create a pool without public
+IP addresses.
 
 ![Screenshot of the Add pool screen with NoPublicIPAddresses selected.](./media/simplified-compute-node-communication/add-pool-simplified-mode-no-public-ip.png)
 
 ## Use the Batch REST API to create a pool without public IP addresses
 
-The example below shows how to use the [Batch Service REST API](/rest/api/batchservice/pool/add) to create a pool that uses public IP addresses.
+The following example shows how to use the [Batch Service REST API](/rest/api/batchservice/pool/add) to create a pool that uses public IP addresses.
 
 ### REST API URI
 
@@ -143,7 +133,7 @@ If you're familiar with using ARM templates, select the **Deploy to Azure** butt
 [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.batch%2Fbatch-pool-no-public-ip%2Fazuredeploy.json)
 
 > [!NOTE]
-> If the private endpoint deployment failed due to invalid groupId "nodeManagement", please check if the region is in the supported list, and your pool is using [Simplified compute node communication](simplified-compute-node-communication.md). Choose the right region, specify `simplified` node communiction mode for the pool, and then retry the deployment.
+> If the private endpoint deployment failed due to invalid groupId "nodeManagement", please check if the region is in the supported list for [Simplified compute node communication](simplified-compute-node-communication.md). Choose the right region, and then retry the deployment.
 
 ## Outbound access to the internet
 
@@ -160,11 +150,17 @@ Another way to provide outbound connectivity is to use a user-defined route (UDR
 
 If compute nodes run into unusable state in a Batch pool without public IP addresses, the first and most important check is to verify the outbound access to the Batch node management service. It must be configured correctly so that compute nodes are able to connect to service from your virtual network.
 
-If you're using **nodeManagement** private endpoint:
+#### Using **nodeManagement** private endpoint
 
-- Check if the private endpoint is in provisioning succeeded state, and also in **Approved** status.
-- Check if the DNS configuration is set up correctly for the node management endpoint of your Batch account. You can confirm it by running `nslookup <nodeManagementEndpoint>` from within your virtual network, and the DNS name should be resolved to the private endpoint IP address.
-- Run TCP ping with the node management endpoint using default HTTPS port (443). This probe can tell if the private link connection is working as expected.
+If you created node management private endpoint in the virtual network for your Batch account:
+
+- Check if the private endpoint is created in the right virtual network, in provisioning **Succeeded** state, and also in **Approved** status.
+- Check if the DNS configuration is set up correctly for the node management endpoint of your Batch account:
+  - If your private endpoint is created with automatic private DNS zone integration, check the DNS A record is configured correctly in the private DNS zone `privatelink.batch.azure.com`, and the zone is linked to your virtual network.
+  - If you're using your own DNS solution, make sure the DNS record for your Batch node management endpoint is configured correctly and point to the private endpoint IP address.
+- Check the DNS resolution for [Batch node management endpoint](batch-account-create-portal.md#view-batch-account-properties) of your account. You can confirm it by running `nslookup <nodeManagementEndpoint>` from within your virtual network, and the DNS name should be resolved to the private endpoint IP address.
+- If your virtual network has [private endpoint network policy](../private-link/disable-private-endpoint-network-policy.md) enabled, check NSG and UDR for subnets of both the Batch pool and the private endpoint. The inbound connection with TCP/443 to the subnet hosting the private endpoint must be allowed from Batch pool's subnet.
+- From the Batch pool's subnet, run TCP ping to the node management endpoint using default HTTPS port (443). This probe can tell if the private link connection is working as expected.
 
 ```
 # Windows
@@ -173,12 +169,11 @@ Test-TcpConnection -ComputeName <nodeManagementEndpoint> -Port 443
 nc -v <nodeManagementEndpoint> 443
 ```
 
-> [!TIP]
-> You can get the node management endpoint from your [Batch account's properties](batch-account-create-portal.md#view-batch-account-properties).
-
 If the TCP ping fails (for example, timed out), it's typically an issue with the private link connection, and you can raise Azure support ticket with this private endpoint resource. Otherwise, this node unusable issue can be troubleshot as normal Batch pools, and you can raise support ticket with your Batch account.
 
-If you're using your own internet outbound solution instead of private endpoint, run the same TCP ping with node management endpoint as shown above. If it's not working, check if your outbound access is configured correctly by following detailed requirements for [simplified compute node communication](simplified-compute-node-communication.md).
+#### Using your own internet outbound solution
+
+If you're using your own internet outbound solution instead of private endpoint, run TCP ping to the node management endpoint. If it's not working, check if your outbound access is configured correctly by following detailed requirements for [simplified compute node communication](simplified-compute-node-communication.md).
 
 ### Connect to compute nodes
 
@@ -186,8 +181,8 @@ There's no internet inbound access to compute nodes in the Batch pool without pu
 
 - Use jumpbox machine inside the virtual network, then connect to your compute nodes from there.
 - Or, try using other remote connection solutions like [Azure Bastion](../bastion/bastion-overview.md):
-     - Create Bastion in the virtual network with [IP based connection](../bastion/connect-ip-address.md) enabled.
-     - Use Bastion to connect to the compute node using its IP address.
+  - Create Bastion in the virtual network with [IP based connection](../bastion/connect-ip-address.md) enabled.
+  - Use Bastion to connect to the compute node using its IP address.
 
 You can follow the guide [Connect to compute nodes](error-handling.md#connect-to-compute-nodes) to get user credential and IP address for the target compute node in your Batch pool.
 
@@ -198,7 +193,7 @@ For existing pools that use the [previous preview version of Azure Batch No Publ
 1. Create a [private endpoint for Batch node management](private-connectivity.md) in the virtual network.
 1. Update the pool's node communication mode to [simplified](simplified-compute-node-communication.md).
 1. Scale down the pool to zero nodes.
-1. Scale out the pool again. The pool is then automatically migrated to the new version of the preview.
+1. Scale out the pool again. The pool is then automatically migrated to the new version.
 
 ## Next steps
 

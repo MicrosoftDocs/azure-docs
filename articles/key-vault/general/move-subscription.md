@@ -8,7 +8,7 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 05/05/2020
+ms.date: 01/20/2023
 ms.author: mbaldwin 
 ms.custom: devx-track-azurepowershell
 # Customer intent: As a key vault administrator, I want to move my vault to another subscription.
@@ -46,7 +46,7 @@ For more information about Azure Key Vault and Azure Active Directory, see
 > **Key Vaults used for disk encryption cannot be moved**
 > If you are using key vault with disk encryption for a VM, the key vault cannot be moved to a different resource group or a subscription while disk encryption is enabled. You must disable disk encryption prior to moving the key vault to a new resource group or subscription. 
 
-Some service principals (users and applications) are bound to a specific tenant. If you move your key vault to a subscription in another tenant, there is a chance that you will not be able to restore access to a specific service principal. Check to make sure that all essential service principals exist in the tenant where you are moving your key vault.
+Some service principals (users and applications) are bound to a specific tenant. If you move your key vault to a subscription in another tenant, there's a chance that you won't be able to restore access to a specific service principal. Check to make sure that all essential service principals exist in the tenant where you are moving your key vault.
 
 ## Prerequisites
 
@@ -61,7 +61,7 @@ You can check existing roles using [Azure portal](../../role-based-access-contro
 
 1. Sign in to the Azure portal at https://portal.azure.com.
 2. Navigate to your [key vault](overview.md)
-3. Click on the "Overview" tab
+3. Select on the "Overview" tab
 4. Select the "Move" button
 5. Select "Move to another subscription" from the dropdown options
 6. Select the resource group where you want to move your key vault
@@ -70,7 +70,7 @@ You can check existing roles using [Azure portal](../../role-based-access-contro
 
 ## Additional steps when subscription is in a new tenant
 
-If you moved your key vault to a subscription in a new tenant, you need to manually update the tenant ID and remove old access policies and role assignments. Here are tutorials for these steps in PowerShell and Azure CLI. If you are using PowerShell, you may need to run the Clear-AzContext command documented below to allow you to see resources outside your current selected scope. 
+If you moved your key vault to a subscription in a new tenant, you need to manually update the tenant ID and remove old access policies and role assignments. Here are tutorials for these steps in PowerShell and Azure CLI. If you are using PowerShell, you may need to run the Clear-AzContext command to allow you to see resources outside your current selected scope. 
 
 ### Update tenant ID in a key vault
 

@@ -202,6 +202,15 @@ A key capability of Change Tracking and Inventory is alerting on changes to the 
 |ConfigurationChange <br>&#124; where RegistryKey == @"HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\QualityCompat"| Useful for tracking changes to crucial antivirus keys.|
 |ConfigurationChange <br>&#124; where RegistryKey contains @"HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\SharedAccess\\Parameters\\FirewallPolicy"| Useful for tracking changes to firewall settings.|
 
+
+## Update Log Analytics agent to latest version 
+
+For Change Tracking & Inventory, machines use the [Log Analytics agent](../../azure-monitor/agents/log-analytics-agent.md) to collect data about changes to installed software, Windows services, Windows registry and files, and Linux daemons on monitored servers. Soon, Azure will no longer accept connections from older versions of the Windows Log Analytics (LA) agent, also known as the Windows Microsoft Monitoring Agent (MMA), that uses an older method for certificate handling. We recommend to upgrade your agent to the latest version as soon as possible. 
+
+[Agents that are on version - 10.20.18053 (bundle) and 1.0.18053.0 (extension)](../../virtual-machines/extensions/oms-windows.md#agent-and-vm-extension-version) or newer aren't affected in response to this change. If you’re on an agent prior to that, your agent will be unable to connect, and the Change Tracking & Inventory pipeline & downstream activities can stop. You can check the current LA agent version in HeartBeat table within your LA Workspace. 
+
+Ensure to upgrade to the latest version of the Windows Log Analytics agent (MMA) following these [guidelines](../../azure-monitor/agents/agent-manage.md). 
+
 ## Next steps
 
 - To enable from an Automation account, see [Enable Change Tracking and Inventory from an Automation account](enable-from-automation-account.md).

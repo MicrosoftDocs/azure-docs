@@ -82,7 +82,10 @@ Also see the following SAP resources:
 
 ### SAP Fiori
 
-For more information about integration with SAP Fiori, see [Introduction to the Application Gateway WAF Triage Workbook](https://techcommunity.microsoft.com/t5/azure-network-security-blog/introducing-the-application-gateway-waf-triage-workbook/ba-p/2973341). 
+For more information about integration with SAP Fiori, see the following resources:
+
+- [Monitor SAP Fiori performance with Azure Application Insights](https://github.com/microsoft/ApplicationInsights-SAP-Fiori-Plugin)
+- [Introduction to the Application Gateway WAF Triage Workbook](https://techcommunity.microsoft.com/t5/azure-network-security-blog/introducing-the-application-gateway-waf-triage-workbook/ba-p/2973341). 
 
 Also see the following SAP resources:
 - [Azure CDN for SAPUI5 libraries](https://blogs.sap.com/2021/03/22/sap-fiori-using-azure-cdn-for-sapui5-libraries/)
@@ -123,17 +126,22 @@ For more information about using SAP with Azure Integration services, see the fo
 - [New SAP events on Azure Event Grid with SAP Event Mesh](https://techcommunity.microsoft.com/t5/messaging-on-azure-blog/new-sap-events-on-azure-event-grid/ba-p/3663372)
 - [Expose SAP Process Orchestration on Azure securely](expose-sap-process-orchestration-on-azure.md)
 - [Connect to SAP from workflows in Azure Logic Apps](../../../logic-apps/logic-apps-using-sap-connector.md)
+- [Import SAP OData metadata as an API into Azure API Management](../../../api-management/sap-api.md)
+- [Apply SAP Principal Propagation to your Azure hosted APIs](https://github.com/Azure/api-management-policy-snippets/blob/master/examples/Request%20OAuth2%20access%20token%20from%20SAP%20using%20AAD%20JWT%20token.xml)
 
 Also see the following SAP resources:
 
 - [Event-driven architectures for SAP ERP with Azure](https://blogs.sap.com/2021/12/09/hey-sap-where-is-my-xbox-an-insight-into-capitalizing-on-event-driven-architectures/)
 - [Achieve high availability for SAP Cloud Integration (part of SAP Integration Suite) on Azure](https://blogs.sap.com/2021/09/23/black-friday-will-take-your-cpi-instance-offline-unless/)
 - [Automate SAP invoice processing using Azure Logic Apps and Cognitive Services](https://blogs.sap.com/2021/02/03/your-sap-on-azure-part-26-automate-invoice-processing-using-azure-logic-apps-and-cognitive-services/)
-- [Import SAP OData metadata as an API into Azure API Management](../../../api-management/sap-api.md)
 
 ### App development and DevOps
 
-For more information about integrating SAP with Microsoft services natively, see [the ABAP SDK for Azure](https://github.com/microsoft/ABAP-SDK-for-Azure).
+For more information about integrating SAP with Microsoft services natively, see the following resources:
+
+- [the ABAP SDK for Azure](https://github.com/microsoft/ABAP-SDK-for-Azure)
+- [Use SAP's Cloud SDK with Azure app development services](https://github.com/Azure-Samples/app-service-javascript-sap-cloud-sdk-quickstart)
+- [Use community-driven OData SDKs with Azure Functions](https://github.com/Azure/azure-sdk-for-sap-odata)
 
 Also see the following SAP resources: 
 - [dotNET speaks OData too, how to implement Azure App Service with SAP Gateway](https://blogs.sap.com/2021/08/12/.net-speaks-odata-too-how-to-implement-azure-app-service-with-sap-odata-gateway/)
@@ -195,7 +203,8 @@ These resources include Customer Engagement Initiatives (CEI), public BETAs, and
 
 You can use the following free developer accounts to explore integration scenarios for Azure and SAP.
 
-- [Free trial of Azure](https://azure.microsoft.com/free/), which you can use to configure Azure Active Directory (Azure AD) for development purposes.
+- [Free trial of Azure](https://azure.microsoft.com/free/)
+- [Free trial of Azure for students](https://azure.microsoft.com/free/students/)
 - [Free account on SAP BTP trial](https://developers.sap.com/tutorials/hcp-create-trial-account.html). Select Singapore for Azure.
 - [GitHub account](https://github.com/), which you can use to host your projects.
 - [Microsoft 365 developer program account](https://developer.microsoft.com/microsoft-365/dev-program)

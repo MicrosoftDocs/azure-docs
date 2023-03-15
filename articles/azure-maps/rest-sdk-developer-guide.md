@@ -40,7 +40,7 @@ Azure Maps Python SDK supports Python version 3.7 or later. Check the [Azure S
 | [Render][py render readme]| [azure-maps-render][py render package]|[render sample][py render sample] |
 | [Geolocation][py geolocation readme]|[azure-maps-geolocation][py geolocation package]|[geolocation sample][py geolocation sample] |
 
-<!--For more information, see the [python SDK Developers Guide](how-to-dev-guide-py-sdk.md).-->
+For more information, see the [python SDK Developers Guide](how-to-dev-guide-py-sdk.md).
 
 ## JavaScript/TypeScript
 
@@ -51,7 +51,7 @@ Azure Maps JavaScript/TypeScript SDK supports LTS versions of [Node.js][Node.js]
 | [Search][js search readme] | [@azure/maps-search][js search package] | [search samples][js search sample] |
 | [Route][js route readme] | [@azure-rest/maps-route][js route package] | [route samples][js route sample] |
 
-<!--For more information, see the [JavaScript/TypeScript SDK Developers Guide](how-to-dev-guide-js-sdk.md).-->
+For more information, see the [JavaScript/TypeScript SDK Developers Guide](how-to-dev-guide-js-sdk.md).
 
 ## Java
 

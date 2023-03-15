@@ -37,7 +37,7 @@ In this tutorial, you'll learn how to:
   | TENANT_ID          | Directory (tenant) ID    | 72f988bf-86f1-41af-91ab-xxxxxxxxxxxx  | Hover over your account name in the Azure portal to get the directory or tenant ID. Alternately, search and select *Azure Active Directory > Properties > Tenant ID* in the Azure portal. |
   | SCOPE              | Application (client) ID  | 3dbbbcc2-f28f-44b6-a5ab-xxxxxxxxxxxx  | Same as App ID or Client_ID mentioned above |
   | refresh_token      | Refresh Token value      | 0.ATcA01-XWHdJ0ES-qDevC6r...........  | Follow the [How to Generate a Refresh Token](how-to-generate-refresh-token.md) to create a refresh token and save it. This refresh token is required later to generate a user token. |
-  | DNS                | URI                      | `<instance>`.energy.Azure.com         | Overview page of Microsoft Energy Data Services instance|
+  | DNS                | URI                      | `<instance>`.energy.azure.com         | Overview page of Microsoft Energy Data Services instance|
   | data-partition-id  | Data Partition(s)        | `<instance>`-`<data-partition-name>`  | Overview page of Microsoft Energy Data Services instance|
 
 * Follow the [Manage users](how-to-manage-users.md) guide to add appropriate entitlements for the user running this tutorial
@@ -68,7 +68,7 @@ In this tutorial, you'll learn how to:
   :::image type="content" source="media/tutorial-csv-ingestion/tutorial-postman-test-failure.png" alt-text="Screenshot of a failure postman call." lightbox="media/tutorial-csv-ingestion/tutorial-postman-test-failure.png":::
 
 ## Ingest a sample wellbore data CSV file into the Microsoft Energy Data Services Preview instance using Postman
-
+Using the given Postman collection, you could execute the following steps to ingest the wellbore data:
   1. **Get a user token** - Generate the User token, which will be used to authenticate further API calls.
   2. **Create a schema** - Generate a schema that adheres to the columns present in the CSV file
   3. **Get schema details** - Get the schema created in the previous step and validate it
@@ -81,9 +81,10 @@ In this tutorial, you'll learn how to:
   9. **Get CSV parser ingestion workflow status** - Gets the status of CSV Parser Dag Run.
 
 ## Search for storage metadata records created during the CSV Ingestion using Postman
+Using the given Postman collection, you could execute the following step to search for the ingested wellbore data:
 
-  1. **Search for ingested CSV records** - Search for the CSV records created earlier.
-    :::image type="content" source="media/tutorial-csv-ingestion/tutorial-search-success.png" alt-text="Screenshot of searching ingested CSV records." lightbox="media/tutorial-csv-ingestion/tutorial-search-success.png":::
+**Search for ingested CSV records** - Search for the CSV records created earlier.
+  :::image type="content" source="media/tutorial-csv-ingestion/tutorial-search-success.png" alt-text="Screenshot of searching ingested CSV records." lightbox="media/tutorial-csv-ingestion/tutorial-search-success.png":::
 
 ## Next steps
 Advance to the next tutorial to learn how to do Manifest ingestion

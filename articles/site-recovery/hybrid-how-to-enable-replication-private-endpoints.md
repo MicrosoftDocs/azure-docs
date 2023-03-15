@@ -263,7 +263,7 @@ After you finish the preceding tasks, continue with the setup of your on-premise
 infrastructure. Continue by completing one of the following tasks: 
 
 - [Deploy a configuration server for VMware and physical machines](./vmware-azure-deploy-configuration-server.md)
-- [Set up the Hyper-V environment for replication](./hyper-v-azure-tutorial.md#set-up-the-source-environment)
+- [Set up the Hyper-V environment for replication](./hyper-v-azure-tutorial.md#source-settings)
 
 After the setup is complete, enable replication for your source machines. Don't set up
 the infrastructure until after the private endpoints for the vault are created in the
@@ -295,6 +295,8 @@ to private IPs.
       :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-dns-zone.png" alt-text="Screenshot that shows the Basics tab of the Create Private DNS zone page.":::
 
    1. Continue to the **Review \+ create** tab to review and create the DNS zone.
+
+   1. If you're using modernized architecture for protection VMware or Physical machines, then create another private DNS zone for **privatelink.prod.migration.windowsazure.com** also. This endpoint will be used by Site Recovery to perform the discovery of on-premises environment.
 
 1. Link the private DNS zone to your virtual network.
 

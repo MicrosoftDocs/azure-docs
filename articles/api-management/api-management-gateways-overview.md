@@ -97,9 +97,9 @@ Managed and self-hosted gateways support all available [policies](api-management
 | Policy | Managed (Dedicated)  | Managed (Consumption) | Self-hosted  |
 | --- | ----- | ----- | ---------- |
 | [Dapr integration](api-management-dapr-policies.md) |  ❌ | ❌ | ✔️ |
-| [Get authorization context](api-management-access-restriction-policies.md#GetAuthorizationContext) |  ✔️ |  ❌ | ❌ |
+| [Get authorization context](get-authorization-context-policy.md) |  ✔️ |  ❌ | ❌ |
 | [Quota and rate limit](api-management-access-restriction-policies.md) |  ✔️ |  ✔️<sup>1</sup> | ✔️<sup>2</sup>
-| [Set GraphQL resolver](graphql-policies.md#set-graphql-resolver) |  ✔️ |  ❌ | ❌ |
+| [Set GraphQL resolver](set-graphql-resolver-policy.md) |  ✔️ |  ❌ | ❌ |
 
 <sup>1</sup> The rate limit by key and quota by key policies aren't available in the Consumption tier.<br/>
 <sup>2</sup> By default, rate limit counts in self-hosted gateways are per-gateway, per-node.

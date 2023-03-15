@@ -51,7 +51,7 @@ At the root of the project, there's a shared [`host.json`](functions-host-json.m
 
 Certain bindings require the presence of an `extensions.csproj` file. Binding extensions, required in [version 2.x and later versions](functions-versions.md) of the Functions runtime, are defined in the `extensions.csproj` file, with the actual library files in the `bin` folder. When developing locally, you must [register binding extensions](functions-bindings-register.md#extension-bundles). When developing functions in the Azure portal, this registration is done for you.
 
-In PowerShell Function Apps, you may optionally have a `profile.ps1` which runs when a function app starts to run (otherwise know as a *[cold start](#cold-start)*. For more information, see [PowerShell profile](#powershell-profile).
+In PowerShell Function Apps, you may optionally have a `profile.ps1` which runs when a function app starts to run (otherwise know as a *[cold start](#cold-start)*). For more information, see [PowerShell profile](#powershell-profile).
 
 ## Defining a PowerShell script as a function
 

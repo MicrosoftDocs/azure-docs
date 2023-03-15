@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.author: cshoe
 ms.service: container-apps
 ms.topic: tutorial
-ms.date: 6/17/2022
+ms.date: 1/18/2023
 ---
 
 # Disaster recovery guidance for Azure Container Apps
@@ -33,10 +33,10 @@ Additionally, the following resources can help you create your own disaster reco
 
 ## Set up zone redundancy in your Container Apps environment
 
-To take advantage of availability zones, you must enable zone redundancy when you create the Container Apps environment.  The environment must include a virtual network (VNET) with an infrastructure subnet.  To ensure proper distribution of replicas, you should configure your app's minimum and maximum replica count with values that are divisible by three.  The minimum replica count should be at least three. 
+To take advantage of availability zones, you must enable zone redundancy when you create the Container Apps environment.  The environment must include a virtual network (VNET) with an available subnet.  To ensure proper distribution of replicas, you should configure your app's minimum and maximum replica count with values that are divisible by three.  The minimum replica count should be at least three.
 
-### Enable zone redundancy via the Azure portal 
- 
+### Enable zone redundancy via the Azure portal
+
 To create a container app in an environment with zone redundancy enabled using the Azure portal:
 
 1. Navigate to the Azure portal.
@@ -61,6 +61,9 @@ Zone redundancy requires a virtual network (VNET) with an infrastructure subnet.
 Create a VNET and infrastructure subnet to include with the Container Apps environment.
 
 When using these commands, replace the `<PLACEHOLDERS>` with your values.
+
+>[!NOTE]
+> The subnet associated with a Container App Environment requires a CIDR prefix of `/23` or larger.
 
 # [Bash](#tab/bash)
 

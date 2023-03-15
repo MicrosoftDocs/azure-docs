@@ -2,13 +2,13 @@
 title: Monitor your apps without code changes - auto-instrumentation for Azure Monitor Application Insights | Microsoft Docs
 description: Overview of auto-instrumentation for Azure Monitor Application Insights - codeless application performance management
 ms.topic: conceptual
-ms.date: 10/19/2022
+ms.date: 01/06/2023
 ms.reviewer: abinetabate
 ---
 
 # What is auto-instrumentation for Azure Monitor Application Insights?
 
-Auto-instrumentation collects [Application Insights](app-insights-overview.md) [telemetry](data-model.md).
+Auto-instrumentation quickly and easily enables [Application Insights](app-insights-overview.md) to make [telemetry](data-model.md) (metrics, requests and dependencies) available in your [Application Insights resource](create-workspace-resource.md).
 
 > [!div class="checklist"]
 > - No code changes required

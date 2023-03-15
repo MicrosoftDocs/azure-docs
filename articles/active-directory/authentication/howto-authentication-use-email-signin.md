@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 06/17/2022
+ms.date: 01/03/2023
 
 ms.author: justinha
 author: calui
@@ -66,7 +66,6 @@ In the current preview state, the following limitations apply to email as an alt
     * [Resource Owner Password Credentials (ROPC)](../develop/v2-oauth-ropc.md)
     * Legacy authentication such as POP3 and SMTP
     * Skype for Business
-    * Microsoft 365 Admin Portal
 
 * **Unsupported apps** - Some third-party applications may not work as expected if they assume that the `unique_name` or `preferred_username` claims are immutable or will always match a specific user attribute, such as UPN.
 

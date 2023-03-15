@@ -4,7 +4,7 @@ description: Manage projects, templates, image-streams in an Azure Red Hat OpenS
 services: openshift
 keywords:  red hat openshift projects requests self-provisioner
 author: mjudeikis
-ms.author: gwallace
+ms.author: johnmarc
 ms.date: 07/19/2019
 ms.topic: conceptual
 ms.service: azure-redhat-openshift

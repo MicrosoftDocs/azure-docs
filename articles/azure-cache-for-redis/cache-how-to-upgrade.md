@@ -14,7 +14,7 @@ ms.custom: template-how-to
 # How to upgrade an existing Redis 4 cache to Redis 6
 
 > [!IMPORTANT]
-> We are improving the upgrade experience and have temporarily disabled the Redis version upgrade. We recommend that you upgrade your caches after January 20, 2023.
+> We are improving the upgrade experience and have temporarily disabled the Redis version upgrade. We recommend that you upgrade your caches starting in February 2023.
 
 Azure Cache for Redis supports upgrading the version of your Azure Cache for Redis from Redis 4 to Redis 6. Upgrading is similar to regular monthly maintenance. Upgrading follows the same pattern as maintenance: First, the Redis version on the replica node is updated, followed by an update to the primary node. Your client application should treat the upgrade operation exactly like a planned maintenance event.
 
@@ -47,17 +47,17 @@ Before you upgrade, check the Redis version of a cache by selecting **Properties
 ## Upgrade using the Azure portal
 
 > [!IMPORTANT]
-> We are improving the upgrade experience and have temporarily disabled the Redis version upgrade. We recommend that you upgrade your caches after January 20, 2023.
+> We are improving the upgrade experience and have temporarily disabled the Redis version upgrade. We recommend that you upgrade your caches starting in February 2023.
 
 ## Upgrade using Azure CLI
 
 > [!IMPORTANT]
-> We are improving the upgrade experience and have temporarily disabled the Redis version upgrade. We recommend that you upgrade your caches after January 20, 2023.
+> We are improving the upgrade experience and have temporarily disabled the Redis version upgrade. We recommend that you upgrade your caches starting in February 2023.
 
 ## Upgrade using PowerShell
 
 > [!IMPORTANT]
-> We are improving the upgrade experience and have temporarily disabled the Redis version upgrade. We recommend that you upgrade your caches after January 20, 2023.
+> We are improving the upgrade experience and have temporarily disabled the Redis version upgrade. We recommend that you upgrade your caches starting in February 2023.
 
 ## Next steps
 

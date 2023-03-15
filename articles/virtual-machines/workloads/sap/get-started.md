@@ -13,7 +13,7 @@ ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/20/2022
+ms.date: 12/28/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -23,7 +23,7 @@ ms.custom: H1Hack27Feb2017
 
 When you use Microsoft Azure, you can reliably run your mission-critical SAP workloads and scenarios on a scalable, compliant, and enterprise-proven platform. You get the scalability, flexibility, and cost savings of Azure. With the expanded partnership between Microsoft and SAP, you can run SAP applications across development and test and production scenarios in Azure and be fully supported. From SAP NetWeaver to SAP S/4HANA, SAP BI on Linux to Windows, and SAP HANA to SQL Server, Oracle, Db2, etc., we've got you covered.
 
-Besides hosting SAP NetWeaver and S/4HANA scenarios with the different DBMS on Azure, you can host other SAP workload scenarios, like SAP BI on Azure. Our partnership with SAP lead to a variety of integration scenarios with the overall Microsoft ecosystem. Check out the **dedicated [Integration section](./integration-get-started.md)** to learn more.
+Besides hosting SAP NetWeaver and S/4HANA scenarios with the different DBMS on Azure, you can host other SAP workload scenarios, like SAP BI on Azure. Our partnership with SAP resulted in a variety of integration scenarios with the overall Microsoft ecosystem. Check out the **dedicated [Integration section](./integration-get-started.md)** to learn more.
 
 We just announced our  new services of Azure Center for SAP solutions and Azure Monitor for SAP solutions 2.0 entering the public preview stage. These services will give you the possibility to deploy SAP workload on Azure in a highly automated manner in an optimal architecture and configuration. And monitor your Azure infrastructure, OS, DBMS, and ABAP stack deployments on one single pane of glass.
 
@@ -37,16 +37,16 @@ Changes to documents in the SAP on Azure workload section are listed at the [end
 
 ## You want to know
 
-If you have specific questions, we are going to point you to specific documents or flows in this section of the start page. You want to know:
+If you have specific questions, we're going to point you to specific documents or flows in this section of the start page. You want to know:
 
 - Is Azure accepting new customers for HANA Large Instances? HANA Large Instance service is in sunset mode and doesn't accept new customers anymore. Providing units for existing HANA Large Instance customers is still possible. For alternatives, check the offers of HANA certified Azure VMs in the [HANA Hardware Directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;ve:24).
-- Can Azure Active Directory accounts be used to run the SAP ABAP stack in Windows guest OS. No, due to shortcomings in feature set of AAD, it can not be used for running the ABAP stack within the Windows guest OS
+- Can Azure Active Directory accounts be used to run the SAP ABAP stack in Windows guest OS. No, due to shortcomings in feature set of AAD, it can't be used for running the ABAP stack within the Windows guest OS
 - What Azure Services, Azure VM types and Azure storage services are available in the different Azure regions, check the site [Products available by region](https://azure.microsoft.com/global-infrastructure/services/)
 - Are third-party HA frameworks, besides Windows and Pacemaker supported? Check bottom part of [SAP support note #1928533](https://launchpad.support.sap.com/#/notes/1928533)
 - What Azure storage is best for my scenario? Read [Azure Storage types for SAP workload](./planning-guide-storage.md)
 - Is the Red Hat kernel in Oracle Enterprise Linux supported by SAP? Read SAP [SAP support note #1565179](https://launchpad.support.sap.com/#/notes/1565179)
-- Why are the Azure [Da(s)v4](../../dav4-dasv4-series.md)/[Ea(s)](../../eav4-easv4-series.md) VM families not certified for SAP HANA? The Azure Das/Eas VM families are based on AMD processor-driven hardware. SAP HANA does not support AMD processors, not even in virtualized scenarios
-- Why am I still getting the message: 'The cpu flags for the RDTSCP instruction or the cpu flags for constant_tsc or nonstop_tsc are not set or current_clocksource and available_clocksource are not correctly configured' with SAP HANA, despite the fact that I am running the most recent Linux kernels. For the answer, check [SAP support note #2791572](https://launchpad.support.sap.com/#/notes/2791572)
+- Why are the Azure [Da(s)v4](../../dav4-dasv4-series.md)/[Ea(s)](../../eav4-easv4-series.md) VM families not certified for SAP HANA? The Azure Das/Eas VM families are based on AMD processor-driven hardware. SAP HANA doesn't support AMD processors, not even in virtualized scenarios
+- Why am I still getting the message: 'The cpu flags for the RDTSCP instruction or the cpu flags for constant_tsc or nonstop_tsc aren't set or current_clocksource and available_clocksource aren't correctly configured' with SAP HANA, despite the fact that I'm running the most recent Linux kernels. For the answer, check [SAP support note #2791572](https://launchpad.support.sap.com/#/notes/2791572)
 - Where can I find architectures for deploying SAP Fiori on Azure? Check out the blog [SAP on Azure: Application Gateway Web Application Firewall (WAF) v2 Setup for Internet facing SAP Fiori Apps](https://blogs.sap.com/2020/12/03/sap-on-azure-application-gateway-web-application-firewall-waf-v2-setup-for-internet-facing-sap-fiori-apps/)
 
 ## Documentation space
@@ -64,6 +64,10 @@ In the SAP workload documentation space, you can find the following areas:
 
 ## Change Log
 
+- December 28, 2022: Update documents [Azure Storage types for SAP workload](./planning-guide-storage.md) and [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md) to provide more details on ANF deployment processes to achieve proximity and low latency. Introduction of zonal deployment process of NFS shares on ANF
+- December 28, 2022: Updated the guide [SQL Server Azure Virtual Machines DBMS deployment for SAP NetWeaver](./dbms_guide_sqlserver.md) across all topics. Also added VM configuration examples for different sizes of databases
+- December 27, 2022: Introducing new configuration for SAP ASE on E96(d)s_v5 in [SAP ASE Azure Virtual Machines DBMS deployment for SAP workload](./dbms_guide_sapase.md) 
+- December 23, 2022: Updating [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](./dbms_guide_general.md) by cutting references to Azure standard HDD and SSD. Introducing premium storage v2 and updating a few other sections to more recent functionalities
 - December 20, 2022: Update article [SAP workload on Azure virtual machine supported scenarios](./sap-planning-supported-configurations.md) with table around AD and AAD support. Deleting a few references to HANA Large Instances.
 - December 19, 2022: Update article [SAP workload configurations with Azure Availability Zones](./sap-ha-availability-zones.md) related to new functionalities like zonal replication of Azure Premium Files
 - December 18, 2022: Add short description and link to intent option of PPG creation in [Azure proximity placement groups for optimal network latency with SAP applications](./sap-proximity-placement-scenarios.md)
@@ -81,7 +85,7 @@ In the SAP workload documentation space, you can find the following areas:
 - October 31, 2022: Change in [HA for NFS on Azure VMs on SLES](./high-availability-guide-suse-nfs.md) to fix script location for DRBD 9.0 
 - October 31, 2022: Change in [SAP HANA scale-out with standby node on Azure VMs with ANF on SLES](./sap-hana-scale-out-standby-netapp-files-suse.md) to update the guideline for sizing `/hana/shared`
 - October 27, 2022: Adding Ev4 and Ev5 VM families and updated OS releases to table in [SAP ASE Azure Virtual Machines DBMS deployment for SAP workload](./dbms_guide_sapase.md)
-- October 20, 2022: Change in [HA for NFS on Azure VMs on SLES](./high-availability-guide-suse-nfs.md) and [HA for SAP NW on Azure VMs on SLES for SAP applications](./high-availability-guide-suse.md) to indicate that we are de-emphasizing SAP reference architectures, utilizing NFS clusters  
+- October 20, 2022: Change in [HA for NFS on Azure VMs on SLES](./high-availability-guide-suse-nfs.md) and [HA for SAP NW on Azure VMs on SLES for SAP applications](./high-availability-guide-suse.md) to indicate that we're de-emphasizing SAP reference architectures, utilizing NFS clusters  
 - October 18, 2022: Clarify some considerations around using Azure Availability Zones in [SAP workload configurations with Azure Availability Zones](./sap-ha-availability-zones.md)
 - October 17, 2022: Change in [HA for SAP HANA on Azure VMs on SLES](./sap-hana-high-availability.md) and [HA for SAP HANA on Azure VMs on RHEL](./sap-hana-high-availability-rhel.md) to add guidance for setting up parameter `AUTOMATED_REGISTER`    
 - September 29, 2022: Announcing HANA Large Instances being in sunset mode in [SAP workload on Azure virtual machine supported scenarios](./sap-planning-supported-configurations.md) and [What is SAP HANA on Azure (Large Instances)?](./hana-overview-architecture.md). Adding some statements around Azure VMware and Azure Active Directory support status in [SAP workload on Azure virtual machine supported scenarios](./sap-planning-supported-configurations.md)
@@ -149,7 +153,7 @@ In the SAP workload documentation space, you can find the following areas:
 - July 1, 2021: Adding new certified HANA Large Instances SKUs in [Available SKUs for HLI](./hana-available-skus.md) 
 - June 30, 2021: Change in [HA guide for SAP ASCS/SCS with WSFC and Azure NetApp Files(SMB)](./high-availability-guide-windows-netapp-files-smb.md) to add a section for recommended SAP profile parameters 
 - June 29, 2021: Change in [Setting up Pacemaker on RHEL in Azure](./high-availability-guide-rhel-pacemaker.md) to add optional fencing configuration with fence_kdump
-- June 28, 2021: Change in [HA guide for SAP ASCS/SCS with WSFC and Azure NetApp Files(SMB)](./high-availability-guide-windows-netapp-files-smb.md) to add a statement that the SMB Server (Computer Account) Prefix should be no longer than 8 characters to avoid running into SAP hostname length limitation
+- June 28, 2021: Change in [HA guide for SAP ASCS/SCS with WSFC and Azure NetApp Files(SMB)](./high-availability-guide-windows-netapp-files-smb.md) to add a statement that the SMB Server (Computer Account) Prefix should be no longer than eight characters to avoid running into SAP hostname length limitation
 - June 17, 2020: Change in [High availability of SAP HANA on Azure VMs on RHEL](./sap-hana-high-availability-rhel.md) to remove meta keyword from HANA resource creation command (RHEL 8.x)
 - June 09, 2021: Correct VM SKU names for M192---_v2 in [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md)
 - May 26, 2021: Change in [SAP HANA scale-out HSR with Pacemaker on Azure VMs on SLES](./sap-hana-high-availability-scale-out-hsr-suse.md), [HA for SAP HANA scale-up with ANF on RHEL](./sap-hana-high-availability-netapp-files-red-hat.md) and [SAP HANA scale-out HSR with Pacemaker on Azure VMs on RHEL](./sap-hana-high-availability-scale-out-hsr-rhel.md) to add configuration to prepare the OS for running HANA on ANF  

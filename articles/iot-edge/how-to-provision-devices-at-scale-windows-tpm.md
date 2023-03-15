@@ -3,7 +3,7 @@ title: Create and provision devices with a virtual TPM on Windows - Azure IoT Ed
 description: Use a simulated TPM on a Windows device to test the Azure device provisioning service for Azure IoT Edge
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/28/2021
+ms.date: 9/19/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge

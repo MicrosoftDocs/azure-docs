@@ -4,7 +4,7 @@ description: Learn about how to configure your Azure IoT Edge for Linux on Windo
 author: PatAltimore
 manager: kgremban
 ms.author: patricka
-ms.date: 06/22/2021
+ms.date: 6/7/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge

@@ -8,6 +8,8 @@ ms.date: 07/03/2018
 ---
 # Debug Azure Data Lake Analytics code locally
 
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
+
 You can use Azure Data Lake Tools for Visual Studio to run and debug Azure Data Lake Analytics code on your local workstation, just as you can in the Azure Data Lake Analytics service.
 
 Learn how to [run U-SQL script on your local machine](data-lake-analytics-data-lake-tools-local-run.md).

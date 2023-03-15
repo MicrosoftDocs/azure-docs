@@ -159,5 +159,5 @@ For more information, see:
 - [Normalization in Microsoft Sentinel](normalization.md)
 - [Microsoft Sentinel authentication normalization schema reference (Public preview)](authentication-normalization-schema.md)
 - [Microsoft Sentinel DNS normalization schema reference](normalization-schema-dns.md)
-- [Microsoft Sentinel file event normalization schema reference (Public preview)](file-event-normalization-schema.md)
+- [Microsoft Sentinel file event normalization schema reference (Public preview)](normalization-schema-file-event.md)
 - [Microsoft Sentinel network normalization schema reference](./network-normalization-schema.md)

@@ -897,7 +897,7 @@ sections:
           | Manually override/set Operation Name, User ID or Authenticated User ID                                  | :x:       | :x:       | :x:       | :white_check_mark: |
           | [Adaptive Sampling](app/sampling.md#adaptive-sampling)                                                  | :x:       | :x:       | :x:       | :white_check_mark: |
           | [Profiler](profiler/profiler-overview.md)                                                               | :x:       | :x:       | :x:       | :white_check_mark: |
-          | [Snapshot Debugger](snapshot-debugger/snapshot-debugger.md)                                             | :x:       | :x:       | :x:       | :white_check_mark: |
+          | [Snapshot Debugger](snapshot-debugger/snapshot-debugger.md)                                             | :x:       | :x:       | :x:       | :x:                |
           
           **Key**
           - :white_check_mark: : This feature is available to all customers with formal support.

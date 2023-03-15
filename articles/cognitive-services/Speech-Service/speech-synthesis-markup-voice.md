@@ -28,7 +28,7 @@ Usage of the `voice` element's attributes are described in the following table.
 
 | Attribute | Description | Required or optional |
 | ---------- | ---------- | ---------- |
-| `name`    | The voice used for text-to-speech output. For a complete list of supported prebuilt voices, see [Language support](language-support.md?tabs=stt-tts).| Required|
+| `name`    | The voice used for text-to-speech output. For a complete list of supported prebuilt voices, see [Language support](language-support.md?tabs=tts).| Required|
 
 ### Voice examples
 
@@ -82,7 +82,7 @@ This example uses a custom voice named "my-custom-voice".
 By default, neural voices have a neutral speaking style. You can adjust the speaking style, style degree, and role at the sentence level.
 
 > [!NOTE]
-> Styles, style degree, and roles are supported for a subset of neural voices as described in the [voice styles and roles](language-support.md?tabs=stt-tts#voice-styles-and-roles) documentation. To determine what styles and roles are supported for each voice, you can also use the [list voices](rest-text-to-speech.md#get-a-list-of-voices) API and the [Audio Content Creation](https://aka.ms/audiocontentcreation) web application.
+> Styles, style degree, and roles are supported for a subset of neural voices as described in the [voice styles and roles](language-support.md?tabs=tts#voice-styles-and-roles) documentation. To determine what styles and roles are supported for each voice, you can also use the [list voices](rest-text-to-speech.md#get-a-list-of-voices) API and the [Audio Content Creation](https://aka.ms/audiocontentcreation) web application.
 
 Usage of the `mstts:express-as` element's attributes are described in the following table.
 
@@ -445,5 +445,5 @@ The supported values for attributes of the `mstts:backgroundaudio` element were 
 
 - [SSML overview](speech-synthesis-markup.md)
 - [SSML document structure and events](speech-synthesis-markup-structure.md)
-- [Language support: Voices, locales, languages](language-support.md?tabs=stt-tts)
+- [Language support: Voices, locales, languages](language-support.md?tabs=tts)
 

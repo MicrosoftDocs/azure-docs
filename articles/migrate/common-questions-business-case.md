@@ -18,9 +18,14 @@ This article answers common questions about Business case in Azure Migrate. If y
 
 ## General
 
-### Why is the export gesture disabled?
+### How can I export the business case?
 
-Currently, Business case export in .xlsx file is not supported.
+You can click on export from the Business case to export it in an .xlsx file. If you see the 'Export' gesture as disabled, you need to recalculate the business case by modifying any one assumption (Azure or on-premises) in the Business Case and click on Save. E.g.:
+    1. Go to a business case and click on 'Edit assumptions' and choose 'Azure assumptions'
+    1. Click on 'Reset' next to 'Performance history duration date range is outdated.' warning. You could also choose to change any other setting
+    1. Click on 'Save'
+
+This would recalculate the business case with the updated assumptions and will enable the export gesture.
 
 ### What is the difference between an assessment and a business case?
 

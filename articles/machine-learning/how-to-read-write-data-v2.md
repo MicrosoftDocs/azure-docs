@@ -37,13 +37,13 @@ Learn how to read and write data for your jobs with the Azure Machine Learning P
 When you provide a data input/output to a Job, you'll need to specify a `path` parameter that points to the data location. Below is a table that shows the different data locations supported in Azure Machine Learning and examples for the `path` parameter:
 
 
-|Location  | Examples  |
-|---------|---------|
-|A path on your local computer     | `./home/username/data/my_data`         |
-|A path on a public http(s) server    |  `https://raw.githubusercontent.com/pandas-dev/pandas/main/doc/data/titanic.csv`    |
-|A path on Azure Storage     |   `https://<account_name>.blob.core.windows.net/<container_name>/<path>` <br> `abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>`    |
-|A path on a Datastore   |   `azureml://datastores/<data_store_name>/paths/<path>`      |
-|A path to a Data Asset  |  `azureml:<my_data>:<version>`  |
+|Location  | Examples  | Notes|
+|---------|---------|---------|
+|A path on your local computer     | `./home/username/data/my_data`         ||
+|A path on a public http(s) server    |  `https://raw.githubusercontent.com/pandas-dev/pandas/main/doc/data/titanic.csv`    | https path pointing to a folder is not supported since https is not a filesystem. Please use other formats(wasbs/abfss/adl) instead for folder type of data.|
+|A path on Azure Storage     |   `wasbs://<containername>@<accountname>.blob.core.windows.net/<path_to_data>/` <br>  `abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>` <br>  `adl://<accountname>.azuredatalakestore.net/<path_to_data>/`    ||
+|A path on a Datastore   |   `azureml://datastores/<data_store_name>/paths/<path>`      ||
+|A path to a Data Asset  |  `azureml:<my_data>:<version>`  ||
 
 ## Supported modes
 
@@ -75,7 +75,7 @@ Create a job specification YAML file (`<file-name>.yml`). Specify in the `inputs
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
 
 # Possible Paths for Data:
-# Blob: https://<account_name>.blob.core.windows.net/<container_name>/<folder>/<file>
+# Blob: wasbs://<containername>@<accountname>.blob.core.windows.net/<folder>/<file>
 # Datastore: azureml://datastores/paths/<folder>/<file>
 # Data Asset: azureml:<my_data>:<version>
 
@@ -118,7 +118,7 @@ ml_client = MLClient.from_config()
 # AssetTypes.MLTABLE
 
 # Possible Paths for Data:
-# Blob: https://<account_name>.blob.core.windows.net/<container_name>/<folder>/<file>
+# Blob: wasbs://<containername>@<accountname>.blob.core.windows.net/<folder>/<file>
 # Datastore: azureml://datastores/paths/<folder>/<file>
 # Data Asset: azureml:<my_data>:<version>
 
@@ -290,8 +290,8 @@ Create a job specification YAML file (`<file-name>.yml`), with the `outputs` sec
 $schema: https://azuremlschemas.azureedge.net/latest/CommandJob.schema.json
 
 # Possible Paths for Data:
-# Blob: https://<account_name>.blob.core.windows.net/<container_name>/<folder>/<file>
-# Datastore: azureml://datastores/paths/<folder>/<file>
+# Blob: wasbs://<containername>@<accountname>.blob.core.windows.net/<folder>/<file>
+# Datastore: azureml://datastores/<datastore_name>/paths/<folder>/<file>
 # Data Asset: azureml:<my_data>:<version>
 
 code: src
@@ -331,7 +331,7 @@ from azure.ai.ml.constants import AssetTypes
 # AssetTypes.MLTABLE
 
 # Possible Paths for Data:
-# Blob: https://<account_name>.blob.core.windows.net/<container_name>/<folder>/<file>
+# Blob: wasbs://<containername>@<accountname>.blob.core.windows.net/<folder>/<file>
 # Datastore: azureml://datastores/paths/<folder>/<file>
 # Data Asset: azureml:<my_data>:<version>
 

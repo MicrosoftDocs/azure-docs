@@ -18,7 +18,7 @@
 - name: Samples
   items:
   - name: Azure CLI
-    items: 
+    items:
     - name: Overview
       href: cli-samples.md
     - name: Create managed application
@@ -81,7 +81,7 @@
       href: reference-view-definition-artifact.md
   - name: Azure CLI
     href: /cli/azure/managedapp
-  - name: PowerShell
+  - name: Azure PowerShell
     href: /powershell/module/az.resources/
   - name: REST
     href: /rest/api/managedapplications/

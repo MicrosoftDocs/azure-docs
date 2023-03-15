@@ -16,7 +16,6 @@ ms.author: eur
 This guide shows how to install the [Speech SDK](../../../speech-sdk.md) for Java on Android. 
 
 The Speech SDK for Android is packaged as an [Android Archive (AAR) file](https://developer.android.com/studio/projects/android-library), which includes the necessary libraries and required Android permissions.
-It's hosted in a Maven repository at `https://azureai.azureedge.net/maven/`. 
 
 ### Install the Speech SDK by using Android Studio
 

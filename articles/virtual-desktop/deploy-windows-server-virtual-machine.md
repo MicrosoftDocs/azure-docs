@@ -12,7 +12,7 @@ ms.custom: how-to
 # Deploy Windows Server-based virtual machines on Azure Virtual Desktop
 
 >[!IMPORTANT]
->This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/deploy-windows-7-virtual-machine.md).
+>This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects.
 
 The process for deploying Windows Server-based virtual machines (VMs) on Azure Virtual Desktop is slightly different than the one for VMs running other versions of Windows, such as Windows 10 or Windows 11. This guide will walk you through the process.
 

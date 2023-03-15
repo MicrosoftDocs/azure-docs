@@ -1,9 +1,6 @@
 ---
 title: How to test your Azure Data Lake Analytics code
 description: 'Learn how to add test cases for U-SQL and extended C# code for Azure Data Lake Analytics.'
-author: liudan66
-ms.author: liud
-ms.reviewer: jasonh
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 08/30/2019
@@ -11,6 +8,8 @@ ms.date: 08/30/2019
 # Test your Azure Data Lake Analytics code
 
 Azure Data Lake provides the [U-SQL](data-lake-analytics-u-sql-get-started.md) language. U-SQL combines declarative SQL with imperative C# to process data at any scale. In this document, you learn how to create test cases for U-SQL and extended C# user-defined operator (UDO) code.
+
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
 
 ## Test U-SQL scripts
 

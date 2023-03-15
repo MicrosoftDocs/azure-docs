@@ -251,6 +251,10 @@ When you define the function action, the function's HTTP trigger endpoint and ac
 
 You may have a limited number of function actions per action group.
 
+   > [!NOTE]
+   >
+   > The function must have access to the storage account. If not, no keys will be available and the function URI will not be accessible.
+
 ### ITSM
 
 An ITSM action requires an ITSM connection. To learn how to create an ITSM connection, see [ITSM integration](./itsmc-overview.md).

@@ -10,6 +10,8 @@ ms.date: 10/15/2019
 
 # Understand Apache Spark for U-SQL developers
 
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
+
 Microsoft supports several Analytics services such as [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) and [Azure HDInsight](../hdinsight/hdinsight-overview.md) as well as Azure Data Lake Analytics. We hear from developers that they have a clear preference for open-source-solutions as they build analytics pipelines. To help U-SQL developers understand Apache Spark, and how you might transform your U-SQL scripts to Apache Spark, we've created this guidance.
 
 It includes a number of steps you can take, and several alternatives.

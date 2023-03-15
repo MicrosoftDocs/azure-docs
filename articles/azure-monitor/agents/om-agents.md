@@ -30,7 +30,7 @@ If your IT security policies do not allow computers on your network to connect t
 Before starting, review the following requirements.
 
 >[!Note]
->From 1 February 2023, System Center Operations Manager version lower than [2019 UR3](/system-center/scom/release-build-versions?view=sc-om-2019#agents) will stop sending data to Log Analytics workspace. Ensure your agents are on SCOM Agent version 10.19.10177.0 ([2019 UR3](/system-center/scom/release-build-versions?view=sc-om-2019#agents) or later) or 10.22.10056.0 ([2022 RTM](/system-center/scom/release-build-versions?view=sc-om-2022#agents)) and SCOM Management Group version is SCOM 2022 & 2019 UR3 or later version.
+>From 1 February 2023, System Center Operations Manager version lower than [2019 UR3](/system-center/scom/release-build-versions?view=sc-om-2019#agents&preserve-view=true) will stop sending data to Log Analytics workspace. Ensure your agents are on SCOM Agent version 10.19.10177.0 ([2019 UR3](/system-center/scom/release-build-versions?view=sc-om-2019#agents&preserve-view=true) or later) or 10.22.10056.0 ([2022 RTM](/system-center/scom/release-build-versions?view=sc-om-2022#agents&preserve-view=true)) and SCOM Management Group version is SCOM 2022 & 2019 UR3 or later version.
 
 * Azure Monitor supports the following:
     * System Center Operations Manager 2022
@@ -57,10 +57,9 @@ Before starting, review the following requirements.
 >[!NOTE]
 >Recent changes to Azure APIs will prevent customers from being able to successfully configure integration between their management group and Azure Monitor for the first time. For customers who have already integrated their management group with the service, you are not impacted unless you need to reconfigure your existing connection.  
 >A new management pack has been released for the following versions of Operations Manager:
-> - For System Center Operations Manager 2019, this management pack is included with the source media and installed during setup of a new management group or during an upgrade.
->- Operations Manager 1801 management pack is also applicable for Operations Manager 1807.
->- For System Center Operations Manager 1801, download the management pack from [here](https://www.microsoft.com/download/details.aspx?id=57173).
->- For System Center 2016 - Operations Manager, download the management pack from [here](https://www.microsoft.com/download/details.aspx?id=57172).  
+> - For System Center Operations Manager 2019 and newer, this management pack is included with the source media and installed during setup of a new management group or during an upgrade.
+>- For System Center Operations Manager 1801/1807, download the management pack from [here](https://www.microsoft.com/download/details.aspx?id=57173).
+>- For System Center Operations Manager 2016, download the management pack from [here](https://www.microsoft.com/download/details.aspx?id=57172).  
 >- For System Center Operations Manager 2012 R2, download the management pack from [here](https://www.microsoft.com/download/details.aspx?id=57171).  
 
 

@@ -1,5 +1,5 @@
 ---
-title: "What is a component (preview)" 
+title: "What is a component" 
 titleSuffix: Azure Machine Learning
 description: Use Azure Machine Learning components to build machine learning pipelines.
 services: machine-learning

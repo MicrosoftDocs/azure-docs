@@ -99,8 +99,6 @@
         href: container-registry-helm-repos.md
       - name: Push and pull supply chain artifacts (preview)
         href: container-registry-oras-artifacts.md
-      - name: Sign and verify containers with notation (preview)
-        href: container-registry-tutorial-sign-build-push.md
       - name: View repositories
         href: container-registry-repositories.md
       - name: Import container images
@@ -178,6 +176,8 @@
         displayName: permissions, authorization
       - name: Content trust
         href: container-registry-content-trust.md
+      - name: Sign and verify containers with notation (preview)
+        href: container-registry-tutorial-sign-build-push.md
     - name: Registries and other Azure services
       expanded: false
       items:

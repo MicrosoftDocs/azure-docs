@@ -1,8 +1,6 @@
 ---
 title: Manage U-SQL assemblies in a CI/CD pipeline - Azure Data Lake
 description: 'Learn the best practices for managing U-SQL C# assemblies in a CI/CD pipeline with Azure DevOps.'
-author: liudan66
-ms.author: liud
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 10/30/2018
@@ -11,6 +9,8 @@ ms.date: 10/30/2018
 # Best practices for managing U-SQL assemblies in a CI/CD pipeline
 
 In this article, you learn how to manage U-SQL assembly source code with the newly introduced U-SQL database project. You also learn how to set up a continuous integration and deployment (CI/CD) pipeline for assembly registration by using Azure DevOps.
+
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
 
 ## Use the U-SQL database project to manage assembly source code
 

@@ -37,7 +37,7 @@ To export the virtual network and deploy the target virtual network by using the
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and then select **Resource Groups**.
 1. Locate the resource group that contains the source virtual network, and then select it.
-1. Select **Settings** > **Export template**.
+1. Select **Automation** > **Export template**.
 1. In the **Export template** pane, select **Deploy**.
 1. To open the *parameters.json* file in your online editor, select **Template** > **Edit parameters**.
 1. To edit the parameter of the virtual network name, change the **value** property under **parameters**:
