@@ -414,7 +414,6 @@ Before deploying the application to Azure Container Apps, start by running the P
 1. Install the dependencies.
 
    ```bash
-   dotnet restore
    dotnet build
    ```
 
