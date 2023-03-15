@@ -29,6 +29,12 @@ sections:
           Azure OpenAI Service gives customers advanced language AI with OpenAI GPT-3, Codex, and DALL-E models with the security and enterprise promise of Azure. Azure OpenAI co-develops the APIs with OpenAI, ensuring compatibility and a smooth transition from one to the other.
           
           With Azure OpenAI, customers get the security capabilities of Microsoft Azure while running the same models as OpenAI. 
+      - question: |
+          Does Azure OpenAI support VNET's and Private Endpoints?
+        answer: | 
+          Yes, as part of Azure Cognitive Services, Azure OpenAI supports VNET's and Private Endpoints. To learn more consult the [Cogntive Services virtual networking guidance](../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/openai/context/context) 
+
+
   - name: Getting access to Azure OpenAI Service
     questions:
       - question: |
