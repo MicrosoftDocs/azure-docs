@@ -111,7 +111,7 @@ Every organization's alerting needs are going to vary, and will also evolve over
 
 Errors below certain thresholds can often be evaluated through regular analysis of data in Azure Monitor Logs. As you analyze your log data over time, you may also find that a certain condition not occurring for a long enough period of time might be valuable to track with alerts. Sometimes the absence of an event in a log is just as important a signal as an error.
 
-Depending on what type of application you're developing in conjunction with your use of Azure OpenAI, [Azure Monitor Application Insights](../../../azure-monitor/overview.md#application-insights) may offer additional monitoring benefits at the application layer.
+Depending on what type of application you're developing in conjunction with your use of Azure OpenAI, [Azure Monitor Application Insights](../../../azure-monitor/overview.md) may offer additional monitoring benefits at the application layer.
 
 ## Next steps
 
