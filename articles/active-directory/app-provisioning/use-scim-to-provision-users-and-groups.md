@@ -1202,7 +1202,7 @@ In the example of a request, to retrieve the current state of a user, the values
 
 ***Example 4. Query the value of a reference attribute to be updated*** 
 
-If a reference attribute is to be updated, then Azure AD queries the service to determine whether the current value of the reference attribute in the identity store fronted by the service already matches the value of that attribute in Azure AD. For users, the only attribute of which the current value is queried in this way is the manager attribute. Here's an example of a request to determine whether the manager attribute of a user object currently has a certain value: 
+Azure AD checks the current attribute value in the identity store before updating it. However, only the manager attribute is the checked first for users. Here's an example of a request to determine whether the manager attribute of a user object currently has a certain value: 
 In the sample code, the request is translated into a call to the QueryAsync method of the service’s provider. The value of the properties of the object provided as the value of the parameters argument are as follows: 
   
 * parameters.AlternateFilters.Count: 2
