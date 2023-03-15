@@ -185,6 +185,8 @@ items:
       href: how-to-built-in-persistent-storage.md
     - name: Use custom persistent storage
       href: how-to-custom-persistent-storage.md
+    - name: Use custom persistent storage with the Standard consumption plan
+      href: how-to-custom-persistent-storage-with-standard-consumption-plan.md
     - name: Identify outbound public IP addresses
       href: how-to-outbound-public-ip.md
     - name: Move across regions
