@@ -34,6 +34,9 @@ For workload specific versions, see
 * [HDInsight 5.0 component versions](./hdinsight-50-component-versioning.md)
 * [HDInsight 5.1 component versions](./hdinsight-51-component-versioning.md)
 
+> [!IMPORTANT] 
+> Microsoft has issued [CVE-2023-23408](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-23408), which is fixed on the current release and customers are advised to upgrade their clusters to latest image. 
+
 ![Icon showing new features with text.](media/hdinsight-release-notes/new-icon-for-new-feature.png) 
 
 **HDInsight 5.1**
