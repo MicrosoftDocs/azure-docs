@@ -28,6 +28,12 @@ For example, a release with a version number of 1.2.31 is on the first major rel
 
 When one of the numbers is increased, all numbers after it must change, too. One release has one version number. However, not all version numbers track releases. Patch numbers can be somewhat arbitrary, for example.
 
+## Version 2.0.0
+
+This update was released in March 2023 and had the following change:
+
+- The Azure Virtual Desktop Insights at scale feature is now generally available.
+
 ## Version 1.6.1
 
 This update was released in March 2023 and had the following changes:
