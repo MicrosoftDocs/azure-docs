@@ -399,7 +399,7 @@ If you don't already have it, install the aks-preview extension with the followi
 The `aks-preview` extension needs to be installed using the following command. For more information on how to install a CLI extension, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
 
 > [!NOTE]
-> Please upgrade your az cli version to the latest version and ensure that the aks-preview version you're using is greater than '0.5.106'. You can find out the version using the `az version` command.
+> Please upgrade your az cli version to the latest version and ensure that the aks-preview version you're using is greater than or equal to '0.5.132'. You can find out the version using the `az version` command.
 
 ```azurecli
 az extension add --name aks-preview
