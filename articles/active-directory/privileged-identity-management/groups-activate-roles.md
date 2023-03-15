@@ -81,15 +81,6 @@ You can view the status of your pending requests to activate. It is specifically
 
 When you select **Cancel**, the request will be canceled. To activate the role again, you will have to submit a new request for activation.
 
-## Troubleshoot
-
-### Permissions are not granted after activating a role
-
-When you activate a role in PIM, the activation may not instantly propagate to all portals that require the privileged role. Sometimes, even if the change is propagated, web caching in a portal may result in the change not taking effect immediately. If your activation is delayed, here is what you should do.
-
-1. Sign out of the Azure portal and then sign back in.
-1. In PIM, verify that you are listed as the member of the role.
-
 ## Next steps
 
 - [Approve activation requests for group members and owners (preview)](groups-approval-workflow.md)
