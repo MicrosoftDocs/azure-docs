@@ -576,16 +576,8 @@
         displayName: Windows custom images, images, windows, upload, prepare, VHD
         href: ./windows/prepare-for-upload-vhd-image.md
       - name: Generalizing a VM
+        displayName: generalize sysprep deprovision
         href: generalize.md
-      - name: Upload a VHD and create a managed image
-        displayName: Windows custom images, images, windows, upload, prepare, VHD, managed
-        href: ./windows/upload-generalized-managed.md
-      - name: Capture a managed image
-        displayName: Windows custom images, images, windows, upload, prepare, VHD, managed, capture
-        href: ./windows/capture-image-resource.md
-      - name: Create a VM from a managed image
-        displayName: Windows custom images, images, windows, upload, prepare, VHD, create, managed
-        href: ./windows/create-vm-generalized-managed.md
       - name: Visual Studio
         href: /visualstudio/install/using-visual-studio-vm
     - name: VM Image Builder
@@ -674,6 +666,8 @@
       - name: Windows
         displayName: Image builder, images, building, packer
         href: ./windows/build-image-with-packer.md
+    - name: Capture a legacy managed image
+        href: ./windows/capture-image-resource.md
   - name: Dedicated hosts
     displayName: sole-tenant, sole tenant, isolated, isolation
     items:
@@ -1966,7 +1960,7 @@
     - name: Move Maintenance Control configuration resources to another region
       href: move-region-maintenance-configuration-resources.md
     - name: Migrate AWS VMs to Azure
-      href: /migrate/tutorial-migrate-aws-virtual-machines
+      href: /azure/migrate/tutorial-migrate-aws-virtual-machines
 - name: Infrastructure automation
   items:
   - name: Overview

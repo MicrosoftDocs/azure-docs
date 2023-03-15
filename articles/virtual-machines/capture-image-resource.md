@@ -47,12 +47,12 @@ After the image is created, you can find it as an **Image** resource in the list
 
 ## Create a VM image using the CLI
 Create a managed image of the VM with [az image create](/cli/azure/image#az-image-create). The following example creates an image named *myImage* in the resource group named *myResourceGroup* using the VM resource named *myVM*.
-   
-    ```azurecli
-    az image create \
-        --resource-group myResourceGroup \
-	--name myImage --source myVM
-    ```
+
+```azurecli
+az image create \
+   --resource-group myResourceGroup \
+   --name myImage --source myVM
+```
    
    > [!NOTE]
    > The image is created in the same resource group as your source VM. You can create VMs in any resource group within your subscription from this image. From a management perspective, you may wish to create a specific resource group for your VM resources and images.
