@@ -12,7 +12,7 @@ ms.author: duau
 ---
 # ExpressRoute encryption
  
-ExpressRoute supports a couple of encryption technologies to ensure confidentiality and integrity of the data traversing between your network and Microsoft's network.
+ExpressRoute supports a couple of encryption technologies to ensure confidentiality and integrity of the data traversing between your network and Microsoft's network. By default traffic over an ExpressRoute connection is not encrypted.
 
 ## Point-to-point encryption by MACsec FAQ
 MACsec is an [IEEE standard](https://1.ieee802.org/security/802-1ae/). It encrypts data at the Media Access control (MAC) level or Network Layer 2. You can use MACsec to encrypt the physical links between your network devices and Microsoft's network devices when you connect to Microsoft via [ExpressRoute Direct](expressroute-erdirect-about.md). MACsec is disabled on ExpressRoute Direct ports by default. You bring your own MACsec key for encryption and store it in [Azure Key Vault](../key-vault/general/overview.md). You decide when to rotate the key. See other FAQs below.
