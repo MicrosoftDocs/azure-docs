@@ -8755,7 +8755,7 @@ Azure service: [IoT Central](../iot-central/index.yml)
 
 ### Microsoft.IoTSecurity
 
-Azure service: [IoT security](../iot-fundamentals/iot-security-architecture.md)
+Azure service: [IoT security](../iot/iot-security-architecture.md)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |

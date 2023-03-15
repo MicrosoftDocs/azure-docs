@@ -423,7 +423,7 @@
     {
       "source_path_from_root": "/articles/iot-pnp/howto-use-iot-explorer.md",
       "redirect_url": "/azure/iot/howto-use-iot-explorer",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-pnp/overview-iot-plug-and-play-current-release.md",
