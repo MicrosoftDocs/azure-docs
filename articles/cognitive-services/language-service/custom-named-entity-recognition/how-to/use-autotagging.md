@@ -70,7 +70,7 @@ When you trigger an autolabeling job based on a model you've trained, there's a 
 6.	Choose the documents you want to be automatically labeled. The number of text records of each document is displayed. When you select one or more documents, you should see the number of texts records selected. It's recommended to choose the unlabeled documents from the filter. 
 
     > [!NOTE]
-    > * If an entity was automatically labeled, but has a user defined label, only the user defined label is be used and visible.  
+    > * If an entity was automatically labeled, but has a user defined label, only the user defined label is used and visible.  
     > * You can view the documents by clicking on the document name.
     
     :::image type="content" source="../media/choose-files.png" alt-text="A screenshot showing which documents to be included in the autotag job." lightbox="../media/choose-files.png":::
