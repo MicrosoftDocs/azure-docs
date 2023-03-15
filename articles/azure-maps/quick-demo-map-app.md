@@ -47,7 +47,7 @@ Create a new Azure Maps account with the following steps:
 
 <a id="getkey"></a>
 
-## Get the primary key for your account
+## Get the subscription key for your account
 
 Once your Azure Maps account is successfully created, retrieve the primary key that enables you to query the Maps APIs.
 
