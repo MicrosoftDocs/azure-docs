@@ -92,7 +92,7 @@ Select the configuration that you're using:
 
 # [Service tag/NSG](#tab/servicetag)
 
-__Allow__ outbound traffic over __TCP port 443__ to the following __service tags__. Replace `<region>` with the Azure region that contains your compute cluster or instance:
+__Allow__ outbound traffic over __ANY port 443__ to the following __service tags__. Replace `<region>` with the Azure region that contains your compute cluster or instance:
 
 * `BatchNodeManagement.<region>`
 * `AzureMachineLearning`
@@ -100,7 +100,7 @@ __Allow__ outbound traffic over __TCP port 443__ to the following __service tags
 
 # [Firewall](#tab/firewall)
 
-__Allow__ outbound traffic over __TCP port 443__ to the following FQDNs. Replace instances of `<region>` with the Azure region that contains your compute cluster or instance:
+__Allow__ outbound traffic over __ANY port 443__ to the following FQDNs. Replace instances of `<region>` with the Azure region that contains your compute cluster or instance:
 
 * `<region>.batch.azure.com`
 * `<region>.service.batch.com`
@@ -138,14 +138,14 @@ When using Azure Machine Learning curated environments, make sure to use the lat
 
     # [Service tag/NSG](#tab/servicetag)
 
-    __Allow__ outbound traffic over __TCP port 443__ to the following service tags. Replace `<region>` with the Azure region that contains your compute cluster or instance.
+    __Allow__ outbound traffic over __ANY port 443__ to the following service tags. Replace `<region>` with the Azure region that contains your compute cluster or instance.
 
     * `MicrosoftContainerRegistry.<region>`
     * `AzureFrontDoor.FirstParty`
 
     # [Firewall](#tab/firewall)
 
-    __Allow__ outbound traffic over __TCP port 443__ to the following FQDNs:
+    __Allow__ outbound traffic over __ANY port 443__ to the following FQDNs:
 
     * `mcr.microsoft.com`
     * `*.data.mcr.microsoft.com`
