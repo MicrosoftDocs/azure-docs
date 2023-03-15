@@ -15,7 +15,7 @@
   - name: Publish and subscribe to events in cloud
     href: pub-sub-events-webhook-cloud.md
   - name: Forward events to Azure Event Grid
-    href: forward-events-event-grid-cloud.md
+    href: forward-events-cloud.md
   - name: Forward events to Azure IoT Hub
     href: forward-events-iothub.md
   - name: React to Blob Storage events locally
@@ -63,7 +63,7 @@
   - name: REST API
     href: api.md
   - name: Configure Event Grid
-    href: configure-event-grid.md
+    href: configure.md
   - name: Module Twin configuration schema
     href: twin-json.md
   - name: Release Notes

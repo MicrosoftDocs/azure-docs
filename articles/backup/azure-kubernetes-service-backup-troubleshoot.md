@@ -2,7 +2,7 @@
 title: Troubleshoot Azure Kubernetes Service backup
 description: Symptoms, causes, and resolutions of Azure Kubernetes Service backup and restore.
 ms.topic: troubleshooting
-ms.date: 03/14/2023
+ms.date: 03/15/2023
 ms.service: backup
 author: jyothisuri
 ms.author: jsuri
@@ -18,7 +18,7 @@ This article provides troubleshooting steps that help you resolve Azure Kubernet
 
 **Error message**:
 
-   ```Erroe
+   ```Error
    {Helm installation from path [] for release [azure-aks-backup] failed with the following error: err [release azure-aks-backup failed, and has been uninstalled due to atomic being set: failed post-install: timed out waiting for the condition]} occurred while doing the operation: {Installing the extension} on the config"`
    ```
 
@@ -51,20 +51,19 @@ The extension pods aren't exempt, and require the Azure Active Directory (Azure 
 
 1. Run the following command:
 
-
-   ```azurepowershell-interactive
+   ```azurecli-interactive
    az aks pod-identity exception add --resource-group shracrg --cluster-name shractestcluster --namespace dataprotection-microsoft --pod-labels app.kubernetes.io/name=dataprotection-microsoft-kubernetes
    ```
 
 2. To verify *Azurepodidentityexceptions* in cluster, run the following command:
 
-   ```azurepowershell-interactive
+   ```azurecli-interactive
    kubectl get Azurepodidentityexceptions --all-namespaces
    ```
 
 3. To assign the *Storage Account Contributor* role to the extension identity, run the following command:
 
-   ```azurepowershell-interactive
+   ```azurecli-interactive
    az role assignment create --assignee-object-id $(az k8s-extension show --name azure-aks-backup --cluster-name aksclustername --resource-group aksclusterresourcegroup --cluster-type managedClusters --query aksAssignedIdentity.principalId --output tsv) --role 'Storage Account Contributor' --scope /subscriptions/subscriptionid/resourceGroups/storageaccountresourcegroup/providers/Microsoft.Storage/storageAccounts/storageaccountname
    ```
 
@@ -83,31 +82,31 @@ This error appears due to absence of these FQDN rules because of which configura
 
 1. To fetch *Existing CoreDNS-custom* YAML in your cluster (save it on your local for reference later), run the following command:
 
-   ```azurepowershell-interactive
+   ```azurecli-interactive
    kubectl get configmap coredns-custom -n kube-system -o yaml
    ```
 
 2. To override mapping for *Central US DP* endpoint to public IP (download the YAML file attached), run the following command:
 
-   ```azurepowershell-interactive
+   ```azurecli-interactive
    kubectl apply -f corednsms.yaml
    ```
 
 3. To force reload `coredns` pods, run the following command:
 
-   ```azurepowershell-interactive
+   ```azurecli-interactive
    kubectl delete pod --namespace kube-system -l k8s-app=kube-dns
    ```
 
 4. To perform `NSlookup` from the *ExtensionAgent* pod to check if *coreDNS-custom* is working, run the following command:
 
-   ```azurepowershell-interactive
+   ```azurecli-interactive
    kubectl exec -i -t pod/extension-agent-<pod guid that's there in your cluster> -n kube-system -- nslookup centralus.dp.kubernetesconfiguration.azure.com
    ```
 
 5. To check logs of the *ExtensionAgent* pod, run the following command:
 
-   ```azurepowershell-interactive
+   ```azurecli-interactive
    kubectl logs pod/extension-agent-<pod guid that’s there in your cluster> -n kube-system --tail=200
    ```
 
