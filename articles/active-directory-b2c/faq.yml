@@ -9,7 +9,7 @@ metadata:
   ms.service: active-directory
   ms.workload: identity
   ms.topic: faq
-  ms.date: 02/09/2023
+  ms.date: 03/15/2023
   ms.author: godonnell
   ms.subservice: B2C
   ms.custom: "b2c-support"
@@ -255,6 +255,11 @@ sections:
           1. Wait for 10 minutes.
           
           1. Retrieve the `RefreshToken` again.
+          
+      - question: |
+          In a web browser, I signed into multiple applications with multiple tabs using the same B2C tenant. When I attempt to perform a single sign out, not all of the applications are signed out. Why is that? 
+        answer: |
+          Currently, single sign out is not supported in this specific scenario.  This is due to cookie contention, since it operates on the same cookies.
           
       - question: |
           How do I report issues with Azure AD B2C?
