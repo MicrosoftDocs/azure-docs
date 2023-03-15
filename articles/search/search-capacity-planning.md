@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/15/2022
+ms.date: 03/15/2023
 ---
 
 # Estimate and manage capacity of a search service
@@ -197,10 +197,12 @@ The error message "Service update operations are not allowed at this time becaus
 Resolve this error by checking service status to verify provisioning status:
 
 1. Use the [Management REST API](/rest/api/searchmanagement/2020-08-01/services), [Azure PowerShell](search-manage-powershell.md), or [Azure CLI](/cli/azure/search) to get service status.
-1. Call [Get Service](/rest/api/searchmanagement/2020-08-01/services/get)
+1. Call [Get Service (REST)](/rest/api/searchmanagement/2020-08-01/services/get) or equivalent for PowerShell or the CLI.
 1. Check the response for ["provisioningState": "provisioning"](/rest/api/searchmanagement/2020-08-01/services/get#provisioningstate)
 
-If status is "Provisioning", then wait for the request to complete. Status should be either "Succeeded" or "Failed" before another request is attempted. There is no status for backup. Backup is an internal operation and it's unlikely to be a factor in any disruption of a scale exercise.
+If status is "Provisioning", wait for the request to complete. Status should be either "Succeeded" or "Failed" before another request is attempted. There is no status for backup. Backup is an internal operation and it's unlikely to be a factor in any disruption of a scale exercise.
+
+If your search service appears to be stalled in a provisioning state, check for orphaned indexes that are unusable, with zero query volumes and no index updates. An unusable index can block changes to service capacity. In particular, look for indexes that are [CMK-encrypted](search-security-manage-encryption-keys.md), whose keys are no longer valid. You should either delete the index or restore the keys to bring the index back online and unblock your scale operation.
 
 <a id="chart"></a>
 
