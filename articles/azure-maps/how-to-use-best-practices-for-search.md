@@ -977,7 +977,7 @@ To learn more, please see:
 [Search service]: /rest/api/maps/search
 [Search Fuzzy]: /rest/api/maps/search/getsearchfuzzy
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[subscription key]: quick-demo-map-app.md#get-the-primary-key-for-your-account
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [Postman]: https://www.postman.com/downloads/
 [Geocoding coverage]: geocoding-coverage.md
 [Search Address Reverse]: /rest/api/maps/search/getsearchaddressreverse

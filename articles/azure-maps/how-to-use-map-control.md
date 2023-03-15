@@ -284,5 +284,5 @@ For a list of samples showing how to integrate Azure Active Directory (AAD) with
 > [Azure AD authentication samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)
 
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[subscription key]: quick-demo-map-app.md#get-the-primary-key-for-your-account
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [authentication options]: /javascript/api/azure-maps-control/atlas.authenticationoptions

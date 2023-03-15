@@ -529,4 +529,4 @@ For a complete list of Azure Maps REST APIs, see:
 > [Azure Maps REST APIs](/rest/api/maps/)
 
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[subscription key]: quick-demo-map-app.md#get-the-primary-key-for-your-account
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account

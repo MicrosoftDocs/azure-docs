@@ -752,4 +752,4 @@ In this example, you'll use the [Get Minute Forecast API](/rest/api/maps/weather
 > [Azure Maps Weather services](/rest/api/maps/weather)
 
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[subscription key]: quick-demo-map-app.md#get-the-primary-key-for-your-account
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account

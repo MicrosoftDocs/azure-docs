@@ -678,4 +678,4 @@ Learn more about the Azure Maps REST services.
 > [Best practices for using the search service](how-to-use-best-practices-for-search.md)
 
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[subscription key]: quick-demo-map-app.md#get-the-primary-key-for-your-account
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account

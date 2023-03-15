@@ -283,7 +283,7 @@ To learn more, please see:
 
 [Route service]: /rest/api/maps/route
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[subscription key]: quick-demo-map-app.md#get-the-primary-key-for-your-account
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [Routing Coverage]: routing-coverage.md
 [Postman]: https://www.postman.com/downloads/
 [RouteType]: /rest/api/maps/route/postroutedirections#routetype

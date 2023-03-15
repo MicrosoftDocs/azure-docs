@@ -402,5 +402,5 @@ To learn more about Azure Notebooks, see
 > [Azure Notebooks](https://notebooks.azure.com)
 
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[subscription key]: quick-demo-map-app.md#get-the-primary-key-for-your-account
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [manage authentication in Azure Maps]: how-to-manage-authentication.md

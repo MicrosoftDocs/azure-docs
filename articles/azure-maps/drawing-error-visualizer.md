@@ -19,8 +19,8 @@ The Drawing Error Visualizer is a stand-alone web application that displays [Dra
 Before you can download the Drawing Error Visualizer, you'll need to:
 
 1. An [Azure Maps account]
-1. A [subscription key]
-1. A [Creator resource]
+2. A [subscription key]
+3. A [Creator resource]
 
 This tutorial uses the [Postman](https://www.postman.com/) application, but you may choose a different API development environment.
 
@@ -90,5 +90,5 @@ Learn more by reading:
 > [Creator for indoor maps](creator-indoor-maps.md)
 
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[subscription key]: quick-demo-map-app.md#get-the-primary-key-for-your-account
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [Creator resource]: how-to-manage-creator.md

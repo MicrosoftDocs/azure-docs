@@ -280,7 +280,7 @@ To learn more about how to send device-to-cloud telemetry, and the other way aro
 > [Send telemetry from a device](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp)
 
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[subscription key]: quick-demo-map-app.md#get-the-primary-key-for-your-account
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [free account]: https://azure.microsoft.com/free/
 [resource group]: ../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups
 [rentalCarSimulation]: https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/tree/master/src/rentalCarSimulation

@@ -1028,7 +1028,7 @@ To see more code examples and an interactive coding experience:
 > [How to use the map control](how-to-use-map-control.md)
 
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[subscription key]: quick-demo-map-app.md#get-the-primary-key-for-your-account
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [Manage authentication in Azure Maps]: how-to-manage-authentication.md
 [Visual Studio Code]: https://code.visualstudio.com
 [Simple Store Locator]: https://samples.azuremaps.com/?sample=simple-store-locator

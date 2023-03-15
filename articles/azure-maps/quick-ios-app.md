@@ -166,7 +166,7 @@ In this quickstart, you created your Azure Maps account and created a demo appli
 > [Load GeoJSON data into Azure Maps](tutorial-load-geojson-file-ios.md)
 -->
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[subscription key]: quick-demo-map-app.md#get-the-primary-key-for-your-account
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [free account]: https://azure.microsoft.com/free/
 [manage authentication in Azure Maps]: how-to-manage-authentication.md
 [‎Xcode]: https://apps.apple.com/cz/app/xcode/id497799835?mt=12

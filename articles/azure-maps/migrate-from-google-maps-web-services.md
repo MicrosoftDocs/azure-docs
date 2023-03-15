@@ -495,6 +495,6 @@ Learn more about Azure Maps REST services:
 > [Best practices for search](how-to-use-best-practices-for-search.md)
 
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[subscription key]: quick-demo-map-app.md#get-the-primary-key-for-your-account
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [free account]: https://azure.microsoft.com/free/
 [manage authentication in Azure Maps]: how-to-manage-authentication.md

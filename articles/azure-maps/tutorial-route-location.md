@@ -249,7 +249,7 @@ The next tutorial shows you how to create a route query with restrictions, like 
 > [Find routes for different modes of travel](./tutorial-prioritized-routes.md)
 
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[subscription key]: quick-demo-map-app.md#get-the-primary-key-for-your-account
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [Route service API]: /rest/api/maps/route
 [Map control]: ./how-to-use-map-control.md
 [Symbol layers]: map-add-pin.md

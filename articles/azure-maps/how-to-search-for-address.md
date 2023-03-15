@@ -179,7 +179,7 @@ In this example, we'll search for a cross street based on the coordinates of an 
 [Reverse Address Search]: /rest/api/maps/search/getsearchaddressreverse
 [Search Address Reverse Cross Street]: /rest/api/maps/search/getsearchaddressreversecrossstreet
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[subscription key]: quick-demo-map-app.md#get-the-primary-key-for-your-account
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [Postman]: https://www.postman.com/
 [Get Search Address]: /rest/api/maps/search/getsearchaddress
 [Post Search Address Batch]: /rest/api/maps/search/postsearchaddressbatch

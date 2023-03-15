@@ -20,7 +20,7 @@ When you create an indoor map using Azure Maps Creator, default styles are appli
 
 - [Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account)
 - [Azure Maps Creator resource](how-to-manage-creator.md)
-- [Subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account).
+- [Subscription key](quick-demo-map-app.md#get-the-subscription-key-for-your-account).
 - [Map configuration][mapConfiguration] alias or ID. If you have never used Azure Maps Creator to create an indoor map, you might find the [Use Creator to create indoor maps][tutorial] tutorial helpful.
 
 You'll need the map configuration `alias` (or `mapConfigurationId`) to render indoor maps with custom styles via the Azure Maps Indoor Maps module.

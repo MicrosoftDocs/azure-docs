@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 
 1. An [Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account).
 
-1. A [subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account).
+1. A [subscription key](quick-demo-map-app.md#get-the-subscription-key-for-your-account).
 
 > [!NOTE]
 > For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](how-to-manage-authentication.md).
