@@ -469,7 +469,7 @@ Azure Disk Encryption does not work for the following Linux scenarios, features,
 - Migrating a VM that is encrypted with ADE, or has **ever** been encrypted with ADE, to [Encryption at Host](../disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data) or [server-side encryption with customer-managed keys](../disk-encryption.md).
 - Encrypting VMs in failover clusters.
 - Encryption of [Azure ultra disks](../disks-enable-ultra-ssd.md).
-- Encryption of VMs in subscriptions with the "Secrets should have the specified maximum validity period" policy set to DENY.
+- Encryption of VMs in subscriptions with the "Secrets should have the specified maximum validity period" policy with DENY effect.
 
 ## Next steps
 
