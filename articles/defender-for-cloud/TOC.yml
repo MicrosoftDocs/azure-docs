@@ -245,6 +245,8 @@
       href: data-security-scans.md
     - name: Review risks to sensitive data
       href: data-security-review-risks.md
+    - name: Customize sensitivity settings
+      href: data-sensitivity-settings.md
   - name: Security recommendations
     items:
     - name: Create custom Azure security initiatives and policies
