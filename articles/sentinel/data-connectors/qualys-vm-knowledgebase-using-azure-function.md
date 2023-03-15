@@ -12,7 +12,7 @@ ms.author: cwatson
 
 The [Qualys Vulnerability Management (VM)](https://www.qualys.com/apps/vulnerability-management/) KnowledgeBase (KB) connector provides the capability to ingest the latest vulnerability data from the Qualys KB into Azure Sentinel. 
 
- This data can used to correlate and enrich vulnerability detections found by the [Qualys Vulnerability Management (VM)](https://docs.microsoft.com/azure/sentinel/connect-qualys-vm) data connector.
+ This data can used to correlate and enrich vulnerability detections found by the [Qualys Vulnerability Management (VM)](/azure/sentinel/connect-qualys-vm) data connector.
 
 ## Connector attributes
 
