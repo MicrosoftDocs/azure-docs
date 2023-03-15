@@ -38,7 +38,7 @@ To learn more about supported regions, time to propagate federated credential up
 ## Prerequisites
 
 - [Create an app registration](quickstart-register-app.md) in Azure AD. Grant your app access to the Azure resources targeted by your external software workload.  
-- Find the Client ID and the enant ID, which you need in the following steps. Go to the list of [registered applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) in the Azure portal and select your app registration. In **Overview**->**Essentials**, find **Application (client) ID** and **Directory (tenant) ID**.
+- Find the Client ID and the Tenant ID, which you need in the following steps. Go to the list of [registered applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) in the Azure portal and select your app registration. In **Overview**->**Essentials**, find **Application (client) ID** and **Directory (tenant) ID**.
 - Get the *subject* and *issuer* information for your external IdP and software workload, which you need in the following steps.
 
 ## Configure a federated identity credential on an app
