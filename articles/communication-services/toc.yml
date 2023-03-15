@@ -106,7 +106,7 @@ items:
         href: quickstarts/rooms/get-started-rooms.md
       - name: Join a room call
         href: quickstarts/rooms/join-rooms-call.md
-    - name: Leverage UI components for voice and video
+    - name: Use UI components for voice and video
       href: quickstarts/ui-library/get-started-composites.md
   - name: Chat
     items:
@@ -126,7 +126,7 @@ items:
           href: quickstarts/identity/access-tokens.md
         - name: Add Teams meeting chat to your app
           href: quickstarts/chat/meeting-interop.md   
-    - name: Leverage UI components for chat
+    - name: Use UI components for chat
       href: quickstarts/ui-library/get-started-chat-ui-library.md
   - name: Phone calling
     items:
@@ -224,7 +224,7 @@ items:
         href: concepts/voice-video-calling/user-facing-diagnostics.md
       - name: Diagnose media quality issues
         href: concepts/voice-video-calling/media-quality-sdk.md
-      - name: Ensure pre-call readiness
+      - name: Ensure precall readiness
         href: concepts/voice-video-calling/pre-call-diagnostics.md
       - name: Check if user is running supported browser
         href: how-tos/calling-sdk/browser-support.md
