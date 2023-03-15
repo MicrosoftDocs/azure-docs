@@ -5,15 +5,12 @@ services: ddos-protection
 author: AbdullahBell
 ms.service: ddos-protection
 ms.topic: how-to
-ms.custom: ignite-2022
 ms.workload: infrastructure-services
 ms.date: 03/14/2023
 ms.author: abell
 ---
 
 # Configure Azure DDoS Protection diagnostic logging through portal
-
-Azure DDoS Protection provides detailed attack insights and visualization with DDoS Attack Analytics. Customers protecting their virtual networks against DDoS attacks have detailed visibility into attack traffic and actions taken to mitigate the attack via attack mitigation reports & mitigation flow logs. Rich telemetry is exposed via Azure Monitor including detailed metrics during the duration of a DDoS attack. Alerting can be configured for any of the Azure Monitor metrics exposed by DDoS Protection. Logging can be further integrated with [Microsoft Sentinel](../sentinel/data-connectors/azure-ddos-protection.md), Splunk (Azure Event Hubs), OMS Log Analytics, and Azure Storage for advanced analysis via the Azure Monitor Diagnostics interface.
 
 In this guide, you'll learn how to configure Azure DDoS Protection diagnostic logs, including notifications, mitigation reports and mitigation flow logs. 
 
@@ -24,9 +21,7 @@ In this guide, you'll learn how to configure Azure DDoS Protection diagnostic lo
 - In order to use diagnostic logging, you must first create a [Log Analytics workspace with diagnostic settings enabled](ddos-configure-log-analytics-workspace.md). 
 - DDoS monitors public IP addresses assigned to resources within a virtual network. If you don't have any resources with public IP addresses in the virtual network, you must first create a resource with a public IP address. You can monitor the public IP address of all resources deployed through Resource Manager (not classic) listed in [Virtual network for Azure services](../virtual-network/virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network) (including Azure Load Balancers where the backend virtual machines are in the virtual network), except for Azure App Service Environments. To continue with this guide, you can quickly create a [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machine.
 
-## Configure Azure DDoS Protection diagnostic logs
-
-If you want to automatically enable diagnostic logging on all public IPs within an environment, skip to [Enable diagnostic logging on all public IPs](#enable-diagnostic-logging-on-all-public-ips).
+## Configure diagnostic logs
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. In the search box at the top of the portal, enter **Monitor**. Select **Monitor** in the search results.
@@ -67,7 +62,7 @@ If you want to automatically enable diagnostic logging on all public IPs within 
     | Resource group | Select the **Resource group** that contains the public IP address. |
 	|Resource type | Select **Public IP Addresses**.|
 
-1. Confirm your *Diagnostic status* is **enabled**.
+1. Confirm your *Diagnostic status* is **Enabled**.
 
 ## Next steps
 
