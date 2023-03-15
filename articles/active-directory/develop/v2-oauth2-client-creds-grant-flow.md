@@ -149,7 +149,7 @@ After you've acquired the necessary authorization for your application, proceed 
 
 ```HTTP
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1           //Line breaks for clarity
-Host: login.microsoftonline.com
+Host: login.microsoftonline.com:443
 Content-Type: application/x-www-form-urlencoded
 
 client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
@@ -175,7 +175,7 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 
 ```HTTP
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1               // Line breaks for clarity
-Host: login.microsoftonline.com
+Host: login.microsoftonline.com:443
 Content-Type: application/x-www-form-urlencoded
 
 scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
@@ -200,7 +200,7 @@ The parameters for the certificate-based request differ in only one way from the
 
 ```HTTP
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1               // Line breaks for clarity
-Host: login.microsoftonline.com
+Host: login.microsoftonline.com:443
 Content-Type: application/x-www-form-urlencoded
 
 scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
@@ -267,8 +267,8 @@ An error response (400 Bad Request) looks like this:
 Now that you've acquired a token, use the token to make requests to the resource. When the token expires, repeat the request to the `/token` endpoint to acquire a fresh access token.
 
 ```HTTP
-GET /v1.0/users
-Host: https://graph.microsoft.com
+GET /v1.0/users HTTP/1.1
+Host: graph.microsoft.com:443
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 ```
 Try the following command in your terminal, ensuring to replace the token with your own.
