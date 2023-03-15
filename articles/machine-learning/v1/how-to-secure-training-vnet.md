@@ -57,7 +57,7 @@ In this article you learn how to secure the following training compute resources
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 ## Prerequisites
 
-+ Read the [Network security overview](how-to-network-security-overview.md) article to understand common virtual network scenarios and overall virtual network architecture.
++ Read the [Network security overview](../how-to-network-security-overview.md) article to understand common virtual network scenarios and overall virtual network architecture.
 
 + An existing virtual network and subnet to use with your compute resources. This VNet must be in the same subscription as your Azure Machine Learning workspace.
 
@@ -314,7 +314,7 @@ For information on using a firewall solution, see [Use a firewall with Azure Mac
 
 This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
 
-* [Virtual network overview (v1)](how-to-network-security-overview.md)
+* [Virtual network overview (v1)](../how-to-network-security-overview.md)
 * [Secure the workspace resources](../how-to-secure-workspace-vnet.md)
 * [Secure inference environment (v1)](how-to-secure-inferencing-vnet.md)
 * [Enable studio functionality](../how-to-enable-studio-virtual-network.md)

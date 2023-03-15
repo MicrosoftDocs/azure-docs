@@ -21,7 +21,7 @@ ms.date: 08/29/2022
 > * [CLI or SDK v1](how-to-configure-private-link.md)
 > * [CLI v2 (current version)](../how-to-configure-private-link.md)
 
-In this document, you learn how to configure a private endpoint for your Azure Machine Learning workspace. For information on creating a virtual network for Azure Machine Learning, see [Virtual network isolation and privacy overview](how-to-network-security-overview.md).
+In this document, you learn how to configure a private endpoint for your Azure Machine Learning workspace. For information on creating a virtual network for Azure Machine Learning, see [Virtual network isolation and privacy overview](../how-to-network-security-overview.md).
 
 Azure Private Link enables you to connect to your workspace using a private endpoint. The private endpoint is a set of private IP addresses within your virtual network. You can then limit access to your workspace to only occur over the private IP addresses. A private endpoint helps reduce the risk of data exfiltration. To learn more about private endpoints, see the [Azure Private Link](../../private-link/private-link-overview.md) article.
 
@@ -30,7 +30,7 @@ Azure Private Link enables you to connect to your workspace using a private endp
 >
 > For more information on securing resources used by Azure Machine Learning, see the following articles:
 >
-> * [Virtual network isolation and privacy overview](how-to-network-security-overview.md).
+> * [Virtual network isolation and privacy overview](../how-to-network-security-overview.md).
 > * [Secure workspace resources](../how-to-secure-workspace-vnet.md).
 > * [Secure training environments (v1)](how-to-secure-training-vnet.md).
 > * [Secure inference environment (v1)](how-to-secure-inferencing-vnet.md)
@@ -280,7 +280,7 @@ If you want to create an isolated Azure Kubernetes Service used by the workspace
 
 ## Next steps
 
-* For more information on securing your Azure Machine Learning workspace, see the [Virtual network isolation and privacy overview](how-to-network-security-overview.md) article.
+* For more information on securing your Azure Machine Learning workspace, see the [Virtual network isolation and privacy overview](../how-to-network-security-overview.md) article.
 
 * If you plan on using a custom DNS solution in your virtual network, see [how to use a workspace with a custom DNS server](../how-to-custom-dns.md).
 
