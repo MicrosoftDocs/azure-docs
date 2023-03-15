@@ -54,6 +54,8 @@
   items:
   - name: How-to guides
     items:
+    - name: How to use a script to automate lab functionality
+      href: full-api-script.md
     - name: How to create a lab
       href: create-lab-education-hub.md
     - name: How to add students to a lab

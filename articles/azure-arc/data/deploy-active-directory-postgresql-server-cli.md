@@ -28,6 +28,8 @@ Before you proceed, install the following tools:
 
 To know more further details about how to set up OU and AD account, go to [Deploy Azure Arc-enabled data services in Active Directory authentication - prerequisites](active-directory-prerequisites.md)
 
+> [!IMPORTANT]
+> When using Active Directory, the default account must be named "postgres" in order for connections to succeed.
 
 ## Deploy and update Active Directory integrated Azure Arc-enabled PostgreSQL server
 
