@@ -9,7 +9,7 @@ ms.topic: troubleshooting
 # Troubleshoot agent-based Hybrid Runbook Worker issues in Automation
 
 > [!IMPORTANT]
-> Azure Automation Agent-based User Hybrid Runbook Worker (Windows and Linux) will retire on **August 31, 2024** and wouldn't be supported after that date. You must complete migrating existing Agent-based User Hybrid Runbook Workers to Extension-based Workers before August 31, 2024. Moreover, starting **October 1, 2023**, creating new Agent-based Hybrid Workers wouldn't be possible. [Learn more](migrate-existing-agent-based-hybrid-worker-to-extension-based-workers.md).
+> Azure Automation Agent-based User Hybrid Runbook Worker (Windows and Linux) will retire on **August 31, 2024** and wouldn't be supported after that date. You must complete migrating existing Agent-based User Hybrid Runbook Workers to Extension-based Workers before August 31, 2024. Moreover, starting **October 1, 2023**, creating new Agent-based Hybrid Workers wouldn't be possible. [Learn more](../migrate-existing-agent-based-hybrid-worker-to-extension-based-workers.md)
 
 This article provides information on troubleshooting and resolving issues with Azure Automation agent-based Hybrid Runbook Workers. For troubleshooting extension-based workers, see [Troubleshoot extension-based Hybrid Runbook Worker issues in Automation](./extension-based-hybrid-runbook-worker.md). For general information, see [Hybrid Runbook Worker overview](../automation-hybrid-runbook-worker.md).
 
