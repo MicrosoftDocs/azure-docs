@@ -8,16 +8,15 @@ ms.author: azfuncdf
 ---
 
 # Durable Functions Troubleshooting Guide
-## Introduction
 
-Durable Functions is an extension that customers can install in their function app. For more information on Durable functions, please refer to the official [documentation](./durable-functions-overview.md).
+Durable Functions is an extension of [Azure Functions](../functions-overview.md) that lets you build serverless orchestrations using ordinary code. For more information on Durable Functions, please see the [Durable Functions overview](./durable-functions-overview.md).
 
 The rest of this section gives an overview of reasons and guides that you could try for certain common troubleshooting. 
 
 > [!NOTE]
 > Support engineers are available to assist in diagnosing issues with your application. You may file a support ticket by accessing the **Support+troubleshooting** – **New Support request** blade on your function app page.
 
-[![Screenshot of support request page in Azure Portal.](./media/durable-functions-tsg/durable-function-support-request.png)
+[![Screenshot of support request page in Azure Portal.]](./media/durable-functions-tsg/durable-function-support-request.png)
 
 > [!TIP]
 > When debugging and diagnosing issues, it is recommended that you start by ensuring your app is using the latest Durable Functions version. Most of the time, using the latest version mitigates known issues already reported by other users. Please read the **Durable Function Best Practice and Diagnostic Tools** article for instructions on how to upgrade your extension version. 
