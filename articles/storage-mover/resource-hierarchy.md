@@ -5,7 +5,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: storage-mover
 ms.topic: conceptual
-ms.date: 09/12/2022
+ms.date: 03/14/2023
 ---
 
 <!-- 
@@ -105,15 +105,10 @@ The agent also emits additional information and migration results through the Az
 - **Metrics** are numerical values, recorded over time. They can be plotted using the Azure Monitor service. Some selected metrics are also directly available when managing the job definition / job runs in the portal.
 - **Copy logs** are optional. If enabled, every job run has its own copy log. A log entry is generated for each namespace item the agent encounters in the source that can't be copied.
 
-> [!NOTE]
-> At this time in the public preview, copy logs are not available in Azure. They are, however, available via manual download from the migration agent that completed the job run.
-
-<!-- 
-!########################################################
 > [!IMPORTANT]
 > Metric information is available by default, but you must opt-in to enable copy logs. That can be done as part of creating your storage mover resource and also later on. If you want to check if copy logs are enabled, or manage details, you can use the *Diagnostic settings* menu on the Azure portal page for your storage mover resource.
-!########################################################
 
+<!--
 Learn more about telemetry, metrics and logs in the job definition monitoring article.
 -->
 

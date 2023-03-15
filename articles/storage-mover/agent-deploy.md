@@ -5,7 +5,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: storage-mover
 ms.topic: how-to
-ms.date: 09/12/2022
+ms.date: 03/14/2023
 ---
 
 <!-- 
@@ -39,7 +39,7 @@ This article will guide you through the steps necessary to successfully deploy a
 - A capable Windows Hyper-V host on which to run the agent VM. See the [Recommended compute and memory resources](#recommended-compute-and-memory-resources) section in this article for details about resource requirements for the agent VM.
 
 > [!NOTE]
-> During public preview, Windows Hyper-V is the only supported virtualization environment for your agent VM. Other virtualization environments have not been tested and are not supported at this time.
+> At present, Windows Hyper-V is the only supported virtualization environment for your agent VM. Other virtualization environments have not been tested and are not supported.
 
 ## Download the agent VM image
 
@@ -164,7 +164,7 @@ xdmsh> 4
 Select the option **4) Unregister**. You'll be prompted for confirmation.
 
 > [!WARNING]
-> Unregistration stops any running migration job on the agent and permanently removes the agent from the pool of available migration agents. Re-registration of a previously registered agent VM is not supported in public preview. If you need a new agent, you must use a new agent image that was never registered before and register this new agent VM. Do not reuse a previously unregistered agent VM.
+> Unregistration stops any running migration job on the agent and permanently removes the agent from the pool of available migration agents. Re-registration of a previously registered agent VM is not supported. If you need a new agent you should register a new, previously unregistered agent VM. Do not reuse a previously unregistered agent VM.
 
 # [Azure portal](#tab/azure-portal)
 
@@ -175,7 +175,7 @@ You can unregister an agent in the Azure portal by navigating to your storage mo
 - Select **Unregister agent** and wait for the operation to complete.
 
 > [!WARNING]
-> Unregistration stops any running migration job on the agent and permanently removes the agent from the pool of available migration agents. Re-registration of a previously registered agent VM is not supported in public preview. If you need a new agent, you must use a new agent image that was never registered before and register this new agent VM. Do not reuse a previously unregistered agent VM.
+> Unregistration stops any running migration job on the agent and permanently removes the agent from the pool of available migration agents. Re-registration of a previously registered agent VM is not supported. If you need a new agent, you must use a new agent image that was never registered before and register this new agent VM. Do not reuse a previously unregistered agent VM.
 
 # [PowerShell](#tab/powershell)
 
@@ -189,7 +189,7 @@ Unregister-AzStorageMoverAgent -ResourceGroupName <YourResourceGroupName> -Stora
 *-Force* is an optional parameter, suppressing the confirmation prompt.
 
 > [!WARNING]
-> Unregistration stops any running migration job on the agent and permanently removes the agent from the pool of available migration agents. Re-registration of a previously registered agent VM is not supported in public preview. New agent VMs must be created from a new agent image that has not been previously registered. Do not reuse a previously unregistered agent VM.
+> Unregistration stops any running migration job on the agent and permanently removes the agent from the pool of available migration agents. Re-registration of a previously registered agent VM is not supported. If you need a new agent you should register a new, previously unregistered agent VM. Do not reuse a previously unregistered agent VM.
 
 ---
 
@@ -202,11 +202,11 @@ Several things take place during the unregistration process:
   This behavior is standard, and not specific to Azure Storage Mover. You can observe the same behavior if you remove a different service principal from Azure AD and then check a former role assignment.
 
 > [!WARNING]
-> During public preview, unregistration of an offline agent is supported but the agent's Azure ARC resource isn't automatically deleted. Instead, you'll need to manually delete the resource after unregistering an offline agent. The lifecycle of the agent's managed identity is tied to this resource. Removing it removes the managed identity and service principal, as previously described.
+> Unregistration of an offline agent is supported, but the agent's Azure ARC resource isn't automatically deleted. Instead, you'll need to manually delete the resource after unregistering an offline agent. The lifecycle of the agent's managed identity is tied to this resource. Removing it removes the managed identity and service principal, as previously described.
 
 You can check that the unregistration process is complete when the agent disappears from the Azure portal and either Azure PowerShell or Azure CLI. You'll also need to confirm that the hybrid compute resource of type *Server - Azure Arc* is gone from the resource group.
 
-You can also use the agent's administrative shell to check that the agent is unregistered. To verify unregistration, navigate to any submenu and then return to the top-level menu. If unregistration was successful, you'll see the menu option toggle from *Unregister* to *Register*. As previously mentioned, re-registering isn't supported during the public preview.
+You can also use the agent's administrative shell to check that the agent is unregistered. To verify unregistration, navigate to any submenu and then return to the top-level menu. If unregistration was successful, you'll see the menu option toggle from *Unregister* to *Register*. As previously mentioned, re-registering isn't supported.
 
 You can stop the agent VM on your virtualization host after the unregistration is complete. It's best to delete the agent VM image since it was previously registered, retains some state, and must not be used again. If you need a new agent, deploy a new VM with a new agent image that had never been registered before.
 

@@ -5,7 +5,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: storage-mover
 ms.topic: conceptual
-ms.date: 01/10/2023
+ms.date: 03/14/2023
 ---
 
 <!-- 
@@ -22,7 +22,7 @@ REVIEW Engineering: not reviewed
 
 # Azure Storage Mover scale and performance targets
 
-The performance of a storage migration service is a key aspect for any migration. Azure Storage Mover is a new service, in public preview. In this article, we share performance test results - your experience will vary.
+The performance of a storage migration service is a key aspect for any migration. In this article, we share performance test results, though because Azure Storage Mover is a new service, your experience may vary.
 
 ## Scale targets
 

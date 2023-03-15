@@ -6,7 +6,7 @@ author: stevenmatthew
 ms.service: storage-mover
 ms.author: shaas
 ms.topic: conceptual
-ms.date: 08/29/2022
+ms.date: 03/14/2023
 ---
 
 <!-- 
@@ -28,7 +28,7 @@ Deploying Azure Storage Mover in one of your Azure subscriptions is the first st
 
 ## Make sure the service works for your scenario
 
-Azure Storage Mover aspires to work for a wide range of migration scenarios. However, the service is new, currently in public preview, and supports limited migration scenarios. Check out the [supported sources and targets section](service-overview.md#supported-sources-and-targets) in the [Azure Storage Mover overview article](service-overview.md) to make sure the service works for you.
+Azure Storage Mover aspires to work for a wide range of migration scenarios. However, the service is new and therefore supports a relatively limited number of migration scenarios. Ensure that the service works for you by consulting the [supported sources and targets section](service-overview.md#supported-sources-and-targets) in the [Azure Storage Mover overview article](service-overview.md).
 
 ## Deployment basics
 
