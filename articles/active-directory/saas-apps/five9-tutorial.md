@@ -128,7 +128,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	a. “Five9 Plus Adapter for Agent Desktop Toolkit” Admin Guide: [https://webapps.five9.com/assets/files/for_customers/documentation/integrations/agent-desktop-toolkit/plus-agent-desktop-toolkit-administrators-guide.pdf](https://webapps.five9.com/assets/files/for_customers/documentation/integrations/agent-desktop-toolkit/plus-agent-desktop-toolkit-administrators-guide.pdf)
 	
-	b. “Five9 Plus Adapter for Microsoft Dynamics CRM” Admin Guide: [https://webapps.five9.com/assets/files/for_customers/documentation/integrations/microsoft/microsoft-administrators-guide.pdf](https://webapps.five9.com/assets/files/for_customers/documentation/integrations/microsoft/microsoft-administrators-guide.pdf)
+	b. “Five9 Plus Adapter for Microsoft Dynamics CRM” Admin Guide: [https://manualzz.com/download/25793001](https://manualzz.com/download/25793001)
 	
 	c. “Five9 Plus Adapter for Zendesk” Admin Guide: [https://webapps.five9.com/assets/files/for_customers/documentation/integrations/zendesk/zendesk-plus-administrators-guide.pdf](https://webapps.five9.com/assets/files/for_customers/documentation/integrations/zendesk/zendesk-plus-administrators-guide.pdf)
 

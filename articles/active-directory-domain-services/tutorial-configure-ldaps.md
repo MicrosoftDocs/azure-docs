@@ -8,8 +8,9 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/29/2023
+ms.date: 03/14/2023
 ms.author: justinha
+ms.reviewer: xyuan
 
 #Customer intent: As an identity administrator, I want to secure access to an Azure Active Directory Domain Services managed domain using secure lightweight directory access protocol (LDAPS)
 ---
@@ -236,11 +237,13 @@ Let's create a rule to allow inbound secure LDAP access over TCP port 636 from a
 
     | Setting                           | Value        |
     |-----------------------------------|--------------|
-    | Source                            | IP Addresses |
-    | Source IP addresses / CIDR ranges | A valid IP address or range for your environment |
+    | Source                            | Service tag  |
+    | Source service tag                | AzureActiveDirectoryDomainServices  |
+    | Source IP addresses/CIDR ranges   | A valid IP address or range for your environment |
     | Source port ranges                | *            |
     | Destination                       | Any          |
     | Destination port ranges           | 636          |
+    | Service                           | WinRM        |
     | Protocol                          | TCP          |
     | Action                            | Allow        |
     | Priority                          | 401          |
