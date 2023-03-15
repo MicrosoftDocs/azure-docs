@@ -123,7 +123,7 @@ landingContent:
           - text: Create a custom topic
             url: scripts/event-grid-cli-create-custom-topic.md
           - text: Subscribe to a custom topic
-            url: scripts/event-grid-cli-subscribe-custom-topic.md
+            url: scripts/cli-subscribe-custom-topic.md
           - text: Post to a custom topic
             url: post-to-custom-topic.md
           - text: Map custom fields to Event Grid schema
