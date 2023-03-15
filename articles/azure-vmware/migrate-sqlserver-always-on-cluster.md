@@ -14,10 +14,30 @@ In this article, you’ll learn how to migrate Microsoft SQL Server Always-On Cl
 
 ## Prerequisites
 
+These prerequisites and requirements should be met before planning to migrate your SQL server instance to Azure VMware Solution.
+
 - Review and record the storage and network configuration of every node in the cluster.
 - Take a full backup of the database.
 - Take a full backup of the virtual machine running the Microsoft SQL Server instance. 
 - Remove the virtual machine from any VMware vSphere DRS Groups and rules.
+- VMware HCX must be configured between your on-premises datacenter and the Azure VMware Solution private cloud that will run the migrated workloads. Refer to [Azure VMware Solution documentation](https://learn.microsoft.com/en-us/azure/azure-vmware/install-vmware-hcx) for the procedure.
+- Ensure that all the network segments in use by the Microsoft SQL Server are extended into your Azure VMware Solution private cloud. Please refer to [Configure VMware HCX network extension](https://learn.microsoft.com/en-us/azure/azure-vmware/configure-hcx-network-extension) documentation to verify this step.
+
+VMware HCX over VPN is supported in Azure VMware Solution for workload migration. However, due to the size of database workloads it is not recommended for Microsoft SQL Server Failover Cluster Instance and Microsoft SQL Server Always-On migrations, especially for production workloads ExpressRoute connectivity is more performant and reliable. For Microsoft SQL Server Standalone and non-production workloads this can be suitable, depending upon the size of the database, to migrate. 
+
+Microsoft SQL Server 2019 and 2022 were tested with Windows Server 2019 and 2022 Data Center edition with the virtual machines deployed in the on-premises environment. Windows Server and SQL Server have been configured following best practices and recommendations from Microsoft and VMware.
+
+## Downtime considerations
+
+Predicting downtime during a migration will depend upon the size of the database to be migrated and the speed of the private network connection to Azure cloud. Always On migration is designed to have low database downtime during its execution, plan for the migration to be executed during off-peak hours with an approved change window.
+
+The table below indicates the downtime for each Microsoft SQL Server topology.
+
+| **Scenario** | **Downtime expected** | **Notes** |
+|:---|:-----|:-----|
+| **Standalone instance** | LOW | Migration will be done using vMotion, the DB will be available during migration time, but it is not recommended to commit any critical data during it. |
+| **Always-On Availability Group** | LOW | The primary replica will always be available during the migration of the first secondary replica and the secondary replica will become the primary after the initial failover to Azure. |
+| **Failover Cluster Instance** | HIGH | All nodes of the cluster will be shut down and migrated using VMware HCX Cold Migration. Downtime duration will depend upon database size and private network speed to Azure cloud. |
 
 ## Windows Server Failover Cluster quorum considerations
 
@@ -40,7 +60,7 @@ If the cluster uses a **File share witness** running on-premises, then the type 
 - Disaster Recovery and Business Continuity: For a disaster recovery scenario the best and most reliable option is to create a **Cloud Witness** running in Azure Storage. 
 - Application Modernization: For this use case the best option is to deploy a **Cloud Witness**.
 
-Full details about quorum configuration and management can be consulted in [Failover Clustering documentation](https://learn.microsoft.com/windows-server/failover-clustering/manage-cluster-quorum). Refer to [Manage  a cluster quorum for a Failover Cluster](https://learn.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness) documentation for the details about deployment of Cloud witness in Azure Blob Storage.
+Full details about quorum configuration and management can be consulted in [Failover Clustering documentation](https://learn.microsoft.com/windows-server/failover-clustering/manage-cluster-quorum). Refer to [Manage a cluster quorum for a Failover Cluster](https://learn.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness) documentation for the details about deployment of Cloud witness in Azure Blob Storage.
 
 ## Migrate Microsoft SQL Server Always-On cluster
 
@@ -48,7 +68,7 @@ Full details about quorum configuration and management can be consulted in [Fail
     1. Select your primary replica and open **Availability Group** **Properties**.
 
 
-          :::image type="content" source="media/sql-server-hybrid-benefit/sql-alwayson-1.png" alt-text="Diagram showing how to migrate always on SQL server for  Azure VMware Solution." border="false":::
+          :::image type="content" source="media/sql-server-hybrid-benefit/sql-alwayson-1.png" alt-text="Always On Availability Group properties" border="false":::
 
      1. Change **Availability Mode** to **Asynchronous commit** only for the replica to be migrated.
      1. Change **Failover Mode** to **Manual** for every member of the availability group.
@@ -66,7 +86,7 @@ Full details about quorum configuration and management can be consulted in [Fail
       1. Click **Go** and the migration will initiate. 
 1. Once the migration has been completed, access the migrated replica and verify connectivity with the rest of the members in the availability group.
 1. In SQL Server Management Studio, open the **Availability Group Dashboard** and verify that the replica appears as **Online**. 
-      :::image type="content" source="media/sql-server-hybrid-benefit/sql-alwayson-2.png" alt-text="Diagram showing how to migrate always on SQL server for  Azure VMware Solution." border="false":::
+      :::image type="content" source="media/sql-server-hybrid-benefit/sql-alwayson-2.png" alt-text="Always On Availability Group Dashboard." border="false":::
  
    1. **Data Loss** status in the **Failover Readiness** column is expected since the replica has been out-of-sync with the primary during the migration. 
 1. Edit the **Availability Group** **Properties** again and set **Availability Mode** back to **Synchronous commit**.
@@ -74,18 +94,18 @@ Full details about quorum configuration and management can be consulted in [Fail
 1. From the **Availability Group Dashboard** in SSMS click on **Start Failover Wizard**.
 1. Select the migrated replica and click **Next**.
 
-    :::image type="content" source="media/sql-server-hybrid-benefit/sql-alwayson-3.png" alt-text="Diagram showing how to migrate always on SQL server for  Azure VMware Solution." border="false":::
+    :::image type="content" source="media/sql-server-hybrid-benefit/sql-alwayson-3.png" alt-text="New primary replica selection for failover." border="false":::
 
 1. Connect to the replica in the next screen with your DB admin credentials.
-    :::image type="content" source="media/sql-server-hybrid-benefit/sql-alwayson-4.png" alt-text="Diagram showing how to connect to the replica and migrate always on SQL server for  Azure VMware Solution." border="false":::
+    :::image type="content" source="media/sql-server-hybrid-benefit/sql-alwayson-4.png" alt-text="New primary replica admin credentials connection." border="false":::
   
 1. Review the changes and click **Finish** to start the failover operation.
 
-    :::image type="content" source="media/sql-server-hybrid-benefit/sql-alwayson-5.png" alt-text="Diagram showing how to review changes and migrate always on SQL server for  Azure VMware Solution." border="false":::
+    :::image type="content" source="media/sql-server-hybrid-benefit/sql-alwayson-5.png" alt-text="Availability Group failover operation review." border="false":::
 
  
 1. Monitor the progress of the failover in the next screen and click **Close** when the operation is finished.
-    :::image type="content" source="media/sql-server-hybrid-benefit/sql-alwayson-6.png" alt-text="Diagram showing how to review results and migrate always on SQL server for  Azure VMware Solution." border="false"::: 
+    :::image type="content" source="media/sql-server-hybrid-benefit/sql-alwayson-6.png" alt-text="Failover successfully finished." border="false"::: 
 
 
 1. Refresh the **Object Explorer** view in SSMS and verify that the migrated instance is now the primary replica.
@@ -94,11 +114,9 @@ Full details about quorum configuration and management can be consulted in [Fail
        1. Do not migrate all the replicas at the same time using **HCX Bulk Migration**. Instead, migrate one replica at a time and verify that all changes are synchronized back to the replica after each migration.
 1. Once the migration of all the replicas is completed, access your Always-On availability group with **SQL Server Management Studio**.
     1. Open the Dashboard and verify there is no data loss in any of the replicas and that all are in     **Synchronized** state.
-          :::image type="content" source="media/sql-server-hybrid-benefit/sql-alwayson-7.png" alt-text="Diagram showing how to review changes and migrate always on SQL server for  Azure VMware Solution." border="false":::
+          :::image type="content" source="media/sql-server-hybrid-benefit/sql-alwayson-7.png" alt-text="Availability Group Dashboard with new primary replica and all migrated secondary replicas in synchronized state." border="false":::
     1. Edit the **Properties** of the availability group and set **Failover Mode** to **Automatic** in all replicas. 
-              :::image type="content" source="media/sql-server-hybrid-benefit/sql-alwayson-8.png" alt-text="Diagram showing how to edit the properties and  migrate always on SQL server for  Azure VMware Solution." border="false":::
-
-During the process, you will create placement policies that can recreate the Affinity or Anti-Affinity rules previously present on-premises. For more details about placement policies, see [Create a placement policy in Azure VMware Solution](https://learn.microsoft.com/azure/azure-vmware/create-placement-policy) article. 
+              :::image type="content" source="media/sql-server-hybrid-benefit/sql-alwayson-8.png" alt-text="Set Failover back to Automatic for all replicas." border="false":::
 
 ## Next steps 
 

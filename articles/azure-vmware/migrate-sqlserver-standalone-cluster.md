@@ -18,7 +18,7 @@ When migrating Microsoft SQL Server Standalone to Azure VMware Solution, VMware 
 
 In both cases, consider the size and criticality of the database being migrated. For this procedure we have validated VMware HCX vMotion. HCX Cold Migration is also valid, but it will require a longer downtime period. 
 
-:::image type="content" source="media/sql-server-hybrid-benefit/migrated-sql-standalone-cluster.png" alt-text="Diagram showing the architecture of always on SQL server for  Azure VMware Solution." border="false"::: 
+:::image type="content" source="media/sql-server-hybrid-benefit/migrated-sql-standalone-cluster.png" alt-text="Diagram showing the architecture of standalone SQL server for  Azure VMware Solution." border="false"::: 
 
 ## Prerequisites
 
@@ -26,6 +26,24 @@ In both cases, consider the size and criticality of the database being migrated.
 - Take a full backup of the database.
 - Take a full backup of the virtual machine running the Microsoft SQL Server instance. 
 - Remove the virtual machine from any VMware vSphere DRS Groups and rules. 
+- VMware HCX must be configured between your on-premises datacenter and the Azure VMware Solution private cloud that will run the migrated workloads. Refer to [Azure VMware Solution documentation](https://learn.microsoft.com/en-us/azure/azure-vmware/install-vmware-hcx) for the procedure.
+- Ensure that all the network segments in use by the Microsoft SQL Server are extended into your Azure VMware Solution private cloud. Please refer to [Configure VMware HCX network extension](https://learn.microsoft.com/en-us/azure/azure-vmware/configure-hcx-network-extension) documentation to verify this step.
+
+VMware HCX over VPN is supported in Azure VMware Solution for workload migration. However, due to the size of database workloads it is not recommended for Microsoft SQL Server Failover Cluster Instance and Microsoft SQL Server Always-On migrations, especially for production workloads ExpressRoute connectivity is more performant and reliable. For Microsoft SQL Server Standalone and non-production workloads this can be suitable, depending upon the size of the database, to migrate. 
+
+Microsoft SQL Server 2019 and 2022 were tested with Windows Server 2019 and 2022 Data Center edition with the virtual machines deployed in the on-premises environment. Windows Server and SQL Server have been configured following best practices and recommendations from Microsoft and VMware.
+
+## Downtime considerations
+
+Predicting downtime during a migration will depend upon the size of the database to be migrated and the speed of the private network connection to Azure cloud. Migration of SQL Server standalone instance does not require database downtime since it will be done using HCX vMotion mechanism but it is not recommended to commit any critical data to the database and execute it during off-peak hours with an approved change window.
+
+The table below indicates the downtime for each Microsoft SQL Server topology.
+
+| **Scenario** | **Downtime expected** | **Notes** |
+|:---|:-----|:-----|
+| **Standalone instance** | LOW | Migration will be done using vMotion, the DB will be available during migration time, but it is not recommended to commit any critical data during it. |
+| **Always-On Availability Group** | LOW | The primary replica will always be available during the migration of the first secondary replica and the secondary replica will become the primary after the initial failover to Azure. |
+| **Failover Cluster Instance** | HIGH | All nodes of the cluster will be shut down and migrated using VMware HCX Cold Migration. Downtime duration will depend upon database size and private network speed to Azure cloud. |
 
 ## Migrate Microsoft SQL Server standalone
 
@@ -47,9 +65,7 @@ In both cases, consider the size and criticality of the database being migrated.
 
    
 
-    :::image type="content" source="media/sql-server-hybrid-benefit/sql-standalone-1.png" alt-text="Diagram showing the architecture of always on SQL server for  Azure VMware Solution." border="false"::: 
-
-During the process, you will create placement policies that can recreate the Affinity or Anti-Affinity rules previously present on-premises. For detailed information about the placement policies, see [Create a placement policy in Azure VMware Solution](create-placement-policy.md). 
+    :::image type="content" source="media/sql-server-hybrid-benefit/sql-standalone-1.png" alt-text="SQL Server Management Studio connection to the migrated database." border="false":::  
 
 ## Next steps
 
