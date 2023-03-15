@@ -151,7 +151,7 @@ sections:
         answer: |
           There's **no cost** associated with this feature. 
           
-       - question: |
+      - question: |
           Can Zone Redundancy be enabled for existing Event Hub Namespace?
          answer: |
           Currently this is not possible as old Event Hub Namespaces are in different clusters and there is no way to migrate those to the newly clusters which automatically provides zone redundancy enabled when newly Event Hub namespaces are created.
