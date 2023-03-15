@@ -1,6 +1,6 @@
 ---
-title: Enhance or replace Windows file servers with Azure Files and Azure File Sync
-description: Azure Files and Azure File Sync can be useful when enhancing or replacing your Windows file servers. Learn how you can use these cloud services to increase flexibility, improve data protection, and reduce TCO.
+title: Replace or extend Windows file servers with Azure Files and Azure File Sync
+description: Azure Files and Azure File Sync can be useful when replacing your on-premises Windows file servers or extending them into the cloud. Learn how you can use Azure storage services to increase flexibility, improve data protection, and reduce TCO for file storage.
 author: khdownie
 ms.service: storage
 ms.topic: conceptual
@@ -9,14 +9,14 @@ ms.author: kendownie
 ms.subservice: files 
 ---
 
-# Enhance or replace Windows file servers with Azure Files and Azure File Sync
+# Replace or extend Windows file servers with Azure Files and Azure File Sync
 
-This article explains how you can use Azure Files and Azure File Sync to enhance or replace your on-premises Windows file servers to increase flexibility, improve data protection and redundancy, and reduce total cost of ownership (TCO) for file shares. Azure Files has its origins in the Windows file server role, making it an excellent choice when migrating Windows file servers to the cloud.
+This article explains how you can use Azure Files and Azure File Sync to replace or extend your on-premises Windows file servers to increase flexibility, improve data protection and redundancy, and reduce total cost of ownership (TCO). Azure Files has its origins in the Windows file server role, making it an excellent choice when migrating Windows file servers to the cloud.
 
 Most customers take one of two deployment approaches:
 
 - **Cloud-only deployment:** Migrate on-premises file servers to a fully managed SMB Azure file share (or multiple file shares).
-- **Hybrid deployment:** Use [Azure File Sync](../file-sync/file-sync-introduction.md) to synchronize existing Windows file servers with SMB Azure file shares. Optionally use cloud tiering to scale file data in the cloud while turning on-premises servers into caches for hot files.
+- **Hybrid deployment:** Use [Azure File Sync](../file-sync/file-sync-introduction.md) to synchronize existing Windows file servers with an SMB Azure file share. Optionally use cloud tiering to scale file data in the cloud while turning on-premises servers into local caches for hot files.
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -57,20 +57,20 @@ Most of the core file system and SMB capabilities in the Windows file server rol
 
 Only a [limited set of features](files-smb-protocol.md#limitations) supported by SMB and NTFS aren't currently supported by Azure Files.
 
-## Hybrid access and flexible deployment
-Azure Files is built for hybrid access and offers flexible deployment options, including zero downtime migration from Windows file servers. You can connect to an Azure file share from a variety of clients, or from within Azure VMs or containers. You can connect from anywhere via encrypted SMB 3.x traffic, either over the internet or through VPN. And if you want to maintain local performance, you can use Azure File Sync to cache hot files (or keep a full copy of your share) anywhere you want.
+## Flexible deployment and hybrid access
+Azure Files is built for hybrid access and offers flexible deployment options, including zero downtime migration from Windows file servers. You can connect to an Azure file share from a variety of clients, or from within virtual machines (VMs) or containers. You can connect from anywhere via encrypted SMB 3.x traffic, either over the internet or through VPN/ExpressRoute. If you want to maintain local performance, you can use Azure File Sync to cache hot files or a full copy of your Azure file share.
 
-:::image type="content" source="media/windows-server-to-azure-files/azure-files-network-access.png" alt-text="Screenshot showing various access options for Azure files shares." lightbox="media/windows-server-to-azure-files/azure-files-network-access.png":::
+:::image type="content" source="media/windows-server-to-azure-files/azure-files-network-access.png" alt-text="Screenshot showing various access options for Azure file shares." lightbox="media/windows-server-to-azure-files/azure-files-network-access.png":::
 
-Moving data from Windows file servers to Azure Files is easy, and can happen in the background without interrupting user access. When you migrate to Azure Files, none of your file path links need to break. You can use Windows Server DFS-N functionality and redirect users to Azure Files. If you're adding Azure File Sync to an existing Windows file server, users can continue to access their files through the Windows file server using the same file paths.
+Moving data from Windows file servers to Azure Files is easy, and you can do it in the background without interrupting user access. When you migrate to Azure Files, none of your file path links need to break. You can [use DFS Namespaces](files-manage-namespaces.md) and redirect users to Azure Files. If you're extending an existing Windows file server to Azure using Azure File Sync, users continue to access their files using the same file paths.
 
-:::image type="content" source="media/windows-server-to-azure-files/azure-file-sync-caching.png" alt-text="Screenshot showing a sample architecture for Azure File Sync spanning on-premises and two Azure regions." lightbox="media/windows-server-to-azure-files/azure-file-sync-caching.png":::
+:::image type="content" source="media/windows-server-to-azure-files/azure-file-sync-caching.png" alt-text="Screenshot showing a sample architecture for Azure File Sync spanning on-premises and two Azure regions." lightbox="media/windows-server-to-azure-files/azure-file-sync-caching.png" border="false":::
 
-Azure File Sync can synchronize and cache your Azure file share anywhere. You can create regional caches of your file servers in different Azure regions (see diagram). You can cache files on-premises, in your data centers, or in third-party clouds. Just install Azure File Sync on your existing server, connect to an Azure file share, and start the synchronization. Learn more in the tutorial [Extend Windows file servers with Azure File Sync](../file-sync/file-sync-extend-servers.md).
+Azure File Sync can synchronize and cache your Azure file share anywhere you can install Windows Server. As the diagram shows, you can create regional caches of your file servers in different Azure regions. You can cache files on-premises, in your data centers, or on a VM in third-party clouds. Just install Azure File Sync on your file server, connect to an Azure file share, and start the synchronization. Learn more in the tutorial [Extend Windows file servers with Azure File Sync](../file-sync/file-sync-extend-servers.md).
 
-## Integrated data protection and redundancy
+## Simplified data protection and access control
 
-With Azure Files you benefit from multi-layered security provided by Microsoft across physical data centers, infrastructure, and operations in Azure. We provide several data redundancy options including local, regional, or global. Differential snapshots and snapshot management from Azure Backup simplify data protection, while Azure File Sync offers a variety of [options for disaster recovery](../file-sync/file-sync-disaster-recovery-best-practices.md). You can even protect users from accidentally deleting a file or share via [soft delete](storage-files-enable-soft-delete.md).
+With Azure Files you benefit from multi-layered security provided by Microsoft across physical data centers, infrastructure, and operations in Azure. We provide several data redundancy options including local, regional, or global. Differential snapshots and snapshot management from Azure Backup simplify data protection, while Azure File Sync offers a variety of [disaster recovery options](../file-sync/file-sync-disaster-recovery-best-practices.md). You can even protect users from accidentally deleting a file or share via [soft delete](storage-files-enable-soft-delete.md).
 
 Access control works just like your Windows file servers. You can [use identity-based authentication](storage-files-active-directory-overview.md) and integrate SMB Azure file shares with your on-premises Active Directory environment or Azure AD, and control share-level and directory/file-level access as well as administrator privileges.
 
