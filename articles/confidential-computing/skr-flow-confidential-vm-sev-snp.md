@@ -83,7 +83,7 @@ To enable system-assigned managed identity on a CVM, your account needs the [Vir
 
 ### [Bicep 1](#tab/bicep)
 
-1. Whether you sign in to Azure locally or via the Azure Portal, use an account that is associated with the Azure subscription that contains the VM.
+1. Whether you sign in to Azure locally or via the Azure portal, use an account that is associated with the Azure subscription that contains the VM.
 
 2. To enable system-assigned managed identity, load the template into an editor, locate the `Microsoft.Compute/virtualMachines` resource of interest and add the `"identity"` property at the same level as the `name: vmName` property. Use the following syntax:
 
@@ -141,7 +141,7 @@ To enable system-assigned managed identity on a CVM, your account needs the [Vir
 Once you turn on a system-assigned managed identity for your CVM, you have to provide it with access to the Azure Key Vault data plane where key objects are stored. To ensure that only our confidential virtual machine can execute the release operation, we'll only grant specific permission required for that.
 
 > [!NOTE]
-> You can find the managed identity object ID in the virtual machine identity options, in the Azure Portal. Alternatively you can retrieve it with [PowerShell](../active-directory/managed-identities-azure-resources/how-to-assign-app-role-managed-identity-powershell.md), [Azure CLI](../active-directory/managed-identities-azure-resources/how-to-assign-app-role-managed-identity-cli.md), Bicep or ARM templates.
+> You can find the managed identity object ID in the virtual machine identity options, in the Azure portal. Alternatively you can retrieve it with [PowerShell](../active-directory/managed-identities-azure-resources/how-to-assign-app-role-managed-identity-powershell.md), [Azure CLI](../active-directory/managed-identities-azure-resources/how-to-assign-app-role-managed-identity-cli.md), Bicep or ARM templates.
 
 ### [Bicep 1]
 
@@ -355,9 +355,9 @@ resource exportableKey 'Microsoft.KeyVault/vaults/keys@2022-07-01' = {
     }
 ```
 
-We can verify that Key Vault has created a new, __HSM-backed__, key and that it contains our secure key __release policy__ by navigating to the Azure Portal and selecting our key. The intended key will be marked as "__exportable__".
+We can verify that Key Vault has created a new, __HSM-backed__, key and that it contains our secure key __release policy__ by navigating to the Azure portal and selecting our key. The intended key will be marked as "__exportable__".
 
-![Screenshot of the Azure Portal with the settings for key named 'my SKR key' visible. It shows another panel that shows the details of the secure key release policy.](media/skr-flow-confidential-vm-sev-snp-attestation/skr-onboard-key-with-policy.png)
+![Screenshot of the Azure portal with the settings for key named 'my SKR key' visible. It shows another panel that shows the details of the secure key release policy.](media/skr-flow-confidential-vm-sev-snp-attestation/skr-onboard-key-with-policy.png)
 
 ## Guest attestation client
 
@@ -432,7 +432,7 @@ The result from the Guest Attestation client simply is a base64 encoded string! 
 eyJhbGciO...
 ```
 
-The header contains a `jku`, also knows as [JWK Set URI](https://www.rfc-editor.org/rfc/rfc7515#section-4.1.2) which links to a set of JSON-encoded public keys. One of which corresponds to the key used to digitally sign the JWS. The `kid` indicates which key was used to sign the JWS.
+The header contains a `jku`, also known as [JWK Set URI](https://www.rfc-editor.org/rfc/rfc7515#section-4.1.2) which links to a set of JSON-encoded public keys. One of which corresponds to the key used to digitally sign the JWS. The `kid` indicates which key was used to sign the JWS.
 
 ```json
 {
@@ -443,7 +443,7 @@ The header contains a `jku`, also knows as [JWK Set URI](https://www.rfc-editor.
 }
 ```
 
-The body of the guest attestation response will get validated by Azure Key Vault as input to test against the key release policy. As reviously noted, Azure Key Vault uses the "`TpmEphemeralEncryptionKey`" as the key-encryption key.
+The body of the guest attestation response will get validated by Azure Key Vault as input to test against the key release policy. As previously noted, Azure Key Vault uses the "`TpmEphemeralEncryptionKey`" as the key-encryption key.
 
 ```json
 {
