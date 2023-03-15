@@ -93,6 +93,6 @@ In this quickstart, you learned how to create an Enterprise tier instance of Azu
 
 ## Recommended content
 
-> [Best practices for the Enterprise tiers - Azure Cache for Redis | Microsoft Learn](https://learn.microsoft.com/en-us/azure/azure-cache-for-redis/cache-best-practices-enterprise-tiers)
+[Best practices for the Enterprise tiers - Azure Cache for Redis | Microsoft Learn](https://learn.microsoft.com/en-us/azure/azure-cache-for-redis/cache-best-practices-enterprise-tiers)
 
 > Learn on the best practices for the Enterprise and Enterprise Flash tiers of Azure Cache for Redis
