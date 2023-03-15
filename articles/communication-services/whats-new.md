@@ -75,7 +75,7 @@ Data indicates that ~40% of customers abandon the Sample Builder due to the chal
 
 
 :::image type="content" lightbox="./media/whats-new-images/cy23Q1/sample-builder-feedback-lightbox.png" source="./media/whats-new-images/cy23Q1/sample-builder-feedback.png" alt-text="Screenshot showing sample Builder feedback form.":::  
-*Figure 4:  Feedback form.*
+*Figure 3:  Feedback form.*
 
 
 Sample Builder is already in General Availability and can be accessed [on Azure portal](https://ms.portal.azure.com/#@microsoft.onmicrosoft.com/resource/subscriptions/50ad1522-5c2c-4d9a-a6c8-67c11ecb75b8/resourceGroups/serooney-tests/providers/Microsoft.Communication/CommunicationServices/email-tests/sample_applications).  
@@ -87,7 +87,7 @@ Azure Communication Services Call Automation provides developers the ability to 
 ACS Call Automation can be used to build calling workflows for customer service scenarios, as depicted in the following high-level architecture. You can answer inbound calls or make outbound calls. Execute actions like playing a welcome message, connecting the customer to a live agent on an ACS Calling SDK client app to answer the incoming call request. With support for ACS PSTN or Direct Routing, you can then connect this workflow back to your contact center.
 
 :::image type="content" source="./media/whats-new-images/cy23Q1/call-automation-architecture.png" alt-text="Diagram of call automation architecture.":::
-*Figure 5: Call Automation Architecture*
+*Figure 4: Call Automation Architecture*
 
 To learn more, visit our [Call Automation overview article](./concepts/call-automation/call-automation.md).
 
