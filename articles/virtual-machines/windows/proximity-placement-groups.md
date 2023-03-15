@@ -36,8 +36,8 @@ $ppg = New-AzProximityPlacementGroup `
    -Location $location `
    -Name $ppgName `
    -ResourceGroupName $resourceGroup `
-   -ProximityPlacementGroupType Standard
-   -Zone $zone
+   -ProximityPlacementGroupType Standard `
+   -Zone $zone `
    -IntentVMSizeList $vmSize1, $vmSize2
 ```
 
