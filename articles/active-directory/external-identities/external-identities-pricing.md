@@ -6,13 +6,13 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 03/29/2022
+ms.date: 03/15/2023
 
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.workload: identity
-ms.collection: M365-identity-device-management
+ms.collection: engagement-fy23, M365-identity-device-management
 ---
 
 # Billing model for Azure AD External Identities
@@ -30,7 +30,6 @@ To take advantage of MAU billing, your Azure AD tenant must be linked to an Azur
 |---------|---------|
 | An Azure AD tenant already linked to a subscription     | Do nothing. When you use External Identities features to collaborate with guest users, you'll be automatically billed using the MAU model.        |
 | An Azure AD tenant not yet linked to a subscription     | [Link your Azure AD tenant to a subscription](#link-your-azure-ad-tenant-to-a-subscription) to activate MAU billing.        |
-|  |  |
 
 ## About monthly active users (MAU) billing
 
