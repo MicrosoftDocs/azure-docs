@@ -15,7 +15,7 @@ ms.custom: "include file"
 
 For an Event Hubs cluster, how much you can ingest and stream depends on various factors such as your producers, consumers, the rate at which you're ingesting and processing, and much more. 
 
-The following table shows the benchmark results that we achieved during our testing:
+The following table shows the benchmark results that we achieved during our testing a Legacy dedicated cluster:
 
 | Payload shape | Receivers | Ingress bandwidth| Ingress messages | Egress bandwidth | Egress messages | Total TUs | TUs per CU |
 | ------------- | --------- | ---------------- | ------------------ | ----------------- | ------------------- | --------- | ---------- |
@@ -30,7 +30,7 @@ In the testing, the following criteria were used:
 - The data that was ingested was received by two receiver applications receiving from all partitions.
 
 ### Can I scale up/down my cluster?
-If you created the cluster with the **Support Scaling** option set, you can use the [self-serve experience](../event-hubs-dedicated-cluster-create-portal.md#scale-event-hubs-dedicated-cluster) to scale out and scale in as needed. You can scale up to 10 CUs with self-serve scalable clusters. As self-serve scalable dedicated clusters are based out of new infrastructure, they are bound to be performant over dedicated clusters that don't support self-serve scaling. As the performance of dedicated clusters depends on various factors such as resource allocation, number of partitions, storage, and so on, we recommend you to determine the required number of CUs after testing with a real workload. 
+If you created the cluster with the **Support Scaling** option set, you can use the [self-serve experience](../event-hubs-dedicated-cluster-create-portal.md#scale-a-dedicated-cluster) to scale out and scale in as needed. You can scale up to 10 CUs with self-serve scalable clusters. As self-serve scalable dedicated clusters are based out of new infrastructure, they're bound to be performant over dedicated clusters that don't support self-serve scaling. As the performance of dedicated clusters depends on various factors such as resource allocation, number of partitions, storage, and so on, we recommend you to determine the required number of CUs after testing with a real workload. 
 
 [Submit a support request](../event-hubs-dedicated-cluster-create-portal.md#submit-a-support-request) in the following scenarios to scale out or scale in your dedicated cluster.
 
@@ -43,8 +43,9 @@ If you created the cluster with the **Support Scaling** option set, you can use 
 > You won't be able to delete the cluster for at least 4 hours after you create it. Therefore, you will be charged for a minimum 4 hours of usage of the cluster. For more information on pricing, see [Event Hubs - Pricing](https://azure.microsoft.com/pricing/details/event-hubs/). 
 
 
-### Can I migrate from non-scalable cluster to scalable cluster?
-Due to difference in the backend architecture, we don't currently support migration of clusters that don't support self-serve scaling to self-serve scalable dedicated clusters. If you would wish to use self-serve scaling, you must recreate the cluster with the support for scaling. To learn how to create scalable cluster, see [Create an Event Hubs dedicated cluster](../event-hubs-dedicated-cluster-create-portal.md). 
+### Can I migrate from a Legacy cluster to a Self-Serve Scalable cluster?
+Due to difference in the underlying hardware and software infrastructure, we don't currently support migration of clusters that don't support self-serve scaling to self-serve scalable dedicated clusters. If you would wish to use self-serve scaling, you must recreate the cluster. To learn how to create scalable cluster, see [Create an Event Hubs dedicated cluster](../event-hubs-dedicated-cluster-create-portal.md). 
+
 
 
 ### When to scale my dedicated cluster? 

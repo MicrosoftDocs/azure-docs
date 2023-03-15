@@ -7,6 +7,10 @@ items:
   items:
   - name: What is Azure Spring Apps?
     href: overview.md
+  - name: Compare Java application hosting options on Azure
+    href: /azure/architecture/guide/technology-choices/service-for-java-comparison?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+  - name: Migrate Spring workloads to Azure Spring Apps
+    href: /azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
 - name: Quickstarts
   expanded: true
   items:
@@ -339,6 +343,3 @@ items:
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: policy-reference.md
-  - name: What's New
-    displayName: What's New
-    href: https://azure.microsoft.com/updates/?query=spring

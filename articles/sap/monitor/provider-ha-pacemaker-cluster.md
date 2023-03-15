@@ -3,6 +3,7 @@ title: Create a High Availability Pacemaker cluster provider for Azure Monitor f
 description: Learn how to configure High Availability (HA) Pacemaker cluster providers for Azure Monitor for SAP solutions.
 author: MightySuz
 ms.service: sap-on-azure
+ms.subservice: sap-monitor
 ms.topic: how-to
 ms.date: 01/05/2023
 ms.author: sujaj
@@ -56,13 +57,13 @@ For RHEL-based pacemaker clusters, also install [PMProxy](https://access.redhat.
     ```
 
     ```bash
-    . ./install
+    ./Install
     ```
 
 1. Enable and start the `pmproxy` service.
 
     ```bash
-    sstemctl start pmproxy
+    systemctl start pmproxy
     ```
 
     ```bash

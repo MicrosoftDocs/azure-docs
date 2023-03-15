@@ -33,7 +33,7 @@ There are two versions of group writeback. The original version is in general av
 - Written-back groups nested as members of on-premises Active Directory synced groups will be synced up to Azure AD as nested. 
 - Devices that are members of writeback-enabled groups in Azure AD will be written back as members of Active Directory. Azure AD-registered and Azure AD-joined devices require device writeback to be enabled for group membership to be written back.
 - You can configure the common name in an Active Directory group's distinguished name to include the group's display name when it's written back.  
-- You can use the Azure AD admin portal, Graph Explorer, and PowerShell to configure which Azure AD groups are written back. 
+- You can use the Azure portal, Graph Explorer, and PowerShell to configure which Azure AD groups are written back. 
 
 The new version is enabled on the tenant and not per Azure AD Connect client instance. Make sure that all Azure AD Connect client instances are updated to a minimal build of [Azure AD Connect version 2.0 or later](https://www.microsoft.com/download/details.aspx?id=47594) if group writeback is currently enabled on the client instance. 
 
@@ -135,11 +135,6 @@ These limitations and known issues are specific to group writeback:
 - Group Writeback does not support writeback of nested group members that have a scope of ‘Domain local’ in AD, since Azure AD security groups are written back with scope ‘Universal’. If you have a nested group like this, you'll see an export error in Azure AD Connect with the message “A universal group cannot have a local group as a member.”  The resolution is to remove the member with scope ‘Domain local’ from the Azure AD group or update the nested group member scope in AD to ‘Global’ or ‘Universal’ group. 
 - Nested cloud groups that are members of writeback enabled groups must also be enabled for writeback to remain nested in AD. 
 - Group Writeback setting to manage new security group writeback at scale is not yet available. You will need to configure writeback for each group.  
-
-  If you have a nested group like this, you'll see an export error in Azure AD Connect with the message "A universal group cannot have a local group as a member." The resolution is to remove the member with the **Domain local** scope from the Azure AD group, or update the nested group member scope in Active Directory to **Global** or **Universal**. 
-- Group writeback supports writing back groups to only a single organizational unit (OU). After the feature is enabled, you can't change the OU that you selected. A workaround is to disable group writeback entirely in Azure AD Connect and then select a different OU when you re-enable the feature.  
-- Nested cloud groups that are members of writeback-enabled groups must also be enabled for writeback to remain nested in Active Directory. 
-- A group writeback setting to manage new security group writeback at scale is not yet available. You need to configure writeback for each group.   
 
 ## Next steps 
 

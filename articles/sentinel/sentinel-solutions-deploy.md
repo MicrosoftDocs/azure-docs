@@ -161,11 +161,11 @@ When a solution is installed, any parsers included are added as workspace functi
 
 ## Find the support model for your content
 
-Each solution explains its support model on the solution's details pane, in the **Support** box, where either **Microsoft** or a partner's name is listed. For example:
+Each solution and standalone content item explains its support model on its details pane, in the **Support** box, where either **Microsoft** or a partner's name is listed. For example:
 
 :::image type="content" source="media/sentinel-solutions-deploy/find-support-details.png" alt-text="Screenshot of where you can find your support model for your solution." lightbox="media/sentinel-solutions-deploy/find-support-details.png":::
 
-When contacting support, you may need other details about your solution, such as a publisher, provider, and plan ID values. You can find each of these on the solution's details page, on the **Usage information & support** tab. For example:
+When contacting support, you may need other details about your solution, such as a publisher, provider, and plan ID values. You can find each of these on the details page, on the **Usage information & support** tab. For example:
 
 :::image type="content" source="media/sentinel-solutions-deploy/usage-support.png" alt-text="Screenshot of usage and support details for a solution.":::
 

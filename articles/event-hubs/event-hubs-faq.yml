@@ -17,6 +17,11 @@ sections:
           A namespace is a scoping container for Event Hub/Kafka Topics. It gives you a unique [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name). A namespace serves as an application container that can house multiple Event Hub/Kafka Topics. 
           
       - question: |
+          Is it possible to change pricing tier after deployment?
+        answer: |
+          No. Once deployed, it is not possible to change (for example) from Standard Tier to Premium Tier without deploying a new resource.
+          
+      - question: |
           When do I create a new namespace vs. use an existing namespace?
         answer: |
           Capacity allocations throughput units (TUs) or [processing units (PUs)](./event-hubs-scalability.md#processing-units)) are billed at the namespace level. A namespace is also associated with a region.
@@ -216,7 +221,7 @@ sections:
       - question: |
           How is Event Hubs Capture billed?
         answer: |
-          Capture is enabled when any event hub in the namespace has the Capture option enabled. Event Hubs Capture is billed hourly per purchased throughput unit. As the throughput unit count is increased or decreased, Event Hubs Capture billing reflects these changes in whole hour increments. For more information about Event Hubs Capture billing, see [Event Hubs pricing information](https://azure.microsoft.com/pricing/details/event-hubs/).
+          Capture is enabled when any event hub in the namespace has the Capture option enabled. Event Hubs Capture is billed monthly per purchased throughput unit. As the throughput unit count is increased or decreased, Event Hubs Capture billing reflects these changes in whole hour increments. For more information about Event Hubs Capture billing, see [Event Hubs pricing information](https://azure.microsoft.com/pricing/details/event-hubs/).
           
       - question: |
           Do I get billed for the storage account I select for Event Hubs Capture?

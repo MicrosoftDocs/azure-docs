@@ -254,7 +254,7 @@ Perhaps your application sends voluminous amounts of data and you're using the A
 
 <!--Link references-->
 
-[availability]: ./monitor-web-app-availability.md
+[availability]: ./availability-overview.md
 [diagnostic]: ./diagnostic-search.md
 [exceptions]: asp-net-exceptions.md
 [portal]: https://portal.azure.com/

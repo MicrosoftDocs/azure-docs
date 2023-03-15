@@ -41,12 +41,16 @@ If this isn't the case, we suggest you start with one of the following articles,
 > [!NOTE]
 > If your app uses [Extension Bundles](../functions-bindings-register.md#extension-bundles), you should ignore this section as Extension Bundles removes the need for manual Extension management.
 
-You'll need to install the latest version of the  `Microsoft.Azure.DurableTask.Netherite.AzureFunctions` [Extension on NuGet](https://www.nuget.org/packages/Microsoft.Azure.DurableTask.Netherite.AzureFunctions) on your app. This usually means to include a reference to it in your `.csproj` file and building the project.
+You'll need to install the latest version of the Netherite Extension on NuGet. This usually means including a reference to it in your `.csproj` file and building the project.
+
+The Extension package to install depends on the .NET worker you are using:
+- For the _in-process_ .NET worker, install [`Microsoft.Azure.DurableTask.Netherite.AzureFunctions`](https://www.nuget.org/packages/Microsoft.Azure.DurableTask.Netherite.AzureFunctions).
+- For the _isolated_ .NET worker, install [`Microsoft.Azure.Functions.Worker.Extensions.DurableTask.Netherite`](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask.Netherite).
 
 You can install the Extension using the following [Azure Functions Core Tools CLI](../functions-run-local.md#install-the-azure-functions-core-tools) command
 
 ```cmd
-func extensions install --package Microsoft.Azure.DurableTask.Netherite.AzureFunctions --version <latestVersionOnNuget>
+func extensions install --package <package name depending on your worker model> --version <latest version>
 ```
 
 For more information on installing Azure Functions Extensions via the Core Tools CLI, see [this guide](../functions-run-local.md#install-extensions).
@@ -95,7 +99,7 @@ The snippet above is just a *minimal* configuration. Later, you may want to cons
 
 Your app is now ready for local development: You can start the Function app to test it. One way to do this is to run `func host start` on your application's root and executing a simple orchestrator Function.
 
-While the function app is running, Netherite will publish load information about its active partitions to an Azure Storage table named "DurableTaskPartitions". You can use [Azure Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer) to check that it's working as expected. If Netherite is running correctly, the table won't be empty; see the example below.
+While the function app is running, Netherite will publish load information about its active partitions to an Azure Storage table named "DurableTaskPartitions". You can use [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) to check that it's working as expected. If Netherite is running correctly, the table won't be empty; see the example below.
 
 ![Data on the "DurableTaskPartitions" table in the Azure Storage Explorer.](./media/quickstart-netherite/partition-table.png)
 
@@ -104,7 +108,7 @@ While the function app is running, Netherite will publish load information about
 
 ## Run your app on Azure
 
-You need to create an Azure Functions app on Azure. To do this, follow the instructions in the **Create a function app** section of [these instructions](/azure/azure-functions/functions-create-function-app-portal#create-a-function-app-a-function).
+You need to create an Azure Functions app on Azure. To do this, follow the instructions in the **Create a function app** section of [these instructions](../functions-create-function-app-portal.md).
 
 ### Set up Event Hubs
 
@@ -115,7 +119,7 @@ You will need to set up an Event Hubs namespace to run Netherite on Azure. You c
 
 #### Create an Event Hubs namespace
 
-Follow [these steps](/azure/event-hubs/event-hubs-create#create-an-event-hubs-namespace) to create an Event Hubs namespace on the Azure portal. When creating the namespace, you may be prompted to:
+Follow [these steps](../../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace) to create an Event Hubs namespace on the Azure portal. When creating the namespace, you may be prompted to:
 
 1. Choose a *resource group*: Use the same resource group as the Function app.
 2. Choose a *plan* and provision *throughput units*. Select the defaults, this setting can be changed later.

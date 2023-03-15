@@ -433,11 +433,11 @@ During the process of the migration, your app may already have a test environmen
 
 You can test each app by logging in with a test user and make sure all functionality is the same as prior to the migration. If you determine during testing that users will need to update their [MFA](../authentication/howto-mfa-userstates.md) or [SSPR](../authentication/tutorial-enable-sspr.md)settings, or you are adding this functionality during the migration, be sure to add that to your end-user communication plan. See [MFA](https://aka.ms/mfatemplates) and [SSPR](https://aka.ms/ssprtemplates) end-user communication templates.
 
-Once you have migrated the apps, go to the [Azure portal](https://aad.portal.azure.com/) to test if the migration was a success. Follow the instructions below:
+Once you have migrated the apps, go to the [Azure portal](https://portal.azure.com/) to test if the migration was a success. Follow the instructions below:
 
-- Select **Enterprise Applications &gt; All applications** and find your app from the list.
-- Select **Manage &gt; Users and groups** to assign at least one user or group to the app.
-- Select **Manage &gt; Conditional Access**. Review your list of policies and ensure that you are not blocking access to the application with a [conditional access policy](../conditional-access/overview.md).
+- Browse to **Azure Active Directory** > **Enterprise Applications** > **All applications** and find your app from the list.
+- Select **Users and groups** to assign at least one user or group to the app.
+- Select **Conditional Access**. Review your list of policies and ensure that you are not blocking access to the application with a [conditional access policy](../conditional-access/overview.md).
 
 Depending on how you configure your app, verify that SSO works properly.
 
@@ -553,5 +553,5 @@ Visit the following support links to create or track support ticket and monitor 
 
 - **Azure Support:** You can call [Microsoft Support](https://azure.microsoft.com/support) and open a ticket for any Azure Identity deployment issue depending on your Enterprise Agreement with Microsoft.
 - **FastTrack**: If you have purchased Enterprise Mobility and Security (EMS) or Azure AD Premium licenses, you are eligible to receive deployment assistance from the [FastTrack program.](/enterprise-mobility-security/solutions/enterprise-mobility-fasttrack-program)
-- **Engage the Product Engineering team:** If you are working on a major customer deployment with millions of users, you are entitled to support from the Microsoft account team or your Cloud Solutions Architect. Based on the project’s deployment complexity, you can work directly with the [Azure Identity Product Engineering team.](https://aad.portal.azure.com/#blade/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/solutionProviders)
+- **Engage the Product Engineering team:** If you are working on a major customer deployment with millions of users, you are entitled to support from the Microsoft account team or your Cloud Solutions Architect. Based on the project’s deployment complexity, you can work directly with the [Azure Identity Product Engineering team.](https://portal.azure.com/#blade/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/solutionProviders)
 - **Azure AD Identity blog:** Subscribe to the [Azure AD Identity blog](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/bg-p/Identity) to stay up to date with all the latest product announcements, deep dives, and roadmap information provided directly by the Identity engineering team.

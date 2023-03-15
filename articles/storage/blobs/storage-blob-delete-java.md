@@ -6,7 +6,7 @@ services: storage
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 11/16/2022
+ms.date: 02/16/2023
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
@@ -58,6 +58,57 @@ To restore a soft-deleted blob when versioning is enabled, copy a previous versi
 This method restores the content and metadata of a soft-deleted blob and any associated soft-deleted snapshots. Calling this method for a blob that hasn't been deleted has no effect. 
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobDelete.java" id="Snippet_RestoreBlobVersion":::
+
+## Restore soft-deleted blobs and directories (hierarchical namespace)
+
+> [!IMPORTANT]
+> This section applies only to accounts that have a hierarchical namespace.
+
+1. To get started, open the *pom.xml* file in your text editor. Add the following dependency element to the group of dependencies.
+
+   ```xml
+   <dependency>
+     <groupId>com.azure</groupId>
+     <artifactId>azure-storage-file-datalake</artifactId>
+     <version>12.6.0</version>
+   </dependency>
+   ```
+
+2. Then, add these imports statements to your code file.
+
+   ```java
+   Put imports here
+   ```
+
+3. The following snippet restores a soft-deleted file named `my-file`.
+
+   This method assumes that you've created a **DataLakeServiceClient** instance. To learn how to create a **DataLakeServiceClient** instance, see [Connect to the account](data-lake-storage-directory-file-acl-java.md#connect-to-the-account).
+
+   ```java
+
+   public void RestoreFile(DataLakeServiceClient serviceClient){
+
+       DataLakeFileSystemClient fileSystemClient =
+           serviceClient.getFileSystemClient("my-container");
+
+       DataLakeFileClient fileClient =
+           fileSystemClient.getFileClient("my-file");
+
+       String deletionId = null;
+
+       for (PathDeletedItem item : fileSystemClient.listDeletedPaths()) {
+
+           if (item.getName().equals(fileClient.getFilePath())) {
+              deletionId = item.getDeletionId();
+           }
+       }
+
+       fileSystemClient.restorePath(fileClient.getFilePath(), deletionId);
+    }
+
+   ```
+
+   If you rename the directory that contains the soft-deleted items, those items become disconnected from the directory. If you want to restore those items, you'll have to revert the name of the directory back to its original name or create a separate directory that uses the original directory name. Otherwise, you'll receive an error when you attempt to restore those soft-deleted items.
 
 ## Resources
 

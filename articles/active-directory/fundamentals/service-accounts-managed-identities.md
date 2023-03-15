@@ -47,7 +47,7 @@ Azure control plane operations are managed by Azure Resource Manager and use Azu
 
 Learn more:
 * [What is Azure Resource Manager?](../../azure-resource-manager/management/overview.md)
-* [What is Azure RBAC?](../../role-based-access-control/overview.md)
+* [What is Azure role-based Azure RBAC?](../../role-based-access-control/overview.md)
 * [Azure control plane and data plane](../../azure-resource-manager/management/control-plane-and-data-plane.md)
 * [Azure services that can use managed identities to access other services](../managed-identities-azure-resources/managed-identities-status.md)
 

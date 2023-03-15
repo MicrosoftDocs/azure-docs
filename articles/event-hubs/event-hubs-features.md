@@ -3,7 +3,7 @@ title: Overview of features - Azure Event Hubs | Microsoft Docs
 description: This article provides details about features and terminology of Azure Event Hubs. 
 ms.topic: overview
 ms.custom: event-tier1-build-2022
-ms.date: 08/25/2022
+ms.date: 02/09/2023
 ---
 
 # Features and terminology in Azure Event Hubs
@@ -47,7 +47,7 @@ Event Hubs ensures that all events sharing a partition key value are stored toge
 
 Published events are removed from an event hub based on a configurable, timed-based retention policy. Here are a few important points:
 
-- The **default** value and **shortest** possible retention period is **1 hour**.
+- The **default** value and **shortest** possible retention period is **1 hour**. Currently, you can set the retention period in hours only in the Azure portal. Resource Manager template, PowerShell, and CLI allow this property to be set only in days. 
 - For Event Hubs **Standard**, the maximum retention period is **7 days**. 
 - For Event Hubs  **Premium** and **Dedicated**, the maximum retention period is **90 days**.
 - If you change the retention period, it applies to all events including events that are already in the event hub. 
@@ -166,7 +166,7 @@ If a reader disconnects from a partition, when it reconnects it begins reading a
 
 ### Log compaction 
 
-Azure Event Hubs supports compacting event log to retain the latest events of a given event key. With compacted event hubs/Kafka topic, you can use key-baesd retention rather than using the coarser-grained time-based retention. 
+Azure Event Hubs supports compacting event log to retain the latest events of a given event key. With compacted event hubs/Kafka topic, you can use key-based retention rather than using the coarser-grained time-based retention. 
 
 For more information on log compaction, see [Log compaction](log-compaction.md). 
 

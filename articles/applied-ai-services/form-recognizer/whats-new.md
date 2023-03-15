@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 01/30/2023
+ms.date: 03/03/2023
 ms.author: lajanuar
 monikerRange: '>=form-recog-2.1.0'
 recommendations: false
@@ -27,45 +27,114 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 >[!NOTE]
 > With the release of the 2022-08-31 GA API, the associated preview APIs are being deprecated. If you are using the 2021-09-30-preview or the 2022-01-30-preview API versions, please update your applications to target the 2022-08-31 API version. There are a few minor changes involved, for more information, _see_ the [migration guide](v3-migration-guide.md).
 
+## March 2023
+
+> [!IMPORTANT]
+> Document classification, Query fields, and Add-on capabilities are currently only available in the following regions:
+>
+> * West Europe
+> * West US2
+> * East US
+
+* **Document classification** is now a new capability within Form Recognizer starting with the ```2023-02-28-preview``` API. Try out the document classification capability in the [Studio](https://formrecognizer-dogfood.appliedai.azure.com/studio/) or the REST API.
+* **Query fields** added to the General Document model uses Open AI model to extract specific fields from documents. See the [general document](concept-general-document.md) model to learn more or try the feature in the [Studio](https://formrecognizer-dogfood.appliedai.azure.com/studio/). Query fields are currently only active for resources in the East US region.
+* **Additions to the Read and Layout APIs**
+  * **Barcodes** are now supported with the ```2023-02-28-preview``` API.
+  * **Fonts** are now recognized with the ```2023-02-28-preview``` API.
+  * **Formulas** are now recognized with the ```2023-02-28-preview``` API.
+* **Common name** normalizing key variation to a common name makes the General Document model more useful in processing forms with variations in key names. Learn more about the common name feature in the [General Document model](concept-general-document.md).
+* **Custom extraction model updates**
+  * Custom neural models now support added languages for training and analysis. Train neural models for Dutch, French, German, Italian and Spanish.
+  * Custom template models now have an improved signature detection capability.
+* **Service Updates**
+  * Support for high resolution documents
+* **Studio updates**
+  * In addition to support for all the new features like classification and query fields, the Studio now enables project sharing for custom model projects.
+* **Receipt model updates**
+  * Receipt model has added support for thermal receipts.
+  * Receipt model now has added language support for 18 languages and three language dialects (English, French, Portuguese).
+  * Receipt model now supports `TaxDetails` extraction.
+* **Layout model** now has improved table recognition.
+* **Read model** now has added improvement for single-digit character recognition.
+
+---
+
+## February 2023
+
+* Select Form Recognizer containers for v3.0 are now available for use!
+* Currently **Read v3.0** and **Layout v3.0** containers are available.
+
+  For more information, _see_ [Install and run Form Recognizer containers](containers/form-recognizer-container-install-run.md?view=form-recog-3.0.0&preserve-view=true)
+
+---
+
 ## January 2023
+
+* Prebuilt receipt model -  added languages supported. The receipt model now supports these added languages and locales
+  * Japanese - Japan (ja-JP)
+  * French - Canada (fr-CA)
+  * Dutch - Netherlands (nl-NL)
+  * English - United Arab Emirates (en-AE)
+  * Portuguese - Brazil (pt-BR)
+
+* Prebuilt invoice model - added languages supported. The invoice model now supports these added languages and locales
+  * English - United States (en-US), Australia (en-AU), Canada (en-CA), Great Britain (en-GB), India (en-IN)
+  * Spanish - Spain (es-ES)
+  * French - France (fr-FR)
+  * Italian - Italy (it-IT)
+  * Portuguese - Portugal (pt-PT)
+  * Dutch - Netherlands (nl-NL)
+
+* Prebuilt invoice model - added fields recognized. The invoice model now recognizes these added fields
+  * Currency code
+  * Payment options
+  * Total discount
+  * Tax items (en-IN only)
+
+* Prebuilt ID model - added document types supported. The ID model now supports these added document types
+  * US Military ID
 
 > [!TIP]
 > All January 2023 updates are available with [REST API version **2022-08-31 (GA)**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument).
 
-* **[Prebuilt receipt model](concept-receipt.md#supported-languages-and-locales-v30) —additional language support**:
+* **[Prebuilt receipt model](concept-receipt.md#supported-languages-and-locales)—additional language support**:
 
    The **prebuilt receipt model** now has added support for the following languages:
 
-  * English - United Arab Emirates (en-ae)
-  * Dutch - Netherlands (nl-nl)
-  * French - Canada (fr-ca)
-  * Japanese - Japan (ja-jp)
-  * Portuguese - Brazil (pt-br)
+  * English - United Arab Emirates (en-AE)
+  * Dutch - Netherlands (nl-NL)
+  * French - Canada (fr-CA)
+  * German - (de-DE)
+  * Italian - (it-IT)
+  * Japanese - Japan (ja-JP)
+  * Portuguese - Brazil (pt-BR)
 
 * **[Prebuilt invoice model](concept-invoice.md)—additional language support and field extractions**
 
   The **prebuilt invoice model** now has added support for the following languages:
 
-  * English - Australia (en-au), Canada (en-ca), Great Britain (en-gb), India (en-in)
-  * Portuguese - Brazil (pt-br)
+  * English - Australia (en-AU), Canada (en-CA), Great Britain (en-GB), India (en-IN)
+  * Portuguese - Brazil (pt-BR)
 
   The **prebuilt invoice model** now has added support for the following field extractions:
 
   * Currency code
   * Payment options
   * Total discount
-  * Tax items (en-in only)
+  * Tax items (en-IN only)
 
 * **[Prebuilt ID document model](concept-id-document.md#document-types)—additional document types support**
 
   The **prebuilt ID document model** now has added support for the following document types:
 
-  * Passport, driver's license, and residence permit ID expansion
+  * Driver's license expansion supporting India, Canada, United Kingdom and Australia
   * US military ID cards and documents
-  * India ID cards and documents
-  * Australia ID cards and documents
-  * Canada ID cards and documents
-  * United Kingdom ID cards and documents
+  * India ID cards and documents (PAN and Aadhaar)
+  * Australia ID cards and documents (photo card, Key-pass ID)
+  * Canada ID cards and documents (identification card, Maple card)
+  * United Kingdom ID cards and documents (national identity card)
+
+---
 
 ## December 2022
 
@@ -284,7 +353,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
   * [**prebuilt-read**](concept-read.md). Read OCR model is now also available in Form Recognizer with paragraphs and language detection as the two new features. Form Recognizer Read targets advanced document scenarios aligned with the broader document intelligence capabilities in Form Recognizer.
   * [**prebuilt-layout**](concept-layout.md). The Layout model extracts paragraphs and whether the extracted text is a paragraph, title, section heading, footnote, page header, page footer, or page number.
-  * [**prebuilt-invoice**](concept-invoice.md). The TotalVAT and Line/VAT fields will now resolve to the existing fields TotalTax and Line/Tax respectively.
+  * [**prebuilt-invoice**](concept-invoice.md). The TotalVAT and Line/VAT fields now resolves to the existing fields TotalTax and Line/Tax respectively.
   * [**prebuilt-idDocument**](concept-id-document.md). Data extraction support for US state ID, social security, and green cards. Support for passport visa information.
   * [**prebuilt-receipt**](concept-receipt.md). Expanded locale support for French (fr-FR), Spanish (es-ES), Portuguese (pt-PT), Italian (it-IT) and German (de-DE).
   * [**prebuilt-businessCard**](concept-business-card.md). Address parsing support to extract subfields for address components like address, city, state, country, and zip code.
@@ -765,17 +834,17 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
    [Learn more about the invoice model](./concept-invoice.md)
 
-* **Supervised table labeling and training, empty-value labeling** - In addition to Form Recognizer's [state-of-the-art deep learning automatic table extraction capabilities](https://techcommunity.microsoft.com/t5/azure-ai/enhanced-table-extraction-from-documents-with-form-recognizer/ba-p/2058011), it now enables customers to label and train on tables. This new release includes the ability to label and train on line items/tables (dynamic and fixed) and train a custom model to extract key-value pairs and line items. Once a model is trained, the model will extract line items as part of the JSON output in the documentResults section.
+* **Supervised table labeling and training, empty-value labeling** - In addition to Form Recognizer's [state-of-the-art deep learning automatic table extraction capabilities](https://techcommunity.microsoft.com/t5/azure-ai/enhanced-table-extraction-from-documents-with-form-recognizer/ba-p/2058011), it now enables customers to label and train on tables. This new release includes the ability to label and train on line items/tables (dynamic and fixed) and train a custom model to extract key-value pairs and line items. Once a model is trained, the model extracts line items as part of the JSON output in the documentResults section.
 
     :::image type="content" source="./media/table-labeling.png" alt-text="Screenshot of the table labeling feature." lightbox="./media/table-labeling.png":::
 
-    In addition to labeling tables, you can now label empty values and regions. If some documents in your training set don't have values for certain fields, you can label them so that your model will know to extract values properly from analyzed documents.
+    In addition to labeling tables, you can now label empty values and regions. If some documents in your training set don't have values for certain fields, you can label them so that your model knows to extract values properly from analyzed documents.
 
 * **Support for 66 new languages** - The Layout API and Custom Models for Form Recognizer now support 73 languages.
 
   [Learn more about Form Recognizer's language support](language-support.md)
 
-* **Natural reading order, handwriting classification, and page selection** - With this update, you can choose to get the text line outputs in the natural reading order instead of the default left-to-right and top-to-bottom ordering. Use the new readingOrder query parameter and set it to "natural" value for a more human-friendly reading order output. In addition, for Latin languages, Form Recognizer will classify text lines as handwritten style or not and give a confidence score.
+* **Natural reading order, handwriting classification, and page selection** - With this update, you can choose to get the text line outputs in the natural reading order instead of the default left-to-right and top-to-bottom ordering. Use the new readingOrder query parameter and set it to "natural" value for a more human-friendly reading order output. In addition, for Latin languages, Form Recognizer classifies text lines as handwritten style or not and give a confidence score.
 
 * **Prebuilt receipt model quality improvements** This update includes many quality improvements for the prebuilt Receipt model, especially around line item extraction.
 
@@ -801,7 +870,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
   * **New language supported: Japanese** - The following new languages are now supported: for `AnalyzeLayout` and `AnalyzeCustomForm`: Japanese (`ja`). [Language support](language-support.md)
   * **Text line style indication (handwritten/other) (Latin languages only)** - Form Recognizer now outputs an `appearance` object classifying whether each text line is handwritten style or not, along with a confidence score. This feature is supported only for Latin languages.
   * **Quality improvements** - Extraction improvements including single digit extraction improvements.
-  * **New try-it-out feature in the Form Recognizer Sample and Labeling Tool** - Ability to try out prebuilt Invoice, Receipt, and Business Card models and the Layout API using the Form Recognizer Sample Labeling tool. See how your data will be extracted without writing any code.
+  * **New try-it-out feature in the Form Recognizer Sample and Labeling Tool** - Ability to try out prebuilt Invoice, Receipt, and Business Card models and the Layout API using the Form Recognizer Sample Labeling tool. See how your data is extracted without writing any code.
 
   * [**Try the Form Recognizer Sample Labeling tool**](https://fott-2-1.azurewebsites.net)
 

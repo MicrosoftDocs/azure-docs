@@ -6,17 +6,15 @@ services: load-testing
 ms.service: load-testing
 ms.author: nicktrog
 author: ntrogh
-ms.date: 03/31/2022
+ms.date: 02/10/2023
 ms.topic: how-to
 
 ---
 # Export test results from Azure Load Testing for use in third-party tools
 
-In this article, you'll learn how to download the test results from Azure Load Testing in the Azure portal. You might use these results for reporting in third-party tools.
+In this article, you learn how to download the test results from Azure Load Testing in the Azure portal. You might use these results for reporting in third-party tools or for diagnosing test failures. Azure Load Testing generates the test results in comma-separated values (CSV) file format, and provides details of each application request for the load test.
 
-The test results contain comma-separated values (CSV) file(s) with details of each application request. See [Apache JMeter CSV log format](https://jmeter.apache.org/usermanual/listeners.html#csvlogformat) and the [Apache JMeter Glossary](https://jmeter.apache.org/usermanual/glossary.html) for details about the different fields.
-
-You can also use the test results to diagnose errors during a load test. The `responseCode` and `responseMessage` fields give you more information about failed requests. For more information about investigating errors, see [Troubleshoot test execution errors](./how-to-find-download-logs.md).
+You can also use the test results to diagnose errors during a load test. The `responseCode` and `responseMessage` fields give you more information about failed requests. For more information about investigating errors, see [Troubleshoot test execution errors](./how-to-troubleshoot-failing-test.md).
 
 You can generate the Apache JMeter dashboard from the CSV log file following the steps mentioned [here](https://jmeter.apache.org/usermanual/generating-dashboard.html#report).
 
@@ -25,9 +23,26 @@ You can generate the Apache JMeter dashboard from the CSV log file following the
 - An Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.  
 - An Azure Load Testing resource that has a completed test run. If you need to create an Azure Load Testing resource, see [Create and run a load test](./quickstart-create-and-run-load-test.md).  
 
+## Test results file
+
+Azure Load Testing generates a test results CSV file for each [test engine instance](./concept-load-testing-concepts.md#test-engine). Learn how you can [scale out your load test](./how-to-high-scale-load.md).
+
+Azure Load Testing uses the [Apache JMeter CSV log format](https://jmeter.apache.org/usermanual/listeners.html#csvlogformat). For more information about the different fields, see the [JMeter Glossary in the Apache JMeter documentation](https://jmeter.apache.org/usermanual/glossary.html).
+
+You can find the details of each application request for the load test run in the test results file. The following snippet shows a sample test result:
+
+```output
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1676040230680,104,Homepage,200,OK,172.18.33.7-Thread Group 1-5,text,true,,1607,133,5,5,https://www.example.com/,104,0,100
+1676040230681,101,Homepage,200,OK,172.18.33.7-Thread Group 1-3,text,true,,1591,133,5,5,https://www.example.com/,101,0,93
+1676040230680,101,Homepage,200,OK,172.18.33.7-Thread Group 1-1,text,true,,1591,133,5,5,https://www.example.com/,98,0,94
+```
+
 ## Access and download load test results
 
-In this section, you'll retrieve and download the Azure Load Testing results file from the Azure portal.
+# [Azure portal](#tab/portal)
+
+To download the test results for a test run in the Azure portal:
 
 1. In the [Azure portal](https://portal.azure.com), go to your Azure Load Testing resource.
 
@@ -57,8 +72,70 @@ In this section, you'll retrieve and download the Azure Load Testing results fil
 
     The folder contains a separate CSV file for every test engine and contains details of requests that the test engine executed during the load test.
 
+# [GitHub Actions](#tab/github)
+
+When you run a load test as part of your CI/CD pipeline, Azure Load Testing generates a test results file. Follow these steps to publish these test results and attach them to your CI/CD pipeline run:
+
+1. Go to your GitHub repository, and select **Code**.
+
+1. In the **Code** window, select your GitHub Actions workflow YAML file in the `.github/workflow` folder.
+
+    :::image type="content" source="./media/how-to-export-test-results/github-repository-workflow-definition-file.png" alt-text="Screenshot that shows the folder that contains the GitHub Actions workflow definition file." lightbox="./media/how-to-export-test-results/github-repository-workflow-definition-file.png":::
+
+1. Edit the workflow file and add the `actions/upload-artifact` action after the `azure/load-testing` action in the workflow file.
+
+    Azure Load Testing places the test results in the `loadTest` folder of the GitHub Actions workspace.
+
+    ```yml
+    - name: 'Azure Load Testing'
+        uses: azure/load-testing@v1
+        with:
+          loadTestConfigFile: 'SampleApp.yaml'
+          loadTestResource: ${{ env.LOAD_TEST_RESOURCE }}
+          resourceGroup: ${{ env.LOAD_TEST_RESOURCE_GROUP }}
+      
+    - uses: actions/upload-artifact@v2
+      with:
+        name: loadTestResults
+        path: ${{ github.workspace }}/loadTest
+    ```
+
+1. After your GitHub Actions workflow completes, you can select the test results from the **Artifacts** section on the **Summary** page of the workflow run.
+
+    :::image type="content" source="./media/how-to-export-test-results/github-actions-run-summary.png" alt-text="Screenshot that shows the GitHub Actions workflow summary page, highlighting the test results in the Artifacts section." lightbox="./media/how-to-export-test-results/github-actions-run-summary.png":::
+
+# [Azure Pipelines](#tab/pipelines)
+
+When you run a load test as part of your CI/CD pipeline, Azure Load Testing generates a test results file. Follow these steps to publish these test results and attach them to your CI/CD pipeline run:
+
+1. In your Azure DevOps project, select **Pipelines** in the left navigation, and select your pipeline from the list.
+
+1. On the pipeline details page, select **Edit** to edit the workflow definition.
+
+1. Edit the workflow file and add the `publish` task after the `AzureLoadTest` task in the workflow file.
+
+    Azure Load Testing places the test results in the `loadTest` folder of the Azure Pipelines default working directory.
+
+    ```yml
+    - task: AzureLoadTest@1
+      inputs:
+        azureSubscription: $(serviceConnection)
+        loadTestConfigFile: 'SampleApp.yaml'
+        resourceGroup: $(loadTestResourceGroup)
+        loadTestResource: $(loadTestResource)
+          
+    - publish: $(System.DefaultWorkingDirectory)/loadTest
+      artifact: results
+    ```
+1. After your Azure Pipelines workflow completes, you can select the test results from the **Stages** section on the **Summary** page of the workflow run.
+
+    You can find and download the test results in the **Results** folder.
+
+    :::image type="content" source="./media/how-to-export-test-results/azure-pipelines-run-summary.png" alt-text="Screenshot that shows the Azure Pipelines workflow summary page, highlighting the test results in the Stages section." lightbox="./media/how-to-export-test-results/azure-pipelines-run-summary.png":::
+---
+
 ## Next steps
 
-- Learn more about [Troubleshooting test execution errors](./how-to-find-download-logs.md).
+- Learn more about [Troubleshooting test execution errors](./how-to-troubleshoot-failing-test.md).
 - For information about comparing test results, see [Compare multiple test results](./how-to-compare-multiple-test-runs.md).
 - To learn about performance test automation, see [Configure automated performance testing](./tutorial-identify-performance-regression-with-cicd.md).
