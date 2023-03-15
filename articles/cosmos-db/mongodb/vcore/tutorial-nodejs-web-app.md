@@ -36,7 +36,7 @@ To complete this tutorial, you need the following resources:
 
 ## Set up your environment
 
-Let's start by setting up your dev environment.
+Let's start by setting up your dev environment. You have the choice of **GitHub Codespaces** or **Visual Studio Code** as your integrated development environment (IDE).
 
 ### [GitHub Codespaces](#tab/github-codespaces)
 
@@ -59,15 +59,13 @@ For the most straightforward dev environment, we use GitHub Codespaces so that y
 1. Check the versions of the tools you use in this tutorial.
 
     ```shell
+    docker --version
+
     node --version
 
     npm --version
 
-    mongosh --version
-
     az --version
-
-    docker --version
     ```
 
     > [!NOTE]
@@ -75,21 +73,22 @@ For the most straightforward dev environment, we use GitHub Codespaces so that y
     >
     > | Tool | Version |
     > | --- | --- |
+    > | Docker | &ge; 20.10.0 |
     > | Node.js | &ge; 18.0150 |
     > | NPM | &ge; 9.5.0 |
-    > | Mongo shell | &ge; 1.8.0 |
     > | Azure CLI | &ge; 2.46.0 |
-    > | Docker | &ge; 20.10.0 |
     >
 
 ### [Visual Studio Code](#tab/visual-studio-code)
 
 Alternatively, you can complete this tutorial in [Visual Studio Code](https://code.visualstudio.com) with the following prerequisites installed:
 
-- [Node.js (&ge; 18.0150) & Node Package Manager (npm) (&ge; 9.5.0)](https://nodejs.org/)
-- [Docker (&ge; 20.10.0)](https://www.docker.com/)
-- [MongoDB Shell (&ge; 1.8.0)](https://www.mongodb.com/)
-- [Azure CLI (&ge; 2.46.0)](/cli/azure)
+| Tool | Version |
+| --- | --- |
+| [Docker](https://www.docker.com/) | &ge; 20.10.0 |
+| [Node.js] | &ge; 18.0150 |
+| [Node Package Manager (npm)](https://nodejs.org/)] | &ge; 9.5.0 |
+| [Azure CLI](/cli/azure) | &ge; 2.46.0 |
 
 1. Open **Visual Studio Code** with an empty workspace.
 
@@ -108,35 +107,23 @@ Alternatively, you can complete this tutorial in [Visual Studio Code](https://co
 
 ---
 
-## Test the MERN application with the MongoDB container
+## Test the MERN application's API with the MongoDB container
 
-Start by running the sample application with the local MongoDB container to validate that the application works.
+Start by running the sample application's API with the local MongoDB container to validate that the application works.
 
-1. Run a MongoDB container using Docker and publish the typical MongoDB port (`27017`) as port `65000`.
+1. Run a MongoDB container using Docker and publish the typical MongoDB port (`27017`).
 
     ```shell
     docker pull mongo:6.0
 
-    docker run --detach --publish 65000:27017 mongo:6.0
-    ```
-
-1. Validate that the container is running by connecting to the MongoDB container using the mongo shell and the connection string `mongodb://localhost:65000`.
-
-    ```shell
-    mongosh "mongodb://localhost:65000"
-    ```
-
-1. Exist the MongoDB shell.
-
-    ```mongosh
-    exit
+    docker run --detach --publish 27017:27017 mongo:6.0
     ```
 
 1. In the side bar, select the MongoDB extension.
 
     :::image type="content" source="media/tutorial-nodejs-web-app/select-mongodb-option.png" alt-text="Screenshot of the MongoDB extension in the side bar.":::
 
-1. Add a new connection to the MongoDB extension using the connection string `mongodb://localhost:65000`.
+1. Add a new connection to the MongoDB extension using the connection string `mongodb://localhost`.
 
     :::image type="content" source="media/tutorial-nodejs-web-app/select-mongodb-add-connection.png" alt-text="Screenshot of the add connection button in the MongoDB extension.":::
 
@@ -170,54 +157,57 @@ Start by running the sample application with the local MongoDB container to vali
     > [!NOTE]
     > The object ids (`_id`) are randomnly generated and will differ from this truncated example output.
 
-1. In the root of the project directory, create a new **.env** file.
+1. In the **client/** directory, create a new **.env** file.
 
-1. In the **.env** file, add two environment variables for these values:
-
-    | Environment Variable | Value |
-    | --- | --- |
-    | `CONNECTION_STRING` | The connection string to the Azure Cosmos DB for MongoDB vCore cluster. For now, use `mongodb://localhost:65000`. |
-    | `REACT_APP_API_ENDPOINT` | For now, leave this blank. |
-
-    ```env
-    CONNECTION_STRING=mongodb://localhost:65000
-    REACT_APP_API_ENDPOINT=
-    ```
-
-1. Build the Express API service using Docker into a container image named `express-server`. Run a new container using the image and publish the exposed `5000` port as `65100`.
-
-    ```shell
-    docker build --tag express-server server/.
-
-    docker run --detach --publish 65100:5000 --env-file .env express-server
-    ```
-
-1. In the **.env** file, update the `REACT_APP_API_ENDPOINT` environment variables with this value:
+1. In the **client/.env** file, add an environment variables for this value:
 
     | Environment Variable | Value |
     | --- | --- |
-    | `REACT_APP_API_ENDPOINT` | The back-end API endpoint that the front-end React application uses. For now, use `http://localhost:65100`. |
+    | `CONNECTION_STRING` | The connection string to the Azure Cosmos DB for MongoDB vCore cluster. For now, use `mongodb://localhost`. |
 
     ```env
-    CONNECTION_STRING=mongodb://localhost:65000
-    REACT_APP_API_ENDPOINT=http://localhost:65100
+    CONNECTION_STRING=mongodb://localhost
     ```
 
-1. Build the React web application using Docker into a container image named `react-client`. Run a new container using the image and publish the exposed `3000` port as `65200`.
+1. Change the context of the terminal to the **server/** folder.
 
     ```shell
-    docker build --tag react-client client/.
-    
-    docker run --detach --publish 65200:3000 --env-file .env react-client
+    cd server
     ```
 
-1. Using your web browser, observe the currently running web application hosted at `http://localhost:65200`.
+1. Install the dependencies from Node Package Manager (npm).
+
+    ```shell
+    npm install
+    ```
+
+1. Start the Node.js &amp; Express application.
+
+    ```shell
+    npm start
+    ```
+
+1. The API will automatically open a browser window to verify that it returns an array of product documents.
+
+1. Close the extra browser tab/window.
+
+1. Close the terminal.
 
 ## Validate your application with the Azure Cosmos DB for MongoDB vCore cluster
 
 TODO - Short sentence or two.
 
 1. TODO
+
+1. TODO
+
+1. TODO
+
+1. TODO
+
+1. TODO
+
+1. Back within your integrated development environment (IDE), open a new terminal.
 
 1. TODO
 
