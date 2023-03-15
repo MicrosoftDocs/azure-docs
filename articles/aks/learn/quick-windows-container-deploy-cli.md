@@ -149,7 +149,7 @@ The above command creates a new node pool named *npwin* and adds it to the *myAK
 > [!NOTE]
 > Windows Server 2019 will be retired in Kubernetes 1.33 and higher. For more information about this retirement, see the [AKS release notes][aks-release-notes].
 
-When creating a Windows node pool, the default operating system will be Windows Server 2019 below Kubernetes 1.25. To use Windows Server 2019 nodes when not default, you will need to specify an OS SKU type of `Windows2019`.
+When creating a Windows node pool, on Kubernetes version 1.24 or earlier, the default operating system will be Windows Server 2019. To use Windows Server 2019 node pools when not the default option, you need to specify an OS SKU type of `Windows2019`.
 
 ```azurecli-interactive
 az aks nodepool add \
@@ -165,7 +165,7 @@ The above command creates a new Windows Server 2019 node pool named *npwin* and 
 
 ## Add a Windows Server 2022 node pool
 
-When creating a Windows node pool, the default operating system will be Windows Server 2022 for Kubernetes 1.25 and higher and the only option starting in Kubernetes 1.33. To use Windows Server 2022 nodes when not default, you will need to specify an OS SKU type of `Windows2022`.
+When creating a Windows node pool, for Kubernetes 1.25 and higher the default operating system will be Windows Server 2022. To use Windows Server 2022 nodes when not default, you need to specify an OS SKU type of `Windows2022`.
 
 > [!NOTE]
 > Windows Server 2022 requires Kubernetes version "1.23.0" or higher.
@@ -184,7 +184,7 @@ az aks nodepool add \
 
 ## Optional: Using `containerd` with Windows Server node pools
 
-Beginning in Kubernetes version 1.20 and greater, you can specify `containerd` as the container runtime for Windows Server 2019 node pools. From Kubernetes 1.23, containerd will be the default and only container runtime for Windows.
+Beginning in Kubernetes version 1.20 and greater, you can specify `containerd` as the container runtime for Windows Server 2019 node pools. Starting with Kubernetes 1.23, `containerd` is the default and only container runtime for Windows.
 
 > [!IMPORTANT]
 > When using `containerd` with Windows Server 2019 node pools:
