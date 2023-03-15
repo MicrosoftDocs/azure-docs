@@ -206,6 +206,6 @@ In this section, you create a Node.js app on your simulated device that updates 
 
 To continue getting started with IoT Hub and to explore other IoT scenarios, see:
 
-* [Getting started with device management](iot-hub-node-node-device-management-get-started.md)
+* [Getting started with device management (Node.js)](device-management-node.md)
 
 * [Getting started with IoT Edge](../iot-edge/quickstart-linux.md)
