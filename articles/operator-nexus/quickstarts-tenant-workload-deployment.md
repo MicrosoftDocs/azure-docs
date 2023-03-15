@@ -150,7 +150,7 @@ Your VM requires at least one Cloud Services Network. You need the egress endpoi
 
 Operator Nexus Virtual Machines (VMs) are used for hosting VNF(s) within a Telco network.
 The Nexus platform provides `az networkcloud virtualmachine create` to create a customized VM.
-For hosting a VNF on your VM, have it [Microsoft Azure Arc-enrolled](//azure/azure-arc/servers/overview),
+For hosting a VNF on your VM, have it [Microsoft Azure Arc-enrolled](/azure/azure-arc/servers/overview),
 and provide a way to ssh to it via Azure CLI.
 
 #### Parameters
