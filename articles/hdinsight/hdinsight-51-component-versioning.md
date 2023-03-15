@@ -10,9 +10,14 @@ ms.date: 03/15/2023
 
 In this article, you learn about the open-source components and their versions in Azure HDInsight 5.1.
 
+## Public preview
+
+From February 27, 2023 we have started rolling out a new version of HDInsight 5.1, this version is backward compatible with HDInsight 4.0. and 5.0. All new open-source releases added as incremental releases on HDInsight 5.1.
+
 ## Open-source components available with HDInsight version 5.1
 
 The Open-source component versions associated with HDInsight 5.1 listed in the following table.
+
 
 | Component        | HDInsight 5.1 | HDInsight 5.0 |
 |------------------|---------------|---------------|
@@ -38,10 +43,6 @@ The Open-source component versions associated with HDInsight 5.1 listed in the f
 
 > [!NOTE]
 > ESP isn't supported for Kafka and HBase in this release.
-
-## Public preview
-
-From February 27, 2023 we have started rolling out a new version of HDInsight 5.1, this version is backward compatible with HDInsight 4.0. and 5.0. All new open-source releases added as incremental releases on HDInsight 5.1.
 
 ## Spark versions supported in Azure HDInsight
 
