@@ -151,7 +151,7 @@ Log files are an essential resource for debugging the Azure Machine Learning wor
 2. Select **Download all** to download all your logs into a zip folder.
 3. You can also download individual log files by choosing the log file and selecting **Download**
 
-:::image type="content" source="media/how-to-log-view-metrics/download-logs.png" alt-text="Screenshot of Output and logs section of a run.":::
+:::image type="content" source="../media/how-to-log-view-metrics/download-logs.png" alt-text="Screenshot of Output and logs section of a run.":::
 
 #### user_logs folder
 
