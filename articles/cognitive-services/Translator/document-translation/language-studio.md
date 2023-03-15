@@ -45,7 +45,7 @@ Now that you've completed the prerequisites, let's start translating documents!
 
 ## Get started
 
-At least one **source document** is required. You can download our [document translation sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/Translator/document-translation-sample.docx).
+At least one **source document** is required. You can download our [document translation sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/Translator/document-translation-sample.docx). The source language is English.
 
 1. Navigate to [Language Studio](https://language.cognitive.azure.com/home).
 
