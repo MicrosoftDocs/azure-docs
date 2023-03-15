@@ -52,8 +52,6 @@ Look at [Microsoft Purview](https://azure.microsoft.com/services/purview/) and u
 
 ## Migrate to Microsoft Purview
 
-Manually migrate your data from Azure Data Catalog to Microsoft Purview.
-
 [Create a Microsoft Purview account](../purview/create-catalog-portal.md), [create collections](../purview/create-catalog-portal.md) in your data map, set up [permissions for your users](../purview/catalog-permissions.md), and onboard your data sources.
     
 We suggest you review the Microsoft Purview best practices documentation before deploying your Microsoft Purview account, so you can deploy the best environment for your data landscape.
