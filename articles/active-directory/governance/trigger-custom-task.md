@@ -73,9 +73,9 @@ To Add a custom task extension to a workflow, you'd do the following steps:
 
 1. On the tasks screen, select **Add task**.
 
-1. In the **Select tasks** drop down, select **Run a Custom Task Extension**, and select **Add**.
+1. In the **Select tasks** side menu, select **Run a Custom Task Extension**, and select **Add**.
 
-1. On the custom task extension page, you can give the task a name and description. You can also choose from a list of configured custom task extensions to use.
+1. On the custom task extension page, you can give the task a name and description. You also choose from a list of configured custom task extensions to use.
     :::image type="content" source="media/trigger-custom-task/add-custom-task-extension.png" alt-text="Screenshot showing to add a custom task extension to workflow.":::     
 1. When finished, select **Save**.   
 
