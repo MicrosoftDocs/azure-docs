@@ -4,7 +4,7 @@ description: Use the troubleshooting page in the Azure portal to monitor IoT Edg
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 05/26/2021
+ms.date: 3/15/2023
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -14,11 +14,7 @@ services: iot-edge
 
 [!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
-IoT Edge provides a streamlined way of monitoring and troubleshooting modules in the Azure portal. The troubleshooting page is a wrapper for the IoT Edge agent's direct methods so that you can easily retrieve logs from deployed modules and remotely restart them.
-
-## Prerequisites
-
-The full functionality of this troubleshooting feature in the portal requires IoT Edge version 1.1.3 or newer if you're on the long-term support branch, or version 1.2.1 or newer if you're on the latest stable branch. Both the IoT Edge host component and the edgeAgent module need to be on these versions.
+IoT Edge provides a streamlined way of monitoring and troubleshooting modules in the Azure portal. The troubleshooting page is a wrapper for the IoT Edge agent's direct methods so that you can easily retrieve logs from deployed modules and remotely restart them. This article shows you how to access and filter device and module logs in the Azure portal.
 
 ## Access the troubleshooting page
 
@@ -36,7 +32,7 @@ You can access the troubleshooting page in the portal through either the IoT Edg
 
    Or, select the runtime status of a particular module that you want to inspect.
 
-   :::image type="content" source="./media/troubleshoot-in-portal/runtime-status.png" alt-text="Screenshot of the location of the Runtime status column on the Azure portal, device details page.":::
+   :::image type="content" source="./media/troubleshoot-in-portal/runtime-status.png" alt-text="Screenshot of the location of the Runtime status column on the Azure portal, device details page." lightbox="./media/troubleshoot-in-portal/runtime-status.png":::
 
 1. From the device details page, you can also select the name of a module to open the module details page. From there, you can select **Troubleshoot** from the menu.
 
