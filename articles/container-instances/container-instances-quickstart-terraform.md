@@ -27,7 +27,7 @@ In this article, you learn how to:
 > * Create a random value for the container name using [random_string](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/resource_group/string)
 > * Create an Azure container group using [azurerm_container_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/container_group)
 
-[!INCLUDE [AI attribution](../../../includes/ai-generated-attribution.md)]
+[!INCLUDE [AI attribution](../../includes/ai-generated-attribution.md)]
 
 ## Prerequisites
 
