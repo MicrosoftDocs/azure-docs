@@ -78,11 +78,11 @@ cmd /c curl "{your-source-container-SAS-URL}/translator/text/batch/v1.0/batches"
 curl "{your-source-container-SAS-URL}/translator/text/batch/v1.0/batches" -i -X POST --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}" --data "@document-translation.json"
 ```
 
+Upon successful completion: 
+
+* The translated documents can be found in your target container.
 * The successful POST method returns a `202 Accepted` response code indicating that the batch request was created by the service.
-
 * The POST request also returns response headers including `Operation-Location` that provides a value used in subsequent GET requests.
-
-* The translated documents are listed in your target container.
 
 > [!div class="nextstepaction"]
 > [I successfully translated my document.](#next-steps)  [I ran into an issue.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=RESTAPI&Pillar=Language&Product=Document-translation&Page=quickstart&Section=Translate-documents)
