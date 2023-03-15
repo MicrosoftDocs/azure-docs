@@ -21,7 +21,7 @@
       "redirect_document_id": false
     },    
     {
-      "source_path": "scripts/powershell-resource-group-filter.md",
+      "source_path": "scripts/event-grid-powershell-resource-group-filter.md",
       "redirect_url": "/azure/event-grid/scripts/powershell-resource-group-filter",
       "redirect_document_id": false
     },    
