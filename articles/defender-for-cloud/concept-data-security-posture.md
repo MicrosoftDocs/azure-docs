@@ -43,7 +43,7 @@ Relevant links:
 - [How to enable sensitive data discovery in Defender CSPM for Azure storage accounts](data-security-posture-enable.md)
 - [How to enable sensitive data discovery in Defender CSPM for Amazon S3 buckets](data-security-posture-enable-aws.md)
 - [How to explore data risk](data-security-review-risks.md)
-- [Relevant insights and attack paths related to data-aware security](data-security-scans.md)
+- [Relevant insights and attack paths related to data-aware security](data-security-posture-enable.md#enable-resource-scanning-on-your-subscriptions)
 
 ## Data-Aware Threat Detection in Defender for Storage
 Defender for Storage provides ongoing monitoring of activities within Azure Storage account across data and control planes. It uses advanced threat detection modules to detect potential data breaches by identifying harmful attempts to access or exploit data, as well as suspicious configuration changes that could lead to such a data breach. When such early signs are detected, the Defender for Storage generates a security alert, which allows security teams to enable quick response and mitigation.
@@ -51,7 +51,7 @@ Defender for Storage provides ongoing monitoring of activities within Azure Stor
 Defender for Storage threat detection with sensitive data context allows secure teams to detect and respond to active data breaches that involve malicious access, exfiltration, or corruption of sensitive data.
 
 Relevant links:
-- [How to enable sensitive data discovery in Defender for Storage](defender-for-storage-enable.md)
+- [How to enable sensitive data discovery in Defender for Storage](defender-for-storage-introduction.md)
 - [How to explore data risk](data-security-review-risks.md)
 
 ## How does the data discovery work?

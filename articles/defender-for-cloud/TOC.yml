@@ -101,6 +101,8 @@
     - name: Defender for Containers support matrices
       displayName: Containers, features availability, environment information
       href: support-matrix-defender-for-containers.md
+    - name: Data-aware security posture support matrices
+      href: support-matrix-data-security-posture.md
   - name: Protect multicloud resources
     items:
     - name: The Defender for Cloud multicloud solution
@@ -241,8 +243,6 @@
       href: data-security-posture-enable.md
     - name: Data-aware security for Amazon AWS S3 buckets
       href: data-security-posture-enable-aws.md
-    - name: Scan resources for sensitive data
-      href: data-security-scans.md
     - name: Review risks to sensitive data
       href: data-security-review-risks.md
     - name: Customize sensitivity settings
