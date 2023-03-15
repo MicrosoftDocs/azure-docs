@@ -317,12 +317,28 @@
         - name: Secure inference environment
           displayName: vnet, Managed Endpoint, AKS
           href: how-to-secure-inferencing-vnet.md
+        # v1 stuff
+        - name: Secure workspace resources
+          displayName: vnet, workspace, container instance, container registry
+          href: ./v1/how-to-secure-workspace-vnet.md
+        - name: Secure training environment
+          displayName: vnet, No public IP
+          href: ./v1/how-to-secure-training-vnet.md
+        - name: Secure inference environment
+          displayName: vnet, Managed Endpoint, AKS
+          href: ./v1/how-to-secure-inferencing-vnet.md
+        # end v1
         - name: Use studio in a virtual network
           displayName: vnet
           href: how-to-enable-studio-virtual-network.md
         - name: Use private endpoint
           displayName: private endpoint
           href: how-to-configure-private-link.md
+        # v1
+        - name: Use private endpoint
+          displayName: private endpoint
+          href: ./v1/how-to-configure-private-link.md
+        # end v1
         - name: Use custom DNS
           href: how-to-custom-dns.md
         - name: Configure required network traffic
