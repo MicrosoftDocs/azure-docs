@@ -13,9 +13,9 @@ The following table includes links to Azure PowerShell samples for Event Grid.
 
 - [Subscribe to Azure subscription](scripts/powershell-azure-subscription.md) - Subscribes to events for an Azure subscription. 
 - [Subscribe to Blob storage](scripts/powershell-blob.md) - Subscribes to events for a Blob storage account.
-- [Subscribe to custom topic](scripts/event-grid-powershell-subscribe-custom-topic.md) - Subscribes to events for a custom topic. 
-- [Subscribe to resource group](scripts/event-grid-powershell-resource-group.md) - Subscribes to events for a resource group. 
-- [Subscribe to resource group and filter for a resource](scripts/event-grid-powershell-resource-group-filter.md) - Subscribes to events for a resource group and filters events for a resource. 
+- [Subscribe to custom topic](scripts/powershell-subscribe-custom-topic.md) - Subscribes to events for a custom topic. 
+- [Subscribe to resource group](scripts/powershell-resource-group.md) - Subscribes to events for a resource group. 
+- [Subscribe to resource group and filter for a resource](scripts/powershell-resource-group-filter.md) - Subscribes to events for a resource group and filters events for a resource. 
 
 ## Event Grid topics
 

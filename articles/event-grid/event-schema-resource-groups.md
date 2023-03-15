@@ -460,8 +460,8 @@ The data object has the following properties:
 | [Tutorial: monitor virtual machine changes with Azure Event Grid and Logic Apps](monitor-virtual-machine-changes-logic-app.md) | A logic app monitors changes to a virtual machine and sends emails about those changes. |
 | [Azure CLI: subscribe to events for a resource group](./scripts/event-grid-cli-resource-group.md)| Sample script that subscribes to events for a resource group. It sends events to a WebHook. |
 | [Azure CLI: subscribe to events for a resource group and filter for a resource](./scripts/event-grid-cli-resource-group-filter.md) | Sample script that subscribes to events for a resource group and filters events for one resource. |
-| [PowerShell: subscribe to events for a resource group](./scripts/event-grid-powershell-resource-group.md) | Sample script that subscribes to events for a resource group. It sends events to a WebHook. |
-| [PowerShell: subscribe to events for a resource group and filter for a resource](./scripts/event-grid-powershell-resource-group-filter.md) | Sample script that subscribes to events for a resource group and filters events for one resource. |
+| [PowerShell: subscribe to events for a resource group](./scripts/powershell-resource-group.md) | Sample script that subscribes to events for a resource group. It sends events to a WebHook. |
+| [PowerShell: subscribe to events for a resource group and filter for a resource](./scripts/powershell-resource-group-filter.md) | Sample script that subscribes to events for a resource group and filters events for one resource. |
 | [Resource Manager template: resource subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.eventgrid/event-grid-resource-events-to-webhook) | Subscribes to events for an Azure subscription or resource group. It sends events to a WebHook. |
 
 ## Next steps

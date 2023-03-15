@@ -11,7 +11,7 @@ ms.custom: "include file"
 
 ---
 
-:::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/overview.svg" alt-text="Application overview":::
+:::image type="content" source="media/event-hubs-functions-synapse-analytics/overview.svg" alt-text="Application overview":::
 
 This diagram depicts the workflow of the solution you build in this tutorial: 
 
@@ -54,19 +54,19 @@ In this step, you deploy the required infrastructure with a [Resource Manager te
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 2. Select **Cloud Shell** button at the top.
 
-    :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/azure-portal.png" alt-text="Screenshot of Azure portal showing the selection of Cloud Shell button.":::
+    :::image type="content" source="media/event-hubs-functions-synapse-analytics/azure-portal.png" alt-text="Screenshot of Azure portal showing the selection of Cloud Shell button.":::
 3. You see the Cloud Shell opened at the bottom of the browser.
     1. If you're using the Cloud Shell for the first time:
         1. If you see an option to select between **Bash** and **PowerShell**, select **Bash**.
         
-            :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/launch-cloud-shell.png" alt-text="Screenshot of Cloud Shell with Bash selected.":::
+            :::image type="content" source="media/event-hubs-functions-synapse-analytics/launch-cloud-shell.png" alt-text="Screenshot of Cloud Shell with Bash selected.":::
 
         1. Create a storage account by selecting **Create storage**. Azure Cloud Shell requires an Azure storage account to store some files. 
 
-            :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/create-storage-cloud-shell.png" alt-text="Screenshot showing the creation of storage for Cloud Shell.":::
+            :::image type="content" source="media/event-hubs-functions-synapse-analytics/create-storage-cloud-shell.png" alt-text="Screenshot showing the creation of storage for Cloud Shell.":::
         3. Wait until the Cloud Shell is initialized. 
 
-            :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/cloud-shell-initialized.png" alt-text="Screenshot showing the Cloud Shell initialized.":::
+            :::image type="content" source="media/event-hubs-functions-synapse-analytics/cloud-shell-initialized.png" alt-text="Screenshot showing the Cloud Shell initialized.":::
 4. In the Cloud Shell,  select **Bash** as shown in the above image, if it isn't already selected.     
 1. Create an Azure resource group by running the following CLI command: 
     1. Copy and paste the following command into the Cloud Shell window. Change the resource group name and location if you want.
@@ -121,10 +121,10 @@ In this step, you deploy the required infrastructure with a [Resource Manager te
 2. Filter the list of resource groups by entering the name of your resource group in the search box. 
 3. Select your resource group in the list.
 
-    :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/select-resource-group.png" alt-text="Screenshot showing the selection of your resource group.":::
+    :::image type="content" source="media/event-hubs-functions-synapse-analytics/select-resource-group.png" alt-text="Screenshot showing the selection of your resource group.":::
 4. Confirm that you see the following resources in the resource group:
 
-    :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/resources-in-resource-group.png" alt-text="Screenshot showing resources in the resource group." lightbox="media/event-grid-event-hubs-functions-synapse-analytics/resources-in-resource-group.png":::
+    :::image type="content" source="media/event-hubs-functions-synapse-analytics/resources-in-resource-group.png" alt-text="Screenshot showing resources in the resource group." lightbox="media/event-hubs-functions-synapse-analytics/resources-in-resource-group.png":::
 
 ### Create a table in Azure Synapse Analytics
 In this section, you create a table in the dedicated SQL pool you created earlier.
@@ -132,7 +132,7 @@ In this section, you create a table in the dedicated SQL pool you created earlie
 1. In the list of resources in the resource group, select your **dedicated SQL pool**. 
 2. On the **Dedicated SQL pool** page, in the **Common Tasks** section on the left menu, select **Query editor (preview)**. 
 
-    :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/sql-data-warehouse-page.png" alt-text="Screenshot showing the selection of Query Editor on a Dedicated SQL pool page in the Azure portal.":::
+    :::image type="content" source="media/event-hubs-functions-synapse-analytics/sql-data-warehouse-page.png" alt-text="Screenshot showing the selection of Query Editor on a Dedicated SQL pool page in the Azure portal.":::
 2. Enter the name of **user** and **password** for the SQL server, and select **OK**. If you see a message about allowing your client to access the SQL server, select **Allowlist IP &lt;your IP Address&gt; on server &lt;your SQL server&gt;**, and then select **OK**. 
 1. In the query window, copy and run the following SQL script: 
 
@@ -147,7 +147,7 @@ In this section, you create a table in the dedicated SQL pool you created earlie
     WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
     ```
 
-    :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/run-sql-query.png" alt-text="Screenshot showing the query editor.":::
+    :::image type="content" source="media/event-hubs-functions-synapse-analytics/run-sql-query.png" alt-text="Screenshot showing the query editor.":::
 5. Keep this tab or window open so that you can verify that the data is created at the end of the tutorial. 
 
 ## Publish the Azure Functions app
@@ -157,10 +157,10 @@ First, get the publish profile for the Functions app from the Azure portal. Then
 
 1. On the **Resource Group** page, select the **Azure Functions app** in the list of resources. 
 
-    :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/select-function-app.png" alt-text="Screenshot showing the selection of the function app in the list of resources for a resource group.":::
+    :::image type="content" source="media/event-hubs-functions-synapse-analytics/select-function-app.png" alt-text="Screenshot showing the selection of the function app in the list of resources for a resource group.":::
 1. On the **Function App** page for your app, select **Get publish profile** on the command bar.
 
-    :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/get-publish-profile.png" alt-text="Screenshot showing the selection of the **Get Publish Profile** button on the command bar of the function app page.":::
+    :::image type="content" source="media/event-hubs-functions-synapse-analytics/get-publish-profile.png" alt-text="Screenshot showing the selection of the **Get Publish Profile** button on the command bar of the function app page.":::
 1. Download and save the file into the **FunctionEGDDumper** subfolder of the **EventHubsCaptureEventGridDemo** folder. 
 
 ### Use the publish profile to publish the Functions app
@@ -171,12 +171,12 @@ First, get the publish profile for the Functions app from the Azure portal. Then
 4. In the following screen, select **Start** or **Add a publish profile**. 
 5. In the **Publish** dialog box, select **Import Profile** for **Target**, and select **Next**. 
 
-    :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/import-profile.png" alt-text="Screenshot showing the selection **Import Profile** on the **Publish** dialog box.":::
+    :::image type="content" source="media/event-hubs-functions-synapse-analytics/import-profile.png" alt-text="Screenshot showing the selection **Import Profile** on the **Publish** dialog box.":::
 1. On the **Import profile** tab, select the publish settings file that you saved earlier in the **FunctionEGDWDumper** folder, and then select **Finish**. 
 1. When Visual Studio has configured the profile, select **Publish**. Confirm that the publishing succeeded.
 2. In the web browser that has the **Azure Function** page open, select  **Functions** on the left menu. Confirm that the **EventGridTriggerMigrateData** function shows up in the list. If you don't see it, try publishing from Visual Studio again, and then refresh the page in the portal. 
 
-    :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/confirm-function-creation.png" alt-text="Screenshot showing the confirmation of function creation.":::    
+    :::image type="content" source="media/event-hubs-functions-synapse-analytics/confirm-function-creation.png" alt-text="Screenshot showing the confirmation of function creation.":::    
 
 After publishing the function, you're ready to subscribe to the event.
 
@@ -189,7 +189,7 @@ After publishing the function, you're ready to subscribe to the event.
 1. Select the **Event Hubs namespace** from the list of resources.
 1. On the **Event Hubs Namespace** page, select **Events** on the left menu, and then select **+ Event Subscription** on the toolbar. 
 
-    :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/event-hub-add-subscription-link.png" alt-text="Add event subscription link on the Events page for an Event Hubs namespace":::
+    :::image type="content" source="media/event-hubs-functions-synapse-analytics/event-hub-add-subscription-link.png" alt-text="Add event subscription link on the Events page for an Event Hubs namespace":::
 1. On the **Create Event Subscription** page, follow these steps:
     1. Enter a name for the **event subscription**. 
     1. Enter a name for the **system topic**. A system topic provides an endpoint for the sender to send events. For more information, see [System topics](../system-topics.md)
@@ -204,10 +204,10 @@ After publishing the function, you're ready to subscribe to the event.
     1. On the **Select Azure Function** page, select **Confirm Selection**.
     1. Then, back on the **Create Event Subscription** page, select **Create**. 
     
-        :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/event-subscription-select-function.png" alt-text="Create an event subscription using the function" lightbox="media/event-grid-event-hubs-functions-synapse-analytics/event-subscription-select-function.png":::
+        :::image type="content" source="media/event-hubs-functions-synapse-analytics/event-subscription-select-function.png" alt-text="Create an event subscription using the function" lightbox="media/event-hubs-functions-synapse-analytics/event-subscription-select-function.png":::
 1. Verify that the event subscription is created. Switch to the **Event Subscriptions** tab on the **Events** page for the Event Hubs namespace. 
     
-    :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/confirm-event-subscription.png" alt-text="Confirm event subscription" lightbox="media/event-grid-event-hubs-functions-synapse-analytics/confirm-event-subscription.png":::
+    :::image type="content" source="media/event-hubs-functions-synapse-analytics/confirm-event-subscription.png" alt-text="Confirm event subscription" lightbox="media/event-hubs-functions-synapse-analytics/confirm-event-subscription.png":::
 1. Select the App Service plan (not the App Service) in the list of resources in the resource group. 
 
 ## Run the app to generate data
@@ -218,7 +218,7 @@ You've finished setting up your event hub, dedicate SQL pool (formerly SQL Data 
 3. In the **Event Hubs Namespace** page, select **Shared access policies** on the left menu.
 4. Select **RootManageSharedAccessKey** in the list of policies. 
 
-    :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/event-hub-namespace-shared-access-policies.png" alt-text="Shared access policies page for an Event Hubs namespace":::    
+    :::image type="content" source="media/event-hubs-functions-synapse-analytics/event-hub-namespace-shared-access-policies.png" alt-text="Shared access policies page for an Event Hubs namespace":::    
 1. Select the copy button next to the **Connection string-primary key** text box. 
 1. Go back to your Visual Studio solution. 
 1. Right-click **WindTurbineDataGenerator** project, and select **Set as Startup project**. 
@@ -237,7 +237,7 @@ You've finished setting up your event hub, dedicate SQL pool (formerly SQL Data 
     select * from [dbo].[Fact_WindTurbineMetrics]    
     ```
 
-    ![Query results](media/event-grid-event-hubs-functions-synapse-analytics/query-results.png)
+    ![Query results](media/event-hubs-functions-synapse-analytics/query-results.png)
 
 ## Monitor the solution
 This section helps you with monitoring or troubleshooting the solution. 
@@ -250,7 +250,7 @@ This section helps you with monitoring or troubleshooting the solution.
 1. Open the folder named same as your event hub (**hubdatamigration**). 
 1. Drill through the folders and you see the AVRO files. Here's an example:
 
-    :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/storage-captured-file.png" alt-text="Captured file in the storage" lightbox="media/event-grid-event-hubs-functions-synapse-analytics/storage-captured-file.png":::
+    :::image type="content" source="media/event-hubs-functions-synapse-analytics/storage-captured-file.png" alt-text="Captured file in the storage" lightbox="media/event-hubs-functions-synapse-analytics/storage-captured-file.png":::
     
 
 ### Verify that the Event Grid trigger invoked the function
@@ -264,7 +264,7 @@ This section helps you with monitoring or troubleshooting the solution.
 1. Confirm that the client application (**WindTurbineDataGenerator**) that's sending the events is still running. If not, run the app. 
 1. Wait for a few minutes (5 minutes or more) and select the **Refresh** button to see function invocations.    
 
-    :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/function-invocations.png" alt-text="Function invocations":::
+    :::image type="content" source="media/event-hubs-functions-synapse-analytics/function-invocations.png" alt-text="Function invocations":::
 1. Select an invocation to see details.
 
     Event Grid distributes event data to the subscribers. The following example shows event data generated when data streaming through an event hub is captured in a blob. In particular, notice the `fileUrl` property in the `data` object points to the blob in the storage. The function app uses this URL to retrieve the blob file with captured data.
@@ -295,5 +295,5 @@ This section helps you with monitoring or troubleshooting the solution.
 ### Verify that the data is stored in the dedicated SQL pool
 In the browser tab where you have the query window open, query the table in your dedicated SQL pool for the migrated data.
 
-![Query results](media/event-grid-event-hubs-functions-synapse-analytics/query-results.png)
+![Query results](media/event-hubs-functions-synapse-analytics/query-results.png)
 
