@@ -2,7 +2,7 @@
 title: 'App Service on Azure Arc'
 description: An introduction to App Service integration with Azure Arc for Azure operators.
 ms.topic: article
-ms.date: 05/03/2022
+ms.date: 03/15/2023
 ---
 
 # App Service, Functions, and Logic Apps on Azure Arc (Preview)
@@ -74,6 +74,7 @@ Only one Kubernetes environment resource can be created in a custom location. In
 - [What logs are collected?](#what-logs-are-collected)
 - [What do I do if I see a provider registration error?](#what-do-i-do-if-i-see-a-provider-registration-error)
 - [Can I deploy the Application services extension on an ARM64 based cluster?](#can-i-deploy-the-application-services-extension-on-an-arm64-based-cluster)
+- [Which Kubernetes distributions can I deploy the extension on?]  (#which-kubernetes-distributions-can-i-deploy-the-extension-on)
 
 ### How much does it cost?
 
@@ -120,6 +121,10 @@ When creating a Kubernetes environment resource, some subscriptions might see a 
 ### Can I deploy the Application services extension on an ARM64 based cluster?
 
 ARM64 based clusters are not supported at this time.  
+
+### Which Kubernetes distributions can I deploy the extension on?
+
+The extension has been validated on AKS, AKS on Azure Stack HCI, Google Kubernetes Engine and Amazon Elastic Kubernetes Service, Kubernetes Cluster API.
 
 ## Extension Release Notes
 
