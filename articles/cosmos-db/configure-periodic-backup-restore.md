@@ -5,7 +5,7 @@ author: kanshiG
 ms.service: cosmos-db
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 12/09/2021
+ms.date: 16/03/2023
 ms.author: govindk
 ms.reviewer: mjbrown
 ---
@@ -15,7 +15,7 @@ ms.reviewer: mjbrown
 
 Azure Cosmos DB automatically takes backups of your data at regular intervals. The automatic backups are taken without affecting the performance or availability of the database operations. All the backups are stored separately in a storage service, and those backups are globally replicated for resiliency against regional disasters. With Azure Cosmos DB, not only your data, but also the backups of your data are highly redundant and resilient to regional disasters. The following steps show how Azure Cosmos DB performs data backup:
 
-* Azure Cosmos DB automatically takes a full backup of your database every 4 hours and at any point of time, only the latest two backups are stored by default. If the default intervals aren't sufficient for your workloads, you can change the backup interval and the retention period from the Azure portal. You can change the backup configuration during or after the Azure Cosmos DB account is created. If the container or database is deleted, Azure Cosmos DB retains the existing snapshots of a given container or database for 30 days.
+* Azure Cosmos DB automatically takes a full backup of your database every 4 hours and at any point of time, only the latest two backups are stored by default. If the default intervals aren't sufficient for your workloads, you can change the backup interval and the retention period from the Azure portal. You can change the backup configuration during or after the Azure Cosmos DB account is created. If the container or database is deleted, Azure Cosmos DB retains the existing snapshots of a given provisioned throughput container or shared throughput database for 30 days. If  throughput is provisioned at the database level, the backup and restore process in this case happen at the entire database scope. 
 
 * Azure Cosmos DB stores these backups in Azure Blob storage whereas the actual data resides locally within Azure Cosmos DB.
 
