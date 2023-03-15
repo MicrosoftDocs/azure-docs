@@ -39,7 +39,7 @@ The *build* command does a keyword syntax check and generates Azure Resource Man
 | Argument | Description |
 |---|---|
 | `--project` | Specify the **asaproj.json** file using absolute or relative path. |
-| `--outputPath` |  Specify the output folder for storing ARM Templates using absolute or relative path. If `outputPath` is not specified, the templates will be placed in the current directory. |
+| `--outputPath` |  Specify the output folder for storing ARM Templates using absolute or relative path. If `outputPath` isn't specified, the templates are placed in the current directory. |
 
 **Example**:
 
@@ -51,14 +51,14 @@ cd <path-to-the-project>
 azure-streamanalytics-cicd build --v2 --project ./asaproj.json --outputPath ./Deploy
 ```
 
-If the project is built successfully, you see 2 JSON files created under the output folder:
+If the project is built successfully, you see two JSON files created under the output folder:
 
 * ARM template file: `[ProjectName].JobTemplate.json`
 * ARM parameter file: `[ProjectName].JobTemplate.parameters.json`
 
 The default values for **parameters.json** file come from your project settings. If you want to deploy to another environment, replace the values accordingly.
 
-The default values for all credentials are **null**. You are required to set the values before you deploy to Azure.
+The default values for all credentials are **null**. You're required to set the values before you deploy to Azure.
 
 ```json
 "Input_EntryStream_sharedAccessPolicyKey": {
@@ -78,8 +78,8 @@ azure-streamanalytics-cicd localrun -project <projectFullPath> [-outputPath <out
 | Argument | Description |
 |---|---|
 | `--project` | Specify the **asaproj.json** file using absolute or relative path. |
-| `--outputPath` |  Specify the output folder for storing ARM Templates using absolute or relative path. If `outputPath` is not specified, the templates will be placed in the current directory. |
-| `--customCodeZipFilePath` | The path of the zip file for C# custom code, such as a UDF or deserializer, if they are used. Package the DLLs into a zip file and specify this path. |
+| `--outputPath` |  Specify the output folder for storing ARM Templates using absolute or relative path. If `outputPath` isn't specified, the templates are placed in the current directory. |
+| `--customCodeZipFilePath` | The path of the zip file for C# custom code, such as a UDF or deserializer, if they're used. Package the DLLs into a zip file and specify this path. |
 
 **Example**:
 
@@ -109,7 +109,7 @@ You can find the test cases in the test configuration file.
 | Argument | Description |
 |---|---|
 | `--project` | Specify the **asaproj.json** file using absolute or relative path. |
-| `--testConfigPath` | The path of the test configuration file. If it is not specified, the file will be searched in **\test** under the current directory of the **asaproj.json** file, with default file name **testConfig.json**. A new file will be created if not existed. |
+| `--testConfigPath` | The path of the test configuration file. If it isn't specified, the file is searched in **\test** under the current directory of the **asaproj.json** file, with default file name **testConfig.json**. A new file is created if not existed. |
 
 **Example**:
 
@@ -164,9 +164,9 @@ azure-streamanalytics-cicd test --project <projectFullPath> [--testConfigPath <t
 | Argument | Description |
 |---|---|
 | `--project` | The path of the **asaproj.json** file. |
-| `--testConfigPath` | The path to the test configuration file. If it is not specified, the file will be searched in **\test** under the current directory of the **asaproj.json** file, with default file name **testConfig.json**.
-| `--outputPath` | The path of the test result output folder. If it is not specified, the output result files will be placed in the current directory. |
-| `--customCodeZipFilePath` | The path of the zip file for custom code such as a UDF or deserializer, if they are used. You need to package the DLLs to zip file and specify the path. |
+| `--testConfigPath` | The path to the test configuration file. If it isn't specified, the file is searched in **\test** under the current directory of the **asaproj.json** file, with default file name **testConfig.json**.
+| `--outputPath` | The path of the test result output folder. If it isn't specified, the output result files are placed in the current directory. |
+| `--customCodeZipFilePath` | The path of the zip file for custom code such as a UDF or deserializer, if they're used. You need to package the DLLs to zip file and specify the path. |
 
 If test cases are executed, you can find a **testResultSummary.json** file generated in the output folder.
 
