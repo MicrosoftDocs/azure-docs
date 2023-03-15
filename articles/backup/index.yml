@@ -59,8 +59,6 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
-          - text: Backup Azure Database for PostgreSQL
-            url: backup-azure-database-postgresql.md
           - text: Selective disk backup and restore for Azure VMs
             url: selective-disk-backup-restore.md
           - text: Support for backup of VM with up to 32 disks
@@ -79,6 +77,8 @@ landingContent:
             url: azure-kubernetes-service-backup-overview.md
           - text: Azure Blob vaulted backups (preview)
             url: blob-backup-overview.md
+          - text: Selective Disk backup with Enhanced policy for Azure VM (preview)
+            url: selective-disk-backup-restore.md
   # Card
   - title: Back up Azure VMs
     linkLists:

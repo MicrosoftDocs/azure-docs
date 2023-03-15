@@ -17,7 +17,7 @@ This article walks through all the steps needed to forward edge events to Event 
 * React to edge events in the cloud.
 * Forward events to Event Grid in the cloud and use Azure Event Hubs or Azure Storage queues to buffer events before processing them in the cloud.
 
- To complete this tutorial, you need have an understanding of Event Grid concepts on [edge](concepts.md) and [Azure](../concepts.md). For additional destination types, see [event handlers](event-handlers.md). 
+ To complete this tutorial, you need to have an understanding of Event Grid concepts on [edge](concepts.md) and [Azure](../concepts.md). For more destination types, see [event handlers](event-handlers.md). 
 
 > [!IMPORTANT]
 > On March 31, 2023, Event Grid on Azure IoT Edge support will be retired, so make sure to transition to IoT Edge native capabilities prior to that date. For more information, see [Transition from Event Grid on Azure IoT Edge to Azure IoT Edge](transition.md). 
@@ -25,15 +25,15 @@ This article walks through all the steps needed to forward edge events to Event 
 
 
 ## Prerequisites 
-In order to complete this tutorial, you will need:
+In order to complete this tutorial, you need:
 
 * **Azure subscription** - Create a [free account](https://azure.microsoft.com/free) if you don't already have one. 
 * **Azure IoT Hub and IoT Edge device** - Follow the steps in the quick start for [Linux](../../iot-edge/quickstart-linux.md) or [Windows devices](../../iot-edge/quickstart.md) if you don't already have one.
 
-[!INCLUDE [event-grid-deploy-iot-edge](../includes/event-grid-deploy-iot-edge.md)] 
-## Create event grid topic and subscription in cloud
+[!INCLUDE [deploy-iot-edge](../includes/deploy-iot-edge.md)] 
+## Create Event Grid topic and subscription in cloud
 
-Create an event grid topic and subscription in the cloud by following [this tutorial](../custom-event-quickstart-portal.md). Note down `topicURL`, `sasKey`, and `topicName` of the newly created topic that you'll use later in the tutorial.
+Create an Event Grid topic and subscription in the cloud by following [this tutorial](../custom-event-quickstart-portal.md). Note down `topicURL`, `sasKey`, and `topicName` of the newly created topic that you use later in the tutorial.
 
 For example, if you created a topic named `testegcloudtopic` in West US, the values would look something like:
 
@@ -41,7 +41,7 @@ For example, if you created a topic named `testegcloudtopic` in West US, the val
 * **TopicName**: `testegcloudtopic`
 * **SasKey**: Available under **AccessKey** of your topic. Use **key1**.
 
-## Create event grid topic at the edge
+## Create Event Grid topic at the edge
 
 1. Create topic3.json with the following content. See our [API documentation](api.md) for details about the payload.
 
@@ -82,7 +82,7 @@ For example, if you created a topic named `testegcloudtopic` in West US, the val
   
 ## Create Event Grid subscription at the edge
 
-[!INCLUDE [event-grid-deploy-iot-edge](../includes/event-grid-edge-persist-event-subscriptions.md)]
+[!INCLUDE [deploy-iot-edge](../includes/edge-persist-event-subscriptions.md)]
 
 1. Create subscription3.json with the following content. See our [API documentation](api.md) for details about the payload.
 
