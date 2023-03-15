@@ -92,11 +92,11 @@ ACS Call Automation can be used to build calling workflows for customer service 
 :::image type="content" source="./media/whats-new-images/cy23Q1/call-automation-architecture.png" alt-text="Call Automation Architecture":::
 *Figure 5: Call Automation Architecture*
 
-To learn more, visit our [Call Automation overview article](./concepts/call-automation/call-automation).
+To learn more, visit our [Call Automation overview article](./concepts/call-automation/call-automation.md).
 
 ## Phone number expansion now in General Availability (Generally Available)
  We're excited to announce that we have launched Phone numbers in Canada, United Kingdom, Italy, Ireland and Sweden from Public Preview into General Availability. ACS Direct Offers are now generally available in the following countries and regions: **United States, Puerto Rico, Canada, United Kingdom, Italy, Ireland** and **Sweden**. 
 
-To learn more about the different ways you can acquire a phone number in these regions, visit the [article on how to get and manage phone numbers](./quickstarts/telephony/get-phone-number), or [reaching out to the IC3 Service Desk](https://github.com/Azure/Communication/blob/master/special-order-numbers.md). 
+To learn more about the different ways you can acquire a phone number in these regions, visit the [article on how to get and manage phone numbers](./quickstarts/telephony/get-phone-number.md), or [reaching out to the IC3 Service Desk](https://github.com/Azure/Communication/blob/master/special-order-numbers.md). 
 
 Enjoy all of these new features. Be sure to check back here periodically for more news and updates on all of the new capabilities we've added to our platform! For a complete list of new features and bug fixes, visit our [releases page](https://github.com/Azure/Communication/releases) on GitHub.
