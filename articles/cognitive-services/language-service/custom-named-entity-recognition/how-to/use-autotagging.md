@@ -104,7 +104,7 @@ When you trigger an autolabeling job with GPT, you're charged to your Azure Open
 7. Choose the documents you want to be automatically labeled. It's recommended to choose the unlabeled documents from the filter. 
 
     > [!NOTE]
-    > * If an entity was automatically labeled, but has a user defined label, only the user defined label is be used and be visible.  
+    > * If an entity was automatically labeled, but has a user defined label, only the user defined label is used and visible.  
     > * You can view the documents by clicking on the document name.
     
     :::image type="content" source="../media/choose-files.png" alt-text="A screenshot showing which documents to be included in the autotag job." lightbox="../media/choose-files.png":::
@@ -125,7 +125,7 @@ When the autolabeling job is complete, you can see the output documents in the *
 
 Entities that have been automatically labeled appear with a dotted line. These entities have two selectors (a checkmark and an "X") that allow you to accept or reject the automatic label.
 
-Once an entity is accepted, the dotted line changes to a solid one, and this label is be included in any further model training and be a user defined label.
+Once an entity is accepted, the dotted line changes to a solid one, and this label is included in any further model training and becomes a user defined label.
 
 Alternatively, you can accept or reject all automatically labeled entities within the document, using **Accept all** or **Reject all** in the top right corner of the screen. 
 
