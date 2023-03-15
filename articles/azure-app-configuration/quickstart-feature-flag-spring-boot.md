@@ -19,20 +19,19 @@ The Spring Boot Feature Management libraries extend the framework with comprehen
 
 ## Prerequisites
 
-* Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-* A supported [Java Development Kit SDK](/java/azure/jdk) with version 11.
-* [Apache Maven](https://maven.apache.org/download.cgi) version 3.0 or above.
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
+- A supported [Java Development Kit SDK](/java/azure/jdk) with version 11.
+- [Apache Maven](https://maven.apache.org/download.cgi) version 3.0 or above.
 
-## Create an App Configuration instance
+## Add a feature flag
 
-[!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
+Select **Feature Manager** > **+Add** to add a feature flag called `Beta` to the App Configuration store.
 
-7. Select **Feature Manager** > **+Add** to add a feature flag called `Beta`.
+> [!div class="mx-imgBorder"]
+> ![Enable feature flag named Beta](media/add-beta-feature-flag.png)
 
-    > [!div class="mx-imgBorder"]
-    > ![Enable feature flag named Beta](media/add-beta-feature-flag.png)
-
-    Leave `label` undefined for now.
+Leave `label` undefined for now.
 
 ## Create a Spring Boot app
 

@@ -19,22 +19,21 @@ The Python App Configuration provider is a library running on top of the [Azure 
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - Python 3.6 or later - for information on setting up Python on Windows, see the [Python on Windows documentation](/windows/python/)
 
-## Create an App Configuration store
+## Add key-values
 
-[!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
+Select **Configuration Explorer** > **Create** > **Key-value** to add the following key-value pairs to the App Configuration store:
 
-9. Select **Configuration Explorer** > **Create** > **Key-value** to add the following key-value pairs:
+| Key            | Value             | Label       | Content type       |
+|----------------|-------------------|-------------|--------------------|
+| *message*      | *Hello*           | Leave empty | Leave empty        |
+| *test.message* | *Hello test*      | Leave empty | Leave empty        |
+| *my_json*      | *{"key":"value"}* | Leave empty | *application/json* |
 
-    | Key            | Value             | Label       | Content type       |
-    |----------------|-------------------|-------------|--------------------|
-    | *message*      | *Hello*           | Leave empty | Leave empty        |
-    | *test.message* | *Hello test*      | Leave empty | Leave empty        |
-    | *my_json*      | *{"key":"value"}* | Leave empty | *application/json* |
-
-10. Select **Apply**.
+Select **Apply**.
 
 ## Set up the Python app
 

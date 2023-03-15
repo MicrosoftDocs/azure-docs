@@ -17,22 +17,19 @@ In this quickstart, you will use Azure App Configuration to centralize storage a
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - [LTS versions of Node.js](https://nodejs.org/en/about/releases/). For information about installing Node.js either directly on Windows or using the Windows Subsystem for Linux (WSL), see [Get started with Node.js](/windows/dev-environment/javascript/nodejs-overview)
 
-## Create an App Configuration store
+## Add a key-value
 
-[!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
+Select **Configuration Explorer** > **Create** > **Key-value** to add the following key-value pair to the App Configuration store:
 
-7. Select **Configuration Explorer** > **Create** > **Key-value** to add the following key-value pairs:
+| Key | Value |
+|---|---|
+| TestApp:Settings:Message | Data from Azure App Configuration |
 
-    | Key | Value |
-    |---|---|
-    | TestApp:Settings:Message | Data from Azure App Configuration |
-
-    Leave **Label** and **Content Type** empty for now.
-
-8. Select **Apply**.
+Leave **Label** and **Content Type** empty and select **Apply**.
 
 ## Setting up the Node.js app
 

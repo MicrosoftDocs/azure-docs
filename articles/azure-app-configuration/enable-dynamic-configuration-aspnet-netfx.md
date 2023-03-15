@@ -24,25 +24,24 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - [Visual Studio](https://visualstudio.microsoft.com/vs)
 - [.NET Framework 4.7.2 or later](https://dotnet.microsoft.com/download/dotnet-framework)
 
-## Create an App Configuration store
+## Add key-values
 
-[!INCLUDE[Azure App Configuration resource creation steps](../../includes/azure-app-configuration-create.md)]
+Select **Operations** > **Configuration explorer** > **Create** > **Key-value** to add the following key-values:
 
-7. Select **Operations** > **Configuration explorer** > **Create** > **Key-value** to add the following key-values:
+| Key                                | Value                               |
+|------------------------------------|-------------------------------------|
+| *TestApp:Settings:BackgroundColor* | *White*                             |
+| *TestApp:Settings:FontColor*       | *Black*                             |
+| *TestApp:Settings:FontSize*        | *40*                                |
+| *TestApp:Settings:Message*         | *Data from Azure App Configuration* |
+| *TestApp:Settings:Sentinel*        | *v1*                                |
 
-    | Key                                | Value                               |
-    |------------------------------------|-------------------------------------|
-    | *TestApp:Settings:BackgroundColor* | *White*                             |
-    | *TestApp:Settings:FontColor*       | *Black*                             |
-    | *TestApp:Settings:FontSize*        | *40*                                |
-    | *TestApp:Settings:Message*         | *Data from Azure App Configuration* |
-    | *TestApp:Settings:Sentinel*        | *v1*                                |
-
-    Leave **Label** and **Content type** empty.
+Leave **Label** and **Content type** empty.
 
 ## Create an ASP.NET Web Application
 

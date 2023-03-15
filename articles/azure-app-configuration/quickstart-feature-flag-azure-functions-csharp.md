@@ -18,22 +18,19 @@ The .NET Feature Management libraries extend the framework with feature flag sup
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs) with the **Azure development** workload.
 - [Azure Functions tools](../azure-functions/functions-develop-vs.md#check-your-tools-version)
 
-## Create an App Configuration store
+## Add a feature flag
 
-[!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
+Select **Feature Manager** > **+Add** to add a feature flag called `Beta`.
 
-7. Select **Feature Manager** > **+Add** to add a feature flag called `Beta`.
+> [!div class="mx-imgBorder"]
+> ![Enable feature flag named Beta](media/add-beta-feature-flag.png)
 
-    > [!div class="mx-imgBorder"]
-    > ![Enable feature flag named Beta](media/add-beta-feature-flag.png)
-
-    Leave `label` and `Description` undefined for now.
-
-8. Select **Apply** to save the new feature flag.
+Leave `label` and `Description` undefined and select **Apply** to save the new feature flag.
 
 ## Create a Functions app
 

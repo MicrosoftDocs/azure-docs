@@ -30,23 +30,22 @@ This tutorial assumes basic understanding of managing Kubernetes with Helm. Lear
 
 ## Prerequisites
 
-- [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
 - Install [Azure CLI](/cli/azure/install-azure-cli) (version 2.4.0 or later)
 - Install [Helm](https://helm.sh/docs/intro/install/) (version 2.14.0 or later)
+- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - A Kubernetes cluster.
 
-## Create an App Configuration store
+# Add key-values
 
-[!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
+Select **Operations** > **Configuration explorer** > **Create** > **Key-value** to add the following key-values pairs to your App Configuration store:
 
-1. Select **Configuration Explorer** > **Create** to add the following key-value pairs:
+| Key | Value |
+|---|---|
+| settings.color | White |
+| settings.message | Data from Azure App Configuration |
 
-    | Key | Value |
-    |---|---|
-    | settings.color | White |
-    | settings.message | Data from Azure App Configuration |
-
-2. Leave **Label** and **Content Type** empty for now.
+Leave **Label** and **Content Type** empty for now.
 
 ## Add a Key Vault reference to App Configuration
 

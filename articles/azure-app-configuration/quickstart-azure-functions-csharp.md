@@ -17,21 +17,20 @@ In this quickstart, you incorporate the Azure App Configuration service into an 
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/dotnet).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - [Visual Studio](https://visualstudio.microsoft.com/vs) with the **Azure development** workload.
 - [Azure Functions tools](../azure-functions/functions-develop-vs.md), if you don't have it installed with Visual Studio already.
 
-## Create an App Configuration store
+## Add a key-value
 
-[!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
+Select **Configuration Explorer** > **+ Create** > **Key-value** to add the following key-value pair to your App Configuration store.
 
-7. Select **Configuration Explorer** > **+ Create** > **Key-value** to add the following key-value pairs:
+| Key | Value |
+|---|---|
+| TestApp:Settings:Message | Data from Azure App Configuration |
 
-    | Key | Value |
-    |---|---|
-    | TestApp:Settings:Message | Data from Azure App Configuration |
-
-    Leave **Label** and **Content Type** empty for now.
+Leave **Label** and **Content Type** empty for now.
 
 8. Select **Apply**.
 
