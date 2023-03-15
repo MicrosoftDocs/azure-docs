@@ -3,7 +3,7 @@ title: Move from classic to modernized VMware disaster recovery.
 description: Learn about the architecture, necessary infrastructure, and FAQs about moving your VMware replications from classic to modernized protection architecture.
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 01/13/2023
+ms.date: 03/15/2023
 author: ankitaduttaMSFT
 ms.custom: engagement-fy23
 ---
@@ -12,7 +12,7 @@ ms.custom: engagement-fy23
 
 This article provides information about the architecture, necessary infrastructure, and FAQs about moving your VMware or Physical machine replications from [classic](./vmware-azure-architecture.md) to [modernized](./vmware-azure-architecture-modernized.md) protection architecture. With this capability to migrate, you can successfully transfer your replicated items from a configuration server to an Azure Site Recovery replication appliance. This migration is guided by a smart replication mechanism, which ensures that complete initial replication isn't performed again for noncritical replicated items, and only the differential data is transferred. 
 
-> [!Note]
+> [!NOTE]
 > Recovery plans won't be migrated and will need to be created again in the modernized Recovery Services vault.  
 
 ## Architecture  
@@ -162,7 +162,6 @@ For example, if the retention time for a replicated item is 72 hours (three days
 
 Any replicated item that is undergoing migration can still support the failover operation through the classic Recovery Services vault until the retention period for the final recovery point has ended. If you try to execute a failover operation, it will take precedence over the migration operation and the migration job is aborted. To ensure that your replicated item is migrated, you'll need to trigger the migration operation again at a later time.
 
-
 >[!Note]
 > The Compute and Network properties of replicated items can be updated while the migration is in progress. However, the changes may not get replicated in the modernized Recovery Services vault. 
 
@@ -176,7 +175,7 @@ No, the same resources, that were used previously in the classic vault is used b
 
 ### How will my replication policies be moved to the modernized vault?
 
-As a prerequisite, Site Recovery will create replication policies in the modernized vault with the same configuration as in the classic vault. So, before a replicated item is moved, the associated policy is created in the modernized vault. It's recommended that you avoid making changes to the configuration of replication policies in the classic vault after the migration has been triggered, as these changes won't be reflected in the modernized vault. It's best to make these changes before starting the migration process.
+As a prerequisite, Site Recovery will create replication policies in the modernized vault with the same configuration as in the classic vault. So, before a replicated item is moved, the associated policy is created in the modernized vault. We recommend that you avoid making changes to the configuration of replication policies in the classic vault after the migration has been triggered, as these changes won't be reflected in the modernized vault. It's best to make these changes before starting the migration process.
  
 The replication policy created in the modernized vault will have its name changed in the modernized vault. It is prefixed with resource group name and vault name of the modernized Recovery Services vault. So, if the policy name was “default replication policy” in the classic vault, then in the modernized vault, this policy’s name is `default replication policy contoso-modern-vault_contoso-rg`, given the vault’s name is contoso-modern-vault and the vault’s resource group is contoso-rg.  
 
@@ -188,7 +187,7 @@ So, if there are 10 replicated items, that are replicated using a policy and you
 
 ### How do I migrate replicated items, which are present in a replication group, also known as multi-vm consistency groups?
 
-All replicated items that are part of a replication group is migrated together. You have the option to select all of them by selecting the replication group or skip them all. If the migration process fails for some machines in a replication group but succeeds for others, a rollback to the classic experience is performed for the failed replicated items and the migration process can be triggered again for those items.
+All replicated items that are part of a replication group are migrated together. You can select all of them by selecting the replication group or skip them all. If the migration process fails for some machines in a replication group but succeeds for others, a rollback to the classic experience is performed for the failed replicated items and the migration process can be triggered again for those items.
 
 ## Next steps
 
