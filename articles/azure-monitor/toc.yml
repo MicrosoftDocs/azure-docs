@@ -666,7 +666,7 @@ items:
           - name: Data model
             href: app/data-model-complete.md
           - name: Integration with Azure Functions
-            href: ../azure-functions/functions-monitoring.md?toc=/azure/azure-monitor/toc.json
+            href: app/azure-functions-supported-features.md?toc=/azure/azure-monitor/toc.json
         - name: Connection strings
           href: app/sdk-connection-string.md
           displayName: connection string, instrumentation key
