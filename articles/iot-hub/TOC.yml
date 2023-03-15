@@ -310,20 +310,20 @@
         - name: Send cloud-to-device messages
           items:
             - name: .NET
-              displayName: cloud-to-device messages, C2D
-              href: iot-hub-csharp-csharp-c2d.md
+              displayName: cloud-to-device messages, C2D, csharp, C#
+              href: c2d-messaging-dotnet.md
             - name: Python
               displayName: cloud-to-device messages, C2D
-              href: iot-hub-python-python-c2d.md
+              href: c2d-messaging-python.md
             - name: Node.js
               displayName: cloud-to-device messages, C2D
-              href: iot-hub-node-node-c2d.md
+              href: c2d-messaging-node.md
             - name: Java
               displayName: cloud-to-device messages, C2D
-              href: iot-hub-java-java-c2d.md
+              href: c2d-messaging-java.md
             - name: iOS
               displayName: cloud-to-device messages, C2D
-              href: iot-hub-ios-swift-c2d.md
+              href: c2d-messaging-ios.md
         - name: Upload files from devices
           items:
             - name: .NET

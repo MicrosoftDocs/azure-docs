@@ -1,14 +1,14 @@
 ---
-title: Cloud-to-device messages with Azure IoT Hub (.NET) | Microsoft Docs
-description: How to send cloud-to-device messages to a device from an Azure IoT hub using the Azure IoT SDKs for .NET. You modify a device app to receive cloud-to-device messages and modify a back-end app to send the cloud-to-device messages.
+title: Send cloud-to-device messages (.NET)
+titleSuffix: Azure IoT Hub
+description: How to send cloud-to-device messages from a back-end app and receive them on a device app using the Azure IoT SDKs for .NET.
 author: kgremban
 
-ms.service: iot-hub
-services: iot-hub
-ms.devlang: csharp
-ms.topic: conceptual
-ms.date: 10/20/2021
 ms.author: kgremban
+ms.service: iot-hub
+ms.devlang: csharp
+ms.topic: how-to
+ms.date: 10/20/2021
 ms.custom:  [amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device', devx-track-csharp]
 ---
 
@@ -78,14 +78,14 @@ In this section, modify your device app to receive cloud-to-device messages from
    ReceiveC2dAsync();
    ```
 
-The `ReceiveAsync` method asynchronously returns the received message at the time that it is received by the device. It returns *null* after a specifiable timeout period. In this example, the default of one minute is used. When the app receives a *null*, it should continue to wait for new messages. This requirement is the reason for the `if (receivedMessage == null) continue` line.
+The `ReceiveAsync` method asynchronously returns the received message at the time that it's received by the device. It returns *null* after a specifiable timeout period. In this example, the default of one minute is used. When the app receives a *null*, it should continue to wait for new messages. This requirement is the reason for the `if (receivedMessage == null) continue` line.
 
 The call to `CompleteAsync()` notifies IoT Hub that the message has been successfully processed and that the message can be safely removed from the device queue. The device should call this method when its processing successfully completes regardless of the protocol it's using.
 
 With AMQP and HTTPS, but not MQTT, the device can also:
 
 * Abandon a message, which results in IoT Hub retaining the message in the device queue for future consumption.
-* Reject a message, which which permanently removes the message from the device queue.
+* Reject a message, which permanently removes the message from the device queue.
 
 If something happens that prevents the device from completing, abandoning, or rejecting the message, IoT Hub will, after a fixed timeout period, queue the message for delivery again. For this reason, the message processing logic in the device app must be *idempotent*, so that receiving the same message multiple times produces the same result.
 

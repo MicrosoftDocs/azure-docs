@@ -1,12 +1,13 @@
 ---
-title: Cloud-to-device messages with Azure IoT Hub (iOS) | Microsoft Docs
-description: How to send cloud-to-device messages to a device from an Azure IoT hub using the Azure IoT SDKs for iOS. 
+title: Send cloud-to-device messages (iOS)
+titleSuffix: Azure IoT Hub
+description: How to send cloud-to-device messages from a back-end app and receive them on a device app using the Azure IoT SDKs for iOS.
 author: kgremban
-ms.service: iot-hub
-services: iot-hub
-ms.topic: conceptual
-ms.date: 04/19/2018
+
 ms.author: kgremban
+ms.service: iot-hub
+ms.topic: how-to
+ms.date: 04/19/2018
 ms.custom: mqtt
 ---
 
@@ -65,7 +66,7 @@ Along with installing the pods required for your project, the installation comma
 
 ### Run the sample device application
 
-1. Retrieve the connection string for your device. You can copy this string from the [Azure portal](https://portal.azure.com) in the device details blade, or retrieve it with the following CLI command:
+1. Retrieve the connection string for your device. You can copy this string from the [Azure portal](https://portal.azure.com) in the device details page, or retrieve it with the following CLI command:
 
     ```azurecli-interactive
     az iot hub device-identity connection-string show --hub-name {YourIoTHubName} --device-id {YourDeviceID} --output table
@@ -91,9 +92,9 @@ Along with installing the pods required for your project, the installation comma
 
 ## Send a cloud-to-device message
 
-You are now ready to receive cloud-to-device messages. Use the Azure portal to send a test cloud-to-device message to your simulated IoT device.
+You're now ready to receive cloud-to-device messages. Use the Azure portal to send a test cloud-to-device message to your simulated IoT device.
 
-1. In the **iOS App Sample** app running on the simulated IoT device, click **Start**. The application starts sending device-to-cloud messages, but also starts listening for cloud-to-device messages.
+1. In the **iOS App Sample** app running on the simulated IoT device, select **Start**. The application starts sending device-to-cloud messages, but also starts listening for cloud-to-device messages.
 
    ![View sample IoT device app](media/iot-hub-ios-swift-c2d/view-d2c.png)
 

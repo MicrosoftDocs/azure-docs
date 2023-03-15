@@ -1,13 +1,13 @@
 ---
-title: Cloud-to-device messages with Azure IoT Hub (Java) | Microsoft Docs
-description: How to send cloud-to-device messages to a device from an Azure IoT hub using the Azure IoT SDKs for Java. You modify a simulated device app to receive cloud-to-device messages and modify a back-end app to send the cloud-to-device messages.
+title: Send cloud-to-device messages (Java)
+titleSuffix: Azure IoT Hub
+description: How to send cloud-to-device messages from a back-end app and receive them on a device app using the Azure IoT SDKs for Java.
 author: kgremban
 
 ms.author: kgremban
 ms.service: iot-hub
-services: iot-hub
 ms.devlang: java
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/28/2017
 ms.custom: [amqp, mqtt, devx-track-java]
 ---
@@ -84,12 +84,12 @@ In this section, modify your device app to receive cloud-to-device messages from
     mvn clean package -DskipTests
     ```
 
-The `execute` method in the `AppMessageCallback` class returns `IotHubMessageResult.COMPLETE`. This notifies IoT Hub that the message has been successfully processed and that the message can be safely removed from the device queue. The device should return this value when its processing successfully completes regardless of the protocol it's using.
+The `execute` method in the `AppMessageCallback` class returns `IotHubMessageResult.COMPLETE`. This status notifies IoT Hub that the message has been successfully processed and that the message can be safely removed from the device queue. The device should return this value when its processing successfully completes regardless of the protocol it's using.
 
 With AMQP and HTTPS, but not MQTT, the device can also:
 
 * Abandon a message, which results in IoT Hub retaining the message in the device queue for future consumption.
-* Reject a message, which which permanently removes the message from the device queue.
+* Reject a message, which permanently removes the message from the device queue.
 
 If something happens that prevents the device from completing, abandoning, or rejecting the message, IoT Hub will, after a fixed timeout period, queue the message for delivery again. For this reason, the message processing logic in the device app must be *idempotent*, so that receiving the same message multiple times produces the same result.
 
@@ -193,7 +193,7 @@ In this section, you create a Java console app that sends cloud-to-device messag
 
 ## Run the applications
 
-You are now ready to run the applications.
+You're now ready to run the applications.
 
 1. At a command prompt in the simulated-device folder, run the following command to begin sending telemetry to your IoT hub and to listen for cloud-to-device messages sent from your hub:
 
