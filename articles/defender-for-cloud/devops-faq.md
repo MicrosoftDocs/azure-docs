@@ -37,7 +37,7 @@ You can [check which account is signed in](https://app.vssps.visualstudio.com/pr
 
 The Azure DevOps service only supports `TfsGit`.
 
-Ensure that you've [onboarded your repositories](/azure/defender-for-cloud/quickstart-onboard-devops?branch=main) to Microsoft Defender for Cloud. If you still can't see your repository, ensure that you're signed in with the correct Azure DevOps organization user account. Your Azure subscription and Azure DevOps Organization need to be in the same tenant. If the user for the connector is wrong, you need to delete the previously created connector, sign in with the correct user account and re-create the connector.
+Ensure that you've [onboarded your repositories](./quickstart-onboard-devops.md?branch=main) to Microsoft Defender for Cloud. If you still can't see your repository, ensure that you're signed in with the correct Azure DevOps organization user account. Your Azure subscription and Azure DevOps Organization need to be in the same tenant. If the user for the connector is wrong, you need to delete the previously created connector, sign in with the correct user account and re-create the connector.
 
 ### Secret scan didn't run on my code 
 
@@ -67,7 +67,7 @@ If no scan is performed for 14 days, the scan results revert to `N/A`.
 
 ### I don’t see Recommendations for findings
 
-Ensure that you've onboarded the project with the connector and that your repository (that build is for), is onboarded to Microsoft Defender for Cloud. You can learn how to [onboard your DevOps repository](/azure/defender-for-cloud/quickstart-onboard-devops?branch=main) to Defender for Cloud. 
+Ensure that you've onboarded the project with the connector and that your repository (that build is for), is onboarded to Microsoft Defender for Cloud. You can learn how to [onboard your DevOps repository](./quickstart-onboard-devops.md?branch=main) to Defender for Cloud. 
 
 You must have more than a [stakeholder license](https://azure.microsoft.com/pricing/details/devops/azure-devops-services/) to the repos to onboard them, and you need to be at least the security reader on the subscription where the connector is created. You can confirm if you've onboarded the repositories by seeing them in the inventory list in Microsoft Defender for Cloud.
 
