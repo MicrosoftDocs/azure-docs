@@ -1,10 +1,10 @@
 ---
 title: Quickstart - Deploy event-driven application to Azure Spring Apps with the Standard consumption plan
-description: Learn how to deploy an event-driven application to Azure Spring Apps
+description: Learn how to deploy an event-driven application to Azure Spring Apps with the Standard consumption plan.
 author: karlerickson
 ms.service: spring-apps
 ms.topic: quickstart
-ms.date: 02/23/2023
+ms.date: 03/22/2023
 ms.author: rujche
 ms.custom: devx-track-java, devx-track-azurecli, mode-other, event-tier1-build-2022, engagement-fy23
 ---
@@ -53,66 +53,66 @@ The main resources needed to run this sample is an Azure Spring Apps instance an
 
 Set variables to the names of your resources, and to values for other settings as needed. Names of resources in Azure must be unique.
 
-```azurecli-interactive
-RESOURCE_GROUP=<event-driven-app-resource-group>
+```azurecli
+RESOURCE_GROUP=<event-driven-app-resource-group-name>
 LOCATION=<desired-region>
 SERVICE_BUS_NAME_SPACE=<event-driven-app-service-bus-namespace>
-MANAGED_ENVIRONMENT=<Azure-Container-Apps-environment>
-AZURE_SPRING_APPS_NAME=<Azure-Spring-Apps-instance>
-APP_NAME=<event-driven-app>
+AZURE_CONTAINER_APPS_ENVIRONMENT=<Azure-Container-Apps-environment-name>
+AZURE_SPRING_APPS_INSTANCE=<Azure-Spring-Apps-instance-name>
+APP_NAME=<event-driven-app-name>
 ```
 
 ### Step 2 - Create a new resource group
 
 To manage the resources easily, create a resource group to hold these resources. Follow the following steps to create a new resource group.
 
-1. Sign-in Azure CLI.
+1. Sign in to Azure by using the following command:
 
-   ```azurecli-interactive
+   ```azurecli
    az login
    ```
 
-1. Set default location.
+1. Set the default location by using the following command:
 
-   ```azurecli-interactive
+   ```azurecli
    az configure --defaults location=${LOCATION}
    ```
 
 1. Set your default subscription. Firstly, list all available subscriptions:
 
-   ```azurecli-interactive
+   ```azurecli
    az account list --output table
    ```
 
    Determine the ID of the subscription you want to set and use it with the following command to set your default subscription.
 
-   ```azurecli-interactive
+   ```azurecli
    az account set --subscription <subscription-ID>
    ```
 
 1. Create a resource group.
 
-   ```azurecli-interactive
+   ```azurecli
    az group create --resource-group ${RESOURCE_GROUP}
    ```
 
 1. Set the newly created resource group as default resource group.
 
-   ```azurecli-interactive
+   ```azurecli
    az configure --defaults group=${RESOURCE_GROUP}
    ```
 
 ### Step 3 - Create a Service Bus instance
 
-1. Run the following command to create a Service Bus namespace.
+1. Use the following command to create a Service Bus namespace.
 
-   ```azurecli-interactive
+   ```azurecli
    az servicebus namespace create --name ${SERVICE_BUS_NAME_SPACE}
    ```
 
-1. Run the following command to create two queues named `lower-case` and `upper-case`.
+1. Use the following commands to create two queues named `lower-case` and `upper-case`.
 
-   ```azurecli-interactive
+   ```azurecli
    az servicebus queue create \
        --namespace-name ${SERVICE_BUS_NAME_SPACE} \
        --name lower-case
@@ -129,71 +129,71 @@ An Azure Spring Apps Consumption plan hosts the Spring event-driven app. This se
 
 The Azure Container Apps environment creates a secure boundary around a group of applications. Apps deployed to the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace.
 
-1. Install the Azure Container Apps extension for the CLI.
+1. Install the Azure Container Apps extension for the CLI by using the following command:
 
-   ```azurecli-interactive
+   ```azurecli
    az extension add --name containerapp --upgrade
    ```
 
-1. Register the `Microsoft.App` namespace.
+1. Register the `Microsoft.App` namespace by using the following command:
 
-   ```azurecli-interactive
+   ```azurecli
    az provider register --namespace Microsoft.App
    ```
 
-1. If you haven't previously used the Azure Monitor Log Analytics workspace, register the `Microsoft.OperationalInsights` provider.
+1. If you haven't previously used the Azure Monitor Log Analytics workspace, register the `Microsoft.OperationalInsights` provider by using the following command:
 
-   ```azurecli-interactive
+   ```azurecli
    az provider register --namespace Microsoft.OperationalInsights
    ```
 
-1. Create the environment by this command:
+1. Create the environment by using the following command:
 
-   ```azurecli-interactive
-   az containerapp env create --name ${MANAGED_ENVIRONMENT}
+   ```azurecli
+   az containerapp env create --name ${AZURE_CONTAINER_APPS_ENVIRONMENT}
    ```
 
 #### Step 4.2 - Create Azure Spring Apps instance
 
 1. Install the Spring extension designed for StandardGen2 Azure Spring Apps.
 
-   ```azurecli-interactive
+   ```azurecli
    az extension remove -n spring && \
    az extension add \
        --source https://ascprivatecli.blob.core.windows.net/cli-extension/spring-1.8.0-py3-none-any.whl \
        --yes
    ```
 
-1. Register the Microsoft.AppPlatform provider for the Azure Spring Apps.
+1. Register the `Microsoft.AppPlatform` provider for the Azure Spring Apps by using the following command:
 
-   ```azurecli-interactive
+   ```azurecli
    az provider register --namespace Microsoft.AppPlatform
    ```
 
-1. Get Azure Container Apps environment resource ID.
+1. Get the Azure Container Apps environment resource ID by using the following command:
 
-   ```azurecli-interactive
+   ```azurecli
    MANAGED_ENV_RESOURCE_ID=$(az containerapp env show \
-       --name ${MANAGED_ENVIRONMENT} \
+       --name ${AZURE_CONTAINER_APPS_ENVIRONMENT} \
        --query id -o tsv)
    ```
 
-1. Create your Azure Spring Apps instance by specifying the resource ID of the Azure Container Apps environment you created.
+1. Use the following command to create your Azure Spring Apps instance, specifying the resource ID of the Azure Container Apps environment you created.
 
-   ```azurecli-interactive
+   ```azurecli
    az spring create \
-       --name ${AZURE_SPRING_APPS_NAME} \
+       --name ${AZURE_SPRING_APPS_INSTANCE} \
        --managed-environment ${MANAGED_ENV_RESOURCE_ID} \
        --sku standardGen2
    ```
 
 #### Step 4.3 - Create an app in Azure Spring Apps
 
-Create an app in the Azure Spring Apps instance.
+Create an app in the Azure Spring Apps instance by using the following command:
 
-```azurecli-interactive
+```azurecli
 az spring app create \
-   --service ${AZURE_SPRING_APPS_NAME} \
+   --service ${AZURE_SPRING_APPS_INSTANCE} \
    --name ${APP_NAME} \
    --cpu 1 \
    --memory 2 \
@@ -208,9 +208,9 @@ Now both the Service Bus and the app in Azure Spring Apps have been created. But
 
 #### Step 5.1 - Get a connection string
 
-To enable the app to connect to the Service Bus, get the Service Bus's connection string.
+To enable the app to connect to the Service Bus, get the Service Bus's connection string by using the following command:
 
-```azurecli-interactive
+```azurecli
 SERVICE_BUS_CONNECTION_STRING=$(az servicebus namespace authorization-rule keys list \
     --namespace-name ${SERVICE_BUS_NAME_SPACE} \
     --name RootManageSharedAccessKey \
@@ -222,9 +222,9 @@ SERVICE_BUS_CONNECTION_STRING=$(az servicebus namespace authorization-rule keys 
 
 Provide the connecting string to the app by adding an environment variable.
 
-```azurecli-interactive
+```azurecli
 az spring app update \
-    --service ${AZURE_SPRING_APPS_NAME} \
+    --service ${AZURE_SPRING_APPS_INSTANCE} \
     --name ${APP_NAME} \
     --env SERVICE_BUS_CONNECTION_STRING=${SERVICE_BUS_CONNECTION_STRING}
 ```
@@ -233,19 +233,19 @@ az spring app update \
 
 Now the cloud environment is ready. Deploy the app with the following command.
 
-```azurecli-interactive
+```azurecli
 az spring app deploy \
-    --service ${AZURE_SPRING_APPS_NAME} \
+    --service ${AZURE_SPRING_APPS_INSTANCE} \
     --name ${APP_NAME} \
     --artifact-path target/simple-event-driven-app-0.0.1-SNAPSHOT.jar
 ```
 
 ## Validate the event-driven app
 
-To check whether the event-driven app works well, validate it by sending a message to the `lower-case` queue and check whether there's a message in the `upper-case`queue.
+To check whether the event-driven app works well, validate it by sending a message to the `lower-case` queue and check whether there's a message in the `upper-case` queue.
 
-1. Send a message to `lower-case` queue with Service Bus Explorer. For details see [Send a message to a queue or topic](/azure/service-bus-messaging/explorer#send-a-message-to-a-queue-or-topic).
-1. Check whether there is a new message sent to the `upper-case` queue. For details see [Peek a message](/azure/service-bus-messaging/explorer#peek-a-message).
+1. Send a message to `lower-case` queue with Service Bus Explorer. For more information, see the [Send a message to a queue or topic](../service-bus-messaging/explorer.md#send-a-message-to-a-queue-or-topic) section of [Use Service Bus Explorer to run data operations on Service Bus](../service-bus-messaging/explorer.md).
+1. Check whether there is a new message sent to the `upper-case` queue. For more information, see the [Peek a message](../service-bus-messaging/explorer.md#peek-a-message) section of [Use Service Bus Explorer to run data operations on Service Bus](../service-bus-messaging/explorer.md).
 
 ## Next steps
 
