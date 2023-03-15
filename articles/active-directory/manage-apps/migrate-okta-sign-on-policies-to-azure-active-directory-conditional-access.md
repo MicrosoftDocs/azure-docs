@@ -20,7 +20,7 @@ Learn more: [What is Conditional Access?](/azure/active-directory/conditional-ac
 
 This tutorial assumes you have:
 
-* Office 365 tenant federated to Okta for sign-in and multi-factor authentication.
+* Office 365 tenant federated to Okta for sign-in and multi-factor authentication
 * Azure AD Connect server, or Azure AD Connect cloud provisioning agents configured for user provisioning to Azure AD
 
 ## Prerequisites
@@ -56,17 +56,18 @@ Locate and evaluate Okta sign-on policies to determine what will be transitioned
 
 The Microsoft Office 365 application sign-on policy has four rules:
 
-- **Enforce MFA for Mobile Sessions** - Requires MFA from modern authentication or browser sessions on iOS or Android
-- **Allow Trusted Windows Devices** - Prevents unnecessary verification or factor prompts for trusted Okta devices
-- **Require MFA from Untrusted Windows Devices** - Requires MFA from modern authentication or browser sessions on untrusted Windows devices
-- **Block Legacy Authentication** - Prevents legacy authentication clients from connecting to the service
+- **Enforce MFA for mobile sessions** - requires MFA from modern authentication or browser sessions on iOS or Android
+- **Allow trusted Windows devices** - prevents unnecessary verification or factor prompts for trusted Okta devices
+- **Require MFA from untrusted Windows devices** - requires MFA from modern authentication or browser sessions on untrusted Windows devices
+- **Block legacy authentication** - prevents legacy authentication clients from connecting to the service
+
+The following screenshot is conditions and actions for the four rules, on the Sign On Policy screen.
 
    ![Screenshot of conditions and actions for the four rules, on the Sign On Policy screen.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/sign-on-rules.png)
 
 ## Configure Conditional Access policies
 
 Configure Conditional Access policies to match Okta conditions. However, in some scenarios, you might need more setup:
-
 
 * Okta network locations to named locations in Azure AD 
   *  [Using the location condition in a Conditional Access policy](../conditional-access/location-condition.md)
@@ -80,8 +81,8 @@ Configure Conditional Access policies to match Okta conditions. However, in some
 
 To enable hybrid Azure AD join on your Azure AD Connect server, run the configuration wizard. After configuration, enroll devices.
 
->[!NOTE]
->Hybrid Azure AD join isn't supported with the Azure AD Connect cloud provisioning agents.
+   >[!NOTE]
+   >Hybrid Azure AD join isn't supported with the Azure AD Connect cloud provisioning agents.
 
 1. [Configure hybrid Azure AD join](../devices/howto-hybrid-azure-ad-join.md).
 2. On the **SCP configuration** page, select the **Authentication Service** dropdown. 
@@ -94,8 +95,7 @@ To enable hybrid Azure AD join on your Azure AD Connect server, run the configur
 7. Select **Next**.
 
     > [!TIP]
-    > If you blocked legacy authentication on Windows clients in the global or app-level sign-on policy, make a rule that enables the hybrid Azure AD join process to finish.
-    > Allow the legacy authentication stack for Windows clients. </br>To enable custom client strings on app policies, contact the [Okta Help Center](https://support.okta.com/help/). 
+    > If you blocked legacy authentication on Windows clients in the global or app-level sign-on policy, make a rule that enables the hybrid Azure AD join process to finish. Allow the legacy authentication stack for Windows clients. </br>To enable custom client strings on app policies, contact the [Okta Help Center](https://support.okta.com/help/). 
 
 ### Configure device compliance
 
@@ -179,8 +179,8 @@ To manage registration, users go to [Microsoft My Sign-Ins | Security Info](http
 
 Learn more: [Enable combined security information registration in Azure Active Directory](../authentication/howto-registration-mfa-sspr-combined.md).
 
->[!NOTE]
->If users registered, they're redirected to the **My Security** page, after they satisfy MFA.
+   >[!NOTE]
+   >If users registered, they're redirected to the **My Security** page, after they satisfy MFA.
 
 ## Enable Conditional Access policies
 
