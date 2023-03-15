@@ -28,7 +28,7 @@ Trace severity level.
 ## Next steps
 
 - Explore [.NET trace logs in Application Insights](./asp-net-trace-logs.md).
-- Explore [Java trace logs in Application Insights](./java-in-process-agent.md#autocollected-logs).
+- Explore [Java trace logs in Application Insights](./opentelemetry-enable.md?tabs=java#logs).
 - See [data model](data-model.md) for Application Insights types and data model.
 - Write [custom trace telemetry](./api-custom-events-metrics.md#tracktrace).
 - Check out [platforms](./app-insights-overview.md#supported-languages) supported by Application Insights.

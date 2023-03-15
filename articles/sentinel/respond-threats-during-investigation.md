@@ -4,7 +4,7 @@ description: This article shows you how to take response actions against threat 
 author: yelevin
 ms.author: yelevin
 ms.topic: how-to
-ms.date: 12/07/2022
+ms.date: 01/17/2023
 ---
 
 # Respond to threat actors while investigating or threat hunting in Microsoft Sentinel
@@ -28,6 +28,12 @@ The entity trigger currently supports the following entity types:
 When you're investigating an incident, and you determine that a given entity - a user account, a host, an IP address, a file, and so on - represents a threat, you can take immediate remediation actions on that threat by running a playbook on-demand. You can do likewise if you encounter suspicious entities while proactively hunting for threats outside the context of incidents.
 
 1. Select the entity in whichever context you encounter it, and choose the appropriate means to run a playbook, as follows:
+    - In the **Entities** widget on the **Overview tab** of an incident in the [new incident details page](investigate-incidents.md#explore-the-incidents-entities) (now in Preview), or in its [**Entities tab**](investigate-incidents.md#entities-tab), choose an entity from the list, select the three dots next to the entity, and select **Run playbook (Preview)** from the pop-up menu.
+
+        :::image type="content" source="media/respond-threats-during-investigation/incident-details-overview.png" alt-text="Screenshot of incident details page.":::
+
+        :::image type="content" source="media/respond-threats-during-investigation/entities-tab.png" alt-text="Screenshot of entities tab on incident details page.":::
+
     - In the **Entities** tab of an incident, choose the entity from the list and select the **Run playbook (Preview)** link at the end of its line in the list.
 
         :::image type="content" source="media/respond-threats-during-investigation/incident-details-page.png" alt-text="Screenshot of selecting entity from incident details page to run a playbook on it.":::
@@ -60,7 +66,7 @@ When you're investigating an incident, and you determine that a given entity - a
 
 In this article, you learned how to run playbooks manually to remediate threats from entities while in the middle of investigating an incident or hunting for threats.
 
-- Learn more about [investigating incidents](investigate-cases.md) in Microsoft Sentinel.
+- Learn more about [investigating incidents](investigate-incidents.md) in Microsoft Sentinel.
 - Learn how to [proactively hunt for threats](hunting.md) using Microsoft Sentinel.
 - Learn more about [entities](entities.md) in Microsoft Sentinel.
 - Learn more about [playbooks](automate-responses-with-playbooks.md) in Microsoft Sentinel.

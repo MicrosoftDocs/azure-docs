@@ -13,9 +13,9 @@ ms.author: mbaldwin
 
 # Custom TCB baseline enforcement for SGX attestation
 
-Microsoft Azure Attestation is a unified solution for attesting different types of Trusted Execution Environments (TEEs) such as [Intel® Software Guard Extensions](https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html) (SGX) enclaves. While attesting SGX enclaves, Azure Attestation validates the evidence against Azure default Trusted Computing Base (TCB) baseline. The default TCB baseline is provided by an Azure service named [Trusted Hardware Identity Management](/azure/security/fundamentals/trusted-hardware-identity-management) (THIM) and includes collateral fetched from Intel like certificate revocation lists (CRLs), Intel certificates, Trusted Computing Base (TCB) information and Quoting Enclave identity (QEID). The default TCB baseline from THIM might lag the latest baseline offered by Intel. This is to prevent any attestation failure scenarios for ACC customers who require more time for patching platform software (PSW) updates.
+Microsoft Azure Attestation is a unified solution for attesting different types of Trusted Execution Environments (TEEs) such as [Intel® Software Guard Extensions](https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html) (SGX) enclaves. While attesting SGX enclaves, Azure Attestation validates the evidence against Azure default Trusted Computing Base (TCB) baseline. The default TCB baseline is provided by an Azure service named [Trusted Hardware Identity Management](../security/fundamentals/trusted-hardware-identity-management.md) (THIM) and includes collateral fetched from Intel like certificate revocation lists (CRLs), Intel certificates, Trusted Computing Base (TCB) information and Quoting Enclave identity (QEID). The default TCB baseline from THIM might lag the latest baseline offered by Intel. This is to prevent any attestation failure scenarios for ACC customers who require more time for patching platform software (PSW) updates.
 
-The custom TCB baseline enforcement feature in Azure Attestation will empower you to perform SGX attestation against a desired TCB baseline. It is always recommended for [Azure Confidential Computing](/azure/confidential-computing/overview) (ACC) SGX customers to install the latest PSW version supported by Intel and configure their SGX attestation policy with the latest TCB baseline supported by Azure.
+The custom TCB baseline enforcement feature in Azure Attestation will empower you to perform SGX attestation against a desired TCB baseline. It is always recommended for [Azure Confidential Computing](../confidential-computing/overview.md) (ACC) SGX customers to install the latest PSW version supported by Intel and configure their SGX attestation policy with the latest TCB baseline supported by Azure.
 
 ## Why use custom TCB baseline enforcement feature?
 
@@ -37,17 +37,29 @@ Minimum PSW Windows version: "2.7.101.2"
 
 ## TCB baselines available in Azure which can be configured as custom TCB baseline
 ```
- TCB identifier: "11"
- TCB evaluation data number": "11"
- TCB release date: "2021-06-09T00:00:00"
- Minimum PSW Linux version: "2.13.3",
- Minimum PSW Windows version: "2.13.100.2"
-
- TCB identifier: "10"
- TCB evaluation data number: "10"
- Tcb release date: "2020-11-11T00:00:00"
- Minimum PSW Linux version: "2.9",
- Minimum PSW Windows version: "2.7.101.2"
+ TCB identifier : 13
+ TCB release date: 8/9/2022
+ TCB evaluation data number : 13
+ Minimum PSW Linux version : 2.17
+ Minimum PSW Windows version : 2.16
+ 
+ TCB identifier : 12
+ TCB release date: 11/10/2021
+ TCB evaluation data number : 12
+ Minimum PSW Linux version : 2.13.3
+ Minimum PSW Windows version : 2.13.100.2
+ 
+ TCB identifier : 11
+ TCB release date: 6/8/2021
+ TCB evaluation data number : 11
+ Minimum PSW Linux version : 2.13.3
+ Minimum PSW Windows version : 2.13.100.2
+ 
+ TCB identifier : 10
+ TCB release date: 11/10/2020
+ TCB evaluation data number : 10
+ Minimum PSW Linux version : 2.9
+ Minimum PSW Windows version : 2.7.101.2
 ```         
 
 ## How to configure an attestation policy with custom TCB baseline using Azure portal experience

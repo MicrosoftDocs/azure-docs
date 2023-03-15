@@ -1,7 +1,6 @@
 ---
 title: Quickstart - Create an Azure Kubernetes Service (AKS) cluster by using Bicep
 description: Learn how to quickly create a Kubernetes cluster using a Bicep file and deploy an application in Azure Kubernetes Service (AKS)
-services: container-service
 ms.topic: quickstart
 ms.date: 11/01/2022
 ms.custom: mvc, subject-armbicep
@@ -78,7 +77,7 @@ For more AKS samples, see the [AKS quickstart templates][aks-quickstart-template
 
     ```azurecli
     az group create --name myResourceGroup --location eastus
-    az deployment group create --resource-group myResourceGroup --template-file main.bicep --parameters clusterName=<cluster-name> dnsPrefix=<dns-previs> linuxAdminUsername=<linux-admin-username> sshRSAPublicKey='<ssh-key>'
+    az deployment group create --resource-group myResourceGroup --template-file main.bicep --parameters clusterName=<cluster-name> dnsPrefix=<dns-prefix> linuxAdminUsername=<linux-admin-username> sshRSAPublicKey='<ssh-key>'
     ```
 
     # [PowerShell](#tab/PowerShell)

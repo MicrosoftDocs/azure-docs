@@ -396,4 +396,5 @@ To specify these document version numbers and message types, follow these steps:
 
 * [X12 TA1 technical acknowledgments and error codes](logic-apps-enterprise-integration-x12-ta1-acknowledgment.md)
 * [X12 997 functional acknowledgments and error codes](logic-apps-enterprise-integration-x12-997-acknowledgment.md)
-* [About connectors in Azure Logic Apps](../connectors/apis-list.md)
+* [Managed connectors for Azure Logic Apps](../connectors/managed.md)
+* [Built-in connectors for Azure Logic Apps](../connectors/built-in.md)

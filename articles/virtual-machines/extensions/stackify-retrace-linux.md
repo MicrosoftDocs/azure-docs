@@ -5,13 +5,11 @@ ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
 ms.author: gabsta
-author: MsGabsta
+author: GabstaMSFT
 ms.collection: linux
 ms.date: 04/12/2018 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.custom: devx-track-azurecli
 ms.devlang: azurecli
-
-
 ---
 # Stackify Retrace Linux Agent Extension
 

@@ -33,7 +33,7 @@ OT network sensors discover and continuously monitor network traffic across your
 
 - Network sensors use OT-aware analytics engines and Layer-6 Deep Packet Inspection (DPI) to detect threats, such as fileless malware, based on anomalous or unauthorized activity.
 
-Data collection, processing, analysis, and alerting takes place directly on the sensor, which can be ideal for locations with low bandwidth or high-latency connectivity. Only the metadata is transferred on for management, either to the Azure portal or an on-premises management console.
+Data collection, processing, analysis, and alerting takes place directly on the sensor, which can be ideal for locations with low bandwidth or high-latency connectivity. Only telemetry and insights are transferred on for management, either to the Azure portal or an on-premises management console.
 
 For more information, see [Onboard OT sensors to Defender for IoT](onboard-sensors.md).
 
@@ -93,7 +93,7 @@ Defender for IoT provides hybrid network support using the following management 
 
     :::image type="content" source="media/release-notes/new-interface.png" alt-text="Screenshot that shows the updated interface." lightbox="media/release-notes/new-interface.png":::
 
-- **The on-premises management console**. In air-gapped environments, you can get a central view of data from all of your sensors from an on-premises management console. The on-premises management console also lets you organize your network into separate sites and zones to support a [Zero Trust](/security/zero-trust/) mindset, and provides extra maintenance tools and reporting features.
+- **The on-premises management console**. In air-gapped environments, the on-premises management console provides a centralized view and management options for devices and threats detected by connected OT network sensors. The on-premises management console also lets you organize your network into separate sites and zones to support a [Zero Trust](/security/zero-trust/) mindset, and provides extra maintenance tools and reporting features.
 
 ## Next steps
 

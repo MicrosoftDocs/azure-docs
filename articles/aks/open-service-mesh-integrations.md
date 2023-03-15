@@ -1,7 +1,6 @@
 ---
 title: Integrations with Open Service Mesh on Azure Kubernetes Service (AKS)
 description: Integrations with Open Service Mesh on Azure Kubernetes Service (AKS)
-services: container-service
 ms.topic: article
 ms.date: 03/23/2022
 ---
