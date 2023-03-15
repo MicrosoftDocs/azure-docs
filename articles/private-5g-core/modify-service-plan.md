@@ -46,18 +46,22 @@ You can view your current service plan in the Azure portal.
 
     :::image type="content" source="media/mobile-network-sites.png" alt-text="Screenshot of the Azure portal showing the Sites view in the Mobile Network resource.":::
 
+1. Under the **Network Functions** group, select the **Packet Core** resource.
+
+    :::image type="content" source="media/modify-service-plan/select-packet-core.png" alt-text="Screenshot of the Azure portal. It shows a Mobile Network Site with a Packet Core resource highlighted.":::
+
 1. Check the **Service Plan** field under the **Essentials** heading to view the current service plan.
 
-    :::image type="content" source="media/modify-service-plan/view-service-plan.png" alt-text="Screenshot of the Azure portal showing a site resource. The Service Plan field is highlighted.":::
+    :::image type="content" source="media/modify-service-plan/service-plan.png" alt-text="Screenshot of the Azure portal showing a packet core control plane resource. The Service Plan field is highlighted.":::
 
 ## Modify the service plan
 
 To modify your service plan:
 
-1. If you haven't already, navigate to the site that you're interested in modifying as described in [View the current service plan](#view-the-current-service-plan).
+1. If you haven't already, navigate to the service plan that you're interested in modifying as described in [View the current service plan](#view-the-current-service-plan).
 2. Select **Change plan**.
 
-    :::image type="content" source="media/modify-service-plan/change-service-plan.png" alt-text="Screenshot of the Azure portal showing the Change plan option.":::
+    :::image type="content" source="media/modify-service-plan/service-plan.png" alt-text="Screenshot of the Azure portal showing a packet core control plane resource. The Service Plan field is highlighted.":::
 
 3. In **Service Plan** on the right, select the new service plan you collected in [Choose the new service plan](#choose-the-new-service-plan). Save your change with **Select**.
 
