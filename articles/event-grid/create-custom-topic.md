@@ -12,7 +12,7 @@ This article shows how to create a custom topic or a domain in Azure Event Grid.
 ## Prerequisites
 If you're new to Azure Event Grid, read through [Event Grid overview](overview.md) before starting this tutorial.
 
-[!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
+[!INCLUDE [register-provider.md](/includes/register-provider.md)]
 
 ## Create a custom topic or domain
 An Event Grid topic provides a user-defined endpoint that you post your events to. 

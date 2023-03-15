@@ -20,7 +20,7 @@ In this article, you use the Azure portal to do the following tasks:
 ## Prerequisites
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
+[!INCLUDE [register-provider.md](/includes/register-provider.md)]
 
 ## Create a custom topic
 An Event Grid topic provides a user-defined endpoint that you post your events to. 

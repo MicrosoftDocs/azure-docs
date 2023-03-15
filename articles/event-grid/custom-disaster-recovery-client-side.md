@@ -30,7 +30,7 @@ Make sure to note this URL as you'll need it later.
 
     :::image type="content" source="./media/blob-event-quickstart-portal/view-site.png" alt-text="Screenshot showing the Event Grid Viewer sample web app.":::
 
-[!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
+[!INCLUDE [register-provider.md](/includes/register-provider.md)]
 
 
 ## Create primary and secondary topics

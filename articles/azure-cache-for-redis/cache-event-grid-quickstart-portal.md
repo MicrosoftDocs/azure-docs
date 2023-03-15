@@ -57,7 +57,8 @@ Before subscribing to the events for the cache instance, let's create the endpoi
 
     :::image type="content" source="media/cache-event-grid-portal/blank-event-grid-viewer.png" alt-text="Empty Event Grid Viewer site.":::
 
-[!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
+[!INCLUDE [register-provider.md](../../articles/event-grid/includes/register-provider.md)]
+
 
 ## Subscribe to the Azure Cache for Redis instance
 
