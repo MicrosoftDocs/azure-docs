@@ -1042,7 +1042,22 @@ Define a virtual IP that allows you to connect to a clustered device instead of 
 
 You can set either an Azure Consistent Services or a Network File System configuration. Additional options include static or DHCP network settings. For more information about setting virtual IPs, see [Configure virtual IPs](azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy.md#configure-virtual-ips).
 
-### Set a static Azure Consistent Services configuration 
+### [Azure Consistent Services](#tab/azure-consistent-services)
+
+### Set a static Azure Consistent Services configuration
+
+ACS content...
+
+1. Step 1 for ACS...
+
+### [Network File System](#tab/network-file-system)
+
+NFS content...
+
+1. Step 1 for NFS...
+
+---
+ 
 
 1. Fetch the `DeviceVIP` configuration.
 
