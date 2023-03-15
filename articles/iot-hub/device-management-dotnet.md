@@ -1,14 +1,14 @@
 ---
-title: Get started with Azure IoT Hub device management (.NET/.NET) | Microsoft Docs
-description: How to use Azure IoT Hub device management to initiate a remote device reboot. You use the Azure IoT device SDK for .NET to implement a simulated device app that includes a direct method and the Azure IoT service SDK for .NET to implement a service app that invokes the direct method.
+title: Device management using direct methods (.NET)
+titleSuffix: Azure IoT Hub
+description: How to use Azure IoT Hub direct methods with the .NET SDK for device management tasks including invoking a remote device reboot.
 author: kgremban
 
-ms.service: iot-hub
-services: iot-hub
-ms.devlang: csharp
-ms.topic: conceptual
-ms.date: 08/20/2019
 ms.author: kgremban
+ms.service: iot-hub
+ms.devlang: csharp
+ms.topic: how-to
+ms.date: 08/20/2019
 ms.custom:  "mqtt, devx-track-csharp"
 ---
 
@@ -239,8 +239,8 @@ You're now ready to run the apps.
 
 1. After that the device is connected and waiting for method invocations, right-click the **TriggerReboot** project, select **Debug**, and then select **Start new instance**.
 
-   You should see "Rebooting!" written in the **SimulatedManagedDevice** console and the reported properties of the device, which include the last reboot time,  written in the **TriggerReboot** console.
+   You should see **Rebooting** written in the **SimulatedManagedDevice** console and the reported properties of the device, which include the last reboot time,  written in the **TriggerReboot** console.
 
-    ![Service and device app run](./media/iot-hub-csharp-csharp-device-management-get-started/combinedrun.png)
+   ![Service and device app run](./media/iot-hub-csharp-csharp-device-management-get-started/combinedrun.png)
 
 [!INCLUDE [iot-hub-dm-followup](../../includes/iot-hub-dm-followup.md)]
