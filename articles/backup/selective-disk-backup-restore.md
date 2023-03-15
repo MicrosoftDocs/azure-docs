@@ -55,7 +55,7 @@ az account set -s {subscriptionID}
 
 ### Configure backup with Azure CLI
 
-During the configure protection operation, you need to specify the disk list setting with an **inclusion** / **exclusion** parameter, giving the LUN numbers of the disks to be included or excluded in the backup.
+During the configure protection operation, you need to specify the disk list setting with an **inclusion**/**exclusion** parameter, giving the *LUN* numbers of the disks to be included or excluded in the backup.
 
 >[!NOTE]
 >The configure protection operation overrides the previous settings, they will not be cumulative.

@@ -62,7 +62,7 @@ This is useful when you:
 - Manage critical data in a subset of the VM disks.
 - Use database backup solutions and want to back up only their OS disk to reduce cost. 
 
-For more information, see [Selective Disk Backup Restore](selective-disk-backup-restore.md).
+For more information, see [Selective disk backup and restore](selective-disk-backup-restore.md).
 
 ## Azure Kubernetes Service backup (preview)
 
