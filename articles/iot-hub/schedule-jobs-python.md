@@ -1,13 +1,14 @@
 ---
-title: Schedule jobs with Azure IoT Hub (Python) | Microsoft Docs
-description: How to schedule an Azure IoT Hub job to invoke a direct method on multiple devices. You use the Azure IoT SDKs for Python to implement the simulated device apps and a service app to run the job.
+title: Use jobs to schedule tasks for groups of devices (Python)
+titleSuffix: Azure IoT Hub
+description: Use the device SDK for Python to schedule a job that invokes a direct method and updates device twin properties of a simulated device.
 author: kgremban
-ms.service: iot-hub
-services: iot-hub
-ms.devlang: python
-ms.topic: conceptual
-ms.date: 09/17/2022
+
 ms.author: kgremban
+ms.service: iot-hub
+ms.devlang: python
+ms.topic: how-to
+ms.date: 09/17/2022
 ms.custom: devx-track-python
 ---
 

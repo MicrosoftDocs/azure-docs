@@ -398,17 +398,17 @@
               displayName: jobs
               href: schedule-jobs-cli.md
             - name: .NET
-              displayName: jobs
-              href: iot-hub-csharp-csharp-schedule-jobs.md
+              displayName: jobs, csharp, C#
+              href: schedule-jobs-dotnet.md
             - name: Python
               displayName: jobs
-              href: iot-hub-python-python-schedule-jobs.md
+              href: schedule-jobs-python.md
             - name: Node.js
               displayName: jobs
-              href: iot-hub-node-node-schedule-jobs.md
+              href: schedule-jobs-node.md
             - name: Java
               displayName: jobs
-              href: iot-hub-java-java-schedule-jobs.md
+              href: schedule-jobs-java.md
         - name: Query Avro data from a hub route
           displayName: Azure Data Lake, U-SQL
           href: iot-hub-query-avro-data.md

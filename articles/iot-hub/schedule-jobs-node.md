@@ -1,13 +1,13 @@
 ---
-title: Schedule jobs with Azure IoT Hub (Node) | Microsoft Docs
-description: How to schedule an Azure IoT Hub job to invoke a direct method on multiple devices. You use the Azure IoT SDKs for Node.js to implement the simulated device apps and a service app to run the job.
+title: Use jobs to schedule tasks for groups of devices (.NET)
+titleSuffix: Azure IoT Hub
+description: Use the device SDK for Node.js to schedule a job that invokes a direct method and updates device twin properties of a simulated device.
 author: kgremban
 
 ms.author: kgremban
 ms.service: iot-hub
-services: iot-hub
-ms.devlang: javascript
-ms.topic: conceptual
+ms.devlang: nodejs
+ms.topic: how-to
 ms.date: 08/16/2019
 ms.custom: mqtt, devx-track-js
 ---

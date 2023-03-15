@@ -1,13 +1,14 @@
 ---
-title: Schedule jobs with Azure IoT Hub (.NET/.NET) | Microsoft Docs
-description: How to schedule an Azure IoT Hub job to invoke a direct method on multiple devices. You use the Azure IoT device SDK for .NET to implement the simulated device apps and a service app to run the job.
+title: Use jobs to schedule tasks for groups of devices (.NET)
+titleSuffix: Azure IoT Hub
+description: Use the device SDK for .NET to schedule a job that invokes a direct method and updates device twin properties of a simulated device.
 author: kgremban
 
-ms.service: iot-hub
-services: iot-hub
-ms.topic: conceptual
-ms.date: 08/20/2019
 ms.author: kgremban
+ms.service: iot-hub
+ms.devlang: csharp
+ms.topic: how-to
+ms.date: 08/20/2019
 ms.custom: "mqtt, devx-track-csharp"
 ---
 

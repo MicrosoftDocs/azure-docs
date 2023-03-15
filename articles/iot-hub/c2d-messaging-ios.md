@@ -6,6 +6,7 @@ author: kgremban
 
 ms.author: kgremban
 ms.service: iot-hub
+ms.devland: swift
 ms.topic: how-to
 ms.date: 04/19/2018
 ms.custom: mqtt

@@ -16,7 +16,7 @@ ms.custom:  [amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device', devx-tra
 
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
-Azure IoT Hub is a fully managed service that helps enable reliable and secure bi-directional communications between millions of devices and a solution back end. 
+Azure IoT Hub is a fully managed service that helps enable reliable and secure bi-directional communications between millions of devices and a solution back end.
 
 This article shows you how to:
 
