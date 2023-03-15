@@ -22,15 +22,15 @@ In Solution 1, Azure AD is used as the primary IdP for all applications while a 
 
 If on-premises Active Directory is also being used, then [AD is configured](../hybrid/whatis-hybrid-identity.md) with hybrid identities. Implementing this Azure AD with Cirrus Bridge solution provides:
 
-* **A Security Assertion Markup Language (SAML) bridge**-- Enables you to configure multilateral federation and participation in InCommon and EduGAIN. The SAML bridge also enables you to configure Azure AD conditional access policies, app assignment, governance, and other features for each multilateral federation app.
+* **A Security Assertion Markup Language (SAML) bridge**--Enables you to configure multilateral federation and participation in InCommon and EduGAIN. The SAML bridge also enables you to configure Azure AD conditional access policies, app assignment, governance, and other features for each multilateral federation app.
 
 * **CAS bridge** - Enables you to provide protocol translation to support on-premises CAS apps to authenticate with Azure AD. The CAS bridge enables you to configure Azure AD conditional access policies, app assignment, and governance for all CAS apps, as a whole.
 
 Implementing Azure AD with Cirrus bridge enables you to more capabilities available in Azure AD:
 
-* **External attribute store support** (token augmentation) - Provides you the ability to create *On Token Issuance Start* events so that you can go to an external attribute store (like an external LDAP Directory) to get custom claims. You can then augment the token with those claims for specific apps.
+* **External attribute store support** (token augmentation) - Provides you with the ability to create *On Token Issuance Start* events so that you can go to an external attribute store (like an external LDAP Directory) to get custom claims. You can then augment the token with those claims for specific apps.
 
-* **Custom security attributes** - Provides you the ability to add custom attributes to objects in the directory and control who can read them. Custom security attributes enable you to store more of your attributes directly in Azure AD.
+* **Custom security attributes** - Provides you with the ability to add custom attributes to objects in the directory and control who can read them. Custom security attributes enable you to store more of your attributes directly in Azure AD.
 
 ## Advantages
 
@@ -38,7 +38,7 @@ The following are some of the advantages of implementing Azure AD with Cirrus br
 
 * **Seamless cloud authentication for all apps**
 
-  * You'll have no on-premises identity components, lowering your operational efforts and potentially reducing security risks.
+  * Elimination of all on-premises identity component can lower your operational efforts and potentially reduce security risks.
 
   * You may realize cost savings resulting from not having to host on-premises infrastructure.
 
@@ -64,7 +64,7 @@ The following are some of the advantages of implementing Azure AD with Cirrus br
 
   * Enables you to use Azure AD Join for device management.
 
-  * Azure AD Join provides you the ability to use Autopilot, Azure Multi-Factor Authentication (Azure MFA), passwordless features, and supports achieving a Zero Trust posture.
+  * Azure AD Join provides you with the ability to use Autopilot, Azure Multi-Factor Authentication (Azure MFA), passwordless features, and supports achieving a Zero Trust posture.
 
 > [!NOTE]
 > Switching to Azure MFA may allow you to realize significant cost savings over other solutions you have in place.
@@ -73,17 +73,17 @@ The following are some of the advantages of implementing Azure AD with Cirrus br
 
 The following are some of the trade-offs of using this solution:
 
-* **Limited ability to customize your authentication experience** - This is a managed solution. Therefore, this solution might not offer you the flexibility or granularity to build a custom solution using federation provider products.
+* **Limited ability to customize your authentication experience** - This scenario provides a managed solution. Therefore, this solution might not offer you the flexibility or granularity to build a custom solution using federation provider products.
 
 * **Limited third-party MFA integration** - You might be limited by the number of integrations available to third-party MFA solutions.
 
-* **One time integration effort required**-- To streamline integration, you'll need to perform a one-time migration of all student and faculty apps to Azure AD and as well as set up the Cirrus Bridge is required.
+* **One time integration effort required**--To streamline integration, you need to perform a one-time migration of all student and faculty apps to Azure AD and as well as set up the Cirrus Bridge is required.
 
-* **Subscription required for Cirrus Bridge**-- An annual subscription is required for the Cirrus Bridge. The subscription fee is based on anticipated annual authentication usage of the bridge.
+* **Subscription required for Cirrus Bridge**--An annual subscription is required for the Cirrus Bridge. The subscription fee is based on anticipated annual authentication usage of the bridge.
 
 ## Next steps
 
-See these additional multilateral federation articles:
+See these other multilateral federation articles:
 
 [Multilateral federation introduction](multilateral-federation-introduction.md)
 
