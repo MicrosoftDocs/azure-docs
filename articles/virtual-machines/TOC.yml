@@ -1366,6 +1366,8 @@
       - name: PowerShell
         displayName: Convert disk to another disk type
         href: ./windows/convert-disk-storage.md
+    - name: Migrate AWS and on-premises disk to Azure
+      href: ./windows/on-prem-to-azure.md
     - name: Migrate to premium SSDs with Azure Site Recovery
       items:
       - name: Linux

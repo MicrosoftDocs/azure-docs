@@ -26,6 +26,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/virtual-machines/windows/aws-to-azure.md",
+            "redirect_url": "/azure/migrate/tutorial-migrate-aws-virtual-machines",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/virtual-machines/windows/tutorial-load-balancer.md",
             "redirect_url": "/previous-versions/azure/virtual-machines/windows/tutorial-load-balancer",
             "redirect_document_id": false
