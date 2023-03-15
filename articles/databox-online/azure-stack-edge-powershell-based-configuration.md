@@ -1042,21 +1042,7 @@ Define a virtual IP that allows you to connect to a clustered device instead of 
 
 You can set either an Azure Consistent Services or a Network File System configuration. Additional options include static or DHCP network settings. For more information about setting virtual IPs, see [Configure virtual IPs](azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy.md#configure-virtual-ips).
 
-Use the following steps to set the `DeviceVIP` configuration on a two-node Azure Stack Edge device.
-
-The example below shows a static Azure Consistent Services configuration, followed by an example that shows a configuration with DHCP enabled. 
-
-1. Sign in to the device.
-
-    ```azurepowershell
-    Set-Login "https://<IP address>" "Password"
-    ```
-
-1.	Fetch the device configuration.
-
-    ```azurepowershell
-    Get-DeviceConfiguration | To-json
-    ```
+### Set a static Azure Consistent Services configuration 
 
 1. Fetch the `DeviceVIP` configuration.
 
@@ -1074,15 +1060,6 @@ The example below shows a static Azure Consistent Services configuration, follow
 
     ```azurepowershell
     Set-DeviceVip -vip $acsVip
-    ```
-
-    Here's sample output:
-
-    ```output
-    acsVIP                       nfsVIP
-    ------                       ------
-    @{type=ACS; name=Azure Consistent Services; address=192.168.181.10; network=; isDhcpEnabled=False} @{type=NFS; name=Network File Syst...
-    }
     ```
 
 1. Fetch the updated `DeviceVIP` configuration.
@@ -1111,21 +1088,7 @@ The example below shows a static Azure Consistent Services configuration, follow
     PS C:\> 
     ```
 
-Use the following steps to set the `DeviceVIP` configuration on a two-node Azure Stack Edge device.
-
-The example below shows a sequence of steps to enable DHCP.
-
-1.	Sign in to the device.
-
-    ```azurepowershell
-    Set-Login "https://<IP address>" "Password"
-    ```
-
-1.	Fetch the device configuration.
-
-    ```azurepowershell
-    Get-DeviceConfiguration | To-json
-    ```
+### Set a DHCP Azure Consistent Services configuration
 
 1.	Fetch the `DeviceVIP` configuration.
 
@@ -1163,15 +1126,6 @@ The example below shows a sequence of steps to enable DHCP.
     ```azurepowershell
     Set-DeviceVip -vip $acsVip
     ```	
-
-    Here's sample output:
-
-    ```output
-    acsVIP                                                                                             nfsVIP
-    ------                                                                                             ------
-    @{type=ACS; name=Azure Consistent Services; address=192.168.181.10; network=; isDhcpEnabled=True} @{type=NFS; name=Network File System; address=192.168.3.63; network=; ...
-    }
-    ```
 
 1.	Fetch the updated `DeviceVIP` configuration.
 
