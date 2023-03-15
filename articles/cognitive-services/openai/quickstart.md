@@ -7,10 +7,10 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: quickstart
-author: ChrisHMSFT
-ms.author: chrhoder
-ms.date: 02/02/2023
-zone_pivot_groups: openai-quickstart
+author: mrbullwinkle
+ms.author: mbullwin
+ms.date: 03/15/2023
+zone_pivot_groups: openai-quickstart-new
 recommendations: false
 ---
 
@@ -21,6 +21,12 @@ Use this article to get started making your first calls to Azure OpenAI.
 ::: zone pivot="programming-language-studio"
 
 [!INCLUDE [Studio quickstart](includes/studio.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-csharp"
+
+[!INCLUDE [Csharp quickstart](includes/dotnet.md)]
 
 ::: zone-end
 
