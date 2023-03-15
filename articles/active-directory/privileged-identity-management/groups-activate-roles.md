@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 01/12/2023
+ms.date: 3/15/2023
 ms.author: amsliu
 ms.reviewer: ilyal
 ms.custom: pim
@@ -22,6 +22,11 @@ ms.collection: M365-identity-device-management
 In Azure Active Directory (Azure AD), part of Microsoft Entra, you can use Privileged Identity Management (PIM) to have just-in-time membership in the group or just-in-time ownership of the group.
 
 This article is for eligible members or owners who want to activate their group membership or ownership in PIM.
+
+>[!IMPORTANT]
+>When a group membership or ownership is activated, Azure AD PIM temporarily adds an active assignment. Azure AD PIM creates an active assignment (adds user as member or owner of the group) within seconds. When deactivation (manual or through activation time expiration) happens, Azure AD PIM removes user’s group membership or ownership within seconds as well.
+>
+>Application may provide access based on the role the user has. In some situations, application access may not immediately reflect the fact that user got role assigned or removed. If application previously cached the fact that user does not have a role – when user tries to access application again, access may not be provided. Similarly, if application previously cached the fact that user has a role – when role is deactivated, user may still get access. Specific situation depends on the application’s architecture. For some applications, signing out and signing back in may help get access added or removed.
 
 ## Activate a role
 
