@@ -13,7 +13,7 @@ ms.author: pafarley
 
 # Migrate a Custom Vision project to Image Analysis 4.0 preview
 
-You can migrate an existing Azure Custom Vision project to the new Image Analysis 4.0 system. [Custom Vision](/azure/cognitive-services/custom-vision-service/overview) is a model customization service that existed before Image Analysis 4.0.
+You can migrate an existing Azure Custom Vision project to the new Image Analysis 4.0 system. [Custom Vision](../../custom-vision-service/overview.md) is a model customization service that existed before Image Analysis 4.0.
 
 This guide uses a Python script to take all of the training data from an existing Custom Vision project (images and their label data) and convert it to a COCO file. You can then import the COCO file into Vision Studio to train a custom model. See [Create and train a custom model](model-customization.md) and go to the section on importing a COCO file&mdash;you can follow the guide from there to the end.
 
@@ -22,7 +22,7 @@ This guide uses a Python script to take all of the training data from an existin
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
 * [Python 3.x](https://www.python.org/)
 * A Custom Vision resource where an existing project is stored.
-* An Azure Storage resource - [Create one](/azure/storage/common/storage-account-create?tabs=azure-portal)
+* An Azure Storage resource - [Create one](../../../storage/common/storage-account-create.md?tabs=azure-portal)
 
 ## Install libraries
 
