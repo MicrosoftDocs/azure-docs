@@ -30,7 +30,7 @@ Create a resource group with the [az group create](/cli/azure/group#az-group-cre
 az group create --name gridResourceGroup --location westus2
 ```
 
-[!INCLUDE [event-grid-register-provider-cli.md](../../includes/event-grid-register-provider-cli.md)]
+[!INCLUDE [register-provider-cli.md](./includes/register-provider-cli.md)]
 
 ## Create a custom topic
 

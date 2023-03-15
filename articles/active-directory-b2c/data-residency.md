@@ -59,7 +59,7 @@ The following locations are in the process of being added to the list. For now, 
 ## EU Data Boundary
 
 > [!IMPORTANT]
-> For comprehensive details about Microsoft's EU Data Boundary commitment, see [Microsoft's EU Data Boundary documentation](https://learn.microsoft.com/privacy/eudb/eu-data-boundary-learn).
+> For comprehensive details about Microsoft's EU Data Boundary commitment, see [Microsoft's EU Data Boundary documentation](/privacy/eudb/eu-data-boundary-learn).
 
 ## Remote profile solution
 
