@@ -125,7 +125,7 @@ When the autolabeling job is complete, you can see the output documents in the *
 
 Entities that have been automatically labeled appear with a dotted line. These entities have two selectors (a checkmark and an "X") that allow you to accept or reject the automatic label.
 
-Once an entity is accepted, the dotted line changes to a solid one, and this label is included in any further model training and becomes a user defined label.
+Once an entity is accepted, the dotted line changes to a solid one, and the label is included in any further model training becoming a user defined label.
 
 Alternatively, you can accept or reject all automatically labeled entities within the document, using **Accept all** or **Reject all** in the top right corner of the screen. 
 
