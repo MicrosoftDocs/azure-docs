@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.devlang: csharp
 ms.topic: how-to
-ms.date: 03/14/2023
+ms.date: 03/15/2023
 ms.reviewer: mjbrown
 ms.custom: devx-track-csharp, ignite-2022
 ---
@@ -31,9 +31,9 @@ Currently, bulk executor library is supported by the Azure Cosmos DB for NoSQL a
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
-* You can [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription. You can also use the [Azure Cosmos DB Emulator](../local-emulator.md) with the `https://localhost:8081` endpoint. The Primary Key is provided in [Authenticating requests](../local-emulator.md#authenticate-requests).
+* You can [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription. You can also [Install and use the Azure Cosmos DB Emulator for local development and testing](../local-emulator.md) with the `https://localhost:8081` endpoint. The Primary Key is provided in [Authenticating requests](../local-emulator.md#authenticate-requests).
 
-* Create an Azure Cosmos DB for NoSQL account by using the steps described in the [create a database account](quickstart-dotnet.md#create-account) section of the .NET quickstart article.
+* Create an Azure Cosmos DB for NoSQL account by using the steps described in the [Create an Azure Cosmos DB account](quickstart-dotnet.md#create-account) section of [Quickstart: Azure Cosmos DB for NoSQL client library for .NET](quickstart-dotnet.md).
 
 ## Clone the sample application
 
@@ -203,4 +203,4 @@ Consider the following points for better performance when you use the bulk execu
 
 ## Next steps
 
-* To learn about the NuGet package details and the release notes, see [.NET bulk executor library: Download information (Legacy)](sdk-dotnet-bulk-executor-v2.md).
+* [.NET bulk executor library: Download information (Legacy)](sdk-dotnet-bulk-executor-v2.md).
