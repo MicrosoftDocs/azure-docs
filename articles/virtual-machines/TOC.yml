@@ -667,7 +667,7 @@
         displayName: Image builder, images, building, packer
         href: ./windows/build-image-with-packer.md
     - name: Capture a legacy managed image
-      href: ./windows/capture-image-resource.md
+      href: capture-image-resource.md
   - name: Dedicated hosts
     displayName: sole-tenant, sole tenant, isolated, isolation
     items:
