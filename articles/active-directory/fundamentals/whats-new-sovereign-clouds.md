@@ -30,7 +30,7 @@ This page is updated monthly, so revisit it regularly.
 **Service category:** Azure AD Domain Services             
 **Product capability:** Azure AD Domain Services        
 
-Now within the Azure portal you have access to view key data for your Azure AD-DS Domain Controllers such as: LDAP Searches/sec, Total Query Received/sec, DNS Total Response Sent/sec, LDAP Successful Binds/sec, memory usage, processor time, Kerberos Authentications, and NTLM Authentications. For more information, see: [Check fleet metrics of Azure Active Directory Domain Services](/azure/active-directory-domain-services/fleet-metrics).
+Now within the Azure portal you have access to view key data for your Azure AD-DS Domain Controllers such as: LDAP Searches/sec, Total Query Received/sec, DNS Total Response Sent/sec, LDAP Successful Binds/sec, memory usage, processor time, Kerberos Authentications, and NTLM Authentications. For more information, see: [Check fleet metrics of Azure Active Directory Domain Services](../../active-directory-domain-services/fleet-metrics.md).
 
 ---
 
