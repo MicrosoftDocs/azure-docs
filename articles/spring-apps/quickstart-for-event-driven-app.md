@@ -17,7 +17,7 @@ ms.custom: devx-track-java, devx-track-azurecli, mode-other, event-tier1-build-2
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Standard consumption (Preview) ✔️ Basic/Standard
+**This article applies to:** ✔️ Standard consumption (Preview) ❌ Basic/Standard ❌ Enterprise
 
 This article explains how to deploy a Spring Boot event driven application to Azure Spring Apps. The sample project is an event driven application that subscribes to a [Service Bus queue](/azure/service-bus-messaging/service-bus-queues-topics-subscriptions#queues) named `lower-case`, and then handles the message and sends another message to another queue named `upper-case`. To make the app simple, message processing just converts the message to uppercase. The following diagram depicts this process:
 
@@ -84,7 +84,7 @@ To manage the resources easily, create a resource group to hold these resources.
    az account list --output table
    ```
 
-   Determine the ID op the subscription you want to set and use it with the following command to set your default subscription.
+   Determine the ID of the subscription you want to set and use it with the following command to set your default subscription.
 
    ```azurecli-interactive
    az account set --subscription <subscription-ID>
