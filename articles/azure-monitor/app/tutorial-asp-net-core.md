@@ -349,7 +349,7 @@ public class ValuesController : ControllerBase
     public ActionResult<IEnumerable<string>> Get()
     {
         //Info level traces are not captured by default
-        _logger.LogInformation("An example of an Info trace..")
+        _logger.LogInformation("An example of an Info trace..");
         _logger.LogWarning("An example of a Warning trace..");
         _logger.LogError("An example of an Error level message");
 
