@@ -365,7 +365,7 @@ If you use a `azblob` source, here are the blob-specific command arguments.
 | `--mi_client_id` | String | The client ID of the managed identity for authentication with Azure Blob |
 
 > [!IMPORTANT]
-> When using managed identity authentication for AKS clusters, the `Storage Blob Contributor` role is assigned to the managed identity. Authentication using a managed identity is not yet available for Azure Arc0enabled Kubernetes clusters.
+> When using managed identity authentication for AKS clusters, the managed identity must be assigned the [Storage Blob Data Contributor](..\..\role-based-access-control\built-in-roles.md#storage-blob-data-contributor) role. Authentication using a managed identity is not yet available for Azure Arc-enabled Kubernetes clusters.
 
 ### Local secret for authentication with source
 
