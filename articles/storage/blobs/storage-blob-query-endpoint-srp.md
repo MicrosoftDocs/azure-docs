@@ -219,7 +219,7 @@ To get the properties for a specified storage account, use the following method 
 
 This method returns a [StorageAccount](/java/api/com.azure.resourcemanager.storage.models.storageaccount) interface, which is an immutable client-side representation of the storage account.
 
-Code sample goes here.
+:::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-query-endpoint/src/main/java/com/blobs/queryendpoint/AccountProperties.java" id="Snippet_QueryEndpoint" highlight="11-12,14":::
 
 ## [JavaScript](#tab/javascript)
 
@@ -229,7 +229,7 @@ To get the properties for a specified storage account, use the following method 
 
 This method returns a [`Promise<StorageAccountsGetPropertiesResponse>`](/javascript/api/@azure/arm-storage/storageaccountsgetpropertiesresponse), which represents the storage account.
 
-Code sample goes here.
+:::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/blob-query-endpoint/index.js" id="Snippet_query_blob_endpoint" highlight="19-22,25":::
 
 ## [Python](#tab/python)
 
@@ -239,7 +239,7 @@ To get the properties for a specified storage account, use the following method 
 
 This method returns a `StorageAccount` object, which represents the storage account.
 
-Code sample goes here.
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-query-endpoint/blob-query-endpoint.py" id="Snippet_query_blob_endpoint" highlight="19-22,25":::
 
 ---
 
@@ -253,9 +253,15 @@ Once you have the Blob Storage endpoint for a storage account, you can instantia
 
 ## [Java](#tab/java)
 
+:::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-query-endpoint/src/main/java/com/blobs/queryendpoint/App.java" id="Snippet_CreateClientWithEndpoint" highlight="9-12":::
+
 ## [JavaScript](#tab/javascript)
 
+:::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/blob-query-endpoint/index.js" id="Snippet_create_client_with_endpoint" highlight="12-14":::
+
 ## [Python](#tab/python)
+
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-query-endpoint/blob-query-endpoint.py" id="Snippet_create_client_with_endpoint" highlight="11":::
 
 ---
 
