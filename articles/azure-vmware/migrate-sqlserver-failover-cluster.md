@@ -3,13 +3,13 @@ title: Migrate SQL Server failover cluster to Azure VMware Solution
 description: Learn how to migrate SQL Server failover cluster to Azure VMware Solution
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 3/7/2023
+ms.date: 3/15/2023
 ms.custom: engagement-fy23
 ---
 
 #  Migrate SQL Server failover cluster to Azure VMware Solution
 
-In this article, you learn how to migrate a Microsoft SQL Server Failover Cluster Instance to Azure VMware Solution. Currently Azure VMware Solution service doesn't support VMware Hybrid Linked Mode to connect an on-premises vCenter Server with one running in Azure VMware Solution. Due to this constraint, the process requires the use of VMware HCX for the migration. Review the [Install and activate VMware HCX in Azure VMware Solution](https://learn.microsoft.com/en-us/azure/azure-vmware/install-vmware-hcx) article for more details about HCX configuration procedure. 
+In this article, you learn how to migrate a Microsoft SQL Server Failover Cluster Instance to Azure VMware Solution. Currently Azure VMware Solution service doesn't support VMware Hybrid Linked Mode to connect an on-premises vCenter Server with one running in Azure VMware Solution. Due to this constraint, the process requires the use of VMware HCX for the migration. For more details about configuring HCX, see [Install and activate VMware HCX in Azure VMware Solution](install-vmware-hcx). 
 
 VMware HCX doesn't support migrating virtual machines with SCSI controllers in physical sharing mode attached to a virtual machine. However, we can overcome this limitation by performing the steps detailed in this procedure and using VMware HCX Cold Migration to move the different virtual machines that make up the cluster. 
 
@@ -25,8 +25,8 @@ VMware HCX doesn't support migrating virtual machines with SCSI controllers in p
 - Take a full backup of the database(s) being executed in the cluster.
 - Take a full backup of the cluster virtual machines. 
 - Remove all cluster node VMs from any DRS Group and rules they're part of.
-- VMware HCX must be configured between your on-premises datacenter and the Azure VMware Solution private cloud that will run the migrated workloads. Refer to [Azure VMware Solution documentation](https://learn.microsoft.com/en-us/azure/azure-vmware/install-vmware-hcx) for the procedure.
-- Ensure that all the network segments in use by the Microsoft SQL Server are extended into your Azure VMware Solution private cloud. Please refer to [Configure VMware HCX network extension](https://learn.microsoft.com/en-us/azure/azure-vmware/configure-hcx-network-extension) documentation to verify this step.
+- VMware HCX must be configured between your on-premises datacenter and the Azure VMware Solution private cloud that will run the migrated workloads. For more details about installing VMware HCX, see [Azure VMware Solution documentation](install-vmware-hcx).
+- Ensure that all the network segments in use by the Microsoft SQL Server are extended into your Azure VMware Solution private cloud. To verify this step, see [Configure VMware HCX network extension](configure-hcx-network-extension).
 
 VMware HCX over VPN is supported in Azure VMware Solution for workload migration. However, due to the size of database workloads it is not recommended for Microsoft SQL Server Failover Cluster Instance and Microsoft SQL Server Always-On migrations, especially for production workloads ExpressRoute connectivity is more performant and reliable. For Microsoft SQL Server Standalone and non-production workloads this can be suitable, depending upon the size of the database, to migrate. 
 
@@ -117,20 +117,20 @@ For illustration purposes in this document, we're using a two-node cluster with 
 
     :::image type="content" source="media/sql-server-hybrid-benefit/sqlfci-4.png" alt-text="Cluster node status in Failover Cluster Manager." border="false":::
 
-1. Using SQL Server Management Studio connect to the SQL Server cluster resource network name.
-        Check the database is online and accessible.
+1. Using SQL Server Management Studio connect to the SQL Server cluster resource network name. Check the database is online and accessible.
+
         :::image type="content" source="media/sql-server-hybrid-benefit/sqlfci-5.png" alt-text="SQL Server Management Studio connection verification to the migrated cluster instance database."" border="false":::
     
 1. Finally check connectivity to SQL from other systems and applications in your infrastructure and verify that all applications using the database(s) can still access it. 
 
 ## Next steps
 
-- [Enable SQL Azure hybrid benefit for Azure VMware Solution](https://learn.microsoft.com/azure/azure-vmware/enable-sql-azure-hybrid-benefit). 
-- [Create a placement policy in Azure VMware Solution](https://learn.microsoft.com/azure/azure-vmware/create-placement-policy)  
+- [Enable SQL Azure hybrid benefit for Azure VMware Solution](enable-sql-azure-hybrid-benefit.md). 
+- [Create a placement policy in Azure VMware Solution](create-placement-policy.md)  
 - [Windows Server Failover Clustering Documentation](https://learn.microsoft.com/windows-server/failover-clustering/failover-clustering-overview)
 - [Microsoft SQL Server 2019 Documentation](https://learn.microsoft.com/sql/sql-server/?view=sql-server-ver15)
 - [Microsoft SQL Server 2022 Documentation](https://learn.microsoft.com/sql/sql-server/?view=sql-server-ver16)
-- [Windows Server Technical Documentation](https://learn.microsoft.com/en-us/windows-server/)
+- [Windows Server Technical Documentation](https://learn.microsoft.com/windows-server/)
 - [Planning Highly Available, Mission Critical SQL Server Deployments with VMware vSphere](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/solutions/vmware-vsphere-highly-available-mission-critical-sql-server-deployments.pdf)
 - [Microsoft SQL Server on VMware vSphere Availability and Recovery Options](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/solutions/sql-server-on-vmware-availability-and-recovery-options.pdf)
 - [VMware KB 100 2951 – Tips for configuring Microsoft SQL Server in a virtual machine](https://kb.vmware.com/s/article/1002951)
