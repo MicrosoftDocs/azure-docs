@@ -77,7 +77,17 @@ The Speech service automatically handles punctuation as appropriate, such as pau
 
 ## Special characters
 
-You must use the entity format for the characters `&`, `<`, and `>`. Specifically you must use `&amp;` in place of `&`, `&lt;` in place of `<`, and `&gt;` in place of `>`. Otherwise the SSML will not be parsed correctly. 
+To use the characters `&`, `<`, and `>` within the SSML text, you must use the entity format. Specifically you must use `&amp;` in place of `&`, `&lt;` in place of `<`, and `&gt;` in place of `>`. Otherwise the SSML will not be parsed correctly. 
+
+For example, specify `green &amp; yellow` instead of `green & yellow`. The following SSML will be parsed as expected:
+
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+    <voice name="en-US-JennyNeural">
+        My favorite colors are green &amp; yellow.
+    </voice>
+</speak>
+```
 
 Special characters such as quotation marks, apostrophes, and brackets, must be escaped. For more information, see [Extensible Markup Language (XML) 1.0: Appendix D](https://www.w3.org/TR/xml/#sec-entexpand).
 
