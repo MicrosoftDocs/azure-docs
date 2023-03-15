@@ -53,6 +53,16 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
 
+## Support for selective disk backup with enhanced policy for Azure VM (preview)
+
+Azure Backup now provides *Selective Disk backup and restore* capability to Enhanced policy. Using this capability, you can selectively back up a subset of the data disks that are attached to your VM, and then restore a subset of the disks that are available in a recovery point, both from instant restore and vault tier.
+
+This is useful when you:
+
+- Manage critical data in a subset of the VM disks.
+- Use database backup solutions and want to back up only their OS disk to reduce cost. 
+
+For more information, see [Selective disk backup and restore](selective-disk-backup-restore.md).
 
 ## Azure Kubernetes Service backup (preview)
 
