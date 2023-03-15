@@ -80,7 +80,7 @@ To establish a secure HTTPS communication with the Event Grid broker and Event G
     :::image type="content" source="./media/install-k8s-extension/cluster-extensions-add.png" alt-text="Cluster extensions - Add button":::    
 1. On the **New resource** page, select **Event Grid on Kubernetes Extension**.
 
-    :::image type="content" source="./media/install-k8s-extension/select-event-grid-extension.png" alt-text="Select Event Grid on Kubernetes extension":::        
+    :::image type="content" source="./media/install-k8s-extension/select-extension.png" alt-text="Select Event Grid on Kubernetes extension":::        
 1. On the **Event Grid on Kubernetes Extension** page, select **Create**.
 
     :::image type="content" source="./media/install-k8s-extension/select-create-extension.png" alt-text="Select Create Kubernetes extension":::            

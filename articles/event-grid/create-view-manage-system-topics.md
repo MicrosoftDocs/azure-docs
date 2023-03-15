@@ -32,7 +32,7 @@ You can create a system topic for an Azure resource (Storage account, Event Hubs
         > You can use this system topic name to search metrics and diagnostic logs.
     6. Select **Review + create**.
 
-        ![Create system topic](./media/create-view-manage-system-topics/create-event-grid-system-topic-page.png)
+        ![Create system topic](./media/create-view-manage-system-topics/create-system-topic-page.png)
     5. Review settings and select **Create**. 
         
         ![Review and create system topic](./media/create-view-manage-system-topics/system-topic-review-create.png)
