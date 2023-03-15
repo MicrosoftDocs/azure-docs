@@ -13,7 +13,7 @@ ms.devlang: azurecli
 # Route cloud events to Webhooks with Azure Event Grid on Kubernetes
 In this quickstart, you'll create a topic in Event Grid on Kubernetes, create a subscription for the topic, and then send a sample event to the topic to test the scenario. 
 
-[!INCLUDE [event-grid-preview-feature-note.md](../includes/event-grid-preview-feature-note.md)]
+[!INCLUDE [preview-feature-note.md](../includes/preview-feature-note.md)]
 
 
 ## Prerequisites

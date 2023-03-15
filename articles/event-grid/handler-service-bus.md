@@ -84,7 +84,7 @@ New-AzEventGridSubscription -ResourceGroup MyResourceGroup `
 You can also use the [`New-AzEventGridSystemTopicEventSubscription`](/powershell/module/az.eventgrid/new-azeventgridsystemtopiceventsubscription) command for system topics, and the [`New-AzEventGridPartnerTopicEventSubscription`](/powershell/module/az.eventgrid/new-azeventgridpartnertopiceventsubscription) command for partner topics.
 
 
-[!INCLUDE [event-grid-message-headers](./includes/event-grid-message-headers.md)]
+[!INCLUDE [message-headers](./includes/message-headers.md)]
 
 When sending an event to a Service Bus queue or topic as a brokered message, the `messageid` of the brokered message is an internal system ID.
 
