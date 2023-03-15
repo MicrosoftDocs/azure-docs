@@ -228,7 +228,7 @@ For more information about Rooms, how to create and manage one see [Rooms Quicks
 let remoteOptions = RemoteOptions(for: .roomCall(roomId: "<ROOM_ID>"),
                                   credential: communicationTokenCredential,
                                   displayName: "<DISPLAY_NAME>")
-let localOptions = LocalOptions(roleHint: roomRole)
+let localOptions = LocalOptions(roleHint: participantRole)
 
 let callComposite = CallComposite()
 callComposite.launch(remoteOptions: remoteOptions, localOptions: localOptions)

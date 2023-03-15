@@ -367,7 +367,7 @@ val remoteOptions = CallCompositeRemoteOptions(
     "DISPLAY_NAME",
 )
 
-val localOptions = CallCompositeLocalOptions().setRoleHint(roomRoleHint)
+val localOptions = CallCompositeLocalOptions().setRoleHint(participantRole)
 
 val callComposite = CallCompositeBuilder().build()
 callComposite.launch(context, remoteOptions, localOptions)
@@ -383,7 +383,7 @@ CallCompositeRemoteOptions remoteOptions = new CallCompositeRemoteOptions(
         communicationTokenCredential,                
         "DISPLAY_NAME");
 
-CallCompositeLocalOptions localOptions = new CallCompositeLocalOptions().setRoleHint(roomRoleHint);
+CallCompositeLocalOptions localOptions = new CallCompositeLocalOptions().setRoleHint(participantRole);
 
 CallComposite callComposite = new CallCompositeBuilder().build();
 callComposite.launch(context, remoteOptions, localOptions);
