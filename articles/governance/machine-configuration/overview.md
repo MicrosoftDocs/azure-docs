@@ -329,7 +329,7 @@ For more information about troubleshooting machine configuration, see
 
 ### Multiple assignments
 
-At this time, only some built-in Guest Configuration policy definitions support multiple assignments. However, all custom policies support multiple assignments by default if you used the latest version of [the `GuestConfiguration` PowerShell module](/azure/governance/machine-configuration/machine-configuration-create-setup) to create Guest Configuration packages and policies.
+At this time, only some built-in Guest Configuration policy definitions support multiple assignments. However, all custom policies support multiple assignments by default if you used the latest version of [the `GuestConfiguration` PowerShell module](./machine-configuration-create-setup.md) to create Guest Configuration packages and policies.
 
 Following is the list of built-in Guest Configuration policy definitions that support multiple assignments:
 

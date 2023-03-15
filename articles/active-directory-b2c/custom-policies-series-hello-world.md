@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.custom: b2c-docs-improvements
-ms.date: 01/30/2023
+ms.date: 03/16/2023
 ms.author: kengaderdus
 ms.reviewer: yoelh
 ms.subservice: B2C
@@ -280,7 +280,7 @@ After the policy finishes execution, you're redirected to `https://jwt.ms`, and 
     }.[Signature]
 ``` 
 
-Notice the `message` and `sub` claims, which we set as output claims](relyingparty.md#outputclaims) in the `RelyingParty` section. 
+Notice the `message` and `sub` claims, which we set as [output claims](relyingparty.md#outputclaims) in the `RelyingParty` section. 
 
 ## Next steps
 
