@@ -15,7 +15,7 @@ sections:
       - question: |
           Does Azure Event Grid support resiliency?
         answer: |
-          Yes, Azure Event Grid it's a high available service by zone-redundant support replicated in three availability zones when available to provide automatic in-region recovery of your data if a failure occurs in the region. See [availability zones in Azure Event Grid](availability-zones-disaster-recovery.md) and [Highly available services](../availability-zones/az-region.md#highly-available-services) for more details.
+          Yes, Azure Event Grid it's a high available service by zone-redundant support replicated in three availability zones when available to provide automatic in-region recovery of your data if a failure occurs in the region. For more information, see [availability zones in Azure Event Grid](availability-zones-disaster-recovery.md) and [Highly available services](../availability-zones/az-region.md#highly-available-services).
 
       - question: |
           How does resiliency works in Azure Event Grid?
@@ -30,7 +30,7 @@ sections:
       - question: |
            Do I need to configure Azure Event Grid to enable resiliency?
         answer: |          
-          No, you don't need to configure anything. Azure Event Grid automatically replicates data across data centers in the selected region. See [availability zones in Azure Event Grid](availability-zones-disaster-recovery.md) for more details.
+          No, you don't need to configure anything. Azure Event Grid automatically replicates data across data centers in the selected region. For more information, see [availability zones in Azure Event Grid](availability-zones-disaster-recovery.md).
 
       - question: |
           How do I recover from a failover?
@@ -43,11 +43,11 @@ sections:
       - question: |
           Where does Azure Event Grid store data?
         answer: |
-          Azure Event Grid provides you the flexibility to choose where data is stored and processed. By default, your data is replicated to a paired region. However, you can choose to keep it within the same region you deployed the service instance in.
+          Azure Event Grid provides you with the flexibility to choose where data is stored and processed. By default, your data is replicated to a paired region. However, you can choose to keep it within the same region you deployed the service instance in.
           
           The selection of the kind of data residency currently supported in topics and domains has implications in the disaster recovery configuration. When you create topics and domains, you can opt to replicate data to predefined secondary regions in case Microsoft decides to fail over the traffic by choosing Cross-Geo option, or can opt to keep your data in the region selected without any kind of data replication by choosing Regional option.
           
-          See [Create a custom topic or a domain in Azure Event Grid](create-custom-topic.md#advanced-page) to learn more about how to configure data residency when creating a topic or domain or see [Configure a custom topic or a domain in Azure Event Grid](configure-custom-topic.md#configure-data-residency) to learn how to configure data residency in a preexisting topic or domain.
+          See [Create a custom topic or a domain in Azure Event Grid](create-custom-topic.md#advanced-page) to learn more about how to configure data residency when creating a topic or domain or see [Configure a custom topic or a domain in Azure Event Grid](configure-custom-topic.md#configure-data-residency) to learn how to configure data residency in a pre-existing topic or domain.
 
 additionalContent: | 
 

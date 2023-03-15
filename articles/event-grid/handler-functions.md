@@ -56,7 +56,7 @@ We recommend that you use the first approach (Event Grid trigger) as it has the 
 ```
 
 ## Enable batching
-For a higher throughput, enable batching on the subscription. If you are using the Azure portal, you can set maximum events per batch and the preferred batch size in kilo bytes at the time of creating a subscription or after the creation. 
+For a higher throughput, enable batching on the subscription. If you're using the Azure portal, you can set maximum events per batch and the preferred batch size in kilo bytes at the time of creating a subscription or after the creation. 
 
 You can configure batch settings using the Azure portal, PowerShell, CLI, or Resource Manager template. 
 
@@ -73,7 +73,7 @@ You can update these values for an existing subscription on the **Features** tab
 You can set **maxEventsPerBatch** and **preferredBatchSizeInKilobytes** in an Azure Resource Manager template. For more information, see [Microsoft.EventGrid eventSubscriptions template reference](/azure/templates/microsoft.eventgrid/eventsubscriptions).
 
 ### Azure CLI
-You can use the [az eventgrid event-subscription create](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create&preserve-view=true) or [az eventgrid event-subscription update](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-update&preserve-view=true) command to configure batch-related settings using the following parameters: `--max-events-per-batch` or `--preferred-batch-size-in-kilobytes`.
+You can use the [`az eventgrid event-subscription create`](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create&preserve-view=true) command to configure batch-related settings using the following parameters: `--max-events-per-batch` or `--preferred-batch-size-in-kilobytes`.
 
 ### Azure PowerShell
 You can use the [New-AzEventGridSubscription](/powershell/module/az.eventgrid/new-azeventgridsubscription) or [Update-AzEventGridSubscription](/powershell/module/az.eventgrid/update-azeventgridsubscription) cmdlet to configure batch-related settings using the following parameters: `-MaxEventsPerBatch` or `-PreferredBatchSizeInKiloBytes`.
