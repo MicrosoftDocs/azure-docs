@@ -212,5 +212,5 @@ In this tutorial, you created an Event Grid topic, edge hub subscription, and pu
 * Use [edge hub](../../iot-edge/module-composition.md) route filters to partition events
 * Set up persistence of Event Grid module on [linux](persist-state-linux.md) or [Windows](persist-state-windows.md)
 * Follow [documentation](configure-client-auth.md) to configure client authentication
-* Forward events to Azure Event Grid in the cloud by following this [tutorial](forward-events-event-grid-cloud.md)
+* Forward events to Azure Event Grid in the cloud by following this [tutorial](forward-events-cloud.md)
 * [Monitor topics and subscriptions on the edge](monitor-topics-subscriptions.md)

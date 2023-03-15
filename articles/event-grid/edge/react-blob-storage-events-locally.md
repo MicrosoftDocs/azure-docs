@@ -359,5 +359,5 @@ See the following articles from the Blob Storage documentation:
 
 In this tutorial, you published events by creating or deleting blobs in an Azure Blob Storage. See the other tutorials to learn how to forward events to cloud (Azure Event Hub or Azure IoT Hub): 
 
-- [Forward events to Azure Event Grid](forward-events-event-grid-cloud.md)
+- [Forward events to Azure Event Grid](forward-events-cloud.md)
 - [Forward events to Azure IoT Hub](forward-events-iothub.md)
