@@ -40,7 +40,7 @@ To learn more about supported regions, time to propagate federated credential up
 - Get the information for your external IdP and software workload, which you need in the following steps.
 - To create a user-assigned managed identity and configure a federated identity credential, your account needs the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) or [Owner](../../role-based-access-control/built-in-roles.md#owner) role assignment.
 - [Create a user-assigned manged identity](../managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity)
-- Find the object ID of the user-assigned managed identity, which you need in the following steps.
+- Find the Client ID of the user-assigned managed identity, which you need in the following steps.
 
 ## Configure a federated identity credential on a user-assigned managed identity
 
