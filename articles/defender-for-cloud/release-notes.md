@@ -25,7 +25,7 @@ Updates in March include:
 
 ### Data-aware security posture (preview)
 
-Microsoft Defender for Cloud helps security teams to be more productive at reducing risks and responding to data breaches in the cloud. It allows you to cut through the noise with data context and prioritize the most critical security risks to prevent a costly data breach.
+Microsoft Defender for Cloud helps security teams to be more productive at reducing risks and responding to data breaches in the cloud. It allows them to cut through the noise with data context and prioritize the most critical security risks to prevent a costly data breach.
 
 - Automatically discover data resources across cloud estate and evaluate their accessibility, data sensitivity and configured data flows.
 - Continuously uncover risks to data breaches of sensitive data resources, exposure or attack paths that could lead to a data resource using a lateral movement technique.
