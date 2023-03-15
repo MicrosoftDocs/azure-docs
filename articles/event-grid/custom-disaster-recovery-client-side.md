@@ -180,7 +180,7 @@ namespace EventGridFailoverPublisher
 
 ### Try it out
 
-Now that you have all of your components in place, you can test out your failover implementation. Run the above sample in Visual Studio code, or your favorite environment. Replace the following four values with the endpoints and keys from your topics:
+Now that you have all of your components in place, you can test out your failover implementation. Run the above sample in Visual Studio Code, or your favorite environment. Replace the following four values with the endpoints and keys from your topics:
 
    * primaryTopic - the endpoint for your primary topic.
    * secondaryTopic - the endpoint for your secondary topic.
@@ -197,7 +197,7 @@ To make sure your failover is working, you can change a few characters in your p
 
 There are many ways to extend this sample based on your needs. For high-volume scenarios, you may want to regularly check the topic's health api independently. That way, if a topic were to go down, you don't need to check it with every single publish. Once you know a topic isn't healthy, you can default to publishing to the secondary topic.
 
-Similarly, you may want to implement failback logic based on your specific needs. If publishing to the closest data center is critical for you to reduce latency, you can periodically probe the health api of a topic that has failed over. Once it's healthy again, you know it's safe to failback to the closer data center.
+Similarly, you may want to implement failback logic based on your specific needs. If publishing to the closest data center is critical for you to reduce latency, you can periodically probe the health api of a topic that has failed over. Once it's healthy again, it's safe to failback to the closer data center.
 
 ## Next steps
 
