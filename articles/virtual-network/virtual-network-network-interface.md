@@ -280,6 +280,7 @@ Get-AzNetworkInterface -Name myNIC -ResourceGroupName myResourceGroup
 
 You can change most settings for a network interface after you create it.
 
+<a name="change-dns-servers"></a>
 ### Add or change DNS servers
 
 Azure DHCP assigns the DNS server to the network interface within the VM operating system. The network interface can inherit the settings from the virtual network, or use its own unique settings that override the setting for the virtual network. For more information about name resolution settings for a network interface, see [Name resolution for virtual machines](virtual-networks-name-resolution-for-vms-and-role-instances.md).
@@ -363,13 +364,13 @@ $nic | Set-AzNetworkInterface
 IP forwarding enables a VM network interface to:
 
 - Receive network traffic not destined for any of the IP addresses assigned in any of the network interface's IP configurations.
-- Send network traffic with a different source IP address than assigned in any of the network interface's IP configurations.
+- Send network traffic with a different source IP address than was assigned in any of the network interface's IP configurations.
 
 You must enable the setting for every network interface attached to the VM that needs to forward traffic. A VM can forward traffic whether it has multiple network interfaces or a single network interface attached to it.
 
 IP forwarding is typically used with user-defined routes. For more information, see [User-defined routes](virtual-networks-udr-overview.md).
 
-While IP forwarding is an Azure setting, the VM must also run an application that's able to forward the traffic, such as a firewall, WAN optimization, or load balancing application. A VM running network applications is often called a network virtual appliance (NVA). You can view a list of ready-to-deploy NVAs in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances). 
+While IP forwarding is an Azure setting, the VM must also run an application that's able to forward the traffic, such as a firewall, WAN optimization, or load balancing application. A VM that runs network applications is often called a network virtual appliance (NVA). You can view a list of ready-to-deploy NVAs in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances). 
 
 # [Portal](#tab/network-interface-portal)
 

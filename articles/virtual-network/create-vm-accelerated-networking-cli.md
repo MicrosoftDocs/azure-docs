@@ -174,6 +174,7 @@ Binding to the synthetic NIC that's exposed in the VM is a mandatory requirement
 
 For more information about application binding requirements, see [How Accelerated Networking works in Linux and FreeBSD VMs](./accelerated-networking-how-it-works.md#application-usage).
 
+<a name="enable-accelerated-networking-on-existing-vms"></a>
 ## Manage Accelerated Networking on existing VMs
 
 It's possible to enable Accelerated Networking on an existing VM that doesn't have this feature. The VM must meet the following requirements to support Accelerated Networking:
