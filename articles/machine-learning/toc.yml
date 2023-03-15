@@ -500,6 +500,9 @@
         - name: Debug jobs and monitor training progress
           displayName: automl
           href: how-to-interactive-jobs.md
+        - name: Optimize Checkpoint Performance for Large Models
+          displayName: Optimize Checkpoint Performance for Large Models
+          href: reference-checkpoint-performance-for-large-models.md
         - name: Train with the Python SDK
           items:
             - name: Tune hyperparameters

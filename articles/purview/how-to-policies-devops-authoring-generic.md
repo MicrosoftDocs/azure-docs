@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 03/10/2023
+ms.date: 03/12/2023
 ms.custom:
 ---
 # Create, list, update and delete Microsoft Purview DevOps policies
@@ -80,7 +80,7 @@ To delete a DevOps policy, ensure first that you have the Microsoft Purview Poli
 ![Screenshot shows to enter SQL DevOps policies to delete.](./media/how-to-policies-devops-authoring-generic/enter-devops-policies-to-delete.png)
 
 ## Test the DevOps policy
-After creating the policy, any of the Azure AD users in the Subject should now be able to connect to the data sources in the scope of the policy. To test, use SSMS or any SQL client and try to query some DMVs/DMFs. We list here some examples. For more, you can consult the [Microsoft Purview DevOps policies concept guide](/azure/purview/concept-policies-devops.md#mapping-of-popular-dmvsdmfs)
+After creating the policy, any of the Azure AD users in the Subject should now be able to connect to the data sources in the scope of the policy. To test, use SSMS or any SQL client and try to query some DMVs/DMFs. We list here a few examples. For more, you can consult the mapping of popular DMVs/DMFs in the [Microsoft Purview DevOps policies concept guide](./concept-policies-devops.md#mapping-of-popular-dmvs-and-dmfs)
 
 ### Testing SQL Performance Monitor access
 If you provided the Subject(s) of the policy SQL Performance Monitor role, you can issue the following commands
@@ -144,3 +144,4 @@ Check the blogs, videos and related documents
 * Doc: [Microsoft Purview DevOps policies on Azure Arc-enabled SQL Server](./how-to-policies-devops-arc-sql-server.md)
 * Doc: [Microsoft Purview DevOps policies on Azure SQL Database](./how-to-policies-devops-azure-sql-db.md)
 * Doc: [Microsoft Purview DevOps policies on entire resource groups or subscriptions](./how-to-policies-devops-resource-group.md)
+* Doc: [Troubleshoot Microsoft Purview policies for SQL data sources](./troubleshoot-policy-sql.md)

@@ -411,4 +411,5 @@ For more information about the **Execute JavaScript Code** action's structure an
 
 ## Next steps
 
-Learn more about [Connectors for Azure Logic Apps](../connectors/apis-list.md)
+* [Managed connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
+* [Built-in connectors for Azure Logic Apps](../connectors/built-in.md)

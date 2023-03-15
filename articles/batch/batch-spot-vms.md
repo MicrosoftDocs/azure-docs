@@ -2,7 +2,7 @@
 title: Run workloads on cost-effective Spot VMs
 description: Learn how to provision Spot VMs to reduce the cost of Azure Batch workloads.
 ms.topic: how-to
-ms.date: 12/14/2021
+ms.date: 03/15/2023
 ms.custom: seodec18
 ---
 
@@ -162,6 +162,8 @@ To view these metrics in the Azure portal
 - Spot VMs in Batch don't support setting a max price and don't support price-based evictions. They can only be evicted for capacity reasons.
 - Spot VMs are only available for Virtual Machine Configuration pools and not for Cloud Service Configuration pools, which are [deprecated](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/).
 - Spot VMs aren't available for some clouds, VM sizes, and subscription offer types. See more about [Spot limitations](../virtual-machines/spot-vms.md#limitations).
+- Currently, [Ephemeral OS disks](create-pool-ephemeral-os-disk.md) are not supported with Spot VMs due to the service managed
+eviction policy of Stop-Deallocate.
 
 ## Next steps
 

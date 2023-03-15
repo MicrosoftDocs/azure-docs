@@ -50,7 +50,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 To complete the scenario in this tutorial, you need:
 
-- **Access to [Azure AD Premium edition](/security/business/identity-access/azure-active-directory-pricing)**, which includes Conditional Access policy capabilities. To enforce MFA, you need to create an Azure AD Conditional Access policy. MFA policies are always enforced at your organization, regardless of whether the partner has MFA capabilities.
+- **Access to Azure AD Premium edition**, which includes Conditional Access policy capabilities. To enforce MFA, you need to create an Azure AD Conditional Access policy. MFA policies are always enforced at your organization, regardless of whether the partner has MFA capabilities.
 - **A valid external email account** that you can add to your tenant directory as a guest user and use to sign in. If you don't know how to create a guest account, see [Add a B2B guest user in the Azure portal](add-users-administrator.md).
 
 ## Create a test guest user in Azure AD
@@ -130,7 +130,7 @@ To complete the scenario in this tutorial, you need:
 ## Test your Conditional Access policy
 
 1. Use your test user name and password to sign in to your [Azure portal](https://portal.azure.com/).
-1. You should see a request for additional authentication methods. It can take some time for the policy to take effect.
+1. You should see a request for more authentication methods. It can take some time for the policy to take effect.
 
     :::image type="content" source="media/tutorial-mfa/mfa-required.PNG" alt-text="Screenshot showing the More information required message.":::
 
