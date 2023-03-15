@@ -543,7 +543,7 @@
         {
             "source_path_from_root": "/articles/logic-apps/logic-apps-create-a-logic-app.md",
             "redirect_url": "/azure/logic-apps/quickstart-create-example-consumption-workflow",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/logic-apps/create-logic-apps-visual-studio-code.md",
