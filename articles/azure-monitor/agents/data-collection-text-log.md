@@ -20,11 +20,17 @@ To complete this procedure, you need:
 - [Permissions to create Data Collection Rule objects](../essentials/data-collection-rule-overview.md#permissions) in the workspace.
 - A VM, Virtual Machine Scale Set, or Arc-enabled on-premises server that writes logs to a text file.
     
-    Text file requirements:    
-    - Store on the local drive of the machine on which Azure Monitor Agent is running. 
-    - Delineate with an end of line. 
-    - Use ASCII or UTF-8 encoding. Other formats such as UTF-16 aren't supported.
-    - Do not allow circular logging, log rotation where the file is overwritten with new entries, or renaming where a file is moved and a new file with the same name is opened. 
+    Text file requirements and best practices:    
+    - Do store files on the local drive of the machine on which Azure Monitor Agent is running. 
+    - Do delineate the end of a record with an end of line. 
+    - Do use ASCII or UTF-8 encoding. Other formats such as UTF-16 aren't supported.
+    - Do create a new log file every day so that you can remove old files easily. 
+    - Do Clean up all old log files in the monitored directory. Azure Monitor Agent does not delete old log files.
+    - Do Not overwrite an exitsing file with new data. You should only append new data to the file.
+    - Do Not rename a file and open a new file with the same name to log to.
+    - Do Not rename or copy large log files in to the monitored directory.
+    - Do Not rename files in the monitored directory to a new name that is also in the monitored directory. This can cause incorrect ingestion behavior. 
+
 
 ## Create a custom table
 

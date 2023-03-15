@@ -104,7 +104,7 @@ You need to deploy an app, which will serve as your external app. Your custom po
 
 1. To test the app works as expected, use the following steps:
     1. In your terminal, run the `node index.js` command to start your app server. 
-    1. To make a POST request similar to the one shown below, you can use an HTTP client such as [Microsoft PowerShell](https://learn.microsoft.com/powershell/scripting/overview) or [Postman](https://www.postman.com/):
+    1. To make a POST request similar to the one shown below, you can use an HTTP client such as [Microsoft PowerShell](/powershell/scripting/overview) or [Postman](https://www.postman.com/):
     
     ```http
         POST http://localhost/validate-accesscode HTTP/1.1
@@ -150,7 +150,7 @@ Follow the steps in [Deploy your app to Azure](../app-service/quickstart-nodejs.
 
 - Service endpoint looks similar to `https://custompolicyapi.azurewebsites.net/validate-accesscode`.
 
-You can test the app you've deployed by using an HTTP client such as [Microsoft PowerShell](https://learn.microsoft.com/powershell/scripting/overview) or [Postman](https://www.postman.com/). This time, use `https://custompolicyapi.azurewebsites.net/validate-accesscode` URL as the endpoint. 
+You can test the app you've deployed by using an HTTP client such as [Microsoft PowerShell](/powershell/scripting/overview) or [Postman](https://www.postman.com/). This time, use `https://custompolicyapi.azurewebsites.net/validate-accesscode` URL as the endpoint. 
 
 ## Step 2 - Call the REST API
 

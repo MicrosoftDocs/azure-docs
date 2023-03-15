@@ -4,20 +4,60 @@ description: Describes how to deploy a service catalog's managed application for
 author: davidsmatlak
 ms.author: davidsmatlak
 ms.topic: quickstart
-ms.date: 03/01/2023
+ms.date: 03/14/2023
 ---
 
 # Quickstart: Deploy a service catalog managed application
 
-In this quickstart, you use the definition you created in the quickstarts to [publish an application definition](publish-service-catalog-app.md) or [publish a definition with bring your own storage](publish-service-catalog-bring-your-own-storage.md) to deploy a service catalog managed application. The deployment creates two resource groups. One resource group contains the managed application and the other is a managed resource group for the deployed resource. The managed application definition deploys an App Service plan, App Service, and storage account.
+In this quickstart, you use the managed application definition that you created using one of the quickstart articles. The deployment creates two resource groups. One resource group contains the managed application and the other is a managed resource group for the deployed resources. The managed application definition deploys an App Service plan, App Service, and storage account.
 
 ## Prerequisites
 
-To complete this quickstart, you need an Azure account with an active subscription. If you completed a quickstart to publish a definition, you should already have an account. Otherwise, [create a free account](https://azure.microsoft.com/free/) before you begin.
+- A managed application definition created with [publish an application definition](publish-service-catalog-app.md) or [publish a definition with bring your own storage](publish-service-catalog-bring-your-own-storage.md).
+- An Azure account with an active subscription. If you don't have an account, [create a free account](https://azure.microsoft.com/free/) before you begin.
+- [Visual Studio Code](https://code.visualstudio.com/).
+- Install the latest version of [Azure PowerShell](/powershell/azure/install-az-ps) or [Azure CLI](/cli/azure/install-azure-cli).
 
 ## Create service catalog managed application
 
-In the Azure portal, use the following steps:
+The examples use the resource groups names created in the _quickstart to publish an application definition_. If you used the quickstart to _publish a definition with bring your own storage_, use those resource group names.
+
+- **Publish application definition**: _packageStorageGroup_ and _appDefinitionGroup_.
+- **Publish definition with bring your own storage**: _packageStorageGroup_, _byosDefinitionStorageGroup_, and _byosAppDefinitionGroup_.
+
+### Get managed application definition
+
+# [PowerShell](#tab/azure-powershell)
+
+To get the managed application's definition with Azure PowerShell, run the following commands.
+
+In Visual Studio Code, open a new PowerShell terminal and sign in to your Azure subscription.
+
+```azurepowershell
+Connect-AzAccount
+```
+
+The command opens your default browser and prompts you to sign in to Azure. For more information, go to [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
+
+From Azure PowerShell, get your managed application's definition. In this example, use the resource group name _appDefinitionGroup_ that was created when you deployed the managed application definition.
+
+```azurepowershell
+Get-AzManagedApplicationDefinition -ResourceGroupName appDefinitionGroup
+```
+
+`Get-AzManagedApplicationDefinition` lists all the available definitions in the specified resource group, like _sampleManagedApplication_.
+
+Create a variable for the managed application definition's resource ID.
+
+```azurepowershell
+$definitionid = (Get-AzManagedApplicationDefinition -ResourceGroupName appDefinitionGroup -Name sampleManagedApplication).ManagedApplicationDefinitionId
+```
+
+You use the `$definitionid` variable's value when you deploy the managed application.
+
+# [Portal](#tab/azure-portal)
+
+To get the managed application's definition from the Azure portal, use the following steps.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select **Create a resource**.
@@ -36,6 +76,57 @@ In the Azure portal, use the following steps:
 
    :::image type="content" source="./media/deploy-service-catalog-quickstart/select-service-catalog-managed-application.png" alt-text="Screenshot that shows managed application definitions that you can deploy.":::
 
+---
+
+### Create resource group and parameters
+
+# [PowerShell](#tab/azure-powershell)
+
+Create a resource group for the managed application that's used during the deployment.
+
+```azurepowershell
+New-AzResourceGroup -Name applicationGroup -Location westus3
+```
+
+You also need to create a name for the managed application resource group. The resource group is created when you deploy the managed application.
+
+Run the following commands to create the managed resource group's name.
+
+```azurepowershell
+$mrgprefix = 'rg-sampleManagedApplication-'
+$mrgtimestamp = Get-Date -UFormat "%Y%m%d%H%M%S"
+$mrgname = $mrgprefix + $mrgtimestamp
+$mrgname
+```
+
+The `$mrgprefix` and `$mrgtimestamp` variables are concatenated to create a resource group name like _rg-sampleManagedApplication-20230310100148_ that's stored in the `$mrgname` variable. You use the `$mrgname` variable's value when you deploy the managed application.
+
+You need to provide several parameters to the deployment command for the managed application. You can use a JSON formatted string or create a JSON file. In this example, we use a JSON formatted string. The PowerShell escape character for the quote marks is the backtick (`` ` ``) character. The backtick is also used for line continuation so that commands can use multiple lines.
+
+The JSON formatted string's syntax is as follows:
+
+```json
+"{ `"parameterName`": {`"value`":`"parameterValue`"}, `"parameterName`": {`"value`":`"parameterValue`"} }"
+```
+
+For readability, the completed JSON string uses the backtick for line continuation. The values are stored in the `$params` variable that's used in the deployment command. The parameters in the JSON string are required to deploy the managed resources.
+
+```powershell
+$params="{ `"appServicePlanName`": {`"value`":`"demoAppServicePlan`"}, `
+`"appServiceNamePrefix`": {`"value`":`"demoApp`"}, `
+`"storageAccountNamePrefix`": {`"value`":`"demostg1234`"}, `
+`"storageAccountType`": {`"value`":`"Standard_LRS`"} }"
+```
+
+The parameters to create the managed resources:
+
+- `appServicePlanName`: Create a plan name. Maximum of 40 alphanumeric characters and hyphens. For example, _demoAppServicePlan_. App Service plan names must be unique within a resource group in your subscription.
+- `appServiceNamePrefix`: Create a prefix for the plan name. Maximum of 47 alphanumeric characters or hyphens. For example, _demoApp_. During deployment, the prefix is concatenated with a unique string to create a name that's globally unique across Azure.
+- `storageAccountNamePrefix`: Use only lowercase letters and numbers and a maximum of 11 characters. For example, _demostg1234_. During deployment, the prefix is concatenated with a unique string to create a name globally unique across Azure. Although you're creating a prefix, the control checks for existing names in Azure and might post a validation message that the name already exists. If so, choose a different prefix.
+- `storageAccountType`: The default is Standard_LRS. The other options are Premium_LRS, Standard_LRS, and Standard_GRS.
+
+# [Portal](#tab/azure-portal)
+
 1. Provide values for the **Basics** tab and select **Next: Web App settings**.
 
    :::image type="content" source="./media/deploy-service-catalog-quickstart/basics-info.png" alt-text="Screenshot that highlights the required information on the basics tab.":::
@@ -43,7 +134,7 @@ In the Azure portal, use the following steps:
    - **Subscription**: Select the subscription where you want to deploy the managed application.
    - **Resource group**: Select the resource group. For this example, create a resource group named _applicationGroup_.
    - **Region**: Select the location where you want to deploy the resource.
-   - **Application Name**: Enter a name for your application. For this example, use _demoManagedApplication_.
+   - **Application Name**: Enter a name for your managed application. For this example, use _demoManagedApplication_.
    - **Application resources Resource group name**: The name of the managed resource group that contains the resources that are deployed for the managed application. The default name is in the format `rg-{definitionName}-{dateTime}` but you can change the name.
 
 1. Provide values for the **Web App settings** tab and select **Next: Storage settings**.
@@ -58,11 +149,44 @@ In the Azure portal, use the following steps:
    :::image type="content" source="./media/deploy-service-catalog-quickstart/storage-settings.png" alt-text="Screenshot that shows the information needed to create a storage account.":::
 
    - **Storage account name prefix**: Use only lowercase letters and numbers and a maximum of 11 characters. For example, _demostg1234_. During deployment, the prefix is concatenated with a unique string to create a name globally unique across Azure. Although you're creating a prefix, the control checks for existing names in Azure and might post a validation message that the name already exists. If so, choose a different prefix.
-   - **Storage account type**: Select **Change type** to choose a storage account type. The default is Standard LRS.
+   - **Storage account type**: Select **Change type** to choose a storage account type. The default is Standard LRS. The other options are Premium_LRS, Standard_LRS, and Standard_GRS.
 
-1. Review the summary of the values you selected and verify **Validation Passed** is displayed. Select **Create** to deploy the managed application.
+---
+
+### Deploy the managed application
+
+# [PowerShell](#tab/azure-powershell)
+
+Run the following command to deploy the managed application from your Azure PowerShell session.
+
+```azurepowershell
+New-AzManagedApplication `
+  -Name "demoManagedApplication" `
+  -ResourceGroupName applicationGroup `
+  -Location westus3 `
+  -ManagedResourceGroupName $mrgname `
+  -ManagedApplicationDefinitionId $definitionid `
+  -Kind ServiceCatalog `
+  -Parameter $params
+```
+
+The parameters used in the deployment command:
+
+- `Name`: Specify a name for the managed application. For this example, use _demoManagedApplication_.
+- `ResourceGroupName`: Name of the resource group you created for the managed application.
+- `Location`: Specify the region to deploy the resources. For this example, use _westus3_.
+- `ManagedResourceGroupName`: Uses the `$mrgname` parameters value. The managed resource group is created when the managed application is deployed.
+- `ManagedApplicationDefinitionId`: Uses the `$definitionid` variable's value for the managed application definition's resource ID.
+- `Kind`: Specifies that type of managed application. This example uses _ServiceCatalog_.
+- `Parameter`: Uses the `$parms` variable's value in the JSON formatted string.
+
+# [Portal](#tab/azure-portal)
+
+Review the summary of the values you selected and verify **Validation Passed** is displayed. Select **Create** to deploy the managed application.
 
    :::image type="content" source="./media/deploy-service-catalog-quickstart/summary-validation.png" alt-text="Screenshot that summarizes the values you selected and shows the status of validation passed.":::
+
+---
 
 ## View results
 
@@ -70,19 +194,69 @@ After the service catalog managed application is deployed, you have two new reso
 
 ### Managed application
 
+After the deployment is finished, you can check your managed application's status.
+
+# [PowerShell](#tab/azure-powershell)
+
+Run the following commands to check the managed application's status.
+
+```azurepowershell
+Get-AzManagedApplication -Name demoManagedApplication -ResourceGroupName applicationGroup
+```
+
+Expand the properties to make it easier to read the `Properties` information.
+
+```azurepowershell
+Get-AzManagedApplication -Name demoManagedApplication -ResourceGroupName applicationGroup | Select-Object -ExpandProperty Properties
+```
+
+# [Portal](#tab/azure-portal)
+
 Go to the resource group named **applicationGroup** and select **Overview**. The resource group contains your managed application named _demoManagedApplication_.
 
-   :::image type="content" source="./media/deploy-service-catalog-quickstart/view-application-group.png" alt-text="Screenshot that shows the resource group that contains the managed application.":::
+:::image type="content" source="./media/deploy-service-catalog-quickstart/view-application-group.png" alt-text="Screenshot that shows the resource group that contains the managed application.":::
 
 Select the managed application's name to get more information like the link to the managed resource group.
 
-   :::image type="content" source="./media/deploy-service-catalog-quickstart/view-managed-application.png" alt-text="Screenshot that shows the managed application's details and highlights the link to the managed resource group.":::
+:::image type="content" source="./media/deploy-service-catalog-quickstart/view-managed-application.png" alt-text="Screenshot that shows the managed application's details and highlights the link to the managed resource group.":::
+
+---
 
 ### Managed resources
 
+You can view the resources deployed to the managed resource group.
+
+# [PowerShell](#tab/azure-powershell)
+
+To display the managed resource group's resources, run the following command. You created the `$mrgname` variable when you created the parameters.
+
+```azurepowershell
+Get-AzResource -ResourceGroupName $mrgname
+```
+
+To display all the role assignments for the managed resource group.
+
+```azurepowershell
+Get-AzRoleAssignment -ResourceGroupName $mrgname
+```
+
+The managed application definition you created in the quickstart articles used a group with the Owner role assignment. You can view the group with the following command.
+
+```azurepowershell
+Get-AzRoleAssignment -ResourceGroupName $mrgname -RoleDefinitionName Owner
+```
+
+You can also list the deny assignments for the managed resource group.
+
+```azurepowershell
+Get-AzDenyAssignment -ResourceGroupName $mrgname
+```
+
+# [Portal](#tab/azure-portal)
+
 Go to the managed resource group with the name prefix **rg-sampleManagedApplication** and select **Overview** to display the resources that were deployed. The resource group contains an App Service, App Service plan, and storage account.
 
-   :::image type="content" source="./media/deploy-service-catalog-quickstart/view-managed-resource-group.png" alt-text="Screenshot that shows the managed resource group that contains the resources deployed by the managed application definition.":::
+:::image type="content" source="./media/deploy-service-catalog-quickstart/view-managed-resource-group.png" alt-text="Screenshot that shows the managed resource group that contains the resources deployed by the managed application definition.":::
 
 The managed resource group and each resource created by the managed application has a role assignment. When you used a quickstart article to create the definition, you created an Azure Active Directory group. That group was used in the managed application definition. When you deployed the managed application, a role assignment for that group was added to the managed resources.
 
@@ -95,16 +269,28 @@ To see the role assignment from the Azure portal:
 
 The role assignment gives the application's publisher access to manage the storage account. In this example, the publisher might be your IT department. The _Deny assignments_ prevents customers from making changes to a managed resource's configuration. Managed apps are designed so that customers don't need to maintain the resources. The _Deny assignment_ excludes the Azure Active Directory group that was assigned in **Role assignments**.
 
+---
+
 ## Clean up resources
 
-When your finished with the managed application, you can delete the resource groups and that removes all the resources you created. For example, in this quickstart you created the resource groups _applicationGroup_ and a managed resource group with the prefix _rg-sampleManagedApplication_.
+When you're finished with the managed application, you can delete the resource groups and that removes all the resources you created. For example, in this quickstart you created the resource groups _applicationGroup_ and a managed resource group with the prefix _rg-sampleManagedApplication_.
+
+# [PowerShell](#tab/azure-powershell)
+
+The command prompts you to confirm that you want to remove the resource group.
+
+```azurepowershell
+Remove-AzResourceGroup -Name applicationGroup
+```
+
+# [Portal](#tab/azure-portal)
 
 1. From Azure portal **Home**, in the search field, enter _resource groups_.
 1. Select **Resource groups**.
 1. Select **applicationGroup** and **Delete resource group**.
 1. To confirm the deletion, enter the resource group name and select **Delete**.
 
-When the resource group that contains the managed application is deleted, the managed resource group is also deleted. In this example, when _applicationGroup_ is deleted the  _rg-sampleManagedApplication_ resource group is also deleted.
+---
 
 If you want to delete the managed application definition, delete the resource groups you created in the quickstart articles.
 

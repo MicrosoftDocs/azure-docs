@@ -24,7 +24,7 @@ This script creates a sample logic app through the [Azure CLI Logic Apps extensi
 * The [Azure CLI](/cli/azure/install-azure-cli) installed on your local computer.
 * The [Logic Apps Azure CLI extension](/cli/azure/azure-cli-extensions-list) installed on your computer. To install this extension, use this command: `az extension add --name logic`
 * A [workflow definition](quickstart-logic-apps-azure-cli.md#workflow-definition) for your logic app. This JSON file must follow the [Workflow Definition language schema](logic-apps-workflow-definition-language.md).
-* An API connection to an email account through a supported [Logic Apps connector](../connectors/apis-list.md) in the same resource group as your logic app. This example uses the [Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md) connector, but you can also use other connectors like [Outlook.com](../connectors/connectors-create-api-outlook.md).
+* An API connection to an email account through a supported [Azure Logic Apps connector](/connectors/connector-reference/connector-reference-logicapps-connectors) in the same resource group as your logic app. This example uses the [Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md) connector, but you can also use other connectors like [Outlook.com](../connectors/connectors-create-api-outlook.md).
 
 ### Prerequisite check
 
