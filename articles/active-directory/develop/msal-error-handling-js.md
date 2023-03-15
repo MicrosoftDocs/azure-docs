@@ -57,7 +57,8 @@ The following error types are available:
 For error handling in authentication flows with redirect methods (`loginRedirect`, `acquireTokenRedirect`), you'll need to handle the promise, which is called with success or failure after the redirect using `handleRedirectPromise()` method as follows:
 
 ```javascript
-var myMSALObj = new Msal.PublicClientApplication(msalConfig);
+const msal = require('@azure/msal-browser');
+const myMSALObj = new msal.PublicClientApplication(msalConfig);
 
 // Register Callbacks for redirect flow
 myMSALObj.handleRedirectPromise()
