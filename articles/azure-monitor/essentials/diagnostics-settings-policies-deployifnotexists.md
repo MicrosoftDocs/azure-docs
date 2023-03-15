@@ -1,5 +1,5 @@
 ---
-title: Enable Diagnostics settings by category group using built-in policies.
+title: Enable diagnostics settings by category group using built-in policies.
 description: Use Azure builtin policies to create diagnostic settings in Azure Monitor.
 author: EdB-MSFT
 ms.author: edbaynash
@@ -31,7 +31,7 @@ The following steps show how to apply the policy to send audit logs to for key v
 1. Select **Monitoring** from the Category dropdown
 1. Enter *keyvault* in the **Search** field.
 1. Select the **Enable logging by category group for Key vaults (microsoft.keyvault/vaults) to Log Analytics** policy,
-    :::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/policy-definitions.png" alt-text="A screenshot of the policy definitions page":::
+    :::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/policy-definitions.png" alt-text="A screenshot of the policy definitions page.":::
 1. From the policy definition page, select **Assign**
 1. Select the **Parameters** tab.
 1. Select the Log Analytics Workspace that you want to send the audit logs to.
@@ -101,48 +101,47 @@ For more information on policy assignment using CLI, see [Azure CLI reference - 
 To apply a policy using the PowerShell, use the following commands:
 
 1. Set up your environment.
-Select your subscription and set your resource group
-```azurepowershell
-    Select-AzSubscription <subscriptionID>
-    $rg = Get-AzResourceGroup -Name <resource groups name>    
-```
+    Select your subscription and set your resource group
+    ```azurepowershell
+        Select-AzSubscription <subscriptionID>
+        $rg = Get-AzResourceGroup -Name <resource groups name>    
+    ```
 
 1. Get the policy definition and configure the parameters for the policy. In the example below we assign the policy to send keyVault logs to a Log Analytics workspace
-```azurepowershell
-  $definition = Get-AzPolicyDefinition |Where-Object Name -eq 6b359d8f-f88d-4052-aa7c-32015963ecc1
-  $params =  @{"logAnalytics"="/subscriptions/<subscriptionID/resourcegroups/<resourcgroup>/providers/microsoft.operationalinsights/workspaces/<log anlaytics workspace name>"}  
- ```
+    ```azurepowershell
+      $definition = Get-AzPolicyDefinition |Where-Object Name -eq 6b359d8f-f88d-4052-aa7c-32015963ecc1
+      $params =  @{"logAnalytics"="/subscriptions/<subscriptionID/resourcegroups/<resourcgroup>/providers/microsoft.operationalinsights/workspaces/<log anlaytics workspace name>"}  
+     ```
 
 1. Assign the policy 
-```azurepowershell
-$policyAssignment=New-AzPolicyAssignment -Name <assignment name> -DisplayName "assignment display name" -Scope $rg.ResourceId -PolicyDefinition $definition -PolicyparameterObject $params -IdentityType 'SystemAssigned' -Location <location>
+    ```azurepowershell
+    $policyAssignment=New-AzPolicyAssignment -Name <assignment name> -DisplayName "assignment display name" -Scope $rg.ResourceId -PolicyDefinition $definition -PolicyparameterObject $params -IdentityType 'SystemAssigned' -Location <location>
  
-#To get your assignemnt use:
-$policyAssignment=Get-AzPolicyAssignment -Name '<assignment name>' -Scope '/subscriptions/<subscriptionID>/resourcegroups/<resource group name>'
+    #To get your assignemnt use:
+    $policyAssignment=Get-AzPolicyAssignment -Name '<assignment name>' -Scope '/subscriptions/<subscriptionID>/resourcegroups/<resource group name>'
 
-```
+    ```
 
 1. Assign the required role or roles to the system assigned Managed Identity
- ```azurepowershell
-    $principalID=$policyAssignment.Identity.PrincipalId
-    $roleDefinitionIds=$definition.Properties.policyRule.then.details.roleDefinitionIds
-    $roleDefinitionIds | ForEach-Object {
-        $roleDefId = $_.Split("/") | Select-Object -Last 1
-        New-AzRoleAssignment -Scope $rg.ResourceId -ObjectId $policyAssignment.Identity.PrincipalId -RoleDefinitionId $roleDefId
-    }
-```
+     ```azurepowershell
+        $principalID=$policyAssignment.Identity.PrincipalId
+        $roleDefinitionIds=$definition.Properties.policyRule.then.details.roleDefinitionIds
+        $roleDefinitionIds | ForEach-Object {
+            $roleDefId = $_.Split("/") | Select-Object -Last 1
+            New-AzRoleAssignment -Scope $rg.ResourceId -ObjectId $policyAssignment.Identity.PrincipalId -RoleDefinitionId $roleDefId
+        }
+    ```
 
- Start-AzPolicyComplianceScan -ResourceGroupName $rg.ResourceGroupName
 1. Scan for compliance, then  create a remediation task to force compliance for existing resources.
-```azurepowershell
-    Start-AzPolicyComplianceScan -ResourceGroupName $rg.ResourceGroupName
-    Start-AzPolicyRemediation -Name $policyAssignment.Name -PolicyAssignmentId $policyAssignment.PolicyAssignmentId  -ResourceGroupName $rg.ResourceGroupName
-```
+    ```azurepowershell
+        Start-AzPolicyComplianceScan -ResourceGroupName $rg.ResourceGroupName
+        Start-AzPolicyRemediation -Name $policyAssignment.Name -PolicyAssignmentId $policyAssignment.PolicyAssignmentId  -ResourceGroupName $rg.ResourceGroupName
+    ```
 
 1. Check compliance 
-```azurepowershell
-Get-AzPolicyState -PolicyAssignmentName  $policyAssignment.Name -ResourceGroupName $policyAssignment.ResourceGroupName|select-object IsCompliant , ResourceID
-```
+    ```azurepowershell
+    Get-AzPolicyState -PolicyAssignmentName  $policyAssignment.Name -ResourceGroupName $policyAssignment.ResourceGroupName|select-object IsCompliant , ResourceID
+    ```
 ---
 ## Remediation tasks
 
@@ -166,7 +165,7 @@ Track the status of your remediation task in the **Remediation tasks** tab of th
 
 
 
-For more information on remediation tasks, see [Remediate non-compliant resources](../../governance/policy/how-to/remediate-resources.md)
+For more information on remediation tasks, see [Remediate noncompliant resources](../../governance/policy/how-to/remediate-resources.md)
 
 ## Assign initiatives
 
@@ -191,19 +190,19 @@ In this example, we assign an initiative for sending audit logs to a Log Analyti
 1. On the **Basics** tab of the **Assign initiative** page, select a **Scope** that you want the initiative to apply to.
 1. Enter a name in the **Assignment name** field.
 1. Select the **Parameters** tab.
-:::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/assign-initiatives-basics.png" alt-text="A screenshot showing the assign initiatives basics tab":::  
+:::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/assign-initiatives-basics.png" alt-text="A screenshot showing the assign initiatives basics tab.":::  
 
     The **Parameters** contains the parameters defined in the policy. In this case, we need to select the Log Analytics workspace that we want to send the logs to. For more information in the individual parameters for each policy, see [Policy-specific parameters](#policy-specific-parameters).
 
 1. Select the **Log Analytics workspace** to send your audit logs to.
 
 1. Select **Review + create** then **Create**
-:::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/assign-initiatives-parameters.png" alt-text="A screenshot showing the assign initiatives parameters tab":::
+:::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/assign-initiatives-parameters.png" alt-text="A screenshot showing the assign initiatives parameters tab.":::
 
 To verify that your policy or initiative assignment is working, create a resource in the subscription or resource group scope that you defined in your policy assignment.
 
 After 10 minutes, select the **Diagnostics settings** page for your resource.
-Your diagnostic setting appears in the list with the default name *setByPolicy-LogAnalytics and the workspace name that you configured in the policy.
+Your diagnostic setting appears in the list with the default name *setByPolicy-LogAnalytics* and the workspace name that you configured in the policy.
 
 :::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/diagnostics-settings.png" alt-text="A screenshot showing the Diagnostics setting page for a resource.":::
 
@@ -256,7 +255,7 @@ Log Analytics*,  ResourceID "/providers/Microsoft.Authorization/policySetDefinit
     $policyDefinitionReferenceIds=$assignmentState.PolicyDefinitionReferenceId;
     ```
 
-1. For each resource type with non-compliant resources, start a remediation task.
+1. For each resource type with noncompliant resources, start a remediation task.
     ```azurepowershell
         $policyDefinitionReferenceIds | ForEach-Object {
               $referenceId = $_
