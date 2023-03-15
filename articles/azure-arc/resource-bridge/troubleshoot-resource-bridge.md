@@ -84,7 +84,7 @@ To fix this, the credentials in the appliance VM need to be updated. For more in
 
 ### Back-off pulling image error
 
-When trying to deploy Arc resource bridge, you may see an error that contains `back-off pulling image \\\”url”\\\”: FailFastPodCondition`. This error is caused when the appliance VM is unable to reach the URL specified in the error. To resolve this issue, make sure the appliance VM [meets all requirements](system-requirements.md#appliance-vm-requirements), including internet access, and is able to reach the [required allowlist URLs](network-requirements.md).
+When trying to deploy Arc resource bridge, you may see an error that contains `back-off pulling image \\\"url"\\\: FailFastPodCondition`. This error is caused when the appliance VM is unable to reach the URL specified in the error. To resolve this issue, make sure the appliance VM [meets all requirements](system-requirements.md#appliance-vm-requirements), including internet access, and is able to reach the [required allowlist URLs](network-requirements.md).
 
 ## Networking issues
 
