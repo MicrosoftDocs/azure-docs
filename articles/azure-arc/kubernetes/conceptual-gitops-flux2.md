@@ -1,7 +1,7 @@
 ---
 title: "GitOps Flux v2 configurations with AKS and Azure Arc-enabled Kubernetes"
 description: "This article provides a conceptual overview of GitOps in Azure for use in Azure Arc-enabled Kubernetes and Azure Kubernetes Service (AKS) clusters."
-ms.date: 02/07/2023
+ms.date: 03/14/2023
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
 ---
@@ -363,6 +363,9 @@ If you use a `azblob` source, here are the blob-specific command arguments.
 | `--account_key` | String | The Azure Blob Shared Key for authentication |
 | `--sas_token` | String | The Azure Blob SAS Token for authentication |
 | `--mi_client_id` | String | The client ID of the managed identity for authentication with Azure Blob |
+
+> [!IMPORTANT]
+> When using managed identity authentication for AKS clusters, the `Storage Blob Contributor` role is assigned to the managed identity. Authentication using a managed identity is not yet available for Azure Arc0enabled Kubernetes clusters.
 
 ### Local secret for authentication with source
 
