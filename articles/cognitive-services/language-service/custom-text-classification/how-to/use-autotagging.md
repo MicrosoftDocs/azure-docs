@@ -15,7 +15,7 @@ ms.author: aahi
 
 # How to use autolabeling for Custom Text Classification
 
-[Labeling process](tag-data.md) is an important part of preparing your dataset. Since this process requires much time and effort, you can use the autolabeling feature to automatically label your documents with the classes you want to categorize them into. You can currently start autolabeling jobs based on a model using GPT models where you may immediately trigger an autolabeling job without any prior model training. This feature can save you the time and effort of manually labeling your entities. 
+[Labeling process](tag-data.md) is an important part of preparing your dataset. Since this process requires much time and effort, you can use the autolabeling feature to automatically label your documents with the classes you want to categorize them into. You can currently start autolabeling jobs based on a model using GPT models where you may immediately trigger an autolabeling job without any prior model training. This feature can save you the time and effort of manually labeling your documents. 
 
 ## Prerequisites
 
@@ -47,12 +47,12 @@ When you trigger an autolabeling job with GPT, you're charged to your Azure Open
     
 6. Select the classes you want to be included in the autolabeling job. By default, all classes are selected. Having descriptive names for classes, and including examples for each class is recommended to achieve good quality labeling with GPT.
 
-    :::image type="content" source="../media/choose-classes.png" alt-text="A screenshot showing which entities to be included in autotag job." lightbox="../media/choose-classes.png":::
+    :::image type="content" source="../media/choose-classes.png" alt-text="A screenshot showing which labels to be included in autotag job." lightbox="../media/choose-classes.png":::
     
 7. Choose the documents you want to be automatically labeled. It's recommended to choose the unlabeled documents from the filter. 
 
     > [!NOTE]
-    > * If an entity was automatically labeled, but has a user defined label, only the user defined label is used and be visible.  
+    > * If a document was automatically labeled, but this label was already user defined, only the user defined label is used.  
     > * You can view the documents by clicking on the document name.
     
     :::image type="content" source="../media/choose-files.png" alt-text="A screenshot showing which documents to be included in the autotag job." lightbox="../media/choose-files.png":::
@@ -78,7 +78,7 @@ Once a label is accepted, the purple color changes to the default blue one, and 
 After you accept or reject the labels for the autolabeled documents, select **Save labels** to apply the changes.
 
 > [!NOTE]
-> * We recommend validating automatically labeled entities before accepting them. 
+> * We recommend validating automatically labeled documents before accepting them. 
 > * All labels that were not accepted are deleted when you train your model.
 
 :::image type="content" source="../media/accept-reject-labels.png" alt-text="A screenshot showing how to accept and reject autolabeled documents." lightbox="../media/accept-reject-labels.png":::
