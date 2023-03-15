@@ -148,7 +148,7 @@ In the following table you find the minimum suggested communication to keep your
 | Communication      | Audience                                          |
 | ------------------ | ------------------------------------------------- |
 | - Outcome of application migration testing | - App technical owners<br />- App business owners |
-| - Notification that migration is coming and explanation of resultant <br/>end-user experiences.<br />- Downtime coming and complete communications, including what they should now do, feedback, <br/>and how to get help | - End users (and all others) |
+| - Notification that migration is coming and explanation of resultant <br/>end-user experiences.<br />- Downtime coming and complete communications, including what<br/> they should now do, feedback, and how to get help | - End users (and all others) |
 
 **Phase 4 – Manage and gain insights**:
 
