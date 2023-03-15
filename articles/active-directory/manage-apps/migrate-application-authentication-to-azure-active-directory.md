@@ -148,7 +148,7 @@ In the following table you find the minimum suggested communication to keep your
 | Communication      | Audience                                          |
 | ------------------ | ------------------------------------------------- |
 | - Outcome of application migration testing | - App technical owners<br />- App business owners |
-| - Notification that migration is coming and explanation of resultant end-user experiences.<br />- Downtime coming and complete communications, including what they should now do, feedback, and how to get help | - End users (and all others) |
+| - Notification that migration is coming and explanation of resultant <br/>end-user experiences.<br />- Downtime coming and complete communications, including what they should now do, feedback, <br/>and how to get help | - End users (and all others) |
 
 **Phase 4 – Manage and gain insights**:
 
@@ -333,7 +333,7 @@ Information that is important to making your migration decision includes:
 - **Current identity provider** – what is the primary IdP for this app? 
 - **Method of authentication** – does the app authenticate using open standards?
 - **Security requirements** - must it be on a corporate network? Requires MFA or registered device? 
-- **User audience – employees, partners or internal or external customers? 
+- **User audience** – employees, partners or internal or external customers? 
 - **Whether you plan to update the app code** – is the app under planned or active development?
 - **Whether you plan to keep the app on-premises** – do you want to keep the app in your datacenter long term?
 - **Whether the app depends on other apps or APIs** – does the app currently call into other apps or APIs?
@@ -444,7 +444,6 @@ Depending on how you configure your app, verify that SSO works properly.
 | **OAuth / OpenID Connect** | Select **Enterprise applications &gt; Permissions** and ensure you have consented to the application to be used in your organization in the user settings for your app. |
 | **SAML-based SSO** | Use the [Test SAML Settings](./debug-saml-sso-issues.md) button found under **Single Sign-On.** |
 | **Password-Based SSO** | Download and install the [MyApps Secure Sign-in Extension](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510#download-and-install-the-my-apps-secure-sign-in-extension). This extension helps you start any of your organization's cloud apps that require you to use an SSO process. |
-
 | **[Application Proxy](../app-proxy/application-proxy.md)** | Ensure your connector is running and assigned to your application. Visit the [Application Proxy troubleshooting guide](../app-proxy/application-proxy-troubleshoot.md) for further assistance. |
 
 You can test each app by logging in with a test user and make sure all functionality is the same as prior to the migration. If you determine during testing that users will need to update their [MFA](../authentication/howto-mfa-userstates.md) or [SSPR](../authentication/tutorial-enable-sspr.md)settings, or you are adding this functionality during the migration, be sure to add that to your end-user communication plan. See [MFA](https://aka.ms/mfatemplates) and [SSPR](https://aka.ms/ssprtemplates) end-user communication templates.
