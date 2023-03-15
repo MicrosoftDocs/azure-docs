@@ -75,10 +75,6 @@ Some examples of contents that are allowed in each element are described in the 
 
 The Speech service automatically handles punctuation as appropriate, such as pausing after a period, or using the correct intonation when a sentence ends with a question mark.
 
-## Special characters
-
-You must use the entity format for the characters `&`, `<`, and `>`. Specifically you must use `&amp;` in place of `&`, `&lt;` in place of `<`, and `&gt;` in place of `>`. Otherwise the SSML will not be parsed correctly. 
-
 Special characters such as quotation marks, apostrophes, and brackets, must be escaped. For more information, see [Extensible Markup Language (XML) 1.0: Appendix D](https://www.w3.org/TR/xml/#sec-entexpand).
 
 Attribute values must be enclosed by double quotation marks. For example, `<prosody volume="90">` is a well-formed, valid element, but `<prosody volume=90>` won't be recognized. 
