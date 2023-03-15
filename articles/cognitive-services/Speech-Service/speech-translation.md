@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
-ms.date: 06/13/2022
+ms.date: 09/16/2022
 ms.author: eur
 ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
 keywords: speech translation
@@ -20,7 +20,7 @@ In this article, you learn about the benefits and capabilities of the speech tra
 
 By using the Speech SDK or Speech CLI, you can give your applications, tools, and devices access to source transcriptions and translation outputs for the provided audio. Interim transcription and translation results are returned as speech is detected, and the final results can be converted into synthesized speech.
 
-For a list of languages supported for speech translation, see [Language and voice support](language-support.md#speech-translation).
+For a list of languages supported for speech translation, see [Language and voice support](language-support.md?tabs=speech-translation).
 
 ## Core features
 
@@ -34,10 +34,6 @@ For a list of languages supported for speech translation, see [Language and voic
 As your first step, try the [Speech translation quickstart](get-started-speech-translation.md). The speech translation service is available via the [Speech SDK](speech-sdk.md) and the [Speech CLI](spx-overview.md).
 
 You'll find [Speech SDK speech-to-text and translation samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk) on GitHub. These samples cover common scenarios, such as reading audio from a file or stream, continuous and single-shot recognition and translation, and working with custom models.
-
-## Migration guide
-
-If your applications, tools, or products are using the [Translator Speech API](./how-to-migrate-from-translator-speech-api.md), see [Migrate from the Translator Speech API to Speech service](how-to-migrate-from-translator-speech-api.md).
 
 ## Next steps
 

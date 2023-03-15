@@ -13,7 +13,7 @@ ms.date: 10/1/2020
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-This article describes limitations in the Azure Database for MySQL Flexible Server service. [General limitations](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.7/en/limits.html) in the MySQL database engine are also applicable. If you'd like to learn about resource limitations (compute, memory, storage), see the [compute and storage](concepts-compute-storage.md) article.
+This article describes limitations in the Azure Database for MySQL - Flexible Server service. [General limitations](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.7/en/limits.html) in the MySQL database engine are also applicable. If you'd like to learn about resource limitations (compute, memory, storage), see the [compute and storage](concepts-compute-storage.md) article.
 
 ## Server parameters
 
@@ -25,7 +25,7 @@ Azure Database for MySQL supports tuning the values of server parameters. The mi
 
 ## Storage engines
 
-MySQL supports many storage engines. On Azure Database for MySQL Flexible Server, the following is the list of supported and unsupported storage engines:
+MySQL supports many storage engines. On Azure Database for MySQL - Flexible Server, the following is the list of supported and unsupported storage engines:
 
 ### Supported
 - [InnoDB](https://dev.mysql.com/doc/refman/5.7/en/innodb-introduction.html)
@@ -71,15 +71,11 @@ The following are unsupported:
 ### Scale operations
 - Decreasing server storage provisioned is not supported.
 
-### Read replicas
-- Not supported with zone redundant HA configurations (both primary and standby).
-
 ### Server version upgrades
 - Automated migration between major database engine versions is not supported. If you would like to upgrade the major version, take a [dump and restore](../concepts-migrate-dump-restore.md) it to a server that was created with the new engine version.
 
 ### Restoring a server
 - With point-in-time restore, new servers are created with the same compute and storage configurations as the source server it is based on. The newly restored server's compute can be scaled down after the server is created.
-- Restoring a deleted server isn't supported.
 
 ## Features available in Single Server but not yet supported in Flexible Server
 Not all features available in Azure Database for MySQL - Single Server is available in Flexible Server yet. For complete list of feature comparison between single server and flexible server, refer [choosing the right MySQL Server option in Azure documentation.](../select-right-deployment-type.md#comparing-the-mysql-deployment-options-in-azure)
@@ -89,4 +85,4 @@ Not all features available in Azure Database for MySQL - Single Server is availa
 - Learn [choose the right MySQL Server option in Azure documentation](../select-right-deployment-type.md)
 - Understand [what’s available for compute and storage options in flexible server](concepts-compute-storage.md)
 - Learn about [Supported MySQL Versions](concepts-supported-versions.md)
-- Quickstart: [Use the Azure portal to create an Azure Database for MySQL flexible server](quickstart-create-server-portal.md)
+- Quickstart: [Use the Azure portal to create an Azure Database for MySQL - Flexible Server](quickstart-create-server-portal.md)

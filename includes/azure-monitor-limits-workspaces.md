@@ -21,7 +21,7 @@ ms.custom: "include file"
 | [Legacy Standalone tier](../articles/azure-monitor/logs/cost-logs.md#standalone-pricing-tier)<br>(introduced April 2016) | No limit | 30 to 730 days | Data retention beyond 31 days is available for additional charges. Learn more about [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor). Access to use tier is limited to subscriptions that contained a Log Analytics workspace or Application Insights resource on April 2, 2018, or are linked to an Enterprise Agreement that started before February 1, 2019 and is still active.|
 | [Legacy Free tier](../articles/azure-monitor/logs/cost-logs.md#free-trial-pricing-tier)<br>(introduced April 2016) | 500 MB | 7 days | When your workspace reaches the 500 MB per day limit, data ingestion stops and resumes at the start of the next day. A day is based on UTC. Data collected by Microsoft Defender for Cloud isn't included in this 500 MB per day limit and will continue to be collected above this limit. Creating new workspaces in, or moving existing workspaces into, the legacy Free Trial pricing tier is possible only until July 1, 2022.  |
 | [Legacy Standard tier](../articles/azure-monitor/logs/cost-logs.md#standard-and-premium-pricing-tiers) | No limit | 30 days  | Retention can't be adjusted. This tier has not been available to any new workspaces since October 1, 2016.|
-| [Legacy Premium tier](../articles/azure-monitor/logs/cost-logs.md#standard-and-premium-pricing-tiers) | No limit | 365 days  | Retention can't be adjusted. This tier has not been available to any new workspaces since October 1, 2016.|
+| [Legacy Premium tier](../articles/azure-monitor/logs/cost-logs.md#standard-and-premium-pricing-tiers) | No limit | 365 days  | Retention can't be adjusted. This tier hasn't been available to any new workspaces since October 1, 2016.|
 
 **Number of workspaces per subscription.**
 
@@ -71,14 +71,12 @@ ms.custom: "include file"
 |:---|:---|:---|
 | Maximum columns in a table         | 500 | |
 | Maximum characters for column name | 45 | |
-| 
 
-
-**<a name="data-ingestion-volume-rate">Data ingestion volume rate</a>**
+<b id="data-ingestion-volume-rate">Data ingestion volume rate</b>
 
 Azure Monitor is a high scale data service that serves thousands of customers sending terabytes of data each month at a growing pace. The volume rate limit intends to isolate Azure Monitor customers from sudden ingestion spikes in multitenancy environment. A default ingestion volume rate threshold of 500 MB (compressed) is defined in workspaces, this is translated to approximately **6 GB/min** uncompressed -- the actual size can vary between data types depending on the log length and its compression ratio. The volume rate limit applies to data ingested from Azure resources via [Diagnostic settings](../articles/azure-monitor/essentials/diagnostic-settings.md). When volume rate limit is reached, a retry mechanism attempts to ingest the data four times in a period of 30 minutes and drop it if operation fails. It doesn't apply to data ingested from [agents](../articles/azure-monitor/agents/agents-overview.md) or [Data Collector API](../articles/azure-monitor/logs/data-collector-api.md).
 
-When data sent to your workspace is at a volume rate higher than 80% of the threshold configured in your workspace, an event is sent to the *Operation* table in your workspace every 6 hours while the threshold continues to be exceeded. When ingested volume rate is higher than threshold, some data is dropped and an event is sent to the *Operation* table in your workspace every 6 hours while the threshold continues to be exceeded. If your ingestion volume rate continues to exceed the threshold or you're expecting to reach it sometime soon, you can request to increase it in by opening a support request. 
+When data sent to your workspace is at a volume rate higher than 80% of the threshold configured in your workspace, an event is sent to the *Operation* table in your workspace every 6 hours while the threshold continues to be exceeded. When ingested volume rate is higher than threshold, some data is dropped, and an event is sent to the *Operation* table in your workspace every 6 hours while the threshold continues to be exceeded. If your ingestion volume rate continues to exceed the threshold or you're expecting to reach it sometime soon, you can request to increase it in by opening a support request. 
 
 See [Monitor health of Log Analytics workspace in Azure Monitor](../articles/azure-monitor/logs/monitor-workspace.md) to create alert rules to be proactively notified when you reach any ingestion limits.
 

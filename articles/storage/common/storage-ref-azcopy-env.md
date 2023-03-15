@@ -1,5 +1,5 @@
 ---
-title: azcopy env | Microsoft Docs
+title: azcopy env
 description: This article provides reference information for the azcopy env command.
 author: normesta
 ms.service: storage

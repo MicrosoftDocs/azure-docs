@@ -2,7 +2,7 @@
 title: Linter settings for Bicep config
 description: Describes how to customize configuration values for the Bicep linter
 ms.topic: conceptual
-ms.date: 07/21/2022
+ms.date: 01/30/2023
 ---
 
 # Add linter settings in the Bicep config file
@@ -26,7 +26,31 @@ The following example shows the rules that are available for configuration.
         "adminusername-should-not-be-literal": {
           "level": "warning"
         },
+        "artifacts-parameters": {
+          "level": "warning"
+        },
+        "decompiler-cleanup": {
+          "level": "warning"
+        },
+        "max-outputs": {
+          "level": "warning"
+        },
+        "max-params": {
+          "level": "warning"
+        },
+        "max-resources": {
+          "level": "warning"
+        },
+        "max-variables": {
+          "level": "warning"
+        },
         "no-hardcoded-env-urls": {
+          "level": "warning"
+        },
+        "no-hardcoded-location": {
+          "level": "warning"
+        },
+        "no-loc-expr-outside-params": {
           "level": "warning"
         },
         "no-unnecessary-dependson": {
@@ -47,13 +71,34 @@ The following example shows the rules that are available for configuration.
         "prefer-interpolation": {
           "level": "warning"
         },
+        "prefer-unquoted-property-names": {
+          "level": "warning"
+        },
+        "protect-commandtoexecute-secrets": {
+          "level": "warning"
+        },
         "secure-parameter-default": {
+          "level": "warning"
+        },
+        "secure-params-in-nested-deploy": {
+          "level": "warning"
+        },
+        "secure-secrets-in-params": {
           "level": "warning"
         },
         "simplify-interpolation": {
           "level": "warning"
         },
+        "use-parent-property": {
+          "level": "warning"
+        },
         "use-protectedsettings-for-commandtoexecute-secrets": {
+          "level": "warning"
+        },
+        "use-recent-api-versions": {
+          "level": "warning"
+        },
+        "use-resource-id-functions": {
           "level": "warning"
         },
         "use-stable-resource-identifiers": {

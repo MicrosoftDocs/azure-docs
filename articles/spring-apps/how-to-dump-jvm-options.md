@@ -3,7 +3,7 @@ title: Use the diagnostic settings of JVM options for advanced troubleshooting i
 description: Describes several best practices with JVM configuration to set heap dump, JFR, and GC logs.
 author: KarlErickson
 ms.author: yinglzh
-ms.service: spring-cloud
+ms.service: spring-apps
 ms.topic: how-to
 ms.date: 01/21/2022
 ms.custom: devx-track-java, event-tier1-build-2022
@@ -53,7 +53,7 @@ Use the following `--jvm-options` parameter to generate GC logs. For more inform
 Use the following `--jvm-options` parameter to generate a JFR file.  For more information, see the official JVM documentation.
 
 ```azurecli
---jvm-options="-XX:StartFlightRecording=dumponexit=true,dumponexitpath=<path-to-JFR-file>"
+--jvm-options="-XX:StartFlightRecording=dumponexit=true,filename=<path-to-JFR-file>"
 ```
 
 ## Configure the path for generated files

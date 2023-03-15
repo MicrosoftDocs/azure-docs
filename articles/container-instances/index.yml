@@ -41,7 +41,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Run Docker containers with Azure Container Instances
-            url: /learn/modules/run-docker-with-azure-container-instances/
+            url: /training/modules/run-docker-with-azure-container-instances/
   - title: Create multi-container groups
     linkLists:
       - linkListType: tutorial
@@ -81,6 +81,15 @@ landingContent:
           - text: Use managed identity
             url: container-instances-managed-identity.md
           - text: Mount an Azure file share
-            url: container-instances-volume-azure-files.md 
+            url: container-instances-volume-azure-files.md        
+  - title: Deploy confidential container groups
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Deploy a confidential container group - resource manager
+            url: container-instances-tutorial-deploy-confidential-containers-cce-arm.md
+          - text: Deploy a confidential container group - portal
+            url: container-instances-tutorial-deploy-confidential-container-default-portal.md
+
 
                   

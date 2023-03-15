@@ -7,10 +7,10 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 ms.custom: cliv2, event-tier1-build-2022
-author: s-polly
-ms.author: scottpolly
-ms.date: 03/31/2022
-ms.reviewer: larryfr
+author: cloga
+ms.author: lochen
+ms.date: 08/08/2022
+ms.reviewer: lagayhar
 ---
 
 # CLI (v2) command component YAML schema
@@ -29,11 +29,12 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | --- | ---- | ----------- | -------------- | ------------- |
 | `$schema` | string | The YAML schema. If you use the Azure Machine Learning VS Code extension to author the YAML file, including `$schema` at the top of your file enables you to invoke schema and resource completions. | | |
 | `type` | const | The type of component. | `command` | `command` |
-| `name` | string | **Required.** Name of the component. | | |
-| `version` | string | Version of the component. If omitted, Azure ML will autogenerate a version. | | |
+| `name` | string | **Required.** Name of the component. Must start with lowercase letter. Allowed characters are lowercase letters, numbers, and underscore(_). Maximum length is 255 characters.| | |
+| `version` | string | Version of the component. If omitted, Azure Machine Learning will autogenerate a version. | | |
 | `display_name` | string | Display name of the component in the studio UI. Can be non-unique within the workspace. | | |
 | `description` | string | Description of the component. | | |
 | `tags` | object | Dictionary of tags for the component. | | |
+| `is_deterministic` | boolean |This option determines if the component will produce the same output for the same input data. You should usually set this to `false` for components that load data from external sources, such as importing data from a URL. This is because the data at the URL might change over time. | | `true` |
 | `command` | string | **Required.** The command to execute. | | |
 | `code` | string | Local path to the source code directory to be uploaded and used for the component. | | |
 | `environment` | string or object | **Required.** The environment to use for the component. This value can be either a reference to an existing versioned environment in the workspace or an inline environment specification. <br><br> To reference an existing environment, use the `azureml:<environment-name>:<environment-version>` syntax. <br><br> To define an environment inline, follow the [Environment schema](reference-yaml-environment.md#yaml-syntax). Exclude the `name` and `version` properties as they are not supported for inline environments. | | |
@@ -72,19 +73,19 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
-| `type` | string | **Required.** The type of component input. <br><br> Use `type: uri_file/uri_folder` if you want the runtime job input value to be a data URI or registered Azure ML data asset when the component is run. | `number`, `integer`, `boolean`, `string`, `uri_file`, `uri_folder` | |
+| `type` | string | **Required.** The type of component input. [Learn more about data access](concept-data.md) | `number`, `integer`, `boolean`, `string`, `uri_file`, `uri_folder`, `mltable`, `mlflow_model`| |
 | `description` | string | Description of the input. | | |
 | `default` | number, integer, boolean, or string | The default value for the input. | | |
-| `optional` | boolean | Whether the input is required. | | `false` |
+| `optional` | boolean | Whether the input is required. If set to `true`, you need use the command includes optional inputs with `$[[]]`| | `false` |
 | `min` | integer or number | The minimum accepted value for the input. This field can only be specified if `type` field is `number` or `integer`. | |
 | `max` | integer or number | The maximum accepted value for the input. This field can only be specified if `type` field is `number` or `integer`. | |
-| `enum` | array | The list of allowed values for the input. Not applicable if `type` field is `boolean`.  | |
+| `enum` | array | The list of allowed values for the input. Only applicable if `type` field is `string`.| |
 
 ### Component output
 
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
-| `type` | string | **Required.** The type of component output. | `uri_folder` | |
+| `type` | string | **Required.** The type of component output. | `uri_file`, `uri_folder`, `mltable`, `mlflow_model` | |
 | `description` | string | Description of the output. | | |
 
 ## Remarks
@@ -97,10 +98,31 @@ Command component examples are available in the examples GitHub repository. Sele
 
 Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/pipelines-with-components). Several are shown below.
 
-## Hello world command component
+## YAML: Hello world command component
 
 :::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines-with-components/basics/2a_basic_component/component.yml":::
+
+## YAML: Component with different input types
+
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/component/train.yml":::
+
+### Define optional inputs in command line
+When the input is set as `optional = true`, you need use `$[[]]` to embrace the command line with inputs. For example `$[[--input1 ${{inputs.input1}}]`. The command line at runtime may have different inputs.
+- If  you are using only specify the required `training_data` and `model_output` parameters, the command line will look like:
+
+```azurecli
+python train.py --training_data some_input_path --learning_rate 0.01 --learning_rate_schedule time-based --model_output some_output_path
+```
+
+If no value is specified at runtime, `learning_rate` and `learning_rate_schedule` will use the default value.
+
+- If all inputs/outputs provide values during runtime, the command line will look like:
+```azurecli
+python train.py --training_data some_input_path --max_epocs 10 --learning_rate 0.01 --learning_rate_schedule time-based --model_output some_output_path
+```
+
 
 ## Next steps
 
 - [Install and use the CLI (v2)](how-to-configure-cli.md)
+- [Create ML pipelines using components (CLI v2)](how-to-create-component-pipelines-cli.md)

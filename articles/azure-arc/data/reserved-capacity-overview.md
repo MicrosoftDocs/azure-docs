@@ -3,7 +3,7 @@ title: Save costs with reserved capacity
 description: Learn how to buy Azure Arc-enabled SQL Managed Instance reserved capacity to save costs.
 services: sql-database
 ms.service: azure-arc
-ms.subservice: azure-arc-data
+ms.subservice: azure-arc-data-sqlmi
 ms.custom: event-tier1-build-2022
 ms.topic: conceptual
 author: anosov1960 

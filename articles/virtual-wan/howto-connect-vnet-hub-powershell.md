@@ -4,10 +4,10 @@ titleSuffix: Azure Virtual WAN
 description: Learn how to connect a VNet to a Virtual WAN hub using PowerShell.
 author: reasuquo
 ms.service: virtual-wan
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 05/13/2022
 ms.author: reasuquo
-
 ---
 # Connect a virtual network to a Virtual WAN hub - PowerShell
 
@@ -19,7 +19,7 @@ This article helps you connect your virtual network to your virtual hub using Po
 > * In order to connect it to a virtual hub, the remote virtual network can't have a gateway.
 
 > [!IMPORTANT]
-> If VPN gateways are present in the virtual hub, this operation can cause disconnection to point-to-site clients as well as reconnection of site-to-site tunnels and BGP sessions.
+> If VPN gateways are present in the virtual hub, this operation as well as any other write operation on the connected VNet can cause disconnection to point-to-site clients as well as reconnection of site-to-site tunnels and BGP sessions.
 
 ## Prerequisites
 

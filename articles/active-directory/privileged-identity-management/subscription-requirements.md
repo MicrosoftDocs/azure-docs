@@ -4,7 +4,7 @@ description: Describes the licensing requirements to use Azure AD Privileged Ide
 services: active-directory
 documentationcenter: ''
 author: amsliu
-manager: rkarlin
+manager: amycolannino
 editor: ''
 ms.assetid: 34367721-8b42-4fab-a443-a2e55cdbf33d
 ms.service: active-directory
@@ -33,7 +33,7 @@ You will need an Azure AD license to use PIM and all of it's settings. Currently
 Ensure that your directory has Azure AD Premium P2 licenses for the following categories of users:
 
 - Users with eligible and/or time-bound assignments to Azure AD or Azure roles managed using PIM
-- Users with eligible and/or time-bound assignments as members or owners of privileged access groups
+- Users with eligible and/or time-bound assignments as members or owners of PIM for Groups
 - Users able to approve or reject activation requests in PIM
 - Users assigned to an access review
 - Users who perform access reviews
@@ -42,7 +42,7 @@ Azure AD Premium P2 licenses are **not** required for the following tasks:
 
 - No licenses are required for users who set up PIM, configure policies, receive alerts, and set up access reviews.
 
-For more information about licenses, see [Assign or remove licenses using the Azure Active Directory portal](../fundamentals/license-users-groups.md).
+For more information about licenses, see [Assign or remove licenses using the Azure portal](../fundamentals/license-users-groups.md).
 
 ## Example license scenarios
 

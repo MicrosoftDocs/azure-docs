@@ -16,11 +16,11 @@ ms.devlang: azurecli
 
 # Quickstart: Create a Cognitive Services resource using the Azure CLI
 
-Use this quickstart to create a Cognitive Services resource using [Azure Command-Line Interface (CLI)](/cli/azure/install-azure-cli) commands. After creating the resource, use the keys and endpoint generated for you to authenticate your applications.
+Use this quickstart to create a Cognitive Services resource using [Azure Command-Line Interface (CLI)](/cli/azure/install-azure-cli) commands. After you create the resource, use the keys and endpoint generated for you to authenticate your applications.
 
-Azure Cognitive Services is a cloud-based service with REST APIs, and client library SDKs available to help developers build cognitive intelligence into applications without having direct artificial intelligence (AI) or data science skills or knowledge. Azure Cognitive Services enables developers to easily add cognitive features into their applications with cognitive solutions that can see, hear, speak, understand, and even begin to reason.
+Azure Cognitive Services are cloud-based artificial intelligence (AI) services that help developers build cognitive intelligence into applications without having direct AI or data science skills or knowledge. They are available through REST APIs and client library SDKs in popular development languages. Azure Cognitive Services enables developers to easily add cognitive features into their applications with cognitive solutions that can see, hear, speak, and analyze.
 
-## Types of Cognitive Services resource
+## Types of Cognitive Services resources
 
 [!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
@@ -43,37 +43,31 @@ You can also use the green **Try It** button to run these commands in your brows
 
 ## Create a new Azure Cognitive Services resource group
 
-Before creating a Cognitive Services resource, you must have an Azure resource group to contain the resource. When you create a new resource, you can either create a new resource group, or use an existing one. This article shows how to create a new resource group.
+Before you create a Cognitive Services resource, you must have an Azure resource group to contain the resource. When you create a new resource, you can either create a new resource group, or use an existing one. This article shows how to create a new resource group.
 
 ### Choose your resource group location
 
 To create a resource, you'll need one of the Azure locations available for your subscription. You can retrieve a list of available locations with the [az account list-locations](/cli/azure/account#az-account-list-locations) command. Most Cognitive Services can be accessed from several locations. Choose the one closest to you, or see which locations are available for the service.
 
 > [!IMPORTANT]
-> * Remember your Azure location, as you will need it when calling the Azure Cognitive Services.
+> * Remember your Azure location, as you will need it when calling the Azure Cognitive Services resources.
 > * The availability of some Cognitive Services can vary by region. For more information, see [Azure products by region](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services).
 
 ```azurecli-interactive
-az account list-locations \
-    --query "[].{Region:name}" \
-    --out table
+az account list-locations --query "[].{Region:name}" --out table
 ```
 
-After you have your Azure location, create a new resource group in the Azure CLI using the [az group create](/cli/azure/group#az-group-create) command.
-
-In the example below, replace the Azure location `westus2` with one of the Azure locations available for your subscription.
+After you have your Azure location, create a new resource group in the Azure CLI using the [az group create](/cli/azure/group#az-group-create) command. In the example below, replace the Azure location `westus2` with one of the Azure locations available for your subscription.
 
 ```azurecli-interactive
-az group create \
-    --name cognitive-services-resource-group \
-    --location westus2
+az group create --name cognitive-services-resource-group --location westus2
 ```
 
 ## Create a Cognitive Services resource
 
-### Choose a cognitive service and pricing tier
+### Choose a service and pricing tier
 
-When creating a new resource, you'll need to know the "kind" of service you want to use, along with the [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/) (or sku) you want. You'll use this and other information as parameters when creating the resource.
+When you create a new resource, you'll need to know the kind of service you want to use, along with the [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/) (or SKU) you want. You'll use this and other information as parameters when you create the resource.
 
 [!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
@@ -88,18 +82,12 @@ az cognitiveservices account list-kinds
 
 ### Add a new resource to your resource group
 
-To create and subscribe to a new Cognitive Services resource, use the [az cognitiveservices account create](/cli/azure/cognitiveservices/account#az-cognitiveservices-account-create) command. This command adds a new billable resource to the resource group created earlier. When creating your new resource, you'll need to know the "kind" of service you want to use, along with its pricing tier (or sku) and an Azure location:
+To create and subscribe to a new Cognitive Services resource, use the [az cognitiveservices account create](/cli/azure/cognitiveservices/account#az-cognitiveservices-account-create) command. This command adds a new billable resource to the resource group you created earlier. When you create your new resource, you'll need to know the "kind" of service you want to use, along with its pricing tier (or SKU) and an Azure location:
 
 You can create an F0 (free) resource for Anomaly Detector, named `anomaly-detector-resource` with the command below.
 
 ```azurecli-interactive
-az cognitiveservices account create \
-    --name anomaly-detector-resource \
-    --resource-group cognitive-services-resource-group \
-    --kind AnomalyDetector \
-    --sku F0 \
-    --location westus2 \
-    --yes
+az cognitiveservices account create --name anomaly-detector-resource --resource-group cognitive-services-resource-group  --kind AnomalyDetector --sku F0 --location westus2 --yes
 ```
 
 [!INCLUDE [Register Azure resource for subscription](./includes/register-resource-subscription.md)]
@@ -115,9 +103,7 @@ az login
 Use the [az cognitiveservices account keys list](/cli/azure/cognitiveservices/account/keys#az-cognitiveservices-account-keys-list) command to get the keys for your Cognitive Service resource.
 
 ```azurecli-interactive
-    az cognitiveservices account keys list \
-    --name anomaly-detector-resource \
-    --resource-group cognitive-services-resource-group
+    az cognitiveservices account keys list  --name anomaly-detector-resource --resource-group cognitive-services-resource-group
 ```
 
 [!INCLUDE [cognitive-services-environment-variables](../../includes/cognitive-services-environment-variables.md)]
@@ -134,10 +120,7 @@ Pricing tiers (and the amount you get billed) are based on the number of transac
 Use the [az cognitiveservices account list-usage](/cli/azure/cognitiveservices/account#az-cognitiveservices-account-list-usage) command to get the usage for your Cognitive Service resource.
 
 ```azurecli-interactive
-az cognitiveservices account list-usage \
-    --name anomaly-detector-resource \
-    --resource-group cognitive-services-resource-group \
-    --subscription subscription-name
+az cognitiveservices account list-usage --name anomaly-detector-resource --resource-group cognitive-services-resource-group --subscription subscription-name
 ```
 
 ## Clean up resources

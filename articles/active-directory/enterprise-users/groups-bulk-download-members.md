@@ -1,10 +1,10 @@
 ---
-title: Bulk download group membership list - Azure Active Directory portal | Microsoft Docs
+title: Bulk download group membership list - Azure portal | Microsoft Docs
 description: Add users in bulk in the Azure admin center. 
 services: active-directory 
 author: barclayn
 ms.author: barclayn
-manager: rkarlin
+manager: amycolannino
 ms.date: 06/23/2022
 ms.topic: how-to
 ms.service: active-directory

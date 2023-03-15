@@ -3,12 +3,12 @@ title: Header-based single sign-on for on-premises apps with Azure AD App Proxy
 description: Learn how to provide single sign-on for on-premises applications that are secured with header-based authentication.
 services: active-directory
 author: kenwith
-manager: rkarlin
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/22/2021
+ms.date: 11/17/2022
 ms.author: kenwith
 ms.reviewer: ashishj
 ---
@@ -47,7 +47,7 @@ The following table lists common capabilities required for header-based authenti
 
 :::image type="content" source="./media/application-proxy-configure-single-sign-on-with-headers/how-it-works-updated.png" alt-text="How header-based single sign-on works with Application Proxy." lightbox="./media/application-proxy-configure-single-sign-on-with-headers/how-it-works-updated.png":::
 
-1. The Admin customizes the attribute mappings required by the application in the Azure AD portal. 
+1. The Admin customizes the attribute mappings required by the application in the Azure portal. 
 2. When a user accesses the app, Application Proxy ensures the user is authenticated by Azure AD 
 3. The Application Proxy cloud service is aware of the attributes required. So the service fetches the corresponding claims from the ID token received during authentication. The service then translates the values into the required HTTP headers as part of the request to the Connector. 
 4. The request is then passed along to the Connector, which is then passed to the backend application. 

@@ -32,6 +32,14 @@ Azure Web PubSub Service uses Managed Identity to access your Key Vault. In orde
 
    :::image type="content" alt-text="Screenshot of enabling managed identity." source="media\howto-custom-domain\portal-identity.png" :::
 
+Depending on how you configure your Key Vault permission model, you may need to grant permissions at different places.
+
+#### [Vault access policy](#tab/vault-access-policy)
+
+If you're using Key Vault built-in access policy as Key Vault permission model:
+
+   :::image type="content" alt-text="Screenshot of built-in access policy selected as Key Vault permission model." source="media\howto-custom-domain\portal-key-vault-perm-model-access-policy.png" :::
+
 1. Go to your Key Vault resource.
 1. In the menu pane, select **Access configuration**. Click **Go to access policies**.
 1. Click **Create**. Select **Secret Get** permission and **Certificate Get** permission. Click **Next**.
@@ -44,6 +52,30 @@ Azure Web PubSub Service uses Managed Identity to access your Key Vault. In orde
 
 1. Skip **Application (optional)**. Click **Next**.
 1. In **Review + create**, click **Create**.
+
+#### [Azure role-based access control](#tab/azure-rbac)
+
+If you're using Azure role-based access control as Key Vault permission model:
+
+   :::image type="content" alt-text="Screenshot of Azure RBAC selected as Key Vault permission model." source="media\howto-custom-domain\portal-key-vault-perm-model-rbac.png" :::
+
+1. Go to your Key Vault resource.
+1. In the menu pane, select **Access control (IAM)**.
+1. Click **Add**. Select **Add role assignment**.
+
+   :::image type="content" alt-text="Screenshot of Key Vault IAM." source="media\howto-custom-domain\portal-key-vault-iam.png" :::
+
+1. Under the **Role** tab, select **Key Vault Secrets User**. Click **Next**.
+
+   :::image type="content" alt-text="Screenshot of role tab when adding role assignment to Key Vault." source="media\howto-custom-domain\portal-key-vault-role.png" :::
+
+1. Under the **Members** tab, select **Managed identity**. 1. Search for the Azure Web PubSub Service resource name or the user assigned identity name. Click **Next**.
+
+   :::image type="content" alt-text="Screenshot of members tab when adding role assignment to Key Vault." source="media\howto-custom-domain\portal-key-vault-members.png" :::
+
+1. Click **Review + assign**.
+
+-----
 
 ### Step 2: Create a custom certificate
 
@@ -133,6 +165,14 @@ $ curl -vvv https://contoso.example.com/api/health
 -----
 
 It should return `200` status code without any certificate error.
+
+## Key Vault in private network
+
+If you have configured [Private Endpoint](../private-link/private-endpoint-overview.md) to your Key Vault, Azure Web PubSub Service cannot access the Key Vault via public network. You need to set up a [Shared Private Endpoint](./howto-secure-shared-private-endpoints-key-vault.md) to let Azure Web PubSub Service access your Key Vault via private network.
+
+After you create a Shared Private Endpoint, you can create a custom certificate as usual. **You don't have to change the domain in Key Vault URI**. For example, if your Key Vault base URI is `https://contoso.vault.azure.net`, you still use this URI to configure custom certificate.
+
+You don't have to explicitly allow Azure Web PubSub Service IPs in Key Vault firewall settings. For more info, see [Key Vault private link diagnostics](../key-vault/general/private-link-diagnostics.md).
 
 ## Next steps
 

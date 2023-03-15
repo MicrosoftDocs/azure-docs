@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 05/05/2022
+ms.date: 08/08/2022
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021, event-tier1-build-2022
 ---
 
 # How to train a custom text classification model
 
-Training is the process where the model learns from your [labeled data](tag-data.md). After training is completed, you will be able to [view the model's performance](view-model-evaluation.md) to determine if you need to [improve your model](improve-model.md).
+Training is the process where the model learns from your [labeled data](tag-data.md). After training is completed, you will be able to [view the model's performance](view-model-evaluation.md) to determine if you need to improve your model.
 
 To train a model, start a training job. Only successfully completed jobs create a usable model. Training jobs expire after seven days. After this period, you won't be able to retrieve the job details. If your training job completed successfully and a model was created, it won't be affected by the job expiration. You can only have one training job running at a time, and you can't start other jobs in the same project. 
 
@@ -43,7 +43,7 @@ It is recommended to make sure that all your classes are adequately represented 
 
 Custom text classification supports two methods for data splitting:
 
-* **Automatically splitting the testing set from training data**: The system will split your labeled data between the training and testing sets, according to the percentages you choose. The recommended percentage split is 80% for training and 20% for testing. 
+* **Automatically splitting the testing set from training data**: The system will split your labeled data between the training and testing sets, according to the percentages you choose. The system will attempt to have a representation of all classes in your training set. The recommended percentage split is 80% for training and 20% for testing. 
 
  > [!NOTE]
  > If you choose the **Automatically splitting the testing set from training data** option, only the data assigned to training set will be split according to the percentages provided.
@@ -84,4 +84,4 @@ Training could take sometime depending on the size of your training data and com
 
 ## Next steps
 
-After training is completed, you will be able to [view the model's performance](view-model-evaluation.md) to optionally [improve your model](improve-model.md) if needed. Once you're satisfied with your model, you can deploy it, making it available to use for [classifying text](call-api.md).
+After training is completed, you will be able to [view the model's performance](view-model-evaluation.md) to optionally improve your model if needed. Once you're satisfied with your model, you can deploy it, making it available to use for [classifying text](call-api.md).

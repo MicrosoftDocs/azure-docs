@@ -4,6 +4,7 @@ description: Upload logs for Azure Arc-enabled data services to Azure Monitor
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
+ms.custom: devx-track-azurecli
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
@@ -13,7 +14,7 @@ ms.topic: how-to
 
 # Upload logs to Azure Monitor
 
-Periodically, you can export logs and then upload them to Azure. Exporting and uploading logs also creates and updates the data controller, SQL managed instance, and PostgreSQL Hyperscale server group resources in Azure.
+Periodically, you can export logs and then upload them to Azure. Exporting and uploading logs also creates and updates the data controller, SQL managed instance, and PostgreSQL server resources in Azure.
 
 ## Before you begin
 
@@ -221,7 +222,7 @@ kubectl edit datacontroller <DC name> --name <namespace>
 
 ## Upload logs to Azure Monitor in **indirect** mode
 
- To upload logs for your Azure Arc-enabled SQL managed instances and Azure Arc-enabled PostgreSQL Hyperscale server groups run the following CLI commands-
+ To upload logs for your Azure Arc-enabled SQL managed instances and Azure Arc-enabled PostgreSQL servers run the following CLI commands-
 
 1. Export all logs to the specified file:
 

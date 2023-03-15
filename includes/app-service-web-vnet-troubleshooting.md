@@ -1,10 +1,11 @@
 ---
 author: ccompy
-ms.service: app-service-web
+ms.service: app-service
 ms.topic: include
 ms.date: 02/27/2020
 ms.author: ccompy
 ms.custom: fasttrack-edit
+ms.subservice: web-apps
 ---
 
 The feature is easy to set up, but that doesn't mean your experience will be problem free. If you encounter problems accessing your desired endpoint, there are some utilities you can use to test connectivity from the app console. There are two consoles that you can use. One is the Kudu console, and the other is the console in the Azure portal. To reach the Kudu console from your app, go to **Tools** > **Kudu**. You can also reach the Kudo console at [sitename].scm.azurewebsites.net. After the website loads, go to the **Debug console** tab. To get to the Azure portal-hosted console from your app, go to **Tools** > **Console**.

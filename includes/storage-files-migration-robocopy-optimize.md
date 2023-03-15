@@ -51,7 +51,7 @@ More threads will copy our 1-TiB example of small files considerably faster than
 During a first RoboCopy into an empty target or a differential run with lots of changed files, you are likely constrained by your network throughput. Start with a high thread count for an initial run. A high thread count, even beyond your currently available threads on the machine, helps saturate the available network bandwidth. Subsequent /MIR runs are progressively impacted by processing items. Fewer changes in a differential run mean less transport of data over the network. Your speed is now more dependent on your ability to process namespace items than to move them over the network link. For subsequent runs, match your thread count value to your processor core count and thread count per core. Consider if cores need to be reserved for other tasks a production server may have.
 
 > [!TIP]
-> Rule of thumb: The first RoboCopy run, that will move a lot of data of a higher-latency network, benefits from over-provisioning the thread count (`/MT:n`). Subsequent runs will copy fewer differences and you are more likely to shift from network throughput constrained to compute constrained. Under these circumstances, it is often better to match the robocopy thread count to the actually available threads on the machine. Over-provisioning in that scenario can lead to more context shifts in the processor, possibly slowing down your copy.
+> Rule of thumb: The first RoboCopy run, that will move a lot of data of a higher-latency network, benefits from over-provisioning the thread count (`/MT:n`). Subsequent runs will copy fewer differences and you are more likely to shift from network throughput constrained to compute constrained. Under these circumstances, it is often better to match the RoboCopy thread count to the actually available threads on the machine. Over-provisioning in that scenario can lead to more context shifts in the processor, possibly slowing down your copy.
 
 ### Avoid unnecessary work
 
@@ -68,3 +68,25 @@ You should be prepared to run multiple rounds of RoboCopy against a given namesp
 * `/W:n` n = how many seconds to wait between retries
 
 `/R:5 /W:5` is a reasonable setting that you can adjust to your liking. In this example, a failed file will be retried five times, with five-second wait time between retries. If the file still fails to copy, the next RoboCopy job will try again. Often files that failed because they are in use or because of timeout issues might eventually be copied successfully this way.
+
+### Windows Server 2022 and RoboCopy LFSM
+
+The RoboCopy switch `/LFSM` can be used to avoid a RoboCopy job failing with a *volume full* error. RoboCopy will pause whenever a file copy would cause the destination volume's free space to go below a "floor" value.
+
+Use RoboCopy with Windows Server 2022. Only this version of RoboCopy contains important bug fixes and features that make the switch compatible with additional flags needed in most migrations. For example, compatibility with the `/B` flag.
+
+`/B` runs RoboCopy in the same mode that a backup application would use. This switch allows RoboCopy to move files that the current user doesn't have permissions for. 
+
+Normally, RoboCopy can be run on the Source, Destination or a third machine. 
+
+> [!IMPORTANT]
+> If you intend to use `/LFSM`, RoboCopy must be run on the Windows Server 2022 target Azure File Sync server. 
+
+Note also that with `/LFSM` you must also use a local path for the destination, not a UNC path. For example as a destination path you should use *E:\Foldername* rather than a UNC path like *\\\\ServerName\FolderName*.
+
+> [!CAUTION]
+> The currently available version of RoboCopy on Windows Server 2022 has a bug that causes the pauses to count against the per file error count. Apply the following workaround.
+
+The recommended `/R:2 /W:1` flags increase the probability that a file is failed due to an `/LFSM` induced pause. In this example, a file that wasn't copied after 3 pauses because `/LFSM` caused the pause, will incorrectly make RoboCopy fail the file. The workaround for this is to use higher values for `/R:n` and `/W:n`. A good example is `/R:10 /W:1800` (10 retries of 30 minutes each). This should give the Azure File Sync tiering algorithm time to create space on the destination volume. 
+
+This bug has been fixed but the fix is not yet publicly available. Check this paragraph for updates on the availability of the fix and how to deploy it.

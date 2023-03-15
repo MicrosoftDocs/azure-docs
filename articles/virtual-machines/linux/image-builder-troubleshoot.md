@@ -3,12 +3,11 @@ title: Troubleshoot Azure VM Image Builder
 description: This article helps you troubleshoot common problems and errors you might encounter when you're using Azure VM Image Builder.
 author: kof-f
 ms.author: kofiforson
-ms.reviewer: cynthn
-ms.date: 10/02/2020
+ms.reviewer: erd
+ms.date: 02/10/2023
 ms.topic: troubleshooting
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.custom: devx-track-azurepowershell
 ---
 
 # Troubleshoot Azure VM Image Builder
@@ -88,6 +87,38 @@ The template already exists.
 
 If you submit an image configuration template and the submission fails, a failed template artifact still exists. Delete the failed template.
 
+### Reassigning MSI on image templates
+
+#### Error
+
+```text
+The assigned managed identity cannot be used. Please remove the existing one and re-assign a new identity. For more troubleshooting steps go to https://aka.ms/azvmimagebuilderts.
+```
+
+#### Cause
+
+There are cases where [Managed Service Identities (MSI)](/azure/virtual-machines/linux/image-builder-permissions-cli#create-a-user-assigned-managed-identity) assigned to the image template cannot be used: 
+
+1. The Image Builder template uses a customer provided staging resource group and the MSI is deleted before the image template is deleted ([staging resource group](/azure/virtual-machines/linux/image-builder-json?#properties-stagingresourcegroup) scenario)
+1. The identity is deleted and attempted to recreate the identity with the same name, but without re-assigning the MSI. Though the resource ids are the same, the underlying service principal has been changed.
+
+
+#### Solution
+
+Use Azure CLI to reset identity on the image template. Ensure you [update](/azure/update-azure-cli) Azure CLI to the 2.45.0 version or later.
+
+Remove the managed identity from the target image builder template
+
+```azurecli-interactive
+az image builder identity remove -g <template resource group> -n <template name> --user-assigned <identity resource id>
+```
+
+Re-assign identity to the target image builder template
+
+```azurecli-interactive
+az image builder identity assign -g <template rg> -n <template name> --user-assigned <identity resource id>
+```
+
 ### The resource operation finished with a terminal provisioning state of "Failed"
 
 #### Error
@@ -105,7 +136,7 @@ Microsoft.VirtualMachineImages/imageTemplates 'helloImageTemplateforSIG01' faile
 ```
 #### Cause
 
-In most cases, the resource deployment failure error occurs because of missing permissions.
+In most cases, the resource deployment failure error occurs because of missing permissions. This error may also be caused by a conflict with the staging resource group.
 
 #### Solution
 
@@ -113,6 +144,8 @@ Depending on your scenario, VM Image Builder might need permissions to:
 - The source image or Azure Compute Gallery (formerly Shared Image Gallery) resource group.
 - The distribution image or Azure Compute Gallery resource.
 - The storage account, container, or blob that the `File` customizer is accessing. 
+
+Also, ensure the staging resource group name is uniquely specified for each image template.
 
 For more information about configuring permissions, see [Configure VM Image Builder permissions by using the Azure CLI](image-builder-permissions-cli.md) or [Configure VM Image Builder permissions by using PowerShell](image-builder-permissions-powershell.md).
 
@@ -170,6 +203,43 @@ The file name or location is incorrect, or the location isn't reachable.
 #### Solution
 
 Ensure that the file is reachable. Verify that the name and location are correct.
+
+### Authorization error creating disk
+
+The Azure Image Builder build fails with an authorization error that looks like the following:
+
+#### Error
+
+```text
+Attempting to deploy created Image template in Azure fails with an 'The client '6df325020-fe22-4e39-bd69-10873965ac04' with object id '6df325020-fe22-4e39-bd69-10873965ac04' does not have authorization to perform action 'Microsoft.Compute/disks/write' over scope '/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/disks/proxyVmDiskWin_<timestamp>' or the scope is invalid. If access was recently granted, please refresh your credentials.' 
+```
+#### Cause
+
+This error is caused when trying to specify a pre-existing resource group and VNet to the Azure Image Builder service with a Windows source image.  
+
+#### Solution
+
+You will need to assign the contributor role to the resource group for the service principal corresponding to Azure Image Builder's first party app by using the CLI command or portal instructions below.
+
+First, validate that the service principal is associated with Azure Image Builder's first party app by using the following CLI command:
+```azurecli-interactive
+az ad sp show --id {servicePrincipalName, or objectId}
+```
+
+Then, to implement this solution using CLI, use the following command:
+```azurecli-interactive
+az role assignment create -g {ResourceGroupName} --assignee {AibrpSpOid} --role Contributor 
+```
+
+To implement this solution in portal, follow the instructions in this documentation: [Assign Azure roles using the Azure portal - Azure RBAC](../../role-based-access-control/role-assignments-portal.md).
+
+For [Step 1: Identify the needed scope](../../role-based-access-control/role-assignments-portal.md#step-1-identify-the-needed-scope): The needed scope is your resource group. 
+
+For [Step 3: Select the appropriate role](../../role-based-access-control/role-assignments-portal.md#step-3-select-the-appropriate-role): The role is Contributor. 
+
+For [Step 4: Select who needs access](../../role-based-access-control/role-assignments-portal.md#step-4-select-who-needs-access): Select member “Azure Virtual Machine Image Builder” 
+
+Then proceed to [Step 6: Assign role](../../role-based-access-control/role-assignments-portal.md#step-6-assign-role) to assign the role.
 
 ## Troubleshoot build failures
 

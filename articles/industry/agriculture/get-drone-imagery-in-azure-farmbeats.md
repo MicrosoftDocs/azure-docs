@@ -32,7 +32,7 @@ Provide the following information to your device provider to enable integration 
 
 Follow these steps.
 
-1. Download this [script](https://aka.ms/farmbeatspartnerscript), and extract it to your local drive. Two files are inside the zip file.
+1. Download this script, and extract it to your local drive. Two files are inside the zip file.
 2. Sign in to the [Azure portal](https://portal.azure.com/) and open Azure Cloud Shell. This option is available on the toolbar in the upper-right corner of the portal.
 
     ![Open Azure Cloud Shell on upper-right bar of the portal](./media/get-drone-imagery-from-drone-partner/navigation-bar-1.png)

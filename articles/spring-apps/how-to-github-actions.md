@@ -3,7 +3,7 @@ title: Use Azure Spring Apps CI/CD with GitHub Actions
 description: How to build up a CI/CD workflow for Azure Spring Apps with GitHub Actions
 author: karlerickson
 ms.author: karler
-ms.service: spring-cloud
+ms.service: spring-apps
 ms.topic: how-to
 ms.date: 09/08/2020
 ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
@@ -311,6 +311,41 @@ jobs:
           use-staging-deployment: false
           package: ${{ env.ASC_PACKAGE_PATH }}
 ```
+
+The following example deploys to the default production deployment in Azure Spring Apps with an existing container image.
+
+```yml
+name: AzureSpringCloud
+on: push
+env:
+  ASC_PACKAGE_PATH: ${{ github.workspace }}
+  AZURE_SUBSCRIPTION: <azure subscription name>
+
+jobs:
+  deploy_to_production:
+    runs-on: ubuntu-latest
+    name: deploy to production with soruce code
+    steps:
+      - name: Checkout GitHub Action
+        uses: actions/checkout@v2
+
+      - name: Login via Azure CLI
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Deploy Custom Image
+        uses: Azure/spring-apps-deploy@v1
+        with:
+          azure-subscription: ${{ env.AZURE_SUBSCRIPTION }}
+          action: deploy
+          service-name: <service instance name>
+          app-name: <app name>
+          deployment-name: <deployment name>
+          container-registry: <your container image registry>
+          registry-username: ${{ env.REGISTRY_USERNAME }}
+          registry-password: ${{ secrets.REGISTRY_PASSWORD }}
+          container-image: <your image tag>
 
 #### Blue-green
 

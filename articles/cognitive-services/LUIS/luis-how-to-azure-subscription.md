@@ -16,6 +16,9 @@ ms.devlang: azurecli
 
 # How to create and manage LUIS resources
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
+
 Use this article to learn about the types of Azure resources you can use with LUIS, and how to manage them.
 
 ## Authoring Resource

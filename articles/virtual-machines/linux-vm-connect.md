@@ -178,4 +178,4 @@ Once the above prerequisites are met, you are ready to connect to your VM. Open 
 
 ## Next steps
 
-Learn how to transfer files to an existing Linux VM, see [Use SCP to move files to and from a Linux VM](./linux/copy-files-to-linux-vm-using-scp.md).
+Learn how to transfer files to an existing VM, see [Use SCP to move files to and from a VM](./copy-files-to-vm-using-scp.md).

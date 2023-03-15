@@ -2,8 +2,10 @@
 title: Push & pull container image
 description: Push and pull Docker images to your private container registry in Azure using the Docker CLI
 ms.topic: article
-ms.date: 05/12/2021
-ms.custom: "seodec18, H1Hack27Feb2017, devx-track-azurepowershell"
+ms.date: 10/11/2022
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.custom: seodec18, H1Hack27Feb2017
 ---
 
 # Push your first image to your Azure container registry using the Docker CLI

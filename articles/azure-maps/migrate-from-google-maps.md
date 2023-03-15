@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial - Migrate from Google Maps to Azure Maps | Microsoft Azure Maps'
 description:  Tutorial on how to migrate from Google Maps to Microsoft Azure Maps. Guidance walks you through how to switch to Azure Maps APIs and SDKs.
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 09/23/2020
 ms.topic: tutorial
 ms.service: azure-maps
@@ -44,7 +44,7 @@ The table provides a high-level list of Azure Maps features, which correspond to
 | Distance Matrix             | ✓                                      |
 | Elevation                   | ✓                                      |
 | Geocoding (Forward/Reverse) | ✓                                      |
-| Geolocation                 | N/A                                    |
+| Geolocation                 | ✓                                      |
 | Nearest Roads               | ✓                                      |
 | Places Search               | ✓                                      |
 | Places Details              | N/A – website & phone number available |

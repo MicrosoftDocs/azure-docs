@@ -4,7 +4,7 @@ description: Use Azure Resource Manager and Azure PowerShell to deploy resources
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 10/01/2021
+ms.date: 08/05/2022
 ---
 
 # Deploy resources with Bicep and Azure PowerShell

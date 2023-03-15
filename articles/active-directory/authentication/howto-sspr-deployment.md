@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/05/2022
+ms.date: 01/29/2023
 
 ms.author: justinha
 author: gargi-sinha
@@ -189,6 +189,14 @@ Set **Number of days before users is asked to reconfirm their authentication inf
 
 Configure both the **Notify users on password resets** and the **Notify all admins when other admins reset their password** to **Yes**. Selecting **Yes** on both increases security by ensuring that users are aware when their password is reset. It also ensures that all admins are aware when an admin changes a password. If users or admins receive a notification and they haven't initiated the change, they can immediately report a potential security issue.
 
+> [!NOTE]
+> Email notifications from the SSPR service will be sent from the following addresses based on the Azure cloud you are working with: 
+> - Public: msonlineservicesteam@microsoft.com
+> - China: msonlineservicesteam@oe.21vianet.com 
+> - Government: msonlineservicesteam@azureadnotifications.us
+> 
+> If you observe issues in receiving notifications, please check your spam settings. 
+
 ### Customization settings
 
 It's critical to customize the helpdesk email or URL to ensure users who experience problems can get help immediately. Set this option to a common helpdesk email address or web page that your users are familiar with. 
@@ -247,7 +255,7 @@ You can also refer to [Complete out an Azure AD self-service password reset pilo
 
 ### Plan support
 
-While SSPR does not typically create user issues, it is important to prepare support staff to deal with issues that may arise. While an administrator can reset the password for end users through the Azure AD portal, it is better to help resolve the issue via a self-service support process.
+While SSPR does not typically create user issues, it is important to prepare support staff to deal with issues that may arise. While an administrator can reset the password for end users through the Azure portal, it is better to help resolve the issue via a self-service support process.
 
 To enable your support team's success, you can create a FAQ based on questions you receive from your users. Here are a few examples:
 
@@ -257,7 +265,7 @@ To enable your support team's success, you can create a FAQ based on questions y
 | User isn't receiving a text or call on their office or cell phone| A user is trying to verify their identity via text or call but isn't receiving a text/call. |
 | User can't access the password reset portal| A user wants to reset their password but isn't enabled for password reset and can't access the page to update passwords. |
 | User can't set a new password| A user completes verification during the password reset flow but can't set a new password. |
-| User doesn't see a Reset Password link on a Windows 10 device| A user is trying to reset password from the Windows 10 lock screen, but the device is either not joined to Azure AD, or the Microsoft Endpoint Manager device policy isn't enabled |
+| User doesn't see a Reset Password link on a Windows 10 device| A user is trying to reset password from the Windows 10 lock screen, but the device is either not joined to Azure AD, or the Microsoft Intune device policy isn't enabled |
 
 ### Plan rollback
 

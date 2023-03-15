@@ -1,230 +1,332 @@
 ---
-title: Deploy certificates
-description: Learn how to set up and deploy certificates for Defender for IoT.
-ms.date: 02/06/2022
-ms.topic: how-to
+title: Deploy SSL/TLS certificates on OT appliances - Microsoft Defender for IoT.
+description: Learn how to deploy SSL/TLS certificates on Microsoft Defender for IoT OT network sensors and on-premises management consoles.
+ms.date: 01/05/2023
+ms.topic: install-set-up-deploy
 ---
 
-# About certificates
+# Deploy SSL/TLS certificates on OT appliances
 
-This article provides information needed when creating and deploying certificates for Microsoft Defender for IoT. A security, PKI or other qualified certificate lead should handle certificate creation and deployment.
+This article describes how to create and deploy SSL/TLS certificates on OT network sensors and on-premises management consoles. Defender for IoT uses SSL/TLS certificates to secure communication between the following system components:
 
-Defender for IoT uses SSL/TLS certificates to secure communication between the following system components: 
+- Between users and the OT sensor or on-premises management console UI access
+- Between OT sensors and an on-premises management console, including [API communication](references-work-with-defender-for-iot-apis.md)
+- Between an on-premises management console and a high availability (HA) server, if configured
+- Between OT sensors or on-premises management consoles and partners servers defined in [alert forwarding rules](how-to-forward-alert-information-to-partners.md)
 
-- Between users and the web console of the appliance. 
-- Between the sensors and an on-premises management console. 
-- Between a management console and a High Availability management console.
-- To the REST API on the sensor and on-premises management console. 
+You can deploy SSL/TLS certificates during initial configuration as well as later on.
 
-Defender for IoT Admin users can upload a certificate  to sensor consoles and their on-premises management console from the SSL/TLS Certificates dialog box.
+Defender for IoT validates certificates against the certificate expiration date and against a passphrase, if one is defined. Validations against a Certificate Revocation List (CRL) and the certificate trust chain are available as well, though not mandatory. Invalid certificates can't be uploaded to OT sensors or on-premises management consoles, and will block encrypted communication between Defender for IoT components.
 
-:::image type="content" source="media/how-to-activate-and-set-up-your-sensor/wizard-upload-activation-certificates-1.png" alt-text="Screenshot of an initial sensor sign in certificate page.":::
+Each certificate authority (CA)-signed certificate must have both a `.key` file and a `.crt` file, which are uploaded to OT network sensors and on-premises management consoles after the first sign-in. While some organizations may also require a `.pem` file, a `.pem` file isn't required for Defender for IoT.
 
-## About certificate generation methods
+Make sure to create a unique certificate for each OT sensor, on-premises management console, and HA server, where each certificate meets required parameter criteria.
 
-All certificate generation methods are supported using:  
+## Prerequisites
 
-- Private and Enterprise Key Infrastructures (Private PKI) 
-- Public Key Infrastructures (Public PKI) 
-- Certificates locally generated on the appliance (locally self-signed). 
+To perform the procedures described in this article, make sure that:
 
-> [!Important]
-> It is not recommended to use locally self-signed certificates. This type of connection is not secure and should be used for test environments only. Since the owner of the certificate can't be validated and the security of your system can't be maintained, self-signed certificates should never be used for production networks.
+- You have a security, PKI or certificate specialist available to oversee the certificate creation
+- You can access the OT network sensor or on-premises management console as an **Admin** user.
 
-## About certificate validation
+    For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
-In addition to securing communication between system components, users can also carry out certificate validation.  
+## Deploy an SSL/TLS certificate
 
-Validation is evaluated against:
+Deploy your SSL/TLS certificate by importing it to your OT sensor or on-premises management console.
 
-- A Certificate Revocation List (CRL)
-- The certificate expiration date  
-- The certificate trust chain
+Verify that your SSL/TLS certificate [meets the required parameters](#verify-certificate-file-parameter-requirements), and that you have [access to a CRL server](#verify-crl-server-access).
 
-Validation is carried out twice:
+### Deploy a certificate on an OT sensor
 
-1. When uploading the certificate to sensors and on-premises management consoles. If validation fails, the certificate cannot be uploaded.
-1. When initiating encrypted communication between:
+1. Sign into your OT sensor and select **System settings** > **Basic** > **SSL/TLS certificate**.
 
-    - Defender for IoT system components, for example, a sensor and on-premises management console.
+1. In the **SSL/TLS certificate** pane, select one of the following, and then follow the instructions in the relevant tab:
 
-    - Defender for IoT and certain 3rd party servers defined in Forwarding rules.  See [About forwarded alert information](how-to-forward-alert-information-to-partners.md#about-forwarded-alert-information) for more information.  
+    - **Import a trusted CA certificate (recommended)**
+    - **Use Locally generated self-signed certificate (Not recommended)**
+
+    # [Trusted CA certificates](#tab/import-trusted-ca-certificate)
+    
+    1. Enter the following parameters:
+    
+        | Parameter  | Description  |
+        |---------|---------|
+        | **Certificate Name**     |   Enter your certificate name.      |
+        | **Passphrase** - *Optional*    |  Enter a passphrase.       |
+        | **Private Key (KEY file)**     |  Upload a Private Key (KEY file).       |
+        | **Certificate (CRT file)**     | Upload a Certificate (CRT file).        |
+        | **Certificate Chain (PEM file)** - *Optional*     |  Upload a Certificate Chain (PEM file).       |
+    
+        Select **Use CRL (Certificate Revocation List) to check certificate status** to validate the certificate against a [CRL server](#verify-crl-server-access). The certificate is checked once during the import process.
+
+        For example:
+
+        :::image type="content" source="media/how-to-deploy-certificates/recommended-ssl.png" alt-text="Screenshot of importing a trusted CA certificate." lightbox="media/how-to-deploy-certificates/recommended-ssl.png":::
+    
+    # [Locally generated self-signed certificates](#tab/locally-generated-self-signed-certificate)
+    
+    > [!NOTE]
+    > Using self-signed certificates in a production environment is not recommended, as it leads to a less secure environment.
+    > We recommend using self-signed certificates in test environments only.
+    > The owner of the certificate cannot be validated and the security of your system cannot be maintained.
+
+    Select **Confirm** to acknowledge the warning.
+
+    ---
+
+1. In the **Validation for on-premises management console certificates** area, select **Required** if SSL/TLS certificate validation is required. Otherwise, select **None**.
+
+1. Select **Save** to save your certificate settings.
+
+### Deploy a certificate on an on-premises management console
+
+1. Sign into your on-premises management console and select **System settings** > **SSL/TLS certificates**.
+
+1. In the **SSL/TLS certificate** pane, select one of the following, and then follow the instructions in the relevant tab:
+
+    - **Import a trusted CA certificate**
+    - **Use Locally generated self-signed certificate (Insecure, not recommended)**
+
+    # [Trusted CA certificates](#tab/cm-import-trusted-ca-certificate)
+    
+    1. In the **SSL/TLS Certificates** dialog, select **Add Certificate**.
+
+    1. Enter the following parameters:
+    
+        | Parameter  | Description  |
+        |---------|---------|
+        | **Certificate Name**     |   Enter your certificate name.      |
+        | **Passphrase** - *Optional*    |  Enter a passphrase.       |
+        | **Private Key (KEY file)**     |  Upload a Private Key (KEY file).       |
+        | **Certificate (CRT file)**     | Upload a Certificate (CRT file).        |
+        | **Certificate Chain (PEM file)** - *Optional*    |  Upload a Certificate Chain (PEM file).       |
+
+        For example:
+
+        :::image type="content" source="media/how-to-deploy-certificates/management-ssl-certificate.png" alt-text="Screenshot of importing a trusted CA certificate." lightbox="media/how-to-deploy-certificates/management-ssl-certificate.png":::
+
+    # [Locally generated self-signed certificates](#tab/cm-locally-generated-self-signed-certificate)
+    
+    > [!NOTE]
+    > Using self-signed certificates in a production environment is not recommended, as it leads to a less secure environment.
+    > We recommend using self-signed certificates in test environments only.
+    > The owner of the certificate cannot be validated and the security of your system cannot be maintained.
+
+    Select **I CONFIRM** to acknowledge the warning.
+
+    ---
+
+1. Select the **Enable Certificate Validation** option to turn on system-wide validation for SSL/TLS certificates with the issuing [Certificate Authority](#create-ca-signed-ssltls-certificates) and [Certificate Revocation Lists](#verify-crl-server-access).
+
+1. Select **SAVE** to save your certificate settings.
+
+You can also [import the certificate to your OT sensor using CLI commands](references-work-with-defender-for-iot-cli-commands.md#tlsssl-certificate-commands).
+
+### Verify certificate file parameter requirements
+
+Verify that the certificates meet the following requirements:
+
+- **CRT file requirements**:
+
+    | Field | Requirement |
+    |---------|---------|
+    | **Signature Algorithm** | SHA256RSA |
+    | **Signature Hash Algorithm** | SHA256 |
+    | **Valid from** | A  valid past date |
+    | **Valid To** | A valid future date |
+    | **Public Key** | RSA 2048 bits (Minimum) or 4096 bits |
+    | **CRL Distribution Point** | URL to a CRL server. If your organization doesn't [validate certificates against a CRL server](#verify-crl-server-access), remove this line from the certificate. |
+    | **Subject CN (Common Name)** | domain name of the appliance, such as *sensor.contoso.com*, or *.contoso.com* |
+    | **Subject (C)ountry** | Certificate country code, such as `US` |
+    | **Subject (OU) Org Unit** | The organization's unit name, such as *Contoso Labs* |
+    | **Subject (O)rganization** | The organization's name, such as *Contoso Inc.* |
+
+    > [!IMPORTANT]
+    > While certificates with other parameters might work, they aren't supported by Defender for IoT. Additionally, wildcard SSL certificates, which are public key certificates that can be used on multiple subdomains such as *.contoso.com*, are insecure and aren't supported.
+    > Each appliance must use a unique CN.
+
+- **Key file requirements**: Use either RSA 2048 bits or 4096 bits. Using a key length of 4096 bits will slow down the SSL handshake at the start of each connection, and increase the CPU usage during handshakes.
+
+- (Optional) Create a certificate chain, which is a `.pem` file that contains the certificates of all the certificate authorities in the chain of trust that led to your certificate. Certificate chain files support bag attributes.
+
+### Verify CRL server access
+
+If your organization validates certificates, your OT sensors and on-premises management console must be able to access the CRL server defined by the certificate.  By default, certificates access the CRL server URL via HTTP port 80. However, some organizational security policies block access to this port.
+
+If your OT sensors and on-premises management consoles can't access your CRL server on port 80, you can use one of the following workarounds:
+
+- **Define another URL and port in the certificate**:
+
+  - The URL you define must be configured as `http: //` and not `https://`
+  - Make sure that the destination CRL server can listen on the port you define
+
+- **Use a proxy server that can access the CRL on port 80**
+
+    For more information, see [Forward OT alert information](how-to-forward-alert-information-to-partners.md).
 
 If validation fails, communication between the relevant components is halted and a validation error is presented in the console.
 
-## About certificate upload to Defender for IoT
+## Create a certificate
 
-Following sensor and on-premises management console installation, a local self-signed certificate is generated and used to access the sensor and on-premises management console web application.
+Create either a CA-signed SSL/TLS certificate or a self-signed SSL/TLS certificate (not recommended).
 
-When signing into the sensor and on-premises management console for the first time, Admin users are prompted to upload an SSL/TLS certificate. Using SSL/TLS certificates is highly recommended.
+### Create CA-signed SSL/TLS certificates
 
-If the certificate is not created properly by the certificate lead or there are connection issues to it, the certificate cannot be uploaded and users will be forced to work with a locally signed certificate.  
+Use a certificate management platform, such as an automated PKI management platform, to create a certificate. Verify that the certificate meets [certificate file requirements](#verify-certificate-file-parameter-requirements), and then [test the certificate](#test-your-ssltls-certificates) file you created when you're done.
 
-The option to validate the uploaded certificate and third-party certificates is automatically enabled, but can be disabled. When disabled, encrypted communications between components continues, even if a certificate is invalid.
+If you aren't carrying out certificate validation, remove the CRL URL reference in the certificate. For more information, see [certificate file requirements](#verify-certificate-file-parameter-requirements).
 
-## Certificate deployment tasks
+Consult a security, PKI, or other qualified certificate lead if you don't have an application that can automatically create certificates.
 
-This section describes the steps you need to take to ensure that certificate deployment runs smoothly.
+You can also convert existing certificate files if you don't want to create new ones.
 
-**To deploy certificates, verify that:**
+### Create self-signed SSL/TLS certificates
 
-- A security, PKI or certificate specialist is creating or overseeing certificate creation. 
-- You create a unique certificate for each sensor, management console and HA machine.
-- You meet certificate creation requirements. See [Certificate creation requirements](#certificate-creation-requirements).
-- Admin users logging in to each Defender for IoT sensor, and on-premises management console and HA machine have access to the certificate.
+Create self-signed SSL/TLS certificates by first [downloading a security certificate](#download-a-security-certificate) from the OT sensor or on-premises management console and then exporting it to the required file types.
 
-## Certificate creation requirements
+> [!NOTE]
+> While you can use a locally-generated and self-signed certificate, we do not recommend this option.
 
-This section covers certificate creation requirement, including:
+**Export as a certificate file:**
 
-- [Port access requirements for certificate validation](#port-access-requirements-for-certificate-validation)
+After downloading the security certificate, use a certificate management platform to create the following types of SSL/TLS certificate files:
 
-- [File type requirements](#file-type-requirements)
+| File type  | Description  |
+|---------|---------|
+| **.crt – certificate container file** | A `.pem`, or `.der` file, with a different extension for support in Windows Explorer.|
+| **.key – Private key file** | A key file is in the same format as a `.pem` file, with a different extension for support in Windows Explorer.|
+| **.pem – certificate container file (optional)** | Optional. A text file with a Base64-encoding of the certificate text, and a plain-text header and footer to mark the beginning and end of the certificate. |
 
-- [Key file requirements](#key-file-requirements)
+For example:
 
-- [Certificate chain file requirements (if .pem is used)](#certificate-chain-file-requirements-if-pem-is-used)
+1. Open the downloaded certificate file and select the **Details** tab > **Copy to file** to run the **Certificate Export Wizard**.
 
-### Port access requirements for certificate validation
+1. In the **Certificate Export Wizard**, select **Next** > **DER encoded binary X.509 (.CER)** > and then select **Next** again.
 
-If you are working with certificate validation, verify access to port 80 is available.
+1. In the **File to Export** screen, select **Browse**, choose a location to store the certificate, and then select **Next**.
 
-Certificate validation is evaluated against a Certificate Revocation List, and the certificate expiration date. This means appliance should be able to establish connection to the CRL server defined by the certificate. By default, the certificate will reference the CRL URL on HTTP port 80. 
+1. Select **Finish** to export the certificate.
 
-Some organizational security policies may block access to this port. If your organization does not have access to port 80, you can: 
+> [!NOTE]
+> You may need to convert existing files types to supported types.
 
-1. Define another URL and a specific port in the certificate.
+### Check your certificate against a sample
 
-    - The URL should be defined as http: //  rather than https: // .
+Use the following sample certificate to compare to the certificate you've created, making sure that the same fields exist in the same order.
 
-    - Verify that the destination CRL server can listen on the port you defined. 
+``` Sample SSL certificate
+Bag Attributes: <No Attributes>
+subject=C = US, S = Illinois, L = Springfield, O = Contoso Ltd, OU= Contoso Labs, CN= sensor.contoso.com, E 
+= support@contoso.com
+issuer C=US, S = Illinois, L = Springfield, O = Contoso Ltd, OU= Contoso Labs, CN= Cert-ssl-root-da2e22f7-24af-4398-be51-
+e4e11f006383, E = support@contoso.com
+-----BEGIN CERTIFICATE-----
+MIIESDCCAZCgAwIBAgIIEZK00815Dp4wDQYJKoZIhvcNAQELBQAwgaQxCzAJBgNV 
+BAYTAIVTMREwDwYDVQQIDAhJbGxpbm9pczEUMBIGA1UEBwwLU3ByaW5nZmllbGQx
+FDASBgNVBAoMCONvbnRvc28gTHRKMRUWEwYDVQQLDAXDb250b3NvIExhYnMxGzAZ
+BgNVBAMMEnNlbnNvci5jb250b3NvLmNvbTEIMCAGCSqGSIb3DQEJARYTc3VwcG9y
+dEBjb250b3NvLmNvbTAeFw0yMDEyMTcxODQwMzhaFw0yMjEyMTcxODQwMzhaMIGK
+MQswCQYDVQQGEwJVUzERMA8GA1UECAwISWxsaW5vaXMxFDASBgNVBAcMC1Nwcmlu 
+Z2ZpZWxkMRQwEgYDVQQKDAtDb250b3NvIEX0ZDEVMBMGA1UECwwMQ29udG9zbyBM 
+YWJzMRswGQYDVQQDDBJzZW5zb3luY29udG9zby5jb20xljAgBgkqhkiG9w0BCQEW 
+E3N1cHBvcnRAY29udG9zby5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEK 
+AoIBAQDRGXBNJSGJTfP/K5ThK8vGOPzh/N8AjFtLvQiiSfkJ4cxU/6d1hNFEMRYG
+GU+jY1Vknr0|A2nq7qPB1BVenW3 MwsuJZe Floo123rC5ekzZ7oe85Bww6+6eRbAT 
+WyqpvGVVpfcsloDznBzfp5UM9SVI5UEybllod31MRR/LQUEIKLWILHLW0eR5pcLW 
+pPLtOW7wsK60u+X3tqFo1AjzsNbXbEZ5pnVpCMqURKSNmxYpcrjnVCzyQA0C0eyq
+GXePs9PL5DXfHy1x4WBFTd98X83 pmh/vyydFtA+F/imUKMJ8iuOEWUtuDsaVSX0X
+kwv2+emz8CMDLsbWvUmo8Sg0OwfzAgMBAAGjfDB6MB0GA1UdDgQWBBQ27hu11E/w 
+21Nx3dwjp0keRPuTsTAfBgNVHSMEGDAWgBQ27hu1lE/w21Nx3dwjp0keRPUTSTAM
+BgNVHRMEBTADAQH/MAsGA1UdDwQEAwIDqDAdBgNVHSUEFjAUBggrBgEFBQcDAgYI
+KwYBBQUHAwEwDQYJKoZIhvcNAQELBQADggEBADLsn1ZXYsbGJLLzsGegYv7jmmLh
+nfBFQqucORSQ8tqb2CHFME7LnAMfzFGpYYV0h1RAR+1ZL1DVtm+IKGHdU9GLnuyv
+9x9hu7R4yBh3K99ILjX9H+KACvfDUehxR/ljvthoOZLalsqZIPnRD/ri/UtbpWtB 
+cfvmYleYA/zq3xdk4vfOI0YTOW11qjNuBIHh0d5S5sn+VhhjHL/s3MFaScWOQU3G 
+9ju6mQSo0R1F989aWd+44+8WhtOEjxBvr+17CLqHsmbCmqBI7qVnj5dHvkh0Bplw 
+zhJp150DfUzXY+2sV7Uqnel9aEU2Hlc/63EnaoSrxx6TEYYT/rPKSYL+++8=
+-----END CERTIFICATE-----
+```
 
-1. Use a proxy server that will access the CRL on port 80.
+### Test your SSL/TLS certificates
 
-### File type requirements
+If you want to check the information within the certificate `.csr` file or private key file, use the following CLI commands:
 
-Defender for IoT requires that each CA-signed certificate contains a .key file and a .crt file. These files are uploaded to the sensor and On-premises management console after login. Some organizations may require .pem file. Defender for IoT does not require this file type.
+- **Check a Certificate Signing Request (CSR)**: Run `openssl req -text -noout -verify -in CSR.csr`
+- **Check a private key**: Run  `openssl rsa -in privateKey.key -check`
+- **Check a certificate**: Run `openssl x509 -in certificate.crt -text -noout`
 
-**.crt – certificate container file**
+If these tests fail, review [certificate file parameter requirements](#verify-certificate-file-parameter-requirements) to verify that your file parameters are accurate, or consult your certificate specialist.
 
-A .pem, or .der formatted file with a different extension. The file is recognized by Windows Explorer as a certificate. The .pem file is not recognized by Windows Explorer.
+## Troubleshoot
 
-**.key – Private key file**
+### Download a security certificate
 
-A key file is in the same format as a PEM file, but it has a different extension.
+1. After [installing your OT sensor software](ot-deploy/install-software-ot-sensor.md) or [on-premises management console](ot-deploy/install-software-on-premises-management-console.md), go to the sensor's or on-premises management console's IP address in a browser.
 
-**.pem – certificate container file (optional)**
+1. Select the :::image type="icon" source="media/how-to-deploy-certificates/warning-icon.png" border="false"::: **Not secure** alert in the address bar of your web browser, then select the **>** icon next to the warning message **"Your connection to this site isn't secure"**. For example:
 
-PEM is a text file that contains Base64 encoding of the certificate text, a plain-text header & a footer that marks the beginning and end of the certificate.
+    :::image type="content" source="media/how-to-deploy-certificates/connection-is-not-secure.png" alt-text="Screenshot of web page with a Not secure warning in the address bar." lightbox="media/how-to-deploy-certificates/connection-is-not-secure.png":::
 
-You may need to convert existing files types to supported types. See [Convert existing files to supported files](#convert-existing-files-to-supported-files) for details.
+1. Select the :::image type="icon" source="media/how-to-deploy-certificates/show-certificate-icon.png" border="false"::: **Show certificate** icon to view the security certificate for this website.
 
-### Certificate file parameter requirements
+1. In the **Certificate viewer** pane, select the **Details** tab, then select **Export** to save the file on your local machine.
 
-Verify that you have met the following parameter requirements before creating a certificate:
+### Import a sensor's locally signed certificate to your certificate store
 
-- [CRT file requirements](#crt-file-requirements)
-- [Key file requirements](#key-file-requirements)
-- [Certificate chain file requirements (if .pem is used)](#certificate-chain-file-requirements-if-pem-is-used)
+After creating your locally signed certificate, import it to a trusted storage location. For example:
 
-### CRT file requirements
+1. Open the security certificate file and, in the **General** tab, select **Install Certificate** to start the **Certificate Import Wizard**.
 
-This section covers .crt field requirements.
+1. In **Store Location**, select **Local Machine**, then select **Next**.
 
-- Signature Algorithm = SHA256RSA 
-- Signature Hash Algorithm = SHA256 
-- Valid from = Valid past date 
-- Valid To = Valid future date 
-- Public Key = RSA 2048 bits (Minimum) or 4096 bits 
-- CRL Distribution Point = URL to .crl file 
-- Subject CN (Common Name) = domain name of the appliance; for example, Sensor.contoso.com, or *.contoso.com.  
-- Subject (C)ountry = defined, for example, US 
-- Subject (OU) Org Unit = defined, for example, Contoso Labs 
-- Subject (O)rganization = defined, for example, Contoso Inc. 
+1. If a **User Allow Control** prompt appears, select **Yes** to allow the app to make changes to your device.
 
-Certificates with other parameters might work, but Microsoft doesn't support them.  
+1. In the **Certificate Store** screen, select **Automatically select the certificate store based on the type of certificate**, then select **Next**.
 
-### Key file requirements
+1. Select **Place all certificates in the following store**, then **Browse**, and then select the **Trusted Root Certification Authorities** store. When you're done, select **Next**. For example:
 
-Use either RSA 2048 bits or 4096 bits.
+    :::image type="content" source="media/how-to-deploy-certificates/certificate-store-trusted-root.png" alt-text="Screenshot of the certificate store screen where you can browse to the trusted root folder." lightbox="media/how-to-deploy-certificates/certificate-store-trusted-root.png":::
 
-When using a key length of 4096 bits, the SSL handshake at the start of each connection will be slower. in addition, there is an increase in CPU usage during handshakes.
+1. Select **Finish** to complete the import.
 
-### Certificate chain file requirements (if .pem is used)
+### Validate the certificate's common name
 
-A .pem file containing the certificates of all the certificate authorities in the chain of trust that led to your certificate. 
+1. To view the certificate's common name, open the certificate file and select the Details tab, and then select the **Subject** field.
 
-Bag attributes are supported in the certificate chain file.
+    The certificate's common name will then appear next to **CN**.
 
-## Create certificates
+1. Sign-in to your sensor console without a secure connection. In the **Your connection isn't private** warning screen, you might see a **NET::ERR_CERT_COMMON_NAME_INVALID** error message.
 
-Use a certificate management platform to create a certificate, for example, an automated PKI management platform. Verify that the certificates meet certificate file requirements. See Test certificates for information on testing the files you create.
+1. Select the error message to expand it, and then copy the string next to **Subject**. For example:
 
-If you are not carrying out certificate validation, remove the CRL URL reference in the certificate. See [CRT file requirements](#crt-file-requirements) for information about this parameter.
+    :::image type="content" source="media/how-to-deploy-certificates/connection-is-not-private-subject.png" alt-text="Screenshot of the connection isn't private screen with the details expanded." lightbox="media/how-to-deploy-certificates/connection-is-not-private-subject.png":::
 
-Consult a security, PKI, or other qualified certificate lead if you do not have an application that can automatically create certificates.
+    The subject string should match the **CN** string in the security certificate's details.
 
-You can [Test certificates you create](#test-certificates-you-create).  
+1. In your local file explorer, browse to the hosts file, such as at **This PC > Local Disk (C:) > Windows > System32 > drivers > etc**, and open the **hosts** file.
 
-You can also convert existing certificate files if you do not want to create new ones. See [Convert existing files to supported files](#convert-existing-files-to-supported-files) for details.
+1. In the hosts file, add in a line at the end of document with the sensor's IP address and the SSL certificate's common name that you copied in the previous steps. When you're done, save the changes. For example:
 
-### Sample Certificate
+    :::image type="content" source="media/how-to-deploy-certificates/hosts-file.png" alt-text="Screenshot of the hosts file." lightbox="media/how-to-deploy-certificates/hosts-file.png":::
 
-You can compare your certificate to the sample certificate below. Verify that the same fields exits and that the order of the fields is the same.
+### Troubleshoot certificate upload errors
 
-:::image type="content" source="media/how-to-deploy-certificates/sample-certificate.png" alt-text="Screenshot of a sample certificate.":::
-
-## Test certificates you create
-
-You can test certificates before deploying them to your sensors and on-premises management consoles. If you want to check the information within the certificate .csr file or private key file, use these commands:
-
-| **Test** | **CLI command** |
-|--|--|
-| Check a Certificate Signing Request (CSR) | openssl req -text -noout -verify -in CSR.csr |
-| Check a private key  | openssl rsa -in privateKey.key -check  |
-| Check a certificate  | openssl x509 -in certificate.crt -text -noout |
-
-If these tests fail, review [Certificate file parameter requirements](#certificate-file-parameter-requirements) to verify file parameters are accurate, or consult your certificate lead.
-
-## Convert existing files to supported files 
-
-This section describes how to convert existing certificates files to supported formats.
-
-|**Description** | **CLI command** |
-|--|--|
-| Convert .crt file to .pem file   | `openssl x509 -inform PEM -in <full path>/<pem-file-name>.crt -out <fullpath>/<crt-file-name>.pem`  | 
-| Convert .pem file to .crt file   | `openssl x509 -inform PEM -in <full path>/<pem-file-name>.pem -out <fullpath>/<crt-file-name>.crt` |  
-| Convert a PKCS#12 file (.pfx .p12) containing a private key and certificates to .pem   | `openssl pkcs12 -in keyStore.pfx -out keyStore.pem -nodes`. You can add -nocerts to only output the private key, or add -nokeys to only output the certificates.  | 
-|  Convert .cer file to .crt file  |  `openssl x509 -inform PEM -in <filepath>/certificate.cer -out certificate.crt` <br> Make sure to specify the full path. <br><br>**Note**: Other options are available for the -inform flag. The value is usually `DER` or `PEM` but might also be `P12` or another value. For more information, see [`openssl-format-options`]( https://www.openssl.org/docs/manmaster/man1/openssl-format-options.html) and [openssl-x509]( https://www.openssl.org/docs/manmaster/man1/openssl-x509.html). |
-
-## Troubleshooting
-
-This section covers various issues that may occur during certificate upload and validation, and steps to take to resolve the issues.
-
-### Troubleshoot CA-Certificate Upload  
-
-Admin users attempting to log in to the sensor or on-premises management console for the first time will not be able to upload the CA-signed certificate if the certificate is not created properly or is invalid. If certificate upload fails, one or several of the error messages will display:
+You won't be able to upload certificates to your OT sensors or on-premises management consoles if the certificates aren't created properly or are invalid. Use the following table to understand how to take action if your certificate upload fails and an error message is shown:
 
 | **Certificate validation error** | **Recommendation** |
 |--|--|
-| Passphrase does not match to the key | Validate that you typed the correct passphrase. If the problem continues, try recreating the certificate using the correct passphrase. |
-| Cannot validate chain of trust. The provided Certificate and Root CA do not match.  | Make sure the .pem file correlates to the  .crt file. If the problem continues, try recreating the certificate using the correct chain of trust (defined by the .pem file). |
-| This SSL certificate has expired and is not considered valid.  | Create a new certificate with valid dates.|
-| This SSL certificate has expired and is not considered valid.  | Create a new certificate with valid dates.|
-|This certificate has been revoked by the CRL and cannot be trusted for a secure connection | Create a new unrevoked certificate. |
-|The CRL (Certificate Revocation List) location is not reachable. Verify the URL can be accessed from this appliance | Make sure that your network configuration allows the appliance to reach the CRL Server defined in the certificate.You can use a proxy server if there are limitations in establishing a direct connection.  
-|Certificate validation failed  | This indicates a general error in the appliance. Contact [Microsoft Support](https://support.microsoft.com/supportforbusiness/productselection?sapId=82c8f35-1b8e-f274-ec11-c6efdd6dd099).|
-
-### Troubleshoot file conversions  
-
-Your file conversion may not create a valid certificate. For example, the file structure may be inaccurate.
-
-If the conversion fails:  
-
-- Use the conversion commands described in [Convert existing files to supported files](#convert-existing-files-to-supported-files).
-- Make sure the file parameters are accurate. See, [File type requirements](#file-type-requirements) and  [Certificate File Parameter Requirements](#certificate-file-parameter-requirements) for details.  
-- Consult your certificate lead.
+| **Passphrase does not match to the key** | Make sure you have the correct passphrase. If the problem continues, try recreating the certificate using the correct passphrase. |
+| **Cannot validate chain of trust. The provided Certificate and Root CA don't match.**  | Make sure a `.pem` file correlates to the  `.crt` file. <br> If the problem continues, try recreating the certificate using the correct chain of trust, as defined by the `.pem` file. |
+| **This SSL certificate has expired and isn't considered valid.**  | Create a new certificate with valid dates.|
+|**This certificate has been revoked by the CRL and can't be trusted for a secure connection** | Create a new unrevoked certificate. |
+|**The CRL (Certificate Revocation List) location is not reachable. Verify the URL can be accessed from this appliance** | Make sure that your network configuration allows the sensor or on-premises management console to reach the CRL server defined in the certificate. <br> For more information, see [CRL server access](#verify-crl-server-access). |
+|**Certificate validation failed**  | This indicates a general error in the appliance. <br> Contact [Microsoft Support](https://support.microsoft.com/supportforbusiness/productselection?sapId=82c8f35-1b8e-f274-ec11-c6efdd6dd099).|
 
 ## Next steps
 
-For more information, see [Identify required appliances](how-to-identify-required-appliances.md).
+For more information, see:
+
+- [Identify required appliances](how-to-identify-required-appliances.md)
+- [Manage individual sensors](how-to-manage-individual-sensors.md)
+- [Manage the on-premises management console](how-to-manage-the-on-premises-management-console.md)

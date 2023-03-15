@@ -2,14 +2,14 @@
 title: Hyperparameter tuning a model (v1)
 titleSuffix: Azure Machine Learning
 description: Automate hyperparameter tuning for deep learning and machine learning models using Azure Machine Learning.(v1)
-ms.author: ssalgado
+ms.author: joburges
 author: ssalgadodev
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 05/02/2022
 ms.topic: how-to
-ms.custom: devx-track-python, contperf-fy21q1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, devx-track-python, contperf-fy21q1, event-tier1-build-2022
 ---
 
 # Hyperparameter tuning a model with Azure Machine Learning (v1)
@@ -185,7 +185,7 @@ run_logger.log("accuracy", float(val_accuracy))
 
 The training script calculates the `val_accuracy` and logs it as the primary metric "accuracy". Each time the metric is logged, it's received by the hyperparameter tuning service. It's up to you to determine the frequency of reporting.
 
-For more information on logging values in model training runs, see [Enable logging in Azure ML training runs](../how-to-log-view-metrics.md).
+For more information on logging values in model training runs, see [Enable logging in Azure Machine Learning training runs](../how-to-log-view-metrics.md).
 
 ## <a name="early-termination"></a> Specify early termination policy
 
@@ -311,7 +311,7 @@ To [configure your hyperparameter tuning](/python/api/azureml-train-core/azureml
 The ScriptRunConfig is the training script that will run with the sampled hyperparameters. It defines the resources per job (single or multi-node), and the compute target to use.
 
 > [!NOTE]
->The compute target used in `script_run_config` must have enough resources to satisfy your concurrency level. For more information on ScriptRunConfig, see [Configure training runs](../how-to-set-up-training-targets.md).
+>The compute target used in `script_run_config` must have enough resources to satisfy your concurrency level. For more information on ScriptRunConfig, see [Configure training runs](how-to-set-up-training-targets.md).
 
 Configure your hyperparameter tuning experiment:
 
@@ -487,4 +487,4 @@ Refer to train-hyperparameter-* notebooks in this folder:
 
 ## Next steps
 * [Track an experiment](../how-to-log-view-metrics.md)
-* [Deploy a trained model](../how-to-deploy-and-where.md)
+* [Deploy a trained model](../v1/how-to-deploy-and-where.md)

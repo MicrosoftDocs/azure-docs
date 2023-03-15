@@ -33,7 +33,7 @@
     - name: Security overview
       href: security.md
     - name: Security baseline
-      href: /security/benchmark/azure/baselines/data-share-security-baseline?toc=/azure/data-share/TOC.json
+      href: /security/benchmark/azure/baselines/azure-data-share-security-baseline?toc=/azure/data-share/TOC.json
   - name: Azure Data Share terminology
     href: terminology.md
   - name: Roles and requirements

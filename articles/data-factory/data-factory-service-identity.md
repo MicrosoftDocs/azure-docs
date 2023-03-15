@@ -6,7 +6,7 @@ author: nabhishek
 ms.service: data-factory
 ms.subservice: security
 ms.topic: conceptual
-ms.date: 01/27/2022
+ms.date: 02/13/2023
 ms.author: abnarain 
 ms.custom: devx-track-azurepowershell, subject-rbac-steps
 ---
@@ -25,8 +25,7 @@ Managed identities eliminate the need to manage credentials. Managed identities 
 
 There are two types of supported managed identities: 
 
-- **System-assigned:** You can enable a managed identity directly on a service instance. When you allow a system-assigned managed identity during the creation of the service, an identity is created in Azure AD tied to that service instance's lifecycle. By design, only that Azure resource can use this identity to request tokens from Azure AD. So when the resource is deleted, Azure automatically deletes the identity for you. 
-- 
+- **System-assigned:** You can enable a managed identity directly on a service instance. When you allow a system-assigned managed identity during the creation of the service, an identity is created in Azure AD tied to that service instance's lifecycle. By design, only that Azure resource can use this identity to request tokens from Azure AD. So when the resource is deleted, Azure automatically deletes the identity for you.  
 - **User-assigned:** You may also create a managed identity as a standalone Azure resource. You can [create a user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) and assign it to one or more instances of a data factory. In user-assigned managed identities, the identity is managed separately from the resources that use it.
 
 Managed identity provides the below benefits:
@@ -287,3 +286,5 @@ See the following topics that introduce when and how to use managed identity:
 - [Copy data from/to Azure Data Lake Store using managed identities for Azure resources authentication](connector-azure-data-lake-store.md).
 
 See [Managed Identities for Azure Resources Overview](../active-directory/managed-identities-azure-resources/overview.md) for more background on managed identities for Azure resources, on which managed identity in Azure Data Factory is based.
+
+See [Limitations](../active-directory/managed-identities-azure-resources/managed-identities-faq.md#limitations) of managed identities, which also apply to managed identities in Azure Data Factory.

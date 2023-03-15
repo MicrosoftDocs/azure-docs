@@ -5,14 +5,14 @@ keywords:
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 10/13/2020
+ms.date: 9/22/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ---
 # Deploy IoT Edge modules at scale using the Azure portal
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 Create an **IoT Edge automatic deployment** in the Azure portal to manage ongoing deployments for many devices at once. Automatic deployments for IoT Edge are part of the [device management](../iot-hub/iot-hub-automatic-device-management.md) feature of IoT Hub. Deployments are dynamic processes that enable you to deploy multiple modules to multiple devices, track the status and health of the modules, and make changes when necessary.
 
@@ -44,13 +44,13 @@ IoT Edge provides two different types of automatic deployments that you can use 
 The steps for creating a deployment and a layered deployment are very similar. Any differences are called out in the following steps.
 
 1. In the [Azure portal](https://portal.azure.com), go to your IoT Hub.
-1. On the menu in the left pane, select **IoT Edge** under **Device Management**.
-1. On the upper bar, select **Add Deployment** or **Add Layered Deployment**.
+1. On the menu in the left pane, select **Configurations + Deployments** under **Device Management**.
+1. On the upper bar, select **Add** > **Add Deployment** or **Add Layered Deployment**.
 
 There are five steps to create a deployment. The following sections walk through each one.
 
 >[!NOTE]
->The steps in this article reflect the latest schema version of the IoT Edge agent and hub. Schema version 1.1 was released along with IoT Edge version 1.0.10, and enables the module startup order and route prioritization features.
+>The steps in this article reflect the latest schema version of the IoT Edge agent and hub.
 >
 >If you are deploying to a device running version 1.0.9 or earlier, edit the **Runtime Settings** in the **Modules** step of the wizard to use schema version 1.0.
 
@@ -82,7 +82,7 @@ After you add a module to a deployment, you can select its name to open the **Up
 
 If you're creating a layered deployment, you may be configuring a module that exists in other deployments targeting the same devices. To update the module twin without overwriting other versions, open the **Module Twin Settings** tab. Create a new **Module Twin Property** with a unique name for a subsection within the module twin's desired properties, for example `properties.desired.settings`. If you define properties within just the `properties.desired` field, it will overwrite the desired properties for the module defined in any lower priority deployments.
 
-![Set module twin property for layered deployment](./media/how-to-deploy-monitor/module-twin-property.png)
+:::image type="content" source="./media/how-to-deploy-monitor/module-twin-property.png" alt-text="Screenshot showing how to set the module twin property for layered deployment.":::
 
 For more information about module twin configuration in layered deployments, see [Layered deployment](module-deployment-monitoring.md#layered-deployment).
 
@@ -153,9 +153,9 @@ When you modify a deployment, the changes immediately replicate to all targeted 
 
 ### Modify target conditions, custom metrics, and labels
 
-1. In your IoT hub, select **IoT Edge** from the left pane menu.
-1. Select the **IoT Edge deployments** tab and then select the deployment you want to configure.
-1. Select the **Target Condition** tab. Change the **Target Condition** to target the intended devices. You can also adjust the **Priority**.  Select **Save**.
+1. In your IoT hub, select **Configurations + Deployments** from the left pane menu.
+1. Select the deployment you want to configure.
+1. Select the **Target Devices** tab. Change the **Target Condition** to target the intended devices. You can also adjust the **Priority**.
 
     If you update the target condition, the following updates occur:
 
@@ -165,7 +165,7 @@ When you modify a deployment, the changes immediately replicate to all targeted 
 
 1. Select the **Metrics** tab and click the **Edit Metrics** button. Add or modify custom metrics, using the example syntax as a guide. Select **Save**.
 
-    ![Edit custom metrics in a deployment](./media/how-to-deploy-monitor/metric-list.png)
+   :::image type="content" source="./media/how-to-deploy-monitor/metric-list.png" alt-text="Screenshot showing how to edit custom metrics in a deployment.":::
 
 1. Select the **Labels** tab and make any desired changes and select **Save**.
 
@@ -174,14 +174,10 @@ When you modify a deployment, the changes immediately replicate to all targeted 
 When you delete a deployment, any deployed devices take on their next highest priority deployment. If your devices don't meet the target condition of any other deployment, then the modules are not removed when the deployment is deleted.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT Hub.
-1. Select **IoT Edge**.
-1. Select the **IoT Edge Deployments** tab.
-
-   ![View IoT Edge deployments](./media/how-to-deploy-monitor/iot-edge-deployments.png)
-
+1. Select **Configurations + Deployments**.
 1. Use the checkbox to select the deployment that you want to delete.
 1. Select **Delete**.
-1. A prompt will inform you that this action will delete this deployment and revert to the previous state for all devices. A deployment with a lower priority will apply. If no other deployment is targeted, no modules will be removed. If you want to remove all modules from your device, create a deployment with zero modules and deploy it to the same devices. Select **Yes** to continue.
+1. A prompt will inform you that this action will delete this deployment and revert to the previous state for all devices. A deployment with a lower priority will apply. If no other deployment is targeted, no modules will be removed. If you want to remove all modules from your device, create a deployment with zero modules and deploy it to the same devices. Select **Yes** to continue.
 
 ## Next steps
 

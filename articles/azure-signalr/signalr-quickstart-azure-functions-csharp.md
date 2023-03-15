@@ -6,7 +6,7 @@ ms.service: signalr
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: devx-track-csharp, mode-other
-ms.date: 03/30/2022
+ms.date: 12/28/2022
 ms.author: lianwei
 ---
 
@@ -14,8 +14,17 @@ ms.author: lianwei
 
 In this article, you'll learn how to use SignalR Service and Azure Functions to build a serverless application with C# to broadcast messages to clients.
 
+# [In-process](#tab/in-process)
+
 > [!NOTE]
 > You can get the code mentioned in this article from [GitHub](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/QuickStartServerless/csharp).
+
+# [Isolated process](#tab/isolated-process)
+
+> [!NOTE]
+> You can get the code mentioned in this article from [GitHub](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/QuickStartServerless/csharp-isolated).
+
+---
 
 ## Prerequisites
 
@@ -37,6 +46,8 @@ You'll need the Azure Functions Core Tools for this step.
 1. Create an empty directory and change to the directory with the command line.
 1. Initialize a new project.
 
+    # [In-process](#tab/in-process)
+
     ```bash
     # Initialize a function project
     func init --worker-runtime dotnet
@@ -45,7 +56,21 @@ You'll need the Azure Functions Core Tools for this step.
     dotnet add package Microsoft.Azure.WebJobs.Extensions.SignalRService
     ```
 
+    # [Isolated process](#tab/isolated-process)
+
+    ```bash
+    # Initialize a function project
+    func init --worker-runtime dotnet-isolated
+
+    # Add extensions package references to the project
+    dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Http
+    dotnet add package Microsoft.Azure.Functions.Worker.Extensions.SignalRService
+    dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Timer
+    ```
+
 1. Using your code editor, create a new file with the name *Function.cs*. Add the following code to *Function.cs*:
+
+    # [In-process](#tab/in-process)
 
     ```csharp
     using System;
@@ -59,7 +84,7 @@ You'll need the Azure Functions Core Tools for this step.
     using Microsoft.Azure.WebJobs.Extensions.Http;
     using Microsoft.Azure.WebJobs.Extensions.SignalRService;
     using Newtonsoft.Json;
-    
+
     namespace CSharp
     {
         public static class Function
@@ -67,7 +92,7 @@ You'll need the Azure Functions Core Tools for this step.
             private static HttpClient httpClient = new HttpClient();
             private static string Etag = string.Empty;
             private static string StarCount = "0";
-    
+
             [FunctionName("index")]
             public static IActionResult GetHomePage([HttpTrigger(AuthorizationLevel.Anonymous)]HttpRequest req, ExecutionContext context)
             {
@@ -78,15 +103,15 @@ You'll need the Azure Functions Core Tools for this step.
                     ContentType = "text/html",
                 };
             }
-    
+
             [FunctionName("negotiate")]
-            public static SignalRConnectionInfo Negotiate( 
+            public static SignalRConnectionInfo Negotiate(
                 [HttpTrigger(AuthorizationLevel.Anonymous)] HttpRequest req,
                 [SignalRConnectionInfo(HubName = "serverless")] SignalRConnectionInfo connectionInfo)
             {
                 return connectionInfo;
             }
-    
+
             [FunctionName("broadcast")]
             public static async Task Broadcast([TimerTrigger("*/5 * * * * *")] TimerInfo myTimer,
             [SignalR(HubName = "serverless")] IAsyncCollector<SignalRMessage> signalRMessages)
@@ -104,7 +129,7 @@ You'll need the Azure Functions Core Tools for this step.
                     var result = JsonConvert.DeserializeObject<GitResult>(await response.Content.ReadAsStringAsync());
                     StarCount = result.StarCount;
                 }
-                
+
                 await signalRMessages.AddAsync(
                     new SignalRMessage
                     {
@@ -112,7 +137,7 @@ You'll need the Azure Functions Core Tools for this step.
                         Arguments = new[] { $"Current star count of https://github.com/Azure/azure-signalr is: {StarCount}" }
                     });
             }
-    
+
             private class GitResult
             {
                 [JsonRequired]
@@ -122,6 +147,75 @@ You'll need the Azure Functions Core Tools for this step.
         }
     }
     ```
+
+    # [Isolated process](#tab/isolated-process)
+
+    ```csharp
+    using System.Net;
+    using System.Net.Http.Json;
+    using System.Text.Json.Serialization;
+    using Microsoft.Azure.Functions.Worker;
+    using Microsoft.Azure.Functions.Worker.Http;
+
+    namespace csharp_isolated;
+
+    public class Functions
+    {
+        private static readonly HttpClient HttpClient = new();
+        private static string Etag = string.Empty;
+        private static int StarCount = 0;
+
+        [Function("index")]
+        public static HttpResponseData GetHomePage([HttpTrigger(AuthorizationLevel.Anonymous)] HttpRequestData req)
+        {
+            var response = req.CreateResponse(HttpStatusCode.OK);
+            response.WriteString(File.ReadAllText("content/index.html"));
+            response.Headers.Add("Content-Type", "text/html");
+            return response;
+        }
+
+        [Function("negotiate")]
+        public static HttpResponseData Negotiate([HttpTrigger(AuthorizationLevel.Anonymous)] HttpRequestData req,
+            [SignalRConnectionInfoInput(HubName = "serverless")] string connectionInfo)
+        {
+            var response = req.CreateResponse(HttpStatusCode.OK);
+            response.Headers.Add("Content-Type", "application/json");
+            response.WriteString(connectionInfo);
+            return response;
+        }
+
+        [Function("broadcast")]
+        [SignalROutput(HubName = "serverless")]
+        public static async Task<SignalRMessageAction> Broadcast([TimerTrigger("*/5 * * * * *")] TimerInfo timerInfo)
+        {
+            var request = new HttpRequestMessage(HttpMethod.Get, "https://api.github.com/repos/azure/azure-signalr");
+            request.Headers.UserAgent.ParseAdd("Serverless");
+            request.Headers.Add("If-None-Match", Etag);
+            var response = await HttpClient.SendAsync(request);
+            if (response.Headers.Contains("Etag"))
+            {
+                Etag = response.Headers.GetValues("Etag").First();
+            }
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                var result = await response.Content.ReadFromJsonAsync<GitResult>();
+                if (result != null)
+                {
+                    StarCount = result.StarCount;
+                }
+            }
+            return new SignalRMessageAction("newMessage", new object[] { $"Current star count of https://github.com/Azure/azure-signalr is: {StarCount}" });
+        }
+
+        private class GitResult
+        {
+            [JsonPropertyName("stargazers_count")]
+            public int StarCount { get; set; }
+        }
+    }
+    ```
+
+    ---
 
     The code in *Function.cs* has three functions:
     - `GetHomePage` is used to get a website as client.
@@ -166,6 +260,11 @@ You'll need the Azure Functions Core Tools for this step.
     </ItemGroup>
     ```
 
+1. Azure Functions requires a storage account to work. You can install and run the [Azure Storage Emulator](../storage/common/storage-use-azurite.md). **Or** you can update the setting to use your real storage account with the following command:
+    ```bash
+    func settings add AzureWebJobsStorage "<storage-connection-string>"
+    ```
+
 1. It's almost done now. The last step is to set a connection string of the SignalR Service to Azure Function settings.
 
     1. Confirm the SignalR Service instance was successfully created by searching for its name in the search box at the top of the portal. Select the instance to open it.
@@ -188,11 +287,8 @@ You'll need the Azure Functions Core Tools for this step.
     func start
     ```
 
-    After the Azure function is running locally, open `http://localhost:7071/api/index` and you can see the current star count. If you star or unstar in the GitHub, you'll get a star count refreshing every few seconds.
+    After the Azure function is running locally, open `http://localhost:7071/api/index`, and you can see the current star count. If you star or unstar in the GitHub, you'll get a star count refreshing every few seconds.
 
-    > [!NOTE]
-    > SignalR binding needs Azure Storage, but you can use a local storage emulator when the function is running locally.
-    > If you got the error `There was an error performing a read operation on the Blob Storage Secret Repository. Please ensure the 'AzureWebJobsStorage' connection string is valid.` You need to download and enable [Storage Emulator](../storage/common/storage-use-emulator.md)
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 

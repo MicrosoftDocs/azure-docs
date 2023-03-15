@@ -17,9 +17,8 @@ This article will guide you through how to configure Azure Front Door Premium ti
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Create a [Private Link](../../private-link/create-private-link-service-portal.md) service for your origin web servers.
 
-> [!Note]
+> [!NOTE]
 > Private endpoints requires your App Service plan or function hosting plan to meet some requirements. For more information, see [Using Private Endpoints for Azure Web App](../../app-service/networking/private-endpoint.md).
 
 ## Sign in to Azure
@@ -42,8 +41,8 @@ In this section, you'll map the Private Link service to a private endpoint creat
 
     | Setting | Value |
     | ------- | ----- |
-    | Name | Enter a name to identify this storage blog origin. |
-    | Origin Type | Storage (Azure Blobs) |
+    | Name | Enter a name to identify this app service origin. |
+    | Origin Type | App services |
     | Host name | Select the host from the dropdown that you want as an origin. |
     | Origin host header | You can customize the host header of the origin or leave it as default. |
     | HTTP port | 80 (default) |
@@ -52,7 +51,7 @@ In this section, you'll map the Private Link service to a private endpoint creat
     | Weight | 1000 (default). Assign weights to your different origin when you want to distribute traffic.|
     | Region | Select the region that is the same or closest to your origin. |
     | Target sub resource | The type of sub-resource for the resource selected above that your private endpoint will be able to access. You can select *site*. |
-    | Request message | Customize message or choose the default. |
+    | Request message | Custom message to see while approving the Private Endpoint. |
 
 1. Select **Add** to save your configuration. Then select **Update** to save the origin group settings.
 

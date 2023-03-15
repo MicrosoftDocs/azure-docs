@@ -13,8 +13,9 @@ ms.custom: mode-other
 
 # Quickstart: Create a new Azure Machine Learning linked service in Synapse
 
-[!IMPORTANT]
-**The Azure ML integration is not currently supported in Synapse Workspaces with Data Exfiltration Protection.** If you are **not** using data exfiltration protection and want to connect to Azure ML using private endpoints, you can set up a managed AzureML private endpoint in your Synapse workspace. [Read more about managed private endpoints](../security/how-to-create-managed-private-endpoints.md)
+> **IMPORTANT, PLEASE NOTE THE BELOW LIMITATIONS:**
+> - **The Azure ML integration is not currently supported in Synapse Workspaces with Data Exfiltration Protection.** If you are **not** using data exfiltration protection and want to connect to Azure ML using private endpoints, you can set up a managed AzureML private endpoint in your Synapse workspace. [Read more about managed private endpoints](../security/how-to-create-managed-private-endpoints.md)
+> - **AzureML linked service is not supported with self hosted integration runtimes.** This applies to Synapse workspaces with and without Data Exfiltration Protection.
 
 In this quickstart, you'll link an Azure Synapse Analytics workspace to an Azure Machine Learning workspace. Linking these workspaces allows you to leverage Azure Machine Learning from various experiences in Synapse.
 
@@ -35,7 +36,7 @@ In the following sections, you'll find guidance on how to create an Azure Machin
 
 ## Prerequisites
 
-- Azure subscription - [Create one for free](https://azure.microsoft.com/free/).
+- You'll need an Azure subscription. If needed, [create a free Azure account](https://azure.microsoft.com/free/).
 - [Synapse Analytics workspace](../get-started-create-workspace.md) with an ADLS Gen2 storage account configured as the default storage. You need to be the **Storage Blob Data Contributor** of the ADLS Gen2 filesystem that you work with.
 - [Azure Machine Learning workspace](../../machine-learning/how-to-manage-workspace.md).
 - If you chose to use a Service principal, you need permissions (or request from someone who has permissions) to create a service principal and secret which you can use to create the linked service. Note that this service principal needs to be assigned the contributor role in the Azure Machine Learning workspace.

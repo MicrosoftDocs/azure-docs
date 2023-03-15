@@ -39,6 +39,9 @@ Create a new project in Visual Studio, using the ASP.NET Core Web Application te
 
 Right-click on the project in the _Solution Explorer_ and choose **Manage User Secrets**. This will open a file called _secrets.json_. This file isn't checked into source control. Learn more [here](/aspnet/core/security/app-secrets?tabs=windows). Replace the contents of _secrets.json_ with the following, supplying the values given when you created your Immersive Reader resource.
 
+> [!IMPORTANT]
+> Remember to never post secrets publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md).
+
 ```json
 {
   "TenantId": "YOUR_TENANT_ID",
@@ -268,7 +271,7 @@ At the bottom of _Views\Home\Index.cshtml_, add the following code:
                     const token = response["token"];
                     const subdomain = response["subdomain"];
     
-                    // Learn more about chunk usage and supported MIME types https://docs.microsoft.com/en-us/azure/cognitive-services/immersive-reader/reference#chunk
+                    // Learn more about chunk usage and supported MIME types https://learn.microsoft.com/azure/cognitive-services/immersive-reader/reference#chunk
                     const data = {
                         title: $("#ir-title").text(),
                         chunks: [{
@@ -277,7 +280,7 @@ At the bottom of _Views\Home\Index.cshtml_, add the following code:
                         }]
                     };
     
-                    // Learn more about options https://docs.microsoft.com/en-us/azure/cognitive-services/immersive-reader/reference#options
+                    // Learn more about options https://learn.microsoft.com/azure/cognitive-services/immersive-reader/reference#options
                     const options = {
                         "onExit": exitCallback,
                         "uiZIndex": 2000

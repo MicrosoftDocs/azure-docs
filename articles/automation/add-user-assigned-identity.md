@@ -3,6 +3,7 @@ title: Using a user-assigned managed identity for an Azure Automation account
 description: This article describes how to set up a user-assigned managed identity for Azure Automation accounts.
 services: automation
 ms.subservice: process-automation
+ms.custom: devx-track-azurepowershell
 ms.date: 10/26/2021
 ms.topic: conceptual 
 ---
@@ -18,15 +19,15 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-- An Azure Automation account. For instructions, see [Create an Azure Automation account](./quickstarts/create-account-portal.md).
+- An Azure Automation account. For instructions, see [Create an Azure Automation account](./quickstarts/create-azure-automation-account-portal.md).
 
-- The user-assigned managed identity and the target Azure resources that your runbook manages using that identity can be in different Azure subscriptions.
+- The [user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) and the target Azure resources that your runbook manages using that identity can be in different Azure subscriptions.
 
 - The latest version of Azure Account modules. Currently this is 2.2.8. (See [Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts/) for details about this version.)
 
 - An Azure resource that you want to access from your Automation runbook. This resource needs to have a role defined for the user-assigned managed identity, which helps the Automation runbook authenticate access to the resource. To add roles, you need to be an owner for the resource in the corresponding Azure AD tenant.
 
-- To assign an Azure role, you must have ```Microsoft.Authorization/roleAssignments/write``` permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
+- To assign an Azure role, you must have ```Microsoft.Authorization/roleAssignments/write``` permissions, such as [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) or [Owner](../role-based-access-control/built-in-roles.md#owner).
 
 ## Add user-assigned managed identity for Azure Automation account
 

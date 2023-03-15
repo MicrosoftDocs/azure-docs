@@ -8,7 +8,7 @@ metadata:
   description: Azure Container Apps allows you to run containerized applications without worrying about orchestration or infrastructure.
   ms.topic: landing-page
   ms.service: container-apps
-  ms.custom: event-tier1-build-2022
+  ms.custom: event-tier1-build-2022, ignite-2022
   author: craigshoemaker
   ms.author: cshoe
   ms.date: 11/08/2021
@@ -51,8 +51,6 @@ landingContent:
             url: scale-app.md
           - text: Manage secrets
             url: manage-secrets.md
-          - text: Monitor an app
-            url: monitor.md
           - text: Manage revisions
             url: revisions-manage.md
           - text: Set up HTTP ingress
@@ -61,6 +59,8 @@ landingContent:
             url: connect-apps.md
           - text: Use a custom VNET 
             url: vnet-custom.md
+          - text: Quotas
+            url: quotas.md
       - linkListType: concept
         links:
           - text: Dapr integration

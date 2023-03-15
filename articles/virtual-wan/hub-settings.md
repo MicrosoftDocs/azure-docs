@@ -93,7 +93,7 @@ For pricing information, see [Azure Virtual WAN pricing](https://azure.microsoft
 | 49 | 49 | 49000 |
 | 50 | 50 | 50000 |
 
-## <a name="routing-preference"></a>Virtual hub routing preference (Preview)
+## <a name="routing-preference"></a>Virtual hub routing preference
 
 A Virtual WAN virtual hub connects to virtual networks (VNets) and on-premises sites using connectivity gateways, such as site-to-site (S2S) VPN gateway, ExpressRoute (ER) gateway, point-to-site (P2S) gateway, and SD-WAN Network Virtual Appliance (NVA). The virtual hub router provides central route management and enables advanced routing scenarios using route propagation, route association, and custom route tables. When a virtual hub router makes routing decisions, it considers the configuration of such capabilities.
 

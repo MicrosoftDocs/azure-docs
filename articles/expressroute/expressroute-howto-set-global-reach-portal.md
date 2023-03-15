@@ -13,9 +13,6 @@ ms.author: duau
 
 This article helps you configure ExpressRoute Global Reach using the Azure portal. For more information, see [ExpressRouteRoute Global Reach](expressroute-global-reach.md).
 
-> [!NOTE]
-> IPv6 support for ExpressRoute Global Reach is now in Public Preview.
-
  ## Before you begin
 
 Before you start configuration, confirm the following criteria:
@@ -47,7 +44,7 @@ Enable connectivity between your on-premises networks. There are separate sets o
 1. On the *Add Global Reach* configuration page, give a name to this configuration. Select the *ExpressRoute circuit* you want to connect this circuit to and enter in a **/29 IPv4** for the *Global Reach IPv4 subnet*. We use IP addresses in this subnet to establish connectivity between the two ExpressRoute circuits. Don’t use the addresses in this subnet in your Azure virtual networks, private peering subnet, or on-premises network. Select **Add** to add the circuit to the private peering configuration.
 
     > [!NOTE]
-    > IPv6 support for ExpressRoute Global Reach is now in Public Preview. If you want to enable this feature for test workloads, select "Both" for the *Subnets* field and include a **/125 IPv6** subnet for the *Global Reach IPv6 subnet*.
+    > If you wish to enable IPv6 support for ExpressRoute Global Reach, select "Both" for the *Subnets* field and include a **/125 IPv6** subnet for the *Global Reach IPv6 subnet*.
 
     :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/add-global-reach-configuration.png" alt-text="Screenshot of adding Global Reach in Overview tab.":::
 
@@ -76,7 +73,7 @@ If the two circuits aren't in the same Azure subscription, you'll need authoriza
 1. On the *Add Global Reach* configuration page, give a name to this configuration. Check the **Redeem authorization** box. Enter the **Authorization Key** and the **ExpressRoute circuit ID** generated and obtained in Step 1. Then provide a **/29 IPv4** for the *Global Reach IPv4 subnet*. We use IP addresses in this subnet to establish connectivity between the two ExpressRoute circuits. Don’t use the addresses in this subnet in your Azure virtual networks, or in your on-premises network. Select **Add** to add the circuit to the private peering configuration.
 
     > [!NOTE]
-    > IPv6 support for ExpressRoute Global Reach is now in Public Preview. If you want to enable this feature for test workloads, select "Both" for the *Subnets* field and include a **/125 IPv6** subnet for the *Global Reach IPv6 subnet*.
+    > If you wish to enable IPv6 support for ExpressRoute Global Reach, select "Both" for the *Subnets* field and include a **/125 IPv6** subnet for the *Global Reach IPv6 subnet*.
 
     :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/add-global-reach-configuration-with-authorization.png" alt-text="Screenshot of Add Global Reach with authorization key.":::
 

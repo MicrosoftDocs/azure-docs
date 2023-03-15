@@ -6,6 +6,7 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic: how-to
 ms.date: 07/19/2022
 ms.author: aahi
@@ -35,7 +36,7 @@ Network rules are enforced on all network protocols to Azure Cognitive Services,
 
 ## Supported regions and service offerings
 
-Virtual networks (VNETs) are supported in [regions where Cognitive Services are available](https://azure.microsoft.com/global-infrastructure/services/). Currently multi-service resource does not support VNET. Cognitive Services supports service tags for network rules configuration. The services listed below are included in the **CognitiveServicesManagement** service tag.
+Virtual networks (VNETs) are supported in [regions where Cognitive Services are available](https://azure.microsoft.com/global-infrastructure/services/). Cognitive Services supports service tags for network rules configuration. The services listed below are included in the **CognitiveServicesManagement** service tag.
 
 > [!div class="checklist"]
 > * Anomaly Detector

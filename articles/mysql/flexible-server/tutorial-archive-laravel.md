@@ -1,17 +1,17 @@
 ---
-title: 'Tutorial: Build a PHP (Laravel) app with Azure Database for MySQL Flexible Server'
-description: This tutorial explains how to build a PHP app with flexible server.
-author: mksuni
-ms.author: sumuth
+title: 'Tutorial: Deploy a PHP (Laravel) app with Azure Database for MySQL - Flexible Server on Azure App Service'
+description: This tutorial explains how to build and deploy a PHP Laravel app with MySQL flexible server, secured within a VNet. This is an archived version. New version is at - mysql/tutorial-php-database-app
+author: shreyaaithal
+ms.author: shaithal
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: tutorial
 ms.devlang: php
-ms.date: 9/21/2020
+ms.date: 8/11/2020
 ms.custom: mvc, devx-track-azurecli
 ---
 
-# Tutorial: Build a PHP (Laravel) and MySQL Flexible Server app in Azure App Service
+# Tutorial: Deploy a PHP (Laravel) and MySQL Flexible Server app on Azure App Service
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
@@ -139,7 +139,7 @@ To stop PHP, type `Ctrl + C` in the terminal.
 
 ## Create a MySQL Flexible Server
 
-In this step, you create a MySQL database in [Azure Database for MySQL Flexible Server](../index.yml). Later, you configure the PHP application to connect to this database. In the [Azure Cloud Shell](../../cloud-shell/overview.md), create a server in with the [`az flexible-server create`](/cli/azure/mysql/server#az-mysql-flexible-server-create) command.
+In this step, you create a MySQL database in [Azure Database for MySQL - Flexible Server](../index.yml). Later, you configure the PHP application to connect to this database. In the [Azure Cloud Shell](../../cloud-shell/overview.md), create a server in with the [`az flexible-server create`](/cli/azure/mysql/server#az-mysql-flexible-server-create) command.
 
 ```azurecli-interactive
 az mysql flexible-server create  --resource-group myResourceGroup --public-access <IP-Address>
@@ -220,7 +220,7 @@ Save the changes.
 
 ### Configure TLS/SSL certificate
 
-By default, MySQL Flexible Server enforces TLS connections from clients. To connect to your MySQL database in Azure, you must use the [*.pem* certificate supplied by Azure Database for MySQL Flexible Server](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem). Download [this certificate](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem)) and place it in the **SSL** folder in the local copy of the sample app repository.
+By default, MySQL Flexible Server enforces TLS connections from clients. To connect to your MySQL database in Azure, you must use the [*.pem* certificate supplied by Azure Database for MySQL - Flexible Server](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem). Download [this certificate](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem)) and place it in the **SSL** folder in the local copy of the sample app repository.
 
 Open *config/database.php* and add the `sslmode` and `options` parameters to `connections.mysql`, as shown in the following code.
 

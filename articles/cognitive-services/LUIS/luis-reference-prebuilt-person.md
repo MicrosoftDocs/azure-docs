@@ -14,6 +14,9 @@ ms.date: 05/07/2019
 ---
 
 # PersonName prebuilt entity for a LUIS app
+
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
 The prebuilt personName entity detects people names. Because this entity is already trained, you do not need to add example utterances containing personName to the application intents. personName entity is supported in English and Chinese [cultures](luis-reference-prebuilt-entities.md).
 
 ## Resolution for personName entity

@@ -20,6 +20,10 @@ The Speech SDK for Swift is distributed as a framework bundle. The framework sup
 
 The Speech SDK can be used in Xcode projects as a [CocoaPod](https://cocoapods.org/), or downloaded directly [here](https://aka.ms/csspeech/macosbinary) and linked manually. This guide uses a CocoaPod. Install the CocoaPod dependency manager as described in its [installation instructions](https://guides.cocoapods.org/using/getting-started.html).
 
+### Set environment variables
+
+[!INCLUDE [Environment variables](../../common/environment-variables.md)]
+
 ## Recognize speech from a microphone
 
 Follow these steps to recognize speech in a macOS application.
@@ -46,8 +50,8 @@ Follow these steps to recognize speech in a macOS application.
         func applicationDidFinishLaunching(_ aNotification: Notification) {
             print("loading")
             // load subscription information
-            sub = "YourSubscriptionKey"
-            region = "YourServiceRegion"
+            sub = ProcessInfo.processInfo.environment["SPEECH_KEY"]
+            region = ProcessInfo.processInfo.environment["SPEECH_REGION"]
 
             label = NSTextField(frame: NSRect(x: 100, y: 50, width: 200, height: 200))
             label.textColor = NSColor.black
@@ -114,14 +118,19 @@ Follow these steps to recognize speech in a macOS application.
     }
     ```
 
-1. In `AppDelegate.m`, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
-
-    > [!IMPORTANT]
-    > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../../cognitive-services-security.md) article for more information.
+1. In `AppDelegate.m`, use the [environment variables that you previously set](#set-environment-variables) for your Speech resource key and region.
+    
+    ```swift
+    sub = ProcessInfo.processInfo.environment["SPEECH_KEY"]
+    region = ProcessInfo.processInfo.environment["SPEECH_REGION"]
+    ```
 
 1. To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md). For example, `es-ES` for Spanish (Spain). The default language is `en-US` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/language-identification.md). 
 1. Make the debug output visible by selecting **View** > **Debug Area** > **Activate Console**.
-1. Build and run the example code by selecting **Product** -> **Run** from the menu or selecting the **Play** button.
+1. Build and run the example code by selecting **Product** > **Run** from the menu or selecting the **Play** button.
+
+> [!IMPORTANT]
+> Make sure that you set the `SPEECH__KEY` and `SPEECH__REGION` environment variables as described [above](#set-environment-variables). If you don't set these variables, the sample will fail with an error message.
 
 After you select the button in the app and say a few words, you should see the text you have spoken on the lower part of the screen. When you run the app for the first time, you should be prompted to give the app access to your computer's microphone.
 

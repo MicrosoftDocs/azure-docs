@@ -165,7 +165,7 @@ Important factors to consider when choosing a storage class for the data control
 
 Each database instance has data, logs, and backup persistent volumes. The storage classes for these persistent volumes can be specified at deployment time. If no storage class is specified the default storage class will be used.
 
-When creating an instance using either `az sql mi-arc create` or `az postgres arc-server create`, there are four parameters that can be used to set the storage classes:
+When creating an instance using either `az sql mi-arc create` or `az postgres server-arc create`, there are four parameters that can be used to set the storage classes:
 
 |Parameter name, short name|Used for|
 |---|---|
@@ -199,7 +199,7 @@ If there are multiple databases on a given database instance, all of the databas
 |---|---|
 |**Azure SQL Managed Instance**|`<namespace>/logs-<instance name>-0`, `<namespace>/data-<instance name>-0`|
 |**Azure database for PostgreSQL instance**|`<namespace>/logs--<instance name>-0`, `<namespace>/data--<instance name>-0`|
-|**Azure PostgreSQL HyperScale**|`<namespace>/logs-<instance namme>-<ordinal>`, `<namespace>/data-<instance namme>-<ordinal>` *(Ordinal ranges from 0 to W where W is the number of workers)*|
+|**Azure PostgreSQL**|`<namespace>/logs-<instance name>-<ordinal>`, `<namespace>/data-<instance name>-0`
 
 Important factors to consider when choosing a storage class for the database instance pods:
 
@@ -216,8 +216,7 @@ Every pod that contains stateful data uses at least two persistent volumes - one
 |---|---|---|
 |Data Controller|4 (`control`, `controldb`, `logsdb`, `metricsdb`)|4 * 2 = 8|
 |Azure SQL Managed Instance|1|2|
-|Azure Database for PostgreSQL instance|1| 2|
-|Azure PostgreSQL HyperScale|1 + W (W = number of workers)|2 * (1 + W)|
+|Azure PostgreSQL|1|2|
 
 The table below shows the total number of persistent volume required for a sample deployment:
 
@@ -225,9 +224,8 @@ The table below shows the total number of persistent volume required for a sampl
 |---|---|---|
 |Data Controller|1|4 * 2 = 8|
 |Azure SQL Managed Instance|5|5 * 2 = 10|
-|Azure Database for PostgreSQL instance|5| 5 * 2 = 10|
-|Azure PostgreSQL HyperScale|2 (Number of workers = 4 per instance)|2 * 2 * (1 + 4) = 20|
-|***Total Number of persistent volumes***||8 + 10 + 10 + 20 = 48|
+|Azure PostgreSQL|5|5 * 2 = 10|
+|***Total Number of persistent volumes***||8 + 10 + 10 = 28|
 
 This calculation can be used to plan the storage for your Kubernetes cluster based on the storage provisioner or environment. For example, if local storage provisioner is used for a Kubernetes cluster with five (5) nodes then for the sample deployment above every node requires at least storage for 10 persistent volumes. Similarly, when provisioning an Azure Kubernetes Service (AKS) cluster with five (5) nodes picking an appropriate VM size for the node pool such that 10 data disks can be attached is critical. More details on how to size the nodes for storage needs for AKS nodes can be found [here](../../aks/operator-best-practices-storage.md#size-the-nodes-for-storage-needs).
 

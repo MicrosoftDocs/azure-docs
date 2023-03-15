@@ -1,8 +1,8 @@
 ---
 title: Creating Virtual Machine Restore Points using Azure CLI
 description: Creating Virtual Machine Restore Points using Azure CLI
-author: dikethir
-ms.author: dikethir
+author: mamccrea
+ms.author: mamccrea
 ms.service: virtual-machines
 ms.subservice: recovery
 ms.topic: tutorial
@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 > * [Track the progress of Copy operation](#step-3-track-the-status-of-the-vm-restore-point-creation)
 > * [Restore a VM](#restore-a-vm-from-vm-restore-point)
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 - Learn more about the [support requirements](concepts-restore-points.md) and [limitations](virtual-machines-create-restore-points.md#limitations) before creating a restore point.
 
 ## Step 1: Create a VM restore point collection
@@ -65,7 +65,7 @@ az disk create --resource-group “ExampleRg” --name “ExampleDataDisk1” --
 
 az disk create --resource-group “ExampleRg” --name “ExampleDataDisk1” --sku Premium_LRS --size-gb 128 --source $dataDisk2RestorePoint
 ```
-Once you have created the disks, [create a new VM](/azure/virtual-machines/scripts/create-vm-from-managed-os-disks.md) and [attach these restored disks](/azure/virtual-machines/linux/add-disk.md#attach-an-existing-disk) to the newly created VM.
+Once you have created the disks, [create a new VM](./scripts/create-vm-from-managed-os-disks.md) and [attach these restored disks](./linux/add-disk.md#attach-an-existing-disk) to the newly created VM.
 
 ## Next steps
-[Learn more](/azure/virtual-machines/backup-recovery.md) about Backup and restore options for virtual machines in Azure.
+[Learn more](./backup-recovery.md) about Backup and restore options for virtual machines in Azure.

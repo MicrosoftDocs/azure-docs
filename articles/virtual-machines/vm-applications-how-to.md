@@ -1,14 +1,14 @@
 ---
 title: Create and deploy VM application packages
 description: Learn how to create and deploy VM Applications using an Azure Compute Gallery.
+author: nikhilpatel909
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 02/03/2022
 ms.reviewer: amjads
-ms.custom: 
-
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Create and deploy VM Applications
@@ -16,8 +16,6 @@ ms.custom:
 VM Applications are a resource type in Azure Compute Gallery (formerly known as Shared Image Gallery) that simplifies management, sharing and global distribution of applications for your virtual machines.
 
 
-> [!IMPORTANT]
-> Deploying VM applications in Azure Compute Gallery **do not currently support using Azure policies**.
 
 
 ## Prerequisites
@@ -49,6 +47,8 @@ if ($remainder -ne 0){
 You need to make sure the files are publicly available, or you'll need the SAS URI for the files in your storage account. You can use [Storage Explorer](../vs-azure-tools-storage-explorer-blobs.md) to quickly create a SAS URI if you don't already have one.
 
 If you're using PowerShell, you need to be using version 3.11.0 of the Az.Storage module.
+
+To learn more about the installation mechanism, see the [command interpreter.](vm-applications.md#command-interpreter)
 
 ## Create the VM application
 

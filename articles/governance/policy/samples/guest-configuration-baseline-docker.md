@@ -14,7 +14,7 @@ implementations:
 - **Vulnerabilities in security configuration on your machines should be remediated** in Azure
   Security Center
 
-For more information, see [Understand the guest configuration feature of Azure Policy](../concepts/guest-configuration.md) and
+For more information, see [Understand the guest configuration feature of Azure Policy](../../machine-configuration/overview.md) and
 [Overview of the Azure Security Benchmark (V2)](../../../security/benchmarks/overview.md).
 
 ## General security controls
@@ -103,7 +103,7 @@ For more information, see [Understand the guest configuration feature of Azure P
 
 Additional articles about Azure Policy and guest configuration:
 
-- [Understand the guest configuration feature of Azure Policy]Understand the guest configuration feature of Azure Polic(../concepts/guest-configuration.md).
+- [Understand the guest configuration feature of Azure Policy]Understand the guest configuration feature of Azure Polic(../../machine-configuration/overview.md).
 - [Regulatory Compliance](../concepts/regulatory-compliance.md) overview.
 - Review other examples at [Azure Policy samples](./index.md).
 - Review [Understanding policy effects](../concepts/effects.md).

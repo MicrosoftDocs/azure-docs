@@ -1,15 +1,18 @@
 ---
 title: Get started with Azure API for FHIR
 description: This document describes how to get started with Azure API for FHIR.
-author: ginalee-dotcom
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 06/03/2022
-ms.author: ranku
+ms.author: kesheth
 ---
 
 # Get started with Azure API for FHIR
+
+> [!Note]
+> Azure Health Data services is the evolved version of Azure API for FHIR enabling customers to manage FHIR, DICOM, and MedTech services with integrations into other Azure Services. To learn about Azure Health Data Services [click here](https://azure.microsoft.com/products/health-data-services/).
 
 This article outlines the basic steps to get started with Azure API for FHIR. Azure API for FHIR is a managed, standards-based, compliant API for clinical health data that enables solutions for actionable analytics and machine learning.
 

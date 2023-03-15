@@ -13,6 +13,9 @@ ms.author: aahi
 
 # DevOps practices for LUIS
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
+
 Software engineers who are developing a Language Understanding (LUIS) app can apply DevOps practices around [source control](luis-concept-devops-sourcecontrol.md), [automated builds](luis-concept-devops-automation.md), [testing](luis-concept-devops-testing.md), and [release management](luis-concept-devops-automation.md#release-management) by following these guidelines.
 
 ## Source control and branch strategies for LUIS

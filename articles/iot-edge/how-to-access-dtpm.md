@@ -4,7 +4,7 @@ description: Learn about how to configure access the dTPM on your  Azure IoT Edg
 author: fcabrera
 manager: patricka
 ms.author: patricka
-ms.date: 07/12/2022
+ms.date: 8/1/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -12,30 +12,30 @@ services: iot-edge
 
 # dTPM access for Azure IoT Edge for Linux on Windows
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
-Trusted platform module (TPM) technology is a technology designed to provide hardware-based, security-related functions. A TPM chip is a secure crypto-processor that is designed to carry out cryptographic operations. The Azure IoT Edge for Linux on Windows (EFLOW) virtual machine doesn't support vTPM. However, the user can enable or disable the TPM passthrough feature, that allows the EFLOW virtual machine to use the Windows host OS TPM. The TPM passthrough feature enables two main scenarios:
+A Trusted platform module (TPM) chip is a secure crypto-processor that is designed to carry out cryptographic operations. This technology is designed to provide hardware-based, security-related functions. The Azure IoT Edge for Linux on Windows (EFLOW) virtual machine doesn't have a virtual TPMs attached to the VM. However, the user can enable or disable the TPM passthrough feature, that allows the EFLOW virtual machine to use the Windows host OS TPM. The TPM passthrough feature enables two main scenarios:
 
-- Use TPM technology for IoT Edge device provisioning using Device Provision Service (DPS)
+- Use TPM technology for IoT Edge device provisioning using Device Provisioning Service (DPS)
 - Read-only access to cryptographic keys stored inside the TPM. 
 
-This article describes how to develop a sample code in C# to read cryptographic keys stored inside the TPM. 
+This article describes how to develop a sample code in C# to read cryptographic keys stored inside the device TPM. 
 
 > [!IMPORTANT]
 > The access to the TPM keys is limited to read-only. If you want to write keys to the TPM, you need to do it from the Windows host OS. 
 
 ## Prerequisites
 
-- A Windows host OS with a TPM or vTPM
+- A Windows host OS with a TPM or vTPM (ig using Windows host OS virtual machine).
 - EFLOW virtual machine with TPM passthrough enabled. Using an elevated PowerShell session, use `Set-EflowVmFeature -feature "DpsTpm" -enable` to enable TPM passthrough. For more information, see [Set-EflowVmFeature to enable TPM passthrough](./reference-iot-edge-for-linux-on-windows-functions.md#set-eflowvmfeature).
 - Ensure that the NV index (default index=3001) is initialized with 8 bytes of data. The default AuthValue used by the sample is {1,2,3,4,5,6,7,8} which corresponds to the NV (Windows) Sample in the TSS.MSR libraries when writing to the TPM. All index initialization must take place on the Windows Host before reading from the EFLOW VM. For more information about TPM samples, see [TSS.MSR](https://github.com/microsoft/TSS.MSR).
 
+    > [!WARNING]
+    > Enabling TPM passthrough to the virtual machine may increase security risks.
+    
 ## Create the dTPM executable
 
 The following steps show you how to create a sample executable to access a TPM index from the EFLOW VM. For more information about EFLOW TPM passthrough, see [Azure IoT Edge for Linux on Windows Security](./iot-edge-for-linux-on-windows-security.md).
-
-> [!WARNING]
-> Enabling TPM passthrough to the virtual machine may increase security risks.
 
 1. Open Visual Studio 2019 or 2022.
 
@@ -51,11 +51,11 @@ The following steps show you how to create a sample executable to access a TPM i
 
 1. In **Solution Explorer**, right-click the project name and select **Manage NuGet Packages**.
 
-1. Select **Browse** and then search for `Microsoft.TSS`.
+1. Select **Browse** and then search for `Microsoft.TSS`. For more information about this package, see [Microsoft.TSS](https://www.nuget.org/packages/Microsoft.TSS).
 
 1. Choose the **Microsoft.TSS** package from the list then select **Install**.
 
-    ![Visual Studio add NuGet packages](./media/how-to-access-dtpm/vs-nuget-microsoft-tss.png)
+   :::image type="content" source="./media/how-to-access-dtpm/vs-nuget-microsoft-tss.png" alt-text="Screenshot that shows Visual Studio add NuGet packages .":::
 
 1. Edit the *Program.cs* file and replace the contents with the [EFLOW TPM sample code - Program.cs](https://raw.githubusercontent.com/Azure/iotedge-eflow/main/samples/tpm-read-nv/Program.cs).
 
@@ -69,7 +69,7 @@ The following steps show you how to create a sample executable to access a TPM i
     - Target Runtime:  **linux-x64**.
     - Deployment mode: **Self-contained**.
     
-    ![Publish options](./media/how-to-access-dtpm/sample-publish-options.png)
+   :::image type="content" source="./media/how-to-access-dtpm/sample-publish-options.png" alt-text="Screenshot that shows publish options .":::
  
 1. Select **Publish** then wait for the executable to be created. 
 
@@ -132,7 +132,7 @@ Once the executable file and dependency files are created, you need to copy the 
     ```
     You should see an output similar to the following.
 
-    ![EFLOW dTPM output](./media/how-to-access-dtpm/tpm-read-output.png)
+   :::image type="content" source="./media/how-to-access-dtpm/tpm-read-output.png" alt-text="Screenshot that shows EFLOW dTPM output.":::
 
 ## Next steps
 

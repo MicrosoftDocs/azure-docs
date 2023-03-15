@@ -9,6 +9,7 @@ ms.date: 02/25/2022
 ms.author: ravokkar
 ms.custom:  [amqp, mqtt]
 ---
+
 # Communicate with your DPS using the MQTT protocol
 
 DPS enables devices to communicate with the DPS device endpoint using:
@@ -27,7 +28,7 @@ All device communication with DPS must be secured using TLS/SSL. Therefore, DPS 
 
 A device can use the MQTT protocol to connect to a DPS instance using any of the following options.
 
-* Libraries in the [Azure IoT Provisioning SDKs](../iot-hub/iot-hub-devguide-sdks.md#microsoft-azure-provisioning-sdks).
+* Libraries in the [Azure IoT Provisioning SDKs](libraries-sdks.md).
 * The MQTT protocol directly.
 
 ## Using the MQTT protocol directly (as a device)

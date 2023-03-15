@@ -1,5 +1,5 @@
 ---
-title: Plan your Microsoft Entra Verified ID issuance solution(preview)
+title: Plan your Microsoft Entra Verified ID issuance solution
 description: Learn to plan your end-to-end issuance solution.
 documentationCenter: ''
 author: barclayn
@@ -12,12 +12,10 @@ ms.author: barclayn
 ms.custom: references_regions
 ---
 
-# Plan your Microsoft Entra Verified ID issuance solution (preview)
+# Plan your Microsoft Entra Verified ID issuance solution
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
- >[!IMPORTANT]
-> Microsoft Entra Verified ID is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [**Supplemental Terms of Use for Microsoft Azure Previews**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 It’s important to plan your issuance solution so that in addition to issuing credentials, you have a complete view of the architectural and business impacts of your solution. If you haven’t done so, we recommend you view the [Microsoft Entra Verified ID architecture overview](introduction-to-verifiable-credentials-architecture.md) for foundational information.
 
@@ -288,7 +286,7 @@ For security logging and monitoring, we recommend the following:
 
 * Mitigate distributed denial of service (DDOS) and Key Vault resource exhaustion risks. Every request that triggers a VC issuance request generates Key Vault signing operations that accrue towards service limits. We recommend protecting traffic by incorporating authentication or captcha before generating issuance requests.
 
-For guidance on managing your Azure environment, we recommend you review [Azure Security Benchmark](/security/benchmark/azure/) and [Securing Azure environments with Azure Active Directory](https://aka.ms/AzureADSecuredAzure). These guides provide best practices for managing the underlying Azure resources, including Azure Key Vault, Azure Storage, websites, and other Azure-related services and capabilities.
+For guidance on managing your Azure environment, we recommend you review the [Microsoft cloud security benchmark](/security/benchmark/azure/) and [Securing Azure environments with Azure Active Directory](https://aka.ms/AzureADSecuredAzure). These guides provide best practices for managing the underlying Azure resources, including Azure Key Vault, Azure Storage, websites, and other Azure-related services and capabilities.
 
 ## Additional considerations
 

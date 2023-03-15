@@ -3,7 +3,7 @@ title: Access Azure Kinect DK microphone input data
 description: Understand how to get microphone data using the Azure Kinect DK microphone array.
 author: tesych
 ms.author: tesych
-ms.prod: kinect-dk
+ms.service: azure-kinect-developer-kit
 ms.date: 06/26/2019
 ms.topic: conceptual 
 keywords: kinect, azure, sensor, sdk, microphone, access mics, mic data

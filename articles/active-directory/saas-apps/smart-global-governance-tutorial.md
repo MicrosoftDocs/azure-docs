@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/04/2020
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
@@ -48,6 +48,8 @@ To configure the integration of Smart Global Governance into Azure AD, you need 
 1. To add an application, select **New application**.
 1. In the **Add from the gallery** section, enter **Smart Global Governance** in the search box.
 1. Select **Smart Global Governance** in the results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for Smart Global Governance
 
@@ -150,8 +152,6 @@ When you select the Smart Global Governance tile in Access Panel, you should be 
 - [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 - [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)
-
-- [Try Smart Global Governance with Azure AD](https://aad.portal.azure.com/)
 
 - [What is session control in Microsoft Defender for Cloud Apps?](/cloud-app-security/proxy-intro-aad)
 

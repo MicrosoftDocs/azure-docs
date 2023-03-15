@@ -1,20 +1,17 @@
 ---
-title: Micro agent security alerts (Preview)
+title: Micro agent security alerts
 description: Learn about security alerts and recommended remediation using Defender for IoT device's features, and services.
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 01/01/2023
 ---
 
-# Micro agent security alerts (Preview)
+# Micro agent security alerts
 
 Defender for IoT continuously analyzes your IoT solution using advanced analytics and threat intelligence to alert you to malicious activity.
 In addition, you can create custom alerts based on your knowledge of expected device behavior.
 An alert acts as an indicator of potential compromise, and should be investigated and remediated.
 
 In this article, you'll find a list of built-in alerts, which can be triggered on your IoT devices.
-In addition to built-in alerts, Defender for IoT allows you to define custom alerts based on expected IoT Hub and/or device behavior.
-
-For more information, see [customizable alerts](concept-customizable-security-alerts.md).
 
 ## Security alerts
 
@@ -27,10 +24,17 @@ For more information, see [customizable alerts](concept-customizable-security-al
 | Port forwarding detection | High | Defender-IoT-micro-agent | Initiation of port forwarding to an external IP address detected. | Review with the user that ran the command if this was legitimate activity that you expect to see on the device. If not, escalate the alert to the information security team. | IoT_PortForwarding |
 | Possible attempt to disable Auditd logging detected | High | Defender-IoT-micro-agent | Linux Auditd system provides a way to track security-relevant information on the system. The system records as much information about the events that are happening on your system as possible. This information is crucial for mission-critical environments to determine who violated the security policy and the actions they performed. Disabling Auditd logging may prevent your ability to discover violations of security policies used on the system. | Check with the device owner if this was legitimate activity with business reasons. If not, this event may be hiding activity by malicious actors. Immediately escalated the incident to your information security team. | IoT_DisableAuditdLogging |
 | Reverse shells | High | Defender-IoT-micro-agent | Analysis of host data on a device detected a potential reverse shell. Reverse shells are often used to get a compromised machine to call back into a machine controlled by a malicious actor. | Review with the user that ran the command if this was legitimate activity that you expect to see on the device. If not, escalate the alert to the information security team. | IoT_ReverseShell |
-| Successful local login | High | Defender-IoT-micro-agent | Successful local sign-in to the device detected | Make sure the signed in user is an authorized party. | IoT_SucessfulLocalLogin |
+| Successful local login | High | Defender-IoT-micro-agent | Successful local sign-in to the device detected. | Make sure the signed in user is an authorized party. | IoT_SucessfulLocalLogin |
 | Web shell | High | Defender-IoT-micro-agent | Possible web shell detected. Malicious actors commonly upload a web shell to a compromised machine to gain persistence or for further exploitation. | Review with the user that ran the command if this was legitimate activity that you expect to see on the device. If not, escalate the alert to the information security team. | IoT_WebShell |
 | Behavior similar to ransomware detected | High | Defender-IoT-micro-agent | Execution of files similar to known ransomware that may prevent users from accessing their system, or personal files, and may demand ransom payment to regain access. | Review with the user that ran the command if this was legitimate activity that you expect to see on the device. If not, escalate the alert to the information security team. | IoT_Ransomware |
 | Crypto coin miner image | High | Defender-IoT-micro-agent | Execution of a process normally associated with digital currency mining detected. | Verify with the user that ran the command if this was legitimate activity on the device. If not, escalate the alert to the information security team. | IoT_CryptoMiner |
+| New USB Connection | High | Defender-IoT-micro-agent | A USB device connection was detected. This may indicate malicious activity. | Confirm this is a legitimate expected activity on the host. If not, escalate the alert to your information security team. | IoT_USBConnection |
+| USB Disconnection | High | Defender-IoT-micro-agent | A USB device disconnection was detected. This may indicate malicious activity. | Confirm this is a legitimate expected activity on the host. If not, escalate the alert to your information security team. | IoT_UsbDisconnection |
+| New Ethernet Connection | High | Defender-IoT-micro-agent | A new Ethernet connection was detected. This may indicate malicious activity. | Confirm this is a legitimate expected activity on the host. If not, escalate the alert to your information security team. | IoT_EthernetConnection |
+| Ethernet Disconnection | High | Defender-IoT-micro-agent | A new Ethernet disconnection was detected. This may indicate malicious activity. | Confirm this is a legitimate expected activity on the host. If not, escalate the alert to your information security team. | IoT_EthernetDisconnection |
+| New File Created | High | Defender-IoT-micro-agent | A new file was detected. This may indicate malicious activity. | Confirm this is a legitimate expected activity on the host. If not, escalate the alert to your information security team. | IoT_FileCreated |
+| File Modified | High | Defender-IoT-micro-agent | File modification was detected. This may indicate malicious activity. | Confirm this is a legitimate expected activity on the host. If not, escalate the alert to your information security team. | IoT_FileModified |
+| File Deleted | High | Defender-IoT-micro-agent | File deletion was detected. This may indicate malicious activity. | Confirm this is a legitimate expected activity on the host. If not, escalate the alert to your information security team. | IoT_FileDeleted |
 
 ### Medium severity
 

@@ -1,13 +1,13 @@
 ---
-title: 'Quickstart: Create and configure Route Server using Azure PowerShell'
-description: In this quickstart, you learn how to create and configure a Route Server using Azure PowerShell.
+title: 'Quickstart: Create and configure Route Server - Azure PowerShell'
+description: In this quickstart, you learn how to create and configure an Azure Route Server using Azure PowerShell.
 services: route-server
 author: halkazwini
 ms.author: halkazwini
 ms.date: 07/28/2022
 ms.topic: quickstart
 ms.service: route-server
-ms.custom: devx-track-azurepowershell, mode-api
+ms.custom: devx-track-azurepowershell, mode-api, template-quickstart
 ---
 
 # Quickstart: Create and configure Route Server using Azure PowerShell
@@ -173,18 +173,18 @@ $remotepeer = @{
     ResourceGroupName = 'myRouteServerRG'
     PeerName = 'myNVA'
 }
-Get-AzRouteServerPeerAdvertisedRoute @routeserver
+Get-AzRouteServerPeerAdvertisedRoute @remotepeer
 ```
 
 Use the [Get-AzRouteServerPeerLearnedRoute](/powershell/module/az.network/get-azrouteserverpeerlearnedroute) to view routes learned by the Azure Route Server.
 
 ```azurepowershell-interactive
-$routeserver = @{
+$remotepeer = @{
     RouteServerName = 'myRouteServer'
     ResourceGroupName = 'myRouteServerRG'
-    AllowBranchToBranchTraffic
+    PeerName = 'myNVA'
 }  
-Get-AzRouteServerPeerLearnedRoute @routeserver
+Get-AzRouteServerPeerLearnedRoute @remotepeer
 ```
 ## Clean up resources
 
@@ -193,12 +193,12 @@ If you no longer need the Azure Route Server, use the first command to remove th
 1. Remove the BGP peering between Azure Route Server and an NVA with [Remove-AzRouteServerPeer](/powershell/module/az.network/remove-azrouteserverpeer):
 
 ```azurepowershell-interactive
-$peer = @{
+$remotepeer = @{
     PeerName = 'myNVA'
     RouteServerName = 'myRouteServer'
     ResourceGroupName = 'myRouteServerRG'
 } 
-Remove-AzRouteServerPeer @peer
+Remove-AzRouteServerPeer @remotepeer
 ```
 
 2. Remove the Azure Route Server with [Remove-AzRouteServer](/powershell/module/az.network/remove-azrouteserver):

@@ -35,4 +35,4 @@ For more information about web apps discovery please refer to:
 
 
 Next steps:
-[At-scale assessment of .NET web apps](/learn/modules/migrate-app-service-migration-assistant/)
+[At-scale assessment of .NET web apps](/training/modules/migrate-app-service-migration-assistant/)

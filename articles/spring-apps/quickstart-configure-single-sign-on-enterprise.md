@@ -3,10 +3,10 @@ title: "Quickstart - Configure single sign-on for applications using Azure Sprin
 description: Describes single sign-on configuration for Azure Spring Apps Enterprise tier.
 author: KarlErickson
 ms.author: asirveda # external contributor: paly@vmware.com
-ms.service: spring-cloud
+ms.service: spring-apps
 ms.topic: quickstart
 ms.date: 05/31/2022
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 ---
 
 # Quickstart: Configure single sign-on for applications using Azure Spring Apps Enterprise tier

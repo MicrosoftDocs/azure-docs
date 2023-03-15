@@ -8,28 +8,23 @@ ms.author: gimondra
 manager: nitinme
 ms.custom: subject-rbac-steps
 ms.service: cognitive-search
-ms.topic: conceptual
-ms.date: 02/11/2022
+ms.topic: how-to
+ms.date: 09/19/2022
 ---
 
-# Set up an indexer connection to Azure SQL Database using a managed identity
+# Set up an indexer connection to Azure SQL using a managed identity
 
-This article describes how to set up an Azure Cognitive Search indexer connection to Azure SQL Database using a managed identity instead of providing credentials in the connection string.
+This article explains how to set up an indexer connection to Azure SQL Database using a managed identity instead of providing credentials in the connection string.
 
-You can use a system-assigned managed identity or a user-assigned managed identity (preview). Managed identities are Azure AD logins and require Azure role assignments to access data in Azure SQL.
-
-Before learning more about this feature, it is recommended that you have an understanding of what an indexer is and how to set up an indexer for your data source. More information can be found at the following links:
-
-* [Indexer overview](search-indexer-overview.md)
-* [Azure SQL indexer](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+You can use a system-assigned managed identity or a user-assigned managed identity (preview). Managed identities are Azure Active Directory logins and require Azure role assignments to access data in Azure SQL.
 
 ## Prerequisites
 
 * [Create a managed identity](search-howto-managed-identities-data-sources.md) for your search service.
 
-* Azure AD admin role on SQL:
+* [Assign an Azure admin role on SQL](/azure/azure-sql/database/authentication-aad-configure). The identity used on the indexer connection needs read permissions. You must be an Azure AD admin with a server in SQL Database or SQL Managed Instance to grant read permissions on a database.
 
-  To assign read permissions on the database, you must be an Azure AD admin with a server in SQL Database or SQL Managed Instance. See [Configure and manage Azure AD authentication with Azure SQL](/azure/azure-sql/database/authentication-aad-configure) and follow the steps to provision an Azure AD admin.
+* You should be familiar with [indexer concepts](search-indexer-overview.md) and [configuration](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md). 
 
 ## 1 - Assign permissions to read the database
 
@@ -66,7 +61,7 @@ DROP USER IF EXISTS [insert your search service name or user-assigned managed id
 
 ## 2 - Add a role assignment
 
-In this section you'll give your Azure Cognitive Search service permission to read data from your SQL Server. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+In this section you'll, give your Azure Cognitive Search service permission to read data from your SQL Server. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 1. In the Azure portal, navigate to your Azure SQL Server page.
 
@@ -98,7 +93,7 @@ The [REST API](/rest/api/searchservice/create-data-source), Azure portal, and th
 
 When you're connecting with a system-assigned managed identity, the only change to the data source definition is the format of the "credentials" property. You'll provide an Initial Catalog or Database name and a ResourceId that has no account key or password. The ResourceId must include the subscription ID of Azure SQL Database, the resource group of SQL Database, and the name of the SQL database.
 
-Here is an example of how to create a data source to index data from a storage account using the [Create Data Source](/rest/api/searchservice/create-data-source) REST API and a managed identity connection string. The managed identity connection string format is the same for the REST API, .NET SDK, and the Azure portal.
+Here's an example of how to create a data source to index data from a storage account using the [Create Data Source](/rest/api/searchservice/create-data-source) REST API and a managed identity connection string. The managed identity connection string format is the same for the REST API, .NET SDK, and the Azure portal.
 
 ```http
 POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
@@ -125,7 +120,7 @@ The 2021-04-30-preview REST API supports connections based on a user-assigned ma
 
 * Second, you'll add an "identity" property that contains the collection of user-assigned managed identities. Only one user-assigned managed identity should be provided when creating the data source. Set it to type "userAssignedIdentities".
 
-Here is an example of how to create an indexer data source object using the [preview Create or Update Data Source](/rest/api/searchservice/preview-api/create-or-update-data-source) REST API:
+Here's an example of how to create an indexer data source object using the [preview Create or Update Data Source](/rest/api/searchservice/preview-api/create-or-update-data-source) REST API:
 
 ```http
 POST https://[service name].search.windows.net/datasources?api-version=2021-04-30-preview
@@ -170,7 +165,7 @@ api-key: [admin key]
 
 ## 5 - Create the indexer
 
-An indexer connects a data source with a target search index, and provides a schedule to automate the data refresh. Once the index and data source have been created, you're ready to create the indexer.
+An indexer connects a data source with a target search index, and provides a schedule to automate the data refresh. Once the index and data source have been created, you're ready to create the indexer. If the indexer is successful, the connection syntax and role assignments are valid.
 
 Here's a [Create Indexer](/rest/api/searchservice/create-indexer) REST API call with an Azure SQL indexer definition. The indexer will run when you submit the request.
 
@@ -183,11 +178,11 @@ api-key: [admin key]
     "name" : "sql-indexer",
     "dataSourceName" : "sql-datasource",
     "targetIndexName" : "my-target-index"
-```    
+```
 
 ## Troubleshooting
 
-If you get an error when the indexer tries to connect to the data source that says that the client is not allowed to access the server, take a look at [common indexer errors](./search-indexer-troubleshooting.md).
+If you get an error when the indexer tries to connect to the data source that says that the client isn't allowed to access the server, take a look at [common indexer errors](./search-indexer-troubleshooting.md).
 
 You can also rule out any firewall issues by trying the connection with and without restrictions in place.
 

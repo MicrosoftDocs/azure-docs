@@ -53,7 +53,7 @@ This issue occurs when you don't have the following permissions for the user-ass
 > The above permissions are granted by default to Managed Identity Operator and Managed Identity Contributor.
 
 ### Resolution
-Ensure that you have [Identity Operator role permission](/azure/role-based-access-control/built-in-roles#managed-identity-operator) to add the user-assigned managed identity to your Automation account.
+Ensure that you have [Identity Operator role permission](../../role-based-access-control/built-in-roles.md#managed-identity-operator) to add the user-assigned managed identity to your Automation account.
 
 
 ## Scenario: Runbook fails with "this.Client.SubscriptionId cannot be null." error message

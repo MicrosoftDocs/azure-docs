@@ -15,6 +15,8 @@ ms.custom: mvc, devx-track-azurecli, mode-api
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+
 > [!TIP]
 > Consider using the simpler [az mysql up](/cli/azure/mysql#az-mysql-up) Azure CLI command (currently in preview). Try out the [quickstart](./quickstart-create-server-up-azure-cli.md).
 
@@ -22,7 +24,7 @@ This quickstart shows how to use the [Azure CLI](/cli/azure/get-started-with-azu
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
  - This quickstart requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 

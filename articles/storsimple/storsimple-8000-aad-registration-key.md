@@ -4,13 +4,13 @@ description: Explains how to use Azure AD-based authentication for your service,
 author: alkohli
 ms.service: storsimple
 ms.topic: conceptual
-ms.date: 02/08/2022
+ms.date: 08/18/2022
 ms.author: alkohli
 
 ---
 # Use Azure Active Directory (AD) authentication for your StorSimple
 
-[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner-2.md)]
 
 ## Overview
 

@@ -5,11 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, estfan, azla
 ms.topic: how-to
-ms.date: 05/24/2022
+ms.date: 10/01/2022
 ms.custom: devx-track-js
 ---
 
 # Run code snippets in workflows with Inline Code operations in Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 To create and run a code snippet in your logic app workflow without much setup, you can use the **Inline Code** built-in connector. This connector has an action that returns the result from the code snippet so that you can use that output in your workflow's subsequent actions.
 
@@ -409,4 +411,5 @@ For more information about the **Execute JavaScript Code** action's structure an
 
 ## Next steps
 
-Learn more about [Connectors for Azure Logic Apps](../connectors/apis-list.md)
+* [Managed connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
+* [Built-in connectors for Azure Logic Apps](../connectors/built-in.md)

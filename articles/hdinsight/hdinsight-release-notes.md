@@ -4,8 +4,9 @@ description: Latest release notes for Azure HDInsight. Get development tips and 
 ms.custom: references_regions
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 06/03/2022
+ms.date: 02/28/2023
 ---
+
 
 # Azure HDInsight release notes
 
@@ -14,105 +15,77 @@ This article provides information about the **most recent** Azure HDInsight rele
 ## Summary
 
 Azure HDInsight is one of the most popular services among enterprise customers for open-source analytics on Azure.
-If you would like to subscribe on release notes, watch releases on [this GitHub repository](https://github.com/hdinsight/release-notes/releases).
+[Subscribe to our release notes](./subscribe-to-hdi-release-notes-repo.md) and watch releases on [this GitHub repository](https://github.com/hdinsight/release-notes/releases).
 
-## Release date: 06/03/2022
+## Release date: February 28, 2023
 
-This release applies for HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region over several days.
+This release applies to HDInsight 4.0. and 5.0, 5.1. HDInsight release will be available to all regions over several days. This release is applicable for image number **2302250400**. [How to check the image number?](./view-hindsight-cluster-image-version.md)
 
-## Release highlights
+HDInsight uses safe deployment practices, which involve gradual region deployment. it may take up to 10 business days for a new release or a new version to be available in all regions.
 
-**The Hive Warehouse Connector (HWC) on Spark v3.1.2**
+**OS versions**
 
-The Hive Warehouse Connector (HWC) allows you to take advantage of the unique features of Hive and Spark to build powerful big-data applications. HWC is currently supported for Spark v2.4 only.  This feature adds business value by allowing ACID transactions on Hive Tables using Spark. This feature is useful for customers who use both Hive and Spark in their data estate.
-For more information, see [Apache Spark & Hive - Hive Warehouse Connector - Azure HDInsight | Microsoft Docs](./interactive-query/apache-hive-warehouse-connector.md)
+* HDInsight 4.0: Ubuntu 18.04.5 LTS Linux Kernel 5.4
+* HDInsight 5.0: Ubuntu 18.04.5 LTS Linux Kernel 5.4
 
-## Ambari
+For workload specific versions, see 
 
-* Scaling and provisioning improvement changes
-* HDI hive is now compatible with OSS version 3.1.2
+* [HDInsight 4.0 component versions](./hdinsight-40-component-versioning.md)
+* [HDInsight 5.0 component versions](./hdinsight-50-component-versioning.md)
+* [HDInsight 5.1 component versions](./hdinsight-51-component-versioning.md)
 
-HDI Hive 3.1 version is upgraded to OSS Hive 3.1.2. This version has all fixes and features available in open source Hive 3.1.2 version.
+![Icon showing new features with text.](media/hdinsight-release-notes/new-icon-for-new-feature.png) 
+
+**HDInsight 5.1**
+
+We have started rolling out a new version of HDInsight 5.1. All new open-source releases added as incremental releases on HDInsight 5.1.
+
+For more information, see [HDInsight 5.1.0 version](./hdinsight-51-component-versioning.md)
+
+![Icon showing update with text.](media/hdinsight-release-notes/new-icon-for-updated.png)
+
+**Kafka 3.2.0 Upgrade (Preview)** 
+
+* Kafka 3.2.0 includes several significant new features/improvements.
+	* Upgraded Zookeeper to 3.6.3
+	* Kafka Streams support
+	* Stronger delivery guarantees for the Kafka producer enabled by default.
+	* log4j 1.x replaced with reload4j.
+	* Send a hint to the partition leader to recover the partition.
+	* `JoinGroupRequest` and `LeaveGroupRequest` have a reason attached.
+	* Added Broker count metrics8. 
+	* Mirror Maker2 improvements.
+
+**HBase 2.4.11 Upgrade (Preview)**
+* This version has new features such as the addition of new caching mechanism types for block cache, the ability to alter `hbase:meta table` and view the `hbase:meta` table from the HBase WEB UI. 
+
+**Phoenix 5.1.2 Upgrade (Preview)**
+ * Phoenix version upgraded to 5.1.2 in this release. This upgrade includes the Phoenix Query Server. The Phoenix Query Server proxies the standard Phoenix JDBC driver and provides a backwards-compatible wire protocol to invoke that JDBC driver.
+ 
+**Ambari CVEs**
+  * Multiple Ambari CVEs are fixed.
 
 > [!NOTE]
-> **Spark**
-> 
-> * If you are using Azure User Interface to create Spark Cluster for HDInsight, you will see from the dropdown list an additional version Spark 3.1.(HDI 5.0) along with the older versions.  This version is a renamed version of Spark 3.1.(HDI 4.0). This is only an UI level change, which doesn’t impact anything for the existing users and users who are already using the ARM template.
+> ESP isn't supported for Kafka and HBase in this release.
+>
 
-![Screenshot_of spark 3.1 for HDI 5.0.](media/hdinsight-release-notes/spark-3-1-for-hdi-5-0.png)
+![Icon showing end of support with text.](media/hdinsight-release-notes/new-icon-for-end-of-support.png)
 
-> [!NOTE]
-> **Interactive Query**
-> 
-> * If you are creating an Interactive Query Cluster, you will see from the dropdown list an additional version as Interactive Query 3.1 (HDI 5.0).
-> * If you are going to use Spark 3.1 version along with Hive which require ACID support, you need to select this version Interactive Query 3.1 (HDI 5.0).
+End of support for Azure HDInsight clusters on Spark 2.4 February 10, 2024. For more information, see [Spark versions supported in Azure HDInsight](./hdinsight-40-component-versioning.md#spark-versions-supported-in-azure-hdinsight)
 
-![Screenshot_of interactive query 3.1 for HDI 5.0.](media/hdinsight-release-notes/interactive-query-3-1-for-hdi-5-0.png)
+## Upcoming Changes
 
-## TEZ bug fixes
+* Cluster name change limitation 
+  * The max length of cluster name will be changed to 45 from 59 in Public, Mooncake and Fairfax. 
+* Cluster permissions for secure storage  
+  * Customers can specify (during cluster creation) whether a secure channel should be used for HDInsight cluster nodes to contact the storage account. 
+* Non-ESP ABFS clusters [Cluster Permissions for World Readable] 
+  * Plan to introduce a change in non-ESP ABFS clusters, which restricts non-Hadoop group users from executing Hadoop commands for storage operations. This change to improve cluster security posture. Customers need to plan for the updates.
+* Open-source upgrades
+  * Apache Spark 3.3.0 and Hadoop 3.3.4 are under development on HDInsight 5.1 and will include several significant new features, performance and other improvements.
 
-| Bug Fixes|Apache JIRA|
-|---|---|
-|TezUtils.createConfFromByteString on Configuration larger than 32 MB throws com.google.protobuf.CodedInputStream exception |[TEZ-4142](https://issues.apache.org/jira/browse/TEZ-4142)|
-|TezUtils createByteStringFromConf should use snappy instead of DeflaterOutputStream|[TEZ-4113](https://issues.apache.org/jira/browse/TEZ-4113)|
+ > [!NOTE]
+ > We advise customers to use to latest versions of HDInsight [Images](./view-hindsight-cluster-image-version.md) as they bring in the best of open source updates,  Azure updates and security fixes.
 
-## HBase bug fixes
-
-| Bug Fixes|Apache JIRA|
-|---|---|
-|TableSnapshotInputFormat should use ReadType.STREAM for scanning HFiles |[HBASE-26273](https://issues.apache.org/jira/browse/HBASE-26273)|
-|Add option to disable scanMetrics in TableSnapshotInputFormat |[HBASE-26330](https://issues.apache.org/jira/browse/HBASE-26330)|
-|Fix for ArrayIndexOutOfBoundsException when balancer is executed |[HBASE-22739](https://issues.apache.org/jira/browse/HBASE-22739)|
-
-## Hive bug fixes
-
-|Bug Fixes|Apache JIRA|
-|---|---|
-| NPE when inserting data with 'distribute by' clause with dynpart sort optimization|[HIVE-18284](https://issues.apache.org/jira/browse/HIVE-18284)|
-| MSCK REPAIR Command with Partition Filtering Fails While Dropping Partitions|[HIVE-23851](https://issues.apache.org/jira/browse/HIVE-23851)|
-| Wrong exception thrown if capacity<=0|[HIVE-25446](https://issues.apache.org/jira/browse/HIVE-25446)|
-| Support parallel load for HastTables - Interfaces|[HIVE-25583](https://issues.apache.org/jira/browse/HIVE-25583)|
-| Include MultiDelimitSerDe in HiveServer2 By Default|[HIVE-20619](https://issues.apache.org/jira/browse/HIVE-20619)|
-| Remove glassfish.jersey and mssql-jdbc classes from jdbc-standalone jar|[HIVE-22134](https://issues.apache.org/jira/browse/HIVE-22134)|
-| Null pointer exception on running compaction against an MM table.|[HIVE-21280 ](https://issues.apache.org/jira/browse/HIVE-21280)|
-| Hive query with large size via knox fails with Broken pipe Write failed|[HIVE-22231](https://issues.apache.org/jira/browse/HIVE-22231)|
-| Adding ability for user to set bind user|[HIVE-21009](https://issues.apache.org/jira/browse/HIVE-21009)|
-| Implement UDF to interpret date/timestamp using its internal representation and Gregorian-Julian hybrid calendar|[HIVE-22241](https://issues.apache.org/jira/browse/HIVE-22241)|
-| Beeline option to show/not show execution report|[HIVE-22204](https://issues.apache.org/jira/browse/HIVE-22204)|
-| Tez: SplitGenerator tries to look for plan files, which won't exist for Tez|[HIVE-22169 ](https://issues.apache.org/jira/browse/HIVE-22169)|
-| Remove expensive logging from the LLAP cache hotpath|[HIVE-22168](https://issues.apache.org/jira/browse/HIVE-22168)|
-| UDF: FunctionRegistry synchronizes on org.apache.hadoop.hive.ql.udf.UDFType class|[HIVE-22161](https://issues.apache.org/jira/browse/HIVE-22161)|
-| Prevent the creation of query routing appender if property is set to false|[HIVE-22115](https://issues.apache.org/jira/browse/HIVE-22115)|
-| Remove cross-query synchronization for the partition-eval|[HIVE-22106](https://issues.apache.org/jira/browse/HIVE-22106)|
-| Skip setting up hive scratch dir during planning|[HIVE-21182](https://issues.apache.org/jira/browse/HIVE-21182)|
-| Skip creating scratch dirs for tez if RPC is on|[HIVE-21171](https://issues.apache.org/jira/browse/HIVE-21171)|
-| switch Hive UDFs to use Re2J regex engine|[HIVE-19661 ](https://issues.apache.org/jira/browse/HIVE-19661)|
-| Migrated clustered tables using bucketing_version 1 on hive 3 uses bucketing_version 2 for inserts|[HIVE-22429](https://issues.apache.org/jira/browse/HIVE-22429)|
-| Bucketing: Bucketing version 1 is incorrectly partitioning data|[HIVE-21167 ](https://issues.apache.org/jira/browse/HIVE-21167)|
-| Adding ASF License header to the newly added file|[HIVE-22498](https://issues.apache.org/jira/browse/HIVE-22498)|
-| Schema tool enhancements to support mergeCatalog|[HIVE-22498](https://issues.apache.org/jira/browse/HIVE-22498)|
-| Hive with TEZ UNION ALL and UDTF results in data loss|[HIVE-21915](https://issues.apache.org/jira/browse/HIVE-21915)|
-| Split text files even if header/footer exists|[HIVE-21924](https://issues.apache.org/jira/browse/HIVE-21924)|
-| MultiDelimitSerDe returns wrong results in last column when the loaded file has more columns than the once are present in table schema|[HIVE-22360](https://issues.apache.org/jira/browse/HIVE-22360)|
-| LLAP external client - Need to reduce LlapBaseInputFormat#getSplits() footprint|[HIVE-22221](https://issues.apache.org/jira/browse/HIVE-22221)|
-| Column name with reserved keyword is unescaped when query including join on table with mask column is rewritten (Zoltan Matyus via Zoltan Haindrich)|[HIVE-22208](https://issues.apache.org/jira/browse/HIVE-22208)|
-|Prevent LLAP shutdown on AMReporter related RuntimeException|[HIVE-22113](https://issues.apache.org/jira/browse/HIVE-22113)|
-| LLAP status service driver may get stuck with wrong Yarn app ID|[HIVE-21866](https://issues.apache.org/jira/browse/HIVE-21866)|
-| OperationManager.queryIdOperation doesn't  properly clean up multiple queryIds|[HIVE-22275](https://issues.apache.org/jira/browse/HIVE-22275)|
-| Bringing a node manager down blocks restart of LLAP service|[HIVE-22219](https://issues.apache.org/jira/browse/HIVE-22219)|
-| StackOverflowError when drop lots of partitions|[HIVE-15956](https://issues.apache.org/jira/browse/HIVE-15956)|
-| Access check is failed when a temporary directory is removed|[HIVE-22273](https://issues.apache.org/jira/browse/HIVE-22273)|
-| Fix wrong results/ArrayOutOfBound exception in left outer map joins on specific boundary conditions|[HIVE-22120](https://issues.apache.org/jira/browse/HIVE-22120)|
-| Remove distribution management tag from pom.xml|[HIVE-19667](https://issues.apache.org/jira/browse/HIVE-19667)|
-| Parsing time can be high if there's deeply nested subqueries|[HIVE-21980](https://issues.apache.org/jira/browse/HIVE-21980)|
-| For ALTER TABLE t SET TBLPROPERTIES ('EXTERNAL'='TRUE'); `TBL_TYPE` attribute changes not reflecting for non-CAPS|[HIVE-20057 ](https://issues.apache.org/jira/browse/HIVE-20057)|
-| JDBC: HiveConnection shades log4j interfaces|[HIVE-18874](https://issues.apache.org/jira/browse/HIVE-18874)|
-| Update repo URLs in poms - branh 3.1 version|[HIVE-21786](https://issues.apache.org/jira/browse/HIVE-21786)|
-| DBInstall tests broken on master and branch-3.1|[HIVE-21758](https://issues.apache.org/jira/browse/HIVE-21758)|
-| Load data into a bucketed table is ignoring partitions specs and loads data into default partition|[HIVE-21564](https://issues.apache.org/jira/browse/HIVE-21564)|
-| Queries with join condition having timestamp or timestamp with local time zone literal throw SemanticException|[HIVE-21613](https://issues.apache.org/jira/browse/HIVE-21613)|
-| Analyze compute stats for column leave behind staging dir on HDFS|[HIVE-21342](https://issues.apache.org/jira/browse/HIVE-21342)|
-| Incompatible change in Hive bucket computation|[HIVE-21376](https://issues.apache.org/jira/browse/HIVE-21376)|
-| Provide a fallback authorizer when no other authorizer is in use|[HIVE-20420](https://issues.apache.org/jira/browse/HIVE-20420)|
-| Some alterPartitions invocations throw 'NumberFormatException: null'|[HIVE-18767](https://issues.apache.org/jira/browse/HIVE-18767)|
-| HiveServer2: Preauthenticated subject for http transport isn't retained for entire duration of http communication in some cases|[HIVE-20555](https://issues.apache.org/jira/browse/HIVE-20555)|
+### Next steps
+* [Azure HDInsight: Frequently asked questions](./hdinsight-faq.yml)

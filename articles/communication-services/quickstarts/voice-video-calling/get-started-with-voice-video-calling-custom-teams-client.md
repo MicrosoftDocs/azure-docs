@@ -7,13 +7,11 @@ ms.author: xixian
 ms.date: 12/1/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.subservice: calling
+ms.subservice: teams-interop
 ms.custom: mode-other
 ---
 
 # QuickStart: Add 1:1 video calling as a Teams user to your application
-
-[!INCLUDE [Public Preview](../../../communication-services/includes/public-preview-include-document.md)]
 
 [!INCLUDE [Video calling with JavaScript](./includes/custom-teams-endpoint/voice-video-calling-cte-javascript.md)]
 

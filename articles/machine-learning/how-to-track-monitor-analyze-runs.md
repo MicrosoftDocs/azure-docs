@@ -5,12 +5,12 @@ description: Learn how to start, monitor, and track your machine learning experi
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-author: swinner95
-ms.author: shwinne
+ms.author: amipatel
+author: amibp
 ms.reviewer: sgilley
 ms.date: 06/24/2022
 ms.topic: how-to
-ms.custom: devx-track-python, devx-track-azurecli, event-tier1-build-2022
+ms.custom: devx-track-python, event-tier1-build-2022
 ---
 
 # Monitor and analyze jobs in studio
@@ -27,6 +27,7 @@ This article shows how to do the following tasks:
 * Run search over your job history.
 * Cancel or fail jobs.
 * Monitor the job status by email notification.
+* Monitor your job resources (preview)
  
 
 > [!TIP]
@@ -34,7 +35,12 @@ This article shows how to do the following tasks:
 > * If you're looking for information on monitoring training jobs from the CLI or SDK v2, see [Track experiments with MLflow and CLI v2](how-to-use-mlflow-cli-runs.md).
 > * If you're looking for information on monitoring the Azure Machine Learning service and associated Azure services, see [How to monitor Azure Machine Learning](monitor-azure-machine-learning.md).
 >
-> If you're looking for information on monitoring models deployed as web services, see [Collect model data](how-to-enable-data-collection.md) and [Monitor with Application Insights](how-to-enable-app-insights.md).
+> If you're looking for information on monitoring models deployed to online endpoints, see [Monitor online endpoints](how-to-monitor-online-endpoints.md).
+
+> [!IMPORTANT]
+> Items marked (preview) in this article are currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
@@ -138,6 +144,16 @@ To cancel a job in the studio, using the following steps:
     ![New alert rule](./media/how-to-track-monitor-analyze-runs/new-alert-rule.png)
 
 1. See [how to create and manage log alerts using Azure Monitor](../azure-monitor/alerts/alerts-log.md).
+
+## Monitor your job resources (preview)
+
+Navigate to your job in the studio and select the Monitoring tab. This view provides insights on your job's resources on a 30 day rolling basis. 
+
+:::image type="content" source="media/how-to-track-monitor-analyze-runs/monitoring-tab.png" alt-text="Screenshot of Monitoring tab showing resources the selected job has used.":::
+
+>[!NOTE] 
+>This view supports only compute that is managed by Azure Machine Learning.
+>Jobs with a runtime of less than 5 minutes will not have enough data to populate this view.
 
 
 ## Next steps

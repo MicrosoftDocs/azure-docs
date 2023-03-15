@@ -49,26 +49,28 @@ Add another resource type `Microsoft.ServiceFabric/managedclusters/nodetypes` wi
 * Make sure to set `isPrimary` to `true` if you are intending to replace an existing primary node type.
 
 ```json
-          {
-            "apiVersion": "[variables('sfApiVersion')]",
-            "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
-            "name": "[concat(parameters('clusterName'), '/', parameters('nodeType2Name'))]",
-            "location": "[resourcegroup().location]",
-            "dependsOn": [
-              "[concat('Microsoft.ServiceFabric/managedclusters/', parameters('clusterName'))]"
-            ],
-            "properties": {
-                "isPrimary": false,
-                "vmImagePublisher": "[parameters('vmImagePublisher')]",
-                "vmImageOffer": "[parameters('vmImageOffer')]",
-                "vmImageSku": "[parameters('vmImageSku')]",
-                "vmImageVersion": "[parameters('vmImageVersion')]",
-                "vmSize": "[parameters('nodeType2VmSize')]",
-                "vmInstanceCount": "[parameters('nodeType2VmInstanceCount')]",
-                "dataDiskSizeGB": "[parameters('nodeType2DataDiskSizeGB')]",
-                "dataDiskType": "[parameters('nodeType2managedDataDiskType')]"
-           }
+{
+    "apiVersion": "[variables('sfApiVersion')]",
+    "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
+    "name": "[concat(parameters('clusterName'), '/', parameters('nodeType2Name'))]",
+    "location": "[resourcegroup().location]",
+    "dependsOn": [
+        "[concat('Microsoft.ServiceFabric/managedclusters/', parameters('clusterName'))]"
+    ],
+    "properties": {
+        "isPrimary": false,
+        "vmImagePublisher": "[parameters('vmImagePublisher')]",
+        "vmImageOffer": "[parameters('vmImageOffer')]",
+        "vmImageSku": "[parameters('vmImageSku')]",
+        "vmImageVersion": "[parameters('vmImageVersion')]",
+        "vmSize": "[parameters('nodeType2VmSize')]",
+        "vmInstanceCount": "[parameters('nodeType2VmInstanceCount')]",
+        "dataDiskSizeGB": "[parameters('nodeType2DataDiskSizeGB')]",
+        "dataDiskType": "[parameters('nodeType2managedDataDiskType')]"
+    }
+}
 ```
+
 For an example two node type configuration, see our [sample two node type ARM Template](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/SF-Managed-Standard-SKU-2-NT)
 
 ### Add with PowerShell
@@ -152,7 +154,7 @@ In this walkthrough, you will learn how to modify the node count for a node type
 
 ![Sample showing a node count increase][adjust-node-count]
 
-6) Select `Manage node type scaling` to configure the scaling settings and choose between custom autoscale and manual scale options. Autoscale is a built-in feature that helps applications perform their best when demand changes. You can choose to scale your resource manually to a specific instance count, or via a custom Autoscale policy that scales based on metric(s) thresholds, or schedule instance count which scales during designated time windows. [Learn more about Azure Autoscale](https://docs.microsoft.com/azure/azure-monitor/platform/autoscale-get-started?WT.mc_id=Portal-Microsoft_Azure_Monitoring) or [view the how-to video](https://www.microsoft.com/videoplayer/embed/RE4u7ts).
+6) Select `Manage node type scaling` to configure the scaling settings and choose between custom autoscale and manual scale options. Autoscale is a built-in feature that helps applications perform their best when demand changes. You can choose to scale your resource manually to a specific instance count, or via a custom Autoscale policy that scales based on metric(s) thresholds, or schedule instance count which scales during designated time windows. [Learn more about Azure Autoscale](/azure/azure-monitor/platform/autoscale-get-started?WT.mc_id=Portal-Microsoft_Azure_Monitoring) or [view the how-to video](https://www.microsoft.com/videoplayer/embed/RE4u7ts).
 
    * **Custom autoscale**: Select the appropriate `scale mode` to define the custom Autoscale policy - `Scale to a specific instance count`or `Scale based on a metric`. The latter is based on metric trigger rules, for example, increase instance count by 1 when CPU Percentage is above 70%. Once you define the policy, select `Save` at the top.
 
@@ -354,12 +356,22 @@ Set-AzServiceFabricManagedNodeType -ResourceGroupName $rgName -ClusterName $clus
 
 ## Modify the VM SKU for a node type
 
-Service Fabric managed cluster does not support in-place modification of the VM SKU, but is simpler than classic. In order to accomplish this you'll need to do the following:
-* [Create a new node type via portal, ARM template, or PowerShell](how-to-managed-cluster-modify-node-type.md#add-a-node-type) with the required VM SKU. You'll need to use a template or PowerShell for adding a primary or stateless node type.
-* Migrate your workload over. One way is to use a [placement property to ensure that certain workloads run only on certain types of nodes in the cluster](./service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints). 
-* [Delete old node type via portal or PowerShell](how-to-managed-cluster-modify-node-type.md#remove-a-node-type). To remove a primary node type you will have to use PowerShell.
+To modify the VM SKU size used for a node type using an ARM Template, adjust the `vmSize` property with the new value and do a cluster deployment for the setting to take effect. The managed cluster provider will reimage each instance by upgrade domain.  For a list of SKU options, please refer to the [VM sizes - Azure Virtual Machines | Microsoft Learn](../virtual-machines/sizes.md).  
 
-
+```json
+     {
+            "apiVersion": "[variables('sfApiVersion')]",
+            "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
+            "name": "[concat(parameters('clusterName'), '/', parameters('nodeTypeName'))]",
+            "location": "[resourcegroup().location]",
+            "properties": {
+                ...
+                "vmSize": "[parameters('vmImageVersion')]",
+                ...
+            }
+        }
+}
+```
 ## Configure multiple managed disks
 Service Fabric managed clusters by default configure one managed disk. By configuring the following optional property and values, you can add more managed disks to node types within a cluster. You are able to specify the drive letter, disk type, and size per disk.
 
@@ -428,4 +440,3 @@ Service Fabric managed clusters by default configure a Service Fabric data disk 
 [change-nodetype-os-image]: ./media/how-to-managed-cluster-modify-node-type/sfmc-change-os-image.png
 [nodetype-placement-property]: ./media/how-to-managed-cluster-modify-node-type/sfmc-nodetype-placement-property.png
 [addremove]: ./media/how-to-managed-cluster-modify-node-type/sfmc-addremove-node-type.png
-

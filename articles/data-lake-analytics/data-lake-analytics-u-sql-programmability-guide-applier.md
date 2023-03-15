@@ -2,9 +2,9 @@
 title: U-SQL user defined applier programmability guide for Azure Data Lake
 description: Learn about the U-SQL UDO programmability guide - user defined applier.
 ms.service: data-lake-analytics
-ms.reviewer: jasonh
+ms.reviewer: whhender
 ms.topic: how-to
-ms.date: 06/30/2017
+ms.date: 01/27/2023
 ---
 
 # Use user-defined applier 
@@ -59,7 +59,7 @@ public class ParserApplier : IApplier
 * Apply is called for each row of the outer table. It returns the `IUpdatableRow` output rowset.
 * The Constructor class is used to pass parameters to the user-defined applier.
 
-**SqlUserDefinedApplier** indicates that the type should be registered as a user-defined applier. This class cannot be inherited.
+**SqlUserDefinedApplier** indicates that the type should be registered as a user-defined applier. This class can't be inherited.
 
 **SqlUserDefinedApplier** is **optional** for a user-defined applier definition.
 
@@ -98,7 +98,7 @@ The output values must be set with `IUpdatableRow` output:
 output.Set<int>("mycolumn", mycolumn)
 ```
 
-It is important to understand that custom appliers only output columns and values that are defined with `output.Set` method call.
+It's important to understand that custom appliers only output columns and values that are defined with `output.Set` method call.
 
 The actual output is triggered by calling `yield return output.AsReadOnly();`.
 
@@ -108,7 +108,7 @@ The user-defined applier parameters can be passed to the constructor. Applier ca
 new USQL_Programmability.ParserApplier ("all") AS properties(make string, model string, year string, type string, millage int);
 ```
 
-Here is the user-defined applier example:
+Here's the user-defined applier example:
 
 ```csharp
 [SqlUserDefinedApplier]
@@ -203,7 +203,7 @@ In this use case scenario, user-defined applier acts as a comma-delimited value 
 210	X5AB2CD45XY458893	Nissan,Altima,2011,4Dr,74000
 ```
 
-It is a typical tab-delimited TSV file with a properties column that contains car properties such as make and model. Those properties must be parsed to the table columns. The applier that's provided also enables you to generate a dynamic number of properties in the result rowset, based on the parameter that's passed. You can generate either all properties or a specific set of properties only.
+It's a typical tab-delimited TSV file with a properties column that contains car properties such as make and model. Those properties must be parsed to the table columns. The applier that's provided also enables you to generate a dynamic number of properties in the result rowset, based on the parameter that's passed. You can generate either all properties or a specific set of properties only.
 
 ```text
 ...USQL_Programmability.ParserApplier ("all")

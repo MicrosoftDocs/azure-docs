@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Connect an App Services Web app to an Azure Database for MySQL flexible server in a virtual network'
-description: Tutorial to create and connect Web App to Azure Database for MySQL Flexible Server in a virtual network
+title: 'Tutorial: Connect an App Services Web app to an Azure Database for MySQL - Flexible Server in a virtual network'
+description: Tutorial to create and connect Web App to Azure Database for MySQL - Flexible Server in a virtual network
 author: mksuni
 ms.author: sumuth
 ms.service: mysql
@@ -11,11 +11,11 @@ ms.date: 03/18/2021
 ms.custom: mvc, devx-track-azurecli
 ---
 
-# Tutorial: Connect an App Services Web app to an Azure Database for MySQL flexible server in a virtual network
+# Tutorial: Connect an App Services Web app to an Azure Database for MySQL - Flexible Server in a virtual network
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-This tutorial shows you how to create and connect an Azure App Service Web App to an Azure Database for MySQL flexible server isolated inside same or different [virtual networks](../../virtual-network/virtual-networks-overview.md).
+This tutorial shows you how to create and connect an Azure App Service Web App to an Azure Database for MySQL - Flexible Server isolated inside same or different [virtual networks](../../virtual-network/virtual-networks-overview.md).
 
 In this tutorial you will learn how to:
 >[!div class="checklist"]
@@ -44,7 +44,7 @@ If you have multiple subscriptions, choose the appropriate subscription in which
 az account set --subscription <subscription ID>
 ```
 
-## Create an Azure Database for MySQL Flexible Server
+## Create an Azure Database for MySQL - Flexible Server
 
 Create a private flexible server inside a virtual network (VNET) using the following command:
 ```azurecli
@@ -121,7 +121,7 @@ az webapp config set --name mywebapp --resource-group myresourcesourcegroup --ge
 
 ## App Service Web app and MySQL flexible server in different virtual networks
 
-If you have created the App Service app and the MySQL flexible server in different virtual networks (VNets), you will need to use one of the following methods to establish a seamless connection:
+If you have created the App Service app and the MySQL flexible server in different virtual networks (VNets), you will need to do the following two steps to establish a seamless connection:
 
 - **Connect the two VNets using VNet peering** (local or global). See [Connect virtual networks with virtual network peering](../../virtual-network/tutorial-connect-virtual-networks-cli.md) guide.
 - **Link MySQL flexible server's Private DNS zone to the web app's VNet using virtual network links.** If you use the Azure portal or the Azure CLI to create MySQL flexible servers in a VNet, a new private DNS zone is auto-provisioned in your subscription using the server name provided. Navigate to the flexible server's private DNS zone and follow the [How to link the private DNS zone to a virtual network](../../dns/private-dns-getstarted-portal.md#link-the-virtual-network) guide to set up a virtual network link.

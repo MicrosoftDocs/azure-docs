@@ -19,7 +19,7 @@ In this article, you learn how to run Application Insights Profiler on your Azur
 
 ## Pre-requisites
 
-- A functioning [ASP.NET Core application](https://docs.microsoft.com/aspnet/core/getting-started) 
+- A functioning [ASP.NET Core application](/aspnet/core/getting-started) 
 - An [Application Insights resource](../app/create-workspace-resource.md).
 - Review the Azure Resource Manager templates for the Azure Diagnostics extension:
   - [VM](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachine.json)

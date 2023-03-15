@@ -30,7 +30,7 @@ The problem in maintaining cookie-based session affinity may happen due to the f
 
 - “Cookie-based Affinity” setting is not enabled
 - Your application cannot handle cookie-based affinity
-- Application is using cookie-based affinity but requests still bouncing between back-end servers
+- Application is using cookie-based affinity but requests still bouncing between backend servers
 
 ### Check whether the "Cookie-based Affinity” setting is enabled
 
@@ -69,11 +69,11 @@ The application gateway can only perform session-based affinity by using a cooki
 
 If the application cannot handle cookie-based affinity, you must use an external or internal azure load balancer or another third-party solution.
 
-### Application is using cookie-based affinity but requests still bouncing between back-end servers
+### Application is using cookie-based affinity but requests still bouncing between backend servers
 
 #### Symptom
 
-You have enabled the Cookie-based Affinity setting, when you access the Application Gateway by using a short name URL in Internet Explorer, for example: `http://website` , the request is still bouncing between back-end servers.
+You have enabled the Cookie-based Affinity setting, when you access the Application Gateway by using a short name URL in Internet Explorer, for example: `http://website` , the request is still bouncing between backend servers.
 
 To identify this issue, follow the instructions:
 
@@ -162,11 +162,11 @@ Use the web debugger of your choice. In this sample we will use Fiddler to captu
 - **Example A:** You find a session log that the request is sent from the client, and it goes to the public IP address of the Application Gateway, click this log to view the details.  On the right side, data in the bottom box is what the Application Gateway is returning to the client. Select the “RAW” tab and determine whether the client is receiving a "**Set-Cookie: ApplicationGatewayAffinity=** *ApplicationGatewayAffinityValue*." If there's no cookie, session affinity isn't set, or the Application Gateway isn't applying cookie back to the client.
 
    > [!NOTE]
-   > This ApplicationGatewayAffinity value is the cookie-id, that the Application Gateway sets for the client to be sent to a particular back-end server.
+   > This ApplicationGatewayAffinity value is the cookie-id, that the Application Gateway sets for the client to be sent to a particular backend server.
 
    ![Screenshot shows an example of details of a log entry with the Set-Cookie value highlighted.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-17.png)
 
-- **Example B:** The next session log followed by the previous one is the client responding back to the Application Gateway, which has set the ApplicationGatewayAffinity. If the ApplicationGatewayAffinity cookie-id matches, the packet should be sent to the same back-end server that was used previously. Check the next several lines of http communication to see whether the client's ApplicationGatewayAffinity cookie is changing.
+- **Example B:** The next session log followed by the previous one is the client responding back to the Application Gateway, which has set the ApplicationGatewayAffinity. If the ApplicationGatewayAffinity cookie-id matches, the packet should be sent to the same backend server that was used previously. Check the next several lines of http communication to see whether the client's ApplicationGatewayAffinity cookie is changing.
 
    ![Screenshot shows an example of details of a log entry with a cookie highlighted.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-18.png)
 
