@@ -14,6 +14,8 @@ In this article, you learn about the open-source components and their versions i
 
 From February 27, 2023 we have started rolling out a new version of HDInsight 5.1, this version is backward compatible with HDInsight 4.0. and 5.0. All new open-source releases added as incremental releases on HDInsight 5.1.
 
+Only Kafka and HBase clusters are supported right now.
+
 ## Open-source components available with HDInsight version 5.1
 
 The Open-source component versions associated with HDInsight 5.1 listed in the following table.
