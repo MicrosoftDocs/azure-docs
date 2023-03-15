@@ -30,7 +30,7 @@ When one of the numbers is increased, all numbers after it must change, too. One
 
 ## Version 2.0.0
 
-This update was released in March 2023 and had the following change:
+This update was released on March 31, 2023 and had the following change:
 
 - The Azure Virtual Desktop Insights at scale feature is now generally available.
 
