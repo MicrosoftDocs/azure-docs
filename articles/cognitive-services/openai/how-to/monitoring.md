@@ -113,6 +113,7 @@ Errors below certain thresholds can often be evaluated through regular analysis 
 
 Depending on what type of application you're developing in conjunction with your use of Azure OpenAI, [Azure Monitor Application Insights](../../../azure-monitor/overview.md#insights-and-visualizations) may offer additional monitoring benefits at the application layer.
 
+
 ## Next steps
 
 - See [Monitoring Azure resources with Azure Monitor](../../../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.
