@@ -16,7 +16,7 @@ ms.reviewer: mmcc
 
 - Azure subscription: [Create an Azure subscription for free](https://azure.microsoft.com/free/)
 - Application Insights resource: [Create an Application Insights resource](create-workspace-resource.md#create-a-workspace-based-resource)
-- An application that uses [JavaScript](/visualstudio/javascript.yml)
+- An application that uses [JavaScript](/visualstudio/javascript)
 
 ## Get started
 
