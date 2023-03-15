@@ -26,8 +26,8 @@ App Service Environment has three versions. App Service Environment v3 is the la
 |Zone redundancy     |No         |No - [zone pinning](zone-redundancy.md) to one zone is available         |[Yes](../../reliability/migrate-app-service-environment.md)         |
 |Dedicated host group     |No         |No         |[Yes](creation.md#deployment-considerations) (not compatible with zone redundancy)         |
 |Upgrade preference for planned maintenance    |No         |No         |[Yes](how-to-upgrade-preference.md)         |
-|FTPS     |Yes         |Yes         |Yes, must be explicitly [enabled](configure-network-settings.md#ftp-access). Access to FTPS endpoint using custom domain suffix isn't supported.         |
-|Remote debugging     |Yes         |Yes         |Yes, must explicitly [enabled](configure-network-settings.md#remote-debugging-access)         |
+|FTPS     |Yes         |Yes         |Yes, [must be explicitly enabled](configure-network-settings.md#ftp-access). Access to FTPS endpoint using custom domain suffix isn't supported.         |
+|Remote debugging     |Yes         |Yes         |Yes, [must be explicitly enabled](configure-network-settings.md#remote-debugging-access)         |
 |[Azure virtual network (classic)](../../virtual-network/create-virtual-network-classic.md) support    |Yes         |No         |No         |
 
 
@@ -41,7 +41,7 @@ App Service Environment has three versions. App Service Environment v3 is the la
 |SMTP traffic     |Yes         |Yes         |Yes         |
 |Network watcher or NSG flow logs to monitor traffic    |Yes         |Yes         |Yes         |
 |Subnet delegation   |Not required         |Not required         |[Must be delegated to `Microsoft.Web/hostingEnvironments`](networking.md#subnet-requirements)       |
-|Subnet size|TODO:input  |An App Service Environment v2 with no App Service plans uses 12 addresses before you create an app. If you use an ILB App Service Environment v2, then it uses 13 addresses before you create an app. As you scale out, infrastructure roles are added at every multiple of 15 and 20 of your App Service plan instances.  |Any particular subnet has five addresses reserved for management purposes. In addition to the management addresses, App Service Environment v3 dynamically scales the supporting infrastructure, and uses between 4 and 27 addresses, depending on the configuration and load. You can use the remaining addresses for instances in the App Service plan. The minimal size of your subnet can be a /27 address space (32 addresses).  |
+|Subnet size|TODO: input  |An App Service Environment v2 with no App Service plans uses 12 addresses before you create an app. If you use an ILB App Service Environment v2, then it uses 13 addresses before you create an app. As you scale out, infrastructure roles are added at every multiple of 15 and 20 of your App Service plan instances.  |Any particular subnet has five addresses reserved for management purposes. In addition to the management addresses, App Service Environment v3 dynamically scales the supporting infrastructure, and uses between 4 and 27 addresses, depending on the configuration and load. You can use the remaining addresses for instances in the App Service plan. The minimal size of your subnet can be a /27 address space (32 addresses).  |
 
 ### Scaling
 
@@ -54,7 +54,7 @@ App Service Environment v3 runs on the latest [Virtual Machine Scale Sets](../..
 
 ### Pricing
 
-App Service Environment v3 is often cheaper than previous versions due to the removal of the stamp fee and larger instance sizes. For information and example scenarios on how migrating to App Service Environment v3 can impact your costs, see the [migration pricing samples](migrate.md#pricing) and [Estimate your cost savings by migrating to App Service Environment v3](https://azure.github.io/AppService/2023/03/02/App-service-environment-v3-pricing.html).
+App Service Environment v3 is often cheaper than previous versions due to the removal of the stamp fee and larger instance sizes. For information and example scenarios on how migrating to App Service Environment v3 can affect your costs, see the [migration pricing samples](migrate.md#pricing) and [Estimate your cost savings by migrating to App Service Environment v3](https://azure.github.io/AppService/2023/03/02/App-service-environment-v3-pricing.html).
 
 |Feature  |[App Service Environment v1](app-service-app-service-environment-intro.md)  |[App Service Environment v2](intro.md)  |[App Service Environment v3](overview.md)  |
 |---------|---------|---------|---------|
@@ -67,7 +67,7 @@ App Service Environment v3 is often cheaper than previous versions due to the re
 |IP-based Transport Layer Security (TLS) or Secure Sockets Layer (SSL) binding with your apps     |Yes         |Yes         |No         |
 |Custom domain suffix    |Yes         |Yes (only supported with certain API versions)         |[Yes](how-to-custom-domain-suffix.md)         |
 |Support for App Service Managed Certificates   |No         |No         |No        |
-|DNS fall-back TODO:include?  |Azure DNS        |Azure DNS       |Must configure - either have a forwarder to a public DNS or include Azure DNS in the list of custom DNS servers        |
+|DNS fall-back TODO: include?  |Azure DNS        |Azure DNS       |Must configure - either have a forwarder to a public DNS or include Azure DNS in the list of custom DNS servers        |
 
 ### Backup and restore
 
