@@ -30,7 +30,7 @@ Before you can use autolabeling with GPT, you need:
 
 ## Trigger an autolabeling job
 
-When you trigger an autolabeling job with GPT, you're be charged to your Azure OpenAI resource as per your consumption. You're charged an estimate of the number of tokens in each document being autolabeled. Refer to the [Azure OpenAI pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) for a detailed breakdown of pricing per token of different models.
+When you trigger an autolabeling job with GPT, you're charged to your Azure OpenAI resource as per your consumption. You're charged an estimate of the number of tokens in each document being autolabeled. Refer to the [Azure OpenAI pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) for a detailed breakdown of pricing per token of different models.
 
 1.  From the left navigation menu, select **Data labeling**.
 2.  Select the **Autolabel** button under the Activity pane to the right of the page.
@@ -71,9 +71,9 @@ When the autolabeling job is complete, you can see the output documents in the *
 
 :::image type="content" source="../media/open-autotag-files.png" alt-text="A screenshot showing the autolabeled documents" lightbox="../media/open-autotag-files.png":::
 
-Documents that have been automatically classified have suggested labels in the activity pane highlighted in purple. Each suggested label has two selectors (a checkmark and an cancel icon) that allow you to accept or reject the automatic label.
+Documents that have been automatically classified have suggested labels in the activity pane highlighted in purple. Each suggested label has two selectors (a checkmark and a cancel icon) that allow you to accept or reject the automatic label.
 
-Once an label is accepted, the purple color changes to the default blue one, and this label is included in any further model training and become a user defined label.
+Once a label is accepted, the purple color changes to the default blue one, and the label is included in any further model training becoming a user defined label.
 
 After you accept or reject the labels for the autolabeled documents, select **Save labels** to apply the changes.
 
