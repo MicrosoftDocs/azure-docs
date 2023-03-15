@@ -135,7 +135,7 @@ An application gateway can also communicate with to on-premises servers when the
 
 You can create different backend pools for different types of requests. For example, create one backend pool for general requests, and then another backend pool for requests to the microservices for your application.
 
-After you add VMSS as backend pool member, you need to upgrade VMSS instances. Until you upgrade VMSS instances, the backend will be unhealthy.
+After you add virtual machine scale sets as a backend pool member, you need to upgrade virtual machine scale sets instances. Until you upgrade scale sets instances, the backend will be unhealthy.
 
 ## Health probes
 
