@@ -272,7 +272,7 @@ After creating the Conditional Access policy, verify it has been successfully li
 
 4. In the Azure portal, navigate to **Azure Active Directory** and select **Enterprise applications** > **Activity** > **Sign-ins**.
 
-5. Under the **Conditional Access** column you shoul see a status of **Success**. Select the event and then select **Conditional Access** tab. Your Conditional Access policy will be listed.
+5. Under the **Conditional Access** column you should see a status of **Success**. Select the event and then select **Conditional Access** tab. Your Conditional Access policy will be listed.
     :::image type="content" source="./media/managed-aad/conditional-access-sign-in-activity.png" alt-text="Screenshot that shows failed sign-in entry due to Conditional Access policy.":::
 
 ## Configure just-in-time cluster access with Azure AD and AKS
