@@ -29,7 +29,6 @@ To learn more about Azure Compute Gallery and how to create galleries, see:
 
 - A dev center. If you don't have one available, follow the steps in [Create a dev center](./quickstart-configure-dev-box-service.md#create-a-dev-center).
 - A compute gallery. For you to use a gallery to configure dev box definitions, it must have at least [one image definition and one image version](../virtual-machines/image-version.md):
-  - The image definition must have [trusted launch enabled as the security type](../virtual-machines/trusted-launch.md). You configure the security type when you create the image definition.
   - The image version must meet the [Windows 365 image requirements](/windows-365/enterprise/device-images#image-requirements):
     - Generation 2.
     - Hyper-V v2.
@@ -38,6 +37,8 @@ To learn more about Azure Compute Gallery and how to create galleries, see:
     - Single-session virtual machine (VM) images. (Multiple-session VM images aren't supported.)
     - No recovery partition.
     - Default 64-GB OS disk size. The OS disk size is automatically adjusted to the size specified in the SKU description of the Windows 365 license.
+
+  - The image definition must have [trusted launch enabled as the security type](../virtual-machines/trusted-launch.md). You configure the security type when you create the image definition.
 
     :::image type="content" source="media/how-to-configure-azure-compute-gallery/image-definition.png" alt-text="Screenshot that shows Windows 365 image requirement settings.":::
 
