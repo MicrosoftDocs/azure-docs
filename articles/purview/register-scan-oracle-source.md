@@ -71,7 +71,7 @@ Microsoft Purview supports basic authentication (username and password) for scan
 For classification, user also needs to be the owner of the table.
 
 >[!IMPORTANT]
->If the user is not the owner of the table, the scan will run successfully an ingest metadata but will not identify any classifications.
+>If the user is not the owner of the table, the scan will run successfully and ingest metadata, but will not identify any classifications.
 
 The user should have permission to create a session and role SELECT\_CATALOG\_ROLE assigned. Alternatively, the user may have SELECT permission granted for every individual system table that this connector queries metadata from:
 
