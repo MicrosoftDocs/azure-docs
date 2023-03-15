@@ -6,11 +6,14 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 03/07/2023
+ms.date: 03/15/2023
 ms.author: jasteppe
 ---
 
 # How to use the MedTech service Mapping debugger
+
+> [!IMPORTANT]
+> This feature is currently in Public Preview. See [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
