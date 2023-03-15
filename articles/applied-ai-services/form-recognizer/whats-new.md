@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 03/03/2023
+ms.date: 03/15/2023
 ms.author: lajanuar
 monikerRange: '>=form-recog-2.1.0'
 recommendations: false
@@ -30,32 +30,32 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 ## March 2023
 
 > [!IMPORTANT]
-> Document classification, Query fields, and Add-on capabilities are currently only available in the following regions:
+> [**`2023-02-28-preview`**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-02-28-preview/operations/AnalyzeDocument) capabilities are currently only available in the following regions:
 >
 > * West Europe
 > * West US2
 > * East US
 
-* **Document classification** is now a new capability within Form Recognizer starting with the ```2023-02-28-preview``` API. Try out the document classification capability in the [Studio](https://formrecognizer-dogfood.appliedai.azure.com/studio/) or the REST API.
-* **Query fields** added to the General Document model uses Open AI model to extract specific fields from documents. See the [general document](concept-general-document.md) model to learn more or try the feature in the [Studio](https://formrecognizer-dogfood.appliedai.azure.com/studio/). Query fields are currently only active for resources in the East US region.
-* **Additions to the Read and Layout APIs**
-  * **Barcodes** are now supported with the ```2023-02-28-preview``` API.
-  * **Fonts** are now recognized with the ```2023-02-28-preview``` API.
-  * **Formulas** are now recognized with the ```2023-02-28-preview``` API.
-* **Common name** normalizing key variation to a common name makes the General Document model more useful in processing forms with variations in key names. Learn more about the common name feature in the [General Document model](concept-general-document.md).
-* **Custom extraction model updates**
-  * Custom neural models now support added languages for training and analysis. Train neural models for Dutch, French, German, Italian and Spanish.
-  * Custom template models now have an improved signature detection capability.
-* **Service Updates**
-  * Support for high resolution documents
-* **Studio updates**
+* [**Custom classifier model**](concept-custom-classifier.md) is a new capability within Form Recognizer starting with the ```2023-02-28-preview``` API. Try the document classification capability using the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/document-classifier/projects) or the [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-02-28-preview/operations/GetClassifyDocumentResult).
+* [**Query fields**](concept-query-fields.md) capabilities, added to the General Document model, use Azure OpenAI models to extract specific fields from documents. Try the **General documents with query fields** feature using the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio). Query fields are currently only active for resources in the `East US` region.
+* [**Read**](concept-read.md#barcode-extraction) and [**Layout**](concept-layout.md#barcode-extraction) models support **barcode** extraction with the ```2023-02-28-preview``` API.
+* [**Add-on capabilities**](concept-add-on-capabilities.md)
+  * [**Font extraction**](concept-add-on-capabilities.md#font-property-extraction) is now recognized with the ```2023-02-28-preview``` API.
+  * [**Formula extraction**](concept-add-on-capabilities.md#formula-extraction) is now recognized with the ```2023-02-28-preview``` API.
+  * [**High resolution extraction**](concept-add-on-capabilities.md#high-resolution-extraction) is now recognized with the ```2023-02-28-preview``` API.
+* [**Common name key normalization**](concept-general-document.md#key-normalization-common-name) capabilities are added to the General Document model to improve processing forms with variations in key names. 
+* [**Custom extraction model updates**](concept-custom.md)
+  * [**Custom neural model**](concept-custom-neural.md) now supports added languages for training and analysis. Train neural models for Dutch, French, German, Italian and Spanish.
+  * [**Custom template model**](concept-custom-template.md) now has an improved signature detection capability.
+* [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio) updates
   * In addition to support for all the new features like classification and query fields, the Studio now enables project sharing for custom model projects.
-* **Receipt model updates**
+  * New model additions in gated preview: **Vaccination cards**, **Contracts**, **US Tax 1098**, **US Tax 1098-E**, and **US Tax 1095-T**.  To request access to gated preview models, complete and submit the [**Form Recognizer private preview request form**](https://aka.ms/form-recognizer/preview/survey).
+* [**Receipt model updates**](concept-receipt.md)
   * Receipt model has added support for thermal receipts.
   * Receipt model now has added language support for 18 languages and three language dialects (English, French, Portuguese).
   * Receipt model now supports `TaxDetails` extraction.
-* **Layout model** now has improved table recognition.
-* **Read model** now has added improvement for single-digit character recognition.
+* [**Layout model**](concept-layout.md) now has improved table recognition.
+* [**Read model**](concept-read.md) now has added improvement for single-digit character recognition.
 
 ---
 
@@ -152,7 +152,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
     * **Navigation**.  You can select labels to target labeled words within a document.
 
-    * **Auto table labeling**. After you select the table icon within a document, you can opt to auto-label the extracted table in the labeling view.
+    * **Auto table labeling**. After you select the table icon within a document, you can opt to autolabel the extracted table in the labeling view.
 
     * **Label subtypes and second-level subtypes** The Studio now supports subtypes for table columns, table rows, and second-level subtypes for types such as dates and numbers.
 
@@ -480,7 +480,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
   * [**Custom neural model**](concept-custom-neural.md) or custom document model is a new custom model to extract text and selection marks from structured forms, semi-strutured and **unstructured documents**.
   * [**W-2 prebuilt model**](concept-w2.md) is a new prebuilt model to extract fields from W-2 forms for tax reporting and income verification scenarios.
   * [**Read**](concept-read.md) API extracts printed text lines, words, text locations, detected languages, and handwritten text, if detected.
-  * [**General document**](concept-general-document.md) pre-trained model is now updated to support selection marks in addition to API  text, tables, structure, key-value pairs, and named entities from forms and documents.
+  * [**General document**](concept-general-document.md) pretrained model is now updated to support selection marks in addition to API  text, tables, structure, key-value pairs, and named entities from forms and documents.
   * [**Invoice API**](language-support.md#invoice-model) Invoice prebuilt model expands support to Spanish invoices.
   * [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com) adds new demos for Read, W2, Hotel receipt samples, and support for training the new custom neural models.
   * [**Language Expansion**](language-support.md) Form Recognizer Read, Layout, and Custom Form add support for 42 new languages including Arabic, Hindi, and other languages using Arabic and Devanagari scripts to expand the coverage to 164 languages. Handwritten language support expands to Japanese and Korean.
@@ -544,7 +544,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 * **Form Recognizer v3.0 preview release version 4.0.0-beta.1 (2021-10-07)introduces several new features and capabilities:**
 
-  * [**General document**](concept-general-document.md) model is a new API that uses a pre-trained model to extract text, tables, structure, key-value pairs, and named entities from forms and documents.
+  * [**General document**](concept-general-document.md) model is a new API that uses a pretrained model to extract text, tables, structure, key-value pairs, and named entities from forms and documents.
   * [**Hotel receipt**](concept-receipt.md) model added to prebuilt receipt processing.
   * [**Expanded fields for ID document**](concept-id-document.md) the ID model supports endorsements, restrictions, and vehicle classification extraction from US driver's licenses.
   * [**Signature field**](concept-custom.md) is a new field type in custom forms to detect the presence of a signature in a form field.
@@ -762,7 +762,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 * Split **FormField** type into several different interfaces. This update shouldn't cause any API compatibility issues except in certain edge cases (undefined valueType).
 
-* Migrated to the **2.1-preview.3** Form Recognizer service endpoint for all REST API calls.
+* Migrated to the **`2.1-preview.3`** Form Recognizer service endpoint for all REST API calls.
 
 ### [**Python**](#tab/python)
 
@@ -816,7 +816,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 ---
 
-* **SDK preview updates for API version 2.1-preview.3 introduces feature updates and enhancements.**
+* **SDK preview updates for API version `2.1-preview.3` introduces feature updates and enhancements.**
 
 ---
 
@@ -885,7 +885,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 * **Form Recognizer v2.1-preview.1 has been released and includes the following features:
 
-  * **REST API reference is available** - View the [`v2.1-preview.1 reference`](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync)
+  * **REST API reference is available** - View the [`v2.1-preview.1 reference`](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)
   * **New languages supported In addition to English**, the following [languages](language-support.md) are now supported: for `Layout` and `Train Custom Model`: English (`en`), Chinese (Simplified) (`zh-Hans`), Dutch (`nl`), French (`fr`), German (`de`), Italian (`it`), Portuguese (`pt`) and Spanish (`es`).
   * **Checkbox / Selection Mark detection** – Form Recognizer supports detection and extraction of selection marks such as check boxes and radio buttons. Selection Marks are extracted in `Layout` and you can now also label and train in `Train Custom Model` - _Train with Labels_ to extract key-value pairs for selection marks.
   * **Model Compose** - allows multiple models to be composed and called with a single model ID. When you submit a document to be analyzed with a composed model ID, a classification step is first performed to route it to the correct custom model. Model Compose is available for `Train Custom Model` - _Train with labels_.

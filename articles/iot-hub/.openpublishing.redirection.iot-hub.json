@@ -939,6 +939,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-csharp-csharp-device-management-get-started.md",
+      "redirect_url": "/azure/iot-hub/device-management-dotnet",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-python-python-device-management-get-started.md",
+      "redirect_url": "/azure/iot-hub/device-management-python",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-node-node-device-management-get-started.md",
+      "redirect_url": "/azure/iot-hub/device-management-node",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-java-java-device-management-getstarted.md",
+      "redirect_url": "/azure/iot-hub/device-management-java",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/iot-hub/iot-hub-store-data-in-azure-table-storage.md",
       "redirect_url": "/azure/iot-hub/tutorial-routing#routing-to-a-storage-account",
       "redirect_document_id": false
