@@ -44,7 +44,7 @@ Besides the ability to subscribe to Microsoft Graph API events via Event Grid, y
 5. [Subscribe to events](#subscribe-to-events).
 
 
-[!INCLUDE [register-event-grid-provider](includes/register-event-grid-provider.md)]
+[!INCLUDE [register-provider](includes/register-provider.md)]
 
 [!INCLUDE [authorize-verified-partner-to-create-topic](includes/authorize-verified-partner-to-create-topic.md)]
 

@@ -111,7 +111,7 @@ Data connectors are available as part of the following offerings:
 
 ## Broadcom
 
-- [Braodcom Symantec DLP](data-connectors/braodcom-symantec-dlp.md)
+- [Broadcom Symantec DLP](data-connectors/braodcom-symantec-dlp.md)
 
 ## Cisco
 
