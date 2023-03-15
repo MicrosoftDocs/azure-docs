@@ -211,7 +211,7 @@ Follow the steps below to enable CMK while creating Postgres Flexible Server usi
  identityPrincipalId=$(az identity create -g <resource_group> --name <identity_name> --location <azure_region> --query principalId -o tsv)
 ```
 
-4. Add access policy with key permissions of *wrapKey*,*unwrapKey*, *get*, *list* in Azure KeyVault to the managed identity we created above
+4. Add access policy with key permissions of *wrapKey*, *unwrapKey*, *get*, *list* in Azure KeyVault to the managed identity we created above
 ```azurecli-interactive
 az keyvault set-policy -g <resource_group> -n <vault_name>  --object-id $identityPrincipalId --key-permissions wrapKey unwrapKey get list
 ```
