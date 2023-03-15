@@ -349,6 +349,8 @@ Azure virtual machine backup follows the existing pricing model, explained in de
 
 If you're using Standard policy, **Protected Instance (PI) cost** is calculated for the OS disk only if you choose to back up using the **OS Disk only** option.  If you configure backup and select at least one data disk, the PI cost will be calculated for all the disks attached to the VM. **Backup storage cost** is calculated based on only the included disks and so you get to save on the storage cost. **Snapshot cost** is always calculated for all the disks in the VM (both the included and excluded disks).
 
+If you've chosen the Cross Region Restore (CRR) feature, then the [CRR pricing](https://azure.microsoft.com/pricing/details/backup/) applies on the backup storage cost after excluding the disk.
+
 ### Enhanced policy
 
 If you're using Enhanced policy, **Protected Instance (PI)** cost, snapshot cost, and vault tier storage cost are all calculated based on the disks that you've included for backup.
