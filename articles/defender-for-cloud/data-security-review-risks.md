@@ -8,78 +8,47 @@ ms.topic: how-to
 ms.date: 03/14/2023
 ms.custom: template-how-to-pattern
 ---
+# Explore risks to sensitive data
 
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
+After [discovering resources with sensitive data](data-security-posture-enable.md), Microsoft Defender for Cloud lets you explore risks to sensitive data in:
 
-This template provides the basic structure of a How-to article pattern. See the
-[instructions - How-to](../level4/article-how-to-guide.md) in the pattern library.
+- [Attack paths](#discover-publicly-available-sensitive-resources-through-attack-path-in-cloud-map)
+- [Security Explorer](#discover-publicly-available-sensitive-resources-through-security-explorer-in-cloud-map)
+- [Enriched Recommendations and Alerts](#discover-sensitive-resources-in-recommendations-and-alerts)
 
-You can provide feedback about this template at: https://aka.ms/patterns-feedback
+## Discover publicly available sensitive resources through attack path in cloud map 
 
-<!-- 1. H1 -----------------------------------------------------------------------------
+MDC use environment context to perform a risk assessment of your security issues. Defender for Cloud identifies the biggest security risk issues, while distinguishing them from less risky issues.
 
-Required: Start your H1 with a verb. Pick an H1 that clearly conveys the task the user 
-will complete.
+Attack path analysis helps you to address the security issues that pose immediate threats with the greatest potential of being exploited in your environment. Defender for Cloud analyzes which security issues are part of potential attack paths that attackers could use to breach your environment. It also highlights the security recommendations that need to be resolved in order to mitigate it.
 
--->
+To see relevant attack paths, go: **Recommendations** > **Attack paths**
 
-# [H1 heading]
-TODO: Add your heading
+The following attack paths are related to sensitive data:
 
-<!-- 2. Introductory paragraph ----------------------------------------------------------
+- “Internet exposed Azure Storage container with sensitive data is publicly accessible”
 
-Required: Lead with a light intro that describes, in customer-friendly language, what the 
-customer will do. Answer the fundamental “why would I want to do this?” question. Keep it 
-short.
-Readers should have a clear idea of what they will do in this article after reading the 
-introduction.
+    To see the sensitive info types detected in the Azure Storage container, click on the container name in the graph, go to **Insights**, and expand the **Contain sensitive data** insight. To help you mitigate the risk of Storage Account container exposed to the internet with public access, go to **Recommendations**.
 
--->
+- “VM has high severity vulnerabilities and read permission to a data store with sensitive data”
+- “Internet exposed AWS S3 Bucket with sensitive data is publicly accessible”
+- “Internet exposed EC2 instance has high severity vulnerabilities and read permission to a S3 bucket with sensitive data”
 
-[Add your introductory paragraph]
-TODO: Add your introductory paragraph
+Learn more about [attack paths](concept-attack-paths.md).
 
-<!-- 3. Prerequisites --------------------------------------------------------------------
+## Discover publicly available sensitive resources through Security explorer in cloud map
 
-Optional: If there are prerequisites for the task covered by the how-to guide, make 
-**Prerequisites** your first H2 in the guide. The prerequisites H2 is never numbered.
-Use clear and unambiguous language and use a unordered list format.
-If there are specific versions of software a user needs, call out those versions (for example: 
-Visual Studio 2019 or later).
+Cloud security explorer helps you identify security risks in your cloud environment by running graph-based queries on the cloud security graph, which is Defender for Cloud's context engine. You can prioritize your security team's concerns, while taking your organization's specific context and conventions into account.
 
--->
+With the cloud security explorer, you can query all of your security issues and environment context such as assets inventory, exposure to internet, permissions, lateral movement between resources and more.
 
-## Prerequisites
-TODO: Determine if prerequisites are appropriate
-TODO: List the prerequisites if appropriate
+For example, to get list of storage accounts/storage account containers which contain sensitive data and are also exposed to the internet, use this query:
 
-<!-- 4. Task H2s ------------------------------------------------------------------------------
+Learn more about [cloud security explorer](how-to-manage-cloud-security-explorer.md).
 
-Required: Each major step in completing a task should be represented as an H2 in the article.
-These steps should be numbered.
-The procedure should be introduced with a brief sentence or two.
-Multiple procedures should be organized in H2 level sections.
-Procedure steps use ordered lists.
+## Discover sensitive resources in Recommendations and Alerts
 
--->
-
-## 1 - [Doing the first thing]
-TODO: Add introduction sentence(s)
-TODO: Add ordered list of procedure steps
-
-## 2 - [Doing the second thing]
-TODO: Add introduction sentence(s)
-TODO: Add ordered list of procedure steps
-
-## 3 - [Doing the next thing]
-TODO: Add introduction sentence(s)
-TODO: Add ordered list of procedure steps
-
-## [N - Doing the last thing]
-TODO: Add introduction sentence(s)
-TODO: Add ordered list of procedure steps
+Prioritize the alerts and recommendations related to resources with sensitivity labels and sensitive info types. Focus on protecting sensitive resources. The sensitive info types and sensitivity labels found are used in other areas of Microsoft Defender for Cloud. View the resource-level labels and info types in the Security alerts and Recommendations to help you prioritize and focus on protecting your critical resources.
 
 <!-- 5. Next steps ------------------------------------------------------------------------
 

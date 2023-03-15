@@ -29,7 +29,7 @@ To enable data-aware security posture for Azure subscriptions, follow these step
 1. Select the relevant Azure subscription.
 1. For the Defender for CSPM plan, select the **On** status.
 
-    If Defender for CSPM is already on, select **Settings** in the Monitoring coverage column of the Defender CSPM plan and make sure that the Data security posture component is set to **On** status.
+    If Defender for CSPM is already on, select **Settings** in the Monitoring coverage column of the Defender CSPM plan and make sure that the **Sensitive data discovery** component is set to **On** status.
 
 ## Enable Data-aware security posture in Defender CSPM for AWS accounts
 
