@@ -54,7 +54,7 @@ For the most straightforward dev environment, we use GitHub Codespaces so that y
     > [!TIP]
     > You can use the main menu to navigate to the **Terminal** menu option and then select the **New Terminal** option.
     >
-    > :::image type="content" source="media/tutorial-nodejs-web-app/open-terminal-option.png" lightbox="media/tutorial-nodejs-web-app/open-terminal-option.png" alt-text="Screenshot of the menu option to open a new terminal.":::
+    > :::image type="content" source="media/tutorial-nodejs-web-app/open-terminal-option.png" lightbox="media/tutorial-nodejs-web-app/open-terminal-option.png" alt-text="Screenshot of the codespaces menu option to open a new terminal.":::
 
 1. Check the versions of the tools you use in this tutorial.
 
@@ -86,7 +86,7 @@ For the most straightforward dev environment, we use GitHub Codespaces so that y
 
 Alternatively, you can complete this tutorial in [Visual Studio Code](https://code.visualstudio.com) with the following prerequisites installed:
 
-- [Node.js (&ge; 18.0150) & NPM (&ge; 9.5.0)](https://nodejs.org/)
+- [Node.js (&ge; 18.0150) & Node Package Manager (npm) (&ge; 9.5.0)](https://nodejs.org/)
 - [Docker (&ge; 20.10.0)](https://www.docker.com/)
 - [MongoDB Shell (&ge; 1.8.0)](https://www.mongodb.com/)
 - [Azure CLI (&ge; 2.46.0)](/cli/azure)
@@ -172,7 +172,7 @@ Start by running the sample application with the local MongoDB container to vali
 
 1. In the root of the project directory, create a new **.env** file.
 
-1. In the **.env** file, add two enviroment variables for these values:
+1. In the **.env** file, add two environment variables for these values:
 
     | Environment Variable | Value |
     | --- | --- |
@@ -192,11 +192,11 @@ Start by running the sample application with the local MongoDB container to vali
     docker run --detach --publish 65100:5000 --env-file .env express-server
     ```
 
-1. In the **.env** file, update the `REACT_APP_API_ENDPOINT` enviroment variables with this values:
+1. In the **.env** file, update the `REACT_APP_API_ENDPOINT` environment variables with this value:
 
     | Environment Variable | Value |
     | --- | --- |
-    | `REACT_APP_API_ENDPOINT` | The back-end API endpoint that the front-end React application will use. For now, use `http://localhost:65100`. |
+    | `REACT_APP_API_ENDPOINT` | The back-end API endpoint that the front-end React application uses. For now, use `http://localhost:65100`. |
 
     ```env
     CONNECTION_STRING=mongodb://localhost:65000
