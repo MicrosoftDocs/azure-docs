@@ -662,11 +662,7 @@ items:
           displayName: SDK, API, custom events, custom metrics, trackevent,trackmetric, getmetric, trackrequest, trackexception, tracktrace, trackdependency
           href: app/api-custom-events-metrics.md
         - name: Application Insights data model
-          items:
-          - name: Data model
-            href: app/data-model-complete.md
-          - name: Integration with Azure Functions
-            href: app/azure-functions-supported-features.md?toc=/azure/azure-monitor/toc.json
+          href: app/data-model-complete.md
         - name: Connection strings
           href: app/sdk-connection-string.md
           displayName: connection string, instrumentation key
@@ -1480,7 +1476,7 @@ items:
   - name: Application Insights
     items:
     - name: Azure Functions
-      href: ../azure-functions/functions-monitoring.md
+      href: ../azure-functions/functions-monitoring.md?toc=/azure/azure-monitor/toc.json
     - name: Release notes
       items:
       - name: Snapshot Debugger
