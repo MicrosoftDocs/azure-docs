@@ -31,13 +31,22 @@ Secure Azure Machine Learning workspace resources and compute environments using
 > [!TIP]
 > This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
 >
+:::moniker range="azureml-api-2"
 > * [Secure the workspace resources](how-to-secure-workspace-vnet.md)
 > * [Secure the training environment](how-to-secure-training-vnet.md)
 > * [Secure the inference environment](how-to-secure-inferencing-vnet.md)
+:::moniker-end
+:::moniker range="azureml-api-1"
+> * [Secure the workspace resources](./v1/how-to-secure-workspace-vnet.md)
+> * [Secure the training environment](./v1/how-to-secure-training-vnet.md)
+> * [Secure the inference environment](./v1/how-to-secure-inferencing-vnet.md)
+:::moniker-end
 > * [Enable studio functionality](how-to-enable-studio-virtual-network.md)
 > * [Use custom DNS](how-to-custom-dns.md)
 > * [Use a firewall](how-to-access-azureml-behind-firewall.md)
+:::moniker range="azureml-api-2"
 > * [API platform network isolation](how-to-configure-network-isolation-with-v2.md)
+:::moniker-end
 >
 > For a tutorial on creating a secure workspace, see [Tutorial: Create a secure workspace](tutorial-create-secure-workspace.md) or [Tutorial: Create a secure workspace using a template](tutorial-create-secure-workspace-template.md).
 
@@ -86,16 +95,29 @@ If you want to access the workspace over the public internet while keeping all t
 1. Create an [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) that will contain the resources used by the workspace.
 1. Use __one__ of the following options to create a publicly accessible workspace:
 
+    :::moniker range="azureml-api-2"
     * Create an Azure Machine Learning workspace that __does not__ use the virtual network. For more information, see [Manage Azure Machine Learning workspaces](how-to-manage-workspace.md).
     * Create a [Private Link-enabled workspace](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint) to enable communication between your VNet and workspace. Then [enable public access to the workspace](#optional-enable-public-access).
+    :::moniker-end
+    :::moniker range="azureml-api-1"
+    * Create an Azure Machine Learning workspace that __does not__ use the virtual network. For more information, see [Manage Azure Machine Learning workspaces](./v1/how-to-manage-workspace.md).
+    * Create a [Private Link-enabled workspace](./v1/how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint) to enable communication between your VNet and workspace. Then [enable public access to the workspace](#optional-enable-public-access).
+    :::moniker-end
 
 1. Add the following services to the virtual network by using _either_ a __service endpoint__ or a __private endpoint__. Also allow trusted Microsoft services to access these services:
 
     | Service | Endpoint information | Allow trusted information |
     | ----- | ----- | ----- |
+    :::moniker range="azureml-api-2"
     | __Azure Key Vault__| [Service endpoint](../key-vault/general/overview-vnet-service-endpoints.md)</br>[Private endpoint](../key-vault/general/private-link-service.md) | [Allow trusted Microsoft services to bypass this firewall](how-to-secure-workspace-vnet.md#secure-azure-key-vault) |
     | __Azure Storage Account__ | [Service and private endpoint](how-to-secure-workspace-vnet.md?tabs=se#secure-azure-storage-accounts)</br>[Private endpoint](how-to-secure-workspace-vnet.md?tabs=pe#secure-azure-storage-accounts) | [Grant access to trusted Azure services](../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services) |
     | __Azure Container Registry__ | [Private endpoint](../container-registry/container-registry-private-link.md) | [Allow trusted services](../container-registry/allow-access-trusted-services.md) |
+    :::moniker-end
+    :::moniker range="azureml-api-1"
+    | __Azure Key Vault__| [Service endpoint](../key-vault/general/overview-vnet-service-endpoints.md)</br>[Private endpoint](../key-vault/general/private-link-service.md) | [Allow trusted Microsoft services to bypass this firewall](./v1/how-to-secure-workspace-vnet.md#secure-azure-key-vault) |
+    | __Azure Storage Account__ | [Service and private endpoint](./v1/how-to-secure-workspace-vnet.md?tabs=se#secure-azure-storage-accounts)</br>[Private endpoint](./v1/how-to-secure-workspace-vnet.md?tabs=pe#secure-azure-storage-accounts) | [Grant access to trusted Azure services](../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services) |
+    | __Azure Container Registry__ | [Private endpoint](../container-registry/container-registry-private-link.md) | [Allow trusted services](../container-registry/allow-access-trusted-services.md) |
+    :::moniker-end
 
 1. In properties for the Azure Storage Account(s) for your workspace, add your client IP address to the allowed list in firewall settings. For more information, see [Configure firewalls and virtual networks](../storage/common/storage-network-security.md#configuring-access-from-on-premises-networks).
 
@@ -103,6 +125,7 @@ If you want to access the workspace over the public internet while keeping all t
 
 Use the following steps to secure your workspace and associated resources. These steps allow your services to communicate in the virtual network.
 
+:::moniker range="azureml-api-2"
 1. Create an [Azure Virtual Networks](../virtual-network/virtual-networks-overview.md) that will contain the workspace and other resources. Then create a [Private Link-enabled workspace](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint) to enable communication between your VNet and workspace.
 1. Add the following services to the virtual network by using _either_ a __service endpoint__ or a __private endpoint__. Also allow trusted Microsoft services to access these services:
 
@@ -111,11 +134,26 @@ Use the following steps to secure your workspace and associated resources. These
     | __Azure Key Vault__| [Service endpoint](../key-vault/general/overview-vnet-service-endpoints.md)</br>[Private endpoint](../key-vault/general/private-link-service.md) | [Allow trusted Microsoft services to bypass this firewall](how-to-secure-workspace-vnet.md#secure-azure-key-vault) |
     | __Azure Storage Account__ | [Service and private endpoint](how-to-secure-workspace-vnet.md?tabs=se#secure-azure-storage-accounts)</br>[Private endpoint](how-to-secure-workspace-vnet.md?tabs=pe#secure-azure-storage-accounts) | [Grant access from Azure resource instances](../storage/common/storage-network-security.md#grant-access-from-azure-resource-instances)</br>**or**</br>[Grant access to trusted Azure services](../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services) |
     | __Azure Container Registry__ | [Private endpoint](../container-registry/container-registry-private-link.md) | [Allow trusted services](../container-registry/allow-access-trusted-services.md) |
+:::moniker-end
+:::moniker range="azureml-api-1"
+1. Create an [Azure Virtual Networks](../virtual-network/virtual-networks-overview.md) that will contain the workspace and other resources. Then create a [Private Link-enabled workspace](./v1/how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint) to enable communication between your VNet and workspace.
+1. Add the following services to the virtual network by using _either_ a __service endpoint__ or a __private endpoint__. Also allow trusted Microsoft services to access these services:
 
+    | Service | Endpoint information | Allow trusted information |
+    | ----- | ----- | ----- |
+    | __Azure Key Vault__| [Service endpoint](../key-vault/general/overview-vnet-service-endpoints.md)</br>[Private endpoint](../key-vault/general/private-link-service.md) | [Allow trusted Microsoft services to bypass this firewall](./v1/how-to-secure-workspace-vnet.md#secure-azure-key-vault) |
+    | __Azure Storage Account__ | [Service and private endpoint](./v1/how-to-secure-workspace-vnet.md?tabs=se#secure-azure-storage-accounts)</br>[Private endpoint](./v1/how-to-secure-workspace-vnet.md?tabs=pe#secure-azure-storage-accounts) | [Grant access from Azure resource instances](../storage/common/storage-network-security.md#grant-access-from-azure-resource-instances)</br>**or**</br>[Grant access to trusted Azure services](../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services) |
+    | __Azure Container Registry__ | [Private endpoint](../container-registry/container-registry-private-link.md) | [Allow trusted services](../container-registry/allow-access-trusted-services.md) |
+:::moniker-end
 
 :::image type="content" source="./media/how-to-network-security-overview/secure-workspace-resources.svg" alt-text="Diagram showing how the workspace and associated resources communicate inside a VNet.":::
 
-For detailed instructions on how to complete these steps, see [Secure an Azure Machine Learning workspace](how-to-secure-workspace-vnet.md). 
+:::moniker range="azureml-api-2"
+For detailed instructions on how to complete these steps, see [Secure an Azure Machine Learning workspace](how-to-secure-workspace-vnet.md).
+:::moniker-end
+:::moniker range="azureml-api-1"
+For detailed instructions on how to complete these steps, see [Secure an Azure Machine Learning workspace](./v1/how-to-secure-workspace-vnet.md).
+:::moniker-end
 
 ### Limitations
 
@@ -128,15 +166,26 @@ In this section, you learn how to secure the training environment in Azure Machi
 
 To secure the training environment, use the following steps:
 
+:::moniker range="azureml-api-2"
 1. Create an Azure Machine Learning [compute instance and computer cluster in the virtual network](how-to-secure-training-vnet.md) to run the training job.
 1. If your compute cluster or compute instance uses a public IP address, you must [Allow inbound communication](how-to-secure-training-vnet.md) so that management services can submit jobs to your compute resources. 
+:::moniker-end
+:::moniker range="azureml-api-1"
+1. Create an Azure Machine Learning [compute instance and computer cluster in the virtual network](./v1/how-to-secure-training-vnet.md) to run the training job.
+1. If your compute cluster or compute instance uses a public IP address, you must [Allow inbound communication](./v1/how-to-secure-training-vnet.md) so that management services can submit jobs to your compute resources. 
+:::moniker-end
 
     > [!TIP]
     > Compute cluster and compute instance can be created with or without a public IP address. If created with a public IP address, you get a load balancer with a public IP to accept the inbound access from Azure batch service and Azure Machine Learning service. You need to configure User Defined Routing (UDR) if you use a firewall. If created without a public IP, you get a private link service to accept the inbound access from Azure batch service and Azure Machine Learning service without a public IP.
 
 :::image type="content" source="./media/how-to-network-security-overview/secure-training-environment.svg" alt-text="Diagram showing how to secure managed compute clusters and instances.":::
 
+:::moniker range="azureml-api-2"
 For detailed instructions on how to complete these steps, see [Secure a training environment](how-to-secure-training-vnet.md). 
+:::moniker-end
+:::moniker range="azureml-api-1"
+For detailed instructions on how to complete these steps, see [Secure a training environment](./v1/how-to-secure-training-vnet.md). 
+:::moniker-end
 
 ### Example training job submission 
 
@@ -177,7 +226,7 @@ You have two options for AKS clusters in a virtual network:
 
 **Private AKS clusters** have a control plane, which can only be accessed through private IPs. Private AKS clusters must be attached after the cluster is created. 
 
-For detailed instructions on how to add default and private clusters, see [Secure an inferencing environment](how-to-secure-inferencing-vnet.md). 
+For detailed instructions on how to add default and private clusters, see [Secure an inferencing environment](./v1/how-to-secure-inferencing-vnet.md). 
 
 Regardless default AKS cluster or private AKS cluster used, if your AKS cluster is behind of VNET, your workspace and its associate resources (storage, key vault, and ACR) must have private endpoints or service endpoints in the same VNET as the AKS cluster.
 
@@ -192,7 +241,12 @@ You can secure the workspace behind a VNet using a private endpoint and still al
 
 After securing the workspace with a private endpoint, use the following steps to enable clients to develop remotely using either the SDK or Azure Machine Learning studio:
 
+:::moniker range="azureml-api-2"
 1. [Enable public access](how-to-configure-private-link.md#enable-public-access) to the workspace.
+:::moniker-end
+:::moniker range="azureml-api-1"
+1. [Enable public access](./v1/how-to-configure-private-link.md#enable-public-access) to the workspace.
+:::moniker-end
 1. [Configure the Azure Storage firewall](../storage/common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#grant-access-from-an-internet-ip-range) to allow communication with the IP address of clients that connect over the public internet.
 
 ## Optional: enable studio functionality
@@ -250,9 +304,16 @@ For more information on this configuration, see [Create an Azure Machine Learnin
 
 This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
 
+:::moniker range="azureml-api-2"
 * [Secure the workspace resources](how-to-secure-workspace-vnet.md)
 * [Secure the training environment](how-to-secure-training-vnet.md)
 * [Secure the inference environment](how-to-secure-inferencing-vnet.md)
+:::moniker-end
+:::moniker range="azureml-api-1"
+* [Secure the workspace resources](./v1/how-to-secure-workspace-vnet.md)
+* [Secure the training environment](./v1/how-to-secure-training-vnet.md)
+* [Secure the inference environment](./v1/how-to-secure-inferencing-vnet.md)
+:::moniker-end
 * [Enable studio functionality](how-to-enable-studio-virtual-network.md)
 * [Use custom DNS](how-to-custom-dns.md)
 * [Use a firewall](how-to-access-azureml-behind-firewall.md)
