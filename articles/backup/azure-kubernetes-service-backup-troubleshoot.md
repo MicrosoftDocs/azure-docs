@@ -18,7 +18,7 @@ This article provides troubleshooting steps that help you resolve Azure Kubernet
 
 **Error message**:
 
-   ```Erroe
+   ```Error
    {Helm installation from path [] for release [azure-aks-backup] failed with the following error: err [release azure-aks-backup failed, and has been uninstalled due to atomic being set: failed post-install: timed out waiting for the condition]} occurred while doing the operation: {Installing the extension} on the config"`
    ```
 
