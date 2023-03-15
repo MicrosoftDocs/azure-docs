@@ -4,7 +4,7 @@ description: Tutorial - Use the MQTT protocol directly to create an IoT device c
 titleSuffix: Azure IoT
 author: ryanwinter
 ms.author: rywinter
-ms.date: 03/10/2023
+ms.date: 03/15/2023
 ms.topic: tutorial
 ms.service: iot-develop
 services: iot-develop
@@ -78,13 +78,13 @@ az iot hub device-identity create --hub-name my-hub --device-id mqtt-dev-01
 Use the following command to create a SAS token that grants the device access to your IoT hub. Be sure to use the name of your IoT hub:
 
 ```dotnetcli
-az iot hub generate-sas-token --device-id mqtt-dev-01 --hub-name my-hub
+az iot hub generate-sas-token --device-id mqtt-dev-01 --hub-name my-hub --du 7200
 ```
 
 Make a note of the SAS token the command outputs as you need it later. The SAS token looks like `SharedAccessSignature sr=my-hub.azure-devices.net%2Fdevices%2Fmqtt-dev-01&sig=%2FnM...sNwtnnY%3D&se=1677855761`
 
 > [!TIP]
-> By default, the SAS token is valid for 60 minutes. If it expires before you're ready to use it, generate a new one. You can also create a token with a longer duration. To learn more, see [az iot hub generate-sas-token](/cli/azure/iot/hub#az-iot-hub-generate-sas-token).
+> By default, the SAS token is valid for 60 minutes. The `--du 7200` option in the previous command extends the token duration to two hours. If it expires before you're ready to use it, generate a new one. You can also create a token with a longer duration. To learn more, see [az iot hub generate-sas-token](/cli/azure/iot/hub#az-iot-hub-generate-sas-token).
 
 ## Clone the sample repository
 
@@ -291,7 +291,7 @@ The following statements define the topics the device uses to subscribe to devic
 
 The `main` function uses the `mosquitto_connect_callback_set` function to set a callback to handle messages sent from your IoT hub and uses the `mosquitto_subscribe` function to subscribe to the `$iothub/twin/res/#` topic.
 
-The following snippet shows the `connect_callback` function that uses `mosquitto_publish` to set a reported property in the device twin. The device publishes the message to the `$iothub/twin/PATCH/properties/reported/?$rid=patch_temp` topic:
+The following snippet shows the `connect_callback` function that uses `mosquitto_publish` to set a reported property in the device twin. The device publishes the message to the `$iothub/twin/PATCH/properties/reported/?$rid=%d` topic. The `%d` value is incremented each time the device publishes a message to the topic:
 
 ```c
 void connect_callback(struct mosquitto* mosq, void* obj, int result)
