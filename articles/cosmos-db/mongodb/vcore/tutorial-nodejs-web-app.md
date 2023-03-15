@@ -19,9 +19,9 @@ The [MERN (MongoDB, Express, React.js, Node.js) stack](https://www.mongodb.com/m
 > [!div class="checklist"]
 >
 > - Set up your environment
-> - Test the MERN application with a MongoDB container
-> - Validate your application with the Azure Cosmos DB for MongoDB vCore cluster
-> - Deploy your application to Azure App Service
+> - Test the MERN application with a local MongoDB container
+> - Test the MERN application with the Azure Cosmos DB for MongoDB vCore cluster
+> - Deploy the MERN application to Azure App Service
 >
 
 ## Prerequisites
@@ -81,14 +81,22 @@ For the most straightforward dev environment, we use GitHub Codespaces so that y
 
 ### [Visual Studio Code](#tab/visual-studio-code)
 
-Alternatively, you can complete this tutorial in [Visual Studio Code](https://code.visualstudio.com) with the following prerequisites installed:
+Alternatively, you can complete this tutorial in [Visual Studio Code](https://code.visualstudio.com) with software installed on your local machine.
+
+1. Make sure you have the following prerequisites installed:
 
 | Tool | Version |
 | --- | --- |
 | [Docker](https://www.docker.com/) | &ge; 20.10.0 |
-| [Node.js] | &ge; 18.0150 |
-| [Node Package Manager (npm)](https://nodejs.org/)] | &ge; 9.5.0 |
+| [Node.js](https://nodejs.org/) | &ge; 18.0150 |
+| [Node Package Manager (npm)](https://nodejs.org/) | &ge; 9.5.0 |
 | [Azure CLI](/cli/azure) | &ge; 2.46.0 |
+
+1. Make sure you have the following extensions installed:
+
+| Extension | Marketplace link |
+| --- | --- |
+| MongoDB for VS Code | [mongodb.mongodb-vscode](https://marketplace.visualstudio.com/items?itemName=mongodb.mongodb-vscode) |
 
 1. Open **Visual Studio Code** with an empty workspace.
 
@@ -159,14 +167,14 @@ Start by running the sample application's API with the local MongoDB container t
 
 1. In the **client/** directory, create a new **.env** file.
 
-1. In the **client/.env** file, add an environment variables for this value:
+1. In the **client/.env** file, add an environment variable for this value:
 
     | Environment Variable | Value |
     | --- | --- |
     | `CONNECTION_STRING` | The connection string to the Azure Cosmos DB for MongoDB vCore cluster. For now, use `mongodb://localhost`. |
 
     ```env
-    CONNECTION_STRING=mongodb://localhost
+    CONNECTION_STRING=mongodb://localhost:27017?directConnection=true
     ```
 
 1. Change the context of the terminal to the **server/** folder.
@@ -187,52 +195,37 @@ Start by running the sample application's API with the local MongoDB container t
     npm start
     ```
 
-1. The API will automatically open a browser window to verify that it returns an array of product documents.
+1. The API automatically opens a browser window to verify that it returns an array of product documents.
 
 1. Close the extra browser tab/window.
 
 1. Close the terminal.
 
-## Validate your application with the Azure Cosmos DB for MongoDB vCore cluster
+## Test the MERN application with the Azure Cosmos DB for MongoDB vCore cluster
 
-TODO - Short sentence or two.
+Now, let's validate that the application works seamlessly with Azure Cosmos DB for MongoDB vCore. For this task, populate the pre-existing cluster with seed data using the MongoDB shell and then update the API's connection string.
 
-1. TODO
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. TODO
+1. Navigate to the existing Azure Cosmos DB for MongoDB vCore cluster page.
 
-1. TODO
+1. From the Azure Cosmos DB for MongoDB vCore cluster page, select the **Connection strings** navigation menu option.
 
-1. TODO
+   :::image type="content" source="media/tutorial-nodejs-web-app/select-connection-strings-option.png" alt-text="Screenshot of the connection strings option on the page for a cluster.":::
 
-1. TODO
+1. Record the value from the **Connection string** field.
+
+   :::image type="content" source="media/tutorial-nodejs-web-app/connection-string-value.png" alt-text="Screenshot of the connection string credential for a cluster.":::
+
+    > [!IMPORTANT]
+    > The connection string in the portal does not include the username and password values. You must replace the `<user>` and `<password>` placeholders with the credentials you used when you originally created the cluster.
 
 1. Back within your integrated development environment (IDE), open a new terminal.
 
-1. TODO
+1. Start the MongoDB Shell using the `mongosh` command and the connection string you recorded earlier. Make sure you replace the `<user>` and `<password>` placeholders with the credentials you used when you originally created the cluster.
 
     ```shell
-
-    ```
-
-1. TODO
-
-    ```shell
-
-    ```
-
-1. TODO
-
-    ```shell
-
-    ```
-
-1. TODO
-
-1. Create a new `.env` file in the root of the sample project with the connection string you recorded earlier.
-
-    ```output
-    CONNECTION_STRING=<your-connection-string>
+    mongosh "<mongodb-cluster-connection-string>"
     ```
 
     > [!NOTE]
@@ -244,6 +237,66 @@ TODO - Short sentence or two.
     > ```
     >
 
+1. Within the shell, run the following commands to create your database, create your collection, and seed with starter data.
+
+    :::code language="mongosh" source="~/azure-cosmos-db-mongodb-mern-web-app/data/products.mongodb" highlight="5-16":::
+
+1. The commands should result in a list of documents in the local MongoDB collection. Here's a truncated example of the output.
+
+    ```json
+    [
+      {
+        "_id": { "$oid": "640a146e89286b79b6628eef" },
+        "name": "Confira Watch",
+        "category": "watches",
+        "price": 105
+      },
+      {
+        "_id": { "$oid": "640a146e89286b79b6628ef0" },
+        "name": "Diannis Watch",
+        "category": "watches",
+        "price": 98,
+        "sale": true
+      },
+      ...
+    ]
+    ```
+
+    > [!NOTE]
+    > The object ids (`_id`) are randomnly generated and will differ from this truncated example output.
+
+1. Exit the MongoDB shell.
+
+    ```shell
+    exit
+    ```
+
+1. Open the **client/.env** file again. Then, update the value of the `CONNECTION_STRING` environment variables with the connection string you used with the mongo shell:
+
+    ```output
+    CONNECTION_STRING=<your-connection-string>
+    ```
+
+1. Validate that the application is using the database service by changing the context of the terminal to the **server/** folder, installing dependencies from Node Package Manager (npm), and then starting the application.
+
+    ```shell
+    cd server
+
+    npm install
+
+    npm start
+    ```
+
+1. The API automatically opens a browser window to verify that it returns an array of product documents.
+
+1. Close the extra browser tab/window. Then, close the terminal.
+
+## Deploy the MERN application to Azure App Service
+
+Deploy the service and client to Azure App Service to prove that the application works end-to-end. Use secrets in the web apps to store environment variables with credentials and API endpoints.
+
+1. Within your integrated development environment (IDE), open a new terminal.
+
 1. TODO
 
     ```shell
@@ -274,11 +327,6 @@ TODO - Short sentence or two.
 
     ```
 
-## Deploy your application to Azure App Service
-
-TODO - Short sentence or two.
-
-1. TODO
 
 ## Next steps
 
