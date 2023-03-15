@@ -741,6 +741,6 @@ items:
     - name: UI Library for Calling (Android)
       href: https://azure.github.io/azure-sdk-for-android/azure-communication-ui-calling/index.html
     - name: UI Library for Chat (iOS)
-      href:https://azure.github.io/azure-sdk-for-ios/AzureCommunicationUIChat
+      href: https://azure.github.io/azure-sdk-for-ios/AzureCommunicationUIChat
     - name: UI Library for Chat (Android)
       href: https://azure.github.io/azure-sdk-for-android/azure-communication-ui-chat/index.html
