@@ -1,6 +1,16 @@
 {
   "redirections": [     
     {
+      "source_path": "edge/forward-events-event-grid-cloud.md",
+      "redirect_url": "/azure/event-grid/edge/forward-events-cloud",
+      "redirect_document_id": false
+    },      
+    {
+      "source_path": "edge/configure-event-grid.md",
+      "redirect_url": "/azure/event-grid/edge/configure",
+      "redirect_document_id": false
+    },           
+    {
       "source_path": "scripts/event-grid-powershell-webhook-secure-delivery-azure-ad-user.md",
       "redirect_url": "/azure/event-grid/scripts/powershell-webhook-secure-delivery-azure-ad-user",
       "redirect_document_id": false
