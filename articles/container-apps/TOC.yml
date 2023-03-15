@@ -100,12 +100,14 @@
       href: revisions-manage.md
     - name: Ingress
       items:
-      - name: Set up HTTPS or TCP ingress
+      - name: Configure ingress
         href: ingress.md
       - name: Configure IP restrictions
         href: ip-restrictions.md
       - name: Add client certificates
         href: client-certificate-authorization-howto.md
+      - name: Configure traffic-splitting
+        href: traffic-splitting.md
     - name: Custom domains and certificates
       items:
       - name: Set up container app custom domain

@@ -131,13 +131,9 @@ Container Apps supports IP restrictions for ingress. You can restrict access to 
 
 ## Ingress authentication
 
-Azure Container Apps provides built-in authentication and authorization features to secure your external ingress-enabled container app.  For more information, see [Authentication](authentication.md).
+Azure Container Apps provides built-in authentication and authorization features to secure your external ingress-enabled container app.  For more information, see [Authentication and authorization in Azure Container Apps](authentication.md).
 
-Container Apps supports the following authentication methods for ingress:
-
-- mTLS client certificate authentication.  For more information, see [Configure client certificate authorization in Azure Container Apps](client-certificate-authorization-howto.md).
-- OAUTH2 authentication.  For more information, see [Set up OAUTH in Azure Container Apps](oauth2-authorization-howto.md).
-
+Container Apps can be configured to support client certificates (mTLS) for authentication and traffic encryption. For more information, see [Configure client certificates](client-certificates.md).
 
 ## Ingress configuration
 
@@ -159,4 +155,4 @@ Containers Apps allows you to set up traffic rules that split incoming traffic b
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [IP restrictions](ip-restrictions.md)
+> [Configure ingress](ingress.md)

@@ -11,9 +11,9 @@ ms.author: v-bcatherine
 
 # Configure client certificate authentication in Azure Container Apps
 
-Azure Container Apps supports client certificate authentication (also known as mutual TLS or mTLS) to allow  access to your container app through two-way authentication. This article shows you how to configure client certificate authorization in Azure Container Apps.
+Azure Container Apps supports client certificate authentication (also known as mutual TLS or mTLS) to allow access to your container app through two-way authentication. This article shows you how to configure client certificate authorization in Azure Container Apps.
  
-When client certificate mode is enabled the certificates are exchanged between the client and your container app to authenticate identity and enable traffic encryption.  Client certificates are often used in "zero trust" security models to authorize client access within an organization.  For example, you might want to require a client certificate for a backend container app used to manage sensitive data.
+When client certificate are used, the TLS certificates are exchanged between the client and your container app to authenticate identity and enable traffic encryption.  Client certificates are often used in "zero trust" security models to authorize client access within an organization.  For example, you might want to require a client certificate for a backend container app used to manage sensitive data.
 
 Container Apps accepts client certificates in the PKCS12 format are that issued by a trusted certificate authority (CA) or are self-signed.  
 
@@ -31,7 +31,7 @@ Anthony mentioned that we customer will be able to obtain a client certificate t
 The client certificate mode is an ingress property that can be configured for your container app.  The property can be set to one of the following values:
 
 - require: The client certificate is required for all requests to the container app.
-- accept: The client certificate is optional. If the client certificate is not provided, the request is still accepted.
+- accept: The client certificate is optional. If the client certificate isn't provided, the request is still accepted.
 - ignore: The client certificate is ignored. 
 
 When `require` or `accept` are set, ingress passes the client certificate to the container app.
@@ -80,3 +80,5 @@ To configure client certificate authorization in the Azure portal, follow these 
 
 ## Next Steps
 
+> [!div class="nextstepaction"]
+> [Configure ingress](ingress.md)

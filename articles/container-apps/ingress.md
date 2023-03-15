@@ -188,12 +188,12 @@ You can configure ingress when you create your container app by using the Azure 
 1. Configure the ingress settings for your container app.
 1. Select **Limited to Container Apps Environment** for internal ingress or **Accepting traffic from anywhere** for external ingress.
 1. Select the **Ingress Type**:  **HTTP** or **TCP** (TCP ingress is only available in environments configured with a custom VNET).
-1. If *HTTP* is selected for the **Ingress Type** select the **Transport**: **Auto**, **HTTP/1** or **HTTP/2**. 
-1. Select **Insecure connecions** if you want to allow HTTP connections to your app.
+1. If *HTTP* is selected for the **Ingress Type**, select the **Transport**: **Auto**, **HTTP/1** or **HTTP/2**. 
+1. Select **Insecure connections** if you want to allow HTTP connections to your app.
 1. Enter the **Target port** for your container app.
 1. If you have selected **TCP** for the **Transport** option, enter the **Exposed port** for your container app. The exposed port number can be `1` to `65535`. (can't be `80` or `443`)
 
-The **Ingress** settings page for your container app also allow you to configure **IP Restrictions**.  For information to configure IP restriction, see [IP Restrictions](ip-restrictions.md).
+The **Ingress** settings page for your container app also allows you to configure **IP Restrictions**.  For information to configure IP restriction, see [IP Restrictions](ip-restrictions.md).
 
 
 # [ARM template](#tab/arm-template)
@@ -202,7 +202,7 @@ Enable ingress for your container app by using the `ingress` configuration prope
 -`external` property can be set to *true* for external or *false* for internal ingress.
 - Set the `transport` to `auto` to detect HTTP/1 or HTTP/2, `http` for HTTP/1, `http2` for HTTP/2, or `tcp` for TCP.
 - Set the `targetPort` to the port number that your container uses. Your application ingress endpoint is always exposed on port `443`.
-- Set the `exposedPort` property if transport type is `tcp` to an port for TCP ingress. The value must be unique in the Container Apps environment if ingress is external. A port number from `1` to `65535`. (can't be `80` or `443`)
+- Set the `exposedPort` property if transport type is `tcp` to a port for TCP ingress. The value must be unique in the Container Apps environment if ingress is external. A port number from `1` to `65535`. (can't be `80` or `443`)
 
 ```json
 {
@@ -238,7 +238,7 @@ Disable ingress for your container app by using the portal.
 
 # [ARM template](#tab/arm-template)
 
-To disable ingress for your container app omit the `ingress` configuration property entirely.
+Disable ingress for your container app by omitting the `ingress` configuration property entirely.
 
 ---
 
@@ -246,4 +246,4 @@ To disable ingress for your container app omit the `ingress` configuration prope
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [IP restrictions](ip-restrictions.md)
+> [Ingress in Azure Container Apps](ip-restrictions.md)

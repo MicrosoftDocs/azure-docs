@@ -11,13 +11,18 @@ ms.author: v-bcatherine
 
 # Traffic splitting in Azure Container Apps
 
-By default, when ingress is enabled all traffic is routed to the latest deployed revision. You can configure traffic splitting rules to route portions of your traffic to a specific revision. Traffic splitting is useful for testing updates to your container app.  
+By default, when ingress is enabled all traffic is routed to the latest deployed revision. When you enable [multiple revision mode](revisions.md#revision-modes) in your container app, you can split incoming traffic between active revisions.  
+
+Traffic splitting is useful for testing updates to your container app.  You can use traffic splitting to gradually phase in a new revision in [blue-green deployments](https://martinfowler.com/bliki/BlueGreenDeployment.html) or in [A/B testing](https://wikipedia.org/wiki/A/B_testing).
+
+Traffic splitting is based on the weight (percentage) of traffic that is routed to each revision.  The combined weight of all traffic split rules must equal 100%.  You can specify revision by revision name or [revision label](revisions.md#revision-labels).
 
 This article shows you how to configure traffic splitting rules for your container app.
 
 ## Configure traffic splitting
 
-You can configure traffic splitting rules in your container using the Azure CLI, the Azure portal or an ARM template.  The weight of the traffic split is specified as a percentage.  The combined weight of all traffic split rules must equal 100%.
+You can configure traffic splitting rules using the Azure portal, Azure CLI, or ARM template.
+
 
 ```json
 {
@@ -92,38 +97,54 @@ Enable traffic splitting by setting the `ingress` settings in your container ARM
   },
 ```
 
-The follow example shows traffic splitting between two revisions:
-
-
+The following example shows traffic splitting between two revisions:
 
 ```json
-    "traffic": [
-        {
-            "revisionName": "my-example-app--5g3ty20",
-            "weight": 50
-        },
-        {
-            "revisionName": "my-example-app--qcfkbsv",
-            "weight": 50
-        }
-    ],
+{
+  ...
+  "configuration": {
+    "ingress": {
+      "external": true,
+      "targetPort": 80,
+      "allowInsecure": false,
+      "traffic": [
+          {
+              "revisionName": "my-example-app--5g3ty20",
+              "weight": 50
+          },
+          {
+              "revisionName": "my-example-app--qcfkbsv",
+              "weight": 50
+            }
+        ],
+    },
+  },
 ```
 
-The following example show traffic splitting between two revision labels:
+The following example shows traffic splitting between two revision labels:
 
 ```json
-    "traffic": [
-        {
-            "revisionName": "my-example-app--5g3ty20",
-            "weight": 50,
-            "label": "v-2"
-        },
-        {
-            "revisionName": "my-example-app--qcfkbsv",
-            "weight": 50,
-            "label": "v-1"
-        }
-    ],
+{
+  ...
+  "configuration": {
+    "ingress": {
+      "external": true,
+      "targetPort": 80,
+      "allowInsecure": false,
+      "traffic": [
+          {
+              "revisionName": "my-example-app--5g3ty20",
+              "weight": 50,
+              "label": "v-2"
+          },
+          {
+              "revisionName": "my-example-app--qcfkbsv",
+              "weight": 50,
+              "label": "v-1"
+            }
+        ],
+    },
+  },
 ```
 
 ---
@@ -207,3 +228,8 @@ The following example template applies labels to different revisions.
   ]
 }
 ```
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Configure ingress](ingress.md)
