@@ -24,8 +24,6 @@ Multi-label image classification is a computer vision task where the goal is to 
 
 [Follow this link](/azure/machine-learning/reference-automl-images-cli-multilabel-classification) for a full list of configurable parameters of this component.
 
-[Follow this link](/machine-learning/reference-automl-images-cli-multilabel-classification) for a full list of configurable parameters of this component.
-
 This component creates a classification model. Because classification is a supervised learning method, you need a *labeled dataset* that includes a label column with a value for all rows.
 
 This model requires a training dataset. Validation and test datasets are optional. 
