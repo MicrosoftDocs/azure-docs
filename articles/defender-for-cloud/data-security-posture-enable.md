@@ -20,13 +20,24 @@ Before you enable data-aware security posture, you must have the following:
 - Subscription owner role
 - 
 
-## Enable Data-aware security posture in Defender CSPM
+## Enable Data-aware security posture in Defender CSPM for Azure subscriptions
 
-To enable data-aware security posture, follow these steps:
+To enable data-aware security posture for Azure subscriptions, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 1. Navigate to **Microsoft Defender for Cloud** > **Environmental settings**.
 1. Select the relevant Azure subscription.
+1. For the Defender for CSPM plan, select the **On** status.
+
+    If Defender for CSPM is already on, select **Settings** in the Monitoring coverage column of the Defender CSPM plan and make sure that the Data security posture component is set to **On** status.
+
+## Enable Data-aware security posture in Defender CSPM for AWS accounts
+
+To enable data-aware security posture for AWS accounts, follow these steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Navigate to **Microsoft Defender for Cloud** > **Environmental settings**.
+1. Select the relevant AWS account.
 1. For the Defender for CSPM plan, select the **On** status.
 
     If Defender for CSPM is already on, select **Settings** in the Monitoring coverage column of the Defender CSPM plan and make sure that the Data security posture component is set to **On** status.
