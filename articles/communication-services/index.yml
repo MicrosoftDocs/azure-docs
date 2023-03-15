@@ -143,9 +143,9 @@ additionalContent:
               - text: Provide feedback through Azure feedback
                 url: https://feedback.azure.com/d365community
               - text: Ask questions on Microsoft Q&A
-                url: https://learn.microsoft.com/en-us/answers/index.html
+                url: /answers/index.html
               - text: Create Azure support request
-                url: https://learn.microsoft.com/en-us/azure/azure-portal/supportability/how-to-create-azure-support-request
+                url: /azure-portal/supportability/how-to-create-azure-support-request
           - title: Tools
             links:
               - text: Visual Studio
@@ -159,7 +159,7 @@ additionalContent:
               - text: Azure
                 url: https://azure.microsoft.com/
               - text: Azure Cognitive Services 
-                url: ../cognitive-services/
+                url: /cognitive-services/
               - text: Dynamics 365
                 url: https://dynamics.microsoft.com/
 
