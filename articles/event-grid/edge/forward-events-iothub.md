@@ -28,7 +28,7 @@ To complete this tutorial, you need to understand the following concepts:
 - [IoT Edge hub](../../iot-edge/module-composition.md) 
 
 ## Prerequisites 
-In order to complete this tutorial, you will need:
+In order to complete this tutorial, you need:
 
 * **Azure subscription** - Create a [free account](https://azure.microsoft.com/free) if you don't already have one. 
 * **Azure IoT Hub and IoT Edge device** - Follow the steps in the quick start for [Linux](../../iot-edge/quickstart-linux.md) or [Windows devices](../../iot-edge/quickstart.md) if you don't already have one.
@@ -37,7 +37,7 @@ In order to complete this tutorial, you will need:
 
 ## Create topic
 
-As a publisher of an event, you need to create an event grid topic. The topic refers to an end point where publishers can then send events to.
+As a publisher of an event, you need to create an Event Grid topic. The topic refers to an end point where publishers can then send events to.
 
 1. Create topic4.json with the following content. See our [API documentation](api.md) for details about the payload.
 
@@ -79,7 +79,7 @@ As a publisher of an event, you need to create an event grid topic. The topic re
 
 ## Create event subscription
 
-Subscribers can register for events published to a topic. To receive any event, they'll need to create an Event grid subscription on a topic of interest.
+Subscribers can register for events published to a topic. To receive any event, they need to create an Event Grid subscription on a topic of interest.
 
 [!INCLUDE [deploy-iot-edge](../includes/edge-persist-event-subscriptions.md)]
 
@@ -206,7 +206,7 @@ See the IoT Hub [routing tutorial](../../iot-hub/tutorial-routing.md) for the st
 
 ## Next steps
 
-In this tutorial, you created an event grid topic, edge hub subscription, and published events. Now that you know the basic steps to forward to an edge hub, see the following articles:
+In this tutorial, you created an Event Grid topic, edge hub subscription, and published events. Now that you know the basic steps to forward to an edge hub, see the following articles:
 
 * To troubleshoot issues with using Azure Event Grid on IoT Edge, see [Troubleshooting guide](troubleshoot.md).
 * Use [edge hub](../../iot-edge/module-composition.md) route filters to partition events
