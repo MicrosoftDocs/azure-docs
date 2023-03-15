@@ -357,9 +357,6 @@
         - name: Attach and Manage a Synapse Spark pool
           displayName: Attach and Manage a Synapse Spark pool
           href: how-to-manage-synapse-spark-pool.md
-        - name: Reference checkpoint performance with Nebula
-          displayName: Reference checkpoint performance with Nebula
-          href: reference-checkpoint-performance-with-nebula.md
     - name: AKS and Azure Arc-enabled Kubernetes
       items:
         - name: What is Kubernetes compute target
@@ -503,6 +500,9 @@
         - name: Debug jobs and monitor training progress
           displayName: automl
           href: how-to-interactive-jobs.md
+        - name: Optimize Checkpoint Performance for Large Models
+          displayName: Optimize Checkpoint Performance for Large Models
+          href: reference-checkpoint-performance-for-large-models.md
         - name: Train with the Python SDK
           items:
             - name: Tune hyperparameters
