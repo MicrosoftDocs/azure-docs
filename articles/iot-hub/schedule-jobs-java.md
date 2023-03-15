@@ -1,5 +1,5 @@
 ---
-title: Use jobs to schedule tasks for groups of devices (.NET)
+title: Use jobs to schedule tasks for groups of devices (Java)
 titleSuffix: Azure IoT Hub
 description: Use the device SDK for Java to schedule a job that invokes a direct method and updates device twin properties of a simulated device.
 author: kgremban

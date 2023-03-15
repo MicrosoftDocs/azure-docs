@@ -1,5 +1,5 @@
 ---
-title: Use jobs to schedule tasks for groups of devices (.NET)
+title: Use jobs to schedule tasks for groups of devices (Node.js)
 titleSuffix: Azure IoT Hub
 description: Use the device SDK for Node.js to schedule a job that invokes a direct method and updates device twin properties of a simulated device.
 author: kgremban
