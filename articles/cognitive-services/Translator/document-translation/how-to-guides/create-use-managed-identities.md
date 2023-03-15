@@ -17,14 +17,14 @@ ms.author: lajanuar
 
 > [!IMPORTANT]
 >
-> * Currently, Document Translation doesn't support managed identity in the global region. If you intend to use managed identities for Document Translation operations, [create your Translator resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) in a non-global Azure region.
+> * Currently, Document Translation doesn't support managed identity in the global region. If you intend to use managed identities for Document Translation operations, [create your Translator resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) in a non-global Azure region such as **East US**.
 >
 > * Document Translation is **only** available in the S1 Standard Service Plan (Pay-as-you-go) or in the D3 Volume Discount Plan. _See_ [Cognitive Services pricing—Translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator/).
 >
 
 Managed identities for Azure resources are service principals that create an Azure Active Directory (Azure AD) identity and specific permissions for Azure managed resources:
 
-* You can use managed identities to grant access to any resource that supports Azure AD authentication, including your own applications. Managed identities eliminate the need for you to include shared access signature tokens (SAS) with your HTTP requests.
+* You can use managed identities to grant access to any resource that supports Azure AD authentication, including your own applications. Managed identities replace the requirement for you to include shared access signature tokens (SAS) with your HTTP requests.
 
 * To grant access to an Azure resource, assign an Azure role to a managed identity using [Azure role-based access control (`Azure RBAC`)](../../../../role-based-access-control/overview.md).
 
@@ -49,17 +49,27 @@ To get started, you need:
 
 * An [**Azure blob storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) in the same region as your Translator resource. You also need to create containers to store and organize your blob data within your storage account.
 
-* **If your storage account is behind a firewall, you must enable the following configuration**: </br>
+* **If your storage account is behind a firewall, you must enable the following configuration**:
+    1. Go to the [Azure portal](https://portal.azure.com/) and sign in to your Azure account.
+    1. Select the Storage account.
+    1. In the **Security + networking** group in the left pane, select **Networking**.
+    1. In the **Firewalls and virtual networks** tab, select **Enabled from selected virtual networks and IP addresses**.
 
-  * On your storage account page, select **Security + networking** → **Networking** from the left menu.
-    :::image type="content" source="../../media/managed-identities/security-and-networking-node.png" alt-text="Screenshot: security + networking tab.":::
+          :::image type="content" source="../../media/managed-identities/firewalls-and-virtual-networks.png" alt-text="Screenshot: Selected networks radio button selected.":::
 
-  * In the main window, select **Allow access from Selected networks**.
-  :::image type="content" source="../../media/managed-identities/firewalls-and-virtual-networks.png" alt-text="Screenshot: Selected networks radio button selected.":::
+    1. Deselect all check boxes.
+    1. Make sure **Microsoft network routing** is selected.
+    1. Under the **Resource instances** section, select **Microsoft.CognitiveServices/accounts** as the resource type and select your Translator resource as the instance name. 
+    1. Make certain that the **Allow Azure services on the trusted services list to access this storage account** box is checked. For more information about managing exceptions, see [Configure Azure Storage firewalls and virtual networks](../../../../storage/common/storage-network-security.md?tabs=azure-portal#manage-exceptions).
+        
+        :::image type="content" source="../../media/managed-identities/allow-trusted-services-checkbox-portal-view.png" alt-text="Screenshot: allow trusted services checkbox, portal view":::
 
-  * On the selected networks page, navigate to the **Exceptions** category and make certain that the  [**Allow Azure services on the trusted services list to access this storage account**](../../../../storage/common/storage-network-security.md?tabs=azure-portal#manage-exceptions) checkbox is enabled.
+    1. Select **Save**.
 
-    :::image type="content" source="../../media/managed-identities/allow-trusted-services-checkbox-portal-view.png" alt-text="Screenshot: allow trusted services checkbox, portal view":::
+        > [!NOTE]
+        > It may take up to 5 min for the network changes to propagate.
+
+    Although by now the network access is permitted, the Translator resource can't yet access the data in the Storage account. You need to [assign a specific access role](#grant-access-to-your-storage-account) for Translator resource managed identity.
 
 ## Managed identity assignments
 
@@ -81,11 +91,11 @@ In the following steps, we enable a system-assigned managed identity and grant y
 
 1. Navigate to your **Translator** resource page in the Azure portal.
 
-1. In the left rail, select **Identity** from the **Resource Management** list:
+1. In the **Resource Management** group in the left pane, select **Identity**. 
+
+1. Within the **System assigned** tab, turn on the **Status** toggle.
 
     :::image type="content" source="../../media/managed-identities/resource-management-identity-tab.png" alt-text="Screenshot: resource management identity tab in the Azure portal.":::
-
-1. In the main window, toggle the **System assigned Status** tab to **On**.
 
 ## Grant access to your storage account
 
@@ -159,16 +169,20 @@ The following headers are included with each Document Translation API request:
 <!-- markdownlint-disable MD024 -->
 ### Translate all documents in a container
 
+This sample request body references a source container for all documents to be translated to a target language. 
+
+See the request parameters [noted previously](#post-request-body) for more details.
+
 ```json
 {
     "inputs": [
         {
             "source": {
-                "sourceUrl": "https://my.blob.core.windows.net/source-en"
+                "sourceUrl": "https://<storage_account_name>.blob.core.windows.net/<source_container_name>"
             },
             "targets": [
                 {
-                    "targetUrl": "https://my.blob.core.windows.net/target-fr"
+                    "targetUrl": "https://<storage_account_name>.blob.core.windows.net/<target_container_name>"
                     "language": "fr"
                 }
             ]
@@ -179,8 +193,10 @@ The following headers are included with each Document Translation API request:
 
 ### Translate a specific document in a container
 
-* **Required**: "storageType": "File"
-* This sample request returns a single document translated into two target languages:
+This sample request body references a single source document to be translated into two target languages. 
+
+> [!IMPORTANT]
+> In addition to the request parameters [noted previously](#post-request-body), you must include `"storageType": "File"`. Otherwise the source URL is assumed to be at the container level.
 
 ```json
 {
@@ -188,15 +204,15 @@ The following headers are included with each Document Translation API request:
         {
             "storageType": "File",
             "source": {
-                "sourceUrl": "https://my.blob.core.windows.net/source-en/source-english.docx"
+                "sourceUrl": "https://<storage_account_name>.blob.core.windows.net/<source_container_name>/source-english.docx"
             },
             "targets": [
                 {
-                    "targetUrl": "https://my.blob.core.windows.net/target-es/Target-Spanish.docx"
+                    "targetUrl": "https://<storage_account_name>.blob.core.windows.net/<target_container_name>/Target-Spanish.docx"
                     "language": "es"
                 },
                 {
-                    "targetUrl": "https://my.blob.core.windows.net/target-de/Target-German.docx",
+                    "targetUrl": "https://<storage_account_name>.blob.core.windows.net/<target_container_name>/Target-German.docx",
                     "language": "de"
                 }
             ]
@@ -205,25 +221,29 @@ The following headers are included with each Document Translation API request:
 }
 ```
 
-### Translate documents using a custom glossary
+### Translate all documents in a container using a custom glossary
+
+This sample request body references a source container for all documents to be translated to a target language using a glossary. 
+
+See the request parameters [noted previously](#post-request-body) for more details.
 
 ```json
 {
     "inputs": [
         {
             "source": {
-                "sourceUrl": "https://myblob.blob.core.windows.net/source",
+                "sourceUrl": "https://<storage_account_name>.blob.core.windows.net/<source_container_name>",
                 "filter": {
                     "prefix": "myfolder/"
                 }
             },
             "targets": [
                 {
-                    "targetUrl": "https://myblob.blob.core.windows.net/target",
+                    "targetUrl": "https://<storage_account_name>.blob.core.windows.net/<target_container_name>",
                     "language": "es",
                     "glossaries": [
                         {
-                            "glossaryUrl": "https:// myblob.blob.core.windows.net/glossary/en-es.xlf",
+                            "glossaryUrl": "https://<storage_account_name>.blob.core.windows.net/<glossary_container_name>/en-es.xlf",
                             "format": "xliff"
                         }
                     ]
