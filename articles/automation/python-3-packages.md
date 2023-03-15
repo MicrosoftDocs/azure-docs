@@ -3,7 +3,7 @@ title: Manage Python 3 packages in Azure Automation
 description: This article tells how to manage Python 3 packages  in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 02/16/2023
+ms.date: 03/15/2023
 ms.topic: conceptual
 ms.custom: has-adal-ref, references_regions
 ---
@@ -76,7 +76,7 @@ Perform the following steps using a 64-bit Linux machine with Python 3.10.x and 
 
    :::image type="content" source="media/python-3-packages/add-python-3-package.png" alt-text="Screenshot of the Python packages page shows Python packages in the left menu and Add a Python package highlighted.":::
 
-1. On the **Add Python Package** page, select a local package to upload. The package can be a **.whl** or **.tar.gz** file for Python 3.8 and **.whl** file for Python 3.10 (preview). 
+1. On the **Add Python Package** page, select a local package to upload. The package can be **.who** or **.tar.gz** file for Python 3.8 and **.whl** file for Python 3.10 (preview). 
 1. Enter a name and select the **Runtime Version** as Python 3.8 or Python 3.10 (preview).
    > [!NOTE]
    > Python 3.10 (preview) runtime version is currently supported in five regions for Cloud jobs only: West Central US, East US, South Africa North, North Europe, Australia Southeast.                       
@@ -84,7 +84,7 @@ Perform the following steps using a 64-bit Linux machine with Python 3.10.x and 
 
    :::image type="content" source="media/python-3-packages/upload-package.png" alt-text="Screenshot shows the Add Python 3.8 (preview) Package page with an uploaded tar.gz file selected.":::
 
-After a package has been imported, it's listed on the Python packages page in your Automation account. To remove a package, select the package and click **Delete**.
+After a package has been imported, it's listed on the Python packages page in your Automation account. To remove a package, select the package and select **Delete**.
 
 :::image type="content" source="media/python-3-packages/python-3-packages-list.png" alt-text="Screenshot shows the Python 3.8 (preview) packages page after a package has been imported.":::
 
