@@ -11,7 +11,7 @@ ms.subservice: files
 
 # Replace or extend Windows file servers with Azure Files and Azure File Sync
 
-This article explains how you can use Azure Files and Azure File Sync to replace or extend your on-premises Windows file servers to increase flexibility, improve data protection and redundancy, and reduce total cost of ownership (TCO). Azure Files has its origins in the Windows file server role, making it an excellent choice when migrating Windows file servers to the cloud.
+This article explains how you can use Azure Files and Azure File Sync to replace or extend your on-premises Windows file servers to reduce total cost of ownership (TCO), increase flexibility, and simplify data protection and access control. Azure Files has its origins in the Windows file server role, making it an excellent choice when migrating Windows file servers to the cloud.
 
 Most customers take one of two deployment approaches:
 
@@ -62,11 +62,13 @@ Azure Files is built for hybrid access and offers flexible deployment options, i
 
 :::image type="content" source="media/windows-server-to-azure-files/azure-files-network-access.png" alt-text="Screenshot showing various access options for Azure file shares." lightbox="media/windows-server-to-azure-files/azure-files-network-access.png":::
 
-Moving data from Windows file servers to Azure Files is easy, and you can do it in the background without interrupting user access. When you migrate to Azure Files, none of your file path links need to break. You can [use DFS Namespaces](files-manage-namespaces.md) and redirect users to Azure Files. If you're extending an existing Windows file server to Azure using Azure File Sync, users continue to access their files using the same file paths.
+Moving data from Windows file servers to Azure Files is easy, and you can do it in the background without interrupting user access. Just install Azure File Sync on your file server, connect to an Azure file share, and start the synchronization.
+
+When you migrate to Azure Files, none of your file path links need to break. You can [use DFS Namespaces](files-manage-namespaces.md) and redirect users to Azure Files. If you're extending an existing Windows file server to Azure using Azure File Sync, users continue to access their files using the same file paths.
 
 :::image type="content" source="media/windows-server-to-azure-files/azure-file-sync-caching.png" alt-text="Screenshot showing a sample architecture for Azure File Sync spanning on-premises and two Azure regions." lightbox="media/windows-server-to-azure-files/azure-file-sync-caching.png" border="false":::
 
-Azure File Sync can synchronize and cache your Azure file share anywhere you can install Windows Server. As the diagram shows, you can create regional caches of your file servers in different Azure regions. You can cache files on-premises, in your data centers, or on a VM in third-party clouds. Just install Azure File Sync on your file server, connect to an Azure file share, and start the synchronization. Learn more in the tutorial [Extend Windows file servers with Azure File Sync](../file-sync/file-sync-extend-servers.md).
+Azure File Sync can synchronize and cache your Azure file share anywhere you can install Windows Server. As the diagram shows, you can create regional caches of your file servers in different Azure regions. You can cache files on-premises, in your data centers, or on a VM in third-party clouds. Learn more in the tutorial [Extend Windows file servers with Azure File Sync](../file-sync/file-sync-extend-servers.md).
 
 ## Simplified data protection and access control
 
