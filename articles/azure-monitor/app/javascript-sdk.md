@@ -80,6 +80,7 @@ src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js",
 crossOrigin: "anonymous",
 onInit: function (sdk) {
   sdk.addTelemetryInitializer(function (envelope) {
+    envelope.data = envelope.data || {};
     envelope.data.someField = 'This item passed through my telemetry initializer';
   });
 }, // Once the application insights instance has loaded and initialized this method will be called
@@ -108,6 +109,9 @@ When you enable the App Insights JavaScript SDK, the following data classes are 
 - User information (for example, Location, network, IP)
 - Device information (for example, Browser, OS, version, language, model)
 - Session information
+
+> [!Note]
+> For some applications, such as single-page applications (SPAs), the duration may not be recorded and will default to 0.
 
 For more information, see the following link: https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/azure-monitor/app/data-retention-privacy.md
 

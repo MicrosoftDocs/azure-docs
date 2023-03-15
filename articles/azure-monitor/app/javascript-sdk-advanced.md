@@ -73,7 +73,7 @@ These configuration fields are optional and default to false unless otherwise st
 | samplingPercentage | numeric | 100 | Percentage of events that is sent. Default is 100, meaning all events are sent. Set it if you wish to preserve your data cap for large-scale applications. |
 | autoTrackPageVisitTime | boolean | false | If true, on a pageview, the _previous_ instrumented page's view time is tracked and sent as telemetry and a new timer is started for the current pageview. It's sent as a custom metric named `PageVisitTime` in `milliseconds` and is calculated via the Date [now()](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date/now) function (if available) and falls back to (new Date()).[getTime()](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date/getTime) if now() is unavailable (IE8 or less). Default is false. |
 | disableAjaxTracking | boolean | false | If true, Ajax calls aren't autocollected. Default is false. |
-| disableFetchTracking | boolean | false | If true, Fetch requests aren't autocollected. Default is false (Since v2.8.0, previously true) |
+| disableFetchTracking | boolean | false | The default setting for `disableFetchTracking` is `false`, meaning it's enabled. However, in versions prior to 2.8.10, it was disabled by default. When set to `true`, Fetch requests aren't automatically collected. The default setting changed from `true` to `false` in version 2.8.0. |
 | excludeRequestFromAutoTrackingPatterns | string[] \| RegExp[] | undefined | Provide a way to exclude specific route from automatic tracking for XMLHttpRequest or Fetch request. If defined, for an Ajax / fetch request that the request url matches with the regex patterns, auto tracking is turned off. Default is undefined. |
 | addRequestContext | (requestContext: IRequestionContext) => {[key: string]: any} | undefined | Provide a way to enrich dependencies logs with context at the beginning of api call. Default is undefined. You need to check if `xhr` exists if you configure `xhr` related context. You need to check if `fetch request` and `fetch response` exist if you configure `fetch` related context. Otherwise you may not get the data you need. |
 | overridePageViewDuration | boolean | false | If true, default behavior of trackPageView is changed to record end of page view duration interval when trackPageView is called. If false and no custom duration is provided to trackPageView, the page view performance is calculated using the navigation timing API. Default is false. |
@@ -86,7 +86,7 @@ These configuration fields are optional and default to false unless otherwise st
 | disableFlushOnBeforeUnload | boolean | false | Default false. If true, flush method isn't called when onBeforeUnload event triggers |
 | enableSessionStorageBuffer | boolean | true | Default true. If true, the buffer with all unsent telemetry is stored in session storage. The buffer is restored on page load |
 | cookieCfg | [ICookieCfgConfig](javascript-sdk-advanced.md#cookies)<br>[Optional]<br>(Since 2.6.0) | undefined | Defaults to cookie usage enabled see [ICookieCfgConfig](javascript-sdk-advanced.md#cookies) settings for full defaults. |
-| ~~isCookieUseDisabled~~<br>disableCookiesUsage | alias for [`cookieCfg.enabled`](javascript-sdk-advanced.md#cookies)<br>[Optional] | false | Default false. A boolean that indicates whether to disable the use of cookies by the SDK. If true, the SDK doesn't store or read any data from cookies. isCookieUseDisable is deprecated in favor of disableCookiesUsage, when both are provided disableCookiesUsage takes precedence.<br>(Since v2.6.0) If `cookieCfg.enabled` is defined it will take precedence over these values, Cookie usage can be re-enabled after initialization via the core.getCookieMgr().setEnabled(true). |
+| disableCookiesUsage | alias for [`cookieCfg.enabled`](javascript-sdk-advanced.md#cookies)<br>[Optional] | false | Default false. A boolean that indicates whether to disable the use of cookies by the SDK. If true, the SDK doesn't store or read any data from cookies.<br>(Since v2.6.0) If `cookieCfg.enabled` is defined it takes precedence. Cookie usage can be re-enabled after initialization via the core.getCookieMgr().setEnabled(true). |
 | cookieDomain | alias for [`cookieCfg.domain`](javascript-sdk-advanced.md#cookies)<br>[Optional] | null | Custom cookie domain. It's helpful if you want to share Application Insights cookies across subdomains.<br>(Since v2.6.0) If `cookieCfg.domain` is defined it takes precedence over this value. |
 | cookiePath | alias for [`cookieCfg.path`](javascript-sdk-advanced.md#cookies)<br>[Optional]<br>(Since 2.6.0) | null | Custom cookie path. It's helpful if you want to share Application Insights cookies behind an application gateway.<br>If `cookieCfg.path` is defined, it takes precedence. |
 | isRetryDisabled | boolean | false | Default false. If false, retry on 206 (partial success), 408 (timeout), 429 (too many requests), 500 (internal server error), 503 (service unavailable), and 0 (offline, only if detected) |
@@ -130,7 +130,7 @@ You can control cookies by enabling or disabling them, setting custom domains an
 
 ### Cookie configuration
 
-ICookieMgrConfig is a cookie configuration for instance-based cookie management added in 2.6.0. The options provided allow you to enable or disable the use of cookies by the SDK.[0] You can also set custom cookie domains and paths and customize the functions for fetching, setting, and deleting cookies.
+ICookieMgrConfig is a cookie configuration for instance-based cookie management added in 2.6.0. The options provided allow you to enable or disable the use of cookies by the SDK. You can also set custom cookie domains and paths and customize the functions for fetching, setting, and deleting cookies.
 
 The ICookieMgrConfig options are defined in the following table.
 
@@ -172,27 +172,6 @@ To view the unminified callstack, select an Exception Telemetry item in the Azur
 Tree shaking eliminates unused code from the final JavaScript bundle.
 
 To take advantage of tree shaking, import only the necessary components of the SDK into your code. By doing so, unused code isn't included in the final bundle, reducing its size and improving performance.
-
-For example, if you only need to track page views and exceptions, you can import only the required components of the SDK as follows:
-
-```javascript
-import { ApplicationInsights } from "@microsoft/applicationinsights-web";
-import { PageView, Exception } from "@microsoft/applicationinsights-web/dist/classes/Telemetry/PageView";
-
-const appInsights = new ApplicationInsights({
-  config: {
-    connectionString: "YOUR_CONNECTION_STRING",
-    extensions: [
-      new PageView(),
-      new Exception()
-    ],
-    ...
-  }
-});
-appInsights.loadAppInsights();
-```
-
-In this example, only the PageView and Exception components of the SDK are imported, and the rest of the SDK components aren't included in the final bundle.
 
 ### Tree shaking enhancements and recommendations
 
