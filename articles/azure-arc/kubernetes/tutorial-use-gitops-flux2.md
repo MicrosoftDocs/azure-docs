@@ -1,23 +1,22 @@
 ---
 title: "Tutorial: Deploy applications using GitOps with Flux v2"
 description: "This tutorial shows how to use GitOps with Flux v2 to manage configuration and application deployment in Azure Arc and AKS clusters."
-ms.date: 03/10/2023
+ms.date: 03/15/2023
 ms.topic: tutorial
 ms.custom: template-tutorial, devx-track-azurecli, references_regions, ignite-2022
 ---
 
 # Tutorial: Deploy applications using GitOps with Flux v2
 
-GitOps with Flux v2 can be enabled as a [cluster extension](conceptual-extensions.md) in Azure Arc-enabled Kubernetes clusters or Azure Kubernetes Service (AKS) clusters. After the `microsoft.flux` cluster extension is installed, you can create one or more `fluxConfigurations` resources that sync your Git repository sources to the cluster and reconcile the cluster to the desired state. With GitOps, you can use your Git repository as the source of truth for cluster configuration and application deployment.
-
-> [!NOTE]
-> Eventually Azure will stop supporting GitOps with Flux v1, so we recommend [migrating to Flux v2](conceptual-gitops-flux2.md#migrate-from-flux-v1) as soon as possible.
-
-This tutorial describes how to use GitOps in a Kubernetes cluster. Before you dive in, take a moment to [learn how GitOps with Flux works conceptually](./conceptual-gitops-flux2.md).
+This tutorial describes how to use GitOps in a Kubernetes cluster. GitOps with Flux v2 is enabled as a [cluster extension](conceptual-extensions.md) in Azure Arc-enabled Kubernetes clusters or Azure Kubernetes Service (AKS) clusters. After the `microsoft.flux` cluster extension is installed, you can create one or more `fluxConfigurations` resources that sync your Git repository sources to the cluster and reconcile the cluster to the desired state. With GitOps, you can use your Git repository as the source of truth for cluster configuration and application deployment.
 
 In this tutorial, we use an example GitOps configuration with two kustomizations, so that you can see how one kustomization can have a dependency on another. You can add more kustomizations and dependencies as needed, depending on your scenario.
 
+Before you dive in, take a moment to [learn how GitOps with Flux works conceptually](./conceptual-gitops-flux2.md).
+
 > [!TIP]
+> While the source in this tutorial is a Git repository, Flux also provides support for other common file sources such as Helm repositories, Buckets, and Azure Blob Storage.
+>
 > You can also create Flux configurations by using Bicep, ARM templates, or Terraform AzAPI provider. For more information, see [Microsoft.KubernetesConfiguration fluxConfigurations](/azure/templates/microsoft.kubernetesconfiguration/fluxconfigurations).
 
 > [!IMPORTANT]
@@ -25,6 +24,9 @@ In this tutorial, we use an example GitOps configuration with two kustomizations
 
 > [!TIP]
 > When using this extension with [AKS hybrid clusters provisioned from Azure](extensions.md#aks-hybrid-clusters-provisioned-from-azure-preview) you must set `--cluster-type` to use `provisionedClusters` and also add `--cluster-resource-provider microsoft.hybridcontainerservice` to the command. Installing Azure Arc extensions on AKS hybrid clusters provisioned from Azure is currently in preview.
+
+> [!NOTE]
+> Eventually Azure will stop supporting GitOps with Flux v1, so we recommend [migrating to Flux v2](conceptual-gitops-flux2.md#migrate-from-flux-v1) as soon as possible.
 
 ## Prerequisites
 
