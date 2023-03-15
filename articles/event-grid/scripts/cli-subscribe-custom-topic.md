@@ -37,8 +37,7 @@ This script uses the following command to create the event subscription. Each co
 
 | Command | Notes |
 |---|---|
-| [az eventgrid event-subscription create](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create) | Create an Event Grid subscription. |
-| [az eventgrid event-subscription create](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create) - extension version | Create an Event Grid subscription. |
+| [`az eventgrid event-subscription create`](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create) | Create an Event Grid subscription. |
 
 ## Next steps
 

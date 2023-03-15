@@ -53,7 +53,7 @@ items:
   - name: Tutorials
     items:
     - name: Email when VM changes
-      href: monitor-virtual-machine-changes-event-grid-logic-app.md
+      href: monitor-virtual-machine-changes-logic-app.md
     - name: Resize uploaded images
       items:
       - name: Upload image data in the cloud with Azure Storage
@@ -71,7 +71,7 @@ items:
       - name: Azure Functions
         href: ../service-bus-messaging/service-bus-to-event-grid-integration-function.md?toc=/azure/event-grid/toc.json
     - name: Stream data from Event Hubs
-      href: event-grid-event-hubs-integration.md
+      href: event-hubs-integration.md
     - name: Route Media Services events
       href: /azure/media-services/latest/monitoring/job-state-events-cli-how-to
     - name: Route to Hybrid Connection
@@ -79,16 +79,16 @@ items:
   - name: Samples
     items:
     - name: Azure CLI
-      href: scripts/event-grid-cli-subscribe-custom-topic.md
+      href: scripts/cli-subscribe-custom-topic.md
     - name: Azure PowerShell
       href: powershell-samples.md
       items:
       - name: Create custom topic
-        href: scripts/event-grid-powershell-create-custom-topic.md
+        href: scripts/powershell-create-custom-topic.md
       - name: Subscribe to Azure subscription
-        href: scripts/event-grid-powershell-azure-subscription.md
+        href: scripts/powershell-azure-subscription.md
       - name: Subscribe to Blob storage
-        href: scripts/event-grid-powershell-blob.md
+        href: scripts/powershell-blob.md
       - name: Subscribe to custom topic
         href: scripts/event-grid-powershell-subscribe-custom-topic.md
       - name: Subscribe to resource group
@@ -403,7 +403,7 @@ items:
     - name: Build your skills with Microsoft Learn training
       href: /training/browse/?products=azure-event-grid
     - name: FAQ
-      href: event-grid-faq.yml
+      href: faq.yml
     - name: Azure Roadmap
       href: https://azure.microsoft.com/roadmap/
     - name: Pricing
