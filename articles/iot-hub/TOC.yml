@@ -342,19 +342,19 @@
           items:
             - name: CLI
               displayName: device twins
-              href: twin-get-started-cli.md
+              href: device-twins-cli.md
             - name: .NET
               displayName: device twins
-              href: iot-hub-csharp-csharp-twin-getstarted.md
+              href: device-twins-dotnet.md
             - name: Python
               displayName: device twins
-              href: iot-hub-python-twin-getstarted.md
+              href: device-twins-python.md
             - name: Node.js
               displayName: device twins
-              href: iot-hub-node-node-twin-getstarted.md
+              href: device-twins-node.md
             - name: Java
               displayName: device twins
-              href: iot-hub-java-java-twin-getstarted.md
+              href: device-twins-java.md
         - name: Get started with module twins
           items:
             - name: Portal
