@@ -25,7 +25,8 @@ Use Azure Monitor to monitor these types of resources in Azure, other clouds, or
   - Security events in combination with Azure Sentinel
   - Networking events and health in combination with Network Watcher
   - Custom sources that use the APIs to get data into Azure Monitor
-	
+  - Collect your Prometheus metrics with Azure Managed Prometheus and analyze them using PromQL in Azure Managed Grafana.
+
 You can also export monitoring data from Azure Monitor into other systems so you can:
   - Integrate with other third-party and open-source monitoring and visualization tools
   - Integrate with ticketing and other ITSM systems

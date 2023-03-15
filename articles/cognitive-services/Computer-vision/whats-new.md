@@ -20,11 +20,15 @@ Learn what's new in the service. These items may be release notes, videos, blog 
 
 ### Computer Vision Image Analysis 4.0 SDK public preview
 
-Image Analysis 4.0 is now available through client library SDKs in C#, C++, and Python. This update also includes the Florence-powered image captioning model that achieved human parity performance.
+The [Florence foundation model](https://www.microsoft.com/en-us/research/project/projectflorence/) is now integrated into Azure Computer Vision. The improved Vision Services enable developers to create market-ready, responsible computer vision applications across various industries. Customers can now seamlessly digitize, analyze, and connect their data to natural language interactions, unlocking powerful insights from their image and video content to support accessibility, drive acquisition through SEO, protect users from harmful content, enhance security, and improve incident response times. For more information, see [Announcing Microsoft's Florence foundation model](https://aka.ms/florencemodel).
+
+### Computer Vision Image Analysis 4.0 SDK (public preview)
+
+Image Analysis 4.0 is now available through client library SDKs in C#, C++, and Python. This update also includes the Florence-powered image captioning and dense captioning at human parity performance.
 
 ### Image Analysis V4.0 Captioning and Dense Captioning (public preview):
 
-"Caption" replaces "Describe" in V4.0 as the significantly improved image captioning feature rich with details and sematic understanding. Dense Captions provides more detail by generating one sentence descriptions of up to 10 regions of the image in addition to describing the whole image. Dense Captions also returns bounding box coordinates of the described image regions. There's also a new gender-neutral parameter to allow customers to choose whether to enable probabilistic gender inference for alt-text and Seeing AI applications. Automatically deliver rich captions, accessible alt-text, SEO optimization, and intelligent photo curation to support digital content. [Image captions](./concept-describe-images-40.md).
+"Caption" replaces "Describe" in V4.0 as the significantly improved image captioning feature rich with details and semantic understanding. Dense Captions provides more detail by generating one sentence descriptions of up to 10 regions of the image in addition to describing the whole image. Dense Captions also returns bounding box coordinates of the described image regions. There's also a new gender-neutral parameter to allow customers to choose whether to enable probabilistic gender inference for alt-text and Seeing AI applications. Automatically deliver rich captions, accessible alt-text, SEO optimization, and intelligent photo curation to support digital content. [Image captions](./concept-describe-images-40.md).
 
 ### Video summary and frame locator (public preview): 
 Search and interact with video content in the same intuitive way you think and write. Locate relevant content without the need for additional metadata. Available only in [Vision Studio](https://aka.ms/VisionStudio).
@@ -44,7 +48,7 @@ As part of the Image Analysis 4.0 API, the [Background removal API](./concept-ba
 
 ## October 2022
 
-### Computer Vision Image Analysis 4.0 public preview
+### Computer Vision Image Analysis 4.0 (public preview)
 
 Image Analysis 4.0 has been released in public preview. The new API includes image captioning, image tagging, object detection, smart crops, people detection, and Read OCR functionality, all available through one Analyze Image operation. The OCR is optimized for general, non-document images in a performance-enhanced synchronous API that makes it easier to embed OCR-powered experiences in your workflows.
 

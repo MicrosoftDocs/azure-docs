@@ -64,7 +64,7 @@ To use the SDK, you install a small instrumentation package in your app and then
 
 Integrated Auto-instrumentation is available for [Azure App Service .NET](azure-web-apps-net.md), [Azure App Service .NET Core](azure-web-apps-net-core.md), [Azure Functions](../../azure-functions/functions-monitoring.md), and [Azure Virtual Machines](azure-vm-vmss-apps.md).
 
-[Azure Monitor Application Insights Agent](status-monitor-v2-overview.md) is available for workloads running in on-premises virtual machines.
+[Azure Monitor Application Insights Agent](application-insights-asp-net-agent.md) is available for workloads running in on-premises virtual machines.
 
 A detailed view of all Auto-instrumentation supported environments, languages, and resource providers are available [here](codeless-overview.md#supported-environments-languages-and-resource-providers).
 
@@ -121,8 +121,8 @@ This section lists all supported platforms and frameworks.
 * [Azure Cloud Services](./azure-web-apps-net-core.md), including both web and worker roles
 
 #### Auto-instrumentation (enable without code changes)
-* [ASP.NET - for web apps hosted with IIS](./status-monitor-v2-overview.md)
-* [ASP.NET Core - for web apps hosted with IIS](./status-monitor-v2-overview.md)
+* [ASP.NET - for web apps hosted with IIS](./application-insights-asp-net-agent.md)
+* [ASP.NET Core - for web apps hosted with IIS](./application-insights-asp-net-agent.md)
 * [Java](./opentelemetry-enable.md?tabs=java)
 
 #### Manual instrumentation / SDK (some code changes required)

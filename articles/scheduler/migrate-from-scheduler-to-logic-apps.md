@@ -88,7 +88,7 @@ You can run multiple one-time jobs by creating just a single logic app workflow.
 
    ![Screenshot showing the "Delay until" action details with the dynamic content list open and the "runAt" property selected.](./media/migrate-from-scheduler-to-logic-apps/delay-until-details.png)
 
-1. Add any other actions you want to run by selecting from [hundreds of ready-to-use connectors](../connectors/apis-list.md).
+1. Add any other actions you want to run by selecting from [hundreds of ready-to-use connectors](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
    For example, you can include an HTTP action that sends a request to a URL or actions that work with Storage Queues, Service Bus queues, or Service Bus topics:
 
@@ -148,7 +148,7 @@ In Azure Logic Apps, each one-time job executes as a single workflow run instanc
 
    For more information about advanced scheduling options, review [Create and run recurring tasks and workflows with Azure Logic Apps](../connectors/connectors-native-recurrence.md).
 
-1. Add other actions you want by selecting from [hundreds of ready-to-use](../connectors/apis-list.md). Under the trigger, select **Next step**. Find and select the actions you want.
+1. Add other actions you want by selecting from [hundreds of ready-to-use connectors](/connectors/connector-reference/connector-reference-logicapps-connectors). Under the trigger, select **Next step**. Find and select the actions you want.
 
    For example, you can include an HTTP action that sends a request to a URL, or actions that work with Storage Queues, Service Bus queues, or Service Bus topics:
 

@@ -371,5 +371,5 @@ For technical information about trigger and action parameters, see these section
 
 ## Next steps
 
-* [Secure access and data - Access for outbound calls to other services and systems](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests)
-* [Connectors for Logic Apps](../connectors/apis-list.md)
+* [Managed connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
+* [Built-in connectors for Azure Logic Apps](built-in.md)

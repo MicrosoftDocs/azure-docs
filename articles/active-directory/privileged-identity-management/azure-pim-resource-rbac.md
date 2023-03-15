@@ -111,7 +111,7 @@ My audit enables you to view your personal role activity.
 
 ## Get reason, approver, and ticket number for approval events
 
-1. Sign in to the [Azure portal](https://aad.portal.azure.com) with Privileged Role administrator role permissions, and open Azure AD.
+1. Sign in to the [Azure portal](https://portal.azure.com) with Privileged Role administrator role permissions, and open Azure AD.
 1. Select **Audit logs**.
 1. Use the **Service** filter to display only audit events for the Privileged identity Management service. On the **Audit logs** page, you can:
 
