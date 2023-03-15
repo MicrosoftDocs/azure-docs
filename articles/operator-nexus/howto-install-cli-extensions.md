@@ -5,21 +5,19 @@ author: Travisivart #Required
 ms.author: travisneely #Required
 ms.service: azure #Required
 ms.topic: include
-ms.date: 01/27/2023
+ms.date: 03/06/2023
 # ms.custom: template-include #Required;
 ---
 
-# Install Azure CLI extensions
+# Prepare to install Azure CLI extensions
+This how-to guide explains the steps for installing the required az CLI and extensions required to interact with Operator Nexus.
 
-Install the following CLI extensions:
+Installation of the following CLI extensions are required:
+`networkcloud` (for Microsoft.NetworkCloud APIs), `managednetworkfabric` (for Microsoft.ManagedNetworkFabric APIs) and `hybridaks` (for AKS-Hybrid APIs).
 
-- `networkcloud` (for Microsoft.NetworkCloud APIs)
-- `managednetworkfabric` (for Microsoft.ManagedNetworkFabric APIs)
-- `hybridaks` (for AKS-Hybrid APIs)
+If you haven't already installed Azure CLI: [Install Azure CLI][installation-instruction]. The aka.ms links download the latest available version of the extension.
 
-- If you haven't already installed Azure CLI: [Install Azure CLI][installation-instruction]. The aka.ms links downloads the latest available version of the extension.
-
-- Install `networkcloud` CLI extension
+## Install `networkcloud` CLI extension
 
 - Remove any previously installed version of the extension
 
@@ -32,13 +30,13 @@ Install the following CLI extensions:
 # [Linux / macOS / WSL](#tab/linux+macos+wsl)
 
 ```sh
-    curl -L "https://aka.ms/aods-nc-cli" --output "networkcloud-0.0.0-py3-none-any.whl"
+    curl -L "https://aka.ms/nexus-nc-cli" --output "networkcloud-0.0.0-py3-none-any.whl"
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```ps
-    curl "https://aka.ms/aods-nc-cli" -OutFile "networkcloud-0.0.0-py3-none-any.whl"
+    curl "https://aka.ms/nexus-nc-cli" -OutFile "networkcloud-0.0.0-py3-none-any.whl"
 ```
 
 ---
@@ -50,7 +48,7 @@ Install the following CLI extensions:
     az networkcloud --help
     ```
 
-- Install `managednetworkfabric` CLI extension
+## Install `managednetworkfabric` CLI extension
 
 - Remove any previously installed version of the extension
 
@@ -63,13 +61,13 @@ Install the following CLI extensions:
 # [Linux / macOS / WSL](#tab/linux+macos+wsl)
 
 ```sh
-    curl -L "https://aka.ms/aods-nf-cli" --output "managednetworkfabric-0.0.0-py3-none-any.whl"
+    curl -L "https://aka.ms/nexus-nf-cli" --output "managednetworkfabric-0.0.0-py3-none-any.whl"
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```ps
-    curl "https://aka.ms/aods-nf-cli" -OutFile "managednetworkfabric-0.0.0-py3-none-any.whl"
+    curl "https://aka.ms/nexus-nf-cli" -OutFile "managednetworkfabric-0.0.0-py3-none-any.whl"
 ```
 
 ---
@@ -81,7 +79,7 @@ Install the following CLI extensions:
     az nf --help
     ```
 
-- Install AKS-Hybrid (`hybridaks`) CLI extension
+## Install AKS-Hybrid (`hybridaks`) CLI extension
 
 - Remove any previously installed version of the extension
 
@@ -94,13 +92,13 @@ Install the following CLI extensions:
 # [Linux / macOS / WSL](#tab/linux+macos+wsl)
 
 ```sh
-    curl -L "https://aka.ms/aods-hybridaks-cli" --output "hybridaks-0.0.0-py3-none-any.whl"
+    curl -L "https://aka.ms/nexus-hybridaks-cli" --output "hybridaks-0.0.0-py3-none-any.whl"
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```ps
-    curl "https://aka.ms/aods-hybridaks-cli" -OutFile "hybridaks-0.0.0-py3-none-any.whl"
+    curl "https://aka.ms/nexus-hybridaks-cli" -OutFile "hybridaks-0.0.0-py3-none-any.whl"
 ```
 
 ---
@@ -112,7 +110,7 @@ Install the following CLI extensions:
     az hybridaks --help
     ```
 
-- Install other needed extensions
+## Install other Azure extensions
 
    ```azurecli
    az extension add --yes --upgrade --name customlocation
@@ -150,10 +148,6 @@ customlocation           0.1.3
 hybridaks                0.1.6
 ssh                      1.1.3
 ```
-
-<!-- LINKS - Internal -->
-[howto-configure-network fabric]: ./howto-configure-network fabric.md
-[quickstarts-tenant-workload-deployment]: ./quickstarts-tenant-workload-deployment.md
 
 <!-- LINKS - External -->
 [installation-instruction]: https://aka.ms/azcli

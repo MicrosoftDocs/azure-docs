@@ -29,7 +29,7 @@ Before you can use MSIX app attach to follow the directions in this article, you
 These instructions don't require an Azure Virtual Desktop deployment because they describe a process for testing outside of Azure Virtual Desktop.
 
 >[!NOTE]
->Microsoft Support doesn't currently support this CimFS disk image module, so if you run into any problems, you'll need to submit a request on [the module's Github repository](https://github.com/Azure/RDS-Templates/tree/master/msix-app-attach).
+>Microsoft Support doesn't currently support this CimFS disk image module, so if you run into any problems, you'll need to submit a request on [the module's GitHub repository](https://github.com/Azure/RDS-Templates/tree/master/msix-app-attach).
 
 ## Phases of MSIX app attach
 
