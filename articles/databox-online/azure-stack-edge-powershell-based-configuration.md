@@ -6,7 +6,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/10/2023
+ms.date: 03/15/2023
 ms.author: alkohli
 ---
 # Use a config file to deploy an Azure Stack Edge device
@@ -1038,13 +1038,13 @@ Use the following steps to sign in to the device and run device diagnostics to v
 > [!NOTE]
 > Two-node configurations are only supported on Azure Stack Edge Pro GPU and Azure Stack Edge Pro 2 devices.
 
-For Azure consistent services and NFS, define a virtual IP that allows you to connect to a clustered device instead of a specific node. A virtual IP is an available IP in the cluster network. Any client connecting to the cluster network on the two-node device should be able to access this IP. 
+Define a virtual IP that allows you to connect to a clustered device instead of a specific node. A virtual IP is an available IP in the cluster network. Any client connecting to the cluster network on the two-node device should be able to access this IP. 
 
-You can set either an ACS or an NFS configuration. Additional options include static or DHCP network settings. For more information about setting virtual IPs, see [Configure virtual IPs](azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy.md#configure-virtual-ips).
+You can set either an Azure Consistent Services or a Network File System configuration. Additional options include static or DHCP network settings. For more information about setting virtual IPs, see [Configure virtual IPs](azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy.md#configure-virtual-ips).
 
 Use the following steps to set the `DeviceVIP` configuration on a two-node Azure Stack Edge device.
 
-The example below shows a static ACS configuration, followed by an example that shows a configuration with DHCP enabled. 
+The example below shows a static Azure Consistent Services configuration, followed by an example that shows a configuration with DHCP enabled. 
 
 1. Sign in to the device.
 
@@ -1064,7 +1064,7 @@ The example below shows a static ACS configuration, followed by an example that 
     Get-DeviceVip | to-json
     ```
 
-1. Set the `DeviceVIP` property with a static ACS configuration. 
+1. Set the `DeviceVIP` property with a static Azure Consistent Services configuration. 
 
     ```azurepowershell
     $acsVip = New-Object PSObject  -Property @{ Type = "ACS"; VipAddress = "192.168.181.10"; ClusterNetworkAddress = "192.168.0.0"; IsDhcpEnabled = $false }
@@ -1107,27 +1107,6 @@ The example below shows a static ACS configuration, followed by an example that 
                                },
                    "isDhcpEnabled":  false
                },
-    "nfsVIP":  {
-                   "type":  "NFS",
-                   "name":  "Network File System",
-                   "address":  null,
-                   "network":  null,
-                   "isDhcpEnabled":  false
-               },
-    "clusterNetworks":  [
-                            {
-                                "name":  "Cluster Network 1",
-                                "address":  "192.168.0.0",
-                                "subnet":  "255.255.0.0",
-                                "dhcpEnabled":  false
-                            },
-                            {
-                                "name":  "Cluster Network 4",
-                                "address":  "10.126.72.0",
-                                "subnet":  "255.255.248.0",
-                                "dhcpEnabled":  false
-                            }
-                        ]
     }
     PS C:\> 
     ```
@@ -1170,33 +1149,6 @@ The example below shows a sequence of steps to enable DHCP.
                                },
                    "isDhcpEnabled":  false
                },
-    "nfsVIP":  {
-                   "type":  "NFS",
-                   "name":  "Network File System",
-                   "address":  null,
-                   "network":  null,
-                   "isDhcpEnabled":  false
-               },
-    "clusterNetworks":  [
-                            {
-                                "name":  "Cluster Network 1",
-                                "address":  "192.168.0.0",
-                                "subnet":  "255.255.0.0",
-                                "dhcpEnabled":  false
-                            },
-                            {
-                                "name":  "Cluster Network 2",
-                                "address":  "10.139.218.0",
-                                "subnet":  "255.255.255.0",
-                                "dhcpEnabled":  false
-                            },
-                            {
-                                "name":  "Cluster Network 3",
-                                "address":  "10.126.72.0",
-                                "subnet":  "255.255.248.0",
-                                "dhcpEnabled":  false
-                            }
-                        ]
     }
     ```
 
@@ -1243,41 +1195,8 @@ The example below shows a sequence of steps to enable DHCP.
                                },
                    "isDhcpEnabled":  true
                },
-    "nfsVIP":  {
-                   "type":  "NFS",
-                   "name":  "Network File System",
-                   "address":  "192.168.3.63",
-                   "network":  {
-                                   "name":  "Cluster Network 1",
-                                   "address":  "192.168.0.0",
-                                   "subnet":  "255.255.0.0",
-                                   "dhcpEnabled":  false
-                               },
-                   "isDhcpEnabled":  false
-               },
-    "clusterNetworks":  [
-                            {
-                                "name":  "Cluster Network 1",
-                                "address":  "192.168.0.0",
-                                "subnet":  "255.255.0.0",
-                                "dhcpEnabled":  false
-                            },
-                            {
-                                "name":  "Cluster Network 2",
-                                "address":  "10.139.218.0",
-                                "subnet":  "255.255.255.0",
-                                "dhcpEnabled":  false
-                            },
-                            {
-                                "name":  "Cluster Network 3",
-                                "address":  "10.126.72.0",
-                                "subnet":  "255.255.248.0",
-                                "dhcpEnabled":  false
-                            }
-                        ]
     }
     PS C:\>
- 
     ```
 
 ## Troubleshooting
