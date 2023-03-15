@@ -196,6 +196,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/virtual-machines/linux/capture-image.md",
+            "redirect_url": "/azure/virtual-machines/capture-image-resource",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/linux/upload-vhd.md",
+            "redirect_url": "/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/virtual-machines/troubleshooting/redeploy-to-new-node-linux.md",
             "redirect_url": "/troubleshoot/azure/virtual-machines/redeploy-to-new-node-linux",
             "redirect_document_id": false
