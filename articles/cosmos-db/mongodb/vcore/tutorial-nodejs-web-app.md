@@ -34,7 +34,7 @@ To complete this tutorial, you need the following resources:
 - A [GitHub account](https://github.com/join).
   - GitHub comes with free Codespaces hours for all users. For more information, see [GitHub Codespaces free utilization](https://github.com/features/codespaces#pricing).
 
-## Set up your environment
+## 1 - Set up your environment
 
 Let's start by setting up your dev environment. You have the choice of **GitHub Codespaces** or **Visual Studio Code** as your integrated development environment (IDE).
 
@@ -115,7 +115,7 @@ Alternatively, you can complete this tutorial in [Visual Studio Code](https://co
 
 ---
 
-## Test the MERN application's API with the MongoDB container
+## 2 - Test the MERN application's API with the MongoDB container
 
 Start by running the sample application's API with the local MongoDB container to validate that the application works.
 
@@ -201,7 +201,7 @@ Start by running the sample application's API with the local MongoDB container t
 
 1. Close the terminal.
 
-## Test the MERN application with the Azure Cosmos DB for MongoDB vCore cluster
+## 3 - Test the MERN application with the Azure Cosmos DB for MongoDB vCore cluster
 
 Now, let's validate that the application works seamlessly with Azure Cosmos DB for MongoDB vCore. For this task, populate the pre-existing cluster with seed data using the MongoDB shell and then update the API's connection string.
 
@@ -291,7 +291,7 @@ Now, let's validate that the application works seamlessly with Azure Cosmos DB f
 
 1. Close the extra browser tab/window. Then, close the terminal.
 
-## Deploy the MERN application to Azure App Service
+## 4 - Deploy the MERN application to Azure App Service
 
 Deploy the service and client to Azure App Service to prove that the application works end-to-end. Use secrets in the web apps to store environment variables with credentials and API endpoints.
 
