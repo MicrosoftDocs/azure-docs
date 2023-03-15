@@ -32,7 +32,7 @@ sections:
       - question: |
           Does Azure OpenAI support VNET's and Private Endpoints?
         answer: | 
-          Yes, as part of Azure Cognitive Services, Azure OpenAI supports VNET's and Private Endpoints. To learn more consult the [Cogntive Services virtual networking guidance](../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/openai/context/context) 
+          Yes, as part of Azure Cognitive Services, Azure OpenAI supports VNET's and Private Endpoints. To learn more consult the [Cognitive Services virtual networking guidance](../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/openai/context/context) 
 
 
   - name: Getting access to Azure OpenAI Service
