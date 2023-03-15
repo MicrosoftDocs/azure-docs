@@ -17,21 +17,29 @@ All Azure resources in a virtual network are deployed into subnets within the vi
 
 ## Prerequisites
 
-If you don't have one, set up an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-
 # [Portal](#tab/azure-portal)
 
-Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An existing Azure virtual network. To create one, see [Quickstart: Create a virtual network by using the Azure portal](quick-create-portal.md).
+- To run the procedures, sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
 # [Azure CLI](#tab/azure-cli)
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An existing Azure virtual network. To create one, see [Quickstart: Create a virtual network by using Azure CLI](quick-create-cli.md).
 
 You can run the commands either in the [Azure Cloud Shell](/azure/cloud-shell/overview) or from Azure CLI on your computer.
 
 - Azure Cloud Shell is a free interactive shell that has common Azure tools preinstalled and configured to use with your account. To run the commands in the Cloud Shell, select **Open Cloudshell** at the upper-right corner of a code block. Select **Copy** to copy the code, and paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
 
-- If you [install Azure CLI locally](/cli/azure/install-azure-cli) to run the commands, you need Azure CLI version 2.31.0 or later. Run [az version](/cli/azure/reference-index?#az-version) to find your installed version, and run [az upgrade](/cli/azure/reference-index?#az-upgrade) to upgrade. Then run `az login` to connect to Azure.
+- If you [install Azure CLI locally](/cli/azure/install-azure-cli) to run the commands, you need Azure CLI version 2.31.0 or later. Run [az version](/cli/azure/reference-index?#az-version) to find your installed version, and run [az upgrade](/cli/azure/reference-index?#az-upgrade) to upgrade.
+
+  Run `az login` to connect to Azure.
 
 # [PowerShell](#tab/azure-powershell)
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An existing Azure virtual network. To create one, see [Quickstart: Create a virtual network by using Azure PowerShell](quick-create-powershell.md).
 
 You can run the commands either in the [Azure Cloud Shell](/azure/cloud-shell/overview) or from PowerShell on your computer.
 
@@ -98,7 +106,7 @@ You can configure the following settings for a subnet:
 
    | Setting | Description |
    | --- | --- |
-   | **Name** | The name must be unique within the virtual network. For maximum compatibility with other Azure services, use a letter as the first character of the name. For example, Azure Application Gateway doesn't deploy into a subnet that has a name that starts with a number. |
+   | **Name** | The name must be unique within the virtual network. For maximum compatibility with other Azure services, use a letter as the first character of the name. For example, Azure Application Gateway can't deploy into a subnet whose name starts with a number. |
    | **Subnet address range** | The range must be unique within the address space and can't overlap with other subnet address ranges in the virtual network. You must specify the address space by using Classless Inter-Domain Routing (CIDR) notation.<br><br>For example, in a virtual network with address space `10.0.0.0/16`, you might define a subnet address space of `10.0.0.0/22`. The smallest range you can specify is `/29`, which provides eight IP addresses for the subnet. Azure reserves the first and last address in each subnet for protocol conformance, and three more addresses for Azure service usage. So defining a subnet with a */29* address range gives three usable IP addresses in the subnet.<br><br>If you plan to connect a virtual network to a virtual private network (VPN) gateway, you must create a gateway subnet. For more information, see [Gateway subnet](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub).|
    | **Add IPv6 address space** | You can create a dual-stack virtual network that supports IPv4 and IPv6 by adding an existing IPv6 address space. Currently, IPv6 isn't fully supported for all services in Azure. For more information, see [Overview of IPv6 for Azure Virtual Network](ip-services/ipv6-overview.md)|
    | **NAT gateway** | To provide network address translation (NAT) to resources on a subnet, you can associate an existing NAT gateway to a subnet. The NAT gateway must exist in the same subscription and location as the virtual network. For more information, see [Virtual network NAT](./nat-gateway/nat-overview.md) and [Quickstart: Create a NAT gateway by using the Azure portal](./nat-gateway/quickstart-create-nat-gateway-portal.md).|
@@ -132,13 +140,13 @@ Run the [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azv
 
 ---
 
-You can change the following subnet settings after the subnet is created.
+You can change the following subnet settings after the subnet is created:
 
 | Setting | Description |
 | --- | --- |
-| **Subnet address range** | If no resources are deployed within the subnet, you can change the address range. If any resources exist in the subnet, you must either move the resources to another subnet, or delete them from the subnet first. The steps you take to move or delete a resource vary depending on the resource. To learn how to move or delete resources that are in subnets, read the documentation for each resource type.|
+| **Subnet address range** | If no resources are deployed within the subnet, you can change the address range. If any resources exist in the subnet, you must first either move the resources to another subnet or delete them from the subnet. The steps you take to move or delete a resource vary depending on the resource. To learn how to move or delete resources that are in subnets, read the documentation for each resource type.|
 | **Add IPv6 address space**, **NAT gateway**, **Network security group**, and **Route table** | You can add IPv6, NAT gateway, NSG, or route table support after you create the subnet.|
-| **Service endpoints** | To enable a service endpoint for an existing subnet, ensure that no critical tasks are running on any resource in the subnet. Service endpoints switch routes on every network interface in the subnet. The service endpoints change from using the default route with the `0.0.0.0/0` address prefix and next hop type of `Internet` to using a new route with the address prefixes of the service and a next hop type of `VirtualNetworkServiceEndpoint`.<br><br>>During the switch, any open TCP connections may be terminated. The service endpoint isn't enabled until traffic to the service for all network interfaces updates with the new route. For more information, see [Virtual network traffic routing](virtual-networks-udr-overview.md).|
+| **Service endpoints** | To enable a service endpoint for an existing subnet, ensure that no critical tasks are running on any resource in the subnet. Service endpoints switch routes on every network interface in the subnet. The service endpoints change from using the default route with the `0.0.0.0/0` address prefix and next hop type of `Internet` to using a new route with the address prefix of the service and a next hop type of `VirtualNetworkServiceEndpoint`.<br><br>During the switch, any open TCP connections may be terminated. The service endpoint isn't enabled until traffic to the service for all network interfaces updates with the new route. For more information, see [Virtual network traffic routing](virtual-networks-udr-overview.md).|
 | **Subnet delegation** | You can modify subnet delegation to enable zero or multiple delegations. If a resource for a service is already deployed in the subnet, you can't add or remove subnet delegations until you remove all the resources for the service. To delegate for a different service in the portal, select the service you want to delegate to from the popup list. |
 | **Network policy for private endpoints**| You can change private endpoint network policy after subnet creation.|
 
@@ -174,8 +182,6 @@ Remove-AzVirtualNetworkSubnetConfig -Name <subnetName> -VirtualNetwork <virtualN
 
 ## Next steps
 
-- [Virtual network overview](virtual-networks-overview.md)
-- [Quickstart: Create a virtual network by using the Azure portal](quick-create-portal.md)
 - [Create, change, or delete a virtual network](manage-virtual-network.md).
 - [PowerShell sample scripts](powershell-samples.md)
 - [Azure CLI sample scripts](cli-samples.md)
