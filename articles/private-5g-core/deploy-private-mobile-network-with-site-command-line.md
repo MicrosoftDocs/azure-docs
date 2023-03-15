@@ -53,7 +53,7 @@ You must complete the following steps in order to successfully deploy a private 
 
 ### Create a Mobile Network resource
 
-Use `New-AzMobileNetwork` to create a new **Mobile Network** resource. The example below uses the following placeholder values, replace them with the information gathered in [Prerequisites](#prerequisites).
+Use `New-AzMobileNetwork` to create a new **Mobile Network** resource. The example command uses the following placeholder values, replace them with the information gathered in [Prerequisites](#prerequisites).
 
 |Placeholder|Value|
 |-|-|
@@ -66,7 +66,7 @@ New-AzMobileNetwork -Name MOBILENETWORK -ResourceGroupName RESOURCEGROUP -Locati
 
 ### Create a Site resource
 
-Use `New-AzMobileNetworkSite` to create a new **Site** resource. The example below uses the following placeholder values, replace them with the information gathered in [Prerequisites](#prerequisites).
+Use `New-AzMobileNetworkSite` to create a new **Site** resource. The example command uses the following placeholder values, replace them with the information gathered in [Prerequisites](#prerequisites).
 
 |Placeholder|Value|
 |-|-|
@@ -84,7 +84,7 @@ $siteResourceId = New-AzMobileNetworkSiteResourceIdObject -Id /subscriptions/2c5
 
 ### Create a Packet Core Control Plane resource
 
-Use `New-AzMobileNetworkPacketCoreControlPlane` to create a new **Packet Core Control Plane** resource. The example below uses the following placeholder values, replace them with the information gathered in [Prerequisites](#prerequisites).
+Use `New-AzMobileNetworkPacketCoreControlPlane` to create a new **Packet Core Control Plane** resource. The example command uses the following placeholder values, replace them with the information gathered in [Prerequisites](#prerequisites).
 
 |Placeholder|Value|
 |-|-|
@@ -97,7 +97,7 @@ New-AzMobileNetworkPacketCoreControlPlane -Name CONTROLPLANE -ResourceGroupName 
 
 ### Create a Packet Core Data Plane resource
 
-Use `New-AzMobileNetworkPacketCoreDataPlane` to create a new **Packet Core Data Plane** resource. The example below uses the following placeholder values, replace them with the information gathered in [Prerequisites](#prerequisites).
+Use `New-AzMobileNetworkPacketCoreDataPlane` to create a new **Packet Core Data Plane** resource. The example command uses the following placeholder values, replace them with the information gathered in [Prerequisites](#prerequisites).
 
 |Placeholder|Value|
 |-|-|
@@ -111,7 +111,7 @@ New-AzMobileNetworkPacketCoreDataPlane -Name DATAPLANE -PacketCoreControlPlaneNa
 
 ### Create a Data Network
 
-Use `New-AzMobileNetworkDataNetwork` to create a new **Data Network** resource. The example below uses the following placeholder values, replace them with the information gathered in [Prerequisites](#prerequisites).
+Use `New-AzMobileNetworkDataNetwork` to create a new **Data Network** resource. The example command uses the following placeholder values, replace them with the information gathered in [Prerequisites](#prerequisites).
 
 |Placeholder|Value|
 |-|-|
@@ -126,7 +126,7 @@ New-AzMobileNetworkDataNetwork -MobileNetworkName MOBILENETWORK -Name
 
 ### Attach the Data Network
 
-Use `New-AzMobileNetworkAttachedDataNetwork` to attach the **Data Network** you just created. The example below uses the following placeholder values, replace them with the information gathered in [Prerequisites](#prerequisites).
+Use `New-AzMobileNetworkAttachedDataNetwork` to attach the **Data Network** you created. The example command uses the following placeholder values, replace them with the information gathered in [Prerequisites](#prerequisites).
 
 |Placeholder|Value|
 |-|-|
@@ -141,7 +141,7 @@ New-AzMobileNetworkAttachedDataNetwork -Name DATANETWORK -PacketCoreControlPlane
 
 ### Create a SIM Group
 
-Use `New-AzMobileNetworkSimGroup` to create a new **SIM Group**. The example below uses the following placeholder values, replace them with the information gathered in [Prerequisites](#prerequisites).
+Use `New-AzMobileNetworkSimGroup` to create a new **SIM Group**. The example command uses the following placeholder values, replace them with the information gathered in [Prerequisites](#prerequisites).
 
 |Variable|Placeholder|Value|
 |-|-|
@@ -156,7 +156,7 @@ Confirm that you want to perform the action by typing <kbd>Y</kbd>.
 
 ### Create a Slice
 
-Use `New-AzMobileNetworkSlice` to create a new **Slice**. The example below uses the following placeholder values, replace them with the information gathered in [Prerequisites](#prerequisites).
+Use `New-AzMobileNetworkSlice` to create a new **Slice**. The example command uses the following placeholder values, replace them with the information gathered in [Prerequisites](#prerequisites).
 
 |Placeholder|Value|
 |-|-|
@@ -170,7 +170,7 @@ New-AzMobileNetworkSlice -MobileNetworkName MOBILENETWORK -ResourceGroupName RES
 
 ### Create a SIM Policy
 
-Use `New-AzMobileNetworkSimPolicy` to create a new **SIM Policy**. The example below uses the following placeholder values, replace them with the information gathered in [Prerequisites](#prerequisites).
+Use `New-AzMobileNetworkSimPolicy` to create a new **SIM Policy**. The example command uses the following placeholder values, replace them with the information gathered in [Prerequisites](#prerequisites).
 
 |Placeholder|Value|
 |-|-|
@@ -193,7 +193,7 @@ New-AzMobileNetworkSimPolicy -MobileNetworkName MOBILENETWORK -Name SIMPOLICY -R
 
 ### Create a SIM
 
-Use `New-AzMobileNetworkSim` to create a new **SIM**. The example below uses the following placeholder values, replace them with the information gathered in [Prerequisites](#prerequisites).
+Use `New-AzMobileNetworkSim` to create a new **SIM**. The example command uses the following placeholder values, replace them with the information gathered in [Prerequisites](#prerequisites).
 
 |Placeholder|Value|
 |-|-|
@@ -218,7 +218,7 @@ If you do not want to keep your deployment, [delete the resource group](../azure
 
 ## Next steps
 
-If you have kept your deployment, you can either begin designing policy control to determine how your private mobile network will handle traffic, or you can add more sites to your private mobile network.
+If you have kept your deployment, you can either begin designing policy control to determine how your private mobile network handles traffic, or you can add more sites to your private mobile network.
 
 - [Learn more about designing the policy control configuration for your private mobile network](policy-control.md)
 - [Collect the required information for a site](collect-required-information-for-a-site.md)
