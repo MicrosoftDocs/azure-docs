@@ -76,7 +76,7 @@ landingContent:
           - text: Immutable vault (preview)
             url: backup-azure-immutable-vault-concept.md
           - text: Azure Kubernetes Service backup (preview)
-            url: azure-kubernetes-service-cluster-backup-concept.md
+            url: azure-kubernetes-service-backup-overview.md
           - text: Azure Blob vaulted backups (preview)
             url: blob-backup-overview.md
   # Card
