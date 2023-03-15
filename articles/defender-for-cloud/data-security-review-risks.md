@@ -34,7 +34,7 @@ The following attack paths are related to sensitive data:
 - “Internet exposed AWS S3 Bucket with sensitive data is publicly accessible”
 - “Internet exposed EC2 instance has high severity vulnerabilities and read permission to a S3 bucket with sensitive data”
 
-Learn more about [attack paths](concept-attack-paths.md).
+Learn more about [attack paths](concept-attack-path.md).
 
 ## Discover publicly available sensitive resources through Security explorer in cloud map
 
@@ -43,6 +43,16 @@ Cloud security explorer helps you identify security risks in your cloud environm
 With the cloud security explorer, you can query all of your security issues and environment context such as assets inventory, exposure to internet, permissions, lateral movement between resources and more.
 
 For example, to get list of storage accounts/storage account containers which contain sensitive data and are also exposed to the internet, use this query:
+
+Specifically for AWS S3 buckets, A bucket will be considered public if the following conditions are met: 
+
+- If `RestrictPublicBuckets` is not enabled at the account level.
+- If `RestrictPublicBuckets` is not enabled at the bucket level.
+- Either:
+    - The IP range is wider `\8`.
+    - Buckets doesn't have a bucket policy.
+    - Buckets has a bucket policy without a condition.
+    - Bucket has a bucket policy without a condition based on IP address.
 
 Learn more about [cloud security explorer](how-to-manage-cloud-security-explorer.md).
 

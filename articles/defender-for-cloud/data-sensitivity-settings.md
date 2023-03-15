@@ -12,7 +12,7 @@ This article explains how to enable data-aware security capabilities in Microsof
 
 The sensitivity of resources in the cloud map is based on [Microsoft Purview settings and scan results](/microsoft-365/compliance/information-protection), and any labeled resource is considered sensitive. This article provides guidance on how you can use Defender for Cloud to identify sensitive resources by selecting the information types that are considered sensitive.
 
-When you enable data-aware security capabilities with **Sensitive data discovery** for [Defender CSPM](data-security-posture-enable.md) and [Defender for Storage](defender-for-storage-enable.md), Defender for Cloud uses algorithms to identify Azure Storage containers, and AWS S3 buckets that appear to contain sensitive data. The resources are labeled according to the default set of info types identified as sensitive in the data sensitivity settings. You can customize the data sensitivity settings to include additional info types. Customized sensitivity settings help you:
+When you enable data-aware security capabilities with **Sensitive data discovery** for [Defender CSPM](data-security-posture-enable.md) and [Defender for Storage](defender-for-storage-introduction.md), Defender for Cloud uses algorithms to identify Azure Storage containers, and AWS S3 buckets that appear to contain sensitive data. The resources are labeled according to the default set of info types identified as sensitive in the data sensitivity settings. You can customize the data sensitivity settings to include additional info types. Customized sensitivity settings help you:
 
 - Improve the accuracy of the sensitivity insights in the Cloud map, attack paths, and security alerts
 - Hide sensitive data identification and security alerts for data that your organization considers non-sensitive
@@ -39,7 +39,7 @@ To see the sensitivity insights in Defender for Cloud, you must:
     - Consent to sharing sensitive data with Defender for Cloud.
     - Create and publish sensitivity labels for your tenant in Microsoft Purview with a scope that includes Items and Schematized data assets and Auto-labeling rules.
     Learn more about [sensitivity labels](/microsoft-365/compliance/create-sensitivity-labels) in Microsoft Purview.
-- In Defender for Cloud, enable data-aware security capabilities for [Defender CSPM](data-security-posture-enable.md) and [Defender for Storage](defender-for-storage-enable.md).
+- In Defender for Cloud, enable data-aware security capabilities for [Defender CSPM](data-security-posture-enable.md) and [Defender for Storage](defender-for-storage-introduction.md).
 
 ## Customize sensitive data categories
 
