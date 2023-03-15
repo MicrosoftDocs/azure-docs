@@ -1,6 +1,6 @@
 ---
 title: Durable Function Troubleshooting Guide
-description: Guide for common troubleshooting scenarios for durable functions.
+description: Guide to troubleshoot common issues with durable functions.
 author: nytiannn
 ms.topic: conceptual
 ms.date: 03/10/2023
@@ -12,32 +12,36 @@ ms.author: azfuncdf
 
 Durable Functions is an extension that customers can install in their function app. For more information on Durable functions, please refer to the official [documentation](./durable-functions-overview.md).
 
-The rest of this section gives an overview of reasons and guides that you could try for certain common troubleshooting. If all of these do not work, please contact the support engineer for help. You can find this under the **Support+troubleshooting** – **New Support request** blade on your function page.
+The rest of this section gives an overview of reasons and guides that you could try for certain common troubleshooting. 
 
-[ ![Screenshot of support request page in Azure Portal.](./media/durable-functions-tsg/durable-function-support-request.png)
+> [!NOTE]
+> Support engineers are available to assist in diagnosing issues with your application. You may file a support ticket by accessing the **Support+troubleshooting** – **New Support request** blade on your function app page.
 
-For any troubleshooting scenario, the **first thing we recommend to do** is to check if you are using the latest Durable Function extension packages.  Old versions might introduce unwanted bugs which are already fixed in the latest version. The latest versions of Durable Functions extension packages could be found [here](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask). Also, please read this Durable Function Best Practice and Diagnostic Tools for how to upgrade. 
+[![Screenshot of support request page in Azure Portal.](./media/durable-functions-tsg/durable-function-support-request.png)
+
+> [!TIP]
+> When debugging and diagnosing issues, it is recommended that you start by ensuring your app is using the latest Durable Functions version. Most of the time, using the latest version mitigates known issues already reported by other users. Please read the **Durable Function Best Practice and Diagnostic Tools** article for instructions on how to upgrade your extension version. 
 
 The **Diagnostic and solve problems** tab in Azure Portal is a useful resource to monitor and diagnose potential issues related to your application. It also supplies potential solutions to your problems based on the diagnosis. Please see this [page](./durable-functions-diagnostics.md) for more details. 
 
 If the above two steps could not help solving your problem, please see the following steps according to the scenarios.
 
-## Orchestration does not start (pending)
+## Orchestration is stuck in the Pending state
 
-1. Check the Durable Task Framework traces for warnings or errors for this instance ID. The query could be found at **Trace Errors/Warnings** section.
+1. Check the Durable Task Framework traces for warnings or errors for this instance ID. A sample query can be found in **Trace Errors/Warnings** section.
 
 2. Check the Azure Storage control queues to see if the message is still in the queue. 
 
 3. Change platform configuration version to “64-Bit” for function applications. 
    Sometimes orchestrations don't start because the app is running out of memory. Switching to 64-bit process can allow the app to allocate more total memory. This only applies to App Service Basic, Standard, Premium, and Elastic Premium plans. Free or Consumption plans **do not** support it. 
 
-## Orchestration starts after a delay
+## Orchestration starts after a long delay
 
 1. This [page](./durable-functions-azure-storage-provider.md) illustrates reasons for orchestrators’ delay start. Please see here for detailed instructions. 
 
-2. The following query could help you check the warning/error message for the orchestrator. The query could be found at **Trace Errors/Warnings** section.
+2. The following query could help you check the warning/error message for the orchestrator. A sample query can be found in **Trace Errors/Warnings** section.
 
-## Orchestration starts but then gets stuck in the Running state
+## Orchestration does not complete / is stuck in the `Running` state
 
 1. Try restarting the function app.
 
@@ -47,7 +51,7 @@ If the above two steps could not help solving your problem, please see the follo
 
 4. Please check if you have followed the **Durable Functions Best Practice and Diagnostic Tools**. Some problems are caused because of inappropriate behavior. So, we suggest you read this article, revise the part that breaks the best practice rules and reset your function.
 
-## Orchestration starts and runs, but runs slowly
+## Orchestration runs slowly
 
 1. Check if **extendedSessionsEnabled** is being enabled.  
    Excessive history load can result in extremely slow orchestrator processing. The detailed instruction could be seen [here](./durable-functions-azure-storage-provider.md)
@@ -58,8 +62,11 @@ If the above two steps could not help solving your problem, please see the follo
    
    * We suggest monitoring memory utilization per Function, and ensure it stays at a healthy percentage. The montior guide could be seen [here](./durable-functions-azure-storage-provider.md).
 
-## Azure Storage Message
-All Durable Function behavior is driven by Azure Storage queue messages. Also, all state related to an orchestration is stored in Table Storage and blob storage. All Azure Storage interactions are logged to Application Insights, and this data is critically important for debugging execution and performance problems. Starting in v2.3.0, customers can get access to these logs by updating their host.json configuration. See the [Durable Task Framework logging section](./durable-functions-diagnostics.md) for more information. 
+## Sample Queries
+
+### Azure Storage Message
+When using the default storage provider, all Durable Function behavior is driven by Azure Storage queue messages and all state related to an orchestration is stored in Table Storage and blob storage. All Azure Storage interactions are logged to Application Insights, and this data is critically important for debugging execution and performance problems.
+Starting in v2.3.0, customers can get access to these logs by updating their host.json configuration. See the [Durable Task Framework logging article](./durable-functions-diagnostics.md) for more information.
 
 To see the Azure Storage query result, please add the following configuration in your host.json file.  
 
@@ -78,7 +85,8 @@ To see the Azure Storage query result, please add the following configuration in
 The following query is for inspecting end-to-end Azure Storage interactions for a specific orchestration instance.  
 
 ```kusto
-let start = datetime(2017-09-30T04:30:00);  
+let start = datetime(2017-09-30T04:30:00); // edit this 
+let targetInstanceId = "XXXXXXX"; //edit this
 traces  
 | where timestamp > start and timestamp < start + 1h 
 | where customDimensions.Category == "DurableTask.AzureStorage" 
@@ -96,11 +104,12 @@ traces
 | extend eventCount = customDimensions["prop__TotalEventCount"] 
 | extend taskHub = customDimensions["prop__TaskHub"] 
 | extend workerName = customDimensions["prop__WorkerName"] 
-| where instanceId == "XXXXX" 
+| where instanceId == targetInstanceId
 | sort by timestamp asc 
 ```
 
-## Trace Multiple Orchestrators
+### Trace Multiple Orchestrators
+
 The following query shows the orchestration instance status for multiple orchestrators run in a specified time range. Edit the **instanceId** list to query the multiple orchestration.
 
 ```kusto
@@ -119,15 +128,16 @@ let start = datetime(2017-09-30T04:30:00);
 | project timestamp, functionName, state, instanceId, sequenceNumber, appName = cloud_RoleName 
 ```
 
-## Trace Errors/Warnings
+### Trace Errors/Warnings
 
-The following query shows the errors/warnings message for the orchestration instance. Edit the **instanceId** to query these information.
+The following query searches for errors and warnings for a given orchestration instance. You'll need to provide a value for the `targetInstanceId` parameter.
 
 ```kusto
+let targetInstanceId = "XXXXXX"; // edit this
 traces 
 | extend logLevel = customDimensions["LogLevel"] 
 | extend instanceId = customDimensions["prop__InstanceId"] 
 | where logLevel in ("Error", "Warning") 
-| where instanceId == "XXXXXX" 
+| where instanceId == targetInstanceId
 | sort by timestamp asc 
 ```
