@@ -425,4 +425,4 @@ This field represents the node name used for billing purposes. Use it to overrid
 - Learn how to [diagnose exceptions in your web apps with Application Insights](./asp-net-exceptions.md).
 - Explore [.NET trace logs in Application Insights](./asp-net-trace-logs.md).
 - Check out standard context properties collection [configuration](./configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet).
-- Learn how to integrate [Application Insights with Azure Functions](../azure-functions/functions-monitoring.md).
+- Learn about [Azure Functions' built-in integration with Application Insights](../../azure-functions/functions-monitoring.md).
