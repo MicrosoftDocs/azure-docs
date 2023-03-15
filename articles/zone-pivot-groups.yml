@@ -1776,6 +1776,15 @@ groups:
   - id: container-apps-bicep
     title: Bicep
 # Owner: cshoe
+- id: static-web-apps-api-protocols
+  title: API protocol
+  prompt: Select an API protocol
+  pivots:
+  - id: static-web-apps-rest
+    title: REST
+  - id: static-web-apps-graphql
+    title: GraphQL
+# Owner: cshoe
 - id: container-apps-config-types
   title: Configuration method
   prompt: Select a configuration method
