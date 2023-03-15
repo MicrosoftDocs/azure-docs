@@ -11,17 +11,20 @@ author: jhirono
 ms.date: 08/19/2022
 ms.topic: how-to
 ms.custom: devx-track-python, references_regions, contperf-fy21q1, contperf-fy21q4, FY21Q4-aml-seo-hack, security, event-tier1-build-2022
+monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
 
 <!-- # Virtual network isolation and privacy overview -->
 # Secure Azure Machine Learning workspace resources using virtual networks (VNets)
 
+:::moniker range="azureml-api-2"
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
-
-> [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK or CLI version you are using:"]
-> * [SDK/CLI v1](v1/how-to-network-security-overview.md)
-> * [SDK/CLI v2 (current version)](how-to-network-security-overview.md)
+:::moniker-end
+:::moniker range="azureml-api-1"
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
+:::moniker-end
 
 Secure Azure Machine Learning workspace resources and compute environments using virtual networks (VNets). This article uses an example scenario to show you how to configure a complete virtual network.
 
@@ -154,12 +157,34 @@ In this section, you learn how Azure Machine Learning securely communicates betw
 
 ## Secure the inferencing environment
 
+:::moniker range="azureml-api-2"
 You can enable network isolation for managed online endpoints to secure the following network traffic:
 
 * Inbound scoring requests.
 * Outbound communication with the workspace, Azure Container Registry, and Azure Blob Storage.
 
 For more information, see [Enable network isolation for managed online endpoints](how-to-secure-online-endpoint.md).
+:::moniker-end
+:::moniker range="azureml-api-1"
+In this section, you learn the options available for securing an inferencing environment when using the Azure CLI extension for ML v1 or the Azure Machine Learning Python SDK v1. When doing a v1 deployment, we recommend that you use Azure Kubernetes Services (AKS) clusters for high-scale, production deployments.
+
+You have two options for AKS clusters in a virtual network:
+
+- Deploy or attach a default AKS cluster to your VNet.
+- Attach a private AKS cluster to your VNet.
+
+**Default AKS clusters** have a control plane with public IP addresses. You can add a default AKS cluster to your VNet during the deployment or attach a cluster after it's created.
+
+**Private AKS clusters** have a control plane, which can only be accessed through private IPs. Private AKS clusters must be attached after the cluster is created. 
+
+For detailed instructions on how to add default and private clusters, see [Secure an inferencing environment](how-to-secure-inferencing-vnet.md). 
+
+Regardless default AKS cluster or private AKS cluster used, if your AKS cluster is behind of VNET, your workspace and its associate resources (storage, key vault, and ACR) must have private endpoints or service endpoints in the same VNET as the AKS cluster.
+
+The following network diagram shows a secured Azure Machine Learning workspace with a private AKS cluster attached to the virtual network.
+
+:::image type="content" source="./media/how-to-network-security-overview/secure-inferencing-environment.svg" alt-text="Diagram showing an attached private AKS cluster.":::
+:::moniker-end
 
 ## Optional: Enable public access
 
