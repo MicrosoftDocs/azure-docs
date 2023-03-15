@@ -13,7 +13,7 @@ ms.date: 05/09/2022
 ms.author: aahi
 ---
 
-# How to use autolabeling
+# How to use autolabeling for Custom Named Entity Recognition
 
 [Labeling process](tag-data.md) is an important part of preparing your dataset. Since this process requires much time and effort, you can use the autolabeling feature to automatically label your entities. You can start autolabeling jobs based on a model you've previously trained or using GPT models. With autolabeling based on a model you've previously trained, you can start labeling a few of your documents, train a model, then create an autolabeling job to produce entity labels for other documents based on that model. With autolabeling with GPT, you may immediately trigger an autolabeling job without any prior model training. This feature can save you the time and effort of manually labeling your entities. 
 
