@@ -240,13 +240,9 @@ In this example, the logic app workflow starts with the [Recurrence trigger](../
 
    1. Under the **Choose an operation** search box, select either of the following options:
 
-      * **Built-in** to view the [SQL Server built-in connector actions](/azure/logic-apps/connectors/built-in/reference/sql/#actions) such as **Execute query**
+      * **Built-in** to view the [SQL Server built-in connector actions](/azure/logic-apps/connectors/built-in/reference/sql/#actions)
 
-        ![Screenshot showing the Azure portal, workflow designer for Standard logic app, and designer search box with "Built-in" selected underneath.](./media/connectors-create-api-sqlazure/select-built-in-category-standard.png)
-
-      * **Azure** to view the [SQL Server managed connector actions](/connectors/sql/#actions) such as **Get row**
-
-        ![Screenshot showing the Azure portal, workflow designer for Standard logic app, and designer search box with "Azure" selected underneath.](./media/connectors-create-api-sqlazure/select-azure-category-standard.png)
+     * **Azure** to view the [SQL Server managed connector actions](/connectors/sql/#actions)
 
    1. In the search box, enter **sql server**.
 
