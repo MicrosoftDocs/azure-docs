@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 09/01/2022
+ms.date: 04/01/2023
 ms.author: anfdocs
 ---
 
@@ -71,7 +71,7 @@ Before creating or enabling a cool-access volume, you need to configure a Standa
 1. Check the **Enable Cool Access** checkbox, then select **Create**. 
     When you select **Enable Cool Access**, the UI automatically selects the auto QoS type. The manual QoS type is not supported for Standard service with cool access. 
 
-:::image type="content" source="../media/azure-netapp-files/cool-access-new-capacity-pool.png" alt-text="The new capacity pool menu includes an option Enable Cool Access, with a selected checkbox. This is the penultimate field, before QoS Type." lightbox="../media/azure-netapp-files/cool-access-new-capacity-pool.png"::: 
+    :::image type="content" source="../media/azure-netapp-files/cool-access-new-capacity-pool.png" alt-text="The new capacity pool menu includes an option Enable Cool Access, with a selected checkbox. This is the penultimate field, before QoS Type." lightbox="../media/azure-netapp-files/cool-access-new-capacity-pool.png"::: 
 
 #### <a name="enable-cool-access-existing-pool"></a> Enable cool access on an existing capacity pool  
 
@@ -81,7 +81,7 @@ You can enable cool access support on an existing Standard service-level capacit
 
 2. Select **Enable Cool Access**: 
 
-:::image type="content" source="../media/azure-netapp-files/cool-access-existing-pool.png" alt-text="After right-clicking on an existing capacity pool, a menu pops up with the option to Enable Cool Access." lightbox="../media/azure-netapp-files/cool-access-existing-pool.png"::: 
+    :::image type="content" source="../media/azure-netapp-files/cool-access-existing-pool.png" alt-text="After right-clicking on an existing capacity pool, a menu pops up with the option to Enable Cool Access." lightbox="../media/azure-netapp-files/cool-access-existing-pool.png"::: 
 
 ### Configure a volume for cool access 
 
@@ -92,13 +92,13 @@ Standard service with cool access can be enabled during the creation of a new vo
 1. Select the **Volumes** menu from the **Capacity Pools** menu. Select **+ Add volume** to create a new NFS, SMB, or dual-protocol volume. 
 1. In the **Basics** tab of the **Create a Volume** page, set the following options to enable the volume for cool access: 
 
-* **Enable Cool Access**
-    This option specifies whether the volume will support cool access. 
+    * **Enable Cool Access**   
+        This option specifies whether the volume will support cool access. 
  
-* **Coolness Period**
-    This option specifies the period (in days) after which infrequently accessed data blocks (cold data blocks) are moved to the Azure storage account. The default value is 31 days. The supported values are between 7 and 63 days.         
+    * **Coolness Period**
+        This option specifies the period (in days) after which infrequently accessed data blocks (cold data blocks) are moved to the Azure storage account. The default value is 31 days. The supported values are between 7 and 63 days.         
 
-:::image type="content" source="../media/azure-netapp-files/cool-access-new-volume.png" alt-text="Image showing the Create a volume field. Under the basics tab, there's an option to Enable Cool Access with a checkbox selected. There's a coolness period field which accesses a numerical string between 7 and 63 days. The image shows 31 as the value in the field. " lightbox="../media/azure-netapp-files/cool-access-new-volume.png"::: 
+    :::image type="content" source="../media/azure-netapp-files/cool-access-new-volume.png" alt-text="Image showing the Create a volume field. Under the basics tab, there's an option to Enable Cool Access with a checkbox selected. There's a coolness period field which accesses a numerical string between 7 and 63 days. The image shows 31 as the value in the field. " lightbox="../media/azure-netapp-files/cool-access-new-volume.png"::: 
 
 #### Enable cool access on an existing volume 
 
@@ -106,12 +106,12 @@ In a Standard service-level, cool-access enabled capacity pool, you can enable a
 
 1. Right-click the volume for which you want to enable the cool access. 
 1. In the **Edit** window that appears, set the following options for the volume: 
-* Enable Cool Access 
-    This option specifies whether the volume will support cool access. 
-* Coolness Period  
-    This option specifies the period (in days) after which infrequently accessed data blocks (cold data blocks) are moved to the Azure storage account. The default value is 31 days. The supported values are between 7 and 63 days. 
+    * **Enable Cool Access**  
+        This option specifies whether the volume will support cool access. 
+    * **Coolness Period**  
+        This option specifies the period (in days) after which infrequently accessed data blocks (cold data blocks) are moved to the Azure storage account. The default value is 31 days. The supported values are between 7 and 63 days. 
 
-:::image type="content" source="../media/azure-netapp-files/cool-access-existing-volume.png" alt-text="The Edit window: Enable Cool Access is a field with a checked checkbox. The coolness period is set to 31 days. " lightbox="../media/azure-netapp-files/cool-access-existing-volume.png"::: 
+    :::image type="content" source="../media/azure-netapp-files/cool-access-existing-volume.png" alt-text="The Edit window: Enable Cool Access is a field with a checked checkbox. The coolness period is set to 31 days. " lightbox="../media/azure-netapp-files/cool-access-existing-volume.png"::: 
 
 ### <a name="modify_cool"></a>Modify coolness period for a volume 
 
@@ -119,9 +119,8 @@ You can modify the coolness period setting for a volume based on the client read
 
 1. Right-click the volume for which you want to modify the coolness configuration.  
 
-1. In the **Edit** window that appears, update the** Coolness Period field**.   
- 
-The default value is 31 days. The supported values are between 7 and 63. 
+1. In the **Edit** window that appears, update the **Coolness Period** field.   
+    The default value is 31 days. The supported values are between 7 and 63. 
 
-:::image type="content" source="../media/azure-netapp-files/cool-access-existing-volume.png" alt-text="The Edit window: Enable Cool Access is a field with a checked checkbox. The coolness period is set to 31 days. " lightbox="../media/azure-netapp-files/cool-access-existing-volume.png"::: 
+    :::image type="content" source="../media/azure-netapp-files/cool-access-existing-volume.png" alt-text="The Edit window: Enable Cool Access is a field with a checked checkbox. The coolness period is set to 31 days. " lightbox="../media/azure-netapp-files/cool-access-existing-volume.png"::: 
 
