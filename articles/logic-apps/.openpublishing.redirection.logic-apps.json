@@ -412,7 +412,7 @@
         },
         {
             "source_path_from_root": "/articles/app-service-logic/app-service-logic-create-a-logic-app.md",
-            "redirect_url": "/azure/logic-apps/quickstart-create-first-logic-app-workflow",
+            "redirect_url": "/azure/logic-apps/quickstart-create-example-consumption-workflow",
             "redirect_document_id": false
         },
         {
@@ -542,7 +542,7 @@
         },
         {
             "source_path_from_root": "/articles/logic-apps/logic-apps-create-a-logic-app.md",
-            "redirect_url": "/azure/logic-apps/quickstart-create-first-logic-app-workflow",
+            "redirect_url": "/azure/logic-apps/quickstart-create-example-consumption-workflow",
             "redirect_document_id": true
         },
         {
