@@ -71,7 +71,7 @@ items:
       - name: Azure Functions
         href: ../service-bus-messaging/service-bus-to-event-grid-integration-function.md?toc=/azure/event-grid/toc.json
     - name: Stream data from Event Hubs
-      href: event-grid-event-hubs-integration.md
+      href: event-hubs-integration.md
     - name: Route Media Services events
       href: /azure/media-services/latest/monitoring/job-state-events-cli-how-to
     - name: Route to Hybrid Connection
@@ -403,7 +403,7 @@ items:
     - name: Build your skills with Microsoft Learn training
       href: /training/browse/?products=azure-event-grid
     - name: FAQ
-      href: event-grid-faq.yml
+      href: faq.yml
     - name: Azure Roadmap
       href: https://azure.microsoft.com/roadmap/
     - name: Pricing

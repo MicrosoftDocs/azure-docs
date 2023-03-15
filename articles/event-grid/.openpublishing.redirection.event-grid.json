@@ -1,5 +1,16 @@
 {
-  "redirections": [
+  "redirections": [    
+    
+    {
+      "source_path": "event-hubs-integration.md",
+      "redirect_url": "/azure/event-grid/event-hubs-integration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "event-grid-faq.yml",
+      "redirect_url": "/azure/event-grid/faq",
+      "redirect_document_id": false
+    },    
     {
       "source_path": "custom-disaster-recovery.md",
       "redirect_url": "/azure/event-grid/custom-disaster-recovery-client-side",

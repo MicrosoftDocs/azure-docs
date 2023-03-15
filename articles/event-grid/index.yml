@@ -74,7 +74,7 @@ landingContent:
           - text: Respond to Service Bus events
             url: ../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=/azure/event-grid/toc.json
           - text: Stream data from Event Hubs
-            url: event-grid-event-hubs-integration.md
+            url: event-hubs-integration.md
           - text: Route Media Services events
             url: /azure/media-services/latest/monitoring/job-state-events-cli-how-to
           - text: Route to Hybrid Connections
