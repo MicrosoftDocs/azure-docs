@@ -54,7 +54,7 @@ The following error types are available:
 
 - `InteractionRequiredAuthError`: Error class, extends `ServerError` to represent server errors, which require an interactive call. This error is thrown by `acquireTokenSilent` if the user is required to interact with the server to provide credentials or consent for authentication/authorization. Error codes include `"interaction_required"`, `"login_required"`, and `"consent_required"`.
 
-For error handling in authentication flows with redirect methods (`loginRedirect`, `acquireTokenRedirect`), you'll need to handle the promise, which is called with success or failure after the redirect using `handleRedirectPromise()` method as follows:
+For error handling in authentication flows with redirect methods (`loginRedirect`, `acquireTokenRedirect`), you'll need to handle the redirect promise, which is called with success or failure after the redirect using the `handleRedirectPromise()` method as follows:
 
 ```javascript
 const msal = require('@azure/msal-browser');
