@@ -115,7 +115,6 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Competitive Innovations, LLC](https://www.cillc.com)|
 |[CompuNet Inc.](https://compunet.biz/)|
 |[Computer Solutions Inc.](http://cs-inc.co/)|
-|[Computex Technology Solutions](http://www.computex-inc.com/)|
 |[Communication Square LLC](https://www.communicationsquare.com)|
 |[ConvergeOne](https://www.convergeone.com)|
 |[Copper River Technologies, LLC](http://www.copperrivertech.com/)|
@@ -326,7 +325,6 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[PA-Group](https://pa-group.us/)|
 |[Palecek Consulting Group](https://www.pcgit.net)|
 |[Pangea Group Inc.](http://www.pangea-group.com)|
-|[Parachute Technology](https://www.parachutech.com)|
 |[Paragon Software Solutions, Inc.](http://www.paragonhq.com/)|
 |[Patrocinium Systems, Inc.](https://www.patrocinium.com)|
 |[PCM](https://www.pcm.com/)|
@@ -511,8 +509,6 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Pax8](https://www.pax8.com/en-us/microsoft/)|
 |[Synnex](https://www.synnexcorp.com)|
 |[Tech Data Corporation](https://www.techdata.com/)|
-|[Tech Data Government Solutions, LLC](https://gov.as.techdata.com/en-us/Pages/default.aspx)|
-
 
 ## Approved LSPs
 
