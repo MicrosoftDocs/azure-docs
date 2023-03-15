@@ -1,6 +1,21 @@
 {
   "redirections": [    
     {
+      "source_path": "scripts/event-grid-powershell-create-custom-topic.md",
+      "redirect_url": "/azure/event-grid/scripts/powershell-create-custom-topic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "scripts/event-grid-powershell-blob.md",
+      "redirect_url": "/azure/event-grid/scripts/powershell-blob",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "scripts/event-grid-powershell-azure-subscription.md",
+      "redirect_url": "/azure/event-grid/scripts/powershell-azure-subscription",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "scripts/event-grid-cli-subscribe-custom-topic.md",
       "redirect_url": "/azure/event-grid/scripts/cli-subscribe-custom-topic",
       "redirect_document_id": false
