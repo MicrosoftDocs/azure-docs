@@ -106,6 +106,26 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-java-java-file-upload.md",
+      "redirect_url": "/azure/iot-hub/file-upload-java",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-python-python-file-upload.md",
+      "redirect_url": "/azure/iot-hub/file-upload-python",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-node-node-file-upload.md",
+      "redirect_url": "/azure/iot-hub/file-upload-node",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-csharp-csharp-file-upload.md",
+      "redirect_url": "/azure/iot-hub/file-upload-dotnet",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/iot-hub/iot-hub-devguide-glossary.md",
       "redirect_url": "/azure/iot-fundamentals/iot-glossary/",
       "redirect_document_id": false

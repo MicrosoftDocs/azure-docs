@@ -1,18 +1,18 @@
 ---
-title: Upload files from devices to Azure IoT Hub with Java | Microsoft Docs
+title: Upload files from devices to Azure IoT Hub (Java)
+titleSuffix: Azure IoT Hub
 description: How to upload files from a device to the cloud using Azure IoT device SDK for Java. Uploaded files are stored in an Azure storage blob container.
 author: kgremban
 
 ms.author: kgremban
 ms.service: iot-hub
-services: iot-hub
 ms.devlang: java
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/18/2021
 ms.custom: [amqp, mqtt, devx-track-java]
 ---
 
-# Upload files from your device to the cloud with IoT Hub (Java)
+# Upload files from your device to the cloud with Azure IoT Hub (Java)
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
@@ -291,7 +291,7 @@ mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
 
 You can use the portal to view the uploaded file in the storage container you configured:
 
-:::image type="content" source="media/iot-hub-java-java-upload/uploaded-file.png" alt-text="Screenshot showing a file that had been uploaded to your storage container." lightbox="media/iot-hub-java-java-upload/uploaded-file.png":::
+:::image type="content" source="media/iot-hub-java-java-upload/uploaded-file.png" alt-text="Screenshot showing a file that was uploaded to your storage container." lightbox="media/iot-hub-java-java-upload/uploaded-file.png":::
 
 ## Receive a file upload notification
 
@@ -458,7 +458,7 @@ In this section, you create a Java console app that receives file upload notific
     ```
 ## Run the application
 
-Now you are ready to run the application.
+Now you're ready to run the application.
 
 At a command prompt in the `my-app` folder, run the following command:
 

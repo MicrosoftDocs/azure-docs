@@ -139,4 +139,4 @@ Set-AzIotHub `
 
 * [Upload files from a device overview](iot-hub-devguide-file-upload.md)
 * [IoT Hub support for managed identities](./iot-hub-managed-identity.md)
-* [File upload how-to guides](./iot-hub-csharp-csharp-file-upload.md)
+* [File upload how-to guides](./file-upload-dotnet.md)

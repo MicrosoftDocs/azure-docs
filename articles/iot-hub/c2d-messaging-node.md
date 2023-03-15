@@ -6,7 +6,7 @@ author: kgremban
 
 ms.author: kgremban
 ms.service: iot-hub
-ms.devlang: javascript
+ms.devlang: nodejs
 ms.topic: how-to
 ms.date: 06/16/2017
 ms.custom: [amqp, mqtt, devx-track-js]

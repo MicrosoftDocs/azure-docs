@@ -327,17 +327,17 @@
         - name: Upload files from devices
           items:
             - name: .NET
-              displayName: Azure Storage, file upload
-              href: iot-hub-csharp-csharp-file-upload.md
+              displayName: file upload, upload files, csharp, C#
+              href: file-upload-dotnet.md
             - name: Python
-              displayName: Azure Storage, file upload
-              href: iot-hub-python-python-file-upload.md
+              displayName: file upload, upload files
+              href: file-upload-python.md
             - name: Node.js
-              displayName: Azure Storage, file upload
-              href: iot-hub-node-node-file-upload.md
+              displayName: file upload, upload files
+              href: file-upload-node.md
             - name: Java
-              displayName: Azure Storage, file upload
-              href: iot-hub-java-java-file-upload.md
+              displayName: file upload, upload files
+              href: file-upload-java.md
         - name: Get started with device twins
           items:
             - name: CLI
