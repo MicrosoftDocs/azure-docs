@@ -43,8 +43,8 @@ If developing using a JavaScript framework, one of the following open-source pro
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
-1. An [Azure Maps account]
-1. A [subscription key]
+* An [Azure Maps account]
+* A [subscription key]
 
 ## Key features support
 

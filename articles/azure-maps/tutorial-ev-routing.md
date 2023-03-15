@@ -31,8 +31,8 @@ In this tutorial, you will:
 
 ## Prerequisites
 
-1. An [Azure Maps account]
-1. A [subscription key]
+* An [Azure Maps account]
+* A [subscription key]
 
 > [!NOTE]
 > For more information on authentication in Azure Maps, see [manage authentication in Azure Maps].

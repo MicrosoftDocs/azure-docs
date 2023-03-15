@@ -35,8 +35,8 @@ This video provides an overview of Spatial IO module in the Azure Maps Web SDK.
 
 ## Prerequisites
 
-1. An [Azure Maps account]
-2. A [subscription key]
+* An [Azure Maps account]
+* A [subscription key]
 
 ## Installing the Spatial IO module
 

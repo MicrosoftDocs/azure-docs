@@ -24,8 +24,8 @@ This article provides insights on how to migrate web, mobile and server-based ap
 
 If you don't have an Azure subscription, create a [free account] before you begin.
 
-1. An [Azure Maps account]
-1. A [subscription key]
+* An [Azure Maps account]
+* A [subscription key]
 
 > [!NOTE]
 > For more information on authentication in Azure Maps, see [manage authentication in Azure Maps].

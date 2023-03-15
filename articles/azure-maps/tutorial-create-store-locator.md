@@ -31,9 +31,9 @@ In this tutorial, you'll learn how to:
 
 ## Prerequisites
 
-1. [Visual Studio Code] is recommended for this tutorial, but you can use any suitable integrated development environment (IDE).
-1. An [Azure Maps account]
-1. A [subscription key]
+* [Visual Studio Code] is recommended for this tutorial, but you can use any suitable integrated development environment (IDE).
+* An [Azure Maps account]
+* A [subscription key]
 
 > [!NOTE]
 > For more information on authentication in Azure Maps, see [manage authentication in Azure Maps].

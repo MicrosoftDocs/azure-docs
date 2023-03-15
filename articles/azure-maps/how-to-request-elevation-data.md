@@ -15,8 +15,8 @@ The Azure Maps [Elevation service](/rest/api/maps/elevation) provides APIs to qu
 
 ## Prerequisites
 
-1. An [Azure Maps account]
-2. A [subscription key]
+* An [Azure Maps account]
+* A [subscription key]
 
 For more information about authentication in Azure Maps, see [Manage Authentication in Azure Maps](how-to-manage-authentication.md).
 

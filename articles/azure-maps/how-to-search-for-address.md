@@ -23,8 +23,8 @@ In this article, you'll learn how to:
 
 ## Prerequisites
 
-1. An [Azure Maps account]
-2. A [subscription key]
+* An [Azure Maps account]
+* A [subscription key]
 
 This tutorial uses the [Postman] application, but you may choose a different API development environment.
 

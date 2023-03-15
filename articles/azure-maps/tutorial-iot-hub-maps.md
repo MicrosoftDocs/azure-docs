@@ -32,10 +32,10 @@ In this tutorial you will:
 
 If you don't have an Azure subscription, create a [free account] before you begin.
 
-1. An [Azure Maps account]
-1. A [subscription key]
-1. A [resource group]
-1. The [rentalCarSimulation] C# project
+* An [Azure Maps account]
+* A [subscription key]
+* A [resource group]
+* The [rentalCarSimulation] C# project
 
 This tutorial uses the [Postman] application, but you can choose a different API development environment.
 

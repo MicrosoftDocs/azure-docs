@@ -25,8 +25,8 @@ See the [route] tutorial in GitHub for the source code. See [Route to a destinat
 
 ## Prerequisites
 
-1. An [Azure Maps account]
-1. A [subscription key]
+* An [Azure Maps account]
+* A [subscription key]
 
 <a id="getcoordinates"></a>
 

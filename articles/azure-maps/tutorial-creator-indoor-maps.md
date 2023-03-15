@@ -27,10 +27,10 @@ This tutorial describes how to create indoor maps for use in Microsoft Azure Map
 
 ## Prerequisites
 
-1. An [Azure Maps account]
-2. A [subscription key]
-3. A [Creator resource]
-4. Download the [Sample drawing package]
+* An [Azure Maps account]
+* A [subscription key]
+* A [Creator resource]
+* Download the [Sample drawing package]
 
 This tutorial uses the [Postman] application, but you can use a different API development environment.
 

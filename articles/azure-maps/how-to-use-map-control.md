@@ -21,9 +21,9 @@ This documentation uses the Azure Maps Web SDK, however the Azure Maps services 
 
 To use the Map Control in a web page, you must have one of the following prerequisites:
 
-1. An [Azure Maps account]
-1. A [subscription key]
-1. Obtain your Azure Active Directory (AAD) credentials with [authentication options]
+* An [Azure Maps account]
+* A [subscription key]
+* Obtain your Azure Active Directory (AAD) credentials with [authentication options]
 
 ## Create a new map in a web page
 

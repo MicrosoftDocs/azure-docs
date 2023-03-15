@@ -25,8 +25,8 @@ This article explains how to apply sound practices when you call data from Azure
 
 ## Prerequisites
 
-1. An [Azure Maps account]
-2. A [subscription key]
+* An [Azure Maps account]
+* A [subscription key]
 
 This article uses the [Postman] application to build REST calls, but you can choose any API development environment.
 

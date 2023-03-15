@@ -24,9 +24,9 @@ This article shows you how to add the Azure Maps to an iOS app. It walks you thr
 
 If you don't have an Azure subscription, create a [free account] before you begin.
 
-1. An [Azure Maps account]
-1. A [subscription key]
-1. [‎Xcode]
+* An [Azure Maps account]
+* A [subscription key]
+* [‎Xcode]
 
 > [!NOTE]
 > For more information on authentication in Azure Maps, see [manage authentication in Azure Maps].
