@@ -9,13 +9,13 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/28/2022
+ms.date: 03/15/2023
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on integration with Cloud Academy
+# Tutorial: Azure Active Directory SSO integration with Cloud Academy
 
-In this tutorial, you'll learn how to integrate Cloud Academy with Azure Active Directory (Azure AD). When you integrate Cloud Academy with Azure AD, you can:
+In this tutorial, you learn how to integrate Cloud Academy with Azure Active Directory (Azure AD). When you integrate Cloud Academy with Azure AD, you can:
 
 * Use Azure AD to control who can access Cloud Academy.
 * Enable your users to be automatically signed in to Cloud Academy with their Azure AD accounts.
@@ -149,8 +149,6 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting t
     1. In the **SSO URL (Location)** box, paste the login URL value that you copied from the Azure portal, in step 9 of [Configure Azure AD SSO](#configure-azure-ad-sso).
 
     1. Open the downloaded Base64 certificate from the Azure portal in Notepad. Paste its contents into the **Certificate** box.
-
-    1. In the **Email Domains** box, enter all the domain values your company uses for user emails.
 
 1. Perform the following steps in the below page:
 
