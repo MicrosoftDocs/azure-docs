@@ -83,7 +83,7 @@ For the most straightforward dev environment, we use GitHub Codespaces so that y
 
     :::image type="content" source="media/tutorial-nodejs-web-app/select-mongodb-option.png" alt-text="Screenshot of the MongoDB extension in the side bar.":::
 
-1. Add a new connection to the MongoDB extension using the connection string `mongodb://localhost:27017`.
+1. Add a new connection to the MongoDB extension using the connection string `mongodb://localdb`.
 
     :::image type="content" source="media/tutorial-nodejs-web-app/select-mongodb-add-connection.png" alt-text="Screenshot of the add connection button in the MongoDB extension.":::
 
@@ -191,11 +191,11 @@ Start by running the sample application with the local MongoDB container to vali
 
     | Environment Variable | Value |
     | --- | --- |
-    | `CONNECTION_STRING` | The connection string to the Azure Cosmos DB for MongoDB vCore cluster. For now, this is set to the MongoDB connection string you used earlier in this tutorial (`mongodb://localhost:27017`). |
+    | `CONNECTION_STRING` | The connection string to the Azure Cosmos DB for MongoDB vCore cluster. |
     | `REACT_APP_API_ENDPOINT` | The back-end API endpoint that the front-end React application will use. For now, this is set to `http://localhost:65100`. |
 
     ```env
-    CONNECTION_STRING=mongodb://localhost:27017
+    CONNECTION_STRING=mongodb://localdb
     REACT_APP_API_ENDPOINT=http://localhost:65100
     ```
 
