@@ -43,7 +43,7 @@ The pricing tier that applies to your guest users is based on the highest pricin
 
 An Azure AD tenant must be linked to a resource group within an Azure subscription for proper billing and access to features.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) with an Azure account that's been assigned at least the [Contributor](../../role-based-access-control/built-in-roles.md) role within the subscription or a resource group within the subscription.
+1. Sign in to the [Azure portal](https://portal.azure.com/) with an Azure account that's been assigned at least the Contributor role within the subscription or a resource group within the subscription.
 
 2. Select the directory you want to link: In the Azure portal toolbar, select the **Directories + subscriptions** icon in the portal toolbar. Then on the **Portal settings | Directories + subscriptions** page, find your directory in the **Directory name** list, and then select **Switch**.
 
@@ -67,7 +67,7 @@ After you complete these steps, your Azure subscription is billed based on your 
 
 If no subscriptions are available in the **Link a subscription** pane, here are some possible reasons:
 
-- You don't have the appropriate permissions. Be sure to sign in with an Azure account that's been assigned at least the [Contributor](../../role-based-access-control/built-in-roles.md) role within the subscription or a resource group within the subscription.
+- You don't have the appropriate permissions. Be sure to sign in with an Azure account that's been assigned at least the Contributor role within the subscription or a resource group within the subscription.
 
 - A subscription exists, but it hasn't been associated with your directory yet. You can [associate an existing subscription to your tenant](../fundamentals/active-directory-how-subscriptions-associated-directory.md) and then repeat the steps for [linking it to your tenant](#link-your-azure-ad-tenant-to-a-subscription).
 
@@ -76,4 +76,3 @@ If no subscriptions are available in the **Link a subscription** pane, here are 
 ## Next steps
 
 For the latest pricing information, see [Azure Active Directory pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
-Learn more about [managing Azure resources](../../azure-resource-manager/management/overview.md).
