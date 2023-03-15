@@ -150,7 +150,7 @@ Follow the steps in [Deploy your app to Azure](../app-service/quickstart-nodejs.
 
 - Service endpoint looks similar to `https://custompolicyapi.azurewebsites.net/validate-accesscode`.
 
-You can test the app you've deployed by using an HTTP client such as [Microsoft PowerShell](https://learn.microsoft.com/powershell/scripting/overview) or [Postman](https://www.postman.com/). This time, use `https://custompolicyapi.azurewebsites.net/validate-accesscode` URL as the endpoint. 
+You can test the app you've deployed by using an HTTP client such as [Microsoft PowerShell](/powershell/scripting/overview) or [Postman](https://www.postman.com/). This time, use `https://custompolicyapi.azurewebsites.net/validate-accesscode` URL as the endpoint. 
 
 ## Step 2 - Call the REST API
 
