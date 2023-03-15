@@ -277,7 +277,7 @@ Azure Blob Storage logging for Linux based App Services can only be configured u
 
 ::: zone-end
 
-If your application uses [Logback](https://logback.qos.ch/) or [Log4j](https://logging.apache.org/log4j) for tracing, you can forward these traces for review into Azure Application Insights using the logging framework configuration instructions in [Explore Java trace logs in Application Insights](../azure-monitor/app/deprecated-java-2x.md#explore-java-trace-logs-in-application-insights).
+If your application uses [Logback](https://logback.qos.ch/) or [Log4j](https://logging.apache.org/log4j) for tracing, you can forward these traces for review into Azure Application Insights using the logging framework configuration instructions in [Explore Java trace logs in Application Insights](/previous-versions/azure/azure-monitor/app/deprecated-java-2x#explore-java-trace-logs-in-application-insights).
 
 > [!NOTE]
 > Due to known vulnerability [CVE-2021-44228](https://logging.apache.org/log4j/2.x/security.html), be sure to use Log4j version 2.16 or later.
@@ -470,7 +470,7 @@ You can interact or debug the Java Key Tool by [opening an SSH connection](confi
 
 ## Configure APM platforms
 
-This section shows how to connect Java applications deployed on Azure App Service with Azure Monitor application insights, NewRelic, and AppDynamics application performance monitoring (APM) platforms.
+This section shows how to connect Java applications deployed on Azure App Service with Azure Monitor Application Insights, NewRelic, and AppDynamics application performance monitoring (APM) platforms.
 
 ### Configure Application Insights
 

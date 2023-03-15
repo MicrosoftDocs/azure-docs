@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 09/01/2022
+ms.date: 02/22/2023
 ---
 
 # Encode and decode flat files in Azure Logic Apps
@@ -67,6 +67,8 @@ For more information, review the following documentation:
     So, if you don't have or need an integration account, you can use the upload option. Otherwise, you can use the linking option. Either way, you can use these artifacts across all child workflows within the same logic app resource.
 
 ## Limitations
+
+* XML content that you want to decode must be encoded in UTF-8 format.
 
 * In your flat file schema, make sure the contained XML groups don't have excessive numbers of the `max count` property set to a value *greater than 1*. Avoid nesting an XML group with a `max count` property value greater than 1 inside another XML group with a `max count` property greater than 1.
 
@@ -277,7 +279,10 @@ After you create your schema, you now have to upload the schema based on the fol
 
 ---
 
-You're now done with setting up your flat file decoding action. In a real world app, you might want to store the decoded data in a line-of-business (LOB) app, such as Salesforce. Or, you can send the decoded data to a trading partner. To send the output from the decoding action to Salesforce or to your trading partner, use the other [connectors available in Azure Logic Apps](../connectors/apis-list.md).
+You're now done with setting up your flat file decoding action. In a real world app, you might want to store the decoded data in a line-of-business (LOB) app, such as Salesforce. Or, you can send the decoded data to a trading partner. To send the output from the decoding action to Salesforce or to your trading partner, use the other connectors available in Azure Logic Apps:
+
+* [Managed connectors for Azure Logic Apps](../connectors/managed.md)
+* [Built-in connectors for Azure Logic Apps](../connectors/built-in.md)
 
 ## Test your workflow
 

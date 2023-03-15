@@ -1,7 +1,7 @@
 ---
-title: Object detection - Computer Vision
+title: Object detection - Image Analysis 4.0
 titleSuffix: Azure Cognitive Services
-description: Learn concepts related to the object detection feature of the Computer Vision API - usage and limits.
+description: Learn concepts related to the object detection feature of the Image Analysis 4.0 API - usage and limits.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 11/03/2022
+ms.date: 01/24/2023
 ms.author: pafarley
 ms.custom: seodec18, ignite-2022
 ---
 
-# Object detection
+# Object detection (version 4.0 preview)
 
-Object detection is similar to [tagging](concept-tagging-images.md), but the API returns the bounding box coordinates (in pixels) for each object found in the image. For example, if an image contains a dog, cat and person, the Detect operation will list those objects with their coordinates in the image. You can use this functionality to process the relationships between the objects in an image. It also lets you determine whether there are multiple instances of the same object in an image.
+Object detection is similar to [tagging](concept-tag-images-40.md), but the API returns the bounding box coordinates (in pixels) for each object found in the image. For example, if an image contains a dog, cat and person, the object detection operation will list those objects with their coordinates in the image. You can use this functionality to process the relationships between the objects in an image. It also lets you determine whether there are multiple instances of the same object in an image.
 
 The object detection function applies tags based on the objects or living things identified in the image. There is currently no formal relationship between the tagging taxonomy and the object detection taxonomy. At a conceptual level, the object detection function only finds objects and living things, while the tag function can also include contextual terms like "indoor", which can't be localized with bounding boxes.
 
@@ -27,7 +27,7 @@ Try out the capabilities of object detection quickly and easily in your browser 
 
 ## Object detection example
 
-The following JSON response illustrates what the Analyze API returns when detecting objects in the example image.
+The following JSON response illustrates what the Analysis 4.0 API returns when detecting objects in the example image. 
 
 ![A woman using a Microsoft Surface device in a kitchen](./Images/windows-kitchen.jpg)
 
@@ -81,5 +81,7 @@ It's important to note the limitations of object detection so you can avoid or m
 
 The object detection feature is part of the [Analyze Image](https://aka.ms/vision-4-0-ref) API. You can call this API using REST. Include `Objects` in the **features** query parameter. Then, when you get the full JSON response, parse the string for the contents of the `"objects"` section.
 
+## Next steps
 
-* [Quickstart: Computer Vision REST API or client libraries](./quickstarts-sdk/image-analysis-client-library.md?pivots=programming-language-csharp)
+* [Call the Analyze Image API](./how-to/call-analyze-image-40.md)
+

@@ -31,11 +31,16 @@ The following table contains the differences between these configurations:
 
 | Configuration | With public IP | Without public IP |
 | ----- | ----- | ----- |
-| Inbound traffic | AzureMachineLearning | None |
-| Outbound traffic | By default, can access the public internet with no restrictions.<br>You can restrict what it accesses using a Network Security Group or firewall. | By default, it cannot access the public internet since there is no public IP resource.<br>You need a Virtual Network NAT gateway or Firewall to route outbound traffic to required resources on the internet. |
+| Inbound traffic | `AzureMachineLearning` service tag. | None |
+| Outbound traffic | By default, can access the public internet with no restrictions.<br>You can restrict what it accesses using a Network Security Group or firewall. | By default, can access the public network using the [default outbound access](/azure/virtual-network/ip-services/default-outbound-access) provided by Azure.<br>We recommend using a Virtual Network NAT gateway or Firewall instead if you need to route outbound traffic to required resources on the internet. |
 | Azure networking resources | Public IP address, load balancer, network interface | None |
 
 You can also use Azure Databricks or HDInsight to train models in a virtual network.
+
+> [!IMPORTANT]
+> Items marked (preview) in this article are currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 > [!TIP]
 > This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
@@ -97,42 +102,47 @@ In this article you learn how to secure the following training compute resources
 ## Compute instance/cluster with no public IP
 
 > [!IMPORTANT]
-> If you have been using compute instances configured for no public IP without opting-in to the preview, you will need to delete and recreate them after January 20 (when the feature is generally available).
+> If you have been using compute instances or compute clusters configured for no public IP without opting-in to the preview, you will need to delete and recreate them after January 20, 2023 (when the feature is generally available).
 > 
-> For existing compute clusters configured for no public IP, once the cluster has been reduced to 0 nodes (requires the minimum nodes to be configured as 0), it will take advantage of the new architecture the next time nodes are allocated after the subscription is allowlisted.
+> If you were previously using the preview of no public IP, you may also need to modify what traffic you allow inbound and outbound, as the requirements have changed for general availability:
+> * Outbound requirements - Two additional outbound, which are only used for the management of compute instances and clusters. The destination of these service tags are owned by Microsoft:
+>     - `AzureMachineLearning` service tag on UDP port 5831.
+>     - `BatchNodeManagement` service tag on TCP port 443.
 
 The following configurations are in addition to those listed in the [Prerequisites](#prerequisites) section, and are specific to **creating** a compute instances/clusters configured for no public IP:
 
-+ Your workspace must use a private endpoint to connect to the VNet. For more information, see [Configure a private endpoint for Azure Machine Learning workspace](how-to-configure-private-link.md).
++ You must use a workspace private endpoint for the compute resource to communicate with Azure Machine Learning services from the VNet. For more information, see [Configure a private endpoint for Azure Machine Learning workspace](how-to-configure-private-link.md).
 
 + In your VNet, allow **outbound** traffic to the following service tags or fully qualified domain names (FQDN):
 
     | Service tag | Protocol | Port | Notes |
     | ----- |:-----:|:-----:| ----- |
     | `AzureMachineLearning` | TCP<br>UDP | 443/8787/18881<br>5831 | Communication with the Azure Machine Learning service.|
-    | `BatchNodeManagement.<region>` | ANY | 443| Replace `<region>` with the Azure region that contains your Azure Machine learning workspace. Communication with Azure Batch. Compute instance and compute cluster are implemented using the Azure Batch service.|
-    | `Storage.<region>` | TCP | 443 | Replace `<region>` with the Azure region that contains your Azure Machine learning workspace. This service tag is used to communicate with the Azure Storage account used by Azure Batch. |
+    | `BatchNodeManagement.<region>` | ANY | 443| Replace `<region>` with the Azure region that contains your Azure Machine Learning workspace. Communication with Azure Batch. Compute instance and compute cluster are implemented using the Azure Batch service.|
+    | `Storage.<region>` | TCP | 443 | Replace `<region>` with the Azure region that contains your Azure Machine Learning workspace. This service tag is used to communicate with the Azure Storage account used by Azure Batch. |
 
     > [!IMPORTANT]
     > The outbound access to `Storage.<region>` could potentially be used to exfiltrate data from your workspace. By using a Service Endpoint Policy, you can mitigate this vulnerability. For more information, see the [Azure Machine Learning data exfiltration prevention](how-to-prevent-data-loss-exfiltration.md) article.
 
     | FQDN | Protocol | Port | Notes |
     | ---- |:----:|:----:| ---- |
-    | `<region>.tundra.azureml.ms` | UDP | 5831 | Replace `<region>` with the Azure region that contains your Azure Machine learning workspace. |
+    | `<region>.tundra.azureml.ms` | UDP | 5831 | Replace `<region>` with the Azure region that contains your Azure Machine Learning workspace. |
     | `graph.windows.net` | TCP | 443 | Communication with the Microsoft Graph API.|
     | `*.instances.azureml.ms` | TCP | 443/8787/18881 | Communication with Azure Machine Learning. |
-    | `<region>.batch.azure.com` | ANY | 443 | Replace `<region>` with the Azure region that contains your Azure Machine learning workspace. Communication with Azure Batch. |
-    | `<region>.service.batch.com` | ANY | 443 | Replace `<region>` with the Azure region that contains your Azure Machine learning workspace. Communication with Azure Batch. |
+    | `<region>.batch.azure.com` | ANY | 443 | Replace `<region>` with the Azure region that contains your Azure Machine Learning workspace. Communication with Azure Batch. |
+    | `<region>.service.batch.com` | ANY | 443 | Replace `<region>` with the Azure region that contains your Azure Machine Learning workspace. Communication with Azure Batch. |
     | `*.blob.core.windows.net` | TCP | 443 | Communication with Azure Blob storage. |
     | `*.queue.core.windows.net` | TCP | 443 | Communication with Azure Queue storage. |
     | `*.table.core.windows.net` | TCP | 443 | Communication with Azure Table storage. |
 
 
-+ Create either a firewall and outbound rules or a NAT gateway and network service groups to allow outbound traffic. Since the compute has no public IP address, it can't communicate with resources on the public internet without this configuration. For example, it wouldn't be able to communicate with Azure Active Directory or Azure Resource Manager. Installing Python packages from public sources would also require this configuration. 
++ By default, a compute instance/cluster configured for no public IP doesn't have outbound access to the internet. If you *can* access the internet from it, it is because of Azure [default outbound access](/azure/virtual-network/ip-services/default-outbound-access) and you have an NSG that allows outbound to the internet. However, we **don't recommend** using the default outbound access. If you need outbound access to the internet, we recommend using either a firewall and outbound rules or a NAT gateway and network service groups to allow outbound traffic instead.
 
     For more information on the outbound traffic that is used by Azure Machine Learning, see the following articles:
     - [Configure inbound and outbound network traffic](how-to-access-azureml-behind-firewall.md).
-    - [Azure's outbound connectivity methods](/azure/load-balancer/load-balancer-outbound-connections#scenarios).
+    - [Azure's outbound connectivity methods](../load-balancer/load-balancer-outbound-connections.md#scenarios).
+
+    For more information on service tags that can be used with Azure Firewall, see the [Virtual network service tags](../virtual-network/service-tags-overview.md) article.
 
 Use the following information to create a compute instance or cluster with no public IP address:
 
@@ -147,7 +157,11 @@ In the `az ml compute create` command, replace the following values:
 * `AmlCompute` or `ComputeInstance`: Specifying `AmlCompute` creates a *compute cluster*. `ComputeInstance` creates a *compute instance*.
 
 ```azurecli
-az ml compute create --resource-group rg --workspace-name ws --vnet-name yourvnet --subnet yoursubnet --type AmlCompute or ComputeInstance --enable-node-public-ip false
+# create a compute cluster with no public IP
+az ml compute create --name cpu-cluster --resource-group rg --workspace-name ws --vnet-name yourvnet --subnet yoursubnet --type AmlCompute --set enable_node_public_ip=False
+
+# create a compute instance with no public IP
+az ml compute create --name myci --resource-group rg --workspace-name ws --vnet-name yourvnet --subnet yoursubnet --type ComputeInstance --set enable_node_public_ip=False
 ```
 
 # [Python](#tab/python)
@@ -156,20 +170,18 @@ az ml compute create --resource-group rg --workspace-name ws --vnet-name yourvne
 > The following code snippet assumes that `ml_client` points to an Azure Machine Learning workspace that uses a private endpoint to participate in a VNet. For more information on using `ml_client`, see the tutorial [Azure Machine Learning in a day](tutorial-azure-ml-in-a-day.md).
 
 ```python
-from azure.ai.ml.entities import AmlCompute
+from azure.ai.ml.entities import AmlCompute, NetworkSettings
 
-# specify aml compute name.
-cpu_compute_target = "cpu-cluster"
-
-try:
-    ml_client.compute.get(cpu_compute_target)
-except Exception:
-    print("Creating a new cpu compute target...")
-    compute = AmlCompute(
-        name=cpu_compute_target, size="STANDARD_D2_V2", min_instances=0, max_instances=4,
-        vnet_name="yourvnet", subnet_name="yoursubnet", enable_node_public_ip=False
-    )
-    ml_client.compute.begin_create_or_update(compute).result()
+network_settings = NetworkSettings(vnet_name="<vnet-name>", subnet="<subnet-name>")
+compute = AmlCompute(
+    name=cpu_compute_target,
+    size="STANDARD_D2_V2",
+    min_instances=0,
+    max_instances=4,
+    enable_node_public_ip=False,
+    network_settings=network_settings
+)
+ml_client.begin_create_or_update(entity=compute)
 ```
 
 # [Studio](#tab/azure-studio)
@@ -216,19 +228,19 @@ The following configurations are in addition to those listed in the [Prerequisit
     | Service tag | Protocol | Port | Notes |
     | ----- |:-----:|:-----:| ----- |
     | `AzureMachineLearning` | TCP<br>UDP | 443/8787/18881<br>5831 | Communication with the Azure Machine Learning service.|
-    | `BatchNodeManagement.<region>` | ANY | 443| Replace `<region>` with the Azure region that contains your Azure Machine learning workspace. Communication with Azure Batch. Compute instance and compute cluster are implemented using the Azure Batch service.|
-    | `Storage.<region>` | TCP | 443 | Replace `<region>` with the Azure region that contains your Azure Machine learning workspace. This service tag is used to communicate with the Azure Storage account used by Azure Batch. |
+    | `BatchNodeManagement.<region>` | ANY | 443| Replace `<region>` with the Azure region that contains your Azure Machine Learning workspace. Communication with Azure Batch. Compute instance and compute cluster are implemented using the Azure Batch service.|
+    | `Storage.<region>` | TCP | 443 | Replace `<region>` with the Azure region that contains your Azure Machine Learning workspace. This service tag is used to communicate with the Azure Storage account used by Azure Batch. |
 
     > [!IMPORTANT]
     > The outbound access to `Storage.<region>` could potentially be used to exfiltrate data from your workspace. By using a Service Endpoint Policy, you can mitigate this vulnerability. For more information, see the [Azure Machine Learning data exfiltration prevention](how-to-prevent-data-loss-exfiltration.md) article.
 
     | FQDN | Protocol | Port | Notes |
     | ---- |:----:|:----:| ---- |
-    | `<region>.tundra.azureml.ms` | UDP | 5831 | Replace `<region>` with the Azure region that contains your Azure Machine learning workspace. |
+    | `<region>.tundra.azureml.ms` | UDP | 5831 | Replace `<region>` with the Azure region that contains your Azure Machine Learning workspace. |
     | `graph.windows.net` | TCP | 443 | Communication with the Microsoft Graph API.|
     | `*.instances.azureml.ms` | TCP | 443/8787/18881 | Communication with Azure Machine Learning. |
-    | `<region>.batch.azure.com` | ANY | 443 | Replace `<region>` with the Azure region that contains your Azure Machine learning workspace. Communication with Azure Batch. |
-    | `<region>.service.batch.com` | ANY | 443 | Replace `<region>` with the Azure region that contains your Azure Machine learning workspace. Communication with Azure Batch. |
+    | `<region>.batch.azure.com` | ANY | 443 | Replace `<region>` with the Azure region that contains your Azure Machine Learning workspace. Communication with Azure Batch. |
+    | `<region>.service.batch.com` | ANY | 443 | Replace `<region>` with the Azure region that contains your Azure Machine Learning workspace. Communication with Azure Batch. |
     | `*.blob.core.windows.net` | TCP | 443 | Communication with Azure Blob storage. |
     | `*.queue.core.windows.net` | TCP | 443 | Communication with Azure Queue storage. |
     | `*.table.core.windows.net` | TCP | 443 | Communication with Azure Table storage. |
@@ -246,7 +258,11 @@ In the `az ml compute create` command, replace the following values:
 * `AmlCompute` or `ComputeInstance`: Specifying `AmlCompute` creates a *compute cluster*. `ComputeInstance` creates a *compute instance*.
 
 ```azurecli
-az ml compute create --resource-group rg --workspace-name ws --vnet-name yourvnet --subnet yoursubnet --type AmlCompute or ComputeInstance
+# create a compute cluster with a public IP
+az ml compute create --name cpu-cluster --resource-group rg --workspace-name ws --vnet-name yourvnet --subnet yoursubnet --type AmlCompute
+
+# create a compute instance with a public IP
+az ml compute create --name myci --resource-group rg --workspace-name ws --vnet-name yourvnet --subnet yoursubnet --type ComputeInstance
 ```
 
 # [Python](#tab/python)
@@ -255,21 +271,17 @@ az ml compute create --resource-group rg --workspace-name ws --vnet-name yourvne
 > The following code snippet assumes that `ml_client` points to an Azure Machine Learning workspace that uses a private endpoint to participate in a VNet. For more information on using `ml_client`, see the tutorial [Azure Machine Learning in a day](tutorial-azure-ml-in-a-day.md).
 
 ```python
-from azure.ai.ml.entities import AmlCompute
+from azure.ai.ml.entities import AmlCompute, NetworkSettings
 
-# specify aml compute name.
-cpu_compute_target = "cpu-cluster"
-
-try:
-    ml_client.compute.get(cpu_compute_target)
-except Exception:
-    print("Creating a new cpu compute target...")
-    # Replace "yourvnet" and "yoursubnet" with your VNet and subnet.
-    compute = AmlCompute(
-        name=cpu_compute_target, size="STANDARD_D2_V2", min_instances=0, max_instances=4,
-        vnet_name="yourvnet", subnet_name="yoursubnet"
-    )
-    ml_client.compute.begin_create_or_update(compute).result()
+network_settings = NetworkSettings(vnet_name="<vnet-name>", subnet="<subnet-name>")
+compute = AmlCompute(
+    name=cpu_compute_target,
+    size="STANDARD_D2_V2",
+    min_instances=0,
+    max_instances=4,
+    network_settings=network_settings
+)
+ml_client.begin_create_or_update(entity=compute)
 ```
 
 # [Studio](#tab/azure-studio)

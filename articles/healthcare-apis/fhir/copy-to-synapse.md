@@ -25,7 +25,7 @@ The **FHIR to Synapse Sync Agent** is a Microsoft OSS project released under MIT
 
 This solution enables you to query against the entire FHIR data with tools such as Synapse Studio, SSMS, and Power BI. You can also access the Parquet files directly from a Synapse Spark pool. You should consider this solution if you want to access all of your FHIR data in near real time, and want to defer custom transformation to downstream systems.
 
-Follow the OSS [documentation](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToDataLake/docs/Deployment.md) for installation and usage instructions.
+Follow the OSS [documentation](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToDataLake/docs/Deploy-FhirToDatalake.md) for installation and usage instructions.
 
 ## Using the FHIR to CDM pipeline generator OSS tool
 

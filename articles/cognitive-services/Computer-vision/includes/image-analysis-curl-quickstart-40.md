@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Image Analysis REST API"
+title: "Quickstart: Image Analysis 4.0 REST API"
 titleSuffix: "Azure Cognitive Services"
-description: In this quickstart, get started with the Image Analysis REST API.
+description: In this quickstart, get started with the Image Analysis 4.0 REST API.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,380 +9,162 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: include
-ms.date: 09/12/2022
+ms.date: 01/24/2023
 ms.author: pafarley
-ms.custom: seodec18, ignite-2022
+ms.custom: seodec18, ignite-2022, references_regions
 ---
 
-Use the Image Analysis REST API to analyze an image for tags and read text in the image (version 4.0 only).
+Use the Image Analysis REST API to read text and generate captions for the image (version 4.0 only).
 
 > [!TIP]
-> The Analyze API can do many different operations other than generate image tags. See the [Image Analysis how-to guide](../how-to/call-analyze-image.md) for examples that showcase all of the available features.
-
-> [!NOTE]
-> This quickstart uses cURL commands to call the REST API. You can also call the REST API using a programming language. See the GitHub samples for examples in [C#](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/ComputerVision/REST), [Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/ComputerVision/REST), [Java](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/java/ComputerVision/REST), and [JavaScript](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/ComputerVision/REST).
+> The Analysis 4.0 API can do many different operations. See the [Analyze Image how-to guide](../how-to/call-analyze-image-40.md) for examples that showcase all of the available features.
 
 ## Prerequisites
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/) 
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource </a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource </a> in the Azure portal to get your key and endpoint. In order to use the captioning feature in this quickstart, you must create your resource in one of the following Azure regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US. After it deploys, select **Go to resource**.
   * You'll need the key and endpoint from the resource you create to connect your application to the Computer Vision service. You'll paste your key and endpoint into the code below later in the quickstart.
   * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 * [cURL](https://curl.haxx.se/) installed
 
 > [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Vision&Product=Image-analysis&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Vision&Product=Image-analysis&Page=quickstart4&Section=Prerequisites" target="_target">I ran into an issue</a>
 
 ## Analyze an image
 
 To analyze an image for various visual features, do the following steps:
 
-1. Copy the following command into a text editor.
+1. Copy the following `curl` command into a text editor.
+
+    ```bash
+    curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://<endpoint>/computervision/imageanalysis:analyze?features=caption,read&model-version=latest&language=en&api-version=2023-02-01-preview" -d "{'url':'https://learn.microsoft.com/azure/cognitive-services/computer-vision/media/quickstarts/presentation.png'}"
+    ```
+
 1. Make the following changes in the command where needed:
-    1. Replace the value of `<subscriptionKey>` with your key.
-    1. Replace the first part of the request URL (`westcentralus`) with the text in your own endpoint URL.
-        [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
-    1. Optionally, change the image URL in the request body (`http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\`) to the URL of a different image to be analyzed.
+    1. Replace the value of `<subscriptionKey>` with your Computer Vision resource key.
+    1. Replace the value of `<endpoint>` with your Computer Vision resource endpoint. For example: `https://YourResourceName.cognitiveservices.azure.com`.
+    1. Optionally, change the image URL in the request body (`https://learn.microsoft.com/azure/cognitive-services/computer-vision/media/quickstarts/presentation.png`) to the URL of a different image to be analyzed.
 1. Open a command prompt window.
-1. Paste the command from the text editor into the command prompt window, and then run the command.
-
-    #### [Version 3.2](#tab/3-2)
-
-    ```bash
-    curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/vision/v3.2/analyze?visualFeatures=Tags" -d "{'url':'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Salto_del_Angel-Canaima-Venezuela08.JPG/800px-Salto_del_Angel-Canaima-Venezuela08.JPG'}"
-    ```
-
-    #### [Version 4.0](#tab/4-0)
-
-    ```bash
-    curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/computervision/imageanalysis:analyze?features=Description,Tags,Read&model-version=latest&language=en&api-version=2022-10-12-preview" -d "{'url':'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Salto_del_Angel-Canaima-Venezuela08.JPG/800px-Salto_del_Angel-Canaima-Venezuela08.JPG'}"
-    ```
-    ---
+1. Paste your edited `curl` command from the text editor into the command prompt window, and then run the command.
 
 > [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Vision&Product=Image-analysis&Page=quickstart&Section=Analyze-image" target="_target">I ran into an issue</a>
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Vision&Product=Image-analysis&Page=quickstart4&Section=Analyze-image" target="_target">I ran into an issue</a>
 
 ### Examine the response
 
 A successful response is returned in JSON. The sample application parses and displays a successful response in the command prompt window, similar to the following example:
 
-#### [Version 3.2](#tab/3-2)
-```json
-{{
-   "tags":[
-      {
-         "name":"text",
-         "confidence":0.9992657899856567
-      },
-      {
-         "name":"post-it note",
-         "confidence":0.9879657626152039
-      },
-      {
-         "name":"handwriting",
-         "confidence":0.9730165004730225
-      },
-      {
-         "name":"rectangle",
-         "confidence":0.8658561706542969
-      },
-      {
-         "name":"paper product",
-         "confidence":0.8561884760856628
-      },
-      {
-         "name":"purple",
-         "confidence":0.5961999297142029
-      }
-   ],
-   "requestId":"2788adfc-8cfb-43a5-8fd6-b3a9ced35db2",
-   "metadata":{
-      "height":945,
-      "width":1000,
-      "format":"Jpeg"
-   },
-   "modelVersion":"2021-05-01"
-}
-```
-
-#### [Version 4.0](#tab/4-0)
 
 ```json
 {
+    "captionResult":
+    {
+        "text": "a man pointing at a screen",
+        "confidence": 0.4891590476036072
+    },
+    "modelVersion": "2023-02-01-preview",
     "metadata":
     {
-        "width": 1000,
-        "height": 945
-    },
-    "tagsResult":
-    {
-        "values":
-        [
-            {
-                "name": "text",
-                "confidence": 0.9992657899856567
-            },
-            {
-                "name": "post-it note",
-                "confidence": 0.9879657626152039
-            },
-            {
-                "name": "handwriting",
-                "confidence": 0.9730165004730225
-            },
-            {
-                "name": "rectangle",
-                "confidence": 0.8658561706542969
-            },
-            {
-                "name": "paper product",
-                "confidence": 0.8561884760856628
-            },
-            {
-                "name": "purple",
-                "confidence": 0.5961999297142029
-            }
-        ]
+        "width": 1038,
+        "height": 692
     },
     "readResult":
     {
         "stringIndexType": "TextElements",
-        "content": "You must be the change you\nWish to see in the world !\nEverything has its beauty , but\nnot everyone sees it !",
+        "content": "9:35 AM\nE Conference room 154584354\n#: 555-173-4547\nTown Hall\n9:00 AM - 10:00 AM\nAaron Buaion\nDaily SCRUM\n10:00 AM 11:00 AM\nChurlette de Crum\nQuarterly NI Hands\n11.00 AM-12:00 PM\nBebek Shaman\nWeekly stand up\n12:00 PM-1:00 PM\nDelle Marckre\nProduct review",
         "pages":
         [
             {
-                "height": 945,
-                "width": 1000,
-                "angle": -1.099,
+                "height": 692,
+                "width": 1038,
+                "angle": 0.3048,
                 "pageNumber": 1,
                 "words":
                 [
-                    {
-                        "content": "You",
-                        "boundingBox": [253,268,301,267,304,318,256,318],
-                        "confidence": 0.998,
-                        "span": {"offset":0,"length":3}
-                    },
-                    {
-                        "content": "must",
-                        "boundingBox": [310,266,376,265,378,316,313,317],
-                        "confidence": 0.988,
-                        "span": {"offset":4,"length":4}
-                    },
-                    {
-                        "content": "be",
-                        "boundingBox": [385,264,426,264,428,314,388,316],
-                        "confidence": 0.928,
-                        "span": {"offset":9,"length":2}
-                    },
-                    {
-                        "content": "the",
-                        "boundingBox": [435,263,494,263,496,311,437,314],
-                        "confidence": 0.997,
-                        "span": {"offset":12,"length":3}
-                    },
-                    {
-                        "content": "change",
-                        "boundingBox": [503,263,600,262,602,306,506,311],
-                        "confidence": 0.995,
-                        "span": {"offset":16,"length":6}
-                    },
-                    {
-                        "content": "you",
-                        "boundingBox": [609,262,665,263,666,302,611,305],
-                        "confidence": 0.998,
-                        "span": {"offset":23,"length":3}
-                    },
-                    {
-                        "content": "Wish",
-                        "boundingBox": [327,348,391,343,392,380,328,382],
-                        "confidence": 0.98,
-                        "span": {"offset":27,"length":4}
-                    },
-                    {
-                        "content": "to",
-                        "boundingBox": [406,342,438,340,439,378,407,379],
-                        "confidence": 0.997,
-                        "span": {"offset":32,"length":2}
-                    },
-                    {
-                        "content": "see",
-                        "boundingBox": [446,340,492,337,494,376,447,378],
-                        "confidence": 0.998,
-                        "span": {"offset":35,"length":3}
-                    },
-                    {
-                        "content": "in",
-                        "boundingBox": [500,337,527,336,529,375,501,376],
-                        "confidence": 0.983,
-                        "span": {"offset":39,"length":2}
-                    },
-                    {
-                        "content": "the",
-                        "boundingBox": [534,336,588,334,590,373,536,375],
-                        "confidence": 0.993,
-                        "span": {"offset":42,"length":3}
-                    },
-                    {
-                        "content": "world",
-                        "boundingBox": [599,334,655,333,658,371,601,373],
-                        "confidence": 0.998,
-                        "span": {"offset":46,"length":5}
-                    },
-                    {
-                        "content": "!",
-                        "boundingBox": [663,333,687,333,690,370,666,371],
-                        "confidence": 0.915,
-                        "span": {"offset":52,"length":1}
-                    },
-                    {
-                        "content": "Everything",
-                        "boundingBox": [255,446,371,441,372,490,256,494],
-                        "confidence": 0.97,
-                        "span": {"offset":54,"length":10}
-                    },
-                    {
-                        "content": "has",
-                        "boundingBox": [380,441,421,440,421,488,381,489],
-                        "confidence": 0.793,
-                        "span": {"offset":65,"length":3}
-                    },
-                    {
-                        "content": "its",
-                        "boundingBox": [430,440,471,439,471,487,431,488],
-                        "confidence": 0.998,
-                        "span": {"offset":69,"length":3}
-                    },
-                    {
-                        "content": "beauty",
-                        "boundingBox": [480,439,552,439,552,485,481,487],
-                        "confidence": 0.296,
-                        "span": {"offset":73,"length":6}
-                    },
-                    {
-                        "content": ",",
-                        "boundingBox": [561,439,571,439,571,485,562,485],
-                        "confidence": 0.742,
-                        "span": {"offset":80,"length":1}
-                    },
-                    {
-                        "content": "but",
-                        "boundingBox": [580,439,636,439,636,485,580,485],
-                        "confidence": 0.885,
-                        "span": {"offset":82,"length":3}
-                    },
-                    {
-                        "content": "not",
-                        "boundingBox": [364,516,412,512,413,546,366,549],
-                        "confidence": 0.994,
-                        "span": {"offset":86,"length":3}
-                    },
-                    {
-                        "content": "everyone",
-                        "boundingBox": [422,511,520,504,521,540,423,545],
-                        "confidence": 0.993,
-                        "span": {"offset":90,"length":8}
-                    },
-                    {
-                        "content": "sees",
-                        "boundingBox": [530,503,586,500,588,538,531,540],
-                        "confidence": 0.988,
-                        "span": {"offset":99,"length":4}
-                    },
-                    {
-                        "content": "it",
-                        "boundingBox": [596,500,627,498,628,536,598,537],
-                        "confidence": 0.998,
-                        "span": {"offset":104,"length":2}
-                    },
-                    {
-                        "content": "!",
-                        "boundingBox": [634,498,657,497,659,536,635,536],
-                        "confidence": 0.994,
-                        "span": {"offset":107,"length":1}
-                    }
+                    {"content":"9:35","boundingBox":[131,130,171,130,171,149,130,149],"confidence":0.993,"span":{"offset":0,"length":4}},
+                    {"content":"AM","boundingBox":[179,130,204,130,203,149,178,149],"confidence":0.998,"span":{"offset":5,"length":2}},
+                    {"content":"E","boundingBox":[131,154,135,154,135,161,131,161],"confidence":0.104,"span":{"offset":8,"length":1}},
+                    {"content":"Conference","boundingBox":[142,154,174,154,173,161,141,161],"confidence":0.902,"span":{"offset":10,"length":10}},
+                    {"content":"room","boundingBox":[175,154,189,155,188,161,175,161],"confidence":0.796,"span":{"offset":21,"length":4}},
+                    {"content":"154584354","boundingBox":[192,155,224,154,223,162,191,161],"confidence":0.864,"span":{"offset":26,"length":9}},
+                    {"content":"#:","boundingBox":[131,163,139,164,139,171,131,171],"confidence":0.036,"span":{"offset":36,"length":2}},
+                    {"content":"555-173-4547","boundingBox":[142,164,182,165,181,171,142,171],"confidence":0.597,"span":{"offset":39,"length":12}},
+                    {"content":"Town","boundingBox":[547,181,568,181,568,190,546,191],"confidence":0.981,"span":{"offset":52,"length":4}},
+                    {"content":"Hall","boundingBox":[570,181,590,181,590,191,570,190],"confidence":0.991,"span":{"offset":57,"length":4}},
+                    {"content":"9:00","boundingBox":[546,192,555,192,555,200,546,200],"confidence":0.09,"span":{"offset":62,"length":4}},
+                    {"content":"AM","boundingBox":[557,192,565,192,565,200,557,200],"confidence":0.991,"span":{"offset":67,"length":2}},
+                    {"content":"-","boundingBox":[567,192,569,192,569,200,567,200],"confidence":0.691,"span":{"offset":70,"length":1}},
+                    {"content":"10:00","boundingBox":[570,192,585,193,584,200,570,200],"confidence":0.885,"span":{"offset":72,"length":5}},
+                    {"content":"AM","boundingBox":[586,193,593,194,593,200,586,200],"confidence":0.991,"span":{"offset":78,"length":2}},
+                    {"content":"Aaron","boundingBox":[545,202,560,202,559,208,544,208],"confidence":0.602,"span":{"offset":81,"length":5}},
+                    {"content":"Buaion","boundingBox":[561,202,580,202,579,208,560,208],"confidence":0.291,"span":{"offset":87,"length":6}},
+                    {"content":"Daily","boundingBox":[538,259,551,260,550,266,538,265],"confidence":0.175,"span":{"offset":94,"length":5}},
+                    {"content":"SCRUM","boundingBox":[552,260,570,260,570,266,551,266],"confidence":0.114,"span":{"offset":100,"length":5}},
+                    {"content":"10:00","boundingBox":[539,267,553,267,552,273,538,272],"confidence":0.857,"span":{"offset":106,"length":5}},
+                    {"content":"AM","boundingBox":[554,267,561,267,560,273,553,273],"confidence":0.998,"span":{"offset":112,"length":2}},
+                    {"content":"11:00","boundingBox":[564,267,578,267,577,273,563,273],"confidence":0.479,"span":{"offset":115,"length":5}},
+                    {"content":"AM","boundingBox":[579,267,586,267,585,273,578,273],"confidence":0.994,"span":{"offset":121,"length":2}},
+                    {"content":"Churlette","boundingBox":[539,274,562,274,561,279,538,279],"confidence":0.464,"span":{"offset":124,"length":9}},
+                    {"content":"de","boundingBox":[563,274,569,274,568,279,562,279],"confidence":0.81,"span":{"offset":134,"length":2}},
+                    {"content":"Crum","boundingBox":[570,274,582,273,581,279,569,279],"confidence":0.885,"span":{"offset":137,"length":4}},
+                    {"content":"Quarterly","boundingBox":[540,296,562,296,562,302,539,302],"confidence":0.523,"span":{"offset":142,"length":9}},
+                    {"content":"NI","boundingBox":[563,296,570,296,570,302,563,302],"confidence":0.303,"span":{"offset":152,"length":2}},
+                    {"content":"Hands","boundingBox":[572,296,588,296,588,302,571,302],"confidence":0.613,"span":{"offset":155,"length":5}},
+                    {"content":"11.00","boundingBox":[538,304,552,304,552,310,538,310],"confidence":0.618,"span":{"offset":161,"length":5}},
+                    {"content":"AM-12:00","boundingBox":[554,304,578,304,577,310,553,310],"confidence":0.27,"span":{"offset":167,"length":8}},
+                    {"content":"PM","boundingBox":[579,304,586,304,586,309,578,310],"confidence":0.662,"span":{"offset":176,"length":2}},
+                    {"content":"Bebek","boundingBox":[539,310,554,310,554,317,539,316],"confidence":0.611,"span":{"offset":179,"length":5}},
+                    {"content":"Shaman","boundingBox":[555,310,576,311,576,317,555,317],"confidence":0.605,"span":{"offset":185,"length":6}},
+                    {"content":"Weekly","boundingBox":[538,332,557,333,556,339,538,338],"confidence":0.606,"span":{"offset":192,"length":6}},
+                    {"content":"stand","boundingBox":[558,333,572,334,571,340,557,339],"confidence":0.489,"span":{"offset":199,"length":5}},
+                    {"content":"up","boundingBox":[574,334,580,334,580,340,573,340],"confidence":0.815,"span":{"offset":205,"length":2}},
+                    {"content":"12:00","boundingBox":[539,341,553,341,552,347,538,347],"confidence":0.826,"span":{"offset":208,"length":5}},
+                    {"content":"PM-1:00","boundingBox":[554,341,575,341,574,347,553,347],"confidence":0.209,"span":{"offset":214,"length":7}},
+                    {"content":"PM","boundingBox":[576,341,583,341,582,347,575,347],"confidence":0.039,"span":{"offset":222,"length":2}},
+                    {"content":"Delle","boundingBox":[540,348,559,347,558,353,539,353],"confidence":0.58,"span":{"offset":225,"length":5}},
+                    {"content":"Marckre","boundingBox":[560,347,582,348,582,353,559,353],"confidence":0.275,"span":{"offset":231,"length":7}},
+                    {"content":"Product","boundingBox":[539,370,559,371,558,376,539,376],"confidence":0.615,"span":{"offset":239,"length":7}},
+                    {"content":"review","boundingBox":[560,371,576,371,575,376,559,376],"confidence":0.04,"span":{"offset":247,"length":6}}
                 ],
                 "spans":
                 [
-                    {
-                        "offset": 0,
-                        "length": 108
-                    }
+                    {"offset":0,"length":253}
                 ],
                 "lines":
                 [
-                    {
-                        "content": "You must be the change you",
-                        "boundingBox": [253,267,670,262,671,307,254,318],
-                        "spans": [{"offset":0,"length":26}]
-                    },
-                    {
-                        "content": "Wish to see in the world !",
-                        "boundingBox": [326,343,691,332,693,369,327,382],
-                        "spans": [{"offset":27,"length":26}]
-                    },
-                    {
-                        "content": "Everything has its beauty , but",
-                        "boundingBox": [254,443,640,438,641,485,255,493],
-                        "spans": [{"offset":54,"length":31}]
-                    },
-                    {
-                        "content": "not everyone sees it !",
-                        "boundingBox": [364,512,658,496,660,534,365,549],
-                        "spans": [{"offset":86,"length":22}]
-                    }
+                    {"content":"9:35 AM","boundingBox":[130,129,215,130,215,149,130,148],"spans":[{"offset":0,"length":7}]},
+                    {"content":"E Conference room 154584354","boundingBox":[130,153,224,154,224,161,130,161],"spans":[{"offset":8,"length":27}]},
+                    {"content":"#: 555-173-4547","boundingBox":[130,163,182,164,181,171,130,170],"spans":[{"offset":36,"length":15}]},
+                    {"content":"Town Hall","boundingBox":[546,180,590,180,590,190,546,190],"spans":[{"offset":52,"length":9}]},
+                    {"content":"9:00 AM - 10:00 AM","boundingBox":[546,191,596,192,596,200,546,199],"spans":[{"offset":62,"length":18}]},
+                    {"content":"Aaron Buaion","boundingBox":[543,201,581,201,581,208,543,208],"spans":[{"offset":81,"length":12}]},
+                    {"content":"Daily SCRUM","boundingBox":[537,259,575,260,575,266,537,265],"spans":[{"offset":94,"length":11}]},
+                    {"content":"10:00 AM 11:00 AM","boundingBox":[536,266,590,266,590,272,536,272],"spans":[{"offset":106,"length":17}]},
+                    {"content":"Churlette de Crum","boundingBox":[538,273,584,273,585,279,538,279],"spans":[{"offset":124,"length":17}]},
+                    {"content":"Quarterly NI Hands","boundingBox":[538,295,588,295,588,301,538,302],"spans":[{"offset":142,"length":18}]},
+                    {"content":"11.00 AM-12:00 PM","boundingBox":[536,304,588,303,588,309,536,310],"spans":[{"offset":161,"length":17}]},
+                    {"content":"Bebek Shaman","boundingBox":[538,310,577,310,577,316,538,316],"spans":[{"offset":179,"length":12}]},
+                    {"content":"Weekly stand up","boundingBox":[537,332,582,333,582,339,537,338],"spans":[{"offset":192,"length":15}]},
+                    {"content":"12:00 PM-1:00 PM","boundingBox":[537,340,583,340,583,347,536,346],"spans":[{"offset":208,"length":16}]},
+                    {"content":"Delle Marckre","boundingBox":[538,347,582,347,582,352,538,353],"spans":[{"offset":225,"length":13}]},
+                    {"content":"Product review","boundingBox":[538,370,577,370,577,376,538,375],"spans":[{"offset":239,"length":14}]}
                 ]
             }
         ],
-        "styles":
-        [
-            {
-                "isHandwritten": true,
-                "spans":
-                [
-                    {
-                        "offset": 0,
-                        "length": 26
-                    }
-                ],
-                "confidence": 0.95
-            },
-            {
-                "isHandwritten": true,
-                "spans":
-                [
-                    {
-                        "offset": 27,
-                        "length": 58
-                    }
-                ],
-                "confidence": 1
-            },
-            {
-                "isHandwritten": true,
-                "spans":
-                [
-                    {
-                        "offset": 86,
-                        "length": 22
-                    }
-                ],
-                "confidence": 0.9
-            }
-        ]
+        "styles": [],
+        "modelVersion": "2022-04-30"
     }
 }
 ```
----
 
 > [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Vision&Product=Image-analysis&Page=quickstart&Section=Output" target="_target">I ran into an issue</a>
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Vision&Product=Image-analysis&Page=quickstart4&Section=Output" target="_target">I ran into an issue</a>
 
 ## Next steps
 
-In this quickstart, you learned how to make basic image analysis calls using the REST API. Next, learn more about the Analyze API features.
+In this quickstart, you learned how to make basic image analysis calls using the REST API. Next, learn more about the Analysis 4.0 API features.
 
 > [!div class="nextstepaction"]
->[Call the Analyze API](../how-to/call-analyze-image.md)
+>[Call the Analyze Image 4.0 API](../how-to/call-analyze-image-40.md)
 
 * [Image Analysis overview](../overview-image-analysis.md)

@@ -6,7 +6,7 @@ ms.reviewer: ragrover
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 12/10/2022
+ms.date: 02/13/2023
 ms.author: banders
 ---
 
@@ -18,7 +18,7 @@ However, if the authorization on the card is declined, you're asked to update th
 
 ## How am I notified by Microsoft for a threshold billing authorization?
 
-If the payment authorization is approved by the bank, it will immediately be reversed. You won't receive a notification. However, if the payment authorization is declined, you'll receive an email, text message, and Azure portal notification asking you to update your payment method before your account is disabled.
+If the payment authorization is approved by the bank, it will immediately be reversed. You won't receive a notification. However, if the payment authorization is declined, you'll receive an email and an Azure portal notification asking you to update your payment method before your account is disabled.
 
 ## When does Microsoft release withholding funds on my credit card?
 
@@ -34,7 +34,7 @@ All Microsoft services count towards a customer's billing threshold.
 
 ## How do I check my current consumption level?
 
-Azure customers can view their current usage levels in Cost Management. For more information about viewing your current Azure costs, see [View costs](../costs/quick-acm-cost-analysis.md#view-costs).
+Azure customers can view their current usage levels in Cost Management. For more information about viewing your current Azure costs, see [Start using Cost analysis](../costs/quick-acm-cost-analysis.md).
 
 ## When there are multiple payment methods (with multiple billing profiles) linked to a single billing account, which one is authorized?
 

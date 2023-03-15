@@ -41,7 +41,7 @@ If you're syncing work items between ServiceNow and an Azure Log Analytics works
 
     :::image type="content" source="media/itsmc-convert-servicenow-to-webhook/alerts-itsmc-service-now-for-loop.png" alt-text="Screenshot showing loop that imports data into a Log Analytics workspace.":::
 
-The data is visible in the **Custom logs** section of your Log Analytics workspace.
+The data is visible in the **Legacy custom logs** section of your Log Analytics workspace.
 
 ## Sample JSON schema for a change_request table
 
