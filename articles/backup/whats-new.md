@@ -17,6 +17,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 ## Updates summary
 
 - March 2023
+  - [Support for selective disk backup with enhanced policy for Azure VM (preview)](#support-for-selective-disk-backup-with-enhanced-policy-for-azure-vm-preview)
   - [Azure Kubernetes Service backup (preview)](#azure-kubernetes-service-backup-preview)
   - [Azure Blob vaulted backups (preview)](#azure-blob-vaulted-backups-preview)
 - October 2022
