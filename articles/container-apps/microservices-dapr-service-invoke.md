@@ -494,7 +494,6 @@ Start by running the `order-processor` callee service with Dapr.
 1. Install the dependencies.
 
    ```bash
-   dotnet restore
    dotnet build
    ```
 
@@ -513,7 +512,6 @@ Start by running the `order-processor` callee service with Dapr.
 1. Install the dependencies.
 
    ```bash
-   dotnet restore
    dotnet build
    ```
 
