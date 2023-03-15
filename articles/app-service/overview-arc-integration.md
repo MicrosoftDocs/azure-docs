@@ -74,7 +74,7 @@ Only one Kubernetes environment resource can be created in a custom location. In
 - [What logs are collected?](#what-logs-are-collected)
 - [What do I do if I see a provider registration error?](#what-do-i-do-if-i-see-a-provider-registration-error)
 - [Can I deploy the Application services extension on an ARM64 based cluster?](#can-i-deploy-the-application-services-extension-on-an-arm64-based-cluster)
-- [Which Kubernetes distributions can I deploy the extension on?]  (#which-kubernetes-distributions-can-i-deploy-the-extension-on)
+- [Which Kubernetes distributions can I deploy the extension on?](#which-kubernetes-distributions-can-i-deploy-the-extension-on)
 
 ### How much does it cost?
 
