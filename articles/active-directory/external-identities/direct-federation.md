@@ -32,7 +32,7 @@ This article describes how to set up federation with any organization whose iden
 
 ## When is a guest user authenticated with SAML/WS-Fed IdP federation?
 
-After you set up federation with an organization's SAML/WS-Fed IdP, any new guest users you invite will be authenticated using that SAML/WS-Fed IdP. It’s important to note that setting up federation doesn’t change the authentication method for guest users who have already redeemed an invitation from you. Here are some sample scenarios:
+After you set up federation with an organization's SAML/WS-Fed IdP, any new guest users you invite will be authenticated using that SAML/WS-Fed IdP. It’s important to note that setting up federation doesn’t change the authentication method for guest users who have already redeemed an invitation from you. Here are some examples:
 
  - Guest users have already redeemed invitations from you, and then later you set up federation with the organization's SAML/WS-Fed IdP. These guest users continue to use the same authentication method they used before you set up federation.
  - You set up federation with an organization's SAML/WS-Fed IdP and invite guest users, and then the partner organization later moves to Azure AD. The guest users who have already redeemed invitations continue to use the federated SAML/WS-Fed IdP, as long as the federation policy in your tenant exists.
@@ -154,7 +154,7 @@ Required claims for the SAML 2.0 token issued by the IdP:
 
 ### WS-Fed configuration
 
-Azure AD B2B can be configured to federate with IdPs that use the WS-Fed protocol with some specific requirements, as discussed in this section. Currently, the two WS-Fed providers have been tested for compatibility with Azure AD include AD FS and Shibboleth. For more information about establishing a relying party trust between a WS-Fed compliant provider with Azure AD, see the "STS Integration Paper using WS Protocols" available in the [Azure AD Identity Provider Compatibility Docs](https://www.microsoft.com/download/details.aspx?id=56843).
+Azure AD B2B can be configured to federate with IdPs that use the WS-Fed protocol. This section discusses the requirements. Currently, the two WS-Fed providers have been tested for compatibility with Azure AD include AD FS and Shibboleth. For more information about establishing a relying party trust between a WS-Fed compliant provider with Azure AD, see the "STS Integration Paper using WS Protocols" available in the [Azure AD Identity Provider Compatibility Docs](https://www.microsoft.com/download/details.aspx?id=56843).
 
 > [!NOTE]
 > The target domain for federation must not be DNS-verified on Azure AD. See the [Frequently asked questions](#frequently-asked-questions) section for details.
