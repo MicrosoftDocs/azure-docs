@@ -223,11 +223,11 @@ Upon receipt of confirmation from your ADP representative, configure your ADP se
 
 1. Go to **Basic SAML Configuration** section and configure another test value in **Identifier (Entity ID)** textbox.
 
-    ![Configure another test instance value.](./media/adpfederatedsso-tutorial/append.png)
+    ![Screenshot shows how to configure another test instance value.](./media/adpfederatedsso-tutorial/append.png "Test")
 
 1. To support multiple instances in the same tenant, please follow the below steps:
 
-    ![Configure audience claim value.](./media/adpfederatedsso-tutorial/audience.png)
+    ![Screenshot shows how to configure audience claim value.](./media/adpfederatedsso-tutorial/audience.png "Claim")
 
     1. Navigate to **Attributes & Claims** section > **Advanced settings** > **Advanced SAML claims options** and click **Edit**.
 
@@ -239,11 +239,11 @@ Upon receipt of confirmation from your ADP representative, configure your ADP se
 
 1. Navigate to **Properties** tab under Manage section and copy **Application ID** from the Azure portal.
 
-    ![Copy application value from properties tab.](./media/adpfederatedsso-tutorial/app.png)
+    ![Screenshot shows how to copy application value from properties tab.](./media/adpfederatedsso-tutorial/app.png "Tab")
 
 1. Download and open the **Federation Metadata XML** file from the Azure portal and edit the **entityID** value by adding **Application ID** manually at the end.
 
-    ![Adding application value in the federation file.](./media/adpfederatedsso-tutorial/federation.png)
+    ![Screenshot shows how to add the application value in the federation file.](./media/adpfederatedsso-tutorial/federation.png "File")
     
 1. **Save** the xml file and use in the ADP side.
 
