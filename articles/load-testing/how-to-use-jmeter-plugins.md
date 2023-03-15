@@ -46,6 +46,9 @@ You can add a plugin JAR file when you create a new load test, or anytime when y
 
 For plugins from https://jmeter-plugins.org, you don't need to upload the JAR file. Azure Load Testing automatically configures these plugins for you.
 
+> [!NOTE]
+> We recommend that you build the executable JAR using Java 17.
+
 # [Azure portal](#tab/portal)
 
 Follow these steps to upload a JAR file by using the Azure portal:
@@ -132,6 +135,6 @@ To reference the plugin JAR file in the test configuration YAML file:
 
 ## Next steps
 
-- Learn how to [Download JMeter logs to troubleshoot a load test](./how-to-find-download-logs.md).
+- Learn how to [Download JMeter logs to troubleshoot a load test](./how-to-troubleshoot-failing-test.md).
 - Learn how to [Monitor server-side application metrics](./how-to-monitor-server-side-metrics.md).
 - Learn how to [Automate load tests with CI/CD](./tutorial-identify-performance-regression-with-cicd.md).

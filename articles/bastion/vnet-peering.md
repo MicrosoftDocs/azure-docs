@@ -1,9 +1,7 @@
 ---
 title: 'VNet peering and Azure Bastion architecture'
 description: Learn how VNet peering and Azure Bastion can be used together to connect to VMs.
-services: bastion
 author: cherylmc
-
 ms.service: bastion
 ms.topic: conceptual
 ms.date: 12/06/2021

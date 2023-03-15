@@ -53,7 +53,7 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
     :::image type="content" source="media/share/role-assignment.png" alt-text="Screenshot of the Grafana roles in the Azure platform.":::
 
 > [!NOTE]
-> Dashboard and data source level sharing will be done from within the Grafana application. Fore more details, refer to [Grafana permissions](https://grafana.com/docs/grafana/latest/permissions/).
+> Dashboard and data source level sharing will be done from within the Grafana application. For more details, refer to [Grafana permissions](https://grafana.com/docs/grafana/latest/permissions/).
 
 ## Next steps
 

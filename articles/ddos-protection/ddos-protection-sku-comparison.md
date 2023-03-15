@@ -26,6 +26,9 @@ Azure DDoS Network Protection, combined with application design best practices, 
 > [!NOTE]
 > DDoS IP Protection is currently only available in Azure Preview PowerShell.
 
+> [!NOTE]
+> Protecting a public IP resource attached to a Public Load Balancer is not supported for DDoS IP Protection SKU.
+
 ## SKUs
 
 Azure DDoS Protection supports two SKU Types, DDoS IP Protection and DDoS Network Protection. The SKU is configured in the Azure portal during the workflow when you configure Azure DDoS Protection.

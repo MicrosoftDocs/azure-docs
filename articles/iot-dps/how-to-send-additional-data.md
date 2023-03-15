@@ -86,7 +86,7 @@ Below is an example snippet from `/etc/aziot/config.toml` where the `payload` pr
  
 ```
 
-The payload file (in this case `/home/aziot/payload/json`) can contain any valid JSON such as:
+The payload file (in this case `/home/aziot/payload.json`) can contain any valid JSON such as:
 
 
 ```json

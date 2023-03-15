@@ -11,7 +11,7 @@ services: iot-develop
 
 # Manage IoT Plug and Play digital twins
 
-IoT Plug and Play supports **Get digital twin** and **Update digital twin** operations to manage digital twins. You can use either the [REST APIs](/rest/api/iothub/service/digitaltwin) or one of the [service SDKs](libraries-sdks.md).
+IoT Plug and Play supports **Get digital twin** and **Update digital twin** operations to manage digital twins. You can use either the [REST APIs](/rest/api/iothub/service/digitaltwin) or one of the [service SDKs](concepts-developer-guide-service.md#service-sdks).
 
 ## Update a digital twin
 

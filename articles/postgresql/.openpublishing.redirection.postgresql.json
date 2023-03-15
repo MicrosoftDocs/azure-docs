@@ -1444,6 +1444,11 @@
         "source_path_from_root": "/articles/dms/known-issues-oracle-azure-postgresql-online.md",
         "redirect_url": "/azure/postgresql/howto-migrate-from-oracle",
         "redirect_document_id": false
-    }
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/migrate/how-to-set-up-azure-ad-app-portal.md",
+        "redirect_url": "/azure/postgresql/migrate/concepts-single-to-flexible",
+        "redirect_document_id": false
+    }    
     ]
 }

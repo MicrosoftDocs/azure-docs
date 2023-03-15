@@ -68,7 +68,7 @@ Data is sent to storage accounts as it reaches Azure Monitor and exported to des
 
 Blobs are stored in 5-minute folders in the following path structure: *WorkspaceResourceId=/subscriptions/subscription-id/resourcegroups/\<resource-group\>/providers/microsoft.operationalinsights/workspaces/\<workspace\>/y=\<four-digit numeric year\>/m=\<two-digit numeric month\>/d=\<two-digit numeric day\>/h=\<two-digit 24-hour clock hour\>/m=\<two-digit 60-minute clock minute\>/PT05M.json*. Appends to blobs are limited to 50-K writes. More blobs will be added in the folder as *PT05M_#.json**, where # is the incremental blob count.
 
-The format of blobs in a storage account is in [JSON lines](../essentials/resource-logs-blob-format.md), where each record is delimited by a new line, with no outer records array and no commas between JSON records.
+The format of blobs in a storage account is in [JSON lines](/previous-versions/azure/azure-monitor/essentials/resource-logs-blob-format), where each record is delimited by a new line, with no outer records array and no commas between JSON records.
 
 [![Screenshot that shows data format in a blob.](media/logs-data-export/storage-data.png "Screenshot that shows data format in a blob.")](media/logs-data-export/storage-data-expand.png#lightbox)
 
@@ -125,7 +125,7 @@ If you've configured your storage account to allow access from selected networks
 
     | Scope | Metric namespace | Metric | Aggregation | Threshold |
     |:---|:---|:---|:---|:---|
-    | storage-name | Account | Ingress | Sum | 80% of maximum ingress per alert evaluation period. For example, the limit is 60 Gbps for general-purpose v2 in West US. The threshold is 14,400 Gb per 5-minute evaluation period. |
+    | storage-name | Account | Ingress | Sum | 80% of maximum ingress per alert evaluation period. For example, the limit is 60 Gbps for general-purpose v2 in West US. The alert threshold is 1676 GiB per 5-minute evaluation period. |
   
 1. Alert remediation actions:
     - Use a separate storage account for export that isn't shared with non-monitoring data.
@@ -138,7 +138,7 @@ If you've configured your storage account to allow access from selected networks
   
     | Scope | Metric namespace | Metric | Aggregation | Threshold |
     |:---|:---|:---|:---|:---|
-    | namespaces-name | Event Hubs standard metrics | Incoming bytes | Sum | 80% of maximum ingress per alert evaluation period. For example, the limit is 1 MB/s per unit (TU or PU) and five units used. The threshold is 1,200 MB per 5-minute evaluation period. |
+    | namespaces-name | Event Hubs standard metrics | Incoming bytes | Sum | 80% of maximum ingress per alert evaluation period. For example, the limit is 1 MB/s per unit (TU or PU) and five units used. The threshold is 228 MiB per 5-minute evaluation period. |
     | namespaces-name | Event Hubs standard metrics | Incoming requests | Count | 80% of maximum events per alert evaluation period. For example, the limit is 1,000/s per unit (TU or PU) and five units used. The threshold is 1,200,000 per 5-minute evaluation period. |
     | namespaces-name | Event Hubs standard metrics | Quota exceeded errors | Count | Between 1% of request. For example, requests per 5 minutes is 600,000. The threshold is 6,000 per 5-minute evaluation period. |
 
@@ -631,7 +631,9 @@ The template option doesn't apply.
 If the data export rule includes an unsupported table, the configuration will succeed, but no data will be exported for that table. If the table is later supported, then its data will be exported at that time.
 
 ## Supported tables
-All data from the table will be exported unless limitations are specified. This list is updated as more tables are added.
+
+> [!NOTE]
+> We are in a process of adding support for more tables. Please check this article regularly. 
 
 | Table | Limitations |
 |:---|:---|
@@ -708,9 +710,22 @@ All data from the table will be exported unless limitations are specified. This 
 | Alert | Partial support. Data ingestion for Zabbix alerts isn't supported. |
 | AlertEvidence |  |
 | AlertInfo |  |
+| AmlComputeClusterEvent |  |
+| AmlComputeCpuGpuUtilization |  |
+| AmlComputeInstanceEvent |  |
+| AmlComputeJobEvent |  |
+| AmlDataSetEvent |  |
+| AmlDataStoreEvent |  |
+| AmlDeploymentEvent |  |
+| AmlEnvironmentEvent |  |
+| AmlInferencingEvent |  |
+| AmlModelsEvent |  |
 | AmlOnlineEndpointConsoleLog |  |
 | AmlOnlineEndpointEventLog |  |
 | AmlOnlineEndpointTrafficLog |  |
+| AmlPipelineEvent |  |
+| AmlRunEvent |  |
+| AmlRunStatusChangedEvent |  |
 | AMSKeyDeliveryRequests |  |
 | AMSLiveEventOperations |  |
 | AMSMediaAccountHealth |  |
@@ -726,25 +741,38 @@ All data from the table will be exported unless limitations are specified. This 
 | AppMetrics |  |
 | AppPageViews |  |
 | AppPerformanceCounters |  |
+| AppPlatformIngressLogs |  |
+| AppPlatformLogsforSpring |  |
 | AppPlatformSystemLogs |  |
 | AppRequests |  |
+| AppServiceAntivirusScanAuditLogs |  |
 | AppServiceAppLogs |  |
 | AppServiceAuditLogs |  |
 | AppServiceConsoleLogs |  |
+| AppServiceEnvironmentPlatformLogs |  |
 | AppServiceFileAuditLogs |  |
 | AppServiceHTTPLogs |  |
+| AppServiceIPSecAuditLogs |  |
 | AppServicePlatformLogs |  |
 | AppServiceServerlessSecurityPluginData |  |
 | AppSystemEvents |  |
 | AppTraces |  |
+| ASCAuditLogs |  |
+| ASCDeviceEvents |  |
 | ASimDnsActivityLogs |  |
 | ASimNetworkSessionLogs |  |
+| ASimNetworkSessionLogs,ASimWebSessionLogs |  |
+| ASimWebSessionLogs |  |
 | ATCExpressRouteCircuitIpfix |  |
 | AuditLogs |  |
+| AUIEventsAudit |  |
+| AUIEventsOperational |  |
 | AutoscaleEvaluationsLog |  |
 | AutoscaleScaleActionsLog |  |
+| AVNMNetworkGroupMembershipChange |  |
 | AVSSyslog |  |
 | AWSCloudTrail |  |
+| AWSCloudWatch |  |
 | AWSGuardDuty |  |
 | AWSVPCFlow |  |
 | AZFWApplicationRule |  |
@@ -789,27 +817,48 @@ All data from the table will be exported unless limitations are specified. This 
 | ContainerLog |  |
 | ContainerLogV2 |  |
 | ContainerNodeInventory |  |
+| ContainerRegistryLoginEvents |  |
+| ContainerRegistryRepositoryEvents |  |
 | ContainerServiceLog |  |
 | CoreAzureBackup |  |
 | DatabricksAccounts |  |
 | DatabricksClusters |  |
 | DatabricksDBFS |  |
+| DatabricksFeatureStore |  |
+| DatabricksGenie |  |
+| DatabricksGlobalInitScripts |  |
 | DatabricksInstancePools |  |
 | DatabricksJobs |  |
+| DatabricksMLflowAcledArtifact |  |
+| DatabricksMLflowExperiment |  |
 | DatabricksNotebook |  |
+| DatabricksRemoteHistoryService |  |
 | DatabricksSecrets |  |
 | DatabricksSQLPermissions |  |
 | DatabricksSSH |  |
 | DatabricksWorkspace |  |
 | DevCenterDiagnosticLogs |  |
+| DeviceEvents |  |
+| DeviceFileCertificateInfo |  |
+| DeviceFileEvents |  |
+| DeviceImageLoadEvents |  |
+| DeviceInfo |  |
+| DeviceLogonEvents |  |
+| DeviceNetworkEvents |  |
+| DeviceNetworkInfo |  |
+| DeviceProcessEvents |  |
+| DeviceRegistryEvents |  |
 | DeviceTvmSecureConfigurationAssessment |  |
+| DeviceTvmSecureConfigurationAssessmentKB |  |
 | DeviceTvmSoftwareInventory |  |
 | DeviceTvmSoftwareVulnerabilities |  |
+| DeviceTvmSoftwareVulnerabilitiesKB |  |
 | DnsEvents |  |
 | DnsInventory |  |
 | DSMAzureBlobStorageLogs |  |
 | DSMDataClassificationLogs |  |
 | DSMDataLabelingLogs |  |
+| DynamicEventCollection |  |
 | Dynamics365Activity |  |
 | DynamicSummary |  |
 | EmailAttachmentInfo |  |
@@ -818,6 +867,7 @@ All data from the table will be exported unless limitations are specified. This 
 | EmailUrlInfo |  |
 | Event | Partial support. Data arriving from the Log Analytics agent (MMA) or Azure Monitor Agent (AMA) is fully supported in export. Data arriving via the Diagnostics extension agent is collected through storage. This path isn't supported in export. |
 | ExchangeAssessmentRecommendation |  |
+| ExchangeOnlineAssessmentRecommendation |  |
 | FailedIngestion |  |
 | FunctionAppLogs |  |
 | GCPAuditLogs |  |
@@ -852,6 +902,7 @@ All data from the table will be exported unless limitations are specified. This 
 | HDInsightStormLogs |  |
 | HDInsightStormMetrics |  |
 | HDInsightStormTopologyMetrics |  |
+| HealthStateChangeEvent |  |
 | Heartbeat |  |
 | HuntingBookmark |  |
 | IdentityDirectoryEvents |  |
@@ -868,6 +919,7 @@ All data from the table will be exported unless limitations are specified. This 
 | KubePodInventory |  |
 | KubeServices |  |
 | LAQueryLogs |  |
+| LogicAppWorkflowRuntime |  |
 | McasShadowItReporting |  |
 | MCCEventLogs |  |
 | MCVPAuditLogs |  |
@@ -875,10 +927,15 @@ All data from the table will be exported unless limitations are specified. This 
 | MicrosoftAzureBastionAuditLogs |  |
 | MicrosoftDataShareReceivedSnapshotLog |  |
 | MicrosoftDataShareSentSnapshotLog |  |
+| MicrosoftGraphActivityLogs |  |
 | MicrosoftHealthcareApisAuditLogs |  |
 | MicrosoftPurviewInformationProtection |  |
 | NetworkAccessTraffic |  |
 | NSPAccessLogs |  |
+| NTAIpDetails |  |
+| NTANetAnalytics |  |
+| NTATopologyDetails |  |
+| NWConnectionMonitorDestinationListenerResult |  |
 | NWConnectionMonitorPathResult |  |
 | NWConnectionMonitorTestResult |  |
 | OEPAirFlowTask |  |
@@ -899,9 +956,12 @@ All data from the table will be exported unless limitations are specified. This 
 | PurviewDataSensitivityLogs |  |
 | PurviewScanStatusLogs |  |
 | PurviewSecurityLogs |  |
+| REDConnectionEvents |  |
 | ResourceManagementPublicAccessLogs |  |
 | SCCMAssessmentRecommendation |  |
 | SCOMAssessmentRecommendation |  |
+| SecureScoreControls |  |
+| SecureScores |  |
 | SecurityAlert |  |
 | SecurityBaseline |  |
 | SecurityBaselineSummary |  |
@@ -911,6 +971,7 @@ All data from the table will be exported unless limitations are specified. This 
 | SecurityIoTRawEvent |  |
 | SecurityNestedRecommendation |  |
 | SecurityRecommendation |  |
+| SecurityRegulatoryCompliance |  |
 | SentinelAudit |  |
 | SentinelHealth |  |
 | SfBAssessmentRecommendation |  |
@@ -921,13 +982,20 @@ All data from the table will be exported unless limitations are specified. This 
 | SPAssessmentRecommendation |  |
 | SQLAssessmentRecommendation |  |
 | SQLSecurityAuditEvents |  |
+| SqlVulnerabilityAssessmentScanStatus |  |
 | StorageAntimalwareScanResults |  |
 | StorageCacheOperationEvents |  |
 | StorageCacheUpgradeEvents |  |
 | StorageCacheWarningEvents |  |
+| StorageMalwareScanningResults |  |
+| StorageMoverCopyLogsFailed |  |
+| StorageMoverCopyLogsTransferred |  |
+| StorageMoverJobRunLogs |  |
 | SucceededIngestion |  |
 | SynapseBigDataPoolApplicationsEnded |  |
 | SynapseBuiltinSqlPoolRequestsEnded |  |
+| SynapseDXFailedIngestion |  |
+| SynapseDXSucceededIngestion |  |
 | SynapseGatewayApiRequests |  |
 | SynapseIntegrationActivityRuns |  |
 | SynapseIntegrationPipelineRuns |  |
@@ -943,6 +1011,7 @@ All data from the table will be exported unless limitations are specified. This 
 | SynapseSqlPoolWaits |  |
 | Syslog | Partial support. Data arriving from the Log Analytics agent or Azure Monitor Agent is fully supported in export. Data arriving via the Diagnostics extension agent is collected through storage. This path isn't supported in export. |
 | ThreatIntelligenceIndicator |  |
+| TSIIngress |  |
 | UCClient |  |
 | UCDOAggregatedStatus |  |
 | UCDOStatus |  |
@@ -955,17 +1024,29 @@ All data from the table will be exported unless limitations are specified. This 
 | UserPeerAnalytics |  |
 | VIAudit |  |
 | VIIndexing |  |
+| WaaSDeploymentStatus |  |
+| WaaSInsiderStatus |  |
+| WaaSUpdateStatus |  |
 | W3CIISLog | Partial support. Data arriving from Log Analytics agent (MMA) or Azure Monitor Agent (AMA) is fully supported in export. Data arriving via Diagnostics extension agent is collected through storage while this path isn’t supported in export. |
 | Watchlist |  |
+| WebPubSubConnectivity |  |
+| WebPubSubHttpRequest |  |
+| WebPubSubMessaging |  |
+| WindowsClientAssessmentRecommendation |  |
 | WindowsEvent |  |
 | WindowsFirewall |  |
+| WindowsServerAssessmentRecommendation |  |
 | WireData | Partial support. Some of the data is ingested through internal services that aren't supported in export. Currently, this portion is missing in export. |
 | WorkloadDiagnosticLogs |  |
+| WUDOAggregatedStatus |  |
+| WUDOStatus |  |
 | WVDAgentHealthStatus |  |
 | WVDCheckpoints |  |
+| WVDConnectionNetworkData |  |
 | WVDConnections |  |
 | WVDErrors |  |
 | WVDFeeds |  |
+| WVDHostRegistrations |  |
 | WVDManagement |  |
 
 ## Next steps

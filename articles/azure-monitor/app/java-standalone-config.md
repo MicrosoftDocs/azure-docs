@@ -2,7 +2,7 @@
 title: Configuration options - Azure Monitor Application Insights for Java
 description: This article shows you how to configure Azure Monitor Application Insights for Java.
 ms.topic: conceptual
-ms.date: 01/18/2023
+ms.date: 02/22/2023
 ms.devlang: java
 ms.custom: devx-track-java
 ms.reviewer: mmcc
@@ -31,14 +31,14 @@ You'll find more information and configuration options in the following sections
 
 ## Configuration file path
 
-By default, Application Insights Java 3.x expects the configuration file to be named `applicationinsights.json`, and to be located in the same directory as `applicationinsights-agent-3.4.9.jar`.
+By default, Application Insights Java 3.x expects the configuration file to be named `applicationinsights.json`, and to be located in the same directory as `applicationinsights-agent-3.4.10.jar`.
 
 You can specify your own configuration file path by using one of these two options:
 
 * `APPLICATIONINSIGHTS_CONFIGURATION_FILE` environment variable
 * `applicationinsights.configuration.file` Java system property
 
-If you specify a relative path, it will be resolved relative to the directory where `applicationinsights-agent-3.4.9.jar` is located.
+If you specify a relative path, it will be resolved relative to the directory where `applicationinsights-agent-3.4.10.jar` is located.
 
 Alternatively, instead of using a configuration file, you can specify the entire _content_ of the JSON configuration via the environment variable `APPLICATIONINSIGHTS_CONFIGURATION_CONTENT`.
 
@@ -61,7 +61,7 @@ Or you can set the connection string by using the Java system property `applicat
 
 You can also set the connection string by specifying a file to load the connection string from.
 
-If you specify a relative path, it's resolved relative to the directory where `applicationinsights-agent-3.4.9.jar` is located.
+If you specify a relative path, it's resolved relative to the directory where `applicationinsights-agent-3.4.10.jar` is located.
 
 ```json
 {
@@ -340,7 +340,7 @@ and add `applicationinsights-core` to your application:
 <dependency>
   <groupId>com.microsoft.azure</groupId>
   <artifactId>applicationinsights-core</artifactId>
-  <version>3.4.9</version>
+  <version>3.4.10</version>
 </dependency>
 ```
 
@@ -474,6 +474,38 @@ If needed, you can temporarily re-enable the previous behavior:
 If your application uses [Micrometer](https://micrometer.io), metrics that are sent to the Micrometer global registry are auto-collected.
 
 Also, if your application uses [Spring Boot Actuator](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html), metrics configured by Spring Boot Actuator are also auto-collected.
+
+To send custom metrics using micrometer:
+
+1. Add Micrometer to your application:
+    
+    ```xml
+    <dependency>
+      <groupId>io.micrometer</groupId>
+      <artifactId>micrometer-core</artifactId>
+      <version>1.6.1</version>
+    </dependency>
+    ```
+
+1. Use the Micrometer [global registry](https://micrometer.io/docs/concepts#_global_registry) to create a meter:
+
+    ```java
+    static final Counter counter = Metrics.counter("test.counter");
+    ```
+
+1. Use the counter to record metrics:
+
+    ```java
+    counter.increment();
+    ```
+
+1. The metrics will be ingested into the
+   [customMetrics](/azure/azure-monitor/reference/tables/custommetrics) table, with tags captured in the
+   `customDimensions` column. You can also view the metrics in the
+   [metrics explorer](../essentials/metrics-getting-started.md) under the `Log-based metrics` metric namespace.
+
+    > [!NOTE]
+    > Application Insights Java replaces all non-alphanumeric characters (except dashes) in the Micrometer metric name with underscores. As a result, the preceding `test.counter` metric will show up as `test_counter`.
 
 To disable auto-collection of Micrometer metrics and Spring Boot Actuator metrics:
 
@@ -780,7 +812,7 @@ In the preceding configuration example:
 
 * `level` can be one of `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG`, or `TRACE`.
 * `path` can be an absolute or relative path. Relative paths are resolved against the directory where
-`applicationinsights-agent-3.4.9.jar` is located.
+`applicationinsights-agent-3.4.10.jar` is located.
 
 Starting from version 3.0.2, you can also set the self-diagnostics `level` by using the environment variable
 `APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL`. It then takes precedence over the self-diagnostics level specified in the JSON configuration.

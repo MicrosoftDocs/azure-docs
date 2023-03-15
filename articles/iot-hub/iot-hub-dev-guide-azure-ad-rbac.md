@@ -134,7 +134,7 @@ For more information, see the [Azure IoT extension for Azure CLI release page](h
 ## SDK samples
 
 - [.NET Microsoft.Azure.Devices SDK sample](https://aka.ms/iothubaadcsharpsample)
-- [Java SDK sample](https://aka.ms/iothubaadjavasample)
+- [Java SDK sample](https://github.com/Azure/azure-iot-service-sdk-java/tree/main/service/iot-service-samples/role-based-authorization-sample)
 
 ## Next steps
 
