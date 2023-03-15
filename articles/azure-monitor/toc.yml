@@ -169,6 +169,9 @@ items:
     - name: Create Diagnostic Settings with Azure Policy
       displayName: Diagnostic Settings, Platform logs, Resource logs, Activity log
       href: essentials/diagnostic-settings-policy.md
+    - name: Enable Diagnostics settings using built-in policies.
+      displayName: Diagnostic Settings, Platform logs, Resource logs, Activity log
+      href: essentials/diagnostics-settings-policies-deployifnotexists.md  
     - name: Migrate retention to Azure Storage lifecycle
       displayName: Diagnostic Settings, Platform logs, Resource logs, Activity log
       href: essentials/migrate-to-azure-storage-lifecycle-policy.md
@@ -645,14 +648,14 @@ items:
             href: app/opencensus-python-request.md
         - name: JavaScript
           items:
-          - name: Client-side JavaScript
-            displayName: SPA, Single Page Applications, React, JS, Angular
-            href: app/javascript.md
-          - name: Source map for JavaScript
-            href: app/source-map-support.md
-          - name: Framework Extensions
+          - name: JavaScript SDK
+            displayName: browser, client-side, snippet
+            href: app/javascript-sdk.md
+          - name: JavaScript SDK advanced topics
+            href: app/javascript-sdk-advanced.md
+          - name: Framework extensions
             href: app/javascript-framework-extensions.md
-          - name: Feature Extensions (Click Analytics)
+          - name: Feature extensions (Click Analytics)
             href: app/javascript-feature-extensions.md
           - name: Upgrade
             href: app/javascript-sdk-upgrade.md
