@@ -20,19 +20,19 @@ Data collected by Application Insights models this typical application execution
 
 The following types of telemetry are used to monitor the execution of your app. Three types are automatically collected by the Application Insights SDK from the web application framework:
 
-* [Request](data-model-request-telemetry.md): Generated to log a request received by your app. For example, the Application Insights web SDK automatically generates a Request telemetry item for each HTTP request that your web app receives.
+* [Request](#request): Generated to log a request received by your app. For example, the Application Insights web SDK automatically generates a Request telemetry item for each HTTP request that your web app receives.
 
     An *operation* is made up of the threads of execution that process a request. You can also [write code](./api-custom-events-metrics.md#trackrequest) to monitor other types of operation, such as a "wake up" in a web job or function that periodically processes data. Each operation has an ID. The ID can be used to [group](./correlation.md) all telemetry generated while your app is processing the request. Each operation either succeeds or fails and has a duration of time.
-* [Exception](data-model-exception-telemetry.md): Typically represents an exception that causes an operation to fail.
-* [Dependency](data-model-dependency-telemetry.md): Represents a call from your app to an external service or storage, such as a REST API or SQL. In ASP.NET, dependency calls to SQL are defined by `System.Data`. Calls to HTTP endpoints are defined by `System.Net`.
+* [Exception](#exception): Typically represents an exception that causes an operation to fail.
+* [Dependency](#dependency): Represents a call from your app to an external service or storage, such as a REST API or SQL. In ASP.NET, dependency calls to SQL are defined by `System.Data`. Calls to HTTP endpoints are defined by `System.Net`.
 
 Application Insights provides three data types for custom telemetry:
 
-* [Trace](data-model-trace-telemetry.md): Used either directly or through an adapter to implement diagnostics logging by using an instrumentation framework that's familiar to you, such as `Log4Net` or `System.Diagnostics`.
-* [Event](data-model-event-telemetry.md): Typically used to capture user interaction with your service to analyze usage patterns.
-* [Metric](data-model-metric-telemetry.md): Used to report periodic scalar measurements.
+* [Trace](#trace): Used either directly or through an adapter to implement diagnostics logging by using an instrumentation framework that's familiar to you, such as `Log4Net` or `System.Diagnostics`.
+* [Event](#event): Typically used to capture user interaction with your service to analyze usage patterns.
+* [Metric](#metric): Used to report periodic scalar measurements.
 
-Every telemetry item can define the [context information](data-model-context.md) like application version or user session ID. Context is a set of strongly typed fields that unblocks certain scenarios. When application version is properly initialized, Application Insights can detect new patterns in application behavior correlated with redeployment.
+Every telemetry item can define the [context information](#context) like application version or user session ID. Context is a set of strongly typed fields that unblocks certain scenarios. When application version is properly initialized, Application Insights can detect new patterns in application behavior correlated with redeployment.
 
 You can use session ID to calculate an outage or an issue impact on users. Calculating the distinct count of session ID values for a specific failed dependency, error trace, or critical exception gives you a good understanding of an impact.
 
@@ -44,7 +44,7 @@ The Application Insights data model is a basic yet powerful way to model your ap
 
 To report data model or schema problems and suggestions, use our [GitHub repository](https://github.com/microsoft/ApplicationInsights-dotnet/issues/new/choose).
 
-## Request telemetry: Application Insights data model
+## Request
 
 A request telemetry item in [Application Insights](./app-insights-overview.md) represents the logical sequence of execution triggered by an external request to your application. Every request execution is identified by a unique `id` and `url` that contain all the execution parameters.
 
@@ -110,7 +110,7 @@ You can read more about the request result code and status code in the [blog pos
 
 [!INCLUDE [application-insights-data-model-measurements](../../../includes/application-insights-data-model-measurements.md)]
 
-## Dependency telemetry: Application Insights data model
+## Dependency
 
 Dependency Telemetry (in [Application Insights](./app-insights-overview.md)) represents an interaction of the monitored component with a remote component such as SQL or an HTTP endpoint.
 
@@ -154,7 +154,7 @@ Indication of successful or unsuccessful call.
 
 [!INCLUDE [application-insights-data-model-measurements](../../../includes/application-insights-data-model-measurements.md)]
 
-## Exception telemetry: Application Insights data model
+## Exception
 
 In [Application Insights](./app-insights-overview.md), an instance of Exception represents a handled or unhandled exception that occurred during execution of the monitored application.
 
@@ -180,7 +180,7 @@ Trace severity level. Value can be `Verbose`, `Information`, `Warning`, `Error`,
 
 [!INCLUDE [application-insights-data-model-measurements](../../../includes/application-insights-data-model-measurements.md)]
 
-## Trace telemetry: Application Insights data model
+## Trace
 
 Trace telemetry in [Application Insights](./app-insights-overview.md) represents `printf`-style trace statements that are text searched. `Log4Net`, `NLog`, and other text-based log file entries are translated into instances of this type. The trace doesn't have measurements as an extensibility.
 
@@ -200,7 +200,7 @@ Trace severity level.
 
 [!INCLUDE [application-insights-data-model-properties](../../../includes/application-insights-data-model-properties.md)]
 
-## Event telemetry: Application Insights data model
+## Event
 
 You can create event telemetry items (in [Application Insights](./app-insights-overview.md)) to represent an event that occurred in your application. Typically, it's a user interaction such as a button click or order checkout. It can also be an application lifecycle event like initialization or a configuration update.
 
@@ -220,7 +220,7 @@ Event name: To allow proper grouping and useful metrics, restrict your applicati
 
 [!INCLUDE [application-insights-data-model-measurements](../../../includes/application-insights-data-model-measurements.md)]
 
-## Metric telemetry: Application Insights data model
+## Metric
 
 There are two types of metric telemetry supported by [Application Insights](./app-insights-overview.md): single measurement and pre-aggregated metric. Single measurement is just a name and value. Pre-aggregated metric specifies minimum and maximum value of the metric in the aggregation interval and standard deviation of it.
 
@@ -274,7 +274,7 @@ Metric with the custom property `CustomPerfCounter` set to `true` indicate that 
 
 [!INCLUDE [application-insights-data-model-properties](../../../includes/application-insights-data-model-properties.md)]
 
-## PageView telemetry: Application Insights data model
+## PageView
 
 PageView telemetry (in [Application Insights](./app-insights-overview.md)) is logged when an application user opens a new page of a monitored application. The `Page` in this context is a logical unit that is defined by the developer to be an application tab or a screen and isn't necessarily correlated to a browser webpage load or refresh action. This distinction can be further understood in the context of single-page applications (SPA) where the switch between pages isn't tied to browser page actions. [`pageViews.duration`](/azure/azure-monitor/reference/tables/pageviews) is the time it takes for the application to present the page to the user.
 
@@ -305,7 +305,7 @@ Modern browsers expose measurements for page load actions with the [Performance 
 
 ![Screenshot of the Metrics page in Application Insights showing graphic displays of metrics data for a web application.](./media/javascript/page-view-load-time.png)
 
-## Telemetry context: Application Insights data model
+## Context
 
 Every telemetry item might have a strongly typed context field. Every field enables a specific monitoring scenario. Use the custom properties collection to store custom or application-specific contextual information.
 
