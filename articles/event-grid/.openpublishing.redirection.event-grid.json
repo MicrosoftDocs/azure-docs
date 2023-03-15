@@ -2,7 +2,7 @@
   "redirections": [    
     
     {
-      "source_path": "event-hubs-integration.md",
+      "source_path": "event-grid-event-hubs-integration.md",
       "redirect_url": "/azure/event-grid/event-hubs-integration",
       "redirect_document_id": false
     },
