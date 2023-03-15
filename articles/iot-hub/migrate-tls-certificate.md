@@ -1,5 +1,6 @@
 ---
-title: How to migrate hub root certificate - Azure IoT Hub
+title: How to migrate hub root certificate
+titleSuffix: Azure IoT Hub
 description: Migrate all Azure IoT hub instances to use the new DigiCert Global G2 root certificate to maintain device connectivity.
 author: kgremban
 ms.author: kgremban
@@ -7,7 +8,7 @@ manager: lizross
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/27/2023
+ms.date: 03/02/2023
 ---
 
 # Migrate IoT Hub resources to a new TLS certificate root
@@ -24,6 +25,8 @@ You should start planning now for the effects of migrating your IoT hubs to the 
 ## Timeline
 
 The IoT Hub team will begin migrating IoT hubs by region on **February 15, 2023** and completing by October 15, 2023. After all IoT hubs have migrated, then DPS will perform its migration between January 15 and February 15, 2024.
+
+The subscription owners of each IoT hub will receive an email notification two weeks before their migration date.
 
 ### Request an extension
 
@@ -105,6 +108,30 @@ Verify that your migration was successful. We recommend using the **connected de
 For more information about monitoring your devices, see [Monitoring IoT Hub](monitor-iot-hub.md).
 
 If you encounter any issues, you can undo the migration and revert to the Baltimore CyberTrust Root certificate by running the previous command again with `--certificate authority v1`.
+
+---
+
+## Check the migration status of an IoT hub
+
+To know whether an IoT hub has been migrated or not, check the active certificate root for the hub.
+
+# [Azure portal](#tab/portal)
+
+1. In the [Azure portal](https://portal.azure.com), navigate to your IoT hub.
+
+1. Select **Certificates** in the **Security settings** section of the navigation menu.
+
+1. If the **Certificate root** is listed as Baltimore CyberTrust, then the hub has not been migrated yet. If it is listed as DigiCert Global G2, then the migration is complete.
+
+# [Azure CLI](#tab/cli)
+
+Use the [az iot hub certificate root-authority show](/cli/azure/iot/hub/certificate/root-authority#az-iot-hub-certificate-root-authority-show) command to view the current certificate root-authority for your IoT hub.
+
+```azurecli-interactive
+az iot hub certificate root-authority show --hub-name <iothub_name>
+```
+
+In the Azure CLI, the existing Baltimore CyberTrust Root certificate is referred to as `v1`, and the new DigiCert Global Root G2 certificate is referred to as `v2`. If the certificate root is listed as **v2**, then the IoT hub has been successfully migrated.
 
 ---
 
