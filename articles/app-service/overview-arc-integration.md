@@ -124,7 +124,7 @@ ARM64 based clusters aren't supported at this time.
 
 ### Which Kubernetes distributions can I deploy the extension on?
 
-The extension has been validated on AKS, AKS on Azure Stack HCI, Google Kubernetes Engine and Amazon Elastic Kubernetes Service, Kubernetes Cluster API.
+The extension has been validated on AKS, AKS on Azure Stack HCI, Google Kubernetes Engine, Amazon Elastic Kubernetes Service and Kubernetes Cluster API.
 
 ## Extension Release Notes
 
