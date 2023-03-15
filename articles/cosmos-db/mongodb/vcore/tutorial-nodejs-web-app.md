@@ -297,36 +297,128 @@ Deploy the service and client to Azure App Service to prove that the application
 
 1. Within your integrated development environment (IDE), open a new terminal.
 
-1. TODO
+1. Create a shell variable for the name of the pre-existing resource group named *resourceGroupName*.
 
-    ```shell
-
+    ```azurecli
+    # Variable for resource group name
+    resourceGroupName="<existing-resource-group>"
     ```
 
-1. TODO
+1. Create shell variables for the two web app named *serverAppName* and *clientAppName*.
 
-    ```shell
+    ```azurecli
+    # Variable for randomnly generated suffix
+    let suffix=$RANDOM*$RANDOM
 
+    # Variable for web app names with a randomnly generated suffix
+    serverAppName="server-app-$suffix"
+    clientAppName="client-app-$suffix"
     ```
 
-1. TODO
+1. If you haven't already, sign in to the Azure CLI using the [`az login --use-device-code`](/cli/azure/reference-index#az-login) command.
+
+1. Change the current working directory to the **server/** path.
 
     ```shell
-
+    cd server
     ```
 
-1. TODO
+1. Create a new web app for the server component of the MERN application with [`az webapp up`](/cli/azure/webapp#az-webapp-up).
 
     ```shell
-
+    az webapp up \
+        --resource-group $resourceGroupName \
+        --name $serverAppName \
+        --sku F1 \
+        --runtime "NODE|18-lts"
     ```
 
-1. TODO
+1. Create a new connection string setting for the server web app named `CONNECTION_STRING` with [`az webapp config connection-string set`](/cli/azure/webapp/config/connection-string#az-webapp-config-connection-string-set). Use the same value for the connection string you used with the MongoDB shell and **.env** file earlier in this tutorial.
 
     ```shell
-
+    az webapp config connection-string set \
+        --resource-group $resourceGroupName \
+        --name $serverAppName \
+        --connection-string-type custom \
+        --settings "CONNECTION_STRING=<mongodb-connection-string>"
     ```
 
+1. Get the URI for the server web app with [`az webapp show`](/cli/azure/webapp#az-webapp-show) and store it in a shell variable name d **serverUri**.
+
+    ```azurecli
+    serverUri=$(az webapp show \
+        --resource-group $resourceGroupName \
+        --name $serverAppName \
+        --query hostNames[0] \
+        --output tsv)
+    ```
+
+1. Use the [`open-cli`](https://www.npmjs.com/package/open-cli) package and command from NuGet with `npx` to open a browser window using the URI for the server web app. Validate that the server app is returning your JSON array data from the MongoDB vCore cluster.
+
+    ```shell
+    npx open-cli "https://$serverUri/products" --yes
+    ```
+
+    > [!TIP]
+    > Sometimes deployments can finish asynchronously. If you are not seeing what you expect, wait another minute and refresh your browser window.
+
+1. Change the working directory to the **client/** path.
+
+    ```shell
+    cd ../client
+    ```
+
+1. Create a new web app for the client component of the MERN application with [`az webapp up`](/cli/azure/webapp#az-webapp-up).
+
+    ```shell
+    az webapp up \
+        --resource-group $resourceGroupName \
+        --name $clientAppName \
+        --sku F1 \
+        --runtime "NODE|18-lts"
+    ```
+
+1. Create a new app setting for the client web app named `REACT_APP_API_ENDPOINT` with [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set). Use the server API endpoint stored in the **serverUri** shell variable.
+
+    ```shell
+    az webapp config appsettings set \
+        --resource-group $resourceGroupName \
+        --name $clientAppName \
+        --settings "REACT_APP_API_ENDPOINT=https://$serverUri"
+    ```
+
+1. Get the URI for the client web app with [`az webapp show`](/cli/azure/webapp#az-webapp-show) and store it in a shell variable name d **clientUri**.
+
+    ```azurecli
+    clientUri=$(az webapp show \
+        --resource-group $resourceGroupName \
+        --name $clientAppName \
+        --query hostNames[0] \
+        --output tsv)
+    ```
+
+1. Use the [`open-cli`](https://www.npmjs.com/package/open-cli) package and command from NuGet with `npx` to open a browser window using the URI for the client web app. Validate that the client app is rendering data from the server app's API.
+
+    ```shell
+    npx open-cli "https://$clientUri" --yes
+    ```
+
+    > [!TIP]
+    > Sometimes deployments can finish asynchronously. If you are not seeing what you expect, wait another minute and refresh your browser window.
+
+1. Close the terminal.
+
+## Clean up resources
+
+When you're working in your own subscription, at the end of a project, it's a good idea to remove the resources that you no longer need. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
+
+1. To delete the entire resource group, use [`az group delete`](/cli/azure/group#az-group-delete).
+
+    ```azurecli
+    az group delete \
+        --name $resourceGroupName \
+        --yes
+    ```
 
 ## Next steps
 
