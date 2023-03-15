@@ -9,11 +9,11 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.custom: event-tier1-build-2022
 ms.topic: how-to
-ms.date: 15/03/2023
+ms.date: 3/15/2023
 ms.author: aahi
 ---
 
-# How to use autolabeling
+# How to use autolabeling for Custom Text Classification
 
 [Labeling process](tag-data.md) is an important part of preparing your dataset. Since this process requires much time and effort, you can use the autolabeling feature to automatically label your documents with the classes you want to categorize them into. You can currently start autolabeling jobs based on a model using GPT models where you may immediately trigger an autolabeling job without any prior model training. This feature can save you the time and effort of manually labeling your entities. 
 
@@ -47,7 +47,7 @@ When you trigger an autolabeling job with GPT, you're charged to your Azure Open
     
 6. Select the classes you want to be included in the autolabeling job. By default, all classes are selected. Having descriptive names for classes, and including examples for each class is recommended to achieve good quality labeling with GPT.
 
-    :::image type="content" source="../media/choose-classes.png" alt-text="A screenshot showing which entities to be included in autotag job." lightbox="../media/choose-entities.png":::
+    :::image type="content" source="../media/choose-classes.png" alt-text="A screenshot showing which entities to be included in autotag job." lightbox="../media/choose-classes.png":::
     
 7. Choose the documents you want to be automatically labeled. It's recommended to choose the unlabeled documents from the filter. 
 
@@ -81,7 +81,7 @@ After you accept or reject the labels for the autolabeled documents, select **Sa
 > * We recommend validating automatically labeled entities before accepting them. 
 > * All labels that were not accepted are deleted when you train your model.
 
-:::image type="content" source="../media/accept-reject-entities.png" alt-text="A screenshot showing how to accept and reject autolabeled entities." lightbox="../media/accept-reject-entities.png":::
+:::image type="content" source="../media/accept-reject-labels.png" alt-text="A screenshot showing how to accept and reject autolabeled documents." lightbox="../media/accept-reject-labels.png":::
 
 ## Next steps
 
