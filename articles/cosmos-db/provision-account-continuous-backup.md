@@ -43,7 +43,7 @@ For PowerShell and CLI commands, the tier value is optional, if it isn't already
 
 1. Install the latest version of Azure PowerShell
 
-    * Before provisioning the account, install any version of Azure PowerShell higher than 6.2.0. For more information about the latest version of Azure PowerShell, see [latest version of Azure PowerShell](/powershell/azure/install-az-ps?view=azps-6.2.1&preserve-view=true).
+    * Before provisioning the account, install any version of Azure PowerShell higher than 6.2.0. For more information about the latest version of Azure PowerShell, see [latest version of Azure PowerShell](/powershell/azure/install-az-ps).
     * For provisioning the ``Continuous7Days`` tier, you'll need to install the preview version of the module by running ``Install-Module -Name Az.CosmosDB -AllowPrerelease``.  
 
 1. Next connect to your Azure account and select the required subscription with the following commands:

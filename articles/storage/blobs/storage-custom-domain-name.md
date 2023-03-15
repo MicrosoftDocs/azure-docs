@@ -9,7 +9,6 @@ ms.date: 02/12/2021
 ms.author: normesta
 ms.reviewer: dineshm
 ms.subservice: blobs 
-ms.custom: devx-track-azurepowershell
 ---
 
 # Map a custom domain to an Azure Blob Storage endpoint

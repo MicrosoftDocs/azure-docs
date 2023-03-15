@@ -4,10 +4,10 @@ description: Learn how to change IP address prefixes for your local network gate
 titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 10/28/2021
 ms.author: cherylmc
-
 ---
 # Modify local network gateway settings using PowerShell
 
