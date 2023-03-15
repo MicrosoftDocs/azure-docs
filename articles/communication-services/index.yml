@@ -111,8 +111,8 @@ productDirectory:
 #------------------------------------------------------------------
 additionalContent:
   sections:
-    - title: Additional services
-      summary: Explore additional Azure Communication Services capabilities.
+    - title: Other services
+      summary: Explore other Azure Communication Services capabilities.
       items:
       - title: Teams Interoperability
         summary: Interoperability between Azure Communication Services and Microsoft Teams enables your applications and users to participate in Teams calls, meetings and chats.
@@ -124,7 +124,7 @@ additionalContent:
         summary: UI Library gives you a library of production-ready UI components to easily build modern communications user experiences using Azure Communication Services.
         url: ./concepts/ui-library/ui-library-overview.md    
     - title: Core Scenarios
-      summary: Whether you're just starting or have lots of experience, our pre-built communications solutions help you arrive at your business goals quickly and effectively.
+      summary: Whether you're just starting or have lots of experience, our prebuilt communications solutions help you arrive at your business goals quickly and effectively.
       items:
         - title: Build a virtual appointment proof-of-concept with Sample Builder
           summary: Use our sample builder to create an end-to-end virtual appointment experience in less than a day.
@@ -136,7 +136,7 @@ additionalContent:
           summary: Send important communications to your customers using our SMS, email and push notification services.
           url: ./tutorials/add-chat-push-notifications.md
       
-    - title: Additional Resources
+    - title: Other Resources
       items:
           - title: Support & Help
             links: 
