@@ -77,7 +77,7 @@ The Speech service automatically handles punctuation as appropriate, such as pau
 
 ## Special characters
 
-To use the characters `&`, `<`, and `>` within the SSML text, you must use the entity format. Specifically you must use `&amp;` in place of `&`, `&lt;` in place of `<`, and `&gt;` in place of `>`. Otherwise the SSML will not be parsed correctly. 
+To use the characters `&`, `<`, and `>` within the SSML element's value or text, you must use the entity format. Specifically you must use `&amp;` in place of `&`, `&lt;` use in place of `<`, and use `&gt;` in place of `>`. Otherwise the SSML will not be parsed correctly. 
 
 For example, specify `green &amp; yellow` instead of `green & yellow`. The following SSML will be parsed as expected:
 
@@ -91,7 +91,7 @@ For example, specify `green &amp; yellow` instead of `green & yellow`. The follo
 
 Special characters such as quotation marks, apostrophes, and brackets, must be escaped. For more information, see [Extensible Markup Language (XML) 1.0: Appendix D](https://www.w3.org/TR/xml/#sec-entexpand).
 
-Attribute values must be enclosed by double quotation marks. For example, `<prosody volume="90">` is a well-formed, valid element, but `<prosody volume=90>` won't be recognized. 
+Attribute values must be enclosed by double or single quotation marks. For example, `<prosody volume="90">` and `<prosody volume='90'>` are well-formed, valid elements, but `<prosody volume=90>` won't be recognized. 
 
 ## Speak root element
 
