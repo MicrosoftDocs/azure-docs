@@ -1304,7 +1304,7 @@ Check with your application provider, or your application provider's documentati
 
 ### Getting started
 
-Applications that support the SCIM profile described in this article can be connected to Azure AD using the "non-gallery application" feature in the Azure AD application gallery. Once connected, Azure AD runs a synchronization process every 40 minutes where it queries the application's SCIM endpoint for assigned users and groups, and creates or modifies them according to the assignment details.
+Applications that support the SCIM profile described in this article can be connected to Azure AD using the "non-gallery application" feature in the Azure AD application gallery. Once connected, Azure AD runs a synchronization process. The process runs every 40 minutes. The process queries the application's SCIM endpoint for assigned users and groups, and creates or modifies them according to the assignment details.
 
 **To connect an application that supports SCIM:**
 
