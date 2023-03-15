@@ -17,25 +17,21 @@ ms.author: lajanuar
 
 > [!IMPORTANT]
 >
-> * Currently, Document Translation doesn't support managed identity in the global region. If you intend to use managed identities for Document Translation operations, [create your Translator resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) in a non-global Azure region such as **East US**.
+> * Currently, Document Translation doesn't support managed identities for resources in the global region. If you intend to use managed identities for Document Translation operations, [create your Translator resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) in a non-global Azure region such as **East US**.
 >
-> * Document Translation is **only** available in the S1 Standard Service Plan (Pay-as-you-go) or in the D3 Volume Discount Plan. _See_ [Cognitive Services pricing—Translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator/).
+> * Document Translation is only available with the S1 Standard Service Plan (Pay-as-you-go) or in the D3 Volume Discount Plan. _See_ [Cognitive Services pricing—Translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator/).
 >
 
-Managed identities for Azure resources are service principals that create an Azure Active Directory (Azure AD) identity and specific permissions for Azure managed resources:
+Managed identities for Azure resources are service principals that create an Azure Active Directory (Azure AD) identity and specific permissions for Azure managed resources. Managed identities are a safer way to grant access to data compared to SAS URLs.
 
-* You can use managed identities to grant access to any resource that supports Azure AD authentication, including your own applications. Managed identities replace the requirement for you to include shared access signature tokens (SAS) with your HTTP requests.
+* You can use managed identities to grant access to any resource that supports Azure AD authentication, including your own applications. Using managed identities replaces the requirement for you to include shared access signature tokens (SAS) with your [source and target URLs](#post-request-body).
 
 * To grant access to an Azure resource, assign an Azure role to a managed identity using [Azure role-based access control (`Azure RBAC`)](../../../../role-based-access-control/overview.md).
 
 * There's no added cost to use managed identities in Azure.
 
-> [!TIP]
->
-> * When using managed identities, don't include a SAS token URL with your HTTP requests—your requests will fail.
->
-> * Managed identities are a safer way to grant access to data without having SAS tokens included with your HTTP requests.
-
+> [!IMPORTANT]
+> When using managed identities, don't include a SAS token URL with your HTTP requests. Otherwise your requests will fail.
 
 ## Prerequisites
 
@@ -69,7 +65,7 @@ To get started, you need:
         > [!NOTE]
         > It may take up to 5 min for the network changes to propagate.
 
-    Although by now the network access is permitted, the Translator resource can't yet access the data in the Storage account. You need to [assign a specific access role](#grant-access-to-your-storage-account) for Translator resource managed identity.
+    Although by now the network access is permitted, the Translator resource can't yet access the data in the Storage account. You need to [assign a specific access role](#enable-system-assigned-managed-identity-for-the-translator-resource) for Translator resource managed identity.
 
 ## Managed identity assignments
 
@@ -81,27 +77,24 @@ There are two types of managed identities: **system-assigned** and **user-assign
 
 In the following steps, we enable a system-assigned managed identity and grant your Translator resource limited access to your Azure blob storage account.
 
-## Enable a system-assigned managed identity
+## Enable system assigned managed identity for the Translator resource
+
+You need to grant Translator access to your storage account before it can create, read, or delete blobs. Once you've enabled Translator with a system-assigned managed identity, you can use Azure role-based access control (`Azure RBAC`), to give Translator access to your Azure storage containers.
 
 >[!IMPORTANT]
->
-> To enable a system-assigned managed identity, you need **Microsoft.Authorization/roleAssignments/write** permissions, such as [**Owner**](../../../../role-based-access-control/built-in-roles.md#owner) or [**User Access Administrator**](../../../../role-based-access-control/built-in-roles.md#user-access-administrator). You can specify a scope at four levels: management group, subscription, resource group, or resource.
+> To enable a system-assigned managed identity, you need **Microsoft.Authorization/roleAssignments/write** permissions, such as [**Owner**](../../../../role-based-access-control/built-in-roles.md#owner) or [**User Access Administrator**](../../../../role-based-access-control/built-in-roles.md#user-access-administrator) at the storage scope for the storage resource. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with your Azure subscription.
-
-1. Navigate to your **Translator** resource page in the Azure portal.
-
-1. In the **Resource Management** group in the left pane, select **Identity**. 
-
+1. Go to the [Azure portal](https://portal.azure.com/) and sign in to your Azure account.
+1. Select the Translator resource.
+1. In the **Resource Management** group in the left pane, select **Identity**.
 1. Within the **System assigned** tab, turn on the **Status** toggle.
 
     :::image type="content" source="../../media/managed-identities/resource-management-identity-tab.png" alt-text="Screenshot: resource management identity tab in the Azure portal.":::
 
-## Grant access to your storage account
+    > [!IMPORTANT] 
+    > User assigned managed identity won't meet requirements for the batch transcription storage account scenario. Be sure to enable system assigned managed identity.
 
-You need to grant Translator access to your storage account before it can create, read, or delete blobs. Once you've enabled Translator with a system-assigned managed identity, you can use Azure role-based access control (`Azure RBAC`), to give Translator access to your Azure storage containers.
-
-The **Storage Blob Data Contributor** role gives Translator (represented by the system-assigned managed identity) read, write, and delete access to the blob container and data.
+1. Select **Save**
 
 1. Under **Permissions** select **Azure role assignments**:
 
@@ -111,11 +104,7 @@ The **Storage Blob Data Contributor** role gives Translator (represented by the 
 
     :::image type="content" source="../../media/managed-identities/azure-role-assignments-page-portal.png" alt-text="Screenshot: Azure role assignments page in the Azure portal.":::
 
-    >[!NOTE]
-    >
-    > If you are unable to assign a role in the Azure portal because the Add > Add role assignment option is disabled or get the permissions error, "you do not have permissions to add role assignment at this scope", check that you are currently signed in as a user with an assigned a role that has Microsoft.Authorization/roleAssignments/write permissions such as [**Owner**](../../../../role-based-access-control/built-in-roles.md#owner) or [**User Access Administrator**](../../../../role-based-access-control/built-in-roles.md#user-access-administrator) at the storage scope for the storage resource.
-
-1. Next, you're going to assign a **Storage Blob Data Contributor** role to your Translator service resource. In the **Add role assignment** pop-up window, complete the fields as follows and select **Save**:
+1. Next, you'll assign a **Storage Blob Data Contributor** role to your Translator service resource. The **Storage Blob Data Contributor** role gives Translator (represented by the system-assigned managed identity) read, write, and delete access to the blob container and data. In the **Add role assignment** pop-up window, complete the fields as follows and select **Save**:
 
     | Field | Value|
     |------|--------|
@@ -126,11 +115,11 @@ The **Storage Blob Data Contributor** role gives Translator (represented by the 
 
      :::image type="content" source="../../media/managed-identities/add-role-assignment-window.png" alt-text="Screenshot: add role assignments page in the Azure portal.":::
 
-1. After you've received the _Added Role assignment_ confirmation message, refresh the page to see the added role assignment.
+1. After the _Added Role assignment_ confirmation message appears, refresh the page to see the added role assignment.
 
     :::image type="content" source="../../media/managed-identities/add-role-assignment-confirmation.png" alt-text="Screenshot: Added role assignment confirmation pop-up message.":::
 
-1. If you don't see the change right away, wait and try refreshing the page once more. When you assign or remove role assignments, it can take up to 30 minutes for changes to take effect.
+1. If you don't see the new role assignment right away, wait and try refreshing the page again. When you assign or remove role assignments, it can take up to 30 minutes for changes to take effect.
 
     :::image type="content" source="../../media/managed-identities/assigned-roles-window.png" alt-text="Screenshot: Azure role assignments window.":::
 
@@ -155,15 +144,14 @@ The following headers are included with each Document Translation API request:
 
 ### POST request body
 
-* The request URL is POST `https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0/batches`
-
+* The request URL is POST `https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0/batches`.
 * The request body is a JSON object named `inputs`.
-* The `inputs` object contains both  `sourceURL` and `targetURL`  container addresses for your source and target language pairs
+* The `inputs` object contains both  `sourceURL` and `targetURL` container addresses for your source and target language pairs. With system assigned managed identity, you'll use a plain Storage Account URL (no SAS or other additions). The format is `https://<storage_account_name>.blob.core.windows.net/<container_name>`.
 * The `prefix` and `suffix` fields (optional) are used to filter documents in the container including folders.
 * A value for the  `glossaries`  field (optional) is applied when the document is being translated.
 * The `targetUrl` for each target language must be unique.
 
->[!NOTE]
+> [!IMPORTANT]
 > If a file with the same name already exists in the destination, the job will fail.
 
 <!-- markdownlint-disable MD024 -->
@@ -258,12 +246,8 @@ See the request parameters [noted previously](#post-request-body) for more detai
 
 ## Next steps
 
-**Quickstart**
+> [!div class="nextstepaction"]
+> [Quickstart: Get started with Document Translation](../quickstarts/get-started-with-rest-api.md)
 
 > [!div class="nextstepaction"]
-> [Get started with Document Translation](../quickstarts/get-started-with-rest-api.md)
-
-**Tutorial**
-
-> [!div class="nextstepaction"]
-> [Access Azure Storage from a web app using managed identities](../../../../app-service/scenario-secure-app-access-storage.md?bc=%2fazure%2fcognitive-services%2ftranslator%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcognitive-services%2ftranslator%2ftoc.json)
+> [Tutorial: Access Azure Storage from a web app using managed identities](../../../../app-service/scenario-secure-app-access-storage.md?bc=%2fazure%2fcognitive-services%2ftranslator%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcognitive-services%2ftranslator%2ftoc.json)
