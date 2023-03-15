@@ -269,9 +269,9 @@ Once you have the Blob Storage endpoint for a storage account, you can instantia
 
 View the full code samples (GitHub):
 - [.NET](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/howto/dotnet/BlobQueryEndpoint)
-- [Java]()
-- [JavaScript]()
-- [Python]()
+- [Java](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/howto/Java/blob-query-endpoint/src/main/java/com/blobs/queryendpoint)
+- [JavaScript](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/blob-query-endpoint/index.js)
+- [Python](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-query-endpoint/blob-query-endpoint.py)
 
 To learn more about creating client objects, see [Create and manage client objects that interact with data resources](storage-blob-client-management.md).
 
