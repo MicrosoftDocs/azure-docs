@@ -66,7 +66,7 @@ New-AzResourceGroup @rg
 
 ## Create a virtual network
 
-In this section, you'll create a virtual network for the virtual machine.
+In this section, you create a virtual network for the virtual machine.
 
 Use [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) and [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) to create a virtual network with one subnet.
 
@@ -109,7 +109,7 @@ New-AzPublicIpAddress @ip1
 
 ## Create a network security group
 
-In this section, you'll create a network security group for the virtual machine and virtual network. You'll create a rule to allow connections to the virtual machine on port 22 for SSH.
+In this section, you create a network security group for the virtual machine and virtual network. You create a rule to allow connections to the virtual machine on port 22 for SSH.
 
 Use [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) and [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig) to create the network security group and rules.
 

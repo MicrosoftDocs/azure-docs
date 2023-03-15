@@ -28,7 +28,7 @@ Legacy VM Sizes aren't supported. You can find the list of supported VM sizes by
 
 ## Prerequisites
 
-You must enable the feature for your subscription before you can use encryption at host for either your VM or virtual machine scale set. Use the following steps to enable the feature for your subscription:
+You must enable the feature for your subscription before you can use encryption at host for either your VM or Virtual Machine Scale Set. Use the following steps to enable the feature for your subscription:
 
 1. **Azure portal**: Select the Cloud Shell icon on the [Azure portal](https://portal.azure.com):
 
@@ -88,13 +88,13 @@ Alternatively, you can use customer-managed keys to encrypt your disk caches.
 
 ### Create an Azure Key Vault and disk encryption set
 
-Once the feature is enabled, you'll need to set up an Azure Key Vault and a disk encryption set, if you haven't already.
+Once the feature is enabled, you need to set up an Azure Key Vault and a disk encryption set, if you haven't already.
 
 [!INCLUDE [virtual-machines-disks-encryption-create-key-vault-portal](../../includes/virtual-machines-disks-encryption-create-key-vault-portal.md)]
 
 ### Deploy a VM
 
-Now that you've setup an Azure Key Vault and disk encryption set, you can deploy a VM and it will use encryption at host.
+Now that you've setup an Azure Key Vault and disk encryption set, you can deploy a VM and it uses encryption at host.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for **Virtual Machines** and select **+ Add** to create a VM.

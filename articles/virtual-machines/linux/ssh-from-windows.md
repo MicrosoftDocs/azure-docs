@@ -29,11 +29,11 @@ The public-private key pair is like the lock on your front door. The lock is exp
 
 - The *public key* is placed on your Linux VM when you create the VM.
 
-- The *private key* remains on your local system. Protect this private key. Do not share it.
+- The *private key* remains on your local system. Protect this private key. Don't share it.
 
 When you connect to your Linux VM, the VM tests the SSH client to make sure it has the correct private key. If the client has the private key, it's granted access to the VM.
 
-Depending on your organization's security policies, you can reuse a single key pair to access multiple Azure VMs and services. You do not need a separate pair of keys for each VM.
+Depending on your organization's security policies, you can reuse a single key pair to access multiple Azure VMs and services. You don't need a separate pair of keys for each VM.
 
 Your public key can be shared with anyone, but only you (or your local security infrastructure) should have access to your private key.
 
@@ -53,13 +53,13 @@ The easiest way to create and manage your SSH keys is to [use the portal to crea
 
 You can also create key pairs with the [Azure CLI](/cli/azure) with the [az sshkey create](/cli/azure/sshkey#az-sshkey-create) command, as described in [Generate and store SSH keys](../ssh-keys-azure-cli.md).
 
-To create an SSH key pair on your local computer using the `ssh-keygen` command from PowerShell or a command prompt, type the following:
+To create an SSH key pair on your local computer using the `ssh-keygen` command from PowerShell or a command prompt, type the following command:
 
 ```powershell
 ssh-keygen -m PEM -t rsa -b 2048
 ```
 
-Enter a filename, or use the default shown in parenthesis (for example `C:\Users\username/.ssh/id_rsa`).  Enter a passphrase for the file, or leave the passphrase blank if you do not want to use a passphrase.
+Enter a filename, or use the default shown in parenthesis (for example `C:\Users\username/.ssh/id_rsa`).  Enter a passphrase for the file, or leave the passphrase blank if you don't want to use a passphrase.
 
 ## Create a VM using your key
 
@@ -78,7 +78,7 @@ az vm create \
 
 With PowerShell, use `New-AzVM` and add the SSH key to the VM configuration using`. For an example, see [Quickstart: Create a Linux virtual machine in Azure with PowerShell](quick-create-powershell.md).
 
-If you do a lot of deployments using the portal, you might want to upload your public key to Azure, where it can be easily selected when creating a VM from the portal. For more information, see [Upload an SSH key](../ssh-keys-portal.md#upload-an-ssh-key).
+If you do many deployments using the portal, you might want to upload your public key to Azure, where it can be easily selected when creating a VM from the portal. For more information, see [Upload an SSH key](../ssh-keys-portal.md#upload-an-ssh-key).
 
 
 ## Connect to your VM
@@ -89,7 +89,7 @@ With the public key deployed on your Azure VM, and the private key on your local
 ssh -i ~/.ssh/id_rsa azureuser@10.111.12.123
 ```
 
-If you have never connected to this VM before you will be asked to verify the hosts fingerprint. It is tempting to simply accept the fingerprint presented, however, this exposes you to a possible person in the middle attack. You should always validate the hosts fingerprint. You only need to do this on the first time you connect from a client. To obtain the host fingerprint via the portal use the Run Command with the following: `ssh-keygen -lf /etc/ssh/ssh_host_ecdsa_key.pub | awk '{print $2}'`.
+If you've never connected to this VM before you'll be asked to verify the hosts fingerprint. It's tempting to accept the fingerprint presented, however, this exposes you to a possible person in the middle attack. You should always validate the hosts fingerprint. You only need to do this on the first time you connect from a client. To obtain the host fingerprint via the portal, use the Run Command with the following command: `ssh-keygen -lf /etc/ssh/ssh_host_ecdsa_key.pub | awk '{print $2}'`.
 
 :::image type="content" source="media/ssh-from-windows/run-command-validate-host-fingerprint.png" alt-text="Screenshot showing using the Run Command to validate the host fingerprint.":::
 

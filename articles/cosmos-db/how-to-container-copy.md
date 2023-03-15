@@ -17,7 +17,7 @@ ms.reviewer: sidandrews
 
 This article describes how to create, monitor, and manage intra-account container copy jobs using Azure PowerShell or CLI commands.
 
-## Pre-requisites
+## Prerequisites
 
 * You may use the portal [Cloud Shell](/azure/cloud-shell/quickstart?tabs=powershell) to run container copy commands. Alternately, you may run the commands locally; make sure you have [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps-msi) downloaded and installed on your machine.
 * Currently, container copy is only supported in [these regions](intra-account-container-copy.md#supported-regions). Make sure your account's write region belongs to this list.
@@ -33,7 +33,7 @@ az extension add --name cosmosdb-preview
 
 ## Set shell variables
 
-First, set all of the variables that each individual script will use.
+First, set all of the variables that each individual script uses.
 
 ```azurepowershell-interactive
 $resourceGroup = "<resource-group-name>"
@@ -116,7 +116,7 @@ az cosmosdb dts resume `
 ```
 
 ## Get support for container copy issues
-For issues related to intra-account container copy, please raise a New Support Request from the Azure Portal with the Problem Type as 'Data Migration' and Problem subtype as 'Intra-account container copy'.
+For issues related to intra-account container copy, please raise a **New Support Request** from the Azure portal. Set the **Problem Type** as 'Data Migration' and **Problem subtype** as 'Intra-account container copy'.
 
 
 ## Next steps
