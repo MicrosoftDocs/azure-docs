@@ -17,7 +17,7 @@ The Infoblox Cloud Data Connector allows you to easily connect your Infoblox Blo
 | Connector attribute | Description |
 | --- | --- |
 | **Log Analytics table(s)** | CommonSecurityLog (InfobloxCDC)<br/> |
-| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
+| **Data collection rules support** | [Workspace transform DCR](../../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Supported by** | [InfoBlox](https://support.infoblox.com/) |
 
 ## Query samples

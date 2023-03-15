@@ -64,7 +64,7 @@ When planning your resource move, there are different considerations for [moving
 
 Individual resources like a Storage Sync Service or storage accounts, can't move by themselves to a different AAD tenant. Only Azure subscriptions can move AAD tenants. Think about your subscription structure in the new AAD tenant. You can use a dedicated subscription for Azure File Sync. 
 
-1. Create an Azure subscription (or determine an existing one in the old tenant that should move.
+1. Create an Azure subscription (or determine an existing one in the old tenant that should move).
 1. [Perform a subscription move within the same AAD tenant](#move-within-the-same-azure-active-directory-tenant) of your Storage Sync Service and all associated storage accounts.
 1. Sync will stop. Complete your tenant move immediately or [restore sync's ability to access the storage accounts that moved](#azure-file-sync-storage-access-authorization). You can then move to the new AAD tenant later.
 
@@ -114,7 +114,7 @@ This assignment is typically done automatically through the user context of the 
         :::image type="content" source="media/storage-sync-resource-move/storage-sync-resource-move-assign-rbac.png" alt-text="An image displaying the Microsoft.StorageSync service principal assigned to the Reader and Data access role on a storage account":::
     :::column-end:::
     :::column:::
-        In the Azure portal, navigate to the storage account you need to reauthorize sync access to. <ol><li>Select **Access control (IAM)** on the left-hand table of contents.</li><li>Select the Role assignments tab to the list the users and applications (service principals) that have access to your storage account.</li><li>Select **Add**</li><li>In the **Role field**, select **Reader and Data Access**.</li><li>In the **Select field**, type *Microsoft.StorageSync*, select the role and click **Save**. If the **Microsoft.StorageSync** service principal is not found, type **Hybrid File Sync Service** (old service principal name), select the role and click **Save**.</li></ol>
+        In the Azure portal, navigate to the storage account you need to reauthorize sync access to. <ol><li>Select **Access control (IAM)** on the left-hand table of contents.</li><li>Select the Role assignments tab to the list the users and applications (service principals) that have access to your storage account.</li><li>Select **Add**</li><li>In the **Role** tab, search and select the **Reader and Data Access** role.</li><li>In the **Members** tab, have *Assigned access to* selected as *User, group, or service principal*, click on *Select members* and in the **Select field**, type *Microsoft.StorageSync*, select the role and click **Save**. If the **Microsoft.StorageSync** service principal is not found, type **Hybrid File Sync Service** (old service principal name), select the role and click **Save**.</li></ol>
     :::column-end:::
 :::row-end:::
 

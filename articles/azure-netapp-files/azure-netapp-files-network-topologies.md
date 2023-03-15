@@ -56,6 +56,7 @@ Azure NetApp Files Standard network features are supported for the following reg
 *   North Europe
 *   Norway East
 *   Norway West 
+*   Qatar Central
 *   South Africa North
 *	South Central US
 *   South India 
