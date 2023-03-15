@@ -21,7 +21,7 @@ Azure Private 5G Core is an Azure cloud service for deploying and managing 5G co
 
 ## Prerequisites
 
-[!INCLUDE [azure-ps-prerequisites-include.md](../../../includes/azure-ps-prerequisites-include.md)]
+[!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
 - [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md) and [Commission the AKS cluster](commission-cluster.md).
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you identified in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md). This account must have the built-in Contributor or Owner role at the subscription scope.
@@ -32,16 +32,16 @@ Azure Private 5G Core is an Azure cloud service for deploying and managing 5G co
 
 ## Azure Powershell commands used in this article
 
-- [New-AzMobileNetwork](/powershell/module/az.mobilenetwork/new-azmobilenetwork?view=azps-9.5.0)
-- [New-AzMobileNetworkSite](/powershell/module/az.mobilenetwork/new-azmobilenetworksite?view=azps-9.5.0)
-- [New-AzMobileNetworkPacketCoreControlPlane](/powershell/module/az.mobilenetwork/new-azmobilenetworkpacketcorecontrolplane?view=azps-9.5.0)
-- [New-AzMobileNetworkPacketCoreDataPlane](/powershell/module/az.mobilenetwork/new-azmobilenetworkpacketcoredataplane?view=azps-9.5.0)
-- [New-AzMobileNetworkDataNetwork](/powershell/module/az.mobilenetwork/new-azmobilenetworkdatanetwork?view=azps-9.5.0)
-- [New-AzMobileNetworkAttachedDataNetwork](/powershell/module/az.mobilenetwork/new-azmobilenetworkattacheddatanetwork?view=azps-9.5.0)
-- [New-AzMobileNetworkSimGroup](/powershell/module/az.mobilenetwork/new-azmobilenetworksimgroup?view=azps-9.5.0)
-- [New-AzMobileNetworkSlice](/powershell/module/az.mobilenetwork/new-azmobilenetworkslice?view=azps-9.5.0)
-- [New-AzMobileNetworkServiceResourceIdObject](/powershell/module/az.mobilenetwork/new-azmobilenetworkserviceresourceidobject?view=azps-9.5.0)
-- [New-AzMobileNetworkSimStaticIPPropertiesObject](/powershell/module/az.mobilenetwork/new-azmobilenetworksimstaticippropertiesobject?view=azps-9.5.0)
+- [New-AzMobileNetwork](/powershell/module/az.mobilenetwork/new-azmobilenetwork)
+- [New-AzMobileNetworkSite](/powershell/module/az.mobilenetwork/new-azmobilenetworksite)
+- [New-AzMobileNetworkPacketCoreControlPlane](/powershell/module/az.mobilenetwork/new-azmobilenetworkpacketcorecontrolplane)
+- [New-AzMobileNetworkPacketCoreDataPlane](/powershell/module/az.mobilenetwork/new-azmobilenetworkpacketcoredataplane)
+- [New-AzMobileNetworkDataNetwork](/powershell/module/az.mobilenetwork/new-azmobilenetworkdatanetwork)
+- [New-AzMobileNetworkAttachedDataNetwork](/powershell/module/az.mobilenetwork/new-azmobilenetworkattacheddatanetwork)
+- [New-AzMobileNetworkSimGroup](/powershell/module/az.mobilenetwork/new-azmobilenetworksimgroup)
+- [New-AzMobileNetworkSlice](/powershell/module/az.mobilenetwork/new-azmobilenetworkslice)
+- [New-AzMobileNetworkServiceResourceIdObject](/powershell/module/az.mobilenetwork/new-azmobilenetworkserviceresourceidobject)
+- [New-AzMobileNetworkSimStaticIPPropertiesObject](/powershell/module/az.mobilenetwork/new-azmobilenetworksimstaticippropertiesobject)
 
 ## Deploy a private mobile network, site and SIM
 
@@ -49,7 +49,7 @@ You must complete the following steps in order to successfully deploy a private 
 
 ### Open Azure Cloud Shell
 
-[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../includes/cli-launch-cloud-shell-sign-in.md)]
 
 ### Create a Mobile Network resource
 
