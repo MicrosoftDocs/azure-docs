@@ -72,7 +72,7 @@ Within each of these five stages, there are several device operator requirements
 
 ## Device management patterns
 
-IoT Hub enables the following set of device management patterns. The [device management tutorials](iot-hub-node-node-device-management-get-started.md) show you in more detail how to extend these patterns to fit your exact scenario and how to design new patterns based on these core templates.
+IoT Hub enables the following set of device management patterns. The [device management tutorials](device-management-node.md) show you in more detail how to extend these patterns to fit your exact scenario and how to design new patterns based on these core templates.
 
 * **Reboot**: The back-end app informs the device through a direct method that it has started a reboot.  The device uses the reported properties to update the reboot status of the device.
   
@@ -112,4 +112,4 @@ For more information, see [Device Update for IoT Hub](../iot-hub-device-update/i
 
 The capabilities, patterns, and code libraries that IoT Hub provides for device management, enable you to create IoT applications that fulfill enterprise IoT operator requirements within each device lifecycle stage.
 
-To continue learning about the device management features in IoT Hub, see the [Get started with device management](iot-hub-node-node-device-management-get-started.md) tutorial.
+To continue learning about the device management features in IoT Hub, see [Get started with device management (Node.js)](device-management-node.md).

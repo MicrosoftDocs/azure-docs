@@ -382,16 +382,16 @@
               href: device-management-cli.md
             - name: .NET
               displayName: device management, status updates, device maintenance windows
-              href: iot-hub-csharp-csharp-device-management-get-started.md
+              href: device-management-dotnet.md
             - name: Python
               displayName: device management, status updates, device maintenance windows
-              href: iot-hub-python-python-device-management-get-started.md
+              href: device-management-python.md
             - name: Node.js
               displayName: device management, status updates, device maintenance windows
-              href: iot-hub-node-node-device-management-get-started.md
+              href: device-management-node.md
             - name: Java
               displayName: device management, status updates, device maintenance windows
-              href: iot-hub-java-java-device-management-getstarted.md
+              href: device-management-java.md
         - name: Schedule and broadcast jobs
           items:
             - name: CLI
