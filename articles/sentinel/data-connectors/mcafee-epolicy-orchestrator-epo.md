@@ -19,7 +19,7 @@ The McAfee ePolicy Orchestrator data connector provides the capability to ingest
 | **Kusto function alias** | McAfeeEPOEvent |
 | **Kusto function url** | https://aka.ms/sentinel-McAfeeePO-parser |
 | **Log Analytics table(s)** | Syslog(McAfeeePO)<br/> |
-| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
+| **Data collection rules support** | [Workspace transform DCR](../../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com/) |
 
 ## Query samples

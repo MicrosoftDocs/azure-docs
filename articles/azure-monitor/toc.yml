@@ -645,14 +645,14 @@ items:
             href: app/opencensus-python-request.md
         - name: JavaScript
           items:
-          - name: Client-side JavaScript
-            displayName: SPA, Single Page Applications, React, JS, Angular
-            href: app/javascript.md
-          - name: Source map for JavaScript
-            href: app/source-map-support.md
-          - name: Framework Extensions
+          - name: JavaScript SDK
+            displayName: browser, client-side, snippet
+            href: app/javascript-sdk.md
+          - name: JavaScript SDK advanced topics
+            href: app/javascript-sdk-advanced.md
+          - name: Framework extensions
             href: app/javascript-framework-extensions.md
-          - name: Feature Extensions (Click Analytics)
+          - name: Feature extensions (Click Analytics)
             href: app/javascript-feature-extensions.md
           - name: Upgrade
             href: app/javascript-sdk-upgrade.md
@@ -948,7 +948,7 @@ items:
         href: containers/container-insights-manage-agent.md
       - name: Agent collection settings
         href: containers/container-insights-agent-config.md
-      - name: Enable ContainerLogv2 (preview)
+      - name: Enable ContainerLogv2
         href: containers/container-insights-logging-v2.md
       - name: Enable cost optimization settings (preview)
         href: containers/container-insights-cost-config.md
