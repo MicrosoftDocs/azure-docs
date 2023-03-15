@@ -35,7 +35,8 @@ To run an SAP data replication pipeline on a recurring schedule with a specified
 
 To monitor the status and progress of a running SAP CDC data flow, open then Monitor tool and select your pipeline run. Select the **Data flow details** icon in the activity table at the bottom of the screen.
 
-    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-monitor-pipeline.png.png" alt-text="Screenshot of the pipeline monitor.":::
+```:::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-monitor-pipeline.png.png" alt-text="Screenshot of the pipeline monitor.":::
+```
 
 This takes you to the data flow data flow monitor. Clicking on the source icon in the data flow diagram at the top will open the detail source diagnostics section at the bottom.
 
