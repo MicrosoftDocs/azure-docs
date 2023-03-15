@@ -50,7 +50,7 @@ Azure Firewall Basic is similar to Firewall Standard, but has the following main
 - Fixed scale unit to run the service on two virtual machine backend instances.
 - Recommended for environments with an estimated throughput of 250 Mbps.
 
-To deploy a Basic Firewall, see [Deploy and configure Azure Firewall Basic (preview) and policy using the Azure portal](deploy-firewall-basic-portal-policy.md).
+To deploy a Basic Firewall, see [Deploy and configure Azure Firewall Basic and policy using the Azure portal](deploy-firewall-basic-portal-policy.md).
 
 ## Azure Firewall Manager
 
