@@ -1,5 +1,5 @@
 ---
-title: Use Azure CLI to create an Linux VM with Accelerated Networking
+title: Use Azure CLI to create a Linux VM with Accelerated Networking
 description: Learn how to use Azure CLI to create and manage Linux virtual machines with Accelerated Networking enabled.
 services: virtual-network
 author: asudbring
@@ -22,7 +22,7 @@ You can also create a VM with Accelerated Networking by using the [Azure portal]
 
 - An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- The latest version of [Azure CLI installed]. Sign in to Azure by using the [az login](/cli/azure/reference-index#az-login) command.
+- The latest version of [Azure CLI installed](/cli/azure/install-azure-cli). Sign in to Azure by using the [az login](/cli/azure/reference-index#az-login) command.
 
 ## Create a VM with Accelerated Networking
 
@@ -99,9 +99,9 @@ In the following examples, replace the example parameters such as `<myResourceGr
 
 ### Create a VM and attach the NIC
 
-Make sure to select a VM size and distribution that's listed in [Linux Accelerated Networking](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). For a list of all VM sizes and characteristics, see [Linux VM sizes](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Use the `--nics` option to attach the NIC you created.
+Use [az vm create](/cli/azure/vm) to create the VM, and use the `--nics` option to attach the NIC you created. Make sure to select a VM size and distribution that's listed in [Linux Accelerated Networking](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). For a list of all VM sizes and characteristics, see [Linux VM sizes](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-Use [az vm create](/cli/azure/vm) to create the VM. The following example creates a VM with the UbuntuLTS OS image and a size that supports Accelerated Networking, Standard_DS4_v2.
+The following example creates a VM with the UbuntuLTS OS image and a size that supports Accelerated Networking, Standard_DS4_v2.
 
 ```azurecli
 az vm create \
@@ -172,15 +172,15 @@ When the VM is created, you get output similar to the following example. Take no
 
 Binding to the synthetic NIC that's exposed in the VM is a mandatory requirement for all applications that take advantage of Accelerated Networking. If an application runs directly over the VF NIC, it doesn't receive all packets that are destined to the VM, because some packets show up over the synthetic interface. Run an application over the synthetic NIC to guarantee that the application receives all packets that are destined to it. Binding to the synthetic NIC also ensures that the application keeps running even if the VF is revoked during host servicing.
 
-For more details on application binding requirements, see [How Accelerated Networking works in Linux and FreeBSD VMs](./accelerated-networking-how-it-works.md#application-usage).
+For more information about application binding requirements, see [How Accelerated Networking works in Linux and FreeBSD VMs](./accelerated-networking-how-it-works.md#application-usage).
 
-## Enable Accelerated Networking on existing VMs
+## Manage Accelerated Networking on existing VMs
 
 It's possible to enable Accelerated Networking on an existing VM that doesn't have this feature. The VM must meet the following requirements to support Accelerated Networking:
 
 - Be a supported size for Accelerated Networking.
 - Be a supported Azure Marketplace image and kernel version for Linux.
-- Be stopped or deallocated before you can enable Accelerated Networking on any NIC. This requirement applies to all individual VMs or VMs in an availability set or virtual machine scale set.
+- Be stopped or deallocated before you can enable Accelerated Networking on any NIC. This requirement applies to all individual VMs or VMs in an availability set or Azure Virtual Machine Scale Set.
 
 ### Enable Accelerated Networking on individual VMs or VMs in availability sets
 
@@ -188,7 +188,7 @@ It's possible to enable Accelerated Networking on an existing VM that doesn't ha
 
    ```azurecli
    az vm deallocate \
-     --resource-group ,myResourceGroup> \
+     --resource-group <myResourceGroup> \
      --name <myVm>
    ```
 
@@ -210,9 +210,9 @@ It's possible to enable Accelerated Networking on an existing VM that doesn't ha
      --name <myVm>
    ```
 
-### Enable Accelerated Networking on virtual machine scale sets
+### Enable Accelerated Networking on Virtual Machine Scale Sets
 
-Virtual machine scale sets are slightly different but follow the same workflow.
+Azure Virtual Machine Scale Sets is slightly different but follows the same workflow.
 
 1. First, stop the VMs:
 
@@ -230,7 +230,7 @@ Virtual machine scale sets are slightly different but follow the same workflow.
      --set virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].enableAcceleratedNetworking=true
    ```
 
-1. A virtual machine scale set has an upgrade policy that applies updates by using automatic, rolling, or manual settings. The following instructions set the policy to automatic so the virtual machine scale set picks up the changes immediately after restart.
+1. Virtual Machine Scale Sets has an upgrade policy that applies updates by using automatic, rolling, or manual settings. The following instructions set the policy to automatic so Virtual Machine Scale Sets picks up the changes immediately after restart.
 
    ```azurecli
    az vmss update \
@@ -239,7 +239,7 @@ Virtual machine scale sets are slightly different but follow the same workflow.
      --set upgradePolicy.mode="automatic"
    ```
 
-1. Finally, restart the VMSS:
+1. Finally, restart Virtual Machine Scale Sets.
 
    ```azurecli
    az vmss start \
@@ -251,10 +251,10 @@ Once you restart and the upgrades finish, the VF appears inside VMs that use a s
 
 ### Resize existing VMs with Accelerated Networking
 
-VMs with Accelerated Networking enabled can be resized only to sizes that also support Accelerated Networking. You can't resize a VM with Accelerated Networking to a VM instance that doesn't support Accelerated Networking by using the resize operation. Instead, use the following process to resize these VMs.
+VMs with Accelerated Networking enabled can be resized only to sizes that also support Accelerated Networking. You can't resize a VM with Accelerated Networking to a VM instance that doesn't support Accelerated Networking by using the resize operation. Instead, use the following process to resize these VMs:
 
-1. Stop and deallocate the VM or all the VMs in the availability set or virtual machine scale set.
-1. Disable Accelerated Networking on the NIC of the VM or all the VMs in the availability set or virtual machine scale set.
+1. Stop and deallocate the VM or all the VMs in the availability set or Virtual Machine Scale Set.
+1. Disable Accelerated Networking on the NIC of the VM or all the VMs in the availability set or Virtual Machine Scale Set.
 1. Move the VM or VMs to a new size that doesn't support Accelerated Networking, and restart them.
 
 ## Portal creation
@@ -272,7 +272,7 @@ You can also create a VM with Accelerated Networking by using the [Azure portal]
   1. From the portal page for the VM, select **Networking** from the left menu.
   1. On the **Networking** page, select the **Network Interface**.
   1. At the top of the NIC **Overview** page, select **Edit accelerated networking**.
-  1. Select **Automatic**, **Enabled**, or **Disabled**.
+  1. Select **Automatic**, **Enabled**, or **Disabled**, and then select **Save**.
 
 ## Next steps
 
