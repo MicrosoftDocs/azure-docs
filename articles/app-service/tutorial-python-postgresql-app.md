@@ -67,19 +67,24 @@ Follow the steps below to setup the Azure Developer CLI and provision and deploy
 
 The Azure Developer CLI also enables you to configure your application to use a CI/CD pipeline for deployments, setup monitoring functionality or even remove the provisioned resources. For more information about these additional workflows, visit the project [README](https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app/blob/main/README.md).
 
-## Explore the sample application template and resources
+## Explore the azd project template workflow
 
-When you ran `azd up`, the Azure Developer CLI completed the following steps:
+The sections ahead review the steps that azd handled for you in more depth. You can explore this workflow to better understand the requirements for deploying your own apps to Azure. When you ran `azd up`, the Azure Developer CLI completed the following steps:
 
-1. Cloned the template repository down to your local machine. The cloned sample app includes the source code for a Flask or Django web app and the necessary infrastructure files for the project to work correctly as an azd template.
-1. Provisioned the resources in Azure required to host the application.
-1. Deployed the application code to the provisioned resources.
+> [!NOTE]
+> You can also use the steps outlined in the **Step by step** version of this flow to gain additional insights into the tasks that azd completed for you.
 
-The sections ahead review the provisioned resources and deployed application in more depth. You can use this setup to better understand the requirements for hosting your own apps in Azure.
+### 1. Clone and initialize the project
 
-### Resource provisioning
+The `az up` command cloned the sample app project template to your local computer. The project template includes the following components:
 
-The `azd up` command created all of the resources for the sample application in Azure using the Bicep files in the [`infra`](https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app/tree/main/infra) folder of the project template. [Bicep](/azure/azure-resource-manager/bicep/overview?tabs=bicep) is a declarative language used to manage infrastructure as code in Azure. Some of the key resources that were created and configured for the sample Python app include:
+* **Source code**: The code and assets for a Flask or Django web app that can be used for local development or be deployed to Azure.
+* **Bicep files**: Infrastructure as code (IaC) files that are used by azd to create the necessary resources in Azure.
+* **Configuration files**: Essential configuration files such as `azure.yaml` that are consumed by azd to provision and deploy resources correctly.
+
+### 2. Provision the Azure resources
+
+The `azd up` command created all of the resources for the sample application in Azure using the Bicep files in the [`infra`](https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app/tree/main/infra) folder of the project template. [Bicep](/azure/azure-resource-manager/bicep/overview?tabs=bicep) is a declarative language used to manage infrastructure as code in Azure. Some of the key resources and and configurations created by the template include:
 
 * **Resource group**: A resource group was created to hold all of the other provisioned Azure resources. The resource group helps to keep your resources well organized and easier to manage. The name of the resource group is based off of the environment name you specified during the `azd up` initialization process.
 * **Azure Virtual Network**: A virtual network was created to enable the other provisioned resources to securely connect and communicate with one another. Related configurations such as setting up a private DNS zone link were also applied.
@@ -89,6 +94,8 @@ The `azd up` command created all of the resources for the sample application in 
 * **Azure Application Insights**: Application insights was setup and configured for the app hosted on the App Service. This service enables detailed telemetry and monitoring for your application.
 
 You can inspect the Bicep files in the [`infra`](https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app/tree/main/infra) folder of the project to understand how each of these resources were provisioned in more detail. The `resources.bicep` file defines most of the different services created in Azure. For example, the App Service plan and App Service web app instance were created and connected using the following Bicep code. 
+
+### [Flask](#tab/flask)
 
 ```yaml
 resource appServicePlan 'Microsoft.Web/serverfarms@2021-03-01' = {
@@ -123,7 +130,47 @@ resource web 'Microsoft.Web/sites@2022-03-01' = {
   }
 ```
 
+### [Django](#tab/django)
+
+```yml
+resource appServicePlan 'Microsoft.Web/serverfarms@2021-03-01' = {
+  name: '${prefix}-service-plan'
+  location: location
+  tags: tags
+  sku: {
+    name: 'B1'
+  }
+  properties: {
+    reserved: true
+  }
+}
+
+resource web 'Microsoft.Web/sites@2022-03-01' = {
+  name: '${prefix}-app-service'
+  location: location
+  tags: union(tags, { 'azd-service-name': 'web' })
+  kind: 'app,linux'
+  properties: {
+    serverFarmId: appServicePlan.id
+    siteConfig: {
+      alwaysOn: true
+      linuxFxVersion: 'PYTHON|3.10'
+      ftpsState: 'Disabled'
+      appCommandLine: 'startup.sh'
+    }
+    httpsOnly: true
+  }
+  identity: {
+    type: 'SystemAssigned'
+  }
+
+```
+
+---
+
 The Bicep templates also specify the required configuration values for the different properties of the resource. For example, the App Service is configured with the necessary app settings using the following code:
+
+### [Flask](#tab/flask)
 
 ```yml
   resource appSettings 'config' = {
@@ -137,11 +184,27 @@ The Bicep templates also specify the required configuration values for the diffe
   }
 ```
 
+### [Django](#tab/django)
+
+resource appSettings 'config' = {
+    name: 'appsettings'
+    properties: {
+        SCM_DO_BUILD_DURING_DEPLOYMENT: 'true'
+        AZURE_POSTGRESQL_CONNECTIONSTRING: 'dbname=${flaskDatabase.name} host=${postgresServer.name}.postgres.database.azure.com port=5432 sslmode=require user=${postgresServer.properties.administratorLogin} password=${databasePassword}'
+        SECRET_KEY: secretKey
+        FLASK_DEBUG: 'False'
+    }
+}
+
+---
+
 ### Application Deployment
 
 The Azure Developer CLI also deployed the sample application code to the provisioned Azure resources. The Developer CLI understands how to deploy different parts of your application code to different services in Azure using the `azure.yaml` file at the root of the project. The `azure.yaml` file specifies the app source code location, the type of app, and the Azure Service that should host that app. 
 
-Consider the following `azure.yaml` file from the sample Flask application. This configuration tells the Azure Developer CLI that the Python code that lives at the root of the project should be deployed to the created App Service.
+Consider the following `azure.yaml` file. These configurations tells the Azure Developer CLI that the Python code that lives at the root of the project should be deployed to the created App Service.
+
+### [Flask](#tab/flask)
 
 ```yml
 name: flask-postgresql-sample-app
@@ -154,6 +217,12 @@ services:
     host: appservice
 ```
 
+### [Django](#tab/django)
+
+
+
+---
+
 ## Remove the resources
 
 Once you are finished experimenting with your sample application, you can run the `azd down` command to remove the app from Azure. Removing resources helps to avoid unintended costs or unused services in your Azure subscription.
@@ -164,7 +233,7 @@ azd down
 
 :::zone-end
 
-:::zone pivot="deploy-manual"
+:::zone pivot="deploy-portal"
 
 ## Sample application
 
@@ -622,6 +691,8 @@ When you're finished, you can delete all of the resources from your Azure subscr
     :::column-end:::
 :::row-end:::
 
+:::zone-end
+
 ## Frequently asked questions
 
 - [How much does this setup cost?](#how-much-does-this-setup-cost)
@@ -684,9 +755,6 @@ If you can't connect to the SSH session, then the app itself has failed to start
 #### I get an error when running database migrations
 
 If you encounter any errors related to connecting to the database, check if the app settings (`AZURE_POSTGRESQL_CONNECTIONSTRING`) have been changed. Without that connection string, the migrate command can't communicate with the database. 
-
-
-:::zone-end
 
 ## Next steps
 

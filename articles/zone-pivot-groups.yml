@@ -2091,8 +2091,8 @@ groups:
   pivots:
   - id: deploy-azd
     title: Azure Developer CLI
-  - id: deploy-manual
-    title: Manual steps
+  - id: deploy-portal
+    title: Azure portal
 # Owner: daknappe (Azure Virtual Desktop)
 - id: azure-virtual-desktop-host-pool-types
   title: Azure Virtual Desktop host pool management type
