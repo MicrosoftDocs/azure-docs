@@ -163,7 +163,8 @@ Follow the policy [grammar](../key-vault/keys/policy-grammar.md) for more exampl
 
 **Example 1:** Confidential containers on ACI validating the containers initiated and container configuration metadata as part of container group launch with added validations that this is an AMD SEV-SNP hardware.
 
-NOTE: the containers metadata is a rego based policy hash reflected [here](https://github.com/microsoft/confidential-sidecar-containers/tree/main).
+> [!NOTE]
+> The containers metadata is a rego based policy hash reflected as in this [example.](https://github.com/microsoft/confidential-sidecar-containers/tree/main).
 
 ```json
 {
