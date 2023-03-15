@@ -7,7 +7,7 @@ ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: how-to
 ms.custom: subject-monitoring
-ms.date: 02/13/2023
+ms.date: 03/15/2023
 ---
 
 # Monitoring Azure OpenAI Service
