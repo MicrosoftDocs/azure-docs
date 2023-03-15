@@ -23,7 +23,7 @@ Before configuring your Azure Logic App custom extension for use with Lifecycle 
 - Proof of Possession(POP)
 
 
-To determine the security token type of your custom task extension you'd check the **Custom extensions (Preview)** page:
+To determine the security token type of your custom task extension, you'd check the **Custom extensions (Preview)** page:
 
 :::image type="content" source="media/configure-logic-app-lifecycle-workflows/custom-task-extension-token-type.png" alt-text="Screenshot of custom task extension and token type.":::
 
@@ -224,7 +224,7 @@ If the security token type is **Normal** for your custom task extension, you'd s
 
 1. Go back to the logic app you created, and select **Authorization**.
 
-1. Create two authorization policies based on the tables below:
+1. Create two authorization policies based on these tables:
 
     Policy name: AzureADLifecycleWorkflowsAuthPolicy   
     
@@ -247,13 +247,13 @@ If the security token type is **Normal** for your custom task extension, you'd s
 > Due to a current bug in the Logic Apps UI you may have to save the authorization policy after each claim before adding another.
 
 ## Configure authorization policy for custom task extension with POP security token type
-If the security token type is **Proof of Posession (POP)** for your custom task extension, you'd set the authorization policy by following these steps:
+If the security token type is **Proof of Possession (POP)** for your custom task extension, you'd set the authorization policy by following these steps:
 
 1. For Logic Apps authorization policy, we need the managed identities **Application ID**. Since the Azure portal only shows the Object ID, we need to look up the Application ID. You can search for the managed identity by Object ID under **Enterprise Applications in the Azure AD Portal** to find the required Application ID.
 
 1. Go back to the logic app you created, and select **Authorization**.
 
-1. Create two authorization policies based on the tables below:
+1. Create two authorization policies based on these tables:
 
     Policy name: POP-Policy   
     
