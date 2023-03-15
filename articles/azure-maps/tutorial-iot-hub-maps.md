@@ -132,7 +132,7 @@ Follow these steps to upload the geofence by using the Azure Maps Data Upload AP
     https://us.atlas.microsoft.com/mapData/operations/{operationId}?api-version=2.0
     ```
 
-5. To check the status of the API call, create a **GET** HTTP request on the `status URL`. You'll need to append your primary subscription key to the URL for authentication. The **GET** request should like the following URL:
+5. To check the status of the API call, create a **GET** HTTP request on the `status URL`. You'll need to append your subscription key to the URL for authentication. The **GET** request should like the following URL:
 
    ```HTTP
    https://us.atlas.microsoft.com/mapData/{operationId}/status?api-version=2.0&subscription-key={Your-Azure-Maps-Subscription-key}
@@ -186,7 +186,7 @@ Now, set up your Azure function.
      :::image type="content" source="./media/tutorial-iot-hub-maps/function-code.png" alt-text="Copy/Screenshot of paste code into function window.":::
 
 1. In the C# code, replace the following parameters:
-    * Replace **SUBSCRIPTION_KEY** with your Azure Maps account primary subscription key.
+    * Replace **SUBSCRIPTION_KEY** with your Azure Maps account subscription key.
     * Replace **UDID** with the `udid` of the geofence you uploaded in [Upload a geofence].
     * The `CreateBlobAsync` function in the script creates a blob per event in the data storage account. Replace the **ACCESS_KEY**, **ACCOUNT_NAME**, and **STORAGE_CONTAINER_NAME** with your storage account's access key, account name, and data storage container. These values were generated when you created your storage account in [Create an Azure storage account].
 
