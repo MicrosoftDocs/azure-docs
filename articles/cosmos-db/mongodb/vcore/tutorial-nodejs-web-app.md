@@ -58,7 +58,7 @@ For the most straightforward dev environment, we use GitHub Codespaces so that y
 
 1. Check the versions of the tools you use in this tutorial.
 
-    ```bash
+    ```shell
     node --version
 
     npm --version
@@ -83,7 +83,7 @@ For the most straightforward dev environment, we use GitHub Codespaces so that y
 
     :::image type="content" source="media/tutorial-nodejs-web-app/select-mongodb-option.png" alt-text="Screenshot of the MongoDB extension in the side bar.":::
 
-1. Add a new connection to the MongoDB extension using the connection string `mongodb://testdb`.
+1. Add a new connection to the MongoDB extension using the connection string `mongodb://localhost:27017`.
 
     :::image type="content" source="media/tutorial-nodejs-web-app/select-mongodb-add-connection.png" alt-text="Screenshot of the add connection button in the MongoDB extension.":::
 
@@ -95,7 +95,7 @@ For the most straightforward dev environment, we use GitHub Codespaces so that y
 
 1. The playground run should result in a list of documents in the local MongoDB collection. Here's a truncated example of the output.
 
-    ```output
+    ```json
     [
       {
         "_id": { "$oid": "640a146e89286b79b6628eef" },
@@ -121,30 +121,31 @@ For the most straightforward dev environment, we use GitHub Codespaces so that y
 
 Alternatively, you can complete this tutorial in [Visual Studio Code](https://code.visualstudio.com) with the following prerequisites installed:
 
-- [Node.js](https://nodejs.org/)
-- [Docker](https://www.docker.com/)
-- [MongoDB Shell](https://www.mongodb.com/)
+- [Node.js (&ge; 18.0150) & NPM (&ge; 9.5.0)](https://nodejs.org/)
+- [Docker Desktop (latest)](https://www.docker.com/)
+- [MongoDB Shell (&ge; 1.8.0)](https://www.mongodb.com/)
+- [Azure CLI (&ge; 2.46.0)](/cli/azure)
 
-1. Run a MongoDB container using Docker and publish the typical MongoDB port (`27017`) as a custom port (`65000`).
+1. Run a MongoDB container using Docker and publish the typical MongoDB port (`27017`).
 
-    ```bash
+    ```shell
     docker pull mongo:6.0
-    docker run --detach --publish 65000:27017 mongo:6.0
+    docker run --detach --publish 27017:27017 mongo:6.0
     ```
 
-1. Connect to the MongoDB container using the mongo shell.
+1. Connect to the MongoDB container using the mongo shell and the connection string `mongodb://localhost:27017`.
 
-    ```bash
-    mongosh "mongodb://localhost:65000"
+    ```shell
+    mongosh "mongodb://localhost:27017"
     ```
 
 1. Run the following commands to create a database and collection. The command will then seed the collection with sample data and output a list of all documents in the collection.
 
-    :::code language="bash" source="~/azure-cosmos-db-mongodb-mern-web-app/data/products.mongodb" highlight="5-16":::
+    :::code language="mongosh" source="~/azure-cosmos-db-mongodb-mern-web-app/data/products.mongodb" highlight="5-16":::
 
 1. The commands should result in a list of documents in the local MongoDB collection. Here's a truncated example of the output.
 
-    ```output
+    ```json
     [
       {
         "_id": { "$oid": "640a146e89286b79b6628eef" },
@@ -168,13 +169,13 @@ Alternatively, you can complete this tutorial in [Visual Studio Code](https://co
 
 1. Exit the mongo shell.
 
-    ```bash
+    ```mongosh
     exit
     ```
 
 1. In an empty directory, use `git clone` to clone the MERN application from GitHub.
 
-    ```bash
+    ```shell
     git clone https://github.com/azure-samples/msdocs-azure-cosmos-db-mongodb-mern-web-app.git .
     ```
 
@@ -184,75 +185,83 @@ Alternatively, you can complete this tutorial in [Visual Studio Code](https://co
 
 Start by running the sample application with the local MongoDB container to validate that the application works.
 
+1. In the root of the project directory, create a new **.env** file.
+
+1. In the **.env** file, add two enviroment variables for these values:
+
+    | Environment Variable | Value |
+    | --- | --- |
+    | `CONNECTION_STRING` | The connection string to the Azure Cosmos DB for MongoDB vCore cluster. For now, this is set to the MongoDB connection string you used earlier in this tutorial (`mongodb://localhost:27017`). |
+    | `REACT_APP_API_ENDPOINT` | The back-end API endpoint that the front-end React application will use. For now, this is set to `http://localhost:65100`. |
+
+    ```env
+    CONNECTION_STRING=mongodb://localhost:27017
+    REACT_APP_API_ENDPOINT=http://localhost:65100
+    ```
+
 1. TODO
 
-    ```bash
+    ```shell
 
     ```
 
 1. TODO
 
-    ```bash
+    ```shell
 
     ```
 
 1. TODO
 
-    ```bash
+    ```shell
 
     ```
 
 1. TODO
 
-    ```bash
+    ```shell
 
     ```
 
 1. TODO
 
-    ```bash
+    ```shell
 
     ```
 
 1. TODO
 
-    ```bash
+    ```shell
 
     ```
 
 1. TODO
 
-    ```bash
+    ```shell
 
     ```
 
 1. TODO
 
-    ```bash
+    ```shell
 
     ```
 
 1. TODO
 
-    ```bash
+    ```shell
 
     ```
 
 1. TODO
 
-    ```bash
+    ```shell
 
     ```
 
 1. TODO
 
-    ```bash
-
-    ```
-
-1. TODO
-
-    ```bash
+    ```shell
 
     ```
 
