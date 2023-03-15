@@ -17,7 +17,7 @@ This is supported both for Enhanced Policy (preview) as well as Standard Policy.
 
 >[!Note]
 >- This is supported for both backup policies - [Enhanced policy](backup-azure-vms-enhanced-policy.md) and [Standard policy](backup-during-vm-creation.md#create-a-vm-with-backup-configured).
->- The Selective disk backup and restore (preview) in Enhanced policy is available in public Azure regions only.
+>- The *Selective disk backup and restore in Enhanced policy (preview)* is available in public Azure regions only.
 
 ## Scenarios
 
@@ -28,7 +28,7 @@ This solution is useful particularly in the following scenarios:
 
 3. If you're using [Enhanced policy](backup-azure-vms-enhanced-policy.md), you can use this solution to exclude unsupported disks (Ultra Disks, Shared Disks) and configure a VM for backup. 
 
-Using PowerShell, Azure CLI, or Azure portal, you can configure selective disk backup of the Azure VM. Using a script, you can include or exclude data disks using their LUN numbers. The ability to configure selective disks backup through the Azure portal is limited to the **Backup OS Disk only** for the Standard policy, but can be configured for all data disks. So, you can configure backup of your Azure VM with OS disk, and exclude all the data disks attached to it.
+Using PowerShell, Azure CLI, or Azure portal, you can configure selective disk backup of the Azure VM. Using a script, you can include or exclude data disks using their *LUN numbers*. The ability to configure selective disks backup via the Azure portal is limited to the *Backup OS Disk* only for the Standard policy, but can be configured for all data disks for Enhanced policy.
 
 >[!NOTE]
 > The OS disk is by default added to the VM backup and can't be excluded.
@@ -345,18 +345,22 @@ If you use disk exclusion or selective disks while backing up Azure VM, _[stop p
 
 Azure virtual machine backup follows the existing pricing model, explained in detail [here](https://azure.microsoft.com/pricing/details/backup/).
 
-- If you're using Standard policy, **Protected Instance (PI) cost** is calculated for the OS disk only if you choose to back up using the **OS Disk only** option.  If you configure backup and select at least one data disk, the PI cost will be calculated for all the disks attached to the VM. **Backup storage cost** is calculated based on only the included disks and so you get to save on the storage cost. **Snapshot cost** is always calculated for all the disks in the VM (both the included and excluded disks).
+### Standard policy
 
-- If you're using Enhanced policy, **Protected Instance (PI)** cost, snapshot cost, and vault tier storage cost are all calculated based on the disks that you've included for backup.
+If you're using Standard policy, **Protected Instance (PI) cost** is calculated for the OS disk only if you choose to back up using the **OS Disk only** option.  If you configure backup and select at least one data disk, the PI cost will be calculated for all the disks attached to the VM. **Backup storage cost** is calculated based on only the included disks and so you get to save on the storage cost. **Snapshot cost** is always calculated for all the disks in the VM (both the included and excluded disks).
 
-  **Known limitations**
+### Enhanced policy
 
-  | OS type | Limitation |
-  | --- | --- |
-  | Windows | - **Spanned volumes**:  For spanned volumes (volumes spread across more than one physical disk), ensure that all disks are included in the backup. If not, Azure Backup might not be able to reliably restore the data and exclude it in billing. <br><br> - **Storage pool**: If you're using disks carved out of a storage pool and if a *LUN number* included for backup is common across virtual disks and data disks, the size of the virtual disk is also included in the backup size in addition to the data disks. |
-  |	Linux | - **Logical volumes**: For logical volumes spread across more than one disk, ensure that all disks are included in the backup. If not, Azure Backup might not be able to reliably restore the data and exclude it in billing. <br><br> - **Distro support**: Azure Backup uses *lsscsi* and *lsblk* to determine the disks being excluded for backup. If your distro (Debian 8.11, 10.13, and so on) doesn't support *lsscsi*, install it using `sudo apt install lsscsi` to ensure Selective disk backup works. |
+If you're using Enhanced policy, **Protected Instance (PI)** cost, snapshot cost, and vault tier storage cost are all calculated based on the disks that you've included for backup.
 
-- If you've chosen the Cross Region Restore (CRR) feature, then the [CRR pricing](https://azure.microsoft.com/pricing/details/backup/) applies on the backup storage cost after excluding the disk.
+**Known limitations**
+
+| OS type | Limitation |
+| --- | --- |
+| Windows | - **Spanned volumes**:  For spanned volumes (volumes spread across more than one physical disk), ensure that all disks are included in the backup. If not, Azure Backup might not be able to reliably restore the data and exclude it in billing. <br><br> - **Storage pool**: If you're using disks carved out of a storage pool and if a *LUN number* included for backup is common across virtual disks and data disks, the size of the virtual disk is also included in the backup size in addition to the data disks. |
+|	Linux | - **Logical volumes**: For logical volumes spread across more than one disk, ensure that all disks are included in the backup. If not, Azure Backup might not be able to reliably restore the data and exclude it in billing. <br><br> - **Distro support**: Azure Backup uses *lsscsi* and *lsblk* to determine the disks being excluded for backup. If your distro (Debian 8.11, 10.13, and so on) doesn't support *lsscsi*, install it using `sudo apt install lsscsi` to ensure Selective disk backup works. |
+
+If you've chosen the Cross Region Restore (CRR) feature, then the [CRR pricing](https://azure.microsoft.com/pricing/details/backup/) applies on the backup storage cost after excluding the disk.
 
 ## Frequently asked questions
 
