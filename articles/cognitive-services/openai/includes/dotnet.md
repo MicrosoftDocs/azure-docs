@@ -120,7 +120,7 @@ namespace azure_openai_quickstart
         {
             string endpoint = GetEnvironmentVariable("OPENAI_API_BASE");
             string key = GetEnvironmentVariable("OPENAI_API_KEY");
-            string engine = "text-davinci-003";
+            string engine = "text-davinci-003"; //Enter the deployment name you choose when you deployed the model.
 
             OpenAIClient client = new OpenAIClient(new Uri(endpoint), new AzureKeyCredential(key));
 
