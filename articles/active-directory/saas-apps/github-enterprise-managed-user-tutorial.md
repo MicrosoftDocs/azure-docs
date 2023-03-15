@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with GitHub Enterprise Managed User | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with GitHub Enterprise Managed User'
 description: Learn how to configure single sign-on between Azure Active Directory and GitHub Enterprise Managed User.
 author: jeevansd
 manager: CelesteDG
