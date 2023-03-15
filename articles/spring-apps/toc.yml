@@ -23,8 +23,8 @@ items:
       href: quickstart-provision-standard-consumption-plan-service-instance.md
     - name: Provision in an Azure Container Apps environment with VNet
       href: quickstart-provision-app-environment-with-virtual-network.md
-    - name: Launch your first event driven app
-      href: quickstart-for-event-driven-app.md
+    - name: Launch your first event-driven app
+      href: quickstart-deploy-event-driven-app.md
   - name: Run apps on Basic/Standard tier
     expanded: true
     items:
