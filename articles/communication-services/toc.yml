@@ -68,7 +68,7 @@ items:
   items:
   - name: SMS
     items:
-    - name: Get a phone numbers
+    - name: Get a phone number
       href: quickstarts/telephony/get-phone-number.md
     - name: Send an SMS message
       href: quickstarts/sms/send.md
@@ -80,7 +80,7 @@ items:
     items:
     - name:  Connect to a call
       items:
-      - name: Create an access tokens
+      - name: Create an access token
         href: quickstarts/identity/access-tokens.md
       - name: Add voice calling to your app
         href: quickstarts/voice-video-calling/getting-started-with-calling.md
@@ -90,15 +90,15 @@ items:
       items:
       - name: Use an external identity
         items:
-        - name: Create an access tokens
+        - name: Create an access token
           href: quickstarts/identity/access-tokens.md
-        - name: Add Teams meeting calling to you app
+        - name: Add Teams meeting calling to your app
           href: quickstarts/voice-video-calling/get-started-teams-interop.md  
       - name: Use a Teams identity
         items:
-          - name: Generate an access for a Teams User
+          - name: Generate an access token for a Teams User
             href: quickstarts/manage-teams-identity.md                
-          - name: Add Teams video calling to you app
+          - name: Add Teams video calling to your app
             href: quickstarts/voice-video-calling/get-started-with-voice-video-calling-custom-teams-client.md   
     - name: Connect to a Room call
       items:
@@ -112,7 +112,7 @@ items:
     items:
     - name: Connect to a chat 
       items:
-      - name: Create an access tokens
+      - name: Create an access token
         href: quickstarts/identity/access-tokens.md
       - name: Add chat to your app
         href: quickstarts/chat/get-started.md 
@@ -122,7 +122,7 @@ items:
       items:
       - name: Use an external identity
         items:
-        - name: Create an access tokens
+        - name: Create an access token
           href: quickstarts/identity/access-tokens.md
         - name: Add Teams meeting chat to your app
           href: quickstarts/chat/meeting-interop.md   
@@ -130,7 +130,7 @@ items:
       href: quickstarts/ui-library/get-started-chat-ui-library.md
   - name: Phone calling
     items:
-    - name: Get a phone numbers
+    - name: Get a phone number
       href: quickstarts/telephony/get-phone-number.md
     - name: Add outbound phone calling to your app
       href: quickstarts/telephony/pstn-call.md
@@ -394,7 +394,7 @@ items:
       href: samples/trusted-auth-sample.md
   - name: Phone calling
     items:
-    - name: Apointment remainder sample
+    - name: Appointment remainder sample
       href: samples/call-automation-appointment-reminder.md
 - name: Concepts 
   items:
