@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/16/2022
+ms.date: 03/15/2023
 ms.author: jomondi
 ms.reviewer: jawoods, ludwignick, phsignor
 
@@ -18,11 +18,11 @@ ms.reviewer: jawoods, ludwignick, phsignor
 
 When an application directly accesses a resource, like Microsoft Graph, its access isn't limited to the files or operations available to any single user. The app calls APIs directly using its own identity, and a user or app with admin rights must authorize it to access the resources. This scenario is application-only access.
 
-> [!VIDEO https://www.youtube.com/watch?v=6R3W9T01gdE]
+> [!VIDEO https://www.youtube.com/embed/6R3W9T01gdE]
 
 ## When should I use application-only access?
 
-In most cases, application-only access is broader and more powerful than [delegated access](delegated-access-primer.md), so only use app-only access where needed. It’s usually the right choice if:
+In most cases, application-only access is broader and more powerful than [delegated access](delegated-access-primer.md), so you should only use app-only access where needed. It’s usually the right choice if:
 
 - The application needs to run in an automated way, without user input. For example, a daily script that checks emails from certain contacts and sends automated responses.
 - The application needs to access resources belonging to multiple different users. For example, a backup or data loss prevention app might need to retrieve messages from many different chat channels, each with different participants.
@@ -30,7 +30,7 @@ In most cases, application-only access is broader and more powerful than [delega
 
 In contrast, you should never use application-only access where a user would normally sign in to manage their own resources. These types of scenarios must use delegated access to be least privileged.
 
-![Image shows illustration of application permissions vs delegated permissions.](./media/permissions-consent-overview/delegated-app-only-permissions.png)
+![Diagram shows illustration of application permissions vs delegated permissions.](./media/permissions-consent-overview/delegated-app-only-permissions.png)
 
 
 
@@ -62,7 +62,7 @@ When exposing app roles for others to use, provide clear descriptions of the sce
 
 The most important thing to remember about app-only access is that the calling app acts on its own behalf and as its own identity. There's no user interaction. If the app has been assigned to a given app role for a resource, then the app has fully unconstrained access to all resources and operations governed by that app role.
 
-Once an app has been assigned to one or more app roles (app-only permissions), it can request an app-only token from Azure AD using the [client credentials flow](v2-oauth2-client-creds-grant-flow.md) or another other supported authentication flow. The assigned roles are added to the `roles` claim of the app's access token.
+Once an app has been assigned to one or more app roles (app-only permissions), it can request an app-only token from Azure AD using the [client credentials flow](v2-oauth2-client-creds-grant-flow.md) or any other supported authentication flow. The assigned roles are added to the `roles` claim of the app's access token.
  
 In some scenarios, the application identity may determine whether access is granted, similarly to user rights in a delegated call. For example, the `Application.ReadWrite.OwnedBy` app role grants an app the ability to manage service principals that the app itself owns. 
 
