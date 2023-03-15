@@ -14,7 +14,7 @@ This article shows how to update or configure a custom topic or a domain in Azur
 1. Sign in to [Azure portal](https://portal.azure.com/).
 2. In the search bar at the top, type **Event Grid Topics**, and then select **Event Grid Topics** from the drop-down list. If you are configuring a domain, search for **Event Grid Domains**. 
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topics.png" alt-text="Screenshot showing the Azure port search bar to search for Event Grid topics.":::
+    :::image type="content" source="./media/custom-event-quickstart-portal/select-topics.png" alt-text="Screenshot showing the Azure port search bar to search for Event Grid topics.":::
 3. On the **Event Grid Topics** or **Event Grid Domains** page, select your topic or domain. 
 
     :::image type="content" source="./media/configure-custom-topic/select-topic.png" alt-text="Screenshot showing the selection of the topic in the list of Event Grid topics.":::

@@ -1,12 +1,13 @@
 ---
-title: Get started with Azure IoT Hub device management (Node) | Microsoft Docs
-description: How to use IoT Hub device management to initiate a remote device reboot. You use the Azure IoT SDK for Node.js to implement a simulated device app that includes a direct method and a service app that invokes the direct method.
+title: Device management using direct methods (Node.js)
+titleSuffix: Azure IoT Hub
+description: How to use Azure IoT Hub direct methods with the Node.js SDK for device management tasks including invoking a remote device reboot.
 author: kgremban
 
 ms.author: kgremban
 ms.service: iot-hub
-services: iot-hub
-ms.topic: conceptual
+ms.devlang: nodejs
+ms.topic: how-to
 ms.date: 08/20/2019
 ms.custom: mqtt, devx-track-js
 ---
@@ -43,19 +44,19 @@ In this section, you:
 
 * Use the reported properties to enable device twin queries to identify devices and when they last rebooted.
 
-1. Create an empty folder called **manageddevice**.  In the **manageddevice** folder, create a package.json file using the following command at your command prompt.  Accept all the defaults:
+1. Create an empty folder called **managed-device**.  In the **managed-device** folder, create a package.json file using the following command at your command prompt.  Accept all the defaults:
 
     ```cmd/sh
     npm init
     ```
 
-2. At your command prompt in the **manageddevice** folder, run the following command to install the **azure-iot-device** Device SDK package and **azure-iot-device-mqtt** package:
+2. At your command prompt in the **managed-device** folder, run the following command to install the **azure-iot-device** Device SDK package and **azure-iot-device-mqtt** package:
 
     ```cmd/sh
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 
-3. Using a text editor, create a **dmpatterns_getstarted_device.js** file in the **manageddevice** folder.
+3. Using a text editor, create a **dmpatterns_getstarted_device.js** file in the **managed-device** folder.
 
 4. Add the following 'require' statements at the start of the **dmpatterns_getstarted_device.js** file:
 
@@ -143,19 +144,19 @@ In this section, you:
 
 In this section, you create a Node.js console app that initiates a remote reboot on a device using a direct method. The app uses device twin queries to discover the last reboot time for that device.
 
-1. Create an empty folder called **triggerrebootondevice**. In the **triggerrebootondevice** folder, create a package.json file using the following command at your command prompt. Accept all the defaults:
+1. Create an empty folder called **trigger-reboot-on-device**. In the **trigger-reboot-on-device** folder, create a package.json file using the following command at your command prompt. Accept all the defaults:
 
     ```cmd/sh
     npm init
     ```
 
-2. At your command prompt in the **triggerrebootondevice** folder, run the following command to install the **azure-iothub** Device SDK package and **azure-iot-device-mqtt** package:
+2. At your command prompt in the **trigger-reboot-on-device** folder, run the following command to install the **azure-iothub** Device SDK package and **azure-iot-device-mqtt** package:
 
     ```cmd/sh
     npm install azure-iothub --save
     ```
 
-3. Using a text editor, create a **dmpatterns_getstarted_service.js** file in the **triggerrebootondevice** folder.
+3. Using a text editor, create a **dmpatterns_getstarted_service.js** file in the **trigger-reboot-on-device** folder.
 
 4. Add the following 'require' statements at the start of the **dmpatterns_getstarted_service.js** file:
 
@@ -232,13 +233,13 @@ In this section, you create a Node.js console app that initiates a remote reboot
 
 You're now ready to run the apps.
 
-1. At the command prompt in the **manageddevice** folder, run the following command to begin listening for the reboot direct method.
+1. At the command prompt in the **managed-device** folder, run the following command to begin listening for the reboot direct method.
 
     ```cmd/sh
     node dmpatterns_getstarted_device.js
     ```
 
-2. At the command prompt in the **triggerrebootondevice** folder, run the following command to trigger the remote reboot and query for the device twin to find the last reboot time.
+2. At the command prompt in the **trigger-reboot-on-device** folder, run the following command to trigger the remote reboot and query for the device twin to find the last reboot time.
 
     ```cmd/sh
     node dmpatterns_getstarted_service.js

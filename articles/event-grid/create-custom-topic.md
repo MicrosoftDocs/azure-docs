@@ -12,7 +12,7 @@ This article shows how to create a custom topic or a domain in Azure Event Grid.
 ## Prerequisites
 If you're new to Azure Event Grid, read through [Event Grid overview](overview.md) before starting this tutorial.
 
-[!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
+[!INCLUDE [register-provider.md](./includes/register-provider.md)]
 
 ## Create a custom topic or domain
 An Event Grid topic provides a user-defined endpoint that you post your events to. 
@@ -20,7 +20,7 @@ An Event Grid topic provides a user-defined endpoint that you post your events t
 1. Sign in to [Azure portal](https://portal.azure.com/).
 2. In the search bar at the top, type **Event Grid Topics**, and then select **Event Grid Topics** from the drop-down list. If you are create a domain, search for **Event Grid Domains**.
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topics.png" alt-text="Screenshot showing the Azure port search bar to search for Event Grid topics.":::
+    :::image type="content" source="./media/custom-event-quickstart-portal/select-topics.png" alt-text="Screenshot showing the Azure port search bar to search for Event Grid topics.":::
 3. On the **Event Grid Topics** or **Event Grid Domains** page, select **+ Create** on the toolbar. 
 
     :::image type="content" source="./media/custom-event-quickstart-portal/create-topic-button.png" alt-text="Screenshot showing the Create Topic button on Event Grid topics page.":::
