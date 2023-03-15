@@ -53,7 +53,7 @@ In this section, you:
 
 * Use the reported properties to enable device twin queries to identify devices and when they last rebooted.
 
-In Azure Cloud Shell you used above or any other environment with Python, create the device code.
+In Azure Cloud Shell you used previously, or any other environment with Python, create the device code.
 
 1. At your command prompt, run the following command to install the **azure-iot-device** package:
 

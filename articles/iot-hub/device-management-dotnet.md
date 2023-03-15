@@ -239,8 +239,8 @@ You're now ready to run the apps.
 
 1. After that the device is connected and waiting for method invocations, right-click the **TriggerReboot** project, select **Debug**, and then select **Start new instance**.
 
-   You should see "Rebooting!" written in the **SimulatedManagedDevice** console and the reported properties of the device, which include the last reboot time,  written in the **TriggerReboot** console.
+   You should see **Rebooting** written in the **SimulatedManagedDevice** console and the reported properties of the device, which include the last reboot time,  written in the **TriggerReboot** console.
 
-    ![Service and device app run](./media/iot-hub-csharp-csharp-device-management-get-started/combinedrun.png)
+   ![Service and device app run](./media/iot-hub-csharp-csharp-device-management-get-started/combinedrun.png)
 
 [!INCLUDE [iot-hub-dm-followup](../../includes/iot-hub-dm-followup.md)]
