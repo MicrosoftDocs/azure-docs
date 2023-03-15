@@ -73,7 +73,7 @@ landingContent:
             url: ./multi-user-authorization-concept.md?tabs=recovery-services-vault
           - text: Multi-user authorization (MUA) for Backup vault
             url: ./multi-user-authorization-concept.md?tabs=backup-vault
-          - text: Immutable vault (preview)
+          - text: Immutable vault
             url: backup-azure-immutable-vault-concept.md
           - text: Azure Kubernetes Service backup (preview)
             url: azure-kubernetes-service-backup-overview.md
