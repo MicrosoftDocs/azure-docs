@@ -431,6 +431,8 @@ items:
       href: configure-event-hubs-for-kafka.md
     - name: Publish and receive Kafka notifications - .NET
       href: manage-kafka-dotnet.md
+  - name: Implement custom types
+    href: tutorial-custom-types.md
   - name: Disaster recovery
     href: disaster-recovery.md
   - name: Monitor with Azure Monitor
