@@ -19,9 +19,8 @@ The [MERN (MongoDB, Express, React.js, Node.js) stack](https://www.mongodb.com/m
 > [!div class="checklist"]
 >
 > - Clone and test the MERN application with a MongoDB container
-> - Connect to your Azure Cosmos DB for MongoDB vCore cluster and populate with seed data
-> - Connect and validate your application with the vCore cluster
-> - Deploy your application to Azure App Service resources
+> - Validate your application with the Azure Cosmos DB for MongoDB vCore cluster
+> - Deploy your application to Azure App Service
 >
 
 ## Prerequisites
@@ -199,81 +198,47 @@ Start by running the sample application with the local MongoDB container to vali
     REACT_APP_API_ENDPOINT=http://localhost:65100
     ```
 
-1. TODO
+1. Build the Express API service using Docker into a container image named `express-server`. Run a new container using the image and publish the exposed `5000` port as `65100`.
 
     ```shell
+    docker build --tag express-server server/.
 
+    docker run --detach --publish 65100:5000 --env-file .env express-server
     ```
 
-1. TODO
+1. Build the React web application using Docker into a container image named `react-client`. Run a new container using the image and publish the exposed `3000` port as `65200`.
 
     ```shell
-
+    docker build --tag react-client client/.
+    
+    docker run --detach --publish 65200:5000 --env-file .env react-client
     ```
 
-1. TODO
+1. Using your web browser, observe the currently running web application hosted at `http://localhost:65200`.
 
-    ```shell
-
-    ```
-
-1. TODO
-
-    ```shell
-
-    ```
-
-1. TODO
-
-    ```shell
-
-    ```
-
-1. TODO
-
-    ```shell
-
-    ```
-
-1. TODO
-
-    ```shell
-
-    ```
-
-1. TODO
-
-    ```shell
-
-    ```
-
-1. TODO
-
-    ```shell
-
-    ```
-
-1. TODO
-
-    ```shell
-
-    ```
-
-1. TODO
-
-    ```shell
-
-    ```
-
-## Connect to your Azure Cosmos DB for MongoDB vCore cluster and populate with seed data
+## Validate your application with the Azure Cosmos DB for MongoDB vCore cluster
 
 TODO - Short sentence or two.
 
 1. TODO
 
-## Connect and validate your application with the vCore cluster
+1. TODO
 
-TODO - Short sentence or two.
+    ```shell
+
+    ```
+
+1. TODO
+
+    ```shell
+
+    ```
+
+1. TODO
+
+    ```shell
+
+    ```
 
 1. TODO
 
@@ -292,7 +257,37 @@ TODO - Short sentence or two.
     > ```
     >
 
-## Deploy your application to Azure App Service resources
+1. TODO
+
+    ```shell
+
+    ```
+
+1. TODO
+
+    ```shell
+
+    ```
+
+1. TODO
+
+    ```shell
+
+    ```
+
+1. TODO
+
+    ```shell
+
+    ```
+
+1. TODO
+
+    ```shell
+
+    ```
+
+## Deploy your application to Azure App Service
 
 TODO - Short sentence or two.
 
