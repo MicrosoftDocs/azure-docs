@@ -1,11 +1,11 @@
 ---
 title: Default Python packages in Azure Automation
-description: List of default Python packages in Automation service .
-ms.date: 02/03/2023
+description: List of default Python packages in Automation service.
+ms.date: 03/15/2023
 ms.topic: reference
 ms.custom: subject-python-package-reference
 ---
-# Default Python Packages
+# Default Python packages
 
 The following is the list of default Python packages:
 
