@@ -16,7 +16,7 @@ The rest of this section gives an overview of reasons and guides that you could 
 > [!NOTE]
 > Support engineers are available to assist in diagnosing issues with your application. You may file a support ticket by accessing the **Support+troubleshooting** – **New Support request** blade on your function app page.
 
-[!Screenshot of support request page in Azure Portal.](./media/durable-functions-tsg/durable-function-support-request.png)
+![Screenshot of support request page in Azure Portal.](./media/durable-functions-tsg/durable-function-support-request.png)
 
 > [!TIP]
 > When debugging and diagnosing issues, it is recommended that you start by ensuring your app is using the latest Durable Functions version. Most of the time, using the latest version mitigates known issues already reported by other users. Please read the **Durable Function Best Practice and Diagnostic Tools** article for instructions on how to upgrade your extension version. 
@@ -81,7 +81,7 @@ To see the Azure Storage query result, please add the following configuration in
  } 
 ```
 
-The following query is for inspecting end-to-end Azure Storage interactions for a specific orchestration instance.  
+The following query is for inspecting end-to-end Azure Storage interactions for a specific orchestration instance. Edit the and `start` and `targetInstanceId` to filter by time range and instnaceId.
 
 ```kusto
 let start = datetime(2017-09-30T04:30:00); // edit this 
@@ -109,7 +109,7 @@ traces
 
 ### Trace Multiple Orchestrators
 
-The following query shows the orchestration instance status for multiple orchestrators run in a specified time range. Edit the **instanceId** list to query the multiple orchestration.
+The following query shows the orchestration instance status for multiple orchestrators run in a specified time range. Edit the `instanceId` list to query the multiple orchestration.
 
 ```kusto
 let start = datetime(2017-09-30T04:30:00); 
