@@ -5,7 +5,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
-ms.topic: how-to
+ms.topic: include
 ms.date: 10/12/2022
 ms.author: aahi
 ms.custom: language-service-custom-classification, references_regions, ignite-fall-2021
