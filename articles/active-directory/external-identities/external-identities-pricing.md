@@ -55,11 +55,11 @@ An Azure AD tenant must be linked to a resource group within an Azure subscripti
 
 6. In the tenant list, select the checkbox next to the tenant, and then select **Link subscription**.
 
-    ![Select the tenant and link a subscription](media/external-identities-pricing/linked-subscriptions.png)
+    :::image type="content" source="media/external-identities-pricing/linked-subscriptions.png" alt-text="Screenshot of the link a subscription option.":::
 
 7. In the **Link a subscription** pane, select a **Subscription** and a **Resource group**. Then select **Apply**. (If there are no subscriptions listed, see [What if I can't find a subscription?](#what-if-i-cant-find-a-subscription).)
 
-    ![Select a subscription and resource group](media/external-identities-pricing/link-subscription-resource.png)
+    :::image type="content" source="media/external-identities-pricing/link-subscription-resource.png" alt-text="Screenshot of how to link a subscription.":::
 
 After you complete these steps, your Azure subscription is billed based on your Azure Direct or Enterprise Agreement details, if applicable.
 
