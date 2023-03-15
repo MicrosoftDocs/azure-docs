@@ -29,7 +29,7 @@ For example, here are some events that publishers can send to subscribers throug
 
 This tutorial creates a Consumption logic app resource that runs in [*multi-tenant* Azure Logic Apps](../logic-apps/logic-apps-overview.md) and is based on the [Consumption pricing model](../logic-apps/logic-apps-pricing.md#consumption-pricing). Using this logic app resource, you create a workflow that monitors changes to a virtual machine, and sends emails about those changes. When you create a workflow that has an event subscription to an Azure resource, events flow from that resource through Azure Event Grid to the workflow. 
 
-![Screenshot showing the workflow designer with a workflow that monitors a virtual machine using Azure Event Grid.](./media/monitor-virtual-machine-changes-event-grid-logic-app/monitor-virtual-machine-event-grid-logic-app-overview.png)
+![Screenshot showing the workflow designer with a workflow that monitors a virtual machine using Azure Event Grid.](./media/monitor-virtual-machine-changes-logic-app/monitor-virtual-machine-event-grid-logic-app-overview.png)
 
 In this tutorial, you learn how to:
 
@@ -64,11 +64,11 @@ In this tutorial, you learn how to:
 
 1. From the Azure home page, select **Create a resource** > **Integration** > **Logic App**.
 
-   ![Screenshot of Azure portal, showing button to create a logic app resource.](./media/monitor-virtual-machine-changes-event-grid-logic-app/azure-portal-create-logic-app.png)
+   ![Screenshot of Azure portal, showing button to create a logic app resource.](./media/monitor-virtual-machine-changes-logic-app/azure-portal-create-logic-app.png)
 
 1. Under **Create Logic App**, provide information about your logic app resource:
 
-   ![Screenshot of logic apps creation menu, showing details like name, subscription, resource group, and location.](./media/monitor-virtual-machine-changes-event-grid-logic-app/create-logic-app-for-event-grid.png)
+   ![Screenshot of logic apps creation menu, showing details like name, subscription, resource group, and location.](./media/monitor-virtual-machine-changes-logic-app/create-logic-app-for-event-grid.png)
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
@@ -102,7 +102,7 @@ In this tutorial, you learn how to:
    > 
    > The workflow templates gallery is available only for Consumption logic apps, not Standard logic apps.
 
-   ![Screenshot showing Azure Logic Apps templates with selected "Blank Logic App" template.](./media/monitor-virtual-machine-changes-event-grid-logic-app/choose-logic-app-template.png)
+   ![Screenshot showing Azure Logic Apps templates with selected "Blank Logic App" template.](./media/monitor-virtual-machine-changes-logic-app/choose-logic-app-template.png)
 
    The workflow designer now shows you the [*triggers*](../logic-apps/logic-apps-overview.md#logic-app-concepts) that you can use to start your logic app. Every workflow must start with a trigger, which fires when a specific event happens or when a specific condition is met. Each time the trigger fires, Azure Logic Apps creates a workflow instance that runs your logic app.
 
@@ -112,11 +112,11 @@ Now add the Azure Event Grid trigger, which you use to monitor the resource grou
 
 1. On the designer, in the search box, enter `event grid`. From the triggers list, select the **When a resource event occurs** trigger.
 
-   ![Screenshot that shows the workflow designer with the selected Azure Event Grid trigger.](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger.png)
+   ![Screenshot that shows the workflow designer with the selected Azure Event Grid trigger.](./media/monitor-virtual-machine-changes-logic-app/logic-app-event-grid-trigger.png)
 
 1. When prompted, sign in to Azure Event Grid with your Azure account credentials. In the **Tenant** list, which shows the Azure Active Directory tenant that's associated with your Azure subscription, check that the correct tenant appears, for example:
 
-   ![Screenshot that shows the workflow designer with the Azure sign-in prompt to connect to Azure Event Grid.](./media/monitor-virtual-machine-changes-event-grid-logic-app/sign-in-event-grid.png)
+   ![Screenshot that shows the workflow designer with the Azure sign-in prompt to connect to Azure Event Grid.](./media/monitor-virtual-machine-changes-logic-app/sign-in-event-grid.png)
 
    > [!NOTE]
    > 
@@ -128,7 +128,7 @@ Now add the Azure Event Grid trigger, which you use to monitor the resource grou
 
 1. Now subscribe your logic app to events from the publisher. Provide the details about your event subscription as described in the following table, for example:
 
-   ![Screenshot that shows the workflow designer with the trigger details editor open.](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger-details.png)
+   ![Screenshot that shows the workflow designer with the trigger details editor open.](./media/monitor-virtual-machine-changes-logic-app/logic-app-event-grid-trigger-details.png)
 
    | Property | Required | Value | Description |
    | -------- | -------- | ----- | ----------- |
@@ -141,7 +141,7 @@ Now add the Azure Event Grid trigger, which you use to monitor the resource grou
 
 1. Save your logic app workflow. On the designer toolbar, select **Save**. To collapse and hide an action's details in your workflow, select the action's title bar.
 
-   ![Screenshot that shows the workflow designer and the "Save" button selected.](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-save.png)
+   ![Screenshot that shows the workflow designer and the "Save" button selected.](./media/monitor-virtual-machine-changes-logic-app/logic-app-event-grid-save.png)
 
    When you save your logic app workflow with an Azure Event Grid trigger, Azure automatically creates an event subscription for your logic app to your selected resource. So when the resource publishes an event to the Azure Event Grid service, the service automatically pushes the event to your logic app. This event triggers and runs the logic app workflow you define in these next steps.
 
@@ -153,25 +153,25 @@ If you want to your logic app workflow to run only when a specific event or oper
 
 1. In the workflow designer, under the Azure Event Grid trigger, select **New step**.
 
-   ![Screenshot that shows the workflow designer with "New step" selected.](./media/monitor-virtual-machine-changes-event-grid-logic-app/choose-new-step-condition.png)
+   ![Screenshot that shows the workflow designer with "New step" selected.](./media/monitor-virtual-machine-changes-logic-app/choose-new-step-condition.png)
 
 1. Under **Choose an action**, in the search box, enter `condition` as your filter. From the actions list, select the **Condition** action.
 
-   ![Screenshot that shows the workflow designer with "Condition" selected.](./media/monitor-virtual-machine-changes-event-grid-logic-app/select-condition.png)
+   ![Screenshot that shows the workflow designer with "Condition" selected.](./media/monitor-virtual-machine-changes-logic-app/select-condition.png)
 
    The workflow designer adds an empty condition to your workflow, including action paths to follow based whether the condition is true or false.
 
-   ![Screenshot that shows the workflow designer with an empty condition added to the workflow.](./media/monitor-virtual-machine-changes-event-grid-logic-app/empty-condition.png)
+   ![Screenshot that shows the workflow designer with an empty condition added to the workflow.](./media/monitor-virtual-machine-changes-logic-app/empty-condition.png)
 
 1. Rename the condition title to `If a virtual machine in your resource group has changed`. On the condition's title bar, select the ellipses (**...**) button, and select **Rename**.
 
-   ![Screenshot that shows the workflow designer with the condition editor's context menu and "Rename" selected.](./media/monitor-virtual-machine-changes-event-grid-logic-app/rename-condition.png)
+   ![Screenshot that shows the workflow designer with the condition editor's context menu and "Rename" selected.](./media/monitor-virtual-machine-changes-logic-app/rename-condition.png)
 
 1. Create a condition that checks the event `body` for a `data` object where the `operationName` property is equal to the `Microsoft.Compute/virtualMachines/write` operation. Learn more about [Azure Event Grid event schema](../event-grid/event-schema.md).
 
    1. On the first row under **And**, click inside the left box. In the dynamic content list that appears, select **Expression**.
 
-      ![Screenshot that shows the workflow designer with the condition action and dynamic content list open with "Expression" selected.](./media/monitor-virtual-machine-changes-event-grid-logic-app/condition-choose-expression.png)
+      ![Screenshot that shows the workflow designer with the condition action and dynamic content list open with "Expression" selected.](./media/monitor-virtual-machine-changes-logic-app/condition-choose-expression.png)
 
    1. In the expression editor, enter this expression, which returns the operation name from the trigger, and select **OK**:
 
@@ -179,7 +179,7 @@ If you want to your logic app workflow to run only when a specific event or oper
 
       For example:
 
-      ![Screenshot showing workflow designer and condition editor with expression to extract the operation name.](./media/monitor-virtual-machine-changes-event-grid-logic-app/condition-add-data-operation-name.png)
+      ![Screenshot showing workflow designer and condition editor with expression to extract the operation name.](./media/monitor-virtual-machine-changes-logic-app/condition-add-data-operation-name.png)
 
    1. In the middle box, keep the operator **is equal to**.
 
@@ -189,11 +189,11 @@ If you want to your logic app workflow to run only when a specific event or oper
 
    Your finished condition now looks like this example:
 
-   ![Screenshot that shows the workflow designer with a condition that compares the operation.](./media/monitor-virtual-machine-changes-event-grid-logic-app/complete-condition.png)
+   ![Screenshot that shows the workflow designer with a condition that compares the operation.](./media/monitor-virtual-machine-changes-logic-app/complete-condition.png)
 
    If you switch from design view to code view and back to design view, the expression that you specified in the condition resolves to the **data.operationName** token:
 
-   ![Screenshot that shows the workflow designer with a condition that has resolved tokens.](./media/monitor-virtual-machine-changes-event-grid-logic-app/resolved-condition.png)
+   ![Screenshot that shows the workflow designer with a condition that has resolved tokens.](./media/monitor-virtual-machine-changes-logic-app/resolved-condition.png)
 
 1. Save your logic app.
 
@@ -203,7 +203,7 @@ Now add an [*action*](../logic-apps/logic-apps-overview.md#logic-app-concepts) s
 
 1. In the condition's **If true** box, select **Add an action**.
 
-   ![Screenshot that shows the workflow designer with the condition's "If true" pane open and "Add an action" selected.](./media/monitor-virtual-machine-changes-event-grid-logic-app/condition-true-add-action.png)
+   ![Screenshot that shows the workflow designer with the condition's "If true" pane open and "Add an action" selected.](./media/monitor-virtual-machine-changes-logic-app/condition-true-add-action.png)
 
 1. Under **Choose an action**, in the search box, enter `send an email` as your filter. Based on your email provider, find and select the matching connector. Then select the "send email" action for your connector. For example:
 
@@ -215,7 +215,7 @@ Now add an [*action*](../logic-apps/logic-apps-overview.md#logic-app-concepts) s
 
    This tutorial continues with the Office 365 Outlook connector. If you use a different provider, the steps remain the same, but your UI might appear slightly different.
 
-   ![Screenshot that shows the workflow designer with the search box open to find the "Send an email" action.](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-send-email.png)
+   ![Screenshot that shows the workflow designer with the search box open to find the "Send an email" action.](./media/monitor-virtual-machine-changes-logic-app/logic-app-send-email.png)
 
 1. If you don't already have a connection for your email provider, sign in to your email account when you're asked for authentication.
 
@@ -223,7 +223,7 @@ Now add an [*action*](../logic-apps/logic-apps-overview.md#logic-app-concepts) s
 
 1. Provide information about the email as specified in the following table:
 
-   ![Screenshot that shows the workflow designer with dynamic content being addded to email subject line for a true condition.](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-empty-email-action.png)
+   ![Screenshot that shows the workflow designer with dynamic content being addded to email subject line for a true condition.](./media/monitor-virtual-machine-changes-logic-app/logic-app-empty-email-action.png)
 
    > [!TIP]
    > To select output from the previous steps in your workflow, click inside an edit box so that the dynamic content list appears, 
@@ -243,11 +243,11 @@ Now add an [*action*](../logic-apps/logic-apps-overview.md#logic-app-concepts) s
 
    Now, your email action might look like this example:
 
-   ![Screenshot that shows the workflow designer with selected outputs to send in email when VM is updated.](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-send-email-details.png)
+   ![Screenshot that shows the workflow designer with selected outputs to send in email when VM is updated.](./media/monitor-virtual-machine-changes-logic-app/logic-app-send-email-details.png)
 
    And your finished logic app workflow might look like the following example:
 
-   ![Screenshot showing designer with complete workflow and details for trigger and actions.](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-completed.png)
+   ![Screenshot showing designer with complete workflow and details for trigger and actions.](./media/monitor-virtual-machine-changes-logic-app/logic-app-completed.png)
 
 1. Save your logic app. To collapse and hide each action's details in your logic app, select the action's title bar.
 
@@ -261,15 +261,15 @@ Now add an [*action*](../logic-apps/logic-apps-overview.md#logic-app-concepts) s
 
    After a few moments, you should get an email. For example:
 
-   ![Screenshot of example Outlook email, showing details about VM update.](./media/monitor-virtual-machine-changes-event-grid-logic-app/email.png)
+   ![Screenshot of example Outlook email, showing details about VM update.](./media/monitor-virtual-machine-changes-logic-app/email.png)
 
 1. To review the runs and trigger history for your logic app, on your logic app menu, select **Overview**. To view more details about a run, select the row for that run.
 
-   ![Screenshot of logic app's overview page, showing a successful run selected.](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-run-history.png)
+   ![Screenshot of logic app's overview page, showing a successful run selected.](./media/monitor-virtual-machine-changes-logic-app/logic-app-run-history.png)
 
 1. To view the inputs and outputs for each step, expand the step that you want to review. This information can help you diagnose and debug problems in your logic app.
 
-   ![Screenshot of logic app's runs history, showing details for each run.](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-run-history-details.png)
+   ![Screenshot of logic app's runs history, showing details for each run.](./media/monitor-virtual-machine-changes-logic-app/logic-app-run-history-details.png)
 
 Congratulations, you've created and run a logic app workflow that monitors resource events through Azure Event Grid and emails you when those events happen. You also learned how easily you can create workflows that automate processes and integrate systems and cloud services.
 
@@ -286,7 +286,7 @@ This tutorial uses resources and performs actions that incur charges on your Azu
 
 * To stop running your workflow without deleting your work, disable your app. On your logic app menu, select **Overview**. On the toolbar, select **Disable**.
 
-  ![Screenshot of logic app's overview, showing Disable button selected to disable the logic app.](./media/monitor-virtual-machine-changes-event-grid-logic-app/turn-off-disable-logic-app.png)
+  ![Screenshot of logic app's overview, showing Disable button selected to disable the logic app.](./media/monitor-virtual-machine-changes-logic-app/turn-off-disable-logic-app.png)
 
   > [!TIP]
   > If you don't see the logic app menu, try returning to the Azure dashboard, and reopen your logic app.

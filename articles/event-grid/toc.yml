@@ -53,7 +53,7 @@ items:
   - name: Tutorials
     items:
     - name: Email when VM changes
-      href: monitor-virtual-machine-changes-event-grid-logic-app.md
+      href: monitor-virtual-machine-changes-logic-app.md
     - name: Resize uploaded images
       items:
       - name: Upload image data in the cloud with Azure Storage

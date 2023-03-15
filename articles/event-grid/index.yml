@@ -64,7 +64,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Email when VM changes
-            url: monitor-virtual-machine-changes-event-grid-logic-app.md
+            url: monitor-virtual-machine-changes-logic-app.md
           - text: Resize uploaded images
             url: resize-images-on-storage-blob-upload-event.md
           - text: Trigger Automation runbook
