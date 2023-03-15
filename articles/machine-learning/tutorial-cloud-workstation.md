@@ -246,6 +246,7 @@ Now create a Python script from your notebook for model training.
 
     :::image type="content" source="media/tutorial-cloud-workstation/export-python-file.png" alt-text="Screenshot shows exporting a Python file from the notebook.":::
 
+1. Name the file **train.py**.
 1. Look through this file and delete the code you don't want in the training script.  For example, keep the code for the model you wish to use, and delete code for the model you don't want.  
     * Make sure you keep the code that starts autologging (`mlflow.sklearn.autolog()`).
     * You may wish to delete the auto-generated comments and add in more of your own comments.

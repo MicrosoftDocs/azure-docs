@@ -17,9 +17,9 @@ ms.date: 02/27/2023
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-Learn how a data scientist uses Azure Machine Learning (Azure Machine Learning) to train a model.  In this example, we use the associated credit card dataset to show how you can use AutoML for a classification problem. The goal is to predict if a customer has a high likelihood of defaulting on a credit card payment.
+Learn how a data scientist uses Azure Machine Learning to train a model.  In this example, we use the associated credit card dataset. The goal is to predict if a customer has a high likelihood of defaulting on a credit card payment.
 
-The training script handles the data preparation, then trains and registers a model. This tutorial takes you through steps to submit a cloud-based training job (command job). If you would like to learn more about how to load your data into Azure, see [Create data assets](how-to-create-data-assets.md). 
+The training script handles the data preparation, then trains and registers a model. This tutorial takes you through steps to submit a cloud-based training job (command job). If you would like to learn more about how to load your data into Azure, see [Tutorial: Upload, access and explore your data in Azure Machine Learning](tutorial-explore-data.md). 
 
 
 The steps are:
@@ -40,7 +40,7 @@ The steps are:
     * Create a workspace.
     * Create a cloud-based compute instance to use for your development environment.
     * Create a new notebook, if you want to copy/paste code into cells.
-    * Or, open the notebook version of this tutorial by opening **Put notebook location here** from the **Samples** section of studio.  Then select **Clone this notebook** to add the notebook to your **Files**.
+    * Or, open the notebook version of this tutorial by opening **tutorials/get-started-notebooks/train-model.ipynb** from the **Samples** section of studio.  Then select **Clone this notebook** to add the notebook to your **Files**.
 
 ## Set your notebook kernel
 
@@ -445,7 +445,7 @@ If you're not going to use it now, stop the compute instance:
 Learn about deploying a model 
 
 > [!div class="nextstepaction"]
-[Deploy a model](tutorial-deploy-model.md).
+> [Deploy a model](tutorial-deploy-model.md).
 
 This tutorial used an online data file.  To learn more about other ways to access data, see [Tutorial: Upload, access and explore your data in Azure Machine Learning](tutorial-explore-data.md).
 
