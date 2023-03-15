@@ -202,12 +202,22 @@ Use one of the following three methods:
 
 Changes are not instant, and require a policy refresh or a reboot to take effect.
 
+> [!NOTE]
+> Once this change is applied, the client will not be able to connect to Storage Accounts using on-premises AD DS integration without configuring Kerberos realm mappings.
+### Configure coexistance with Storage Accounts using on-premises AD DS
+Add an entry for each storage account that uses on-premises AD DS integration. Use one of the following three methods:
+- Configure this Intune Policy CSP and apply it to the client(s): [Kerberos/HostToRealm](/windows/client-management/mdm/policy-csp-admx-kerberos#hosttorealm)
+- Configure this group policy on the client(s): `Administrative Tempalte\System\Kerberos\Define host name-to-Kerberos realm mappings`
+- Configure the following registry value on the client(s): `reg add HKLM\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\domain_realm /v <DomainName> /d <StorageAccountEndPoint>`
+    - For example, `reg add HKLM\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\domain_realm /v contoso.local /d staddsauth.file.core.windows.net`
+
 ## Disable Azure AD authentication on your storage account
 
 If you want to use another authentication method, you can disable Azure AD authentication on your storage account by using the Azure portal, Azure PowerShell, or Azure CLI.
 
 > [!NOTE]
 > Disabling this feature means that there will be no Active Directory configuration for file shares in your storage account until you enable one of the other Active Directory sources to reinstate your Active Directory configuration.
+
 
 # [Portal](#tab/azure-portal)
 
