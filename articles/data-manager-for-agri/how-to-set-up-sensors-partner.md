@@ -36,7 +36,7 @@ Hence to enable authentication & authorization, partners will need to do the fol
 
 Partners can access the APIs in customer tenant using the multi-tenant Azure Active Directory App, registered in Azure Active Directory. App registration is done on the Azure portal so the Microsoft identity platform can provide authentication and authorization services for your application which in turn accesses Data Manager for Agriculture.
 
-Follow the steps provided in <a href="/azure/active-directory/develop/quickstart-register-app#register-an-application" target="_blank">App Registration</a> **until the Step 8** to generate the following information:
+Follow the steps provided in <a href="https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app#register-an-application" target="_blank">App Registration</a> **until the Step 8** to generate the following information:
 
 1. **Application (client) ID**
 2. **Directory (tenant) ID**
@@ -46,7 +46,7 @@ Copy and store all three values as you would need them for generating access tok
 
 The Application (client) ID created is like the User ID of the application, and now you need to create its corresponding Application password (client secret) for the application to identify itself.
 
-Follow the steps provided in <a href="/azure/active-directory/develop/quickstart-register-app#add-a-client-secret" target="_blank">Add a client secret</a> to generate **Client Secret** and copy the client secret generated.
+Follow the steps provided in <a href="https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app#add-a-client-secret" target="_blank">Add a client secret</a> to generate **Client Secret** and copy the client secret generated.
 
 ### Registration
 
