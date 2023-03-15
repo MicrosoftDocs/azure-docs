@@ -38,17 +38,19 @@ After you finish, you'll know how to make quick manual changes to each applicati
 
 1. Select **Apps** under **Settings** in the navigation pane.
 
-1. Select the application you want to scale and then select **Scale up** in the navigation pane. The **Scale up** page provides options to scale the attributes of your application, as described in the following section.
+1. Select the application you want to scale and then select **Scale up** in the navigation pane. Specify the **vCPU** and **Memory** settings using their guidelines described in the following section.
+
+1. Select **Scale out** in the navigation pane. Specify the **instance  count** setting as described in the following section.
 
 ## Scale your application
 
 If you modify the scaling attributes, keep the following notes in mind:
 
-* **CPUs**: The maximum number of CPUs per application instance is four. The total number of CPUs for an application is the value set here multiplied by the number of application instances.
+* **vCPU**: The maximum number of CPUs per application instance is four. The total number of CPUs for an application is the value set here multiplied by the number of application instances.
 
-* **Memory/GB**: The maximum amount of memory per application instance is 8 GB. The total amount of memory for an application is the value set here multiplied by the number of application instances.
+* **Memory**: The maximum amount of memory per application instance is 8 GB. The total amount of memory for an application is the value set here multiplied by the number of application instances.
 
-* **App instance count**: In the Standard tier, you can scale out to a maximum of 20 instances. This value changes the number of separate running instances of the Spring application.
+* **instance count**: In the Standard tier, you can scale out to a maximum of 20 instances. This value changes the number of separate running instances of the Spring application.
 
 Be sure to select **Save** to apply your scaling settings.
 
