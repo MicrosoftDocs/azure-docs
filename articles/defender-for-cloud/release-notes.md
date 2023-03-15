@@ -19,8 +19,19 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 ## March 2023
 
 Updates in March include:
+- [Data-aware security posture (preview)](#data-aware-security-posture-preview)
 - [New preview recommendation for Azure SQL Servers](#new-preview-recommendation-for-azure-sql-servers)
 - [New alert in Defender for Key Vault](#new-alert-in-defender-for-key-vault)
+
+### Data-aware security posture (preview)
+
+Microsoft Defender for Cloud helps security teams to be more productive at reducing risks and responding to data breaches in the cloud. It allows you to cut through the noise with data context and prioritize the most critical security risks to prevent a costly data breach.
+
+- Automatically discover data resources across cloud estate and evaluate their accessibility, data sensitivity and configured data flows.
+- Continuously uncover risks to data breaches of sensitive data resources, exposure or attack paths that could lead to a data resource using a lateral movement technique.
+- Detect suspicious activities that may indicate an ongoing threat to sensitive data resources.
+
+Learn more about [Data-aware security posture (preview)](concept-data-security-posture.md).
 
 ### New preview recommendation for Azure SQL Servers 
 
