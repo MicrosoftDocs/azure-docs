@@ -69,7 +69,7 @@ The following sections provide links to tutorials to create custom topics using 
 |---------|---------|
 | [Quickstart: create and route custom events with Azure PowerShell](custom-event-quickstart-powershell.md) | Shows how to use Azure PowerShell to send custom events. |
 | [PowerShell: create Event Grid custom topic](./scripts/powershell-create-custom-topic.md)|Sample script that creates a custom topic. The script retrieves the endpoint and a key.|
-| [PowerShell: subscribe to events for a custom topic](./scripts/event-grid-powershell-subscribe-custom-topic.md)|Sample script that creates a subscription for a custom topic. It sends events to a WebHook.|
+| [PowerShell: subscribe to events for a custom topic](./scripts/powershell-subscribe-custom-topic.md)|Sample script that creates a subscription for a custom topic. It sends events to a WebHook.|
 
 ## ARM template tutorials
 |Title  |Description  |

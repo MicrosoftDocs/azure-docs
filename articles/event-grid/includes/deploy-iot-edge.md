@@ -38,7 +38,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
 1. From the types of modules in the drop-down list, select **IoT Edge Module**
 1. Provide the name, image, container create options of the container:
 
-[!INCLUDE [event-grid-edge-module-version-update](event-grid-edge-module-version-update.md)]
+[!INCLUDE [edge-module-version-update](edge-module-version-update.md)]
 
    * **Name**: eventgridmodule
    * **Image URI**: `mcr.microsoft.com/azure-event-grid/iotedge:latest`
