@@ -55,6 +55,6 @@ Indication of successful or unsuccessful call.
 - Set up dependency tracking for [.NET](./asp-net-dependencies.md).
 - Set up dependency tracking for [Java](./opentelemetry-enable.md?tabs=java).
 - [Write custom dependency telemetry](./api-custom-events-metrics.md#trackdependency)
-- See [data model](data-model.md) for Application Insights types and data model.
+- See [data model](data-model-complete.md) for Application Insights types and data model.
 - Check out [platforms](./app-insights-overview.md#supported-languages) supported by Application Insights.
 

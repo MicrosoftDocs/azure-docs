@@ -28,6 +28,6 @@ Event name: To allow proper grouping and useful metrics, restrict your applicati
 
 ## Next steps
 
-- See [Data model](data-model.md) for Application Insights types and data models.
+- See [Data model](data-model-complete.md) for Application Insights types and data models.
 - [Write custom event telemetry](./api-custom-events-metrics.md#trackevent).
 - Check out [platforms](./app-insights-overview.md#supported-languages) supported by Application Insights.

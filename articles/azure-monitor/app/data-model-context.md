@@ -116,5 +116,5 @@ This field represents the node name used for billing purposes. Use it to overrid
 ## Next steps
 
 - Learn how to [extend and filter telemetry](./api-filtering-sampling.md).
-- See the [Application Insights telemetry data model](data-model.md) for Application Insights types and data model.
+- See the [Application Insights telemetry data model](data-model-complete.md) for Application Insights types and data model.
 - Check out standard context properties collection [configuration](./configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet).

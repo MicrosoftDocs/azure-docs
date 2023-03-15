@@ -12,7 +12,7 @@ Application Insights is an extension of [Azure Monitor](../overview.md) and prov
 1. *Proactively* understand how an application is performing.
 1. *Reactively* review application execution data to determine the cause of an incident.
 
-In addition to collecting [Metrics](standard-metrics.md) and application [Telemetry](data-model.md) data, which describe application activities and health, Application Insights can also be used to collect and store application [trace logging data](asp-net-trace-logs.md).
+In addition to collecting [Metrics](standard-metrics.md) and application [Telemetry](data-model-complete.md) data, which describe application activities and health, Application Insights can also be used to collect and store application [trace logging data](asp-net-trace-logs.md).
 
 The [log trace](asp-net-trace-logs.md) is associated with other telemetry to give a detailed view of the activity. Adding trace logging to existing apps only requires providing a destination for the logs; the logging framework rarely needs to be changed.
 

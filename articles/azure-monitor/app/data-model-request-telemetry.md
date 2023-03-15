@@ -75,6 +75,6 @@ You can read more about the request result code and status code in the [blog pos
 ## Next steps
 
 - [Write custom request telemetry](./api-custom-events-metrics.md#trackrequest).
-- See the [data model](data-model.md) for Application Insights types and data models.
+- See the [data model](data-model-complete.md) for Application Insights types and data models.
 - Learn how to [configure an ASP.NET Core](./asp-net.md) application with Application Insights.
 - Check out [platforms](./app-insights-overview.md#supported-languages) supported by Application Insights.

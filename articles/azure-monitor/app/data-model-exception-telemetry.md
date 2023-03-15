@@ -34,7 +34,7 @@ Trace severity level. Value can be `Verbose`, `Information`, `Warning`, `Error`,
 
 ## Next steps
 
-- See [data model](data-model.md) for Application Insights types and data model.
+- See [data model](data-model-complete.md) for Application Insights types and data model.
 - Learn how to [diagnose exceptions in your web apps with Application Insights](./asp-net-exceptions.md).
 - Check out [platforms](./app-insights-overview.md#supported-languages) supported by Application Insights.
 
