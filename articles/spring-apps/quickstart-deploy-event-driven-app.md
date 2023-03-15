@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Deploy event driven application to Azure Spring Apps
-description: Learn how to deploy an event driven application to Azure Spring Apps
+title: Quickstart - Deploy event-driven application to Azure Spring Apps with the Standard consumption plan
+description: Learn how to deploy an event-driven application to Azure Spring Apps
 author: karlerickson
 ms.service: spring-apps
 ms.topic: quickstart
@@ -9,7 +9,7 @@ ms.author: rujche
 ms.custom: devx-track-java, devx-track-azurecli, mode-other, event-tier1-build-2022, engagement-fy23
 ---
 
-# Quickstart: Deploy an event driven application to Azure Spring Apps
+# Quickstart: Deploy an event-driven application to Azure Spring Apps with the Standard consumption plan
 
 > [!NOTE]
 > The first 50 vCPU hours and 100 GB hours of memory are free each month. For more information, see [Price Reduction - Azure Spring Apps does more, costs less!](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/price-reduction-azure-spring-apps-does-more-costs-less/ba-p/3614058) on the [Apps on Azure Blog](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/bg-p/AppsonAzureBlog).
@@ -19,9 +19,9 @@ ms.custom: devx-track-java, devx-track-azurecli, mode-other, event-tier1-build-2
 
 **This article applies to:** ✔️ Standard consumption (Preview) ❌ Basic/Standard ❌ Enterprise
 
-This article explains how to deploy a Spring Boot event driven application to Azure Spring Apps. The sample project is an event driven application that subscribes to a [Service Bus queue](/azure/service-bus-messaging/service-bus-queues-topics-subscriptions#queues) named `lower-case`, and then handles the message and sends another message to another queue named `upper-case`. To make the app simple, message processing just converts the message to uppercase. The following diagram depicts this process:
+This article explains how to deploy a Spring Boot event-driven application to Azure Spring Apps with the Standard consumption plan. The sample project is an event-driven application that subscribes to a [Service Bus queue](/azure/service-bus-messaging/service-bus-queues-topics-subscriptions#queues) named `lower-case`, and then handles the message and sends another message to another queue named `upper-case`. To make the app simple, message processing just converts the message to uppercase. The following diagram depicts this process:
 
-:::image type="content" source="media/quickstart-for-event-driven-app/diagram.png" alt-text="Screenshot of Spring event driven app architecture." lightbox="media/quickstart-for-event-driven-app/diagram.png":::
+:::image type="content" source="media/quickstart-for-event-driven-app/diagram.png" alt-text="Screenshot of Spring event-driven app architecture." lightbox="media/quickstart-for-event-driven-app/diagram.png":::
 
 ## Prerequisites
 
@@ -123,7 +123,7 @@ To manage the resources easily, create a resource group to hold these resources.
 
 ### Step 4 - Create an Azure Spring Apps Consumption plan instance
 
-An Azure Spring Apps Consumption plan hosts the spring event driven app. This section provides the steps of to create an instance of an Azure Spring Apps Consumption plan and then creates an app inside the plan.
+An Azure Spring Apps Consumption plan hosts the Spring event-driven app. This section provides the steps of to create an instance of an Azure Spring Apps Consumption plan and then creates an app inside the plan.
 
 #### Step 4.1 - Create an Azure Container Apps environment
 
@@ -155,7 +155,7 @@ The Azure Container Apps environment creates a secure boundary around a group of
 
 #### Step 4.2 - Create Azure Spring Apps instance
 
-1. Install the spring extension designed for StandardGen2 Azure Spring Apps.
+1. Install the Spring extension designed for StandardGen2 Azure Spring Apps.
 
    ```azurecli-interactive
    az extension remove -n spring && \
@@ -240,9 +240,9 @@ az spring app deploy \
     --artifact-path target/simple-event-driven-app-0.0.1-SNAPSHOT.jar
 ```
 
-## Validate the event driven app
+## Validate the event-driven app
 
-To check whether the event driven app works well, validate it by sending a message to the `lower-case` queue and check whether there's a message in the `upper-case`queue.
+To check whether the event-driven app works well, validate it by sending a message to the `lower-case` queue and check whether there's a message in the `upper-case`queue.
 
 1. Send a message to `lower-case` queue with Service Bus Explorer. For details see [Send a message to a queue or topic](/azure/service-bus-messaging/explorer#send-a-message-to-a-queue-or-topic).
 1. Check whether there is a new message sent to the `upper-case` queue. For details see [Peek a message](/azure/service-bus-messaging/explorer#peek-a-message).
