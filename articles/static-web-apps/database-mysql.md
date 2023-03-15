@@ -64,9 +64,7 @@ To use your Azure database for local development, you need to retrieve the conne
 
 1. Replace the `{your_password}` placeholder in the connection string with your password.
 
-1. Replace the `{your_database}` placeholder with the database name `MyTestPersonDatabase`.
-
-    You create the `MyTestPersonDatabase` in the coming steps.
+1. Replace the `{your_database}` placeholder with the database name `MyTestPersonDatabase`. You'll create the `MyTestPersonDatabase` in the coming steps.
 
 1. Delete the *SslMode* and the *SslCa* sections of the connection string as these require extra steps and are intended for production purposes.
 
