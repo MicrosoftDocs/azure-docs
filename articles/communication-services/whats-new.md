@@ -7,6 +7,7 @@ ms.service: azure-communication-services #Required; service per approved list. s
 ms.topic: conceptual #Required; leave this attribute/value as-is.
 ms.date: 03/12/2023 #Required; mm/dd/yyyy format.
 ms.custom: template-concept #Required; leave this attribute/value as-is.
+ms.custom: references_regions #added per reviewer
 ---
 
 
@@ -33,7 +34,7 @@ Our calling team has been working hard to expand and improve our feature set in 
 ### Background blur and custom backgrounds (Public Preview)
 Background blur gives users a way to remove visual distractions behind a participant so that callers can engage in a conversation without disruptive activity or confidential information appearing in the background. This feature is especially useful in a context such as telehealth, where a provider or patient might want to obscure their surroundings to protect sensitive information. Background blur can be applied across all virtual appointment scenarios to protect user privacy, including telebanking and virtual hearings. In addition to enhanced confidentiality, the custom backgrounds capability allows for more creativity of expression, allowing users to upload custom backgrounds to host a more fun, personalized calling experience. This feature is currently available on Web Desktop and will be expanding to other platforms in the future.  
 
-:::image type="content" source="./media/whats-new-images/cy23Q1/custom-background.png" alt-text="Custom background in an Azure Communication Services call":::  
+:::image type="content" source="./media/whats-new-images/cy23Q1/custom-background.png" alt-text="Screenshot showing custom background in an Azure Communication Services call.":::  
 *Figure 1: Custom background*
 
 To learn more about custom backgrounds and background blur, visit the overview on [adding visual effects to your call](./concepts/voice-video-calling/video-effects.md).
@@ -64,20 +65,16 @@ To learn more about rooms, visit the [overview page](./concepts/rooms/room-conce
 
 Azure Communication Services (ACS) provides the concept of a room. Rooms allow developers to build structured conversations such as scheduled virtual appointments or virtual events. Rooms allow control through roles and permissions and enable invite-only experiences. Rooms currently allow voice and video calling.
 
-Enabling a faster sample building experience
+## Enabling a faster sample building experience
 
-Data indicates that ~40% of customers abandon the Sample Builder due to the challenging nature of the configuration process, particularly during the Microsoft Bookings setup. To address this issue, we've implemented a solution that streamlines the deployment process by levering Rooms for direct virtual appointment creation within the Sample Builder. This change results in a significant reduction of deployment time, as the configuration of Microsoft Bookings isn't enforced, but rather transformed into an optional feature that can be configured in the deployed Sample. Additionally, we've incorporated a feedback button into the Sample Builder and made various enhancements to its accessibility. With Sample Builder, customers can effortlessly customize and deploy their applications to Azure or their Git repository, without the need for any coding expertise.  
+Data indicates that ~40% of customers abandon the Sample Builder due to the challenging nature of the configuration process, particularly during the Microsoft Bookings setup. To address this issue, we've implemented a solution that streamlines the deployment process by using Rooms for direct virtual appointment creation within the Sample Builder. This change results in a significant reduction of deployment time, as the configuration of Microsoft Bookings isn't enforced, but rather transformed into an optional feature that can be configured in the deployed Sample. Additionally, we've incorporated a feedback button into the Sample Builder and made various enhancements to its accessibility. With Sample Builder, customers can effortlessly customize and deploy their applications to Azure or their Git repository, without the need for any coding expertise.  
 
 
-:::image type="content" source="./media/whats-new-images/cy23Q1/sample-builder-rooms-1.png" alt-text="Sample Builder scheduling experience":::  
+:::image type="content" lightbox="./media/whats-new-images/cy23Q1/sample-builder-rooms-1-lightbox.png" source="./media/whats-new-images/cy23Q1/sample-builder-rooms-1.png" alt-text="Screenshot showing sample Builder scheduling experience.":::  
 *Figure 2: Scheduling experience options.*
 
 
-:::image type="content" source="./media/whats-new-images/cy23Q1/sample-builder-rooms-2.png" alt-text="Sample Builder appointment landing page":::  
-*Figure 3: New Appointment Landing Page*
-
-
-:::image type="content" source="./media/whats-new-images/cy23Q1/sample-builder-feedback.png" alt-text="Sample Builder feedback form":::  
+:::image type="content" lightbox="./media/whats-new-images/cy23Q1/sample-builder-feedback-lightbox.png" source="./media/whats-new-images/cy23Q1/sample-builder-feedback.png" alt-text="Screenshot showing sample Builder feedback form.":::  
 *Figure 4:  Feedback form.*
 
 
@@ -89,7 +86,7 @@ Azure Communication Services Call Automation provides developers the ability to 
 
 ACS Call Automation can be used to build calling workflows for customer service scenarios, as depicted in the following high-level architecture. You can answer inbound calls or make outbound calls. Execute actions like playing a welcome message, connecting the customer to a live agent on an ACS Calling SDK client app to answer the incoming call request. With support for ACS PSTN or Direct Routing, you can then connect this workflow back to your contact center.
 
-:::image type="content" source="./media/whats-new-images/cy23Q1/call-automation-architecture.png" alt-text="Call Automation Architecture":::
+:::image type="content" source="./media/whats-new-images/cy23Q1/call-automation-architecture.png" alt-text="Diagram of call automation architecture.":::
 *Figure 5: Call Automation Architecture*
 
 To learn more, visit our [Call Automation overview article](./concepts/call-automation/call-automation.md).
