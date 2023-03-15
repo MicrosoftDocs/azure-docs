@@ -38,7 +38,7 @@ To get a quick estimate for your workload using the basic mode, navigate to the 
 | Deletes/sec across all regions | Number of delete operations expected per second per region. |
 | Queries/sec across all regions | Number of queries expected per second per region. The average RU charge to run a query is estimated at 10 RUs. |
 
-After filling the required details, select **Calculate**. The **Cost Estimate** table shows the total cost for storage and provisioned throughput. You can expand the **Show Details** link to get the breakdown of the throughput required for different CRUD and query requests. Each time you change the value of any field, select **Calculate** to recalculate the estimated cost.
+After you fill ig the required details, select **Calculate**. The **Cost Estimate** table shows the total cost for storage and provisioned throughput. You can expand the **Show Details** link to get the breakdown of the throughput required for different CRUD and query requests. Each time you change the value of any field, select **Calculate** to recalculate the estimated cost.
 
 :::image type="content" source="../media/estimate-ru-with-capacity-planner/basic-mode-sql-api.png" alt-text="Capacity planner basic mode" border="true" lightbox="../media/estimate-ru-with-capacity-planner/basic-mode-sql-api.png":::
 
