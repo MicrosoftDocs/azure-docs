@@ -1,5 +1,5 @@
 ---
-title: Bring your own storage to Azure Spring Apps
+title: Bring your own storage to Azure Spring Apps with the Standard consumption plan
 description: Learn how to enable your own persistent storage in Azure Spring Apps.
 author: karlerickson
 ms.author: yitaopan
@@ -9,7 +9,12 @@ ms.date: 03/8/2023
 ms.custom: devx-track-java
 ---
 
-# Bring your own storage to Azure Spring Apps
+# Bring your own storage to Azure Spring Apps with the Standard consumption plan
+
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+
+**This article applies to:** ✔️ Standard consumption (Preview) ❌ Basic/Standard ❌ Enterprise
 
 This article describes how to enable your own persistent storage in Azure Spring Apps.
 
