@@ -1,12 +1,13 @@
 ---
-title: Get started with Azure IoT Hub device management (Node) | Microsoft Docs
-description: How to use IoT Hub device management to initiate a remote device reboot. You use the Azure IoT SDK for Node.js to implement a simulated device app that includes a direct method and a service app that invokes the direct method.
+title: Device management using direct methods (Node.js)
+titleSuffix: Azure IoT Hub
+description: How to use Azure IoT Hub direct methods with the Node.js SDK for device management tasks including invoking a remote device reboot.
 author: kgremban
 
 ms.author: kgremban
 ms.service: iot-hub
-services: iot-hub
-ms.topic: conceptual
+ms.devlang: nodejs
+ms.topic: how-to
 ms.date: 08/20/2019
 ms.custom: mqtt, devx-track-js
 ---
