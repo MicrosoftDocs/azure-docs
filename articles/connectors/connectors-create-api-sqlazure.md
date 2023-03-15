@@ -124,7 +124,7 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
 1. Provide the information required by [your selected trigger](/connectors/sql/#triggers).
 
-1. If any other properties available for this trigger, open the **Add new parameter** list, and select those properties relevant to your scenario.
+1. If any other properties are available for this trigger, open the **Add new parameter** list, and select those properties relevant to your scenario.
 
    This trigger returns only one row from the selected table, and nothing else. To perform other tasks, continue by adding either a [SQL Server connector action](#add-sql-action) or another action that performs the next task that you want in your logic app workflow.
 
@@ -170,7 +170,7 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
    ![Screenshot showing Standard workflow designer and the built-in action named When a row is inserted.](./media/connectors-create-api-sqlazure/when-row-inserted-standard.png)
 
-1. If any other properties available for this trigger, open the **Add new parameter** list, and select those properties relevant to your scenario.
+1. If any other properties are available for this trigger, open the **Add new parameter** list, and select those properties relevant to your scenario.
 
 In this example, the **When a row is inserted** built-in trigger returns the row that you inserted in the selected table, and nothing else. To perform other tasks, continue by adding either another SQL Server action or another action that performs the next task that you want in your logic app workflow.
 
@@ -357,7 +357,7 @@ In the connection information box, complete the following steps:
 
 1. For connections to your on-premises SQL server that require the on-premises data gateway, make sure that you've [completed these prerequisites](#multi-tenant-or-ise).
 
-   Otherwise, your data gateway resource won't appear in the **Connection Gateway** list when you create your connection.
+   Otherwise, your data gateway resource doesn't appear in the **Connection Gateway** list when you create your connection.
 
 1. For **Authentication Type**, select the authentication that's required and enabled on your SQL Server:
 
