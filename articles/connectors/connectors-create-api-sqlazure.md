@@ -172,9 +172,9 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
 1. If any other properties are available for this trigger, open the **Add new parameter** list, and select those properties relevant to your scenario.
 
-In this example, the **When a row is inserted** built-in trigger returns the row that you inserted in the selected table, and nothing else. To perform other tasks, continue by adding either another SQL Server action or another action that performs the next task that you want in your logic app workflow.
+   In this example, the **When a row is inserted** built-in trigger returns the row that you inserted in the selected table, and nothing else. To perform other tasks, continue by adding either another SQL Server action or another action that performs the next task that you want in your logic app workflow.
 
-For example, to view the data in this row, you can add other actions that create a file that includes the fields from the returned row, and then send email alerts. To learn about other available actions for this connector, see the [SQL Server built-in connector reference](/azure/logic-apps/connectors/built-in/reference/sql/#actions) or the [SQL Server managed connector reference](/connectors/sql/#actions).
+   For example, to view the data in this row, you can add other actions that create a file that includes the fields from the returned row, and then send email alerts. To learn about other available actions for this connector, see the [SQL Server built-in connector reference](/azure/logic-apps/connectors/built-in/reference/sql/#actions) or the [SQL Server managed connector reference](/connectors/sql/#actions).
 
 1. When you're done, save your workflow. On the designer toolbar, select **Save**.
 
