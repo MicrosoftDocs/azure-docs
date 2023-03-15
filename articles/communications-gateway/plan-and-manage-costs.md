@@ -57,7 +57,6 @@ If you've arranged any custom work with Microsoft, you might be charged an extra
 
 If your Azure subscription has a spending limit, Azure prevents you from spending over your credit amount. As you create and use Azure resources, your credits are used. When you reach your credit limit, the resources that you deployed are disabled for the rest of that billing period. You can't change your credit limit, but you can remove it. For more information about spending limits, see [Azure spending limit](../cost-management-billing/manage/spending-limit.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
-
 ### Other costs that might accrue with Azure Communications Gateway
 
 You'll need to pay for Azure networking costs, because these costs aren't included in the Azure Communications Gateway meters.
