@@ -71,9 +71,9 @@ The code example below shows how to add the [US Core Race search parameter](http
 }
 
 ``` 
-### Create new search parameter for Resource attributes with Reference type
+### Create new search parameter for resource attributes with reference type
 
-The code example shows how to create custom search parameter to search for MedicationDispense resources based on location, where they were dispensed. This is an example of adding custom search parameter for Reference type. 
+The code example shows how to create a custom search parameter to search MedicationDispense resources based on the location where they were dispensed. This is an example of adding custom search parameter for a Reference type.
 
 ```rest
 {
@@ -98,7 +98,7 @@ Important elements of a `SearchParameter` resource:
 
 * `url`: A unique key to describe the search parameter. Organizations such as HL7 use a standard URL format for the search parameters that they define, as shown above in the US Core Race search parameter.
 
-* `code`: The value stored in the **code** element is the name used for the search parameter when it is included in an API call. For the example above with the race extension, you would search with `GET {{FHIR_URL}}/Patient?race=<code>` where `<code>` is in the value set from the specified coding system. This call would retrieve all patients of a certain race. 
+* `code`: The value stored in the **code** element is the name used for the search parameter when it is included in an API call. For the example above with the "US Core Race" extension, you would search with `GET {{FHIR_URL}}/Patient?race=<code>` where `<code>` is in the value set from the specified coding system. This call would retrieve all patients of a certain race. 
 
 * `base`: Describes which resource type(s) the search parameter applies to. If the search parameter applies to all resources, you can use `Resource`; otherwise, you can list all the relevant resource types.
 
@@ -159,7 +159,7 @@ POST https://{{FHIR_URL}/{{RESOURCE}}/{{RESOURCE_ID}}/$reindex
 
 Running this `POST` call sets the indices for any search parameters defined for the resource instance specified in the request. This call does make a change to the FHIR service database. Now you can search and set the `x-ms-use-partial-indices` header to `true`, which causes the FHIR service to return results for any of the resources that have the search parameter indexed, even if not all resource instances of that type have it indexed. 
 
-Continuing with our example above, you could index one patient to enable the US Core Race `SearchParameter`:
+Continuing with our example above, you could index one patient to enable `SearchParameter`:
 
 ```rest
 POST {{FHIR_URL}}/Patient/{{PATIENT_ID}}/$reindex
