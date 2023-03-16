@@ -218,7 +218,7 @@ df.rename(columns={"default payment next month": "default"}, inplace=True)
 df.drop("ID", axis=1, inplace=True)
 
 # write file to filesystem
-df.to_parquet("./cleaned-credit-card.parquet")
+df.to_parquet("./data/cleaned-credit-card.parquet")
 ```
 
 This table shows the structure of the data in the original **default_of_credit_card_clients.csv** file .CSV file downloaded in an earlier step. The uploaded data contains 23 explanatory variables and 1 response variable, as shown here:
