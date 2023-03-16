@@ -26,6 +26,9 @@ You can use the API for NoSQL SDK across multiple platforms including [.NET v2 (
 | JavaScript | [Quickstart: Azure Cosmos DB for NoSQL client library for Node.js](quickstart-nodejs.md) |
 | Python | [Quickstart: Azure Cosmos DB for NoSQL client library for Python](quickstart-python.md) |
 
+> [!IMPORTANT]
+> The following code samples assume that you have already have `client` and `container` variables. If you need to create those variables, refer to the appropriate quickstart for your platform.
+
 ## How to run stored procedures
 
 Stored procedures are written using JavaScript. They can create, update, read, query, and delete items within an Azure Cosmos DB container. For more information, see [How to write stored procedures](how-to-write-stored-procedures-triggers-udfs.md#stored-procedures).
