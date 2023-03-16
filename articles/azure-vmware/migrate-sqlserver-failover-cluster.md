@@ -121,7 +121,7 @@ For illustration purposes, in this document we're using a two-node cluster with 
 
 :::image type="content" source="media/sql-server-hybrid-benefit/sqlfci-5.png" alt-text="SQL Server Management Studio connection verification to the migrated cluster instance database." border="false":::
     
-1. Finally, check the connectivity to SQL from other systems and applications in your infrastructure and verify that all applications using the database(s) can still access them. 
+Finally, check the connectivity to SQL from other systems and applications in your infrastructure and verify that all applications using the database(s) can still access them. 
 
 ## Next steps
 
