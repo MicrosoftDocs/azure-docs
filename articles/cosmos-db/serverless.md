@@ -21,7 +21,7 @@ The Azure Cosmos DB serverless offering lets you use your Azure Cosmos DB accoun
 Every database operation in Azure Cosmos DB has a cost expressed in [Request Units (RUs)](request-units.md). How you're charged for this cost depends on the type of Azure Cosmos DB account you're using:
 
 - In [provisioned throughput](set-throughput.md) mode, you have to commit to a certain amount of throughput (expressed in Request Units per second or RU/s) that is provisioned on your databases and containers. The cost of your database operations is then deducted from the number of Request Units available every second. At the end of your billing period, you get billed for the amount of throughput you've provisioned.
-- In serverless mode, you don't have to configure provisioned throughput when creating containers in your Azure Cosmos DB account. At the end of your billing period, you get billed for the number of Request Units that were consumed by your database operations.
+- In serverless mode, you don't have to configure provisioned throughput when creating containers in your Azure Cosmos DB account. Serverless containers can currently deliver a maximum throughput of 5,000 RU/s and it can't be changed by user. At the end of your billing period, you get billed for the number of Request Units that were consumed by your database operations.
 
 ## Use-cases
 
@@ -48,6 +48,7 @@ Any container that is created in a serverless account is a serverless container.
     - You can't read or update the throughput on a serverless container and doing so returns an error.
     - You can't create a shared throughput database in a serverless account and doing so returns an error.
 - Serverless containers can store a maximum of 50 GB of data and indexes.
+- Serverless container do not offer unlimited throughput. Serverless containers can currently deliver a maximum throughput of 5,000 RU/s. If you need higher throuput numbers please choose provisioned capacity mode. See [Azure Cosmos DB service quotas](concepts-limits.md) for details.
 
 ### Serverless 1 TB container preview
 
