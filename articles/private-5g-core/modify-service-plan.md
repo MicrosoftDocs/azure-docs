@@ -28,8 +28,6 @@ Use the following table to choose the new service plan that will best fit your r
 | G0 |  100 Mbps | 20 | 2 |
 | G1 |  1 Gbps | 100 | 5 |
 | G2 |  2 Gbps | 200 | 10 |
-| G3 |  3 Gbps | 300 | Unlimited |
-| G4 |  4 Gbps | 400 | Unlimited |
 | G5 |  5 Gbps | 500 | Unlimited |
 | G10 |  10 Gbps | 1000 | Unlimited |
 
