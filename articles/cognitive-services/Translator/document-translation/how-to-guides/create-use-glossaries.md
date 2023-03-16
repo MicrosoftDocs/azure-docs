@@ -5,7 +5,7 @@ ms.topic: how-to
 manager: nitinme
 ms.author: lajanuar
 author: laujan
-ms.date: 03/14/2023
+ms.date: 03/16/2023
 ---
 
 # Use glossaries with Document Translation

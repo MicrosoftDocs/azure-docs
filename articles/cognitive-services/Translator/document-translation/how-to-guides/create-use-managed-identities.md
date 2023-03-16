@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: how-to
-ms.date: 02/09/2023
+ms.date: 03/16/2023
 ms.author: lajanuar
 ---
 
@@ -15,15 +15,16 @@ ms.author: lajanuar
 
 Managed identities for Azure resources are service principals that create an Azure Active Directory (Azure AD) identity and specific permissions for Azure managed resources:
 
+   :::image type="content" source="../media/managed-identity-rbac-flow.png" alt-text="Screenshot of managed identity flow (RBAC).":::
+
 * You can use managed identities to grant access to any resource that supports Azure AD authentication, including your own applications. Managed identities eliminate the need for you to include shared access signature tokens (SAS) with your HTTP requests.
 
 * To grant access to an Azure resource, assign an Azure role to a managed identity using [Azure role-based access control (`Azure RBAC`)](../../../../role-based-access-control/overview.md).
 
 * There's no added cost to use managed identities in Azure.
 
-   **Create a managed identity for storage access**
 
-   :::image type="content" source="../media/managed-identity-rbac-flow.png" alt-text="Screenshot of managed identity flow (RBAC).":::
+
 
 > [!IMPORTANT]
 >
@@ -128,7 +129,7 @@ The **Storage Blob Data Contributor** role gives Translator (represented by the 
 
 * With managed identity and `Azure RBAC`, you no longer need to include SAS URLs.
 
-* If successful, the POST method returns a `202 Accepted`  response code and the batch request is created by the service.
+* If successful, the POST method returns a `202 Accepted` response code and the service creates a batch request.
 
 * The translated documents appear in your target container.
 
