@@ -59,7 +59,7 @@ Follow the steps below to setup the Azure Developer CLI and provision and deploy
     azd up --template msdocs-django-postgresql-sample-app
     ```
 
-1. When the `azd up` command completes it prints out the URL for your deployed web app in the console. Copy and paste the web app URL into your browser to explore the running app and verify that it is working correctly. All of the Azure resources and application code were set up for you with a single command.
+1. When the `azd up` command finishes running, the URL for your deployed web app in the console will be printed. Click, or copy and paste the web app URL into your browser to explore the running app and verify that it is working correctly. All of the Azure resources and application code were set up for you with a single command.
 
     The name of the resource group that was created is also displayed in the console output. Locate the resource group in the Azure portal to see all of the provisioned resources. 
 
