@@ -209,7 +209,7 @@ To get the properties for a specified storage account, use the following method 
 
 This method returns a [StorageAccountResource](/dotnet/api/azure.resourcemanager.storage.storageaccountresource) object, which represents the storage account.
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobQueryEndpoint/QueryEndpoint.cs" id="Snippet_QueryEndpoint" highlight="25,28":::
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobQueryEndpoint/QueryEndpoint.cs" id="Snippet_QueryEndpoint":::
 
 ## [Java](#tab/java)
 
@@ -219,7 +219,7 @@ To get the properties for a specified storage account, use the following method 
 
 This method returns a [StorageAccount](/java/api/com.azure.resourcemanager.storage.models.storageaccount) interface, which is an immutable client-side representation of the storage account.
 
-:::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-query-endpoint/src/main/java/com/blobs/queryendpoint/AccountProperties.java" id="Snippet_QueryEndpoint" highlight="11-12,14":::
+:::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-query-endpoint/src/main/java/com/blobs/queryendpoint/AccountProperties.java" id="Snippet_QueryEndpoint":::
 
 ## [JavaScript](#tab/javascript)
 
@@ -229,7 +229,7 @@ To get the properties for a specified storage account, use the following method 
 
 This method returns a [`Promise<StorageAccountsGetPropertiesResponse>`](/javascript/api/@azure/arm-storage/storageaccountsgetpropertiesresponse), which represents the storage account.
 
-:::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/blob-query-endpoint/index.js" id="Snippet_query_blob_endpoint" highlight="19-22,25":::
+:::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/blob-query-endpoint/index.js" id="Snippet_query_blob_endpoint":::
 
 ## [Python](#tab/python)
 
@@ -239,7 +239,7 @@ To get the properties for a specified storage account, use the following method 
 
 This method returns a `StorageAccount` object, which represents the storage account.
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-query-endpoint/blob-query-endpoint.py" id="Snippet_query_blob_endpoint" highlight="19-22,25":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-query-endpoint/blob-query-endpoint.py" id="Snippet_query_blob_endpoint":::
 
 ---
 
@@ -249,19 +249,19 @@ Once you have the Blob Storage endpoint for a storage account, you can instantia
 
 ## [.NET](#tab/dotnet)
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobQueryEndpoint/Program.cs" id="Snippet_CreateClientWithEndpoint" highlight="12":::
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobQueryEndpoint/Program.cs" id="Snippet_CreateClientWithEndpoint":::
 
 ## [Java](#tab/java)
 
-:::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-query-endpoint/src/main/java/com/blobs/queryendpoint/App.java" id="Snippet_CreateClientWithEndpoint" highlight="9-12":::
+:::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-query-endpoint/src/main/java/com/blobs/queryendpoint/App.java" id="Snippet_CreateClientWithEndpoint":::
 
 ## [JavaScript](#tab/javascript)
 
-:::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/blob-query-endpoint/index.js" id="Snippet_create_client_with_endpoint" highlight="12-14":::
+:::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/blob-query-endpoint/index.js" id="Snippet_create_client_with_endpoint":::
 
 ## [Python](#tab/python)
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-query-endpoint/blob-query-endpoint.py" id="Snippet_create_client_with_endpoint" highlight="11":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-query-endpoint/blob-query-endpoint.py" id="Snippet_create_client_with_endpoint":::
 
 ---
 
