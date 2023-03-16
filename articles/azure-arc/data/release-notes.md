@@ -31,7 +31,8 @@ New for this release:
   - [Rotate Azure Arc-enabled SQL Managed Instance service-managed credentials (preview)](rotate-sql-managed-instance-credentials.md) 
 - Azure Arc-enabled PostgreSQL 
   - Require client connections to use SSL
-  - Extended Azure Arc-enabled SQL Managed Instance authentication control plane to PostgresSQL 
+  - Extended Azure Arc-enabled SQL Managed Instance authentication control plane to PostgresSQL
+
 ## February 14, 2023
 
 ### Image tag
