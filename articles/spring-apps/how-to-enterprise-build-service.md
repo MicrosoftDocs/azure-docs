@@ -60,65 +60,120 @@ The following image shows the resources given to the Tanzu Build Service Agent P
 
 :::image type="content" source="media/how-to-enterprise-build-service/agent-pool-size.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Build Service page with 'General info' highlighted." lightbox="media/how-to-enterprise-build-service/agent-pool-size.png":::
 
-## Use the default builder to deploy an app
+## Build Service on demand
 
-In Enterprise tier, the `default` builder includes all the language family buildpacks supported in Azure Spring Apps so you can use it to build polyglot apps.
+You can enable or disable build service when you provision an Azure Spring Apps Enterprise tier instance. 
 
-The `default` builder is read only, so you can't edit or delete it. When you deploy an app, if you don't specify the builder, the `default` builder will be used, making the following two commands equivalent.
+If you disable build service, then you can only deploy an application with custom container image. If you enable the build service, you should configure the container registry.
 
-```azurecli
-az spring app deploy \
-    --name <app-name> \
-    --artifact-path <path-to-your-JAR-file>
-```
+There are two kinds of container registry.
 
-```azurecli
-az spring app deploy \
-    --name <app-name> \
-    --artifact-path <path-to-your-JAR-file> \
-    --builder default
-```
+1. `Use a managed Azure container Registry to store built images`. With this option, Azure Spring Apps will offer a managed Azure Container Registry to store built images for your apps. The images can only be deployed in this service instance, and accordingly you can't access these images for other Azure Spring Apps Enterprise service instances to use.
 
-For more information about deploying a polyglot app, see [How to deploy polyglot apps in Azure Spring Apps Enterprise tier](how-to-enterprise-deploy-polyglot-apps.md).
+2. `Use your own container registry to store built images (preview)`. With this option, you can provide your own container registry. Then the image can be used cross Azure Spring Apps service instances. In this kind of Azure Spring App service instance, you can also deploy an application with a custom container image.
+
+### [Azure portal](#tab/azure-portal)
+
+- Enable Build Service when provisioning an Azure Spring Apps service instance
+
+1. Open the [Azure portal](https://portal.azure.com).
+1. On the **Basics** tab, select **Enterprise tier** in the **Pricing** section and specify the required information. Then select **Next: VMware Tanzu settings**.
+1. On the **VMware Tanzu settings** tab, select **Enable Build Service**.
+
+   :::image type="content" source="media/how-to-enterprise-build-service/enable-build-service-with-default-acr.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Create page with VMware Tanzu settings highlighted and Choose container registry with managed Azure Container Registry showing." lightbox="media/how-to-enterprise-build-service/enable-build-service-with-default-acr.png":::
+
+1. Choose container registry, it will use a managed Azure Container Registry by default. If you choose `Use your own container registry to store built images (preview)`, input your container registry's server, username and password.
+
+   :::image type="content" source="media/how-to-enterprise-build-service/enable-build-service-with-user-acr.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Create page with VMware Tanzu settings highlighted and Choose container registry with user container registry configuration showing." lightbox="media/how-to-enterprise-build-service/enable-build-service-with-user-acr.png":::
+
+- Disable Build Service when provisioning an Azure Spring Apps service instance
+
+1. On the **VMware Tanzu settings** tab, do not select **Enable Build Service**.
+
+   :::image type="content" source="media/how-to-enterprise-build-service/disable-build-service.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Create page with VMware Tanzu settings highlighted and Not enable build service showing." lightbox="media/how-to-enterprise-build-service/disable-build-service.png":::
+
+### [Azure CLI](#tab/azure-cli)
+
+- Enable Build Service when provisioning an Azure Spring Apps service instance
+
+1. Use the following command to sign in to the Azure CLI and choose your active subscription:
+
+   ```azurecli
+   az login
+   az account list --output table
+   az account set --subscription <subscription-ID>
+   ```
+
+1. Use the following command to accept the legal terms and privacy statements for Azure Spring Apps Enterprise tier. This step is necessary only if your subscription has never been used to create an Enterprise tier instance.
+
+   ```azurecli
+   az provider register --namespace Microsoft.SaaS
+   az term accept \
+       --publisher vmware-inc \
+       --product azure-spring-cloud-vmware-tanzu-2 \
+       --plan asa-ent-hr-mtr
+   ```
+
+1. Select a location. The location must support Azure Spring Apps Enterprise tier. For more information, see the [Azure Spring Apps FAQ](faq.md).
+
+1. Use the following command to create a resource group:
+
+   ```azurecli
+   az group create \
+       --name <resource-group-name> \
+       --location <location>
+   ```
+
+   For more information about resource groups, see [What is Azure Resource Manager?](../azure-resource-manager/management/overview.md)
+
+1. Prepare a name for your Azure Spring Apps service instance. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
+
+1. Use the following command to create an Azure Spring Apps service instance with Build Service enabled:
+   - Enable build service with a managed Azure Container Registry
+   ```azurecli
+   az spring create \
+       --resource-group <resource-group-name> \
+       --name <Azure-Spring-Apps-service-instance-name> \
+       --sku enterprise 
+   ```
+   - Enable build service with your own container registry
+   ```azurecli
+   az spring create \
+      --resource-group <resource-group-name> \
+      --name <Azure-Spring-Apps-service-instance-name> \
+      --sku enterprise \
+      --registry-server <your-container-registry-login-server> \
+      --registry-username <your-container-registry-username> \
+      --registry-password <your-container-registry-password>
+   ```
+
+- Disable Build Service when provisioning an Azure Spring Apps service instance
+
+1. The previous 5 prepare steps are same as above
+
+1. Use the following command to create an Azure Spring Apps service instance with Build Service disabled:
+   ```azurecli
+   az spring create \
+       --resource-group <resource-group-name> \
+       --name <Azure-Spring-Apps-service-instance-name> \
+       --sku enterprise \
+       --disable-build-service
+   ```
+---
+
+According to above description, the summary of a service instance enable or disable build service is like below:
+
+|                                         | Enable build service with ASA managed container registry                                                                                                                                                                                                                   | Enable build service with user container registry                                                                                                                                                                                                                                          | Disable build service                                                                                                                                                |
+|-----------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Characteristics of build and deployment | Build and deployment can only be executed together as one command and can't be separately executed, and then accordingly the built container images, stored in Azure Spring Apps managed container registry, can only be used to deploy apps in the same service instance. | Separation of build and deployment: build from an app's source code or artifacts to a container image can be executed separately from the app deployment and the container images stored in your owned container registry can be deployed elsewhere to other Enterprise service instances. | Since build service is disabled, so you can only do app deployment with container images either built from other Azure Spring Apps service instances or by your own. |
+
+## Deploy polyglot apps
+
+You can deploy polyglot apps on your need in Azure Spring Apps enterprise service instance with build service either enabled or disabled. For more information about deploying a polyglot app, see [How to deploy polyglot apps in Azure Spring Apps Enterprise tier](how-to-enterprise-deploy-polyglot-apps.md).
 
 ## Configure APM integration and CA certificates
 
 By using Tanzu Partner Buildpacks and CA Certificates Buildpack, Enterprise tier provides a simplified configuration experience to support application performance monitor (APM) integration and certificate authority (CA) certificates integration scenarios for polyglot apps. For more information, see [How to configure APM integration and CA certificates](how-to-enterprise-configure-apm-intergration-and-ca-certificates.md).
-
-## Manage custom builders
-
-As an alternative to the `default` builder, you can create custom builders with the provided buildpacks.
-
-All the builders configured in an Azure Spring Apps service instance are listed in the **Build Service** section under **VMware Tanzu components**, as shown in the following screenshot:
-
-:::image type="content" source="media/how-to-enterprise-build-service/builder-list.png" alt-text="Screenshot of Azure portal showing the Build Service page with list of configured builders." lightbox="media/how-to-enterprise-build-service/builder-list.png":::
-
-Select **Add** to create a new builder. The following screenshot shows the resources you should use to create the custom builder. The [OS Stack](https://docs.pivotal.io/tanzu-buildpacks/stacks.html) includes `Bionic Base`, `Bionic Full`, `Jammy Base`, and `Jammy Full`. Bionic is based on `Ubuntu 18.04 (Bionic Beaver)` and Jammy is based on `Ubuntu 22.04 (Jammy Jellyfish)`. For more information, see [Ubuntu Stacks](https://docs.vmware.com/en/VMware-Tanzu-Buildpacks/services/tanzu-buildpacks/GUID-stacks.html#ubuntu-stacks) in the VMware documentation.
-
-:::image type="content" source="media/how-to-enterprise-build-service/builder-create.png" alt-text="Screenshot of Azure portal showing the Add Builder pane." lightbox="media/how-to-enterprise-build-service/builder-create.png":::
-
-You can also edit a custom builder when the builder isn't used in a deployment. You can update the buildpacks or the OS Stack, but the builder name is read only.
-
-:::image type="content" source="media/how-to-enterprise-build-service/builder-edit.png" alt-text="Screenshot of Azure portal showing the Build Service page with builders list and context menu showing the Edit Builder command." lightbox="media/how-to-enterprise-build-service/builder-edit.png":::
-
-You can delete any custom builder when the builder isn't used in a deployment.
-
-## Build apps using a custom builder
-
-When you deploy an app, you can use the following command to build the app by specifying a specific builder:
-
-```azurecli
-az spring app deploy \
-    --name <app-name> \
-    --builder <builder-name> \
-    --artifact-path <path-to-your-JAR-file>
-```
-
-The builder is a resource that continuously contributes to your deployments. The builder provides the latest runtime images and latest buildpacks.
-
-You can't delete a builder when existing active deployments are built by the builder. To delete such a builder, save the configuration as a new builder first. After you deploy apps with the new builder, the deployments are linked to the new builder. You can then migrate the deployments under the previous builder to the new builder, and then delete the original builder.
-
-For more information about deploying a polyglot app, see  [How to deploy polyglot apps in Azure Spring Apps Enterprise tier](how-to-enterprise-deploy-polyglot-apps.md).
 
 ## Real-time build logs
 
