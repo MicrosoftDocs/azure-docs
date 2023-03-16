@@ -1,5 +1,5 @@
 ---
-title: Using Azure AD Connect Health with AD DS | Microsoft Docs
+title: Using Azure AD Connect Health with AD DS
 description: This is the Azure AD Connect Health page that will discuss how to monitor AD DS.
 services: active-directory
 documentationcenter: ''

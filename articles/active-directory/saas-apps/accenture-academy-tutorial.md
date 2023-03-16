@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Accenture Academy | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Accenture Academy'
 description: Learn how to configure single sign-on between Azure Active Directory and Accenture Academy.
 services: active-directory
 author: jeevansd

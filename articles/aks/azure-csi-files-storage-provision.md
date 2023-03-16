@@ -211,7 +211,7 @@ Volumes:
 
 ### Mount options
 
-The default value for *fileMode* and *dirMode* is *0777* for Kubernetes version 1.13.0 and above. If dynamically creating the persistent volume with a storage class, mount options can be specified on the storage class object. The following example sets *0777*:
+The default value for *fileMode* and *dirMode* is *0777* for Kubernetes version 1.13.0 and above. If dynamically creating the persistent volume with a storage class, mount options can be specified on the storage class object. For more information, see [Mount options](https://kubernetes.io/docs/concepts/storage/storage-classes/#mount-options). The following example sets *0777*:
 
 ```yaml
 kind: StorageClass
@@ -488,6 +488,7 @@ For associated best practices, see [Best practices for storage and backups in AK
 [data-plane-api]: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
 [kubectl-delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
+[access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
 
 <!-- LINKS - internal -->
 [azure-storage-account]: ../storage/common/storage-introduction.md

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure AD SSO integration with Softeon WMS | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with Softeon WMS'
 description: Learn how to configure single sign-on between Azure Active Directory and Softeon WMS.
 services: active-directory
 author: jeevansd

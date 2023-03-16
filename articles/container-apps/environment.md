@@ -5,14 +5,16 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic:  conceptual
-ms.date: 10/18/2022
+ms.date: 03/13/2023
 ms.author: cshoe
 ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
 
 # Azure Container Apps environments
 
-Individual container apps are deployed to a single Container Apps environment, which acts as a secure boundary around groups of container apps. Container Apps in the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace. You may provide an [existing virtual network](vnet-custom.md) when you create an environment.
+A Container Apps environment is a secure boundary around groups of container apps that share the same virtual network and write logs to the same logging destination.
+
+Container Apps environments are fully managed where Azure handles OS upgrades, scale operations, failover procedures, and resource balancing.
 
 :::image type="content" source="media/environments/azure-container-apps-environments.png" alt-text="Azure Container Apps environments.":::
 
@@ -29,13 +31,15 @@ Reasons to deploy container apps to different environments include situations wh
 - Two applications never share the same compute resources
 - Two Dapr applications can't communicate via the Dapr service invocation API
 
+Also, you may provide an [existing virtual network](vnet-custom.md) when you create an environment.
+
 ## Logs
 
 Settings relevant to the Azure Container Apps environment API resource.
 
 | Property | Description |
 |---|---|
-| `properties.appLogsConfiguration` | Used for configuring Log Analytics workspace where logs for all apps in the environment will be published |
+| `properties.appLogsConfiguration` | Used for configuring the Log Analytics workspace where logs for all apps in the environment are published. |
 | `properties.containerAppsConfiguration.daprAIInstrumentationKey` | App Insights instrumentation key provided to Dapr for tracing |
 
 ## Billing
