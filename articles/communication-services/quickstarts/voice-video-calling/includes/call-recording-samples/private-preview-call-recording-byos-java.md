@@ -32,11 +32,11 @@ CallAutomationClient callAutomationClient = new CallAutomationClientBuilder()
             .buildClient();
 ```
 
-## 2. Start recording session with StartRecordingOptions using 'startRecordingWithResponse' server API
+## 2. Start recording session with external storage specified
 
 Use the server call ID received during initiation of the call.
 
-### 2.1 Using Azure Blob Storage for External Storage
+### Using Azure Blob Storage for External Storage
 
 
 ```java
@@ -47,36 +47,7 @@ Response<StartCallRecordingResult> response = callAutomationClient.getCallRecord
 .startRecordingWithResponse(recordingOptions, null);
 ```
 
-The `startRecordingWithResponse` API response contains the recording ID of the recording session.
-
-## 3.	Stop recording session using 'stopRecordingWithResponse' server API
-
-Use the recording ID received in response of `startRecordingWithResponse`.
-
-```java
-Response<Void> response = callAutomationClient.getCallRecording()
-               .stopRecordingWithResponse(response.getValue().getRecordingId(), null);
-```
-
-## 4.	Pause recording session using 'pauseRecordingWithResponse' server API
-
-Use the recording ID received in response of `startRecordingWithResponse`.
-
-```java
-Response<Void> response = callAutomationClient.getCallRecording()
-              .pauseRecordingWithResponse(response.getValue().getRecordingId(), null);
-```
-
-## 5.	Resume recording session using 'resumeRecordingWithResponse' server API
-
-Use the recording ID received in response of `startRecordingWithResponse`.
-
-```csharp
-Response<Void> response = callAutomationClient.getCallRecording()
-               .resumeRecordingWithResponse(response.getValue().getRecordingId(), null);
-```
-
-## 6.	Notification on successful export
+## Notification on successful export
 
 Use an [Azure Event Grid](../../../../../event-grid/overview.md) web hook or other triggered action should be used to notify your services when the recorded media is ready and have been exported to the external storage location.
 
