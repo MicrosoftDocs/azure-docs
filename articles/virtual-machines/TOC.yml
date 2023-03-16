@@ -1642,14 +1642,36 @@
       href: security-controls-policy.md
     - name: Policy reference
       href: policy-reference.md
-    - name: Use policies
+    - name: Assign policies
       items:
-      - name: Linux
-        displayName: Use policies
-        href: ./linux/policy.md
-      - name: Windows
-        displayName: Use policies
-        href: ./windows/policy.md
+      - name: Portal
+        displayName: assign, compliance
+        href: ../governance/policy/assign-policy-portal.md?context=/azure/virtual-machines/context/context
+      - name: Azure CLI
+        displayName: assign, compliance
+        href: ../governance/policy/assign-policy-azurecli.md?context=/azure/virtual-machines/context/context
+      - name: Terraform
+        displayName: assign, compliance, hcl, policy
+        href: ../governance/policy/assign-policy-terraform.md?context=/azure/virtual-machines/context/context      - name: Azure PowerShell
+        displayName: assign, compliance
+        href: ../governance/policy/assign-policy-powershell.md?context=/azure/virtual-machines/context/context
+      - name: .NET
+        displayName: assign, compliance
+        href: ../governance/policy/assign-policy-dotnet.md?context=/azure/virtual-machines/context/context
+      - name: JavaScript
+        displayName: assign, compliance
+        href: ../governance/policy/assign-policy-javascript.md?context=/azure/virtual-machines/context/context
+      - name: Python
+        displayName: assign, compliance
+        href: ../governance/policy/assign-policy-python.md?context=/azure/virtual-machines/context/context
+      - name: REST
+        displayName: policy, governance
+        href: ../governance/policy/assign-policy-rest-api.md?context=/azure/virtual-machines/context/context
+      - name: ARM template
+        displayName: assign, compliance, resource manager
+        href: ../governance/policy/assign-policy-template.md?context=/azure/virtual-machines/context/context
+      - name: Bicep
+        href: ../governance/policy/assign-policy-bicep.md?context=/azure/virtual-machines/context/context
   - name: Bastion
     items:
     - name: Overview
