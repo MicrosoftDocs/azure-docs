@@ -1082,7 +1082,7 @@ You can set either an Azure Consistent Services or a Network File System configu
                                    "name":  "Cluster Network 1",
                                    "address":  "192.168.0.0",
                                    "subnet":  "255.255.0.0",
-                                   "dhcpEnabled":  true
+                                   "dhcpEnabled":  false
                                },
                    "isDhcpEnabled":  false
                },
@@ -1096,25 +1096,6 @@ You can set either an Azure Consistent Services or a Network File System configu
 
     ```azurepowershell
     Get-DeviceVip | to-json
-    ```
-
-    Here's sample output showing the initial state of **acsVIP setting "isDhcpEnabled":  false** on the device:
-
-    ```output
-    {
-    "acsVIP":  {
-                   "type":  "ACS",
-                   "name":  "Azure Consistent Services",
-                   "address":  "192.168.181.10",
-                   "network":  {
-                                   "name":  "Cluster Network 1",
-                                   "address":  "192.168.0.0",
-                                   "subnet":  "255.255.0.0",
-                                   "dhcpEnabled":  false
-                               },
-                   "isDhcpEnabled":  false
-               },
-    }
     ```
 
 1. Set the `DeviceVIP` property to enable DHCP.
@@ -1135,7 +1116,7 @@ You can set either an Azure Consistent Services or a Network File System configu
     Get-DeviceVip | to-json
     ```
 
-    Here's sample output showing the updated **acsVIP setting "isDhcpEnabled":  true** on the device:
+    Here's sample output:
 
     ```output
     {
@@ -1158,15 +1139,122 @@ You can set either an Azure Consistent Services or a Network File System configu
 ### [Network File System](#tab/network-file-system)
 
 ### Set a static Network File System configuration
-NFS content...
 
-1. Step 1 for static NFS...
+1.	Fetch the `DeviceVIP` configuration.
+    ```azurepowershell
+    Get-DeviceVip | to-json
+    ```
+
+1. Set the `DeviceVIP` property to enable DHCP.
+
+    ```azurepowershell
+    $nfsVip = New-Object PSObject  -Property @{ Type = "NFS"; VipAddress = $null; ClusterNetworkAddress = "192.168.0.0"; IsDhcpEnabled = $false }
+    ```
+
+1. Update the device with the `DeviceVIP` property.
+
+    ```azurepowershell
+    Set-DeviceVip -vip $nfsVip
+    ```	
+
+1.	Fetch the updated `DeviceVIP` configuration.
+
+    ```azurepowershell
+    Get-DeviceVip | to-json
+    ```
+    Here is sample output:
+
+    ```Output
+    {
+    "nfsVIP":  {
+                   "type":  "NFS",
+                   "name":  "Network File System",
+                   "address":  "192.168.2.119",
+                   "network":  {
+                                   "name":  "Cluster Network 1",
+                                   "address":  "192.168.0.0",
+                                   "subnet":  "255.255.0.0",
+                                   "dhcpEnabled":  false
+                               },
+                   "isDhcpEnabled":  false
+               },
+    "clusterNetworks":  [
+                            {
+                                "name":  "Cluster Network 1",
+                                "address":  "192.168.0.0",
+                                "subnet":  "255.255.0.0",
+                                "dhcpEnabled":  false
+                            },
+                            {
+                                "name":  "Cluster Network 4",
+                                "address":  "10.126.72.0",
+                                "subnet":  "255.255.248.0",
+                                "dhcpEnabled":  false
+                            }
+                        ]
+}
+    PS C:\>
+    ```
 
 ### Set a DHCP Network File System configuration
 
-NFS content for...
+1.	Fetch the `DeviceVIP` configuration.
+    ```azurepowershell
+    Get-DeviceVip | to-json
+    ```
 
-1. Step 1 for DHCP NFS...
+1. Set the `DeviceVIP` property to enable DHCP.
+
+    ```azurepowershell
+    $nfsVip = New-Object PSObject  -Property @{ Type = "NFS"; VipAddress = $null; ClusterNetworkAddress = "192.168.0.0"; IsDhcpEnabled = $true }
+    ```
+
+1. Update the device with the `DeviceVIP` property.
+
+    ```azurepowershell
+    Set-DeviceVip -vip $nfsVip
+    ```	
+
+1.	Fetch the updated `DeviceVIP` configuration.
+
+    ```azurepowershell
+    Get-DeviceVip | to-json
+    ```
+
+    Here's sample output:
+
+    ```output
+    {
+    "nfsVIP":  {
+                   "type":  "NFS",
+                   "name":  "Network File System",
+                   "address":  "192.168.2.119",
+                   "network":  {
+                                   "name":  "Cluster Network 1",
+                                   "address":  "192.168.0.0",
+                                   "subnet":  "255.255.0.0",
+                                   "dhcpEnabled":  true
+                               },
+                   "isDhcpEnabled":  true
+               },
+    "clusterNetworks":  [
+                            {
+                                "name":  "Cluster Network 1",
+                                "address":  "192.168.0.0",
+                                "subnet":  "255.255.0.0",
+                                "dhcpEnabled":  true
+                            },
+                            {
+                                "name":  "Cluster Network 4",
+                                "address":  "10.126.72.0",
+                                "subnet":  "255.255.248.0",
+                                "dhcpEnabled":  true
+                            }
+                        ]
+}
+    PS C:\>
+    ```
+
 ---
 
 ## Troubleshooting
