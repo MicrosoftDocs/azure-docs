@@ -67,7 +67,7 @@ Go to the [reference code](https://github.com/AzureAD/SCIMReferenceCode) from Gi
 
 1. In the terminal, change the directory using the `cd Microsoft.SCIM.WebHostSample` command
 
-1. To run your app locally, in the terminal, run the .NET CLI command below. The [dotnet run](/dotnet/core/tools/dotnet-run) runs the Microsoft.SCIM.WebHostSample project using the [development environment](/aspnet/core/fundamentals/environments#set-environment-on-the-command-line).
+1. To run your app locally, in the terminal, run the .NET CLI command in the example. The [dotnet run](/dotnet/core/tools/dotnet-run) runs the Microsoft.SCIM.WebHostSample project using the [development environment](/aspnet/core/fundamentals/environments#set-environment-on-the-command-line).
 
     ```dotnetcli
     dotnet run --environment Development
