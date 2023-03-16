@@ -1046,19 +1046,6 @@ You can set either an Azure Consistent Services or a Network File System configu
 
 ### Set a static Azure Consistent Services configuration
 
-ACS content...
-
-1. Step 1 for ACS...
-
-### [Network File System](#tab/network-file-system)
-
-NFS content...
-
-1. Step 1 for NFS...
-
----
- 
-
 1. Fetch the `DeviceVIP` configuration.
 
     ```azurepowershell
@@ -1167,6 +1154,20 @@ NFS content...
     }
     PS C:\>
     ```
+
+### [Network File System](#tab/network-file-system)
+
+### Set a static Network File System configuration
+NFS content...
+
+1. Step 1 for static NFS...
+
+### Set a DHCP Network File System configuration
+
+NFS content...
+
+1. Step 1 for DHCP NFS...
+---
 
 ## Troubleshooting
 
