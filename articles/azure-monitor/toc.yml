@@ -598,7 +598,7 @@ items:
           href: app/kubernetes-codeless.md
         - name: ASP.NET on-premises agent
           href: app/application-insights-asp-net-agent.md
-      - name: Application Insights SDKs
+      - name: SDK instrumentation
         items:
         - name: .NET
           items:
@@ -683,7 +683,7 @@ items:
             href: app/asp-net-exceptions.md
           - name: Log traces
             href: app/asp-net-trace-logs.md
-      - name: OpenTelemetry-based instrumentation
+      - name: OpenTelemetry instrumentation
         items:
         - name: Overview
           href: app/opentelemetry-overview.md
@@ -811,7 +811,7 @@ items:
           href: app/usage-flows.md
         - name: HEART Framework
           href: app/usage-heart.md
-      - name: GitHub and Azure DevOps Integration
+      - name: GitHub and Azure DevOps integration
         items:
         - name: Work Item integration
           href: app/work-item-integration.md
