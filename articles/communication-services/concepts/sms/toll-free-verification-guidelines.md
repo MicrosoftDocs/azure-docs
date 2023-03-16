@@ -33,7 +33,7 @@ This drop down displayes all the toll-free numbers you have in the Azure Communi
 
 ### Are you using more than one sending phone number? 
 
-If you are using multiple sending numbers for the same use case, please justify how you will be using the multiple numbers. Carriers require the justification because they are sensitive to the prohibited practice of snowshoeing or spreading the same or similar traffic over multiple sending toll-free numbers, as the primary purpose for snowshoeing is generally an attempt to evade carrier spam filters. 
+If you are using multiple sending numbers for the same use case, please justify how you will be using the multiple numbers. If you need multiple numbers for multiple environments (development, QA, production), state that here. Carriers require the justification because they are sensitive to the prohibited practice of snowshoeing or spreading the same or similar traffic over multiple sending toll-free numbers, as the primary purpose for snowshoeing is generally an attempt to evade carrier spam filters. 
 
 ## Company Details  
 You need to provide information about your company and point of contact. Status updates for your short code application will be sent to the point of contact email address.
