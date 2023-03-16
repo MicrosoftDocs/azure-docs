@@ -169,6 +169,9 @@ items:
     - name: Create Diagnostic Settings with Azure Policy
       displayName: Diagnostic Settings, Platform logs, Resource logs, Activity log
       href: essentials/diagnostic-settings-policy.md
+    - name: Enable Diagnostics settings using built-in policies.
+      displayName: Diagnostic Settings, Platform logs, Resource logs, Activity log
+      href: essentials/diagnostics-settings-policies-deployifnotexists.md  
     - name: Migrate retention to Azure Storage lifecycle
       displayName: Diagnostic Settings, Platform logs, Resource logs, Activity log
       href: essentials/migrate-to-azure-storage-lifecycle-policy.md
@@ -566,7 +569,7 @@ items:
     items:
     - name: Application Insights overview
       href: app/app-insights-overview.md
-    - name: Create a resource (workspace-based)
+    - name: Create a resource
       href: app/create-workspace-resource.md
     - name: Enable Application Insights
       items:
@@ -593,17 +596,8 @@ items:
           href: app/monitor-functions.md
         - name: Azure Kubernetes Service
           href: app/kubernetes-codeless.md
-        - name: ASP.NET on-premises
-          items:
-            - name: Overview
-              displayName: IIS monitoring, on premises monitoring, on prem
-              href: app/status-monitor-v2-overview.md
-            - name: Getting started
-              href: app/status-monitor-v2-get-started.md
-            - name: Detailed instructions
-              href: app/status-monitor-v2-detailed-instructions.md
-            - name: API reference
-              href: app/status-monitor-v2-api-reference.md
+        - name: ASP.NET on-premises agent
+          href: app/application-insights-asp-net-agent.md
       - name: Application Insights SDKs
         items:
         - name: .NET
@@ -627,6 +621,20 @@ items:
             - name: .NET Console
               displayName: console, .NET, dotnet console, dotnet, c#, csharp, NET
               href: app/console.md
+            - name: Advanced ASP.NET SDK topics
+              items:
+              - name: EventCounters
+                href: app/eventcounters.md
+              - name: Dependencies
+                href: app/asp-net-dependencies.md
+              - name: ApplicationInsights.config
+                href: app/configuration-with-applicationinsights-config.md
+              - name: TelemetryChannels
+                displayName: in memory, server telemetry channel, channel, inmemory, servertelemetry
+                href: app/telemetry-channels.md
+              - name: Track custom operations in .NET SDK
+                href: app/custom-operations-tracking.md
+                displayName: correlation, dependency, dependencies, track dependency, OWIN, queue, service bus, background tasks, long running background tasks, outgoing dependency tracking, parallel operations, System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource, StartOperation, StopOperation
         - name: Node.js
           href: app/nodejs.md
         - name: Python
@@ -640,14 +648,14 @@ items:
             href: app/opencensus-python-request.md
         - name: JavaScript
           items:
-          - name: Client-side JavaScript
-            displayName: SPA, Single Page Applications, React, JS, Angular
-            href: app/javascript.md
-          - name: Source map for JavaScript
-            href: app/source-map-support.md
-          - name: Framework Extensions
+          - name: JavaScript SDK
+            displayName: browser, client-side, snippet
+            href: app/javascript-sdk.md
+          - name: JavaScript SDK advanced topics
+            href: app/javascript-sdk-advanced.md
+          - name: Framework extensions
             href: app/javascript-framework-extensions.md
-          - name: Feature Extensions (Click Analytics)
+          - name: Feature extensions (Click Analytics)
             href: app/javascript-feature-extensions.md
           - name: Upgrade
             href: app/javascript-sdk-upgrade.md
@@ -656,10 +664,25 @@ items:
         - name: Application Insights API summary
           displayName: SDK, API, custom events, custom metrics, trackevent,trackmetric, getmetric, trackrequest, trackexception, tracktrace, trackdependency
           href: app/api-custom-events-metrics.md
+        - name: Connection strings
+          href: app/sdk-connection-string.md
+          displayName: connection string, instrumentation key
+        - name: Sampling
+          displayName: adaptive sampling, fixed rate sample, fixed sampling, ingestion sampling
+          href: app/sampling.md
         - name: Remove Application Insights
           href: app/remove-application-insights.md
         - name: SDK support policy
           href: app/sdk-support-guidance.md
+        - name: Advanced SDK topics
+          items:
+          - name: TelemetryProcessors
+            displayName: processors, filtering, telemetry filtering, telemetry processor
+            href: app/api-filtering-sampling.md
+          - name: Exceptions
+            href: app/asp-net-exceptions.md
+          - name: Log traces
+            href: app/asp-net-trace-logs.md
       - name: OpenTelemetry-based instrumentation
         items:
         - name: Overview
@@ -839,15 +862,17 @@ items:
           href: profiler/profiler-bring-your-own-storage.md
         - name: Snapshot Debugger troubleshooting
           displayName: troubleshoot, troubleshooting
-          href: /troubleshoot/azure/azure-monitor/app-insights/snapshot-debugger-troubleshoot.md
+          href: /troubleshoot/azure/azure-monitor/app-insights/snapshot-debugger-troubleshoot
     - name: Upgrade from classic resources and iKey
       items:
       - name: Migrate to a workspace-based resource
         href: app/convert-classic-resource.md
       - name: Migrate to connection strings
         href: app/migrate-from-instrumentation-keys-to-connection-strings.md
-    - name: Advanced configuration
+    - name: Administration and security
       items:
+      - name: Manage Application Insights
+        href: app/powershell.md
       - name: Access control
         href: app/resources-roles-access-control.md
       - name: Azure AD authentication
@@ -858,44 +883,14 @@ items:
       - name: IP address collection
         href: app/ip-collection.md
         displayName: geolocation, IP collection, IP tracking, IP storage
-      - name: Sampling
-        displayName: adaptive sampling, fixed rate sample, fixed sampling, ingestion sampling
-        href: app/sampling.md
-      - name: TelemetryChannels
-        displayName: in memory, server telemetry channel, channel, inmemory, servertelemetry
-        href: app/telemetry-channels.md
-      - name: TelemetryProcessors
-        displayName: processors, filtering, telemetry filtering, telemetry processor
-        href: app/api-filtering-sampling.md
-      - name: Track custom operations in .NET SDK
-        href: app/custom-operations-tracking.md
-        displayName: correlation, dependency, dependencies, track dependency, OWIN, queue, service bus, background tasks, long running background tasks, outgoing dependency tracking, parallel operations, System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource, StartOperation, StopOperation
       - name: Custom email reports
         href: app/automate-custom-reports.md
-      - name: Exceptions
-        href: app/asp-net-exceptions.md
-      - name: Log traces
-        href: app/asp-net-trace-logs.md
+      - name: Separate development, test, and production
+        href: app/separate-resources.md
       - name: Performance counters
         href: app/performance-counters.md
-      - name: EventCounters
-        href: app/eventcounters.md
-      - name: Dependencies
-        href: app/asp-net-dependencies.md
-      - name: ApplicationInsights.config
-        href: app/configuration-with-applicationinsights-config.md
-      - name: Connection strings
-        href: app/sdk-connection-string.md
       - name: Statsbeat
         href: app/statsbeat.md
-      - name: Special topics
-        items:
-        - name: Deep diagnostics for web apps and services
-          href: app/devops.md
-        - name: Separate development, test, and production
-          href: app/separate-resources.md
-        - name: Manage Application Insights
-          href: app/powershell.md
     - name: Tutorials
       items:
       - name: Application Insights SDK for ASP.NET Core applications
@@ -956,7 +951,7 @@ items:
         href: containers/container-insights-manage-agent.md
       - name: Agent collection settings
         href: containers/container-insights-agent-config.md
-      - name: Enable ContainerLogv2 (preview)
+      - name: Enable ContainerLogv2
         href: containers/container-insights-logging-v2.md
       - name: Enable cost optimization settings (preview)
         href: containers/container-insights-cost-config.md

@@ -327,8 +327,8 @@ Azure Machine Learning studio is a web-based application that lets you easily ma
 
 > [!NOTE]
 > For more information on securing Azure Monitor and Application Insights, see the following links:
-> * [Migrate to workspace-based Application Insights resources](/azure/azure-monitor/app/convert-classic-resource).
-> * [Configure your Azure Monitor private link](/azure/azure-monitor/logs/private-link-configure).
+> * [Migrate to workspace-based Application Insights resources](../azure-monitor/app/convert-classic-resource.md).
+> * [Configure your Azure Monitor private link](../azure-monitor/logs/private-link-configure.md).
 
 1. In the [Azure portal](https://portal.azure.com), select your Azure Machine Learning workspace. From __Overview__, select the __Application Insights__ link.
 
