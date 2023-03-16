@@ -713,6 +713,18 @@ When you're finished, you can delete all of the resources from your Azure subscr
     :::column-end:::
 :::row-end:::
 
+## Troubleshooting
+
+Listed below are issues you may encounter while trying to work through this tutorial and steps to resolve them.
+
+#### I can't connect to the SSH session
+
+If you can't connect to the SSH session, then the app itself has failed to start. Check the [diagnostic logs](#6-stream-diagnostic-logs) for details. For example, if you see an error like `KeyError: 'AZURE_POSTGRESQL_CONNECTIONSTRING'`, it may mean that the environment variable is missing (you may have removed the app setting).
+
+#### I get an error when running database migrations
+
+If you encounter any errors related to connecting to the database, check if the app settings (`AZURE_POSTGRESQL_CONNECTIONSTRING`) have been changed. Without that connection string, the migrate command can't communicate with the database. 
+
 :::zone-end
 
 ## Frequently asked questions
@@ -769,14 +781,6 @@ The [Django sample application](https://github.com/Azure-Samples/msdocs-django-p
     :::code language="python" source="~/msdocs-django-postgresql-sample-app/azureproject/production.py" range="25-26":::
 
 For more information, see [Production settings for Django apps](configure-language-python.md#production-settings-for-django-apps).
-
-#### I can't connect to the SSH session
-
-If you can't connect to the SSH session, then the app itself has failed to start. Check the [diagnostic logs](#6-stream-diagnostic-logs) for details. For example, if you see an error like `KeyError: 'AZURE_POSTGRESQL_CONNECTIONSTRING'`, it may mean that the environment variable is missing (you may have removed the app setting).
-
-#### I get an error when running database migrations
-
-If you encounter any errors related to connecting to the database, check if the app settings (`AZURE_POSTGRESQL_CONNECTIONSTRING`) have been changed. Without that connection string, the migrate command can't communicate with the database. 
 
 ## Next steps
 
