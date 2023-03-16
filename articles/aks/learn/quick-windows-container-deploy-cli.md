@@ -184,7 +184,7 @@ az aks nodepool add \
 
 ## Optional: Using `containerd` with Windows Server node pools
 
-Beginning in Kubernetes version 1.20 and greater, you can specify `containerd` as the container runtime for Windows Server 2019 node pools. Starting with Kubernetes 1.23, `containerd` is the default and only container runtime for Windows.
+Beginning in Kubernetes version 1.20 and higher, you can specify `containerd` as the container runtime for Windows Server 2019 node pools. Starting with Kubernetes 1.23, `containerd` is the default and only container runtime for Windows.
 
 > [!IMPORTANT]
 > When using `containerd` with Windows Server 2019 node pools:

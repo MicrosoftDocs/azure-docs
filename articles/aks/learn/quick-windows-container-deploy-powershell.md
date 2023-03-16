@@ -55,7 +55,7 @@ The following additional limitations apply to Windows Server node pools:
 * The Windows Server node pool name has a limit of 6 characters.
 
 > [!NOTE]
-> Windows Server 2019 will be retired in Kubernetes 1.33 and higher. For more information about this retirement, see the [AKS release notes][aks-release-notes].
+> Windows Server 2019 is being retired after Kubernetes version 1.32 EOL and won't be supported in future releases. For more information about this retirement, see the [AKS release notes][aks-release-notes].
 
 ## Create a resource group
 

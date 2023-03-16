@@ -14,7 +14,7 @@ As part of creating an AKS cluster, you may need to customize your cluster confi
 
 AKS supports Ubuntu 22.04 as the only node operating system (OS) for clusters with Kubernetes 1.25 and higher. Ubuntu 18.04 can also be specified at nodepool creation for Kubernetes versions 1.24 and below. 
 
-AKS supports Windows Server 2022 as the default operating system (OS) for Windows node pools in clusters with Kubernetes 1.25 and higher. Windows Server 2019 can also be specified at nodepool creation for Kubernetes versions 1.32 and below. For more information about this retirement, see the [AKS release notes][aks-release-notes].
+AKS supports Windows Server 2022 as the default operating system (OS) for Windows node pools in clusters with Kubernetes 1.25 and higher. Windows Server 2019 can also be specified at nodepool creation for Kubernetes versions 1.32 and below. Windows Server 2019 is being retired after Kubernetes version 1.32 EOL and won't be supported in future releases. For more information about this retirement, see the [AKS release notes][aks-release-notes].
 
 ## Container runtime configuration
 
@@ -33,7 +33,7 @@ By using `containerd` for AKS nodes, pod startup latency improves and node resou
 > [!IMPORTANT]
 > Clusters with Linux node pools created on Kubernetes v1.19 or greater default to `containerd` for its container runtime. Clusters with node pools on a earlier supported Kubernetes versions receive Docker for their container runtime. Linux node pools will be updated to `containerd` once the node pool Kubernetes version is updated to a version that supports `containerd`.
 >
-> `containerd` with Windows Server 2019 and 2022 node pools is generally available, and is the only container runtime option in Kubernetes 1.21 and higher. You can continue using Docker node pools and clusters on versions earlier than 1.23, but Docker is no longer supported as of May 2023. For more information, see [Add a Windows Server node pool with `containerd`][aks-add-np-containerd].
+> `containerd` with Windows Server 2019 and 2022 node pools is generally available, and is the only container runtime option in Kubernetes 1.23 and higher. You can continue using Docker node pools and clusters on versions earlier than 1.23, but Docker is no longer supported as of May 2023. For more information, see [Add a Windows Server node pool with `containerd`][aks-add-np-containerd].
 >
 > It is highly recommended you test your workloads on AKS node pools with `containerd` before using clusters with a Kubernetes version that supports `containerd` for your node pools.
 
