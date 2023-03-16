@@ -360,7 +360,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 * **AI quality improvements**
 
-  * [**prebuilt-read**](concept-read.md). Enhanced support for single characters, handwritten dates, amounts, names, other entities commonly found in receipts and invoices and improved processing of digital PDF documents.
+  * [**prebuilt-read**](concept-read.md). Enhanced support for single characters, handwritten dates, amounts, names, other key data commonly found in receipts and invoices and improved processing of digital PDF documents.
   * [**prebuilt-layout**](concept-layout.md). Support for better detection of cropped tables, borderless tables, and improved recognition of long spanning cells.
   * [**prebuilt-document**](concept-general-document.md). Improved value and check box detection.
   * [**custom-neural**](concept-custom-neural.md). Improved accuracy for table detection and extraction.
@@ -477,10 +477,10 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 * Form Recognizer v3.0 preview release introduces several new features, capabilities and enhancements:
 
-  * [**Custom neural model**](concept-custom-neural.md) or custom document model is a new custom model to extract text and selection marks from structured forms, semi-strutured and **unstructured documents**.
+  * [**Custom neural model**](concept-custom-neural.md) or custom document model is a new custom model to extract text and selection marks from structured forms, semi-structured and **unstructured documents**.
   * [**W-2 prebuilt model**](concept-w2.md) is a new prebuilt model to extract fields from W-2 forms for tax reporting and income verification scenarios.
   * [**Read**](concept-read.md) API extracts printed text lines, words, text locations, detected languages, and handwritten text, if detected.
-  * [**General document**](concept-general-document.md) pretrained model is now updated to support selection marks in addition to API  text, tables, structure, key-value pairs, and named entities from forms and documents.
+  * [**General document**](concept-general-document.md) pretrained model is now updated to support selection marks in addition to API  text, tables, structure, and key-value pairs from forms and documents.
   * [**Invoice API**](language-support.md#invoice-model) Invoice prebuilt model expands support to Spanish invoices.
   * [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com) adds new demos for Read, W2, Hotel receipt samples, and support for training the new custom neural models.
   * [**Language Expansion**](language-support.md) Form Recognizer Read, Layout, and Custom Form add support for 42 new languages including Arabic, Hindi, and other languages using Arabic and Devanagari scripts to expand the coverage to 164 languages. Handwritten language support expands to Japanese and Korean.
@@ -544,7 +544,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 * **Form Recognizer v3.0 preview release version 4.0.0-beta.1 (2021-10-07)introduces several new features and capabilities:**
 
-  * [**General document**](concept-general-document.md) model is a new API that uses a pretrained model to extract text, tables, structure, key-value pairs, and named entities from forms and documents.
+  * [**General document**](concept-general-document.md) model is a new API that uses a pretrained model to extract text, tables, structure, and key-value pairs from forms and documents.
   * [**Hotel receipt**](concept-receipt.md) model added to prebuilt receipt processing.
   * [**Expanded fields for ID document**](concept-id-document.md) the ID model supports endorsements, restrictions, and vehicle classification extraction from US driver's licenses.
   * [**Signature field**](concept-custom.md) is a new field type in custom forms to detect the presence of a signature in a form field.
@@ -556,15 +556,15 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 * Form Recognizer model data extraction
 
-  | **Model**   | **Text extraction** |**Key-Value pairs** |**Selection Marks**   | **Tables**   |**Entities** |
-  | --- | :---: |:---:| :---: | :---: |:---: |
-  |General document  | ✓  |  ✓ | ✓  | ✓  | ✓  |
-  | Layout  | ✓  |   | ✓  | ✓  |   |
-  | Invoice  | ✓ | ✓  | ✓  | ✓ ||
-  |Receipt  | ✓  |   ✓ |   |  ||
-  | ID document | ✓  |   ✓  |   |   ||
-  | Business card    | ✓  |   ✓ |   |   ||
-  | Custom             |✓  |  ✓ | ✓  | ✓  | ✓  |
+  | **Model**   | **Text extraction** |**Key-Value pairs** |**Selection Marks**   | **Tables**   |
+  | --- | :---: |:---:| :---: | :---: |
+  |General document  | ✓  |  ✓ | ✓  | ✓  |
+  | Layout  | ✓  |   | ✓  | ✓  |
+  | Invoice  | ✓ | ✓  | ✓  | ✓ |
+  |Receipt  | ✓  |   ✓ |   |  |
+  | ID document | ✓  |   ✓  |   |   |
+  | Business card    | ✓  |   ✓ |   |   |
+  | Custom             |✓  |  ✓ | ✓  | ✓  |
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: What's new? Release notes - Azure Active Directory | Microsoft Docs
+title: What's new? Release notes - Azure Active Directory
 description: Learn what is new with Azure Active Directory; such as the latest release notes, known issues, bug fixes, deprecated functionality, and upcoming changes.
 author: owinfreyATL
 manager: amycolannino

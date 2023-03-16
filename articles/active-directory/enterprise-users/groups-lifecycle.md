@@ -1,5 +1,5 @@
 ---
-title: Set expiration for Microsoft 365 groups - Azure Active Directory | Microsoft Docs
+title: Set expiration for Microsoft 365 groups - Azure Active Directory
 description: How to set up expiration for Microsoft 365 groups in Azure Active Directory
 services: active-directory
 documentationcenter: ''

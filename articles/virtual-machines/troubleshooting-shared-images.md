@@ -4,11 +4,11 @@ description: Learn how to troubleshoot problems with shared images in Azure Comp
 ms.service: virtual-machines
 author: sandeepraichura
 ms.author: saraic
-ms.reviewer: cynthn
+ms.reviewer: cynthn, mattmcinnes
 ms.subservice: gallery
 ms.topic: troubleshooting
 ms.workload: infrastructure
-ms.date: 7/1/2021
+ms.date: 02/28/2023
 ---
 
 # Troubleshoot images in an Azure Compute Gallery

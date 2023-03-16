@@ -3,7 +3,7 @@ title: What's new in Azure Virtual Desktop Insights?
 description: New features and product updates in Azure Virtual Desktop Insights.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 03/13/2023
+ms.date: 03/16/2023
 ms.author: helohr
 manager: femila
 ms.custom: references_regions
@@ -28,9 +28,15 @@ For example, a release with a version number of 1.2.31 is on the first major rel
 
 When one of the numbers is increased, all numbers after it must change, too. One release has one version number. However, not all version numbers track releases. Patch numbers can be somewhat arbitrary, for example.
 
+## Version 2.0.0
+
+This update was released on March 6, 2023 and had the following change:
+
+- The Azure Virtual Desktop Insights at scale feature is now generally available.
+
 ## Version 1.6.1
 
-This update was released in March 2023 and had the following changes:
+This update was released in February 27, 2023 and had the following changes:
 
 - The Azure Virtual Desktop Insights *at scale* feature is now generally available.
 - Added the version of the OS used on session hosts to the **Overview** tab.
