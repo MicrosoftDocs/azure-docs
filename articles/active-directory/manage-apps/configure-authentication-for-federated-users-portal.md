@@ -226,13 +226,11 @@ Use the previous example to get the **ObjectID** of the policy, and that of the 
 
 ## Configuring policy through Graph Explorer
 
-Set the HRD policy using Microsoft Graph. See [homeRealmDiscoveryPolicy](/graph/api/resources/homeRealmDiscoveryPolicy?view=graph-rest-1.0&preserve-view=true) resource type for information on how to create the policy.
-
 From the Microsoft Graph explorer window:
 
 1. Sign in with one of the roles listed in the prerequisites section.
 1. Grant consent to the `Policy.ReadWrite.ApplicationConfiguration` permission.
-1. Use the [Home realm discovery policy](/graph/api/resources/homerealmdiscoverypolicy?view=graph-rest-1.0) to create a new policy.
+1. Use the [Home realm discovery policy](/graph/api/resources/homerealmdiscoverypolicy) to create a new policy.
 1. POST the new policy, or PATCH to update an existing policy.
 
     ```http

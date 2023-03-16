@@ -174,11 +174,11 @@ After step 4 is complete all users, except those in `guestHandlingDomain.com`, c
 
 ## Configuring policy through Graph Explorer
 
-Manage the [Home Realm Discovery policy](/graph/api/resources/homeRealmDiscoveryPolicy using [Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer).  
+Manage the [Home Realm Discovery policy](/graph/api/resources/homeRealmDiscoveryPolicy) using [Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer).  
 
 1. Sign in to Microsoft Graph explorer with one of the roles listed in the prerequisite section.
 1. Grant the `Policy.ReadWrite.ApplicationConfiguration` permission.
-1. Use the [Home realm discovery policy](/graph/api/resources/homerealmdiscoverypolicy?view=graph-rest-1.0) to create a new policy.
+1. Use the [Home realm discovery policy](/graph/api/resources/homerealmdiscoverypolicy) to create a new policy.
 1. POST the new policy, or PATCH to update an existing policy.
 
     ```http
