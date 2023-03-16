@@ -43,7 +43,7 @@ This section explains the Video Indexer language options and has a table of the 
 
     :::image type="content" source="media/language-support/website-language.jpg" alt-text="Screenshot showing a menu with user settings show them all toggled to on." lightbox="media/language-support/website-language.jpg":::
 
-| **Language**                     | **Code**   | **Supported source language** | **Language identification** | **Customization (language model)** | **Pronunciation  (language model)** | **Website Translation** | **Website Language** |
+| **Language**                     | **Code**   | **Supported source language** | **Language identification** | **Customization<br/> (language model)** | **Pronunciation<br/>  (language model)** | **Website Translation** | **Website Language** |
 |----------------------------------|------------|-------------------------------|-----------------------------|------------------------------------|-------------------------------------|-------------------------|----------------------|
 | Afrikaans                        | af-ZA      |                               |                             |                                    |                                     | ✔                       |                      |
 | Arabic (Israel)                  | ar-IL      | ✔                             |                             | ✔                                  |                                     |                         |                      |
