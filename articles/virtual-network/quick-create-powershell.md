@@ -106,7 +106,7 @@ Azure Bastion uses your browser to connect to VMs in your virtual network over s
       -Sku "Standard"
    ```
 
-1. It takes about 10 minutes for the Bastion resources to deploy. You can create VMs in the next section while Bastion deploys to your virtual network.
+It takes about 10 minutes for the Bastion resources to deploy. You can create VMs in the next section while Bastion deploys to your virtual network.
 
 ## Create virtual machines
 
@@ -138,14 +138,14 @@ Use [New-AzVM](/powershell/module/az.compute/new-azvm) to create two VMs named `
    New-AzVM @vm2
    ```
    
-   >[!TIP]
-   >You can use the `-AsJob` option to create a VM in the background while you continue with other tasks. For example, run `New-AzVM @vm1 -AsJob`. When Azure starts creating the VM in the background, you get something like the following output:
-   >
-   >```powershell
-   >Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
-   >--     ----            -------------   -----         -----------     --------             -------
-   >1      Long Running... AzureLongRun... Running       True            localhost            New-AzVM
-   >```
+>[!TIP]
+>You can use the `-AsJob` option to create a VM in the background while you continue with other tasks. For example, run `New-AzVM @vm1 -AsJob`. When Azure starts creating the VM in the background, you get something like the following output:
+>
+>```powershell
+>Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
+>--     ----            -------------   -----         -----------     --------             -------
+>1      Long Running... AzureLongRun... Running       True            localhost            New-AzVM
+>```
 
 Azure takes a few minutes to create the VMs. When Azure finishes creating the VMs, it returns output to PowerShell.
 
