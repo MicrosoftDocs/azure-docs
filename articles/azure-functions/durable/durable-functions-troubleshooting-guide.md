@@ -21,7 +21,7 @@ The rest of this section gives an overview of reasons and guides that you could 
 > [!TIP]
 > When debugging and diagnosing issues, it is recommended that you start by ensuring your app is using the latest Durable Functions version. Most of the time, using the latest version mitigates known issues already reported by other users. Please read the **Durable Function Best Practice and Diagnostic Tools** article for instructions on how to upgrade your extension version. 
 
-The **Diagnostic and solve problems** tab in Azure Portal is a useful resource to monitor and diagnose potential issues related to your application. It also supplies potential solutions to your problems based on the diagnosis. Please see this [page](./durable-functions-diagnostics.md) for more details. 
+The **Diagnose and solve problems** tab in Azure Portal is a useful resource to monitor and diagnose potential issues related to your application. It also supplies potential solutions to your problems based on the diagnosis. Please see this [page](./durable-functions-diagnostics.md) for more details. 
 
 If the above two steps could not help solving your problem, please see the following steps according to the scenarios.
 
@@ -38,7 +38,7 @@ If the above two steps could not help solving your problem, please see the follo
 
 1. This [page](./durable-functions-azure-storage-provider.md) illustrates reasons for orchestrators’ delay start. Please see here for detailed instructions. 
 
-2. The following query could help you check the warning/error message for the orchestrator. A sample query can be found in **Trace Errors/Warnings** section.
+2. Check for any orchestration instance warnings or errors. A sample query can be found in **Trace Errors/Warnings** section.
 
 ## Orchestration does not complete / is stuck in the `Running` state
 
@@ -46,20 +46,20 @@ If the above two steps could not help solving your problem, please see the follo
 
 2. Check the Azure Storage account control queues to see if any queues are growing but not shrinking.
 
-3. Use the Azure Storage Kusto query to filter on that queue name in the PartitionId column to look for any problems related to that control queue partition. The query is below this page in **Azure Storage Message** part.
+3. Use the Azure Storage Kusto query under the **Azure Storage Message** section to filter on that queue name as the PartitionId and look for any problems related to that control queue partition.
 
-4. Please check if you have followed the **Durable Functions Best Practice and Diagnostic Tools**. Some problems are caused because of inappropriate behavior. So, we suggest you read this article, revise the part that breaks the best practice rules and reset your function.
+4. Please check if you have followed the guidance in **Durable Functions Best Practice and Diagnostic Tools**. Some problems are caused because of inappropriate behavior. We suggest that you read this article, revise any parts that break the best practice rules and restart your function app.
 
 ## Orchestration runs slowly
 
-1. Check if **extendedSessionsEnabled** is being enabled.  
+1. Check if [extendedSessionsEnabled](./durable-functions-azure-storage-provider.md) is enabled.  
    Excessive history load can result in extremely slow orchestrator processing. The detailed instruction could be seen [here](./durable-functions-azure-storage-provider.md)
 
-2. Performance Issue.  
-   Performance issues can include many aspects. For example, high CPU usage, or large memory consumption, which could result in heavy delay. Here are some suggestions to improve performance: 
-   * Scale out and add more workers. Please see this [page](./durable-functions-perf-and-scale.md) for more information.
+2. Performance Issues.  
+   Performance issues can include many aspects. For example, high CPU usage, or large memory consumption could result in a delay. Here are some suggestions to improve performance: 
+   * Scale out and add more workers. Please see [this page](./durable-functions-perf-and-scale.md) for more information.
    
-   * We suggest monitoring memory utilization per Function, and ensure it stays at a healthy percentage. The montior guide could be seen [here](./durable-functions-azure-storage-provider.md).
+   * We suggest monitoring memory utilization per Function and ensuring that it stays at a healthy percentage. The monitor guide is [here](./durable-functions-azure-storage-provider.md).
 
 ## Sample Queries
 
@@ -81,7 +81,7 @@ To see the Azure Storage query result, please add the following configuration in
  } 
 ```
 
-The following query is for inspecting end-to-end Azure Storage interactions for a specific orchestration instance. Edit the and `start` and `targetInstanceId` to filter by time range and instnaceId.
+The following query is for inspecting end-to-end Azure Storage interactions for a specific orchestration instance. Edit the and `start` and `targetInstanceId` to filter by time range and instanceId.
 
 ```kusto
 let start = datetime(2017-09-30T04:30:00); // edit this 
@@ -122,7 +122,7 @@ let start = datetime(2017-09-30T04:30:00);
 | extend isReplay = tobool(tolower(customDimensions["prop__isReplay"])) 
 | extend sequenceNumber = tolong(customDimensions["prop__sequenceNumber"]) 
 | where isReplay != true 
-| where instanceId in ("XXX", "XXX",”XXX”) 
+| where instanceId in ("XXX", "XXX", ”XXX”) 
 | sort by timestamp asc 
 | project timestamp, functionName, state, instanceId, sequenceNumber, appName = cloud_RoleName 
 ```
