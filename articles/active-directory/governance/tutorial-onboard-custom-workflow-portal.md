@@ -24,9 +24,7 @@ This pre-hire scenario will generate a temporary access pass for our new employe
 
 ## Prerequisites
 
-- Azure AD Premium P2
-
-For more information, see: [License requirements](what-are-lifecycle-workflows.md#license-requirements)
+Lifecycle Workflows preview requires Azure AD Premium P2. For more information, see: [License requirements](what-are-lifecycle-workflows.md#license-requirements).
 
 ##  Before you begin
 
