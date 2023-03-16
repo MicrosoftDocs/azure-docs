@@ -93,13 +93,15 @@ Version numbers are listed only in this article and in the [What's new in Micros
 
 To understand whether a feature is supported in your sensor version, check the relevant version section below and its listed features.
 
+## Versions 22.3.x
+
 ### 22.3.7
 
 **Release date**: 03/2023
 
 **Supported until**: 02/2024
 
-This version includes bug fixes for stability improvements.
+This version includes mandatory bug fixes for stability improvements. If you've installed version 22.3.6, we recommend that you update to version 22.3.7.
 
 ### 22.3.6
 
@@ -118,7 +120,6 @@ This version includes bug fixes for stability improvements.
 - Severity for all [**Suspicion of Malicious Activity**](alert-engine-messages.md#malware-engine-alerts) alerts is now **Critical**
 - [Allow internet connections on an OT network in bulk](how-to-accelerate-alert-incident-response.md#allow-internet-connections-on-an-ot-network)
 
-## Versions 22.3.x
 
 ### 22.3.5
 
