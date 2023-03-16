@@ -1,5 +1,5 @@
 ---
-title: Prerequisites to use PowerShell or Graph Explorer for Azure AD roles - Azure Active Directory
+title: Prerequisites to use PowerShell or Graph Explorer for Azure AD roles
 description: Prerequisites to use PowerShell or Graph Explorer for Azure Active Directory roles.
 services: active-directory
 documentationcenter: ''

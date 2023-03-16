@@ -1,5 +1,5 @@
 ---
-title: Manage access to custom security attributes in Azure AD (Preview) - Azure Active Directory
+title: Manage access to custom security attributes in Azure AD (Preview)
 description: Learn how to manage access to custom security attributes in Azure Active Directory.
 services: active-directory
 author: rolyon

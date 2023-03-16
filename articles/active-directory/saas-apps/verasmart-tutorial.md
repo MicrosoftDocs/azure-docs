@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with VeraSMART | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with VeraSMART'
 description: Learn how to configure single sign-on between Azure Active Directory and VeraSMART.
 services: active-directory
 author: jeevansd

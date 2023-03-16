@@ -1,5 +1,5 @@
 ---
-title: 'What is provisioning with Azure Active Directory? | Microsoft Docs'
+title: 'What is provisioning with Azure Active Directory?'
 description: Describes overview of identity provisioning and the ILM scenarios.
 services: active-directory
 author: billmath
