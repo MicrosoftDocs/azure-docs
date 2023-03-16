@@ -78,22 +78,22 @@ The sections ahead review the steps that azd handled for you in more depth. You 
 
 The `az up` command cloned the sample app project template to your local computer. The project template includes the following components:
 
-* **Source code**: The code and assets for a Flask or Django web app that can be used for local development or be deployed to Azure.
+* **Source code**: The code and assets for a Flask or Django web app that can be used for local development or deployed to Azure.
 * **Bicep files**: Infrastructure as code (IaC) files that are used by azd to create the necessary resources in Azure.
-* **Configuration files**: Essential configuration files such as `azure.yaml` that are consumed by azd to provision and deploy resources correctly.
+* **Configuration files**: Essential configuration files such as `azure.yaml` that are consumed by azd to provision, deploy and connect resources correctly.
 
 ### 2. Provision the Azure resources
 
 The `azd up` command created all of the resources for the sample application in Azure using the Bicep files in the [`infra`](https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app/tree/main/infra) folder of the project template. [Bicep](/azure/azure-resource-manager/bicep/overview?tabs=bicep) is a declarative language used to manage infrastructure as code in Azure. Some of the key resources and and configurations created by the template include:
 
-* **Resource group**: A resource group was created to hold all of the other provisioned Azure resources. The resource group helps to keep your resources well organized and easier to manage. The name of the resource group is based off of the environment name you specified during the `azd up` initialization process.
-* **Azure Virtual Network**: A virtual network was created to enable the other provisioned resources to securely connect and communicate with one another. Related configurations such as setting up a private DNS zone link were also applied.
+* **Resource group**: A resource group was created to hold all of the other provisioned Azure resources. The resource group keeps your resources well organized and easier to manage. The name of the resource group is based off of the environment name you specified during the `azd up` initialization process.
+* **Azure Virtual Network**: A virtual network was created to enable the provisioned resources to securely connect and communicate with one another. Related configurations such as setting up a private DNS zone link were also applied.
 * **Azure App Service plan**: An App Service plan was created to host App Service instances. App Service plans define what compute resources are available for one or more web apps.
 * **Azure App Service**: An App Service instance was created in the new App Service plan to host and run the deployed application. In this case a Linux instance was created and configured to run Python apps. Additional configurations were also applied to the app service, such as setting the Postgres connection string and secret keys. 
 * **Azure Database for PostgresSQL**: A Postgres database and server were created for the app hosted on App Service to connect to. The required admin user, network and connection settings were also configured.
 * **Azure Application Insights**: Application insights was setup and configured for the app hosted on the App Service. This service enables detailed telemetry and monitoring for your application.
 
-You can inspect the Bicep files in the [`infra`](https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app/tree/main/infra) folder of the project to understand how each of these resources were provisioned in more detail. The `resources.bicep` file defines most of the different services created in Azure. For example, the App Service plan and App Service web app instance were created and connected using the following Bicep code. 
+You can inspect the Bicep files in the [`infra`](https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app/tree/main/infra) folder of the project to understand how each of these resources were provisioned in more detail. The `resources.bicep` file defines most of the different services created in Azure. For example, the App Service plan and App Service web app instance were created and connected using the following Bicep code:
 
 ### [Flask](#tab/flask)
 
@@ -168,37 +168,50 @@ resource web 'Microsoft.Web/sites@2022-03-01' = {
 
 ---
 
-The Bicep templates also specify the required configuration values for the different properties of the resource. For example, the App Service is configured with the necessary app settings using the following code:
-
-### [Flask](#tab/flask)
+The Azure Database for PostgreSQL was also created using the following Bicep:
 
 ```yml
-  resource appSettings 'config' = {
-    name: 'appsettings'
-    properties: {
-      SCM_DO_BUILD_DURING_DEPLOYMENT: 'true'
-      AZURE_POSTGRESQL_CONNECTIONSTRING: 'dbname=${flaskDatabase.name} host=${postgresServer.name}.postgres.database.azure.com port=5432 sslmode=require user=${postgresServer.properties.administratorLogin} password=${databasePassword}'
-      SECRET_KEY: secretKey
-      FLASK_DEBUG: 'False'
+resource postgresServer 'Microsoft.DBforPostgreSQL/flexibleServers@2022-01-20-preview' = {
+  location: location
+  tags: tags
+  name: pgServerName
+  sku: {
+    name: 'Standard_B1ms'
+    tier: 'Burstable'
+  }
+  properties: {
+    version: '12'
+    administratorLogin: 'postgresadmin'
+    administratorLoginPassword: databasePassword
+    storage: {
+      storageSizeGB: 128
+    }
+    backup: {
+      backupRetentionDays: 7
+      geoRedundantBackup: 'Disabled'
+    }
+    network: {
+      delegatedSubnetResourceId: virtualNetwork::databaseSubnet.id
+      privateDnsZoneArmResourceId: privateDnsZone.id
+    }
+    highAvailability: {
+      mode: 'Disabled'
+    }
+    maintenanceWindow: {
+      customWindow: 'Disabled'
+      dayOfWeek: 0
+      startHour: 0
+      startMinute: 0
     }
   }
+
+  dependsOn: [
+    privateDnsZoneLink
+  ]
+}
 ```
 
-### [Django](#tab/django)
-
-resource appSettings 'config' = {
-    name: 'appsettings'
-    properties: {
-        SCM_DO_BUILD_DURING_DEPLOYMENT: 'true'
-        AZURE_POSTGRESQL_CONNECTIONSTRING: 'dbname=${flaskDatabase.name} host=${postgresServer.name}.postgres.database.azure.com port=5432 sslmode=require user=${postgresServer.properties.administratorLogin} password=${databasePassword}'
-        SECRET_KEY: secretKey
-        FLASK_DEBUG: 'False'
-    }
-}
-
----
-
-### Application Deployment
+### 3. Application Deployment
 
 The Azure Developer CLI also deployed the sample application code to the provisioned Azure resources. The Developer CLI understands how to deploy different parts of your application code to different services in Azure using the `azure.yaml` file at the root of the project. The `azure.yaml` file specifies the app source code location, the type of app, and the Azure Service that should host that app. 
 
