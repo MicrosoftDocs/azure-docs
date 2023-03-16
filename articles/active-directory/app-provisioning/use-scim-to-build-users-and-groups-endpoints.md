@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/18/2022
+ms.date: 03/16/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -67,7 +67,7 @@ Go to the [reference code](https://github.com/AzureAD/SCIMReferenceCode) from Gi
 
 1. In the terminal, change the directory using the `cd Microsoft.SCIM.WebHostSample` command
 
-1. To run your app locally, in the terminal, run the .NET CLI command below. The [dotnet run](/dotnet/core/tools/dotnet-run) runs the Microsoft.SCIM.WebHostSample project using the [development environment](/aspnet/core/fundamentals/environments#set-environment-on-the-command-line).
+1. To run your app locally, in the terminal, run the .NET CLI command. The [dotnet run](/dotnet/core/tools/dotnet-run) runs the Microsoft.SCIM.WebHostSample project using the [development environment](/aspnet/core/fundamentals/environments#set-environment-on-the-command-line).
 
     ```dotnetcli
     dotnet run --environment Development
@@ -77,14 +77,14 @@ Go to the [reference code](https://github.com/AzureAD/SCIMReferenceCode) from Gi
 
 1. To deploy the Microsoft.SCIM.WebHostSample app to Azure App Services, [create a new App Services](../../app-service/quickstart-dotnetcore.md?tabs=net60&pivots=development-environment-vscode#publish-your-web-app).
 
-1. In the Visual Studio Code terminal, run the .NET CLI command below. This command generates a deployable publish folder for the app in the bin/debug/publish directory.
+1. In the Visual Studio Code terminal, run the .NET CLI command. This command generates a deployable publish folder for the app in the bin/debug/publish directory.
 
     ```dotnetcli
     dotnet publish -c Debug
     ```
 
 1. In the Visual Studio Code explorer, right-click on the generated **publish** folder, and select Deploy to Web App.
-1. A new workflow will open in the command palette at the top of the screen. Select the **Subscription** you would like to publish your app to.
+1. A new workflow opens in the command palette at the top of the screen. Select the **Subscription** you would like to publish your app to.
 1. Select the **App Service** web app you created earlier.
 1. If Visual Studio Code prompts you to confirm, select **Deploy**. The deployment process may take a few moments. When the process completes, a notification should appear in the bottom right corner prompting you to browse to the deployed app.
 

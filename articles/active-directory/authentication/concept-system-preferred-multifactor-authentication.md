@@ -1,5 +1,5 @@
 ---
-title: System-preferred multifactor authentication (MFA) - Azure Active Directory
+title: System-preferred multifactor authentication (MFA)
 description: Learn how to use system-preferred multifactor authentication
 ms.service: active-directory
 ms.subservice: authentication

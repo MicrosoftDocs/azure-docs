@@ -1,13 +1,14 @@
 ---
-title: Get started with Azure IoT Hub module identity & module twin (C)
-description: Learn how to create module identity and update module twin using IoT SDKs for C.
+title: Get started with module identity and module twins (C)
+titleSuffix: Azure IoT Hub
+description: Learn how to create module identities and update module twins using the Azure IoT Hub device SDK for C.
 author: kgremban
-ms.service: iot-hub
-services: iot-hub
-ms.devlang: c
-ms.topic: conceptual
-ms.date: 06/25/2018
+
 ms.author: kgremban
+ms.service: iot-hub
+ms.devlang: c
+ms.topic: how-to
+ms.date: 06/25/2018
 ms.custom:  [amqp, mqtt]
 ---
 
@@ -179,12 +180,12 @@ This app creates a device identity with ID **myFirstDevice** and a module identi
 
 In this section, you create a C app on your simulated device that updates the module twin reported properties.
 
-1. **Get your module connection string** -- now if you sign in to [Azure portal](https://portal.azure.com). Navigate to your IoT Hub and click IoT Devices. Find myFirstDevice, open it and you see myFirstModule was successfully created. Copy the module connection string. It is needed in the next step.
+1. Get your module connection string. In the [Azure portal](https://portal.azure.com), navigate to your IoT hub and select **IoT devices**. Find myFirstDevice, open it and you see myFirstModule was successfully created. Copy the module connection string. It is needed in the next step.
 
-    ![Azure portal module detail](./media/iot-hub-c-c-module-twin-getstarted/module-detail.png)
+   ![Azure portal module detail](./media/module-twins-c/module-detail.png)
 
 2. **Create UpdateModuleTwinReportedProperties app**
-   
+
    Add the following to your C file:
 
     ```C
@@ -245,7 +246,7 @@ This code sample shows you how to retrieve the module twin and update reported p
 
 ## Get updates on the device side
 
-In addition to the above code, you can add below code block to get the twin update message on your device.
+In addition to the previous code, you can add the following code block to get the twin update message on your device:
 
 ```C
 #include <stdio.h>
