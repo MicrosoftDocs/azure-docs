@@ -1,9 +1,10 @@
 ---
 title: 'Tutorial: Send data to Azure Monitor Logs by using a REST API (Azure portal)'
 description: Tutorial on how to send data to a Log Analytics workspace in Azure Monitor by using a REST API (Azure portal version).
+author: bwren
+ms.author: bwren
 ms.topic: tutorial
 ms.date: 07/15/2022
-ms.author: guywild
 ms.reviewer: ivkhrul 
 ms.service: azure-monitor
 ---
