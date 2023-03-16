@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 01/02/2023
+ms.date: 03/16/2023
 ms.author: jomondi
 ms.reviewer: ludwignick
 ms.custom: seoapril2019, contperf-fy22q2
@@ -33,7 +33,8 @@ For federated users with cloud-enabled credentials, such as SMS sign-in or FIDO 
 To configure HRD policy for an application in Azure AD, you need:
 
 - An Azure account with an active subscription. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
+- One of the following roles: Global Administrator, or owner of the service principal.
+
 ::: zone pivot="powershell-hrd"
 - The latest Azure AD PowerShell cmdlet preview.
 ::: zone-end
@@ -229,32 +230,33 @@ Set the HRD policy using Microsoft Graph. See [homeRealmDiscoveryPolicy](/graph/
 
 From the Microsoft Graph explorer window:
 
-1. Grant consent to the *Policy.ReadWrite.ApplicationConfiguration* permission.
-1. Use the URL https://graph.microsoft.com/v1.0/policies/homeRealmDiscoveryPolicies
-1. POST the new policy to this URL, or PATCH to https://graph.microsoft.com/v1.0/policies/homeRealmDiscoveryPolicies/{policyID} if overwriting an existing one.
-1. POST or PATCH contents:
-
-    ```json
-    {
-        "definition": [
-        "{\"HomeRealmDiscoveryPolicy\":
-        {\"AccelerateToFederatedDomain\":true,
-        \"PreferredDomain\":\"federated.example.edu\",
-        \"AlternateIdLogin\":{\"Enabled\":true}}}"
-    ],
-        "displayName": "Home Realm Discovery auto acceleration",
-        "isOrganizationDefault": true
-    }
-    ```
-1. To see your new policy and get its ObjectID, run the following query:  
+1. Sign in with one of the roles listed in the prerequisites section.
+1. Grant consent to the `Policy.ReadWrite.ApplicationConfiguration` permission.
+1. Use the [Home realm discovery policy](/graph/api/resources/homerealmdiscoverypolicy?view=graph-rest-1.0) to create a new policy.
+1. POST the new policy, or PATCH to update an existing policy.
 
     ```http
-    GET https://graph.microsoft.com/v1.0/policies/homeRealmDiscoveryPolicies
+    PATCH /policies/homeRealmDiscoveryPolicies/{id}
+        {
+            "definition": [
+            "{\"HomeRealmDiscoveryPolicy\":
+            {\"AccelerateToFederatedDomain\":true,
+            \"PreferredDomain\":\"federated.example.edu\",
+            \"AlternateIdLogin\":{\"Enabled\":true}}}"
+        ],
+            "displayName": "Home Realm Discovery auto acceleration",
+            "isOrganizationDefault": true
+        }
+    ```
+1. To view your new policy, run the following query:  
+
+    ```http
+    GET /policies/homeRealmDiscoveryPolicies/{id}
     ```	
 1. To  delete the HRD policy you created, run the query:
 
     ```http
-    DELETE https://graph.microsoft.com/v1.0/policies/homeRealmDiscoveryPolicies/{policy objectID}
+    DELETE /policies/homeRealmDiscoveryPolicies/{id}
     ```	
 ::: zone-end
 

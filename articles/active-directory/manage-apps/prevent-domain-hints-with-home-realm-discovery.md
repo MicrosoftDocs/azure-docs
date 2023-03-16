@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 02/09/2022
+ms.date: 03/16/2023
 ms.author: jomondi
 ms.reviewer: ludwignick
 zone_pivot_groups: home-realm-discovery
@@ -51,7 +51,7 @@ Once a user has entered a username at the login page, they can use their managed
 To disable auto-acceleration sign-in for an application in Azure AD, you need:
 
 - An Azure account with an active subscription. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
+- One of the following roles: Global Administrator, or owner of the service principal.
 ::: zone pivot="powershell-hrd"
 - The latest Azure AD PowerShell cmdlet preview.
 ::: zone-end
@@ -64,7 +64,9 @@ Admins of federated domains should set up this section of the HRD policy in a fo
 
 ::: zone pivot="graph-hrd"
 
-```json
+```http
+PATCH /policies/homeRealmDiscoveryPolicies/{id}
+
 "DomainHintPolicy": { 
     "IgnoreDomainHintForDomains": [ "testDomain.com" ], 
     "RespectDomainHintForDomains": [], 
@@ -77,7 +79,10 @@ Admins of federated domains should set up this section of the HRD policy in a fo
 ::: zone pivot="powershell-hrd"
 
 ```powershell 
-New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"DomainHintPolicy`": { `"IgnoreDomainHintForDomains`": [ `"testDomain.com`" ], `"RespectDomainHintForDomains`": [], `"IgnoreDomainHintForApps`": [], `"RespectDomainHintForApps`": [] } } }") -DisplayName BasicBlockAccelerationPolicy -Type HomeRealmDiscoveryPolicy
+New-AzureADPolicy 
+    -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"DomainHintPolicy`": { `"IgnoreDomainHintForDomains`": [ `"testDomain.com`" ], `"RespectDomainHintForDomains`": [], `"IgnoreDomainHintForApps`": [], `"RespectDomainHintForApps`": [] } } }") 
+    -DisplayName BasicBlockAccelerationPolicy 
+    -Type HomeRealmDiscoveryPolicy
 ```
 ::: zone-end
 
@@ -85,7 +90,9 @@ New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"DomainHintPoli
 
 ::: zone pivot="graph-hrd"
 
-```json
+```http
+PATCH /policies/homeRealmDiscoveryPolicies/{id}
+
 "DomainHintPolicy": { 
     "IgnoreDomainHintForDomains": [ "testDomain.com" ], 
     "RespectDomainHintForDomains": [], 
@@ -98,15 +105,21 @@ New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"DomainHintPoli
 ::: zone pivot="powershell-hrd"
 
 ```powershell
-New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"DomainHintPolicy`": { `"IgnoreDomainHintForDomains`": [ `"testDomain.com`" ], `"RespectDomainHintForDomains`": [], `"IgnoreDomainHintForApps`": [], `"RespectDomainHintForApps`": ["app1-clientID-Guid", "app2-clientID-Guid] } } }") -DisplayName BasicBlockAccelerationPolicy -Type HomeRealmDiscoveryPolicy
+New-AzureADPolicy 
+    -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"DomainHintPolicy`": { `"IgnoreDomainHintForDomains`": [ `"testDomain.com`" ], `"RespectDomainHintForDomains`": [], `"IgnoreDomainHintForApps`": [], `"RespectDomainHintForApps`": ["app1-clientID-Guid", "app2-clientID-Guid"] } } }") 
+    -DisplayName BasicBlockAccelerationPolicy 
+    -Type HomeRealmDiscoveryPolicy
 ```
+
 ::: zone-end
 
 3. Continue expanding rollout of the policy to new domains, collecting more feedback.
 
 ::: zone pivot="graph-hrd"
 
-```json
+```http
+PATCH /policies/homeRealmDiscoveryPolicies/{id}
+
 "DomainHintPolicy": { 
     "IgnoreDomainHintForDomains": [ "testDomain.com", "otherDomain.com", "anotherDomain.com"], 
     "RespectDomainHintForDomains": [], 
@@ -119,7 +132,10 @@ New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"DomainHintPoli
 ::: zone pivot="powershell-hrd"
 
 ```powershell
-New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"DomainHintPolicy`": { `"IgnoreDomainHintForDomains`": [ `"testDomain.com`", "otherDomain.com", "anotherDomain.com"], `"RespectDomainHintForDomains`": [], `"IgnoreDomainHintForApps`": [], `"RespectDomainHintForApps`": ["app1-clientID-Guid", "app2-clientID-Guid] } } }") -DisplayName BasicBlockAccelerationPolicy -Type HomeRealmDiscoveryPolicy
+New-AzureADPolicy 
+    -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"DomainHintPolicy`": { `"IgnoreDomainHintForDomains`": [ `"testDomain.com`", "otherDomain.com", "anotherDomain.com"], `"RespectDomainHintForDomains`": [], `"IgnoreDomainHintForApps`": [], `"RespectDomainHintForApps`": ["app1-clientID-Guid", "app2-clientID-Guid"] } } }") 
+    -DisplayName BasicBlockAccelerationPolicy 
+    -Type HomeRealmDiscoveryPolicy
 ```
 
 ::: zone-end
@@ -128,7 +144,9 @@ New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"DomainHintPoli
 
 ::: zone pivot="graph-hrd"
 
-```json
+```http
+PATCH /policies/homeRealmDiscoveryPolicies/{id}
+
 "DomainHintPolicy": { 
     "IgnoreDomainHintForDomains": [ "*" ], 
     "RespectDomainHintForDomains": ["guestHandlingDomain.com"], 
@@ -142,7 +160,10 @@ New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"DomainHintPoli
 ::: zone pivot="powershell-hrd"
 
 ```powershell
-New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"DomainHintPolicy`": { `"IgnoreDomainHintForDomains`": [ `"*`" ], `"RespectDomainHintForDomains`": [guestHandlingDomain.com], `"IgnoreDomainHintForApps`": [], `"RespectDomainHintForApps`": ["app1-clientID-Guid", "app2-clientID-Guid] } } }") -DisplayName BasicBlockAccelerationPolicy -Type HomeRealmDiscoveryPolicy
+New-AzureADPolicy 
+    -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"DomainHintPolicy`": { `"IgnoreDomainHintForDomains`": [ `"*`" ], `"RespectDomainHintForDomains`": [guestHandlingDomain.com], `"IgnoreDomainHintForApps`": [], `"RespectDomainHintForApps`": ["app1-clientID-Guid", "app2-clientID-Guid"] } } }") 
+    -DisplayName BasicBlockAccelerationPolicy 
+    -Type HomeRealmDiscoveryPolicy
 ```
 
 ::: zone-end
@@ -153,23 +174,23 @@ After step 4 is complete all users, except those in `guestHandlingDomain.com`, c
 
 ## Configuring policy through Graph Explorer
 
-Set the [Home Realm Discovery policy](/graph/api/resources/homeRealmDiscoveryPolicy) as usual, using Microsoft Graph.  
+Manage the [Home Realm Discovery policy](/graph/api/resources/homeRealmDiscoveryPolicy using [Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer).  
 
-1. Grant the Policy.ReadWrite.ApplicationConfiguration permission in [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).  
-1. Use the URL `https://graph.microsoft.com/v1.0/policies/homeRealmDiscoveryPolicies`
-1. POST the new policy to this URL, or PATCH to `/policies/homerealmdiscoveryPolicies/{policyID}` if overwriting an existing one.
+1. Sign in to Microsoft Graph explorer with one of the roles listed in the prerequisite section.
+1. Grant the `Policy.ReadWrite.ApplicationConfiguration` permission.
+1. Use the [Home realm discovery policy](/graph/api/resources/homerealmdiscoverypolicy?view=graph-rest-1.0) to create a new policy.
+1. POST the new policy, or PATCH to update an existing policy.
 
-POST or PATCH contents:
-
-```json
-{
-    "displayName":"Home Realm Discovery Domain Hint Exclusion Policy",
-    "definition":[
-        "{\"HomeRealmDiscoveryPolicy\" : {\"DomainHintPolicy\": { \"IgnoreDomainHintForDomains\": [ \"Contoso.com\" ], \"RespectDomainHintForDomains\": [], \"IgnoreDomainHintForApps\": [\"sample-guid-483c-9dea-7de4b5d0a54a\"], \"RespectDomainHintForApps\": [] } } }"
-    ],
-    "isOrganizationDefault":true
-}
-```
+    ```http
+    PATCH /policies/homeRealmDiscoveryPolicies/{id}
+    {
+        "displayName":"Home Realm Discovery Domain Hint Exclusion Policy",
+        "definition":[
+            "{\"HomeRealmDiscoveryPolicy\" : {\"DomainHintPolicy\": { \"IgnoreDomainHintForDomains\": [\"Contoso.com\"], \"RespectDomainHintForDomains\": [], \"IgnoreDomainHintForApps\": [\"sample-guid-483c-9dea-7de4b5d0a54a\"], \"RespectDomainHintForApps\": [] } } }"
+        ],
+        "isOrganizationDefault":true
+    }
+    ```
 
 Be sure to use slashes to escape the `Definition` JSON section when using Graph.  
 
