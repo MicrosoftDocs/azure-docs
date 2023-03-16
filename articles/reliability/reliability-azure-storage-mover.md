@@ -42,10 +42,6 @@ Any migration target storage account may require its own recovery steps. This re
 
 If a local storage was chosen in lieu of redundancy options, you may need to create a new storage account for use in migrations during the outage.
 
-### SLA improvements
-
-There are no increased SLAs for Azure Storage Mover.
-
 ### Zone down experience
 
 During a zone-wide outage, no action is required during zone recovery. Azure Storage Mover is designed to self-heal and rebalance itself to take advantage of the healthy zone automatically.
