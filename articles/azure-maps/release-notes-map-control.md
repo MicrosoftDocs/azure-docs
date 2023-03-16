@@ -182,10 +182,6 @@ This update is the first preview of the upcoming 3.0.0 release. The underlying [
 
 - Support dynamically updating mapConfiguration via `map.setServiceOptions({ mapConfiguration: 'MAP_CONFIG' })` 
 
-#### Changes (2.2.5)
-
-- Fallback to support absolute/relative-delay traffic flows in Bing-flighted styles
-
 ### [2.2.4]
 
 #### Bug fixes (2.2.4)
