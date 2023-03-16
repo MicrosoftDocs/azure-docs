@@ -102,7 +102,7 @@ In this article, you learn how to:
     $dns_zone_name=$(terraform output -raw dns_zone_name)
     ```
 
-1. Run [Get-AzApiManagement](/powershell/module/az.apimanagement/get-azapimanagement) to display information about the new service.
+1. Run [Get-AzDnsZone](/powershell/module/az.dns/get-azdnszone) to display information about the new service.
 
     ```azurepowershell
     Get-AzDnsZone -ResourceGroupName $resource_group_name `
