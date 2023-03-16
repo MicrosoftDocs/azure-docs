@@ -44,7 +44,7 @@ The table below indicates the estimated downtime for each Microsoft SQL Server t
 |:---|:-----|:-----|
 | **Standalone instance** | LOW | Migration will be done using vMotion, the DB will be available during migration time, but it isn't recommended to commit any critical data during it. |
 | **Always-On Availability Group** | LOW | The primary replica will always be available during the migration of the first secondary replica and the secondary replica will become the primary after the initial failover to Azure. |
-| **Failover Cluster Instance** | HIGH | All nodes of the cluster will be shut down and migrated using VMware HCX Cold Migration. Downtime duration will depend upon database size and private network speed to Azure cloud. |
+| **Failover Cluster Instance** | HIGH | All nodes of the cluster will be shut down and migrated using VMware HCX Cold Migration. Downtime duration depends upon database size and private network speed to Azure cloud. |
 
 ## Migrate Microsoft SQL Server standalone
 
@@ -59,7 +59,7 @@ The table below indicates the estimated downtime for each Microsoft SQL Server t
    a. In **Extended Options** select **Migrate Custom Attributes**.
    a. Verify that on-premises network segments have the correct remote stretched segment in Azure VMware Solution.
    a. Select **Validate** and ensure that all checks are completed with pass status. 
-   a. Click **Go** and the migration will initiate. 
+   a. Select **Go** and the migration will start. 
 1. After the migration has completed, access the virtual machine using VMware Remote Console in the vSphere Client.
    a. Verify the network configuration and check connectivity both with on-premises and Azure VMware Solution resources.
    a. Using SQL Server Management Studio verify you can access the database.  
