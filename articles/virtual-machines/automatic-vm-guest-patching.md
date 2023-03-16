@@ -94,7 +94,6 @@ As a new rollout is triggered every month, a VM will receive at least one patch 
 | microsoftcblmariner  | cbl-mariner | 1-gen2 |
 | microsoftcblmariner  | cbl-mariner | cbl-mariner-2 |
 | microsoftcblmariner  | cbl-mariner | cbl-mariner-2-gen2 |
-| microsoft-aks  | aks | aks-engine-ubuntu-1804-202112 |
 | Redhat  | RHEL | 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7_9, 7-RAW, 7-LVM |
 | Redhat  | RHEL | 8, 8.1, 8.2, 82gen2, 8_3, 8_4, 8_5, 8-LVM |
 | Redhat  | RHEL-RAW | 8-raw |
