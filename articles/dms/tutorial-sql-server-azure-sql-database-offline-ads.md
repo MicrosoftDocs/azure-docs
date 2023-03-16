@@ -1,7 +1,7 @@
 ---
-title: "Tutorial: Migrate SQL Server to Azure SQL Database (preview) offline in Azure Data Studio"
+title: "Tutorial: Migrate SQL Server to Azure SQL Database offline in Azure Data Studio"
 titleSuffix: Azure Database Migration Service
-description: Learn how to migrate on-premises SQL Server to Azure SQL Database (preview) offline by using Azure Data Studio and Azure Database Migration Service.
+description: Learn how to migrate on-premises SQL Server to Azure SQL Database offline by using Azure Data Studio and Azure Database Migration Service.
 author: croblesm
 ms.author: roblescarlos
 ms.date: 01/12/2023
@@ -10,9 +10,9 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019
 ---
 
-# Tutorial: Migrate SQL Server to Azure SQL Database (preview) offline in Azure Data Studio
+# Tutorial: Migrate SQL Server to Azure SQL Database offline in Azure Data Studio
 
-You can use Azure Database Migration Service and the Azure SQL Migration extension for Azure Data Studio to migrate databases from an on-premises instance of SQL Server to Azure SQL Database (preview) offline and with minimal downtime.
+You can use Azure Database Migration Service and the Azure SQL Migration extension for Azure Data Studio to migrate databases from an on-premises instance of SQL Server to Azure SQL Database offline and with minimal downtime.
 
 In this tutorial, learn how to migrate the example AdventureWorks2019 database from an on-premises instance of SQL Server to an instance of Azure SQL Database by using the Azure SQL Migration extension for Azure Data Studio. This tutorial uses offline migration mode, which considers an acceptable downtime during the migration process.
 
@@ -85,7 +85,7 @@ To open the Migrate to Azure SQL wizard:
 
 1. In **Step 2: Assessment results and recommendations**, complete the following steps:
 
-   1. In **Choose your Azure SQL target**, select **Azure SQL Database (PREVIEW)**.
+   1. In **Choose your Azure SQL target**, select **Azure SQL Database**.
 
       :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/assessment-target-selection.png" alt-text="Screenshot that shows selecting the Azure SQL Database target.":::
 
@@ -111,7 +111,7 @@ To open the Migrate to Azure SQL wizard:
 
       :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/get-azure-recommendation-collected.png" alt-text="Screenshot that shows performance data collected.":::
 
-   1. In the selected **Azure SQL Database (PREVIEW)** target, select **View details** to open the detailed SKU recommendation report:
+   1. In the selected **Azure SQL Database** target, select **View details** to open the detailed SKU recommendation report:
 
       :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/get-azure-recommendation-view-details.png" alt-text="Screenshot that shows the View details link for the target database recommendations.":::
 

@@ -2,9 +2,25 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 11/29/2022
+ms.date: 03/16/2023
 ms.author: eur
 ---
+
+### 2023-March release
+	
+Add support for the latest model versions:
+- Custom speech-to-text 3.12.0
+- Speech-to-text 3.12.0
+- Speech language identification 1.11.0
+- Neural text-to-speech 2.11.0
+
+Fix vulnerability issues
+
+Fix the `tr-TR` capitalization issue
+
+Upgrade the speech-to-text `en-US` display models
+
+Add support for prebuilt neural Neural text-to-speech locale voice `ar-AE-HamdanNeural`
 
 ### 2023-February release
 
@@ -13,7 +29,7 @@ ms.author: eur
 Add support for latest model versions:
 - Custom speech-to-text 3.11.0
 - Speech-to-text 3.11.0
-- Text-to-speech 2.10.0
+- Neural text-to-speech 2.10.0
 
 Fix vulnerability issues
 
@@ -32,7 +48,7 @@ Upgrade Hebrew and Turkish display models
 Add support for latest model versions:
 - Custom speech-to-text 3.10.0
 - Speech-to-text 3.10.0
-- Text-to-speech 2.9.0
+- Neural text-to-speech 2.9.0
 
 Fix Hypothesis mode issue
 
@@ -54,7 +70,7 @@ Add support for these locale-voices:
 Add support for latest model versions:
 - Custom speech-to-text 3.9.0
 - Speech-to-text 3.9.0
-- Text-to-speech 2.8.0
+- Neural text-to-speech 2.8.0
 
 Fix ipv4/ipv6 issue
 
@@ -67,7 +83,7 @@ Fix vulnerability issue
 Add support for latest model versions:
 - Custom speech-to-text 3.8.0
 - Speech-to-text 3.8.0
-- Text-to-speech 2.7.0
+- Neural text-to-speech 2.7.0
 
 ### 2022-October release
 
@@ -76,7 +92,7 @@ Add support for latest model versions:
 Add support for latest model versions:
 - Custom speech-to-text 3.7.0
 - Speech-to-text 3.7.0
-- Text-to-speech 2.6.0
+- Neural text-to-speech 2.6.0
 
 ### 2022-September release
 
@@ -113,7 +129,7 @@ Regular monthly updates including security upgrades and vulnerability fixes.
 
 Regular monthly updates including security upgrades and vulnerability fixes.
 
-#### Neural text-to-speech v2.5.0
+#### Neural Neural text-to-speech v2.5.0
 
 Add support for these [prebuilt neural voices](../../language-support.md?tabs=tts):
    * `az-az-babekneural`
@@ -150,7 +166,7 @@ Add support for using containers in [disconnected environments](../../../contain
 #### Speech-to-text Container v2.18.0
 Regular monthly updates including security upgrades and vulnerability fixes.
 
-#### Neural-text-to-speech Container v1.12.0
+#### Neural-Neural text-to-speech Container v1.12.0
 Add support for these prebuilt neural voices: `am-et-amehaneural`, `am-et-mekdesneural`, `so-so-muuseneural` and `so-so-ubaxneural`.
 
 Regular monthly updates including security upgrades and vulnerability fixes.

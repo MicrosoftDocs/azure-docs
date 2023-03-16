@@ -41,7 +41,7 @@ After each organization has completed these steps, Azure AD B2B collaboration be
 - **Obtain any required object IDs or app IDs.** If you want to apply access settings to specific users, groups, or applications in the partner organization, you'll need to contact the organization for information before configuring your settings. Obtain their user object IDs, group object IDs, or application IDs (*client app IDs* or *resource app IDs*) so you can target your settings correctly.
 
 > [!NOTE]
-> Users from another Microsoft cloud must be invited using their user principal name (UPN). [Email as sign-in](/azure/active-directory/authentication/howto-authentication-use-email-signin#b2b-guest-user-sign-in-with-an-email-address) is not currently supported when collaborating with users from another Microsoft cloud.
+> Users from another Microsoft cloud must be invited using their user principal name (UPN). [Email as sign-in](../authentication/howto-authentication-use-email-signin.md#b2b-guest-user-sign-in-with-an-email-address) is not currently supported when collaborating with users from another Microsoft cloud.
 
 ## Enable the cloud in your Microsoft cloud settings
 
