@@ -204,7 +204,7 @@ az spring app create \
 
 ### Step 5 - Bind Service Bus to Azure Spring Apps
 
-Now both the Service Bus and the app in Azure Spring Apps have been created. But the app cannot connect to the Service Bus. This section provides the steps to enable the app to connect to the Service Bus.
+Now both the Service Bus and the app in Azure Spring Apps have been created. But the app can't connect to the Service Bus. This section provides the steps to enable the app to connect to the Service Bus.
 
 #### Step 5.1 - Get a connection string
 
@@ -245,7 +245,7 @@ az spring app deploy \
 To check whether the event-driven app works well, validate it by sending a message to the `lower-case` queue and check whether there's a message in the `upper-case` queue.
 
 1. Send a message to `lower-case` queue with Service Bus Explorer. For more information, see the [Send a message to a queue or topic](../service-bus-messaging/explorer.md#send-a-message-to-a-queue-or-topic) section of [Use Service Bus Explorer to run data operations on Service Bus](../service-bus-messaging/explorer.md).
-1. Check whether there is a new message sent to the `upper-case` queue. For more information, see the [Peek a message](../service-bus-messaging/explorer.md#peek-a-message) section of [Use Service Bus Explorer to run data operations on Service Bus](../service-bus-messaging/explorer.md).
+1. Check whether there's a new message sent to the `upper-case` queue. For more information, see the [Peek a message](../service-bus-messaging/explorer.md#peek-a-message) section of [Use Service Bus Explorer to run data operations on Service Bus](../service-bus-messaging/explorer.md).
 
 ## Next steps
 
