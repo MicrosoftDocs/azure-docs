@@ -33,7 +33,7 @@ This section provides detailed procedure on how you can enable change tracking o
    :::image type="content" source="media/enable-vms-monitoring-agent/select-vm-portal-inline.png" alt-text="Screenshot showing how to select virtual machine from the portal." lightbox="media/enable-vms-monitoring-agent/select-vm-portal-expanded.png":::
 
 1. Select the virtual machine for which you want to enable Change Tracking.
-1. In the search,, enter **Change tracking** to view the change tracking and inventory page.
+1. In the search, enter **Change tracking** to view the change tracking and inventory page.
 
    :::image type="content" source="media/enable-vms-monitoring-agent/select-change-tracking-vm-inline.png" alt-text="Screenshot showing to select change tracking option for a single virtual machine from the portal." lightbox="media/enable-vms-monitoring-agent/select-change-tracking-vm-expanded.png":::
 
