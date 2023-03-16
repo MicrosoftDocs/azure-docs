@@ -27,7 +27,7 @@ Emails tasks allow for the customization of the following aspects:
 > [!NOTE]
 > To avoid additional disclaimers, you should opt in to using customized domain and organizational branding.
 
-For more information on these customizable parameters, see: [Common email-specific task parameters](lifecycle-workflow-tasks.md#common-email-specific-task-parameters).
+For more information on these customizable parameters, see: [Common email task parameters](lifecycle-workflow-tasks.md#common-email-task-parameters).
 
 ## Prerequisites
 
