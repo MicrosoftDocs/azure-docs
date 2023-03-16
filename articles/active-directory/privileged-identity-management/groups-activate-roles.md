@@ -1,5 +1,5 @@
 ---
-title: Activate your group membership or ownership in Privileged Identity Management - Azure Active Directory
+title: Activate your group membership or ownership in Privileged Identity Management
 description: Learn how to activate your group membership or ownership in Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
