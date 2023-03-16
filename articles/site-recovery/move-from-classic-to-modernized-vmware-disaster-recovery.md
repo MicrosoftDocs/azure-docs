@@ -20,7 +20,7 @@ This article provides information about the architecture, necessary infrastructu
 The components involved in the migration of replicated items of a VMware machine are summarized in the following table:  
 
 |Component|Requirement|
-|---------|-------------|
+|---------|-----------|
 |Replicated items in a classic Recovery Services vault| One or more replicated items that are protected using the classic architecture and a healthy configuration server.<br></br>The replicated item should be in a noncritical state and must be replicated from on-premises to Azure with the mobility agent running on version 9.50 or later.|
 |Configuration server used by the replicated items|The configuration server, used by the replicated items, should be in a noncritical state and its components should be upgraded to the latest version (9.50 or later).|  
 |A Recovery Services vault with modernized experience|A Recovery Services vault with modernized experience.|
@@ -107,9 +107,9 @@ As a rule, you should set up the same number of replication appliances, as the n
 
 ## Pricing 
 
-The Site Recovery license fee will still be charged on the classic vault until the retention time for all recovery points is over. Once all recovery points have been cleared, the pricing will also stop for the classic vault. After the retention period for all recovery points has ended, the replicated item will automatically be deleted through a system-initiated purge replication process.  
+Site Recovery license fee will continue to be charged on the classic vault till retention period of all recovery points has expired. Once all recovery points have been cleaned up, the pricing will also stop on the classic vault. Once the retention period of all the recovery points has expired, the replicated item will be automatically removed via a system triggered purge replication operation.  
 
-Site Recovery will only start charging a license fee for replicated items in the modernized vault once the first recovery point has been created and the older vault is cleaned up. If there are any trial days remaining on the classic vault, that information is transferred to the updated vault. Pricing will start on the updated vault after the trial period has come to an end.
+Site Recovery will start charging license fee on replicated items in the modernized vault, only after the first recovery point has been generated and older vault has been cleaned up. If there are any free trial usage days pending on the classic vault, then the same information will be passed on to the modernized vault. Pricing will start on the modernized vault only after this trial period has passed. 
 
 >[!Note]
 > At one point in time, pricing will only happen using one vault, either the classic or modernized vault.  
@@ -138,11 +138,11 @@ It is important to note that the classic architecture for disaster recovery will
 
 ### What machines should be migrated to the modernized architecture?
 
-All VMware machines that are replicated through a configuration server should be transitioned to the modernized architecture. Currently, support for VMware machines has been made available.  
+All VMware machines, which are replicated using a configuration server, should be migrated to the modernized architecture. As of now, we have released support for VMware machines. 
 
 ### Where should my modernized Recovery Services vault be created?
 
-The modernized Recovery Services vault must be located in the same region and tenant as the classic vault, and can belong to any subscription or resource group.
+The modernized Recovery Services vault should be present in the same region and tenant as the classic vault. It can be a part of any subscription or resource group.
 
 ### Will my replication continue while the migration is happening?
 
@@ -156,7 +156,7 @@ Migration operation will only be marked complete once the first recovery point h
 
 You can only perform failover and disable replication from your classic vault after the migration. The failover operation is possible via the classic vault until the recovery points are available in the older vault.
 
-For example, if the retention time for a replicated item is 72 hours (three days), the latest recovery point on the classic vault will continue to be available for 72 hours (three days) following a successful migration. After that time duration, Azure Site Recovery will initiate a purge replication operation on the replicated item and carry out the cleaning of all associated storage and billing-causing items.  
+For example, if the retention period for a replicated item is 72 hours (three days), the latest recovery point on the classic vault will continue to be available for 72 hours (three days), after a successful post migration. After the stipulated time, Azure Site Recovery will trigger a purge replication operation on the replicated item and perform the cleanup of all associated storage and billing-causing items.   
 
 ### What if a disaster strikes my machine while the migration operation is in progress?
 
@@ -171,7 +171,7 @@ You can migrate up to 10 machines via the portal, in one go.  
 
 ### Should I recreate the virtual networks, storage accounts, and replication policy to be used in the new vault?
 
-No, the same resources, that were used previously in the classic vault is used by default in the modernized vault. If you want to change the resources, you can do so from the **Compute** and **Network** blade of your replicated item. It's important to ensure that the new resources have the necessary access.
+No, the same resources, which were being used previously will be defaulted to in the modernized vault also. You can always change those from the **Compute** and **Network** blade of your replicated item. You must ensure that the resources continue to have the required access.
 
 ### How will my replication policies be moved to the modernized vault?
 
@@ -181,7 +181,7 @@ The replication policy created in the modernized vault will have its name change
 
 ### Can I edit my replication policy during migration or post migration in the classic vault?
 
-If the replica of a replication policy has already been created in the modernized vault, changes made to the original policy in the classic vault won't affect the replica in the modernized vault.  
+If the replica of a replication policy has already been created in the modernized vault, then any changes to the policy in the classic vault won't be propagated to the modernized vault. 
 
 So, if there are 10 replicated items, that are replicated using a policy and you decide to move 5 of those to the modernized experience, then a copy of the policy is created before migration starts. Now, before performing migration of the remaining five items, if any changes are made in the policy in classic vault, the policy from modernized vault won't be updated. You'll need to make those configuration changes in the modernized vault too.  
 
