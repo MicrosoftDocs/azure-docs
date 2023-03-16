@@ -49,8 +49,12 @@ Use the following steps to create a large CPU and memory application using the A
 The following command creates an application with the CPU set to eight core processors and memory set to 32 gigabytes.
 
 ```azurecli
-az spring app create -g <resource-group-name> -s <service-name> -n <app-name> \
-    --cpu 8 --memory 32Gi  
+az spring app create \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-service-instance-name> \
+    --name <Spring-app-name> \
+    --cpu 8 \
+    --memory 32Gi 
 ```
 
 ---
@@ -74,15 +78,23 @@ Use the following steps to scale up or down a large CPU and memory application.
 The following command scales up an app to have a high CPU and memory values.
 
 ```azurecli
-az spring app scale -g <resource-group-name> -s <service-name> -n <app-name> \
-    --cpu 8 --memory 32Gi  
+az spring app scale \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-service-instance-name> \
+    --name <Spring-app-name> \
+    --cpu 8 \
+    --memory 32Gi 
 ```
 
 The following command scales down an app to have a low CPU and memory values.
 
 ```azurecli
-az spring app scale -g <resource-group-name> -s <service-name> -n <app-name> \
-    --cpu 1 --memory 2Gi  
+az spring app scale \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-service-instance-name> \
+    --name <Spring-app-name> \
+    --cpu 1 \
+    --memory 2Gi 
 ```
 
 ---
