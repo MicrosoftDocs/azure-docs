@@ -82,4 +82,15 @@ landingContent:
         links:
           - text: Block network traffic with security admin rules
             url: how-to-block-network-traffic-portal.md
-
+  
+  # Card
+  - title: Architecture
+    linkLists:
+      - linkListType: overview
+        links:
+        - text: Networking architecture design
+          url: /azure/architecture/guide/networking/networking-start-here
+      - linkListType: learn
+        links:
+        - text: Hub-spoke network topology in Azure
+          url: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke
