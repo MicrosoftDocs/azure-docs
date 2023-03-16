@@ -6,7 +6,7 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/15/2023
+ms.date: 03/16/2023
 ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: blobs
@@ -58,7 +58,7 @@ This section lists the supported Azure Blob Storage actions and suboperations yo
 > | **Resource attributes** | [Account name](#account-name)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name) |
 > | **Request attributes** | [Blob prefix](#blob-prefix) |
 > | **Principal attributes support** | True |
-> | **Environment attributes** | [UtcNow](../../role-based-access-control/conditions-format.md#environment-attributes) |
+> | **Environment attributes** | [UTC now](#utc-now) |
 > | **Examples** | `!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blob.List'})`<br/>[Example: Read or list blobs in named containers with a path](storage-auth-abac-examples.md#example-read-or-list-blobs-in-named-containers-with-a-path) |
 
 ### Read a blob
@@ -73,7 +73,7 @@ This section lists the supported Azure Blob Storage actions and suboperations yo
 > | **Resource attributes** | [Account name](#account-name)<br/>[Is Current Version](#is-current-version)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path)<br/>[Encryption scope name](#encryption-scope-name) |
 > | **Request attributes** | [Version ID](#version-id)<br/>[Snapshot](#snapshot) |
 > | **Principal attributes support** | True |
-> | **Environment attributes** | [UtcNow](../../role-based-access-control/conditions-format.md#environment-attributes) |
+> | **Environment attributes** | [UTC now](#utc-now) |
 > | **Examples** | `!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'})`<br/>[Example: Read blobs in named containers with a path](storage-auth-abac-examples.md#example-read-blobs-in-named-containers-with-a-path) |
 
 ### Read content from a blob with tag conditions
@@ -96,7 +96,7 @@ If you are authoring your own condition where you want to restrict read access b
 > | **Resource attributes** | [Account name](#account-name)<br/>[Is Current Version](#is-current-version)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path)<br/>[Blob index tags [Values in key]](#blob-index-tags-values-in-key)<br/>[Blob index tags [Keys]](#blob-index-tags-keys) |
 > | **Request attributes** | [Version ID](#version-id)<br/>[Snapshot](#snapshot) |
 > | **Principal attributes support** | True |
-> | **Environment attributes** | [UtcNow](../../role-based-access-control/conditions-format.md#environment-attributes) |
+> | **Environment attributes** | [UTC now](#utc-now) |
 > | **Learn more** | [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md) |
 
 ### Find blobs by tags
@@ -111,7 +111,7 @@ If you are authoring your own condition where you want to restrict read access b
 > | **Resource attributes** | [Account name](#account-name)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled) |
 > | **Request attributes** |  |
 > | **Principal attributes support** | True |
-> | **Environment attributes** | [UtcNow](../../role-based-access-control/conditions-format.md#environment-attributes) |
+> | **Environment attributes** | [UTC now](#utc-now) |
 
 ### Write to a blob
 
@@ -125,7 +125,7 @@ If you are authoring your own condition where you want to restrict read access b
 > | **Resource attributes** | [Account name](#account-name)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path)<br/>[Encryption scope name](#encryption-scope-name) |
 > | **Request attributes** |  |
 > | **Principal attributes support** | True |
-> | **Environment attributes** | [UtcNow](../../role-based-access-control/conditions-format.md#environment-attributes) |
+> | **Environment attributes** | [UTC now](#utc-now) |
 > | **Examples** | `!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'})`<br/>[Example: Read, write, or delete blobs in named containers](storage-auth-abac-examples.md#example-read-write-or-delete-blobs-in-named-containers) |
 
 ### Sets the access tier on a blob
@@ -140,7 +140,7 @@ If you are authoring your own condition where you want to restrict read access b
 > | **Resource attributes** | [Account name](#account-name)<br/>[Is Current Version](#is-current-version)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path)<br/>[Encryption scope name](#encryption-scope-name) |
 > | **Request attributes** | [Version ID](#version-id)<br/>[Snapshot](#snapshot) |
 > | **Principal attributes support** | True |
-> | **Environment attributes** | [UtcNow](../../role-based-access-control/conditions-format.md#environment-attributes) |
+> | **Environment attributes** | [UTC now](#utc-now) |
 > | **Examples** | `!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'} AND SubOperationMatches{'Blob.Write.Tier'})` |
 
 ### Write to a blob with blob index tags
@@ -155,7 +155,7 @@ If you are authoring your own condition where you want to restrict read access b
 > | **Resource attributes** | [Account name](#account-name)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path)<br/>[Encryption scope name](#encryption-scope-name) |
 > | **Request attributes** | [Blob index tags [Values in key]](#blob-index-tags-values-in-key)<br/>[Blob index tags [Keys]](#blob-index-tags-keys) |
 > | **Principal attributes support** | True |
-> | **Environment attributes** | [UtcNow](../../role-based-access-control/conditions-format.md#environment-attributes) |
+> | **Environment attributes** | [UTC now](#utc-now) |
 > | **Examples** | `!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'} AND SubOperationMatches{'Blob.Write.WithTagHeaders'})`<br/>`!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action'} AND SubOperationMatches{'Blob.Write.WithTagHeaders'})`<br/>[Example: New blobs must include a blob index tag](storage-auth-abac-examples.md#example-new-blobs-must-include-a-blob-index-tag) |
 > | **Learn more** | [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md) |
 
@@ -171,7 +171,7 @@ If you are authoring your own condition where you want to restrict read access b
 > | **Resource attributes** | [Account name](#account-name)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path)<br/>[Encryption scope name](#encryption-scope-name) |
 > | **Request attributes** |  |
 > | **Principal attributes support** | True |
-> | **Environment attributes** | [UtcNow](../../role-based-access-control/conditions-format.md#environment-attributes) |
+> | **Environment attributes** | [UTC now](#utc-now) |
 > | **Examples** | `!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action'})`<br/>[Example: Read, write, or delete blobs in named containers](storage-auth-abac-examples.md#example-read-write-or-delete-blobs-in-named-containers) |
 
 ### Write blob index tags
@@ -186,7 +186,7 @@ If you are authoring your own condition where you want to restrict read access b
 > | **Resource attributes** | [Account name](#account-name)<br/>[Is Current Version](#is-current-version)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path)<br/>[Blob index tags [Values in key]](#blob-index-tags-values-in-key)<br/>[Blob index tags [Keys]](#blob-index-tags-keys) |
 > | **Request attributes** | [Blob index tags [Values in key]](#blob-index-tags-values-in-key)<br/>[Blob index tags [Keys]](#blob-index-tags-keys)<br/>[Version ID](#version-id)<br/>[Snapshot](#snapshot) |
 > | **Principal attributes support** | True |
-> | **Environment attributes** | [UtcNow](../../role-based-access-control/conditions-format.md#environment-attributes) |
+> | **Environment attributes** | [UTC now](#utc-now) |
 > | **Examples** | `!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write'})`<br/>[Example: Existing blobs must have blob index tag keys](storage-auth-abac-examples.md#example-existing-blobs-must-have-blob-index-tag-keys) |
 > | **Learn more** | [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md) |
 
@@ -202,7 +202,7 @@ If you are authoring your own condition where you want to restrict read access b
 > | **Resource attributes** | [Account name](#account-name)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path) |
 > | **Request attributes** |  |
 > | **Principal attributes support** | True |
-> | **Environment attributes** | [UtcNow](../../role-based-access-control/conditions-format.md#environment-attributes) |
+> | **Environment attributes** | [UTC now](#utc-now) |
 
 ### Delete a blob
 
@@ -216,7 +216,7 @@ If you are authoring your own condition where you want to restrict read access b
 > | **Resource attributes** | [Account name](#account-name)<br/>[Is Current Version](#is-current-version)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path) |
 > | **Request attributes** | [Version ID](#version-id)<br/>[Snapshot](#snapshot) |
 > | **Principal attributes support** | True |
-> | **Environment attributes** | [UtcNow](../../role-based-access-control/conditions-format.md#environment-attributes) |
+> | **Environment attributes** | [UTC now](#utc-now) |
 > | **Examples** | `!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete'})`<br/>[Example: Read, write, or delete blobs in named containers](storage-auth-abac-examples.md#example-read-write-or-delete-blobs-in-named-containers) |
 
 ### Delete a version of a blob
@@ -231,7 +231,7 @@ If you are authoring your own condition where you want to restrict read access b
 > | **Resource attributes** | [Account name](#account-name)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path) |
 > | **Request attributes** | [Version ID](#version-id) |
 > | **Principal attributes support** | True |
-> | **Environment attributes** | [UtcNow](../../role-based-access-control/conditions-format.md#environment-attributes) |
+> | **Environment attributes** | [UTC now](#utc-now) |
 > | **Examples** | `!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/deleteBlobVersion/action'})`<br/>[Example: Delete old blob versions](storage-auth-abac-examples.md#example-delete-old-blob-versions) |
 
 ### Permanently delete a blob overriding soft-delete
@@ -246,7 +246,7 @@ If you are authoring your own condition where you want to restrict read access b
 > | **Resource attributes** | [Account name](#account-name)<br/>[Is Current Version](#is-current-version)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path) |
 > | **Request attributes** | [Version ID](#version-id)<br/>[Snapshot](#snapshot) |
 > | **Principal attributes support** | True |
-> | **Environment attributes** | [UtcNow](../../role-based-access-control/conditions-format.md#environment-attributes) |
+> | **Environment attributes** | [UTC now](#utc-now) |
 
 ### Modify permissions of a blob
 
@@ -260,7 +260,7 @@ If you are authoring your own condition where you want to restrict read access b
 > | **Resource attributes** | [Account name](#account-name)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path) |
 > | **Request attributes** |  |
 > | **Principal attributes support** | True |
-> | **Environment attributes** | [UtcNow](../../role-based-access-control/conditions-format.md#environment-attributes) |
+> | **Environment attributes** | [UTC now](#utc-now) |
 
 ### Change ownership of a blob
 
@@ -274,7 +274,7 @@ If you are authoring your own condition where you want to restrict read access b
 > | **Resource attributes** | [Account name](#account-name)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path) |
 > | **Request attributes** |  |
 > | **Principal attributes support** | True |
-> | **Environment attributes** | [UtcNow](../../role-based-access-control/conditions-format.md#environment-attributes) |
+> | **Environment attributes** | [UTC now](#utc-now) |
 
 ### Rename a file or a directory
 
@@ -288,7 +288,7 @@ If you are authoring your own condition where you want to restrict read access b
 > | **Resource attributes** | [Account name](#account-name)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path) |
 > | **Request attributes** |  |
 > | **Principal attributes support** | True |
-> | **Environment attributes** | [UtcNow](../../role-based-access-control/conditions-format.md#environment-attributes) |
+> | **Environment attributes** | [UTC now](#utc-now) |
 
 ### All data operations for accounts with hierarchical namespace enabled
 
@@ -302,7 +302,7 @@ If you are authoring your own condition where you want to restrict read access b
 > | **Resource attributes** | [Account name](#account-name)<br/>[Is Current Version](#is-current-version)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path) |
 > | **Request attributes** |  |
 > | **Principal attributes support** | True |
-> | **Environment attributes** | [UtcNow](../../role-based-access-control/conditions-format.md#environment-attributes) |
+> | **Environment attributes** | [UTC now](#utc-now) |
 > | **Examples** | [Example: Read, write, or delete blobs in named containers](storage-auth-abac-examples.md#example-read-write-or-delete-blobs-in-named-containers)<br/>[Example: Read blobs in named containers with a path](storage-auth-abac-examples.md#example-read-blobs-in-named-containers-with-a-path)<br/>[Example: Read or list blobs in named containers with a path](storage-auth-abac-examples.md#example-read-or-list-blobs-in-named-containers-with-a-path)<br/>[Example: Write blobs in named containers with a path](storage-auth-abac-examples.md#example-write-blobs-in-named-containers-with-a-path)<br/>[Example: Read only current blob versions](storage-auth-abac-examples.md#example-read-only-current-blob-versions)<br/>[Example: Read current blob versions and any blob snapshots](storage-auth-abac-examples.md#example-read-current-blob-versions-and-any-blob-snapshots)<br/>[Example: Read only storage accounts with hierarchical namespace enabled](storage-auth-abac-examples.md#example-read-only-storage-accounts-with-hierarchical-namespace-enabled) |
 > | **Learn more** | [Azure Data Lake Storage Gen2 hierarchical namespace](data-lake-storage-namespace.md) |
 
@@ -450,6 +450,19 @@ This section lists the Azure Blob Storage attributes you can use in your conditi
 > | **Hierarchical namespace support** | False |
 > | **Examples** | `Exists @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:snapshot]`<br/>[Example: Read current blob versions and any blob snapshots](storage-auth-abac-examples.md#example-read-current-blob-versions-and-any-blob-snapshots) |
 > | **Learn more** | [Blob snapshots](snapshots-overview.md)<br/>[Azure Data Lake Storage Gen2 hierarchical namespace](data-lake-storage-namespace.md) |
+
+### UTC now
+
+> [!div class="mx-tdCol2BreakAll"]
+> | Property | Value |
+> | --- | --- |
+> | **Display name** | UTC now |
+> | **Description** | The current time in Coordinated Universal Time.<br/>Use to control access to objects for a specific date and time period. |
+> | **Attribute** | `UtcNow` |
+> | **Attribute source** | Environment |
+> | **Attribute type** | DateTime |
+> | **Operators** | DateTimeGreaterThan<br/>DateTimeLessThan |
+> | **Examples** | `@Environment[UtcNow] DateTimeGreaterThan '2022-08-29T22:03:00.0Z'` |
 
 ### Version ID
 
