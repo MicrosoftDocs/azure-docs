@@ -849,7 +849,7 @@ sections:
           
           If the 502 or 503 response was sent from a server with server-side monitoring enabled, the errors would be collected by the Application Insights SDK.
           
-          There are still cases where even when server-side monitoring is enabled on an application's web server that a 502 or 503 error won't be captured by Application Insights. Many modern web servers don't allow a client to communicate directly, but instead employ solutions like reverse proxies to pass information back and forth between the client and the front-end web servers.
+          There are still cases where even when server-side monitoring is enabled on an application's web server, a 502 or 503 error won't be captured by Application Insights. Many modern web servers don't allow a client to communicate directly, but instead employ solutions like reverse proxies to pass information back and forth between the client and the front-end web servers.
           
           In this scenario, a 502 or 503 response could be returned to a client because of an issue at the reverse proxy layer and it wouldn't be captured out-of-box by Application Insights. To help detect issues at this layer, you might need to forward logs from your reverse proxy to Log Analytics and create a custom rule to check for 502 or 503 responses. To learn more about common causes of 502 and 503 errors, see the Azure App Service [troubleshooting article for "502 bad gateway" and "503 service unavailable"](../app-service/troubleshoot-http-502-http-503.md).
 
@@ -858,7 +858,7 @@ sections:
       - question: |
           What is OpenTelemetry?
         answer: |
-          A new open-source standard for observability. Learn more at [https://opentelemetry.io/](https://opentelemetry.io/).
+          It's a new open-source standard for observability. Learn more at [https://opentelemetry.io/](https://opentelemetry.io/).
           
       - question: |
           Why is Microsoft Azure Monitor Application Insights investing in OpenTelemetry?
@@ -867,19 +867,19 @@ sections:
           
           The key value propositions of OpenTelemetry are that it's vendor-neutral and provides consistent APIs/SDKs across languages.
           
-          Over time, we believe OpenTelemetry will enable Azure Monitor's customers to observe applications written in languages beyond our [supported languages](./app/app-insights-overview.md#supported-languages) and expand the number of [instrumentation libraries](https://opentelemetry.io/docs/concepts/components/#instrumentation-libraries) available to customers. In particular, the OpenTelemetry .NET SDK is more performant at scale than its predecessor the Application Insights SDK.
+          Over time, we believe OpenTelemetry will enable Azure Monitor's customers to observe applications written in languages beyond our [supported languages](./app/app-insights-overview.md#supported-languages). It will also expand the number of [instrumentation libraries](https://opentelemetry.io/docs/concepts/components/#instrumentation-libraries) available to customers. In particular, the OpenTelemetry .NET SDK is more performant at scale than its predecessor, the Application Insights SDK.
           
           Finally, OpenTelemetry aligns with Microsoft's strategy to [embrace open source](https://opensource.microsoft.com/).
           
       - question: |
           What is the status of OpenTelemetry?
         answer: |
-          A complete observability solution includes all three pillars of observability. The OpenTelemetry Community released stable [Distributed Tracing](https://medium.com/opentelemetry/opentelemetry-specification-v1-0-0-tracing-edition-72dd08936978) in February 2021 and released stable [Metrics](https://opentelemetry.io/blog/2022/metrics-announcement/) in March 2022. Azure Monitor's OpenTelemetry-based offering includes these two pillars. The OpenTelemetry Community is actively working to stabilize the [Logging](https://github.com/open-telemetry/opentelemetry-specification/tree/main/specification/logs) API/SDK specification, and we plan to add logging to our OpenTelemetry-based offerings in a subsequent milestone.
+          A complete observability solution includes all three pillars of observability. The OpenTelemetry Community released stable [distributed tracing](https://medium.com/opentelemetry/opentelemetry-specification-v1-0-0-tracing-edition-72dd08936978) in February 2021. Stable [metrics](https://opentelemetry.io/blog/2022/metrics-announcement/) was released in March 2022. The Azure Monitor OpenTelemetry-based offering includes these two pillars. The OpenTelemetry Community is actively working to stabilize the [Logging](https://github.com/open-telemetry/opentelemetry-specification/tree/main/specification/logs) API/SDK specification. We plan to add logging to our OpenTelemetry-based offerings in a subsequent milestone.
 
       - question: |
           How can I test out OpenTelemetry?
         answer: |
-          Check out our enablement docs for [.NET, Java, JavaScript (Node.js), Python](app/opentelemetry-enable.md), and sign up to join our Azure Monitor Application Insights early adopter community at [https://aka.ms/AzMonOtel](https://aka.ms/AzMonOtel) to get notified of major releases.
+          Check out our enablement docs for [.NET, Java, JavaScript (Node.js), and Python](app/opentelemetry-enable.md). Sign up to join our Azure Monitor Application Insights early adopter community at [https://aka.ms/AzMonOtel](https://aka.ms/AzMonOtel) to get notified of major releases.
 
       - question: |
           What is the current release state of features within each OpenTelemetry offering?
@@ -888,26 +888,26 @@ sections:
 
           |Feature                                                                                                  | .NET      | Node.js   | Python    | Java               |
           |---------------------------------------------------------------------------------------------------------|-----------|-----------|-----------|--------------------|
-          | [Distributed Tracing](app/distributed-tracing.md)                                                       | :warning: | :warning: | :warning: | :white_check_mark: |
-          | [Custom Metrics](app/opentelemetry-enable.md#add-custom-metrics)                                        | :warning: | :warning: | :warning: | :white_check_mark: |
-          | [Standard Metrics](app/standard-metrics.md) (accuracy currently affected by sampling)                   | :warning: | :warning: | :warning: | :white_check_mark: |
-          | [Fixed-Rate Sampling](app/sampling.md)                                                                  | :warning: | :warning: | :warning: | :white_check_mark: |
-          | [Offline Storage & Automatic Retries](app/opentelemetry-enable.md#offline-storage-and-automatic-retries)| :warning: | :warning: | :warning: | :white_check_mark: |
-          | [Exception Reporting](app/asp-net-exceptions.md)                                                       | :warning: | :warning: | :warning: | :white_check_mark: |
-          | [Logs Collection](app/asp-net-trace-logs.md)                                                            | :x:       | :x:       | :x:       | :white_check_mark: |
+          | [Distributed tracing](app/distributed-tracing.md)                                                       | :warning: | :warning: | :warning: | :white_check_mark: |
+          | [Custom metrics](app/opentelemetry-enable.md#add-custom-metrics)                                        | :warning: | :warning: | :warning: | :white_check_mark: |
+          | [Standard metrics](app/standard-metrics.md) (accuracy currently affected by sampling)                   | :warning: | :warning: | :warning: | :white_check_mark: |
+          | [Fixed-rate sampling](app/sampling.md)                                                                  | :warning: | :warning: | :warning: | :white_check_mark: |
+          | [Offline storage and automatic retries](app/opentelemetry-enable.md#offline-storage-and-automatic-retries)| :warning: | :warning: | :warning: | :white_check_mark: |
+          | [Exception reporting](app/asp-net-exceptions.md)                                                       | :warning: | :warning: | :warning: | :white_check_mark: |
+          | [Logs collection](app/asp-net-trace-logs.md)                                                            | :x:       | :x:       | :x:       | :white_check_mark: |
           | [Azure Active Directory authentication](app/azure-ad-authentication.md)                           | :x:       | :x:       | :x:       | :white_check_mark: |
-          | [Auto-populate cloud role name/role instance on Azure](app/correlation.md#role-names)                  | :x:       | :x:       | :x:       | :white_check_mark: |
-          | [Live Metrics](app/live-stream.md)                                                                      | :x:       | :x:       | :x:       | :white_check_mark: |
-          | Autopopulation of User ID, Authenticated User ID, and User IP                                           | :x:       | :x:       | :x:       | :white_check_mark: |
-          | Manually override/set Operation Name, User ID or Authenticated User ID                                  | :x:       | :x:       | :x:       | :white_check_mark: |
-          | [Adaptive Sampling](app/sampling.md#adaptive-sampling)                                                  | :x:       | :x:       | :x:       | :white_check_mark: |
+          | [Autopopulate cloud role name/role instance on Azure](app/correlation.md#role-names)                  | :x:       | :x:       | :x:       | :white_check_mark: |
+          | [Live metrics](app/live-stream.md)                                                                      | :x:       | :x:       | :x:       | :white_check_mark: |
+          | Autopopulation of user ID, authenticated user ID, and user IP                                           | :x:       | :x:       | :x:       | :white_check_mark: |
+          | Manually override/set operation name, user ID, or authenticated user ID                                  | :x:       | :x:       | :x:       | :white_check_mark: |
+          | [Adaptive sampling](app/sampling.md#adaptive-sampling)                                                  | :x:       | :x:       | :x:       | :white_check_mark: |
           | [Profiler](profiler/profiler-overview.md)                                                               | :x:       | :x:       | :x:       | :warning: |
           | [Snapshot Debugger](snapshot-debugger/snapshot-debugger.md)                                             | :x:       | :x:       | :x:       | :x:                |
           
           **Key**
-          - :white_check_mark: : This feature is available to all customers with formal support.
-          - :warning: : This feature is available as a public preview. [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
-          - :x: : This feature is not available or not applicable.
+          - :white_check_mark: This feature is available to all customers with formal support.
+          - :warning: This feature is available as a public preview. See [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+          - :x: This feature is not available or not applicable.
 
       - question: |
           Can OpenTelemetry be used for web browsers?
@@ -917,89 +917,97 @@ sections:
       - question: |
           When can we expect the OpenTelemetry SDK to be available for use in web browsers?
         answer: |
-          The availability timeline for the OpenTelemetry Web SDK hasn't been determined yet, but we're likely several years away from a browser SDK that will be a viable alternative to the Application Insights JavaScript SDK.
+          The availability timeline for the OpenTelemetry web SDK hasn't been determined yet. We're likely several years away from a browser SDK that will be a viable alternative to the Application Insights JavaScript SDK.
 
       - question: |
           Can I test OpenTelemetry in a web browser today?
         answer: |
-          The [OpenTelemetry Web Sandbox](https://github.com/open-telemetry/opentelemetry-sandbox-web-js) is a fork designed to make OpenTelemetry work in a browser, but it's not yet possible to send telemetry to Application Insights or 1DS Collector. Additionally, the SDK doesn't currently have defined general client events.
+          The [OpenTelemetry web sandbox](https://github.com/open-telemetry/opentelemetry-sandbox-web-js) is a fork designed to make OpenTelemetry work in a browser. It's not yet possible to send telemetry to Application Insights or 1DS Collector. The SDK doesn't currently have defined general client events.
 
       - question: |
           How do I determine if OpenTelemetry is right for me?
         answer: |
           The OpenTelemetry community uses [stable or experimental](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/versioning-and-stability.md) to signal the maturity of a piece of software. Separately, Azure Monitor uses "Public Preview" and "GA" to signal stability and support commitment.
           
-          If your application is written in Java, we recommend our [OpenTelemetry-based offering](./app/opentelemetry-enable.md?tabs=java) for everyone which [GA'd in November 2020](https://azure.microsoft.com/updates/java-agent-application-insights-ga/).
+          If your application is written in Java, we recommend our [OpenTelemetry-based offering](./app/opentelemetry-enable.md?tabs=java) for everyone. It became generally available [in November 2020](https://azure.microsoft.com/updates/java-agent-application-insights-ga/).
           
-          If your application is written in C#, JavaScript (Node.js), or Python, the current Application Insights SDKs offer the most feature-rich experience.
+          If your application is written in C#, JavaScript (Node.js), or Python, the current Application Insights SDKs offer the most feature-rich experience:
           
           - C# ([ASP.NET](app/asp-net.md)
           - [ASP.NET Core](app/asp-net-core.md)
           - [JavaScript (Node.js)](app/nodejs.md)
           - [OpenCensus Python](app/opencensus-python.md)
           
-          Scenarios that might sway you toward OpenTelemetry sooner-than-later include sending telemetry to Azure Monitor + another vendor simultaneously, collecting and converging [existing instrumentation protocols](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver), or leveraging features available in the OpenTelemetry-Collector. For example, customers have reported using the [batch processor](https://github.com/open-telemetry/opentelemetry-collector/tree/main/processor/batchprocessor), [tail-based sampler](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/tailsamplingprocessor), and/or [attributes processor](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/attributesprocessor). While similar features exist in the existing Application Insights SDKs, some customers prefer to host this processing downstream in an agent.
+          Scenarios that might sway you toward OpenTelemetry sooner rather than later include:
+
+          - Sending telemetry to Azure Monitor and another vendor simultaneously.
+          - Collecting and converging [existing instrumentation protocols](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver). 
+          - Using features available in the OpenTelemetry-Collector.
           
-          You can see our progress toward OpenTelemetry-Based Azure Monitor exporters for [C#](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter), [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry-exporter), and [Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/monitor/azure-monitor-opentelemetry-exporter/) in open-source repositories.
+          For example, customers have reported using the [batch processor](https://github.com/open-telemetry/opentelemetry-collector/tree/main/processor/batchprocessor), [tail-based sampler](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/tailsamplingprocessor), and/or [attributes processor](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/attributesprocessor). Although similar features exist in the existing Application Insights SDKs, some customers prefer to host this processing downstream in an agent.
+          
+          You can see our progress toward OpenTelemetry-based Azure Monitor exporters for [C#](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter), [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry-exporter), and [Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/monitor/azure-monitor-opentelemetry-exporter/) in open-source repositories.
 
       - question: |
-          Is running Application Insights alongside competitor agents supported? (for example, AppDynamics, DataDog, NewRelic, etc.)
+          Is running Application Insights alongside competitor agents like AppDynamics, DataDog, and NewRelic supported?
         answer: |
           No. This isn't something we plan to test or support, although our OpenTelemetry-based offerings allow you to [export to an OTLP endpoint](app/opentelemetry-enable.md#enable-the-otlp-exporter) alongside Azure Monitor simultaneously.
 
       - question: |
-          Can I use Preview builds in production environments?
+          Can I use preview builds in production environments?
         answer: |
           It's not recommended. See [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for more information.
           
       - question: |
-          Does Azure Monitor have an "OpenTelemetry Distro"?
+          Does Azure Monitor have an OpenTelemetry distro?
         answer: |
-          OpenTelemetry defines [distribution](https://opentelemetry.io/docs/concepts/distributions/#what-is-a-distribution) as a "wrapper around an upstream OpenTelemetry repository with some customizations". In this sense, our Java, Python, and JavaScript (Node.js) OpenTelemetry-based offerings are a "distro" because we package several components together for easy enablement. These distros include Azure-specific components (e.g., Azure Monitor Exporter with offline storage, custom sampler) to achieve the best experience in Azure Monitor Application Insights. In some cases, customers might wish to use the "piecemeal approach" to instrument rather than the distro. In these cases, customers can use our exporter directly, and they will take responsibility to pull in all the right packages for their implementation. At this time, .NET only offers the OpenTelemetry exporter for the piecemeal approach, but in the future it will also have a distro to cover common telemetry scenarios.
+          OpenTelemetry defines [distribution](https://opentelemetry.io/docs/concepts/distributions/#what-is-a-distribution) as a "wrapper around an upstream OpenTelemetry repository with some customizations." In this sense, our Java, Python, and JavaScript (Node.js) OpenTelemetry-based offerings are a "distro" because we package several components together for easy enablement. These distros include Azure-specific components like Azure Monitor Exporter with offline storage and custom sampler to achieve the best experience in Azure Monitor Application Insights. 
+          
+          In some cases, customers might want to use a piecemeal approach to instrument rather than using the distro. In these cases, customers can use our exporter directly. They're responsible for pulling in all the right packages for their implementation. At this time, .NET only offers the OpenTelemetry exporter for the piecemeal approach. In the future, it will also have a distro to cover common telemetry scenarios.
                     
       - question: |
           What's the difference between manual and auto-instrumentation?
         answer: |
-          Manual instrumentation is coding against the OpenTelemetry API and typically consists of installing a language-specific SDK in an application. “Manual” doesn't mean you'll be required to write complex code to define spans for distributed traces (though it remains an option). A rich and [growing set of instrumentation libraries](https://opentelemetry.io/registry/) maintained by OpenTelemetry contributors will enable you to effortlessly capture telemetry signals across common frameworks and libraries. 
+          Manual instrumentation is coding against the OpenTelemetry API. It typically consists of installing a language-specific SDK in an application. *Manual* doesn't mean you're required to write complex code to define spans for distributed traces, although it remains an option. A rich and [growing set of instrumentation libraries](https://opentelemetry.io/registry/) maintained by OpenTelemetry contributors enables you to effortlessly capture telemetry signals across common frameworks and libraries. 
           
-          Auto-instrumentation is enabling telemetry collection through configuration without touching the application's code. While highly convenient, it tends to be less configurable and it's not available in all languages.
+          Auto-instrumentation is enabling telemetry collection through configuration without touching the application's code. It's highly convenient, but it tends to be less configurable. It's also not available in all languages.
           
-          OpenTelemetry auto-instrumentation efforts include a Java offering, which Microsoft supports via a distro called [Java 3.X](app/opentelemetry-enable.md?tabs=java). [Python](https://github.com/open-telemetry/opentelemetry-python/blob/main/opentelemetry-sdk/src/opentelemetry/sdk/util/instrumentation.py) and [.NET](https://github.com/open-telemetry/opentelemetry-dotnet-instrumentation) have experimental auto-instrumentation efforts, which Microsoft doesn't currently support. All other OpenTelemetry languages are focused on Manual Instrumentation only.
+          OpenTelemetry auto-instrumentation efforts include a Java offering, which Microsoft supports via a distro called [Java 3.X](app/opentelemetry-enable.md?tabs=java). [Python](https://github.com/open-telemetry/opentelemetry-python/blob/main/opentelemetry-sdk/src/opentelemetry/sdk/util/instrumentation.py) and [.NET](https://github.com/open-telemetry/opentelemetry-dotnet-instrumentation) have experimental auto-instrumentation efforts, which Microsoft doesn't currently support. All other OpenTelemetry languages are focused on manual instrumentation only.
           
       - question: |
           Can I use the OpenTelemetry-Collector?
         answer: |
-          Some customers have begun to use the [OpenTelemetry-Collector](https://github.com/open-telemetry/opentelemetry-collector/blob/main/docs/design.md) as an agent alternative even though Microsoft doesn't officially support an agent-based approach for application monitoring yet. In the meantime, the open-source community has contributed an [OpenTelemetry-Collector Azure Monitor Exporter](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter/azuremonitorexporter) that some customers are using to send data to Azure Monitor Application Insights.
+          Some customers have begun to use the [OpenTelemetry-Collector](https://github.com/open-telemetry/opentelemetry-collector/blob/main/docs/design.md) as an agent alternative, even though Microsoft doesn't officially support an agent-based approach for application monitoring yet. In the meantime, the open-source community has contributed an [OpenTelemetry-Collector Azure Monitor Exporter](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter/azuremonitorexporter) that some customers are using to send data to Azure Monitor Application Insights.
           
-          We plan to support an agent-based approach in the future, although the details and timeline aren't available yet. Our objective is to provide a path for any OpenTelemetry supported language to send to Azure Monitor via [OpenTelemetry Protocol (OTLP)](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/protocol/README.md). This will enable customers to observe applications written in languages beyond our [supported languages](./app/app-insights-overview.md#supported-languages). 
+          We plan to support an agent-based approach in the future, but the details and timeline aren't available yet. Our objective is to provide a path for any OpenTelemetry-supported language to send to Azure Monitor via the [OpenTelemetry Protocol (OTLP)](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/protocol/README.md). This approach will enable customers to observe applications written in languages beyond our [supported languages](./app/app-insights-overview.md#supported-languages). 
           
       - question: |
           What's the difference between OpenCensus and OpenTelemetry?
         answer: |
-          [OpenCensus](https://opencensus.io/) is the precursor to [OpenTelemetry](https://opentelemetry.io/). Microsoft helped bring together [OpenTracing](https://opentracing.io/) and OpenCensus to create OpenTelemetry, a single observability standard for the world. Azure Monitor's current [production-recommended Python SDK](app/opencensus-python.md) is based on OpenCensus, but eventually all Azure Monitor's SDKs will be based on OpenTelemetry.
+          [OpenCensus](https://opencensus.io/) is the precursor to [OpenTelemetry](https://opentelemetry.io/). Microsoft helped bring together [OpenTracing](https://opentracing.io/) and OpenCensus to create OpenTelemetry, a single observability standard for the world. The current [production-recommended Python SDK](app/opencensus-python.md) for Azure Monitor is based on OpenCensus. Eventually, all Azure Monitor SDKs will be based on OpenTelemetry.
 
   - name: Container insights
     questions:
       - question: |
-          What does 'Other Processes' represent under the Node view?
+          What does "Other processes" represent under the Node view?
         answer: |
-          **Other processes** are intended to help you clearly understand the root cause of the high resource usage on your node. This enables you to distinguish usage between containerized processes vs non-containerized processes.
+          *Other processes* are intended to help you clearly understand the root cause of the high resource usage on your node. This information enables you to distinguish usage between containerized processes vs non-containerized processes.
           
-          What are these **Other Processes**?
+          What are these other processes?
           
           These are non-containerized processes that run on your node.
           
           How do we calculate this?
           
-          **Other Processes** = *Total usage from CAdvisor* - *Usage from containerized process*
+          **Other processes** = *Total usage from CAdvisor* - *Usage from containerized process*
           
-          The **Other processes** includes:
+          The other processes include:
           
-          - Self-managed or managed Kubernetes non-containerized processes
-          - Container Run-time processes
-          - Kubelet
-          - System processes running on your node
-          - Other non-Kubernetes workloads running on node hardware or VM
+          - Self-managed or managed Kubernetes non-containerized processes.
+          - Container run-time processes.
+          - Kubelet.
+          - System processes running on your node.
+          - Other non-Kubernetes workloads running on node hardware or a VM.
           
       - question: |
           I don't see Image and Name property values populated when I query the ContainerLog table.
@@ -1010,22 +1018,22 @@ sections:
           
           Join other tables to include these property values in the results.
           
-          Modify your queries to include Image and ImageTag properties from the `ContainerInventory` table by joining on ContainerID property. You can include the Name property (as it previously appeared in the `ContainerLog` table) from KubepodInventory table's ContaineName field by joining on the ContainerID property. This is the recommended option.
+          Modify your queries to include `Image` and `ImageTag` properties from the `ContainerInventory` table by joining on `ContainerID` property. You can include the `Name` property (as it previously appeared in the `ContainerLog` table) from the `KubepodInventory` table's `ContainerName` field by joining on the `ContainerID` property. This option is recommended.
           
           The following example is a sample detailed query that explains how to get these field values with joins.
           
           ```
-          //lets say we are querying an hour worth of logs
+          //Let's say we are querying an hour's worth of logs
           let startTime = ago(1h);
           let endTime = now();
-          //below gets the latest Image & ImageTag for every containerID, during the time window
+          //Below gets the latest Image & ImageTag for every containerID, during the time window
           let ContainerInv = ContainerInventory | where TimeGenerated >= startTime and TimeGenerated < endTime | summarize arg_max(TimeGenerated, *)  by ContainerID, Image, ImageTag | project-away TimeGenerated | project ContainerID1=ContainerID, Image1=Image ,ImageTag1=ImageTag;
-          //below gets the latest Name for every containerID, during the time window
+          //Below gets the latest Name for every containerID, during the time window
           let KubePodInv  = KubePodInventory | where ContainerID != "" | where TimeGenerated >= startTime | where TimeGenerated < endTime | summarize arg_max(TimeGenerated, *)  by ContainerID2 = ContainerID, Name1=ContainerName | project ContainerID2 , Name1;
-          //now join the above 2 to get a 'jointed table' that has name, image & imagetag. Outer left is safer in-case there are no kubepod records are if they are latent
+          //Now join the above 2 to get a 'jointed table' that has name, image & imagetag. Outer left is safer in case there are no kubepod records or if they are latent
           let ContainerData = ContainerInv | join kind=leftouter (KubePodInv) on $left.ContainerID1 == $right.ContainerID2;
-          //now join ContainerLog table with the 'jointed table' above and project-away redundant fields/columns and rename columns that were re-written
-          //Outer left is safer so you don't lose logs even if we can't find container metadata for loglines (due to latency, time skew between data types etc...)
+          //Now join ContainerLog table with the 'jointed table' above and project-away redundant fields/columns and rename columns that were rewritten
+          //Outer left is safer so you don't lose logs even if we can't find container metadata for loglines (due to latency, time skew between data types, etc.)
           ContainerLog
           | where TimeGenerated >= startTime and TimeGenerated < endTime
           | join kind= leftouter (
@@ -1035,64 +1043,64 @@ sections:
           
           ### Option 2
           
-          Re-enable collection for these properties for every container log line.
+          Reenable collection for these properties for every container log line.
           
-          If the first option isn't convenient because of query changes involved, you can re-enable collecting these fields by enabling the setting `log_collection_settings.enrich_container_logs` in the agent config map as described in the [data collection configuration settings](containers/container-insights-agent-config.md).
+          If the first option isn't convenient because of query changes involved, you can reenable collecting these fields. Enable the setting `log_collection_settings.enrich_container_logs` in the agent config map as described in the [data collection configuration settings](containers/container-insights-agent-config.md).
           
           > [!NOTE]
-          > The second option isn't recommended with large clusters that have more than 50 nodes because it generates API server calls from every node in the cluster to perform this enrichment. This option also increases data size for every log line collected.
+          > We don't recommend the second option for large clusters that have more than 50 nodes. It generates API server calls from every node in the cluster to perform this enrichment. This option also increases data size for every log line collected.
           
       - question: |
           Can I view metrics collected in Grafana?
         answer: |
-          Container insights support viewing metrics stored in your Log Analytics workspace in Grafana dashboards. We have provided a template that you can download from Grafana's [dashboard repository](https://grafana.com/grafana/dashboards?dataSource=grafana-azure-monitor-datasource&category=docker) to get you started and  reference to help you learn how to query data from your monitored clusters to visualize in custom Grafana dashboards.
+          Container insights support viewing metrics stored in your Log Analytics workspace in Grafana dashboards. We've provided a template that you can download from the Grafana [dashboard repository](https://grafana.com/grafana/dashboards?dataSource=grafana-azure-monitor-datasource&category=docker) to get you started and a reference to help you learn how to query data from your monitored clusters to visualize in custom Grafana dashboards.
           
       - question: |
           Can I monitor my AKS-engine cluster with Container insights?
         answer: |
-          Container insights supports monitoring container workloads deployed to AKS-engine (formerly known as ACS-engine) cluster(s) hosted on Azure. For more information and an overview of steps required to enable monitoring for this scenario, see [Using Container insights for Azure Kubernetes Service-engine](https://github.com/microsoft/OMS-docker/tree/aks-engine).
+          Container insights supports monitoring container workloads deployed to AKS-engine (formerly known as ACS-engine) clusters hosted on Azure. For more information and an overview of steps required to enable monitoring for this scenario, see [Using Container insights for Azure Kubernetes Service-engine](https://github.com/microsoft/OMS-docker/tree/aks-engine).
           
       - question: |
           Why don't I see data in my Log Analytics workspace?
         answer: |
-          If you're unable to see any data in the Log Analytics workspace at a certain time everyday, you might have reached the default 500 MB limit, or the daily cap specified to control the amount of data to collect daily. When the limit is met for the day, data collection stops and resumes only on the next day. To review your data usage and update to a different pricing tier based on your anticipated usage patterns, see [Azure Monitor Logs pricing information](logs/cost-logs.md).
+          If you're unable to see any data in the Log Analytics workspace at a certain time every day, you might have reached the default 500-MB limit or the daily cap specified to control the amount of data to collect daily. When the limit is met for the day, data collection stops and resumes only on the next day. To review your data usage and update to a different pricing tier based on your anticipated usage patterns, see [Azure Monitor Logs pricing information](logs/cost-logs.md).
           
       - question: |
           What are the container states specified in the ContainerInventory table?
         answer: |
-          The ContainerInventory table contains information about both stopped and running containers. The table is populated by a workflow inside the agent that queries the docker for all the containers (running and stopped), and forwards that data the Log Analytics workspace.
+          The `ContainerInventory` table contains information about both stopped and running containers. The table is populated by a workflow inside the agent that queries the docker for all the running and stopped containers. The agent forwards that data to the Log Analytics workspace.
 
       - question: |
-          How do I resolve 'Missing Subscription registration' error?
+          How do I resolve the "Missing Subscription registration" error?
         answer: |
-          If you receive the error **Missing Subscription registration for Microsoft.OperationsManagement**, you can resolve it by registering the resource provider **Microsoft.OperationsManagement** in the subscription where the workspace is defined. The documentation for how to do this can be found [here](../azure-resource-manager/templates/error-register-resource-provider.md).
+          If you receive the error "Missing Subscription registration for Microsoft.OperationsManagement," you can resolve it by registering the resource provider **Microsoft.OperationsManagement** in the subscription where the workspace is defined. For the steps, see [this website](../azure-resource-manager/templates/error-register-resource-provider.md).
           
       - question: |
-          Is there support for Kubernetes RBAC enabled Azure Kubernetes Service clusters?
+          Is there support for Kubernetes RBAC-enabled Azure Kubernetes Service clusters?
         answer: |
-          The Container Monitoring solution doesn't support Kubernetes RBAC, but it's supported with Container insights. The solution details page might not show the right information in the panes that show data for these clusters.
+          The Container Monitoring solution doesn't support Kubernetes role-based access control (RBAC), but it's supported with Container insights. The solution details page might not show the right information in the panes that show data for these clusters.
 
       - question: |
           How do I enable log collection for containers in the kube-system namespace through Helm?
         answer: |
-          The log collection from containers in the kube-system namespace is disabled by default. Log collection can be enabled by setting an environment variable on the Azure Monitor Agent. For more information, see the [Container insights](https://aka.ms/azuremonitor-containers-helm-chart) GitHub page.
+          The log collection from containers in the kube-system namespace is disabled by default. You can enable log collection by setting an environment variable on Azure Monitor Agent. See the [Container insights](https://aka.ms/azuremonitor-containers-helm-chart) GitHub page.
           
       - question: |
-          How do I update the Azure Monitor Agent in Container insights to the latest released version?
+          How do I update Azure Monitor Agent in Container insights to the latest released version?
         answer: |
           To learn how to upgrade the agent, see [Agent management](containers/container-insights-manage-agent.md).
           
       - question: |
           Why are log lines larger than 16 KB split into multiple records in Log Analytics?
         answer: |
-          The agent uses the [Docker JSON file logging driver](https://docs.docker.com/config/containers/logging/json-file/) to capture the stdout and stderr of containers. This logging driver splits log lines [larger than 16 KB](https://github.com/moby/moby/pull/22982) into multiple lines when copied from stdout or stderr to a file.
+          The agent uses the [Docker JSON file logging driver](https://docs.docker.com/config/containers/logging/json-file/) to capture the stdout and stderr of containers. This logging driver splits log lines [larger than 16 KB](https://github.com/moby/moby/pull/22982) into multiple lines when they're copied from stdout or stderr to a file.
           
       - question: |
           How do I enable multi-line logging?
         answer: |
-          Currently Container insights don't support multi-line logging, but there are workarounds available. You can configure all the services to write in JSON format and then Docker/Moby will write them as a single line.
+          Currently, Container insights don't support multi-line logging, but workarounds are available. You can configure all the services to write in JSON format, and then Docker/Moby writes them as a single line.
           
-          For example, you can wrap your log as a JSON object as shown in the example below for a sample Node.js application:
+          For example, you can wrap your log as a JSON object as shown in the following example for a sample Node.js application:
           
           ```
           console.log(json.stringify({ 
@@ -1109,32 +1117,32 @@ sections:
           LogEntry : ({"Hello": "This example has multiple lines:","Docker/Moby": "will not break this into multiple lines", "and you'll receive":"all of them in log analytics", "as one": "log entry"}
           ```
           
-          For a detailed look at the issue, review the following [GitHub link](https://github.com/moby/moby/issues/22920).
+          For a detailed look at the issue, see this [GitHub link](https://github.com/moby/moby/issues/22920).
           
       - question: |
-          How do I resolve Azure AD errors when I enable live logs?
+          How do I resolve Azure Active Directory errors when I enable live logs?
         answer: |
-          You might see the following error: **The reply url specified in the request doesn't match the reply urls configured for the application: '<application ID\>'**. The solution to solve it can be found in the article [How to view container data in real time with Container insights](containers/container-insights-livedata-setup.md#configure-azure-ad-integrated-authentication).
+          You might see the following error: "The reply url specified in the request doesn't match the reply urls configured for the application: '<application ID\>'." For the solution, see [View container data in real time with Container insights](containers/container-insights-livedata-setup.md#configure-azure-ad-integrated-authentication).
           
       - question: |
-          Why can't I upgrade cluster after onboarding?
+          Why can't I upgrade a cluster after onboarding?
         answer: |
-          If after you enable Container insights for an Azure Kubernetes Service cluster, you delete the Log Analytics workspace the cluster was sending its data to, when attempting to upgrade the cluster it will fail. To work around this, you'll have to disable monitoring, and then re-enable it referencing a different valid workspace in your subscription. When you try to perform the cluster upgrade again, it should process and complete successfully.
+          Here's the scenario: You enabled Container insights for an Azure Kubernetes Service cluster. Then you deleted the Log Analytics workspace where the cluster was sending its data. Now when you attempt to upgrade the cluster, it fails. To work around this issue, you must disable monitoring and then reenable it by referencing a different valid workspace in your subscription. When you try to perform the cluster upgrade again, it should process and complete successfully.
 
       - question: |
-          Which ports and domains do I need to open/allow for the agent?
+          Which ports and domains do I need to open or allow for the agent?
         answer: |
-          See the [Network firewall requirements](containers/container-insights-onboard.md#network-firewall-requirements) for the proxy and firewall configuration information required for the containerized agent with Azure, Azure US Government, and Azure China 21Vianet clouds.
+          See the [Network firewall requirements](containers/container-insights-onboard.md#network-firewall-requirements) for the proxy and firewall configuration information that's required for the containerized agent with Azure, Azure US Government, and Azure China 21Vianet clouds.
           
       - question: |
-          Is there support for collecting of Kubernetes Audit logs for ARO clusters?
+          Is there support for collecting Kubernetes audit logs for ARO clusters?
         answer:
-          No. Container insights don't support collection of Kubernetes Audit Logs.
+          No. Container insights don't support collection of Kubernetes audit logs.
 
       - question: |
-          Why don't I see Normal Event Types when I query the KubeEvents table?
+          Why don't I see Normal event types when I query the KubeEvents table?
         answer:
-          By default, Normal Event Types aren't collected unless *collect_all_kube_events* configmap setting is enabled. If you need the collection of Normal events, enable *collect_all_kube_events setting* in *container-azm-ms-agentconfig* configmap. See [Configure agent data collection for Container insights](containers/container-insights-agent-config.md) for information on configuring the configmap.
+          By default, Normal event types aren't collected unless the *collect_all_kube_events* ConfigMap setting is enabled. If you need the collection of Normal events, enable *collect_all_kube_events setting* in the *container-azm-ms-agentconfig* ConfigMap. See [Configure agent data collection for Container insights](containers/container-insights-agent-config.md) for information on how to configure the ConfigMap.
 
 
       
@@ -1143,101 +1151,109 @@ sections:
       - question: |
           Can I onboard to an existing workspace?
         answer: |
-          If your virtual machines are already connected to a Log Analytics workspace, you might continue to use that workspace when onboarding to VM insights, provided it's in one of the [supported regions](vm/vminsights-configure-workspace.md#supported-regions).
+          If your VMs are already connected to a Log Analytics workspace, you might continue to use that workspace when you onboard to VM insights, provided it's in one of the [supported regions](vm/vminsights-configure-workspace.md#supported-regions).
           
       - question: |
           Can I onboard to a new workspace?
         answer: |
           If your VMs aren't currently connected to an existing Log Analytics workspace, you need to create a new workspace to store your data. Creating a new default workspace is done automatically if you configure a single Azure VM for VM insights through the Azure portal.
           
-          If you choose to use the script-based method, these steps are covered in the [Enable VM insights by using Azure PowerShell or Resource Manager template](./vm/vminsights-enable-powershell.md) article.
+          If you choose to use the script-based method, these steps are described in [Enable VM insights by using Azure PowerShell or Azure Resource Manager templates](./vm/vminsights-enable-powershell.md).
           
       - question: |
           What do I do if my VM is already reporting to an existing workspace?
         answer: |
-          If you're already collecting data from your virtual machines, you might have already configured it to report data to an existing Log Analytics workspace.  As long as that workspace is in one of our supported regions, you can enable VM insights to that pre-existing workspace.  If the workspace you're already using isn't in one of our supported regions, you won't be able to onboard to VM insights at this time.  We are actively working to support more regions.
+          If you're already collecting data from your VMs, you might have already configured it to report data to an existing Log Analytics workspace. If that workspace is in one of our supported regions, you can enable VM insights to that preexisting workspace. If the workspace you're already using isn't in one of our supported regions, you won't be able to onboard to VM insights at this time. We're working to support more regions.
 
       - question: |
           Why did my VM fail to onboard?
         answer: |
-          The following steps occur onboarding an Azure VM from the Azure portal:
+          The following steps occur when you onboard an Azure VM from the Azure portal:
           
           * A default Log Analytics workspace is created, if that option was selected.
-          * The Log Analytics agent is installed on Azure VMs by using a VM extension, if determined it's required.
-          * The VM insights Map Dependency agent is installed on Azure VMs by using an extension, if determined it's required.
+          * The Log Analytics agent is installed on Azure VMs by using a VM extension, if it's required.
+          * The VM insights Map Dependency agent is installed on Azure VMs by using an extension, if it's required.
           
-          During the onboard process, we check for status on each of the above to return a notification status to you in the portal. Configuration of the workspace and the agent installation typically takes 5 to 10 minutes. Viewing monitoring data in the portal take an extra 5 to 10 minutes.
+          During the onboarding process, we check for status on each of the preceding to return a notification status to you in the portal. Configuration of the workspace and the agent installation typically takes 5 to 10 minutes. Viewing monitoring data in the portal takes an extra 5 to 10 minutes.
           
-          If you've initiated onboarding and see messages indicating the VM needs to be onboarded,  allow for up to 30 minutes for the VM to complete the process.
+          If you've initiated onboarding and see messages indicating the VM needs to be onboarded, allow for up to 30 minutes for the VM to complete the process.
           
       - question: |
-          I don't see some or any data in the performance charts for my VM
+          Why don't I see some or any data in the performance charts for my VM?
         answer: |
-          If you don't see performance data in the disk table or in some of the performance charts, then your performance counters might not be configured in the workspace. To resolve, run the following [PowerShell script](./vm/vminsights-enable-powershell.md).
+          If you don't see performance data in the disk table or in some of the performance charts, your performance counters might not be configured in the workspace. To resolve this issue, run this [PowerShell script](./vm/vminsights-enable-powershell.md).
           
       - question: |
-          How is VM insights Map feature different from Service Map?
+          How is the VM insights Map feature different from Service Map?
         answer: |
           The VM insights Map feature is based on Service Map, but it has the following differences:
           
           * The Map view can be accessed from the VM pane and from VM insights under Azure Monitor.
-          * The connections in the Map are now clickable and display a view of the connection metric data in the side panel for the selected connection.
-          * There's a new API that's used to create the maps to better support more complex maps.
-          * Monitored VMs are now included in the client group node, and the donut chart shows the proportion of monitored vs unmonitored virtual machines in the group.  It can also be used to filter the list of machines when the group is expanded.
-          * Monitored virtual machines are now included in the server port group nodes, and the donut chart shows the proportion of monitored vs unmonitored machines in the group.  It can also be used to filter the list of machines when the group is expanded.
+          * The connections in the map are now clickable and display a view of the connection metric data in the side pane for the selected connection.
+          * A new API creates the maps to better support more complex maps.
+          * Monitored VMs are now included in the client group node. The donut chart shows the proportion of monitored versus unmonitored virtual machines in the group. It can also be used to filter the list of machines when the group is expanded.
+          * Monitored virtual machines are now included in the server port group nodes, and the donut chart shows the proportion of monitored versus unmonitored machines in the group. It can also be used to filter the list of machines when the group is expanded.
           * The map style has been updated to be more consistent with App Map from Application insights.
-          * The side panels have been updated, and don't have the full set of integrations that were supported in Service Map: Update Management, Change Tracking, Security, and Service Desk.
+          * The side panes have been updated and don't have the full set of integrations that were supported in Service Map: Update Management, Change Tracking, Security, and Service Desk.
           * The option for choosing groups and machines to map has been updated and now supports subscriptions, resource groups, Azure virtual machine scale sets, and cloud services.
           * You can't create new Service Map machine groups in the VM insights Map feature.
           
       - question: |
           Why do my performance charts show dotted lines?
         answer: |
-          This can occur for a few reasons.  In cases where there's a gap in data collection we depict the lines as dotted.  If you've modified the data sampling frequency for the performance counters enabled (the default setting is to collect data every 60 seconds), you can see dotted lines in the chart if you choose a narrow time range for the chart and your sampling frequency is less than the bucket size used in the chart (for example, the sampling frequency is every 10 minutes and each bucket on the chart is 5 minutes).  Choosing a wider time range to view should cause the chart lines to appear as solid lines rather than dots in this case.
+          Dotted lines can occur for a few reasons. In cases where there's a gap in data collection, we depict the lines as dotted. 
+          
+          The default setting for data sampling frequency is to collect data every 60 seconds. If you modified the frequency for the performance counters enabled, you can see dotted lines in the chart if you chose a narrow time range for the chart and your sampling frequency is less than the bucket size used in the chart. 
+          
+          For example, the sampling frequency is every 10 minutes, and each bucket on the chart is 5 minutes. Choosing a wider time range to view should cause the chart lines to appear as solid lines rather than dotted lines in this case.
 
       - question: |
           Are groups supported with VM insights?
         answer: |
-          Yes, after you install the Dependency agent, we collect information from the VMs to display groups based on subscription, resource group, virtual machine scale sets, and cloud services. If you've been using Service Map and have created machine groups, these are displayed as well.  Computer groups will also appear in the groups filter if you've created them for the workspace you're viewing.
+          Yes. After you install the Dependency agent, we collect information from the VMs to display groups based on subscription, resource group, virtual machine scale sets, and cloud services. 
+          
+          If you've been using Service Map and have created machine groups, these groups are displayed too. Computer groups also appear in the groups filter if you've created them for the workspace you're viewing.
 
       - question: |
           How do I see the information for what's driving the 95th percentile line in the aggregate performance charts?
         answer: |
-          By default, the list is sorted to show you the VMs that have the highest value for the 95th percentile for the selected metric, except for the Available memory chart, which shows the machines with the lowest value of the 5th percentile.  Clicking on the chart will open the **Top N List**  view with the appropriate metric selected.
+          By default, the list is sorted to show you the VMs that have the highest value for the 95th percentile for the selected metric. The Available memory chart is an exception. It shows the machines with the lowest value of the 5th percentile. Selecting the chart opens the **Top N List** view with the appropriate metric selected.
 
       - question: |
-          How does the Map feature handle duplicate IPs across different vnets and subnets?
+          How does the Map feature handle duplicate IPs across different virtual networks and subnets?
         answer: |
-          If you're duplicating IP ranges either with VMs or Azure virtual machine scale sets across subnets and vnets, it can cause VM insights Map to display incorrect information. This is a known issue and we're investigating options to improve this experience.
+          If you're duplicating IP ranges either with VMs or Azure virtual machine scale sets across subnets and virtual networks, VM insights Map might display incorrect information. This issue is known. We're investigating options to improve this experience.
 
       - question: |
-          Does Map feature support IPv6?
+          Does the Map feature support IPv6?
         answer: |
-          Map feature currently only supports IPv4 and we're investigating support for IPv6. We also support IPv4 that's tunneled inside IPv6.
+          The Map feature currently only supports IPv4. We're investigating support for IPv6. We also support IPv4 that's tunneled inside IPv6.
 
       - question: |
-          When I load a map for a Resource Group or other large group the map is difficult to view
+          When I load a map for a resource group or other large group, why is the map difficult to view?
         answer: |
-          While we have made improvements to Map to handle large and complex configurations, we realize a map can have a lot of nodes, connections, and node working as a cluster.  We are committed to continuing to enhance support to increase scalability.
+          Although we've made improvements to Map to handle large and complex configurations, we realize a map can have many nodes, connections, and nodes working as a cluster. We're committed to continuing to enhance support to increase scalability.
 
       - question: |
           Why does the network chart on the Performance tab look different than the network chart on the Azure VM Overview page?
         answer: |
-          The overview page for an Azure VM displays charts based on the host's measurement of activity in the guest VM.  For the network chart on the Azure VM Overview, it only displays network traffic that will be billed. This doesn't include inter-virtual network traffic. The data and charts shown for VM insights is based on data from the guest VM and the network chart displays all TCP/IP traffic that's inbound and outbound to that VM, including inter-virtual network.
+          The overview page for an Azure VM displays charts based on the host's measurement of activity in the guest VM. The network chart on the Azure VM overview only displays network traffic that will be billed. Inter-virtual network traffic isn't included. The data and charts shown for VM insights is based on data from the guest VM. The network chart displays all TCP/IP traffic that's inbound and outbound to that VM, including inter-virtual network traffic.
 
       - question: |
           How is response time measured for data stored in VMConnection and displayed in the connection panel and workbooks?
         answer: |
-          Response time is an approximation. Since we don't instrument the code of the application, we don't really know when a request begins and when the response arrives. Instead we observe data being sent on a connection and then data coming back on that connection. Our agent keeps track of these sends and receives and attempts to pair them: a sequence of sends, followed by a sequence of receives, is interpreted as a request/response pair. The timing between these operations is the response time. It will include the network latency and the server processing time.
+          Response time is an approximation. Because we don't instrument the code of the application, we don't know when a request begins and when the response arrives. Instead, we observe data being sent on a connection and coming back on that connection. 
           
-          This approximation works well for protocols that are request/response based: a single request goes out on the connection, and a single response arrives. This is the case for HTTP(S) (without pipelining), but not satisfied for other protocols.
+          Our agent keeps track of the sends and receives and attempts to pair them. A sequence of sends, followed by a sequence of receives, is interpreted as a request/response pair. The timing between these operations is the response time. It includes the network latency and the server processing time.
+          
+          This approximation works well for protocols that are request/response based. A single request goes out on the connection, and a single response arrives. This is the case for HTTP(S) (without pipelining), but it's not satisfied for other protocols.
           
       - question: |
-          Are there limitations if I am on the Log Analytics Free pricing plan?
+          Are there limitations if I'm on the Log Analytics Free pricing plan?
         answer: |
-          If you've configured Azure Monitor with a Log Analytics workspace by using the *Free* pricing tier, VM insights Map feature will only support five connected machines connected to the workspace. If you have five VMs connected to a free workspace, you disconnect one of the VMs and then later connect a new VM, the new VM isn't monitored and reflected on the Map page.
+          If you've configured Azure Monitor with a Log Analytics workspace by using the **Free** pricing tier, the VM insights Map feature supports only five connected machines that are connected to the workspace. If you have five VMs connected to a free workspace and you disconnect one of the VMs and later connect a new VM, the new VM isn't monitored and reflected on the Map page.
           
-          Under this condition, you'll be prompted with the **Try Now** option when you open the VM and select **Insights** from the pane on the left, even after it has been installed already on the VM.  However, you're not prompted with options as would normally occur if this VM were not onboarded to VM insights.
+          Under this condition, you're prompted with the **Try Now** option when you open the VM and select **Insights** from the pane on the left, even after it has already been installed on the VM. However, you're not prompted with options as would normally occur if this VM weren't onboarded to VM insights.
           
   - name: SQL Insights (preview)
     questions:
@@ -1252,7 +1268,7 @@ sections:
           - Azure SQL Database
           - Azure SQL Managed Instance
           - SQL Server on Azure Virtual Machines (SQL Server running on virtual machines registered with the [SQL virtual machine](/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm) provider)
-          - Azure VMs (SQL Server running on virtual machines not registered with the [SQL virtual machine](/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm) provider)
+          - Azure Virtual Machines (SQL Server running on virtual machines not registered with the [SQL virtual machine](/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm) provider)
           
           See [Supported versions](/azure/azure-sql/database/sql-insights-overview#supported-versions) for more information and for information about scenarios with no support or limited support.
           
@@ -1262,25 +1278,25 @@ sections:
           We support all operating systems specified by the [Windows](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview#getting-started) and [Linux](/azure/azure-sql/virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview#create) documentation for SQL Server on Azure Virtual Machines.
           
       - question: |
-          What operating system for the monitoring virtual machine are supported?
+          What operating systems for the monitoring virtual machine are supported?
         answer: |
           Ubuntu 18.04 is currently the only operating system supported for the monitoring virtual machine.
 
       - question: |
           Where will the monitoring data be stored in Log Analytics?
         answer: |
-          All of the monitoring data is stored in the **InsightsMetrics** table. The **Origin** column has the value `solutions.azm.ms/telegraf/SqlInsights`. The **Namespace** column has values that start with `sqlserver_`.
+          All the monitoring data is stored in the `InsightsMetrics` table. The `Origin` column has the value `solutions.azm.ms/telegraf/SqlInsights`. The `Namespace` column has values that start with `sqlserver_`.
 
       - question: |
           How often is data collected?
         answer: |
-          The frequency of data collection is customizable. See [Data collected by SQL Insights (preview)](/azure/azure-sql/database/sql-insights-overview#collected-data) for information on the default frequencies and see [Create SQL monitoring profile](/azure/azure-sql/database/sql-insights-enable#create-sql-monitoring-profile) for instructions on customizing frequencies.
+          The frequency of data collection is customizable. See [Data collected by SQL Insights (preview)](/azure/azure-sql/database/sql-insights-overview#collected-data) for information on the default frequencies. See [Create SQL monitoring profile](/azure/azure-sql/database/sql-insights-enable#create-sql-monitoring-profile) for instructions on customizing frequencies.
           
 additionalContent: |
 
   ## Next steps
   
-  If your question isn't answered here, you can refer to the following forums for more questions and answers.
+  If your question isn't answered here, see more questions and answers at the following forums:
 
   - [Log Analytics](/answers/topics/azure-monitor.html)
   - [Application Insights](/answers/topics/azure-monitor.html)
