@@ -77,7 +77,7 @@ The Speech service automatically handles punctuation as appropriate, such as pau
 
 ## Special characters
 
-To use the characters `&`, `<`, and `>` within the SSML element's value or text, you must use the entity format. Specifically you must use `&amp;` in place of `&`, `&lt;` use in place of `<`, and use `&gt;` in place of `>`. Otherwise the SSML will not be parsed correctly. 
+To use the characters `&`, `<`, and `>` within the SSML element's value or text, you must use the entity format. Specifically you must use `&amp;` in place of `&`, use `&lt;` in place of `<`, and use `&gt;` in place of `>`. Otherwise the SSML will not be parsed correctly. 
 
 For example, specify `green &amp; yellow` instead of `green & yellow`. The following SSML will be parsed as expected:
 

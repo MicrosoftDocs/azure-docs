@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with KnowledgeOwl | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with KnowledgeOwl'
 description: Learn how to configure single sign-on between Azure Active Directory and KnowledgeOwl.
 services: active-directory
 author: jeevansd

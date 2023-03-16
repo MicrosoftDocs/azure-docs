@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Virtual Risk Manager | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Virtual Risk Manager'
 description: Learn how to configure single sign-on between Azure Active Directory and Virtual Risk Manager.
 services: active-directory
 author: jeevansd
