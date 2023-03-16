@@ -25,7 +25,7 @@ This post off-boarding scenario runs a scheduled workflow and accomplish the fol
 
 ## Prerequisites
 
-Lifecycle Workflows preview requires Azure AD Premium P2. For more information, see: [License requirements](what-are-lifecycle-workflows.md#license-requirements).
+The Lifecycle Workflows preview requires Azure AD Premium P2. For more information, see: [License requirements](what-are-lifecycle-workflows.md#license-requirements).
 
 ##  Before you begin
 
