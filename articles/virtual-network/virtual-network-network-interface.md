@@ -89,7 +89,13 @@ To work with NICs, your account must be assigned to the [network contributor](..
 To create a NIC, use the following procedure.
 
 >[!NOTE]
->A VM you create in the Azure portal has one NIC with default settings. To create a NIC with custom settings and attach it to a VM, use PowerShell or Azure CLI. You can also use PowerShell or Azure CLI to add a NIC to an existing VM.
+>- A VM you create in the Azure portal has one NIC with default settings. To create a NIC with custom settings and attach it to a VM, or to add a NIC to an existing VM, use PowerShell or Azure CLI.
+>
+>- The portal doesn't provide the option to assign a public IP address to the NIC when you create it. If you want to create a NIC with a public IP address, use Azure CLI or PowerShell.
+>
+>  The portal does create a public IP address and assign it to a NIC when you create a VM. To add a public IP address to a NIC after you create it, see [Configure IP addresses for an Azure network interface](./ip-services/virtual-network-network-interface-addresses.md). 
+>
+>- The portal doesn't provide the option to assign the NIC to application security groups when you create the NIC, but Azure CLI and PowerShell do. However, you can assign an existing NIC to an application security group by using the portal if the NIC is attached to a VM. For more information, see [Add to or remove from application security groups](#add-or-remove-from-application-security-groups).
 
 # [Portal](#tab/network-interface-portal)
 
@@ -105,20 +111,12 @@ To create a NIC, use the following procedure.
    | **Region** | Select your region.| The Azure region where you create the NIC. |
    | **Virtual network** | Select your virtual network. | You can assign a NIC only to a virtual network in the same subscription and location as the NIC. Once you create a NIC, you can't change the virtual network it's assigned to. The VM you add the NIC to must also be in the same location and subscription as the NIC. |
    | **Subnet** | Select a subnet within the virtual network you selected. | You can change the subnet the NIC is assigned to after you create the NIC. |
-   | **IP version** | Select **IPv4** or **IPv4 and IPv6**. | You can choose to create the NIC with an IPv4 address or IPv4 and IPv6 addresses. To assign an IPv6 address, the network and subnet you use for the NIC must also have an IPv6 address space. An IPv6 configuration is assigned to a secondary IP configuration for the NIC.|
-   | **Private IP address assignment** | Select **Dynamic** or **Static**. | The Azure DHCP server assigns the private IP address to the NIC in the VM's operating system.<br><br>If you select **Dynamic**, Azure automatically assigns the next available address from the address space of the subnet you selected. <br><br>If you select **Static**, you must manually assign an available IP address from within the address space of the subnet you selected.<br><br>Static and dynamic addresses don't change until you change them or delete the NIC. You can change the assignment method after the NIC is created. |
+   | **IP version** | Select **IPv4** or<br>**IPv4 and IPv6**. | You can choose to create the NIC with an IPv4 address or IPv4 and IPv6 addresses. To assign an IPv6 address, the network and subnet you use for the NIC must also have an IPv6 address space. An IPv6 configuration is assigned to a secondary IP configuration for the NIC.|
+   | **Private IP address assignment** | Select **Dynamic** or **Static**. | The Azure DHCP server assigns the private IP address to the NIC in the VM's operating system.<br><br>- If you select **Dynamic**, Azure automatically assigns the next available address from the address space of the subnet you selected. <br><br>- If you select **Static**, you must manually assign an available IP address from within the address space of the subnet you selected.<br><br>Static and dynamic addresses don't change until you change them or delete the NIC. You can change the assignment method after the NIC is created. |
 
    :::image type="content" source="./media/virtual-network-network-interface/create-network-interface.png" alt-text="Screenshot of the Create network interface screen in the Azure portal.":::
 
 1. Select **Review + create**, and when validation passes, select **Create**.
-
-### Portal limitations
-
-- The portal doesn't provide the option to assign a public IP address to the NIC when you create it. If you want to create a NIC with a public IP address, use Azure CLI or PowerShell.
-
-  The portal does create a public IP address and assign it to a NIC when you create a VM. To add a public IP address to a NIC after you create it, see [Configure IP addresses for an Azure network interface](./ip-services/virtual-network-network-interface-addresses.md). 
-
-- The portal also doesn't provide the option to assign the NIC to application security groups when you create the NIC, but Azure CLI and PowerShell do. However, you can assign an existing NIC to an application security group by using the portal if the NIC is attached to a VM. For more information, see [Add to or remove from application security groups](#add-or-remove-from-application-security-groups).
 
 # [Azure CLI](#tab/network-interface-cli)
 
@@ -299,7 +297,7 @@ Azure DHCP assigns the DNS server to the NIC within the VM operating system. The
      The Azure-provided DNS server can resolve hostnames for resources assigned to the same virtual network. The fully qualified domain name (FQDN) must be used for resources assigned to different virtual networks.
 
      >[!NOTE]
-     >If a VM uses a NIC that's part of an availability set, all the DNS servers for all NICs for all VMs that are part of the availability set are inherited.
+     >If a VM uses a NIC that's part of an availability set, the DNS servers for all NICs for all VMs that are part of the availability set are inherited.
 
    - **Custom**: You can configure your own DNS server to resolve names across multiple virtual networks. Enter the IP address of the server you want to use as a DNS server. The DNS server address you specify is assigned only to this NIC and overrides any DNS setting for the virtual network the NIC is assigned to.
 
@@ -372,7 +370,7 @@ You must enable the setting for every NIC attached to the VM that needs to forwa
 
 IP forwarding is typically used with user-defined routes. For more information, see [User-defined routes](virtual-networks-udr-overview.md).
 
-While IP forwarding is an Azure setting, the VM must also run an application that's able to forward the traffic, such as a firewall, WAN optimization, or load balancing application. A VM that runs network applications is often called a network virtual appliance (NVA). You can view a list of ready-to-deploy NVAs in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances). 
+While IP forwarding is an Azure setting, the VM must also run an application that's able to forward the traffic, such as a firewall, WAN optimization, or load balancing application. A VM that runs network applications is often called a network virtual appliance (NVA). You can view a list of ready-to-deploy NVAs in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=network%20virtual%20appliances). 
 
 # [Portal](#tab/network-interface-portal)
 
@@ -443,7 +441,7 @@ You can change the subnet, but not the virtual network, that a NIC is assigned t
 # [Portal](#tab/network-interface-portal)
 
 1. On the NIC's page, select **IP configurations** in the left navigation.
-1. All private IP addresses must be assigned with the dynamic assignment method to change the subnet assignment for the NIC. On the **IP configurations** page, under **IP configurations**, if any private IP addresses listed have **(Static)** next to them, change the IP address assignment method to dynamic.
+1. On the **IP configurations** page, under **IP configurations**, if any private IP addresses listed have **(Static)** next to them, change the IP address assignment method to dynamic. All private IP addresses must be assigned with the dynamic assignment method to change the subnet assignment for the NIC.
 
    To change the assignment method to dynamic:
 
@@ -452,9 +450,7 @@ You can change the subnet, but not the virtual network, that a NIC is assigned t
    1. Select **Save**.
 
 1. When all private IP addresses are set to **Dynamic**, under **Subnet**, select the subnet you want to move the NIC to.
-1. Select **Save**. 
-
-   New dynamic addresses are assigned from the new subnet's address range.
+1. Select **Save**. New dynamic addresses are assigned from the new subnet's address range.
 
 After assigning the NIC to a new subnet, you can assign a static IPv4 address from the new subnet address range if you choose. For more information about adding, changing, and removing IP addresses for a NIC, see [Configure IP addresses for an Azure network interface](./ip-services/virtual-network-network-interface-addresses.md).
 
