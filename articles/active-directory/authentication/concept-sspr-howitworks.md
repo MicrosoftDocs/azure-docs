@@ -1,5 +1,5 @@
 ---
-title: Self-service password reset deep dive - Azure Active Directory
+title: Self-service password reset deep dive
 description: How does self-service password reset work
 
 services: active-directory
