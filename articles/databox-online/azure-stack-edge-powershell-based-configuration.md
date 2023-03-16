@@ -1210,7 +1210,7 @@ You can set either an Azure Consistent Services or a Network File System configu
                                 "dhcpEnabled":  true
                             }
                         ]
-}
+    }
     PS C:\>
     ```
 
