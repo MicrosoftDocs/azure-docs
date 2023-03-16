@@ -36,9 +36,9 @@ In order to troubleshoot issues with your custom claims provider REST API endpoi
 
 ## Azure AD sign-in logs
 
-You can also use [Azure AD sign-in logs](/azure/active-directory/reports-monitoring/concept-sign-ins) in addition to your REST API logs, and hosting environment diagnostics solutions. Using Azure AD sign-in logs, you can find errors, which may affect the users' sign-ins. The Azure AD sign-in logs provide  information about the HTTP status, error code, execution duration, and number of retries that occurred the API was called by Azure AD.
+You can also use [Azure AD sign-in logs](../reports-monitoring/concept-sign-ins.md) in addition to your REST API logs, and hosting environment diagnostics solutions. Using Azure AD sign-in logs, you can find errors, which may affect the users' sign-ins. The Azure AD sign-in logs provide  information about the HTTP status, error code, execution duration, and number of retries that occurred the API was called by Azure AD.
 
-Azure AD sign-in logs also integrate with [Azure Monitor](/azure/azure-monitor/). You can set up alerts and monitoring, visualize the data, and integrate with security information and event management (SIEM)  tools. For example, you can set up notifications if the number of errors exceed a certain threshold that you choose.
+Azure AD sign-in logs also integrate with [Azure Monitor](../../azure-monitor/index.yml). You can set up alerts and monitoring, visualize the data, and integrate with security information and event management (SIEM)  tools. For example, you can set up notifications if the number of errors exceed a certain threshold that you choose.
 
 To access the Azure AD sign-in logs:
 

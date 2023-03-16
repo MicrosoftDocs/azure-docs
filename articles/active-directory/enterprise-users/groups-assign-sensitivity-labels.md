@@ -1,5 +1,5 @@
 ---
-title: Assign sensitivity labels to groups - Azure AD | Microsoft Docs
+title: Assign sensitivity labels to groups - Azure AD
 description: Learn how to assign sensitivity labels to groups. See troubleshooting information and view additional available resources.
 services: active-directory
 documentationcenter: ''

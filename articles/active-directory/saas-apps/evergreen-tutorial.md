@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Evergreen | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Evergreen'
 description: Learn how to configure single sign-on between Azure Active Directory and Evergreen.
 services: active-directory
 author: jeevansd
