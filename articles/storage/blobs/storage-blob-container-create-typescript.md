@@ -44,24 +44,7 @@ Containers are created immediately beneath the storage account. It's not possibl
 The following example creates a container asynchronously from the BlobServiceClient:
 
 
-```typescript
-async function createContainer(blobServiceClient, containerName){
-
-  // public access at container level
-  const options = {
-    access: 'container'
-  };
-
-  // creating client also creates container
-  const containerClient = await blobServiceClient.createContainer(containerName, options);
-  console.log(`container ${containerName} created`);
-
-  // do something with container
-  // ...
-
-  return containerClient;
-}
-```
+:::code language="typescript" source="~/azure-storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/container-create.ts" id="snippet_create_container" :::
 
 ## Understand the root container
 

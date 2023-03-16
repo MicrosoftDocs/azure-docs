@@ -807,6 +807,12 @@ items:
             href: storage-blob-lease-python.md
           - name: Manage blob properties and metadata
             href: storage-blob-properties-metadata-python.md
+      - name: TypeScript
+        items:
+        - name: Container actions
+          items:
+          - name: Create a container
+            href: storage-blob-container-create-typescript.md
       - name: Test with a storage emulator
         items:
         - name: Use the Azurite open-source emulator
