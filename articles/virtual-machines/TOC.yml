@@ -1652,7 +1652,8 @@
         href: ../governance/policy/assign-policy-azurecli.md?context=/azure/virtual-machines/context/context
       - name: Terraform
         displayName: assign, compliance, hcl, policy
-        href: ../governance/policy/assign-policy-terraform.md?context=/azure/virtual-machines/context/context      - name: Azure PowerShell
+        href: ../governance/policy/assign-policy-terraform.md?context=/azure/virtual-machines/context/context      
+      - name: Azure PowerShell
         displayName: assign, compliance
         href: ../governance/policy/assign-policy-powershell.md?context=/azure/virtual-machines/context/context
       - name: .NET
