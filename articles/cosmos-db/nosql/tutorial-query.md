@@ -1,6 +1,8 @@
 ---
-title: 'Tutorial: How to query with SQL in Azure Cosmos DB?'
-description: In this tutorial, learn how to query with SQL queries in Azure Cosmos DB using the query playground.
+title: |
+  Tutorial: Query data
+titleSuffix: Azure Cosmos DB for NoSQL 
+description: In this tutorial, learn how to query data in Azure Cosmos DB for NoSQL with the built-in query syntax using the Data Explorer.
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
@@ -8,26 +10,35 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.custom: tutorial-develop, mvc, ignite-2022
 ms.topic: tutorial
-ms.date: 03/07/2023
+ms.date: 03/16/2023
 ---
 
-# Tutorial: Query Azure Cosmos DB by using the API for NoSQL
+# Tutorial: Query data in Azure Cosmos DB for NoSQL
+
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
-The Azure Cosmos DB [API for NoSQL](../introduction.md) supports querying documents using SQL. This article provides a sample document and two sample SQL queries and results.
+[Azure Cosmos DB for NoSQL](../introduction.md) supports querying documents using the built-in query syntax. This article provides a sample document and two sample queries and results.
 
 This article covers the following tasks:
 
 > [!div class="checklist"]
-> - Query data with SQL
+>
+> - Query NoSQL data with the built-in query syntax
+>
 
 ## Prerequisites
 
-This tutorial assumes you have an Azure Cosmos DB account and collection. Don't have any of those resources? Complete this quickstart: [Create an Azure Cosmos DB account, database, container, and items from the Azure portal](quickstart-portal.md).
+This tutorial assumes you have an Azure Cosmos DB account, database, and container.
+
+Don't have any of those resources? Complete this quickstart: [Create an Azure Cosmos DB account, database, container, and items from the Azure portal](quickstart-portal.md).
+
+You can run the queries using the [Azure Cosmos DB Explorer](../data-explorer.md) in the Azure portal. You can also run queries by using the [REST API](/rest/api/cosmos-db/) or [various SDKs](sdk-dotnet-v3.md).
+
+For more information about queries, see [setting started with queries](query/getting-started.md).
 
 ## Sample document
 
-The SQL queries in this article use the following sample document.
+The queries in this article use the following sample document.
 
 ```json
 {
@@ -58,15 +69,9 @@ The SQL queries in this article use the following sample document.
 }
 ```
 
-## Where can I run SQL queries?
+## Select all fields and apply a filter
 
-You can run queries using the Data Explorer in the Azure portal and by using the [REST API and SDKs](sdk-dotnet-v2.md).
-
-For more information about SQL queries, see [Getting started with queries](query/getting-started.md).
-
-## Example query 1
-
-Given the sample family document, following SQL query returns the documents where the ID field matches `WakefieldFamily`. Since it's a `SELECT *` statement, the output of the query is the complete JSON document:
+Given the sample family document, the following query returns the documents where the ID field matches `WakefieldFamily`. Since it's a `SELECT *` statement, the output of the query is the complete JSON document:
 
 Query:
 
@@ -107,7 +112,7 @@ Results:
 }
 ```
 
-## Example query 2
+## Select a cross-product of a child collection field
 
 The next query returns all the given names of children in the family whose ID matches `WakefieldFamily`.
 
@@ -138,7 +143,9 @@ Results:
 In this tutorial, you've done the following tasks:
 
 > [!div class="checklist"]
-> - Learned how to query using SQL
+>
+> - Learned how to query using the built-in query syntax
+>
 
 You can now proceed to the next tutorial to learn how to distribute your data globally.
 
