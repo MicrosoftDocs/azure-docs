@@ -42,11 +42,11 @@ For more information, review the following documentation:
 
   If you have a blank workflow, use any trigger that you want to start the workflow. This example uses the Request trigger.
 
-* Your logic app resource and workflow. Flat file operations don't have any triggers available, so your workflow has to minimally include a trigger. For more information, review the following documentation:
+* Your logic app resource and workflow. Flat file operations don't have any triggers available, so your workflow has to minimally include a trigger. For more information, see the following documentation:
 
-  * [Quickstart: Create your first Consumption logic app workflow with multi-tenant Azure Logic Apps](quickstart-create-first-logic-app-workflow.md)
+  * [Create an example Consumption logic app workflow in multi-tenant Azure Logic Apps](quickstart-create-example-consumption-workflow.md)
 
-  * [Create a Standard logic app workflow with single-tenant Azure Logic Apps](create-single-tenant-workflows-azure-portal.md)
+  * [Create an example Standard logic app workflow in single-tenant Azure Logic Apps](create-single-tenant-workflows-azure-portal.md)
 
 * A flat file schema for encoding and decoding the XML content. For more information, [Add schemas to use with workflows in Azure Logic Apps](logic-apps-enterprise-integration-schemas.md).
 
