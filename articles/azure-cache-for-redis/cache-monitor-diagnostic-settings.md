@@ -108,7 +108,7 @@ For more pricing information, [Azure Monitor pricing](https://azure.microsoft.co
 
 1. Sign into the [Azure portal](https://portal.azure.com).
 
-1. Navigate to your Azure Cache for Redis account. Open the **Diagnostic Settings - Auditing** pane under the **Monitoring section** on the left. Then, select **Add diagnostic setting**.
+1. Navigate to your Azure Cache for Redis account. Open the **Diagnostic Settings - Auditing** pane under the **Monitoring** section on the left. Then, select **Add diagnostic setting**.
    :::image type="content" source="media/cache-monitor-diagnostic-settings/cache-enterprise-auditing.png" alt-text="Screenshot of Diagnostic settings - Auditing selected in the Resource menu.":::
   <!-- **FRAN--need a new picture here** -->
 
