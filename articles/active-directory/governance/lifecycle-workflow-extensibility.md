@@ -1,5 +1,5 @@
 ---
-title: Workflow Extensibility - Azure Active Directory
+title: Workflow Extensibility
 description: Conceptual article discussing workflow extensibility with Lifecycle Workflows
 author: owinfreyATL
 ms.author: owinfrey
