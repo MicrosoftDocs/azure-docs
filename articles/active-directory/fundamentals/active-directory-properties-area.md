@@ -1,5 +1,5 @@
 ---
-title: Add your organization's privacy info - Azure Active Directory | Microsoft Docs
+title: Add your organization's privacy info
 description: Instructions about how to add your organization's privacy info to the Azure Active Directory Properties area.
 services: active-directory
 author: barclayn

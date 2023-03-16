@@ -1,11 +1,11 @@
 ---
-title: Configure B2B collaboration Microsoft cloud settings - Azure AD
+title: Configure B2B collaboration Microsoft cloud settings
 description: Use Microsoft cloud settings to enable cross-cloud B2B collaboration between sovereign (national) Microsoft Azure clouds.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 02/14/2023
+ms.date: 03/03/2023
 
 ms.author: mimart
 author: msmimart
@@ -39,6 +39,9 @@ After each organization has completed these steps, Azure AD B2B collaboration be
 - **Obtain the partner's tenant ID.** To enable B2B collaboration with a partner's Azure AD organization in another Microsoft Azure cloud, you'll need the partner's tenant ID. Using an organization's domain name for lookup isn't available in cross-cloud scenarios.
 - **Decide on inbound and outbound access settings for the partner.** Selecting a cloud in your Microsoft cloud settings doesn't automatically enable B2B collaboration. Once you enable another Microsoft Azure cloud, all B2B collaboration is blocked by default for organizations in that cloud. You'll need to add the tenant you want to collaborate with to your Organizational settings. At that point, your default settings go into effect for that tenant only. You can allow the default settings to remain in effect. Or, you can modify the inbound and outbound settings for the organization.
 - **Obtain any required object IDs or app IDs.** If you want to apply access settings to specific users, groups, or applications in the partner organization, you'll need to contact the organization for information before configuring your settings. Obtain their user object IDs, group object IDs, or application IDs (*client app IDs* or *resource app IDs*) so you can target your settings correctly.
+
+> [!NOTE]
+> Users from another Microsoft cloud must be invited using their user principal name (UPN). [Email as sign-in](../authentication/howto-authentication-use-email-signin.md#b2b-guest-user-sign-in-with-an-email-address) is not currently supported when collaborating with users from another Microsoft cloud.
 
 ## Enable the cloud in your Microsoft cloud settings
 
@@ -95,6 +98,9 @@ The following scenarios are supported when collaborating with an organization fr
 - Use B2B collaboration to invite a user in the partner tenant to access resources in your organization, including web line-of-business apps, SaaS apps, and SharePoint Online sites, documents, and files.
 - Use B2B collaboration to [share Power BI content to a user in the partner tenant](/power-bi/enterprise/service-admin-azure-ad-b2b#cross-cloud-b2b).
 - Apply Conditional Access policies to the B2B collaboration user and opt to trust multi-factor authentication or device claims (compliant claims and hybrid Azure AD joined claims) from the user’s home tenant.
+
+> [!NOTE]
+> Enabling the [SharePoint and OneDrive integration with Azure AD B2B](/sharepoint/sharepoint-azureb2b-integration) will provide the best experience for inviting users from another Microsoft cloud within SharePoint and OneDrive.
 
 ## Next steps
 

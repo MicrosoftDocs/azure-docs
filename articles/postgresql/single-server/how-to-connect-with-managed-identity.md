@@ -6,7 +6,7 @@ ms.subservice: single-server
 ms.topic: how-to
 ms.author: sunila
 author: sunilagarwal
-ms.custom: devx-track-csharp, devx-track-azurecli
+ms.custom: devx-track-csharp
 ms.date: 06/24/2022
 ---
 

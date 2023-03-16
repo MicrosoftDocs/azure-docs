@@ -1,5 +1,5 @@
 ---
-title: Filter for applications in Conditional Access policy (Preview) - Azure Active Directory
+title: Filter for applications in Conditional Access policy (Preview)
 description: Use filter for applications in Conditional Access to manage conditions.
 ms.service: active-directory
 ms.subservice: conditional-access
