@@ -95,7 +95,7 @@ There are multiple ways to create a workspace:
 
 * Use [Azure Machine Learning studio](quickstart-create-resources.md) to quickly create a workspace with default settings.
 * Use the [Azure portal](how-to-manage-workspace.md?tabs=azure-portal#create-a-workspace) for a point-and-click interface with more options. 
-* Use the [Azure Machine Learning SDK for Python](how-to-manage-workspace.md?view=azureml-api-2&tabs=python#create-a-workspace) to create a workspace on the fly from Python scripts or Jupyter notebooks.
+* Use the [Azure Machine Learning SDK for Python](how-to-manage-workspace.md?tabs=python#create-a-workspace) to create a workspace on the fly from Python scripts or Jupyter notebooks.
 :::moniker range="azureml-api-2"
 * Use an [Azure Resource Manager template](how-to-create-workspace-template.md) or the [Azure Machine Learning CLI](how-to-configure-cli.md) when you need to automate or customize the creation with corporate security standards.
 :::moniker-end
