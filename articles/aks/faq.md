@@ -324,7 +324,7 @@ These tools assist in providing observability around many node health related pr
 - Kernel issues: Kernel deadlock, corrupted file system
 - Container runtime issues: Unresponsive runtime daemon 
 
-The extension **does not** require any additional outbound access to any URLs, IP addresses, or ports beyond the AKS egress requirements that are documented [here](./limit-egress-traffic.md). It does not require any special permissions granted in Azure. It uses kubeconfig to connect to the API server to send the monitoring data collected.
+The extension **does not** require any additional outbound access to any URLs, IP addresses, or ports beyond the [documented AKS egress requirements](./limit-egress-traffic.md). It does not require any special permissions granted in Azure. It uses kubeconfig to connect to the API server to send the monitoring data collected.
 
 <!-- LINKS - internal -->
 
