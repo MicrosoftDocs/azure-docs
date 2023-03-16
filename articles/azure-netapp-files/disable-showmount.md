@@ -23,8 +23,6 @@ This functionality might cause security scanners to flag the Azure NetApp Files 
 
 Some applications, however, make use of showmount for functionality, such as Oracle OVM. In those scenarios, inform the security team of the application requirements.
 
-## Register the feature to disable showmount
-
 The disable showmount capability is currently in preview. If you're using this feature for the first time, you need to register the feature first. By registering the feature, you disable the showmount. By unregistering the feature, you enable the showmount. 
 
 1.  Register the feature by running the following commands:
