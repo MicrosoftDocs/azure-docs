@@ -569,10 +569,10 @@ items:
     items:
     - name: Application Insights overview
       href: app/app-insights-overview.md
-    - name: Create a resource
-      href: app/create-workspace-resource.md
     - name: Enable Application Insights
       items:
+      - name: Create a resource
+        href: app/create-workspace-resource.md
       - name: Auto-instrumentation
         items:
         - name: Overview
@@ -715,6 +715,12 @@ items:
             href: app/java-standalone-upgrade-from-2x.md
         - name: FAQ
           href: /azure/azure-monitor/faq#opentelemetry
+      - name: Upgrade from classic resources and iKey
+        items:
+        - name: Migrate to a workspace-based resource
+          href: app/convert-classic-resource.md
+        - name: Migrate to connection strings
+          href: app/migrate-from-instrumentation-keys-to-connection-strings.md
     - name: Application dashboard
       displayName: dashboard, Application Insights dashboard
       href: app/overview-dashboard.md
@@ -863,12 +869,6 @@ items:
         - name: Snapshot Debugger troubleshooting
           displayName: troubleshoot, troubleshooting
           href: /troubleshoot/azure/azure-monitor/app-insights/snapshot-debugger-troubleshoot
-    - name: Upgrade from classic resources and iKey
-      items:
-      - name: Migrate to a workspace-based resource
-        href: app/convert-classic-resource.md
-      - name: Migrate to connection strings
-        href: app/migrate-from-instrumentation-keys-to-connection-strings.md
     - name: Administration and security
       items:
       - name: Manage Application Insights
@@ -883,8 +883,6 @@ items:
       - name: IP address collection
         href: app/ip-collection.md
         displayName: geolocation, IP collection, IP tracking, IP storage
-      - name: Custom email reports
-        href: app/automate-custom-reports.md
       - name: Separate development, test, and production
         href: app/separate-resources.md
       - name: Performance counters
