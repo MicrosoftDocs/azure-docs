@@ -7,7 +7,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 2/23/2023
+ms.date: 3/16/2023
 ms.author: jomondi
 ms.reviewer: vranganathan
 ms.collection: M365-identity-device-management
