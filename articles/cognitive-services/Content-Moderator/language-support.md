@@ -107,7 +107,6 @@ ms.author: pafarley
 | | Quechua (Peru) | | |
 | | Romanian | | |
 | | Russian | | |
-| | Scottish Gaelic | | |
 | | Serbian (Cyrillic) | | |
 | | Serbian (Cyrillic, Bosnia and Herzegovina) | | |
 | | Serbian (Latin) | | |
