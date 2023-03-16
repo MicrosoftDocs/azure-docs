@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/12/2022
+ms.date: 03/16/2023
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: xurobert, brianokoyo, ardhanap
@@ -23,7 +23,7 @@ If you are already enrolled in the Microsoft Partner Network (MPN) and have met 
 
 1. Sign into the [App Registration portal](https://aka.ms/PublisherVerificationPreview) using [multi-factor authentication](../fundamentals/concept-fundamentals-mfa-get-started.md)
 
-1. Choose an app and click **Branding**. 
+1. Choose an app and click **Branding & properties**. 
 
 1. Click **Add MPN ID to verify publisher** and review the listed requirements.
 
@@ -42,7 +42,7 @@ Make sure you have met the [pre-requisites](publisher-verification-overview.md#r
 
 1. Navigate to the **App registrations** blade:  
 
-1. Click on an app you would like to mark as Publisher Verified and open the **Branding** blade. 
+1. Click on an app you would like to mark as Publisher Verified and open the **Branding & properties** blade. 
 
 1. Ensure the app’s [publisher domain](howto-configure-publisher-domain.md) is set. 
 
@@ -60,7 +60,7 @@ Make sure you have met the [pre-requisites](publisher-verification-overview.md#r
 
 1. Wait for the request to process, this may take a few minutes. 
 
-1. If the verification was successful, the publisher verification window will close, returning you to the Branding blade. You will see a blue verified badge next to your verified **Publisher display name**. 
+1. If the verification was successful, the publisher verification window will close, returning you to the **Branding & properties** blade. You will see a blue verified badge next to your verified **Publisher display name**. 
 
 1. Users who get prompted to consent to your app will start seeing the badge soon after you have gone through the process successfully, although it may take some time for this to replicate throughout the system. 
 
