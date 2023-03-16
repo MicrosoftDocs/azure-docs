@@ -63,6 +63,7 @@ The start of a machine learning project typically involves exploratory data anal
 1. Enter these commands in the terminal window to copy the data to your compute instance:
 
     ```
+    mkdir data
     cd data                     # the sub-folder where you'll store the data
     wget https://azuremlexamples.blob.core.windows.net/datasets/credit_card/default_of_credit_card_clients.csv
     ```
@@ -248,7 +249,7 @@ Next, create a new _version_ of the data asset (the data automatically uploads t
 from azure.ai.ml.entities import Data
 from azure.ai.ml.constants import AssetTypes
 
-my_path = "./cleaned-credit-card.parquet"
+my_path = "./data/cleaned-credit-card.parquet"
 
 # Define the data asset, and use tags to make it clear the asset can be used in training
 
