@@ -569,10 +569,10 @@ items:
     items:
     - name: Application Insights overview
       href: app/app-insights-overview.md
-    - name: Create a resource
-      href: app/create-workspace-resource.md
     - name: Enable Application Insights
       items:
+      - name: Create a resource
+        href: app/create-workspace-resource.md
       - name: Auto-instrumentation
         items:
         - name: Overview
@@ -598,7 +598,7 @@ items:
           href: app/kubernetes-codeless.md
         - name: ASP.NET on-premises agent
           href: app/application-insights-asp-net-agent.md
-      - name: Application Insights SDKs
+      - name: SDK instrumentation
         items:
         - name: .NET
           items:
@@ -615,7 +615,7 @@ items:
               - name: ASP.NET App Monitoring
                 displayName: ASP.NET, c#, csharp, .NET, NET, dotnet
                 href: app/asp-net.md
-            - name: Non-HTTP/Background apps
+            - name: Non-HTTP and background apps
               displayName: console, .NET, .NET Core, dotnet console, dotnet, c#, csharp, NET, worker, background, generic host
               href: app/worker-service.md
             - name: .NET Console
@@ -635,6 +635,8 @@ items:
               - name: Track custom operations in .NET SDK
                 href: app/custom-operations-tracking.md
                 displayName: correlation, dependency, dependencies, track dependency, OWIN, queue, service bus, background tasks, long running background tasks, outgoing dependency tracking, parallel operations, System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource, StartOperation, StopOperation
+              - name: Performance counters
+                href: app/performance-counters.md
         - name: Node.js
           href: app/nodejs.md
         - name: Python
@@ -683,7 +685,7 @@ items:
             href: app/asp-net-exceptions.md
           - name: Log traces
             href: app/asp-net-trace-logs.md
-      - name: OpenTelemetry-based instrumentation
+      - name: OpenTelemetry instrumentation
         items:
         - name: Overview
           href: app/opentelemetry-overview.md
@@ -715,138 +717,146 @@ items:
             href: app/java-standalone-upgrade-from-2x.md
         - name: FAQ
           href: /azure/azure-monitor/faq#opentelemetry
-    - name: Application dashboard
-      displayName: dashboard, Application Insights dashboard
-      href: app/overview-dashboard.md
-    - name: Application Map
-      displayName: appmap, app map, dependency map, dependencies, hotspots, cloud role name, cloudrolename, cloud_rolename, cloud.rolename, cloud role instance, node
-      href: app/app-map.md
-    - name: Availability
+      - name: Upgrade from classic resources and iKey
+        items:
+        - name: Migrate to a workspace-based resource
+          href: app/convert-classic-resource.md
+        - name: Migrate to connection strings
+          href: app/migrate-from-instrumentation-keys-to-connection-strings.md
+    - name: Features
       items:
-      - name: Overview
-        href: app/availability-overview.md
-      - name: Standard tests
-        href: app/availability-standard-tests.md
-      - name: Private testing
-        href: app/availability-private-test.md
-      - name: Availability + Azure Functions
-        href: app/availability-azure-functions.md
-        displayName: availability,azure functions,TrackAvailability(), timer function, azure gov, azure china, custom test, customized tests, contentmatch
-      - name: Availability alerts
-        displayName: alerts, global, alerting
-        href: app/availability-alerts.md
-      - name: SLA Report
-        href: app/sla-report.md
-    - name: Transaction diagnostics
-      href: app/transaction-diagnostics.md
-      displayName: e2e, end-to-end, component, dependency, cross-component transaction, operation ID, dependencies
-    - name: Distributed tracing
-      items:
-      - name: Overview
-        href: app/distributed-tracing.md
-      - name: Telemetry correlation
-        href: app/correlation.md
-        displayName: correlation headers, w3c, distributed tracing, tracing
-    - name: Metrics
-      items:
-      - name: Live Metric stream
-        displayName: live, quickpulse, quick pulse, live metrics
-        href: app/live-stream.md
-      - name: GetMetric
-        displayName: get metric, custom metrics, metrics, TrackMetric
-        href: app/get-metric.md
-      - name: Log-based & pre-aggregated metrics
-        href: app/pre-aggregated-metrics-log-metrics.md
-      - name: Log-based metrics definitions
-        href: essentials/app-insights-metrics.md
-      - name: Standard metrics
-        href: app/standard-metrics.md
-    - name: Transaction search
-      href: app/diagnostic-search.md
-    - name: Smart Detection
-      href: alerts/proactive-diagnostics.md
-      items:
-      - name: Upgrade to alerts
-        href: alerts/alerts-smart-detections-migration.md
-      - name: Failure anomalies
-        href: alerts/proactive-failure-diagnostics.md
-      - name: Performance anomalies
-        href: alerts/smart-detection-performance.md
-      - name: Trace degradation
-        href: alerts/proactive-trace-severity.md
-      - name: Exception volume
-        href: alerts/proactive-exception-volume.md
-      - name: Memory leak
-        href: alerts/proactive-potential-memory-leak.md
-      - name: Security detection
-        href: alerts/proactive-application-security-detection-pack.md
-      - name: Manage smart detection rules
-        href: alerts/proactive-arm-config.md
-      - name: E-mail notification
-        href: alerts/proactive-email-notification.md
-    - name: Usage (user behavior analytics)
-      items:
-      - name: Overview
-        displayName: user behavior analytics, user behavior, usage, behavioral analytics
-        href: app/usage-overview.md
-      - name: Users, Sessions, Events
-        href: app/usage-segmentation.md
-      - name: Funnels
-        href: app/usage-funnels.md
-      - name: Cohorts
-        href: app/usage-cohorts.md
-      - name: Impact
-        href: app/usage-impact.md
-      - name: Retention
-        href: app/usage-retention.md
-      - name: User Flows
-        href: app/usage-flows.md
-      - name: HEART Framework
-        href: app/usage-heart.md
-    - name: GitHub and Azure DevOps Integration
-      items:
-      - name: Work Item integration
-        href: app/work-item-integration.md
-      - name: Release annotations
-        href: app/annotations.md
-      - name: Continuous monitoring
-        href: app/continuous-monitoring.md
-    - name: Profiler
-      items:
-      - name: Overview
-        displayName: profiling, debugging, code performance, perf
-        href: profiler/profiler-overview.md
-      - name: Enable Profiler
-        items:        
-        - name: Azure App Service
-          href: profiler/profiler.md
-        - name: Azure Functions app
-          href: profiler/profiler-azure-functions.md
-        - name: Azure Cloud Service
-          href: profiler/profiler-cloudservice.md
-        - name: Azure Service Fabric app
-          href: profiler/profiler-servicefabric.md
-        - name: Azure Virtual Machine
-          href: profiler/profiler-vm.md
-        - name: ASP.NET Core app hosted in Linux on App Service
-          href: profiler/profiler-aspnetcore-linux.md
-        - name: ASP.NET Core app running in container
-          href: profiler/profiler-containers.md
-      - name: View Profiler data
-        displayName: profiling, debugging, code performance, perf
-        href: profiler/profiler-data.md
-      - name: Configure
-        items:        
-        - name: Configure Profiler
-          href: profiler/profiler-settings.md
-        - name: Configure BYOS (Bring Your Own Storage)
-          href: profiler/profiler-bring-your-own-storage.md
-      - name: Track Requests
-        href: profiler/profiler-trackrequests.md
-      - name: Troubleshooting
-        href: profiler/profiler-troubleshooting.md
-    - name: Snapshot Debugger
-      items:
+      - name: Application dashboard
+        displayName: dashboard, Application Insights dashboard
+        href: app/overview-dashboard.md
+      - name: Application Map
+        displayName: appmap, app map, dependency map, dependencies, hotspots, cloud role name, cloudrolename, cloud_rolename, cloud.rolename, cloud role instance, node
+        href: app/app-map.md
+      - name: Availability
+        items:
+        - name: Overview
+          href: app/availability-overview.md
+        - name: Standard tests
+          href: app/availability-standard-tests.md
+        - name: Private testing
+          href: app/availability-private-test.md
+        - name: Availability + Azure Functions
+          href: app/availability-azure-functions.md
+          displayName: availability,azure functions,TrackAvailability(), timer function, azure gov, azure china, custom test, customized tests, contentmatch
+        - name: Availability alerts
+          displayName: alerts, global, alerting
+          href: app/availability-alerts.md
+        - name: SLA Report
+          href: app/sla-report.md
+      - name: Transaction diagnostics
+        href: app/transaction-diagnostics.md
+        displayName: e2e, end-to-end, component, dependency, cross-component transaction, operation ID, dependencies
+      - name: Distributed tracing
+        items:
+        - name: Overview
+          href: app/distributed-tracing.md
+        - name: Telemetry correlation
+          href: app/correlation.md
+          displayName: correlation headers, w3c, distributed tracing, tracing
+      - name: Metrics
+        items:
+        - name: Live Metric stream
+          displayName: live, quickpulse, quick pulse, live metrics
+          href: app/live-stream.md
+        - name: GetMetric
+          displayName: get metric, custom metrics, metrics, TrackMetric
+          href: app/get-metric.md
+        - name: Log-based & pre-aggregated metrics
+          href: app/pre-aggregated-metrics-log-metrics.md
+        - name: Log-based metrics definitions
+          href: essentials/app-insights-metrics.md
+        - name: Standard metrics
+          href: app/standard-metrics.md
+      - name: Transaction search
+        href: app/diagnostic-search.md
+      - name: Smart Detection
+        href: alerts/proactive-diagnostics.md
+        items:
+        - name: Upgrade to alerts
+          href: alerts/alerts-smart-detections-migration.md
+        - name: Failure anomalies
+          href: alerts/proactive-failure-diagnostics.md
+        - name: Performance anomalies
+          href: alerts/smart-detection-performance.md
+        - name: Trace degradation
+          href: alerts/proactive-trace-severity.md
+        - name: Exception volume
+          href: alerts/proactive-exception-volume.md
+        - name: Memory leak
+          href: alerts/proactive-potential-memory-leak.md
+        - name: Security detection
+          href: alerts/proactive-application-security-detection-pack.md
+        - name: Manage smart detection rules
+          href: alerts/proactive-arm-config.md
+        - name: E-mail notification
+          href: alerts/proactive-email-notification.md
+      - name: Usage (user behavior analytics)
+        items:
+        - name: Overview
+          displayName: user behavior analytics, user behavior, usage, behavioral analytics
+          href: app/usage-overview.md
+        - name: Users, Sessions, Events
+          href: app/usage-segmentation.md
+        - name: Funnels
+          href: app/usage-funnels.md
+        - name: Cohorts
+          href: app/usage-cohorts.md
+        - name: Impact
+          href: app/usage-impact.md
+        - name: Retention
+          href: app/usage-retention.md
+        - name: User Flows
+          href: app/usage-flows.md
+        - name: HEART Framework
+          href: app/usage-heart.md
+      - name: GitHub and Azure DevOps integration
+        items:
+        - name: Work Item integration
+          href: app/work-item-integration.md
+        - name: Release annotations
+          href: app/annotations.md
+        - name: Continuous monitoring
+          href: app/continuous-monitoring.md
+      - name: Profiler
+        items:
+        - name: Overview
+          displayName: profiling, debugging, code performance, perf
+          href: profiler/profiler-overview.md
+        - name: Enable Profiler
+          items:        
+          - name: Azure App Service
+            href: profiler/profiler.md
+          - name: Azure Functions app
+            href: profiler/profiler-azure-functions.md
+          - name: Azure Cloud Service
+            href: profiler/profiler-cloudservice.md
+          - name: Azure Service Fabric app
+            href: profiler/profiler-servicefabric.md
+          - name: Azure Virtual Machine
+            href: profiler/profiler-vm.md
+          - name: ASP.NET Core app hosted in Linux on App Service
+            href: profiler/profiler-aspnetcore-linux.md
+          - name: ASP.NET Core app running in container
+            href: profiler/profiler-containers.md
+        - name: View Profiler data
+          displayName: profiling, debugging, code performance, perf
+          href: profiler/profiler-data.md
+        - name: Configure
+          items:        
+          - name: Configure Profiler
+            href: profiler/profiler-settings.md
+          - name: Configure BYOS (Bring Your Own Storage)
+            href: profiler/profiler-bring-your-own-storage.md
+        - name: Track Requests
+          href: profiler/profiler-trackrequests.md
+        - name: Troubleshooting
+          href: profiler/profiler-troubleshooting.md
+      - name: Snapshot Debugger
+        items:
         - name: Overview
           displayName: snapshot, debug, debugger, snapshot debugger, snapshotdebugger
           href: snapshot-debugger/snapshot-debugger.md
@@ -863,12 +873,6 @@ items:
         - name: Snapshot Debugger troubleshooting
           displayName: troubleshoot, troubleshooting
           href: /troubleshoot/azure/azure-monitor/app-insights/snapshot-debugger-troubleshoot
-    - name: Upgrade from classic resources and iKey
-      items:
-      - name: Migrate to a workspace-based resource
-        href: app/convert-classic-resource.md
-      - name: Migrate to connection strings
-        href: app/migrate-from-instrumentation-keys-to-connection-strings.md
     - name: Administration and security
       items:
       - name: Manage Application Insights
@@ -883,12 +887,8 @@ items:
       - name: IP address collection
         href: app/ip-collection.md
         displayName: geolocation, IP collection, IP tracking, IP storage
-      - name: Custom email reports
-        href: app/automate-custom-reports.md
       - name: Separate development, test, and production
         href: app/separate-resources.md
-      - name: Performance counters
-        href: app/performance-counters.md
       - name: Statsbeat
         href: app/statsbeat.md
     - name: Tutorials

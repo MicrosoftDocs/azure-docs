@@ -1,5 +1,5 @@
 ---
-title: 'Atlassian Jira/Confluence admin guide - Azure Active Directory'
+title: 'Atlassian Jira/Confluence admin guide'
 description: Admin guide to use Atlassian Jira and Confluence with Azure Active Directory (Azure AD)..
 services: active-directory
 author: dhivyagana

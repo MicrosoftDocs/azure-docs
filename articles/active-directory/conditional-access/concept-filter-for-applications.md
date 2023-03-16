@@ -1,5 +1,5 @@
 ---
-title: Filter for applications in Conditional Access policy (Preview) - Azure Active Directory
+title: Filter for applications in Conditional Access policy (Preview)
 description: Use filter for applications in Conditional Access to manage conditions.
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -23,7 +23,7 @@ Application filters are a new feature for Conditional Access that allows organiz
  
 In this document, you create a custom attribute set, assign a custom security attribute to your application, and create a Conditional Access policy to secure the application. 
 
-> [!NOTE]
+> [!IMPORTANT]
 > Filter for applications is currently in public preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Assign roles

@@ -1,13 +1,12 @@
 ---
-title: Import/Export of Azure IoT Hub device identities | Microsoft Docs
+title: Import/Export of Azure IoT Hub device identities
 description: How to use the Azure IoT service SDK to run bulk operations against the identity registry to import and export device identities. Import operations enable you to create, update, and delete device identities in bulk.
 author: kgremban
 
-ms.service: iot-hub
-services: iot-hub
-ms.topic: conceptual
-ms.date: 10/02/2019
 ms.author: kgremban
+ms.service: iot-hub
+ms.topic: how-to
+ms.date: 10/02/2019
 ms.custom: devx-track-csharp
 ---
 

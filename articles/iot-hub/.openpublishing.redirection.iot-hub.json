@@ -632,6 +632,61 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/iot-hub/twin-get-started-cli.md",
+      "redirect_url": "/azure/iot-hub/device-twins-cli",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-csharp-csharp-twin-getstarted.md",
+      "redirect_url": "/azure/iot-hub/device-twins-dotnet",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-java-java-twin-getstarted.md",
+      "redirect_url": "/azure/iot-hub/device-twins-java",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-node-node-twin-getstarted.md",
+      "redirect_url": "/azure/iot-hub/device-twins-node",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-python-twin-getstarted.md",
+      "redirect_url": "/azure/iot-hub/device-twins-python",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-node-node-module-twin-getstarted.md",
+      "redirect_url": "/azure/iot-hub/module-twins-node",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-c-c-module-twin-getstarted.md",
+      "redirect_url": "/azure/iot-hub/module-twins-c",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-csharp-csharp-module-twin-getstarted.md",
+      "redirect_url": "/azure/iot-hub/module-twins-dotnet",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-python-python-module-twin-getstarted.md",
+      "redirect_url": "/azure/iot-hub/module-twins-python",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-portal-csharp-module-twin-getstarted.md",
+      "redirect_url": "/azure/iot-hub/module-twins-portal-dotnet",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/module-twin-getstarted-cli.md",
+      "redirect_url": "/azure/iot-hub/module-twins-cli",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/iot-hub/iot-hub-gateway-sdk-physical-device.md",
       "redirect_url": "/azure/iot-hub/iot-hub-iot-edge-physical-device",
       "redirect_document_id": false
@@ -658,7 +713,7 @@
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-csharp-node-twin-getstarted.md",
-      "redirect_url": "/azure/iot-hub/iot-hub-node-node-twin-getstarted",
+      "redirect_url": "/azure/iot-hub/device-twins-node",
       "redirect_document_id": false
     },
     {
