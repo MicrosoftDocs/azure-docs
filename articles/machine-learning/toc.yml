@@ -167,7 +167,7 @@
           displayName: run config, machine learning pipeline, ml pipeline, train model
           href: concept-train-machine-learning-model.md
         # v1
-         - name: Model training
+        - name: Model training
           displayName: run config, machine learning pipeline, ml pipeline, train model
           href: ./v1/concept-train-machine-learning-model-v1.md
         # end v1
