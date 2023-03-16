@@ -1,5 +1,5 @@
 ---
-title: Change subdomain authentication type using PowerShell and Graph - Azure Active Directory | Microsoft Docs
+title: Change subdomain authentication type using PowerShell and Graph - Azure Active Directory
 description: Change default subdomain authentication settings inherited from root domain settings in Azure Active Directory.
 services: active-directory
 documentationcenter: ''

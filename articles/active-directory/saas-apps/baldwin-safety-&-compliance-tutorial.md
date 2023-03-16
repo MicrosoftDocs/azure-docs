@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Baldwin Safety and Compliance | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Baldwin Safety and Compliance'
 description: Learn how to configure single sign-on between Azure Active Directory and Baldwin Safety and Compliance.
 services: active-directory
 author: jeevansd
