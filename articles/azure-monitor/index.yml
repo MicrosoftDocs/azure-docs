@@ -32,10 +32,6 @@ landingContent:
             url: ./essentials/data-platform-metrics.md
           - text: What are Azure Monitor Logs?
             url: ./logs/data-platform-logs.md
-          - text: What is Azure Monitor for SCOM?
-            url:  azure-monitor-operations-manager.md
-          - text: What is Application Insights?
-            url: /azure-monitor/insights/insights-overview
 
 # Card 
   - title: Get started with Azure Monitor
@@ -72,30 +68,20 @@ landingContent:
             url: app/app-map.md
 
   # Card 
-  - title: 10-minute quickstarts
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Monitor and alert on metrics
-            url: alerts/alerts-metric.md
-          - text: Analyze logs
-            url: ./logs/log-analytics-tutorial.md
-          - text: Alert on subscription events
-            url: ./alerts/alerts-activity-log.md
-
-  # Card 
-  - title: End-to-end scenarios
+  - title: Common scenarios
     linkLists:
       - linkListType: deploy
         links:
-          - text: Multicloud monitoring
+          - text: Multi-cloud monitoring
             url: best-practices-multicloud.md
-          - text: Migrate to Azure Monitor Logs
-            url: ./logs/migrate-splunk-to-azure-monitor-logs.md
           - text: Monitor virtual machines
             url: ./vm/monitor-virtual-machine.md
           - text: Monitor containers
             url: ./containers/container-insights-overview.md
+          - text: Migrate from SCOM
+            url:  azure-monitor-operations-manager.md
+          - text: Migrate from Splunk to Azure Monitor Logs
+            url: ./logs/migrate-splunk-to-azure-monitor-logs.md
 
   # Card
   - title: Training
@@ -112,32 +98,6 @@ landingContent:
             url: /training/modules/monitor-performance-using-azure-monitor-for-vms/
           - text: Visualize data combined from multiple data sources using Azure Workbooks
             url: /training/modules/visualize-data-workbooks/
-
-  # Card
-  - title: Videos
-    linkLists: 
-      - linkListType: video
-        links:
-          - text: Create Azure Monitor dashboards
-            url: https://www.microsoft.com/en-us/videoplayer/embed/RE4AslH
-          - text: Create metric charts
-            url: https://www.microsoft.com/videoplayer/embed/RE4qO59
-          - text: Get started with log queries
-            url: https://www.microsoft.com/videoplayer/embed/RE42pGX
-          - text: Advanced query troubleshooting
-            url:  https://www.microsoft.com/en-us/videoplayer/embed/RE4NUH0
-          - text: How to run autoscale
-            url: https://www.microsoft.com/en-us/videoplayer/embed/RE4u7ts
-          - text: Container Insights overview
-            url: https://www.youtube.com/embed/XEdwGvS2AwA
-          - text: Get started with Azure Workbooks
-            url: https://www.microsoft.com/en-us/videoplayer/embed/RE4B4Ap
-          - text: Build workbooks using log queries
-            url: https://www.microsoft.com/en-us/videoplayer/embed/RE59Wee
-          - text: Using tabs, groups, and links in Azure Workbooks
-            url: https://www.microsoft.com/en-us/videoplayer/embed/RE59YTe
-          - text: Using graphs and links in Azure Workbooks
-            url: https://www.microsoft.com/en-us/videoplayer/embed/RE5ah5O
 
   # Card
   - title: Reference
