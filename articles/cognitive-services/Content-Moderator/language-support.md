@@ -54,7 +54,7 @@ ms.author: pafarley
 | Lepcha | Filipino | | |
 | Limbu | Finnish | | |
 | Lu | French | | |
-| Lycian | Galician | | |
+| Lycian | | |
 | Lydian | Georgian | | |
 | Mycenaean (Greek) | German | | |
 | Nko | Greek | | |
@@ -134,6 +134,5 @@ ms.author: pafarley
 | | Uzbek | | |
 | | Valencian | | |
 | | Vietnamese | | |
-| | Welsh | | |
 | | Wolof | | |
 | | Yoruba | | |
