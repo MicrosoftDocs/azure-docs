@@ -106,6 +106,11 @@ sections:
         answer: |
           With passwordless authentication, User IDs appear as the username. To confirm this scenario, look at the details of the sign-in event in question. The *authenticationDetail* field will say *passwordless*.
 
+      - question: |
+          I see a 90025 error in the sign in logs. Does this mean my user failed to sign in? Has my tenant hit a throttling limit?
+        answer: |
+          No, in general 90025 errors are resolved by an automatic retry without the user noticing the error. This error can occur when an internal Azure AD subservice hits its retry allowance and does not indicate your tenant is being throttled. These errors are usually resolved by Azure AD internally without any user impact. If the user is unable to sign in due to this error, manually trying again should resolve the issue. 
+
   - name: Conditional Access
     questions:
       - question: |
