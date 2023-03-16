@@ -5,13 +5,17 @@
     - name: What is Azure Machine Learning?
       displayName: AML, services, overview, introduction
       href: overview-what-is-azure-machine-learning.md
+    # v1
     - name: Azure Machine Learning SDK & CLI v1
       href: ./v1/introduction.md
+    # end v1
     - name: Glossary
       href: azure-machine-learning-glossary.md
+    # v1
     - name: Architecture & terms
       displayName: architecture, concepts, definitions, glossary
       href: ./v1/concept-azure-machine-learning-architecture.md
+    # end v1
 - name: Upgrade to v2
   items:
     - name: Upgrade overview
@@ -128,7 +132,7 @@
     # v1
     - name: Jupyter Notebooks
       displayName: example, examples, server, jupyter, azure notebooks, python, notebook, github
-      href: samples-notebooks-v1.md
+      href: ./v1/samples-notebooks-v1.md
     # end v1
     - name: Examples repository
       displayName: example, examples, jupyter, python, notebook, github
@@ -228,7 +232,7 @@
           href: concept-mlflow.md
         # v1
         - name: MLflow
-          href: concept-mlflow-v1.md
+          href: ./v1/concept-mlflow-v1.md
         # end v1
         - name: MLflow models
           displayName: tracking models, mlflow, custom, flavors
@@ -241,7 +245,7 @@
         # v1
         - name: MLOps capabilities
           displayName: deploy, deployment, publish, production, operationalize, operationalization
-          href: concept-model-management-and-deployment.md
+          href: ./v1/concept-model-management-and-deployment.md
         # end v1
         - name: Registries
           displayName: collaborate share

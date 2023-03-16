@@ -93,7 +93,7 @@ The extension currently supports datastores of the following types:
 For more information, see [datastore](concept-data.md#datastore).
 :::moniker-end
 :::moniker range="azureml-api-1"
-For more information, see [datastore](./v1/concept-data.md#connect-to-data-with-datastores).
+For more information, see [datastore](./v1/concept-data.md#connect-to-storage-with-datastores).
 :::moniker-end
 ### Create a datastore
 
