@@ -1,5 +1,5 @@
 ---
-title: Assign or list Azure AD roles with administrative unit scope - Azure Active Directory | Microsoft Docs
+title: Assign or list Azure AD roles with administrative unit scope
 description: Use administrative units to restrict the scope of role assignments in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -79,7 +79,7 @@ You can assign an Azure AD role with an administrative unit scope by using the A
 
 ### Azure portal
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory** > **Administrative units** and then select the administrative unit that you want to assign a user role scope to. 
 
@@ -137,7 +137,7 @@ You can view a list of Azure AD role assignments with administrative unit scope 
 
 You can view all the role assignments created with an administrative unit scope in the [Administrative units section of Azure AD](https://portal.azure.com/?microsoft_aad_iam_adminunitprivatepreview=true&microsoft_aad_iam_rbacv2=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AdminUnit). 
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory** > **Administrative units** and then select the administrative unit for the list of role assignments you want to view. 
 

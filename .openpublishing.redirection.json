@@ -1,6 +1,11 @@
 {
     "redirections": [
     {
+      "source_path": "articles/databox-online/azure-stack-edge-zero-touch-provisioning.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-powershell-based-configuration",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-video-analyzer/video-analyzer-docs/access-policies.md",
       "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/access-policies",
       "redirect_document_id": false
@@ -6311,16 +6316,6 @@
         {
             "source_path_from_root": "/articles/guidance/guidance-service-fabric-migrate-from-cloud-services.md",
             "redirect_url": "/azure/architecture/service-fabric/migrate-from-cloud-services",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/batch/batch-custom-image-pools-to-azure-compute-gallery-migration-guide.md",
-            "redirect_url": "/azure/batch",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/batch/batch-pools-to-simplified-compute-node-communication-model-migration-guide.md",
-            "redirect_url": "/azure/batch",
             "redirect_document_id": false
         },
         {
@@ -13768,6 +13763,31 @@
             "source_path_from_root": "/articles/scheduler/get-started-portal.md",
             "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
             "redirect_document_id": ""
+        },
+        {
+            "source_path_from_root": "/articles/search/tutorial-csharp-create-first-app.md",
+            "redirect_url": "/previous-versions/azure/search/tutorial-csharp-create-first-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/search/tutorial-csharp-paging.md",
+            "redirect_url": "/previous-versions/azure/search/tutorial-csharp-paging",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/search/tutorial-csharp-type-ahead-and-suggestions.md",
+            "redirect_url": "/previous-versions/azure/search/tutorial-csharp-type-ahead-and-suggestions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/search/tutorial-csharp-facets.md",
+            "redirect_url": "/previous-versions/azure/search/tutorial-csharp-facets",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/search/tutorial-csharp-orders.md",
+            "redirect_url": "/previous-versions/azure/search/tutorial-csharp-orders",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/search/cognitive-search-tutorial-aml-designer-custom-skill.md",
@@ -22411,7 +22431,11 @@
             "redirect_url": "/previous-versions/azure/virtual-machines/linux/openshift-container-platform-3x",
             "redirect_document_id": false
           },
-      
+	  {
+            "source_path": "articles/orbital/orbital-preview.md",
+            "redirect_url": "/azure/orbital/overview",
+            "redirect_document_id": false
+          },
         {
             "source_path": "articles/private-multi-access-edge-compute-mec/metaswitch-fusion-core-overview.md",
             "redirect_URL": "/azure/private-5g-core",

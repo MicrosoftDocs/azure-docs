@@ -1,5 +1,5 @@
 ---
-title: What's new in Sovereign Clouds? Release notes - Azure Active Directory | Microsoft Docs
+title: What's new in Sovereign Clouds? Release notes
 description: Learn what is new with Azure Active Directory Sovereign Cloud.
 author: owinfreyATL
 ms.author: owinfrey
@@ -30,7 +30,7 @@ This page is updated monthly, so revisit it regularly.
 **Service category:** Azure AD Domain Services             
 **Product capability:** Azure AD Domain Services        
 
-Now within the Azure portal you have access to view key data for your Azure AD-DS Domain Controllers such as: LDAP Searches/sec, Total Query Received/sec, DNS Total Response Sent/sec, LDAP Successful Binds/sec, memory usage, processor time, Kerberos Authentications, and NTLM Authentications. For more information, see: [Check fleet metrics of Azure Active Directory Domain Services](/azure/active-directory-domain-services/fleet-metrics).
+Now within the Azure portal you have access to view key data for your Azure AD-DS Domain Controllers such as: LDAP Searches/sec, Total Query Received/sec, DNS Total Response Sent/sec, LDAP Successful Binds/sec, memory usage, processor time, Kerberos Authentications, and NTLM Authentications. For more information, see: [Check fleet metrics of Azure Active Directory Domain Services](../../active-directory-domain-services/fleet-metrics.md).
 
 ---
 
@@ -275,7 +275,7 @@ Pick a group of up to five members and provision them into your third-party appl
 
  
 
-The new Device Overview in the Azure Active Directory portal provides meaningful and actionable insights about devices in your tenant.
+The new Device Overview in the Azure portal provides meaningful and actionable insights about devices in your tenant.
 
 In the devices overview, you can view the number of total devices, stale devices, noncompliant devices, and unmanaged devices. You'll also find links to Intune, Conditional Access, BitLocker keys, and basic monitoring. For more information, see: [Manage device identities by using the Azure portal](../devices/device-management-azure-portal.md).
  
@@ -353,7 +353,7 @@ Temporary Access Pass (TAP) is now generally available. TAP can be used to secur
 
 In some scenarios customers may want to require a fresh authentication, every time before a user performs specific actions. Sign-in frequency Every time support requiring a user to reauthenticate during Intune device enrollment, password change for risky users and risky sign-ins.
 
-More information: [Configure authentication session management - Azure Active Directory - Microsoft Entra | Microsoft Docs](../conditional-access/howto-conditional-access-session-lifetime.md#require-reauthentication-every-time).
+More information: [Configure authentication session management](../conditional-access/howto-conditional-access-session-lifetime.md#require-reauthentication-every-time).
  
 ---
 
