@@ -1,7 +1,7 @@
 ---
-title: How to use autotagging in custom text classification
+title: How to use autolabeling in custom text classification
 titleSuffix: Azure Cognitive Services
-description: Learn how to use autotagging in custom text classification.
+description: Learn how to use autolabeling in custom text classification.
 services: cognitive-services
 author: aahill
 manager: nitinme
