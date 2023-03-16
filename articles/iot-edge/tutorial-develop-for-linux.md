@@ -273,7 +273,7 @@ After solution creation, these main files are in the solution:
 
 The latest stable IoT Edge system module version is 1.4. Set your system modules to version 1.4.
 
-1. In Visual Studio Code, open *deployment.debug.template.json* deployment manifest file. The [deployment manifest](module-deployment-monitoring.md#deployment-manifest) is a JSON document that describes the modules to be configured on the targeted IoT Edge device.
+1. In Visual Studio Code, open *deployment.template.json* deployment manifest file. The [deployment manifest](module-deployment-monitoring.md#deployment-manifest) is a JSON document that describes the modules to be configured on the targeted IoT Edge device.
 1. Change the runtime version for the system runtime module images *edgeAgent* and *edgeHub*. For example, if you want to use the IoT Edge runtime version 1.4, change the following lines in the deployment manifest file:
 
     ```json
@@ -303,7 +303,7 @@ The IoT Edge extension tries to pull your container registry credentials from Az
 Check to see if your credentials exist. If not, add them now:
 
 1. If Azure Container Registry is your registry, set an Azure Container Registry username and password. Get these values from your container registry's **Settings** > **Access keys** menu in the Azure portal.
-1. Open the **.env** file in your module solution.
+1. Open the *.env* file in your module solution.
 1. Add the **username** and **password** values that you copied from your Azure container registry.
    For example:
 
@@ -312,7 +312,7 @@ Check to see if your credentials exist. If not, add them now:
     CONTAINER_REGISTRY_USERNAME="myacr"
     CONTAINER_REGISTRY_PASSWORD="<registry_password>"
     ```
-1. Save your changes to the .env file.
+1. Save your changes to the *.env* file.
 
 > [!NOTE]
 > This tutorial uses administrator login credentials for Azure Container Registry that are convenient for development and test scenarios. When you're ready for production scenarios, we recommend a least-privilege authentication option like service principals or repository-scoped tokens. For more information, see [Manage access to your container registry](production-checklist.md#manage-access-to-your-container-registry).
@@ -412,28 +412,126 @@ Provide your container registry credentials to Docker so that it can push your c
 
 Visual Studio Code now has access to your container registry, so it's time to turn the solution code into a container image.
 
-1. In the Visual Studio Code explorer, right-click the **deployment.template.json** file and select **Build and Push IoT Edge Solution**.
+In Visual Studio Code, open the *deployment.debug.template.json* deployment manifest file. The [deployment manifest](module-deployment-monitoring.md#deployment-manifest) describes the modules to be configured on the targeted IoT Edge device. Before deployment, you need to update your Azure Container Registry credentials and your module images with the proper `createOptions` values. For more information about createOption values, see [How to configure container create options for IoT Edge modules](how-to-use-create-options.md).
 
-   :::image type="content" source="./media/tutorial-develop-for-linux/build-and-push-modules.png" alt-text="Screenshot showing the right-click menu option Build and Push I o T Edge Solution." lightbox="./media/tutorial-develop-for-linux/build-and-push-modules.png":::
+::: zone pivot="iotedge-dev-cli"
 
-   The build and push command starts three operations. First, it creates a new folder in the solution called **config** that holds the full deployment manifest, built out of information in the deployment template and other solution files. Second, it runs `docker build` to build the container image based on the appropriate dockerfile for your target architecture. Then, it runs `docker push` to push the image repository to your container registry.
+If you're using an Azure Container Registry to store your module image, add your credentials to the *edgeAgent* > *settings* > *registryCredentials* section in **deployment.debug.template.json**. Replace **myacr** with your own registry name in both places and provide your password and **Login server** address. For example:
 
-   This process may take several minutes the first time, but is faster the next time that you run the commands.
+```json
+"modulesContent": {
+"$edgeAgent": {
+"properties.desired": {
+   "schemaVersion": "1.1",
+   "runtime": {
+      "type": "docker",
+      "settings": {
+      "minDockerVersion": "v1.25",
+      "loggingOptions": "",
+      "registryCredentials": {
+         "myacr": {
+            "username": "myacr",
+            "password": "<your_acr_password>",
+            "address": "myacr.azurecr.io"
+         }
+      }
+      }
+   },
+...
+```
 
-2. Open the **deployment.amd64.json** file in newly created config folder. The filename reflects the target architecture, so it's different if you chose a different architecture.
+Add or replace the following stringified content to the *createOptions* value for each system (edgeHub and edgeAgent) and custom module (for example, tempSensor) listed. Change the values if necessary.
 
-3. Notice that the two parameters that had placeholders now contain their proper values. The **registryCredentials** section has your registry username and password pulled from the .env file. The **SampleModule** has the full image repository with the name, version, and architecture tag from the module.json file.
+```json
+"createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
+```
 
-4. Open the **module.json** file in the SampleModule folder.
+For example, the *filtermodule* configuration should be similar to:
 
-5. Change the version number for the module image. (The version, not the $schema-version.) For example, increment the patch version number to **0.0.2** just like if you made a small fix in the module code.
+```json
+"filtermodule": {
+"version": "1.0",
+"type": "docker",
+"status": "running",
+"restartPolicy": "always",
+"settings": {
+   "image": "myacr.azurecr.io/filtermodule:0.0.1-amd64",
+   "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
+}
+```
+
+#### Build module Docker image
+
+Use the module's Dockerfile to [build](https://docs.docker.com/engine/reference/commandline/build/) the module Docker image.
+
+```bash
+docker build --rm -f "<DockerFilePath>" -t <ImageNameAndTag> "<ContextPath>" 
+```
+
+For example, to build the image for the local registry or an Azure container registry, use the following commands:
+
+```bash
+# Build the image for the local registry
+
+docker build --rm -f "./modules/filtermodule/Dockerfile.amd64.debug" -t localhost:5000/filtermodule:0.0.1-amd64 "./modules/filtermodule"
+
+# Or build the image for an Azure Container Registry
+
+docker build --rm -f "./modules/filtermodule/Dockerfile.amd64.debug" -t myacr.azurecr.io/filtermodule:0.0.1-amd64 "./modules/filtermodule"
+```
+
+#### Push module Docker image
+
+[Push](https://docs.docker.com/engine/reference/commandline/push/) your module image to the local registry or a container registry.
+
+`docker push <ImageName>`
+
+For example:
+
+```bash
+# Push the Docker image to the local registry
+
+docker push localhost:5000/filtermodule:0.0.1-amd64
+
+# Or push the Docker image to an Azure Container Registry
+az acr login --name myacr
+docker push myacr.azurecr.io/filtermodule:0.0.1-amd64
+```
+
+::: zone-end
+
+::: zone pivot="iotedge-dev-ext"
+
+In the Visual Studio Code explorer, right-click the **deployment.template.json** file and select **Build and Push IoT Edge Solution**.
+
+:::image type="content" source="./media/tutorial-develop-for-linux/build-and-push-modules.png" alt-text="Screenshot showing the right-click menu option Build and Push I o T Edge Solution." lightbox="./media/tutorial-develop-for-linux/build-and-push-modules.png":::
+
+The build and push command starts three operations. First, it creates a new folder in the solution called **config** that holds the full deployment manifest, built out of information in the deployment template and other solution files. Second, it runs `docker build` to build the container image based on the appropriate dockerfile for your target architecture. Then, it runs `docker push` to push the image repository to your container registry.
+
+This process may take several minutes the first time, but is faster the next time that you run the commands.
+
+::: zone-end
+
+#### Update the build and image
+
+1. Open the **deployment.amd64.json** file in newly created config folder. The filename reflects the target architecture, so it's different if you chose a different architecture.
+
+1. Notice that the two parameters that had placeholders now contain their proper values. The **registryCredentials** section has your registry username and password pulled from the *.env* file. The **SampleModule** has the full image repository with the name, version, and architecture tag from the *module.json* file.
+
+1. Open the **module.json** file in the SampleModule folder.
+
+1. Change the version number for the module image. For example, increment the patch version number to `"version": "0.0.2"` as if you made a small fix in the module code.
 
    >[!TIP]
    >Module versions enable version control, and allow you to test changes on a small set of devices before deploying updates to production. If you don't increment the module version before building and pushing, then you overwrite the repository in your container registry.
 
-6. Save your changes to the module.json file.
+6. Save your changes to the *module.json* file.
+
+::: zone pivot="iotedge-dev-ext"
 
 7. Right-click the **deployment.template.json** file again, and again select **Build and Push IoT Edge Solution**.
+
+::: zone-end
 
 8. Open the **deployment.amd64.json** file again. Notice the build system doesn't create a new file when you run the build and push command again. Rather, the same file updates to reflect the changes. The SampleModule image now points to the 0.0.2 version of the container.
 
