@@ -3,8 +3,8 @@ title: Create an Azure Image Builder Bicep file or ARM JSON template
 description: Learn how to create a Bicep file or ARM JSON template to use with Azure Image Builder.
 author: kof-f
 ms.author: kofiforson
-ms.reviewer: cynthn
-ms.date: 09/06/2022
+ms.reviewer: erd
+ms.date: 03/15/2023
 ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
@@ -149,9 +149,13 @@ The location is the region where the custom image will be created. The following
 - Qatar Central
 - USGov Arizona (Public Preview)
 - USGov Virginia (Public Preview)
-
+- China North 3 (Public Preview)
+Register-AzProviderPreviewFeature -ProviderNamespace Microsoft.VirtualMachineImages -Name MooncakePublicPreview
 > [!IMPORTANT]
 > Register the feature `Microsoft.VirtualMachineImages/FairfaxPublicPreview` to access the Azure Image Builder public preview in Azure Government regions (USGov Arizona and USGov Virginia).
+
+> [!IMPORTANT]
+> Register the feature `Microsoft.VirtualMachineImages/MooncakePublicPreview` to access the Azure Image Builder public preview in the China North 3 region.
 
 Use the following command to register the feature for Azure Image Builder in Azure Government regions (USGov Arizona and USGov Virginia).
 
