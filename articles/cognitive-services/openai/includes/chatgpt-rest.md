@@ -76,16 +76,18 @@ echo export OPENAI_API_BASE="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/environmen
 
 ## REST API
 
-In a bash shell run the following:
+In a bash shell run the following command. You will need to replace `gpt-35-turbo` with the deployment name you chose when you deployed the ChatGPT or GPT-4 models. Entering the model name will result in an error unless you chose a deployment name that is identical to the underlying model name.
 
 ```bash
-curl https://$OPENAI_API_BASE/openai/deployments/gpt-35-turbo/completions?api-version=2022-12-01 \
+curl https://$OPENAI_API_BASE/openai/deployments/gpt-35-turbo/chat/completions?api-version=2023-03-15-preview \
   -H "Content-Type: application/json" \
   -H "api-key: $OPENAI_API_KEY" \
   -d '{
   "messages": {["role": "user", "content": "Hello!"}]
 }'
 ```
+
+If you want to run this command in a normal Windows command prompt you would need to alter the text to remove the `\` and line breaks.
 
 ## Output
 
