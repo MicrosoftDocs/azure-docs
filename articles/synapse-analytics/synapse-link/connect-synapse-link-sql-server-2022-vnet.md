@@ -95,15 +95,15 @@ In this section, you create an Azure Synapse workspace with managed virtual netw
 
      :::image type="content" source="../media/connect-synapse-link-sql-database/blob-managed-private-endpoint.png" alt-text="Screenshot of azure blob storage.":::
 
-    c. Complete the **managed private endpoint** creation in the linked service for **Azure Blob Storage**.
+    c. Complete the managed private endpoint creation in the linked service for Azure Blob Storage.
          
       :::image type="content" source="../media/connect-synapse-link-sql-database/create-managed-private-endpoint.png" alt-text="Screenshot of new managed private endpoint.":::
 
-    d. After creating an **Azure Blob Storage** private endpoint, go to your storage account networking page and approve it. 
+    d. After creating an Azure Blob Storage private endpoint, go to your Azure Data Lake Storage Gen2 networking page and approve it. 
     
       :::image type="content" source="../media/connect-synapse-link-sql-database/create-blob-private-endpoint.png" alt-text="Screenshot of create blob private endpoint.":::
 
-    In case your SQL Server 2022 instance is installed on a virtual machine (VM) and your Azure Storage account is disabled from public network access, you can create a private endpoint of storage sub resource type **blob** to ensure secure communications between your VM, SQL Server and Azure Storage. Tutorial: Connect to a storage account using an Azure Private Endpoint - Azure Private Link | Microsoft Learn”
+    In case your SQL Server 2022 instance is installed on a virtual machine (VM) and your Azure Storage account is disabled from public network access, you can create a private endpoint of storage sub resource type **blob** to ensure secure communications between your VM, SQL Server and Azure Storage. For more information, refer to [Tutorial: Connect to a storage account using an Azure Private Endpoint - Azure Private Link | Microsoft Learn”](../private-link/tutorial-private-endpoint-storage-portal)
 
 1. Now you can create a link connection from the **Integrate** pane to replicate data from your SQL Server 2022 instance to an Azure Synapse SQL pool.
 
