@@ -4,7 +4,7 @@ titeSuffix: Microsoft Azure Maps
 description: a guide to help developers migrate from Azure Maps elevation services to alternate solutions.
 author: FarazGIS
 ms.author: fsiddiqui
-ms.date: 3/23/2023
+ms.date: 3/17/2023
 ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
@@ -22,7 +22,7 @@ This article describes how to:
 
 ## Prerequisites
 
-This guide requires the use of the following third-party data and software:
+This guide requires the use of the following third-party software and data:
 
 - USGS Data. DEM data can be downloaded as GeoTiff with 1 arc second coverage per tile through the [USGS EarthExplorer]. This requires an EarthExplorer account, but the data can be downloaded for free.
 - The [QGIS] desktop GIS application is used to process and smoothen the Raster tiles. QGIS is free to download and use. This guide uses QGIS version 3.26.2-Buenos Aires.
@@ -37,7 +37,7 @@ This guide uses the 36 tiles covering the state of Washington, available from [U
 
 #### Search criteria
 
-Select the region that you want raster tiles for. For demonstration purposes, this guide will use the "Polygon" method to select the region on the map.
+Select the region that you want raster tiles for. For demonstration purposes, this guide uses the "Polygon" method to select the region on the map.
 
 1. Navigate to the [USGS EarthExplorer].
 
@@ -57,9 +57,9 @@ Select the region that you want raster tiles for. For demonstration purposes, th
 
 1. Select **Results >>** to view the tiles for the selected region and data set.
 
-1. On the results page, you will see the list of tiles which can downloaded. To download
-   only tiles you want, select the "Download Options" button on the result card for each tile,
-   selecting the option "GeoTIFF 1 Arc-Second" and repeat this step for the remaining tiles.
+1. The list of downloadable tiles appear on the results page. To download
+   only tiles you want, select the **Download Options** button on the result card for each tile,
+   selecting the option **GeoTIFF 1 Arc-Second** and repeat this step for the remaining tiles.
 
     :::image type="content" source="./media/elevation-services/results-export.png" alt-text="A screenshot showing how to add raster tiles in QGIS." lightbox="./media/elevation-services/results-select-tiles-export.png":::
 
@@ -74,9 +74,9 @@ Once you have the raster tiles you need, you can import them in QGIS.
 
     :::image type="content" source="./media/elevation-services/add-raster-tiles-qgis.png" alt-text="A screenshot showing how to add raster tiles in QGIS." lightbox="./media/elevation-services/add-raster-tiles-qgis.png":::
 
-2. When the raster layers are loaded into QGIS, you will notice
+2. When the raster layers are loaded into QGIS, there can be
    different shades of tiles. Fix this by merging the raster
-   layers, which results in a single smooth raster image in GeoTIFF
+   layers, which result in a single smooth raster image in GeoTIFF
    format. To do this, select **Miscellaneous** from the **Raster** menu, then **Merge...**
 
     :::image type="content" source="./media/elevation-services/merge-raster-layers.png" alt-text="A screenshot showing how the merge raster layers menu in QGIS.":::
@@ -91,7 +91,7 @@ Once you have the raster tiles you need, you can import them in QGIS.
 
 5. To create an Elevation API, the next step is to RGB-Encode the GeoTIFF. This can be done using
     [rio-rgbify], developed by MapBox. There are some challenges running this tool directly in
-    Windows, so it is easier to run from WSL. Below are the steps in Ubuntu on WSL:
+    Windows, so it's easier to run from WSL. Below are the steps in Ubuntu on WSL:
 
     ```Ubuntu
     sudo apt get update
@@ -109,9 +109,16 @@ Once you have the raster tiles you need, you can import them in QGIS.
     rio rgbify -b -10000 -i 0.1 wa_1arc_v3_merged_3857.tif wa_1arc_v3_merged_3857_rgb.tif
     ```
 
+    The following steps are only necessary when unmounting an external hard drive or USB flash drive:
+
+    ```Ubuntu
+    cd \~
+    sudo umount /mnt/f/
+    ```
+
     :::image type="content" source="./media/elevation-services/rgb-encoded-geotiff.png" alt-text="A screenshot showing the RGB-encoded GeoTIFF in QGIS.":::
 
-    The RGB-encoded GeoTIFF will allow you to retrieve R, G and B values
+    The RGB-encoded GeoTIFF allows you to retrieve R, G and B values
     for a pixel and calculate the elevation from these values:
 
     `elevation (m) = -10000 + ((R * 256 * 256 + G * 256 + B) * 0.1)`
@@ -122,11 +129,11 @@ Once you have the raster tiles you need, you can import them in QGIS.
 
     :::image type="content" source="./media/elevation-services/generate-xyz-tiles-tool.png" alt-text="A screenshot showing the Generate XYZ tiles (Directory) tool in QGIS.":::
 
-7. Save the location of the tile set, you will use it in the next Section.
+7. Save the location of the tile set, you'll use it in the next Section.
 
 ## Create Elevation API using Azure Function and RGB-encoded DEM tiles from Azure Blob Storage
 
-The RGB encoded DEM Tiles needs to be uploaded to a database storage
+The RGB encoded DEM Tiles need to be uploaded to a database storage
 before it can be used with the Azure Functions to create an API.
 
 1. Upload the tiles to Azure Blob Storage. [Azure Storage Explorer] is a useful tool for this purpose.
@@ -138,7 +145,7 @@ before it can be used with the Azure Functions to create an API.
 1. Once the upload is complete, you can create Azure Function to build an
    API that returns elevation for a given geographic coordinate.
 
-   This function will receive a coordinate pair, determine the tile that
+   This function receives a coordinate pair, determine the tile that
    covers it at zoom level 14, then determine the pixel coordinates within
    that tile that matches the geographic coordinates. It then retrieves
    the tile, gets the RGB values for that pixel, then uses the
@@ -206,6 +213,12 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         )
 ```
 
+To see the results of the code sample, run it locally:
+
+```http
+localhost:7071/api/GetElevationPoint?lng=-122.01911&lat=47.67091`
+```
+
 ## Create Contour line vector tile service using Azure Function and PostgreSQL
 
 This section describes the steps to create and process contour lines in
@@ -220,13 +233,13 @@ PostgreSQL to return vector tiles.
 
     :::image type="content" source="./media/elevation-services/contour-tool.png" alt-text="A screenshot showing the contour dialog in QGIS.":::
 
-    Selecting **Run** will create contour lines and add them as a layer to the map.
-    some of the contour line edges may appear a little rough which will be addressed
+    Selecting **Run** creates contour lines and add them as a layer to the map.
+    some of the contour line edges may appear a little rough. This will be addressed
     in the next step.
 
     :::image type="content" source="./media/elevation-services/contour-lines.png" alt-text="A screenshot showing the contour dialog in QGIS.":::
 
-1. Select **Toolbox** from the **Processing** menu to bring up the the **Processing Toolbox**.
+1. Select **Toolbox** from the **Processing** menu to bring up the **Processing Toolbox**.
 1. Then select **Smooth** in the **Vector geometry** section of the **Processing Toolbox**.
 
     :::image type="content" source="./media/elevation-services/smooth-dialog.png" alt-text="A screenshot showing the smooth dialog in QGIS.":::
@@ -235,7 +248,7 @@ PostgreSQL to return vector tiles.
     > Contour line smoothing can be substantially improved but at the cost of increased file-size.
 
 1. Load the contour lines to the database. This guide uses the free
-   version of [PostgreSQL] database, that will run on localhost. You
+   version of [PostgreSQL] database that runs on localhost. You
    can also load them to the Azure Database for PostgreSQL.
 
     The next step requires a PostgreSQL database with [PostGIS] extension.
@@ -348,6 +361,13 @@ PostgreSQL to return vector tiles.
                 status_code=400
             )
     ```
+
+To see the results of the code sample, run it locally:
+
+```http
+http://localhost:7071/api/tileserver?zoom={z}&x={x}&y={y}
+```
+
 [Microsoft Azure Cloud]: https://azure.microsoft.com/free/cloud-services
 [USGS EarthExplorer]: https://earthexplorer.usgs.gov/
 [QGIS]: https://www.qgis.org/en/site/forusers/download.html
