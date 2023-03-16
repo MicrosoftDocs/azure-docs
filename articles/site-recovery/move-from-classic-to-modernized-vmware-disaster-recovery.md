@@ -3,7 +3,7 @@ title: Move from classic to modernized VMware disaster recovery.
 description: Learn about the architecture, necessary infrastructure, and FAQs about moving your VMware replications from classic to modernized protection architecture.
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/15/2023
+ms.date: 03/16/2023
 author: ankitaduttaMSFT
 ms.custom: engagement-fy23
 ---
@@ -138,11 +138,11 @@ It is important to note that the classic architecture for disaster recovery will
 
 ### What machines should be migrated to the modernized architecture?
 
-All VMware machines, which are replicated using a configuration server, should be migrated to the modernized architecture. As of now, we have released support for VMware machines. 
+All VMware machines that are replicated using a configuration server should be migrated to the modernized architecture. Currently, we’ve released support for VMware machines.
 
 ### Where should my modernized Recovery Services vault be created?
 
-The modernized Recovery Services vault should be present in the same region and tenant as the classic vault. It can be a part of any subscription or resource group.
+The modernized Recovery Services vault should be located in the same region and tenant as the classic vault. It can be a part of any subscription or resource group. 
 
 ### Will my replication continue while the migration is happening?
 
