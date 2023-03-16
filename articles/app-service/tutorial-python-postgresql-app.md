@@ -23,9 +23,9 @@ In this tutorial, you'll deploy a data-driven Python web app (**[Django](https:/
 
 ## Provision and deploy using the Azure Developer CLI
 
-Sample Python application templates using the Flask and Django framework are provided for this tutorial. The [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) greatly streamlines the process of deploying the app resources to Azure. For a more step-by-step approach using the Azure Portal and other tools, switch to the **Manual Steps** approach available by toggling the **Manual Steps** option at the top of the page.
+Sample Python application templates using the Flask and Django framework are provided for this tutorial. The [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) greatly streamlines the process of provisioning application resources and deploying code on Azure. For a more step-by-step approach using the Azure Portal and other tools, switch to the **Manual Steps** approach available by toggling the **Manual Steps** option at the top of the page.
 
-The Azure Developer CLI (azd) accelerates building cloud apps on Azure by providing developer-friendly commands that map to key stages in the development workflow, such as provisioning and deploying resources. You can use azd to provision and deploy the resources for the sample application in an automated and streamlined way.
+The Azure Developer CLI (azd) provides end-to-end support for project initialization, provisioning, deploying, monitoring and scaffolding a CI/CD pipeline to run against real Azure resources. You can use `azd` to provision and deploy the resources for the sample application in an automated and streamlined way.
 
 Follow the steps below to setup the Azure Developer CLI and provision and deploy the sample application:
 
@@ -65,26 +65,26 @@ Follow the steps below to setup the Azure Developer CLI and provision and deploy
 
     :::image type="content" border="False" source="./media/tutorial-python-postgresql-app/azd-resources-small.png" lightbox="./media/tutorial-python-postgresql-app/azd-resources.png" alt-text="The resources deployed by the Azure Developer CLI.":::
 
-The Azure Developer CLI also enables you to configure your application to use a CI/CD pipeline for deployments, setup monitoring functionality or even remove the provisioned resources. For more information about these additional workflows, visit the project [README](https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app/blob/main/README.md).
+The Azure Developer CLI also enables you to configure your application to use a CI/CD pipeline for deployments, setup monitoring functionality even remove the provisioned resources, if you want to tear everything down. For more information about these additional workflows, visit the project [README](https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app/blob/main/README.md).
 
 ## Explore the azd project template workflow
 
-The sections ahead review the steps that azd handled for you in more depth. You can explore this workflow to better understand the requirements for deploying your own apps to Azure. When you ran `azd up`, the Azure Developer CLI completed the following steps:
+The sections ahead review the steps that `azd` handled for you in more depth. You can explore this workflow to better understand the requirements for deploying your own apps to Azure. When you ran `azd up`, the Azure Developer CLI completed the following steps:
 
 > [!NOTE]
-> You can also use the steps outlined in the **Step by step** version of this flow to gain additional insights into the tasks that azd completed for you.
+> You can also use the steps outlined in the **Step by step** version of this flow to gain additional insights into the tasks that `azd` completed for you.
 
 ### 1. Clone and initialize the project
 
-The `az up` command cloned the sample app project template to your local computer. The project template includes the following components:
+The `azd up` command cloned the sample app project template to your machine. The project template includes the following components:
 
 * **Source code**: The code and assets for a Flask or Django web app that can be used for local development or deployed to Azure.
-* **Bicep files**: Infrastructure as code (IaC) files that are used by azd to create the necessary resources in Azure.
-* **Configuration files**: Essential configuration files such as `azure.yaml` that are consumed by azd to provision, deploy and connect resources correctly.
+* **Bicep files**: Infrastructure as code (IaC) files that are used by `azd` to create the necessary resources in Azure.
+* **Configuration files**: Essential configuration files such as `azure.yaml` that are used by `azd` to provision, deploy and wire resources together to produce a fully-fledged application.
 
 ### 2. Provision the Azure resources
 
-The `azd up` command created all of the resources for the sample application in Azure using the Bicep files in the [`infra`](https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app/tree/main/infra) folder of the project template. [Bicep](/azure/azure-resource-manager/bicep/overview?tabs=bicep) is a declarative language used to manage infrastructure as code in Azure. Some of the key resources and and configurations created by the template include:
+The `azd up` command created all of the resources for the sample application in Azure using the Bicep files in the [`infra`](https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app/tree/main/infra) folder of the project template. [Bicep](/azure/azure-resource-manager/bicep/overview?tabs=bicep) is a declarative language used to manage Infrastructure as Code in Azure. Some of the key resources and and configurations created by the template include:
 
 * **Resource group**: A resource group was created to hold all of the other provisioned Azure resources. The resource group keeps your resources well organized and easier to manage. The name of the resource group is based off of the environment name you specified during the `azd up` initialization process.
 * **Azure Virtual Network**: A virtual network was created to enable the provisioned resources to securely connect and communicate with one another. Related configurations such as setting up a private DNS zone link were also applied.
@@ -232,7 +232,16 @@ services:
 
 ### [Django](#tab/django)
 
-
+```yml
+name: django-postgresql-sample-app
+metadata:
+  template: django-postgresql-sample-app@0.0.1-beta
+services:
+  web:
+    project: .
+    language: py
+    host: appservice
+```
 
 ---
 
