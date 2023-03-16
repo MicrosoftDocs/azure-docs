@@ -39,11 +39,13 @@ To monitor the status and progress of a running SAP CDC data flow, open then Mon
 
 This takes you to the data flow monitor. Clicking on the source icon in the data flow diagram at the top will open the detail source diagnostics section at the bottom.
 
-:::image type="content" source="media/sap-change-data-capture-solution/sap-change-data-capture-monitor-data-flow.png" alt-text="Screenshot of the data flow monitor.":::
-
 The "SAP to stage subscriber process" (not shown for full loads) helps you identify your SAP CDC process within the SAP source system's monitoring tools.
 
 The section "SAP to stage", which is periodically updated while the extraction from the SAP source system is still executing, shows the progress of the extraction process.
+
+:::image type="content" source="media/sap-change-data-capture-solution/sap-change-data-capture-monitor-data-flow.png" alt-text="Screenshot of the data flow monitor.":::
+
+
 
 ## Monitor data extractions on SAP systems
 
