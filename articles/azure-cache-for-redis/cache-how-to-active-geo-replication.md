@@ -145,6 +145,7 @@ As before, you need to list both _Cache1_ and _Cache2_ using the `-LinkedDatabas
 
 Due to the potential for inadvertent data loss, you can't use the `FLUSHALL` and `FLUSHDB` Redis commands with any cache instance residing in a geo-replication group. Instead, use the **Flush Cache(s)** button located at the top of the **Active geo-replication** working pane. 
 
+:::image type="content" source="media/cache-how-to-active-geo-replication/cache-active-flush.png" alt-text="Screenshot showing Active geo-replication selected in the Resource menu and the Flush cache feature has a red box around it.":::
 <!-- **FRAN--need a screenshot picture here** -->
 
 > [!IMPORTANT]
