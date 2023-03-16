@@ -54,8 +54,8 @@ Item cache is used for point reads (key/value look ups based on the Item ID and 
 ### Populating the item cache
 
 - New writes, updates, and deletes are automatically populated in the item cache of the node that the request is routed through
-- Requests that are part of a [transactional batch](./nosql/transactional-batch.md) or written in [bulk mode](./nosql/how-to-migrate-from-bulk-executor-library.md#enable-bulk-support) don't populate the item cache
 - Items from point read requests where the item isn’t already in the cache (cache miss) of the node the request is routed through are added to the item cache
+- Requests that are part of a [transactional batch](./nosql/transactional-batch.md) or written in [bulk mode](./nosql/how-to-migrate-from-bulk-executor-library.md#enable-bulk-support) don't populate the item cache
 
 ### Item cache invalidation and eviction
 
@@ -72,7 +72,7 @@ The query cache is used to cache queries. The query cache transforms a query int
 ### Populating the query cache
 
 - If the cache doesn't have a result for that query (cache miss) on the node it was routed through, the query is sent to the backend. After the query is run, the cache will store the results for that query
-- In order for a request to be a cache hit, it must share the exact query text including all parameters and it must have the same applicable query request options where the results are affected, such as max item count
+- Queries with the same shape but different parameters or request options that affect the results (ex. max item count) will be stored as their own key/value pair
 
 ### Query cache eviction
 
@@ -87,7 +87,7 @@ You don't need special code when working with the query cache, even if your quer
 
 The query cache automatically caches query continuation tokens where applicable. If you have a query with multiple pages of results, any pages that are stored in the integrated cache have an RU charge of 0. If subsequent pages of query results require backend execution, they'll have a continuation token from the previous page so they can avoid duplicating previous work.
 
-> [!NOTE]
+> [!IMPORTANT]
 > Integrated cache instances within different dedicated gateway nodes have independent caches from one another. If data is cached within one node, it is not necessarily cached in the others. Multiple pages of the same query are not guaranteed to be routed to the same dedicated gateway node.
 
 ## Integrated cache consistency
