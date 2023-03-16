@@ -140,7 +140,7 @@ Authoring AutoML models for vision tasks is supported via the Azure Machine Lear
 
 Learn how to [set up AutoML training for computer vision models](../how-to-auto-train-image-models.md).
 
-:::image type="content" source="./media/concept-automated-ml/automl-computer-vision-tasks.png" alt-text="Diagram showing resulting experiment from above.":::
+:::image type="content" source="../media/concept-automated-ml/automl-computer-vision-tasks.png" alt-text="Diagram showing resulting experiment from above.":::
 
 Automated ML for images supports the following computer vision tasks: 
 

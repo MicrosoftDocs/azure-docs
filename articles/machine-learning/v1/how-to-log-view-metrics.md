@@ -126,7 +126,7 @@ params = finished_mlflow_run.data.params
 >[!NOTE]
 > The metrics dictionary under `mlflow.entities.Run.data.metrics` only returns the most recently logged value for a given metric name. For example, if you log, in order, 1, then 2, then 3, then 4 to a metric called `sample_metric`, only 4 is present in the metrics dictionary for `sample_metric`.
 > 
-> To get all metrics logged for a particular metric name, you can use [`MlFlowClient.get_metric_history()`](https://www.mlflow.org/docs/latest/python_api/mlflow.tracking.html#mlflow.tracking.MlflowClient.get_metric_history).
+> To get all metrics logged for a particular metric name, you can use [`MlFlowClient.get_metric_history()`](https://www.mlflow.org/docs/latest/python_api/mlflow.client.html#mlflow.client.MlflowClient.get_metric_history).
 
 <a name="view-the-experiment-in-the-web-portal"></a>
 
@@ -151,7 +151,7 @@ Log files are an essential resource for debugging the Azure Machine Learning wor
 2. Select **Download all** to download all your logs into a zip folder.
 3. You can also download individual log files by choosing the log file and selecting **Download**
 
-:::image type="content" source="media/how-to-log-view-metrics/download-logs.png" alt-text="Screenshot of Output and logs section of a run.":::
+:::image type="content" source="../media/how-to-log-view-metrics/download-logs.png" alt-text="Screenshot of Output and logs section of a run.":::
 
 #### user_logs folder
 

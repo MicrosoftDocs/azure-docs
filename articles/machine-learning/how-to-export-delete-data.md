@@ -10,7 +10,7 @@ ms.author: lagayhar
 ms.reviewer: franksolomon
 ms.date: 02/09/2023
 ms.topic: how-to
-
+monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
 
 
@@ -66,6 +66,39 @@ To download a registered model, navigate to the **Model** and choose **Download*
 
 :::image type="contents" source="media/how-to-export-delete-data/model-download.png" alt-text="Screenshot of studio model page with download option highlighted.":::
 
+:::moniker range="azureml-api-1"
+## Export and delete resources using the Python SDK
+
+You can download the outputs of a particular job using: 
+
+```python
+# Retrieved from Azure Machine Learning web UI
+run_id = 'aaaaaaaa-bbbb-cccc-dddd-0123456789AB'
+experiment = ws.experiments['my-experiment']
+run = next(run for run in ex.get_runs() if run.id == run_id)
+metrics_output_port = run.get_pipeline_output('metrics_output')
+model_output_port = run.get_pipeline_output('model_output')
+
+metrics_output_port.download('.', show_progress=True)
+model_output_port.download('.', show_progress=True)
+```
+
+The following machine learning resources can be deleted using the Python SDK: 
+
+| Type | Function Call | Notes | 
+| --- | --- | --- |
+| `Workspace` | [`delete`](/python/api/azureml-core/azureml.core.workspace.workspace#delete-delete-dependent-resources-false--no-wait-false-) | Use `delete-dependent-resources` to cascade the delete |
+| `Model` | [`delete`](/python/api/azureml-core/azureml.core.model%28class%29#delete--) | | 
+| `ComputeTarget` | [`delete`](/python/api/azureml-core/azureml.core.computetarget#delete--) | |
+| `WebService` | [`delete`](/python/api/azureml-core/azureml.core.webservice%28class%29) | |
+
+:::moniker-end
+
 ## Next steps
 
+:::moniker range="azureml-api-2"
 Learn more about [Managing a workspace](how-to-manage-workspace.md).
+:::moniker-end
+:::moniker range="azureml-api-1"
+Learn more about [Managing a workspace](./v1/how-to-manage-workspace.md).
+:::moniker-end
