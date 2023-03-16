@@ -147,7 +147,7 @@ The above command creates a new node pool named *npwin* and adds it to the *myAK
 ## Add a Windows Server 2019 node pool
 
 > [!NOTE]
-> Windows Server 2019 will be retired in Kubernetes 1.33 and higher. For more information about this retirement, see the [AKS release notes][aks-release-notes].
+> Windows Server 2019 is being retired after Kubernetes version 1.32 reaches end of life (EOL) and won't be supported in future releases. For more information about this retirement, see the [AKS release notes][aks-release-notes].
 
 When creating a Windows node pool, on Kubernetes version 1.24 or earlier, the default operating system will be Windows Server 2019. To use Windows Server 2019 node pools when not the default option, you need to specify an OS SKU type of `Windows2019`.
 

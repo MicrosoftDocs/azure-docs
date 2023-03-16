@@ -12,7 +12,7 @@ ms.author: viniap
 Upgrading the OS version of a running Windows workload on Azure Kubernetes Service (AKS) requires you to deploy a new node pool as Windows versions must match on each node pool. This article describes the steps to upgrade the OS version for Windows workloads as well as other important aspects.
 
 > [!NOTE]
-> Windows Server 2019 is being retired after Kubernetes version 1.32 EOL and won't be supported in future releases. For more information about this retirement, see the [AKS release notes][aks-release-notes].
+> Windows Server 2019 is being retired after Kubernetes version 1.32 reaches end of life (EOL) and won't be supported in future releases. For more information about this retirement, see the [AKS release notes][aks-release-notes].
 
 ## Limitations
 
