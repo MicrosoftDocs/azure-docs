@@ -6,7 +6,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/15/2023
+ms.date: 03/16/2023
 ms.author: alkohli
 ---
 # Use a config file to deploy an Azure Stack Edge device
@@ -88,7 +88,7 @@ Use the following steps to import the PowerShell module and sign in to the devic
 
 Use the following steps to sign in to a device, change the password, and fetch the device configuration:
 
-1. Sign in to the device and change the device password.
+1. Sign in to the device and specify a new device password.
 
    ```azurepowershell
    Set-Login "https://<IP address>" "<CurrentPassword>" "<NewPassword>"
@@ -105,12 +105,6 @@ Use the following steps to sign in to a device, change the password, and fetch t
 Use the following steps to create a device configuration package in PowerShell and then apply the configuration to one or more devices.
 
 Run the following cmdlets in PowerShell:
-
-1. Sign in to the device.
-
-    ```azurepowershell
-    Set-Login "https://<IP address>" "<Password>"
-    ```
 
 1. Set the `time` object property.
 
@@ -195,12 +189,6 @@ This sequence of PowerShell cmdlets signs in to the device, applies device confi
 
 Run the following cmdlets in PowerShell:
 
-1. Sign in to the device.
-
-   ```azurepowershell
-   Set-Login "https://<IP address>" "<Password>"
-   ```
-
 1. Before you run the device configuration operation, ensure that the JSON file uses the `nodeName` of the device to be changed. 
 
    > [!NOTE]
@@ -258,6 +246,7 @@ Run the following cmdlets in PowerShell:
    ```azurepowershell
    Get-DeviceConfiguration | To-json
    ```
+
 ### Configure a two-node device
 
 This sequence of PowerShell cmdlets signs in to a two-node device, applies device configuration settings from a JSON file, verifies completion of the operation, and then fetches the new device configuration.
@@ -266,12 +255,6 @@ This sequence of PowerShell cmdlets signs in to a two-node device, applies devic
 > Two-node configurations are only supported on Azure Stack Edge Pro GPU and Azure Stack Edge Pro 2 devices. 
 
 Run the following cmdlets in PowerShell:
-
-1. Sign in to the device.
-
-   ```azurepowershell
-   Set-Login "https://<IP address>" "<Password>"
-   ```
 
 1. Before you run the device configuration operation, ensure that the JSON file uses the `nodeName` of the device to be changed. 
 
@@ -644,12 +627,6 @@ Use the following steps to activate an Azure Stack Edge device. Note that activa
 
 1. Retrieve the `ActivationKey` for your device. For detailed steps, see [Create a management resource, and Get the activation key](azure-stack-edge-gpu-deploy-prep.md#create-a-management-resource-for-each-device).
 
-1. Sign in to the device.
-
-   ```azurepowershell
-   Set-Login "https://<IP address>" "Password"
-   ```
-
 1. Set the `ActivationKey` property.
 
    ```azurepowershell
@@ -761,12 +738,6 @@ Use the following steps to activate an Azure Stack Edge device. Note that activa
 
 Use the following steps to sign in to the device, fetch the status of the `WebProxy` properties, set the `WebProxy` property to “isEnabled = true” and set the `WebProxy` URI, and then fetch the status of the changed `WebProxy` properties. After running the package, verify the new device configuration.
 
-1. Sign in to the device.
-
-   ```azurepowershell
-   Set-Login "https://<IP address>" "Password"
-   ```
-
 1. Load the device configuration cmdlet.
  
    ```azurepowershell
@@ -852,12 +823,6 @@ Proactive log collection gathers system health indicators on your Azure Stack Ed
 
 Use the following steps to fetch the current setting and then enable or disable proactive logging for your device.
 
-1.	Sign in to the device.
-
-    ```azurepowershell
-    Set-Login "https://<IP address>" "Password"
-    ```
-
 1.	Fetch the device configuration.
 
     ```azurepowershell
@@ -893,12 +858,6 @@ Use the following steps to fetch the current setting and then enable or disable 
 To diagnose and troubleshoot any device errors, you can run the diagnostics tests. For more information, see [Run diagnostics](azure-stack-edge-gpu-troubleshoot.md#run-diagnostics).
 
 Use the following steps to sign in to the device and run device diagnostics to verify status after you apply a device configuration package.
-
-1. Sign in to the device.
-
-   ```azurepowershell
-   Set-Login "https://<IP address>" "Password"
-   ```
 
 1. Run device diagnostics.
 
@@ -1162,7 +1121,7 @@ You can set either an Azure Consistent Services or a Network File System configu
     ```azurepowershell
     Get-DeviceVip | to-json
     ```
-    Here is sample output:
+    Here's sample output:
 
     ```Output
     {
@@ -1192,7 +1151,7 @@ You can set either an Azure Consistent Services or a Network File System configu
                                 "dhcpEnabled":  false
                             }
                         ]
-}
+    }
     PS C:\>
     ```
 
