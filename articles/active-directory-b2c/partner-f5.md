@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: B2C
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/14/2023
+ms.date: 03/16/2023
 ---
 
 # Tutorial: Enable secure hybrid access for applications with Azure Active Directory B2C and F5 BIG-IP
