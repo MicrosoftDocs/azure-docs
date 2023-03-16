@@ -100,7 +100,7 @@ myMSALObj.acquireTokenSilent(request).then(function (response) {
     // call API
 }).catch( function (error) {
     // call acquireTokenPopup in case of acquireTokenSilent failure
-    // due interaction required
+    // due to interaction required
     if (error instanceof InteractionRequiredAuthError) {
         myMSALObj.acquireTokenPopup(request).then(
             function (response) {
