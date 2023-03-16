@@ -223,6 +223,7 @@ Upon receipt of confirmation from your ADP representative, configure your ADP se
 
 1. Go to **Basic SAML Configuration** section and enter any instance specific URL in the **Identifier (Entity ID)** textbox. 
 
+    > [!NOTE]
     > Please note that this can be any random value which you feel relevant for your instance.
 
     ![Screenshot shows how to configure another test instance value.](./media/adpfederatedsso-tutorial/append.png "Test")
