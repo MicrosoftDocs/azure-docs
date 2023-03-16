@@ -15,7 +15,7 @@ ms.devlang: azurecli
 
 Diagnostic settings in Azure are used to collect resource logs. An Azure resource emits resource logs and provides rich, frequent data about the operation of that resource. These logs are captured per request and are also referred to as "data plane logs". See [diagnostic settings in Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) for a recommended overview of the functionality in Azure. The content of these logs varies by resource type. In Azure Cache for Redis, two options are available to log:
 
-- **Cache Metrics** (that is "AllMetrics") used to [log metrics from Azure Monitor](/azure-monitor/essentials/diagnostic-settings.md)  
+- **Cache Metrics** (that is "AllMetrics") used to [log metrics from Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings?tabs=portal)
 - **Connection Logs** logs connections to the cache for security and diagnostic purposes. 
 
 ## Scope of availability
