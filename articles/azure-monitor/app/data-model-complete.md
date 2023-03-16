@@ -414,15 +414,24 @@ This field represents the node name used for billing purposes. Use it to overrid
 
 ## Next steps
 
-- [Write custom telemetry](./api-custom-events-metrics.md).
-- Learn how to [extend and filter telemetry](./api-filtering-sampling.md).
+Learn how to use [Application Insights API for custom events and metrics](./api-custom-events-metrics.md), including:
+- [Custom request telemetry](./api-custom-events-metrics.md#trackrequest)
+- [Custom dependency telemetry](./api-custom-events-metrics.md#trackdependency)
+- [Custom trace telemetry](./api-custom-events-metrics.md#tracktrace)
+- [Custom event telemetry](./api-custom-events-metrics.md#trackevent)
+- [Custom metric telemetry](./api-custom-events-metrics.md#trackmetric)
+
+Set up dependency tracking for:
+- [.NET](./asp-net-dependencies.md).
+- [Java](./opentelemetry-enable.md?tabs=java)
+
+Learn more:
 - Use [sampling](./sampling.md) to minimize the amount of telemetry based on data model.
 - Check out [platforms](./app-insights-overview.md#supported-languages) supported by Application Insights.
-- Set up dependency tracking for [.NET](./asp-net-dependencies.md).
-- Set up dependency tracking for [Java](./opentelemetry-enable.md?tabs=java).
-- Explore [Java trace logs in Application Insights](./opentelemetry-enable.md?tabs=java#logs).
 - Learn how to [configure an ASP.NET Core](./asp-net.md) application with Application Insights.
 - Learn how to [diagnose exceptions in your web apps with Application Insights](./asp-net-exceptions.md).
+- Learn how to [extend and filter telemetry](./api-filtering-sampling.md).
 - Explore [.NET trace logs in Application Insights](./asp-net-trace-logs.md).
+- Explore [Java trace logs in Application Insights](./opentelemetry-enable.md?tabs=java#logs).
 - Check out standard context properties collection [configuration](./configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet).
 - Learn about [Azure Functions' built-in integration with Application Insights](../../azure-functions/functions-monitoring.md?toc=/azure/azure-monitor/toc.json).
