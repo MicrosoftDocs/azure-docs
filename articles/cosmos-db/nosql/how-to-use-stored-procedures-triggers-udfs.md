@@ -237,7 +237,7 @@ result = container.scripts.execute_stored_procedure(sproc=created_sproc,params=[
 
 ---
 
-## How to run pretriggers
+## <a id="how-to-run-pre-triggers"></a>How to run pretriggers
 
 The following examples show how to register and call a pretrigger by using the Azure Cosmos DB SDKs. For the source of this pretrigger example, saved as *trgPreValidateToDoItemTimestamp.js*, see [Pretriggers](how-to-write-stored-procedures-triggers-udfs.md#pre-triggers).
 
