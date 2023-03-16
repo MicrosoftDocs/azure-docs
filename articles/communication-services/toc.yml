@@ -534,6 +534,14 @@ items:
         href: concepts/analytics/call-logs-azure-monitor.md
       - name: Metrics overview
         href: concepts/metrics.md
+    - name: UI Library
+      items:
+      - name: UI Library overview
+        href: concepts/ui-library/ui-library-overview.md
+      - name: UI Library use cases
+        href: concepts/ui-library/ui-library-use-cases.md
+      - name: Design with UI Library Design Kit
+        href: quickstarts/ui-library/get-started-ui-kit.md  
     - name: Known issues
       href: concepts/known-issues.md
   - name: Chat
@@ -646,14 +654,6 @@ items:
     href: concepts/advisor-overview.md
 - name: Resources 
   items:
-  - name: UI Library
-    items:
-    - name: UI Library overview
-      href: concepts/ui-library/ui-library-overview.md
-    - name: UI Library use cases
-      href: concepts/ui-library/ui-library-use-cases.md
-    - name: Design with UI Library Design Kit
-      href: quickstarts/ui-library/get-started-ui-kit.md  
   - name: Release notes
     href: https://github.com/Azure/Communication/blob/master/releasenotes
   - name: Learn modules

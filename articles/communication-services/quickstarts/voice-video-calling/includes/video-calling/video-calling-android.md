@@ -123,7 +123,7 @@ See https://developer.android.com/about/versions/pie/android-9.0-changes-28#apac
 
 ### Set up the layout for the app
 
-You need a text input for the caller ID or group call ID, a button for placing the call, and extra button for hanging up the call.
+You need a text input for the callee ID or group call ID, a button for placing the call, and extra button for hanging up the call.
 
 Also need two buttons to turn on and turn off the local video. You need to place two containers for local and remote video streams. You can add these buttons through the designer, or by editing the layout XML.
 

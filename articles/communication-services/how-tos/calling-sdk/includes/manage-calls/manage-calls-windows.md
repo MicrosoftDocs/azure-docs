@@ -82,12 +82,12 @@ The following classes and interfaces handle some of the major features of the Az
 
 | Name                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| CallClient | The CallClient is the main entry point to the Calling client library. |
-| CallAgent | The CallAgent is used to start and join calls. |
-| Call | The Call is used to manage placed or joined calls. |
-| CommunicationTokenCredential | The CommunicationTokenCredential is used as the token credential to instantiate the CallAgent.|
-| CallAgentOptions | The CallAgentOptions contains information to identify the caller. |
-| HangupOptions | The HangupOptions informs if a call should be terminated to all its participants. |
+| `CallClient` | The `CallClient` is the main entry point to the Calling client library. |
+| `CallAgent` | The `CallAgent` is used to start and join calls. |
+| `Call` | The `Call` is used to manage placed or joined calls. |
+| `CommunicationTokenCredential` | The `CommunicationTokenCredential` is used as the token credential to instantiate the `CallAgent`.|
+| `CallAgentOptions` | The `CallAgentOptions` contains information to identify the caller. |
+| `HangupOptions` | The `HangupOptions` informs if a call should be terminated to all its participants. |
 
 ## Initialize the CallAgent
 
