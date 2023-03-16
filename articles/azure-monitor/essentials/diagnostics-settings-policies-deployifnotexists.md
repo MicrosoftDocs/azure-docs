@@ -77,6 +77,11 @@ Find the role in the policy definition by searching for *roleDefinitionIds*
     ```azurecli
     az policy assignment identity assign --system-assigned --resource-group rg-001  --role 92aaf0da-9dab-42b6-94a3-d43ce8d16293 --identity-scope /subscriptions/12345678-aaaa-bbbb-cccc-1234567890ab/resourceGroups/rg001 --name policy-assignment-1
     ```
+    When assigning policies that send logs to Event Hubs, you must manually add the *Azure Event Hubs Data Owner* permissions for the event hub to your policy assigned identity.  
+ 
+    ```azurecli
+        az role assignment create --assignee <Principal ID> --role "Azure Event Hubs Data Owner" --scope /subscriptions/<subscription ID>/resourceGroups/<event hub's resource group>
+    ```
 1. Trigger a scan to find existing resources using [`az policy state trigger-scan`](https://learn.microsoft.com/cli/azure/policy/state?view=azure-cli-latest#az-policy-state-trigger-scan).
 
     ```azurecli
