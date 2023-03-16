@@ -1,5 +1,5 @@
 ---
-title: Self-service sign-up portal for B2B collaboration - Azure AD
+title: Self-service sign-up portal for B2B collaboration
 description: Learn how to customize the onboarding workflow for Azure Active Directory B2B users to fit your organization’s needs.
 services: active-directory
 ms.service: active-directory
