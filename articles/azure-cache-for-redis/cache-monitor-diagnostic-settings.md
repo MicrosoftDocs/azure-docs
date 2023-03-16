@@ -6,7 +6,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: how-to 
-ms.date: 11/3/2021
+ms.date: 03/28/
 ms.custom: template-how-to, devx-track-azurecli 
 ms.devlang: azurecli
 ---
@@ -42,7 +42,7 @@ Implementation of connection logs is slightly different between tiers:
 The connection logs produced look similar among the tiers, but have some differences. The two formats are shown in more detail later in the article.  
 
 > [!IMPORTANT]
-> The connection logging in the Basic, Standard, and Premium tiers _polls_ the current client connections in the cache. The same client IP addresses will appear over and over again. Logging in the Enterprise and Enterprise Flash tiers is focused on each connection _event_. Logs will only occur when the actual event occured for the first time.
+> The connection logging in the Basic, Standard, and Premium tiers _polls_ the current client connections in the cache. The same client IP addresses will appear over and over again. Logging in the Enterprise and Enterprise Flash tiers is focused on each connection _event_. Logs will only occur when the actual event occurred for the first time.
 >
 
 ## Prerequisites/Limitations of Connection Logging
@@ -58,7 +58,7 @@ The connection logs produced look similar among the tiers, but have some differe
 - When you use **OSS Cluster Policy**, logs are emitted from each data node. When you use **Enterprise Cluster Policy**, only the node being used as a proxy emits logs. Both versions still cover all connections to the cache. This is just an architectural difference.  
 - Data loss (that is, missing a connection event) is rare, but possible. Data loss is typically caused by networking issues. 
 - Disconnection logs aren't yet fully stable and events may be missed.  
-- Because connection logs on the Enterprise tiers are event-based, be careful of your retention policies. For instance, if retention is set to 10 days, and a connection event occurred 15 days ago, that connection may still exist, but the log for that connection isn't retained.
+- Because connection logs on the Enterprise tiers are event-based, be careful of your retention policies. For instance, if retention is set to 10 days, and a connection event occurred 15 days ago, that connection might still exist, but the log for that connection isn't retained.
 - If using [active geo-replication](cache-how-to-active-geo-replication.md), logging must be configured for each cache instance in the geo-replication group individually.
 - All diagnostic settings may take up to [90 minutes](../azure-monitor/essentials/diagnostic-settings.md#time-before-telemetry-gets-to-destination) to start flowing to your selected destination. 
 - Enabling connection logs may cause a small performance degradation to the cache instance.
