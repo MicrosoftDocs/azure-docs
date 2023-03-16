@@ -74,7 +74,7 @@ sections:
 
           To manually upgrade a connector:
 
-          - Download the latest version of the Agent. (You find it under Azure AD connect Pass-through Authentication on the Azure portal. You can also find the link at Azure AD Pass-through Authentication: Version release history | Microsoft Docs.
+          - Download the latest version of the Agent. (You find it under Azure AD connect Pass-through Authentication on the Azure portal. You can also find the link at Azure AD Pass-through Authentication: Version release history.
           - The installer restarts the Microsoft Azure AD Connect Authentication Agent services. In some cases, a server reboot is required if the installer can't replace all files. Therefore we recommend closing all applications that is, Event Viewer before you start the upgrade.
           - Run the installer. The upgrade process is quick and doesn't require providing any credentials and the Agent won't be re-registered.
 
@@ -91,7 +91,7 @@ sections:
           The password expiry doesn't trigger the revocation of authentication tokens or cookies. Until the tokens or cookies are valid, the user is able to use them. This applies regardless of the authentication type (PTA, PHS and federated scenarios).
 
           For more details please check the documentation below:
-          [Microsoft identity platform access tokens - Microsoft identity platform | Microsoft Docs](../develop/access-tokens.md)
+          [Microsoft identity platform access tokens - Microsoft identity platform](../develop/access-tokens.md)
 
      
       - question: |
@@ -145,7 +145,7 @@ sections:
         answer: |
           As long as a Pass-through Authentication Agent is running, it remains active and continually handles user sign-in requests. If you want to uninstall an Authentication Agent, go to **Control Panel -> Programs -> Programs and Features** and uninstall both the **Microsoft Azure AD Connect Authentication Agent** and the **Microsoft Azure AD Connect Agent Updater** programs.
           
-          If you check the Pass-through Authentication blade on the [Azure Active Directory admin center](https://aad.portal.azure.com) after completing the preceding step, you'll see the Authentication Agent showing as **Inactive**. This is _expected_. The Authentication Agent is automatically dropped from the list after 10 days.
+          If you check the Pass-through Authentication blade on the [Azure portal](https://portal.azure.com) after completing the preceding step, you'll see the Authentication Agent showing as **Inactive**. This is _expected_. The Authentication Agent is automatically dropped from the list after 10 days.
           
       - question: |
           I already use AD FS to sign in to Azure AD. How do I switch it to Pass-through Authentication?

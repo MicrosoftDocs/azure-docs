@@ -214,14 +214,13 @@ You need 'write' permissions to both the workspace and the cluster resource for 
 - In the workspace: *Microsoft.OperationalInsights/workspaces/write*
 - In the cluster resource: *Microsoft.OperationalInsights/clusters/write*
 
-Other than the billing aspects, configuration of linked workspace remain, including data retention settings.
+Other than the billing aspects that is governed by the cluster plan, the linked workspace configuration remain.
 
 The workspace and the cluster can be in different subscriptions. It's possible for the workspace and cluster to be in different tenants if Azure Lighthouse is used to map both of them to a single tenant.
 
-Linking a workspace can be performed only after the completion of the Log Analytics cluster provisioning.
-
-> [!WARNING]
-> Linking a workspace to a cluster requires syncing multiple backend components and assuring cache hydration. Since this operation may take up to two hours to complete, you should you run it asynchronously.
+> [!NOTE]
+> Linking a workspace can be performed only after the completion of the Log Analytics cluster provisioning.
+> Linking a workspace to a cluster involves syncing multiple backend components and cache hydration, which can take up to two hours.
 
 Use the following commands to link a workspace to a cluster:
 
@@ -579,7 +578,7 @@ N/A
 You need to have *write* permissions on the cluster resource. 
 
 When deleting a cluster, you're losing access to all data in cluster, which was ingested from workspaces that were linked to it. This operation isn't reversible.
-The cluster's billing stops when deleted, regardless the 30 days commitment tier. 
+The cluster's billing stops when deleted, regardless of the 30-days commitment tier in cluster. 
 
 If you delete your cluster while workspaces are linked, Workspaces get automatically unlinked from the cluster before the cluster delete, and new data sent to workspaces gets ingested to Log Analytics store instead. If the retention of data in workspaces older than the period it was linked to the cluster, you can query workspace for the time range before the link to cluster and after the unlink, and the service performs cross-cluster queries seamlessly.
 

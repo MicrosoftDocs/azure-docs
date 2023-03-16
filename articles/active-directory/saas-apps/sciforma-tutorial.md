@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Sciforma | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Sciforma'
 description: Learn how to configure single sign-on between Azure Active Directory and Sciforma.
 services: active-directory
 author: jeevansd
