@@ -10,7 +10,7 @@ ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.date: 03/15/2023
+ms.date: 03/16/2023
 #Customer intent: As a dev, devops, or it admin, I want to learn about the conditions so that I write more complex conditions.
 ---
 
@@ -1308,6 +1308,96 @@ Here are the settings to add this condition using the Azure portal.
 > | Option | Attribute |
 > | Attribute source | [Principal](../../role-based-access-control/conditions-format.md#principal-attributes) |
 > | Attribute | &lt;attributeset&gt;_&lt;key&gt; |
+
+## Environment attributes
+
+### Example: Allow read access to a container from only a private endpoint
+
+```
+(
+ (
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'})
+ )
+ OR 
+ (
+  (
+   @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals 'container1'
+   AND
+   @Environment[Microsoft.Network/privateEndpoints] StringEqualsIgnoreCase '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-group/providers/Microsoft.Network/privateEndpoints/privateendpoint1'
+  )
+  OR
+  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringNotEquals 'container1'
+ )
+)
+```
+
+### Example: Allow read access to blobs based on private link and tags
+
+```
+(
+ (
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blob.Read.WithTagConditions'})
+ )
+ OR 
+ (
+  (
+   @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] StringEquals 'high'
+   AND
+   @Environment[isPrivateLink] BoolEquals true
+  )
+  OR
+  (
+   @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] StringNotEquals 'high'
+   OR
+   NOT Exists @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>]
+  )
+ )
+)
+```
+
+### Example: Allow read access to blobs based on a subnet and tags
+
+```
+(
+ (
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blob.Read.WithTagConditions'})
+ )
+ OR 
+ (
+  (
+   @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] StringEquals 'high'
+   AND
+   @Environment[Microsoft.Network/virtualNetworks/subnets] StringEqualsIgnoreCase '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-group/providers/Microsoft.Network/virtualNetworks/virtualnetwork1/subnets/default'
+  )
+  OR
+  (
+   @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] StringNotEquals 'high'
+   OR
+   !exists @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>]
+  )
+ )
+)
+```
+
+### Example: Allow read access to blobs after a specific date and time
+
+```
+(
+ (
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blob.Read.WithTagConditions'})
+ )
+ OR 
+ (
+  (
+   @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals 'container2'
+   AND
+   @Environment[UtcNow] DateTimeGreaterThan '2022-09-01T20:00:00.000Z'
+  )
+  OR
+  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringNotEquals 'container2'
+ )
+)
+```
 
 ## Next steps
 

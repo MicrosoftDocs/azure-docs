@@ -250,8 +250,7 @@ Depending on the selected actions, the attribute might be found in different pla
 > | Resource | Indicates that the attribute is on the resource, such as a container name. | `@Resource` |
 > | Request | Indicates that the attribute is part of the action request, such as setting the blob index tag. | `@Request` |
 > | Principal | Indicates that the attribute is an Azure AD custom security attribute on the principal, such as a user, enterprise application (service principal), or managed identity. Principal attributes are currently in preview. | `@Principal` |
-| Environment | Indicates that the attribute is an environment attribute, such as date/time. Environment attributes are currently in preview. | `@Environment` |
-
+| Environment | Indicates that the attribute is an environment attribute, such as a private endpoint, private link, virtual network subnet, or date/time. Environment attributes are currently in preview. | `@Environment` |
 #### Resource and request attributes
 
 For a list of the blob storage or queue storage attributes you can use in conditions, see:
@@ -282,6 +281,21 @@ For more information about custom security attributes, see:
 > [!IMPORTANT]
 > Environment attributes are currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+The following table lists the the supported environment attributes for conditions.
+
+> [!div class="mx-tableFixed"]
+> | Display name | Description | Attribute | Type |
+> | --- | --- | --- | --- |
+> |  | Use this attribute in conditions to restrict access to a specific subnet. | `Microsoft.Network/virtualNetworks/subnets` | Subnet Azure ID as string |
+> |  | Use this attribute in conditions that restrict access over a specific private endpoint. | `Microsoft.Network/privateEndpoints` | PrivateEndpoint Azure ID as string |
+> |  | Use this attribute in conditions to require access over any private end point. | `isPrivateLink` | Boolean |
+> |  | Use this attribute in conditions to restrict access to objects during specific time periods. | `UtcNow` | DateTime |
+
+For a complete list of the blob storage or queue storage attributes you can use in conditions, see:
+
+- [Actions and attributes for Azure role assignment conditions for Azure Blob Storage](../storage/blobs/storage-auth-abac-attributes.md)
+- [Actions and attributes for Azure role assignment conditions for Azure queues](../storage/queues/queues-auth-abac-attributes.md)
 
 ## Function operators
 
