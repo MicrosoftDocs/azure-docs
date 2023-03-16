@@ -1,5 +1,5 @@
 ---
-title: Add or update user profile information - Azure AD
+title: Add or update user profile information
 description: Instructions about how to manage a user's profile and settings in Azure Active Directory.
 services: active-directory
 author: shlipsey3

@@ -16,7 +16,7 @@ A glossary is a list of terms with definitions that you create for the Document 
 
 * **No translation**. For example, you can restrict Document Translation from translating product name brands by using a glossary with the same source and target text.
 
-* **Specify translation for words with several meanings**. Choose a specific translation for poly&#8203;semantic words.
+* **Specified translations for ambiguous words**. Choose a specific translation for poly&#8203;semantic words.
 
 ## Create, upload, and use a glossary file
 
@@ -26,7 +26,7 @@ A glossary is a list of terms with definitions that you create for the Document 
 
     The following English-source glossary contains words that can have different meanings depending upon the context in which they're used. The glossary provides the expected translation for each word in the file to help ensure accuracy.
 
-   For instance, when the word `Bank` appears in a financial document, it would be translated as `Banque` to reflect its financial meaning. If the word `Bank` appears in a geography document, it might be translated as `shore` to reflect its topographical meaning. Similarly, the word `Crane` can refer to either a `bird` or a `machine`.
+   For instance, when the word `Bank` appears in a financial document, it should be translated to reflect its financial meaning. If the word `Bank` appears in a geographical document, it may refer to shore to reflect its topographical meaning. Similarly, the word `Crane` can refer to either a bird or machine.
 
    ***Example glossary .tsv file: English-to-French***
 
