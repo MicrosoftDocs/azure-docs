@@ -85,18 +85,18 @@ Alternatively, you can complete this tutorial in [Visual Studio Code](https://co
 
 1. Make sure you have the following prerequisites installed:
 
-| Tool | Version |
-| --- | --- |
-| [Docker](https://www.docker.com/) | &ge; 20.10.0 |
-| [Node.js](https://nodejs.org/) | &ge; 18.0150 |
-| [Node Package Manager (npm)](https://nodejs.org/) | &ge; 9.5.0 |
-| [Azure CLI](/cli/azure) | &ge; 2.46.0 |
+    | Tool | Version |
+    | --- | --- |
+    | [Docker](https://www.docker.com/) | &ge; 20.10.0 |
+    | [Node.js](https://nodejs.org/) | &ge; 18.0150 |
+    | [Node Package Manager (npm)](https://nodejs.org/) | &ge; 9.5.0 |
+    | [Azure CLI](/cli/azure) | &ge; 2.46.0 |
 
 1. Make sure you have the following extensions installed:
 
-| Extension | Marketplace link |
-| --- | --- |
-| MongoDB for VS Code | [mongodb.mongodb-vscode](https://marketplace.visualstudio.com/items?itemName=mongodb.mongodb-vscode) |
+    | Extension | Marketplace link |
+    | --- | --- |
+    | MongoDB for VS Code | [mongodb.mongodb-vscode](https://marketplace.visualstudio.com/items?itemName=mongodb.mongodb-vscode) |
 
 1. Open **Visual Studio Code** with an empty workspace.
 
@@ -418,6 +418,12 @@ When you're working in your own subscription, at the end of a project, it's a go
     az group delete \
         --name $resourceGroupName \
         --yes
+    ```
+
+1. Validate that the resource group is deleted using [`az group list`](/cli/azure/group#az-group-list).
+
+    ```azurecli
+    az group list
     ```
 
 ## Next steps
