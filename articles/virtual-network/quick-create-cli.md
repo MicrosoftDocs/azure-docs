@@ -5,7 +5,7 @@ description: Learn how to use Azure CLI to create and connect through an Azure v
 author: asudbring
 ms.service: virtual-network
 ms.topic: quickstart
-ms.date: 03/09/2023
+ms.date: 03/15/2023
 ms.author: allensu
 ms.custom: devx-track-azurecli, mode-api
 #Customer intent:  I want to use Azure CLI to create a virtual network so that virtual machines can communicate privately with each other and with the internet.
@@ -23,9 +23,11 @@ A virtual network is the fundamental building block for private networks in Azur
 
 - Azure Cloud Shell or Azure CLI.
 
-  The steps in this quickstart run the Azure CLI commands interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in the Cloud Shell, select **Open Cloudshell** at the upper-right corner of each code block. Select **Copy** to copy the code, and paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
+  The steps in this quickstart run the Azure CLI commands interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in the Cloud Shell, select **Open Cloudshell** at the upper-right corner of a code block. Select **Copy** to copy the code, and paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
 
-  You can also [install Azure CLI locally](/cli/azure/install-azure-cli) to run the commands. The steps in this article require Azure CLI version 2.0.28 or later. Run [az version](/cli/azure/reference-index?#az-version) to find your installed version and dependent libraries, and run [az upgrade](/cli/azure/reference-index?#az-upgrade) to upgrade. If you use a local installation, sign in to Azure by using the [az login](/cli/azure/reference-index#az-login) command.
+  You can also [install Azure CLI locally](/cli/azure/install-azure-cli) to run the commands. The steps in this article require Azure CLI version 2.0.28 or later. Run [az version](/cli/azure/reference-index?#az-version) to find your installed version and dependent libraries, and run [az upgrade](/cli/azure/reference-index?#az-upgrade) to upgrade.
+
+  If you use a local installation, sign in to Azure by using the [az login](/cli/azure/reference-index#az-login) command.
 
 ## Create a virtual network and subnet
 
@@ -131,9 +133,11 @@ The VMs take a few minutes to create. After Azure creates each VM, Azure CLI ret
 
 1. On the **Virtual machines** page, select **VM1**.
 
-1. At the top of the **VM1** page, select the dropdown arrow next to **Connect**, and then select **Bastion**.
+1. At the top of the **VM1** page, select **Connect**.
 
-   :::image type="content" source="./media/quick-create-portal/connect-to-virtual-machine.png" alt-text="Screenshot of connecting to myVM1 with Azure Bastion." border="true":::
+1. On the **Connect** page, select **More ways to connect**, and then select **Go to Bastion**.
+
+   :::image type="content" source="./media/quick-create-portal/connect-to-virtual-machine.png" alt-text="Screenshot of connecting to VM1 with Azure Bastion." border="true":::
 
 1. On the **Bastion** page, enter the username and password you created for the VM, and then select **Connect**.
 

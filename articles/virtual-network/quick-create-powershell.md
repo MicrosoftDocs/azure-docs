@@ -5,7 +5,7 @@ description: Learn how to use Azure PowerShell to create and connect through an 
 author: asudbring
 ms.service: virtual-network
 ms.topic: quickstart
-ms.date: 03/09/2023
+ms.date: 03/15/2023
 ms.author: allensu
 ms.custom: devx-track-azurepowershell, mode-api
 #Customer intent: I want to use PowerShell to create a virtual network so that virtual machines can communicate privately with each other and with the internet.
@@ -23,9 +23,11 @@ A virtual network is the fundamental building block for private networks in Azur
 
 - Azure Cloud Shell or Azure PowerShell.
 
-  The steps in this quickstart run the Azure PowerShell cmdlets interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in the Cloud Shell, select **Open Cloudshell** at the upper-right corner of each code block. Select **Copy** to copy the code and then paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
+  The steps in this quickstart run the Azure PowerShell cmdlets interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in the Cloud Shell, select **Open Cloudshell** at the upper-right corner of a code block. Select **Copy** to copy the code and then paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
 
-  You can also [install Azure PowerShell locally](/powershell/azure/install-Az-ps) to run the cmdlets. The steps in this article require Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find your installed version. If you need to upgrade, see [Update the Azure PowerShell module](/powershell/azure/install-Az-ps#update-the-azure-powershell-module). If you run PowerShell locally, you need to run `Connect-AzAccount` to connect to Azure.
+  You can also [install Azure PowerShell locally](/powershell/azure/install-Az-ps) to run the cmdlets. The steps in this article require Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find your installed version. If you need to upgrade, see [Update the Azure PowerShell module](/powershell/azure/install-Az-ps#update-the-azure-powershell-module).
+
+  If you run PowerShell locally, run `Connect-AzAccount` to connect to Azure.
 
 ## Create a virtual network
 
@@ -70,7 +72,7 @@ A virtual network is the fundamental building block for private networks in Azur
 
 ## Deploy Azure Bastion
 
-Azure Bastion uses your browser to connect to VMs in your virtual network over secure shell (SSH) or remote desktop protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration. For more information about Azure Bastion, see [Azure Bastion](~/articles/bastion/bastion-overview.md).
+Azure Bastion uses your browser to connect to VMs in your virtual network over secure shell (SSH) or remote desktop protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration. For more information about Azure Bastion, see [Azure Bastion](/azure/bastion/bastion-overview).
 
 1. Configure an Azure Bastion subnet for your virtual network. This subnet is reserved exclusively for Azure Bastion resources and must be named `AzureBastionSubnet`.
 
@@ -156,9 +158,11 @@ Azure takes a few minutes to create the VMs. When Azure finishes creating the VM
 
 1. On the **Virtual machines** page, select **VM1**.
 
-1. At the top of the **VM1** page, select the dropdown arrow next to **Connect**, and then select **Bastion**.
+1. At the top of the **VM1** page, select **Connect**.
 
-   :::image type="content" source="./media/quick-create-portal/connect-to-virtual-machine.png" alt-text="Screenshot of connecting to myVM1 with Azure Bastion." border="true":::
+1. On the **Connect** page, select **More ways to connect**, and then select **Go to Bastion**.
+
+   :::image type="content" source="./media/quick-create-portal/connect-to-virtual-machine.png" alt-text="Screenshot of connecting to VM1 with Azure Bastion." border="true":::
 
 1. On the **Bastion** page, enter the username and password you created for the VM, and then select **Connect**.
 

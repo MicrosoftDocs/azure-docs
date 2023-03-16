@@ -192,24 +192,26 @@ Get-AzResource -ResourceGroupName TestRG
 
 1. In the portal, search for and select **Virtual machines**.
 
-1. On the **Virtual machines** page, select **BackendVM0**.
+1. On the **Virtual machines** page, select **BackendVM1**.
 
-1. At the top of the **BackendVM0** page, select the dropdown arrow next to **Connect**, and then select **Bastion**.
+1. At the top of the **BackendVM1** page, select **Connect**.
 
-   :::image type="content" source="./media/quick-create-bicep/connect-to-virtual-machine.png" alt-text="Screenshot of connecting to BackendVM0 with Azure Bastion." border="true":::
+1. On the **Connect** page, select **More ways to connect**, and then select **Go to Bastion**.
+
+   :::image type="content" source="./media/quick-create-bicep/connect-to-virtual-machine.png" alt-text="Screenshot of connecting to BackendVM1 with Azure Bastion." border="true":::
 
 1. On the **Bastion** page, enter the username and password you created for the VM, and then select **Connect**.
 
 ## Communicate between VMs
 
-1. From the desktop of BackendVM0, open PowerShell.
+1. From the desktop of BackendVM1, open PowerShell.
 
-1. Enter `ping BackendVM1`. You get a reply similar to the following message:
+1. Enter `ping BackendVM0`. You get a reply similar to the following message:
 
    ```powershell
-   PS C:\Users\BackendVM0> ping BackendVM1
+   PS C:\Users\BackendVM1> ping BackendVM0
    
-   Pinging BackendVM1.ovvzzdcazhbu5iczfvonhg2zrb.bx.internal.cloudapp.net with 32 bytes of data
+   Pinging BackendVM0.ovvzzdcazhbu5iczfvonhg2zrb.bx.internal.cloudapp.net with 32 bytes of data
    Request timed out.
    Request timed out.
    Request timed out.
@@ -227,18 +229,18 @@ Get-AzResource -ResourceGroupName TestRG
    New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
    ```
 
-1. Close the Bastion connection to BackendVM0.
+1. Close the Bastion connection to BackendVM1.
 
-1. Repeat the steps in [Connect to a VM](#connect-to-a-vm) to connect to BackendVM1.
+1. Repeat the steps in [Connect to a VM](#connect-to-a-vm) to connect to BackendVM0.
 
-1. From PowerShell on BackendVM1, enter `ping BackendVM0`.
+1. From PowerShell on BackendVM0, enter `ping BackendVM1`.
 
    This time you get a success reply similar to the following message, because you allowed ICMP through the firewall on VM1.
 
    ```cmd
-   PS C:\Users\BackendVM1> ping BackendVM0
+   PS C:\Users\BackendVM0> ping BackendVM1
    
-   Pinging BackendVM0.e5p2dibbrqtejhq04lqrusvd4g.bx.internal.cloudapp.net [10.0.0.4] with 32 bytes of data:
+   Pinging BackendVM1.e5p2dibbrqtejhq04lqrusvd4g.bx.internal.cloudapp.net [10.0.0.4] with 32 bytes of data:
    Reply from 10.0.0.4: bytes=32 time=2ms TTL=128
    Reply from 10.0.0.4: bytes=32 time<1ms TTL=128
    Reply from 10.0.0.4: bytes=32 time<1ms TTL=128
@@ -250,7 +252,7 @@ Get-AzResource -ResourceGroupName TestRG
        Minimum = 0ms, Maximum = 2ms, Average = 0ms
    ```
 
-1. Close the Bastion connection to BackendVM1.
+1. Close the Bastion connection to BackendVM0.
 
 ## Clean up resources
 

@@ -4,7 +4,7 @@ titleSuffix: Azure Virtual Network
 description: Learn how to use the Azure portal to create and connect through an Azure virtual network and virtual machines.
 author: asudbring
 ms.author: allensu
-ms.date: 03/09/2023
+ms.date: 03/15/2023
 ms.topic: quickstart
 ms.service: virtual-network
 ms.workload: infrastructure
@@ -24,46 +24,7 @@ A virtual network is the fundamental building block for private networks in Azur
 
 - An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## Create a virtual network
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. In the portal, search for and select **Virtual networks**.
-
-1. On the **Virtual networks** page, select **Create**.
-
-1. On the **Basics** tab of the **Create virtual network** screen, enter or select the following information:
-
-   - **Subscription**: Keep the default or select a different subscription.
-   - **Resource group**: Select **Create new**, and then name the group *TestRG*.
-   - **Virtual network name**: Enter *VNet*.
-   - **Region**: Keep the default or select a different region for the network and all its resources.
-
-   :::image type="content" source="./media/quick-create-portal/example-basics-tab.png" alt-text="Screenshot of the Create virtual network screen in the Azure portal.":::
-
-1. Select **Next**.
-
-1. On the **Security** tab, select **Enable Azure Bastion**.
-
-   Azure Bastion uses your browser to connect to VMs in your virtual network over secure shell (SSH) or remote desktop protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration. For more information about Azure Bastion, see [Azure Bastion](~/articles/bastion/bastion-overview.md).
-
-1. Select **Next** to accept the defaults for **Azure Bastion host name** and **Azure Bastion public IP address**.
-
-   :::image type="content" source="./media/quick-create-portal/example-security-tab.png" alt-text="Screenshot of the Security tab of the Create virtual network screen.":::
-
-1. On the **IP Addresses** tab, select **Add Azure Bastion subnet** near the bottom of the page.
-
-   :::image type="content" source="./media/quick-create-portal/example-ip-address-tab.png" alt-text="Screenshot of the IP Addresses tab of the Create virtual network screen.":::
-
-1. On the next screen, select **Review + create** to accept the following defaults:
-
-   - A virtual network IPv4 address space of **10.0.0.0/16**.
-   - A resource subnet named **default** with address range **10.0.0.0/24**.
-   - Another subnet named **AzureBastionSubnet** with address space **10.0.1.0/26**.
-
-   :::image type="content" source="./media/quick-create-portal/example-review-create.png" alt-text="Screenshot of the completed IP Addresses tab of the Create virtual network screen.":::
-
-1. After validation succeeds, select **Create**. It takes a few minutes to create the Bastion host.
+[!INCLUDE [virtual-networks-quick-create-portal.md](../../includes/virtual-networks-quick-create-portal.md)]
 
 ## Create virtual machines
 
@@ -109,9 +70,11 @@ Create two VMs named VM1 and VM2 in the virtual network.
 
 1. On the **Virtual machines** page, select **VM1**.
 
-1. At the top of the **VM1** page, select the dropdown arrow next to **Connect**, and then select **Bastion**.
+1. At the top of the **VM1** page, select **Connect**.
 
-   :::image type="content" source="./media/quick-create-portal/connect-to-virtual-machine.png" alt-text="Screenshot of connecting to myVM1 with Azure Bastion." border="true":::
+1. On the **Connect** page, select **More ways to connect**, and then select **Go to Bastion**.
+
+   :::image type="content" source="./media/quick-create-portal/connect-to-virtual-machine.png" alt-text="Screenshot of connecting to VM1 with Azure Bastion." border="true":::
 
 1. On the **Bastion** page, enter the username and password you created for the VM, and then select **Connect**.
 
