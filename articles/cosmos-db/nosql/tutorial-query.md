@@ -44,24 +44,25 @@ The queries in this article use the following sample document.
 {
   "id": "WakefieldFamily",
   "parents": [
-      { "familyName": "Wakefield", "givenName": "Robin" },
-      { "familyName": "Miller", "givenName": "Ben" }
+    { "familyName": "Wakefield", "givenName": "Robin" },
+    { "familyName": "Miller", "givenName": "Ben" }
   ],
   "children": [
-      {
-        "familyName": "Merriam", 
-        "givenName": "Jesse", 
-        "gender": "female", "grade": 1,
-        "pets": [
-            { "givenName": "Goofy" },
-            { "givenName": "Shadow" }
-        ]
-      },
-      { 
-        "familyName": "Miller", 
-         "givenName": "Lisa", 
-         "gender": "female", 
-         "grade": 8 }
+    {
+      "familyName": "Merriam", 
+      "givenName": "Jesse", 
+      "gender": "female", "grade": 1,
+      "pets": [
+          { "givenName": "Goofy" },
+          { "givenName": "Shadow" }
+      ]
+    },
+    { 
+      "familyName": "Miller", 
+        "givenName": "Lisa", 
+        "gender": "female", 
+        "grade": 8 
+    }
   ],
   "address": { "state": "NY", "county": "Manhattan", "city": "NY" },
   "creationDate": 1431620462,
@@ -76,9 +77,9 @@ Given the sample family document, the following query returns the documents wher
 Query:
 
 ```sql
-    SELECT * 
-    FROM Families f 
-    WHERE f.id = "WakefieldFamily"
+SELECT * 
+FROM Families f 
+WHERE f.id = "WakefieldFamily"
 ```
 
 Results:
@@ -87,24 +88,25 @@ Results:
 {
   "id": "WakefieldFamily",
   "parents": [
-      { "familyName": "Wakefield", "givenName": "Robin" },
-      { "familyName": "Miller", "givenName": "Ben" }
+    { "familyName": "Wakefield", "givenName": "Robin" },
+    { "familyName": "Miller", "givenName": "Ben" }
   ],
   "children": [
-      {
-        "familyName": "Merriam", 
-        "givenName": "Jesse", 
-        "gender": "female", "grade": 1,
-        "pets": [
-            { "givenName": "Goofy" },
-            { "givenName": "Shadow" }
-        ]
-      },
-      { 
-        "familyName": "Miller", 
-         "givenName": "Lisa", 
-         "gender": "female", 
-         "grade": 8 }
+    {
+      "familyName": "Merriam", 
+      "givenName": "Jesse", 
+      "gender": "female", "grade": 1,
+      "pets": [
+          { "givenName": "Goofy" },
+          { "givenName": "Shadow" }
+      ]
+    },
+    { 
+      "familyName": "Miller", 
+        "givenName": "Lisa", 
+        "gender": "female", 
+        "grade": 8 
+    }
   ],
   "address": { "state": "NY", "county": "Manhattan", "city": "NY" },
   "creationDate": 1431620462,
@@ -119,22 +121,22 @@ The next query returns all the given names of children in the family whose ID ma
 Query:
 
 ```sql
-    SELECT c.givenName 
-    FROM Families f 
-    JOIN c IN f.children 
-    WHERE f.id = 'WakefieldFamily'
+SELECT c.givenName 
+FROM Families f 
+JOIN c IN f.children 
+WHERE f.id = 'WakefieldFamily'
 ```
 
 Results:
 
 ```json
 [
-    {
-        "givenName": "Jesse"
-    },
-    {
-        "givenName": "Lisa"
-    }
+  {
+    "givenName": "Jesse"
+  },
+  {
+    "givenName": "Lisa"
+  }
 ]
 ```
 
