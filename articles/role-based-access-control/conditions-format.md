@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 03/15/2023
+ms.date: 03/16/2023
 ms.author: rolyon
 
 #Customer intent: As a dev, devops, or it admin, I want to learn about the conditions so that I write more complex conditions.
@@ -250,6 +250,7 @@ Depending on the selected actions, the attribute might be found in different pla
 > | Resource | Indicates that the attribute is on the resource, such as a container name. | `@Resource` |
 > | Request | Indicates that the attribute is part of the action request, such as setting the blob index tag. | `@Request` |
 > | Principal | Indicates that the attribute is an Azure AD custom security attribute on the principal, such as a user, enterprise application (service principal), or managed identity. Principal attributes are currently in preview. | `@Principal` |
+| Environment | Indicates that the attribute is an environment attribute, such as date/time. Environment attributes are currently in preview. | `@Environment` |
 
 #### Resource and request attributes
 
@@ -275,6 +276,12 @@ For more information about custom security attributes, see:
 - [Allow read access to blobs based on tags and custom security attributes (Preview)](conditions-custom-security-attributes.md)
 - [Principal does not appear in Attribute source (Preview)](conditions-troubleshoot.md#symptom---principal-does-not-appear-in-attribute-source)
 - [Add or deactivate custom security attributes in Azure AD (Preview)](../active-directory/fundamentals/custom-security-attributes-add.md)
+
+#### Environment attributes
+
+> [!IMPORTANT]
+> Environment attributes are currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Function operators
 
@@ -422,7 +429,7 @@ This section lists the date/time comparison operators that are available to cons
 > | Property | Value |
 > | --- | --- |
 > | **Operators** | `DateTimeEquals`<br/>`DateTimeNotEquals`<br/>`DateTimeGreaterThan`<br/>`DateTimeGreaterThanEquals`<br/>`DateTimeLessThan`<br/>`DateTimeLessThanEquals` |
-> | **Description** |Full-precision check with the format: `yyyy-mm-ddThh:mm:ss.mmmmmmmZ`. Used for blob version ID and blob snapshot. |
+> | **Description** | Full-precision check with the format: `yyyy-mm-ddThh:mm:ss.mmmmmmmZ`. Used for blob version ID, blob snapshot, and UTC now. |
 > | **Examples** | `@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:versionId] DateTimeEquals '2022-06-01T00:00:00.0Z'` |
 
 ## Cross product comparison operators
