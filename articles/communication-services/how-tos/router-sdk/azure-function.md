@@ -14,8 +14,6 @@ ms.service: azure-communication-services
 
 # Azure function rule engine
 
-[!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
-
 As part of the customer extensibility model, Azure Communication Services Job Router supports an Azure Function based rule engine. It gives you the ability to bring your own Azure function. With Azure Functions, you can incorporate custom and complex logic into the process of routing.
 
 ## Creating an Azure function
@@ -64,9 +62,12 @@ public static class GetPriority
 Inspect your deployed function in the Azure portal and locate the function Uri and authentication key. Then use the SDK to configure a policy that uses a rule engine to point to that function.
 
 ```csharp
-await client.SetClassificationPolicyAsync(
-    "policy-1", 
-    prioritizationRule: new AzureFunctionRule("<insert function uri>", new AzureFunctionRuleCredential("<insert function key>")));
+await client.CreateClassificationPolicyAsync(
+    options: new CreateClassificationPolicyOptions("policy-1")
+    {
+        PrioritizationRule = new FunctionRule("<insert function uri>", new FunctionRuleCredential("<insert function key>"))
+    }
+);
 ```
 
 When a new job is submitted or updated, this function will be called to determine the priority of the job.

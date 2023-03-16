@@ -243,7 +243,7 @@ The target application (`AppId`) must have a Publisher Domain set. Set a Publish
 Occurs when a [Publisher Domain](howto-configure-publisher-domain.md) isn't configured on the app.
 
 **Remediation Steps**
-1. Follow the directions [here](/azure/active-directory/develop/howto-configure-publisher-domain#set-a-publisher-domain-in-the-azure-portal) to set a Publisher Domain
+1. Follow the directions [here](./howto-configure-publisher-domain.md#set-a-publisher-domain-in-the-azure-portal) to set a Publisher Domain
 
 ### PublisherDomainMismatch
 
