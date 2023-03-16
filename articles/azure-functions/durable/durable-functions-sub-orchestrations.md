@@ -17,6 +17,11 @@ Sub-orchestrator functions behave just like activity functions from the caller's
 > [!NOTE]
 > Sub-orchestrations are not yet supported in PowerShell.
 
+> [!NOTE]
+> The new programming model for authoring Functions in Node.js (V4) is currently in preview. Compared to the current model, the new experience is designed to be more idiomatic and intuitive for JavaScript and TypeScript developers. To learn more, see the Azure Functions Node.js [developer guide](../functions-reference-node.md?pivots=node-model-v4).
+>
+> In the following code snippets, JavaScript (PM4) denotes programming model V4, the new experiences.
+
 ## Example
 
 The following example illustrates an IoT ("Internet of Things") scenario where there are multiple devices that need to be provisioned. The following function represents the provisioning workflow that needs to be executed for each device:
@@ -61,7 +66,7 @@ public static async Task DeviceProvisioningOrchestration(
 }
 ```
 
-# [JavaScript (V3 Model)](#tab/javascript-v3)
+# [JavaScript (PM3)](#tab/javascript-v3)
 
 ```javascript
 const df = require("durable-functions");
@@ -81,7 +86,7 @@ module.exports = df.orchestrator(function*(context) {
     // Step 4: ...
 });
 ```
-# [JavaScript (V4 Model)](#tab/javascript-v4)
+# [JavaScript (PM4)](#tab/javascript-v4)
 
 ```javascript
 const df = require("durable-functions");
@@ -199,7 +204,7 @@ public static async Task ProvisionNewDevices(
 }
 ```
 
-# [JavaScript (V3 Model)](#tab/javascript-v3)
+# [JavaScript (PM3)](#tab/javascript-v3)
 
 ```javascript
 const df = require("durable-functions");
@@ -223,7 +228,7 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-# [JavaScript (V4 Model)](#tab/javascript-v4)
+# [JavaScript (PM4)](#tab/javascript-v4)
 
 ```javascript
 const df = require("durable-functions");

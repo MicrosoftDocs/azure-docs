@@ -21,8 +21,8 @@ Durable Functions is designed to work with all Azure Functions programming langu
 | Language stack | Azure Functions Runtime versions | Language worker version | Minimum bundles version |
 | - | - | - | - |
 | .NET / C# / F# | Functions 1.0+ | In-process <br/> Out-of-process | n/a |
-| JavaScript/TypeScript (V3 Model) | Functions 2.0+ | Node 8+ | 2.x bundles |
-| JavaScript/TypeScript (V4 Model) | Functions 4.0+ | Node 18+ | 3.15+ bundles |
+| JavaScript/TypeScript (V3 prog. model) | Functions 2.0+ | Node 8+ | 2.x bundles |
+| JavaScript/TypeScript (V4 prog. model) | Functions 4.16+ | Node 18+ | 3.15+ bundles |
 | Python | Functions 2.0+ | Python 3.7+ | 2.x bundles |
 | Python (V2 prog. model) | Functions 4.0+ | Python 3.7+ | 3.15+ bundles |
 | PowerShell | Functions 3.0+ | PowerShell 7+ | 2.x bundles |
@@ -34,6 +34,11 @@ Durable Functions is designed to work with all Azure Functions programming langu
 > In the following code snippets, Python (PM2) denotes programming model V2, the new experience.
 
 Like Azure Functions, there are templates to help you develop Durable Functions using [Visual Studio](durable-functions-create-first-csharp.md), [Visual Studio Code](quickstart-js-vscode.md), and the [Azure portal](durable-functions-create-portal.md).
+
+> [!NOTE]
+> The new programming model for authoring Functions in Python (V2) and Node.js (V4) is currently in preview. Compared to the current model, the new experience is designed to be more idiomatic and intuitive. To learn more, see Azure Functions Python [developer guide](../functions-reference-python.md?pivots=python-mode-decorators) and Node.js [developer guide](../functions-reference-node.md?pivots=node-model-v4).
+>
+> In the following code snippets, Python (PM2) denotes programming model V2, and JavaScript (PM4) denotes programming model V4, the new experiences.
 
 ## Application patterns
 
@@ -103,7 +108,7 @@ public static async Task<object> Run(
 
 You can use the `context` parameter to invoke other functions by name, pass parameters, and return function output. Each time the code calls `await`, the Durable Functions framework checkpoints the progress of the current function instance. If the process or virtual machine recycles midway through the execution, the function instance resumes from the preceding `await` call. For more information, see the next section, Pattern #2: Fan out/fan in.
 
-# [JavaScript (V3 Model)](#tab/javascript-v3)
+# [JavaScript (PM3)](#tab/javascript-v3)
 
 ```javascript
 const df = require("durable-functions");
@@ -125,7 +130,7 @@ You can use the `context.df` object to invoke other functions by name, pass para
 > [!NOTE]
 > The `context` object in JavaScript represents the entire [function context](../functions-reference-node.md#context-object). Access the Durable Functions context using the `df` property on the main context.
 
-# [JavaScript (V4 Model)](#tab/javascript-v4)
+# [JavaScript (PM4)](#tab/javascript-v4)
 
 ```javascript
 const df = require("durable-functions");
@@ -292,7 +297,7 @@ The fan-out work is distributed to multiple instances of the `F2` function. The 
 
 The automatic checkpointing that happens at the `await` call on `Task.WhenAll` ensures that a potential midway crash or reboot doesn't require restarting an already completed task.
 
-# [JavaScript (V3 Model)](#tab/javascript-v3)
+# [JavaScript (PM3)](#tab/javascript-v3)
 
 ```javascript
 const df = require("durable-functions");
@@ -318,7 +323,7 @@ The fan-out work is distributed to multiple instances of the `F2` function. The 
 
 The automatic checkpointing that happens at the `yield` call on `context.df.Task.all` ensures that a potential midway crash or reboot doesn't require restarting an already completed task.
 
-# [JavaScript (V4 Model)](#tab/javascript-v4)
+# [JavaScript (PM4)](#tab/javascript-v4)
 
 ```javascript
 const df = require("durable-functions");
@@ -560,7 +565,7 @@ public static async Task Run(
 }
 ```
 
-# [JavaScript (V3 Model)](#tab/javascript-v3)
+# [JavaScript (PM3)](#tab/javascript-v3)
 
 ```javascript
 const df = require("durable-functions");
@@ -588,7 +593,7 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-# [JavaScript (V4 Model)](#tab/javascript-v4)
+# [JavaScript (PM4)](#tab/javascript-v4)
 
 ```javascript
 const df = require("durable-functions");
@@ -813,7 +818,7 @@ public static async Task Run(
 
 To create the durable timer, call `context.CreateTimer`. The notification is received by `context.WaitForExternalEvent`. Then, `Task.WhenAny` is called to decide whether to escalate (timeout happens first) or process the approval (the approval is received before timeout).
 
-# [JavaScript (V3 Model)](#tab/javascript-v3)
+# [JavaScript (PM3)](#tab/javascript-v3)
 
 ```javascript
 const df = require("durable-functions");
@@ -837,7 +842,7 @@ module.exports = df.orchestrator(function*(context) {
 
 To create the durable timer, call `context.df.createTimer`. The notification is received by `context.df.waitForExternalEvent`. Then, `context.df.Task.any` is called to decide whether to escalate (timeout happens first) or process the approval (the approval is received before timeout).
 
-# [JavaScript (V4 Model)](#tab/javascript-v4)
+# [JavaScript (PM4)](#tab/javascript-v4)
 
 ```javascript
 const df = require("durable-functions");
@@ -1013,7 +1018,7 @@ public static async Task Run(
 }
 ```
 
-# [JavaScript (V3 Model)](#tab/javascript-v3)
+# [JavaScript (PM3)](#tab/javascript-v3)
 
 ```javascript
 const df = require("durable-functions");
@@ -1025,7 +1030,7 @@ module.exports = async function (context) {
 };
 ```
 
-# [JavaScript (V4 Model)](#tab/javascript-v4)
+# [JavaScript (PM4)](#tab/javascript-v4)
 
 ```javascript
 const df = require("durable-functions");
@@ -1151,7 +1156,7 @@ public class Counter
 
 Durable entities are currently not supported in the .NET-isolated worker.
 
-# [JavaScript (V3 Model)](#tab/javascript-v3)
+# [JavaScript (PM3)](#tab/javascript-v3)
 
 ```javascript
 const df = require("durable-functions");
@@ -1173,7 +1178,7 @@ module.exports = df.entity(function(context) {
 });
 ```
 
-# [JavaScript (V4 Model)](#tab/javascript-v4)
+# [JavaScript (PM4)](#tab/javascript-v4)
 
 ```javascript
 const df = require("durable-functions");
@@ -1281,7 +1286,7 @@ public static async Task Run(
 
 Durable entities are currently not supported in the .NET-isolated worker.
 
-# [JavaScript (V3 Model)](#tab/javascript-v3)
+# [JavaScript (PM3)](#tab/javascript-v3)
 
 ```javascript
 const df = require("durable-functions");
@@ -1294,7 +1299,7 @@ module.exports = async function (context) {
 };
 ```
 
-# [JavaScript (V4 Model)](#tab/javascript-v4)
+# [JavaScript (PM4)](#tab/javascript-v4)
 
 ```javascript
 const df = require("durable-functions");

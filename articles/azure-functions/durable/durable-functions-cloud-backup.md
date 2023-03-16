@@ -12,6 +12,11 @@ ms.author: azfuncdf
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
+> [!NOTE]
+> The new programming model for authoring Functions in Node.js (V4) is currently in preview. Compared to the current model, the new experience is designed to be more idiomatic and intuitive for JavaScript and TypeScript developers. To learn more, see the Azure Functions Node.js [developer guide](../functions-reference-node.md?pivots=node-model-v4).
+>
+> In the following code snippets, JavaScript (PM4) denotes programming model V4, the new experiences.
+
 ## Scenario overview
 
 In this sample, the functions upload all files under a specified directory recursively into blob storage. They also count the total number of bytes that were uploaded.
@@ -50,7 +55,7 @@ Notice the `await Task.WhenAll(tasks);` line. All the individual calls to the `E
 
 After awaiting from `Task.WhenAll`, we know that all function calls have completed and have returned values back to us. Each call to `E2_CopyFileToBlob` returns the number of bytes uploaded, so calculating the sum total byte count is a matter of adding all those return values together.
 
-# [JavaScript (V3 Model)](#tab/javascript-v3)
+# [JavaScript (PM3)](#tab/javascript-v3)
 
 The function uses the standard *function.json* for orchestrator functions.
 
@@ -67,7 +72,7 @@ Notice the `yield context.df.Task.all(tasks);` line. All the individual calls to
 
 After yielding from `context.df.Task.all`, we know that all function calls have completed and have returned values back to us. Each call to `E2_CopyFileToBlob` returns the number of bytes uploaded, so calculating the sum total byte count is a matter of adding all those return values together.
 
-# [JavaScript (V4 Model)](#tab/javascript-v4)
+# [JavaScript (PM4)](#tab/javascript-v4)
 
 Here is the code that implements the orchestrator function:
 
@@ -109,7 +114,7 @@ The helper activity functions, as with other samples, are just regular functions
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/BackupSiteContent.cs?range=44-54)]
 
-# [JavaScript (V3 Model)](#tab/javascript-v3)
+# [JavaScript (PM3)](#tab/javascript-v3)
 
 The *function.json* file for `E2_GetFileList` looks like the following:
 
@@ -121,7 +126,7 @@ And here is the implementation:
 
 The function uses the `readdirp` module (version 2.x) to recursively read the directory structure.
 
-# [JavaScript (V4 Model)](#tab/javascript-v4)
+# [JavaScript (PM4)](#tab/javascript-v4)
 
 Here is the implementation of the `getFileList` activity function:
 
@@ -155,7 +160,7 @@ And here is the implementation:
 
 The function uses some advanced features of Azure Functions bindings (that is, the use of the [`Binder` parameter](../functions-dotnet-class-library.md#binding-at-runtime)), but you don't need to worry about those details for the purpose of this walkthrough.
 
-# [JavaScript (V3 Model)](#tab/javascript-v3)
+# [JavaScript (PM3)](#tab/javascript-v3)
 
 The *function.json* file for `E2_CopyFileToBlob` is similarly simple:
 
@@ -165,7 +170,7 @@ The JavaScript implementation uses the [Azure Storage SDK for Node](https://gith
 
 :::code language="javascript" source="~/azure-functions-durable-js/samples/E2_CopyFileToBlob/index.js":::
 
-# [JavaScript (V4 Model)](#tab/javascript-v4)
+# [JavaScript (PM4)](#tab/javascript-v4)
 
 The JavaScript implementation of `copyFileToBlob` uses an Azure Storage output binding to upload the files to Azure Blob storage.
 

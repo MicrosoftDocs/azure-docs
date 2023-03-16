@@ -11,6 +11,11 @@ ms.devlang: csharp, javascript, powershell, python, java
 
 Durable Function orchestrations are implemented in code and can use the programming language's built-in error-handling features. There really aren't any new concepts you need to learn to add error handling and compensation into your orchestrations. However, there are a few behaviors that you should be aware of.
 
+> [!NOTE]
+> The new programming model for authoring Functions in Node.js (V4) is currently in preview. Compared to the current model, the new experience is designed to be more idiomatic and intuitive for JavaScript and TypeScript developers. To learn more, see the Azure Functions Node.js [developer guide](../functions-reference-node.md?pivots=node-model-v4).
+>
+> In the following code snippets, JavaScript (PM4) denotes programming model V4, the new experiences.
+
 ## Errors in activity functions
 
 Any exception that is thrown in an activity function is marshaled back to the orchestrator function and thrown as a `FunctionFailedException`. You can write error handling and compensation code that suits your needs in the orchestrator function.
@@ -95,7 +100,7 @@ public static async Task Run(
 }
 ```
 
-# [JavaScript (V3 Model)](#tab/javascript-v3)
+# [JavaScript (PM3)](#tab/javascript-v3)
 
 ```javascript
 const df = require("durable-functions");
@@ -123,7 +128,7 @@ module.exports = df.orchestrator(function* (context) {
     }
 })
 ```
-# [JavaScript (V4 Model)](#tab/javascript-v4)
+# [JavaScript (PM4)](#tab/javascript-v4)
 
 ```javascript
 const df = require("durable-functions");
@@ -270,7 +275,7 @@ public static async Task Run([OrchestrationTrigger] TaskOrchestrationContext con
 }
 ```
 
-# [JavaScript (V3 Model)](#tab/javascript-v3)
+# [JavaScript (PM3)](#tab/javascript-v3)
 
 ```javascript
 const df = require("durable-functions");
@@ -288,7 +293,7 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-# [JavaScript (V4 Model)](#tab/javascript-v4)
+# [JavaScript (PM4)](#tab/javascript-v4)
 
 ```javascript
 const df = require("durable-functions");
@@ -411,11 +416,11 @@ catch (TaskFailedException)
 }
 ```
 
-# [JavaScript (V3 Model)](#tab/javascript-v3)
+# [JavaScript (PM3)](#tab/javascript-v3)
 
 JavaScript doesn't currently support custom retry handlers. However, you still have the option of implementing retry logic directly in the orchestrator function using loops, exception handling, and timers for injecting delays between retries.
 
-# [JavaScript (V4 Model)](#tab/javascript-v4)
+# [JavaScript (PM4)](#tab/javascript-v4)
 
 JavaScript doesn't currently support custom retry handlers. However, you still have the option of implementing retry logic directly in the orchestrator function using loops, exception handling, and timers for injecting delays between retries.
 
@@ -517,7 +522,7 @@ public static async Task<bool> Run([OrchestrationTrigger] TaskOrchestrationConte
 }
 ```
 
-# [JavaScript (V3 Model)](#tab/javascript-v3)
+# [JavaScript (PM3)](#tab/javascript-v3)
 
 ```javascript
 const df = require("durable-functions");
@@ -541,7 +546,7 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-# [JavaScript (V4 Model)](#tab/javascript-v4)
+# [JavaScript (PM4)](#tab/javascript-v4)
 
 ```javascript
 const df = require("durable-functions");

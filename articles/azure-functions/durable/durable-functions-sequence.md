@@ -14,6 +14,11 @@ Function chaining refers to the pattern of executing a sequence of functions in 
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
+> [!NOTE]
+> The new programming model for authoring Functions in Python (V2) and Node.js (V4) is currently in preview. Compared to the current model, the new experience is designed to be more idiomatic and intuitive. To learn more, see Azure Functions Python [developer guide](../functions-reference-python.md?pivots=python-mode-decorators) and Node.js [developer guide](../functions-reference-node.md?pivots=node-model-v4).
+>
+> In the following code snippets, Python (PM2) denotes programming model V2, and JavaScript (PM4) denotes programming model V4, the new experiences.
+
 ## The functions
 
 This article explains the following functions in the sample app:
@@ -32,7 +37,7 @@ All C# orchestration functions must have a parameter of type `DurableOrchestrati
 
 The code calls `E1_SayHello` three times in sequence with different parameter values. The return value of each call is added to the `outputs` list, which is returned at the end of the function.
 
-# [JavaScript (V3 Model)](#tab/javascript-v3)
+# [JavaScript (PM3)](#tab/javascript-v3)
 
 > [!NOTE]
 > JavaScript Durable Functions are available for the Functions 3.0 runtime only.
@@ -62,7 +67,7 @@ All JavaScript orchestration functions must include the [`durable-functions` mod
 
 The `context` object contains a `df` durable orchestration context object that lets you call other *activity* functions and pass input parameters using its `callActivity` method. The code calls `E1_SayHello` three times in sequence with different parameter values, using `yield` to indicate the execution should wait on the async activity function calls to be returned. The return value of each call is added to the `outputs` array, which is returned at the end of the function.
 
-# [JavaScript (V4 Model)](#tab/javascript-v4)
+# [JavaScript (PM4)](#tab/javascript-v4)
 
 > [!NOTE]
 > JavaScript Durable Functions for the V4 node programming model is available for the Functions 4.16+ runtime only.
@@ -122,7 +127,7 @@ Instead of binding to an `IDurableActivityContext`, you can bind directly to the
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs?range=34-38)]
 
-# [JavaScript (V3 Model)](#tab/javascript-v3)
+# [JavaScript (PM3)](#tab/javascript-v3)
 
 #### E1_SayHello/function.json
 
@@ -141,7 +146,7 @@ The implementation of `E1_SayHello` is a relatively trivial string formatting op
 
 Unlike the orchestration function, an activity function needs no special setup. The input passed to it by the orchestrator function is located on the `context.bindings` object under the name of the `activityTrigger` binding - in this case, `context.bindings.name`. The binding name can be set as a parameter of the exported function and accessed directly, which is what the sample code does.
 
-# [JavaScript (V4 Model)](#tab/javascript-v4)
+# [JavaScript (PM4)](#tab/javascript-v4)
 
 The implementation of `sayHello` is a relatively trivial string formatting operation.
 
@@ -181,7 +186,7 @@ You can start an instance of orchestrator function using a client function. You 
 
 To interact with orchestrators, the function must include a `DurableClient` input binding. You use the client to start an orchestration. It can also help you return an HTTP response containing URLs for checking the status of the new orchestration.
 
-# [JavaScript (V3 Model)](#tab/javascript-v3)
+# [JavaScript (PM3)](#tab/javascript-v3)
 
 #### HttpStart/function.json
 
@@ -195,7 +200,7 @@ To interact with orchestrators, the function must include a `durableClient` inpu
 
 Use `df.getClient` to obtain a `DurableOrchestrationClient` object. You use the client to start an orchestration. It can also help you return an HTTP response containing URLs for checking the status of the new orchestration.
 
-# [JavaScript (V4 Model)](#tab/javascript-v4)
+# [JavaScript (PM4)](#tab/javascript-v4)
 
 :::code language="javascript" source="~/azure-functions-durable-js-v3/samples-js/functions/httpStart.js":::
 

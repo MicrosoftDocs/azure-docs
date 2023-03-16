@@ -15,6 +15,11 @@ This sample implements an SMS-based phone verification system. These types of fl
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
+> [!NOTE]
+> The new programming model for authoring Functions in Node.js (V4) is currently in preview. Compared to the current model, the new experience is designed to be more idiomatic and intuitive for JavaScript and TypeScript developers. To learn more, see the Azure Functions Node.js [developer guide](../functions-reference-node.md?pivots=node-model-v4).
+>
+> In the following code snippets, JavaScript (PM4) denotes programming model V4, the new experiences.
+
 ## Scenario overview
 
 Phone verification is used to verify that end users of your application are not spammers and that they are who they say they are. Multi-factor authentication is a common use case for protecting user accounts from hackers. The challenge with implementing your own phone verification is that it requires a **stateful interaction** with a human being. An end user is typically provided some code (for example, a 4-digit number) and must respond **in a reasonable amount of time**.
@@ -46,7 +51,7 @@ This article walks through the following functions in the sample app:
 > [!NOTE]
 > It may not be obvious at first, but this orchestrator does not violate the [deterministic orchestration constraint](durable-functions-code-constraints.md). It is deterministic because the `CurrentUtcDateTime` property is used to calculate the timer expiration time, and it returns the same value on every replay at this point in the orchestrator code. This behavior is important to ensure that the same `winner` results from every repeated call to `Task.WhenAny`.
 
-# [JavaScript (V3 Model)](#tab/javascript-v3)
+# [JavaScript (PM3)](#tab/javascript-v3)
 
 The **E4_SmsPhoneVerification** function uses the standard *function.json* for orchestrator functions.
 
@@ -59,7 +64,7 @@ Here is the code that implements the function:
 > [!NOTE]
 > It may not be obvious at first, but this orchestrator does not violate the [deterministic orchestration constraint](durable-functions-code-constraints.md). It is deterministic because the `currentUtcDateTime` property is used to calculate the timer expiration time, and it returns the same value on every replay at this point in the orchestrator code. This behavior is important to ensure that the same `winner` results from every repeated call to `context.df.Task.any`.
 
-# [JavaScript (V4 Model)](#tab/javascript-v4)
+# [JavaScript (PM4)](#tab/javascript-v4)
 
 Here is the code that implements the `smsPhoneVerification` orchestration function:
 
@@ -103,7 +108,7 @@ The **E4_SendSmsChallenge** function uses the Twilio binding to send the SMS mes
 > [!NOTE]
 > You must first install the `Microsoft.Azure.WebJobs.Extensions.Twilio` Nuget package for Functions to run the sample code. Don't also install the main [Twilio nuget package](https://www.nuget.org/packages/Twilio/) because this can cause versioning problems that result in build errors. 
 
-# [JavaScript (V3 Model)](#tab/javascript-v3)
+# [JavaScript (PM3)](#tab/javascript-v3)
 
 The *function.json* is defined as follows:
 
@@ -113,7 +118,7 @@ And here is the code that generates the four-digit challenge code and sends the 
 
 :::code language="javascript" source="~/azure-functions-durable-js/samples/E4_SendSmsChallenge/index.js":::
 
-# [JavaScript (V4 Model)](#tab/javascript-v4)
+# [JavaScript (PM4)](#tab/javascript-v4)
 
 Here is the code that generates the four-digit challenge code and sends the SMS message:
 
