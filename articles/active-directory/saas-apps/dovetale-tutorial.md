@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Dovetale | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Dovetale'
 description: Learn how to configure single sign-on between Azure Active Directory and Dovetale.
 services: active-directory
 author: jeevansd

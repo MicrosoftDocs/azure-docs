@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect Health - Diagnose duplicated attribute synchronization errors | Microsoft Docs
+title: Azure AD Connect Health - Diagnose duplicated attribute synchronization errors
 description: This document describes the diagnosis process of duplicated attribute synchronization errors and a potential fix of the orphaned object scenarios directly from the Azure portal.
 services: active-directory
 documentationcenter: ''

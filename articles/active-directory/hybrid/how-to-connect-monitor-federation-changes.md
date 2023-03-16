@@ -1,5 +1,5 @@
 ---
-title: Monitor changes to federation configuration in Azure AD | Microsoft Docs
+title: Monitor changes to federation configuration in Azure AD
 description: This article explains how to monitor changes to your federation configuration with Azure AD.
 services: active-directory
 documentationcenter: ''

@@ -51,7 +51,8 @@ The DEKs, encrypted with the KEKs, are stored separately. Only an entity with ac
 
 Azure Active Directory [user- assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) will be used to connect and retrieve customer-managed key. Follow this [tutorial](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md) to create identity.
 
-For a PostgreSQL server to use customer-managed keys stored in Key Vault for encryption of the DEK, a Key Vault administrator gives the following access rights to the server:
+
+For a PostgreSQL server to use customer-managed keys stored in Key Vault for encryption of the DEK, a Key Vault administrator gives the following **access rights** to the managed identity created above:
 
 - **get**: For retrieving, the public part and properties of the key in the key Vault.
 
@@ -62,6 +63,9 @@ For a PostgreSQL server to use customer-managed keys stored in Key Vault for enc
 - **unwrapKey**: To be able to decrypt the DEK. Azure Database for PostgreSQL needs the decrypted DEK to encrypt/decrypt the data
 
 The key vault administrator can also [enable logging of Key Vault audit events](../../key-vault/general/howto-logging.md?tabs=azure-cli), so they can be audited later.
+> [!IMPORTANT]  
+> Not providing above access rights to the Key Vault to managed identity for access to KeyVault may result in failure to fetch encryption key and subsequent failed setup of the Customer Managed Key (CMK) feature.
+
 
 When the server is configured to use the customer-managed key stored in the key Vault, the server sends the DEK to the key Vault for encryptions. Key Vault returns the encrypted DEK stored in the user database. Similarly, when needed, the server sends the protected DEK to the key Vault for decryption. Auditors can use Azure Monitor to review Key Vault audit event logs, if logging is enabled.
 
@@ -73,7 +77,7 @@ The following are requirements for configuring Key Vault:
 
 - The key Vault must be set with 90 days for 'Days to retain deleted vaults'. If the existing key Vault has been configured with a lower number, you'll need to create a new key vault as it can't be modified after creation.
 
-- Enable the soft-delete feature on the key Vault, to protect from data loss if an accidental key (or Key Vault) deletion happens. Soft-deleted resources are retained for 90 days unless the user recovers or purges them in the meantime. The recover and purge actions have their own permissions associated with a Key Vault access policy. The soft-delete feature is off by default, but you can enable it through PowerShell or the Azure CLI (note that you can't enable it through the Azure portal).
+- **Enable the soft-delete feature on the key Vault**, to protect from data loss if an accidental key (or Key Vault) deletion happens. Soft-deleted resources are retained for 90 days unless the user recovers or purges them in the meantime. The recover and purge actions have their own permissions associated with a Key Vault access policy. The soft-delete feature is off by default, but you can enable it through PowerShell or the Azure CLI (note that you can't enable it through the Azure portal).
 
 - Enable Purge protection to enforce a mandatory retention period for deleted vaults and vault objects
 
@@ -116,7 +120,7 @@ Here are recommendations for configuring a customer-managed key:
 
 It might happen that someone with sufficient access rights to Key Vault accidentally disables server access to the key by:
 
-- Revoking the Key Vault's list, get, wrapKey, and unwrapKey permissions from the identity used to retrieve key in KeyVault.
+- Revoking the Key Vault's **list**, **get**, **wrapKey**, and **unwrapKey** permissions from the identity used to retrieve key in KeyVault.
 
 - Deleting the key.
 
@@ -208,7 +212,7 @@ Follow the steps below to enable CMK while creating Postgres Flexible Server usi
  identityPrincipalId=$(az identity create -g <resource_group> --name <identity_name> --location <azure_region> --query principalId -o tsv)
 ```
 
-4. Add access policy with key permissions of *wrapKey*,*unwrapKey*, *get*, *list* in Azure KeyVault to the managed identity we created above
+4. Add access policy with key permissions of *wrapKey*, *unwrapKey*, *get*, *list* in Azure KeyVault to the managed identity we created above
 ```azurecli-interactive
 az keyvault set-policy -g <resource_group> -n <vault_name>  --object-id $identityPrincipalId --key-permissions wrapKey unwrapKey get list
 ```
@@ -239,6 +243,9 @@ Follow the steps below to update CMK on CMK enabled Flexible Server using Azure 
 
 ### CLI
 
+The Azure command-line interface (Azure CLI) is a set of commands used to create and manage Azure resources. The Azure CLI is available across Azure services and is designed to get you working quickly with Azure, with an emphasis on automation.
+
+
 Prerequisites:
 - You must have an Azure subscription and be an administrator on that subscription.
 - Key Vault with key in region where Postgres Flex Server will be created. Follow this [tutorial](../../key-vault/general/quick-create-portal.md) to create Key Vault and generate key. 
@@ -252,6 +259,347 @@ Follow the steps below to change\rotate key or identity after creation of server
 ```azurecli-interactive
   az postgres flexible-server update --resource-group <resource_group> --name <server_name> --key $newKeyIdentifier --identity <identity_name>
 ```
+
+### Azure Resource Manager (ARM)
+ARM templates are a form of infrastructure as code, a concept where you define the infrastructure you need to be deployed.
+Using ARM templates in managing your Azure environment has many benefits, as declarative syntax removes the requirement of writing complicated deployment scripts to handle multiple deployment scenarios. For more on ARM templates see this [doc](../../azure-resource-manager/templates/overview.md)
+
+Prerequisites:
+- You must have an Azure subscription and be an administrator on that subscription.
+- Key Vault with key in region where Postgres Flex Server will be created. Follow this [tutorial](../../key-vault/general/quick-create-portal.md) to create Key Vault and generate key. 
+
+Following is an example Azure ARM template that creates server with Customer MANAGED kEY (CMK) based encryption as defined in *dataEncryptionData* section of ARM template
+```json
+{
+    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters":
+    {
+        "administratorLogin":
+        {
+            "type": "string"
+        },
+        "administratorLoginPassword":
+        {
+            "type": "securestring"
+        },
+        "target":
+        {
+            "type": "string"
+        },
+        "name":
+        {
+            "type": "string"
+        },
+        "serverEdition":
+        {
+            "type": "string",
+            "defaultValue": "GeneralPurpose"
+        },
+        "storageSizeGB":
+        {
+            "type": "int",
+            "defaultValue": 128
+        },
+        "haEnabled":
+        {
+            "type": "string",
+            "defaultValue": "Disabled"
+        },
+        "availabilityZone":
+        {
+            "type": "string",
+            "defaultValue": "1"
+        },
+        "standbyAvailabilityZone":
+        {
+            "type": "string",
+            "defaultValue": "2"
+        },
+        "version":
+        {
+            "type": "string"
+        },
+        "tags":
+        {
+            "type": "object",
+            "defaultValue":
+            {}
+        },
+        "firewallRules":
+        {
+            "type": "object",
+            "defaultValue":
+            {}
+        },
+        "backupRetentionDays":
+        {
+            "type": "int"
+        },
+        "geoRedundantBackup":
+        {
+            "type": "string"
+        },
+        "vmName":
+        {
+            "type": "string",
+            "defaultValue": "Standard_D4s_v3"
+        },
+        "vnetData":
+        {
+            "type": "object",
+            "metadata":
+            {
+                "description": "Vnet data is an object which contains all parameters pertaining to vnet and subnet"
+            },
+            "defaultValue":
+            {
+                "virtualNetworkName": "",
+                "subnetName": "",
+                "privateDnsZoneName": "",
+                "Network":
+                {}
+            }
+        },
+        "userAssignedIdentitity":
+        {
+            "type": "string",
+            "defaultValue": "postgresflexi"
+        },
+        "managedIdentityType":
+        {
+            "type": "string",
+            "defaultValue": "UserAssigned"
+        },
+        "identityData":
+        {
+            "type": "object",
+            "defaultValue":
+            {}
+        },
+        "dataEncryptionData":
+        {
+            "type": "object",
+            "defaultValue":
+            {}
+        },
+        "apiVersion":
+        {
+            "type": "string",
+            "defaultValue": "2021-06-01"
+        },
+        "aadEnabled":
+        {
+            "type": "bool",
+            "defaultValue": false
+        },
+        "aadData":
+        {
+            "type": "object",
+            "defaultValue":
+            {}
+        },
+        "authConfig":
+        {
+            "type": "object",
+            "defaultValue":
+            {}
+        },
+        "azSubscriptionId":
+        {
+            "type": "string",
+            "metadata":
+            {
+                "description": "User subscription id"
+            }
+        },
+        "resource_group":
+        {
+            "type": "string"
+        },
+        "cmkKeyvault":
+        {
+            "type": "string"
+        },
+        "cmkUri":
+        {
+            "type": "string"
+        },
+        "dataEncryptionType":
+        {
+            "type": "string"
+        }
+    },
+    "variables":
+    {
+        "firewallRules": "[parameters('firewallRules').rules]",
+        "identityData":
+        {
+            "type": "UserAssigned",
+            "UserAssignedIdentities":
+            {
+                "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', parameters('userAssignedIdentitity'))]":
+                {}
+            }
+        },
+        "Network":
+        {
+            "DelegatedSubnetResourceId": "[concat('/subscriptions/', parameters('azSubscriptionId'), '/resourceGroups/', parameters('resource_group'), '/providers/Microsoft.Network/virtualNetworks/', parameters('vnetData').virtualNetworkName, '/subnets/', parameters('vnetData').subnetName)]",
+            "PrivateDnsZoneResourceId": "[concat('/subscriptions/', parameters('azSubscriptionId'), '/resourceGroups/', parameters('resource_group'), '/providers/Microsoft.Network/privateDnsZones/', parameters('vnetData').privateDnsZoneName)]",
+            "PrivateDnsZoneArmResourceId": "[concat('/subscriptions/', parameters('azSubscriptionId'), '/resourceGroups/', parameters('resource_group'), '/providers/Microsoft.Network/privateDnsZones/', parameters('vnetData').privateDnsZoneName)]"
+        },
+        "dataEncryptionData":
+        {
+            "type": "[parameters('dataEncryptionType')]",
+            "primaryUserAssignedIdentityId": "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', parameters('userAssignedIdentitity'))]",
+            "primaryKeyUri": "[parameters('cmkUri')]"
+        }
+    },
+    "resources":
+    [
+        {
+            "apiVersion": "[parameters('apiVersion')]",
+            "location": "[parameters('target')]",
+            "name": "[parameters('name')]",
+            "identity": "[if(empty(variables('identityData')), json('null'), variables('identityData'))]",
+            "properties":
+            {
+                "version": "[parameters('version')]",
+                "administratorLogin": "[parameters('administratorLogin')]",
+                "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
+                "Network": "[variables('Network')]",
+                "availabilityZone": "[parameters('availabilityZone')]",
+                "Storage":
+                {
+                    "StorageSizeGB": "[parameters('storageSizeGB')]"
+                },
+                "Backup":
+                {
+                    "backupRetentionDays": "[parameters('backupRetentionDays')]",
+                    "geoRedundantBackup": "[parameters('geoRedundantBackup')]"
+                },
+                "highAvailability":
+                {
+                    "mode": "[parameters('haEnabled')]",
+                    "standbyAvailabilityZone": "[parameters('standbyAvailabilityZone')]"
+                },
+                "dataencryption": "[if(empty(variables('dataEncryptionData')), json('null'), variables('dataEncryptionData'))]",
+                "authConfig": "[if(empty(parameters('authConfig')), json('null'), parameters('authConfig'))]"
+            },
+            "sku":
+            {
+                "name": "[parameters('vmName')]",
+                "tier": "[parameters('serverEdition')]"
+            },
+            "tags": "[parameters('tags')]",
+            "type": "Microsoft.DBforPostgreSQL/flexibleServers"
+        },
+        {
+            "condition": "[parameters('aadEnabled')]",
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2018-05-01",
+            "name": "addAdmins",
+            "dependsOn":
+            [
+                "[concat('Microsoft.DBforPostgreSQL/flexibleServers/', parameters('name'))]"
+            ],
+            "properties":
+            {
+                "mode": "Incremental",
+                "template":
+                {
+                    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "resources":
+                    [
+                        {
+                            "type": "Microsoft.DBforPostgreSQL/flexibleServers/administrators",
+                            "name": "[concat(parameters('name'),'/', parameters('aadData').adminSid)]",
+                            "apiVersion": "[parameters('apiVersion')]",
+                            "properties":
+                            {
+                                "tenantId": "[parameters('aadData').tenantId]",
+                                "principalName": "[parameters('aadData').principalName]",
+                                "principalType": "[parameters('aadData').principalType]"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "condition": "[greater(length(variables('firewallRules')), 0)]",
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2019-08-01",
+            "name": "[concat('firewallRules-', copyIndex())]",
+            "copy":
+            {
+                "count": "[if(greater(length(variables('firewallRules')), 0), length(variables('firewallRules')), 1)]",
+                "mode": "Serial",
+                "name": "firewallRulesIterator"
+            },
+            "dependsOn":
+            [
+                "[concat('Microsoft.DBforPostgreSQL/flexibleServers/', parameters('name'))]",
+                "Microsoft.Resources/deployments/addAdmins"
+            ],
+            "properties":
+            {
+                "mode": "Incremental",
+                "template":
+                {
+                    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "resources":
+                    [
+                        {
+                            "type": "Microsoft.DBforPostgreSQL/flexibleServers/firewallRules",
+                            "name": "[concat(parameters('name'),'/',variables('firewallRules')[copyIndex()].name)]",
+                            "apiVersion": "[parameters('apiVersion')]",
+                            "properties":
+                            {
+                                "StartIpAddress": "[variables('firewallRules')[copyIndex()].startIPAddress]",
+                                "EndIpAddress": "[variables('firewallRules')[copyIndex()].endIPAddress]"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "type": "Microsoft.DBforPostgreSQL/flexibleServers/configurations",
+            "apiVersion": "2022-12-01",
+            "name": "[concat(parameters('name'), '/shared_preload_libraries')]",
+            "dependsOn":
+            [
+                "[resourceId('Microsoft.DBforPostgreSQL/flexibleServers', parameters('name'))]"
+            ],
+            "properties":
+            {
+                "value": "pgaudit",
+                "source": "user-override"
+            }
+        },
+        {
+            "type": "Microsoft.DBforPostgreSQL/flexibleServers/configurations",
+            "apiVersion": "2022-12-01",
+            "name": "[concat(parameters('name'), '/pgaudit.log')]",
+            "dependsOn":
+            [
+                "[resourceId('Microsoft.DBforPostgreSQL/flexibleServers', parameters('name'))]"
+            ],
+            "properties":
+            {
+                "value": "all",
+                "source": "user-override"
+            }
+        }
+    ]
+}
+```
+
+
+
 ## Limitations
 
 The following are current limitations for configuring the customer-managed key in Flexible Server:
