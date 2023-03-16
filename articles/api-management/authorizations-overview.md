@@ -4,40 +4,50 @@ description: Learn about API authorizations in Azure API Management, a feature t
 author: dlepow
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 02/21/2023
+ms.date: 03/16/2023
 ms.author: danlep
 ms.custom: references_regions
 ---
 
 # What are API authorizations?
 
-API Management *authorizations* provide a simple and reliable way to unbundle and abstract authorizations from your web APIs. Use authorizations to delegate authentication to your API Management instance to let it authenticate against a given backend service or SaaS platform. 
+API Management *authorizations* provide a simple and reliable way to unbundle and abstract authorizations from web APIs. Authorizations greatly simplify the process of authenticating and authorizing users across one or more backend or SaaS services. With authorizations, easily configure OAuth 2.0, consent, acquire tokens, cache tokens, and refresh tokens without writing a single line of code. Use authorizations to delegate authentication to your API Management instance. 
 
-Authorizations simplify the process of managing authorization tokens when sending requests based on the OAuth 2.0 standard. By configuring any of the [supported identity providers](authorizations-configure-common-providers.md), API Management will retrieve and refresh access tokens to be used inside of API management or sent back to a client. This feature enables APIs to be exposed with or without a subscription key, and reduces development costs in ramping up, implementing, and maintaining security features with service integrations.
+This feature enables APIs to be exposed with or without a subscription key, use OAuth 2.0 authorizations to the backend services, and reduce development costs in ramping up, implementing, and maintaining security features with service integrations.
 
-:::image type="content" source="media/authorizations-overview/overview-providers.png" alt-text="Diagram of API Management authorizations and supported SaaS providers." border="false":::
+:::image type="content" source="media/authorizations-overview/overview-providers.png" alt-text="Diagram of API Management authorizations and supported SaaS providers." border="true":::
 
 ## Key scenarios
 
-Using authorizations, customers can enable different scenarios and easily connect to SaaS providers or backend services that are using OAuth 2.0. Use authorizations for both attended scenarios (human-initiated) and unattended scenarios (fully automated). Examples include:
+Using authorizations in API Management, customers can enable different scenarios and easily connect to SaaS providers or backend services that are using OAuth 2.0. Here are some example scenarios where this feature could be used:
 
-* **Attended** - Azure static web app that calls the GitHub API to add an issue to a repository. For more information, see the [blog post](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/use-static-web-apps-api-and-api-management-authorizations-to/ba-p/3603755).
+* Easily connect to a SaaS backend by attaching the stored authorization token and proxying requests
 
-    :::image type="content" source="media/authorizations-overview/static-web-apps-calls-github-api.png" alt-text="Diagram showing attended scenario for API Management authorization." border="false":::
+* Proxy requests to an Azure App Service web app or Azure Functions backend by attaching the authorization token, which can later send requests to a SaaS backend applying transformation logic
 
-* **Unattended** - Azure function using a timer trigger that uses an authorization to connect to a backend API.
+* Proxy requests to GraphQL federation backends by attaching multiple access tokens to easily perform federation
 
-    :::image type="content" source="media/authorizations-overview/azure-function-connects-backend-apis.png" alt-text="Diagram showing unattended scenario for API Management authorization." border="false":::
+* Expose a retrieve token endpoint, acquire a cached token, and call a SaaS backend on behalf of user from any compute, for example, a console app or Kubernetes daemon. Combine your favorite SaaS SDK in a supported language.
+
+* Azure Functions unattended scenarios when connecting to multiple SaaS backends.
+
+* Durable Functions gets a step closer to Logic Apps with SaaS connectivity.
+
+* With authorizations every API in API Management can act as a Logic Apps custom connector.
 
 ## How do authorizations work?
 
 Authorizations consist of two parts, **management** and **runtime**.
 
-### Management
+* The **management** part takes care of configuring identity providers, enabling the consent flow for the identity provider, and managing access to the authorizations. For details, see the [process flow](#process-flow---management).
 
-The management part takes care of configuring identity providers, enabling the consent flow for the identity provider, and managing access to the authorizations. 
+* The **runtime** part uses the [`get-authorization-context` policy](get-authorization-context-policy.md) to fetch and store the authorization's access and refresh tokens. When a call comes into API Management, and the `get-authorization-context` policy is executed, it will first validate if the existing authorization token is valid. If the authorization token has expired, API Management uses an OAuth 2.0 flow to refresh the stored tokens from the identity provider. Then the access token is used to authorize access to the backend service. For details, see the [process flow](#process-flow---runtime).  
+   
+    During the policy execution, access to the tokens is also validated using access policies.
 
-The following image summarizes the process flow for creating an authorization in API Management that uses the authorization code grant type. For configuration details, see [How to configure authorizations?](#how-to-configure-authorizations)
+### Process flow - management
+    
+The following image summarizes the process flow for creating an authorization in API Management that uses the authorization code grant type.
 
 :::image type="content" source="media/authorizations-overview/get-token.svg" alt-text="Diagram showing process flow for creating authorizations." border="false":::
 
@@ -46,7 +56,7 @@ The following image summarizes the process flow for creating an authorization in
 | 1 | Client sends a request to create an authorization provider |
 | 2 | Authorization provider is created, and a response is sent back |
 | 3| Client sends a request to create an authorization |
-| 4| Authorization is created, and a response is sent back with the information that the authorization is not "connected"| 
+| 4| Authorization is created, and a response is sent back with the information that the authorization isn't "connected"| 
 |5| Client sends a request to retrieve a login URL to start the OAuth 2.0 consent at the identity provider. The request includes a post-redirect URL to be used in the last step|  
 |6|Response is returned with a login URL that should be used to start the consent flow. |
 |7|Client opens a browser with the login URL that was provided in the previous step. The browser is redirected to the identity provider OAuth 2.0 consent flow | 
@@ -55,11 +65,8 @@ The following image summarizes the process flow for creating an authorization in
 |10|API Management receives the tokens and encrypts them|
 |11 |API Management redirects to the provided URL from step 5|
 
-### Runtime
+### Process flow - runtime
 
-The runtime part uses the [`get-authorization-context` policy](get-authorization-context-policy.md) to fetch and store the authorization's access and refresh tokens. When a call comes into API Management, and the `get-authorization-context` policy is executed, it will first validate if the existing authorization token is valid. If the authorization token has expired, API Management uses an OAuth 2.0 flow to refresh the stored tokens from the identity provider. Then the access token is used to authorize access to the backend service.  
-   
-During the policy execution, access to the tokens is also validated using access policies.
 
 The following image shows the process flow to fetch and store authorization and refresh tokens based on an authorization that uses the authorization code grant type. After the tokens have been retrieved, a call is made to the backend API. 
 
@@ -89,7 +96,53 @@ The following image shows the process flow to fetch and store authorization and 
 * All API Management service tiers
 
 * Not supported in self-hosted gateway
+
 * Not supported in sovereign clouds or in the following regions: australiacentral, australiacentral2, jioindiacentral
+
+### Configuration steps
+
+Configuring an authorization in your API Management instance consists of three steps: configuring an authorization provider, consenting to access by logging in, and creating access policies.
+
+
+:::image type="content" source="media/authorizations-overview/configure-authorization.png" alt-text="Diagram of steps to create an authorization in API Management." border="false":::
+
+#### Step 1 - Authorization provider
+During Step 1, you configure your authorization provider. You can choose between different [identity providers](authorizations-configure-common-providers.md) and grant types (authorization code or client credential). Each identity provider requires specific configurations. Important things to keep in mind:
+
+* An authorization provider configuration can only have one grant type.
+* One authorization provider configuration can have multiple authorization connections. 
+
+> [!NOTE]
+> With the Generic OAuth 2.0 provider, other identity providers that support the standards of [OAuth 2.0 flow](https://oauth.net/2/) can be used.
+> 
+
+To use an authorization provider, at least one *authorization* is required. Each authorization is a separate connection to the authorization provider. The process of configuring an authorization differs based on the configured grant type. Each authorization provider configuration only supports one grant type. For example, if you want to configure Azure AD to use both grant types, two authorization provider configurations are needed.
+
+#### Authorization code grant type
+
+Authorization code grant type is bound to a user context, meaning a user needs to consent to the authorization. As long as the refresh token is valid, API Management can retrieve new access and refresh tokens. If the refresh token becomes invalid, the user needs to reauthorize. All identity providers support authorization code. [Learn more](https://www.rfc-editor.org/rfc/rfc6749?msclkid=929b18b5d0e611ec82a764a7c26a9bea#section-1.3.1) 
+
+#### Client credentials grant type
+
+Client credentials grant type isn't bound to a user and is often used in application-to-application scenarios. No consent is required for client credentials grant type, and the authorization doesn't become invalid. [Learn more](https://www.rfc-editor.org/rfc/rfc6749?msclkid=929b18b5d0e611ec82a764a7c26a9bea#section-1.3.4)
+
+### Step 2 - Log in
+
+For authorizations based on the authorization code grant type, you must authenticate to the provider and *consent* to authorization. After successful login and authorization by the identity provider, the provider returns valid access and refresh tokens, which are encrypted and saved by API Management. For details, see [Process flow - runtime](#process-flow---runtime).
+
+### Step 3 - Access policy
+
+You configure one or more *access policies* for each authorization. The access policies determine which [Azure AD identities](../active-directory/develop/app-objects-and-service-principals.md) can gain access to your authorizations at runtime. Authorizations currently support managed identities and service principals.
+
+
+|Identity  |Description  | Benefits | Considerations |
+|---------|---------|-----|----|
+|Managed identity     |  System-assigned or user-assigned [managed identity](api-management-howto-use-managed-service-identity.md) for the API Management instance that's being used.|System-assigned identity is simplest configuration to access [authorization context](get-authorization-context-policy.md) at runtime. No credentials are needed.|Identity is tied to specific Azure infrastructure. Anyone with Contributor access to API Management instance can access any authorization granting managed identity permissions.<br/><br/>With a user-assigned identity, getting authorization context requires an Azure AD token.       |
+|Service principal     |   Identity of an Azure AD application in the same Azure AD tenant as the API Management instance, with access to the instance. | Permits more tightly scoped access to authorization. Isn't tied to specific API Management instance. | Getting the [authorization context](get-authorization-context-policy.md) requires an Azure AD token.     |
+
+## Security considerations
+
+The access token and other authorization secrets (for example, client secrets) are encrypted with an envelope encryption and stored in an internal, multitenant storage. The data are encrypted with AES-128 using a key that is unique per data. Those keys are encrypted asymmetrically with a master certificate stored in Azure Key Vault and rotated every month.
 
 ### Limits
 
@@ -101,64 +154,12 @@ The following image shows the process flow to fetch and store authorization and 
 | Maximum number of authorization requests per minute per authorization | 250 |
 
 
-
-### Configuration steps
-
-Configuring an authorization in your API Management instance consists of three steps: configuring an authorization provider, granting access by logging in, and creating access policies.
-
-
-:::image type="content" source="media/authorizations-overview/configure-authorization.png" alt-text="Diagram of steps to create an authorization in API Management." border="false":::
-
-#### Authorization providers
-Authorization provider configuration includes which identity provider and [grant type](#grant-types) are used. Each identity provider requires a specific configuration. For more information, see [Configure identity providers for API authorizations](authorizations-configure-common-providers.md).
-
-* An authorization provider configuration can only have one grant type. 
-* One authorization provider configuration can have multiple authorizations.
-
-
-> [!NOTE]
-> With the Generic OAuth 2.0 provider, other identity providers that support the standards of [OAuth 2.0 flow](https://oauth.net/2/) can be used.
-> 
-
-To use an authorization provider, at least one authorization is required. The process of configuring an authorization differs based on the used grant type. Each authorization provider configuration only supports one grant type. For example, if you want to configure Azure AD to use both grant types, two authorization provider configurations are needed.
-
-#### Grant types
-
-An API Management authorization can use either of two OAuth 2.0 grant types: [authorization code](https://www.rfc-editor.org/rfc/rfc6749?msclkid=929b18b5d0e611ec82a764a7c26a9bea#section-1.3.1) or [client credentials](https://www.rfc-editor.org/rfc/rfc6749?msclkid=929b18b5d0e611ec82a764a7c26a9bea#section-1.3.4). The grant type refers to the way that tokens are obtained and through which the tokens' access is restricted. 
-
-**Authorization code grant type** is bound to a user context, meaning a user needs to consent to the authorization. As long as the refresh token is valid, API Management can retrieve new access and refresh tokens. If the refresh token becomes invalid, the user needs to reauthorize. All identity providers support authorization code. 
-
-**Client credentials grant type** isn't bound to a user and is often used in application-to-application scenarios. No consent is required for client credentials grant type, and the authorization doesn't become invalid. 
-
-#### Scopes
-
-OAuth 2.0 *scopes* provide a way to limit the amount of access that is granted to an access token. Specify scopes to limit the access of any configured authorizations to a backend OAuth 2.0 API. The content and format of the scopes are specific to the identity provider and the API permissions you need. For example, you might configure a `User.Read` scope for an Azure AD authorization provider used to authorize access to user data via a Microsoft Graph API.
-
-
-### Log in to grant access
-
-For authorizations based on the authorization code grant type, you must first manually log in to the provider to consent to authorization. After successful login and authorization by the identity provider, the provider returns valid access and refresh tokens, which are encrypted and saved by API Management. After this initial consent, API Management uses the authorization settings to manage token retrieval.
-
-### Access policies
-
-You configure one or more *access policies* for each authorization. The access policies determine which [Azure AD identities](../active-directory/develop/app-objects-and-service-principals.md) are permitted to access that authorization's tokens for API access. The supported identities are as follows:
-
-
-|Identity  |Description  |
-|---------|---------|
-|Managed identity     |  System- or user-assigned [managed identity](api-management-howto-use-managed-service-identity.md) for the API Management instance that's being used.<br/><br/>Simplest way to access authorization. However, identity is tied to specific Azure infrastructure, and anyone with contributor access to your Azure API Management instance can access any authorization granting managed identity permissions.        |
-|Service principal     |   Identity of an Azure AD application in the same Azure AD tenant as the API Management instance, with access to the instance. <br/><br/>Permits more tightly scoped access control to authorization, and is not tied to specific API Management instance. However, getting the [authorization context](get-authorization-context-policy.md) requires you to manage Azure AD credentials.     |
-
-## Security considerations
-
-The access token and other authorization secrets (for example, client secrets) are encrypted with an envelope encryption and stored in an internal, multitenant storage. The data are encrypted with AES-128 using a key that is unique per data. Those keys are encrypted asymmetrically with a master certificate stored in Azure Key Vault and rotated every month.
-
 ## Frequently asked questions (FAQ)
 
 
 ### When are the access tokens refreshed?
 
-When the policy `get-authorization-context` is executed at runtime, API Management checks if the stored access token is valid. If the token has expired or is near expiry, API Management uses the refresh token to fetch a new access token and a new refresh token from the configured identity provider. If the refresh token has expired, an error is thrown, and the authorization needs to be reauthorized before it will work.
+For an authorization of type authorization code, access tokens are refreshed as follows: When the `get-authorization-context` policy is executed at runtime, API Management checks if the stored access token is valid. If the token has expired or is near expiry, API Management uses the refresh token to fetch a new access token and a new refresh token from the configured identity provider. If the refresh token has expired, an error is thrown, and the authorization needs to be reauthorized before it will work.
 
 ### What happens if the client secret expires at the identity provider?
 
