@@ -4921,12 +4921,12 @@
         },
         {
             "source_path_from_root": "/articles/virtual-machines/linux/policy.md",
-            "redirect_url": "/azure//governance/policy/assign-policy-azurecli",
+            "redirect_url": "/azure/governance/policy/assign-policy-azurecli",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/virtual-machines/windows/policy.md",
-            "redirect_url": "/azure//governance/policy/assign-policy-portal",
+            "redirect_url": "/azure/governance/policy/assign-policy-portal",
             "redirect_document_id": false
         },
         {
