@@ -15,7 +15,7 @@ recommendations: false
 
 ## Set up your programming environment
 
-In this quickstart we'll use the cURL command line tool to make Document Translation REST API calls.
+In this quickstart, we use the cURL command line tool to make Document Translation REST API calls.
 
 > [!NOTE]
 > The cURL package is pre-installed on most Windows 10 and Windows 11 and most macOS and Linux distributions. You can check the package version with the following commands:
@@ -81,7 +81,7 @@ curl "{your-source-container-SAS-URL}/translator/text/batch/v1.0/batches" -i -X 
 Upon successful completion: 
 
 * The translated documents can be found in your target container.
-* The successful POST method returns a `202 Accepted` response code indicating that the batch request was created by the service.
+* The successful POST method returns a `202 Accepted` response code indicating that the service created the batch request.
 * The POST request also returns response headers including `Operation-Location` that provides a value used in subsequent GET requests.
 
 > [!div class="nextstepaction"]

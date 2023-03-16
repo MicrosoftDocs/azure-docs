@@ -45,7 +45,7 @@ For this quickstart, we use the latest version of [Visual Studio](https://visual
 
 1. Select the Browse tab and type **NewtonsoftJson**.
 
-     :::image type="content" source="../../media/visual-studio/get-newtonsoft-json.png" alt-text="Screenshot of select pre-release NuGet package in Visual Studio.":::
+     :::image type="content" source="../../media/visual-studio/get-newtonsoft-json.png" alt-text="Screenshot of select prerelease NuGet package in Visual Studio.":::
 
 1. Select the latest stable version from the dropdown menu and install the package in your project.
 
@@ -135,7 +135,7 @@ Once you've added a code sample to your application, choose the green **Start** 
 Upon successful completion: 
 
 * The translated documents can be found in your target container.
-* The successful POST method returns a `202 Accepted`  response code indicating that the batch request was created by the service.
+* The successful POST method returns a `202 Accepted`  response code indicating that the service created the batch request.
 * The POST request also returns response headers including `Operation-Location` that provides a value used in subsequent GET requests.
 
 > [!div class="nextstepaction"]

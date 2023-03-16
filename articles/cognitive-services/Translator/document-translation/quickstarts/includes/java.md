@@ -177,7 +177,7 @@ public class DocumentTranslation {
 Upon successful completion: 
 
 * The translated documents can be found in your target container.
-* The successful POST method returns a `202 Accepted` response code indicating that the batch request was created by the service.
+* The successful POST method returns a `202 Accepted` response code indicating that the service created the batch request.
 * The POST request also returns response headers including `Operation-Location` that provides a value used in subsequent GET requests.
 
 > [!div class="nextstepaction"]
