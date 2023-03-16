@@ -22,7 +22,7 @@ All Azure services set default limits and quotas for resources and features. Azu
 
 ## Azure Spring Apps service tiers and limits
 
-The following table provides defines limits for the pricing tiers in Azure Spring Apps.
+The following table defines limits for the pricing tiers in Azure Spring Apps.
 
 |-------------------------------------|----------------------------------------|--------------------|-------------------------------------------------|-------------------------------------------------|
 | ----------------------------------- | ---------------------------------------| -------------------| ------------------------------------------------| ------------------------------------------------|
