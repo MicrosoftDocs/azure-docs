@@ -27,7 +27,7 @@ If the above two steps could not help solving your problem, please see the follo
 
 ## Orchestration is stuck in the Pending state
 
-1. Check the Durable Task Framework traces for warnings or errors for this instance ID. A sample query can be found in **Trace Errors/Warnings** section.
+1. Check the Durable Task Framework traces for warnings or errors for this instance ID. A sample query can be found in [Trace Errors/Warnings](./durable-functions-troubleshooting-guide.md#trace-errorswarnings).
 
 2. Check the Azure Storage control queues to see if the message is still in the queue. 
 
@@ -36,9 +36,9 @@ If the above two steps could not help solving your problem, please see the follo
 
 ## Orchestration starts after a long delay
 
-1. This [page](./durable-functions-azure-storage-provider.md) illustrates reasons for orchestrators’ delay start. Please see here for detailed instructions. 
+1. This [page](./durable-functions-azure-storage-provider.md#orchestration-start-delays) illustrates reasons for orchestrators’ delay start. Please see here for detailed instructions. 
 
-2. Check for any orchestration instance warnings or errors. A sample query can be found in **Trace Errors/Warnings** section.
+2. Check for any orchestration instance warnings or errors. A sample query can be found in [Trace Errors/Warnings](./durable-functions-troubleshooting-guide.md#trace-errorswarnings).
 
 ## Orchestration does not complete / is stuck in the `Running` state
 
@@ -46,13 +46,13 @@ If the above two steps could not help solving your problem, please see the follo
 
 2. Check the Azure Storage account control queues to see if any queues are growing but not shrinking.
 
-3. Use the Azure Storage Kusto query under the **Azure Storage Message** section to filter on that queue name as the PartitionId and look for any problems related to that control queue partition.
+3. Use the Azure Storage Kusto query under the [Azure Storage Message](./durable-functions-troubleshooting-guide.md#azure-storage-message) to filter on that queue name as the PartitionId and look for any problems related to that control queue partition.
 
 4. Please check if you have followed the guidance in **Durable Functions Best Practice and Diagnostic Tools**. Some problems are caused because of inappropriate behavior. We suggest that you read this article, revise any parts that break the best practice rules and restart your function app.
 
 ## Orchestration runs slowly
 
-1. Check if [extendedSessionsEnabled](./durable-functions-azure-storage-provider.md) is enabled.  
+1. Check if [extendedSessionsEnabled](./durable-functions-azure-storage-provider.md#extended-sessions) is enabled.  
    Excessive history load can result in extremely slow orchestrator processing. The detailed instruction could be seen [here](./durable-functions-azure-storage-provider.md)
 
 2. Performance Issues.  
