@@ -9,7 +9,7 @@ ms.subservice: openai
 ms.topic: include
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 03/01/2023
+ms.date: 03/21/2023
 keywords: 
 ---
 
@@ -20,7 +20,9 @@ keywords:
 - An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true).
 - Access granted to the Azure OpenAI service in the desired Azure subscription.
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI Service by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access?azure-portal=true).
-- An Azure OpenAI Service resource with the `gpt-35-turbo` model deployed. This model is currently available in East US and South Central US. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
+- An Azure OpenAI Service resource with either the `gpt-35-turbo`, or the `gpt-4-0314`<sup>1</sup> models deployed. These models are currently available in East US and South Central US. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
+
+<sup>1</sup> **GPT-4 models are currently in limited preview.** Existing Azure OpenAI customers can [apply for access by filling out this form](TODO: Add link to form from PG).
 
 ## Set up
 
@@ -81,37 +83,23 @@ curl https://$OPENAI_API_BASE/openai/deployments/gpt-35-turbo/completions?api-ve
   -H "Content-Type: application/json" \
   -H "api-key: $OPENAI_API_KEY" \
   -d '{
-  "prompt": "<|im_start|>system\nThe system is an AI assistant that helps people find information.\n<|im_end|>\n<|im_start|>user\nDoes Azure OpenAI support customer managed keys?\n<|im_end|>\n<|im_start|>assistant",
-  "max_tokens": 800,
-  "temperature": 1,
-  "frequency_penalty": 0,
-  "presence_penalty": 0,
-  "top_p": 0.95,
-  "stop": ["<|im_end|>"]
+  "messages": {["role": "user", "content": "Hello!"}]
 }'
 ```
 
 ## Output
 
 ```bash
-{"id":"cmpl-6mZPEDkBPasCTxueCy9iVRMY4ZGD4",
-"object":"text_completion",
-"created":1677033864,
-"model":"gpt-35-turbo",
-"choices":
-[{"text":"\nYes, Azure OpenAI supports customer managed keys. These keys allow customers to manage their own encryption keys for the OpenAI services, rather than relying on Azure's managed keys. This provides an additional layer of security for customers' data and models.","index":0,"logprobs":null,"finish_reason":"stop"}],
-"usage":{"prompt_tokens":66,"completion_tokens":52,"total_tokens":118}}
+TODO: Add output once I can actually query the API.
 ```
 
 Output formatting adjusted for readability, actual output is a single block of text without line breaks.
 
-### Understanding the prompt structure
+### Understanding the message structure
 
-ChatGPT was trained to use special tokens to delineate different parts of the prompt. Content is provided to the model in between `<|im_start|>` and `<|im_end|>` tokens. The prompt begins with a system message which can be used to prime the model by including context or instructions for the model. After that, the prompt contains a series of messages between the user and the assistant.
+The ChatGPT and GPT-4 models are optimized work with inputs formatted as a conversation.  The `messages` variable passes an array of dictionaries with different roles in the conversation delineated by system, user, and assistant. The system message can be used to prime the model by including context or instructions on how the model should respond.
 
-The assistant's response to the prompt will then be returned below the `<|im_start|>assistant` token and will end with `<|im_end|>` denoting that the assistant has finished its response.
-
-The [ChatGPT how-to guide](../how-to/chatgpt.md) provides an in-depth introduction into the new prompt structure and how to use the new model effectively.
+The [ChatGPT & GPT-4 how-to guide](../how-to/chatgpt.md) provides an in-depth introduction into the options for communicating with these new models.
 
 ## Clean up resources
 
