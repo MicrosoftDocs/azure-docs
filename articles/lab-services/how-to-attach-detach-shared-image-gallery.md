@@ -34,9 +34,19 @@ Saving images to a compute gallery and replicating those images incurs additiona
     | --------------------------- | ---- | ----- | ---- |
     | Azure user | [Owner](/azure/role-based-access-control/built-in-roles#owner) | Azure compute gallery | If you attach an existing compute gallery. |
     | Azure user | [Owner](/azure/role-based-access-control/built-in-roles#owner) | Resource group | If you create a new compute gallery. |
-    | **Azure Lab Services** (service principal) | [Owner](/azure/role-based-access-control/built-in-roles#owner) | Azure compute gallery |  |
+    | **Azure Lab Services** service principal (**Application ID**: *c7bb12bf-0b39-4f7f-9171-f418ff39b76a*) | [Owner](/azure/role-based-access-control/built-in-roles#owner) | Azure compute gallery | There are two Azure Lab Services service principals. The service principal with application ID *c7bb12bf-0b39-4f7f-9171-f418ff39b76a* is used for lab plans (Azure Lab Services V2). The service principal with application ID *1a14be2a-e903-4cec-99cf-b2e209259a0f* is used for lab accounts. |
 
-    Learn how to [assign an Azure role in Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/role-assignments-steps).
+    Learn how to [assign an Azure role in Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/role-assignments-steps). You can also assign the Owner role to the Azure Lab Services service principal by using the Azure CLI:
+
+    ```azurecli-interactive
+    az login
+    az account set -s <subscription>
+
+    object_id=`az ad sp show --id c7bb12bf-0b39-4f7f-9171-f418ff39b76a --query "id" -o tsv`
+    gallery_id=`az sig show --gallery-name <gallery-name> --resource-group <gallery-resource-group> --query id -o tsv`
+
+    az role assignment create --assignee-object-id $object_id --role Reader --scope $gallery_id
+    ```
 
 ## Scenarios
 
