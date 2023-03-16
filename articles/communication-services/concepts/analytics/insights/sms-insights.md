@@ -4,9 +4,8 @@ titleSuffix: An Azure Communication Services concept document
 description: Descriptions of data visualizations available for Communications Services via Workbooks
 author:  timmitchell
 services: azure-communication-services
-
 ms.author: timmitchell
-ms.date: 03/08/2021
+ms.date: 03/16/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: data
@@ -15,50 +14,62 @@ ms.subservice: data
 # SMS Insights
 
 ## Overview
-Within your Communications Resource, we have provided an **Insights** feature that displays a number of  data visualizations conveying insights from the Azure Monitor logs and metrics monitored for your Communications Services. The visualizations within Insights are made possible via [Azure Monitor Workbooks](../../../../azure-monitor/visualize/workbooks-overview.md).
 
-:::image type="content" source="..\media\workbooks\insights-overview-2.png" alt-text="Communication Services Insights":::
+The SMS Insights dashboard in your communication resource shows data visualizations based on the logs and metrics for your SMS usage. It is powered by Azure Monitor logs and metrics that are collected and stored. [Azure Monitor Workbooks](https://learn.microsoft.com/azure/azure-monitor/visualize/workbooks-overview) are used to create the data visualization To enable Azure Monitor collection to populate the SMS Insights dashboard see [Enable Azure Monitor in Diagnostic Settings](https://learn.microsoft.com/azure/communication-services/concepts/analytics/enable-logging). Ensure that logs are sent to a [Log Analytics workspace](https://learn.microsoft.com/azure/azure-monitor/logs/log-analytics-overview).
 
-Within it, we provide the `SMS Insights Dashboard` which displays the operations and results for SMS usage through an Azure Communication Services resource. It helps you gain valuable insights into your SMS campaigns, analyze user engagement and optimize your SMS communication strategies. 
+{ADD IMAGE OF THE SMS INSIGHTS DASHBOARD}
 
-The `SMS Insights Dashboard` is made out of three sections:
+The SMS Insights Dashboard can be found as part of the Insights blade on the left hand navigation of the your Azure Communication Services resource.
 
-- **Overview**: This section shows general patterns for SMS usage and performance.
-
-- **Message Delivery rates**: This section provides insights into message delivery metrics such as the number of messages sent, the number of messages delivered, and the number of messages failed.
-
-- **Response patterns**: This section provides insights into response patterns of recipients such as the times they are most likely to respond to SMS messages and to optimize future SMS campaigns 
-
-These sections can be filtered by time range, and number type.
+{ADD IMAGE SHOWING LOCATION}
 
 ## Pre-requisites
 
 - In order to take advantage of Workbooks, follow the instructions outlined in [Enable Azure Monitor in Diagnostic Settings](../enable-logging.md). You will need to enable `SMS Operational Logs`
 - To use Workbooks, you will need to send your logs to a [Log Analytics workspace](../../../../azure-monitor/logs/log-analytics-overview.md) destination. 
 
-## Accessing Azure Insights for Communication Services
+## Dashboard structure
 
-1. From the **Azure Portal** homepage, select your **Communication Service** resource:
+The `SMS Insights Dashboard` is made out of four sections:
 
-    :::image type="content" source="..\media\workbooks\azure-portal-home-browser.png" alt-text="Azure Portal Home":::
+{ADD IMAGE OF TOP NAVIGATION}
 
-2. Once you are inside your resource, scroll down on the left nav bar to the **Monitor** category and click on the **Insights** tab:
+### Overview section
+The Overview section provides an overall performance of sent messages along with SMS failure breakdown. The user can filter the SMS performance data by time specific time range, number type, sender number, and destination. The data is presented in interactive graphs that the user can click on to further drill down into logs. 
 
-    :::image type="content" source="..\media\workbooks\acs-insights-nav.png" alt-text="Insights navigation":::
+Great to help answer general questions like:
+- How many SMS have I sent through my resource?
+- Are my messages being blocked or failing at a glance?
 
-3. This should display the **Insights** dashboard for your Communication Service resource:
+{ADD IMAGE FOR OVERVIEW SECTION}
 
-    :::image type="content" source="..\media\workbooks\acs-insights-tab.png" alt-text="Communication Services Insights tab":::
+### Message delivery rates section
+The Message Delivery Rates section provides insights into SMS performance and delivery rate per day. The user can select a specific date in the graph to drill into logs.
 
-## SMS Insights
+Can help answer questions like:
+- Are there particular days where I am seeing less deliveries?
+- Are there any geographies where delivery suffers most?
 
-The **SMS** tab displays the operations and results for SMS usage through an Azure Communication Services resource (we currently don’t have any data for this modality):
+{ADD IMAGE FOR DELIVERY RATES}
 
-:::image type="content" source="..\media\workbooks\sms.png" alt-text="SMS tab":::
+### Opt-in & opt-out rates
+The Opt-in & opt-out rates section provides insights into end user responses for opt-ins/outs and help.
 
-## More information about workbooks
+Answer questions like:
+- What percentage of my users are opt-in vs opt-out?
 
-For an in-depth description of workbooks, please refer to the [Azure Monitor Workbooks](../../../../azure-monitor/visualize/workbooks-overview.md) documentation.
+{ADD IMAGE FOR OPT}
+
+### Response patterns
+The Response patterns section provides insights into the total SMS usage in a day across messages delivered, received, failed, and blocked.
+
+This section helps you understand:
+- How is my solution perfoming over time?
+
+## Exporting logs
+The SMS logs can be exported by clicking on the Download button on the top right corner of the logs table:
+
+{ADD IMAGE FOR EXPORT}
 
 ## Editing dashboards
 
