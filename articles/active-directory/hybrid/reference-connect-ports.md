@@ -1,5 +1,5 @@
 ---
-title: 'Hybrid Identity required ports and protocols - Azure | Microsoft Docs'
+title: 'Hybrid Identity required ports and protocols - Azure'
 description: This page is a technical reference page for ports that are required to be open for Azure AD Connect
 services: active-directory
 documentationcenter: ''

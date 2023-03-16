@@ -101,7 +101,7 @@ The following properties are supported for storage account key authentication in
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The `type` property must be set to `AzureBlobStorage` (suggested) or `AzureStorage` (see the following notes). | Yes |
-| containerUri | Specify the Azure Blob container URI which has enabled Anonymous read access by taking this format `https://<AccountName>.blob.core.windows.net/<ContainerName>` and [Configure anonymous public read access for containers and blobs](/azure/storage/blobs/anonymous-read-access-configure#set-the-public-access-level-for-a-container) | Yes |
+| containerUri | Specify the Azure Blob container URI which has enabled Anonymous read access by taking this format `https://<AccountName>.blob.core.windows.net/<ContainerName>` and [Configure anonymous public read access for containers and blobs](../storage/blobs/anonymous-read-access-configure.md#set-the-public-access-level-for-a-container) | Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or the self-hosted integration runtime (if your data store is in a private network). If this property isn't specified, the service uses the default Azure integration runtime. | No |
 
 **Example:**
