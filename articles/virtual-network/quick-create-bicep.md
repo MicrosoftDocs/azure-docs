@@ -23,7 +23,7 @@ A virtual network is the fundamental building block for private networks in Azur
 
 - An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- To deploy the Bicep files, either PowerShell or Azure CLI installed.
+- To deploy the Bicep files, either Azure CLI or PowerShell installed.
 
   # [CLI](#tab/azure-cli)
 
@@ -45,10 +45,10 @@ A virtual network is the fundamental building block for private networks in Azur
 
 ## Create the virtual network and VMs
 
-To create the virtual network, resource subnet, and VMs, use the [Two VMs in VNET](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/2-vms-internal-load-balancer/main.bicep) Bicep template from [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates). The Bicep template defines the following Azure resources:
+This quickstart uses the [Two VMs in VNET](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/2-vms-internal-load-balancer/main.bicep) Bicep template from [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates) to create the virtual network, resource subnet, and VMs. The Bicep template defines the following Azure resources:
 
-- [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks): Creates an Azure virtual network.
-- [Microsoft.Network/virtualNetworks/subnets](/azure/templates/microsoft.network/virtualnetworks/subnets): Creates a subnet for the VMs.
+- [Microsoft.Network virtualNetworks](/azure/templates/microsoft.network/virtualnetworks): Creates an Azure virtual network.
+- [Microsoft.Network virtualNetworks/subnets](/azure/templates/microsoft.network/virtualnetworks/subnets): Creates a subnet for the VMs.
 - [Microsoft.Compute virtualMachines](/azure/templates/microsoft.compute/virtualmachines): Creates the VMs.
 - [Microsoft.Compute availabilitySets](/azure/templates/microsoft.compute/availabilitysets): Creates an availability set.
 - [Microsoft.Network networkInterfaces](/azure/templates/microsoft.network/networkinterfaces): Creates network interfaces.
@@ -92,10 +92,10 @@ Azure Bastion uses your browser to connect to VMs in your virtual network over s
 
 Use the [Azure Bastion as a service](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.network/azure-bastion/main.bicep) Bicep template from [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates) to deploy and configure Azure Bastion in your virtual network. This Bicep template defines the following Azure resources:
 
-- [Microsoft.Network/virtualNetworks/subnets](/azure/templates/microsoft.network/virtualnetworks/subnets): Creates an AzureBastionSubnet subnet.
+- [Microsoft.Network virtualNetworks/subnets](/azure/templates/microsoft.network/virtualnetworks/subnets): Creates an AzureBastionSubnet subnet.
 - [Microsoft.Network bastionHosts](/azure/templates/microsoft.network/bastionhosts): Creates the Bastion host.
 - [Microsoft.Network publicIPAddresses](/azure/templates/microsoft.network/publicipaddresses): Creates a public IP address for the Azure Bastion host.
-- [Microsoft Network/networkSecurityGroups](/azure/templates/microsoft.network/networksecuritygroups): Controls the network security group (NSG) settings.
+- [Microsoft Network networkSecurityGroups](/azure/templates/microsoft.network/networksecuritygroups): Controls the network security group (NSG) settings.
 
 Review the Bicep file:
 
@@ -136,7 +136,7 @@ Review the Bicep file:
    
    ```
 
-1. Save the file *bastion.bicep*.
+1. Save the *bastion.bicep* file.
 
 1. Deploy the Bicep file by using either Azure CLI or Azure PowerShell.
 
@@ -181,7 +181,7 @@ Get-AzResource -ResourceGroupName TestRG
 
 # [Portal](#tab/azure-portal)
 
-1. In the Azure portal, search for and select *resource groups*, and on the **Resource groups** page, select **TestRG** from the list of resource groups.
+1. In the [Azure portal](https://portal.azure.com), search for and select *resource groups*, and on the **Resource groups** page, select **TestRG** from the list of resource groups.
 1. On the **Overview** page for **TestRG**, review all the resources that you created, including the virtual network, the two VMs, and the Azure Bastion host.
 1. Select the **VNet** virtual network, and on the **Overview** page for **VNet**, note the defined address space of **10.0.0.0/16**.
 1. Select **Subnets** from the left menu, and on the **Subnets** page, note the deployed subnets of **backendSubnet** and **AzureBastionSubnet** with the assigned values from the Bicep files.
@@ -190,7 +190,7 @@ Get-AzResource -ResourceGroupName TestRG
 
 ## Connect to a VM
 
-1. In the portal, search for and select **Virtual machines**.
+1. In the [Azure portal](https://portal.azure.com), search for and select **Virtual machines**.
 
 1. On the **Virtual machines** page, select **BackendVM1**.
 

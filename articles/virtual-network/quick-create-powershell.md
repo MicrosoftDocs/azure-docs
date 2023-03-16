@@ -137,15 +137,15 @@ Use [New-AzVM](/powershell/module/az.compute/new-azvm) to create two VMs named `
    }
    New-AzVM @vm2
    ```
-
->[!TIP]
->You can use the `-AsJob` option to create a VM in the background while you continue with other tasks. For example, run `New-AzVM @vm1 -AsJob`. When Azure starts creating the VM in the background, you get something like the following output:
->
->```powershell
->Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
->--     ----            -------------   -----         -----------     --------             -------
->1      Long Running... AzureLongRun... Running       True            localhost            New-AzVM
->```
+   
+   >[!TIP]
+   >You can use the `-AsJob` option to create a VM in the background while you continue with other tasks. For example, run `New-AzVM @vm1 -AsJob`. When Azure starts creating the VM in the background, you get something like the following output:
+   >
+   >```powershell
+   >Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
+   >--     ----            -------------   -----         -----------     --------             -------
+   >1      Long Running... AzureLongRun... Running       True            localhost            New-AzVM
+   >```
 
 Azure takes a few minutes to create the VMs. When Azure finishes creating the VMs, it returns output to PowerShell.
 
@@ -154,7 +154,7 @@ Azure takes a few minutes to create the VMs. When Azure finishes creating the VM
 
 ## Connect to a VM
 
-1. In the portal, search for and select **Virtual machines**.
+1. In the [Azure portal](https://portal.azure.com), search for and select **Virtual machines**.
 
 1. On the **Virtual machines** page, select **VM1**.
 
@@ -228,7 +228,7 @@ Remove-AzResourceGroup -Name 'TestRG' -Force
 
 ## Next steps
 
-In this quickstart, you created a virtual network with a default subnet that contains two VMs. You connected to the VMs from the internet through remote desktop, and securely communicated between the VMs. To learn more about virtual network settings, see [Create, change, or delete a virtual network](manage-virtual-network.md).
+In this quickstart, you created a virtual network with a default subnet that contains two VMs. You deployed Azure Bastion and used it to connect to the VMs, and securely communicated between the VMs. To learn more about virtual network settings, see [Create, change, or delete a virtual network](manage-virtual-network.md).
 
 Private communication between VMs in a virtual network is unrestricted. Continue to the next article to learn more about configuring different types of VM network communications.
 > [!div class="nextstepaction"]
