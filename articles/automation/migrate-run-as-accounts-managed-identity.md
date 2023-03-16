@@ -167,7 +167,7 @@ foreach ($ResourceGroup in $ResourceGroups)
 1. In your Automation account, under **Account Settings**, select **Identity**. 
 1. In **User assigned** tab, select user assigned identity.
 
-    :::image type="content" source="./media/migrate-run-as-account-managed-identity/user-assigned-inline.png" alt-text="Screenshot that shows the navigation path to view client ID" lightbox="./media/migrate-run-as-account-managed-identity/user-assigned-expanded.png":::
+    :::image type="content" source="./media/migrate-run-as-account-managed-identity/user-assigned-inline.png" alt-text="Screenshot that shows the navigation path to view client ID." lightbox="./media/migrate-run-as-account-managed-identity/user-assigned-expanded.png":::
 
 1. Go to **Overview**> **Essentials**, to view the **Client ID**.
 
