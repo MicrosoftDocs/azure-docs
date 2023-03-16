@@ -1,5 +1,5 @@
 ---
-title: Use My Staff to delegate user management - Azure AD | Microsoft Docs
+title: Use My Staff to delegate user management - Azure AD
 description:  Delegate user management using My Staff and administrative units
 services: active-directory
 documentationcenter: ''

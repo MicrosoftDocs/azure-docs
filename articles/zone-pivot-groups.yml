@@ -1880,9 +1880,9 @@ groups:
   prompt: Choose an option
   pivots:
   - id: powershell-hrd
-    title: PowerShell
+    title: Azure AD PowerShell
   - id: graph-hrd
-    title: Graph
+    title: Microsoft Graph
 ## template with all
 - id: enterprise-apps-all
   title: Manage Enterprise apps

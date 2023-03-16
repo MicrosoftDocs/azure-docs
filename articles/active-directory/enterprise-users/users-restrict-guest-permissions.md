@@ -1,5 +1,5 @@
 ---
-title: Restrict guest user access permissions - Azure Active Directory | Microsoft Docs
+title: Restrict guest user access permissions - Azure Active Directory
 description: Restrict guest user access permissions using the Azure portal, PowerShell, or Microsoft Graph in Azure Active Directory
 services: active-directory 
 author: barclayn

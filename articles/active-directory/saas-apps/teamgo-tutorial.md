@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Teamgo | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Teamgo'
 description: Learn how to configure single sign-on between Azure Active Directory and Teamgo.
 services: active-directory
 author: jeevansd

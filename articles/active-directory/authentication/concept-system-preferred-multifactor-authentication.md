@@ -4,7 +4,7 @@ description: Learn how to use system-preferred multifactor authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/02/2023
+ms.date: 03/16/2023
 ms.author: justinha
 author: justinha
 manager: amycolannino
@@ -23,6 +23,9 @@ For example, if a user registered both SMS and Microsoft Authenticator push noti
 System-preferred MFA is a Microsoft managed setting, which is a [tristate policy](#authentication-method-feature-configuration-properties). For preview, the **default** state is disabled. If you want to turn it on for all users or a group of users during preview, you need to explicitly change the Microsoft managed state to **enabled** by using Microsoft Graph API. Sometime after general availability, the Microsoft managed state for system-preferred MFA will change to **enabled**. 
 
 After system-preferred MFA is enabled, the authentication system does all the work. Users don't need to set any authentication method as their default because the system always determines and presents the most secure method they registered. 
+
+>[!NOTE]
+>System-preferred MFA is a key security upgrade to traditional second factor notifications. We highly recommend enabling system-preferred MFA in the near term for improved sign-in security. 
 
 ## Enable system-preferred MFA
 
@@ -58,7 +61,7 @@ https://graph.microsoft.com/beta/policies/authenticationMethodsPolicy
 
 ### Request
 
-The following example excludes a sample target group and includes all users. For more information, see [Update authenticationMethodsPolicy](/graph/api/authenticationmethodspolicy-update?view=graph-rest-beta).
+The following example excludes a sample target group and includes all users. For more information, see [Update authenticationMethodsPolicy](/graph/api/authenticationmethodspolicy-update).
 
 ```http
 PATCH https://graph.microsoft.com/beta/policies/authenticationMethodsPolicy

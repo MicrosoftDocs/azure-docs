@@ -1,6 +1,6 @@
 ---
-title: "Google ApigeeX (using Azure Function) connector for Microsoft Sentinel"
-description: "Learn how to install the connector Google ApigeeX (using Azure Function) to connect your data source to Microsoft Sentinel."
+title: "Google ApigeeX (using Azure Functions) connector for Microsoft Sentinel"
+description: "Learn how to install the connector Google ApigeeX (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
 ms.date: 02/23/2023
@@ -8,7 +8,7 @@ ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# Google ApigeeX (using Azure Function) connector for Microsoft Sentinel
+# Google ApigeeX (using Azure Functions) connector for Microsoft Sentinel
 
 The [Google ApigeeX](https://cloud.google.com/apigee/docs) data connector provides the capability to ingest ApigeeX audit logs into Microsoft Sentinel using the GCP Logging API. Refer to [GCP Logging API documentation](https://cloud.google.com/logging/docs/reference/v2/rest) for more information.
 
@@ -16,7 +16,7 @@ The [Google ApigeeX](https://cloud.google.com/apigee/docs) data connector provid
 
 | Connector attribute | Description |
 | --- | --- |
-| **Azure function app code** | https://aka.ms/sentinel-ApigeeXDataConnector-functionapp |
+| **Azure functiosn app code** | https://aka.ms/sentinel-ApigeeXDataConnector-functionapp |
 | **Log Analytics table(s)** | ApigeeX_CL<br/> |
 | **Data collection rules support** | Not currently supported |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
@@ -34,7 +34,7 @@ ApigeeX_CL
 
 ## Prerequisites
 
-To integrate with Google ApigeeX (using Azure Function) make sure you have: 
+To integrate with Google ApigeeX (using Azure Functions) make sure you have: 
 
 - **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
 - **GCP service account**: GCP service account with permissions to read logs is required for GCP Logging API. Also json file with service account key is required. See the documentation to learn more about [required permissions](https://cloud.google.com/iam/docs/audit-logging#audit_log_permissions), [creating service account](https://cloud.google.com/iam/docs/creating-managing-service-accounts) and [creating service account key](https://cloud.google.com/iam/docs/creating-managing-service-account-keys).
