@@ -310,34 +310,34 @@
         - name: Send cloud-to-device messages
           items:
             - name: .NET
-              displayName: cloud-to-device messages, C2D
-              href: iot-hub-csharp-csharp-c2d.md
+              displayName: cloud-to-device messages, C2D, csharp, C#
+              href: c2d-messaging-dotnet.md
             - name: Python
               displayName: cloud-to-device messages, C2D
-              href: iot-hub-python-python-c2d.md
+              href: c2d-messaging-python.md
             - name: Node.js
               displayName: cloud-to-device messages, C2D
-              href: iot-hub-node-node-c2d.md
+              href: c2d-messaging-node.md
             - name: Java
               displayName: cloud-to-device messages, C2D
-              href: iot-hub-java-java-c2d.md
+              href: c2d-messaging-java.md
             - name: iOS
               displayName: cloud-to-device messages, C2D
-              href: iot-hub-ios-swift-c2d.md
+              href: c2d-messaging-ios.md
         - name: Upload files from devices
           items:
             - name: .NET
-              displayName: Azure Storage, file upload
-              href: iot-hub-csharp-csharp-file-upload.md
+              displayName: file upload, upload files, csharp, C#
+              href: file-upload-dotnet.md
             - name: Python
-              displayName: Azure Storage, file upload
-              href: iot-hub-python-python-file-upload.md
+              displayName: file upload, upload files
+              href: file-upload-python.md
             - name: Node.js
-              displayName: Azure Storage, file upload
-              href: iot-hub-node-node-file-upload.md
+              displayName: file upload, upload files
+              href: file-upload-node.md
             - name: Java
-              displayName: Azure Storage, file upload
-              href: iot-hub-java-java-file-upload.md
+              displayName: file upload, upload files
+              href: file-upload-java.md
         - name: Get started with device twins
           items:
             - name: CLI
@@ -398,17 +398,17 @@
               displayName: jobs
               href: schedule-jobs-cli.md
             - name: .NET
-              displayName: jobs
-              href: iot-hub-csharp-csharp-schedule-jobs.md
+              displayName: jobs, csharp, C#
+              href: schedule-jobs-dotnet.md
             - name: Python
               displayName: jobs
-              href: iot-hub-python-python-schedule-jobs.md
+              href: schedule-jobs-python.md
             - name: Node.js
               displayName: jobs
-              href: iot-hub-node-node-schedule-jobs.md
+              href: schedule-jobs-node.md
             - name: Java
               displayName: jobs
-              href: iot-hub-java-java-schedule-jobs.md
+              href: schedule-jobs-java.md
         - name: Query Avro data from a hub route
           displayName: Azure Data Lake, U-SQL
           href: iot-hub-query-avro-data.md

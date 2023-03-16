@@ -81,6 +81,71 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-csharp-csharp-c2d.md",
+      "redirect_url": "/azure/iot-hub/c2d-messaging-dotnet",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-python-python-c2d.md",
+      "redirect_url": "/azure/iot-hub/c2d-messaging-python",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-node-node-c2d.md",
+      "redirect_url": "/azure/iot-hub/c2d-messaging-node",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-java-java-c2d.md",
+      "redirect_url": "/azure/iot-hub/c2d-messaging-java",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-ios-swift-c2d.md",
+      "redirect_url": "/azure/iot-hub/c2d-messaging-ios",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-java-java-file-upload.md",
+      "redirect_url": "/azure/iot-hub/file-upload-java",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-python-python-file-upload.md",
+      "redirect_url": "/azure/iot-hub/file-upload-python",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-node-node-file-upload.md",
+      "redirect_url": "/azure/iot-hub/file-upload-node",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-csharp-csharp-file-upload.md",
+      "redirect_url": "/azure/iot-hub/file-upload-dotnet",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-java-java-schedule-jobs.md",
+      "redirect_url": "/azure/iot-hub/schedule-jobs-java",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-python-python-schedule-jobs.md",
+      "redirect_url": "/azure/iot-hub/schedule-jobs-python",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-node-node-schedule-jobs.md",
+      "redirect_url": "/azure/iot-hub/schedule-jobs-node",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-csharp-csharp-schedule-jobs.md",
+      "redirect_url": "/azure/iot-hub/schedule-jobs-dotnet",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/iot-hub/iot-hub-devguide-glossary.md",
       "redirect_url": "/azure/iot-fundamentals/iot-glossary/",
       "redirect_document_id": false

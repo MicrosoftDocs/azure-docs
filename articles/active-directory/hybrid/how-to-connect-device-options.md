@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Device options | Microsoft Docs'
+title: 'Azure AD Connect: Device options'
 description: This document details device options available in Azure AD Connect
 services: active-directory
 documentationcenter: ''
