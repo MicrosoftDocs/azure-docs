@@ -126,7 +126,7 @@ select the duplicate check settings in the X12 agreement's Receive Settings.
 
 ![Select duplicate check settings](./media/logic-apps-enterprise-integration-b2b-business-continuity/dupcheck.png)  
 
-1. Create a [logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md) in a secondary region.    
+1. Create an [example Consumption logic app workflow](../logic-apps/quickstart-create-example-consumption-workflow.md) in a secondary region.    
 
 2. Search on **X12**, and select **X12 - When a control number is modified**.   
 
@@ -193,7 +193,7 @@ select the duplicate check settings in your EDIFACT agreement's Receive Settings
 
 ![Screenshot that shows the duplicate check settings in your EDIFACT agreement's Receive Settings.](./media/logic-apps-enterprise-integration-b2b-business-continuity/edifactdupcheck.png)  
 
-1. Create a [logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md) in a secondary region.    
+1. Create an [example Consumption logic app workflow](../logic-apps/quickstart-create-example-consumption-workflow.md) in a secondary region.    
 
 2. Search on **EDIFACT**, and select **EDIFACT - When a control number is modified**.
 
@@ -261,8 +261,8 @@ is based on the message ID and the MIC value.
 > The logic app creates a connection from a trigger to a primary 
 > integration account and an action to a secondary integration account.
 
-1. Create a [logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
-in the secondary region.  
+1. Create an [example Consumption logic app workflow](../logic-apps/quickstart-create-example-consumption-workflow.md) 
+in the secondary region.
 
 2. Search on **AS2**, and select **AS2 - When a MIC value is created**.   
 
