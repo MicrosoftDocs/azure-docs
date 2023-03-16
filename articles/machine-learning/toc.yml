@@ -500,6 +500,9 @@
         - name: Debug jobs and monitor training progress
           displayName: automl
           href: how-to-interactive-jobs.md
+        - name: Optimize Checkpoint Performance for Large Models
+          displayName: Optimize Checkpoint Performance for Large Models
+          href: reference-checkpoint-performance-for-large-models.md
         - name: Train with the Python SDK
           items:
             - name: Tune hyperparameters
@@ -708,6 +711,8 @@
       items:
         - name: Setup MLOps with Azure DevOps
           href: how-to-setup-mlops-azureml.md
+        - name: Setup MLOps with GitHub
+          href: how-to-setup-mlops-github-azure-ml.md
         - name: Manage models
           href: how-to-manage-models.md
         - name: Automation
@@ -908,6 +913,10 @@
     - name: Hyperparameters for AutoML computer vision tasks
       displayName: automl, yolo-5, image, image model
       href: reference-automl-images-hyperparameters.md
+    - name: Automated ML Forecasting command job YAML schema
+      href: reference-automated-ml-forecasting.md
+    - name: Kubernetes cluster configuration
+      href: reference-kubernetes.md
     - name: Designer component reference
       displayName: module, component, reference, algorithm, studio
       href: algorithm-module-reference/module-reference.md

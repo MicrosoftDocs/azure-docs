@@ -1,5 +1,5 @@
 ---
-title: Managed identities for Azure resources frequently asked questions - Azure AD"
+title: Managed identities for Azure resources frequently asked questions"
 description: Frequently asked questions about managed identities
 services: active-directory
 documentationcenter: 
@@ -16,7 +16,7 @@ ms.date: 07/27/2022
 ms.author: barclayn
 ---
 
-# Managed identities for Azure resources frequently asked questions - Azure AD
+# Managed identities for Azure resources frequently asked questions
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 

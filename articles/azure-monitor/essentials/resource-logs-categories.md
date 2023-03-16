@@ -3,7 +3,7 @@ title: Supported categories for Azure Monitor resource logs
 description: Understand the supported services and event schemas for Azure Monitor resource logs.
 author: EdB-MSFT
 ms.topic: reference
-ms.date: 03/01/2023
+ms.date: 03/12/2023
 ms.author: edbaynash
 ms.reviewer: lualderm
 
@@ -171,6 +171,15 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |vmwaresyslog |VMware Syslog |Yes |
+
+
+## microsoft.azuresphere/catalogs  
+<!-- Data source : naam-->
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|AuditLogs |Audit Logs |Yes |
+|DeviceEvents |Device Events |Yes |
 
 
 ## Microsoft.Batch/batchaccounts  
@@ -346,6 +355,24 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |---|---|---|
 |ContainerRegistryLoginEvents |Login Events |No |
 |ContainerRegistryRepositoryEvents |RepositoryEvent logs |No |
+
+
+## Microsoft.ContainerService/fleets  
+<!-- Data source : naam-->
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|cloud-controller-manager |Kubernetes Cloud Controller Manager |Yes |
+|cluster-autoscaler |Kubernetes Cluster Autoscaler |Yes |
+|csi-azuredisk-controller |csi-azuredisk-controller |Yes |
+|csi-azurefile-controller |csi-azurefile-controller |Yes |
+|csi-snapshot-controller |csi-snapshot-controller |Yes |
+|guard |guard |Yes |
+|kube-apiserver |Kubernetes API Server |Yes |
+|kube-audit |Kubernetes Audit |Yes |
+|kube-audit-admin |Kubernetes Audit Admin Logs |Yes |
+|kube-controller-manager |Kubernetes Controller Manager |Yes |
+|kube-scheduler |Kubernetes Scheduler |Yes |
 
 
 ## Microsoft.ContainerService/managedClusters  
@@ -1613,4 +1640,4 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 * [Analyze logs from Azure storage with Log Analytics](./resource-logs.md#send-to-log-analytics-workspace)
 
 
-<!--Gen Date:  Wed Mar 01 2023 10:07:05 GMT+0200 (Israel Standard Time)-->
+<!--Gen Date:  Sun Mar 12 2023 11:30:35 GMT+0200 (Israel Standard Time)-->

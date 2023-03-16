@@ -1,5 +1,5 @@
 ---
-title: Certificate user IDs for Azure AD certificate-based authentication - Azure Active Directory 
+title: Certificate user IDs for Azure AD certificate-based authentication 
 description: Learn about certificate user IDs for Azure AD certificate-based authentication without federation
 
 services: active-directory
@@ -45,7 +45,7 @@ For sync'd users, AD users with role **Hybrid Identity Administrator** can write
  
 Tenant admins can use the following steps Azure portal to update certificate user IDs for a user account:
 
-1. In the Azure AD portal, click **All users (preview)**. 
+1. In the Azure portal, click **All users (preview)**. 
 
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-certificateuserids/user.png" alt-text="Screenshot of test user account.":::
 
