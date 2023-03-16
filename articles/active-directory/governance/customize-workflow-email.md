@@ -25,7 +25,7 @@ Emails tasks allow for the customization of the following aspects:
 - Email language
 
 > [!NOTE]
-> To avoid additional disclaimers, you should opt in to using customized domain and organizational branding.
+> To avoid additional security disclaimers, you should opt in to using customized domain and organizational branding.
 
 For more information on these customizable parameters, see: [Common email task parameters](lifecycle-workflow-tasks.md#common-email-task-parameters).
 
