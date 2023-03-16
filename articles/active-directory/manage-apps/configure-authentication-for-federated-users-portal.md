@@ -142,7 +142,10 @@ The following policy enables username/password authentication for federated user
 
 
 ```powershell
-New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AllowCloudPasswordValidation`":true}}") -DisplayName EnableDirectAuthPolicy -Type HomeRealmDiscoveryPolicy
+New-AzureADPolicy 
+    -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AllowCloudPasswordValidation`":true}}") 
+    -DisplayName EnableDirectAuthPolicy 
+    -Type HomeRealmDiscoveryPolicy
 ```
 ::: zone-end
 
@@ -187,7 +190,9 @@ Get-AzureADServicePrincipal
 After you have the **ObjectID** of the service principal of the application for which you want to configure auto-acceleration, run the following command. This command associates the HRD policy that you created in step 1 with the service principal that you located in step 2.
 
 ```powershell
-Add-AzureADServicePrincipalPolicy -Id <ObjectID of the Service Principal> -RefObjectId <ObjectId of the Policy>
+Add-AzureADServicePrincipalPolicy 
+    -Id <ObjectID of the Service Principal> 
+    -RefObjectId <ObjectId of the Policy>
 ```
 
 You can repeat this command for each service principal to which you want to add the policy.
