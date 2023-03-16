@@ -65,7 +65,7 @@ If the cluster uses a **File** **share witness** running on-premises, then the t
 - Disaster Recovery and Business Continuity: For a disaster recovery scenario, the best and most reliable option is to create a **Cloud Witness** running in Azure Storage. 
 - Application Modernization: For this use case, the best option is to deploy a **Cloud Witness**.
 
-For more information about quorum configuration and management, see [Failover Clustering documentation](https://learn.microsoft.com/en-us/windows-server/failover-clustering/manage-cluster-quorum). For more information about deploying a Cloud witness in Azure Blob Storage, see [Deploy a Cloud Witness for a Failover Cluster](https://learn.microsoft.com/en-us/windows-server/failover-clustering/deploy-cloud-witness) documentation for the details.
+For more information about quorum configuration and management, see [Failover Clustering documentation](https://learn.microsoft.com/windows-server/failover-clustering/manage-cluster-quorum). For more information about deploying a Cloud witness in Azure Blob Storage, see [Deploy a Cloud Witness for a Failover Cluster](https://learn.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness) documentation for the details.
 
 ## Migrate fail over cluster
 
