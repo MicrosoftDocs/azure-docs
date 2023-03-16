@@ -15,7 +15,7 @@ ms.topic: how-to
 ms.date: 03/16/2023
 ms.author: anfdocs
 ---
-# Disable showmount in Azure NetApp Files
+# Disable showmount in Azure NetApp Files (preview)
 
 Showmount on NFS clients has historically been how users can see exported file systems on an NFS server. By default, Azure NetApp Files enables showmount functionality to show exported paths but doesn't list the allowed client access. Instead, showmount displays that (everyone) has access. The setting allows NFS clients to use the `showmount -e` command to see a list of exports available on the Azure NetApp Files NFS-enabled storage endpoint.
 
