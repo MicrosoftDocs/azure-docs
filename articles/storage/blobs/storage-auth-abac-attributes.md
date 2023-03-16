@@ -446,7 +446,23 @@ This section lists the Azure Blob Storage attributes you can use in your conditi
 > | **Attribute** | `isPrivateLink` |
 > | **Attribute source** | Environment |
 > | **Attribute type** | Boolean |
-> | **Examples** | `` |
+> | **Operators** | [Boolean comparison operators](../../role-based-access-control/conditions-format.md#boolean-comparison-operators) |
+> | **Examples** | `@Environment[isPrivateLink] BoolEquals true`<br/>[Example: Allow read access to blobs based on private link and tags](storage-auth-abac-examples.md#example-allow-read-access-to-blobs-based-on-private-link-and-tags) |
+> | **Learn more** | [Use private endpoints for Azure Storage](../common/storage-private-endpoints.md) |
+
+### Private endpoint
+
+> [!div class="mx-tdCol2BreakAll"]
+> | Property | Value |
+> | --- | --- |
+> | **Display name** | Private endpoint |
+> | **Description** | The name of the private endpoint from an object is accessed.<br/>Use to restrict access over a specific private endpoint. |
+> | **Attribute** | `Microsoft.Network/privateEndpoints` |
+> | **Attribute source** | Environment |
+> | **Attribute type** | String |
+> | **Operators** | [String comparison operators](../../role-based-access-control/conditions-format.md#string-comparison-operators) |
+> | **Examples** | `@Environment[Microsoft.Network/privateEndpoints] StringEqualsIgnoreCase '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-group/providers/Microsoft.Network/privateEndpoints/privateendpoint1'`<br/>[Example: Allow read access to a container from only a private endpoint](storage-auth-abac-examples.md#example-allow-read-access-to-a-container-from-only-a-private-endpoint) |
+> | **Learn more** | [Use private endpoints for Azure Storage](../common/storage-private-endpoints.md) |
 
 ### Snapshot
 
@@ -462,6 +478,20 @@ This section lists the Azure Blob Storage attributes you can use in your conditi
 > | **Hierarchical namespace support** | False |
 > | **Examples** | `Exists @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:snapshot]`<br/>[Example: Read current blob versions and any blob snapshots](storage-auth-abac-examples.md#example-read-current-blob-versions-and-any-blob-snapshots) |
 > | **Learn more** | [Blob snapshots](snapshots-overview.md)<br/>[Azure Data Lake Storage Gen2 hierarchical namespace](data-lake-storage-namespace.md) |
+
+### Subnets
+
+> [!div class="mx-tdCol2BreakAll"]
+> | Property | Value |
+> | --- | --- |
+> | **Display name** | Subnet name |
+> | **Description** | The name of the subnet from an object is accessed.<br/>Use to restrict access to a specific subnet. |
+> | **Attribute** | `Microsoft.Network/virtualNetworks/subnets` |
+> | **Attribute source** | Environment |
+> | **Attribute type** | String |
+> | **Operators** | [String comparison operators](../../role-based-access-control/conditions-format.md#string-comparison-operators) |
+> | **Examples** | `@Environment[Microsoft.Network/virtualNetworks/subnets] StringEqualsIgnoreCase '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-group/providers/Microsoft.Network/virtualNetworks/virtualnetwork1/subnets/default'`<br/>[Example: Allow read access to blobs based on a subnet and tags](storage-auth-abac-examples.md#example-allow-read-access-to-blobs-based-on-a-subnet-and-tags) |
+> | **Learn more** | [Subnets](../../virtual-network/concepts-and-best-practices.md) |
 
 ### UTC now
 
