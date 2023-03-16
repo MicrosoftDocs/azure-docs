@@ -22,6 +22,14 @@ items:
   items:
      - name: Deploy the Azure Health Insights using the portal
        href: deploy-portal.md
+- name: How-to guides
+  items:
+  - name: Use containers
+    items:
+    - name: Use Docker containers
+      href: use-containers.md
+    - name: Configure containers
+      href: configure-containers.md
 - name: About Responsible AI
   expanded: true
   items:
