@@ -58,7 +58,7 @@ The following steps are specific for the networking described in the example sce
 
 To finish the provisioning of the EFLOW VM and communicate with Azure, you need to assign another NIC that is connected to the DMZ network (online). 
 
-For this scenario, you'll assign an *external virtual switch* connected to the DMZ network. For more information, review [Create a virtual switch for Hyper-V virtual machines](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines). 
+For this scenario, you assign an *external virtual switch* connected to the DMZ network. For more information, review [Create a virtual switch for Hyper-V virtual machines](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines). 
 
 To create an external virtual switch, follow these steps:
 
@@ -72,23 +72,25 @@ To create an external virtual switch, follow these steps:
 
 Once the external virtual switch is created, you need to attach it to the EFLOW VM using the following steps. If you need to attach multiple NICs, see [EFLOW Multiple NICs](https://github.com/Azure/iotedge-eflow/wiki/Multiple-NICs).
 
-For the custom new *external virtual switch* you created, use the following PowerShell commands to attach it your EFLOW VM and set a static IP: 
+For the custom new *external virtual switch* you created, use the following PowerShell commands to: 
 
-1. 
+1. Attach the switch to your EFLOW VM.
+
    ```powershell
    Add-EflowNetwork -vswitchName "OnlineOPCUA" -vswitchType "External"
    ```
 
    :::image type="content" source="./media/how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz/add-eflow-network.png" alt-text="Screenshot of a successful creation of the external network named OnlineOPCUA." lightbox="./media/how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz/add-eflow-network.png":::
 
-1. 
+1. Set a static IP:
+
    ```powershell
    Add-EflowVmEndpoint -vswitchName "OnlineOPCUA" -vEndpointName "OnlineEndpoint" -ip4Address 192.168.0.103 -ip4PrefixLength 24 -ip4GatewayAddress 192.168.0.1
    ```
 
    :::image type="content" source="./media/how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz/add-eflow-vm-endpoint.png" alt-text="Screenshot of a successful configuration of the OnlineOPCUA switch..":::
 
-Once complete, you'll have the *OnlineOPCUA* switch assigned to the EFLOW VM. To check the multiple NIC attachment, use the following steps:
+Once complete, you have the *OnlineOPCUA* switch assigned to the EFLOW VM. To check the multiple NIC attachment, use the following steps:
 
 1. Open an elevated PowerShell session by starting with **Run as Administrator**.
 
@@ -156,7 +158,7 @@ sudo route add -net default gw yyy.yyy.yyy.yyy netmask 0.0.0.0 dev eth1 metric <
 
 You can use the previous script to create your own custom script specific to your networking scenario. Once script is defined, save it, and assign execute permission. For example, if the script name is *route-setup.sh*, you can assign execute permission using the command `sudo chmod +x route-setup.sh`. You can test if the script works correctly by executing it manually using the command `sudo sh ./route-setup.sh` and then checking the routing table using the `sudo route` command. 
         
-The final step is to create a Linux service that runs on startup, and executes the bash script to set the routes. You'll have to create a *systemd* unit file to load the service. The following is an example of that file.
+The final step is to create a Linux service that runs on startup, and executes the bash script to set the routes. You have to create a *systemd* unit file to load the service. The following is an example of that file.
         
 ```systemd
 [Unit]
