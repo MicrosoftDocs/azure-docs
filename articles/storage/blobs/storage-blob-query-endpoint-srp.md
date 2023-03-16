@@ -18,7 +18,7 @@ ms.custom: devguide-csharp, devguide-java, devguide-javascript, devguide-python
 A Blob Storage endpoint forms the base address for all objects within a storage account. Blob Storage supports two types of endpoints:
  
 - A [standard endpoint](../common/storage-account-overview.md#standard-endpoints) includes the unique storage account name along with a fixed domain name. The format of a standard endpoint is `https://<storage-account>.blob.core.windows.net`.
-- An [Azure DNS zone endpoint](../common/storage-account-overview.md#azure-dns-zone-endpoints-preview) dynamically selects an Azure DNS zone and assigns it to the storage account when it's created. The format of an Azure DNS Zone endpoint is `https://<storage-account>.z[00-99].blob.storage.azure.net`. 
+- An [Azure DNS zone endpoint (preview)](../common/storage-account-overview.md#azure-dns-zone-endpoints-preview) dynamically selects an Azure DNS zone and assigns it to the storage account when it's created. The format of an Azure DNS Zone endpoint is `https://<storage-account>.z[00-99].blob.storage.azure.net`. 
 
 When your application creates a service client object that connects to Blob Storage data resources, you pass a URI referencing the endpoint to the service client constructor. You can construct the URI string manually, or you can query for the service endpoint at runtime using the Azure Storage management library.
 
@@ -194,6 +194,32 @@ Client library information:
 - [azure-storage-blob](/python/api/overview/azure/storage-blob-readme): Contains the primary classes that you can use to work with Blob Storage data resources.
 - [azure-mgmt-resource](/python/api/azure-mgmt-resource/azure.mgmt.resource.resourcemanagementclient): Supports management of Azure resources and resource groups.
 - [azure-mgmt-storage](/python/api/azure-mgmt-storage/azure.mgmt.storage.storagemanagementclient): Supports management of Azure Storage resources, including resource groups and storage accounts.
+
+---
+
+### Register the Storage resource provider
+
+A resource provider must be registered with your Azure subscription before you can use it. For this example, the resource provider **Microsoft.Storage** needs to be registered so that your subscription can work with it. 
+
+You can register the Storage resource provider, or check the registration status, using [Azure portal](/azure/azure-resource-manager/management/resource-providers-and-types#azure-portal), [Azure CLI](/azure/azure-resource-manager/management/resource-providers-and-types#azure-cli), or [Azure PowerShell](/azure/azure-resource-manager/management/resource-providers-and-types#azure-powershell).
+
+You can also use the Azure management libraries to check the registration status and register the Storage resource provider, as shown in the following examples:
+
+## [.NET](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobQueryEndpoint/QueryEndpoint.cs" id="Snippet_RegisterSRP":::
+
+## [Java](#tab/java)
+
+:::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-query-endpoint/src/main/java/com/blobs/queryendpoint/AccountProperties.java" id="Snippet_RegisterSRP":::
+
+## [JavaScript](#tab/javascript)
+
+:::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/blob-query-endpoint/index.js" id="Snippet_register_srp":::
+
+## [Python](#tab/python)
+
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-query-endpoint/blob-query-endpoint.py" id="Snippet_register_srp":::
 
 ---
 
