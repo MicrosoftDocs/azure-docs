@@ -20,6 +20,7 @@ Azure OpenAI provides access to many different models, grouped by family and cap
 | Model family | Description |
 |--|--|
 | [GPT-3](#gpt-3-models) | A series of models that can understand and generate natural language. This includes the new [ChatGPT model](#chatgpt-gpt-35-turbo). |
+| [GPT-4](#gpt-4-models) | The latest most advanced series of models from OpenAI that can understand and generate natural language.|
 | [Codex](#codex-models) | A series of models that can understand and generate code, including translating natural language to code. |
 | [Embeddings](#embeddings-models) | A set of models that can understand and use embeddings. An embedding is a special format of data representation that can be easily utilized by machine learning models and algorithms. The embedding is an information dense representation of the semantic meaning of a piece of text. Currently, we offer three families of Embeddings models for different functionalities: similarity, text search, and code search. |
 
@@ -53,7 +54,16 @@ You can get a list of models that are available for both inference and fine-tuni
 
 ## Finding the right model
 
-We recommend starting with the most capable model in a model family to confirm whether the model capabilities meet your requirements. Then you can stay with that model or move to a model with lower capability and cost, optimizing around that model's capabilities. 
+We recommend starting with the most capable model in a model family to confirm whether the model capabilities meet your requirements. Then you can stay with that model or move to a model with lower capability and cost, optimizing around that model's capabilities.
+
+## GPT-4 models (limited preview)
+
+The latest most advanced series of models from OpenAI that can understand and generate natural language. These models are currently in limited preview. For access, existing Azure OpenAI customers can [apply by filling out this form](TODO:Add link form from PG). While these models are trained as multimodal models to accept both images and text as input, currently the models will only be able accept text via the [new Chat API](../how-to/chatgpt.md).
+
+- `gpt-4`
+- `gpt-4-32k`
+
+The `gpt-4` supports 8192 max input tokens and the `gpt-4-32k` supports up to 32,768. The full name of the model will also indicate version so the first set of models are named `gpt-4-0314`, and `gpt-4-32k-0314`.
 
 ## GPT-3 models
 
@@ -180,6 +190,18 @@ When using our embeddings models, keep in mind their limitations and risks.
 <sup>1</sup> The model is available by request only. Currently we aren't accepting new requests to use the model.
 <br><sup>2</sup> East US and West Europe are currently unavailable for new customers to fine-tune due to high demand. Please use US South Central region for fine-tuning. 
 <br><sup>3</sup> Currently, only version `"0301"` of this model is available. This version of the model will be deprecated on 8/1/2023 in favor of newer version of the gpt-35-model. See [ChatGPT model versioning](../how-to/chatgpt.md#model-versioning) for more details.
+
+### GPT-4 Models
+
+|  Model ID                | Supports Completions | Supports Embeddings |  Base model Regions       | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
+|  ----------------------- | -------------------- | ------------------- | ------------------------- | ------------------- | -------------------- | ---------------------- |
+| `gpt-4` <sup>1</sup><sup>2</sup>     | Yes                  | No                  | East US, South Central US |  N/A                | 8,192                | September 2021         |
+| `gpt-4-32k` <sup>1</sup><sup>2</sup> | Yes                  | No                  | East US, South Central US |  N/A                | 32,768               | September 2021         |
+
+<sup>1</sup> The model is in limited preview and only available by request.
+<sup>2</sup> Currently, only version `0314` of this model is available.
+
+
 
 ### Codex Models
 |  Model ID  | Supports Completions | Supports Embeddings |  Base model Regions   | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
