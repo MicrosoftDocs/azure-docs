@@ -24,7 +24,7 @@ To download your EA price sheet, do the following tasks.
 3. Select your billing profile.
 4. In the left menu under Billing, select **Usage + charges**.
 5. Select the desired month and select the corresponding **Download** link.
-6. In the Download Usage + Charges window, under Price Sheet, select **Prepare**** Download Azure**. File generation may take a few moments.
+6. In the Download Usage + Charges window, under Price Sheet, select **Prepare Download Azure**. File generation may take a few moments.
 7. After you receive a notification that the price sheet is ready, select **Download csv**.
 8. Open the file and filter on `Price type` to see `SavingsPlan` price records.
 
