@@ -11,12 +11,9 @@ ms.author: tarcher
 
 # Quickstart: Create an Azure Container Instance with a public IP address using Terraform
 
-> [!NOTE]
-> View the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/101-aci-linuxcontainer-public-ip/TestRecord.md).
+Use Azure Container Instances to run serverless Docker containers in Azure with simplicity and speed. Deploy an application to a container instance on-demand when you don't need a full container orchestration platform like Azure Kubernetes Service. In this article, you use [Terraform](/azure/terraform) to deploy an isolated Docker container and make its web application available with a public IP address.
 
 [!INCLUDE [Terraform abstract](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
-
-This article shows how to use [Terraform](/azure/terraform) to create an Azure Container Instance with a public IP address.
 
 In this article, you learn how to:
 
