@@ -5,7 +5,7 @@ author: flang-msft
 
 ms.service: cache
 ms.topic: conceptual
-ms.date: 02/15/2023
+ms.date: 03/28/2023
 ms.author: franlanglois
 
 ---
@@ -43,7 +43,7 @@ There are a few restrictions when using active geo replication:
 - Data persistence isn't supported because active geo-replication provides a superior experience.
 - You can't add an existing (that is, running) cache to a geo-replication group. You can only add a cache to a geo-replication group when you create the cache.
 - All caches within a geo-replication group must have the same configuration. (for example, same SKU, capacity, eviction policy, clustering policy, modules, and TLS setting.) 
-- You can't use the `FLUSHALL` and `FLUSHDB` commands Redis when using active geo-replication. Prohibiting the commands prevents unintended deletion of data. Use the [flush control plane operation](#flush-operation) instead.  
+- You can't use the `FLUSHALL` and `FLUSHDB` Redis commands when using active geo-replication. Prohibiting the commands prevents unintended deletion of data. Use the [flush control plane operation](#flush-operation) instead.  
 
 ## Create or join an active geo-replication group
 
@@ -65,7 +65,7 @@ There are a few restrictions when using active geo replication:
 
 ## Remove from an active geo-replication group
 
-To remove a cache instance from an active geo-replication group, you just delete the instance. The remaining instances will reconfigure themselves automatically.
+To remove a cache instance from an active geo-replication group, you just delete the instance. The remaining instances then reconfigure themselves automatically.
 
 ## Force-unlink if there's a region outage
 
@@ -145,10 +145,10 @@ As before, you need to list both _Cache1_ and _Cache2_ using the `-LinkedDatabas
 
 Due to the potential for inadvertent data loss, you can't use the `FLUSHALL` and `FLUSHDB` Redis commands with any cache instance residing in a geo-replication group. Instead, use the **Flush Cache(s)** button located at the top of the **Active geo-replication** working pane. 
 
-**FRAN--need a screenshot picture here**
+<!-- **FRAN--need a screenshot picture here** -->
 
 > [!IMPORTANT]
-> Be careful when using the Flush Caches feature. This button will remove all data from the current cache and from ALL linked caches in the geo-replication group. 
+> Be careful when using the Flush Caches feature. Selecting the button removes all data from the current cache and from ALL linked caches in the geo-replication group. 
 >
 
 Manage access to the feature using [Azure role-based access control](../role-based-access-control/overview.md). Only authorized users should be given access to flush all caches.
