@@ -20,7 +20,7 @@ In this article, you learn how to:
 > [!div class="checklist"]
 > * Create a random value for the Azure resource group name using [random_pet](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/resource_group/pet)
 > * Create an Azure resource group using [azurerm_resource_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group)
-> * Create a random value for the container name using [random_string](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/resource_group/string)
+> * Create a random value for the container name using [random_string](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string)
 > * Create an Azure container group using [azurerm_container_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/container_group)
 
 [!INCLUDE [AI attribution](../../includes/ai-generated-attribution.md)]
