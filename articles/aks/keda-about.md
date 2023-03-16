@@ -30,14 +30,11 @@ Learn more about how KEDA works in the [official KEDA documentation][keda-archit
 
 ## Installation and version
 
->[!WARNING]
-> The managed KEDA addon is will only be supported in Kubernetes versions <= 1.25 when generally available. Please follow the [release notes](https://github.com/Azure/AKS/releases) to be notified for additional Kubernetes version support.
+[!INCLUDE [Current version callout](./includes/keda/current-version-callout.md)]
 
 KEDA can be added to your Azure Kubernetes Service (AKS) cluster by enabling the KEDA add-on using an [ARM template][keda-arm] or [Azure CLI][keda-cli].
 
 The KEDA add-on provides a fully supported installation of KEDA that is integrated with AKS.
-
-[!INCLUDE [Current version callout](./includes/keda/current-version-callout.md)]
 
 ## Capabilities and features
 
