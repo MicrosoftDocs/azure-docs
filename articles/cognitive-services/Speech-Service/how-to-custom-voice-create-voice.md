@@ -196,7 +196,7 @@ The updated version is automatically set as default. But you can change the defa
 
 If you want to test each engine version of your voice model, you can select a version from the drop-down list, then select **DefaultTests** under **Testing** to listen to the sample audios. If you want to upload your own test scripts to further test your current engine version, first make sure the version is set as default, then follow the [testing steps above](#test-your-voice-model).
 
-This update will create a new version of the model with no additional cost. After you've updated the engine version for your voice model, you need to redeploy this new version to [create a new endpoint](how-to-deploy-and-use-endpoint.md#add-a-deployment-endpoint). You can only deploy the default version. 
+Updating the engine will create a new version of the model at no additional cost. After you've updated the engine version for your voice model, you need to deploy the new version to [create a new endpoint](how-to-deploy-and-use-endpoint.md#add-a-deployment-endpoint). You can only deploy the default version. 
 
 :::image type="content" source="media/custom-voice/cnv-engine-redeploy.png" alt-text="Screenshot that shows how to redeploy a new version of your voice model.":::
 
