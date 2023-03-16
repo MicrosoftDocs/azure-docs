@@ -42,10 +42,10 @@ To complete this tutorial:
 * Durable Functions require an Azure storage account. You need an Azure subscription.
 
 ::: zone pivot="node-model-v3"
-* Make sure that you have version 16.x or 18.x of [Node.js](https://nodejs.org/) installed.
+* Make sure that you have version 16.x+ of [Node.js](https://nodejs.org/) installed.
 ::: zone-end
 ::: zone pivot="node-model-v4" 
-* Make sure that you have version 18.x of [Node.js](https://nodejs.org/) installed.
+* Make sure that you have version 18.x+ of [Node.js](https://nodejs.org/) installed.
 ::: zone-end
 * Make sure that you have [TypeScript](https://www.typescriptlang.org/) v4.x+ installed.
 
