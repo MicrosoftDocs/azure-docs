@@ -131,6 +131,10 @@ To apply a policy using the PowerShell, use the following commands:
             New-AzRoleAssignment -Scope $rg.ResourceId -ObjectId $policyAssignment.Identity.PrincipalId -RoleDefinitionId $roleDefId
         }
     ```
+1. When assigning policies that send logs to Event Hubs, you must manually add the *Azure Event Hubs Data Owner* permissions for the event hub to your system assigned Managed Identity.  
+    ```azurepowershell
+        New-AzRoleAssignment -Scope /subscriptions/<subscription ID>/resourceGroups/<event hub's resource group> -ObjectId $policyAssignment.Identity.PrincipalId -RoleDefinitionId "Azure Event Hubs Data Owner"
+    ```
 
 1. Scan for compliance, then  create a remediation task to force compliance for existing resources.
     ```azurepowershell
@@ -148,7 +152,7 @@ To apply a policy using the PowerShell, use the following commands:
 > When assigning policies that send logs to Event Hubs, you must manually add the *Azure Event Hubs Data Owner* permissions for the event hub to your policy assigned identity.  
 > Use the `az role assignment create` Azure CLI command.
 > ```azurecli
->   az role assignment create --assignee <Principal ID> --role "Azure Event > Hubs Data Owner" --scope /subscriptions/<subscription ID>/resourceGroups/<event hub's resource group>
+>   az role assignment create --assignee <Principal ID> --role "Azure Event Hubs Data Owner" --scope /subscriptions/<subscription ID>/resourceGroups/<event hub's resource group>
 >```
 > For example:
 > ```azurecli
