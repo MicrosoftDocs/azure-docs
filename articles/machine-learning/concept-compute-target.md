@@ -11,6 +11,7 @@ author: vijetajo
 ms.reviewer: sgilley
 ms.date: 10/19/2022
 ms.custom: ignite-fall-2021, event-tier1-build-2022, cliv2
+monikerRange: 'azureml-api-2 || azureml-api-1'
 #Customer intent: As a data scientist, I want to understand what a compute target is and why I need it.
 ---
 
@@ -21,14 +22,24 @@ A *compute target* is a designated compute resource or environment where you run
 In a typical model development lifecycle, you might:
 
 1. Start by developing and experimenting on a small amount of data. At this stage, use your local environment, such as a local computer or cloud-based virtual machine (VM), as your compute target.
+:::moniker range="azureml-api-2"
 1. Scale up to larger data, or do [distributed training](how-to-train-distributed-gpu.md) by using one of these [training compute targets](#training-compute-targets).
+:::moniker-end
+:::moniker range="azureml-api-1"
+1. Scale up to larger data, or do [distributed training](./v1/how-to-train-distributed-gpu.md) by using one of these [training compute targets](#training-compute-targets).
+:::moniker-end
 1. After your model is ready, deploy it to a web hosting environment with one of these [deployment compute targets](#compute-targets-for-inference).
 
 The compute resources you use for your compute targets are attached to a [workspace](concept-workspace.md). Compute resources other than the local machine are shared by users of the workspace.
 
 ## Training compute targets
 
+:::moniker range="azureml-api-2"
 Azure Machine Learning has varying support across different compute targets. A typical model development lifecycle starts with development or experimentation on a small amount of data. At this stage, use a local environment like your local computer or a cloud-based VM. As you scale up your training on larger datasets or perform [distributed training](how-to-train-distributed-gpu.md), use Azure Machine Learning compute to create a single- or multi-node cluster that autoscales each time you submit a job. You can also attach your own compute resource, although support for different scenarios might vary.
+:::moniker-end
+:::moniker range="azureml-api-1"
+Azure Machine Learning has varying support across different compute targets. A typical model development lifecycle starts with development or experimentation on a small amount of data. At this stage, use a local environment like your local computer or a cloud-based VM. As you scale up your training on larger datasets or perform [distributed training](./v1/how-to-train-distributed-gpu.md), use Azure Machine Learning compute to create a single- or multi-node cluster that autoscales each time you submit a job. You can also attach your own compute resource, although support for different scenarios might vary.
+:::moniker-end
 
 [!INCLUDE [aml-compute-target-train](../../includes/aml-compute-target-train.md)]
 
@@ -39,7 +50,12 @@ When performing inference, Azure Machine Learning creates a Docker container tha
 
 [!INCLUDE [aml-deploy-target](../../includes/aml-compute-target-deploy.md)]
 
+:::moniker range="azureml-api-2"
 Learn [where and how to deploy your model to a compute target](how-to-deploy-online-endpoints.md).
+:::moniker-end
+:::moniker range="azureml-api-1"
+Learn [where and how to deploy your model to a compute target](./v1/how-to-deploy-and-where.md.md).
+:::moniker-end
 
 ## Azure Machine Learning compute (managed)
 
@@ -48,9 +64,16 @@ A managed compute resource is created and managed by Azure Machine Learning. Thi
 You can create Azure Machine Learning compute instances or compute clusters from:
 
 * [Azure Machine Learning studio](how-to-create-attach-compute-studio.md).
+:::moniker range="azureml-api-2"
 * The Python SDK and the Azure CLI:
     * [Compute instance](how-to-create-manage-compute-instance.md).
     * [Compute cluster](how-to-create-attach-compute-cluster.md).
+:::moniker-end
+:::moniker range="azureml-api-1"
+* The Python SDK and the Azure CLI:
+    * [Compute instance](./v1/how-to-create-manage-compute-instance.md).
+    * [Compute cluster](./v1/how-to-create-attach-compute-cluster.md).
+:::moniker-end
 * An Azure Resource Manager template. For an example template, see [Create an Azure Machine Learning compute cluster](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-compute-create-amlcompute).
 
 When created, these compute resources are automatically part of your workspace, unlike other kinds of compute targets.
@@ -67,7 +90,9 @@ When created, these compute resources are automatically part of your workspace, 
 > [!NOTE]
 > To avoid charges when the compute is idle:
 > * For compute *cluster* make sure the minimum number of nodes is set to 0.
+:::moniker range="azureml-api-2"
 > * For a compute *instance*, [enable idle shutdown](how-to-create-manage-compute-instance.md#enable-idle-shutdown-preview).
+:::moniker-end
 
 ### Supported VM series and sizes
 
@@ -118,7 +143,9 @@ While Azure Machine Learning supports these VM series, they might not be availab
 > [!NOTE]
 > Azure Machine Learning doesn't support all VM sizes that Azure Compute supports. To list the available VM sizes, use one of the following methods:
 > * [REST API](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2020-08-01/examples/ListVMSizesResult.json)
+:::moniker range="azureml-api-2"
 > * The [Azure CLI extension 2.0 for machine learning](how-to-configure-cli.md) command, [az ml compute list-sizes](/cli/azure/ml/compute#az-ml-compute-list-sizes).
+:::moniker-end
 
 If using the GPU-enabled compute targets, it is important to ensure that the correct CUDA drivers are installed in the training environment. Use the following table to determine the correct CUDA version to use:
 
@@ -161,15 +188,27 @@ Azure Machine Learning supports the following unmanaged compute types:
 * Azure HDInsight
 * Azure Databricks
 * Azure Data Lake Analytics
+:::moniker range="azureml-api-1"
 * [Azure Synapse Spark pool](v1/how-to-link-synapse-ml-workspaces.md) (preview)
 
     > [!TIP]
     > Currently this requires the Azure Machine Learning SDK v1.
+:::moniker-end
+:::moniker range="azureml-api-2"
 * [Kubernetes](how-to-attach-kubernetes-anywhere.md)
+:::moniker-end
+:::moniker range="azureml-api-1"
+* [Azure Kubernetes Service](./v1/how-to-create-attach-kubernetes.md)
+:::moniker-end
 
 For more information, see [Manage compute resources](how-to-create-attach-compute-studio.md).
 
 ## Next steps
 
 Learn how to:
+:::moniker range="azureml-api-2"
 * [Deploy your model to a compute target](how-to-deploy-online-endpoints.md)
+:::moniker-end
+:::moniker range="azureml-api-1"
+* [Deploy your model](./v1/how-to-deploy-and-where.md)
+:::moniker-end

@@ -11,6 +11,7 @@ ms.author: deeikele
 author: deeikele
 ms.reviewer: sgilley
 ms.date: 03/13/2023
+monikerRange: 'azureml-api-2 || azureml-api-1'
 #Customer intent: As a data scientist, I want to understand the purpose of a workspace for Azure Machine Learning.
 ---
 
