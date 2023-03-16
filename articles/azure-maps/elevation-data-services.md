@@ -61,7 +61,7 @@ Select the region that you want raster tiles for. For demonstration purposes, th
    only tiles you want, select the **Download Options** button on the result card for each tile,
    selecting the option **GeoTIFF 1 Arc-Second** and repeat this step for the remaining tiles.
 
-    :::image type="content" source="./media/elevation-services/results-export.png" alt-text="A screenshot showing how to add raster tiles in QGIS." lightbox="./media/elevation-services/results-select-tiles-export.png":::
+    :::image type="content" source="./media/elevation-services/results-export.png" alt-text="A screenshot showing how to add raster tiles in QGIS." lightbox="./media/elevation-services/results-export.png":::
 
 1. Alternatively, use the bulk download option and select **GeoTIFF 1 Arc-second**.
 
