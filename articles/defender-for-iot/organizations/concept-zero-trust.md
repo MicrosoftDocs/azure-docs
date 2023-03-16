@@ -70,7 +70,7 @@ Assign each OT sensor to a specific site and zone to ensure that each OT sensor 
 
 Make sure to assign [site-based access policies](manage-users-portal.md#manage-site-based-access-control-public-preview) so that you can provide least-privileged access to Defender for IoT data and activities.
 
-For example, if your growing company has factories and offices in Paris, Lagos, Dubai, and Tianjin, you might use segment your network as follows:
+For example, if your growing company has factories and offices in Paris, Lagos, Dubai, and Tianjin, you might segment your network as follows:
 
 |Site  |Zones  |
 |---------|---------|
