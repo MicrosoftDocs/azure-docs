@@ -1,13 +1,14 @@
 ---
-title: Cloud-to-device messages with Azure IoT Hub (Python) | Microsoft Docs
-description: How to send cloud-to-device messages to a device from an Azure IoT hub using the Azure IoT SDKs for Python. You modify a simulated device app to receive cloud-to-device messages and modify a back-end app to send the cloud-to-device messages.
+title: Send cloud-to-device messages (Python)
+titleSuffix: Azure IoT Hub
+description: How to send cloud-to-device messages from a back-end app and receive them on a device app using the Azure IoT SDKs for Python.
 author: kgremban
-ms.service: iot-hub
-services: iot-hub
-ms.devlang: python
-ms.topic: conceptual
-ms.date: 01/02/2023
+
 ms.author: kgremban
+ms.service: iot-hub
+ms.devlang: python
+ms.topic: how-to
+ms.date: 01/02/2023
 ms.custom: mqtt, devx-track-python, py-fresh-zinc
 ---
 
@@ -75,7 +76,7 @@ In this section, you create a Python console app to simulate a device and receiv
     CONNECTION_STRING = "{deviceConnectionString}"
     ```
 
-1. Define the following function that will be used to print received messages to the console:
+1. Define the following function that is used to print received messages to the console:
 
     ```python
     def message_handler(message):

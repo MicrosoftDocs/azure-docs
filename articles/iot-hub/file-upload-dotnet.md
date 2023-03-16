@@ -1,24 +1,24 @@
 ---
-title: Upload files from devices to Azure IoT Hub with .NET | Microsoft Docs
+title: Upload files from devices to Azure IoT Hub (.NET)
+titleSuffix: Azure IoT Hub
 description: How to upload files from a device to the cloud using Azure IoT device SDK for .NET. Uploaded files are stored in an Azure storage blob container.
 author: kgremban
 
-ms.service: iot-hub
-services: iot-hub
-ms.devlang: csharp
-ms.topic: conceptual
-ms.date: 08/24/2021
 ms.author: kgremban
+ms.service: iot-hub
+ms.devlang: csharp
+ms.topic: how-to
+ms.date: 08/24/2021
 ms.custom: "mqtt, devx-track-csharp"
 ---
 
-# Upload files from your device to the cloud with IoT Hub (.NET)
+# Upload files from your device to the cloud with Azure IoT Hub (.NET)
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
-This article demonstrates how to [file upload capabilities of IoT Hub](iot-hub-devguide-file-upload.md) upload a file to [Azure blob storage](../storage/index.yml), using an Azure IoT .NET device and service SDKs. 
+This article demonstrates how to [file upload capabilities of IoT Hub](iot-hub-devguide-file-upload.md) upload a file to [Azure blob storage](../storage/index.yml), using an Azure IoT .NET device and service SDKs.
 
-The [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp) quickstart and [Send cloud-to-device messages with IoT Hub](iot-hub-csharp-csharp-c2d.md) article show the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub. The [Configure Message Routing with IoT Hub](tutorial-routing.md) article shows a way to reliably store device-to-cloud messages in Microsoft Azure blob storage. However, in some scenarios, you can't easily map the data your devices send into the relatively small device-to-cloud messages that IoT Hub accepts. For example:
+The [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp) quickstart and [Send cloud-to-device messages with IoT Hub](c2d-messaging-dotnet.md) article show the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub. The [Configure Message Routing with IoT Hub](tutorial-routing.md) article shows a way to reliably store device-to-cloud messages in Microsoft Azure blob storage. However, in some scenarios, you can't easily map the data your devices send into the relatively small device-to-cloud messages that IoT Hub accepts. For example:
 
 * Videos
 * Large files that contain images
@@ -29,9 +29,9 @@ These files are typically batch processed in the cloud, using tools such as [Azu
 
 At the end of this article, you run two .NET console apps:
 
-* **FileUploadSample**. This device app uploads a file to storage using a SAS URI provided by your IoT hub. You'll run this app from the Azure IoT C# SDK repository that you download in the prerequisites.
+* **FileUploadSample**. This device app uploads a file to storage using a SAS URI provided by your IoT hub. This sample is from the Azure IoT C# SDK repository that you download in the prerequisites.
 
-* **ReadFileUploadNotification**. This service app receives file upload notifications from your IoT hub. You'll create this app.
+* **ReadFileUploadNotification**. This service app receives file upload notifications from your IoT hub. You create this app.
 
 > [!NOTE]
 > IoT Hub supports many device platforms and languages (including C, Java, Python, and JavaScript) through Azure IoT device SDKs. Refer to the [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot) to learn how to connect your device to Azure IoT Hub.
@@ -89,7 +89,7 @@ Examine the code in **FileUpLoadSample.cs**. This file contains the main sample 
     await blockBlobClient.UploadAsync(fileStreamSource, new BlobUploadOptions());
     ```
 
-1. The code notifies the IoT hub that it has completed the upload. This tells the IoT hub that it can release resources associated with the upload (the SAS URI). If file upload notifications are enabled, the IoT hub will send a notification message to backend services.
+1. The code notifies the IoT hub that it has completed the upload. This tells the IoT hub that it can release resources associated with the upload (the SAS URI). If file upload notifications are enabled, the IoT hub sends a notification message to backend services.
 
     ```csharp
     var successfulFileUploadCompletionNotification = new FileUploadCompletionNotification
@@ -110,11 +110,11 @@ Examine the code in **FileUpLoadSample.cs**. This file contains the main sample 
     await _deviceClient.CompleteFileUploadAsync(successfulFileUploadCompletionNotification);
     ```
 
-If you examine the **parameter.cs** file, you'll see that:
+If you examine the **parameter.cs** file, you see that:
 
 - The sample requires you to pass a parameter, *p*, which takes a device connection string. 
 
-- By default, the device sample uses the MQTT protocol to communicate with IoT Hub. You can use the parameter *t* to change this transport protocol. Be aware that, regardless of this selection, the Azure blob client always uses HTTPS as the protocol to upload the file Azure storage.
+- By default, the device sample uses the MQTT protocol to communicate with IoT Hub. You can use the parameter *t* to change this transport protocol. Regardless of this selection, the Azure blob client always uses HTTPS as the protocol to upload the file Azure storage.
 
 ## Get the IoT hub connection string
 
