@@ -1,5 +1,5 @@
 ---
-title: Default user permissions - Azure Active Directory | Microsoft Docs
+title: Default user permissions - Azure Active Directory
 description: Learn about the user permissions available in Azure Active Directory.
 services: active-directory
 author: barclayn

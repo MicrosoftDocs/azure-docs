@@ -13765,6 +13765,31 @@
             "redirect_document_id": ""
         },
         {
+            "source_path_from_root": "/articles/search/tutorial-csharp-create-first-app.md",
+            "redirect_url": "/previous-versions/azure/search/tutorial-csharp-create-first-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/search/tutorial-csharp-paging.md",
+            "redirect_url": "/previous-versions/azure/search/tutorial-csharp-paging",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/search/tutorial-csharp-type-ahead-and-suggestions.md",
+            "redirect_url": "/previous-versions/azure/search/tutorial-csharp-type-ahead-and-suggestions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/search/tutorial-csharp-facets.md",
+            "redirect_url": "/previous-versions/azure/search/tutorial-csharp-facets",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/search/tutorial-csharp-orders.md",
+            "redirect_url": "/previous-versions/azure/search/tutorial-csharp-orders",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/search/cognitive-search-tutorial-aml-designer-custom-skill.md",
             "redirect_url": "/previous-versions/azure/search/cognitive-search-tutorial-aml-designer-custom-skill",
             "redirect_document_id": false

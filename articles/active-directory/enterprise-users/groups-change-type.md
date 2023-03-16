@@ -1,5 +1,5 @@
 ---
-title: Change static group membership to dynamic - Azure AD | Microsoft Docs
+title: Change static group membership to dynamic - Azure AD
 description: Learn how to convert existing groups from static to dynamic membership using either Azure portal or PowerShell cmdlets.
 services: active-directory
 documentationcenter: ''
