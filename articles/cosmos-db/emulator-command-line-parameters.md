@@ -1,21 +1,23 @@
 ---
-title: Command-line and PowerShell reference for Azure Cosmos DB Emulator 
-description: Learn the command-line parameters for Azure Cosmos DB Emulator, how to control the emulator with PowerShell, and how to change the number of containers that you can create within the emulator.   
+title: Emulator command-line and PowerShell reference
+titleSuffix: Azure Cosmos DB 
+description: Control the Azure Cosmos DB Emulator emulator with PowerShell and change the number of containers that you can create within the emulator.   
 ms.service: cosmos-db
-ms.topic: how-to
+ms.topic: reference
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.date: 09/17/2020
+ms.date: 03/16/2023
 ms.custom: contperf-fy21q1, ignite-2022
 ---
 
 # Command-line and PowerShell reference for Azure Cosmos DB Emulator
+
 [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 The Azure Cosmos DB Emulator provides a local environment that emulates the Azure Cosmos DB service for local development purposes. After [installing the emulator](local-emulator.md), you can control the emulator with command line and PowerShell commands. This article describes how to use the command-line and PowerShell commands to start and stop the emulator, configure options, and perform other operations. You have to run the commands from the installation location.
 
-##  <a id="command-line"></a>Manage the emulator with command-line syntax
+## Manage the emulator with command-line syntax
 
 ```cmd
 Microsoft.Azure.Cosmos.Emulator.exe [/Shutdown] [/DataPath] [/Port] [/MongoPort] [/DirectPorts] [/Key] [/EnableRateLimiting] [/DisableRateLimiting] [/NoUI] [/NoExplorer] [/EnableMongoDbEndpoint] [/?]
@@ -122,7 +124,7 @@ Stops the emulator. By default, this command waits until the emulator is fully s
 Uninstalls the emulator and optionally removes the full contents of $env:LOCALAPPDATA\CosmosDbEmulator.
 The cmdlet ensures the emulator is stopped before uninstalling it.
 
-## <a id="set-partitioncount"></a>Change the number of default containers
+## Change the number of default containers
 
 By default, you can create up to 25 fixed size containers (only supported using Azure Cosmos DB SDKs), or 5 unlimited containers using the Azure Cosmos DB Emulator. By modifying the **PartitionCount** value, you can create up to 250 fixed size containers or 50 unlimited containers, or any combination of the two that does not exceed 250 fixed size containers (where one unlimited container = 5 fixed size containers). However it's not recommended to set up the emulator to run with more than 200 fixed size containers. Because of the overhead that it adds to the disk IO operations, which result in unpredictable timeouts when using the endpoint APIs.
 
