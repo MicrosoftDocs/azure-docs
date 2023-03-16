@@ -18,21 +18,21 @@ ms.custom: template-tutorial
 
 This tutorial provides a step-by-step guide on how to automate prehire tasks with Lifecycle workflows using the Azure portal. 
 
-This prehire scenario generates a temporary access pass for our new employee and send it via email to the user's new manager.  
+This prehire scenario generates a temporary access pass for our new employee and sends it via email to the user's new manager.  
 
 :::image type="content" source="media/tutorial-lifecycle-workflows/arch-2.png" alt-text="Screenshot of the lifecycle workflow scenario." lightbox="media/tutorial-lifecycle-workflows/arch-2.png":::
 
 ## Prerequisites
 
-The Lifecycle Workflows preview requires Azure AD Premium P2. For more information, see: [License requirements](what-are-lifecycle-workflows.md#license-requirements).
+The Lifecycle Workflows preview requires Azure AD Premium P2. For more information, see [License requirements](what-are-lifecycle-workflows.md#license-requirements).
 
 ##  Before you begin
 
 Two accounts are required for this tutorial, one account for the new hire and another account that acts as the manager of the new hire. The new hire account must have the following attributes set:
 
 -	employeeHireDate must be set to today
--	department must be set to sales
--	manager attribute must be set, and the manager account should have a mailbox to receive an email
+-	Department must be set to sales
+-	Manager attribute must be set, and the manager account should have a mailbox to receive an email
 
 For more comprehensive instructions on how to complete these prerequisite steps, you may refer to the [Preparing user accounts for Lifecycle workflows tutorial](tutorial-prepare-azure-ad-user-accounts.md). The [TAP policy](../authentication/howto-authentication-temporary-access-pass.md#enable-the-temporary-access-pass-policy) must also be enabled to run this tutorial.
 
@@ -57,7 +57,7 @@ The prehire scenario can be broken down into the following:
 ## Create a workflow using pre-hire template
 Use the following steps to create a prehire workflow that will generate a TAP and send it via email to the user's manager using the Azure portal.
 
- 1.  Sign in to Azure portal
+ 1.  Sign in to Azure portal.
  2.  On the right, select **Azure Active Directory**.
  3.  Select **Identity Governance**.
  4.  Select **Lifecycle workflows (Preview)**.
@@ -71,7 +71,7 @@ Use the following steps to create a prehire workflow that will generate a TAP an
 
      :::image type="content" source="media/tutorial-lifecycle-workflows/configure-scope.png" alt-text="Screenshot of selecting a configuration scope." lightbox="media/tutorial-lifecycle-workflows/configure-scope.png":::
 
-   8.  Next, you'll configure the scope. The scope determines which users this workflow runs against.  In this case, it is on all users in the Sales department.  On the configure scope screen, under **Rule** add the following settings and then select **Next: Review tasks**. For a full list of supported user properties, see: [Supported user properties and query parameters](/graph/api/resources/identitygovernance-rulebasedsubjectset?view=graph-rest-beta&preserve-view=true#supported-user-properties-and-query-parameters)
+   8.  Next, you'll configure the scope. The scope determines which users this workflow runs against.  In this case, it is on all users in the Sales department.  On the configure scope screen, under **Rule** add the following settings and then select **Next: Review tasks**. For a full list of supported user properties, see [Supported user properties and query parameters](/graph/api/resources/identitygovernance-rulebasedsubjectset?view=graph-rest-beta&preserve-view=true#supported-user-properties-and-query-parameters).
 
        :::image type="content" source="media/tutorial-lifecycle-workflows/review-tasks.png" alt-text="Screenshot of selecting review tasks." lightbox="media/tutorial-lifecycle-workflows/review-tasks.png":::
 
