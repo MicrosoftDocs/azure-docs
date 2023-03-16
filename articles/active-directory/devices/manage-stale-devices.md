@@ -1,5 +1,5 @@
 ---
-title: How to manage stale devices in Azure AD | Microsoft Docs
+title: How to manage stale devices in Azure AD
 description: Learn how to remove stale devices from your database of registered devices in Azure Active Directory.
 
 services: active-directory

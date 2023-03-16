@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Version release history | Microsoft Docs'
+title: 'Azure AD Connect: Version release history'
 description: This article lists all releases of Azure AD Connect and Azure AD Sync.
 author: billmath
 ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494

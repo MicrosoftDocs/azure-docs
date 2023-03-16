@@ -7,7 +7,7 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 08/02/2022
+ms.date: 03/15/2023
 ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurecli, event-tier1-build-2022
 #Customer intent: As a data professional, I want to understand why my solutions would benefit from running with Azure Arc-enabled data services so that I can leverage the capability of the feature.
@@ -16,6 +16,22 @@ ms.custom: references_regions, devx-track-azurecli, event-tier1-build-2022
 # Release notes - Azure Arc-enabled data services
 
 This article highlights capabilities, features, and enhancements recently released or improved for Azure Arc-enabled data services.
+
+## March 14, 2023
+
+### Image tag
+
+`v1.16.0_2023-03-14`
+
+For complete release version information, see [Version log](version-log.md#march-14-2023).
+
+New for this release:
+
+- Azure Arc-enabled SQL Managed Instance 
+  - [Rotate Azure Arc-enabled SQL Managed Instance service-managed credentials (preview)](rotate-sql-managed-instance-credentials.md) 
+- Azure Arc-enabled PostgreSQL 
+  - Require client connections to use SSL
+  - Extended Azure Arc-enabled SQL Managed Instance authentication control plane to PostgresSQL
 
 ## February 14, 2023
 
