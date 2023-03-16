@@ -67,7 +67,7 @@ Go to the [reference code](https://github.com/AzureAD/SCIMReferenceCode) from Gi
 
 1. In the terminal, change the directory using the `cd Microsoft.SCIM.WebHostSample` command
 
-1. To run your app locally, in the terminal, run the .NET CLI command in the example. The [dotnet run](/dotnet/core/tools/dotnet-run) runs the Microsoft.SCIM.WebHostSample project using the [development environment](/aspnet/core/fundamentals/environments#set-environment-on-the-command-line).
+1. To run your app locally, in the terminal, run the .NET CLI command. The [dotnet run](/dotnet/core/tools/dotnet-run) runs the Microsoft.SCIM.WebHostSample project using the [development environment](/aspnet/core/fundamentals/environments#set-environment-on-the-command-line).
 
     ```dotnetcli
     dotnet run --environment Development
@@ -77,7 +77,7 @@ Go to the [reference code](https://github.com/AzureAD/SCIMReferenceCode) from Gi
 
 1. To deploy the Microsoft.SCIM.WebHostSample app to Azure App Services, [create a new App Services](../../app-service/quickstart-dotnetcore.md?tabs=net60&pivots=development-environment-vscode#publish-your-web-app).
 
-1. In the Visual Studio Code terminal, run the .NET CLI command below. This command generates a deployable publish folder for the app in the bin/debug/publish directory.
+1. In the Visual Studio Code terminal, run the .NET CLI command. This command generates a deployable publish folder for the app in the bin/debug/publish directory.
 
     ```dotnetcli
     dotnet publish -c Debug
