@@ -101,7 +101,7 @@ To understand whether a feature is supported in your sensor version, check the r
 - [Support for transient devices](device-inventory.md#supported-devices)
 - [Auto-resolved notifications](how-to-work-with-the-sensor-device-map.md#device-notification-responses)
 - [Device data retention updated to 90 days](references-data-retention.md#device-data-retention-periods)
-- [Merging](how-to-investigate-sensor-detections-in-a-device-inventory.md#merge-devices) and [deleting](how-to-investigate-sensor-detections-in-a-device-inventory.md#delete-devices) devices on OT sensors now include confirmation messages
+- [Merging](how-to-investigate-sensor-detections-in-a-device-inventory.md#merge-devices) and [deleting](how-to-investigate-sensor-detections-in-a-device-inventory.md#delete-devices) devices on OT sensors now include confirmation messages when the action has completed
 - Support for [deleting multiple devices](how-to-investigate-sensor-detections-in-a-device-inventory.md#delete-devices) on OT sensors
 - An enhanced [editing device details](how-to-investigate-sensor-detections-in-a-device-inventory.md#edit-device-details) process on the OT sensor, using an **Edit** button in the toolbar at the top of the page
 - [Enhanced UI on the OT sensor for uploading an SSL/TLS certificate](how-to-deploy-certificates.md#deploy-ssltls-certificates-on-ot-appliances)
