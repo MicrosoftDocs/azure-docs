@@ -46,8 +46,12 @@ The start of a machine learning project typically involves exploratory data anal
 
 2. Make sure that the kernel, found on the top right, is `Python 3.10 - SDK v2`.  If not, use the dropdown to select this kernel.
 
-<!-- nbstart https://raw.githubusercontent.com/Azure/azureml-examples/new-tutorial-series/tutorials/get-started-notebooks/access-and-explore-data.ipynb -->
+<!-- nbstart https://raw.githubusercontent.com/Azure/azureml-examples/get-started-tutorials/tutorials/get-started-notebooks/explore-data.ipynb -->
 
+
+## Download the data used in this tutorial
+
+For data ingestion, the Azure Data Explorer handles raw data in [these formats](https://learn.microsoft.com/azure/data-explorer/ingestion-supported-formats). This tutorial uses this [CSV-format credit card client data sample](https://azuremlexamples.blob.core.windows.net/datasets/credit_card/default_of_credit_card_clients.csv). We see the steps proceed in an Azure Machine Learning resource. In that resource, we'll create a local folder with the suggested name of **data** directly under the folder where this notebook is located.
 
 1. Select **Open terminal** below the three dots, as shown in this image:
 
@@ -123,10 +127,17 @@ The next notebook cell creates the data asset. Here, the code sample uploads the
 
 
 ```python
+from azure.ai.ml.entities import Data
+from azure.ai.ml.constants import AssetTypes
+
 # update the 'my_path' variable to match the location of where you downloaded the data on your
 # local filesystem
 
 my_path = "./data/default_of_credit_card_clients.csv"
+
+import uuid
+# create a unique data name
+data_name = "credit-card" + str(uuid.uuid4())
 
 # define the data asset
 
@@ -137,7 +148,7 @@ my_path = "./data/default_of_credit_card_clients.csv"
 # data assets, starting from 1.
 
 my_data = Data(
-    name="credit-card",
+    name=data_name,
     version="1",
     description="Credit card data",
     path=my_path,
@@ -187,7 +198,7 @@ However, as mentioned previously, it can become hard to remember these URIs. Add
 import pandas as pd
 
 # get a handle of the data asset and print the URI
-data_asset = ml_client.data.get(name="credit-card", version="1")
+data_asset = ml_client.data.get(name=data_name, version="1")
 print(f"Data asset URI: {data_asset.path}")
 
 # read into pandas - note that you will see 2 headers in your data frame - that is ok, for now
@@ -260,7 +271,7 @@ my_path = "./data/cleaned-credit-card.parquet"
 # data assets, starting from 1.
 
 my_data = Data(
-    name="credit-card",
+    name=data_name,
     version="2",
     description="Default of credit card clients data.",
     tags={"training_data": "true", "format": "parquet"},
