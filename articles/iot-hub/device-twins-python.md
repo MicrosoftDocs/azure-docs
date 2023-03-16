@@ -1,13 +1,14 @@
 ---
-title: Get started with Azure IoT Hub device twins (Python) | Microsoft Docs
-description: How to use Azure IoT Hub device twins to add tags and then use an IoT Hub query. You use the Azure IoT SDKs for Python to implement the simulated device app and a service app that adds the tags and runs the IoT Hub query.
+title: Get started with Azure IoT Hub device twins (Python)
+titleSuffix: Azure IoT Hub
+description: How to use Azure IoT Hub device twins and the Azure IoT SDKs for Python to create and simulate devices, add tags to device twins, and execute IoT Hub queries. 
 author: kgremban
-ms.service: iot-hub
-services: iot-hub
-ms.devlang: python
-ms.topic: conceptual
-ms.date: 02/17/2023
+
 ms.author: kgremban
+ms.service: iot-hub
+ms.devlang: python
+ms.topic: how-to
+ms.date: 02/17/2023
 ms.custom: mqtt, devx-track-python, py-fresh-zinc
 ---
 
@@ -134,7 +135,7 @@ In this section, you create a Python console app that adds location metadata to 
 
     You should see one device in the results for the query asking for all devices located in **Redmond43** and none for the query that restricts the results to devices that use a cellular network. In the next section, you'll create a device app that will use a cellular network and you'll rerun this query to see how it changes.
 
-    ![Screenshot of the first query showing all devices in Redmond.](./media/iot-hub-python-twin-getstarted/service-1.png)
+    ![Screenshot of the first query showing all devices in Redmond.](./media/device-twins-python/service-1.png)
 
 ## Create a device app that updates reported properties
 
@@ -220,7 +221,7 @@ In this section, you create a Python console app that connects to your hub as yo
 
     You should see confirmation the device twin reported properties were updated.
 
-    ![update reported properties from device app](./media/iot-hub-python-twin-getstarted/device-1.png)
+    ![update reported properties from device app](./media/device-twins-python/device-1.png)
 
 8. Now that the device reported its connectivity information, it should appear in both queries. Go back and run the queries again:
 
@@ -230,11 +231,11 @@ In this section, you create a Python console app that connects to your hub as yo
 
     This time your **{Device ID}** should appear in both query results.
 
-    ![second query on service app](./media/iot-hub-python-twin-getstarted/service-2.png)
+    ![second query on service app](./media/device-twins-python/service-2.png)
 
     In your device app, you'll see confirmation that the desired properties twin patch sent by the service app was received.
 
-    ![receive desired properties on device app](./media/iot-hub-python-twin-getstarted/device-2.png)
+    ![receive desired properties on device app](./media/device-twins-python/device-2.png)
 
 In this article, you:
 

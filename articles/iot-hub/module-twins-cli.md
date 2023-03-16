@@ -1,13 +1,14 @@
 ---
-title: Azure IoT Hub module identity & module twin (Azure CLI)
-description: Learn how to create a module identity and update a module twin using Azure CLI.
+title: Get started with module identity and module twins (CLI)
+titleSuffix: Azure IoT Hub
+description: Learn how to create Azure IoT Hub module identities and update module twin properties using the Azure CLI.
 author: kgremban
+
 ms.author: kgremban
 ms.service: iot-hub
-services: iot-hub
 ms.date: 02/17/2023
 ms.devlang: azurecli
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: mqtt, devx-track-azurecli
 ---
 
