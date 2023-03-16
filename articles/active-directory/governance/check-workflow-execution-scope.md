@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 
 # Check execution user scope of a workflow
 
-Lifecycle workflows can be scheduled to run as frequently as 1 hour or as infrequently as 24 hours. When a workflow is scheduled to run users, who fall under its execution conditions, are processed by the workflow. For more information about execution conditions, see: [workflow basics](../governance/understanding-lifecycle-workflows.md#workflow-basics). This article walks you through the steps to check the users who fall into the execution scope of a workflow.
+Workflow scheduling will automatically process the workflow for users meeting the workflows execution conditions. This article walks you through the steps to check the users who fall into the execution scope of a workflow. For more information about execution conditions, see: [workflow basics](../governance/understanding-lifecycle-workflows.md#workflow-basics).
 
 ## Check execution user scope of a workflow using the Azure portal
 
@@ -38,7 +38,7 @@ To check the users who fall under the execution scope of a workflow, you'd follo
     :::image type="content" source="media/check-workflow-execution-scope/execution-user-scope-list.png" alt-text="Screenshot of users under scope of execution conditions.":::
 
 > [!NOTE]
-> Users that fall under the scope of the execution conditions only show up on the list after the system evaluates them. If you have just added a user that falls under scope of the workflow's execution scope, there will be a delay until they show up here.
+> The workflow engine routinely evaluates the users that meet the execution conditions. The results will not be up to date if the execution conditions have been changed recently, relevant attributes on the user have been changed recently, or the time based trigger has recently passed.
 
 ## Check execution user scope of a workflow using Microsoft Graph
 
