@@ -1,12 +1,13 @@
 ---
-title: Start with Azure IoT Hub module identity & module twin (Node.js)
-description: Learn how to create module identity and update module twin using IoT SDKs for Node.js.
+title: Get started with module identity and module twins (Node.js)
+titleSuffix: Azure IoT Hub
+description: Learn how to create module identities and update module twins using the Azure IoT Hub SDKs for Node.js.
 author: kgremban
+
 ms.author: kgremban
 ms.service: iot-hub
-services: iot-hub
-ms.devlang: javascript
-ms.topic: conceptual
+ms.devlang: nodejs
+ms.topic: how-to
 ms.date: 08/23/2021
 ms.custom: amqp, devx-track-js
 ---
@@ -26,7 +27,7 @@ At the end of this article, you have two Node.js apps:
 * **UpdateModuleTwinReportedProperties**: sends updated module twin, reported properties to your IoT Hub.
 
 > [!NOTE]
-> See [Azure IoT SDKs](iot-hub-devguide-sdks.md) for more information about the SDK tools available to build both device and back-end apps.
+> For more information about the SDK tools available to build both device and back-end apps, see [Azure IoT SDKs](iot-hub-devguide-sdks.md).
 
 ## Prerequisites
 
@@ -121,14 +122,14 @@ Run this using node add.js. It will give you a connection string for your device
 
 In this section, you create a Node.js app on your simulated device that updates the module twin reported properties.
 
-1. **Get your module connection string** -- Sign in to the [Azure portal](https://portal.azure.com/). Navigate to your IoT Hub and click IoT Devices. Find myFirstDevice, open it and you see myFirstModule was successfully created. Copy the module connection string. It is needed in the next step.
+1. Get your module connection string. Sign in to the [Azure portal](https://portal.azure.com/). Navigate to your IoT Hub and select **IoT devices**. Find myFirstDevice, open it and you see myFirstModule was successfully created. Copy the module connection string. It is needed in the next step.
 
-   ![Azure portal module detail](./media/iot-hub-node-node-module-twin-getstarted/module-detail.png)
+   ![Azure portal module detail](./media/module-twins-node/module-detail.png)
 
-2. Similar to what you did in the step above, create a directory for your device code and use NPM to initialize it and install the device SDK (**npm install -S azure-iot-device-amqp\@modules-preview**).
+2. Similar to what you did in the previous section, create a directory for your device code and use NPM to initialize it and install the device SDK (**npm install -S azure-iot-device-amqp\@modules-preview**).
 
    > [!NOTE]
-   > The npm install command may feel slow. Be patient -- it's pulling down lots of code from the package repository.
+   > The npm install command may feel slow. Be patient; it's pulling down lots of code from the package repository.
 
    > [!NOTE]
    > If you see an error that says npm ERR! registry error parsing json, this is safe to ignore. If you see an error that says npm ERR! registry error parsing json, this is safe to ignore.

@@ -1,17 +1,17 @@
 ---
-title: Azure IoT Hub module identity & module twin (portal and .NET)
-description: Learn how to create module identity and update module twin using the portal and .NET.
+title: Get started with module identity and module twins (Portal)
+titleSuffix: Azure IoT Hub
+description: Learn how to create module identities and update module twins using the Azure portal and the IoT device SDK for .NET.
 author: kgremban
 
 ms.author: kgremban
 ms.service: iot-hub
-services: iot-hub
 ms.devlang: csharp
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/20/2019
 ms.custom: "amqp, devx-track-csharp"
 ---
-# Get started with IoT Hub module identity and module twin using the portal and .NET device
+# Get started with IoT Hub module identity and module twin using the Azure portal and a .NET device
 
 [!INCLUDE [iot-hub-selector-module-twin-getstarted](../../includes/iot-hub-selector-module-twin-getstarted.md)]
 
@@ -44,17 +44,17 @@ Within one device identity, you can create up to 20 module identities. To add an
 
 1. Enter the name *myFirstModule*. Save your module identity.
 
-   :::image type="content" source="./media/iot-hub-portal-csharp-module-twin-getstarted/add-module-identity.png" alt-text="Screenshot that shows the 'Module Identity Details' page." lightbox="./media/iot-hub-portal-csharp-module-twin-getstarted/add-module-identity.png":::
+   :::image type="content" source="./media/module-twins-portal-dotnet/add-module-identity.png" alt-text="Screenshot that shows the 'Module Identity Details' page." lightbox="./media/module-twins-portal-dotnet/add-module-identity.png":::
 
     Your new module identity appears at the bottom of the screen. Select it to see module identity details.
 
-   :::image type="content" source="./media/iot-hub-portal-csharp-module-twin-getstarted/module-identity-details.png" alt-text="Screenshot that shows the Module Identity Details menu.":::
+   :::image type="content" source="./media/module-twins-portal-dotnet/module-identity-details.png" alt-text="Screenshot that shows the Module Identity Details menu.":::
 
 Save the **Connection string (primary key)**. You use it in the next section to set up your module on the device in a console app.
 
 ## Update the module twin using .NET device SDK
 
-Now let's communicate to the cloud from your simulated device. Once a module identity is created, a module twin is implicitly created in IoT Hub. In this section, you will create a .NET console app on your simulated device that updates the module twin reported properties.
+Now let's communicate to the cloud from your simulated device. Once a module identity is created, a module twin is implicitly created in IoT Hub. In this section, you create a .NET console app on your simulated device that updates the module twin reported properties.
 
 ### Create a Visual Studio project
 
@@ -64,7 +64,7 @@ To create an app that updates the module twin, reported properties, follow these
 
 1. In **Configure your new project**, enter *UpdateModuleTwinReportedProperties* as the **Project name**. Select **Next** to continue.
 
-   :::image type="content" source="./media/iot-hub-portal-csharp-module-twin-getstarted/configure-twins-project.png" alt-text="Screenshot showing the 'Configure your new project' popup.":::
+   :::image type="content" source="./media/module-twins-portal-dotnet/configure-twins-project.png" alt-text="Screenshot showing the 'Configure your new project' popup.":::
 
 1. Keep the default .NET framework, then select **Create**.
 
@@ -76,7 +76,7 @@ Module identity and module twin is only available in the IoT Hub pre-release dev
 
 1. Select **Browse**, and then select **Include prerelease**. Search for *Microsoft.Azure.Devices.Client*. Select the latest version and install.
 
-   :::image type="content" source="./media/iot-hub-csharp-csharp-module-twin-getstarted/install-client-sdk.png" alt-text="Screenshot showing how to install the Microsoft.Azure.Devices.Client." lightbox="./media/iot-hub-csharp-csharp-module-twin-getstarted/install-client-sdk.png":::
+   :::image type="content" source="./media/module-twins-dotnet/install-client-sdk.png" alt-text="Screenshot showing how to install the Microsoft.Azure.Devices.Client." lightbox="./media/module-twins-dotnet/install-client-sdk.png":::
 
    Now you have access to all the module features.
 
