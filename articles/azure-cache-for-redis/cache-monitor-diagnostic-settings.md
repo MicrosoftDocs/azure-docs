@@ -6,7 +6,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: how-to 
-ms.date: 03/28/
+ms.date: 03/28/2023
 ms.custom: template-how-to, devx-track-azurecli 
 ms.devlang: azurecli
 ---
@@ -37,12 +37,12 @@ Azure Cache for Redis uses Azure diagnostic settings to log information on clien
 
 Implementation of connection logs is slightly different between tiers:
 - **Basic, Standard, and Premium-tier caches** polls client connections by IP address, including the number of connections originating from each unique IP address. These logs aren't cumulative. They represent point-in-time snapshots taken at 10-second intervals. Authentication events (successful and failed) and disconnection events aren't logged in these tiers.  
-- **Enterprise and Enterprise Flash-tier caches** use the [audit connection events](https://docs.redis.com/latest/rs/security/audit-events/) functionality built-into Redis Enterprise. Audit connection events allows every connection, disconnection, and authentication event to be logged, including failed authentication events. 
+- **Enterprise and Enterprise Flash-tier caches** use the [audit connection events](https://docs.redis.com/latest/rs/security/audit-events/) functionality built-into Redis Enterprise. Audit connection events allow every connection, disconnection, and authentication event to be logged, including failed authentication events. 
 
 The connection logs produced look similar among the tiers, but have some differences. The two formats are shown in more detail later in the article.  
 
 > [!IMPORTANT]
-> The connection logging in the Basic, Standard, and Premium tiers _polls_ the current client connections in the cache. The same client IP addresses will appear over and over again. Logging in the Enterprise and Enterprise Flash tiers is focused on each connection _event_. Logs will only occur when the actual event occurred for the first time.
+> The connection logging in the Basic, Standard, and Premium tiers _polls_ the current client connections in the cache. The same client IP addresses appears over and over again. Logging in the Enterprise and Enterprise Flash tiers is focused on each connection _event_. Logs only occur when the actual event occurred for the first time.
 >
 
 ## Prerequisites/Limitations of Connection Logging
@@ -109,16 +109,17 @@ For more pricing information, [Azure Monitor pricing](https://azure.microsoft.co
 1. Sign into the [Azure portal](https://portal.azure.com).
 
 1. Navigate to your Azure Cache for Redis account. Open the **Diagnostic Settings - Auditing** pane under the **Monitoring section** on the left. Then, select **Add diagnostic setting**.
-
-  **FRAN--need a new picture here**
+   :::image type="content" source="media/cache-monitor-diagnostic-settings/cache-enterprise-auditing.png" alt-text="Screenshot of Diagnostic settings - Auditing selected in the Resource menu.":::
+  <!-- **FRAN--need a new picture here** -->
 
 1. In the **Diagnostic Setting - Auditing** pane, select **Connection events** from **Categories**.
 
    For more detail on the data logged, see below [Contents of the Connection Logs](#contents-of-the-connection-logs).
 
 1. Once you select **Connection events**, send your logs to your preferred destination. Select the information in the working pane.
+   :::image type="content" source="media/cache-monitor-diagnostic-settings/cache-enterprise-connection-events.png" alt-text="Screenshot showing Connection events being checked in working pane.":::
+    <!-- **FRAN--need a new picture here** -->
 
-    **FRAN--need a new picture here**
     
 ---
 
