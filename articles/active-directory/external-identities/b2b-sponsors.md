@@ -54,17 +54,17 @@ When you invite a guest user, you became their sponsor by default. If you need t
 3. Under **Manage**, select **Users**.
 4. In the list, select the user's name to open their user profile
 5. Under **Properties** > **Job information** check the **Sponsor** field.
-   - *If the guest user already has one sponsor, you can see the sponsor's name.*
+   - *If the guest user already has a sponsor, you can see the sponsor's name.*
    :::image type="content" source="media/b2b-sponsors/sponsor-user-under-properties.png" alt-text="Screenshot of the sponsor user under Properties.":::
    - *If the guest user has multiple sponsors, you can't see the individual names.*
-   :::image type="content" source="media/b2b-sponsors/multiple-sponsors-under-properties.png" alt-text="Screenshot of the sponsor user under Properties.":::
+   :::image type="content" source="media/b2b-sponsors/multiple-sponsors-under-properties.png" alt-text="Screenshot of the sponsors under Properties.":::
    
 6. Select the **Edit properties** icon.
 7. Select the existing sponsors to add or remove users or groups and save the changes.
    :::image type="content" source="media/b2b-sponsors/add-additional-sponsors.png" alt-text="Screenshot of adding or removing sponsors.":::
-1. If the guest user doesn't have any sponsors select **Add sponsor**, select the sponsor(s) and **Save**.
+1. If the guest user doesn't have any sponsors select **Add sponsor**. Once you added sponsor users or groups select **Save**.
    :::image type="content" source="media/b2b-sponsors/add-sponsor.png" alt-text="Screenshot of adding a sponsor.":::
 1. Save the changes on the **Job Information** tab. 
 
 ## Next steps
-- [Add and invite guest users](add-users-administrator)
+- [Add and invite guest users](add-users-administrator.md)
