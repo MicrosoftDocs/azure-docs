@@ -1,5 +1,5 @@
 ---
-title: Configure template to use managed identities on virtual machine scale sets - Azure AD
+title: Configure template to use managed identities on virtual machine scale sets
 description: Step-by-step instructions for configuring managed identities for Azure resources on a virtual machine scale set, using an Azure Resource Manager template.
 services: active-directory
 documentationcenter: ''

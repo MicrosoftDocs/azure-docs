@@ -50,6 +50,36 @@ In this guide, you'll learn how to configure Azure DDoS Protection diagnostic lo
     | Log Analytics Workspace | Select **myLogAnalyticsWorkspace**. | 
 
 
+### Query Azure DDOS Protection logs in log analytics workspace
+
+For more information on log schemas, see [Monitoring Azure DDoS Protection](monitor-ddos-protection-reference.md#diagnostic-logs).
+#### DDoSProtectionNotifications logs
+
+1. Under the **Log analytics workspaces** blade, select your log analytics workspace.
+
+1. Under **General**, select on **Logs**
+
+1. In Query explorer, type in the following Kusto Query and change the time range to Custom and change the time range to last three months. Then hit Run.
+
+    ```kusto
+    AzureDiagnostics
+    | where Category == "DDoSProtectionNotifications"
+    ```
+
+1. To view **DDoSMitigationFlowLogs** change the query to the following and keep the same time range and hit Run.
+
+    ```kusto
+    AzureDiagnostics
+    | where Category == "DDoSMitigationFlowLogs"
+    ```
+
+1. To view **DDoSMitigationReports** change the query to the following and keep the same time range and hit Run.
+
+    ```kusto
+    AzureDiagnostics
+    | where Category == "DDoSMitigationReports"
+    ```
+
 ## Validate
 
 1. In the search box at the top of the portal, enter **Monitor**. Select **Monitor** in the search results.

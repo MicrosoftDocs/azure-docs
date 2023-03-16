@@ -1,14 +1,14 @@
 ---
 title: Get started with Azure IoT Hub device twins (Azure CLI)
+titleSuffix: Azure IoT Hub
 description: How to use Azure IoT Hub device twins and the Azure CLI to create and simulate devices, add tags to device twins, and execute IoT Hub queries. 
 author: kgremban
 
-ms.service: iot-hub
-services: iot-hub
-ms.devlang: azurecli
-ms.topic: conceptual
-ms.date: 02/17/2023
 ms.author: kgremban
+ms.service: iot-hub
+ms.devlang: azurecli
+ms.topic: how-to
+ms.date: 02/17/2023
 ms.custom: "mqtt, devx-track-azurecli"
 ---
 
