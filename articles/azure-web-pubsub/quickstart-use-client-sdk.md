@@ -78,10 +78,15 @@ dotnet add package Azure.Messaging.WebPubSub.Client --prerelease
 A client uses a Client Access URL to connect and authenticate with the service, which follows a pattern of `wss://<service_name>.webpubsub.azure.com/client/hubs/<hub_name>?access_token=<token>`.
 
 1. In the Azure portal, go to your Web PubSub service resource page.
-1. Select **Key** from the menu.
-1. From the **Client URL Generator** section:
-    1. 
-1.  A client can have a few ways to obtain the Client Access URL. For this quick start, you can copy and paste one from Azure portal shown as the following diagram.
+1. Select **Keys** from the menu.
+1. In the **Client URL Generator** section:
+    1. Select **Send To Groups**
+    1. Select **Allow Sending To Specific Groups**.
+    1. Enter *group1* in the **Group Name** field and select **Add**.
+    1. Select **Join/Leave Groups**.
+    1. Select **Allow Joining/Leaving Specific Groups**.
+    1. Enter *group1* in the **Group Name** field and select **Add**.
+    1. Copy the **Client Access URL**.
 
 :::image type="content" source="media/howto-websocket-connect/generate-client-url.png" alt-text="Screenshot of the Web PubSub Client URL Generator.":::
 
