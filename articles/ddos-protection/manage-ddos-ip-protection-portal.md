@@ -35,18 +35,19 @@ In this quickstart, you'll enable DDoS IP protection and link it to a public IP 
 
     | Setting                 | Value                       |
     | ---                     | ---                         |
-    | IP Version              | Select IPv4 or IPv6. In this example we selected **IPv4**.              |    
-    | SKU                     | Select **Standard**. DDoS IP Protection is enabled only on Public IP Standard SKU.        |
-    | Tier                   | Select *Global* or *Regional*. In this example we selected **Regional**.     |
-    | Name                    | Enter **myStandardPublicIP**.          |
-    | IP address assignment   | Locked as **Static**.                |
-    | Routing Preference     | Select *Microsoft network* or *Internet*. In this example we selected **Microsoft network**. |
-    | Idle Timeout (minutes)  | Leave the default of **4**.        |
-    | DNS name label          | Enter a DNS name label. In this example we left the value blank.    |
     | Subscription            | Select your subscription.   |
     | Resource group          | Select **Create new**, enter **MyResourceGroup**. </br> Select **OK**. |
-    | Location                | Select **(US) East US 2**.     |
-    | Availability Zone       | Select In this example we selected **No Zone**. |
+    | Region                | Select your region. In this example, we selected **(US) East US 2**.     |
+    | Name                    | Enter your resource name. In this example, we selected **mystandardpublicip**.          |
+    | IP Version              | Select IPv4 or IPv6. In this example, we selected **IPv4**.              |    
+    | SKU                     | Select **Standard**. DDoS IP Protection is enabled only on Public IP Standard SKU.        |
+    | Availability Zone       | You can specify an availability zone in which to deploy your public IP address. In this example, we selected **zone-redundant**. |
+    | Tier                   | Select *Global* or *Regional*. In this example, we selected **Regional**.     |
+    | IP address assignment   | Locked as **Static**.                |
+    | Routing Preference     | Select *Microsoft network* or *Internet*. In this example, we selected **Microsoft network**. |
+    | Idle Timeout (minutes)  | Keep a TCP or HTTP connection open without relying on clients to send keep-alive messages. In this example, we'll leave the default of **4**.        |
+    | DNS name label          | Enter a DNS name label. In this example, we left the value blank.    |
+
 
     :::image type="content" source="./media/ddos-protection-quickstarts/ddos-protection-create-ip.png" alt-text="Screenshot of create standard IP address in Azure portal.":::
 
