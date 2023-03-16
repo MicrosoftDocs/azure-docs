@@ -181,7 +181,7 @@ items:
       - name: Enable logging with Azure Monitor
         href: concepts/analytics/enable-logging.md
       - name: Visualize logs
-        href: concepts/analytics/insights.md
+        href: concepts/analytics/insights/sms-insights.md
       - name: Export SDK telemetry to Application Insights
         href: quickstarts/telemetry-application-insights.md
   - name: Voice and Video
@@ -269,7 +269,7 @@ items:
       - name: Enable logging with Azure Monitor
         href: concepts/analytics/enable-logging.md
       - name: Visualize logs
-        href: concepts/analytics/insights.md
+        href: concepts/analytics/insights/voice-and-video-insights.md
       - name: Query call logs
         href: concepts/analytics/log-analytics.md
       - name: Export SDK telemetry to Application Insights
@@ -311,7 +311,7 @@ items:
       - name: Enable logging with Azure Monitor
         href: concepts/analytics/enable-logging.md
       - name: Visualize logs
-        href: concepts/analytics/insights.md
+        href: concepts/analytics/insights/chat-insights.md
       - name: Export SDK telemetry to Application Insights
         href: quickstarts/telemetry-application-insights.md
   - name: Phone calling
@@ -349,7 +349,7 @@ items:
       - name: Query call logs
         href: concepts/analytics/log-analytics.md
       - name: Visualize logs
-        href: concepts/analytics/insights.md
+        href: concepts/analytics/insights/call-automation-insights.md
       - name: Export SDK telemetry to Application Insights
         href: quickstarts/telemetry-application-insights.md
   - name: Email
@@ -369,7 +369,7 @@ items:
       - name: Enable logging with Azure Monitor
         href: concepts/analytics/enable-logging.md
       - name: Visualize logs
-        href: concepts/analytics/insights.md
+        href: concepts/analytics/insights/email-insights.md
       - name: Export SDK telemetry to Application Insights
         href: quickstarts/telemetry-application-insights.md
 - name: Samples 
