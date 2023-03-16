@@ -20,7 +20,12 @@ The Azure Cosmos DB emulator provides a local environment that emulates the Azur
 ## Manage the emulator with command-line syntax
 
 ```powershell
-Microsoft.Azure.Cosmos.Emulator.exe [/Shutdown] [/DataPath] [/Port] [/MongoPort] [/DirectPorts] [/Key] [/EnableRateLimiting] [/DisableRateLimiting] [/NoUI] [/NoExplorer] [/EnableMongoDbEndpoint] [/?]
+Microsoft.Azure.Cosmos.Emulator.exe 
+    [/Shutdown] [/DataPath] [/Port] [/MongoPort] 
+    [/DirectPorts] [/Key] [/EnableRateLimiting] 
+    [/DisableRateLimiting] [/NoUI] [/NoExplorer] 
+    [/EnableMongoDbEndpoint] 
+    [/?]
 ```
 
 To view the list of parameters, type `Microsoft.Azure.Cosmos.Emulator.exe /?` at the command prompt.
