@@ -1,5 +1,5 @@
 ---
-title: Password protection agent release history - Azure Active Directory
+title: Password protection agent release history
 description: Documents version release and behavior change history
 
 services: active-directory

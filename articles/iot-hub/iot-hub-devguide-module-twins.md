@@ -327,4 +327,4 @@ The module app can ignore all notifications with `$version` less or equal than t
 
 To try out some of the concepts described in this article, see the following IoT Hub tutorials:
 
-* [Get started with IoT Hub module identity and module twin using .NET back end and .NET device](iot-hub-csharp-csharp-module-twin-getstarted.md)
+* [Get started with IoT Hub module identity and module twin using .NET back end and .NET device](module-twins-dotnet.md)
