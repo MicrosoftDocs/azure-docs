@@ -143,6 +143,24 @@ To apply a policy using the PowerShell, use the following commands:
     Get-AzPolicyState -PolicyAssignmentName  $policyAssignment.Name -ResourceGroupName $policyAssignment.ResourceGroupName|select-object IsCompliant , ResourceID
     ```
 ---
+
+> [!Important]
+> When assigning policies that send logs to Event Hubs, you must manually add the *Azure Event Hubs Data Owner* permissions for the event hub to your policy assigned identity.  
+> Use the `az role assignment create` Azure CLI command.
+> ```azurecli
+>   az role assignment create --assignee <Principal ID> --role "Azure Event > Hubs Data Owner" --scope /subscriptions/<subscription ID>/resourceGroups/<event hub's resource group>
+>```
+> For example:
+> ```azurecli
+> az role assignment create --assignee xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --role "Azure Event Hubs Data Owner" --scope /subscriptions/yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy/resourceGroups/myResourceGroup
+>```
+>
+> Find your principal ID on the **Policy Assignment** page, **Managed Identity** tab.
+> :::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/find-principal.png" alt-text="{alt-text}":::
+ 
+
+
+
 ## Remediation tasks
 
 Policies are applied to new resources when they're created. To apply a policy to existing resources, create a remediation task. Remediation tasks bring resources into compliance with a policy.
