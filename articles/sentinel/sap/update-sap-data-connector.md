@@ -13,7 +13,7 @@ This article shows you how to update an already existing Microsoft Sentinel for 
 
 To get the latest features, you can [enable automatic updates](#automatically-update-the-sap-data-connector-agent-preview) for the SAP data connector agent, or [manually update the agent](#manually-update-sap-data-connector-agent).
 
-Note that the automatic or manual update described in this article are relevant to the SAP connector agent only, and not to the Microsoft Sentinel Solution for SAP. To successfully update the solution, your agent needs to be up to date. The solution is updated separately.
+Note that the automatic or manual updates described in this article are relevant to the SAP connector agent only, and not to the Microsoft Sentinel Solution for SAP. To successfully update the solution, your agent needs to be up to date. The solution is updated separately.
 
 ## Automatically update the SAP data connector agent (Preview)
 
