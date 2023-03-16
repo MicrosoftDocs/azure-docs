@@ -406,9 +406,7 @@ You can check the **Models** page on Azure Machine Learning studio, to identify 
 latest_model_version = max(
     [int(m.version) for m in ml_client.models.list(name=registered_model_name)]
 )
-print(
-    f'Latest model is version "{latest_model_version}" '
-)
+print(f'Latest model is version "{latest_model_version}" ')
 ```
 
 Deploy the latest version of the model.  
