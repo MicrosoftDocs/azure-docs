@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Azure Active Directory single sign-on (SSO) integration with TeamzSkill | Microsoft Docs"
+title: "Tutorial: Azure Active Directory single sign-on (SSO) integration with TeamzSkill"
 description: Learn how to configure single sign-on between Azure Active Directory and TeamzSkill.
 services: active-directory
 author: jeevansd

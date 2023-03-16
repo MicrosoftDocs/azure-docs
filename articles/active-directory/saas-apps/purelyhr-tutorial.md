@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with PurelyHR | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with PurelyHR'
 description: Learn how to configure single sign-on between Azure Active Directory and PurelyHR.
 services: active-directory
 author: jeevansd

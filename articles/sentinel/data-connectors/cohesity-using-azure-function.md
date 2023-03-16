@@ -1,6 +1,6 @@
 ---
-title: "Cohesity (using Azure Function) connector for Microsoft Sentinel"
-description: "Learn how to install the connector Cohesity (using Azure Function) to connect your data source to Microsoft Sentinel."
+title: "Cohesity (using Azure Functions) connector for Microsoft Sentinel"
+description: "Learn how to install the connector Cohesity (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
 ms.date: 02/28/2023
@@ -8,7 +8,7 @@ ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# Cohesity (using Azure Function) connector for Microsoft Sentinel
+# Cohesity (using Azure Functions) connector for Microsoft Sentinel
 
 The Cohesity function apps provide the ability to ingest Cohesity Datahawk ransomware alerts into Microsoft Sentinel.
 
@@ -33,7 +33,7 @@ Cohesity_CL
 
 ## Prerequisites
 
-To integrate with Cohesity (using Azure Function) make sure you have: 
+To integrate with Cohesity (using Azure Functions) make sure you have: 
 
 - **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
 - **Azure Blob Storage connection string and container name**: Azure Blob Storage connection string and container name
