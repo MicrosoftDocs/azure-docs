@@ -1,3 +1,14 @@
+---
+title: pg_azure_storage extension
+description: Reference documentation for using Azure Blob Storage extension
+ms.author: avijitgupta
+author: AvijitkGupta
+ms.service: cosmos-db
+ms.subservice: postgresql
+ms.topic: reference
+ms.date: 03/16/2023
+---
+
 # pg_azure_storage extension
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
