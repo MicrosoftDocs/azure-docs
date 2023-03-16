@@ -217,4 +217,4 @@ Other reference topics in the IoT Hub developer guide include:
 
 To try out some of the concepts described in this article, see the following IoT Hub tutorial:
 
-* [Schedule and broadcast jobs](iot-hub-node-node-schedule-jobs.md)
+* [Schedule and broadcast jobs](schedule-jobs-node.md)

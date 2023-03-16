@@ -36,6 +36,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/app/javascript.md",
+            "redirect_url": "/azure/azure-monitor/app/javascript-sdk",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/source-map-support.md",
+            "redirect_url": "/azure/azure-monitor/app/javascript-sdk-advanced",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/app/release-notes.md",
             "redirect_url": "/azure/azure-monitor/app/app-insights-overview",
             "redirect_document_id": false
