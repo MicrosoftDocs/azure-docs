@@ -18,7 +18,7 @@ When client certificate are used, the TLS certificates are exchanged between the
 Container Apps accepts client certificates in the PKCS12 format are that issued by a trusted certificate authority (CA) or are self-signed.  
 
 <!--
-Anthony mentioned that we customer will be able to obtain a client certificate through Azure.  So this will need to be added to the doc.
+Anthony mentioned that the customer will be able to obtain a client certificate through Azure.  So this will need to be added to the doc.
 -->
 
 >[!NOTE]

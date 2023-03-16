@@ -5,13 +5,13 @@ services: container-apps
 author: cebundy
 ms.service: container-apps
 ms.topic: how-to
-ms.date: 02/10/2023
+ms.date: 03/20/2023
 ms.author: v-bcatherine
 ---
 
 # Set up IP ingress restrictions in Azure Container Apps (preview)
 
-Azure Container Apps' ingress feature lets you control inbound traffic to your container app.  You can configure IP ingress restriction to limit inbound access to your container app. There are two types of IP ingress restrictions:
+Azure Container Apps' ingress feature lets you limit inbound traffic to your container app by configuring IP ingress restrictions. There are two types restrictions:
 
 * *Allow*:  Allow inbound traffic from address ranges you specify in allow rules.
 * *Deny*: Deny all inbound traffic from address ranges you specify in deny rules.

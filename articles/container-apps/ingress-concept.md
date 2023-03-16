@@ -36,11 +36,11 @@ Each container app can be configured with different ingress settings. For exampl
 When you enable ingress, you can choose between two ingress types: external and internal. 
 
 - External: Allows public ingress to your app.
-- Internal: Allows ingress only from within your Container Apps environment.
+- Internal: Allows ingress only from within your Container Apps environment's private virtual network (VNET).
 
-## Ingress protocol types
+## Protocol types
 
-Container Apps supports two types of ingress: HTTPS and TCP.
+Container Apps supports two types of ingress: HTTP and TCP.
 
 ### HTTP
 
@@ -57,7 +57,7 @@ With HTTP ingress enabled, your container app features the following characteris
 
 #### HTTP headers
 
-The HTTP headers are used to pass protocol and metadata related information between the client and your container app. For example, the `X-Forwarded-Proto` header is used to identify the protocol that the client used to connect with the Container Apps service.  For information about configuring HTTP headers, see [Configure HTTP headers](./ingress.md#configure-http-headers).
+The HTTP headers are used to pass protocol and metadata related information between the client and your container app. For example, the `X-Forwarded-Proto` header is used to identify the protocol that the client used to connect with the Container Apps service.  
 
 The header is added to an HTTP request or response using a *name: value* format.  The following table lists the HTTP headers that are relevant to ingress in Container Apps:
 
@@ -70,13 +70,8 @@ The header is added to an HTTP request or response using a *name: value* format.
 | `X-Forwarded-For` | The IP address of the client that sent the request. | Yes |
 | 'X-Forwarded-Host | The host name that the client used to connect with the Container Apps service. | Yes |
 
-## Configure HTTP headers
-
-
 > [!NOTE] 
-> We need to find a different home for this.  We don't want to get technical in this document.
-> Add information about how to configure HTTP headers.
-
+> We need to show example of configuring HTTP headers in code, but we don't want to get technical in this document.
 
 ### <a name="tcp"></a>TCP (preview) 
 
@@ -150,7 +145,7 @@ For configuration details, see [Configure ingress](ingress.md).
 
 ## Traffic splitting
 
-Containers Apps allows you to set up traffic rules that split incoming traffic between active revisions.  The rules are based on the percent of traffic going to each revision.  For more information, see [Traffic splitting](traffic-splitting.md).
+Containers Apps allows you to split incoming traffic between active revisions.  The rules are based on the percent of traffic going to each revision.  For more information, see [Traffic splitting](traffic-splitting.md).
 
 ## Next steps
 
