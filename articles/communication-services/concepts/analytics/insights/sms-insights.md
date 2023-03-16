@@ -15,18 +15,18 @@ ms.subservice: data
 
 ## Overview
 
-The SMS Insights dashboard in your communication resource shows data visualizations based on the logs and metrics for your SMS usage. It is powered by Azure Monitor logs and metrics that are collected and stored. [Azure Monitor Workbooks](https://learn.microsoft.com/azure/azure-monitor/visualize/workbooks-overview) are used to create the data visualization To enable Azure Monitor collection to populate the SMS Insights dashboard see [Enable Azure Monitor in Diagnostic Settings](https://learn.microsoft.com/azure/communication-services/concepts/analytics/enable-logging). Ensure that logs are sent to a [Log Analytics workspace](https://learn.microsoft.com/azure/azure-monitor/logs/log-analytics-overview).
+The SMS Insights dashboard in your communication resource shows data visualizations based on the logs and metrics for your SMS usage. It's powered by Azure Monitor logs and metrics that are collected and stored. [Azure Monitor Workbooks](https://learn.microsoft.com/azure/azure-monitor/visualize/workbooks-overview) are used to create the data visualization To enable Azure Monitor collection to populate the SMS Insights dashboard see [Enable Azure Monitor in Diagnostic Settings](https://learn.microsoft.com/azure/communication-services/concepts/analytics/enable-logging). Ensure that logs are sent to a [Log Analytics workspace](https://learn.microsoft.com/azure/azure-monitor/logs/log-analytics-overview).
 
 {ADD IMAGE OF THE SMS INSIGHTS DASHBOARD}
 
-The SMS Insights Dashboard can be found as part of the Insights blade on the left hand navigation of the your Azure Communication Services resource.
+The SMS Insights Dashboard can be found as part of the Insights blade on the left hand navigation of your Azure Communication Services resource.
 
 {ADD IMAGE SHOWING LOCATION}
 
-## Pre-requisites
+## Prerequisites
 
-- In order to take advantage of Workbooks, follow the instructions outlined in [Enable Azure Monitor in Diagnostic Settings](../enable-logging.md). You will need to enable `SMS Operational Logs`
-- To use Workbooks, you will need to send your logs to a [Log Analytics workspace](../../../../azure-monitor/logs/log-analytics-overview.md) destination. 
+- In order to take advantage of Workbooks, follow the instructions outlined in [Enable Azure Monitor in Diagnostic Settings](../enable-logging.md). You need to enable `SMS Operational Logs`
+- To use Workbooks, you need to send your logs to a [Log Analytics workspace](../../../../azure-monitor/logs/log-analytics-overview.md) destination. 
 
 ## Dashboard structure
 
@@ -47,7 +47,7 @@ Great to help answer general questions like:
 The Message Delivery Rates section provides insights into SMS performance and delivery rate per day. The user can select a specific date in the graph to drill into logs.
 
 Can help answer questions like:
-- Are there particular days where I am seeing less deliveries?
+- Are there particular days where I'm seeing fewer deliveries?
 - Are there any geographies where delivery suffers most?
 
 {ADD IMAGE FOR DELIVERY RATES}
@@ -64,7 +64,7 @@ Answer questions like:
 The Response patterns section provides insights into the total SMS usage in a day across messages delivered, received, failed, and blocked.
 
 This section helps you understand:
-- How is my solution perfoming over time?
+- How is my solution performing over time?
 
 ## Exporting logs
 The SMS logs can be exported by clicking on the Download button on the top right corner of the logs table:
@@ -77,8 +77,8 @@ The **Insights** dashboards provided with your **Communication Service** resourc
 
 :::image type="content" source="..\media\workbooks\dashboard-editing.png" alt-text="Dashboard editing":::
 
-Editing these dashboards does not modify the **Insights** tab, but rather creates a separate workbook which can be accessed on your resource’s Workbooks tab:
+Editing these dashboards doesn't modify the **Insights** tab, but rather creates a separate workbook, which can be accessed on your resource’s Workbooks tab:
 
 :::image type="content" source="..\media\workbooks\workbooks-tab.png" alt-text="Workbooks tab":::
 
-For an in-depth description of workbooks, please refer to the [Azure Monitor Workbooks](../../../../azure-monitor/visualize/workbooks-overview.md) documentation.
+For an in-depth description of workbooks, refer to the [Azure Monitor Workbooks](../../../../azure-monitor/visualize/workbooks-overview.md) documentation.
