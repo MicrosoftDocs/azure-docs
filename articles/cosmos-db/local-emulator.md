@@ -38,7 +38,7 @@ Because the Azure Cosmos DB Emulator provides an emulated environment that runs 
 
 * With the emulator, you can create an Azure Cosmos DB account in [provisioned throughput](set-throughput.md) mode only; currently it doesn't support [serverless](serverless.md) mode.
 
-* The emulator is not a scalable service and it doesn't support a large number of containers. When using the Azure Cosmos DB Emulator, by default, you can create up to 25 fixed size containers at 400 RU/s (only supported using Azure Cosmos DB SDKs), or 5 unlimited containers. For more information on how to change this value, see [Set the PartitionCount value](emulator-command-line-parameters.md#set-partitioncount) article.
+* The emulator is not a scalable service and it doesn't support a large number of containers. When using the Azure Cosmos DB Emulator, by default, you can create up to 25 fixed size containers at 400 RU/s (only supported using Azure Cosmos DB SDKs), or 5 unlimited containers. For more information on how to change this value, see [Set the PartitionCount value](emulator-command-line-parameters.md#change-the-number-of-default-containers) article.
 
 * The emulator does not offer different [Azure Cosmos DB consistency levels](consistency-levels.md) like the cloud service does.
 
@@ -121,7 +121,7 @@ The following sections show how to import the emulator TLS/SSL certificate into 
 
 #### Linux environment
 
-If you are working on Linux, .NET relays on OpenSSL to do the validation:
+If you are working on Linux, .NET relies on OpenSSL to do the validation:
 
 1. [Export the certificate in PFX format](local-emulator-export-ssl-certificates.md#export-emulator-certificate). The PFX option is available when choosing to export the private key.
 

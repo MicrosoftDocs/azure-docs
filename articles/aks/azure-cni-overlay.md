@@ -145,8 +145,6 @@ location="westcentralus"
 az aks create -n $clusterName -g $resourceGroup --location $location --network-plugin azure --network-plugin-mode overlay --pod-cidr 192.168.0.0/16
 ```
 
-This will perform a rolling upgrade of nodes in **all** nodepools simultaneously to Azure CNI overlay and should be treated like a node image upgrade. During the upgrade, traffic from an Overlay pod to a CNI v1 pod will be SNATed(Source Network Address Translation)
-
 ## Next steps
 
 To learn how to utilize AKS with your own Container Network Interface (CNI) plugin, see [Bring your own Container Network Interface (CNI) plugin](use-byo-cni.md).

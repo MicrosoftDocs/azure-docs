@@ -1,6 +1,6 @@
 ---
 
-title: Add users with direct licenses to group licensing - Azure AD | Microsoft Docs
+title: Add users with direct licenses to group licensing - Azure AD
 description: How to migrate from individual user licenses to group-based licensing using Azure Active Directory
 services: active-directory
 keywords: Azure AD licensing

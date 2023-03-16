@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Pacific Timesheet | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Pacific Timesheet'
 description: Learn how to configure single sign-on between Azure Active Directory and Pacific Timesheet.
 services: active-directory
 author: jeevansd

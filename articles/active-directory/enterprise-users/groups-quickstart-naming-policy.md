@@ -1,5 +1,5 @@
 ---
-title: Group naming policy quickstart - Azure Active Directory | Microsoft Docs
+title: Group naming policy quickstart - Azure Active Directory
 description: Explains how to add new users or delete existing users in Azure Active Directory
 services: active-directory
 documentationcenter: ''
