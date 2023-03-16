@@ -492,6 +492,7 @@ After the DCR has been created, the application needs to be given permission to 
 
     :::image type="content" source="media/tutorial-logs-ingestion-portal/add-role-assignment-save.png" lightbox="media/tutorial-logs-ingestion-portal/add-role-assignment-save.png" alt-text="Screenshot that shows saving the DCR role assignment.":::
 
+---
 
 ## Sample code
 
