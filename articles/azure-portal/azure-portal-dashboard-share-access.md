@@ -1,9 +1,8 @@
 ---
 title: Share Azure portal dashboards by using Azure role-based access control
 description: This article explains how to share a dashboard in the Azure portal by using Azure role-based access control.
-ms.assetid: 8908a6ce-ae0c-4f60-a0c9-b3acfe823365
 ms.topic: how-to
-ms.date: 10/24/2022
+ms.date: 03/16/2023
 ---
 
 # Share Azure dashboards by using Azure role-based access control
@@ -25,9 +24,11 @@ Azure RBAC lets you assign users to roles at three different levels of scope:
 
 Azure RBAC permissions inherit from the subscription down to the resource. You may already have users assigned to roles for the subscription that apply for the published dashboard.
 
-For example, say you have an Azure subscription and various members of your team have been assigned the roles of Owner, Contributor, or Reader for that subscription. This means that any users who have the Owner or Contributor role can list, view, create, modify, or delete dashboards within the subscription. Users with the Reader role can list and view dashboards, but can't modify or delete them. They can make local edits to a published dashboard for their own use, such as when troubleshooting an issue, but they can't publish those changes back to the server. They can also make a private copy of the dashboard for themselves.
+For example, any users who have the Owner or Contributor role for a subscription can list, view, create, modify, or delete dashboards within the subscription. Users with a custom role that  includes the `Microsoft.Portal/Dashboards/Write` permission can also perform these tasks.
 
-To expand access to a dashboard beyond what is granted at the subscription level, you can assign permissions to a resource group that contains several dashboards, or assign permissions to individual dashboards. For example, if a group of users should have limited permissions across the subscription, but they need to be able to edit one particular dashboard, you can assign those users a different role with more permissions (such as Contributor) for that dashboard only.
+Users with the Reader role for the subscription (or a custom role with `Microsoft.Portal/Dashboards/Read` permission) can list and view dashboards within that subscription, but they can't modify or delete them. These users are able to make a private copy of a dashboard for themselves. They can also make local edits to a published dashboard for their own use, such as when troubleshooting an issue. However, they can't publish those changes back to the server.
+
+To expand access to a dashboard beyond the access granted at the subscription level, assign permissions to an individual dashboard, or to a resource group that contains several dashboards. For example, if a user should have limited permissions across the subscription, but needs to be able to edit one particular dashboard, you can assign a different role with more permissions (such as Contributor) for that dashboard only.
 
 ## Publish a dashboard
 
