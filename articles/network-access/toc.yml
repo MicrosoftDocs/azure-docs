@@ -57,7 +57,7 @@ items:
     expanded: false
     items:
     - name: Session management policies
-      href: how-to-secure-session-management-policies.md
+      href: how-to-session-management-policies.md
     - name: Create web gateway policies 
       href: how-to-create-web-gateway-policies.md
   - name: Monitor
