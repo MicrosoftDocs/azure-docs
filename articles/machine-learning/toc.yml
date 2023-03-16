@@ -101,6 +101,7 @@
       items:
         - name: Train a TensorFlow image classification model
           href: tutorial-train-deploy-image-classification-model-vscode.md
+    # v1
     - name: Python get started (Day 1)
       items:
         - name: 1. Run a Python script
@@ -118,11 +119,17 @@
       items:
         - name: "Part 1: Train and deploy models"
           href: ./v1/tutorial-power-bi-custom-model.md
+    # end v1
 - name: Samples
   items:
     - name: Jupyter Notebooks
       displayName: example, examples, server, jupyter, azure notebooks, python, notebook, github
       href: samples-notebooks.md
+    # v1
+    - name: Jupyter Notebooks
+      displayName: example, examples, server, jupyter, azure notebooks, python, notebook, github
+      href: samples-notebooks-v1.md
+    # end v1
     - name: Examples repository
       displayName: example, examples, jupyter, python, notebook, github
       href: https://github.com/Azure/azureml-examples
@@ -137,6 +144,12 @@
       href: concept-v2.md
     - name: Work with Data
       items:
+        # v1
+        - name: Data access
+          href: ./v1/concept-data.md
+        - name: Studio network data access
+          href: ./v1/concept-network-data-access.md
+        # end v1
         - name: Apache Spark in Azure Machine Learning (preview)
           href: apache-spark-azure-ml-concepts.md
         - name: Data concepts in Azure Machine Learning
@@ -153,6 +166,11 @@
         - name: Model training
           displayName: run config, machine learning pipeline, ml pipeline, train model
           href: concept-train-machine-learning-model.md
+        # v1
+         - name: Model training
+          displayName: run config, machine learning pipeline, ml pipeline, train model
+          href: ./v1/concept-train-machine-learning-model-v1.md
+        # end v1
         - name: Distributed training
           displayName: parallellization, deep learning, deep neural network, dnn
           href: concept-distributed-training.md
@@ -208,6 +226,10 @@
       items:
         - name: MLflow and Azure Machine Learning
           href: concept-mlflow.md
+        # v1
+        - name: MLflow
+          href: concept-mlflow-v1.md
+        # end v1
         - name: MLflow models
           displayName: tracking models, mlflow, custom, flavors
           href: concept-mlflow-models.md
@@ -216,6 +238,11 @@
         - name: MLOps capabilities
           displayName: deploy, deployment, publish, production, operationalize, operationalization
           href: concept-model-management-and-deployment.md
+        # v1
+        - name: MLOps capabilities
+          displayName: deploy, deployment, publish, production, operationalize, operationalization
+          href: concept-model-management-and-deployment.md
+        # end v1
         - name: Registries
           displayName: collaborate share
           href: concept-machine-learning-registries-mlops.md
