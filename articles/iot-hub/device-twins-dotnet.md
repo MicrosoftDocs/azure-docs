@@ -1,14 +1,14 @@
 ---
-title: Get started with Azure IoT Hub device twins (.NET/.NET) | Microsoft Docs
-description: How to use Azure IoT Hub device twins to add tags and then use an IoT Hub query. You use the Azure IoT device SDK for .NET to implement the simulated device app and the Azure IoT service SDK for .NET to implement a service app that adds the tags and runs the IoT Hub query.
+title: Get started with Azure IoT Hub device twins (.NET)
+titleSuffix: Azure IoT Hub
+description: How to use Azure IoT Hub device twins and the Azure IoT SDKs for .NET to create and simulate devices, add tags to device twins, and execute IoT Hub queries. 
 author: kgremban
 
-ms.service: iot-hub
-services: iot-hub
-ms.devlang: csharp
-ms.topic: conceptual
-ms.date: 02/17/2023
 ms.author: kgremban
+ms.service: iot-hub
+ms.devlang: csharp
+ms.topic: how-to
+ms.date: 02/17/2023
 ms.custom: "mqtt, devx-track-csharp"
 ---
 
@@ -152,13 +152,13 @@ In this section, you create a .NET console app that connects to your hub as **my
 
 1. Run this app by right-clicking the **ReportConnectivity** project and selecting **Debug**, then **Start new instance**. You should see the app getting the twin information, and then sending connectivity as a ***reported property***.
 
-   ![Run device app to report connectivity](./media/iot-hub-csharp-csharp-twin-getstarted/rundeviceapp.png)
+   ![Run device app to report connectivity](./media/device-twins-dotnet/rundeviceapp.png)
 
    After the device reported its connectivity information, it should appear in both queries.
 
 1. Right-click the **AddTagsAndQuery** project and select **Debug** > **Start new instance** to run the queries again. This time, **myDeviceId** should appear in both query results.
 
-   ![Device connectivity reported successfully](./media/iot-hub-csharp-csharp-twin-getstarted/tagappsuccess.png)
+   ![Device connectivity reported successfully](./media/device-twins-dotnet/tagappsuccess.png)
 
 ## Create a service app that updates desired properties and queries twins
 
@@ -168,7 +168,7 @@ In this section, you create a .NET console app, using C#, that adds location met
 
 1. In **Configure your new project**, name the project **AddTagsAndQuery**, the select **Next**.
 
-   :::image type="content" source="./media/iot-hub-csharp-csharp-twin-getstarted/config-addtagsandquery-app.png" alt-text="Screenshot of how to create a new Visual Studio project." lightbox="./media/iot-hub-csharp-csharp-twin-getstarted/config-addtagsandquery-app.png":::
+   :::image type="content" source="./media/device-twins-dotnet/config-addtagsandquery-app.png" alt-text="Screenshot of how to create a new Visual Studio project." lightbox="./media/device-twins-dotnet/config-addtagsandquery-app.png":::
 
 1. Accept the default version of the .NET Framework, then select **Create** to create the project.
 
@@ -176,7 +176,7 @@ In this section, you create a .NET console app, using C#, that adds location met
 
 1. Select **Browse** and search for and select **Microsoft.Azure.Devices**. Select **Install**.
 
-   ![NuGet Package Manager window](./media/iot-hub-csharp-csharp-twin-getstarted/nuget-package-addtagsandquery-app.png)
+   ![NuGet Package Manager window](./media/device-twins-dotnet/nuget-package-addtagsandquery-app.png)
 
    This step downloads, installs, and adds a reference to the [Azure IoT service SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices/) NuGet package and its dependencies.
 
@@ -240,7 +240,7 @@ In this section, you create a .NET console app, using C#, that adds location met
 
 1. Run this application by right-clicking on the **AddTagsAndQuery** project and selecting **Debug**, followed by **Start new instance**. You should see one device in the results for the query asking for all devices located in **Redmond43** and none for the query that restricts the results to devices that use a cellular network.
 
-   ![Query results in window](./media/iot-hub-csharp-csharp-twin-getstarted/addtagapp.png)
+   ![Query results in window](./media/device-twins-dotnet/addtagapp.png)
 
 In this article, you:
 

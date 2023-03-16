@@ -1,5 +1,5 @@
 ---
-title: Migrate to Azure AD MFA with federations - Azure Active Directory
+title: Migrate to Azure AD MFA with federations
 description: Step-by-step guidance to move from MFA Server on-premises to Azure AD MFA with federation
 ms.service: active-directory
 ms.subservice: authentication

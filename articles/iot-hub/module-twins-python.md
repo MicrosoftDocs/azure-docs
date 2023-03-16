@@ -1,13 +1,14 @@
 ---
-title: Azure IoT Hub module identity and module twin (Python)
-description: Learn how to create module identity and update module twin using IoT SDKs for Python.
+title: Get started with module identity and module twins (Python)
+titleSuffix: Azure IoT Hub
+description: Learn how to create module identities and update module twins using the Azure IoT Hub device SDK for Python.
 author: kgremban
-ms.service: iot-hub
-services: iot-hub
-ms.devlang: python
-ms.topic: conceptual
-ms.date: 01/04/2023
+
 ms.author: kgremban
+ms.service: iot-hub
+ms.devlang: python
+ms.topic: how-to
+ms.date: 01/04/2023
 ms.custom: devx-track-python, py-fresh-zinc
 ---
 
@@ -185,7 +186,7 @@ In this section, you create a Python app to get the module twin desired properti
 
 1. Get your module connection string. In [Azure portal](https://portal.azure.com/), navigate to your IoT Hub and select **Devices** in the left pane. Select **myFirstDevice** from the list of devices and open it. Under **Module identities**, select **myFirstModule**. Select the copy icon for **Connection string (primary key)**. You need this connection string in a following step.
 
-   :::image type="content" source="./media/iot-hub-python-python-module-twin-getstarted/module-detail.png" alt-text="Screenshot of the Module Identity Details page in the Azure portal.":::
+   :::image type="content" source="./media/module-twins-python/module-detail.png" alt-text="Screenshot of the Module Identity Details page in the Azure portal.":::
 
 1. At your command prompt, run the following command to install the **azure-iot-device** package:
 
@@ -242,7 +243,7 @@ In this section, you run the **ReceiveModuleTwinDesiredPropertiesPatch** device 
     python ReceiveModuleTwinDesiredPropertiesPatch.py
     ```
 
-   ![Device app initial output](./media/iot-hub-python-python-module-twin-getstarted/device-1.png)
+   ![Device app initial output](./media/module-twins-python/device-1.png)
 
 1. Open a separate command prompt and run the service app:
 
@@ -252,11 +253,11 @@ In this section, you run the **ReceiveModuleTwinDesiredPropertiesPatch** device 
 
     Notice that the **TelemetryInterval** desired property appears in the updated module twin in your service app output:
 
-   ![Service app output](./media/iot-hub-python-python-module-twin-getstarted/service.png)
+   ![Service app output](./media/module-twins-python/service.png)
 
     The same property appears in the desired properties patch received in your device app output:
 
-   ![Device app output shows desired properties patch](./media/iot-hub-python-python-module-twin-getstarted/device-2.png)
+   ![Device app output shows desired properties patch](./media/module-twins-python/device-2.png)
 
 ## Next steps
 

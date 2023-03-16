@@ -1,5 +1,5 @@
 ---
-title: Least privileged roles by task - Azure Active Directory
+title: Least privileged roles by task
 description: Least privileged roles to delegate for tasks in Azure Active Directory
 services: active-directory
 documentationcenter: ''
