@@ -169,7 +169,7 @@ az acr replication update --name westus \
 
 ## Creating replication for a Private Endpoint enabled registry
 
-When creating a new registry replication for the primary registry enabled with Private Endpoint, we recommend validating User Identity has valid Private Endpoint creation permissions. Otherwise, the user gets stuck in the provisioning state while creating the replication.
+When creating a new registry replication for the primary registry enabled with Private Endpoint, we recommend validating User Identity has valid Private Endpoint creation permissions. Otherwise, the operation gets stuck in the provisioning state while creating the replication.
 
 Follow the below steps if you got stuck in the provisioning state while creating the registry replication:
 
