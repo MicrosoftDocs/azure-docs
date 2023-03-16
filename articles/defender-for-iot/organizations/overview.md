@@ -102,7 +102,7 @@ Microsoft Azure cloud environments meet demanding US government compliance requi
 
 - **Defender for IoT** in the [Azure public services by audit scope](/azure/azure-government/compliance/azure-services-in-fedramp-auditscope#azure-public-services-by-audit-scope) table.
 - **Azure Security for IoT** in [Accessibility Conformance Reports | Microsoft Accessibility](https://www.microsoft.com/en-us/accessibility/conformance-reports).
-- [Microsoft Azure Compliance Offerings](https://azure.microsoft.com/en-us/resources/microsoft-azure-compliance-offerings/)
+- [Microsoft Azure Compliance Offerings](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/)
 
 ## Next steps
 
