@@ -15,7 +15,7 @@ metadata:
   ms.author: gahllevy
   ms.reviewer: nayakshweta
   ms.date: 03/07/2023
-landingContent:
+landingContent:  
   - title: Get started with Azure Cosmos DB for MongoDB vCore
     linkLists:
       - linkListType: quickstart
@@ -24,6 +24,10 @@ landingContent:
             url: quickstart-portal.md
           - text: Create resources - Bicep template
             url: quickstart-bicep.md
+      - linkListType: tutorial
+        links:
+          - text: Build a Node.js web application
+            url: tutorial-nodejs-web-app.md
   - title: Use a MongoDB vCore cluster
     linkLists:
       - linkListType: how-to-guide
