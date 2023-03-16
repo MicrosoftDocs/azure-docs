@@ -291,8 +291,8 @@ The cleaned parquet file is the latest version data source. This code shows the 
 import pandas as pd
 
 # get a handle of the data asset and print the URI
-data_asset_v1 = ml_client.data.get(name="credit-card", version="1")
-data_asset_v2 = ml_client.data.get(name="credit-card", version="2")
+data_asset_v1 = ml_client.data.get(name=data_name, version="1")
+data_asset_v2 = ml_client.data.get(name=data_name, version="2")
 
 # print the v1 data
 print(f"V1 Data asset URI: {data_asset_v1.path}")
