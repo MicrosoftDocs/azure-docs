@@ -145,6 +145,4 @@ When you click the Eventfinity tile in the Access Panel, you should be automatic
 
 - [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
-- [Try Eventfinity with Azure AD](https://aad.portal.azure.com/)
-
 - [What is session control in Microsoft Defender for Cloud Apps?](/cloud-app-security/proxy-intro-aad)
