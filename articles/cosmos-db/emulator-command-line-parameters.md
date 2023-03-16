@@ -56,7 +56,7 @@ To view the list of options, type `Microsoft.Azure.Cosmos.Emulator.exe /?` at th
 | DisableRateLimiting |Specifies that request rate limiting behavior is disabled. |Microsoft.Azure.Cosmos.Emulator.exe /DisableRateLimiting | |
 | NoUI | Do not show the emulator user interface. | Microsoft.Azure.Cosmos.Emulator.exe /NoUI | |
 | NoExplorer | Don't show data explorer on startup. |Microsoft.Azure.Cosmos.Emulator.exe /NoExplorer | | 
-| PartitionCount | Specifies the maximum number of partitioned containers. See [Change the number of containers](#set-partitioncount) for more information. | Microsoft.Azure.Cosmos.Emulator.exe /PartitionCount=\<partitioncount\> | \<partitioncount\>: Maximum number of allowed single partition containers. Default value is 25. Maximum allowed is 250.|
+| PartitionCount | Specifies the maximum number of partitioned containers. See [Change the number of containers](#change-the-number-of-default-containers) for more information. | Microsoft.Azure.Cosmos.Emulator.exe /PartitionCount=\<partitioncount\> | \<partitioncount\>: Maximum number of allowed single partition containers. Default value is 25. Maximum allowed is 250.|
 | DefaultPartitionCount| Specifies the default number of partitions for a partitioned container. | Microsoft.Azure.Cosmos.Emulator.exe /DefaultPartitionCount=\<defaultpartitioncount\> | \<defaultpartitioncount\> Default value is 25.|
 | AllowNetworkAccess | Enables access to the emulator over a network. You must also pass /Key=\<key_string\> or /KeyFile=\<file_name\> to enable network access. | Microsoft.Azure.Cosmos.Emulator.exe /AllowNetworkAccess /Key=\<key_string\> or  Microsoft.Azure.Cosmos.Emulator.exe /AllowNetworkAccess /KeyFile=\<file_name\>| |
 | NoFirewall | Don't adjust firewall rules when /AllowNetworkAccess option is used. |Microsoft.Azure.Cosmos.Emulator.exe /NoFirewall | |
@@ -122,7 +122,7 @@ Stops the emulator. By default, this command waits until the emulator is fully s
 Uninstalls the emulator and optionally removes the full contents of $env:LOCALAPPDATA\CosmosDbEmulator.
 The cmdlet ensures the emulator is stopped before uninstalling it.
 
-## <a id="set-partitioncount"></a>Change the number of default containers
+## Change the number of default containers
 
 By default, you can create up to 25 fixed size containers (only supported using Azure Cosmos DB SDKs), or 5 unlimited containers using the Azure Cosmos DB Emulator. By modifying the **PartitionCount** value, you can create up to 250 fixed size containers or 50 unlimited containers, or any combination of the two that does not exceed 250 fixed size containers (where one unlimited container = 5 fixed size containers). However it's not recommended to set up the emulator to run with more than 200 fixed size containers. Because of the overhead that it adds to the disk IO operations, which result in unpredictable timeouts when using the endpoint APIs.
 
