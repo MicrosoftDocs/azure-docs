@@ -13,16 +13,19 @@ ms.custom: template-how-to
 
 # Customize emails sent out by workflow tasks (Preview)
 
-Lifecycle Workflows provide many tasks related to sending emails to processed users. Email related tasks can be customized to suit the needs of  a specific workflow. For a list of these tasks, see: [Lifecycle Workflows tasks and definitions (Preview)](lifecycle-workflow-tasks.md).
+Lifecycle Workflows provide several tasks that send out email notifications. Email notifications can be customized to suit the needs of a specific workflow. For a list of these tasks, see: [Lifecycle Workflows tasks and definitions (Preview)](lifecycle-workflow-tasks.md).
 
-Emails sent out by these tasks can have the following information updated:
+Emails tasks allow for the customization of the following aspects:
 
-- CC information
-- Domain of sender
-- Branding associated with email
+- Additional CC recipients
+- Sender domain
+- Organizational branding of the email
 - Subject
 - Message body
-- Email language translation
+- Email language
+
+> [!NOTE]
+> To avoid additional disclaimers, you should opt in to using customized domain and organizational branding.
 
 For more information on these customizable parameters, see: [Common email-specific task parameters](lifecycle-workflow-tasks.md#common-email-specific-task-parameters).
 
@@ -86,7 +89,7 @@ For a full list of dynamic attributes that can be used with customized emails, s
 
 ## Use custom branding and domain in emails sent out using workflows
 
-Emails sent out using Lifecycle workflows can be customized to have your own company branding, or be sent out using your company domain. To enable these features the following prerequisites are required:
+Emails sent out using Lifecycle workflows can be customized to have your own company branding, and be sent out using your company domain. When you opt in to using custom branding and domain, every email sent out using Lifecycle Workflows reflect these settings. To enable these features the following prerequisites are required:
 
 - A verified domain. To add a custom domain, see: [Managing custom domain names in your Azure Active Directory](../enterprise-users/domains-manage.md)
 - Custom Branding set within Azure AD if you want to have your custom branding used in emails. To set organizational branding within your Azure tenant, see: [Configure your company branding (preview)](../fundamentals/how-to-customize-branding.md).
@@ -100,8 +103,6 @@ After these prerequisites are satisfied, you'd follow these steps:
 1. With the Use company branding banner logo setting, you're able to turn on whether or not company branding is used in emails.
     :::image type="content" source="media/customize-workflow-email/customize-email-logo-setting.png" alt-text="Screenshot of email logo setting.":::
 
-> [!NOTE]
-> Using custom branding and domain will remove the standard security disclaimer from emails sent using Lifecycle Workflows.
 
 ## Customize email using Microsoft Graph
 

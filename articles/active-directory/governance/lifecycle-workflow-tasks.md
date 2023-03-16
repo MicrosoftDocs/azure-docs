@@ -37,13 +37,13 @@ Common task parameters are the non-unique parameters contained in every task. Wh
 |continueOnError     |  A boolean value that determines if the failure of this task stops the subsequent workflows from running.        |
 |arguments     |  Contains unique parameters relevant for the given task.       |
 
-## Common email-specific task parameters
+## Common email task parameters
 
 Emails, sent from tasks, are able to be customized. If you choose to customize the email, you're able to set the following arguments:
 
-- **Subject:** Customizes the subject of emails sent out with the task.
+- **Subject:** Customizes the subject of emails.
 - **Message body:** Customizes the body of the emails being sent out.
-- **Email language translation:** Allows you to translate the message body of your emails. If no language is chosen, message body will default to the recipient's language settings.
+- **Email language translation:** Overrides the email recipient's language settings. Custom text is not customized, and it is recommended to set this language to the same language as the custom text. 
 
 :::image type="content" source="media/lifecycle-workflow-task/customize-email-concept.png" alt-text="email customization options.":::
 
@@ -122,7 +122,7 @@ For Microsoft Graph the parameters for the **Send welcome email to new hire** ta
                 {
                 "name": "locale",
                 "value": "en-us"
-                },
+                }
     ]
 }
 
@@ -176,7 +176,7 @@ For Microsoft Graph the parameters for the **Send onboarding reminder email** ta
                 {
                 "name": "locale",
                 "value": "en-us"
-                },
+                }
 ]
 }
 
