@@ -28,9 +28,9 @@ landingContent:
             url: data-sources.md
           - text: How do you collect data?
             url: ./essentials/data-collection.md
-          - text: What are Azure Monitor Metrics?
+          - text: What is Azure Monitor Metrics?
             url: ./essentials/data-platform-metrics.md
-          - text: What are Azure Monitor Logs?
+          - text: What is Azure Monitor Logs?
             url: ./logs/data-platform-logs.md
 
 # Card 
