@@ -9,30 +9,7 @@ ms.author: rsarkar
 
 [!INCLUDE [Private Preview](../../../../includes/private-preview-include-section.md)]
 
-## Prerequisites
-
-Before you start testing Unmixed Audio recording, make sure you complete the following steps:
-
-- You need a Call in place whether is using Calling Client SDK or Call Automation before you start recording. Review their quickstarts and make sure you follow all their pre-requisites. 
-- Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
-- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../../create-communication-resource.md). You'll need to record your resource **connection string** for this quickstart.
-- Subscribe to events via [Azure Event Grid](https://learn.microsoft.com/azure/event-grid/event-schema-communication-services).
-- Download the [Java SDK](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-java/maven/com.azure%2Fazure-communication-callautomation/overview/1.0.0-alpha.20230314.1 )
-- This quickstart assumes you have some experience using the [Calling Client SDK](../../get-started-with-video-calling.md).  **Important**: To fetch `serverCallId` from Calling SDK, refer to the [JavaScript](../../get-server-call-id.md) example.
-- Make sure to provide the Azure Communication Services Call Recording team with your [immutable Azure resource ID](../../get-resource-id.md) to be allowlisted during the **private preview** tests.
-
-
-## 1. Create a Call Automation client
-
-To create a call automation client, you'll use your Communication Services connection string and pass it to `CallAutomationClient` object.
-
-```java
-CallAutomationClient callAutomationClient = new CallAutomationClientBuilder()
-            .connectionString("<acsConnectionString>")
-            .buildClient();
-```
-
-## 2. Start recording session with external storage specified
+## Start recording session with external storage specified
 
 Use the server call ID received during initiation of the call.
 
