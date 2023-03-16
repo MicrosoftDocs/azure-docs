@@ -61,6 +61,9 @@ Spark 2.4 to Spark 3.x Migration Guides see [here](https://spark.apache.org/docs
 
 ## HDInsight version 5.0
 
+Starting from June 1, 2022, we have started rolling out a new version of HDInsight 5.0, this version is backward compatible with HDInsight 4.0. All new open-source releases will be added as incremental releases on HDInsight 5.0.
+
+
 ### Spark
 
 :::image type="content" source="./media/hdinsight-release-notes/spark-3-1-for-hdi-5-1.png" alt-text="Screenshot of Spark 3.1 for HDI 5.1":::
