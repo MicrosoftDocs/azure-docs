@@ -1,5 +1,5 @@
 ---
-title: Azure Files and Azure NetApp Files Comparison
+title: Azure Files and Azure NetApp Files comparison
 description: Comparison of Azure Files and Azure NetApp Files.
 author: khdownie
 services: storage
@@ -8,6 +8,7 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 03/01/2023
 ms.author: kendownie
+recommendations: false
 ---
 
 # Azure Files and Azure NetApp Files comparison
