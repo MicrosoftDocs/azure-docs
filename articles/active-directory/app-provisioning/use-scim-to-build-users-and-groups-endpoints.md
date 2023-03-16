@@ -84,7 +84,7 @@ Go to the [reference code](https://github.com/AzureAD/SCIMReferenceCode) from Gi
     ```
 
 1. In the Visual Studio Code explorer, right-click on the generated **publish** folder, and select Deploy to Web App.
-1. A new workflow will open in the command palette at the top of the screen. Select the **Subscription** you would like to publish your app to.
+1. A new workflow opens in the command palette at the top of the screen. Select the **Subscription** you would like to publish your app to.
 1. Select the **App Service** web app you created earlier.
 1. If Visual Studio Code prompts you to confirm, select **Deploy**. The deployment process may take a few moments. When the process completes, a notification should appear in the bottom right corner prompting you to browse to the deployed app.
 
