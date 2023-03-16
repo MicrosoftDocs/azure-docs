@@ -492,7 +492,7 @@ To debug a stateless workflow more easily, you can enable the run history for th
 
 1. In the **Value** box, enter the following value: **WithStatelessRunHistory**
 
-   ![Screenshot showing Azure portal, Standard logic app, and the pane named Add/Edit application setting with the option named Workflows.{yourWorkflowName}.OperationOptions set to WithStatelessRunHistory.](./media/create-single-tenant-workflows-azure-portal/stateless-operation-options-run-history.png)
+   ![Screenshot showing Standard logic app and pane named Add/Edit application setting with Workflows.{yourWorkflowName}.OperationOptions set to WithStatelessRunHistory.](./media/create-single-tenant-workflows-azure-portal/stateless-operation-options-run-history.png)
 
 1. To finish this task, select **OK**. On the **Configuration** pane toolbar, select **Save**.
 
