@@ -1,3 +1,4 @@
+---
 title: Toll-Free Verification Filling Guidelines
 titleSuffix: An Azure Communication Services concept document
 description: Learn about how to apply for toll-free verification
@@ -6,11 +7,11 @@ manager: sundraman
 services: azure-communication-services
 
 ms.author: prakulka
-ms.date: 3/15/2023
+ms.date: 03/15/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: sms
-
+---
 
 # Toll-Free Verification Filling Guidelines
 
@@ -83,6 +84,7 @@ Message senders are required to disclose all the types/categories of messages wi
 
 > [!div class="nextstepaction"]
 > [Apply for a short code](../../quickstarts/sms/apply-for-short-code.md)
+
 The following documents may be interesting to you:
 
 - Familiarize yourself with the [SMS SDK](../sms/sms-faq.md)
