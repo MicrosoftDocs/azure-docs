@@ -4,6 +4,7 @@ description: This article outlines the process to register an Azure Data Lake St
 author: athenads
 ms.author: athenadsouza
 ms.service: purview
+ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 02/16/2023
 ms.custom: template-how-to, ignite-fall-2021, references_regions

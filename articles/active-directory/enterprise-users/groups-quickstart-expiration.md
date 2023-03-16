@@ -1,5 +1,5 @@
 ---
-title: Group expiration policy quickstart  - Azure AD | Microsoft Docs
+title: Group expiration policy quickstart  - Azure AD
 description: Expiration for Microsoft 365 groups - Azure Active Directory
 services: active-directory
 documentationcenter: ''

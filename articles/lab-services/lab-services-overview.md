@@ -1,18 +1,23 @@
 ---
-title: Introduction to Azure Lab Services | Microsoft Docs
-description: Learn how Lab Services can make it easy to create, manage, and secure labs with VMs for educators and students. 
+title: Introduction to Azure Lab Services
+titleSuffix: Azure Lab Services
+description: Learn how Azure Lab Services can make it easy to create, manage, and secure labs with VMs for educators and students.
 ms.topic: overview
-ms.date: 07/04/2022
+ms.date: 02/09/2023
 ms.custom: devdivchpfy22
 ---
 
-# An introduction to Azure Lab Services
+# What is Azure Lab Services?
 
 [!INCLUDE [preview note](./includes/lab-services-new-update-note.md)]
 
-**Azure Lab Services** lets you create labs whose infrastructure is managed by Azure. The service itself handles all the infrastructure management, from spinning up virtual machines (VMs) to handling errors and scaling the infrastructure.  Azure Lab Services was designed with three major personas in mind: [administrators, educators, and students](classroom-labs-concepts.md#user-profiles). After an IT administrator creates a lab plan, an educator can quickly set up a lab for the class.  Educators specify the number and type of VMs needed, configures the template VM, and adds users to the class. Once a user registers to the class, the user can access the VM to do exercises for the class. 
+Azure Lab Services lets you create labs whose infrastructure is managed by Azure. The service itself handles all the infrastructure management, from spinning up virtual machines (VMs) to handling errors and scaling the infrastructure.  Azure Lab Services was designed with three major personas in mind: administrators, educators, and students. After an IT administrator creates a lab plan, an educator can quickly set up a lab for the class.  Educators specify the number and type of VMs needed, configure the template VM, and add users to the class. Once a user registers to the class, the user can access the VM to do exercises for the class. 
 
-To [create a lab](tutorial-setup-lab.md), you need to [create a lab plan](tutorial-setup-lab-plan.md) for your organization first. The lab plan serves as a collection of configurations and settings that apply to the labs created from it.
+To get started with Azure Lab Services, you need to [create a lab plan Azure resource](./quick-create-resources.md) for your organization first. The lab plan serves as a collection of configurations and settings that apply to the labs created from it.
+
+:::image type="content" source="./media/lab-services-overview/lab-services-process-overview.png" alt-text="Diagram that shows the steps involved in creating a lab with Azure Lab Services.":::
+
+To learn more about lab plans, labs, or other concepts, see the [key concepts for Azure Lab Services](./classroom-labs-concepts.md).
 
 The service creates and manages resources in a subscription managed by Microsoft. Resources aren't created in your own Azure subscription.  The [advanced networking](how-to-connect-vnet-injection.md) option is an exception as there are a few resources saved in your subscription.  Virtual machines are always hosted in the Microsoft managed subscription.  The service keeps track of usage of these resources in internal Microsoft subscriptions. This usage is [billed back to your Azure subscription](cost-management-guide.md) that contains the lab plan.
 
@@ -20,7 +25,7 @@ The service creates and manages resources in a subscription managed by Microsoft
 
 Azure Lab Services supports the following key capabilities and features:
 
-- **Fast and flexible setup of a lab**. Lab owners can quickly [set up a lab](tutorial-setup-lab.md) for their needs. Azure Lab Services takes care of all Azure infrastructure including built-in scaling and resiliency of infrastructure for labs.
+- **Fast and flexible setup of a lab**. Lab owners can quickly [set up a lab](./quick-create-connect-lab.md) for their needs. Azure Lab Services takes care of all Azure infrastructure including built-in scaling and resiliency of infrastructure for labs.
 
 - **Simplified experience for lab users**. Students who are invited to a lab get immediate access to the resources you give them inside your labs. They just need to sign in to see the full list of virtual machines for all labs that they can access. They can select a single button to connect to the virtual machines and start working. Users don't need Azure subscriptions to use the service.  [Lab users can register](how-to-use-lab.md) to a lab with a registration code and can access the lab anytime to use the lab's resources.
 
@@ -45,16 +50,16 @@ Visit the [Azure Global Infrastructure products by region](https://azure.microso
 
 [Azure Lab Services August 2022 Update](lab-services-whats-new.md)) doesn't move or store customer data outside the region it's deployed in.  However, accessing Azure Lab Services resources through the Azure Lab Services portal may cause customer data to cross regions.
 
-There are no guarantees customer data will stay in the region it's deployed to when using Azure Lab Services previous to the August 2022 Update.
+There are no guarantees customer data stays in the region it's deployed to when using Azure Lab Services prior to the August 2022 Update.
 
 ## Data at rest
 
-Azure Lab Services encrypts all content using Microsoft managed encryption key.
+Azure Lab Services encrypts all content using a Microsoft-managed encryption key.
 
 ## Next steps
 
-See the following tutorials for step-by-step instructions to create a lab plan, and create a lab.
+See the following resources to get started:
 
-- [Azure Lab Service concepts](classroom-labs-concepts.md)
-- [Tutorial: setup a lab plan](tutorial-setup-lab-plan.md)
-- [Tutorial: create a lab](tutorial-setup-lab.md)
+- Learn more about the [key concepts for Azure Lab Services](./classroom-labs-concepts.md)
+- [Create the resources to get started](./quick-create-resources.md)
+- [Tutorial: set up a lab for classroom training](./tutorial-setup-lab.md)

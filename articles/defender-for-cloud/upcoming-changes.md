@@ -96,7 +96,7 @@ Defender for Cloud won't include these recommendations as built-in recommendatio
 
 **Estimated date for change: May 2023**
 
-We announced previously the [availability of identity recommendations V2 (preview)](release-notes.md#extra-recommendations-added-to-identity), which included enhanced capabilities.
+We announced previously the [availability of identity recommendations V2 (preview)](release-notes-archive.md#extra-recommendations-added-to-identity), which included enhanced capabilities.
 
 As part of these changes, the following recommendations will be released as General Availability (GA) and replace the V1 recommendations that are set to be deprecated.
 
