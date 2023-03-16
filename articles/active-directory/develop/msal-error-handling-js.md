@@ -100,10 +100,8 @@ myMSALObj.acquireTokenSilent(request).then(function (response) {
     // call API
 }).catch( function (error) {
     // call acquireTokenPopup in case of acquireTokenSilent failure
-    // due to consent or interaction required
-    if (error.errorCode === "consent_required"
-    || error.errorCode === "interaction_required"
-    || error.errorCode === "login_required") {
+    // due interaction required
+    if (error instanceof InteractionRequiredAuthError) {
         myMSALObj.acquireTokenPopup(request).then(
             function (response) {
                 // call API
@@ -128,8 +126,7 @@ myMSALObj.acquireTokenSilent(accessTokenRequest).then(function(accessTokenRespon
     
         // extract, if exists, claims from error message
         if (error.ErrorMessage.claims) {
-            accessTokenRequest.claimsRequest = JSON.stringify(error.ErrorMessage.claims);
-        }
+            accessTokenRequest.claims = window.atob(error.ErrorMessage.claims), // decode the base64 string
         
         // call acquireTokenPopup in case of InteractionRequiredAuthError failure
         myMSALObj.acquireTokenPopup(accessTokenRequest).then(function(accessTokenResponse) {
@@ -143,62 +140,9 @@ myMSALObj.acquireTokenSilent(accessTokenRequest).then(function(accessTokenRespon
 
 Interactively acquiring the token prompts the user and gives them the opportunity to satisfy the required Conditional Access policy.
 
-When calling an API requiring Conditional Access, you can receive a claims challenge in error from the API. In this case, you can extract the claims challenge from the `WWW-Authenticate` header from the API error response object as shown in the `handleClaimsChallenge` method.
+When calling an API requiring Conditional Access, you can receive a claims challenge in the error from the API. In this case, you can pass the claims returned in the error to the `claims` parameter in the [access token request object](https://learn.microsoft.com/azure/active-directory/develop/msal-js-pass-custom-state-authentication-request) to satisfy the appropriate policy. 
 
-```javascript
-fetch(apiEndpoint, options)
-    .catch((response) => {
-        if (response.status === 401 && response.headers.get('www-authenticate')) {
-
-            const authenticateHeader = response.headers.get('www-authenticate');
-            const claimsChallenge = parseChallenges(authenticateHeader).claims;
-            // use the claims challenge to acquire a new access token...
-        }
-    })
-
-/**
- * This method parses WWW-Authenticate authentication headers
- * @param header
- * @return {Object} challengeMap
- */
-const parseChallenges = (header) => {
-    const schemeSeparator = header.indexOf(' ');
-    const challenges = header.substring(schemeSeparator + 1).split(', ');
-    const challengeMap = {};
-
-    challenges.forEach((challenge) => {
-        const [key, value] = challenge.split('=');
-        challengeMap[key.trim()] = window.decodeURI(value.replace(/(^"|"$)/g, ''));
-    });
-
-    return challengeMap;
-}
-```
-
-Then pass the claims returned in the respond error to the request object in the `acquireToken` APIs to receive a new token that contains the claims.
-
-```javascript
-const accessTokenRequest = {
-    claims: window.atob(claimsChallenge), // decode the base64 string
-    scopes: [],
-};
-
-myMSALObj.acquireTokenSilent(accessTokenRequest).then(function(accessTokenResponse) {
-    // call API
-}).catch(function(error) {
-    if (error instanceof InteractionRequiredAuthError) {
-        
-        myMSALObj.acquireTokenPopup(accessTokenRequest).then(function(accessTokenResponse) {
-            // call API
-        }).catch(function(error) {
-            console.log(error);
-        });
-    }
-});
-```
-
-See [Requesting Additional Claims](active-directory-optional-claims.md) and [How to use Continuous Access Evaluation enabled APIs in your applications](./app-resilience-continuous-access-evaluation.md) for more detail.
-
+See [How to use Continuous Access Evaluation enabled APIs in your applications](./app-resilience-continuous-access-evaluation.md) for more detail.
 
 [!INCLUDE [Active directory error handling retries](../../../includes/active-directory-develop-error-handling-retries.md)]
 
