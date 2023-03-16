@@ -25,7 +25,7 @@ In addition to migration, Azure NetApp Files provides a platform for running spe
 
 Azure NetApp Files’ integration with Azure native services like Azure Kubernetes Service, Azure Batch, and ML provides users with a seamless experience and enables them to leverage the full power of Azure's cloud-native services. This integration allows businesses to run their workloads in a scalable, secure, and highly performant environment, providing them with the confidence they need to run mission-critical workloads in the cloud.
 
-The following diagram depicts the categorization of reference architectures, blueprints and solutions on this page as laid out in the introduction section above:
+The following diagram depicts the categorization of reference architectures, blueprints and solutions on this page as laid out in the above introduction:
 
 **Azure NetApp Files key use cases**
 :::image type="content" source="../media/azure-netapp-files/solution-architecture-categories.png" alt-text="Solution architecture categories." lightbox="../media/azure-netapp-files/solution-architecture-categories.png":::
