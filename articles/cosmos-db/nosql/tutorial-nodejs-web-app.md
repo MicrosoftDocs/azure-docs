@@ -27,9 +27,9 @@ As a developer, you might have applications that use NoSQL document data. You ca
 
 This tutorial demonstrates how to create an API for NoSQL account in Azure Cosmos DB by using the Azure portal. Without a credit card or an Azure subscription, you can:
 
-1. Set up a free [Try Azure Cosmos DB account](https://aka.ms/trycosmosdb).
-1. Build and run a web app that's built on the Node.js SDK to create a database and container.
-1. Add items to the container.
+* Set up a free [Try Azure Cosmos DB account](https://aka.ms/trycosmosdb).
+* Build and run a web app that's built on the Node.js SDK to create a database and container.
+* Add items to the container.
 
 This tutorial uses JavaScript SDK version 3.0 and covers the following tasks:
 
