@@ -92,13 +92,17 @@ The following policy auto-accelerates users to a federated identity provider sig
 ::: zone pivot="powershell-hrd"
 
 ```powershell
-New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFederatedDomain`":true}}") -DisplayName BasicAutoAccelerationPolicy -Type HomeRealmDiscoveryPolicy
+New-AzureADPolicy 
+    -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFederatedDomain`":true}}") -DisplayName BasicAutoAccelerationPolicy 
+    -Type HomeRealmDiscoveryPolicy
 ```
 ::: zone-end
 
 ::: zone pivot="graph-hrd"
 
-```json
+```http
+POST /policies/homeRealmDiscoveryPolicies
+
 "HomeRealmDiscoveryPolicy": {
     "AccelerateToFederatedDomain": true
 }
@@ -110,13 +114,18 @@ The following policy auto-accelerates users to a federated identity provider sig
 ::: zone pivot="powershell-hrd"
 
 ```powershell
-New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFederatedDomain`":true, `"PreferredDomain`":`"federated.example.edu`"}}") -DisplayName MultiDomainAutoAccelerationPolicy -Type HomeRealmDiscoveryPolicy
+New-AzureADPolicy 
+    -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFederatedDomain`":true, `"PreferredDomain`":`"federated.example.edu`"}}") 
+    -DisplayName MultiDomainAutoAccelerationPolicy 
+    -Type HomeRealmDiscoveryPolicy
 ```
 ::: zone-end
 
 ::: zone pivot="graph-hrd"
 
-```json
+```http
+POST /policies/homeRealmDiscoveryPolicies
+
 "HomeRealmDiscoveryPolicy": {
     "AccelerateToFederatedDomain": true,
     "PreferredDomain": [
@@ -129,9 +138,19 @@ New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFe
 The following policy enables username/password authentication for federated users directly with Azure AD for specific applications:
 
 
+::: zone pivot="powershell-hrd"
+
+
+```powershell
+New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AllowCloudPasswordValidation`":true}}") -DisplayName EnableDirectAuthPolicy -Type HomeRealmDiscoveryPolicy
+```
+::: zone-end
+
+
 ::: zone pivot="graph-hrd"
 
-```json
+```http
+POST /policies/homeRealmDiscoveryPolicies
 
 "EnableDirectAuthPolicy": {
     "AllowCloudPasswordValidation": true
@@ -142,10 +161,6 @@ The following policy enables username/password authentication for federated user
 ::: zone-end
 
 ::: zone pivot="powershell-hrd"
-
-```powershell
-New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AllowCloudPasswordValidation`":true}}") -DisplayName EnableDirectAuthPolicy -Type HomeRealmDiscoveryPolicy
-```
 
 To see your new policy and get its **ObjectID**, run the following command:
 
