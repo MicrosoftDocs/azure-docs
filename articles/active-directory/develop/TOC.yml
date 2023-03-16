@@ -62,9 +62,7 @@
         - name: Application model
           href: application-model.md
         - name: Workload identities
-          href: workload-identities-overview.md
-        - name: Workload identities FAQs
-          href: workload-identities-faqs.md
+          href: ../workload-identities/workload-identities-overview.md
         - name: Applications and service principals
           href: app-objects-and-service-principals.md
         - name: How and why apps are added to Azure AD
@@ -162,16 +160,6 @@
               href: howto-handle-samesite-cookie-changes-chrome-browser.md
     - name: Connect
       items:
-        - name: Workload identity federation
-          href: workload-identity-federation.md
-        - name: Configure an app to trust an external identity provider
-          href: workload-identity-federation-create-trust.md
-        - name: Configure a managed identity to trust an external identity provider
-          href: workload-identity-federation-create-trust-user-assigned-managed-identity.md
-        - name: Access identity platform-protected resources from GCP
-          href: workload-identity-federation-create-trust-gcp.md
-        - name: Block creation of federated credentials
-          href: workload-identity-federation-block-using-azure-policy.md
         - name: Exchange AD FS SAML for Microsoft Graph access token
           displayName: exchange, swap, SAML token, OAuth token
           href: v2-saml-bearer-assertion.md
@@ -804,9 +792,7 @@
             - name: Signing key rollover
               href: active-directory-signing-key-rollover.md
             - name: UserInfo endpoint (OIDC)
-              href: userinfo.md
-            - name: Federated identity credentials considerations and limitations
-              href: workload-identity-federation-considerations.md
+              href: userinfo.md            
         - name: SAML 2.0
           items:
             - name: How Azure AD uses the SAML protocol

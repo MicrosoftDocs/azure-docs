@@ -61,8 +61,8 @@ ms.custom: mode-api
 > ##### Global tenant administrator
 > 
 > If you are a global administrator, go to **API Permissions** page select **Grant admin consent for > Enter_the_Tenant_Name_Here**
-> > > [!div id="apipermissionspage"]
-> > > [Go to the API Permissions page]()
+> > [!div id="apipermissionspage"]
+> > [Go to the API Permissions page]()
 > 
 > ##### Standard user
 > 

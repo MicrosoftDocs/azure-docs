@@ -1,6 +1,6 @@
 ---
-title: "Google Cloud Platform Cloud Monitoring (using Azure Function) connector for Microsoft Sentinel"
-description: "Learn how to install the connector Google Cloud Platform Cloud Monitoring (using Azure Function) to connect your data source to Microsoft Sentinel."
+title: "Google Cloud Platform Cloud Monitoring (using Azure Functions) connector for Microsoft Sentinel"
+description: "Learn how to install the connector Google Cloud Platform Cloud Monitoring (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
 ms.date: 02/23/2023
@@ -8,7 +8,7 @@ ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# Google Cloud Platform Cloud Monitoring (using Azure Function) connector for Microsoft Sentinel
+# Google Cloud Platform Cloud Monitoring (using Azure Functions) connector for Microsoft Sentinel
 
 The Google Cloud Platform Cloud Monitoring data connector provides the capability to ingest [GCP Monitoring metrics](https://cloud.google.com/monitoring/api/metrics_gcp) into Microsoft Sentinel using the GCP Monitoring API. Refer to [GCP Monitoring API documentation](https://cloud.google.com/monitoring/api/v3) for more information.
 
@@ -16,7 +16,7 @@ The Google Cloud Platform Cloud Monitoring data connector provides the capabilit
 
 | Connector attribute | Description |
 | --- | --- |
-| **Azure function app code** | https://aka.ms/sentinel-GCPMonitorDataConnector-functionapp |
+| **Azure functions app code** | https://aka.ms/sentinel-GCPMonitorDataConnector-functionapp |
 | **Log Analytics table(s)** | GCP_MONITORING_CL<br/> |
 | **Data collection rules support** | Not currently supported |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
@@ -34,7 +34,7 @@ GCP_MONITORING_CL
 
 ## Prerequisites
 
-To integrate with Google Cloud Platform Cloud Monitoring (using Azure Function) make sure you have: 
+To integrate with Google Cloud Platform Cloud Monitoring (using Azure Functions) make sure you have: 
 
 - **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
 - **GCP service account**: GCP service account with permissions to read Cloud Monitoring metrics is required for GCP Monitoring API (required *Monitoring Viewer* role). Also json file with service account key is required. See the documentation to learn more about [creating service account](https://cloud.google.com/iam/docs/creating-managing-service-accounts) and [creating service account key](https://cloud.google.com/iam/docs/creating-managing-service-account-keys).
