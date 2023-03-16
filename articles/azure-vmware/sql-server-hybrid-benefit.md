@@ -3,7 +3,7 @@ title: Azure Hybrid benefit for Windows server, SQL server, or Linux subscriptio
 description: Learn about Azure Hybrid benefit for Windows server, SQL server, or Linux subscriptions.
 ms.topic: conceptual
 ms.service: azure-vmware
-ms.date: 3/7/2023
+ms.date: 3/15/2023
 ms.custom: engagement-fy23
 ---
 
@@ -13,7 +13,7 @@ Azure Hybrid benefit is a cost saving offering from Microsoft you can use to sav
 
 - Save up to 85% over standard pay-as-you-go rate leveraging Windows Server and SQL Server licenses with Azure Hybrid benefit.
 - Use Azure Hybrid Benefit in Azure SQL platform as a service (PaaS) environment.
-- Apply to SQL Server 1 to 4 vCPUs exchange: For every 1 core of SQL Server Enterprise Edition, you get 4 vCPUs of SQL Managed Instance or Azure SQL Database general purpose and Hyperscale tiers, or 4 vCPUs of SQL Server Standard edition on Azure VMs.
+- Apply to SQL Server one to four vCPUs exchange: For every one core of SQL Server Enterprise Edition, you get four vCPUs of SQL Managed Instance or Azure SQL Database general purpose and Hyperscale tiers, or 4 vCPUs of SQL Server Standard edition on Azure VMs.
 - Use existing SQL licensing to adopt Azure Arc–enabled SQL Managed Instance.
 - Help meet compliance requirements with unlimited virtualization on Azure Dedicated Host and Azure VMWare Solution.
 - Get 180 days of dual-use rights between on-premises and Azure.
