@@ -37,40 +37,40 @@ items:
     expanded: false
     items:
     - name: Define quick access ranges
-      href: how-to-get-started-with-network-access.md
+      href: how-to-define-quick-access-ranges.md
     - name: Deploy on premises connectors
-      href: how-to-get-started-with-network-access.md
+      href: how-to-deploy-on-premises-connectors.md
     - name: Configure traffic forwarding
-      href: how-to-get-started-with-network-access.md
+      href: how-to-configure-traffic-forwarding.md
     - name: Configure devices
-      href: how-to-get-started-with-network-access.md
+      href: how-to-configure-devices.md
     - name: Configure branch Office locations
-      href: how-to-get-started-with-network-access.md
+      href: how-to-configure-branch-office-locations.md
   - name: Create
     expanded: false
     items:
     - name: Create applications
-      href: how-to-get-started-with-network-access.md
+      href: how-to-create-applications.md
     - name: Create conditional access policies
-      href: how-to-get-started-with-network-access.md
+      href: how-to-create-conditional-access-policies.md
   - name: Secure
     expanded: false
     items:
     - name: Session management policies
-      href: how-to-get-started-with-network-access.md
+      href: how-to-secure-session-management-policies.md
     - name: Create web gateway policies 
-      href: how-to-get-started-with-network-access.md
+      href: how-to-create-web-gateway-policies.md
   - name: Monitor
     expanded: false
     items:
     - name: App segment discovery
-      href: how-to-get-started-with-network-access.md
+      href: how-to-app-segment-discovery.md
     - name: Enriched Office 365 logs
-      href: how-to-get-started-with-network-access.md
+      href: how-to-enriched-logs.md
     - name: Network logging
-      href: how-to-get-started-with-network-access.md
+      href: how-to-network-logging.md
     - name: Admin audit logging
-      href: how-to-get-started-with-network-access.md
+      href: how-to-admin-audit-logging.md
 - name: Reference
   expanded: false
   items:
