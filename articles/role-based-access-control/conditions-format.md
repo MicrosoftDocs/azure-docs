@@ -253,7 +253,7 @@ Depending on the selected actions, the attribute might be found in different pla
 | Environment | Indicates that the attribute is an environment attribute, such as a private endpoint, private link, virtual network subnet, or date/time. Environment attributes are currently in preview. | `@Environment` |
 #### Resource and request attributes
 
-For a list of the blob storage or queue storage attributes you can use in conditions, see:
+For a complete list of the blob storage or queue storage attributes you can use in conditions, see:
 
 - [Actions and attributes for Azure role assignment conditions for Azure Blob Storage](../storage/blobs/storage-auth-abac-attributes.md)
 - [Actions and attributes for Azure role assignment conditions for Azure queues](../storage/queues/queues-auth-abac-attributes.md)
@@ -287,10 +287,10 @@ The following table lists the the supported environment attributes for condition
 > [!div class="mx-tableFixed"]
 > | Display name | Description | Attribute | Type |
 > | --- | --- | --- | --- |
-> |  | Use this attribute in conditions to restrict access to a specific subnet. | `Microsoft.Network/virtualNetworks/subnets` | Subnet Azure ID as string |
-> |  | Use this attribute in conditions that restrict access over a specific private endpoint. | `Microsoft.Network/privateEndpoints` | PrivateEndpoint Azure ID as string |
-> |  | Use this attribute in conditions to require access over any private end point. | `isPrivateLink` | Boolean |
-> |  | Use this attribute in conditions to restrict access to objects during specific time periods. | `UtcNow` | DateTime |
+> | Subnet | Use this attribute in conditions to restrict access to a specific subnet. | `Microsoft.Network/virtualNetworks/subnets` | Subnet Azure ID as string |
+> | Private endpoint | Use this attribute in conditions that restrict access over a specific private endpoint. | `Microsoft.Network/privateEndpoints` | PrivateEndpoint Azure ID as string |
+> | Is private link | Use this attribute in conditions to require access over any private end point. | `isPrivateLink` | Boolean |
+> | UTC now | Use this attribute in conditions to restrict access to objects during specific time periods. | `UtcNow` | DateTime |
 
 For a complete list of the blob storage or queue storage attributes you can use in conditions, see:
 

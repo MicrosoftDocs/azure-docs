@@ -103,7 +103,7 @@ Some features of conditions are still in preview. The following table lists the 
 
 | Feature | Status | Date |
 | --- | --- | --- |
-| Use [environment attributes](conditions-format.md#environment-attributes) in a condition. | Preview | March 2023 |
+| Use [environment attributes](conditions-format.md#environment-attributes) in a condition | Preview | March 2023 |
 | Add conditions using the [condition editor in the Azure portal](conditions-role-assignments-portal.md) | GA | October 2022 |
 | Add conditions using [Azure PowerShell](conditions-role-assignments-powershell.md), [Azure CLI](conditions-role-assignments-cli.md), or [REST API](conditions-role-assignments-rest.md) | GA | October 2022 |
 | Use [resource and request attributes](conditions-format.md#attributes) for specific combinations of Azure storage resources, access attribute types, and storage account performance tiers. For more information, see [Status of condition features in Azure Storage](../storage/common/authorize-data-access.md#status-of-condition-features-in-azure-storage). | GA | October 2022 |
