@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Create an Azure DNS zone and A record using Terraform'
-description: 'In this article, you create an Azure DNS zone and A record using Terraform'
+title: 'Quickstart: Create an Azure DNS zone and record using Terraform'
+description: 'In this article, you create an Azure DNS zone and record using Terraform'
 ms.topic: quickstart
 ms.service: dns
 ms.date: 2/16/2023
@@ -9,20 +9,17 @@ author: TomArcherMsft
 ms.author: tarcher
 ---
 
-# Quickstart: Create an Azure DNS zone and A record using Terraform
-
-> [!NOTE]
-> View the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/101-azurerm_dns_zone/TestRecord.md).
-
-[!INCLUDE [Terraform abstract](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
+# Quickstart: Create an Azure DNS zone and record using Terraform
 
 This article shows how to use [Terraform](/azure/terraform) to create an [Azure DNS zone](/azure/dns/dns-zones-records) and an [A record](/azure/dns/dns-a-record) in that zone.
+
+[!INCLUDE [Terraform abstract](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 
 In this article, you learn how to:
 
 > [!div class="checklist"]
 
-> * Create a random pet name for the Azure resource group name using [random_pet](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/resource_group/pet)
+> * Create a random pet name for the Azure resource group name using [random_pet](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/pet)
 > * Create an Azure resource group using [azurerm_resource_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group)
 > * Create a random string using [random_string](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string)
 > * Create an Azure DNS zone using [azurerm_dns_zone](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/dns_zone)
@@ -69,11 +66,50 @@ In this article, you learn how to:
 
 ## Verify the results
 
-Use [terraform state show](https://developer.hashicorp.com/terraform/cli/commands/state/show) to display the current state of the specified resource.
+#### [Azure CLI](#tab/azure-cli)
 
-```console
-terraform state show azurerm_dns_zone.zone
-```
+1. Get the Azure resource group name.
+
+    ```console
+    resource_group_name=$(terraform output -raw resource_group_name)
+    ```
+
+1. Get the DNS zone name.
+
+    ```console
+    dns_zone_name=$(terraform output -raw dns_zone_name)
+    ```
+
+1. Run [az network dns zone show](/cli/azure/network/dns/zone#az-network-dns-zone-show) to display information about the new DNS zone.
+
+    ```azurecli
+    az network dns zone show \
+        --resource-group $resource_group_name \
+        --name $dns_zone_name
+    ```
+
+#### [Azure PowerShell](#tab/azure-powershell)
+
+1. Get the Azure resource group name.
+
+    ```console
+    $resource_group_name=$(terraform output -raw resource_group_name)
+    ```
+
+1. Get the DNS zone name.
+
+    ```console
+    $dns_zone_name=$(terraform output -raw dns_zone_name)
+    ```
+
+1. Run [Get-AzApiManagement](/powershell/module/az.apimanagement/get-azapimanagement) to display information about the new service.
+
+    ```azurepowershell
+    Get-AzDnsZone -ResourceGroupName $resource_group_name `
+                  -Name $dns_zone_name
+    ```
+
+---
 
 ## Clean up resources
 
