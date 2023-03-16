@@ -1,19 +1,19 @@
 ---
-title: Subscription Eligibility and Number Capabilities in Azure Communication Services
+title: Country availability of telephone numbers and subscription eligibility
 titleSuffix: An Azure Communication Services concept document
-description: Learn about Subscription Eligibility and Number Capabilities for PSTN and SMS Numbers in Communication Services.
-author: sadas
+description: Learn about Country Availability, Subscription Eligibility and Number Capabilities for PSTN and SMS Numbers in Communication Services.
+author: krkutser
 manager: rcole
 services: azure-communication-services
 
-ms.author: sadas
+ms.author: krkutser
 ms.date: 03/04/2022
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.custom: references_regions
 ---
 
-# Subscription eligibility and number capabilities
+# Country availability of telephone numbers and subscription eligibility
 
 Numbers can be purchased on eligible Azure subscriptions and in geographies where Communication Services is legally eligible to provide them.
 
@@ -127,6 +127,107 @@ The tables below summarize current availability:
 | Canada            | Local     | -        | -        | General Availability       | General Availability\* |
 | USA & Puerto Rico | Toll-Free | General Availability | General Availability | General Availability | General Availability\* |
 | USA & Puerto Rico | Local     | -        | -        | General Availability | General Availability\* |
+
+\* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
+
+## Customers with France Azure billing addresses
+
+| Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
+| :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
+| France            | Local**     | -        | -        | Public Preview | Public Preview\* |
+
+\* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
+
+\** Phone numbers in France can only be purchased for own use. Re-selling or sub-allocating to another party is not allowed.
+
+## Customers with Spain Azure billing addresses
+
+| Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
+| :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
+| Spain           | Toll-Free | -        | -        | Public Preview | Public Preview\* |
+| Spain           | Local     | -        | -        | Public Preview | Public Preview\* |
+
+\* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
+
+## Customers with Switzerland Azure billing addresses
+
+| Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
+| :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
+| Switzerland           | Local     | -        | -        | Public Preview | Public Preview\* |
+
+\* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
+
+## Customers with Belgium Azure billing addresses
+
+| Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
+| :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
+| Belgium           | Toll-Free | -        | -        | Public Preview | Public Preview\* |
+| Belgium           | Local     | -        | -        | Public Preview | Public Preview\* |
+
+\* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
+
+## Customers with Luxembourg Azure billing addresses
+
+| Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
+| :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
+| Luxembourg           | Local     | -        | -        | Public Preview | Public Preview\* |
+
+\* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
+
+## Customers with Austria Azure billing addresses
+
+| Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
+| :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
+| Austria           | Toll-Free** | -        | -        | Public Preview | Public Preview\* |
+| Austria           | Local**    | -        | -        | Public Preview | Public Preview\* |
+
+\* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
+
+\** Phone numbers in Austria can only be purchased for own use. Re-selling or sub-allocating to another party is not allowed.
+
+## Customers with Portugal Azure billing addresses
+
+| Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
+| :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
+| Portugal           | Toll-Free** | -        | -        | Public Preview | Public Preview\* |
+| Portugal           | Local**     | -        | -        | Public Preview | Public Preview\* |
+
+\* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
+
+\** Phone numbers in Portugal can only be purchased for own use. Re-selling or sub-allocating to another party is not allowed.
+
+## Customers with Slovakia Azure billing addresses
+
+| Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
+| :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
+| Slovakia           | Local     | -        | -        | Public Preview | Public Preview\* |
+
+\* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
+
+## Customers with Norway Azure billing addresses
+
+| Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
+| :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
+| Norway           | Local**     | -        | -        | Public Preview | Public Preview\* |
+
+\* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
+
+\** Phone numbers in Norway can only be purchased for own use. Re-selling or sub-allocating to another party is not allowed.
+
+
+## Customers with Netherlands Azure billing addresses
+
+| Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
+| :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
+| Netherlands           | Local     | -        | -        | Public Preview | Public Preview\* |
+
+\* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
+
+## Customers with Germany Azure billing addresses
+
+| Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
+| :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
+| Germany           | Local     | -        | -        | Public Preview | Public Preview\* |
 
 \* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
 
