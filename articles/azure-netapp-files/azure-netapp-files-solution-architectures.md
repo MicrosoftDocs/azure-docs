@@ -241,7 +241,7 @@ This section provides solutions for Azure platform services.
 
 ### Azure Machine Learning
 
-* [High-performance storage for AI Model Training tasks using Azure ML studio with Azure NetApp Files](https://techcommunity.microsoft.com/t5/azure-architecture-blog/high-performance-storage-for-ai-model-training-tasks-using-azure/ba-p/3609189#_Toc112321755)
+* [High-performance storage for AI Model Training tasks using Azure Machine Learning studio with Azure NetApp Files](https://techcommunity.microsoft.com/t5/azure-architecture-blog/high-performance-storage-for-ai-model-training-tasks-using-azure/ba-p/3609189#_Toc112321755)
 * [How to use Azure Machine Learning with Azure NetApp Files](https://github.com/csiebler/azureml-with-azure-netapp-files)
 
 ### Azure Red Hat Openshift   
