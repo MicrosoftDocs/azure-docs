@@ -3,7 +3,7 @@ title: Export the Azure Cosmos DB Emulator certificates
 description: Learn how to export the Azure Cosmos DB Emulator certificate for use with languages and environments that don't integrate with the Windows Certificate Store.
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 03/15/2023
+ms.date: 03/16/2023
 ms.author: esarroyo
 author: StefArroyo 
 ms.custom: devx-track-python, devx-track-java, contperf-fy21q1, ignite-2022
@@ -64,7 +64,7 @@ You need to export the emulator certificate to successfully use the emulator end
 
 When you run Java applications or MongoDB applications that use a Java based client, it's easier to install the certificate into the Java default certificate store than passing the `-Djavax.net.ssl.trustStore=<keystore> -Djavax.net.ssl.trustStorePassword="<password>"` parameters. For example, the included Java Demo application (`https://localhost:8081/_explorer/index.html`) depends on the default certificate store.
 
-Follow the instructions in the [Creating, Exporting, and Importing SSL Certificates](https://docs.oracle.com/cd/E54932_01/doc.705/e54936/cssg_create_ssl_cert.htm) to import the X.509 certificate into the default Java certificate store. Keep in mind you work in the *%JAVA_HOME%* directory when running keytool. After the certificate is imported into the certificate store, clients for SQL and Azure Cosmos DB's API for MongoDB can connect to the Azure Cosmos DB Emulator.
+Follow the instructions in the [Creating, Exporting, and Importing SSL Certificates](https://docs.oracle.com/cd/E54932_01/doc.705/e54936/cssg_create_ssl_cert.htm) to import the X.509 certificate into the default Java certificate store. Keep in mind that you work in the *%JAVA_HOME%* directory when running keytool. After the certificate is imported into the certificate store, clients for SQL and Azure Cosmos DB's API for MongoDB can connect to the Azure Cosmos DB Emulator.
 
 Alternatively, you can run the following bash script to import the certificate:
 
@@ -82,19 +82,19 @@ sudo $JAVA_HOME/bin/keytool -cacerts -delete -alias cosmos_emulator
 sudo $JAVA_HOME/bin/keytool -cacerts -importcert -alias cosmos_emulator -file $EMULATOR_CERT_PATH
 ```
 
-Once the CosmosDBEmulatorCertificate TLS/SSL certificate is installed, your application should be able to connect and use the local Azure Cosmos DB Emulator.
+Once the `CosmosDBEmulatorCertificate` TLS/SSL certificate is installed, your application should be able to connect and use the local Azure Cosmos DB Emulator.
 
 If you have any issues, see [Debugging SSL/TLS connections](https://docs.oracle.com/javase/7/docs/technotes/guides/security/jsse/ReadDebug.html). In most cases, the certificate might not be installed into the *%JAVA_HOME%/jre/lib/security/cacerts* store. For example, if there's more than one installed version of Java, your application might be using a different certificate store than the one you updated.
 
 ## Use the certificate with Python apps
 
-When you connect to the emulator from Python apps, TLS verification is disabled. By default, the Python SDK for Azure Cosmos DB for NoSQL doesn't try to use the TLS/SSL certificate when connecting to the local emulator. For more information, see [Azure Cosmos DB for NoSQL client library for Python](nosql/quickstart-python.md).
+When you connect to the emulator from Python apps, TLS verification is disabled. By default, the Python SDK for Azure Cosmos DB for NoSQL doesn't try to use the TLS/SSL certificate when it connects to the local emulator. For more information, see [Azure Cosmos DB for NoSQL client library for Python](nosql/quickstart-python.md).
 
 If you want to use TLS validation, you can follow the examples in [TLS/SSL wrapper for socket objects](https://docs.python.org/3/library/ssl.html).
 
 ## How to use the certificate in Node.js
 
-When you connect to the emulator from Node.js SDKs, TLS verification is disabled. By default the [Node.js SDK(version 1.10.1 or higher)](nosql/sdk-nodejs.md) for the API for NoSQL doesn't try to use the TLS/SSL certificate when it connects to the local emulator. If you want to use TLS validation, follow the examples in the [Node.js documentation](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
+When you connect to the emulator from Node.js SDKs, TLS verification is disabled. By default, the [Node.js SDK(version 1.10.1 or higher)](nosql/sdk-nodejs.md) for the API for NoSQL doesn't try to use the TLS/SSL certificate when it connects to the local emulator. If you want to use TLS validation, follow the examples in the [Node.js documentation](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
 
 ## Rotate emulator certificates
 
