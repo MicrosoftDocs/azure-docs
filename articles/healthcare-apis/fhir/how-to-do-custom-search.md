@@ -23,11 +23,9 @@ To create a new search parameter, you need to `POST` a `SearchParameter` resourc
 POST {{FHIR_URL}}/SearchParameter
 ```
 
-The code examples below show how to add new custom search parameter -
-* Per Definition in extension
-* For Attributes with Reference type
+The examples below demonstrate creating new custom search parameter 
 
-### Create new search parameter per definiton in extension
+### Create new search parameter per definiton in Implementation Guide
 
 The code example below shows how to add the [US Core Race search parameter](http://hl7.org/fhir/us/core/STU3.1.1/SearchParameter-us-core-race.html) to the `Patient` resource type in your FHIR service database.
 
@@ -73,7 +71,7 @@ The code example below shows how to add the [US Core Race search parameter](http
 }
 
 ``` 
-### Create new search parameter for attributes with Reference type
+### Create new search parameter for Resource attributes with Reference type
 
 The code example shows how to create custom search parameter to search for MedicationDispense resources based on location, where they were dispensed. This is an example of adding custom search parameter for Reference type. 
 
