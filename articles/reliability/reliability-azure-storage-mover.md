@@ -18,7 +18,7 @@ ms.date: 03/15/2023
 
 This article describes reliability support in Azure Storage Mover and covers cross-region resiliency with disaster recovery. For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
-### Regional reliability
+## Regional reliability
 
 When deploying an Azure Storage Mover resource, you must select a location in which the resource's instance metadata is stored. Instance metadata includes projects, endpoints, agents, job definitions, and job run history, but doesn't include the actual data to be migrated. Azure storage accounts to be used as migration targets have their own reliability support. Disaster recovery for on-premises data sources is the responsibility of the customer.
 
@@ -36,7 +36,7 @@ In the unlikely event of a full region outage, you have the option of using one 
 
 The last two options are a matter of timing, since deployment will occur either before or after any future outage.
 
-### Determining reliability for target storage accounts
+## Determining reliability for target storage accounts
 
 Any migration target storage account may require its own recovery steps. This requirement depends on the redundancy options chosen for each storage account. See the [storage account disaster recovery](/azure/storage/common/storage-disaster-recovery-guidance) article to determine whether more steps are necessary.
 
@@ -58,9 +58,9 @@ Azure initiated disaster recovery is only applicable for those regions that have
 
 Customers can minimize downtime by following the customer enabled disaster recovery steps described in this section. These strategies may require that further steps be taken prior to a disaster, so be sure to review and plan accordingly.
 
-### Customer enabled disaster recovery
+## Customer enabled disaster recovery
 
-#### Deploy resources to a different region
+### Deploy resources to a different region
 
 Since access to your resources may be impacted during an outage. To redeploy resources to a different region, you must first have a snapshot of the resources you wish to redeploy. To ensure that you're restoring the most recent data, taking a snapshot should be done periodically, either on a schedule or after you make substantial changes. Storing the snapshots using a version control system is a good way to store and track history of the snapshots.
 
@@ -79,11 +79,11 @@ To use the exported template for disaster recovery, a few changes to the templat
 
 After completing the previous steps and verifying that the template parameters are correct, the template is ready for deployment to a new region. You should deploy the template to a new resource group that has the same default region as the location property in the template.
 
-#### Registering the new agent
+### Registering the new agent
 
 Follow the steps within the [deploy an Azure Storage Mover agent](/azure/storage-mover/agent-deploy) article to register a new agent in the new Storage Mover resource.
 
-#### Assigning the agent to job definitions
+### Assigning the agent to job definitions
 
 After the new agent has been registered and reports as online, use the Azure portal or PowerShell to associate the existing job definitions to the new agent. The following PowerShell example is provided for convenience.
 
@@ -106,7 +106,7 @@ Update-AzStorageMoverJobDefinition `
     -AgentName $agentName
 ```
 
-#### Granting agent access to the target storage container
+### Granting agent access to the target storage container
 
 You need to assign the data contributor role to the managed identity to successfully perform a migration job. Assign the Hybrid Compute resource's system managed identity access to the target storage account resource. The [assign a managed identity access to a resource](/azure/active-directory/managed-identities-azure-resources/howto-assign-access-portal) article provides guidance on how to grant access to the target resource.
 
