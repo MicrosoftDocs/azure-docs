@@ -119,8 +119,9 @@ For details about configuring and managing the quorum, see [Failover Clustering 
 1. After the migration of all the replicas is completed, access your Always-On availability group with **SQL Server Management Studio**.
     1. Open the Dashboard and verify there is no data loss in any of the replicas and that all are in a     **Synchronized** state.
           :::image type="content" source="media/sql-server-hybrid-benefit/sql-alwayson-7.png" alt-text="Availability Group Dashboard with new primary replica and all migrated secondary replicas in synchronized state." border="false":::
-    1. Edit the **Properties** of the availability group and set **Failover Mode** to **Automatic** in all replicas. 
-              :::image type="content" source="media/sql-server-hybrid-benefit/sql-alwayson-8.png" alt-text="Set Failover back to Automatic for all replicas." border="false":::
+    1. Edit the **Properties** of the availability group and set **Failover Mode** to **Automatic** in all replicas.
+    
+       :::image type="content" source="media/sql-server-hybrid-benefit/sql-alwayson-8.png" alt-text="Set Failover back to Automatic for all replicas." border="false":::
 
 ## Next steps 
 
