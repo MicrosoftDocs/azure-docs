@@ -80,6 +80,9 @@ There are many different ways to provision a dedicated gateway:
 - [ARM template](/azure/templates/microsoft.documentdb/databaseaccounts/services?tabs=bicep)
     - Note: You cannot deprovision a dedicated gateway using ARM templates
 
+> [!Information]
+> You can provision a dedicated gateway in Azure Cosmos DB accounts with [availability zones](../availability-zones/az-region.md) by request. Reach out to cosmoscachefeedback@microsoft.com for more information.
+
 ## Dedicated gateway in multi-region accounts
 
 When you provision a dedicated gateway cluster in multi-region accounts, identical dedicated gateway clusters are provisioned in each region. For example, consider an Azure Cosmos DB account in East US and North Europe. If you provision a dedicated gateway cluster with two D8 nodes in this account, you'd have four D8 nodes in total - two in East US and two in North Europe. You don't need to explicitly configure dedicated gateways in each region and your connection string remains the same. There are also no changes to best practices for performing failovers.
@@ -91,7 +94,6 @@ Like nodes within a cluster, dedicated gateway nodes across regions are independ
 The dedicated gateway has the following limitations:
 
 - Dedicated gateways are only supported on API for NoSQL accounts
-- You can't provision a dedicated gateway in Azure Cosmos DB accounts with [availability zones](../availability-zones/az-region.md).
 - You can't use [role-based access control (RBAC)](how-to-setup-rbac.md) to authenticate data plane requests routed through the dedicated gateway
 
 

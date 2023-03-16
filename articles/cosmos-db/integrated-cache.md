@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 08/29/2022
+ms.date: 03/15/2023
 ms.author: sidandrews
 ms.reviewer: jucocchi
 ---
@@ -14,14 +14,14 @@ ms.reviewer: jucocchi
 # Azure Cosmos DB integrated cache - Overview
 [!INCLUDE[NoSQL](includes/appliesto-nosql.md)]
 
-The Azure Cosmos DB integrated cache is an in-memory cache that helps you ensure manageable costs and low latency as your request volume grows. The integrated cache is easy to set up and you don’t need to spend time writing custom code for cache invalidation or managing backend infrastructure. Your integrated cache uses a [dedicated gateway](dedicated-gateway.md) within your Azure Cosmos DB account. The integrated cache is the first of many Azure Cosmos DB features that will utilize a dedicated gateway for improved performance. You can choose from three possible dedicated gateway sizes based on the number of cores and memory needed for your workload.
+The Azure Cosmos DB integrated cache is an in-memory cache that helps you ensure manageable costs and low latency as your request volume grows. The integrated cache is easy to set up and you don’t need to spend time writing custom code for cache invalidation or managing backend infrastructure. The integrated cache uses your [dedicated gateway](dedicated-gateway.md) within your Azure Cosmos DB account. When provisioning your dedicated gateway, you can choose the number of nodes as well as the node size based on the number of cores and memory needed for your workload. Each dedicated gateway node has a separate integrated cache from the others.  
 
 An integrated cache is automatically configured within the dedicated gateway. The integrated cache has two parts: 
 
 * An item cache for point reads 
 * A query cache for queries
 
-The integrated cache is a read-through, write-through cache with a Least Recently Used (LRU) eviction policy. The item cache and query cache share the same capacity within the integrated cache and the LRU eviction policy applies to both. In other words, data is evicted from the cache strictly based on when it was least recently used, regardless of whether it's a point read or query.
+The integrated cache is a read-through, write-through cache with a Least Recently Used (LRU) eviction policy. The item cache and query cache share the same capacity within the integrated cache and the LRU eviction policy applies to both. Data is evicted from the cache strictly based on when it was least recently used, regardless of whether it's a point read or query. The cached data within each node depends on the data that was recently [written or read](integrated-cache.md#item-cache) through that specific node. If an item or query is cached on one node, it isn't necessarily cached on the others.
 
 > [!NOTE]
 > Do you have any feedback about the integrated cache? We want to hear it! Feel free to share feedback directly with the Azure Cosmos DB engineering team:
@@ -49,14 +49,17 @@ Some workloads shouldn't consider the integrated cache, including:
 
 ## Item cache
 
-You can use the item cache for point reads (in other words, key/value look ups based on the Item ID and partition key).
+Item cache is used for point reads (key/value look ups based on the Item ID and partition key). 
 
 ### Populating the item cache
 
-- New writes, updates, and deletes are automatically populated in the item cache
-- If your app tries to read a specific item that wasn’t previously in the cache (cache miss), the item would now be stored in the item cache
+- New writes, updates, and deletes are automatically populated in the item cache of the node that the request is routed through
+- Requests that are part of a [transactional batch](./nosql/transactional-batch.md) or written in [bulk mode](./nosql/how-to-migrate-from-bulk-executor-library.md#enable-bulk-support) will not populate the item cache
+- If your app tries to read a specific item that wasn’t previously in the cache (cache miss) of the node it was routed through, the item would now be stored in the item cache
 
 ### Item cache invalidation and eviction
+
+Because each node has an independent cache, it's possible items are invalidated or evicted in the cache of one node and not the others. Items in the cache of a given node will be invalidated and evicted based on the below criteria:
 
 - Item update or delete
 - Least recently used (LRU)
@@ -64,13 +67,15 @@ You can use the item cache for point reads (in other words, key/value look ups b
 
 ## Query cache
 
-The query cache can be used to cache queries. The query cache transforms a query into a key/value lookup where the key is the query text and the value is query results. The integrated cache doesn't have a query engine, it only stores the key/value lookup for each query.
+The query cache is used to cache queries. The query cache transforms a query into a key/value lookup where the key is the query text and the value is the query results. The integrated cache doesn't have a query engine, it only stores the key/value lookup for each query. Query results are stored as a set, and the cache doesn't keep track of individual items. A given item can be stored in the query cache multiple times if it appears in the result set of multiple queries. Updates to the underlying items won't be reflected in query results unless the [max integrated cache staleness](#maxintegratedcachestaleness) for the query is reached and the query is served from the backend database.
 
 ### Populating the query cache
 
-- If the cache doesn't have a result for that query (cache miss), the query is sent to the backend. After the query is run, the cache will store the results for that query
+- If the cache doesn't have a result for that query (cache miss) on the node it was routed through, the query is sent to the backend. After the query is run, the cache will store the results for that query
 
 ### Query cache eviction
+
+Query cache eviction is based on the node the request was routed through. It's possible queries could be evicted or refreshed on one node and not the others.
 
 - Least recently used (LRU)
 - Cache retention time (in other words, the `MaxIntegratedCacheStaleness`)
