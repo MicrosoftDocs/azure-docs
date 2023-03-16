@@ -1,5 +1,5 @@
 ---
-title: 'Change the Azure AD Connector account password | Microsoft Docs'
+title: 'Change the Azure AD Connector account password'
 description: This topic documents how to restore the Azure AD Connector account.
 services: active-directory
 documentationcenter: ''

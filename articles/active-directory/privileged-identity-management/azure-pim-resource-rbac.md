@@ -1,5 +1,5 @@
 ---
-title: View audit report for Azure resource roles in Privileged Identity Management (PIM) - Azure AD | Microsoft Docs
+title: View audit report for Azure resource roles in Privileged Identity Management (PIM) - Azure AD
 description: View activity and audit history for Azure resource roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
