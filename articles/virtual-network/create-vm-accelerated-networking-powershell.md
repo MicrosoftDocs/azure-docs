@@ -19,7 +19,7 @@ This article describes how to create a Windows virtual machine (VM) with Acceler
 
 You can also create a Windows VM with Accelerated Networking enabled by using the [Azure portal](quick-create-portal.md). To manage Accelerated Networking on VMs through the Azure portal, see [Manage Accelerated Networking through the portal](#manage-accelerated-networking-through-the-portal).
 
-To create a Linux VM with Accelerated Networking enabled, see [Use Azure CLI to create a Linux VM with Accelerated Networking](create-vm-accelerated-networking-clil.md).
+To create a Linux VM with Accelerated Networking enabled, see [Use Azure CLI to create a Linux VM with Accelerated Networking](create-vm-accelerated-networking-cli.md).
 
 ## Prerequisites
 
@@ -123,7 +123,7 @@ In the following examples, replace the example parameters such as `<myResourceGr
 
 ### Create a VM and attach the network interface
 
-1. Use [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential) to set your VM credentials to the `$cred` variable , which prompts you to sign in.
+1. Use [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential) to set your VM credentials to the `$cred` variable, which prompts you to sign in.
 
    ```azurepowershell
    $cred = Get-Credential
@@ -163,7 +163,7 @@ In the following examples, replace the example parameters such as `<myResourceGr
    New-AzVM -VM $vmConfig -ResourceGroupName "<myResourceGroup>" -Location "<myAzureRegion>"
    ```
 
-## Confirm the Ethernet controller is installed in the VM
+## Confirm the Ethernet controller is installed
 
 Once you create the VM in Azure, connect to the VM and confirm that the Ethernet controller is installed in Windows.
 
@@ -175,7 +175,7 @@ Once you create the VM in Azure, connect to the VM and confirm that the Ethernet
 
 4. From the VM overview toolbar, select **Connect** > **RDP** > **Download RDP File**.
 
-5. Open the .rdp file, and then sign in to the VM with the credentials you entered in the [Create a VM and attach the network interface](#create-a-vm-and-attach-the-network-interface) section. If you've never connected to a Windows VM in Azure, see [Connect to virtual machine](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-virtual-machine).
+5. Open the RDP file, and then sign in to the VM with the credentials you entered in the [Create a VM and attach the network interface](#create-a-vm-and-attach-the-network-interface) section. If you've never connected to a Windows VM in Azure, see [Connect to virtual machine](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-virtual-machine).
 
 6. After the remote desktop session for your VM appears, right-click the Windows Start button and choose **Device Manager**.
 
@@ -224,7 +224,7 @@ You can enable Accelerated Networking on an existing VM. The VM must meet the fo
     $nic | Set-AzNetworkInterface
     ```
 
-3. Restart your VM, or all the VMs in the availability set, and [confirm that Accelerated Networking is enabled](#confirm-that-accelerated-networking-is-enabled).
+3. Restart your VM, or all the VMs in the availability set, and [confirm that Accelerated Networking is enabled](#confirm-the-ethernet-controller-is-installed).
 
     ```azurepowershell
     Start-AzVM -ResourceGroup "myResourceGroup" `
@@ -301,7 +301,6 @@ To confirm whether Accelerated Networking is enabled for an existing VM:
 1. From the [Azure portal](https://portal.azure.com) page for the VM, select **Networking** from the left menu.
 1. On the **Networking** page, select the **Network Interface**.
 1. On the NIC **Overview** page, under **Essentials**, note whether **Accelerated networking** is set to **Enabled** or **Disabled**.
-
 
 ## Next steps
 

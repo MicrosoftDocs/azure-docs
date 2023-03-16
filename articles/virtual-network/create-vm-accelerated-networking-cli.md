@@ -1,6 +1,6 @@
 ---
 title: Use Azure CLI to create a Linux VM with Accelerated Networking
-description: Learn how to use Azure CLI to create and manage Linux virtual machines that have Accelerated Networking enabled.
+description: Use Azure CLI to create and manage Linux virtual machines that have Accelerated Networking enabled for improved network performance.
 services: virtual-network
 author: asudbring
 manager: gedegrac
@@ -16,7 +16,7 @@ ms.custom: fasttrack-edit, devx-track-azurecli
 
 This article describes how to create a Linux virtual machine (VM) with Accelerated Networking (AccelNet) enabled by using the Azure command-line interface, Azure CLI. The article also discusses application binding requirements, and how to enable and manage Accelerated Networking on existing VMs.
 
-You can also create a Linux VM with Accelerated Networking enabled by using the [Azure portal](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Azure PowerShell](../virtual-network/create-vm-accelerated-networking-powershell.md). To manage Accelerated Networking on VMs by using the Azure portal, see [Portal management].
+You can also create a VM with Accelerated Networking enabled by using the [Azure portal](/azure/virtual-machines/linux/quick-create-portal) or [Azure PowerShell](../virtual-network/create-vm-accelerated-networking-powershell.md). To view and manage Accelerated Networking on VMs through the Azure portal, see [Manage Accelerated Networking through the portal](#manage-accelerated-networking-through-the-portal).
 
 ## Prerequisites
 
@@ -62,7 +62,7 @@ In the following examples, replace the example parameters such as `<myResourceGr
    az network nsg rule create \
      --resource-group <myResourceGroup> \
      --nsg-name <myNsg> \
-    --name Allow-SSH-Internet \
+     --name Allow-SSH-Internet \
      --access Allow \
      --protocol Tcp \
      --direction Inbound \
@@ -75,7 +75,7 @@ In the following examples, replace the example parameters such as `<myResourceGr
 
 ### Create a network interface with Accelerated Networking
 
-1. Use [az network public-ip create](/cli/azure/network/public-ip) to create a public IP address. A VM doesn't need a public IP address if you don't access it from the internet, but you need the public IP to complete the steps for this article.
+1. Use [az network public-ip create](/cli/azure/network/public-ip) to create a public IP address. The VM doesn't need a public IP address if you don't access it from the internet, but you need the public IP to complete the steps for this article.
 
    ```azurecli
    az network public-ip create \
@@ -214,7 +214,7 @@ It's possible to enable Accelerated Networking on an existing VM. The VM must me
 
 ### Enable Accelerated Networking on Virtual Machine Scale Sets
 
-Azure Virtual Machine Scale Sets is slightly different but follows the same workflow.
+Azure Virtual Machine Scale Sets is slightly different, but follows the same workflow.
 
 1. First, stop the VMs:
 
@@ -253,15 +253,17 @@ Once you restart and the upgrades finish, the VF appears inside VMs that use a s
 
 ### Resize existing VMs with Accelerated Networking
 
-VMs with Accelerated Networking enabled can be resized only to sizes that also support Accelerated Networking. You can't resize a VM with Accelerated Networking to a VM instance that doesn't support Accelerated Networking by using the resize operation. Instead, use the following process to resize these VMs:
+You can resize VMs with Accelerated Networking enabled only to sizes that also support Accelerated Networking. You can't resize a VM with Accelerated Networking to a VM instance that doesn't support Accelerated Networking by using the resize operation. Instead, use the following process to resize these VMs:
 
 1. Stop and deallocate the VM or all the VMs in the availability set or Virtual Machine Scale Sets.
 1. Disable Accelerated Networking on the NIC of the VM or all the VMs in the availability set or Virtual Machine Scale Sets.
 1. Move the VM or VMs to a new size that doesn't support Accelerated Networking, and restart them.
 
-### Manage Accelerated Networking through the portal
+## Manage Accelerated Networking through the portal
 
-When you [create a VM in the Azure portal](/azure/virtual-machines/linux/quick-create-portal) that uses a [supported operating system](./accelerated-networking-overview.md#supported-operating-systems) and [VM size](./accelerated-networking-overview.md#supported-vm-instances), the **Enable accelerated networking** checkbox on the **Networking** tab of the **Create a virtual machine** screen is automatically selected. If Accelerated Networking isn't supported, the checkbox isn't selected, and a message explains the reason.
+When you [create a VM in the Azure portal](/azure/virtual-machines/linux/quick-create-portal), you can select the **Enable accelerated networking** checkbox on the **Networking** tab of the **Create a virtual machine** screen.
+
+If the VM uses a [supported operating system](./accelerated-networking-overview.md#supported-operating-systems) and [VM size](./accelerated-networking-overview.md#supported-vm-instances) for Accelerated Networking, the **Enable accelerated networking** checkbox on the **Networking** tab of the **Create a virtual machine** screen is automatically selected. If Accelerated Networking isn't supported, the checkbox isn't selected, and a message explains the reason.
 
 >[!NOTE]
 >- You can enable Accelerated Networking during portal VM creation only for Azure Marketplace supported operating systems. To create and enable Accelerated Networking for a VM with a custom OS image, you must use Azure CLI or PowerShell.
@@ -274,6 +276,12 @@ To enable or disable Accelerated Networking for an existing VM through the Azure
 1. On the **Networking** page, select the **Network Interface**.
 1. At the top of the NIC **Overview** page, select **Edit accelerated networking**.
 1. Select **Automatic**, **Enabled**, or **Disabled**, and then select **Save**.
+
+To confirm whether Accelerated Networking is enabled for an existing VM:
+
+1. From the [Azure portal](https://portal.azure.com) page for the VM, select **Networking** from the left menu.
+1. On the **Networking** page, select the **Network Interface**.
+1. On the network interface **Overview** page, under **Essentials**, note whether **Accelerated networking** is set to **Enabled** or **Disabled**.
 
 ## Next steps
 
