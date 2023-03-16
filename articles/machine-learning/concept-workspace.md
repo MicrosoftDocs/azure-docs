@@ -36,7 +36,9 @@ Machine learning tasks read and/or write artifacts to your workspace.
 + Create and run reusable workflows.
 + View machine learning artifacts such as jobs, pipelines, models, deployments.
 + Track and monitor models.
+:::moniker range="azureml-api-2"
 + You can share assets between workspaces using [Azure Machine Learning registries (preview)](how-to-share-models-pipelines-across-workspaces-with-registries.md).
+:::moniker-end
 
 ## Taxonomy 
 

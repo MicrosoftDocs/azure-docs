@@ -54,7 +54,7 @@ When performing inference, Azure Machine Learning creates a Docker container tha
 Learn [where and how to deploy your model to a compute target](how-to-deploy-online-endpoints.md).
 :::moniker-end
 :::moniker range="azureml-api-1"
-Learn [where and how to deploy your model to a compute target](./v1/how-to-deploy-and-where.md.md).
+Learn [where and how to deploy your model to a compute target](./v1/how-to-deploy-and-where.md).
 :::moniker-end
 
 ## Azure Machine Learning compute (managed)
