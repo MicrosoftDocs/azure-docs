@@ -42,7 +42,7 @@ Node Selector is the most common and recommended option for placement of Windows
         "kubernetes.io/os": windows
 ```
 
-The above annotation finds *any* Windows node available and place the pod on that node (following all other scheduling rules). When upgrading from Windows Server 2019 to Windows Server 2022, you need to enforce not only the placement on a Windows node, but also on a node that is running the latest OS version. To accomplish this, one option is to use a different annotation:
+The above annotation finds *any* Windows node available and places the pod on that node (following all other scheduling rules). When upgrading from Windows Server 2019 to Windows Server 2022, you need to enforce not only the placement on a Windows node, but also on a node that is running the latest OS version. To accomplish this, one option is to use a different annotation:
 
 ```yaml
       nodeSelector:
@@ -91,7 +91,7 @@ At this point, AKS starts the process of terminating the existing pods and deplo
 ```console
 kubectl get pods -o wide
 ```
-This command return the status of the pods on the default namespace. You might need to change the command above to list the pods on specific namespaces. 
+This command returns the status of the pods on the default namespace. You might need to change the command above to list the pods on specific namespaces. 
 
 ```output
 NAME                      READY   STATUS    RESTARTS   AGE     IP             NODE              NOMINATED NODE   READINESS GATES

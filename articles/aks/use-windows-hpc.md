@@ -18,7 +18,7 @@ A privileged DaemonSet can carry out changes or monitor a Linux host on Kubernet
 
 * HostProcess containers require Kubernetes 1.23 or greater.
 * HostProcess containers require `containerd` 1.6 or higher container runtime.
-* HostProcess pods can only contain HostProcess containersdue to a limitation on the Windows operating system.Non-privileged Windows containers can't share a vNIC with the host IP namespace.
+* HostProcess pods can only contain HostProcess containers due to a limitation on the Windows operating system. Non-privileged Windows containers can't share a vNIC with the host IP namespace.
 * HostProcess containers run as a process on the host. The only isolation those containers have from the host is the resource constraints imposed on the HostProcess user account.
 * Filesystem isolation and Hyper-V isolation aren't supported for HostProcess containers.
 * Volume mounts are supported and are mounted under the container volume. See Volume Mounts.
