@@ -2,7 +2,7 @@
 title: Scheduling recurring updates in Update management center (preview)
 description: The article details how to use update management center (preview) in Azure to set update schedules that install recurring updates on your machines.
 ms.service: update-management-center
-ms.date: 12/27/2022
+ms.date: 03/16/2023
 ms.topic: conceptual
 author: SnehaSudhirG
 ms.author: sudhirsneha
@@ -11,6 +11,10 @@ ms.author: sudhirsneha
 # Schedule recurring updates for machines using Azure portal and Azure Policy
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
+
+> [!IMPORTANT]
+> - For a seamless scheduled patching experience, we recommend that for all Azure VMs, you update the patch mode to *Azure orchestrated with user managed schedules (preview)* before April 17, 2023. If you fail to update the patch mode before April 17, 2023, you can experience a disruption in business continuity because the schedules will fail to patch the VMs.
+> - To update the patch mode,  go to **Update management center (Preview)** home page > **Update Settings**. In **Change update settings**, add the machines and under **Patch orchestration**, select *Azure orchestrated with user managed schedules (Preview)*.
 
 You can use update management center (preview) in Azure to create and save recurring deployment schedules. You can create a schedule on a daily, weekly or hourly cadence, specify the machines that must be updated as part of the schedule, and the updates to be installed. This schedule will then automatically install the updates as per the created schedule for single VM and at scale.
 
