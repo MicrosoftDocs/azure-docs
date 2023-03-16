@@ -9,15 +9,15 @@ ms.topic: tutorial
 author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
-ms.date: 02/17/2023
+ms.date: 03/15/2023
 ms.custom: mlops #add more custom tags
 #Customer intent: This tutorial is intended to show users what is needed for deployment and present a high-level overview of how Azure Machine Learning handles deployment. Deployment isn't typically done by a data scientist, so the tutorial won't use Azure CLI examples. We will link to existing articles that use Azure CLI as needed. The code in the tutorial will use SDK v2. The tutorial will continue where the "Create reusable pipelines" tutorial stops.
 ---
 
-<!-- nbstart https://raw.githubusercontent.com/Azure/azureml-examples/new-tutorial-series/tutorials/get-started-notebooks/deploy-model.ipynb -->
+<!-- nbstart https://raw.githubusercontent.com/Azure/azureml-examples/get-started-tutorials/tutorials/get-started-notebooks/deploy-model.ipynb -->
 
 <!-- > [!TIP]
-> Contents of _deploy-model.ipynb_. **[Open in GitHub](https://github.com/Azure/azureml-examples/blob/new-tutorial-series/tutorials/get-started-notebooks/deploy-model.ipynb)**. -->
+> Contents of _deploy-model.ipynb_. **[Open in GitHub](https://github.com/Azure/azureml-examples/blob/get-started-tutorials/tutorials/get-started-notebooks/deploy-model.ipynb)**.**. -->
 
 # Deploy a model as an online endpoint
 
@@ -45,9 +45,9 @@ The steps you'll take are:
 
 1. If you already completed the earlier training tutorial, "Train a model", you can skip to #3 in the prerequisites.
 1. If you haven't completed the earlier tutorial, be sure to do the following: 
-    * Access an Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) to begin.
-    * Create an Azure Machine Learning workspace and a compute instance if you don't have them already. The [Quickstart: Create workspace resources](quickstart-create-resources.md) provides steps that you can follow.
-    * Download the files and metadata for the model you'll deploy. You can find the files and metadata in the `azureml-examples/tutorials/get-started-notebooks/deploy/credit_defaults_model` directory.  <!-- MA: update this location** -->
+    * Access an Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/machine-learning) to begin.
+    * Create an Azure Machine Learning workspace and a compute instance if you don't have them already. The [Quickstart: Create workspace resources](quickstart-create-resources.md) provides steps that you can follow. Be sure to have enough quota (at least 15 cores) available for the compute resources you'll use in this tutorial. To view your usage and request quota increases, see [Manage resource quotas](how-to-manage-quotas.md#view-your-usage-and-quotas-in-the-azure-portal).
+    * Download the files and metadata for the model you'll deploy. You can find the files and metadata in the `azureml-examples/tutorials/get-started-notebooks/deploy/credit_defaults_model` directory. <mark> **update this location**</mark> 
 1. View your VM quota and ensure you have enough quota available to create online deployments. In this tutorial, you will need at least 8 cores of `STANDARD_DS3_v2` and 12 cores of `STANDARD_F4s_v2`. To view your VM quota usage and request quota increases, see [Manage resource quotas](how-to-manage-quotas.md#view-your-usage-and-quotas-in-the-azure-portal).
     > [!NOTE]
     > You'll use 1 instance of the [Standard_DS3_v2](/azure/virtual-machines/dv2-dsv2-series) VM SKU and 2 instances of the [Standard_F4s_v2](/azure/virtual-machines/fsv2-series) VM SKU in this tutorial. For managed online endpoints, Azure Machine Learning reserves 20% of your compute resources for performing upgrades. To ensure proper resource allocation, you must have a quota equal to the product of:
@@ -57,7 +57,7 @@ The steps you'll take are:
     > This translates to `ceil(1.2 * 1) * 4` = `8` cores for the `Standard_DS3_v2` VM and `ceil(1.2 * 2) * 4` = `12` cores for the `Standard_F4s_v2` VM.
 1. Create a new notebook or copy the contents of our notebook.
     * Follow the [Create a new notebook](quickstart-create-resources.md#create-a-new-notebook) steps to create a new notebook.
-    * Or open the notebook by opening  **tutorials/get-started-notebooks/deploy.ipynb** from the **Samples** section of studio. Then select **Clone this notebook**  to add the notebook to your **Files**.
+    * Or open the notebook by opening **tutorials/get-started-notebooks/deploy-model.ipynb** from the **Samples** section of studio. Then select **Clone this notebook** to add the notebook to your **Files**.
 
 ## Connect to the workspace
 

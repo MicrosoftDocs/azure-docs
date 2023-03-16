@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.reviewer: franksolomon
 author: samuel100
 ms.author: samkemp
-ms.date: 02/27/2023
+ms.date: 03/15/2023
 #Customer intent: As a data scientist, I want to know how to prototype and develop machine learning models on a cloud workstation.
 ---
 
@@ -29,7 +29,7 @@ The start of a machine learning project typically involves exploratory data anal
 
 ## Prerequisites
 
-* Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/machine-learning).
 * Complete the [Create resources you need to get started](quickstart-create-resources.md) if you need help to:
     * Create a workspace.
     * Create a cloud-based compute instance to use for your development environment.
@@ -46,21 +46,28 @@ The start of a machine learning project typically involves exploratory data anal
 
 2. Make sure that the kernel, found on the top right, is `Python 3.10 - SDK v2`.  If not, use the dropdown to select this kernel.
 
-   <!-- nbstart https://raw.githubusercontent.com/Azure/azureml-examples/get-started-tutorials/tutorials/get-started-notebooks/access-and-explore-data.ipynb -->
+<!-- nbstart https://raw.githubusercontent.com/Azure/azureml-examples/new-tutorial-series/tutorials/get-started-notebooks/access-and-explore-data.ipynb -->
 
 
 1. Select **Open terminal** below the three dots, as shown in this image:
 
     :::image type="content" source="media/tutorial-cloud-workstation/open-terminal.png" alt-text="Screenshot shows open terminal tool in notebook toolbar.":::
 
-1. The terminal window opens in a new tab. Enter these commands in this terminal window to copy the data to your workspace:
+1. The terminal window opens in a new tab. 
+1. Make sure you `cd` to the same folder where this notebook is located.  For example, if the notebook is in a folder named **get-started-notebooks**:
 
     ```
-    cd get-started-notebooks    # modify this to the path where your notebook is located
-    mkdir data                     # create a data sub-folder
+    cd get-started-notebooks    #  modify this to the path where your notebook is located
+    ```
+
+1. Enter these commands in the terminal window to copy the data to your compute instance:
+
+    ```
     cd data                     # the sub-folder where you'll store the data
     wget https://azuremlexamples.blob.core.windows.net/datasets/credit_card/default_of_credit_card_clients.csv
     ```
+1. You can now close the terminal window.
+
 
 [Learn more about this data on the UCI Machine Learning Repository.](https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients)
 
@@ -140,11 +147,11 @@ my_data = Data(
 ml_client.data.create_or_update(my_data)
 ```
 
-In this image, you'll notice that the data uploaded to the default Azure Machine Learning _datastore_: 
+You can see the uploaded data by selecting **Data** on the left. You'll see the data is uploaded and a data asset is created:
 
 :::image type="content" source="media/tutorial-prepare-data/access-and-explore-data.png" alt-text="Screenshot shows the data in studio.":::
 
-This data is named **credit-card**, and in the **Data assets** tab, we can see it in the **Name** column. This data uploaded to your workspace's default datastore named **workspaceblobstore**, seen in the **Data source** column. An Azure Machine Learning datastore is a _reference_ to an _existing_ storage account on Azure. 
+This data is named **credit-card**, and in the **Data assets** tab, we can see it in the **Name** column. This data uploaded to your workspace's default datastore named **workspaceblobstore**, seen in the **Data source** column. An Azure Machine Learning datastore is a *reference* to an *existing* storage account on Azure.
 
 A datastore offers these benefits:
 
@@ -290,6 +297,7 @@ print(v2df.head(5))
 ```
 
 <!-- nbend -->
+
 
 
 ## Clean up resources

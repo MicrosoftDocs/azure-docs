@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: lebaro-msft
 ms.author: lebaro
 ms.reviewer: sgilley
-ms.date: 03/13/2023
+ms.date: 03/15/2023
 #Customer intent: As a data scientist, I want to know how to prototype and develop machine learning models on a cloud workstation.
 ---
 
@@ -24,7 +24,7 @@ Learn how to develop a training script with a notebook on an Azure Machine Learn
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/machine-learning).
 - An Azure Machine Learning workspace. See [Create resources to get started](quickstart-create-resources.md) for information on how to create one.
 
 
@@ -246,6 +246,7 @@ Now create a Python script from your notebook for model training.
 
     :::image type="content" source="media/tutorial-cloud-workstation/export-python-file.png" alt-text="Screenshot shows exporting a Python file from the notebook.":::
 
+1. Name the file **train.py**.
 1. Look through this file and delete the code you don't want in the training script.  For example, keep the code for the model you wish to use, and delete code for the model you don't want.  
     * Make sure you keep the code that starts autologging (`mlflow.sklearn.autolog()`).
     * You may wish to delete the auto-generated comments and add in more of your own comments.

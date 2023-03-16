@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
 ms.reviewer: sgilley
-ms.date: 08/26/2022
+ms.date: 03/15/2023
 adobe-target: true
 ms.custom: FY21Q4-aml-seo-hack, contperf-fy21q4, mode-other, ignite-2022
 #Customer intent: As a data scientist, I want to create a workspace so that I can start to use Azure Machine Learning.
@@ -24,7 +24,7 @@ In this article, you'll create the resources you need to start working with Azur
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/machine-learning).
 
 ## Create the workspace
 

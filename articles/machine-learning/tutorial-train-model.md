@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.reviewer: ssalgado
 author: ssalgadodev
 ms.author: ssalgado
-ms.date: 02/27/2023
+ms.date: 03/15/2023
 #Customer intent: As a data scientist, I want to know how to prototype and develop machine learning models on a cloud workstation.
 ---
 
@@ -17,9 +17,9 @@ ms.date: 02/27/2023
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-Learn how a data scientist uses Azure Machine Learning (Azure Machine Learning) to train a model.  In this example, we use the associated credit card dataset to show how you can use AutoML for a classification problem. The goal is to predict if a customer has a high likelihood of defaulting on a credit card payment.
+Learn how a data scientist uses Azure Machine Learning to train a model.  In this example, we use the associated credit card dataset. The goal is to predict if a customer has a high likelihood of defaulting on a credit card payment.
 
-The training script handles the data preparation, then trains and registers a model. This tutorial takes you through steps to submit a cloud-based training job (command job). If you would like to learn more about how to load your data into Azure, see [Create data assets](how-to-create-data-assets.md). 
+The training script handles the data preparation, then trains and registers a model. This tutorial takes you through steps to submit a cloud-based training job (command job). If you would like to learn more about how to load your data into Azure, see [Tutorial: Upload, access and explore your data in Azure Machine Learning](tutorial-explore-data.md). 
 
 
 The steps are:
@@ -35,12 +35,12 @@ The steps are:
 
 ## Prerequisites
 
-* Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/machine-learning).
 * Complete the [Create resources you need to get started](quickstart-create-resources.md) if you need help to:
     * Create a workspace.
     * Create a cloud-based compute instance to use for your development environment.
     * Create a new notebook, if you want to copy/paste code into cells.
-    * Or, open the notebook version of this tutorial by opening **Put notebook location here** from the **Samples** section of studio.  Then select **Clone this notebook** to add the notebook to your **Files**.
+    * Or, open the notebook version of this tutorial by opening **tutorials/get-started-notebooks/train-model.ipynb** from the **Samples** section of studio.  Then select **Clone this notebook** to add the notebook to your **Files**.
 
 ## Set your notebook kernel
 
@@ -52,7 +52,7 @@ The steps are:
 
 2. Make sure that the kernel, found on the top right, is `Python 3.10 - SDK v2`.  If not, use the dropdown to select this kernel.
 
-<!-- nbstart https://raw.githubusercontent.com/Azure/azureml-examples/new-tutorial-series/tutorials/get-started-notebooks/train-model.ipynb -->
+<!-- nbstart https://raw.githubusercontent.com/Azure/azureml-examples/get-started-tutorials/tutorials/get-started-notebooks/train-model.ipynb -->
 
 
 ## Use a command job to train a model in Azure Machine Learning
@@ -63,7 +63,7 @@ A command job is a function that allows you to submit a custom training script t
 
 In this tutorial, we'll focus on using a command job to create a custom training job that we'll use to train a model. For any custom training job, the below items are required:
 
-* compute resource (either a compute instance or a compute cluster)
+* compute resource (usually a compute cluster, which we recommend for scalability)
 * environment
 * data
 * command job 
@@ -77,7 +77,7 @@ In this tutorial we'll provide all these items for our example: creating a class
 
 Before you dive in the code, you need to connect to your Azure Machine Learning workspace.
 
-We're using DefaultAzureCredential to get access to workspace. DefaultAzureCredential handles most Azure SDK authentication scenarios.
+We're using `DefaultAzureCredential` to get access to workspace. `DefaultAzureCredential` handles most Azure SDK authentication scenarios.
 
 In this cell, enter your Subscription ID, Resource Group name and Workspace name. To find these values:
 
@@ -153,9 +153,9 @@ except Exception:
 
 ## Create a job environment
 
-To run your AzureML job on your compute resource, you need an [environment](concept-environments.md). An environment lists the software runtime and libraries that you want installed on the compute where you’ll be training. It's similar to your python environment on your local machine.
+To run your Azure Machine Learning job on your compute resource, you need an [environment](concept-environments.md). An environment lists the software runtime and libraries that you want installed on the compute where you’ll be training. It's similar to your python environment on your local machine.
 
-AzureML provides many curated or ready-made environments, which are useful for common training and inference scenarios. You can also create your own custom environments using a docker image, or a conda configuration.
+Azure Machine Learning provides many curated or ready-made environments, which are useful for common training and inference scenarios. 
 
 In this example, you'll create a custom conda environment for your jobs, using a conda yaml file.
 
@@ -169,7 +169,7 @@ dependencies_dir = "./dependencies"
 os.makedirs(dependencies_dir, exist_ok=True)
 ```
 
-Now, create the file in the dependencies directory.
+The cell below uses IPython magic to write the conda file into the directory you just created.
 
 
 ```python
@@ -186,7 +186,6 @@ dependencies:
   - pandas>=1.1,<1.2
   - pip:
     - inference-schema[numpy-support]==1.3.0
-    - xlrd==2.0.1
     - mlflow== 1.26.1
     - azureml-mlflow==1.42.0
     - psutil>=5.8,<5.9
@@ -228,8 +227,6 @@ The *training script* handles the data preparation, training and registering of 
 
 Command jobs can be run from CLI, Python SDK, or studio interface. In this tutorial, you'll use the Azure Machine Learning Python SDK v2 to create and run the command job.
 
-After running the training job, if you need to learn more about deploying the model you can follow the next tutorial in this series.
-
 ## Create training script
 
 Let's start by creating the training script - the *main.py* python file.
@@ -246,7 +243,7 @@ os.makedirs(train_src_dir, exist_ok=True)
 
 This script handles the preprocessing of the data, splitting it into test and train data. It then consumes this data to train a tree based model and return the output model. 
 
-[MLFlow](https://mlflow.org/docs/latest/tracking.html) is used to log the parameters and metrics during our job. The MLFlow package allows you to keep track of metrics and results for each model Azure trains. We'll be using MLFlow to first get the best model for our data, then we'll view the model's metrics on the Azure studio. If you would like to learn more about how MLFLow works with Azure Machine Learning [visit this link](concept-mlflow.md).  
+[MLFlow](concept-mlflow.md) is used to log the parameters and metrics during our job. The MLFlow package allows you to keep track of metrics and results for each model Azure trains. We'll be using MLFlow to first get the best model for our data, then we'll view the model's metrics on the Azure studio. 
 
 
 ```python
@@ -395,7 +392,7 @@ job = command(
 
 ## Submit the job 
 
-It's now time to submit the job to run in Azure Machine Learning studio. This time you'll use `create_or_update`  on `ml_client.jobs`. 
+It's now time to submit the job to run in Azure Machine Learning studio. This time you'll use `create_or_update`  on `ml_client`. `ml_client` is a client class that allows you to connect to your Azure subscription using Python and interact with Azure ML services. `ml_client` allows your to submit your jobs using Python.
 
 
 ```python
@@ -422,6 +419,7 @@ When you run the cell, the notebook output shows a link to the job's details pag
 
 
 
+
 ## Clean up resources
 
 If you plan to continue now to other tutorials, skip to [Next steps](#next-steps).
@@ -445,7 +443,7 @@ If you're not going to use it now, stop the compute instance:
 Learn about deploying a model 
 
 > [!div class="nextstepaction"]
-[Deploy a model](tutorial-deploy-model.md).
+> [Deploy a model](tutorial-deploy-model.md).
 
 This tutorial used an online data file.  To learn more about other ways to access data, see [Tutorial: Upload, access and explore your data in Azure Machine Learning](tutorial-explore-data.md).
 

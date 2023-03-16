@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: msdpalam
 ms.author: meeral
 ms.reviewer: lagayhar
-ms.date: 03/14/2023
+ms.date: 03/15/2023
 ms.custom: sdkv2, event-tier1-build-2022, ignite-2022
 #Customer intent: This tutorial is intended to introduce Azure Machine Learning to data scientists who want to scale up or publish their ML projects. By completing a familiar end-to-end project, which starts by loading the data and ends by creating and calling an online inference endpoint, the user should become familiar with the core concepts of Azure Machine Learning and their most common usage. Each step of this tutorial can be modified or performed in other ways that might have security or scalability advantages. We will cover some of those in the Part II of this tutorial, however, we suggest the reader use the provide links in each section to learn more on each topic.
 ---
@@ -46,7 +46,7 @@ The two steps are first data preparation and second training.
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/machine-learning).
 - An Azure Machine Learning workspace. See [Create resources to get started](quickstart-create-resources.md) for information on how to create one.
 
 <!-- nbstart https://raw.githubusercontent.com/Azure/azureml-examples/new-tutorial-series/tutorials/get-started-notebooks/pipeline.ipynb -->
