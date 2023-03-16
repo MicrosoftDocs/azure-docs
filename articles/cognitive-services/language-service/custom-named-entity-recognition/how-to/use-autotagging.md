@@ -1,7 +1,7 @@
 ---
-title: How to use autotagging in custom named entity recognition
+title: How to use autolabeling in custom named entity recognition
 titleSuffix: Azure Cognitive Services
-description: Learn how to use autotagging in custom named entity recognition.
+description: Learn how to use autolabeling in custom named entity recognition.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.custom: event-tier1-build-2022
 ms.topic: how-to
-ms.date: 05/09/2022
+ms.date: 03/16/2023
 ms.author: aahi
 ---
 
 # How to use autolabeling for Custom Named Entity Recognition
 
-[Labeling process](tag-data.md) is an important part of preparing your dataset. Since this process requires much time and effort, you can use the autolabeling feature to automatically label your entities. You can start autolabeling jobs based on a model you've previously trained or using GPT models. With autolabeling based on a model you've previously trained, you can start labeling a few of your documents, train a model, then create an autolabeling job to produce entity labels for other documents based on that model. With autolabeling with GPT, you may immediately trigger an autolabeling job without any prior model training. This feature can save you the time and effort of manually labeling your entities. 
+[Labeling process](tag-data.md) is an important part of preparing your dataset. Since this process requires both time and effort, you can use the autolabeling feature to automatically label your entities. You can start autolabeling jobs based on a model you've previously trained or using GPT models. With autolabeling based on a model you've previously trained, you can start labeling a few of your documents, train a model, then create an autolabeling job to produce entity labels for other documents based on that model. With autolabeling with GPT, you may immediately trigger an autolabeling job without any prior model training. This feature can save you the time and effort of manually labeling your entities. 
 
 ## Prerequisites
 
