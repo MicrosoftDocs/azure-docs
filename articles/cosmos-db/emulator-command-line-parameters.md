@@ -198,7 +198,7 @@ Start-CosmosDbEmulator [-AllowNetworkAccess]
     Start-CosmosDbEmulator @parameters
     ```
 
-1. Starts the emulator with alternative port numbers.
+- Starts the emulator with alternative port numbers.
 
     ```powershell
     @parameters = {
