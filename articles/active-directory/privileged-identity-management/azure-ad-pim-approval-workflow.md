@@ -1,5 +1,5 @@
 ---
-title: Approve or deny requests for Azure AD roles in PIM - Azure AD | Microsoft Docs
+title: Approve or deny requests for Azure AD roles in PIM - Azure AD
 description: Learn how to approve or deny requests for Azure AD roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''

@@ -1,5 +1,5 @@
 ---
-title: MFA or 2FA and Privileged Identity Management - Azure AD | Microsoft Docs
+title: MFA or 2FA and Privileged Identity Management - Azure AD
 description: Learn how Azure AD Privileged Identity Management (PIM) validates multifactor authentication (MFA).
 services: active-directory
 documentationcenter: ''
