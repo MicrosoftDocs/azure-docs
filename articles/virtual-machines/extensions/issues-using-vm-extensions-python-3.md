@@ -41,11 +41,11 @@ Consider these general recommendations before deploying extensions in the known-
 
    - For example, for **Python 2.7**, use: `sudo apt update && sudo apt install python-is-python2`
 
-1. This recommendation is for Azure customers and is not supported in Azure Stack:
+1. This recommendation is for Azure customers and isn't supported in Azure Stack:
 
-   - If you’ve already deployed an instance that exhibits this problem, use the Run command functionality in the VM blade to run the commands mentioned above. The Run command extension itself is not affected by the transition to Python 3.8.
+   - If you’ve already deployed an instance that exhibits this problem, use the Run command functionality in the VM blade to run the commands mentioned above. The Run command extension itself isn't affected by the transition to Python 3.8.
 
-1. If you are deploying a new instance, and need to set an extension at provisioning time, use **cloud-init** user data to install the packages mentioned above.
+1. If you're deploying a new instance, and need to set an extension at provisioning time, use **cloud-init** user data to install the packages mentioned above.
 
    For example, for Python 2.7:
 
