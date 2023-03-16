@@ -509,11 +509,30 @@
     - name: Overview
       displayName: blob, adls, files, Microsoft Defender for Storage, Defender for Storage, storage, Azure-native security, automated response, alerts, security, hash reputation analysis
       href: defender-for-storage-introduction.md
-    - name: Enable Defender for Storage
-      href: ../storage/common/azure-defender-storage-configure.md?toc=/azure/defender-for-cloud/toc.json
-    - name: Exclude a storage account (per-transaction)
-      displayName: blob, adls, files, Microsoft Defender for Storage, Defender for Storage
-      href: defender-for-storage-exclude.md
+    - name: Malware Scanning
+      href: defender-for-storage-malware-scan.md
+    - name: Sensitive data threat detection
+      href: defender-for-storage-data-sensitivity.md
+    - name: Working with Defender for Storage
+      items:
+      - name: Enable and configure Defender for Storage
+        href: defender-for-storage-enable.md
+      - name: Configure Malware Scanning
+        href: defender-for-storage-configure-malware-scan.md
+      - name: Test and run a PoC
+        href: defender-for-storage-test.md
+      - name: Setting up response
+        href: defender-for-storage-response.md
+    - name: List of security threats and security alerts
+      href: defender-for-storage-threats-alerts.md
+    - name: Defender for Storage (classic)
+      items:
+      - name: Overview
+        href: defender-for-storage-classic.md
+      - name: Enable and configure Defender for Storage (classic)
+        href: defender-for-storage-classic-enable.md
+      - name: Migrating to the new plan
+        href: defender-for-storage-classic-migrate.md
   - name: Defender for Key Vault
     items:
     - name: Overview
