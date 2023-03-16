@@ -10,7 +10,8 @@ ms.date: 3/15/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: sms
----
+
+
 # Toll-Free Verification Filling Guidelines
 
 In this document, we will review the guidelines on filling out an application to verify your toll-free number. The toll-free verification application consists of 5 sections:  
@@ -34,12 +35,15 @@ This drop down displayes all the toll-free numbers you have in the Azure Communi
 If you are using multiple sending numbers for the same use case, please justify how you will be using the multiple numbers. Carriers require the justification because they are sensitive to the prohibited practice of snowshoeing or spreading the same or similar traffic over multiple sending toll-free numbers, as the primary purpose for snowshoeing is generally an attempt to evade carrier spam filters. 
 
 ## Company Details  
+You need to provide information about your company and point of contact. Status updates for your short code application will be sent to the point of contact email address.
 
- 
+## Program Content
+Message Senders are required to provide detailed information on the content of their SMS campaign and to ensure that the customer consents to receive text messages, and understands the nature of the program.
 
- 
+### Program Description
+You need to describe the program for which the toll-free number will be used to send SMS. Include who will be receiving the messages and frequency of the messages.
 
-### Opt-in  
+### Opt-in 
 
 The general rule of thumb for opt-in are:  
 - Making sure the opt-in flow is thoroughly detailed.  
@@ -49,6 +53,7 @@ The general rule of thumb for opt-in are:
 
  Here are some tips on how to show the proof of your opt-in workflow:
 
+### Opt-in URL
 
 |Type of Opt-In| Tips|
 |--------------|-----|
@@ -59,8 +64,26 @@ The general rule of thumb for opt-in are:
 |2FA/OTP| Please provide a screenshot of the process to receive the initial text.|
 |Paper form | Upload the form and make sure it includes XXXX. |
 
- 
+ # Volume 
 
- 
+### Expected total messages sent
+In this field, you are required to provide an estimate of total messages sent per month.
 
- 
+## Templates
+Message senders are required to disclose all the types/categories of messages with samples that will be sent over the toll-free number.
+
+#### Examples
+- Contoso Promo Alerts: 3 msgs/week. Msg&Data Rates May Apply. Reply HELP for help. Reply STOP to opt-out.
+- Contoso: Your reservation has been confirmed for 30th February 2022. Txt R to reschedule. Txt HELP or STOP. Msg&Data rates may apply.
+
+ ## Next steps
+
+> [!div class="nextstepaction"]
+> [Apply for a short code](../../quickstarts/telephony/get-phone-number.md)
+
+> [!div class="nextstepaction"]
+> [Apply for a short code](../../quickstarts/sms/apply-for-short-code.md)
+The following documents may be interesting to you:
+
+- Familiarize yourself with the [SMS SDK](../sms/sms-faq.md)
+- Familiarize yourself with the [SMS SDK](../sms/sdk-features.md)
