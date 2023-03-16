@@ -1,7 +1,7 @@
 ---
 title: Create elevation data & services using open data
 titeSuffix: Microsoft Azure Maps
-description: a guide to help developers migrate from Azure Maps elevation services to alternate solutions.
+description: a guide to help developers build Elevation services and tiles using open data on the Microsoft Azure Cloud.
 author: FarazGIS
 ms.author: fsiddiqui
 ms.date: 3/17/2023
@@ -43,7 +43,7 @@ Select the region that you want raster tiles for. For demonstration purposes, th
 
 1. In the **Search Criteria** tab, select **Polygon** then click on the map to create the boundary.
 
-    :::image type="content" source="./media/elevation-services/create-polygon.png" alt-text="A screenshot showing how to add raster tiles in QGIS." lightbox="./media/elevation-services/create-polygon.png":::
+    :::image type="content" source="./media/elevation-services/create-polygon.png" alt-text="A screenshot showing the search criteria tab in the USGS earth explorer web site." lightbox="./media/elevation-services/create-polygon.png":::
 
 #### Data sets
 
@@ -51,7 +51,7 @@ Select the region that you want raster tiles for. For demonstration purposes, th
 
 1. Select **SRTM 1 Arc-Second Global** from the **Digital Elevations** section.
 
-    :::image type="content" source="./media/elevation-services/data-sets.png" alt-text="A screenshot showing how to add raster tiles in QGIS." lightbox="./media/elevation-services/data-sets.png":::
+    :::image type="content" source="./media/elevation-services/data-sets.png" alt-text="A screenshot showing the data sets tab in the USGS earth explorer web site." lightbox="./media/elevation-services/data-sets.png":::
 
 #### Results
 
@@ -61,7 +61,7 @@ Select the region that you want raster tiles for. For demonstration purposes, th
    only tiles you want, select the **Download Options** button on the result card for each tile,
    selecting the option **GeoTIFF 1 Arc-Second** and repeat this step for the remaining tiles.
 
-    :::image type="content" source="./media/elevation-services/results-export.png" alt-text="A screenshot showing how to add raster tiles in QGIS." lightbox="./media/elevation-services/results-export.png":::
+    :::image type="content" source="./media/elevation-services/results-export.png" alt-text="A screenshot showing the results tab in the USGS earth explorer web site." lightbox="./media/elevation-services/results-export.png":::
 
 1. Alternatively, use the bulk download option and select **GeoTIFF 1 Arc-second**.
 
@@ -72,14 +72,14 @@ Once you have the raster tiles you need, you can import them in QGIS.
 1. Add raster tiles to QGIS by dragging the files to the **QGIS layer**
    tab or selecting **Add Layer** in the **Layer** menu.
 
-    :::image type="content" source="./media/elevation-services/add-raster-tiles-qgis.png" alt-text="A screenshot showing how to add raster tiles in QGIS." lightbox="./media/elevation-services/add-raster-tiles-qgis.png":::
+    :::image type="content" source="./media/elevation-services/add-raster-tiles-qgis.png" alt-text="A screenshot showing raster tiles in QGIS." lightbox="./media/elevation-services/add-raster-tiles-qgis.png":::
 
 2. When the raster layers are loaded into QGIS, there can be
    different shades of tiles. Fix this by merging the raster
    layers, which result in a single smooth raster image in GeoTIFF
    format. To do this, select **Miscellaneous** from the **Raster** menu, then **Merge...**
 
-    :::image type="content" source="./media/elevation-services/merge-raster-layers.png" alt-text="A screenshot showing how the merge raster layers menu in QGIS.":::
+    :::image type="content" source="./media/elevation-services/merge-raster-layers.png" alt-text="A screenshot showing the merge raster menu in QGIS.":::
 
 3. Reproject the merged raster layer to EPSG:3857 (WGS84 / Pseudo-Mercator).
    EPSG:3857 is required to use it with [Azure Maps Web SDK].
@@ -99,19 +99,13 @@ Once you have the raster tiles you need, you can import them in QGIS.
     sudo apt install python3-pip
     pip install rio-rgbify
     PATH="$PATH:/home/<user  /.local/bin"
-    ```
-
-    The following steps are only necessary when mounting an external hard drive or USB flash drive:
-
-    ```Ubuntu
+    # The following two steps are only necessary when mounting an external hard drive or USB flash drive:
     sudo mkdir /mnt/f
     sudo mount -t drvfs D: /mnt/f
+
     rio rgbify -b -10000 -i 0.1 wa_1arc_v3_merged_3857.tif wa_1arc_v3_merged_3857_rgb.tif
-    ```
 
-    The following steps are only necessary when unmounting an external hard drive or USB flash drive:
-
-    ```Ubuntu
+    # The following steps are only necessary when unmounting an external hard drive or USB flash drive:
     cd \~
     sudo umount /mnt/f/
     ```
@@ -237,7 +231,7 @@ PostgreSQL to return vector tiles.
     some of the contour line edges may appear a little rough. This will be addressed
     in the next step.
 
-    :::image type="content" source="./media/elevation-services/contour-lines.png" alt-text="A screenshot showing the contour dialog in QGIS.":::
+    :::image type="content" source="./media/elevation-services/contour-lines.png" alt-text="A screenshot showing a map with contours in QGIS.":::
 
 1. Select **Toolbox** from the **Processing** menu to bring up the **Processing Toolbox**.
 1. Then select **Smooth** in the **Vector geometry** section of the **Processing Toolbox**.
@@ -266,7 +260,7 @@ PostgreSQL to return vector tiles.
 1. Connect to the PostGIS database and select **Import Layer/File...** to
     Import contour lines to the database.
 
-    :::image type="content" source="./media/elevation-services/import-vector-layer.png" alt-text="A screenshot showing the DB Manager in QGIS.":::
+    :::image type="content" source="./media/elevation-services/import-vector-layer.png" alt-text="A screenshot showing the import vector dialog in QGIS.":::
 
 1. You can now use an Azure Function to Query PostgreSQL and return
     vector tiles for the contour lines. The tile server can be used with
