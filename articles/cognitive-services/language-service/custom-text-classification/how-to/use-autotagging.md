@@ -43,7 +43,7 @@ When you trigger an autolabeling job with GPT, you're charged to your Azure Open
 
 5. Choose your Azure OpenAI resource and deployment. You must [create an Azure OpenAI resource and deploy a model](../../../openai/how-to/create-resource.md) in order to proceed.
 
-    :::image type="content" source="../media/autotag-choose-OpenAI.png" alt-text="A screenshot showing how to choose OpenAI resource and deployments" lightbox="../media/autotag-choose-OpenAI.png":::
+    :::image type="content" source="../media/autotag-choose-open-ai.png" alt-text="A screenshot showing how to choose OpenAI resource and deployments" lightbox="../media/autotag-choose-open-ai.png":::
     
 6. Select the classes you want to be included in the autolabeling job. By default, all classes are selected. Having descriptive names for classes, and including examples for each class is recommended to achieve good quality labeling with GPT.
 
