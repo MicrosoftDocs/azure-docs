@@ -251,6 +251,7 @@ Depending on the selected actions, the attribute might be found in different pla
 > | Request | Indicates that the attribute is part of the action request, such as setting the blob index tag. | `@Request` |
 > | Principal | Indicates that the attribute is an Azure AD custom security attribute on the principal, such as a user, enterprise application (service principal), or managed identity. Principal attributes are currently in preview. | `@Principal` |
 | Environment | Indicates that the attribute is an environment attribute, such as a private endpoint, private link, virtual network subnet, or date/time. Environment attributes are currently in preview. | `@Environment` |
+
 #### Resource and request attributes
 
 For a complete list of the blob storage or queue storage attributes you can use in conditions, see:
@@ -287,9 +288,9 @@ The following table lists the the supported environment attributes for condition
 > [!div class="mx-tableFixed"]
 > | Display name | Description | Attribute | Type |
 > | --- | --- | --- | --- |
-> | Subnet | Use this attribute in conditions to restrict access to a specific subnet. | `Microsoft.Network/virtualNetworks/subnets` | Subnet Azure ID as string |
-> | Private endpoint | Use this attribute in conditions that restrict access over a specific private endpoint. | `Microsoft.Network/privateEndpoints` | PrivateEndpoint Azure ID as string |
-> | Is private link | Use this attribute in conditions to require access over any private end point. | `isPrivateLink` | Boolean |
+> | Subnet name | Use this attribute in conditions to restrict access to a specific subnet. | `Microsoft.Network/virtualNetworks/subnets` | String |
+> | Private endpoint name | Use this attribute in conditions that restrict access over a specific private endpoint. | `Microsoft.Network/privateEndpoints` | String |
+> | Is private link | Use this attribute in conditions to require access over any private endpoint. | `isPrivateLink` | Boolean |
 > | UTC now | Use this attribute in conditions to restrict access to objects during specific time periods. | `UtcNow` | DateTime |
 
 For a complete list of the blob storage or queue storage attributes you can use in conditions, see:
