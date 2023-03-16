@@ -189,6 +189,8 @@ In the Azure portal, verify the batch container app is logging each insert into 
 
 1. In the Container App dashboard, select **Monitoring** > **Log stream**.
 
+   :::image type="content" source="media/microservices-dapr-azd/log-streams-menu.png" alt-text="Screenshot of the navigating to the log streams from the Azure Container Apps side menu.":::
+
 1. Confirm the container is logging the same output as in the terminal earlier.
 
    :::image type="content" source="media/microservices-dapr-azd/log-streams-portal-view.png" alt-text="Screenshot of the container app's log stream in the Azure portal.":::
@@ -360,6 +362,8 @@ In the Azure portal, verify the batch container app is logging each insert into 
 
 1. In the Container App dashboard, select **Monitoring** > **Log stream**.
 
+   :::image type="content" source="media/microservices-dapr-azd/log-streams-menu.png" alt-text="Screenshot of the navigating to the log streams from the Azure Container Apps side menu.":::
+
 1. Confirm the container is logging the same output as in the terminal earlier.
 
    :::image type="content" source="media/microservices-dapr-azd/log-streams-portal-view.png" alt-text="Screenshot of the container app's log stream in the Azure portal.":::
@@ -529,6 +533,8 @@ In the Azure portal, verify the batch container app is logging each insert into 
 1. Navigate to the [Azure portal](https://ms.portal.azure.com) and search for the Container App resource by name.
 
 1. In the Container App dashboard, select **Monitoring** > **Log stream**.
+
+   :::image type="content" source="media/microservices-dapr-azd/log-streams-menu.png" alt-text="Screenshot of the navigating to the log streams from the Azure Container Apps side menu.":::
 
 1. Confirm the container is logging the same output as in the terminal earlier.
 
