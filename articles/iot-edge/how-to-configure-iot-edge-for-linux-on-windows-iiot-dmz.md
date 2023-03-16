@@ -82,13 +82,13 @@ For the custom new *external virtual switch* you created, use the following Powe
 
    :::image type="content" source="./media/how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz/add-eflow-network.png" alt-text="Screenshot of a successful creation of the external network named OnlineOPCUA." lightbox="./media/how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz/add-eflow-network.png":::
 
-1. Set a static IP:
+1. Set a static IP.
 
    ```powershell
    Add-EflowVmEndpoint -vswitchName "OnlineOPCUA" -vEndpointName "OnlineEndpoint" -ip4Address 192.168.0.103 -ip4PrefixLength 24 -ip4GatewayAddress 192.168.0.1
    ```
 
-   :::image type="content" source="./media/how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz/add-eflow-vm-endpoint.png" alt-text="Screenshot of a successful configuration of the OnlineOPCUA switch..":::
+   :::image type="content" source="./media/how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz/add-eflow-vm-endpoint.png" alt-text="Screenshot of a successful configuration of the OnlineOPCUA switch.." lightbox="./media/how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz/add-eflow-vm-endpoint.png":::
 
 Once complete, you have the *OnlineOPCUA* switch assigned to the EFLOW VM. To check the multiple NIC attachment, use the following steps:
 
