@@ -53,7 +53,7 @@ In this quickstart, you'll enable DDoS IP protection and link it to a public IP 
 
 1. Select **Create**.
 
-### Enable DDoS IP Protection for an existing Public IP address
+### Enable for an existing Public IP address
 
 1. In the search box at the top of the portal, enter **public IP Address**. Select **public IP Address**.
 1. Select your Public IP address. In this example, select **myStandardPublicIP**.
@@ -65,7 +65,7 @@ In this quickstart, you'll enable DDoS IP protection and link it to a public IP 
 
     :::image type="content" source="./media/ddos-protection-quickstarts/ddos-protection-select-status.png" alt-text="Screenshot of selecting IP Protection in Public IP Properties.":::
 
-### Disable DDoS IP protection for a Public IP address:
+### Disable for a Public IP address:
 
 1. Enter the name of the public IP address you want to disable DDoS IP Protection for in the **Search resources, services, and docs box** at the top of the portal. When the name of public IP address appears in the search results, select it.
 1. Under **Properties** in the overview pane, select **DDoS Protection**.
