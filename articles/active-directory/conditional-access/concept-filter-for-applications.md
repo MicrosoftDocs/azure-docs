@@ -1,5 +1,5 @@
 ---
-title: Filter for applications in Conditional Access policy (Preview) - Azure Active Directory
+title: Filter for applications in Conditional Access policy (Preview)
 description: Use filter for applications in Conditional Access to manage conditions.
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -8,7 +8,7 @@ ms.date: 09/30/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: calebb, oanae
 
 ms.custom: subject-rbac-steps
@@ -80,7 +80,7 @@ Follow the instructions in the article, [Add or deactivate custom security attri
    1. Set **Operator** to **Contains**.
    1. Set **Value** to **requireMFA**.
    1. Select **Done**.
-1. Under **Access controls** > **Grant**, select **Grant access**, **Require multi-factor authentication**, and select **Select**.
+1. Under **Access controls** > **Grant**, select **Grant access**, **Require multifactor authentication**, and select **Select**.
 1. Confirm your settings and set **Enable policy** to **Report-only**.
 1. Select **Create** to create to enable your policy.
 

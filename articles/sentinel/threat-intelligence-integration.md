@@ -59,10 +59,6 @@ To connect to TAXII threat intelligence feeds, follow the instructions to [conne
 
 - [Learn about Kaspersky integration with Microsoft Sentinel](https://support.kaspersky.com/15908)
 
-### PickupSTIX
-
-- [Fill out this web form](https://www.celerium.com/pickupstix) to get the API Root, Collection IDs, Username, and Password for the free TAXII 2.1 Feeds on the PickupSTIX TAXII Server.
-
 ### Pulsedive
 
 - [Learn about Pulsedive integration with Microsoft Sentinel](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/import-pulsedive-feed-into-microsoft-sentinel/ba-p/3478953)
@@ -91,7 +87,7 @@ To connect to Threat Intelligence Platform (TIP) feeds, follow the instructions 
 
 ### Agari Phishing Defense and Brand Protection
 
-- To connect [Agari Phishing Defense and Brand Protection](https://agari.com/products/phishing-defense/), use the built-in [Agari data connector](./data-connectors-reference.md#agari-phishing-defense-and-brand-protection-preview) in Microsoft Sentinel.
+- To connect [Agari Phishing Defense and Brand Protection](https://agari.com/products/phishing-defense/), use the built-in [Agari data connector](./data-connectors-reference.md) in Microsoft Sentinel.
 
 ### Anomali ThreatStream
 

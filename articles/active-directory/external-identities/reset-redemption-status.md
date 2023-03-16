@@ -1,6 +1,6 @@
 ---
 
-title: Reset a guest user's redemption status - Azure AD
+title: Reset a guest user's redemption status
 description: Learn how to reset the invitation redemption status for an Azure Active Directory B2B guest users in Azure AD External Identities.
 
 services: active-directory
@@ -9,8 +9,8 @@ ms.subservice: B2B
 ms.topic: how-to
 ms.date: 12/07/2022
 
-ms.author: mimart
-author: msmimart
+ms.author: cmulligan
+author: csmulligan
 manager: celestedg
 
 ms.collection: engagement-fy23, M365-identity-device-management

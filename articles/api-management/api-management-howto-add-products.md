@@ -64,7 +64,7 @@ In this tutorial, you learn how to:
 
 To begin using Azure CLI:
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 To create a product, run the [az apim product create](/cli/azure/apim/product#az-apim-product-create) command:
 
@@ -186,7 +186,7 @@ After you publish a product, developers can access the APIs. Depending on how th
 
     When a client makes an API request without a subscription key:
     
-    * API Management checks whether the API is associated with an open product. 
+    * API Management checks whether the API is associated with an open product. An API can be associated with at most one open product.
 
     * If the open product exists, it then processes the request in the context of that open product. Policies and access control rules configured for the open product can be applied. 
 

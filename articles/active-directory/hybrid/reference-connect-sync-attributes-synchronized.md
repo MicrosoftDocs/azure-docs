@@ -1,5 +1,5 @@
 ---
-title: 'Attributes synchronized by Azure AD Connect | Microsoft Docs'
+title: 'Attributes synchronized by Azure AD Connect'
 description: Lists the attributes that are synchronized to Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: reference
-ms.date: 04/15/2020
+ms.date: 01/19/2023
 ms.subservice: hybrid
 ms.author: billmath
 

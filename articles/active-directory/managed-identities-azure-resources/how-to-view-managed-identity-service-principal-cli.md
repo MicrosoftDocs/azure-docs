@@ -1,5 +1,5 @@
 ---
-title: View service principal of a managed identity - Azure CLI - Azure AD
+title: View service principal of a managed identity - Azure CLI
 description: Step-by-step instructions for viewing the service principal of a managed identity using Azure CLI.
 services: active-directory
 documentationcenter: ''
@@ -32,7 +32,7 @@ If you don't already have an Azure account, [sign up for a free account](https:/
 
 - Enable [system assigned identity on a virtual machine](./qs-configure-portal-windows-vm.md#system-assigned-managed-identity) or [application](../../app-service/overview-managed-identity.md#add-a-system-assigned-identity).
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## View the service principal
 

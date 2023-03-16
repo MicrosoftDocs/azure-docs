@@ -23,7 +23,7 @@ When you complete the steps described in this article, you see that the event da
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.0.70 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -74,7 +74,7 @@ The deployment may take a few minutes to complete. After the deployment has succ
 
 You should see the site with no messages currently displayed.
 
-[!INCLUDE [event-grid-register-provider-cli.md](../../../includes/event-grid-register-provider-cli.md)]
+[!INCLUDE [register-provider-cli.md](../../event-grid/includes/register-provider-cli.md)]
 
 ## Subscribe to your storage account
 

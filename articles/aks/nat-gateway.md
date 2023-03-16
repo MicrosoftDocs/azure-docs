@@ -1,28 +1,28 @@
 ---
 title: Managed NAT Gateway
+titleSuffix: Azure Kubernetes Service
 description: Learn how to create an AKS cluster with managed NAT integration
-services: container-service
-ms.topic: article
+author: asudbring
+ms.subservice: aks-networking
+ms.custom: devx-track-azurecli
+ms.topic: how-to
 ms.date: 10/26/2021
-ms.author: juda
+ms.author: allensu
 ---
 
 # Managed NAT Gateway
 
-While you can route egress traffic through an Azure Load Balancer, there are limitations on the amount of outbound flows of traffic you can have. Azure NAT Gateway allows up to 64,512 outbound UDP and TCP traffic flows per IP address with a maximum of 16 IP addresses.
+While you can route egress traffic through an Azure Load Balancer, there are limitations on the amount of outbound flows of traffic you can have. Azure NAT Gateway allows up to 64,512 outbound UDP and TCP traffic flows per IP address with a maximum of 16 IP addresses. 
 
 This article shows you how to create an AKS cluster with a Managed NAT Gateway for egress traffic and how to disable OutboundNAT on Windows.
 
 ## Before you begin
 
-To use Managed NAT gateway, you must have the following prerequisites:
-
-* The latest version of [Azure CLI][az-cli]
-* Kubernetes version 1.20.x or above
+* Make sure you're using the latest version of [Azure CLI][az-cli].
+* Make sure you're using Kubernetes version 1.20.x or above.
+* Managed NAT Gateway is incompatible with custom virtual networks.
 
 ## Create an AKS cluster with a Managed NAT Gateway
-
-To create an AKS cluster with a new Managed NAT Gateway, use `--outbound-type managedNATGateway`, `--nat-gateway-managed-outbound-ip-count`, and `--nat-gateway-idle-timeout` when running `az aks create`. The following example creates a *myresourcegroup* resource group, then creates a *natcluster* AKS cluster in *myresourcegroup* with a Managed NAT Gateway, two outbound IPs, and an idle timeout of 4 minutes.
 
 To create an AKS cluster with a new Managed NAT Gateway, use `--outbound-type managedNATGateway`, `--nat-gateway-managed-outbound-ip-count`, and `--nat-gateway-idle-timeout` when running `az aks create`. The following example creates a *myResourceGroup* resource group, then creates a *natCluster* AKS cluster in *myResourceGroup* with a Managed NAT Gateway, two outbound IPs, and an idle timeout of 30 seconds.
 
@@ -41,7 +41,7 @@ az aks create \
 ```
 
 > [!IMPORTANT]
-> If no value the outbound IP address is specified, the default value is one.
+> If no value for the outbound IP address is specified, the default value is one.
 
 ### Update the number of outbound IP addresses
 
@@ -133,7 +133,7 @@ To create an AKS cluster with a user-assigned NAT Gateway, use `--outbound-type 
         --assign-identity $IDENTITY_ID
     ```
 
-## Disable OutboundNAT for Windows
+## Disable OutboundNAT for Windows (preview)
 
 Windows OutboundNAT can cause certain connection and communication issues with your AKS pods. Some of these issues include:
 
@@ -142,6 +142,9 @@ Windows OutboundNAT can cause certain connection and communication issues with y
 * **Invalid traffic routing to internal service endpoints**: When you create a load balancer service with `externalTrafficPolicy` set to *Local*, kube-proxy on Windows doesn't create the proper rules in the IPTables to route traffic to the internal service endpoints.
 
 Windows enables OutboundNAT by default. You can now manually disable OutboundNAT when creating new Windows agent pools.
+
+> [!NOTE]
+> OutboundNAT can only be disabled on Windows Server 2019 nodepools.
 
 ### Prerequisites
 

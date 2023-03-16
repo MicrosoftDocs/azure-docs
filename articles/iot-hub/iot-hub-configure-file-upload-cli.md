@@ -4,6 +4,7 @@ description: How to configure file uploads to Azure IoT Hub using the cross-plat
 author: kgremban
 
 ms.service: iot-hub
+ms.custom: devx-track-azurecli
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/20/2021
@@ -26,7 +27,7 @@ To use the [file upload functionality in IoT Hub](iot-hub-devguide-file-upload.m
 
 * An Azure Storage account. If you don't have an Azure Storage account, you can use the Azure CLI to create one. For more information, see [Create a storage account](../storage/common/storage-account-create.md).
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
@@ -222,5 +223,5 @@ az iot hub update --name {your iot hub name} \
 
 * [Upload files from a device overview](iot-hub-devguide-file-upload.md)
 * [IoT Hub support for managed identities](./iot-hub-managed-identity.md)
-* [File upload how-to guides](./iot-hub-csharp-csharp-file-upload.md)
+* [File upload how-to guides](./file-upload-dotnet.md)
 * Azure CLI [az iot hub update](/cli/azure/iot/hub#az-iot-hub-update), [az iot hub identity show](/cli/azure/iot/hub/identity#az-iot-hub-identity-show), and [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) commands

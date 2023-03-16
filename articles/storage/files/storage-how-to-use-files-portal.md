@@ -7,7 +7,7 @@ ms.topic: quickstart
 ms.date: 01/03/2023
 ms.author: kendownie
 ms.subservice: files
-ms.custom: engagement-fy23, mode-ui, devx-track-azurecli 
+ms.custom: engagement-fy23, mode-ui, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: azurecli
 #Customer intent: As an IT admin new to Azure Files, I want to try out Azure Files so I can determine whether I want to subscribe to the service.
 ---
@@ -41,7 +41,7 @@ If you'd like to install and use PowerShell locally, you'll need the Azure Power
 
 # [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.0.4 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 

@@ -1,11 +1,11 @@
 ---
 title: Interact with your jobs (debug and monitor)
 titleSuffix: Azure Machine Learning
-description: Debug or monitor your Machine Learning job as it runs on AzureML compute with your training application of choice. 
+description: Debug or monitor your Machine Learning job as it runs on Azure Machine Learning compute with your training application of choice. 
 services: machine-learning
 ms.author: shoja
 author: shouryaj
-ms.reviewer: ssalgadodev
+ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
@@ -192,7 +192,7 @@ It might take a few minutes to start the job and the training applications speci
     
 - To connect via SSH to the container where the job is running, run the command `az ml job connect-ssh --name <job-name> --node-index <compute node index> --private-key-file-path <path to private key>`. To set up the Azure Machine Learning CLIv2, follow this [guide](./how-to-configure-cli.md). 
   
-You can find the reference documentation for the SDKv2 [here](/azure/machine-learning/).
+You can find the reference documentation for the SDKv2 [here](./index.yml).
 
 You can access the applications only when they are in **Running** status and only the **job owner** is authorized to access the applications. If you're training on multiple nodes, you can pick the specific node you would like to interact with by passing in the node index.
 

@@ -7,8 +7,6 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 10/25/2019
 ms.author: victorh 
-ms.custom: devx-track-azurepowershell
-
 ---
 # Resource logs for Azure Web Application Firewall
 
@@ -18,7 +16,7 @@ You can monitor Web Application Firewall resources using logs. You can save perf
 
 ## Diagnostic logs
 
-You can use different types of logs in Azure to manage and troubleshoot application gateways. You can access some of these logs through the portal. All logs can be extracted from Azure Blob storage and viewed in different tools, such as [Azure Monitor logs](../../azure-monitor/insights/azure-networking-analytics.md), Excel, and Power BI. You can learn more about the different types of logs from the following list:
+You can use different types of logs in Azure to manage and troubleshoot application gateways. You can access some of these logs through the portal. All logs can be extracted from Azure Blob storage and viewed in different tools, such as [Azure Monitor logs](/previous-versions/azure/azure-monitor/insights/azure-networking-analytics), Excel, and Power BI. You can learn more about the different types of logs from the following list:
 
 * **Activity log**: You can use [Azure activity logs](../../azure-monitor/essentials/activity-log.md) to view all operations that are submitted to your Azure subscription, and their status. Activity log entries are collected by default, and you can view them in the Azure portal.
 * **Access Resource log**: You can use this log to view Application Gateway access patterns and analyze important information. This includes the caller's IP, requested URL, response latency, return code, and bytes in and out. This log contains individual records for each request and associates that request to the unique Application Gateway that processed the request. Unique Application Gateway instances can be identified by the property instanceId.
@@ -228,7 +226,7 @@ The firewall log is generated only if you have enabled it for each application g
 |ruleSetVersion     | Rule set version used. Available values are 2.2.9 and 3.0.     |
 |ruleId     | Rule ID of the triggering event.        |
 |message     | User-friendly message for the triggering event. More details are provided in the details section.        |
-|action     |  Action taken on the request. Available values are: </br>**Blocked and Allowed** (for custom rules) </br>**Matched** (when a rule matches a part of the request) </br>**Detected and Blocked** (these are both for mandatory rules, depending on if the WAF is in detection or prevention mode).      |
+|action     |  **Policy Mode:** Detection</br>   - **Detected** - This is the only action for the WAF when in detection mode. All the conditions for a given rule were matched and the request was logged then passed to the backend.</br></br>**Policy Mode:** Prevention</br>   - **Allowed** - All conditions were matched for a given rule and the request was passed to the backend.</br>   - **Blocked** - All of the conditions were matched for a given rule and the request was blocked.</br>   - **Matched** - One/more conditions were matched for a given rule, but the decision to block or pass the request will need further evaluation and will be evaluated based on the final anomaly scoring rule.      |
 |site     | Site for which the log was generated. Currently, only Global is listed because rules are global.|
 |details     | Details of the triggering event.        |
 |details.message     | Description of the rule.        |
@@ -285,7 +283,7 @@ You can view and analyze activity log data by using any of the following methods
 
 ## View and analyze the access, performance, and firewall logs
 
-[Azure Monitor logs](../../azure-monitor/insights/azure-networking-analytics.md) can collect the counter and event log files from your Blob storage account. It includes visualizations and powerful search capabilities to analyze your logs.
+[Azure Monitor logs](/previous-versions/azure/azure-monitor/insights/azure-networking-analytics) can collect the counter and event log files from your Blob storage account. It includes visualizations and powerful search capabilities to analyze your logs.
 
 You can also connect to your storage account and retrieve the JSON log entries for access and performance logs. After you download the JSON files, you can convert them to CSV and view them in Excel, Power BI, or any other data-visualization tool.
 
@@ -300,7 +298,7 @@ We have published a Resource Manager template that installs and runs the popular
 
 ## Next steps
 
-* Visualize counter and event logs by using [Azure Monitor logs](../../azure-monitor/insights/azure-networking-analytics.md).
+* Visualize counter and event logs by using [Azure Monitor logs](/previous-versions/azure/azure-monitor/insights/azure-networking-analytics).
 * [Visualize your Azure activity log with Power BI](https://powerbi.microsoft.com/blog/monitor-azure-audit-logs-with-power-bi/) blog post.
 * [View and analyze Azure activity logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) blog post.
 

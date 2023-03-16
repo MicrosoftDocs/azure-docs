@@ -1,5 +1,5 @@
 ---
-title: 'What are lifecycle workflows? - Azure Active Directory'
+title: 'What are lifecycle workflows?'
 description: Describes overview of Lifecycle workflow feature.
 services: active-directory
 author: owinfreyATL
@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/20/2022
+ms.date: 01/26/2023
 ms.subservice: compliance
 ms.author: owinfrey
 ms.collection: M365-identity-device-management

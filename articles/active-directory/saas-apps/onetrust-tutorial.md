@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with OneTrust Privacy Management Software | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with OneTrust Privacy Management Software'
 description: Learn how to configure single sign-on between Azure Active Directory and OneTrust Privacy Management Software.
 services: active-directory
 author: jeevansd

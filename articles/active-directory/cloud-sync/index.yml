@@ -10,9 +10,9 @@ metadata:
   description: Cloud sync helps simplify and automate the management of Azure AD users, through cloud-managed rules for synchronizing those users from existing AD forests.
   ms.author: billmath
   ms.collection: na
-  ms.date: 09/05/2019
+  ms.date: 02/28/2023
   ms.service: active-directory
-  ms.subservice: na
+  ms.subservice: hybrid
   ms.topic: landing-page
   services: active-directory
 

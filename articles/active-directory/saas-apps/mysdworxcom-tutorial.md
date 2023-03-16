@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/04/2023
+ms.date: 01/16/2023
 ms.author: jeedes
 
 ---
 
 # Azure Active Directory SSO integration with my.sdworx.com
 
-In this article, you'll learn how to integrate my.sdworx.com with Azure Active Directory (Azure AD). my.sdworx.com is a SD Worx portal. When you integrate my.sdworx.com with Azure AD, you can:
+In this article, you'll learn how to integrate my.sdworx.com with Azure Active Directory (Azure AD). my.sdworx.com is an SD Worx portal. When you integrate my.sdworx.com with Azure AD, you can:
 
 * Control in Azure AD who has access to my.sdworx.com.
 * Enable your users to be automatically signed-in to my.sdworx.com with their Azure AD accounts.
@@ -60,7 +60,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
    ![Screenshot shows how to edit Basic SAML Configuration.](common/edit-urls.png "Basic Configuration")
 
-1. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
+1. On the **Basic SAML Configuration** section, the **Relay State** should be set to `https://auth.sdworx.com/idhub/tb/wf_startapp?AppCode=MWAM`
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
@@ -68,11 +68,11 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 ## Configure my.sdworx.com SSO
 
-To configure single sign-on on **my.sdworx.com** side, you need to send the **App Federation Metadata Url** to [my.sdworx.com support team](mailto:support@sdworx.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **my.sdworx.com** side, you need to send the **App Federation Metadata Url** to [my.sdworx.com support team](mailto:prod_cloud&busoper_middleware&hostsol@sdworx.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create my.sdworx.com test user
 
-In this section, you create a user called Britta Simon at my.sdworx.com. Work with [my.sdworx.com support team](mailto:support@sdworx.com) to add the users in the my.sdworx.com platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon at my.sdworx.com. Work with [my.sdworx.com support team](mailto:prod_cloud&busoper_middleware&hostsol@sdworx.com) to add the users in the my.sdworx.com platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 

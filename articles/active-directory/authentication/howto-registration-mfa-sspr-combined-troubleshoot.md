@@ -1,12 +1,12 @@
 ---
-title: Troubleshoot combined registration - Azure Active Directory
+title: Troubleshoot combined registration
 description: Troubleshoot Azure AD Multi-Factor Authentication and self-service password reset combined registration
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
-ms.date: 01/19/2021
+ms.date: 01/29/2023
 
 ms.author: justinha
 author: justinha

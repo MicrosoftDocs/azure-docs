@@ -52,7 +52,7 @@ To debug your app using SQL Database as the back end, make sure that you've allo
 
 Prepare your environment for the Azure CLI.
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## 1. Grant database access to Azure AD user
 
@@ -309,7 +309,7 @@ What you learned:
 > * Connect to SQL Database from Visual Studio using Azure AD authentication
 
 > [!div class="nextstepaction"]
-> [Map an existing custom DNS name to Azure App Service](app-service-web-tutorial-custom-domain.md)
+> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)
 
 > [!div class="nextstepaction"]
 > [Tutorial: Connect to Azure databases from App Service without secrets using a managed identity](tutorial-connect-msi-azure-database.md)
