@@ -30,7 +30,7 @@ Azure Cosmos DB automatically takes backups of your data at regular intervals. T
 > [!Note]
 > For Azure Synapse Link enabled accounts, analytical store data isn't included in the backups and restores. When Synapse Link is enabled, Azure Cosmos DB will continue to automatically take backups of your data in the transactional store at a scheduled backup interval. Automatic backup and restore of your data in the analytical store is not supported at this time.
 
-## <a id="backup-storage-redundancy"></a>Backup storage redundancy
+## Backup storage redundancy
 
 By default, Azure Cosmos DB stores periodic mode backup data in geo-redundant [blob storage](../storage/common/storage-redundancy.md) that is replicated to a [paired region](../availability-zones/cross-region-replication-azure.md). You can update this default value using Azure PowerShell or CLI and define an Azure policy to enforce a specific storage redundancy option. To learn more, see [update backup storage redundancy](update-backup-storage-redundancy.md) article.
 
@@ -49,7 +49,7 @@ You can configure storage redundancy for periodic backup mode at the time of acc
 >
 > Updating backup storage redundancy will not have any impact on backup storage pricing.
 
-## <a id="configure-backup-interval-retention"></a>Modify the backup interval and retention period
+## Modify the backup interval and retention period
 
 Azure Cosmos DB automatically takes a full backup of your data for every 4 hours and at any point of time, the latest two backups are stored. This configuration is the default option and it’s offered without any extra cost. You can change the default backup interval and retention period during the Azure Cosmos DB account creation or after the account is created. The backup configuration is set at the Azure Cosmos DB account level and you need to configure it on each account. After you configure the backup options for an account, it’s applied to all the containers within that account. You can modify these settings using the Azure portal as described below, or via [PowerShell](configure-periodic-backup-restore.md#modify-backup-options-using-azure-powershell) or the [Azure CLI](configure-periodic-backup-restore.md#modify-backup-options-using-azure-cli).
 
@@ -118,7 +118,7 @@ When deploying the Resource Manager template, change the periodic backup options
 }
 ```
 
-## <a id="request-restore"></a>Request data restore from a backup
+## Request data restore from a backup
 
 If you accidentally delete your database or a container, you can [file a support ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) or [call the Azure support](https://azure.microsoft.com/support/options/) to restore the data from automatic online backups. Azure support is available for selected plans only such as **Standard**, **Developer**, and plans higher than those. Azure support is not available with **Basic** plan. To learn about different support plans, see the [Azure support plans](https://azure.microsoft.com/support/plans/) page.
 
@@ -135,7 +135,7 @@ You should have the following details before requesting a restore:
 
 * If one or more containers are deleted, you should provide the Azure Cosmos DB account name, database names, and the container names. And specify if a container with the same name exists.
 
-* If you have accidentally deleted or corrupted your data, you should contact [Azure support](https://azure.microsoft.com/support/options/) within 8 hours so that the Azure Cosmos DB team can help you restore the data from the backups. **Before you create a support request to restore the data, make sure to [increase the backup retention](#configure-backup-interval-retention) for your account to at least seven days. It’s best to increase your retention within 8 hours of this event.** This way the Azure Cosmos DB support team will have enough time to restore your account.
+* If you have accidentally deleted or corrupted your data, you should contact [Azure support](https://azure.microsoft.com/support/options/) within 8 hours so that the Azure Cosmos DB team can help you restore the data from the backups. **Before you create a support request to restore the data, make sure to [increase the backup retention](#modify-the-backup-interval-and-retention-period) for your account to at least seven days. It’s best to increase your retention within 8 hours of this event.** This way the Azure Cosmos DB support team will have enough time to restore your account.
 
 In addition to Azure Cosmos DB account name, database names, container names, you should specify the point in time to which the data can be restored to. It is important to be as precise as possible to help us determine the best available backups at that time. **It is also important to specify the time in UTC.**
 
