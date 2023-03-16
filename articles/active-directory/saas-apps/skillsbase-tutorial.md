@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Skills Base | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Skills Base'
 description: Learn how to configure single sign-on between Azure Active Directory and Skills Base.
 services: active-directory
 author: jeevansd

@@ -12,7 +12,7 @@ ms.collection: windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
-ms.date: 02/09/2021
+ms.date: 03/13/2022
 ms.author: magoedte
 ---
 # Desired State Configuration extension with Azure Resource Manager templates

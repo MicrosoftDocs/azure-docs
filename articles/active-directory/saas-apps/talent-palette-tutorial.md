@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Talent Palette | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Talent Palette'
 description: Learn how to configure single sign-on between Azure Active Directory and Talent Palette.
 services: active-directory
 author: jeevansd

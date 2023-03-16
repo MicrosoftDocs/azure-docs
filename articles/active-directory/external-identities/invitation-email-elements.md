@@ -1,5 +1,5 @@
 ---
-title: Elements of the B2B invitation email - Azure Active Directory | Microsoft Docs
+title: Elements of the B2B invitation email - Azure Active Directory
 description: Azure Active Directory B2B collaboration invitation email template
 
 services: active-directory
