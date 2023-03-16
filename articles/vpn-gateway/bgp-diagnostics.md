@@ -121,7 +121,7 @@ Get-AzVirtualNetworkGatewayAdvertisedRoute -VirtualNetworkGatewayName gatewayNam
 
 ## Rest API
 
-You can also use the GetBgpPeerStatus [Rest API call](https://learn.microsoft.com/rest/api/network-gateway/virtual-network-gateways/get-bgp-peer-status) to retrieve the information. Note that this is an Async operation and will return a 202 status code. You will need to fetch the results via and additional GET call. For more information see [Azure-AsyncOperation request and response](./azure-resource-manager/management/async-operations.md#azure-asyncoperation-request-and-response)
+You can also use the GetBgpPeerStatus [Rest API call](/rest/api/network-gateway/virtual-network-gateways/get-bgp-peer-status) to retrieve the information. Note that this is an Async operation and will return a 202 status code. You will need to fetch the results via and additional GET call. For more information see [Azure-AsyncOperation request and response](../azure-resource-manager/management/async-operations.md#azure-asyncoperation-request-and-response)
 
 ## Next steps
 
