@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Build a Node.js web app with Azure Cosmos DB JavaScript SDK to manage API for NoSQL data'
+title: 'Tutorial: Build a Node.js web app by using the JavaScript SDK to manage an API for NoSQL account in Azure Cosmos DB'
 description: Learn how to use Azure Cosmos DB to store and access data from a Node.js Express web application hosted on the Web Apps feature of the Azure App Service.
 author: deborahc
 ms.author: dech
@@ -23,11 +23,15 @@ ms.custom: devx-track-js, ignite-2022
 > * [Node.js](tutorial-nodejs-web-app.md)
 >
 
-As a developer, you might have applications that use NoSQL document data. You can use an API for NoSQL account in Azure Cosmos DB to store and access this document data. This Node.js tutorial shows you how to store and access data from an API for NoSQL account in Azure Cosmos DB. The tutorial uses a Node.js Express application that's hosted on the Web Apps feature of Microsoft Azure App Service. In this tutorial, you use a web-based application (Todo app) that allows you to create, retrieve, and complete tasks. The tasks are stored as JSON documents in Azure Cosmos DB.
+As a developer, you might have applications that use NoSQL document data. You can use an API for NoSQL account in Azure Cosmos DB to store and access this document data. This Node.js tutorial shows you how to store and access data from an API for NoSQL account in Azure Cosmos DB. The tutorial uses a Node.js Express application that's hosted on the Web Apps feature of Microsoft Azure App Service. In this tutorial, you build a web-based application (Todo app) that allows you to create, retrieve, and complete tasks. The tasks are stored as JSON documents in Azure Cosmos DB.
 
-This tutorial demonstrates how to create an API for NoSQL account in Azure Cosmos DB by using the Azure portal. Without a credit card or an Azure subscription, you can set up a free [Try Azure Cosmos DB account](https://aka.ms/trycosmosdb). Build and run a web app that's built on the Node.js SDK to create a database and container. You then add items to the container. This tutorial uses JavaScript SDK version 3.0.
+This tutorial demonstrates how to create an API for NoSQL account in Azure Cosmos DB by using the Azure portal. Without a credit card or an Azure subscription, you can:
 
-This tutorial covers the following tasks:
+1. Set up a free [Try Azure Cosmos DB account](https://aka.ms/trycosmosdb).
+1. Build and run a web app that's built on the Node.js SDK to create a database and container.
+1. Add items to the container.
+
+This tutorial uses JavaScript SDK version 3.0 and covers the following tasks:
 
 > [!div class="checklist"]
 > * Create an Azure Cosmos DB account
@@ -39,7 +43,7 @@ This tutorial covers the following tasks:
 
 Before following the instructions in this article, ensure that you have the following resources:
 
-* If you don't have an Azure subscription, without a credit card or an Azure subscription, you can set up a free [Try Azure Cosmos DB account](https://aka.ms/trycosmosdb).
+* Without an Azure subscription, a credit card, or an Azure subscription, you can set up a free [Try Azure Cosmos DB account](https://aka.ms/trycosmosdb).
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../includes/cosmos-db-emulator-docdb-api.md)]
 
@@ -49,7 +53,7 @@ Before following the instructions in this article, ensure that you have the foll
 
 ## <a name="create-account"></a>Create an Azure Cosmos DB account
 
-Let's start by creating an Azure Cosmos DB account. If you already have an account or if you use the Azure Cosmos DB Emulator for this tutorial, you can skip to [Step 2: Create a new Node.js application](#create-new-app).
+Start by creating an Azure Cosmos DB account. If you already have an account or if you use the Azure Cosmos DB Emulator for this tutorial, you can skip to [Step 2: Create a new Node.js application](#create-new-app).
 
 [!INCLUDE [cosmos-db-create-dbaccount](../includes/cosmos-db-create-dbaccount.md)]
 
@@ -429,7 +433,7 @@ Now build the user interface so that a user can interact with the application. T
           button.btn(type="submit") Add item
    ```
 
-This code extends layout and provides content for the **content** placeholder you saw in the **layout.jade** file earlier. In this layout, you created two HTML forms.
+This code extends layout and provides content for the **content** placeholder you saw in the **layout.jade** file earlier. In that layout, you created two HTML forms.
 
 The first form contains a table for your data and a button that allows you to update items by posting to **/completeTask** method of the controller.
 
