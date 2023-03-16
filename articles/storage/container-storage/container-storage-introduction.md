@@ -37,7 +37,7 @@ The Azure Container Storage Preview is only available in the following Azure reg
 ## Why Azure Container Storage is useful
 Until now, providing cloud storage for containers required using individual container storage interface (CSI) drivers to use storage services intended for IaaS-centric workloads and make them work for containers. This creates operational overhead and increases the risk of issues with application availability, scalability, performance, usability, and cost.
 
-Azure Container Storage is built on OpenEBS, an open-source solution that provides container storage capabilities for Kubernetes. By offering a managed control plane with built-in CSI drivers and storage classes, Azure Container Storage enables true container-native storage.
+Azure Container Storage is built on [OpenEBS](https://openebs.io/), an open-source solution that provides container storage capabilities for Kubernetes. By offering a managed control plane with built-in CSI drivers and storage classes, Azure Container Storage enables true container-native storage.
 
 You can use Azure Container Storage to:
 
@@ -49,6 +49,7 @@ You can use Azure Container Storage to:
 
 ## Key benefits
 * **Rapid scale up and scale out:** Start small and deploy resources as needed while making sure that applications aren't starved or disrupted during initialization or in production. Azure Container Storage enables sub-second volume creation using thin provisioning, making it easy to scale up or out.
+
 * **Maximize stateful workload performance:** Azure Container Storage enables superior read performance by leveraging local caches where possible. It also provides near-disk write performance by using NVMe-oF over RDMA. This allows customers to cost-effectively meet performance requirements for various container workloads including tier 1 I/O intensive, general purpose, throughput sensitive, and dev/test. Accelerate the attach/detach time of persistent volumes and minimize pod failover time.
 
 ## Glossary 
