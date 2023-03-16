@@ -72,9 +72,9 @@ The table below indicates the estimated downtime for each Microsoft SQL Server t
 
 - [Enable SQL Azure hybrid benefit for Azure VMware Solution](enable-sql-azure-hybrid-benefit.md). 
 - [Create a placement policy in Azure VMware Solution](create-placement-policy.md)  
-- [Windows Server Failover Clustering Documentation](https://learn.microsoft.com/en-us/windows-server/failover-clustering/failover-clustering-overview)
-- [Microsoft SQL Server 2019 Documentation](https://learn.microsoft.com/en-us/sql/sql-server/?view=sql-server-ver15)
-- [Microsoft SQL Server 2022 Documentation](https://learn.microsoft.com/en-us/sql/sql-server/?view=sql-server-ver16)
+- [Windows Server Failover Clustering Documentation](https://learn.microsoft.com/windows-server/failover-clustering/failover-clustering-overview)
+- [Microsoft SQL Server 2019 Documentation](https://learn.microsoft.com/sql/sql-server/?view=sql-server-ver15)
+- [Microsoft SQL Server 2022 Documentation](https://learn.microsoft.com/sql/sql-server/?view=sql-server-ver16)
 - [Windows Server Technical Documentation](https://learn.microsoft.com/windows-server/)
 - [Planning Highly Available, Mission Critical SQL Server Deployments with VMware vSphere](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/solutions/vmware-vsphere-highly-available-mission-critical-sql-server-deployments.pdf)
 - [Microsoft SQL Server on VMware vSphere Availability and Recovery Options](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/solutions/sql-server-on-vmware-availability-and-recovery-options.pdf)

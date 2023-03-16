@@ -114,7 +114,8 @@ For details about configuring and managing the quorum, see [Failover Clustering 
 1. Refresh the **Object Explorer** view in SQL Server Management Studio (SSMS), and verify that the migrated instance is now the primary replica.
 1. Repeat steps 1 to 6 for the rest of the replicas of the availability group.
    
-       1. Do not migrate all the replicas at the same time using **HCX Bulk Migration**. Instead, migrate one replica at a time and verify that all changes are synchronized back to the replica after each migration.
+    >[!Note]
+    > Migrate one replica at a time and verify that all changes are synchronized back to the replica after each migration. Do not migrate all the replicas at the same time using **HCX Bulk Migration**. 
 1. After the migration of all the replicas is completed, access your Always-On availability group with **SQL Server Management Studio**.
     1. Open the Dashboard and verify there is no data loss in any of the replicas and that all are in a     **Synchronized** state.
           :::image type="content" source="media/sql-server-hybrid-benefit/sql-alwayson-7.png" alt-text="Availability Group Dashboard with new primary replica and all migrated secondary replicas in synchronized state." border="false":::
