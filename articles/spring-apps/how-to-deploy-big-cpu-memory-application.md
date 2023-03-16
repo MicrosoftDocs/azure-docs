@@ -13,13 +13,13 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 **This article applies to:** ✔️ Enterprise tier
 
-This article shows how to deploy large CPU and memory applications in Azure Spring Apps to support CPU intensive or memory intensive workloads. Support for large applications is currently only available in the Enterprise tier, which supports the following CPU and memory combinations.
+This article shows how to deploy large CPU and memory applications in Azure Spring Apps to support CPU intensive or memory intensive workloads. Support for large applications is currently available only in the Enterprise tier, which supports the CPU and memory combinations as shown in the following table.
 
-| CPU (core processors) | Memory (gigabytes) |
-| ----------- | ----------- |
-| 4           | 16          |
-| 6           | 24          |
-| 8           | 32          |
+| CPU (core processors) | Memory (Gb) |
+| --------------------- | ----------- |
+| 4                     | 16          |
+| 6                     | 24          |
+| 8                     | 32          |
 
 ## Prerequisites
 
@@ -38,7 +38,7 @@ Use the following steps to create a large CPU and memory application using the A
 
 1. In the navigation pane, select **Apps**  and then select **Create app**.
 
-1. On the **Create App** page, provide a name for **App name** and select the desired **vCpu** and **Memory** setting for your application.
+1. On the **Create App** page, provide a name for **App name** and select the desired **vCpu** and **Memory** values for your application.
 
 1. Select  **Create**.
 
@@ -73,9 +73,11 @@ Use the following steps to scale up or down a large CPU and memory application.
 
    :::image type="content" source="media/how-to-create-large-application/scale-large-application.png" lightbox="media/how-to-create-large-application/scale-large-application.png" alt-text="Screenshot of Azure portal Configuration page showing how to scale large app.":::
 
+1. Select **Save**.
+
 ### [Azure CLI](#tab/azure-cli)
 
-The following command scales up an app to have a high CPU and memory values.
+The following command scales up an app to have high CPU and memory values.
 
 ```azurecli
 az spring app scale \
@@ -86,7 +88,7 @@ az spring app scale \
     --memory 32Gi 
 ```
 
-The following command scales down an app to have a low CPU and memory values.
+The following command scales down an app to have low CPU and memory values.
 
 ```azurecli
 az spring app scale \
