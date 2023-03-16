@@ -1,14 +1,14 @@
 ---
-title: Get started with Azure IoT Hub device management (Azure CLI)
-description: How to use Azure IoT Hub device management to initiate a remote device reboot. You use the Azure CLI to implement a simulated device and invoke a direct method from that device.
+title: Device management using direct methods (CLI)
+titleSuffix: Azure IoT Hub
+description: How to use Azure IoT Hub direct methods with the Azure CLI for device management tasks including invoking a remote device reboot.
 author: kgremban
 
-ms.service: iot-hub
-services: iot-hub
-ms.devlang: azurecli
-ms.topic: conceptual
-ms.date: 01/30/2023
 ms.author: kgremban
+ms.service: iot-hub
+ms.devlang: azurecli
+ms.topic: how-to
+ms.date: 01/30/2023
 ms.custom:  "mqtt, devx-track-azurecli"
 ---
 

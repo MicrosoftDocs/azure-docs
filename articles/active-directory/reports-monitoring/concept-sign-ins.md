@@ -1,5 +1,5 @@
 ---
-title: Sign-in logs in Azure Active Directory | Microsoft Docs
+title: Sign-in logs in Azure Active Directory
 description: Conceptual information about Azure AD sign-in logs.  
 services: active-directory
 author: shlipsey3

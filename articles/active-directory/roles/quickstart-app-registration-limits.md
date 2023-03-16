@@ -1,5 +1,5 @@
 ---
-title: Remove limits on creating app registrations - Azure AD | Microsoft Docs
+title: Remove limits on creating app registrations - Azure AD
 description: Assign a custom role to grant unrestricted app registrations in the Azure AD Active Directory
 services: active-directory
 author: rolyon
