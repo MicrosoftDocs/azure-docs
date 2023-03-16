@@ -733,8 +733,6 @@ If you encounter any errors related to connecting to the database, check if the 
 - [How do I connect to the PostgreSQL server that's secured behind the virtual network with other tools?](#how-do-i-connect-to-the-postgresql-server-thats-secured-behind-the-virtual-network-with-other-tools)
 - [How does local app development work with GitHub Actions?](#how-does-local-app-development-work-with-github-actions)
 - [How is the Django sample configured to run on Azure App Service?](#how-is-the-django-sample-configured-to-run-on-azure-app-service)
-- [I can't connect to the SSH session](#i-cant-connect-to-the-ssh-session)
-- [I get an error when running database migrations](#i-get-an-error-when-running-database-migrations)
 
 #### How much does this setup cost?
 
