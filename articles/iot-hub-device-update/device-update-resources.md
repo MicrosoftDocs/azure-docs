@@ -36,7 +36,6 @@ The following Message Routes are automatically configured in your linked IoT hub
 |  DeviceUpdate.DeviceTwinChanges| TwinChangeEvents | (opType = 'updateTwin' OR opType = 'replaceTwin') AND IS_DEFINED($body.tags.ADUGroup) | events | Listens for new Device Update groups |
 |  DeviceUpdate.DigitalTwinChanges | DigitalTwinChangeEvents | true | events | Listens for Digital Twin change events  |
 |  DeviceUpdate.DeviceLifecycle | DeviceLifecycleEvents | opType = 'deleteDeviceIdentity' OR opType = 'deleteModuleIdentity'  | events | Listens for devices that have been deleted |
-| DeviceUpdate.DeviceConnectionState | DeviceConnectionStateEvents | true | events | Listens for changes to device connection states |
 
 > [!NOTE]
 > You can change the names of these routes if it makes sense for your solution. The rest of the route properties should stay configured as they are in the table for Device Update to work properly.

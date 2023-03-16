@@ -1,5 +1,5 @@
 ---
-title: Hybrid identity design - lifecycle adoption strategy Azure | Microsoft Docs
+title: Hybrid identity design - lifecycle adoption strategy Azure
 description: Helps define the hybrid identity management tasks according to the options available for each lifecycle phase.
 documentationcenter: ''
 services: active-directory
