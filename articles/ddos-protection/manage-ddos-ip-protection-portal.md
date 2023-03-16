@@ -5,7 +5,7 @@ author: AbdullahBell
 ms.author: abell
 ms.service: ddos-protection
 ms.topic: quickstart 
-ms.date: 03/01/2023
+ms.date: 03/16/2023
 ms.workload: infrastructure-services
 ms.custom: template-quickstart 
 # Customer intent As an IT admin, I want to learn how to enable DDoS IP Protection on my public IP address.
