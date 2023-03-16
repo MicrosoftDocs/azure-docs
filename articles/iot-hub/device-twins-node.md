@@ -1,13 +1,14 @@
 ---
-title: Get started with Azure IoT Hub device twins (Node) | Microsoft Docs
-description: How to use Azure IoT Hub device twins to add tags and then use an IoT Hub query. You use the Azure IoT SDKs for Node.js to implement the simulated device app and a service app that adds the tags and runs the IoT Hub query.
+title: Get started with Azure IoT Hub device twins (Node.js)
+titleSuffix: Azure IoT Hub
+description: How to use Azure IoT Hub device twins and the Azure IoT SDKs for Node.js to create and simulate devices, add tags to device twins, and execute IoT Hub queries. 
 author: kgremban
-ms.service: iot-hub
-services: iot-hub
-ms.devlang: javascript
-ms.topic: conceptual
-ms.date: 02/17/2023
+
 ms.author: kgremban
+ms.service: iot-hub
+ms.devlang: nodejs
+ms.topic: how-to
+ms.date: 02/17/2023
 ms.custom: mqtt, devx-track-js
 ---
 
@@ -124,7 +125,7 @@ In this section, you create a Node.js console app that connects to your hub as *
 
     This time **myDeviceId** should appear in both query results.
 
-    ![Show myDeviceId in both query results](media/iot-hub-node-node-twin-getstarted/service2.png)
+    ![Show myDeviceId in both query results](media/device-twins-node/service2.png)
 
 ## Create a service app that updates desired properties and queries twins
 
@@ -217,7 +218,7 @@ In this section, you create a Node.js console app that adds location metadata to
 
    You should see one device in the results for the query asking for all devices located in **Redmond43** and none for the query that restricts the results to devices that use a cellular network.
 
-   ![See the one device in the query results](media/iot-hub-node-node-twin-getstarted/service1.png)
+   ![See the one device in the query results](media/device-twins-node/service1.png)
 
 In this article, you:
 
