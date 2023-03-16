@@ -308,7 +308,7 @@ Kubernetes cluster tutorial.
 > [AKS tutorial][aks-tutorial]
 
 <!-- LINKS - external -->
-[kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
+[kubectl]: https://kubernetes.io/docs/reference/kubectl/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [dotnet-samples]: https://hub.docker.com/_/microsoft-dotnet-framework-samples/
 [node-selector]: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/

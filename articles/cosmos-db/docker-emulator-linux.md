@@ -34,7 +34,7 @@ Since the Azure Cosmos DB Emulator provides an emulated environment that runs on
 
 - With the Linux emulator, you can create an Azure Cosmos DB account in [provisioned throughput](set-throughput.md) mode only; currently it doesn't support [serverless](serverless.md) mode.
 
-- The Linux emulator isn't a scalable service and it doesn't support a large number of containers. When using the Azure Cosmos DB Emulator, by default, you can create up to 10 fixed size containers at 400 RU/s (only supported using Azure Cosmos DB SDKs), or 5 unlimited containers. For more information on how to change this value, see [Set the PartitionCount value](emulator-command-line-parameters.md#set-partitioncount) article.
+- The Linux emulator isn't a scalable service and it doesn't support a large number of containers. When using the Azure Cosmos DB Emulator, by default, you can create up to 10 fixed size containers at 400 RU/s (only supported using Azure Cosmos DB SDKs), or 5 unlimited containers. For more information on how to change this value, see [Set the PartitionCount value](emulator-command-line-parameters.md#change-the-number-of-default-containers) article.
 
 - While [consistency levels](consistency-levels.md) can be adjusted using command-line arguments for testing scenarios only (default setting is Session), a user might not expect the same behavior as in the cloud service. For instance, Strong and Bounded staleness consistency has no effect on the emulator, other than signaling to the Azure Cosmos DB SDK the default consistency of the account.
 

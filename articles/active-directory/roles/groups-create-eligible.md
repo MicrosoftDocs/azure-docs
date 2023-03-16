@@ -1,5 +1,5 @@
 ---
-title: Create a group for assigning roles in Azure Active Directory | Microsoft Docs
+title: Create a group for assigning roles in Azure Active Directory
 description: Learn how to create a role-assignable group in Azure AD. Manage Azure roles in the Azure portal, PowerShell, or Graph API.
 services: active-directory
 author: rolyon
