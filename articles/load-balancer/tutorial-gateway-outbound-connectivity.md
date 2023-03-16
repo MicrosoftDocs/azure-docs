@@ -30,16 +30,16 @@ In this tutorial, you learn how to:
 
 ## Chain a virtual machine to a gateway load balancer
 
-In this example, we'll chain an existing virtual machine’s public IP to a gateway load balancer. A gateway load balancer can be inserted in the path of outbound traffic by chaining to virtual machine instance level public IPs. This method secures both inbound and outbound traffic reaching or originating from this virtual machine’s public IP.
+This example uses hain an existing virtual machine’s public IP to a gateway load balancer. A gateway load balancer can be inserted in the path of outbound traffic by chaining to virtual machine instance level public IPs. This method secures both inbound and outbound traffic reaching or originating from this virtual machine’s public IP.
 
-1. Navigate to your existing virtual machine. In this example, the virtual machine is named myVM1. 
+1. Navigate to your existing virtual machine. This example uses irtual machine is named myVM1. 
 
 1. To verify your virtual machine has a standard SKU public IP associated with it, go to **Public IP address > Overview** and confirm that the SKU is **Standard**.
 
     :::image type="content" source="media/gateway-configure-outbound-connectivity/confirm-sku.png" alt-text="Screenshot of virtual machine overview highlighting standard sku.":::
 
 1. In the **Overview** page of the virtual machine, select **Networking** under **Settings**.
-1. Select the network interface attached to the virtual machine. In this example, it's **myvm1229**.
+1. Select the network interface attached to the virtual machine. This example uses **myvm1229**.
 
     :::image type="content" source="media/gateway-configure-outbound-connectivity/select-network-interface.png" alt-text="Screenshot of network interface attached to virtual machine.":::
 
@@ -52,7 +52,7 @@ In this example, we'll chain an existing virtual machine’s public IP to a gate
 
 ## Create a load balancer frontend
 
-In this example, we'll create a new frontend IP configuration for outbound traffic in our existing standard public load balancer. Using separate public IPs for inbound and outbound traffic is a reccomend best practice. Reusing the same public IP for inbound and outbound traffic can increase the risk of SNAT exhaustion, as load balancing and inbound NAT rules decrease the number of available SNAT ports. 
+This example uses reate a new frontend IP configuration for outbound traffic in our existing standard public load balancer. Using separate public IPs for inbound and outbound traffic is a recommend best practice. Reusing the same public IP for inbound and outbound traffic can increase the risk of SNAT exhaustion, as load balancing and inbound NAT rules decrease the number of available SNAT ports. 
 
 1. Navigate to your existing standard public load balancer and go to the **Frontend IP configuration** under **Settings**.
 
@@ -90,16 +90,16 @@ In this example, we'll create a new frontend IP configuration for outbound traff
     | --- | --- |
     | Name | Enter **myOutboundRule**. |
     | IP version | Select **IPv4**. |
-    | Frontend IP address | Select the frontend IP address of the load balancer. In this example, it's **myOutboundFrontend**. |
+    | Frontend IP address | Select the frontend IP address of the load balancer. This example uses **myOutboundFrontend**. |
     | Protocol | Leave the default of **All**. |
     | Idle timeout (minutes) | Enter **4** or your desired value. |
     | TCP Reset | Leave the default of **Enabled**. |
-    | Backend pool | Select the backend pool of the load balancer. In this example, it's **myBackendPool**. |
+    | Backend pool | Select the backend pool of the load balancer. This example uses **myBackendPool**. |
     | **Port allocation** | |
     | Port allocation | Select **Manually choose number of outbound ports** |
     | **Outbound ports** | |
     | Choose by | Select **Maximum number of backend instances**. |
-    | Ports per instance | Enter the anticipated maximum number of backend instances. In this example, we have **2** backend instances.
+    | Ports per instance | Enter the anticipated maximum number of backend instances. This example uses **2** backend instances.
 
     
     :::image type="content" source="media/gateway-configure-outbound-connectivity/add-outbound-rule.png" alt-text="Screenshot of Add Outbound Rule screen.":::
@@ -124,4 +124,4 @@ In this tutorial, you created:
 - Created a new load balancer frontend IP configuration.
 - Created an outbound rule for virtual machine traffic.
 
-Learn how to [Deploy highly avialable NVAs](/azure/architecture/reference-architectures/dmz/nva-ha) with Azure Load Balancer.
+Learn how to [Deploy highly available NVAs](/azure/architecture/reference-architectures/dmz/nva-ha) with Azure Load Balancer.
