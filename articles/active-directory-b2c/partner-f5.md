@@ -304,68 +304,86 @@ A BIG-IP supports SSO options, but in OAuth client mode the Guided Configuration
   >[!Note]
   > APM session variables in curly brackets are case-sensitive. Entering agentid when the Azure AD B2C attribute name is sent as AgentID causes an attribute mapping failure. We recommend defining attributes in lowercase. In Azure AD B2C, the user flow prompts the user for more attributes, using the attribute name in the portal. Therefore, sentence case instead of lowercase might be preferable.
 
-   ![Screenshot of single sign-on settings.](./media/partner-f5/single-sign-on.png)
+   ![Screenshot of single sign-on settings, including type and headers.](./media/partner-f5/single-sign-on.png)
 
 **Customization properties**
 
-These settings allow you to customize the language and the look and feel of the screens that your users encounter when they interact with the APM access policy flow. You can personalize the screen messages and prompts, change screen layouts, colors, images, and localize captions, descriptions, and messages that are normally customizable in the access policy items.
+Customize the language and appearance of screens users see in the APM access policy flow. Edit screen messages and prompts, change screen layouts, colors, images, and localize captions, descriptions, and messages.
 
-Replace the “F5 Networks” string in the Form Header text field with the name of your own organization. For example, “Wacketywack Inc. Secure hybrid access”.
+In the **Form Header** text field, replace the `F5 Networks` string with a name that you want. 
 
 **Session management properties**
 
-  A BIG-IPs session management setting is used to define the conditions under which user sessions are terminated or allowed to continue, limits for users and IP addresses, and error pages. These are optional, but we highly recommend implementing single log out (SLO) functionality, which ensures sessions are securely terminated when no longer required, reducing the risk of someone inadvertently gaining unauthorized access to published applications.
+Use the BIG-IP session management settings to define conditions that terminate sessionsor allowed them to continue. Set limits for users and IP addresses, and error pages. We recommend implementing single log out (SLO), which terminates sessions securely, reducing risks of unauthorized access.
 
-## Related information
+## Deploy settings
 
-The last step provides an overview of configurations. Hitting Deploy will commit your settings and create all necessary BIG-IP and APM objects to enable secure hybrid access to the application.
-The application should also be visible as a target resource in CA. See the [guidance for building CA policies for Azure AD B2C](conditional-access-identity-protection-overview.md).
-For increased security, organizations using this pattern could also consider blocking all direct access to the application, thereby forcing a strict path through the BIG-IP.
+Select **Deploy** to commit settings and create BIG-IP and APM objects fir secure hybrid access to the application. The application appears as a target resource in Conditional Access. For increased security, block direct access to the application, thereby enforcing a path through the BIG-IP.
 
-## Next steps
+Learn more: [Identity Protection and Conditional Access for Azure AD B2C](conditional-access-identity-protection-overview.md)
 
-As a user, launch a browser and connect to the application’s external URL. The BIG-IP’s OAuth client logon page will prompt you to log on using Authorization code grant. Instructions for removing this step are provided in the supplemental configuration section.
+### Test the sign-in sign-up flow
 
-You will then be redirected to sign up and authenticate against your Azure AD B2C tenant.
+1. As a user, go to the application external URL. 
+2. The BIG-IP’s OAuth client sign-in page appears.
+3. Sign in using the authorization code grant. To removing this step, see the **Supplemental configurations** section.
+4. Sign up and authenticate against your Azure AD B2C tenant.
 
-![Screenshot shows user sign in](./media/partner-f5/sign-in-message.png)
+The following images are the user sign in dialog and the sign-in welcome page.  
 
-![Screenshot shows post sign in welcome message](./media/partner-f5/welcome-page.png)
+   ![Screenshot of the user sign-in dialog box.](./media/partner-f5/sign-in-message.png)
 
-For increased security, organizations using this pattern could also consider blocking all direct access to the application, in that way forcing a strict path through the BIG-IP.
+   ![Screenshot of the sign-in welcome page.](./media/partner-f5/welcome-page.png)
+
+For increased security, block direct access to the application, thereby enforcing a path through the BIG-IP.
 
 ### Supplemental configurations
 
-**Single Log-Out (SLO)**
+**Single log-out (SLO)**
 
-Azure AD B2C fully supports IdP and application sign out through various [mechanisms](session-behavior.md?pivots=b2c-custom-policy#single-sign-out).
-Having your application’s sign-out function call the Azure AD B2C log-out endpoint would be one way of achieving SLO. That way we can be sure Azure AD B2C issues a final redirect to the BIG-IP to ensure the APM session between the user and the application has also been terminated.
-Another alternative is to have the BIG-IP listen for the request when selecting the applications sign out button, and upon detecting the request it makes a simultaneous call to the Azure AD B2C logoff endpoint. This approach would avoid having to make any changes to the application itself yet achieves SLO. More details on using BIG-IP iRules to implement this are [available](https://support.f5.com/csp/article/K42052145).
-In either case your Azure AD B2C tenant would need to know the APM’s logout endpoint. 
+Azure AD B2C supports identity provider (IdP) and application sign out. See, [Single sign-out](session-behavior.md?pivots=b2c-custom-policy#single-sign-out).
 
-1. Navigate to **Manage** > **Manifest** in your Azure AD B2C portal and locate the logoutUrl property. It should read null.
+To achieve SLO, enable your application sign-out function to call the Azure AD B2C log-out endpoint. Then, Azure AD B2C issues a final redirect to the BIG-IP. This action ensures the user-application APM session terminates.
 
-2. Add the APM’s post logout URI: `https://<mysite.com>/my.logout.php3`, where `<mysite.com>` is the BIG-IP FQDN for your own header-based application.
+An alternative SLO process is to enable the BIG-IP to listen for the request, when selecting the applications **Sign out** button. Upon detecting the request it calls to the Azure AD B2C log-off endpoint. This approach precludes making changes to the application. 
+
+To learn more BIG-IP iRules, go to support.f5.com for [K42052145: Configuring automatic session termination (logout) based on a URI-referenced file name](https://support.f5.com/csp/article/K42052145).
+
+> [!NOTE]
+> Regardless of approach, ensure the Azure AD B2C tenant knows the APM log-out endpoint. 
+
+1. In the portal, navigate to **Manage** > **Manifest**.
+2. Locate the `logoutUrl` property. It reads null.
+3. Add the APM post log-out URI: `https://<mysite.com>/my.logout.php3`
+
+> [!NOTE]
+> `<mysite.com>` is the BIG-IP FQDN for your header-based application.
 
 **Optimized login flow**
 
 One optional step for improving the user login experience would be to suppress the OAuth logon prompt displayed to users before Azure AD pre-authentication. 
 
-1. Navigate to **Access** > **Guided Configuration** and select the small padlock icon on the far right of the row for the header-based application to unlock the strict configuration
+1. Navigate to **Access** > **Guided Configuration**.
+2. On the far right of the row, select the **padlock** icon.
+3. The header-based application unlocks the strict configuration.
 
-   ![Screenshot shows optimized login flow](./media/partner-f5/optimized-login-flow.png)
+   ![Screenshot of input for Status, Name, and Type; also the padlock icon.](./media/partner-f5/optimized-login-flow.png)
 
-Unlocking the strict configuration prevents any further changes via the wizard UI, leaving all BIG-IP objects associated with the published instance of the application open for direct management.
+Unlocking the strict configuration prevents changes with the wizard UI. BIG-IP objects associated with the published instance of the application and open for direct management.
 
-2. Navigate to **Access** > **Profiles/ Policies** > **Access Profiles (Per-session Policies)** and select the **Per-Session Policy** Edit link for the application’s policy object.
+4. Navigate to **Access** > **Profiles/ Policies** > **Access Profiles (Per-session Policies)**. 
+5. For the application policy opject, in the **Per-Session Policy** column, select **Edit**.
 
-   ![Screenshot shows access profiles](./media/partner-f5/access-profile.png)
+   ![Screenshot of the Edit option under Access Policies, on the Access dialog.](./media/partner-f5/access-profile.png)
 
-3. Select the small cross to delete the OAuth Logon Page policy object and when prompted choose to connect to the previous node.
+6. To delete the **OAuth Logon Page** policy object, select **X**.
+7. At the prompt, connect to the previous node.
 
-   ![Screenshot shows OAuth logon page](./media/partner-f5/oauth-logon.png)
+   ![Screenshot of the X option on the OAuth Logon Page policy object.](./media/partner-f5/oauth-logon.png)
 
-4. Select **Apply Access Policy** in the top left-hand corner and close the visual editor tab.
+8. In the top left corner, select **Apply Access Policy**.
+9. Close the visual editor tab.
+
 The next attempt at connecting to the application should take you straight to the Azure AD B2C sign-in page.
 
 >[!Note]
