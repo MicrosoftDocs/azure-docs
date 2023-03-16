@@ -40,7 +40,7 @@ The overall solution comprises the following components:
 
 The following diagram illustrates the high-level traffic flow. Tenant restrictions requires TLS inspection only on traffic to Azure AD, not to the Microsoft 365 cloud services. This distinction is important, because the traffic volume for authentication to Azure AD is typically much lower than traffic volume to SaaS applications like Exchange Online and SharePoint Online.
 
-:::image type="content" source="./media/tenant-restrictions/traffic-flow.png" alt-text="Diagram of tenant restrictions traffic flow":::
+:::image type="content" source="./media/tenant-restrictions/traffic-flow.png" alt-text="Diagram of tenant restrictions traffic flow.":::
 ## Set up tenant restrictions
 
 There are two steps to get started with tenant restrictions. First, make sure that your clients can connect to the right addresses. Second, configure your proxy infrastructure.
@@ -97,7 +97,7 @@ This section describes the experience for both end users and admins.
 
 An example user is on the Contoso network, but is trying to access the Fabrikam instance of a shared SaaS application like Outlook online. If Fabrikam is a non-permitted tenant for the Contoso instance, the user sees an access denial message, which says you're trying to access a resource that belongs to an organization unapproved by your IT department.
 
-:::image type="content" source="./media/tenant-restrictions/error-message.png" alt-text="Screenshot of tenant restrictions error message, from April 2021":::
+:::image type="content" source="./media/tenant-restrictions/error-message.png" alt-text="Screenshot of tenant restrictions error message, from April 2021.":::
 ### Admin experience
 
 While configuration of tenant restrictions is done on the corporate proxy infrastructure, admins can access the tenant restrictions reports in the Azure portal directly. To view the reports:
