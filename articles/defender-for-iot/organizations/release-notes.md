@@ -105,7 +105,7 @@ To understand whether a feature is supported in your sensor version, check the r
 - Support for [deleting multiple devices](how-to-investigate-sensor-detections-in-a-device-inventory.md#delete-devices) on OT sensors
 - An enhanced [editing device details](how-to-investigate-sensor-detections-in-a-device-inventory.md#edit-device-details) process on the OT sensor, using an **Edit** button in the toolbar at the top of the page
 - [Enhanced UI on the OT sensor for uploading an SSL/TLS certificate](how-to-deploy-certificates.md#deploy-ssltls-certificates-on-ot-appliances)
-- [Activation files for cloud-connected sensors no longer expire](how-to-manage-individual-sensors.md#upload-a-new-activation-file)
+- [Activation files for locally-managed sensors no longer expire](how-to-manage-individual-sensors.md#upload-a-new-activation-file)
 - Severity for all [**Suspicion of Malicious Activity**](alert-engine-messages.md#malware-engine-alerts) alerts is now **Critical**
 - [Allow internet connections on an OT network in bulk](how-to-accelerate-alert-incident-response.md#allow-internet-connections-on-an-ot-network)
 
