@@ -198,7 +198,7 @@ The sample currently lets MSAL for Java produce the authorization-code URL and h
 
 # [Python](#tab/python)
 
-Code snippets in this article and the following are extracted from the [Python web application calling Microsoft graph](https://github.com/Azure-Samples/ms-identity-python-webapp) sample using the identity package (a wrapper around MSAL Python).
+Code snippets in this article and the following are extracted from the [Python web application calling Microsoft graph](https://github.com/Azure-Samples/ms-identity-python-webapp) sample using the [identity package](https://pypi.org/project/identity/) (a wrapper around MSAL Python).
 
 The sample uses the identity package to produce the authorization-code URL and handles the navigation to the authorization endpoint for the Microsoft identity platform. You might want to refer to the sample for full implementation details.
 
@@ -354,7 +354,7 @@ The `getAuthResultByAuthCode` method is defined in [AuthHelper.java#L176](https:
 
 See [Web app that signs in users: Code configuration](scenario-web-app-sign-user-app-configuration.md?tabs=python#initialization-code) to understand how the Python sample gets the authorization code. 
 
-The authorization code is then received by the `auth_response` function, which Flask routes from the `/getAToken` URL that was specified in the app registration. The route calls `auth.complete_login` to process the authorization code, and then either returns an error or redirects to the home page. See [app.py#LTODO](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/TODO) for the full context of this code:
+The authorization code is then received by the `auth_response` function, which Flask routes from the `/getAToken` URL that was specified in the app registration. The route calls `auth.complete_login` to process the authorization code, and then either returns an error or redirects to the home page. See [app.py#L36-41](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/0.4.0/app.py#L36-41) for the full context of this code:
 
 ```python
 @app.route(app_config.REDIRECT_PATH)
@@ -497,13 +497,14 @@ The detail of the `SessionManagementHelper` class is provided in the [MSAL sampl
 
 # [Python](#tab/python)
 
-In the Python sample, the identity library takes care of the token cache, using the global `session` object for storage.
-That `session` object is managed by the [Flask-session](https://flask-session.readthedocs.io/) package.
+In the Python sample, the identity library takes care of the token cache, using the global `session` object for storage. 
 
-```python
-from flask import Flask, render_template, session, request, redirect, url_for
-from flask_session import Session  # https://pythonhosted.org/Flask-Session
-import msal
+Flask has built-in support for sessions stored in a cookie, but due to the length of the identity cookies, the sample uses the [Flask-session](https://flask-session.readthedocs.io/) package instead. See [app.py:L11](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/0.4.0/app.py#L11).
+
+```
+from flask import Flask, redirect, render_template, request, session, url_for
+from flask_session import Session
+
 import app_config
 
 app = Flask(__name__)
@@ -511,9 +512,9 @@ app.config.from_object(app_config)
 Session(app)
 ```
 
-Due to the `SESSION_TYPE="filesystem"` configuration in `app_config.py`, the package will store sessions using the local file system.
+Due to the `SESSION_TYPE="filesystem"` setting in `app_config.py`, the Flask-session package will store sessions using the local file system.
 
-For production, you should use an option that will persist across multiple instances/deploys of your app, such as "sqlachemy" or "redis", and setup the appropriate configuration for that option.
+For production, you should use [a setting](https://flask-session.readthedocs.io/en/latest/#configuration) that will persist across multiple instances/deploys of your app, such as "sqlachemy" or "redis", and setup the appropriate configuration for that option.
 
 ---
 

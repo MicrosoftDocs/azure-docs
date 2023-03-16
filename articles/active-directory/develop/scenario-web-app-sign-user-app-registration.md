@@ -72,7 +72,7 @@ You can use these links to bootstrap the creation of your web application:
 
 1. When the **Register an application page** appears, enter your application's registration information: 
     1. Enter a **Name** for your application, for example `java-webapp`. Users of your app might see this name, and you can change it later. 
-    1. Select **Accounts in any organizational directory and personal Microsoft Accounts (e.g. Skype, Xbox, Outlook.com)**.
+    1. Select **Accounts in any organizational directory and personal Microsoft Accounts**.
     1. Select **Register** to register the application.
 1. Under **Manage**, select **Authentication** > **Add a platform**.
 1. Select **Web**.
@@ -114,13 +114,12 @@ By default, the sample uses:
    1. Change **Supported account types** to **Accounts in any organizational directory and personal Microsoft accounts (e.g. Skype, Xbox, Outlook.com)**.
    1. In the **Redirect URI (optional)** section, select **Web** in the combo  box and enter the following redirect URI: `http://localhost:5000/getAToken`.
    1. Select **Register** to create the application.
-1. On the app's **Overview** page, find the **Application (client) ID** value and record it for later. You'll need it to configure the Visual Studio configuration file for this project.
+1. On the app's **Overview** page, find the **Application (client) ID** value and record it for later. You'll need it to configure the *.env* file for this project.
 1. Under **Manage**, select **Certificates & secrets**.
 1. In the **Client Secrets** section, select **New client secret**, and then:
-   1. Enter a key description.
-   1. Select a key duration of **In 1 year**.
+   1. Enter a key description. Leave the default expiration.
    1. Select **Add**.
-   1. When the key value appears, copy it. You'll need it later.
+   1. Save the **Value** of the **Client Secret** in a safe location. You'll need it to configure the code, and you can't retrieve it later.
 ---
 
 ## Register an app by using PowerShell

@@ -105,12 +105,12 @@ This template is served via the main (index) route of the app:
 # [Python](#tab/python)
 
 In the Python quickstart, the code for the sign-in link is located in *login.html* template file.
-See [login.html#TODO]().
+See [login.html#L18](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/0.4.0/templates/login.html#L18).
 
 ```Python
     <li><a href='{{ auth_uri }}'>Sign In</a></li>
 ```
-When an unauthenticated user visits the home page, the `index` route redirects the user to the `login` route, which figures out the appropriate `auth_uri` and renders the `login.html` template.
+When an unauthenticated user visits the home page, the `index` route in [*appy.py*](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/0.4.0/app.py) redirects the user to the `login` route, which figures out the appropriate `auth_uri` and renders the *login.html* template.
 
 ```Python
 @app.route("/")
@@ -190,7 +190,7 @@ When the user selects the **Sign in** link, which triggers the `/auth/signin` ro
 
 When the user selects the **Sign in** link, they're brought to the Microsoft Identity Platform authorization endpoint. 
 
-A successful sign-in redirects the user to the `auth_response` route, which completes the sign-in process using [`auth.complete_login`](https://identity-library.readthedocs.io/en/latest/#identity.web.Auth.complete_log_in), renders errors if any, and redirects the now authenticated user to the home page.
+A successful sign-in redirects the user to the `auth_response` route, which completes the sign-in process using [`auth.complete_login`](https://identity-library.readthedocs.io/en/latest/#identity.web.Auth.complete_log_in), renders errors if any, and redirects the now authenticated user to the home page. See [app.py#L37](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/0.4.0/app.py#L37).
 
 ```Python
 @app.route(app_config.REDIRECT_PATH)
@@ -311,7 +311,7 @@ In our Java quickstart, the sign-out button is located in the main/resources/tem
 
 # [Python](#tab/python)
 
-In the Python quickstart, the sign-out button is located in [templates/index.html#L18](TODO) file.
+In the Python quickstart, the sign-out button is located in the [templates/index.html](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/0.4.0/templates/index.html#L18) file.
 
 ```html
 <li><a href="/logout">Logout</a></li>
@@ -378,7 +378,7 @@ When the user selects the **Sign out** button, the app triggers the `/signout` r
 
 # [Python](#tab/python)
 
-When the user selects **Logout**, the app triggers the `/logout` route, which redirects the browser to the Microsoft identity platform sign-out endpoint. See [app.py#L44-L46](TODO).
+When the user selects **Logout**, the app triggers the `/logout` route, which redirects the browser to the Microsoft identity platform sign-out endpoint. See [app.py#L44-L46](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/0.4.0/app.py#L44-46).
 
 ```Python
 @app.route("/logout")
@@ -423,7 +423,7 @@ In the Node quickstart, the post-logout redirect URI is used to redirect the bro
 
 # [Python](#tab/python)
 
-In the Python quickstart, the post-logout redirect URI just displays the index.html page.
+In the Python quickstart, the post-logout redirect URI just displays the *index.html* page.
 
 ---
 

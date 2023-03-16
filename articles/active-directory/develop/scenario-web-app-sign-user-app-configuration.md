@@ -55,7 +55,7 @@ You might want to refer to this sample for full implementation details.
 
 # [Python](#tab/python)
 
-Code snippets in this article and the following are extracted from the [Python web application calling Microsoft graph](https://github.com/Azure-Samples/ms-identity-python-webapp) sample using the identity package (a wrapper around MSAL Python).
+Code snippets in this article and the following are extracted from the [Python web application calling Microsoft graph](https://github.com/Azure-Samples/ms-identity-python-webapp) sample using the [identity package](https://pypi.org/project/identity/) (a wrapper around MSAL Python).
 
 You might want to refer to this sample for full implementation details.
 
@@ -199,7 +199,7 @@ CLIENT_ID=<client id>
 CLIENT_SECRET=<client secret>
 ```
 
-Those environment variables are referenced by *app_config.py*:
+Those environment variables are referenced by [*app_config.py*](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/0.4.0/app_config.py):
 
 ```Python
 CLIENT_ID = os.getenv("CLIENT_ID")
@@ -212,7 +212,7 @@ SCOPE = ["User.ReadBasic.All"]
 SESSION_TYPE = "filesystem"
 ```
 
-The *.env* file should never be checked into source control, since it contains secrets. The quickstart sample includes a *.gitignore* file that prevents the *.env* file from being checked in.
+The *.env* file should never be checked into source control, since it contains secrets. The quickstart sample includes a [*.gitignore*](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/0.4.0/.gitignore) file that prevents the *.env* file from being checked in.
 
 ---
 
@@ -339,7 +339,7 @@ The Node sample uses the Express framework. MSAL is initialized in *auth* route 
 
 # [Python](#tab/python)
 
-The Python sample is built with the Flask framework, though other frameworks like Django could be used as well. The Flask app is initialized with the app configuration in [app.py#L1-L28](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/TODO/app.py#L1-L28).
+The Python sample is built with the Flask framework, though other frameworks like Django could be used as well. The Flask app is initialized with the app configuration in [app.py#L1-L11](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/0.4.0/app.py#L1-L11).
 
 ```Python
 import identity
@@ -355,7 +355,7 @@ app.config.from_object(app_config)
 Session(app)
 ```
 
-Then the code constructs an [`auth` object](https://identity-library.readthedocs.io/en/latest/#identity.web.Auth) using the [identity package](https://identity-library.readthedocs.io/).
+Then the code constructs an [`auth` object](https://identity-library.readthedocs.io/en/latest/#identity.web.Auth) using the [identity package](https://pypi.org/project/identity/).
 
 ```Python
 auth = identity.web.Auth(
