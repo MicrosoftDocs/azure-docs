@@ -167,6 +167,17 @@ az acr replication update --name westus \
   --region-endpoint-enabled true
 ```
 
+## Creating replication for a Private Endpoint enabled registry
+
+When creating a new registry replication for the master registry with Private Endpoints enabled, we recommend validating User Identity has valid Private Endpoint creation permissions. Otherwise, the user will get stuck in the provisioning state while creating the replication.
+
+Follow the below steps if your registry replication creation got stuck in the provision state:
+- Manually delete the replication that got stuck in the provision state.
+- Add the `Microsoft.Network/privateEndpoints/privateLinkServiceProxies/write` permission for the User Identity.
+- Recreate the registry replication request.
+
+This permission check is only applicable to the registries with Private Endpoint enabled.
+
 ## Next steps
 
 Check out the three-part tutorial series, [Geo-replication in Azure Container Registry](container-registry-tutorial-prepare-registry.md). Walk through creating a geo-replicated registry, building a container, and then deploying it with a single `docker push` command to multiple regional Web Apps for Containers instances.
