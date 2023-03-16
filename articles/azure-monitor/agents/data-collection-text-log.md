@@ -25,8 +25,8 @@ To complete this procedure, you need:
     - Do delineate the end of a record with an end of line. 
     - Do use ASCII or UTF-8 encoding. Other formats such as UTF-16 aren't supported.
     - Do create a new log file every day so that you can remove old files easily. 
-    - Do Clean up all old log files in the monitored directory. Azure Monitor Agent does not delete old log files.
-    - Do Not overwrite an exitsing file with new data. You should only append new data to the file.
+    - Do clean up all log files older than 2 days in the monitored directory. Azure Monitor Agent does not delete old log files and tracking them uses up Agent resources.
+    - Do Not overwrite an existing file with new data. You should only append new data to the file.
     - Do Not rename a file and open a new file with the same name to log to.
     - Do Not rename or copy large log files in to the monitored directory.
     - Do Not rename files in the monitored directory to a new name that is also in the monitored directory. This can cause incorrect ingestion behavior. 

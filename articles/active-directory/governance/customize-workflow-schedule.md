@@ -1,5 +1,5 @@
 ---
-title: 'Customize workflow schedule - Azure Active Directory'
+title: 'Customize workflow schedule'
 description: Describes how to customize the schedule of a Lifecycle Workflow.
 services: active-directory
 author: owinfreyATL

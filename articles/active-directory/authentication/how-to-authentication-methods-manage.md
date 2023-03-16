@@ -1,5 +1,5 @@
 ---
-title: How to migrate to the Authentication methods policy - Azure Active Directory (preview)
+title: How to migrate to the Authentication methods policy (preview)
 description: Learn about how to centrally manage multifactor authentication (MFA) and self-service password reset (SSPR) settings in the Authentication methods policy.
 
 services: active-directory

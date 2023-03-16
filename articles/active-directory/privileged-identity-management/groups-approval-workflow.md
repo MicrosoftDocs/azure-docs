@@ -1,5 +1,5 @@
 ---
-title: Approve activation requests for group members and owners (preview) - Azure Active Directory
+title: Approve activation requests for group members and owners (preview)
 description: Learn how to approve activation requests for group members and owners (preview) in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 author: amsliu
