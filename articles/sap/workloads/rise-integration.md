@@ -210,7 +210,7 @@ The solution allows you to gain visibility to user activities on SAP RISE/ECS an
 
 For SAP RISE/ECS, the Microsoft Sentinel solution must be deployed in customer's Azure subscription. All parts of the Sentinel solution are managed by customer and not by SAP. Private network connectivity from customer's vnet is needed to reach the SAP landscapes managed by SAP RISE/ECS. Typically, this connection is over the established vnet peering or through alternatives described in this document.
 
-To enable the solution, only an authorized RFC user is required and nothing needs to be installed on the SAP systems. The container-based [SAP data collection agent](/azure/sentinel/sap/deployment-overview) included with the solution can be installed either on VM or AKS/any Kubernetes environment. The collector agent uses an SAP service user to consume application log data from your SAP landscape through RFC interface using standard RFC calls. 
+To enable the solution, only an authorized RFC user is required and nothing needs to be installed on the SAP systems. The container-based [SAP data collection agent](../../sentinel/sap/deployment-overview.md) included with the solution can be installed either on VM or AKS/any Kubernetes environment. The collector agent uses an SAP service user to consume application log data from your SAP landscape through RFC interface using standard RFC calls. 
 - Authentication methods supported in SAP RISE: SAP username and password or X509/SNC certificates
 - Only RFC based connections are possible currently with SAP RISE/ECS environments
 
@@ -218,7 +218,7 @@ Note for running Microsoft Sentinel in an SAP RISE/ECS environment:
 - The following log fields/source require an SAP transport change request: Client IP address information from SAP security audit log, DB table logs (preview), spool output log. Sentinel's built-in content (detections, workbooks and playbooks) provides extensive coverage and correlation without those log sources.
 -	SAP infrastructure and operating system logs aren't available to Sentinel in RISE, including VMs running SAP, SAPControl data sources, network resources placed within ECS. SAP monitors elements of the Azure infrastructure and operation system independently.
 
-For more information on Microsoft Sentinel and SAP, including a deployment guide, see [Sentinel product documentation](/azure/sentinel/sap/deployment-overview).
+For more information on Microsoft Sentinel and SAP, including a deployment guide, see [Sentinel product documentation](../../sentinel/sap/deployment-overview.md).
 
 ## Azure Monitoring for SAP with SAP RISE
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure GitHub Enterprise Managed User for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure GitHub Enterprise Managed User for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to GitHub Enterprise Managed User.
 documentationcenter: ''
 author: twimmers

@@ -17,7 +17,7 @@ Forcepoint Cloud Security Gateway is a converged cloud security service that pro
 | Connector attribute | Description |
 | --- | --- |
 | **Log Analytics table(s)** | CommonSecurityLog (Forcepoint CSG)<br/> CommonSecurityLog (Forcepoint CSG)<br/> |
-| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
+| **Data collection rules support** | [Workspace transform DCR](../../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Supported by** | [Community](https://github.com/Azure/Azure-Sentinel/issues) |
 
 ## Query samples
