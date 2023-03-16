@@ -19,7 +19,7 @@ You can learn more by watching this video from the Defender for Cloud in the Fie
 - [Integrate Microsoft Purview with Microsoft Defender for Cloud](episode-two.md)
 
 > [!NOTE]
-> Microsoft Defender for Cloud also provides data sensitivity context by enabling the sensitive data discovery (preview). Learn more in [Data-aware security posture (preview)](data-aware-security-posture). The integration between Microsoft Purview Data Catalog and Microsoft Defender for Cloud described in this page refers **only** to subscriptions **not** onboarded to sensitive data discovery (preview).
+> Microsoft Defender for Cloud also provides data sensitivity context by enabling the sensitive data discovery (preview). The integration between Microsoft Purview Data Catalog and Microsoft Defender for Cloud described in this page offers a complementary source of data context for resources **not** covered by the sensitive data discovery feature. Purview Catalog will provide data context **only** for resources in subscriptions not onboarded to sensitive data discovery feature or resource types not supported by this feature. Learn more in [Data-aware security posture (preview)](data-aware-security-posture).
 
 
 ## Availability
@@ -50,7 +50,7 @@ Purview Catalog scans produce insights into the nature of the sensitive informat
 
 - If a resource is scanned by multiple Microsoft Purview accounts, the information shown in Defender for Cloud relates to the most recent scan.
 - Classifications and labels are shown for resources that were scanned within the last 3 months.
-- Purview Catalog adds data sensitivity context **only** for resources in subscriptions **not** onboarded to [sensitive data discovery (preview)](data-aware-security-posture) in Defender for Cloud.
+- Purview Catalog adds data sensitivity context **only** for resources **not** covered by the [sensitive data discovery (preview)](data-aware-security-posture) feature in Defender for Cloud.
 
 ### Alerts and recommendations pages
 When you're reviewing a recommendation or investigating an alert, the information about any potentially sensitive data involved is included on the page. You can also filter the list of alerts by **Data sensitivity classifications** and **Data sensitivity labels** to help you focus on the alerts that relate to sensitive data.
