@@ -1,7 +1,7 @@
 ---
 title: Create a blob container with TypeScript
 titleSuffix: Azure Storage 
-description: Learn how to create a blob container in your Azure Storage account using the TypeScript client library.
+description: Learn how to create a blob container in your Azure Storage account using the JavaScript client library.
 author: pauljewellmsft
 
 ms.service: storage
