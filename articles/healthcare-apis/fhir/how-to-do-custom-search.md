@@ -81,7 +81,7 @@ The code example shows how to create custom search parameter to search for Medic
 {
  "resourceType": "SearchParameter",
   "id": "a3c28d46-fd06-49ca-aea7-5f9314ef0497",
-  "url": "{{FHIR_URL}}",
+  "url": "{{An absolute URI that is used to identify this search parameter}}",
   "version": "1.0",
   "name": "MedicationDispenseLocationSearchParameter",
   "status": "active",
