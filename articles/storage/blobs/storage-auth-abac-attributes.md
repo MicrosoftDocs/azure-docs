@@ -473,8 +473,8 @@ This section lists the Azure Blob Storage attributes you can use in your conditi
 > | **Attribute** | `UtcNow` |
 > | **Attribute source** | Environment |
 > | **Attribute type** | DateTime |
-> | **Operators** | DateTimeGreaterThan<br/>DateTimeLessThan |
-> | **Examples** | `@Environment[UtcNow] DateTimeGreaterThan '2022-08-29T22:03:00.0Z'` |
+> | **Operators** | [DateTime comparison operators](../../role-based-access-control/conditions-format.md#datetime-comparison-operators) |
+> | **Examples** | `@Environment[UtcNow] DateTimeGreaterThan '2023-03-29T22:03:00.0Z'`<br/>[Example: Allow read access to blobs after a specific date and time](storage-auth-abac-examples.md#example-allow-read-access-to-blobs-after-a-specific-date-and-time) |
 
 ### Version ID
 
