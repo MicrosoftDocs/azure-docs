@@ -15,13 +15,13 @@ ms.custom: how-to, devplatv2, event-tier1-build-2022
 
 # Monitor online endpoints
 
-Azure Machine Learning provides several ways to track and monitor metrics and logs regarding [Azure Machine Learning online endpoints](concept-endpoints.md). Integrated with Azure Monitor, you can view metrics, customize dashboard and configure alerts based on metrics, query from log tables and push the logs to supported targets. You can also use Application Insights (legacy) to analyze events from user containers.
+Azure Machine Learning provides several ways to track and monitor metrics and logs regarding [Azure Machine Learning online endpoints](concept-endpoints.md). Integrated with Azure Monitor, you can view metrics in chart, compare between endpoints and deployments, pin to Azure portal dashboards, configure alerts, query from log tables and push the logs to supported targets. You can also use Application Insights to analyze events from user containers.
 
-* **Metrics**: Endpoint level metrics such as request latency, requests per minute, new connections per second, network bytes etc can be drilled down to deployment or status level. Deployment level metrics such as CPU/GPU utilization, memory or disk utilization can be drilled down to instance level. Azure Monitor allows tracking thie Metrics in charts and setting up dashboards and alerts for further analysis.
+* **Metrics**: Endpoint level metrics such as request latency, requests per minute, new connections per second, network bytes etc can be drilled down to deployment or status level. Deployment level metrics such as CPU/GPU utilization, memory or disk utilization can be drilled down to instance level. Azure Monitor allows tracking these Metrics in charts and setting up dashboards and alerts for further analysis.
 
-* **Logs**: You can send Metrics to the Log Analytics Workspace where you can query the logs using rich Kusto query syntax. You can also send Metrics to Storage Account and/or Event Hubs for further processing. In addition, you can use dedicated Log tables for events, traffic, and console (container) logs. Kusto query allows complex analysis joining multiple tables.
+* **Logs**: You can send Metrics to the Log Analytics Workspace where you can query the logs using rich Kusto query syntax. You can also send Metrics to Storage Account and/or Event Hubs for further processing. In addition, you can use dedicated Log tables for online endpoint related events, traffic, and console (container) logs. Kusto query allows complex analysis joining multiple tables.
 
-* **Application insights**: Curated environments include the integration with Application Insights, and you can simply enable/disable it when you create an online deployment. Built-in metrics and logs are sent to Application insights, and you can use its built-in features such as Live metrics, Transaction search, Failures and Performance. 
+* **Application insights**: Curated environments include the integration with Application Insights, and you can simply enable/disable it when you create an online deployment. Built-in metrics and logs are sent to Application insights, and you can use its built-in features such as Live metrics, Transaction search, Failures and Performance for further analysis. 
 
 In this article you learn how to:
 
