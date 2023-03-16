@@ -552,7 +552,7 @@
             - name: Virtual network changes (March 2023)
               href: breaking-changes/rp-source-ip-address-change-mar-2023.md
             - name: Metrics retirements (August 2023)
-              href: metrics-retirement-aug-2023.md
+              href: breaking-changes/metrics-retirement-aug-2023.md
             - name: Virtual network changes (September 2023)
               href: breaking-changes/rp-source-ip-address-change-sep-2023.md
             - name: API version retirements (September 2023)
