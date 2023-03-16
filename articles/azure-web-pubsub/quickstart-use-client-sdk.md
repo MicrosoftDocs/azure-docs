@@ -1,24 +1,35 @@
 ---
-title: Quickstart - Pub-sub using Azure Web PubSub client SDK
+title: Quickstart: Create a client using the Azure Web PubSub client SDK (preview)
 description: Quickstart showing how to use the Azure Web PubSub client SDK
 author: zackliu
 ms.author: chenyl
 ms.service: azure-web-pubsub
 ms.topic: quickstart
-ms.date: 02/7/2023
+ms.date: 03/15/2023
 ms.custom: mode-api, devx-track-azurecli 
 ms.devlang: azurecli
 ---
 
-# Quickstart: Pub-sub using Web PubSub client SDK
+# Quickstart: Create a client using the Azure Web PubSub client SDK (preview)
 
-This quickstart guide demonstrates how to construct a project using the Web PubSub client SDK, connect to the Web PubSub, subscribe to messages from groups and publish a message to the group.
+Get started with the Azure Web PubSub client SDK for Python or JavaScript to create a pub-sub client 
+ that: 
+
+* connects to a Web PubSub service instance
+* subscribes a Web PubSub group.
+* publishes a message to the Web PubSub group.
+
+[API reference documentation](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/web-pubsub/web-pubsub-client) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/web-pubsub/web-pubsub-client/src) | [Package (JavaScript npm)](https://www.npmjs.com/package/@azure/web-pubsub-client) | [Samples](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/web-pubsub/web-pubsub-client/samples-dev/helloworld.ts)
+
+[API reference documentation](https://github.com/Azure/azure-sdk-for-net#azure-sdk-for-net) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/webpubsub/Azure.Messaging.WebPubSub.Client/src) | [Package (NuGet))](https://www.nuget.org/packages/Azure.Messaging.WebPubSub.Client) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/webpubsub/Azure.Messaging.WebPubSub.Client/samples)
+
 
 > [!NOTE] 
-> The client SDK is still in preview version. The interface may change in later versions
+> The client SDK is still in preview version. The interface may change in later versions.
 
 ## Prerequisites
 
+- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - A Web PubSub instance. If you haven't created one, you can follow the guidance: [Create a Web PubSub instance from Azure portal](./howto-develop-create-instance.md)
 - A file editor such as Visual Studio Code.
 
@@ -64,16 +75,22 @@ dotnet add package Azure.Messaging.WebPubSub.Client --prerelease
 
 ## Connect to Web PubSub
 
-A client uses a Client Access URL to connect and authenticate with the service, which follows a pattern of `wss://<service_name>.webpubsub.azure.com/client/hubs/<hub_name>?access_token=<token>`. A client can have a few ways to obtain the Client Access URL. For this quick start, you can copy and paste one from Azure portal shown as the following diagram.
+A client uses a Client Access URL to connect and authenticate with the service, which follows a pattern of `wss://<service_name>.webpubsub.azure.com/client/hubs/<hub_name>?access_token=<token>`.
 
-![The diagram shows how to get client access url.](./media/howto-websocket-connect/generate-client-url.png)
+1. In the Azure portal, go to your Web PubSub service resource page.
+1. Select **Key** from the menu.
+1. From the **Client URL Generator** section:
+    1. 
+1.  A client can have a few ways to obtain the Client Access URL. For this quick start, you can copy and paste one from Azure portal shown as the following diagram.
 
-As shown in the diagram above, the client has the permissions to send messages to and join a specific group named `group1`.
+:::image type="content" source="media/howto-websocket-connect/generate-client-url.png" alt-text="Screenshot of the Web PubSub Client URL Generator.":::
+
+As shown  above, the client has the permissions to send messages to and join a specific group named `group1`.
 
 
 # [JavaScript](#tab/javascript)
 
-Add a file with name `index.js` and add following codes:
+Add a file with name `index.js` and add following code:
 
 ```javascript
 const { WebPubSubClient } = require("@azure/web-pubsub-client");
@@ -83,7 +100,7 @@ const client = new WebPubSubClient("<client-access-url>");
 
 # [C#](#tab/csharp)
 
-Edit the `Program.cs` file and add following codes:
+Edit the `Program.cs` file and add following code:
 
 ```csharp
 using Azure.Messaging.WebPubSub.Clients;
@@ -95,7 +112,7 @@ var client = new WebPubSubClient(new Uri("<client-access-uri>"));
 
 ## Subscribe to a group
 
-To receive message from groups, you need to add a callback to handle messages you receive from the group, and you must join the group before you can receive messages from it. The following code subscribes the client to a group called `group1`.
+To receive message from a group, you need to subscribe to the group and add a callback to handle messages you receive from the group. The following code subscribes the client to a group called `group1`.
 
 # [JavaScript](#tab/javascript)
 
