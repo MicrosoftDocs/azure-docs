@@ -359,7 +359,7 @@
 			<v:userDefs>
 				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
 			</v:userDefs>
-			<rect x="0" y="517.776" width="161.575" height="77.4992" class="st12"/>
+			<rect x="0" y="517.776" width="104.882" height="77.4992" class="st12"/>
 		</g>
 		<g id="shape1002-146" v:mID="1002" v:groupContext="shape" v:layerMember="2" transform="translate(28.3465,-195.024)"
 				display="none">
@@ -441,5 +441,15 @@
 			</v:userDefs>
 			<rect x="0" y="528.406" width="779.528" height="66.8693" class="st12"/>
 		</g>
+		<g id="shape1012-166" v:mID="1012" v:groupContext="shape" transform="translate(378.603,-437.386)">
+			<title>Rectangle.1012</title>
+			<desc>Device registry</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="36.7228" cy="562.89" width="73.45" height="64.7717"/>
+			<rect x="0" y="530.504" width="73.4457" height="64.7717" class="st1"/>
+			<text x="6.65" y="565.89" class="st2" v:langID="2057"><v:paragraph v:horizAlign="1"/><v:tabList/>Device registry</text>		</g>
 	</g>
 </svg>
