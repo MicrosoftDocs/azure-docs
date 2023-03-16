@@ -14,7 +14,7 @@ zone_pivot_groups: iot-dps-set1
 
 # Tutorial: Provision multiple X.509 devices using enrollment groups
 
-In this tutorial, you'll learn how to provision groups of IoT devices that use X.509 certificates for authentication. Sample device code from the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) will be executed on your development machine to simulate provisioning of X.509 devices. On real devices, device code would be deployed and run from the IoT device.
+In this tutorial, you'll learn how to provision groups of IoT devices that use X.509 certificates for authentication. Sample device code from the Azure IoT SDK will be executed on your development machine to simulate provisioning of X.509 devices. On real devices, device code would be deployed and run from the IoT device.
 
 The Azure IoT Hub Device Provisioning Service supports two types of enrollments for provisioning devices:
 
