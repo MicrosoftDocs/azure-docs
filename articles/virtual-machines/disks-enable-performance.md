@@ -41,8 +41,9 @@ myVM=yourVMName
 region=desiredRegion
 # Valid values are Premium_LRS, Premium_ZRS, StandardSSD_LRS, StandardSSD_ZRS, or Standard_LRS
 sku=desiredSKU
-
-az disk create -g $myRG -n $myDisk --size-gb 1024 --sku $sku -l $region –performance-plus true 
+#Size must be 513 or larger
+size=513
+az disk create -g $myRG -n $myDisk --size-gb $size --sku $sku -l $region –performance-plus true 
 
 az vm disk attach --vm-name $myVM --name $myDisk --resource-group $myRG 
 ```
@@ -56,8 +57,8 @@ myVM=yourVMName
 region=desiredRegion
 # Valid values are Premium_LRS, Premium_ZRS, StandardSSD_LRS, StandardSSD_ZRS, or Standard_LRS
 sku=desiredSKU
-#Size must be 1024 or larger
-size=1024
+#Size must be 513 or larger
+size=513
 sourceURI=yourDiskOrSnapshotURI
 
 az disk create --name $myDisk --resource-group $myRG --size-gb $size -- --performance-plus true --sku $sku --source $sourceURI --location $region
@@ -74,8 +75,8 @@ $myVM=yourVMName
 $region=desiredRegion
 # Valid values are Premium_LRS, Premium_ZRS, StandardSSD_LRS, StandardSSD_ZRS, or Standard_LRS
 $sku=desiredSKU
-#Size must be 1024 or larger
-$size=1024
+#Size must be 513 or larger
+$size=513
 
 Set-AzContext -SubscriptionName <yourSubscriptionName> 
 
@@ -92,8 +93,8 @@ $myVM=yourVMName
 $region=desiredRegion
 # Valid values are Premium_LRS, Premium_ZRS, StandardSSD_LRS, StandardSSD_ZRS, or Standard_LRS
 $sku=desiredSKU
-#Size must be 1024 or larger
-$size=1024
+#Size must be 513 or larger
+$size=513
 $sourceURI=diskOrSnapshotURI
 
 Set-AzContext -SubscriptionName <<yourSubscriptionName>> 
