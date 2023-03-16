@@ -6,10 +6,10 @@ author: rwike77
 manager: CelesteDG
 
 ms.service: active-directory
-ms.subservice: develop
+ms.subservice: workload-identities
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/12/2022
+ms.date: 03/09/2023
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: cbrooks, udayh, vakarand

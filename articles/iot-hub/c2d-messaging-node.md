@@ -1,13 +1,13 @@
 ---
-title: Cloud-to-device messages with Azure IoT Hub (Node) | Microsoft Docs
-description: How to send cloud-to-device messages to a device from an Azure IoT hub using the Azure IoT SDKs for Node.js. You modify a simulated device app to receive cloud-to-device messages and modify a back-end app to send the cloud-to-device messages.
+title: Send cloud-to-device messages (Node.js)
+titleSuffix: Azure IoT Hub
+description: How to send cloud-to-device messages from a back-end app and receive them on a device app using the Azure IoT SDKs for Node.js.
 author: kgremban
 
 ms.author: kgremban
 ms.service: iot-hub
-services: iot-hub
-ms.devlang: javascript
-ms.topic: conceptual
+ms.devlang: nodejs
+ms.topic: how-to
 ms.date: 06/16/2017
 ms.custom: [amqp, mqtt, devx-track-js]
 ---
@@ -70,12 +70,12 @@ In this section, modify your device app to receive cloud-to-device messages from
     });
     ```
 
-In this example, the device invokes the **complete** function to notify IoT Hub that it has processed the message and that it can safely be removed from the device queue. The call to **complete** is not required if you are using MQTT transport and can be omitted. It is required for AMQP and HTTPS.
+In this example, the device invokes the **complete** function to notify IoT Hub that it has processed the message and that it can safely be removed from the device queue. The call to **complete** isn't required if you're using MQTT transport and can be omitted. It's required for AMQP and HTTPS.
 
 With AMQP and HTTPS, but not MQTT, the device can also:
 
 * Abandon a message, which results in IoT Hub retaining the message in the device queue for future consumption.
-* Reject a message, which which permanently removes the message from the device queue.
+* Reject a message, which permanently removes the message from the device queue.
 
 If something happens that prevents the device from completing, abandoning, or rejecting the message, IoT Hub will, after a fixed timeout period, queue the message for delivery again. For this reason, the message processing logic in the device app must be *idempotent*, so that receiving the same message multiple times produces the same result.
 
@@ -117,7 +117,7 @@ In this section, you create a Node.js console app that sends cloud-to-device mes
     var Message = require('azure-iot-common').Message;
     ```
 
-5. Add the following code to **SendCloudToDeviceMessage.js** file. Replace the "{iot hub connection string}" and "{device id}" placeholder values with the IoT hub connection string and device ID you noted previously:
+5. Add the following code to **SendCloudToDeviceMessage.js** file. Replace the "{iot hub connection string}" and "{device ID}" placeholder values with the IoT hub connection string and device ID you noted previously:
 
     ```javascript
     var connectionString = '{iot hub connection string}';
@@ -170,7 +170,7 @@ In this section, you create a Node.js console app that sends cloud-to-device mes
 
 ## Run the applications
 
-You are now ready to run the applications.
+You're now ready to run the applications.
 
 1. At the command prompt in the **simulated-device** folder, run the following command to send telemetry to IoT Hub and to listen for cloud-to-device messages:
 
