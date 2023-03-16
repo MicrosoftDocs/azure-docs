@@ -115,4 +115,4 @@ You're now ready to start migration jobs using the newly deployed Storage Mover 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> Read more about [Resiliency in Azure](/azure/availability-zones/overview).
+> [Resiliency in Azure](/azure/availability-zones/overview)
