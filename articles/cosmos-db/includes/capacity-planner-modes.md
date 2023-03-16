@@ -17,6 +17,6 @@ ms.reviewer: mjbrown
 
 - Advanced
 
-  Provides a more detailed RU/s and cost estimate, with the ability to tune more settings—indexing policy, consistency level, and other parameters that affect the cost and throughput.
+  Provides a more detailed RU/s and cost estimate, with the ability to tune more settings: indexing policy, consistency level, and other parameters that affect the cost and throughput.
 
   Use advanced mode when you're estimating RU/s for a new project or want a more detailed estimate. To learn more, see how to [estimate cost with advanced mode](#advanced-mode).
