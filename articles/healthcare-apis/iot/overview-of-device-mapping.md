@@ -16,7 +16,7 @@ ms.author: jasteppe
 
 This article provides an overview of the MedTech service device mapping.
 
-The MedTech service requires two types of [JSON-based](https://www.json.org/) mappings that are added to your MedTech service through the Azure portal or Azure Resource Manager API. 
+The MedTech service requires two types of [JSON](https://www.json.org/) mappings that are added to your MedTech service through the Azure portal or Azure Resource Manager API. 
 
 * The device mapping is the first type and is responsible for mapping the device message data sent to the MedTech service event hub endpoint. The device mapping extracts types, device identifiers, measurement date time, and the measurement value(s). The FHIR destination mapping is the second type and controls the mapping for FHIR Observations. 
 
