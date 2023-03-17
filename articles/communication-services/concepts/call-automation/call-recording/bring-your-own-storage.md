@@ -14,7 +14,7 @@ ms.service: azure-communication-services
 
 # Bring your own storage (BYOS) overview
 
-[!INCLUDE [Private Preview Disclaimer](../../../includes/private-preview-include-section.md)]
+[!INCLUDE [Private Preview Disclaimer](../includes/private-preview-include-section.md)]
 
 Bring Your Own Storage (BYOS) for Call Recording allows you to specify an Azure blob storage account for storing Call Recording files. Now with BYOS, you can manage your Call Recording files in a flexible and customizable way, eliminating the need to store your files in a built-in Azure Communication Services temporary storage and manually download and upload them to a permanent one.
 
@@ -22,7 +22,7 @@ BYOS enables businesses to store their data in a way that meets their compliance
 
 ## Azure Managed Identities
 
-BYOS uses [Azure Managed Identities](https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview) to access user-owned resources securely. Azure Managed Identities provides an identity for the application to use when it needs to access Azure resources, eliminating the need for developers to manage credentials. This feature ensures that the data is accessed only by authorized personnel.
+BYOS uses [Azure Managed Identities](../../../../active-directory/managed-identities-azure-resources/overview.md) to access user-owned resources securely. Azure Managed Identities provides an identity for the application to use when it needs to access Azure resources, eliminating the need for developers to manage credentials. This feature ensures that the data is accessed only by authorized personnel.
 
 
 ## Known Issues
