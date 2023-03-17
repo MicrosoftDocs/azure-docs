@@ -8,7 +8,7 @@ ms.author: pauljewell
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/14/2023
+ms.date: 03/17/2023
 ms.subservice: blobs
 ms.custom: devguide-csharp, devguide-java, devguide-javascript, devguide-python
 ---
@@ -197,7 +197,7 @@ Client library information:
 
 ---
 
-### Register the Storage resource provider
+### Register the Storage resource provider with a subscription
 
 A resource provider must be registered with your Azure subscription before you can use it. For this example, the resource provider **Microsoft.Storage** needs to be registered so that your subscription can work with it. 
 
@@ -222,6 +222,9 @@ You can also use the Azure management libraries to check the registration status
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-query-endpoint/blob-query-endpoint.py" id="Snippet_register_srp":::
 
 ---
+
+> [!NOTE]
+> To perform the register operation, you'll need permissions for the following Azure RBAC action: **Microsoft.Storage/register/action**. This permission is included in the **Contributor** and **Owner** roles.
 
 ## Query for the Blob Storage endpoint
 
