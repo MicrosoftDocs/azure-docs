@@ -12,7 +12,10 @@ zone_pivot_groups: functions-nodejs-model
 
 # Azure Functions JavaScript developer guide
 
-This guide is an introduction to developing Azure Functions using JavaScript. The article assumes that you've already read the [Azure Functions developer guide](functions-reference.md).
+This guide is an introduction to developing Azure Functions using JavaScript or TypeScript. The article assumes that you've already read the [Azure Functions developer guide](functions-reference.md).
+
+> [!IMPORTANT]
+> The content of this article changes based on your choice of the Node.js programming model in the selector above. The version you select should match the version of the [`@azure/functions`](https://www.npmjs.com/package/@azure/functions) npm package you are using in your app. If you do not have that package listed in your `package.json`, the default is v3.x. Learn more about the differences between v3.x and the new v4.x programming model in the [upgrade guide](). v4.x is currently in public preview.
 
 As a JavaScript developer, you might also be interested in one of the following articles:
 
@@ -22,9 +25,7 @@ As a JavaScript developer, you might also be interested in one of the following 
 
 ## Supported Versions
 
-This article supports multiple Azure Functions Node.js programming models. Each model corresponds to a version of the `@azure/functions` [npm package](https://www.npmjs.com/package/@azure/functions) that should be included with your app. You can't mix multiple versions of the model, and should only use one at a time.
-
-The following table shows each version of the programming model along with its supported versions of the Azure Functions runtime and Node.js.
+The following table shows each version of the Node.js programming model along with its supported versions of the Azure Functions runtime and Node.js.
 
 | Programming Model Version | Support Level | [Functions Runtime Version](./functions-versions.md) | [Node.js Version](https://github.com/nodejs/release#release-schedule) | Description |
 | ---- | ---- | --- | --- | --- |
@@ -32,9 +33,6 @@ The following table shows each version of the programming model along with its s
 | 3.x | GA | 4.x | 18.x, 16.x, 14.x | Requires a specific file structure with your triggers and bindings declared in a "function.json" file |
 | 2.x | GA (EOL) | 3.x | 14.x, 12.x, 10.x | Reached end of life (EOL) on December 13, 2022. See [Functions Versions](./functions-versions.md) for more info. |
 | 1.x | GA (EOL) | 2.x | 10.x, 8.x | Reached end of life (EOL) on December 13, 2022. See [Functions Versions](./functions-versions.md) for more info. |
-
-> [!IMPORTANT]
-> This article supports v3.x and v4.x of the programming model. Choose a selector at the top of the article to learn more about each version.
 
 ::: zone pivot="nodejs-model-v3"
 
@@ -255,6 +253,9 @@ app.http('httpTrigger1', {
     }
 });
 ```
+
+> [!WARNING]
+> You can't mix the v3.x and v4.x programming models. As soon as you register one v4.x function in your app, any v3.x functions registered in `function.json` files will be ignored.
 
 ## Inputs and outputs
 
