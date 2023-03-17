@@ -459,7 +459,7 @@ Upon successful completion of the `azd up` command:
 
 ::: zone pivot="csharp"
 
-## Run the Dapr applications locally with Python
+## Run the Dapr applications locally with .NET
 
 Before deploying the application to Azure Container Apps, run the `order-processor` and `checkout` services locally with Dapr and Azure Service Bus.
 
