@@ -63,15 +63,6 @@ A `recordingId` is returned when recording is started, which is then used for fo
 | Stop Recording        | `recordingId` | Stops recording, and initiates final media processing for file download. | 
 
 
-## Bring your own storage
-
-[!INCLUDE [Private Preview](../../includes/private-preview-include-section.md)]
-
-Call Recording APIs can be used to export recordings to your Azure Blob Storage Container as well. While starting recording for a call, simply specify the container path where the recording needs to be exported. Upon recording completion, Azure Communication Services will automatically fetch and upload your recording to your storage.
-
-
-![Diagram showing a call recording being automatically exported to storage container](./media/call-recording-byos-flow-zoomed.png)
-
 ## Event Grid notifications
 Call Recording use [Azure Event Grid](../../../event-grid/event-schema-communication-services.md) to provide you with notifications related to media and metadata.
 
