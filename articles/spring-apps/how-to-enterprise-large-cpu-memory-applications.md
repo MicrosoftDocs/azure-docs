@@ -43,7 +43,7 @@ Use the following steps to create a large CPU and memory application using the A
 
 1. Select  **Create**.
 
-   :::image type="content" source="media/how-to-create-large-application/create-large-application.png" lightbox="media/how-to-create-large-application/create-large-application.png" alt-text="Screenshot of the Azure portal Create App page in Azure Spring Apps showing configuration settings for a new app.":::
+   :::image type="content" source="media/how-to-enterprise-large-cpu-memory-applications/create-large-application.png" lightbox="media/how-to-enterprise-large-cpu-memory-applications/create-large-application.png" alt-text="Screenshot of the Azure portal Create App page in Azure Spring Apps showing configuration settings for a new app.":::
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -72,7 +72,7 @@ Use the following steps to scale up or down a large CPU and memory application.
 
 1. Select the preferred **vCpu** and **Memory** values.
 
-   :::image type="content" source="media/how-to-create-large-application/scale-large-application.png" lightbox="media/how-to-create-large-application/scale-large-application.png" alt-text="Screenshot of Azure portal Configuration page showing how to scale large app.":::
+   :::image type="content" source="media/how-to-enterprise-large-cpu-memory-applications/scale-large-application.png" lightbox="media/how-to-enterprise-large-cpu-memory-applications/scale-large-application.png" alt-text="Screenshot of Azure portal Configuration page showing how to scale large app.":::
 
 1. Select **Save**.
 
