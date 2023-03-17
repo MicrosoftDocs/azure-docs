@@ -17,6 +17,6 @@ ms.author: alkohli
 |    http://\*.data.microsoft.com     |    Telemetry service in Windows, see the update for customer experience and diagnostic telemetry |
 |    `http://<vault-name>.vault.azure.net:443`     |    Key Vault |
 |    `https://azstrpprod.trafficmanager.net/*`    |Remote Management  |
-|   `https://www.msftconnecttest.com/connecttest.txt`  |    Required for web proxy test, this URL is used to validate web connectivity before applying the configuration.  | 
+|   `https://www.msftconnecttest.com/connecttest.txt`  |    Required for a web proxy test, this URL is used to validate web connectivity before applying the configuration.  | 
 <!--|    http://www.msftconnecttest.com/connecttest.txt  |    For diagnostics     ||  |-->   
 
