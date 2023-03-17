@@ -187,3 +187,4 @@ The access token is cached by the API management until 3 minutes before the toke
 Learn how to:
 - Configure [identity providers](authorizations-configure-common-providers.md) for authorizations
 - Configure and use an authorization for the [Microsoft Graph API](authorizations-how-to-azure-ad.md) or the [GitHub API](authorizations-how-to-github.md)
+- Configure [multiple authorization connections](configure-authorization-connection.md) for a provider
