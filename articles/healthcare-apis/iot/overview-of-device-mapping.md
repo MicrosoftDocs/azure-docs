@@ -30,7 +30,7 @@ The device mapping contains collections of expression templates used to extract 
 > [!TIP]
 > For more information about how the MedTech service processes device message data into FHIR Observation resources for persistence on the FHIR service, see [Understand the MedTech service device message data transformation](understand-service.md).
 
-This diagram provides an illustration of what happens during the normalization stage within the MedTech service.
+This diagram provides an illustration of what happens during the normalization processing stage within the MedTech service.
 
 :::image type="content" source="media/overview-of-device-mapping/normalization-processing-stage-diagram.png" alt-text="Diagram example of the MedTech service device message data normalization processing stage." lightbox="media/overview-of-device-mapping/normalization-processing-stage-diagram.png":::
 
@@ -108,7 +108,7 @@ We're using this MedTech service device mapping for the normalization processing
 }  
 ```
 
-With the resulting normalized message looking like this after processing in the MedTech service normalization stage:
+With the resulting normalized message looking like this after the MedTech service normalization processing stage:
 
 ```json
 [  
