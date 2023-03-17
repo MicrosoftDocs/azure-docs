@@ -148,7 +148,7 @@ Start by running the `order-processor` service.
 
 1. Press <kbd>Cmd/Ctrl</kbd> + <kbd>C</kbd> in both terminals to exit out of the service-to-service invocation.
 
-## Deploy the Dapr application template using `azd`
+## Deploy the Dapr application template using Azure Developer CLI
 
 Deploy the Dapr application to Azure Container Apps using [`azd`](/azure/developer/azure-developer-cli/overview).
 
@@ -368,7 +368,7 @@ Start by running the `order-processor` service.
 
 1. Press <kbd>Cmd/Ctrl</kbd> + <kbd>C</kbd> in both terminals to exit out of the service-to-service invocation
 
-## Deploy the Dapr application template using `azd`
+## Deploy the Dapr application template using Azure Developer CLI
 
 Deploy the Dapr application to Azure Container Apps using [`azd`](/azure/developer/azure-developer-cli/overview).
 
@@ -587,7 +587,7 @@ Start by running the `order-processor` callee service with Dapr.
 
 1. Press <kbd>Cmd/Ctrl</kbd> + <kbd>C</kbd> in both terminals to exit out of the service-to-service invocation.
 
-## Deploy the Dapr application template using `azd`
+## Deploy the Dapr application template using Azure Developer CLI
 
 Deploy the Dapr application to Azure Container Apps using [`azd`](/azure/developer/azure-developer-cli/overview).
 
