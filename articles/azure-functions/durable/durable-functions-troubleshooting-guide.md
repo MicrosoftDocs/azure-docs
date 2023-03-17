@@ -11,59 +11,56 @@ ms.author: azfuncdf
 
 Durable Functions is an extension of [Azure Functions](../functions-overview.md) that lets you build serverless orchestrations using ordinary code. For more information on Durable Functions, please see the [Durable Functions overview](./durable-functions-overview.md).
 
-The rest of this section gives an overview of reasons and guides that you could try for certain common troubleshooting. 
+The rest of this article gives an overview of reasons and guides that you could try for certain common troubleshooting. 
 
 > [!NOTE]
-> Support engineers are available to assist in diagnosing issues with your application. You may file a support ticket by accessing the **Support+troubleshooting** – **New Support request** blade on your function app page.
+> Microsoft support engineers are available to assist in diagnosing issues with your application. If you're not able to diagnose your problem using this guide, you can file a support ticket by accessing the **New Support request** blade in the **Support + troubleshooting** section of your function app page in the Azure portal.
 
 ![Screenshot of support request page in Azure Portal.](./media/durable-functions-troubleshooting-guide/durable-function-support-request.png)
 
 > [!TIP]
-> When debugging and diagnosing issues, it is recommended that you start by ensuring your app is using the latest Durable Functions version. Most of the time, using the latest version mitigates known issues already reported by other users. Please read the **Durable Function Best Practice and Diagnostic Tools** article for instructions on how to upgrade your extension version. 
+> When debugging and diagnosing issues, it's recommended that you start by ensuring your app is using the latest Durable Functions extension version. Most of the time, using the latest version mitigates known issues already reported by other users. Please read the **Durable Function Best Practice and Diagnostic Tools** article for instructions on how to upgrade your extension version. 
 
-The **Diagnose and solve problems** tab in Azure Portal is a useful resource to monitor and diagnose potential issues related to your application. It also supplies potential solutions to your problems based on the diagnosis. Please see this [page](./durable-functions-diagnostics.md) for more details. 
+The **Diagnose and solve problems** tab in Azure Portal is a useful resource to monitor and diagnose potential issues related to your application. It also supplies potential solutions to your problems based on the diagnosis. Please see [the Durable Functions Diagnostics guide](./durable-functions-diagnostics.md) for more details. 
 
-If the above two steps could not help solving your problem, please see the following steps according to the scenarios.
+If neither the Diagnose and Solve problems tool nor the diagnostics documentation helped solve your problem, please see the following sections for more specific troubleshooting guidance.
 
 ## Orchestration is stuck in the Pending state
 
-1. Check the Durable Task Framework traces for warnings or errors for this instance ID. A sample query can be found in [Trace Errors/Warnings](./durable-functions-troubleshooting-guide.md#trace-errorswarnings).
+1. Check the Durable Task Framework traces for warnings or errors for the impacted orchestration instance ID. A sample query can be found in the [Trace Errors/Warnings section](#trace-errorswarnings).
 
-2. Check the Azure Storage control queues to see if the message is still in the queue. 
+2. Check the Azure Storage control queues to see if the message is still in the queue. For more information on control queues, see the [Azure Storage provider control queue documentation](durable-functions-azure-storage-provider.md#control-queues).
 
 3. Change platform configuration version to “64-Bit” for function applications. 
-   Sometimes orchestrations don't start because the app is running out of memory. Switching to 64-bit process can allow the app to allocate more total memory. This only applies to App Service Basic, Standard, Premium, and Elastic Premium plans. Free or Consumption plans **do not** support it. 
+   Sometimes orchestrations don't start because the app is running out of memory. Switching to 64-bit process can allow the app to allocate more total memory. This only applies to App Service Basic, Standard, Premium, and Elastic Premium plans. Free or Consumption plans **do not** support 64-bit processes. 
 
 ## Orchestration starts after a long delay
 
-1. This [page](./durable-functions-azure-storage-provider.md#orchestration-start-delays) illustrates reasons for orchestrators’ delay start. Please see here for detailed instructions. 
+1. Refer to the [Azure Storage start delay documentation](./durable-functions-azure-storage-provider.md#orchestration-start-delays) to learn whether the orchestration start delay might be caused by known limitations.
 
-2. Check for any orchestration instance warnings or errors. A sample query can be found in [Trace Errors/Warnings](./durable-functions-troubleshooting-guide.md#trace-errorswarnings).
+2. Check the Durable Task Framework traces for warnings or errors for the impacted orchestration instance ID. A sample query can be found in [Trace Errors/Warnings section](#trace-errorswarnings).
 
 ## Orchestration does not complete / is stuck in the `Running` state
 
-1. Try restarting the function app.
+1. Try restarting the function app. This can help if the orchestration gets stuck due to a transient bug or deadlock in the app or extension code.
 
-2. Check the Azure Storage account control queues to see if any queues are growing but not shrinking.
+2. Check the Azure Storage account control queues to see if any queues are growing but not shrinking. This could indicate a problem with dequeuing orchestration messages. If the problem impacts only a single control queue, it might indicate a problem that exists only on a specific app instance, in which case scaling up or down to move off the unhealthy VM instance could help.
 
-3. Use the Azure Storage Kusto query under the [Azure Storage Message](./durable-functions-troubleshooting-guide.md#azure-storage-message) to filter on that queue name as the PartitionId and look for any problems related to that control queue partition.
+3. Use the Application Insights query in the [Azure Storage Messaging section](./durable-functions-troubleshooting-guide.md#azure-storage-messaging) to filter on that queue name as the Partition ID and look for any problems related to that control queue partition.
 
-4. Please check if you have followed the guidance in **Durable Functions Best Practice and Diagnostic Tools**. Some problems are caused because of inappropriate behavior. We suggest that you read this article, revise any parts that break the best practice rules and restart your function app.
+4. Please check if you have followed the guidance in **Durable Functions Best Practice and Diagnostic Tools**. Some problems are caused by known Durable Functions anti-patterns. If you need to make changes to your function app, be sure to be aware of how your changes might impact in-flight orchestration instances. For more information on app versioning, see the [Durable Functions Versioning documentation](durable-functions-versioning.md).
 
 ## Orchestration runs slowly
 
 1. Check if [extendedSessionsEnabled](./durable-functions-azure-storage-provider.md#extended-sessions) is enabled.  
    Excessive history load can result in extremely slow orchestrator processing. The detailed instruction could be seen [here](./durable-functions-azure-storage-provider.md)
 
-2. Performance Issues.  
-   Performance issues can include many aspects. For example, high CPU usage, or large memory consumption could result in a delay. Here are some suggestions to improve performance: 
-   * Scale out and add more workers. Please see [this page](./durable-functions-perf-and-scale.md) for more information.
-   
-   * We suggest monitoring memory utilization per Function and ensuring that it stays at a healthy percentage. The monitor guide is [here](./durable-functions-azure-storage-provider.md).
+2. Check for performance and scalability bottlenecks. 
+   Performance issues can include many aspects. For example, high CPU usage, or large memory consumption could result in a delay. Please read [Performance and scale in Durable Functions](./durable-functions-perf-and-scale.md) for detailed information.
 
 ## Sample Queries
 
-### Azure Storage Message
+### Azure Storage Messaging
 When using the default storage provider, all Durable Function behavior is driven by Azure Storage queue messages and all state related to an orchestration is stored in Table Storage and blob storage. All Azure Storage interactions are logged to Application Insights, and this data is critically important for debugging execution and performance problems.
 Starting in v2.3.0, customers can get access to these logs by updating their host.json configuration. See the [Durable Task Framework logging article](./durable-functions-diagnostics.md) for more information.
 
