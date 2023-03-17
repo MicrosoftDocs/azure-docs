@@ -3766,16 +3766,6 @@
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/machine-learning/how-to-change-storage-access-key.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-change-storage-access-key",
-        "redirect_document_id": true
-    },
-    {
-        "source_path_from_root": "/articles/machine-learning/how-to-high-availability-machine-learning.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-high-availability-machine-learning",
-        "redirect_document_id": true
-    },
-    {
         "source_path_from_root": "/articles/machine-learning/overview-what-happened-to-workbench.md",
         "redirect_url": "/azure/machine-learning",
         "redirect_document_id": false
