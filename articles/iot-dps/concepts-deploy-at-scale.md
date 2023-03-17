@@ -1,12 +1,13 @@
 ---
-title: Best practices for large-scale Microsoft Azure IoT device deployments
-description: This article describes best practices, patterns, and sample code you can use to help with large-scale deployments.
+title: Best practices for large-scale IoT deployments
+titleSuffix: Azure IoT Hub Device Provisioning Service
+description: Best practices, patterns, and sample code you can use to help with large-scale deployments of Azure IoT Hub and Device Provisioning Service.
 author: kgremban
+
 ms.author: kgremban
 ms.service: iot-dps
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/27/2022
-ms.custom: template-concept
 ---
 
 # Best practices for large-scale IoT device deployments
