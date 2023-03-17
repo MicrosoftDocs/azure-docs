@@ -15,7 +15,7 @@ We continue to modernize and optimize Azure Dedicated Host by using the latest i
 
 ## UPDATE: Retirement timeline extension
 Considering the feedback from several Azure Dedicated Host customers that are running their critical workloads on SKUs that are scheduled for retirement, we have extended the retirement timeline from March 31, 2023 to June 30, 2023. 
-We don't intend to move the retirement timeline any further and recommend all ADH users that are running on below mentioned SKUs to migrate to newer generation based SKUs to avoid workload interruptions.
+We don't intend to move the retirement timeline any further and recommend all ADH users that are running on below mentioned SKUs to migrate to newer generation based SKUs to avoid workload disruptions.
 
 ## Migrations required by 30 June 2023 [Updated]
 
