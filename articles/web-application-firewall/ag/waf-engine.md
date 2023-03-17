@@ -41,6 +41,10 @@ There are many new features that are only supported in the Azure WAF engine. The
 
 New WAF features will only be released with later versions of CRS on the new WAF engine. 
 
+> [!Note]
+> When assigning multiple WAF Policies to a WAF deployment (eg. Per-site or Per-URI), the highest configured CRS engine is used on the WAF, even though the other assigned policies are configured with lower engines. For more information on Per-site or Per-URI policies, see [Azure Web Application Firewall (WAF) policy overview](policy-overview.md)
+
+
 ## Request logging for custom rules
 
 There's a difference between how the previous engine and the new WAF engine log requests when a custom rule defines the action type as *Log*.
