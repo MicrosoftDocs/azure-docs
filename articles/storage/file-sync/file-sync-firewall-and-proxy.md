@@ -150,8 +150,8 @@ For business continuity and disaster recovery (BCDR) reasons you may have create
 | Public | Canada East | https:\//canadaeast01.afs.azure.net<br>https:\//kailani-cae.one.microsoft.com | Canada Central | https:\//tm-canadaeast01.afs.azure.net<br>https:\//tm-kailani.cae.one.microsoft.com |
 | Public | Central India | https:\//centralindia01.afs.azure.net<br>https:\//kailani-cin.one.microsoft.com | South India | https:\//tm-centralindia01.afs.azure.net<br>https:\//tm-kailani-cin.one.microsoft.com |
 | Public | Central US | https:\//centralus01.afs.azure.net<br>https:\//kailani-cus.one.microsoft.com | East US 2 | https:\//tm-centralus01.afs.azure.net<br>https:\//tm-kailani-cus.one.microsoft.com |
-| Mooncake | China East 2 | https:\//chinaeast201.afs.azure.cn | China North 2 | https:\//tm-chinaeast201.afs.azure.cn |
-| Mooncake | China North 2 | https:\//chinanorth201.afs.azure.cn | China East 2 | https:\//tm-chinanorth201.afs.azure.cn |
+| Azure China 21Vianet | China East 2 | https:\//chinaeast201.afs.azure.cn | China North 2 | https:\//tm-chinaeast201.afs.azure.cn |
+| Azure China 21Vianet | China North 2 | https:\//chinanorth201.afs.azure.cn | China East 2 | https:\//tm-chinanorth201.afs.azure.cn |
 | Public | East Asia | https:\//eastasia01.afs.azure.net<br>https:\//kailani11.one.microsoft.com | Southeast Asia | https:\//tm-eastasia01.afs.azure.net<br>https:\//tm-kailani11.one.microsoft.com |
 | Public | East US | https:\//eastus01.afs.azure.net<br>https:\//kailani1.one.microsoft.com | West US | https:\//tm-eastus01.afs.azure.net<br>https:\//tm-kailani1.one.microsoft.com |
 | Public | East US 2 | https:\//eastus201.afs.azure.net<br>https:\//kailani-ess.one.microsoft.com | Central US | https:\//tm-eastus201.afs.azure.net<br>https:\//tm-kailani-ess.one.microsoft.com |
