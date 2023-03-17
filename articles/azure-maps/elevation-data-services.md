@@ -81,8 +81,9 @@ Once you have the raster tiles you need, you can import them in QGIS.
 
     :::image type="content" source="./media/elevation-services/merge-raster-layers.png" alt-text="A screenshot showing the merge raster menu in QGIS.":::
 
-3. Reproject the merged raster layer to EPSG:3857 (WGS84 / Pseudo-Mercator).
-   EPSG:3857 is required to use it with [Azure Maps Web SDK].
+3. Reproject the merged raster layer to EPSG:3857 (WGS84 / Pseudo-Mercator) using **Save Raster Layer as**
+   accessed by right clicking on the merged raster layer in the **table of content** ->
+   **Export** -> **Save As** option. EPSG:3857 is required to use it with [Azure Maps Web SDK].
 
     :::image type="content" source="./media/elevation-services/save-raster-layer.png" alt-text="A screenshot showing how the merge raster layers menu in QGIS.":::
 
