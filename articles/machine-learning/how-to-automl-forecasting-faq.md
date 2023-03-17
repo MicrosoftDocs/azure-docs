@@ -138,6 +138,22 @@ If your AutoML forecasting job fails, you'll see an error message in the studio 
 > [!NOTE]
 > For Many Models or HTS job, training is usually on multi-node compute clusters. Logs for these jobs are present for each node IP address. You will need to search for error logs in each node in this case. The error logs, along with the driver logs, are in the `user_logs` folder for each node IP. 
 
+## How do I deploy model from forecasting training jobs?
+
+Model from forecasting training jobs can be deployed in either of the two ways:
+
+1. Online Endpoint
+    - Please refer [this link](./how-to-deploy-automl-endpoint.md) to do online deployment.
+    - Please check the scoring file used in the deployment or click on the "Test" tab on the endpoint page in the studio to understand the structure of input that is expected by the deployment.
+    - You can refer [this notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/automl-standalone-jobs/automl-forecasting-task-bike-share/auto-ml-forecasting-bike-share.ipynb) to see an example.
+2. Batch Endpoint
+    - Please refer [this link](./how-to-use-batch-endpoint.md) to do batch deployment.
+    - It requires you to develop a custom scoring script.
+    - You can refer [this notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/automl-standalone-jobs/automl-forecasting-orange-juice-sales/automl-forecasting-orange-juice-sales-mlflow.ipynb) to see an example.
+
+> [!NOTE]
+> As of now, we don't support deploying MLflow model from forecasting training jobs, neither through SDK, nor through CLI, nor through UI. You will run run into errors if you try this. This feature will be available very soon.
+
 ## What is a workspace / environment / experiment/ compute instance / compute target? 
 
 If you aren't familiar with Azure Machine Learning concepts, start with the ["What is Azure Machine Learning"](overview-what-is-azure-machine-learning.md) article and the [workspaces](./concept-workspace.md) article.
