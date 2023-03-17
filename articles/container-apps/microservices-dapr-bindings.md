@@ -86,7 +86,7 @@ Before deploying the application to Azure Container Apps, start by running the P
 
    #### Expected output
    
-   A batch script runs every 10 seconds using an input CRON binding. The script processes a JSON file and outputs data to an SQL database using the PostgreSQL Dapr binding.
+   A batch script runs every 10 seconds using an input CRON binding. The batch application processes a JSON file and outputs data to an SQL database using the PostgreSQL Dapr binding.
    
    ```
    == APP == {"sql": "insert into orders (orderid, customer, price) values (1, 'John Smith', 100.32);"}
@@ -259,7 +259,7 @@ Before deploying the application to Azure Container Apps, start by running the P
 
    #### Expected output
    
-   A batch script runs every 10 seconds using an input CRON binding. The script processes a JSON file and outputs data to an SQL database using the PostgreSQL Dapr binding.
+   A batch script runs every 10 seconds using an input CRON binding. The batch application processes a JSON file and outputs data to an SQL database using the PostgreSQL Dapr binding.
    
    ```
    == APP == {"sql": "insert into orders (orderid, customer, price) values (1, 'John Smith', 100.32);"}
@@ -431,7 +431,7 @@ Before deploying the application to Azure Container Apps, start by running the P
 
    #### Expected output
    
-   A batch script runs every 10 seconds using an input CRON binding. The script processes a JSON file and outputs data to an SQL database using the PostgreSQL Dapr binding.
+   A batch script runs every 10 seconds using an input CRON binding. The batch application processes a JSON file and outputs data to an SQL database using the PostgreSQL Dapr binding.
    
    ```
    == APP == {"sql": "insert into orders (orderid, customer, price) values (1, 'John Smith', 100.32);"}
