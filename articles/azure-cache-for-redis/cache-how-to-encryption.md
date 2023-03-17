@@ -28,7 +28,7 @@ Data in a Redis server is stored in memory by default. This data isn't encrypted
 |Customer managed keys (CMK) | No     |  Yes (preview)  |
 
 > [!NOTE]
-> By default, all tiers use Microsoft managed keys to encrypt disks mounted to cache instances. However, in the Basic and Standard tiers, the C0 and C1 SKUs do not support any disk encryption. 
+> By default, all Azure Cache for Redis tiers use Microsoft managed keys to encrypt disks mounted to cache instances. However, in the Basic and Standard tiers, the C0 and C1 SKUs do not support any disk encryption. 
 >
 
 > [!IMPORTANT]
