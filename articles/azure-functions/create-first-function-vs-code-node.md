@@ -9,7 +9,7 @@ adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-vs-code-node_uiex
 ms.devlang: javascript
 ms.custom: mode-api, vscode-azure-extension-update-complete
-zone_pivot_groups: node-functions-model
+zone_pivot_groups: functions-nodejs-model
 ---
 
 # Quickstart: Create a JavaScript function in Azure using Visual Studio Code
@@ -27,10 +27,10 @@ There's also a [CLI-based version](create-first-function-cli-node.md) of this ar
 
 Before you get started, make sure you have the following requirements in place:
 
-::: zone pivot="node-model-v3" 
+::: zone pivot="nodejs-model-v3" 
 [!INCLUDE [functions-requirements-visual-studio-code-node](../../includes/functions-requirements-visual-studio-code-node.md)]
 ::: zone-end
-::: zone pivot="node-model-v4" 
+::: zone pivot="nodejs-model-v4" 
 [!INCLUDE [functions-requirements-visual-studio-code-node-v4](../../includes/functions-requirements-visual-studio-code-node-v4.md)]
 ::: zone-end
 
@@ -44,7 +44,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
 2. Choose the directory location for your project workspace and choose **Select**. You should either create a new folder or choose an empty folder for the project workspace. Don't choose a project folder that is already part of a workspace.
 
-::: zone pivot="node-model-v3" 
+::: zone pivot="nodejs-model-v3" 
 3. Provide the following information at the prompts:
 
     |Prompt|Selection|
@@ -58,7 +58,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
     Using this information, Visual Studio Code generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. To learn more about files that are created, see [Generated project files](functions-develop-vs-code.md?tabs=javascript#generated-project-files). 
 ::: zone-end
-::: zone pivot="node-model-v4" 
+::: zone pivot="nodejs-model-v4" 
 3. Provide the following information at the prompts:
 
     |Prompt|Selection|
@@ -82,7 +82,7 @@ After you've verified that the function runs correctly on your local computer, i
 
 [!INCLUDE [functions-vs-code-run-remote](../../includes/functions-vs-code-run-remote.md)]
 
-::: zone pivot="node-model-v3" 
+::: zone pivot="nodejs-model-v3" 
 ## Change the code and redeploy to Azure
 
 1. In Visual Studio Code in the Explorer view, select the `./HttpExample/index.js` file. 
