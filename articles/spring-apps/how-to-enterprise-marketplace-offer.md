@@ -18,30 +18,37 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022, engagem
 
 The Azure Spring Apps Enterprise tier is optimized for the needs of enterprise Spring developers and provides advanced configurability, flexibility and portability. In a strong partnership with VMware, the enterprise-ready VMware Spring Runtime has 24/7 support. You can learn more about the tier's value propositions in [Azure Spring Apps Enterprise Overview](./overview.md#enterprise-tier-overview).
 
-In addition to the feature parity with the Standard tier, the Enterprise tier offers a powerful managed infrastructure with a rich set of features. These features include app lifecycle management, monitoring, and troubleshooting. The Enterprise tier provides managed VMware Tanzu components that empower enterprises to ship faster. These components include Build Service, Application Configuration Service, Service Registry, Spring Cloud Gateway, and API Portal and Developer Tools (App Live View and App Accelerator).
+In addition to the feature parity with the Standard tier, the Enterprise tier offers a powerful managed infrastructure with a rich set of features. These features include app lifecycle management, monitoring, and troubleshooting.
 
-As the most advanced tier in Azure Spring Apps, a Microsoft provided first party Azure service, the Enterprise tier pricing is composed of two parts:
+The Enterprise tier provides the following managed VMware Tanzu components that empower enterprises to ship faster:
 
-- Infrastructure pricing on top of app vCPU and memory usage, and managed Tanzu component vCPU and memory usage to Microsoft.
-- Tanzu component license pricing on top of app vCPU usage to VMware.
+- Build Service
+- Application Configuration Service
+- Service Registry
+- Spring Cloud Gateway
+- API Portal
+- Developer Tools (App Live View and App Accelerator).
+
+As the most advanced tier in Azure Spring Apps, a Microsoft provided first party Azure service, the Enterprise tier pricing is composed of two parts that comprises all application vCPUs and memory usage:
+
+- Infrastructure pricing based on usage by Microsoft.
+- Tanzu component license pricing based on usage by VMware.
 
 For more information about pricing, see [Azure Spring Apps pricing](https://azure.microsoft.com/pricing/details/spring-apps/).
 
-To provide the best customer experience to manage the Tanzu component license purchasing and metering, VMware creates a [Azure Marketplace Offer](https://aka.ms/ascmpoffer) that represents a Tanzu component license and provides the following capabilities:
+To provide the best customer experience to manage the Tanzu component license purchasing and metering, VMware creates a [Azure Marketplace Offer](https://aka.ms/ascmpoffer) that represents a Tanzu component license. This offer is automatically purchased on behalf of customers and metered against going forward.
 
-- Automatically acquires a Tanzu component license that can be metered against.
-
-- Shares your data and app vCPU usage data to VMware, according to be agreed upon marketplace terms prior to creating the service.
+Under this implicit Azure Marketplace third party offer purchasing agreement with VMware, your personal data and application vCPU usage data is shared to VMware, according to be agreed upon marketplace terms prior to creating the service.
 
 To purchase the Tanzu component license successfully, your billing account of your subscription must be included in the [Supported geographic locations of billing account](#supported-geographic-locations-of-billing-account). Because of tax management restrictions from VMware in some countries, not all countries are supported.
 
-In comparison to Azure Spring Apps standard tier, there are no extra license fees because the managed Spring components use the OSS config server and Eureka server. No additional third party license fees are required.
+In comparison to Azure Spring Apps standard tier, there are no extra license fees because the managed Spring components use the OSS config server and Eureka server. No other third party license fees are required.
 
 On the [Azure Marketplace Offer](https://aka.ms/ascmpoffer) page, you can review the Tanzu component license pricing as shown in the following image.
 
 :::image type="content" source="media/how-to-enterprise-marketplace-offer/enterprise-plan.png" alt-text="Azure Marketplace screenshot showing Azure Spring Apps Enterprise tier VMware Tanzu offering.":::
 
-You can use the Azure portal and Azure CLI to provision an Azure Spring Apps Enterprise tier service instance. You can also select **Subscribe**  on the VMware marketplace offer to create the service instance, as Azure Marketplace redirects you to Azure Spring Apps creation page.
+You can use the Azure portal and Azure CLI to provision an Azure Spring Apps Enterprise tier service instance. You can also select **Subscribe** on the VMware marketplace offer to create the service instance, as Azure Marketplace redirects you to Azure Spring Apps creation page.
 
 ## Prerequisites
 
