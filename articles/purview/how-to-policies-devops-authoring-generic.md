@@ -82,6 +82,8 @@ To delete a DevOps policy, ensure first that you have the Microsoft Purview Poli
 ## Test the DevOps policy
 After creating the policy, any of the Azure AD users in the Subject should now be able to connect to the data sources in the scope of the policy. To test, use SSMS or any SQL client and try to query some DMVs/DMFs. We list here a few examples. For more, you can consult the mapping of popular DMVs/DMFs in the [Microsoft Purview DevOps policies concept guide](./concept-policies-devops.md#mapping-of-popular-dmvs-and-dmfs)
 
+If you require additional troubleshooting, see the [Next steps](#next-steps) section in this guide.
+
 ### Testing SQL Performance Monitor access
 If you provided the Subject(s) of the policy SQL Performance Monitor role, you can issue the following commands
 ```sql
@@ -113,9 +115,9 @@ SELECT * FROM [databaseName].schemaName.tableName
 
 
 ## Role definition detail
-This section contains a reference of how actions in Microsoft Purview data policies map to specific actions in Azure SQL MI.
+This section contains a reference of how relevant Microsoft Purview data policy roles map to specific actions in SQL data sources.
 
-| **DevOps role definition** | **Data source specific actions**     |
+| **Microsoft Purview policy role definition** | **Data source specific actions**     |
 |-------------------------------------|--------------------------------------|
 |                                     |                                      |
 | *SQL Performance Monitor* |Microsoft.Sql/sqlservers/Connect |

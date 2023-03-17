@@ -4,19 +4,58 @@ description: Define SAP parameters for Ansible
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 10/19/2022
+ms.date: 03/17/2023
 ms.topic: conceptual
 ms.service: sap-on-azure
 ms.subservice: sap-automation
 ---
 
-# Configure sap-parameters file 
+# Configure SAP Installation parameters 
 
-Ansible will use a file called sap-parameters.yaml that will contain the parameters required for the Ansible playbooks. The file is a .yaml file. 
+The Ansible playbooks use a combination of default parameters and parameters defined by the Terraform deployment for the SAP installation. 
+
+
+## Default Parameters
+
+This table contains the default parameters defined by the framework.
+
+### User IDs
+
+> [!div class="mx-tdCol2BreakAll "]
+> | Parameter                 | Description                                                                | Default Value                | Type       |
+> | ------------------------- | -------------------------------------------------------------------------- | ---------------------------- | ---------- | 
+> | `sapadm_uid`              | The UID for the sapadm account.                                            | 2100                         | Required   |
+> | `sidadm_uid`              | The UID for the sidadm account.                                            | 2003                         | Required   |
+> | `hdbadm_uid`              | The UID for the hdbadm account.                                            | 2200                         | Required   |
+> | `sapinst_gid`             | The GID for the sapinst group.                                             | 2001                         | Required   |
+> | `sapsys_gid`              | The GID for the sapsys group.                                              | 2000                         | Required   |
+> | `hdbshm_gid`              | The GID for the hdbshm group.                                              | 2002                         | Required   |
+> |                           |                                                                            |                              |            |
+> | `db2sidadm_uid`           | The UID for the db2sidadm account.                                         | 3004                         | Required   |
+> | `db2sapsid_uid`           | The UID for the db2sapsid account.                                         | 3005                         | Required   |
+> | `db2sysadm_gid`           | The UID for the db2sysadm group.                                           | 3000                         | Required   |
+> | `db2sysctrl_gid`          | The UID for the db2sysctrl group.                                          | 3001                         | Required   |
+> | `db2sysmaint_gid`         | The UID for the db2sysmaint group.                                         | 3002                         | Required   |
+> | `db2sysmon_gid`           | The UID for the db2sysmon group.                                           | 2003                         | Required   |
+> |                           |                                                                            |                              |            |
+> | `orasid_uid`              | The UID for the orasid account.                                            | 3100                         | Required   |
+> | `oracle_uid`              | The UID for the oracle account.                                            | 3101                         | Required   |
+> | `observer_uid`            | The UID for the observer account.                                          | 4000                         | Required   |
+> | `dba_gid`                 | The GID for the dba group.                                                 | 3100                         | Required   |
+> | `oper_gid`                | The GID for the oper group.                                                | 3101                         | Required   |
+> | `asmoper_gid`             | The GID for the asmoper group.                                             | 3102                         | Required   |
+> | `asmadmin_gid`            | The GID for the asmadmin group.                                            | 3103                         | Required   |
+> | `asmdba_gid`              | The GID for the asmdba group.                                              | 3104                         | Required   |
+> | `oinstall_gid`            | The GID for the oinstall group.                                            | 3105                         | Required   |
+> | `backupdba_gid`           | The GID for the backupdba group.                                           | 3106                         | Required   |
+> | `dgdba_gid`               | The GID for the dgdba group.                                               | 3107                         | Required   |
+> | `kmdba_gid`               | The GID for the kmdba group.                                               | 3108                         | Required   |
+> | `racdba_gid`              | The GID for the racdba group.                                              | 3108                         | Required   |
+
 
 ## Parameters
 
-The table below contains the parameters stored in the sap-parameters.yaml file, most of the values are pre-populated via the Terraform deployment.
+This table contains the parameters stored in the sap-parameters.yaml file, most of the values are prepopulated via the Terraform deployment.
 
 ### Infrastructure
 
@@ -70,7 +109,7 @@ The table below contains the parameters stored in the sap-parameters.yaml file, 
 
 ### Disks
 
-Disks is a dictionary defining the disks of all the virtual machines in the SID.
+Disks define a dictionary with information about the disks of all the virtual machines in the SAP Application virtual machines.
 
 > [!div class="mx-tdCol2BreakAll "]
 > | attribute                    | Description                                                                                                      | Type       |
@@ -80,7 +119,7 @@ Disks is a dictionary defining the disks of all the virtual machines in the SID.
 > | `type`                       | This attribute is used to group the disks, each disk of the same type will be added to the LVM on the virtual machine | Required   |
 
 
-See sample below
+Example of the disks dictionary:
 ```yaml
 
 disks:
@@ -110,7 +149,7 @@ disks:
 
 ### Oracle support
 
-From the v3.4 release, it is possible to deploy SAP on Azure systems in a Shared Home configuration using an Oracle database backend. For more information on running SAP on Oracle in Azure, see [Azure Virtual Machines Oracle DBMS deployment for SAP workload](../workloads/dbms-guide-oracle.md). 
+From the v3.4 release, it's possible to deploy SAP on Azure systems in a Shared Home configuration using an Oracle database backend. For more information on running SAP on Oracle in Azure, see [Azure Virtual Machines Oracle DBMS deployment for SAP workload](../workloads/dbms-guide-oracle.md). 
 
 In order to install the Oracle backend using the SAP on Azure Deployment Automation Framework, you need to provide the following parameters
 
