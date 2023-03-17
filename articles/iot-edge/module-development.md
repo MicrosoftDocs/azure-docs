@@ -26,7 +26,7 @@ To deploy your program on an IoT Edge device, it must first be containerized and
 
 ## Using the IoT Edge hub
 
-The IoT Edge hub provides two main functionalities: proxy to IoT Hub, and local communications.
+The IoT Edge hub provides two main functionalities: a proxy to IoT Hub and local communications.
 
 ### Connecting to IoT Edge hub from a module
 
@@ -36,56 +36,64 @@ To use IoT Edge routing over AMQP, you can use the ModuleClient from the Azure I
 
 ### IoT Hub primitives
 
-IoT Hub sees a module instance analogously to a device, in the sense that:
+IoT Hub sees a module instance as similar to a device. A module instance can:
 
-* it can send [device-to-cloud messages](../iot-hub/iot-hub-devguide-messaging.md);
-* it can receive [direct methods](../iot-hub/iot-hub-devguide-direct-methods.md) targeted specifically at its identity.
-* it has a module twin that is distinct and isolated from the [device twin](../iot-hub/iot-hub-devguide-device-twins.md) and the other module twins of that device;
+* Send [device-to-cloud messages](../iot-hub/iot-hub-devguide-messaging.md)
+* Receive [direct methods](../iot-hub/iot-hub-devguide-direct-methods.md) targeted specifically at its identity
+* Have a module twin that's distinct and isolated from the [device twin](../iot-hub/iot-hub-devguide-device-twins.md) and the other module twins of that device
 
 Currently, modules can't receive cloud-to-device messages or use the file upload feature.
 
-When writing a module, you can connect to the IoT Edge hub and use IoT Hub primitives as you would when using IoT Hub with a device application. The only difference between IoT Edge modules and IoT device applications is that you have to refer to the module identity instead of the device identity.
+When writing a module, you can connect to the IoT Edge hub and use IoT Hub primitives as you would when using IoT Hub with a device application. The only difference between IoT Edge modules and IoT device applications is that with modules you have to refer to the module identity instead of the device identity.
 
 #### Device-to-cloud messages
 
-An IoT Edge module can send messages to the cloud via the IoT Edge hub that acts as a local broker and propagates messages to the cloud. To enable complex processing of device-to-cloud messages, an IoT Edge module can also intercept and process messages sent by other modules or devices to its local IoT Edge hub and send new messages with processed data. Chains of IoT Edge modules can thus be created to build local processing pipelines.
+An IoT Edge module can send messages to the cloud via the IoT Edge hub that acts as a local broker and propagates messages to the cloud. To enable complex processing of device-to-cloud messages, an IoT Edge module can intercept and process messages sent by other modules or devices to its local IoT Edge hub. The IoT Edge module will then send new messages with processed data. Chains of IoT Edge modules can thus be created to build local processing pipelines.
 
-To send device-to-cloud telemetry messages using routing, use the ModuleClient of the Azure IoT SDK. With the Azure IoT SDK, each module has the concept of module *input* and *output* endpoints. Use the `ModuleClient.sendMessageAsync` method and it will send messages on the output endpoint of your module. Then configure a route in edgeHub to send this output endpoint to IoT Hub.
+To send device-to-cloud telemetry messages using routes:
 
-To process messages using routing, first set up a route to send messages coming from another endpoint (module or device) to the input endpoint of your module, then listen for messages on the input endpoint of your module. Each time a new message comes back, a callback function is triggered by the Azure IoT SDK. Process your message with this callback function and optionally send new messages on your module endpoint queue.
+1. Use ModuleClient of the [Azure IoT SDK](https://github.com/Azure/azure-iot-sdks). Each module has *input* and *output* endpoints. 
+1. Use the `ModuleClient.sendMessageAsync` method to send messages on the output endpoint of your module. 
+1. Configure a route in edgeHub to send this output endpoint to IoT Hub.
+
+To process messages using routes:
+
+1. Set up a route to send messages coming from another endpoint (module or device) to the input endpoint of your module.
+1. Listen for messages on the input endpoint of your module. Each time a new message comes back, a callback function is triggered by the Azure IoT SDK. 
+1. Process your message with this callback function and (optionally) send new messages in your module endpoint queue.
 
 #### Twins
 
 Twins are one of the primitives provided by IoT Hub. There are JSON documents that store state information including metadata, configurations, and conditions. Each module or device has its own twin.
 
-To get a module twin with the Azure IoT SDK, call the `ModuleClient.getTwin` method.
+* To get a module twin with the [Azure IoT SDK](https://github.com/Azure/azure-iot-sdks), call the `ModuleClient.getTwin` method.
 
-To receive a module twin patch with the Azure IoT SDK, implement a callback function and register it with the `ModuleClient.moduleTwinCallback` method from the Azure IoT SDK so that your callback function is triggered each time that a twin patch comes in.
+* To receive a module twin patch with the Azure IoT SDK, implement a callback function and register it with the `ModuleClient.moduleTwinCallback` method from the Azure IoT SDK so that your callback function is triggered each time a twin patch comes in.
 
 #### Receive direct methods
 
-To receive a direct method with the Azure IoT SDK, implement a callback function and register it with the `ModuleClient.methodCallback` method from the Azure IoT SDK so that your callback function is triggered each time that a direct method comes in.
+To receive a direct method with the [Azure IoT SDK](https://github.com/Azure/azure-iot-sdks), implement a callback function and register it with the `ModuleClient.methodCallback` method from the Azure IoT SDK so that your callback function is triggered each time that a direct method comes in.
 
 ## Language and architecture support
 
-IoT Edge supports multiple operating systems, device architectures, and development languages so that you can build the scenario that matches your needs. Use this section to understand your options for developing custom IoT Edge modules. You can learn more about tooling support and requirements for each language in [Prepare your development and test environment for IoT Edge](development-environment.md).
+IoT Edge supports multiple operating systems, device architectures, and development languages so you can build the scenario that matches your needs. Use this section to understand your options for developing custom IoT Edge modules. You can learn more about tooling support and requirements for each language in [Prepare your development and test environment for IoT Edge](development-environment.md).
 
 ### Linux
 
-For all languages in the following table, IoT Edge supports development for AMD64 and ARM32 Linux containers.
+For all languages in the following table, IoT Edge [supports](support.md) development for AMD64 and most ARM64 Linux containers. There is support for Debian 11 ARM32 containers, as well.
 
 | Development language | Development tools |
 | -------------------- | ----------------- |
-| C | Visual Studio Code<br>Visual Studio 2017/2019 |
-| C# | Visual Studio Code<br>Visual Studio 2017/2019 |
+| C | Visual Studio Code<br>Visual Studio 2019/2022 |
+| C# | Visual Studio Code<br>Visual Studio 2019/2022 |
 | Java | Visual Studio Code |
 | Node.js | Visual Studio Code |
 | Python | Visual Studio Code |
 
 >[!NOTE]
->For cross-platform compilation, like compiling an ARM32 IoT Edge module on an AMD64 development machine, you need to configure the development machine to compile code on target device architecture matching the IoT Edge module. For more information, see [Build and debug IoT Edge modules on your remote device](https://devblogs.microsoft.com/iotdev/easily-build-and-debug-iot-edge-modules-on-your-remote-device-with-azure-iot-edge-for-vs-code-1-9-0/) to configure the development machine to compile code on target device architecture matching the IoT Edge module.
+>For cross-platform compilation, like compiling an ARM32 IoT Edge module on an AMD64 development machine, you need to configure the development machine to compile code on target device architecture matching the IoT Edge module. For more information, see [Build and debug IoT Edge modules on your remote device](https://devblogs.microsoft.com/iotdev/easily-build-and-debug-iot-edge-modules-on-your-remote-device-with-azure-iot-edge-for-vs-code-1-9-0/).
 >
->In addition, support for ARM64 Linux containers is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). For more information, see [Develop and debug ARM64 IoT Edge modules in Visual Studio Code (preview)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview).
+> For more information about ARM64 Linux containers, see [Use Visual Studio Code to develop and debug modules for Azure IoT Edge](how-to-vs-code-develop-module.md).
 
 ### Windows
 
