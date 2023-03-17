@@ -62,7 +62,7 @@ To configure ephemeral storage, first define an `EmptyDir` volume in the revisio
 
 ::: zone pivot="azure-cli"
 
-When configuring ephemeral storage using the Azure CLI, you must a YAML definition to create or update your container app.
+When configuring ephemeral storage using the Azure CLI, you must use a YAML definition to create or update your container app.
 
 1. To update an existing container app to use ephemeral storage, export your app's specification to a YAML file named *app.yaml*.
 
