@@ -5,7 +5,7 @@ ms.topic: quickstart
 ms.date: 02/06/2023
 ms.devlang: typescript
 ms.custom: mode-ui, vscode-azure-extension-update-complete
-zone_pivot_groups: node-functions-model
+zone_pivot_groups: functions-nodejs-model
 ---
 
 # Quickstart: Create a function in Azure with TypeScript using Visual Studio Code
@@ -25,10 +25,10 @@ Before you get started, make sure you have the following requirements in place:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-::: zone pivot="node-model-v3" 
+::: zone pivot="nodejs-model-v3" 
 + [Node.js 18.x](https://nodejs.org/en/download/releases/) or [Node.js 16.x](https://nodejs.org/en/download/releases/). Use the `node --version` command to check your version.  
 ::: zone-end
-::: zone pivot="node-model-v4" 
+::: zone pivot="nodejs-model-v4" 
 + [Node.js 18.x](https://nodejs.org/en/download/releases/). Use the `node --version` command to check your version.  
 + [TypeScript 4.x](https://www.typescriptlang.org/). Use the `tsc -v` command to check your version.
 ::: zone-end
@@ -37,10 +37,10 @@ Before you get started, make sure you have the following requirements in place:
 
 + The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code.
 
-::: zone pivot="node-model-v3" 
+::: zone pivot="nodejs-model-v3" 
 + [Azure Functions Core Tools 4.x](functions-run-local.md#install-the-azure-functions-core-tools).
 ::: zone-end
-::: zone pivot="node-model-v4" 
+::: zone pivot="nodejs-model-v4" 
 + [Azure Functions Core Tools v4.0.4915 or above](functions-run-local.md#install-the-azure-functions-core-tools).
 ::: zone-end
 
@@ -54,7 +54,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
 2. Choose the directory location for your project workspace and choose **Select**. You should either create a new folder or choose an empty folder for the project workspace. Don't choose a project folder that is already part of a workspace.
 
-::: zone pivot="node-model-v3" 
+::: zone pivot="nodejs-model-v3" 
 3. Provide the following information at the prompts:
 
     |Prompt|Selection|
@@ -67,7 +67,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
     Using this information, Visual Studio Code generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. To learn more about files that are created, see [Generated project files](functions-develop-vs-code.md?tabs=typescript#generated-project-files).
 ::: zone-end
-::: zone pivot="node-model-v4" 
+::: zone pivot="nodejs-model-v4" 
 3. Provide the following information at the prompts:
 
     |Prompt|Selection|
