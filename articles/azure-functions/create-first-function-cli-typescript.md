@@ -166,7 +166,7 @@ Each binding requires a direction, a type, and a unique name. The HTTP trigger h
         }
     }
     ```
-    You can also use the Azure Storage emulator, [Azurite](azure/storage/common/storage-use-azurite?tabs=npm#install-azurite).
+    You can also use the Azure Storage emulator, [Azurite](/azure/storage/common/storage-use-azurite?tabs=npm#install-azurite).
     ```json
     {
         "Values": {
@@ -187,7 +187,7 @@ Each binding requires a direction, a type, and a unique name. The HTTP trigger h
 
 ## Run the function locally
 
-1. If you're using Azurite, you need to [launch it](azure/storage/common/storage-use-azurite?tabs=npm#run-azurite) in another process *before* running your function. Run your function by starting the local Azure Functions runtime host from the *LocalFunctionProj* folder:
+1. If you're using Azurite, you need to [launch it](/azure/storage/common/storage-use-azurite?tabs=npm#run-azurite) in another process *before* running your function. Run your function by starting the local Azure Functions runtime host from the *LocalFunctionProj* folder:
 
     ::: zone pivot="nodejs-model-v3" 
     ```console

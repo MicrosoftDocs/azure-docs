@@ -167,7 +167,7 @@ Each binding requires a direction, a type, and a unique name. The HTTP trigger h
         }
     }
     ```
-    You can also use the Azure Storage emulator, [Azurite](azure/storage/common/storage-use-azurite?tabs=npm#install-azurite).
+    You can also use the Azure Storage emulator, [Azurite](/azure/storage/common/storage-use-azurite?tabs=npm#install-azurite).
     ```json
     {
         "Values": {
