@@ -16,9 +16,9 @@ ms.custom: mvc, references_regions, ignite-2022
 
 [Azure Database for PostgreSQL](../overview.md) powered by the PostgreSQL community edition is available in two deployment modes:
 
-- [Single Server](../overview-single-server.md)
 - [Flexible Server](./overview.md) 
-
+- [Single Server](../overview-single-server.md) 
+   
 In this article, we will provide an overview and introduction to core concepts of flexible server deployment model.
 
 
@@ -166,3 +166,4 @@ In addition, consider the following points of contact as appropriate:
 ## Next steps
 
 Now that you've read an introduction to Azure Database for PostgreSQL flexible server deployment mode, you're ready to create your first server: [Create an Azure Database for PostgreSQL - Flexible Server using Azure portal](./quickstart-create-server-portal.md)
+

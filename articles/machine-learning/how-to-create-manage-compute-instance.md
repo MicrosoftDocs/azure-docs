@@ -37,7 +37,7 @@ In this article, you learn how to:
 * [Create  a schedule](#schedule-automatic-start-and-stop) to automatically start and stop the compute instance
 * [Enable idle shutdown](#enable-idle-shutdown-preview)
 
-You can also [use a setup script (preview)](how-to-customize-compute-instance.md) to create the compute instance with your own custom environment.
+You can also [use a setup script](how-to-customize-compute-instance.md) to create the compute instance with your own custom environment.
 
 Compute instances can run jobs securely in a [virtual network environment](how-to-secure-training-vnet.md), without requiring enterprises to open up SSH ports. The job executes in a containerized environment and packages your model dependencies in a Docker container.
 
