@@ -8,22 +8,13 @@ ms.date: 02/01/2023
 # Tutorial: Send data to Azure Monitor using Logs ingestion API
 The [Logs Ingestion API](logs-ingestion-api-overview.md) in Azure Monitor allows you to send custom data to a Log Analytics workspace. This tutorial uses Azure Resource Manager templates (ARM templates) to walk through configuration of the components required to support the API and then provides a sample application using both the REST API and client libraries.
 
-> [!NOTE]
-> This tutorial uses ARM templates to configure custom logs. For a similar tutorial using the Azure portal, see [Tutorial: Send data to Azure Monitor Logs using Logs ingestion API (Azure portal)](tutorial-logs-ingestion-portal.md).
-
-In this tutorial, you learn to:
-
-> [!div class="checklist"]
-> * Create a custom table in a Log Analytics workspace.
-> * Create a data collection endpoint (DCE) to receive data over HTTP.
-> * Create a data collection rule (DCR) that transforms incoming data to match the schema of the target table.
-> * Create a sample application to send custom data to Azure Monitor using both REST API and client libraries.
+1. Create a custom table in a Log Analytics workspace.
+2. Create a data collection endpoint (DCE) to receive data.
+3. Create a data collection rule (DCR) to direct the data to the target table.
+4. Create a sample application to send custom data to Azure Monitor using both REST API and client libraries.
 
 > [!NOTE]
 > This tutorial uses PowerShell from Azure Cloud Shell to make REST API calls by using the Azure Monitor **Tables** API and the Azure portal to install ARM templates. You can use any other method to make these calls.
-> 
-> See [.NET](/dotnet/api/overview/azure/Monitor.Ingestion-readme), [Java](/java/api/overview/azure/monitor-ingestion-readme), [JavaScript](/javascript/api/overview/azure/monitor-ingestion-readme), or [Python](/python/api/overview/azure/monitor-ingestion-readme) for guidance on using the Logs ingestion API client libraries for other languages.
-
 
 ## Prerequisites
 To complete this tutorial, you need:
@@ -32,15 +23,8 @@ To complete this tutorial, you need:
 - [Permissions to create DCR objects](../essentials/data-collection-rule-overview.md#permissions) in the workspace.
 
 
-## Collect workspace details
-Start by gathering information that you'll need from your workspace.
-
-Go to your workspace in the **Log Analytics workspaces** menu in the Azure portal. On the **Properties** page, copy the **Resource ID** and save it for later use.
-
-:::image type="content" source="media/tutorial-logs-ingestion-api/workspace-resource-id.png" lightbox="media/tutorial-logs-ingestion-api/workspace-resource-id.png" alt-text="Screenshot that shows the workspace resource ID.":::
-
 ## Create an Active Directory application
-Start by registering an Azure Active Directory application to authenticate against the API. Any Resource Manager authentication scheme is supported, but this tutorial follows the [Client Credential Grant Flow scheme](../../active-directory/develop/v2-oauth2-client-creds-grant-flow.md).
+Start by registering an Azure Active Directory application to authenticate against the API. Any Resource Manager authentication scheme is supported, but this articles follows the [Client Credential Grant Flow scheme](../../active-directory/develop/v2-oauth2-client-creds-grant-flow.md).
 
 1. On the **Azure Active Directory** menu in the Azure portal, select **App registrations** > **New registration**.
 
@@ -64,11 +48,11 @@ Start by registering an Azure Active Directory application to authenticate again
 
 
 ## Create a data collection endpoint
-A [DCE](../essentials/data-collection-endpoint-overview.md) is required to accept the data being sent to Azure Monitor. After you configure the DCE and link it to a DCR, you can send data over HTTP from your application. The DCE must be located in the same region as the Log Analytics workspace where the data will be sent.
+A [DCE](../essentials/data-collection-endpoint-overview.md) is required to accept the data being sent to Azure Monitor. The DCE must be located in the same region as the Log Analytics workspace where the data will be sent.
 
 ## [Azure portal](#tab/portal)
 
-1. To create a new DCE, go to the **Monitor** menu in the Azure portal. Select **Data Collection Endpoints** and then select **Create**.
+1. From the **Monitor** menu in the Azure portal, select **Data Collection Endpoints** and then select **Create**.
 
     :::image type="content" source="media/tutorial-logs-ingestion-portal/new-data-collection-endpoint.png" lightbox="media/tutorial-logs-ingestion-portal/new-data-collection-endpoint.png" alt-text="Screenshot that shows new DCE.":::
 
@@ -76,9 +60,6 @@ A [DCE](../essentials/data-collection-endpoint-overview.md) is required to accep
 
     :::image type="content" source="media/tutorial-logs-ingestion-portal/data-collection-endpoint-details.png" lightbox="media/tutorial-logs-ingestion-portal/data-collection-endpoint-details.png" alt-text="Screenshot that shows DCE details.":::
 
-1. After the DCE is created, select it so that you can view its properties. Note the **Logs ingestion** URI because you'll need it in a later step.
-
-    :::image type="content" source="media/tutorial-logs-ingestion-portal/data-collection-endpoint-uri.png" lightbox="media/tutorial-logs-ingestion-portal/data-collection-endpoint-uri.png" alt-text="Screenshot that shows DCE URI.":::
 
 
 ## [ARM template](#tab/arm)
@@ -149,6 +130,8 @@ A [DCE](../essentials/data-collection-endpoint-overview.md) is required to accep
 
 1. Select **Review + create** and then select **Create** after you review the details.
 
+---
+
 1. After the DCE is created, select it so that you can view its properties. Note the **Logs ingestion URI** because you'll need it in a later step.
 
     :::image type="content" source="media/tutorial-logs-ingestion-api/data-collection-endpoint-overview.png" lightbox="media/tutorial-logs-ingestion-api/data-collection-endpoint-overview.png" alt-text="Screenshot that shows the DCE URI.":::
@@ -157,14 +140,13 @@ A [DCE](../essentials/data-collection-endpoint-overview.md) is required to accep
 
     :::image type="content" source="media/tutorial-logs-ingestion-api/data-collection-endpoint-json.png" lightbox="media/tutorial-logs-ingestion-api/data-collection-endpoint-json.png" alt-text="Screenshot that shows the DCE resource ID.":::
 
----
 
 
 ## Create a new table and data collection rule
 The custom table must be created before you can send data to it. 
 
 ### [Azure portal](#tab/portal)
-
+When you create a new table with the Azure portal
 ### Create a new table
 1. Go to the **Log Analytics workspaces** menu in the Azure portal and select **Tables**. The tables in the workspace will appear. Select **Create** > **New custom log (DCR based)**.
 
@@ -678,3 +660,12 @@ The cache that drives IntelliSense might take up to 24 hours to update.
 - [Complete a similar tutorial using the Azure portal](tutorial-logs-ingestion-portal.md)
 - [Read more about custom logs](logs-ingestion-api-overview.md)
 - [Learn more about writing transformation queries](../essentials//data-collection-transformations.md)
+
+
+
+## Collect workspace details
+Start by gathering information that you'll need from your workspace.
+
+Go to your workspace in the **Log Analytics workspaces** menu in the Azure portal. On the **Properties** page, copy the **Resource ID** and save it for later use.
+
+:::image type="content" source="media/tutorial-logs-ingestion-api/workspace-resource-id.png" lightbox="media/tutorial-logs-ingestion-api/workspace-resource-id.png" alt-text="Screenshot that shows the workspace resource ID.":::
