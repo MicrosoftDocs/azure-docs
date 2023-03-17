@@ -58,7 +58,7 @@ To simplify connecting with Azure Service Bus, these interfaces are implemented 
 
 # [System Assigned Managed Identity](#tab/system-assigned-managed-identity-backed-authentication)
 
-Create a [system assigned managed identity](/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm) on Azure, and use this to create a `TokenCredential`.
+Create a [system assigned managed identity](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md) on Azure, and use this to create a `TokenCredential`.
 
 ```java
 TokenCredential tokenCredential = new DefaultAzureCredentialBuilder().build();
@@ -81,7 +81,7 @@ ConnectionFactory factory = new ServiceBusJmsConnectionFactory(tokenCredential, 
 
 # [User Assigned Managed Identity](#tab/user-assigned-managed-identity-backed-authentication)
 
-Create a [user assigned managed identity](/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity) on Azure, and use this to create a `TokenCredential`.
+Create a [user assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity) on Azure, and use this to create a `TokenCredential`.
 
 ```java
 TokenCredential tokenCredential = new DefaultAzureCredentialBuilder()
