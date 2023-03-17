@@ -18,7 +18,7 @@ keywords:
 ## Prerequisites
 
 - An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true)
-- Access granted to the Azure OpenAI service in the desired Azure subscription.
+- Access granted to Azure OpenAI Service in the desired Azure subscription.
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI Service by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access?azure-portal=true).
 - [Python 3.7.1 or later version](https://www.python.org?azure-portal=true).
 - The following Python libraries: os.
@@ -149,7 +149,7 @@ Yes, most of the Azure Cognitive Services support customer managed keys. However
 
 ### Understanding the message structure
 
-The ChatGPT and GPT-4 models are optimized work with inputs formatted as a conversation.  The `messages` variable passes an array of dictionaries with different roles in the conversation delineated by system, user, and assistant. The system message can be used to prime the model by including context or instructions on how the model should respond.
+The ChatGPT and GPT-4 models are optimized to work with inputs formatted as a conversation.  The `messages` variable passes an array of dictionaries with different roles in the conversation delineated by system, user, and assistant. The system message can be used to prime the model by including context or instructions on how the model should respond.
 
 The [ChatGPT & GPT-4 how-to guide](../how-to/chatgpt.md) provides an in-depth introduction into the options for communicating with these new models.
 
@@ -162,5 +162,5 @@ If you want to clean up and remove an OpenAI resource, you can delete the resour
 
 ## Next steps
 
-* Learn more about how to work with ChatGPT the GPT-4 models with [our how-to guide](../how-to/chatgpt.md).
+* Learn more about how to work with ChatGPT and the GPT-4 models with [our how-to guide](../how-to/chatgpt.md).
 * For more examples, check out the [Azure OpenAI Samples GitHub repository](https://github.com/Azure/openai-samples)
