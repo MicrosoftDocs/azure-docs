@@ -33,7 +33,7 @@ Here's a video that tells you more about it.
       
      ▶️ 07:15 - Demo: Copy migration
       
-     ▶️ 17:40 - Copy vs. complete migration
+     ▶️ 17:40 - Copy vs complete migration
       
      ▶️ 19:43 - Demo: Complete migration
       
