@@ -7,7 +7,7 @@ ms.service: dev-box
 ms.topic: overview
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 02/01/2023
+ms.date: 03/16/2023
 adobe-target: true
 ---
 
@@ -52,6 +52,13 @@ Dev Box has the following benefits for IT admins:
   - Set conditional access policies that require users to connect via a compliant device.
   - Require multifactor authentication at sign-in.
   - Configure risk-based sign-in policies for dev boxes that access sensitive source code and customer data.
+
+### Developer team lead scenarios
+
+After a developer team lead is assigned the DevCenter Project Admin role, they can help manage the project. Project Admins can:
+
+- Create dev box pools and add appropriate dev box definitions.
+- Control costs by using auto-stop schedules.
 
 ### Developer scenarios
 
