@@ -26,7 +26,7 @@ ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-ap
 > * [Go](quickstart-go.md)
 >
 
-In this quickstart, you create and manage an Azure Cosmos DB for NoSQL account, and use a Java app cloned from GitHub. You create the Java app using the SQL Java SDK, and add resources to your Azure Cosmos DB account by using the Java application. 
+This quickstart guide explains how to build a Java app to manage an Azure Cosmos DB for NoSQL account. You create the Java app using the SQL Java SDK, and add resources to your Azure Cosmos DB account by using the Java application. 
 
 First, create an Azure Cosmos DB for NoSQL account using the Azure portal. Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities. You can [try Azure Cosmos DB account](https://aka.ms/trycosmosdb) for free without a credit card or an Azure subscription. 
 
@@ -38,9 +38,8 @@ First, create an Azure Cosmos DB for NoSQL account using the Azure portal. Azure
 
 ## Prerequisites
 
-- An Azure account with an active subscription.
-  - If you don't have an Azure subscription, you can [try Azure Cosmos DB free](../try-free.md) with no credit card required.
-- [Java Development Kit (JDK) 8](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk). Point your `JAVA_HOME` environment variable to the folder where the JDK is installed.
+- An Azure account with an active subscription. If you don't have an Azure subscription, you can [try Azure Cosmos DB free](../try-free.md) with no credit card required.
+- [Java Development Kit (JDK) 8](https://www.oracle.com/java/technologies/javase/8u-relnotes.html). Point your `JAVA_HOME` environment variable to the folder where the JDK is installed.
 - A [Maven binary archive](https://maven.apache.org/download.cgi). On Ubuntu, run `apt-get install maven` to install Maven.
 - [Git](https://www.git-scm.com/downloads). On Ubuntu, run `sudo apt-get install git` to install Git.
 
