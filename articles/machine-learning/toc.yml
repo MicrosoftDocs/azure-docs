@@ -337,13 +337,13 @@
           href: how-to-setup-authentication.md
         - name: Set up service authentication
           displayName: managed identity
+          href: how-to-identity-based-service-authentication.md
         # v1
         - name: Use managed identities for access control
           href: ./v1/how-to-use-managed-identities.md
         - name: Authenticate from the SDK v1
           href: ./v1/how-to-setup-authentication.md
         # end v1
-          href: how-to-identity-based-service-authentication.md
         - name: Manage users and roles
           href: how-to-assign-roles.md
     - name: Network security

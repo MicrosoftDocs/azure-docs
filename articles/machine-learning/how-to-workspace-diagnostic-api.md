@@ -33,7 +33,7 @@ You can use the workspace diagnostics from the Azure Machine Learning studio or 
 [!INCLUDE [sdk](../../includes/machine-learning-sdk-v2-prereqs.md)]
 :::moniker-end
 :::moniker range="azureml-api-1"
-* An Azure Machine Learning workspace. If you don't have one, see [Create a workspace](../quickstart-create-resources.md).
+* An Azure Machine Learning workspace. If you don't have one, see [Create a workspace](quickstart-create-resources.md).
 * The [Azure Machine Learning SDK v1 for Python](/python/api/overview/azure/ml).
 :::moniker-end
 
@@ -67,7 +67,7 @@ print(resp)
 ```
 :::moniker-end
 :::moniker range="azureml-api-1"
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 ```python
 from azureml.core import Workspace
