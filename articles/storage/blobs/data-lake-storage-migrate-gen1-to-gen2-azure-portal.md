@@ -31,11 +31,11 @@ Here's a video that tells you more about it.
       
      - 01:16 - Preparing for migration
       
-     - 07:15 - Demo: Copy migration
+     - 07:15 - Copy migration
       
      - 17:40 - Copy vs complete migration
       
-     - 19:43 - Demo: Complete migration
+     - 19:43 - Complete migration
       
      - 33:15 - Post migration
 <br>
