@@ -75,11 +75,11 @@ For illustration purposes, in this document we're using a two-node cluster with 
 1. Access the first node of the cluster and open **Failover Cluster Manager**.
     1. Verify that the second node is in **Offline** state and that all clustered services and storage are under the control of the first node.
      
-         :::image type="content" source="media/sql-server-hybrid-benefit/sql-failover-1.png" alt-text="Diagram showing Windows Server Failover Cluster Manager cluster storage verification." border="false":::
+         :::image type="content" source="media/sql-server-hybrid-benefit/sql-failover-1.png" alt-text="Diagram showing Windows Server Failover Cluster Manager cluster storage verification." border="false" lightbox="media/sql-server-hybrid-benefit/sql-failover-1.png":::
  
     1. Shut down the cluster.
     
-        :::image type="content" source="media/sql-server-hybrid-benefit/sql-failover-2.png" alt-text="Diagram showing a shut down cluster using Windows Server Failover Cluster Manager." border="false":::
+        :::image type="content" source="media/sql-server-hybrid-benefit/sql-failover-2.png" alt-text="Diagram showing a shut down cluster using Windows Server Failover Cluster Manager." border="false" lightbox="media/sql-server-hybrid-benefit/sql-failover-2.png":::
   
      1. Check that all cluster services are successfully stopped without errors.
 1. Shut down first node of the cluster.
@@ -111,17 +111,17 @@ For illustration purposes, in this document we're using a two-node cluster with 
 1. Access the first node VM with **VMware Remote Console**.
        1. Verify virtual machine network configuration and ensure it can reach on-premises and Azure resources. 
        1. Open **Failover Cluster Manager** and verify cluster services.
-       :::image type="content" source="media/sql-server-hybrid-benefit/sql-failover-3.png" alt-text="Diagram showing a cluster summary in Failover Cluster Manager." border="false":::
+       :::image type="content" source="media/sql-server-hybrid-benefit/sql-failover-3.png" alt-text="Diagram showing a cluster summary in Failover Cluster Manager." border="false" lightbox="media/sql-server-hybrid-benefit/sql-failover-3.png":::
 
 1. Power on the second node virtual machine.
 1. Access the second node VM from the **VMware Remote Console**.
    1. Verify that Windows Server can reach the storage.
    1. In the **Failover Cluster Manager** review that the second node appears as **Online** status.
-    :::image type="content" source="media/sql-server-hybrid-benefit/sql-failover-4.png"  alt-text="Diagram showing a cluster node status in Failover Cluster Manager." border="false":::
+    :::image type="content" source="media/sql-server-hybrid-benefit/sql-failover-4.png"  alt-text="Diagram showing a cluster node status in Failover Cluster Manager." border="false" lightbox="media/sql-server-hybrid-benefit/sql-failover-4.png":::
 
 1. Using the **SQL Server Management Studio** connect to the SQL Server cluster resource network name. Check the database is online and accessible.
 
-:::image type="content" source="media/sql-server-hybrid-benefit/sql-failover-5.png" alt-text="Diagram showing a verification of SQL Server Management Studio connection  to the migrated cluster instance database." border="false":::
+:::image type="content" source="media/sql-server-hybrid-benefit/sql-failover-5.png" alt-text="Diagram showing a verification of SQL Server Management Studio connection  to the migrated cluster instance database." border="false" lightbox="media/sql-server-hybrid-benefit/sql-failover-5.png":::
     
 Finally, check the connectivity to SQL from other systems and applications in your infrastructure and verify that all applications using the database(s) can still access them. 
 
