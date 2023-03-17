@@ -24,8 +24,9 @@ Here's a video that tells you more about it.
       > [!VIDEO https://learn-video.azurefd.net/vod/player?show=inside-azure-for-it&ep=migrate-azure-data-lake-storage-adls-from-gen1-to-gen2-by-using-the-azure-portal] 
    :::column-end:::
    :::column span="":::
-      **Chapters**:
-   
+     **Chapters**:
+     ___
+
      ▶️ 00.37 - Introduction
       
      ▶️ 01:16 - Preparing for migration
@@ -37,6 +38,7 @@ Here's a video that tells you more about it.
      ▶️ 19:43 - Demo: Complete migration
       
      ▶️ 33:15 - Post migration
+<br>
    :::column-end:::
 :::row-end:::
 
