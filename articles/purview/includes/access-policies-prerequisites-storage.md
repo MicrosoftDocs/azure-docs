@@ -4,7 +4,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: include
-ms.date: 12/01/2022
+ms.date: 03/16/2023
 ms.custom: references_regions
 ---
 
@@ -49,6 +49,6 @@ If the output is *Registering*, wait at least 10 minutes, and then retry the com
     - East Asia
     - Japan East
     - Japan West
-- Only **new** Storage accounts with zone-redundant storage (ZRS) are supported. That is, Storage accounts created in the subscription **after** the feature *AllowPurviewPolicyEnforcement* is *Registered*.
+- Only **new** Storage accounts with zone-redundant storage (ZRS) are supported. That is, Storage accounts created in the subscription **after** the feature *AllowPurviewPolicyEnforcement* is *Registered*. Note, ZRS Storage accounts will start enforcing policies from Microsoft Purview within 2 hours.
 
 If needed, you can also create a new Storage account by [following this guide](../../storage/common/storage-account-create.md).
