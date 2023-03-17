@@ -28,36 +28,38 @@ To begin toll-free verification, go to your Communication Services resource on t
 ## Apply for a toll-free verification
 Navigate to the Regulatory Documents blade in the resource menu and click on "Add" button to launch the toll-free verification application wizard. For detailed guidance on how to fill out the program brief application check the [toll-free verification filling guidelines](../../concepts/sms/toll-free-verification-guidelines.md). 
 
+:::image type="content" source="./media/toll-free-verification/Regulatory-screen1.png" alt-text="Screenshot showing Regulatory Documents Blade.":::
 
 A toll-free verification application consists of the following five sections:
 ### Application Type
 You will first need to choose country/region and toll-free numbers you would like to get verified. If you have not acquired a toll-free number, then you will need to first acquire the number and then come back to this application. If you have selected more than 1 toll-free number to verify, you need to provide justification on how the multiple numbers will be used for the campaign. 
 
+:::image type="content" source="./media/toll-free-verification/Regulatory-screen2.png" alt-text="Screenshot showing Application type section.":::
+
 ### Contact Details
 This section requires you to provide information about your company and point of contact in the case we need additional information for this application.
 
-:::image type="content" source="./media/apply-for-short-code/contact-details.png" alt-text="Screenshot showing contact details section.":::
+:::image type="content" source="./media/toll-free-verification/Regulatory-screen3.png" alt-text="Screenshot showing contact details section.":::
 
 ### Program Content
 This section requires you to provide description of the SMS campaign, opt-in method (how you plan to get consent from the customer to receive SMS), and screenshots of the selected opt-in method.  
 
-:::image type="content" source="./media/apply-for-short-code/program-details.png" alt-text="Screenshot showing program details section.":::
-
+:::image type="content" source="./media/toll-free-verification/Regulatory-screen4.png" alt-text="Screenshot showing Program content section.":::
 
 ### Volume Details
 This section requires you to provide an estimate of the number of messages you plan on sending per month.
 
-:::image type="content" source="./media/apply-for-short-code/volume.png" alt-text="Screenshot showing volume details section.":::
+:::image type="content" source="./media/toll-free-verification/Regulatory-screen5.png" alt-text="Screenshot showing Volume details section.":::
 
 ### Template Information
 This section captures sample messages related to your campaign. Provide samples of each type of message you will be sending out to recipients.
 
-:::image type="content" source="./media/apply-for-short-code/templates-01.png" alt-text="Screenshot showing template 1 details section.":::
+:::image type="content" source="./media/toll-free-verification/Regulatory-screen6.png" alt-text="Screenshot showing Template details section.":::
 
 ### Review 
 Once completed, review the toll-free verification details and submit the completed application through the Azure Portal. 
 
-:::image type="content" source="./media/apply-for-short-code/review.png" alt-text="Screenshot showing template details section.":::
+:::image type="content" source="./media/toll-free-verification/Regulatory-screen7.png" alt-text="Screenshot showing review section.":::
  
 This program brief will now be automatically sent to the toll-free messaging aggregator for review. The toll-free aggregator will then review the details of the toll-free verification application, a process that can typically take between 5-6 weeks. Once they approve the application, you'll be notified via application status change in the Azure portal. You can now start sending and receiving messages with low filtering on this toll-free number for your messaging programs.
 
@@ -69,3 +71,4 @@ This program brief will now be automatically sent to the toll-free messaging agg
 The following documents may be interesting to you:
 
 - Familiarize yourself with the [SMS SDK](../../concepts/sms/sdk-features.md)
+- - Familiarize yourself with the [SMS FAQ](../../concepts/sms/sms-faq.md)

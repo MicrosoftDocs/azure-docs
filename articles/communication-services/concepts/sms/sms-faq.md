@@ -97,7 +97,7 @@ Effective **October 1, 2022**, unverified toll-free numbers sending messages to 
 Effective April 1, 2023, the industry’s toll-free aggregator is implementing new limits to messaging traffic for restricted and pending toll-free numbers. Messaging that exceeds a limit will return Error Code 795/ 4795: tfn-not-verified.
 
 New limits are as follows:
-|| Verification Status|Current limit| Limit effective April 1, 2023 |
+|Verification Status|Status|Current limit| Limit effective April 1, 2023 |
 |----|----------|----|-------------------------------|
 |Daily limit| Unverified| 2,000| 500|
 |Weekly limit| Unverified| 12,000| 1,000|

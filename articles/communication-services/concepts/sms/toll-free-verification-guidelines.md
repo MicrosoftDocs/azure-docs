@@ -65,7 +65,7 @@ The general rule of thumb for opt-in are:
 |2FA/OTP| Please provide a screenshot of the process to receive the initial text.|
 |Paper form | Upload the form and make sure it includes XXXX. |
 
- # Volume 
+ ## Volume 
 
 ### Expected total messages sent
 In this field, you are required to provide an estimate of total messages sent per month.
@@ -80,12 +80,12 @@ Message senders are required to disclose all the types/categories of messages wi
  ## Next steps
 
 > [!div class="nextstepaction"]
-> [Apply for a short code](../../quickstarts/telephony/get-phone-number.md)
+> [Acquire a toll-free number](../../quickstarts/telephony/get-phone-number.md)
 
 > [!div class="nextstepaction"]
 > [Apply for a short code](../../quickstarts/sms/apply-for-short-code.md)
 
 The following documents may be interesting to you:
 
-- Familiarize yourself with the [SMS SDK](../sms/sms-faq.md)
+- Familiarize yourself with the [SMS FAQ](../sms/sms-faq.md)
 - Familiarize yourself with the [SMS SDK](../sms/sdk-features.md)
