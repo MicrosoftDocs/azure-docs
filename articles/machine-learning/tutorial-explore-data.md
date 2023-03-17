@@ -40,11 +40,13 @@ The start of a machine learning project typically involves exploratory data anal
 
 1. On the top bar above your opened notebook, you see the compute instance you created during [Create resources you need to get started](quickstart-create-resources.md) to use for running the notebook.
 
-1. If the compute instance is stopped, select **Start compute** and wait until it's running.
+1. If the compute instance is stopped, select **Start compute** and wait until it is running.
 
-    :::image type="content" source="media/tutorial-azure-ml-in-a-day/start-compute.png" alt-text="Screenshot shows how to start compute if it's stopped.":::
+    :::image type="content" source="media/tutorial-azure-ml-in-a-day/start-compute.png" alt-text="Screenshot shows how to start compute if it is stopped." lightbox="media/tutorial-azure-ml-in-a-day/start-compute.png":::
 
 2. Make sure that the kernel, found on the top right, is `Python 3.10 - SDK v2`.  If not, use the dropdown to select this kernel.
+
+    :::image type="content" source="media/tutorial-azure-ml-in-a-day/set-kernel.png" alt-text="Screenshot shows how to set the kernel." lightbox="media/tutorial-azure-ml-in-a-day/set-kernel.png":::
 
 <!-- nbstart https://raw.githubusercontent.com/Azure/azureml-examples/get-started-tutorials/tutorials/get-started-notebooks/explore-data.ipynb -->
 
