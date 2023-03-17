@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: conceptual
-ms.date: 03/01/2023
+ms.date: 03/21/2023
 ms.author: chrhoder
 ---
 

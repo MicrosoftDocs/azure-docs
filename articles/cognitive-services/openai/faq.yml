@@ -8,7 +8,7 @@ metadata:
   ms.service: cognitive-services
   ms.subservice: openai
   ms.topic: faq
-  ms.date: 03/01/2023
+  ms.date: 03/21/2023
   ms.author: mbullwin
   author: mrbullwinkle
 title: Azure OpenAI Service frequently asked questions
@@ -23,6 +23,10 @@ sections:
           Azure OpenAI doesn't use customer data to retrain models. For more information, see the [Azure OpenAI data, privacy, and security guide](/legal/cognitive-services/openai/data-privacy?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext).    
   - name: General
     questions:
+      - question: |
+          Does Azure OpenAI support GPT-4?
+        answer: |
+          Azure OpenAI supports the latest GPT-4 models. These models are currently in limited preview. For access, existing Azure OpenAI customers can [apply by filling out this form](https://aka.ms/oai/get-gpt4).
       - question: |
           How do the capabilities of Azure OpenAI compare to OpenAI?
         answer: | 
