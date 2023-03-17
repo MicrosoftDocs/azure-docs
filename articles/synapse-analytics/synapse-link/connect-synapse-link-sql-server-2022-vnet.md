@@ -47,8 +47,6 @@ In this section, you create an Azure Synapse workspace with managed virtual netw
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-   :::image type="content" source="../media/connect-synapse-link-sql-database/enable-bypass-firewall-rules.png" alt-text="Screenshot that shows how to enable bypassing firewall rules.":::
-
 1. Open Synapse Studio, go to **Manage**, select **Integration runtimes**, and then select **AutoResolvingIntegrationRuntime**. 
 
 1. In the pop-up window, select the **Virtual network** tab, and then enable **Interactive authoring**. 
