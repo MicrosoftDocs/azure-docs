@@ -52,9 +52,6 @@ This table contains the default parameters defined by the framework.
 > | `kmdba_gid`               | The GID for the kmdba group.                                               | 3108                         | Required   |
 > | `racdba_gid`              | The GID for the racdba group.                                              | 3108                         | Required   |
 
-_gid:                             
-_gid:                            3109
-_gid:                            2002
 
 ## Parameters
 
