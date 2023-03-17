@@ -151,6 +151,14 @@ Model from forecasting training jobs can be deployed in either of the two ways:
     - It requires you to develop a custom scoring script.
     - You can refer [this notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/automl-standalone-jobs/automl-forecasting-orange-juice-sales/automl-forecasting-orange-juice-sales-mlflow.ipynb) to see an example.
 
+For UI deployments, we encourage to use either of the two options:
+1. Real-time endpoint
+2. Batch endpoint
+
+:::image type="content" source="media/how-to-automl-forecasting-faq/deployment_UI.png" alt-text="A view of the possible deployment options for an AutoML forecasting model.":::
+
+**Please don't use the 1st option i.e. "Real-time-endpoint (quick)"**.
+
 > [!NOTE]
 > As of now, we don't support deploying MLflow model from forecasting training jobs, neither through SDK, nor through CLI, nor through UI. You will run into errors if you try this. This feature will be available very soon.
 
