@@ -336,7 +336,7 @@ items:
           - name: How to migrate to Azure Resource Manager
             href: ../common/storage-account-migrate-classic.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
           - name: Technical deep dive on migration to Azure Resource Manager
-            href: ../common/storage-account-migrate-deep-dive.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+            href: ../common/storage-account-migration-deep-dive.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
           - name: FAQ
             href: ../common/classic-account-migration-faq.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Create and manage containers
