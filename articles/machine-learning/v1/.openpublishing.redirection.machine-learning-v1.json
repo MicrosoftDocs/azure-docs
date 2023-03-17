@@ -1,0 +1,9 @@
+{
+    "redirections": [
+    {
+        "source_path_from_root": "/articles/machine-learning/v1/how-to-workspace-diagnostic-api.md",
+        "redirect_url": "/azure/machine-learning/how-to-workspace-diagnostic-api?view=azureml-api-1",
+        "redirect_document_id": false
+    }
+]
+}
