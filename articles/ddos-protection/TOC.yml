@@ -34,8 +34,6 @@
   items:
   - name: View and configure DDoS telemetry
     href: telemetry.md
-  - name: View and configure DDoS diagnostic logging
-    href: diagnostic-logging.md
 - name: Concepts
   items:
   - name: Types of attacks
@@ -64,6 +62,8 @@
           href: alerts.md  
         - name: Configure diagnostic logging alerts
           href: ddos-diagnostic-alert-templates.md
+        - name: Configure DDoS diagnostic logging
+          href: diagnostic-logging.md    
     - name: View Monitoring and Logging
       items: 
         - name: View alerts in Microsoft Defender for Cloud

@@ -15,5 +15,5 @@ The following table contains information about the VMs that Azure Private 5G Cor
 | VM detail | Flavor name | vCPUs | Memory (GB) | Disk size | VM function |
 |---|---|---|---|---|---|
 | Management Control Plane VM | Standard_F4s_v1 | 4 | 4 | Ephemeral - 80 GB | Management Control Plane to create Kubernetes clusters |
-| AP5GC Cluster Control Plane VM | Standard_F4s_v1 | 4 | 4 | Ephemeral - 128 GB | Master Node of the Kubernetes cluster used for AP5GC |
-| AP5GC Cluster Worker Node VM | Standard_F16s_HPN | 16 | 32 | Ephemeral - 128 GB <br>Persistent - 102 GB | Worker node - AP5GC workload |
+| AP5GC Cluster Control Plane VM | Standard_F4s_v1 | 4 | 4 | Ephemeral - 128 GB | Control Plane of the Kubernetes cluster used for AP5GC |
+| AP5GC Cluster Node VM | Standard_F16s_HPN | 16 | 32 | Ephemeral - 128 GB <br>Persistent - 102 GB | AP5GC workload node |

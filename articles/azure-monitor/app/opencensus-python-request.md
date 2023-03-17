@@ -28,7 +28,8 @@ First, instrument your Python application with latest [OpenCensus Python SDK](./
     )
     ```
 
-3. Make sure AzureExporter is properly configured in your `settings.py` under `OPENCENSUS`. For requests from urls that you don't wish to track, add them to `EXCLUDELIST_PATHS`.
+3. Make sure AzureExporter is configured properly in your `settings.py` under `OPENCENSUS`. For requests from urls that you don't wish to track, add them to `EXCLUDELIST_PATHS`.
+
 
     ```python
     OPENCENSUS = {
@@ -149,8 +150,7 @@ OpenCensus doesn't have an extension for FastAPI. To write your own FastAPI midd
     HTTP_URL = COMMON_ATTRIBUTES['HTTP_URL']
     HTTP_STATUS_CODE = COMMON_ATTRIBUTES['HTTP_STATUS_CODE']
     
-    APPINSIGHTS_CONNECTION_STRING='<your-appinsights_connection-string-here>'
-    exporter=AzureExporter(connection_string=f'{APPINSIGHTS_CONNECTION_STRING}')
+    exporter=AzureExporter(connection_string='<your-appinsights-connection-string-here>')
     sampler=ProbabilitySampler(1.0)
 
     # fastapi middleware for opencensus

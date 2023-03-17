@@ -50,7 +50,7 @@ In this quickstart, you create and manage an Azure Cosmos DB for NoSQL account f
 
 :::image type="content" source="../media/account-databases-containers-items/cosmos-entities.png" alt-text="Azure Cosmos DB account entities" border="false":::
 
-You may read more about databases, containers and items [here.](../account-databases-containers-items.md) A few important properties are defined at the level of the container, among them *provisioned throughput* and *partition key*. 
+You may read more about databases, containers and items [here.](../resource-model.md) A few important properties are defined at the level of the container, among them *provisioned throughput* and *partition key*. 
 
 The provisioned throughput is measured in Request Units (*RUs*) which have a monetary price and are a substantial determining factor in the operating cost of the account. Provisioned throughput can be selected at per-container granularity or per-database granularity, however container-level throughput specification is typically preferred. You may read more about throughput provisioning [here.](../set-throughput.md)
 

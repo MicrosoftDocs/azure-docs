@@ -155,6 +155,8 @@
       href: microservices-dapr-pubsub.md
     - name: Deploy a Dapr application using GitHub Actions
       href: dapr-github-actions.md
+    - name: Event-driven work using Dapr bindings
+      href: microservices-dapr-bindings.md
     - name: Background processing
       href: background-processing.md
     - name: Create an Azure Files storage mount

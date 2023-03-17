@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot self-service password reset writeback- Azure Active Directory
+title: Troubleshoot self-service password reset writeback
 description: Learn how to troubleshoot common problems and resolution steps for self-service password reset writeback in Azure Active Directory
 
 services: active-directory

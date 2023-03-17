@@ -7,7 +7,7 @@ ms.service: container-apps
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: joarteir
-ms.custom: devx-track-azurecli, event-tier1-build-2022
+ms.custom: devx-track-azurecli, event-tier1-build-2022, devx-track-azurepowershell
 ---
 
 # Tutorial: Deploy a background processing application with Azure Container Apps
@@ -346,5 +346,3 @@ Remove-AzResourceGroup -Name $ResourceGroupName -Force
 ```
 
 ---
-
-

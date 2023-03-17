@@ -9,7 +9,7 @@ ms.date: 09/01/2022
 This article describes steps to subscribe to events published by Microsoft Graph API. The following table lists the resources for which events are available through Graph API. For every resource, events for create, update and delete state changes are supported. 
 
 > [!IMPORTANT]
-> Microsoft Graph API's ability to send events to Azure Event Grid is currently in **private preview**. 
+> Microsoft Graph API's ability to send events to Azure Event Grid is currently in **private preview**. If you have questions or need support, please email us [mailto:ask-graph-and-grid@microsoft.com?subject=Support Request](<mailto:ask-graph-and-grid@microsoft.com?subject=Support Request>).
 
 |Microsoft event source |Resource(s) | Available event types | 
 |:--- | :--- | :----|
@@ -44,20 +44,19 @@ Besides the ability to subscribe to Microsoft Graph API events via Event Grid, y
 5. [Subscribe to events](#subscribe-to-events).
 
 
-[!INCLUDE [register-event-grid-provider](includes/register-event-grid-provider.md)]
+[!INCLUDE [register-provider](./includes/register-provider.md)]
 
 [!INCLUDE [authorize-verified-partner-to-create-topic](includes/authorize-verified-partner-to-create-topic.md)]
 
 
 ## Enable Graph API events to flow to your partner topic
 
-> [!IMPORTANT]
-> In the following steps, you will follow instructions from [Node.js](https://github.com/microsoftgraph/nodejs-webhooks-sample), [Java](https://github.com/microsoftgraph/java-spring-webhooks-sample), and[.NET Core](https://github.com/microsoftgraph/aspnetcore-webhooks-sample) Webhook samples to enable flow of events from Microsoft Graph API. At some point in the sample, you will have an application registered with Azure AD. Email your application ID to <a href="mailto:ask-graph-and-grid@microsoft.com?subject=Please allow my application ID">mailto:ask-graph-and-grid@service.microsoft.com?subject=Please allow my Azure AD application with ID to send events through Graph API</a> so that the Microsoft Graph API team can add your application ID to allow list to use this new capability.
-
 You request Microsoft Graph API to send events by creating a Graph API subscription. When you create a Graph API subscription, the http request should look like the following sample:
 
 ```json
 POST to https://graph.microsoft.com/beta/subscriptions
+
+x-ms-enable-features: EventGrid
 
 Body:
 {
@@ -69,12 +68,13 @@ Body:
 }
 ```
 
-Here are some of the key payload properties:
+Here are some of the key headers and payload properties:
 
+- `x-ms-enable-features`: Header used to indicate your desire to participate in the preview capability to send events to Azure Event Grid. Its value must be `EventGrid`. This header must be included with the request when creating a Microsoft Graph API subscription.
 - `changeType`: the kind of resource changes for which you want to receive events. Valid values: `Updated`, `Deleted`, and `Created`. You can specify one or more of these values separated by commas.
 - `notificationUrl`: a URI that conforms to the following pattern: `EventGrid:?azuresubscriptionid=<you-azure-subscription-id>&resourcegroup=<your-resource-group-name>&partnertopic=<the-name-for-your-partner-topic>&location=<the-Azure-region-where-you-want-the-topic-created>`.
-- resource: the resource for which you need events announcing state changes.
-- expirationDateTime: the expiration time at which the subscription will expire and hence the flow of events will stop. It must conform to the format specified in [RFC 3339](https://tools.ietf.org/html/rfc3339). You must specify an expiration time that is within the [maximum subscription length allowable for the resource type](/graph/api/resources/subscription#maximum-length-of-subscription-per-resource-type) used. 
+- resource: the resource that generates events to announce state changes.
+- expirationDateTime: the expiration time at which the subscription expires and hence the flow of events stop. It must conform to the format specified in [RFC 3339](https://tools.ietf.org/html/rfc3339). You must specify an expiration time that is within the [maximum subscription length allowable for the resource type](/graph/api/resources/subscription#maximum-length-of-subscription-per-resource-type) used. 
 - client state. A value that is set by you when creating a Graph API subscription. For more information, see [Graph API subscription properties](/graph/api/resources/subscription#properties).
 
 > [!NOTE]
@@ -95,7 +95,7 @@ Here are some of the key payload properties:
 When you create a Graph API subscription with a `notificationUrl` bound to Event Grid, a partner topic is created in your Azure subscription. For that partner topic, you [configure event subscriptions](event-filtering.md) to send your events to any of the supported [event handlers](event-handlers.md) that best meets your requirements to process the events. 
 
 #### Microsoft Graph API Explorer
-For quick tests and to get to know the API, you could use the [Microsoft Graph API explorer](/graph/graph-explorer/graph-explorer-features). For anything else beyond casuals tests or learning, you should use the Graph SDKs as described above. 
+For quick tests and to get to know the API, you could use the [Microsoft Graph API explorer](/graph/graph-explorer/graph-explorer-features). For anything else beyond casuals tests or learning, you should use the Graph SDKs. 
 
 [!INCLUDE [activate-partner-topic](includes/activate-partner-topic.md)]
 

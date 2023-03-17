@@ -4,6 +4,7 @@ description: Learn how to communicate between microservices deployed in Azure Co
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: tutorial
 ms.date: 05/13/2022
 ms.author: cshoe

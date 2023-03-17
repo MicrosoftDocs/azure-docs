@@ -104,7 +104,7 @@ Currently, Visual Studio Code can develop C# modules for Linux AMD64 and Linux A
 
 ### Update the module with custom code
 
-1. In the Visual Studio Code explorer, open **modules** > **CSharpModule** > **Program.cs**.
+1. In the Visual Studio Code explorer, open **modules** > **CSharpModule** > **ModuleBackgroundService.cs**.
 
 1. At the top of the **CSharpModule** namespace, add three **using** statements for types that are used later:
 
@@ -248,7 +248,7 @@ Currently, Visual Studio Code can develop C# modules for Linux AMD64 and Linux A
     }
     ```
 
-1. Save the Program.cs file.
+1. Save the ModuleBackgroundService.cs file.
 
 1. In the Visual Studio Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace.
 

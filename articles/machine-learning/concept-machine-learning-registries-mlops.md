@@ -21,9 +21,11 @@ In this article, you'll learn how to scale MLOps across development, testing and
 * Subscriptions - Are your development environments in one subscription and production environments in a different  subscription? Often separate subscriptions are used to account for billing, budgeting, and cost management purposes.
 * Regions - Do you need to deploy to different Azure regions to support latency and redundancy requirements? 
 
-In such scenarios, you may be using different AzureML workspaces for development, testing and production. This configuration presents the following challenges for model training and deployment:
+In such scenarios, you may be using different Azure Machine Learning workspaces for development, testing and production. This configuration presents the following challenges for model training and deployment:
 * You need to train a model in a development workspace but deploy it an endpoint in a production workspace, possibly in a different Azure subscription or region. In this case, you must be able to trace back the training job. For example, to analyze the metrics, logs, code, environment, and data used to train the model if you encounter accuracy or performance issues with the production deployment. 
 * You need to develop a training pipeline with test data or anonymized data in the development workspace but retrain the model with production data in the production workspace. In this case, you may need to compare training metrics on sample vs production data to ensure the training optimizations are performing well with actual data. 
+
+[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## Cross-workspace MLOps with registries
 

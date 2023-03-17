@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Nimblex | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Nimblex'
 description: Learn how to configure single sign-on between Azure Active Directory and Nimblex.
 services: active-directory
 author: jeevansd

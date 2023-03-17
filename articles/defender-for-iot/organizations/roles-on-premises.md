@@ -2,7 +2,7 @@
 title: On-premises users and roles for Defender for IoT - Microsoft Defender for IoT
 description: Learn about the on-premises user roles available for OT monitoring with Microsoft Defender for IoT network sensors and on-premises management consoles.
 ms.date: 09/19/2022
-ms.topic: conceptual
+ms.topic: concept-article
 ---
 
 # On-premises users and roles for OT monitoring with Defender for IoT

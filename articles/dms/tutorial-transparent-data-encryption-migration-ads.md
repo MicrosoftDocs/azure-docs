@@ -7,7 +7,6 @@ ms.author: roblescarlos
 ms.reviewer: randolphwest
 ms.date: 02/03/2023
 ms.service: dms
-ms.workload: data-services
 ms.topic: tutorial
 ---
 # Tutorial: Migrate TDE-enabled databases (preview) to Azure SQL in Azure Data Studio
@@ -19,9 +18,6 @@ TDE provides a solution to this problem, with real-time I/O encryption/decryptio
 When you migrate a TDE-protected database, the certificate (asymmetric key) used to open the database encryption key (DEK) must also be moved along with the source database. Therefore, you need to recreate the server certificate in the `master` database of the target SQL Server for that instance to access the database files. 
 
 You can use the [Azure SQL Migration extension for Azure Data Studio](/sql/azure-data-studio/extensions/azure-sql-migration-extension) to help you migrate TDE-enabled databases (preview) from an on-premises instance of SQL Server to Azure SQL.
-
-  > [!NOTE]  
-  > The option to migrate TDE-enabled databases from on-premises SQL Server to Azure SQL targets by using Azure Data Studio is currently in preview. This new migration experience is only available by using the [Azure Data Studio Insiders](/sql/azure-data-studio/download-azure-data-studio#download-the-insiders-build-of-azure-data-studio) version of the Azure SQL Migration extension.
 
 The TDE-enabled database migration process automates manual tasks such as backing up the database certificate keys (DEK), copying the certificate files from the on-premises SQL Server to the Azure SQL target, and then reconfiguring TDE for the target database again.
 
@@ -170,8 +166,8 @@ To open the Migrate to Azure SQL wizard:
 
    Check the following step-by-step tutorials for more information about migrating databases online or offline to Azure SQL Managed Instance targets:
 
-   - [Tutorial: Migrate SQL Server to Azure SQL Managed Instance online](/azure/dms/tutorial-sql-server-managed-instance-offline-ads)
-   - [Tutorial: Migrate SQL Server to Azure SQL Managed Instance offline](/azure/dms/tutorial-sql-server-managed-instance-offline-ads)
+   - [Tutorial: Migrate SQL Server to Azure SQL Managed Instance online](./tutorial-sql-server-managed-instance-offline-ads.md)
+   - [Tutorial: Migrate SQL Server to Azure SQL Managed Instance offline](./tutorial-sql-server-managed-instance-offline-ads.md)
 
 ## Post-migration steps
 
@@ -209,7 +205,7 @@ The following table describes the current status of the TDE-enabled database mig
 
 ## Next steps
 
-- [Migrate databases with Azure SQL Migration extension for Azure Data Studio](/azure/dms/migration-using-azure-data-studio)
-- [Tutorial: Migrate SQL Server to Azure SQL Database - Offline](/azure/dms/tutorial-sql-server-azure-sql-database-offline-ads)
-- [Tutorial: Migrate SQL Server to Azure SQL Managed Instance - Online](/azure/dms/tutorial-sql-server-managed-instance-online-ads)
-- [Tutorial: Migrate SQL Server to SQL Server On Azure Virtual Machines - Online](/azure/dms/tutorial-sql-server-to-virtual-machine-online-ads)
+- [Migrate databases with Azure SQL Migration extension for Azure Data Studio](./migration-using-azure-data-studio.md)
+- [Tutorial: Migrate SQL Server to Azure SQL Database - Offline](./tutorial-sql-server-azure-sql-database-offline-ads.md)
+- [Tutorial: Migrate SQL Server to Azure SQL Managed Instance - Online](./tutorial-sql-server-managed-instance-online-ads.md)
+- [Tutorial: Migrate SQL Server to SQL Server On Azure Virtual Machines - Online](./tutorial-sql-server-to-virtual-machine-online-ads.md)

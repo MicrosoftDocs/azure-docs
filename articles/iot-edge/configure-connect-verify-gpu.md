@@ -186,7 +186,7 @@ Let's add an [NVIDIA DIGITS](https://docs.nvidia.com/deeplearning/digits/index.h
 
 1. Select the **Environment Variables** tab.
 
-1. Add the environment variable name `NVIDIA_VISIBLE_DEVICES` with the value `0`. The value represents a list of your modules on your device, with `0` being the beginning of the list. This value is how many devices you want assigned to a GPU. Since we only have one module here, we want the first one on our list to be GPU-enabled.
+1. Add the environment variable name `NVIDIA_VISIBLE_DEVICES` with the value `0`. This variable controls which GPUs are visible to the containerized application running on the edge device. The `NVIDIA_VISIBLE_DEVICES` environment variable can be set to a comma-separated list of device IDs, which correspond to the physical GPUs in the system. For example, if there are two GPUs in the system with device IDs 0 and 1, the variable can be set to "NVIDIA_VISIBLE_DEVICES=0,1" to make both GPUs visible to the container. In this article, since the VM only has one GPU, we will use the first (and only) one.
 
    | Name                   | Type | Value |
    | :--------------------- | ---- | ----- |

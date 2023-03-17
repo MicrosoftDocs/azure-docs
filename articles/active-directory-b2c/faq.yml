@@ -259,4 +259,4 @@ sections:
       - question: |
           How do I report issues with Azure AD B2C?
         answer: |
-          See [File support requests for Azure Active Directory B2C](support-options.md).
+          See [File support requests for Azure Active Directory B2C](find-help-open-support-ticket.md).

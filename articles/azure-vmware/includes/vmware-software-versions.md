@@ -3,7 +3,7 @@ title: VMware software versions
 description: Supported VMware software versions for Azure VMware Solution.
 ms.topic: include
 ms.service: azure-vmware
-ms.date: 2/17/2023
+ms.date: 2/22/2023
 author: suzizuber
 ms.author: v-szuber
 ---
@@ -15,12 +15,11 @@ The VMware solution software versions used in new deployments of Azure VMware So
 
 | Software                     |    Version   |
 | :---                         |     :---:    |
-| VMware vCenter Server        |    7.0 U3c   |
-| ESXi                         |    7.0 U3c   |
-| vSAN                         |    7.0 U3c   |
-| vSAN on-disk format          |    10        |
-| HCX                          |    4.4.2     |
+| VMware vCenter Server        |    [7.0 U3c](https://docs.vmware.com/en/VMware-vSphere/7.0/rn/vsphere-vcenter-server-70u3c-release-notes.html)   |
+| VMware ESXi                  |    [7.0 U3c](https://docs.vmware.com/en/VMware-vSphere/7.0/rn/vsphere-esxi-70u3c-release-notes.html)   |
+| VMware vSAN                  |    [7.0 U3c](https://docs.vmware.com/en/VMware-vSphere/7.0/rn/vmware-vsan-703-release-notes.html)   |
+| VMware vSAN on-disk format   |    [10](https://kb.vmware.com/s/article/2148493)        |
+| VMware HCX                   |    [4.4.2](https://docs.vmware.com/en/VMware-HCX/4.4.2/rn/vmware-hcx-442-release-notes/index.html)     |
 | VMware NSX-T Data Center <br />**NOTE:** VMware NSX-T Data Center is the only supported version of NSX Data Center.                     |    [!INCLUDE [nsxt-version](nsxt-version.md)]   |
 
-The current running software version is applied to new clusters added to an existing private cloud. For more information, see the [VMware software version requirements for HCX](https://docs.vmware.com/en/VMware-HCX/4.4.2/rn/vmware-hcx-442-release-notes/index.html) and [Understanding vSAN on-disk format versions and compatibility](https://kb.vmware.com/s/article/2148493).
-
+The current running software version is applied to new clusters added to an existing private cloud.

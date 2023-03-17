@@ -7,7 +7,7 @@ ms.service: route-server
 ms.topic: quickstart
 ms.date: 04/05/2021
 ms.author: halkazwini
-ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm, template-quickstart
+ms.custom: subject-armqs, mode-arm, template-quickstart
 ---
 
 # Quickstart: Create an Azure Route Server using an ARM template

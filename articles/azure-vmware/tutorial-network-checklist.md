@@ -3,7 +3,7 @@ title: Tutorial - Network planning checklist
 description: Learn about the network requirements for network connectivity and network ports on Azure VMware Solution.
 ms.topic: tutorial
 ms.service: azure-vmware
-ms.date: 2/9/2023
+ms.date: 3/10/2023
 ---
 
 # Networking planning checklist for Azure VMware Solution 
@@ -41,6 +41,12 @@ Azure VMware Solution private clouds require a minimum of a `/22` CIDR network a
 
 >[!NOTE]
 >Permitted ranges for your address block are the RFC 1918 private address spaces (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16), except for 172.17.0.0/16.
+
+>[!IMPORTANT]
+>In addition, the following IP schemas are reserved for NSX-T Data Center usage and should not be used:
+> * 169.254.0.0/24 - used for internal transit network
+> * 169.254.2.0/23 - used for inter-VRF transit network
+> * 100.64.0.0/16 - used to connect T1 and T0 gateways internally
 
 Example `/22` CIDR network address block:  `10.10.0.0/22`
 

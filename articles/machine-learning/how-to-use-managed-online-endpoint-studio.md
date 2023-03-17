@@ -28,7 +28,7 @@ In this article, you learn how to:
 
 ## Prerequisites
 - An Azure Machine Learning workspace. For more information, see [Create workspace resources](quickstart-create-resources.md).
-- The examples repository - Clone the [AzureML Example repository](https://github.com/Azure/azureml-examples). This article uses the assets in `/cli/endpoints/online`.
+- The examples repository - Clone the [Azure Machine Learning Example repository](https://github.com/Azure/azureml-examples). This article uses the assets in `/cli/endpoints/online`.
 
 ## Create a managed online endpoint
 

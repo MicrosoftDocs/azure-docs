@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path_from_root": "/articles/cosmos-db/account-databases-containers-items.md",
+      "redirect_url": "/azure/cosmos-db/resource-model",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/cosmos-db/create-mongodb-flask.md",
       "redirect_url": "/azure/cosmos-db/mongodb-introduction",
       "redirect_document_id": false
@@ -63,6 +68,11 @@
     {
       "source_path_from_root": "/articles/cosmos-db/nosql/sql-api-java-sdk-samples.md",
       "redirect_url": "/azure/cosmos-db/nosql/samples-java",
+      "redirect_document_id": true
+    }, 
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/how-to-model-partition-example.md",
+      "redirect_url": "/azure/cosmos-db/nosql/model-partition-example",
       "redirect_document_id": true
     }, 
     {
