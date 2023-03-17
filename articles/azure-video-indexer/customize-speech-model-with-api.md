@@ -268,7 +268,7 @@ The response provides metadata on all of the speech models in the specified acco
 
 ## Delete speech dataset 
 
-The [delete speech dataset](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Delete-Speech-Dataset) API deletes the specified dataset. Any model that was trained with the deleted dataset continues to be available until the model is deleted. You cannot delete a dateset while it is in use for indexing or training.
+The [delete speech dataset](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Delete-Speech-Dataset) API deletes the specified dataset. Any model that was trained with the deleted dataset continues to be available until the model is deleted. You cannot delete a dataset while it is in use for indexing or training.
 
 ### Response 
 
