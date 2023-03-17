@@ -9,8 +9,7 @@ ms.date: 05/16/2022
 ms.author: aahi
 ---
 
-> [!NOTE]
-> When you send a successful deployment request, the full request URL for checking the job's status (including your endpoint, project name, and job ID) is contained in the response's `location-location` header. 
+When you send a successful deployment request, the full request URL for checking the job's status (including your endpoint, project name, and job ID) is contained in the response's `operation-location` header. 
 
 Use the following **GET** request to get the status of your deployment job. Replace the placeholder values below with your own values. 
 

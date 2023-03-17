@@ -5,12 +5,11 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 05/12/2022
+ms.date: 03/17/2023
 ms.author: aahi
 ---
 
-> [!NOTE]
-> When you send a successful training request, the full request URL for checking the job's status (including your endpoint, project name, and job ID) is contained in the response's `location-location` header. 
+When you send a successful training request, the full request URL for checking the job's status (including your endpoint, project name, and job ID) is contained in the response's `operation-location` header. 
 
 Use the following **GET** request to get the status of your model's training progress. Replace the placeholder values below with your own values. 
 

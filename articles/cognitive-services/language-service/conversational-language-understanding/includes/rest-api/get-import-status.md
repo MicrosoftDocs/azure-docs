@@ -6,13 +6,12 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 05/13/2022
+ms.date: 03/17/2023
 ms.author: aahi
 ms.custom: language-service-clu 
 ---
 
-> [!NOTE]
-> When you send a successful project import request, the full request URL for checking the import job's status (including your endpoint, project name, and job ID) is contained in the response's `location-location` header. 
+When you send a successful project import request, the full request URL for checking the import job's status (including your endpoint, project name, and job ID) is contained in the response's `operation-location` header. 
 
 Use the following **GET** request to query the status of your import job. You can use the URL you received from the previous step, or replace the placeholder values below with your own values. 
 

@@ -23,7 +23,7 @@ Use the following URL when creating your API request. Replace the placeholder va
 |Placeholder  |Value  | Example |
 |---------|---------|---------|
 |`{ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
-|`{PROJECT-NAME}`     | The name for your project. This value is case-sensitive.   | `myProject` |
+|`{PROJECT-NAME}`     | The name for your project. This value is case-sensitive, and must match the Project name in the JSON file you're importing.   | `EmailAppDemo` |
 |`{API-VERSION}`     | The version of the API you're calling. The value referenced here is for the latest released [model version](../../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data).  | `2022-05-01` |
 
 ### Headers
@@ -96,7 +96,7 @@ The JSON body you send will look similar to the below. See the [reference docume
 |Key  |Placeholder  |Value  | Example |
 |---------|---------|----------|--|
 | api-version | `{API-VERSION}` | The version of the API you're calling. The version used here must be the same API model version in the URL. See the [model version](../../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data) article to learn more.  | `2022-05-01` |
-| `projectName` | `{PROJECT-NAME}` | The name of your project. This value is case-sensitive. | `EmailApp` |
+| `projectName` | `{PROJECT-NAME}` | The name of your project. This value is case-sensitive. | `EmailAppDemo` |
 | `language` | `{LANGUAGE-CODE}` |  A string specifying the language code for the utterances used in your project. If your project is a multilingual project, choose the [language code](../../language-support.md) of the majority of the utterances. |`en-us`|
 | `multilingual` | `true`| A boolean value that enables you to have documents in multiple languages in your dataset. When your model is deployed, you can query the model in any [supported language](../../language-support.md#multi-lingual-option). This includes languages that aren't included in your training documents.  | `true`|
 | `dataset` | `{DATASET}` |  See [how to train a model](../../how-to/tag-utterances.md) for information on splitting your data between a testing and training set. Possible values for this field are `Train` and `Test`.      |`Train`|
