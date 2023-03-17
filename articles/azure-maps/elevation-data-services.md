@@ -93,7 +93,7 @@ Once you have the raster tiles you need, you can import them in QGIS.
     [rio-rgbify], developed by MapBox. There are some challenges running this tool directly in
     Windows, so it's easier to run from WSL. Below are the steps in Ubuntu on WSL:
 
-    ```Ubuntu
+    ```bash
     sudo apt get update
     sudo apt get upgrade
     sudo apt install python3-pip
@@ -247,8 +247,8 @@ PostgreSQL to return vector tiles.
 
     The next step requires a PostgreSQL database with [PostGIS] extension.
 
-1. To create a connection from QGIS to PostgreSQL, select **Add PostGIS Layers**
-   from the **Layer** menu, then select the *New** button.
+1. To create a connection from QGIS to PostgreSQL, select **Add Layer** -> **Add PostGIS Layers**
+   from the **Layer** menu, then select the **New** button.
 
     :::image type="content" source="./media/elevation-services/create-new-postgis-connection.png" alt-text="A screenshot showing the create new PostGIG connection dialog in QGIS.":::
 
@@ -319,11 +319,6 @@ PostgreSQL to return vector tiles.
         # Materialize the bounds
         # Select the relevant geometry and clip to MVT bounds
         # Convert to MVT format
-        # if table == 'kc_parcels':
-        #     sql02 = 'WITH bounds AS (SELECT ' + sql01 + ' AS geom, ' + sql01 + '::box2d AS b2d), mvtgeom AS (SELECT ST_AsMVTGeom(ST_Transform(t.geom, 3857), bounds.b2d) AS geom, addr_full FROM kc_parcels t, bounds WHERE ST_Intersects(t.geom, ST_Transform(bounds.geom, 4326))) SELECT ST_AsMVT(mvtgeom.*) FROM mvtgeom' 
-        # elif table == 'kc_school_districts':
-        #     sql02 = 'WITH bounds AS (SELECT ' + sql01 + ' AS geom, ' + sql01 + '::box2d AS b2d), mvtgeom AS (SELECT ST_AsMVTGeom(ST_Transform(t.geom, 3857), bounds.b2d) AS geom FROM kc_school_districts t, bounds WHERE ST_Intersects(t.geom, ST_Transform(bounds.geom, 4326))) SELECT ST_AsMVT(mvtgeom.*) FROM mvtgeom' 
-        # elif table == 'contourlines_smooth':
         sql02 = 'WITH bounds AS (SELECT ' + sql01 + ' AS geom, ' + sql01 + '::box2d AS b2d), mvtgeom AS (SELECT ST_AsMVTGeom(ST_Transform(t.geom, 3857), bounds.b2d) AS geom, elev FROM contourlines_smooth t, bounds WHERE ST_Intersects(t.geom, ST_Transform(bounds.geom, 4326))) SELECT ST_AsMVT(mvtgeom.*) FROM mvtgeom' 
         
         # Run tile query SQL and return error on failure conditions
