@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 03/16/2023
+ms.date: 03/17/2023
 ms.author: rolyon
 
 #Customer intent: As a dev, devops, or it admin, I want to learn about the conditions so that I write more complex conditions.
@@ -252,7 +252,14 @@ Depending on the selected actions, the attribute might be found in different pla
 > | Principal | Indicates that the attribute is an Azure AD custom security attribute on the principal, such as a user, enterprise application (service principal), or managed identity. Principal attributes are currently in preview. | `@Principal` |
 | Environment | Indicates that the attribute is an environment attribute, such as a private endpoint, private link, virtual network subnet, or date/time. Environment attributes are currently in preview. | `@Environment` |
 
-#### Resource and request attributes
+#### Resource attributes
+
+For a complete list of the blob storage or queue storage attributes you can use in conditions, see:
+
+- [Actions and attributes for Azure role assignment conditions for Azure Blob Storage](../storage/blobs/storage-auth-abac-attributes.md)
+- [Actions and attributes for Azure role assignment conditions for Azure queues](../storage/queues/queues-auth-abac-attributes.md)
+
+#### Request attributes
 
 For a complete list of the blob storage or queue storage attributes you can use in conditions, see:
 

@@ -57,7 +57,7 @@ This section lists the supported Azure Blob Storage actions and suboperations yo
 > | **Suboperation** | `Blob.List` |
 > | **Resource attributes** | [Account name](#account-name)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name) |
 > | **Request attributes** | [Blob prefix](#blob-prefix) |
-> | **Principal attributes support** | True |
+> | **Principal attributes support** | [True](../../role-based-access-control/conditions-format.md#principal-attributes) |
 > | **Environment attributes** | [Is private link](#is-private-link)</br>[Private endpoint](#private-endpoint)</br>[Subnet name](#subnet-name)</br>[UTC now](#utc-now)</br> |
 > | **Examples** | `!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blob.List'})`<br/>[Example: Read or list blobs in named containers with a path](storage-auth-abac-examples.md#example-read-or-list-blobs-in-named-containers-with-a-path) |
 
@@ -72,7 +72,7 @@ This section lists the supported Azure Blob Storage actions and suboperations yo
 > | **Suboperation** | NOT `Blob.List` |
 > | **Resource attributes** | [Account name](#account-name)<br/>[Is Current Version](#is-current-version)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path)<br/>[Encryption scope name](#encryption-scope-name) |
 > | **Request attributes** | [Version ID](#version-id)<br/>[Snapshot](#snapshot) |
-> | **Principal attributes support** | True |
+> | **Principal attributes support** | [True](../../role-based-access-control/conditions-format.md#principal-attributes) |
 > | **Environment attributes** | [Is private link](#is-private-link)</br>[Private endpoint](#private-endpoint)</br>[Subnet name](#subnet-name)</br>[UTC now](#utc-now)</br> |
 > | **Examples** | `!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'})`<br/>[Example: Read blobs in named containers with a path](storage-auth-abac-examples.md#example-read-blobs-in-named-containers-with-a-path) |
 
@@ -95,7 +95,7 @@ If you are authoring your own condition where you want to restrict read access b
 > | **Suboperation** |  |
 > | **Resource attributes** | [Account name](#account-name)<br/>[Is Current Version](#is-current-version)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path)<br/>[Blob index tags [Values in key]](#blob-index-tags-values-in-key)<br/>[Blob index tags [Keys]](#blob-index-tags-keys) |
 > | **Request attributes** | [Version ID](#version-id)<br/>[Snapshot](#snapshot) |
-> | **Principal attributes support** | True |
+> | **Principal attributes support** | [True](../../role-based-access-control/conditions-format.md#principal-attributes) |
 > | **Environment attributes** | [Is private link](#is-private-link)</br>[Private endpoint](#private-endpoint)</br>[Subnet name](#subnet-name)</br>[UTC now](#utc-now)</br> |
 > | **Learn more** | [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md) |
 
@@ -110,7 +110,7 @@ If you are authoring your own condition where you want to restrict read access b
 > | **Suboperation** |  |
 > | **Resource attributes** | [Account name](#account-name)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled) |
 > | **Request attributes** |  |
-> | **Principal attributes support** | True |
+> | **Principal attributes support** | [True](../../role-based-access-control/conditions-format.md#principal-attributes) |
 > | **Environment attributes** | [Is private link](#is-private-link)</br>[Private endpoint](#private-endpoint)</br>[Subnet name](#subnet-name)</br>[UTC now](#utc-now)</br> |
 
 ### Write to a blob
@@ -124,7 +124,7 @@ If you are authoring your own condition where you want to restrict read access b
 > | **Suboperation** |  |
 > | **Resource attributes** | [Account name](#account-name)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path)<br/>[Encryption scope name](#encryption-scope-name) |
 > | **Request attributes** |  |
-> | **Principal attributes support** | True |
+> | **Principal attributes support** | [True](../../role-based-access-control/conditions-format.md#principal-attributes) |
 > | **Environment attributes** | [Is private link](#is-private-link)</br>[Private endpoint](#private-endpoint)</br>[Subnet name](#subnet-name)</br>[UTC now](#utc-now)</br> |
 > | **Examples** | `!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'})`<br/>[Example: Read, write, or delete blobs in named containers](storage-auth-abac-examples.md#example-read-write-or-delete-blobs-in-named-containers) |
 
@@ -139,7 +139,7 @@ If you are authoring your own condition where you want to restrict read access b
 > | **Suboperation** | `Blob.Write.Tier` |
 > | **Resource attributes** | [Account name](#account-name)<br/>[Is Current Version](#is-current-version)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path)<br/>[Encryption scope name](#encryption-scope-name) |
 > | **Request attributes** | [Version ID](#version-id)<br/>[Snapshot](#snapshot) |
-> | **Principal attributes support** | True |
+> | **Principal attributes support** | [True](../../role-based-access-control/conditions-format.md#principal-attributes) |
 > | **Environment attributes** | [Is private link](#is-private-link)</br>[Private endpoint](#private-endpoint)</br>[Subnet name](#subnet-name)</br>[UTC now](#utc-now)</br> |
 > | **Examples** | `!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'} AND SubOperationMatches{'Blob.Write.Tier'})` |
 
@@ -154,7 +154,7 @@ If you are authoring your own condition where you want to restrict read access b
 > | **Suboperation** | `Blob.Write.WithTagHeaders` |
 > | **Resource attributes** | [Account name](#account-name)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path)<br/>[Encryption scope name](#encryption-scope-name) |
 > | **Request attributes** | [Blob index tags [Values in key]](#blob-index-tags-values-in-key)<br/>[Blob index tags [Keys]](#blob-index-tags-keys) |
-> | **Principal attributes support** | True |
+> | **Principal attributes support** | [True](../../role-based-access-control/conditions-format.md#principal-attributes) |
 > | **Environment attributes** | [Is private link](#is-private-link)</br>[Private endpoint](#private-endpoint)</br>[Subnet name](#subnet-name)</br>[UTC now](#utc-now)</br> |
 > | **Examples** | `!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'} AND SubOperationMatches{'Blob.Write.WithTagHeaders'})`<br/>`!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action'} AND SubOperationMatches{'Blob.Write.WithTagHeaders'})`<br/>[Example: New blobs must include a blob index tag](storage-auth-abac-examples.md#example-new-blobs-must-include-a-blob-index-tag) |
 > | **Learn more** | [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md) |
@@ -170,7 +170,7 @@ If you are authoring your own condition where you want to restrict read access b
 > | **Suboperation** |  |
 > | **Resource attributes** | [Account name](#account-name)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path)<br/>[Encryption scope name](#encryption-scope-name) |
 > | **Request attributes** |  |
-> | **Principal attributes support** | True |
+> | **Principal attributes support** | [True](../../role-based-access-control/conditions-format.md#principal-attributes) |
 > | **Environment attributes** | [Is private link](#is-private-link)</br>[Private endpoint](#private-endpoint)</br>[Subnet name](#subnet-name)</br>[UTC now](#utc-now)</br> |
 > | **Examples** | `!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action'})`<br/>[Example: Read, write, or delete blobs in named containers](storage-auth-abac-examples.md#example-read-write-or-delete-blobs-in-named-containers) |
 
@@ -185,7 +185,7 @@ If you are authoring your own condition where you want to restrict read access b
 > | **Suboperation** |  |
 > | **Resource attributes** | [Account name](#account-name)<br/>[Is Current Version](#is-current-version)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path)<br/>[Blob index tags [Values in key]](#blob-index-tags-values-in-key)<br/>[Blob index tags [Keys]](#blob-index-tags-keys) |
 > | **Request attributes** | [Blob index tags [Values in key]](#blob-index-tags-values-in-key)<br/>[Blob index tags [Keys]](#blob-index-tags-keys)<br/>[Version ID](#version-id)<br/>[Snapshot](#snapshot) |
-> | **Principal attributes support** | True |
+> | **Principal attributes support** | [True](../../role-based-access-control/conditions-format.md#principal-attributes) |
 > | **Environment attributes** | [Is private link](#is-private-link)</br>[Private endpoint](#private-endpoint)</br>[Subnet name](#subnet-name)</br>[UTC now](#utc-now)</br> |
 > | **Examples** | `!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write'})`<br/>[Example: Existing blobs must have blob index tag keys](storage-auth-abac-examples.md#example-existing-blobs-must-have-blob-index-tag-keys) |
 > | **Learn more** | [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md) |
@@ -201,7 +201,7 @@ If you are authoring your own condition where you want to restrict read access b
 > | **Suboperation** |  |
 > | **Resource attributes** | [Account name](#account-name)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path) |
 > | **Request attributes** |  |
-> | **Principal attributes support** | True |
+> | **Principal attributes support** | [True](../../role-based-access-control/conditions-format.md#principal-attributes) |
 > | **Environment attributes** | [Is private link](#is-private-link)</br>[Private endpoint](#private-endpoint)</br>[Subnet name](#subnet-name)</br>[UTC now](#utc-now)</br> |
 
 ### Delete a blob
@@ -215,7 +215,7 @@ If you are authoring your own condition where you want to restrict read access b
 > | **Suboperation** |  |
 > | **Resource attributes** | [Account name](#account-name)<br/>[Is Current Version](#is-current-version)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path) |
 > | **Request attributes** | [Version ID](#version-id)<br/>[Snapshot](#snapshot) |
-> | **Principal attributes support** | True |
+> | **Principal attributes support** | [True](../../role-based-access-control/conditions-format.md#principal-attributes) |
 > | **Environment attributes** | [Is private link](#is-private-link)</br>[Private endpoint](#private-endpoint)</br>[Subnet name](#subnet-name)</br>[UTC now](#utc-now)</br> |
 > | **Examples** | `!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete'})`<br/>[Example: Read, write, or delete blobs in named containers](storage-auth-abac-examples.md#example-read-write-or-delete-blobs-in-named-containers) |
 
@@ -230,7 +230,7 @@ If you are authoring your own condition where you want to restrict read access b
 > | **Suboperation** |  |
 > | **Resource attributes** | [Account name](#account-name)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path) |
 > | **Request attributes** | [Version ID](#version-id) |
-> | **Principal attributes support** | True |
+> | **Principal attributes support** | [True](../../role-based-access-control/conditions-format.md#principal-attributes) |
 > | **Environment attributes** | [Is private link](#is-private-link)</br>[Private endpoint](#private-endpoint)</br>[Subnet name](#subnet-name)</br>[UTC now](#utc-now)</br> |
 > | **Examples** | `!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/deleteBlobVersion/action'})`<br/>[Example: Delete old blob versions](storage-auth-abac-examples.md#example-delete-old-blob-versions) |
 
@@ -245,7 +245,7 @@ If you are authoring your own condition where you want to restrict read access b
 > | **Suboperation** |  |
 > | **Resource attributes** | [Account name](#account-name)<br/>[Is Current Version](#is-current-version)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path) |
 > | **Request attributes** | [Version ID](#version-id)<br/>[Snapshot](#snapshot) |
-> | **Principal attributes support** | True |
+> | **Principal attributes support** | [True](../../role-based-access-control/conditions-format.md#principal-attributes) |
 > | **Environment attributes** | [Is private link](#is-private-link)</br>[Private endpoint](#private-endpoint)</br>[Subnet name](#subnet-name)</br>[UTC now](#utc-now)</br> |
 
 ### Modify permissions of a blob
@@ -259,7 +259,7 @@ If you are authoring your own condition where you want to restrict read access b
 > | **Suboperation** |  |
 > | **Resource attributes** | [Account name](#account-name)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path) |
 > | **Request attributes** |  |
-> | **Principal attributes support** | True |
+> | **Principal attributes support** | [True](../../role-based-access-control/conditions-format.md#principal-attributes) |
 > | **Environment attributes** | [Is private link](#is-private-link)</br>[Private endpoint](#private-endpoint)</br>[Subnet name](#subnet-name)</br>[UTC now](#utc-now)</br> |
 
 ### Change ownership of a blob
@@ -273,7 +273,7 @@ If you are authoring your own condition where you want to restrict read access b
 > | **Suboperation** |  |
 > | **Resource attributes** | [Account name](#account-name)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path) |
 > | **Request attributes** |  |
-> | **Principal attributes support** | True |
+> | **Principal attributes support** | [True](../../role-based-access-control/conditions-format.md#principal-attributes) |
 > | **Environment attributes** | [Is private link](#is-private-link)</br>[Private endpoint](#private-endpoint)</br>[Subnet name](#subnet-name)</br>[UTC now](#utc-now)</br> |
 
 ### Rename a file or a directory
@@ -287,7 +287,7 @@ If you are authoring your own condition where you want to restrict read access b
 > | **Suboperation** |  |
 > | **Resource attributes** | [Account name](#account-name)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path) |
 > | **Request attributes** |  |
-> | **Principal attributes support** | True |
+> | **Principal attributes support** | [True](../../role-based-access-control/conditions-format.md#principal-attributes) |
 > | **Environment attributes** | [Is private link](#is-private-link)</br>[Private endpoint](#private-endpoint)</br>[Subnet name](#subnet-name)</br>[UTC now](#utc-now)</br> |
 
 ### All data operations for accounts with hierarchical namespace enabled
@@ -301,7 +301,7 @@ If you are authoring your own condition where you want to restrict read access b
 > | **Suboperation** |  |
 > | **Resource attributes** | [Account name](#account-name)<br/>[Is Current Version](#is-current-version)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path) |
 > | **Request attributes** |  |
-> | **Principal attributes support** | True |
+> | **Principal attributes support** | [True](../../role-based-access-control/conditions-format.md#principal-attributes) |
 > | **Environment attributes** | [Is private link](#is-private-link)</br>[Private endpoint](#private-endpoint)</br>[Subnet name](#subnet-name)</br>[UTC now](#utc-now)</br> |
 > | **Examples** | [Example: Read, write, or delete blobs in named containers](storage-auth-abac-examples.md#example-read-write-or-delete-blobs-in-named-containers)<br/>[Example: Read blobs in named containers with a path](storage-auth-abac-examples.md#example-read-blobs-in-named-containers-with-a-path)<br/>[Example: Read or list blobs in named containers with a path](storage-auth-abac-examples.md#example-read-or-list-blobs-in-named-containers-with-a-path)<br/>[Example: Write blobs in named containers with a path](storage-auth-abac-examples.md#example-write-blobs-in-named-containers-with-a-path)<br/>[Example: Read only current blob versions](storage-auth-abac-examples.md#example-read-only-current-blob-versions)<br/>[Example: Read current blob versions and any blob snapshots](storage-auth-abac-examples.md#example-read-current-blob-versions-and-any-blob-snapshots)<br/>[Example: Read only storage accounts with hierarchical namespace enabled](storage-auth-abac-examples.md#example-read-only-storage-accounts-with-hierarchical-namespace-enabled) |
 > | **Learn more** | [Azure Data Lake Storage Gen2 hierarchical namespace](data-lake-storage-namespace.md) |
@@ -321,7 +321,7 @@ This section lists the Azure Blob Storage attributes you can use in your conditi
 > | **Display name** | Account name |
 > | **Description** | Name of a storage account. |
 > | **Attribute** | `Microsoft.Storage/storageAccounts:name` |
-> | **Attribute source** | Resource |
+> | **Attribute source** | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
 > | **Attribute type** | [String](../../role-based-access-control/conditions-format.md#string-comparison-operators) |
 > | **Examples** | `@Resource[Microsoft.Storage/storageAccounts:name] StringEquals 'sampleaccount'`<br/>[Example: Read or write blobs in named storage account with specific encryption scope](storage-auth-abac-examples.md#example-read-or-write-blobs-in-named-storage-account-with-specific-encryption-scope) |
 
@@ -333,7 +333,7 @@ This section lists the Azure Blob Storage attributes you can use in your conditi
 > | **Display name** | Blob index tags [Keys] |
 > | **Description** | Index tags on a blob resource.<br/>Arbitrary user-defined key-value properties that you can store alongside a blob resource. Use when you want to check the key in blob index tags. |
 > | **Attribute** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags&$keys$&` |
-> | **Attribute source** | Resource<br/>Request |
+> | **Attribute source** | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes)<br/>[Request](../../role-based-access-control/conditions-format.md#request-attributes) |
 > | **Attribute type** | [StringList](../../role-based-access-control/conditions-format.md#cross-product-comparison-operators) |
 > | **Is key case sensitive** | True |
 > | **Hierarchical namespace support** | False |
@@ -348,7 +348,7 @@ This section lists the Azure Blob Storage attributes you can use in your conditi
 > | **Display name** | Blob index tags [Values in key] |
 > | **Description** | Index tags on a blob resource.<br/>Arbitrary user-defined key-value properties that you can store alongside a blob resource. Use when you want to check both the key (case-sensitive) and value in blob index tags. |
 > | **Attribute** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags` |
-> | **Attribute source** | Resource<br/>Request |
+> | **Attribute source** | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes)<br/>[Request](../../role-based-access-control/conditions-format.md#request-attributes) |
 > | **Attribute type** | [String](../../role-based-access-control/conditions-format.md#string-comparison-operators) |
 > | **Is key case sensitive** | True |
 > | **Hierarchical namespace support** | False |
@@ -363,7 +363,7 @@ This section lists the Azure Blob Storage attributes you can use in your conditi
 > | **Display name** | Blob path |
 > | **Description** | Path of a virtual directory, blob, folder or file resource.<br/>Use when you want to check the blob name or folders in a blob path. |
 > | **Attribute** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs:path` |
-> | **Attribute source** | Resource |
+> | **Attribute source** | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
 > | **Attribute type** | [String](../../role-based-access-control/conditions-format.md#string-comparison-operators) |
 > | **Examples** | `@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:path] StringLike 'readonly/*'`<br/>[Example: Read blobs in named containers with a path](storage-auth-abac-examples.md#example-read-blobs-in-named-containers-with-a-path) |
 
@@ -393,7 +393,7 @@ This section lists the Azure Blob Storage attributes you can use in your conditi
 > | **Display name** | Container name |
 > | **Description** | Name of a storage container or file system.<br/>Use when you want to check the container name. |
 > | **Attribute** | `Microsoft.Storage/storageAccounts/blobServices/containers:name` |
-> | **Attribute source** | Resource |
+> | **Attribute source** | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
 > | **Attribute type** | [String](../../role-based-access-control/conditions-format.md#string-comparison-operators) |
 > | **Examples** | `@Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals 'blobs-example-container'`<br/>[Example: Read, write, or delete blobs in named containers](storage-auth-abac-examples.md#example-read-write-or-delete-blobs-in-named-containers) |
 
@@ -405,7 +405,7 @@ This section lists the Azure Blob Storage attributes you can use in your conditi
 > | **Display name** | Encryption scope name |
 > | **Description** | Name of the encryption scope used to encrypt data.<br/>Available only for storage accounts where hierarchical namespace is not enabled. |
 > | **Attribute** | `Microsoft.Storage/storageAccounts/encryptionScopes:name` |
-> | **Attribute source** | Resource |
+> | **Attribute source** | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
 > | **Attribute type** | [String](../../role-based-access-control/conditions-format.md#string-comparison-operators) |
 > | **Exists support** | [True](../../role-based-access-control/conditions-format.md#exists) |
 > | **Examples** | `@Resource[Microsoft.Storage/storageAccounts/encryptionScopes:name] ForAnyOfAnyValues:StringEquals {'validScope1', 'validScope2'}`<br/>[Example: Read blobs with specific encryption scopes](storage-auth-abac-examples.md#example-read-blobs-with-specific-encryption-scopes) |
@@ -419,7 +419,7 @@ This section lists the Azure Blob Storage attributes you can use in your conditi
 > | **Display name** | Is Current Version |
 > | **Description** | Identifies if the resource is the current version of the blob, in contrast of a snapshot or a specific blob version. |
 > | **Attribute** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs:isCurrentVersion` |
-> | **Attribute source** | Resource |
+> | **Attribute source** | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
 > | **Attribute type** | [Boolean](../../role-based-access-control/conditions-format.md#boolean-comparison-operators) |
 > | **Examples** | `@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:isCurrentVersion] BoolEquals true`<br/>[Example: Read only current blob versions](storage-auth-abac-examples.md#example-read-only-current-blob-versions)<br/>[Example: Read current blob versions and a specific blob version](storage-auth-abac-examples.md#example-read-current-blob-versions-and-a-specific-blob-version) |
 
@@ -431,7 +431,7 @@ This section lists the Azure Blob Storage attributes you can use in your conditi
 > | **Display name** | Is hierarchical namespace enabled |
 > | **Description** | Whether hierarchical namespace is enabled on the storage account.<br/>Applicable only at resource group scope or above. |
 > | **Attribute** | `Microsoft.Storage/storageAccounts:isHnsEnabled` |
-> | **Attribute source** | Resource |
+> | **Attribute source** | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
 > | **Attribute type** | [Boolean](../../role-based-access-control/conditions-format.md#boolean-comparison-operators) |
 > | **Examples** | `@Resource[Microsoft.Storage/storageAccounts:isHnsEnabled] BoolEquals true`<br/>[Example: Read only storage accounts with hierarchical namespace enabled](storage-auth-abac-examples.md#example-read-only-storage-accounts-with-hierarchical-namespace-enabled) |
 > | **Learn more** | [Azure Data Lake Storage Gen2 hierarchical namespace](data-lake-storage-namespace.md) |
