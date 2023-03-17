@@ -124,9 +124,9 @@ myMSALObj.acquireTokenSilent(accessTokenRequest).then(function(accessTokenRespon
 }).catch(function(error) {
     if (error instanceof InteractionRequiredAuthError) {
     
-        // extract, if exists, claims from error message
-        if (error.ErrorMessage.claims) {
-            accessTokenRequest.claims = window.atob(error.ErrorMessage.claims), // decode the base64 string
+        // extract, if exists, claims from the error object
+        if (error.claims) {
+            accessTokenRequest.claims = error.claims,
         
         // call acquireTokenPopup in case of InteractionRequiredAuthError failure
         myMSALObj.acquireTokenPopup(accessTokenRequest).then(function(accessTokenResponse) {
