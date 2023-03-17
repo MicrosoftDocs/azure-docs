@@ -19,7 +19,7 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
-* [Edit network features for existing volumes](configure-network-features.md#edit-the-network-features-option-for-existing-volumes) (Preview)
+* [Edit network features for existing volumes](configure-network-features.md#edit-network-features-option-for-existing-volumes) (Preview)
 
 
 
