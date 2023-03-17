@@ -28,7 +28,7 @@ Azure Cosmos DB for MongoDB makes it easy to use Azure Cosmos DB as if it were a
 
 The API for MongoDB has added benefits of being built on Azure Cosmos DB when compared to service offerings such as MongoDB Atlas:
 
-- **Instantaneous scalability**: With the [Autoscale](../provision-throughput-autoscale.md) feature, your database can scale 10x with zero warmup period. Other MongoDB offerings such as MongoDB Atlas can take hours to scale up and up to days to scale down.
+- **Instantaneous scalability**: With the [Autoscale](../provision-throughput-autoscale.md) feature, your database can scale up to 10x with zero warmup period instantly. Other MongoDB offerings such as MongoDB Atlas can take hours to scale up and up to days to scale down.
 
 - **Automatic and transparent sharding**: The API for MongoDB manages all of the infrastructure for you. This management includes sharding and optimizing the number of shards. Other MongoDB offerings such as MongoDB Atlas, require you to specify and manage sharding to horizontally scale. This automation gives you more time to focus on developing applications for your users.
 
