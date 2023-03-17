@@ -364,7 +364,7 @@ http://localhost:7071/api/tileserver?zoom={z}&x={x}&y={y}
 [rio-rgbify]: https://pypi.org/project/rio-rgbify/
 [PostgreSQL]: https://www.postgresql.org/download/
 [PostGIS]: https://postgis.net/install/
-[Azure Maps Web SDK]: about-azure-maps#web-sdk
+[Azure Maps Web SDK]: about-azure-maps.md#web-sdk
 [Create Contour line vector tiles and RGB-encoded DEM tiles]: #create-contour-line-vector-tiles-and-rgb-encoded-dem-tiles
 [Create Contour line vector tile service using Azure Function and PostgreSQL]: #create-contour-line-vector-tile-service-using-azure-function-and-postgresql
-[Azure Storage Explorer]: https://azure.microsoft.com/en-us/products/storage/storage-explorer/
+[Azure Storage Explorer]: https://azure.microsoft.com/products/storage/storage-explorer/
