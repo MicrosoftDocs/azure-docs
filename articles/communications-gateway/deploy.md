@@ -53,7 +53,7 @@ Once your resource has been provisioned, a message appears saying **Your deploym
 
 :::image type="content" source="media/deploy/go-to-resource-group.png" alt-text="Screenshot of the Create an Azure Communications Gateway portal, showing a completed deployment screen.":::
 
-## 3. Complete the JSON onboarding file
+## 3. Provide additional information to your onboarding team
 
 > [!NOTE]
 >This step is required to set you up as an Operator in the Teams Phone Mobile (TPM) and Operator Connect (OC) environments. Skip this step if you have already onboarded to TPM or OC.

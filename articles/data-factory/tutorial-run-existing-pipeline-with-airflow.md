@@ -30,64 +30,65 @@ Data Factory pipelines provide 100+ data source connectors that provide scalable
 
 1. Create a new Python file **adf.py** with the below contents:
    ```python
-   from airflow import DAG
-   from airflow.operators.python_operator import PythonOperator
-   from azure.common.credentials import ServicePrincipalCredentials
-   from azure.mgmt.datafactory import DataFactoryManagementClient
    from datetime import datetime, timedelta
- 
-   # Default arguments for the DAG
-   default_args = {
-       'owner': 'me',
-       'start_date': datetime(2022, 1, 1),
-       'depends_on_past': False,
-       'retries': 1,
-       'retry_delay': timedelta(minutes=5),
-   }
 
-   # Create the DAG
-   dag = DAG(
-       'run_azure_data_factory_pipeline',
-       default_args=default_args,
-       schedule_interval=timedelta(hours=1),
-   )
+   from airflow.models import DAG, BaseOperator
 
-   # Define a function to run the pipeline
-  
-   def run_pipeline(**kwargs):
-       # Create the client
-       credentials = ServicePrincipalCredentials(
-           client_id='your_client_id',
-           secret='your_client_secret',
-           tenant='your_tenant_id',
+   try:
+       from airflow.operators.empty import EmptyOperator
+   except ModuleNotFoundError:
+       from airflow.operators.dummy import DummyOperator as EmptyOperator  # type: ignore
+   from airflow.providers.microsoft.azure.operators.data_factory import AzureDataFactoryRunPipelineOperator
+   from airflow.providers.microsoft.azure.sensors.data_factory import AzureDataFactoryPipelineRunStatusSensor
+   from airflow.utils.edgemodifier import Label
+
+   with DAG(
+       dag_id="example_adf_run_pipeline",
+       start_date=datetime(2022, 5, 14),
+       schedule_interval="@daily",
+       catchup=False,
+       default_args={
+           "retries": 1,
+           "retry_delay": timedelta(minutes=3),
+           "azure_data_factory_conn_id": "<connection_id>", #This is a connection created on Airflow UI
+           "factory_name": "<FactoryName>",  # This can also be specified in the ADF connection.
+           "resource_group_name": "<ResourceGroupName>",  # This can also be specified in the ADF connection.
+       },
+       default_view="graph",
+   ) as dag:
+       begin = EmptyOperator(task_id="begin")
+       end = EmptyOperator(task_id="end")
+
+       # [START howto_operator_adf_run_pipeline]
+       run_pipeline1: BaseOperator = AzureDataFactoryRunPipelineOperator(
+           task_id="run_pipeline1",
+           pipeline_name="<PipelineName>", 
+           parameters={"myParam": "value"},
        )
-       client = DataFactoryManagementClient(credentials, 'your_subscription_id')
+       # [END howto_operator_adf_run_pipeline]
 
-    # Run the pipeline
-    pipeline_name = 'your_pipeline_name'
-    run_response = client.pipelines.create_run(
-       'your_resource_group_name',
-       'your_data_factory_name',
-       pipeline_name,
-    )
-    run_id = run_response.run_id
+       # [START howto_operator_adf_run_pipeline_async]
+       run_pipeline2: BaseOperator = AzureDataFactoryRunPipelineOperator(
+           task_id="run_pipeline2",
+           pipeline_name="<PipelineName>",
+           wait_for_termination=False,
+       )
 
-    # Print the run ID
-    print(f'Pipeline run ID: {run_id}')
+       pipeline_run_sensor: BaseOperator = AzureDataFactoryPipelineRunStatusSensor(
+           task_id="pipeline_run_sensor",
+           run_id=run_pipeline2.output["run_id"],
+       )
+       # [END howto_operator_adf_run_pipeline_async]
 
-    # Create a PythonOperator to run the pipeline
-    run_pipeline_operator = PythonOperator(
-        task_id='run_pipeline',
-        python_callable=run_pipeline,
-        provide_context=True,
-        dag=dag,
-    )
+       begin >> Label("No async wait") >> run_pipeline1
+       begin >> Label("Do async wait with sensor") >> run_pipeline2
+       [run_pipeline1, pipeline_run_sensor] >> end
 
-    # Set the dependencies
-    run_pipeline_operator
+       # Task dependency created via `XComArgs`:
+       #   run_pipeline2 >> pipeline_run_sensor
     ```
 
-    You will have to fill in your **client_id**, **client_secret**, **tenant_id**, **subscription_id**, **resource_group_name**, **data_factory_name**, and **pipeline_name**.
+    You will have to create the connection using the Airflow UI (Admin -> Connections -> '+' -> Choose 'Connection type' as 'Azure Data Factory',  then fill in your **client_id**, **client_secret**, **tenant_id**, **subscription_id**, **resource_group_name**, **data_factory_name**, and **pipeline_name**.
 
 1. Upload the **adf.py** file to your blob storage within a folder called **DAGS**.
 1. [Import the **DAGS** folder into your Managed Airflow environment](./how-does-managed-airflow-work.md#import-dags).  If you do not have one, [create a new one](./how-does-managed-airflow-work.md#create-a-managed-airflow-environment)
