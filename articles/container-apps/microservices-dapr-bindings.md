@@ -79,7 +79,7 @@ Before deploying the application to Azure Container Apps, start by running the P
 1. Run the JavaScript service application with Dapr.
 
    ```bash
-   dapr run --app-id batch-sdk --app-port 5002 --dapr-http-port 3500 --components-path ../components -- node index.js
+   dapr run --app-id batch-sdk --app-port 5002 --dapr-http-port 3500 --resources-path ../components -- node index.js
    ```
 
    The `dapr run` command runs the Dapr binding application locally. Once the application is running successfully, the terminal window shows the output binding data.
@@ -258,7 +258,7 @@ Before deploying the application to Azure Container Apps, start by running the P
 1. Run the Python service application with Dapr.
 
    ```bash
-   dapr run --app-id batch-sdk --app-port 5001 --dapr-http-port 3500 --components-path ../components -- python3 app.py
+   dapr run --app-id batch-sdk --app-port 5001 --dapr-http-port 3500 --resources-path ../components -- python3 app.py
    ```
 
    The `dapr run` command runs the Dapr binding application locally. Once the application is running successfully, the terminal window shows the output binding data.
@@ -435,7 +435,7 @@ Before deploying the application to Azure Container Apps, start by running the P
 1. Run the .NET service application with Dapr.
 
    ```bash
-   dapr run --app-id batch-sdk --app-port 7002 --components-path ../components -- dotnet run
+   dapr run --app-id batch-sdk --app-port 7002 --resources-path ../components -- dotnet run
    ```
 
    The `dapr run` command runs the Dapr binding application locally. Once the application is running successfully, the terminal window shows the output binding data.
