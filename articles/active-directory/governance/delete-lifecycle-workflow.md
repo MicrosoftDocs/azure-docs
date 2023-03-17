@@ -1,5 +1,5 @@
 ---
-title: 'Delete a Lifecycle workflow - Azure Active Directory'
+title: 'Delete a Lifecycle workflow'
 description: Describes how to delete a Lifecycle Workflow using.
 services: active-directory
 author: owinfreyATL
