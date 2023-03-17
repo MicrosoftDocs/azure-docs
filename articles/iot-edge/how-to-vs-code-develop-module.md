@@ -657,14 +657,14 @@ docker push myacr.azurecr.io/filtermodule:0.0.1-amd64
 
 #### Deploy the module to the IoT Edge device.
 
-Use the [IoT Edge Azure CLI set-modules](/cli/azure/iot/edge#az-iot-edge-set-modules) command to deploy the modules to the Azure IoT Hub. For example, to deploy the modules defined in the *deployment.debug.amd64.json* file to IoT Hub *my-iot-hub* for the IoT Edge device *my-device*, use the following command:
+Use the [IoT Edge Azure CLI set-modules](/cli/azure/iot/edge#az-iot-edge-set-modules) command to deploy the modules to the Azure IoT Hub. For example, to deploy the modules defined in the *deployment.debug.template.json* file to IoT Hub *my-iot-hub* for the IoT Edge device *my-device*, use the following command:
 
 ```azurecli
 az iot edge set-modules --hub-name my-iot-hub --device-id my-device --content ./deployment.debug.template.json --login "HostName=my-iot-hub.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=<SharedAccessKey>"
 ```
 
 > [!TIP]
-> You can find your IoT Hub connection string in the Azure portal in your IoT Hub > **Security settings** > **Shared access policies** > **iothubowner**.
+> You can find your IoT Hub shared access key in the Azure portal in your IoT Hub > **Security settings** > **Shared access policies** > **iothubowner**.
 >
 
 ::: zone-end

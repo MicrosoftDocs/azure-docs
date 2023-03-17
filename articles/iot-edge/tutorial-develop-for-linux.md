@@ -582,6 +582,26 @@ If you encounter errors when building and pushing your module image, it often ha
 
 You verified that there are built container images stored in your container registry, so it's time to deploy them to a device. Make sure that your IoT Edge device is up and running.
 
+::: zone pivot="iotedge-dev-cli"
+
+Use the [IoT Edge Azure CLI set-modules](/cli/azure/iot/edge#az-iot-edge-set-modules) command to deploy the modules to the Azure IoT Hub. For example, to deploy the modules defined in the *deployment.template.json* file to IoT Hub *my-iot-hub* for the IoT Edge device *my-device*, use the following command:
+
+```azurecli
+az iot edge set-modules --hub-name my-iot-hub --device-id my-device --content ./deployment.debug.template.json --login "HostName=my-iot-hub.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=<SharedAccessKey>"
+```
+
+> [!TIP]
+> You can find your IoT Hub shared access key in the Azure portal in your IoT Hub > **Security settings** > **Shared access policies** > **iothubowner**.
+>
+
+::: zone-end
+<!--iotedgedev end-->
+
+
+::: zone-end
+
+::: zone pivot="iotedge-dev-ext"
+
 1. In the Visual Studio Code explorer, under the **Azure IoT Hub** section, expand **Devices** to see your list of IoT devices.
 
 2. Right-click the IoT Edge device that you want to deploy to, then select **Create Deployment for Single Device**.
@@ -607,6 +627,8 @@ The SampleModule code receives messages through its input queue and passes them 
 2. Watch the output window in Visual Studio Code to see messages arriving at your IoT hub.
 
    :::image type="content" source="./media/tutorial-develop-for-linux/view-d2c-messages.png" alt-text="Screenshot showing where to view incoming device to cloud messages.":::
+
+::: zone-end
 
 ## View changes on device
 
