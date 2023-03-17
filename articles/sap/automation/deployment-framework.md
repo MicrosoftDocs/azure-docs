@@ -90,7 +90,7 @@ The SAP Software download playbook will process the manifest file and the depend
 
 ### Deployer Virtual Machines
 
-This virtual machines are used to run the orchestration scripts that will deploy the Azure resources using Terraform. They are also Ansible Controllers and are used to execute the Ansible playbooks on all the managed nodes, i.e the virtual machines of an SAP deployment.
+These virtual machines are used to run the orchestration scripts that will deploy the Azure resources using Terraform. They are also Ansible Controllers and are used to execute the Ansible playbooks on all the managed nodes, i.e the virtual machines of an SAP deployment.
 
 ## About the SAP Workload
 
