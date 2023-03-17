@@ -27,7 +27,7 @@
     items:
     - name: Azure portal
       href: create-cluster.md
-  - name: Build an e2e streaming application
+  - name: Build an End-to-End streaming application
     href: quick-start-build-application.md
 - name: Tutorials
   items:

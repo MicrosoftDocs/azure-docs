@@ -63,7 +63,16 @@ In this tutorial, you learn to improve query performance based on edit suggestio
     
     :::image type="content" source="./media/job-diagram-simulator/job-diagram-simulator-adjust-su.png" alt-text="Screenshot of the VSCode using SU adjuster." lightbox= "./media/job-diagram-simulator/job-diagram-simulator-adjust-su.png" :::
 
+## Processor-level diagram
 
+Once you have adjusted the streaming units to simulate the topology of your job, you can expand any of the streaming nodes to observe how your data is being processed at the processor level.
+
+:::image type="content" source="./media/job-diagram-simulator/processor-level-simulator.gif" alt-text="A screenshot in gif format showing the processor level diagram of the simulator." lightbox= "./media/job-diagram-simulator/processor-level-simulator.gif" :::
+
+The processor-level diagram allows you to: 
+* observe how the input partitions are allocated and being processed at each streaming node.
+* find out what the **Time shift** is for each computing processor.
+* provide information on whether the Input and Output processors are aligned in parallel.
 
 ## Enhancement suggestions
 

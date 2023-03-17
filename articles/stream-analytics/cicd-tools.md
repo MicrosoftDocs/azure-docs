@@ -94,7 +94,7 @@ azure-streamanalytics-cicd localrun --project ./asaproj.json"
 > [!NOTE] 
 > JavaScript UDF only works on Windows.
 
-## Add automated test
+## Automated test
 
 You can use the CI/CD npm package to configure and run automated tests for your Stream Analytics project.
 
@@ -228,11 +228,29 @@ If test cases are executed, you can find a **testResultSummary.json** file gener
 
 ## Deploy to Azure
 
-To deploy your Stream Analytics project using ARM templates, check out these docs:
+To deploy your Stream Analytics project using ARM templates, follow these steps:
+1. Connect to your Azure account:
 
-* [Deploy with a Resource Manager template file and Azure PowerShell](https://aka.ms/armdeploytemplate).
-* [Use an object as a parameter in a Resource Manager template](https://learn.microsoft.com/azure/azure-resource-manager/templates/parameters#objects-as-parameters).
+    ```powershell
+    # Connect to Azure
+    Connect-AzAccount
+    # Set the Azure subscription
+    Set-AzContext [SubscriptionID/SubscriptionName]
+    ```
 
+2. Deploy your Stream Analytics project:
+
+    ```powershell
+    $templateFile = ".\Deploy\ClickStream-Filter.JobTemplate.json"
+    $parameterFile = ".\Deploy\ClickStream-Filter.JobTemplate.parameters.json"
+    New-AzResourceGroupDeployment `
+      -Name devenvironment `
+      -ResourceGroupName myResourceGroupDev `
+      -TemplateFile $templateFile `
+      -TemplateParameterFile $parameterFile
+    ```
+
+For more details about deploying resources with ARM templates, see [Deploy with a Resource Manager template file and Azure PowerShell](https://aka.ms/armdeploytemplate).
 
 ## Next steps
 
