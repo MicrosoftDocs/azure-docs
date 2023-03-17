@@ -26,13 +26,15 @@ ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-ap
 > * [Go](quickstart-go.md)
 >
 
-In this quickstart, you create and manage an Azure Cosmos DB for NoSQL account from the Azure portal, and by using a Java app cloned from GitHub. First, you create an Azure Cosmos DB for NoSQL account using the Azure portal, or without a credit card or an Azure subscription, you can set up a free [Try Azure Cosmos DB account](https://aka.ms/trycosmosdb), then create a Java app using the SQL Java SDK, and then add resources to your Azure Cosmos DB account by using the Java application. Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities.
+In this quickstart, you create and manage an Azure Cosmos DB for NoSQL account, and use a Java app cloned from GitHub. You create the Java app using the SQL Java SDK, and add resources to your Azure Cosmos DB account by using the Java application. 
+
+First, create an Azure Cosmos DB for NoSQL account using the Azure portal. Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities. You can [try Azure Cosmos DB account](https://aka.ms/trycosmosdb) for free without a credit card or an Azure subscription. 
 
 > [!IMPORTANT]  
 > This quickstart is for Azure Cosmos DB Java SDK v4 only. For more information, see the [release notes](sdk-java-v4.md), [Maven repository](https://mvnrepository.com/artifact/com.azure/azure-cosmos), [performance tips](performance-tips-java-sdk-v4.md), and [troubleshooting guide](troubleshoot-java-sdk-v4.md). If you currently use an older version than v4, see the [Migrate to Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) guide for help upgrading to v4.
 
 > [!TIP]
-> If you're working with Azure Cosmos DB resources in a Spring application, consider using [Spring Cloud Azure](/azure/developer/java/spring-framework/) as an alternative. Spring Cloud Azure is an open-source project that provides seamless Spring integration with Azure services. To learn more about Spring Cloud Azure, and to see an example using Cosmos DB, see [Access data with Azure Cosmos DB NoSQL API](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db).
+> If you work with Azure Cosmos DB resources in a Spring application, consider using [Spring Cloud Azure](/azure/developer/java/spring-framework/) as an alternative. Spring Cloud Azure is an open-source project that provides seamless Spring integration with Azure services. To learn more about Spring Cloud Azure, and to see an example using Cosmos DB, see [Access data with Azure Cosmos DB NoSQL API](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db).
 
 ## Prerequisites
 
