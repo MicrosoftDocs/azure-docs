@@ -29,7 +29,6 @@ For more information about pricing, see [Azure Spring Apps pricing](https://azur
 
 To provide the best customer experience to manage the Tanzu component license purchasing and metering, VMware creates a [Azure Marketplace Offer](https://aka.ms/ascmpoffer) that represents a Tanzu component license and provides the following capabilities:
 
-- Automatically acquires a Tanzu component license that can be metered against.
 
 - Shares your data and app vCPU usage data to VMware, according to be agreed upon marketplace terms prior to creating the service.
 
