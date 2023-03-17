@@ -6,8 +6,9 @@ description: Learn how to enable user sign-in to the API Management developer po
 author: dlepow
 ms.service: api-management
 ms.topic: article
-ms.date: 07/12/2022
+ms.date: 03/17/2023
 ms.author: danlep
+ms.custom: engagement-fy23
 ---
 
 # Authorize developer accounts by using Azure Active Directory in Azure API Management
@@ -154,6 +155,7 @@ Now that you've enabled access for users in an Azure AD tenant, you can:
 Follow these steps to grant:
 * `User.Read` **delegated** permission for Microsoft Graph API. 
 * `Directory.ReadAll` **application** permission for Microsoft Graph API. 
+
 1. Update the first 3 lines of the following Azure CLI script to match your environment and run it.
 
    ```azurecli
