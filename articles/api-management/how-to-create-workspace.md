@@ -57,7 +57,7 @@ After creating a workspace, assign permissions to users to manage the workspace'
 
 1. Assign one of the following service-scoped roles to each member of the workspace:
 
-    * **API Management Workspace API Developer**
+    * **API Management Service Workspace API Developer**
     * **API Management Service Workspace API Product Manager**
 
 ### Assign a workspace-scoped role
