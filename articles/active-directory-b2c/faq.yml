@@ -66,10 +66,9 @@ sections:
           * LinkedIn: r_emailaddress, r_basicprofile
 
       - question: |
-          I'm using ADFS as an identity provider in B2C. When I tried to initiate a log out request from B2C, ADFS throws the error "MSIS7084: SAML logout request and logout response messages must be signed when using SAML HTTP Redirect or HTTP POST binding." Why is B2C not signing the SAML logout request?
+          I'm using ADFS as an identity provider in Azure AD B2C. When I try to initiate a sign out request from Azure AD B2C, ADFS shows the error *MSIS7084: SAML logout request and logout response messages must be signed when using SAML HTTP Redirect or HTTP POST binding*. How do I resolve this issue?
         answer: |
-          On the ADFS server, run the following: `Set-AdfsProperties -SignedSamlRequestsRequired $true`
-          This will force B2C to sign all requests to ADFS.
+          On the ADFS server, run: `Set-AdfsProperties -SignedSamlRequestsRequired $true`. This will force Azure AD B2C to sign all requests to ADFS.
         
       - question: |
           Does my application have to be run on Azure for it work with Azure AD B2C?
