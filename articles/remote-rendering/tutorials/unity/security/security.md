@@ -44,7 +44,7 @@ var task = ARRSessionService.CurrentActiveSession.Connection.LoadModelFromSasAsy
 The above lines use the `FromSas` version of the params and session action. They must be converted to the non-SAS versions:
 
 ```cs
-var loadModelParams = new LoadModelOptions(storageAccountPath, blobName, modelPath, modelEntity);
+var loadModelParams = LoadModelOptions.CreateForBlobStorage(storageAccountPath, blobName, modelPath, modelEntity);
 var task = ARRSessionService.CurrentActiveSession.Connection.LoadModelAsync(loadModelParams);
 ```
 
@@ -83,7 +83,7 @@ Let's modify **RemoteRenderingCoordinator** to load a custom model, from a linke
         }
 
         //Load a model that will be parented to the entity
-        var loadModelParams = new LoadModelOptions($"{storageAccountName}.blob.core.windows.net", blobName, modelPath, modelEntity);
+        var loadModelParams = LoadModelOptions.CreateForBlobStorage($"{storageAccountName}.blob.core.windows.net", blobName, modelPath, modelEntity);
         var loadModelAsync = ARRSessionService.CurrentActiveSession.Connection.LoadModelAsync(loadModelParams, progress);
         var result = await loadModelAsync;
         return modelEntity;
