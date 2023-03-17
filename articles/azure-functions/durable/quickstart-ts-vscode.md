@@ -145,7 +145,7 @@ Next, you'll add the referenced `Hello` activity function.
     | Select a template for your function | Durable Functions activity | Create an activity function |
     | Provide a function name | Hello | Name of your activity function |
 
-You've added the `Hello` activity function that is invoked by the orchestrator. Open *Hello/index.ts* to see that it's taking a name as input and returning a greeting. An activity function is where you perform actions such as making a database call or performing a computation.
+You've added the `Hello` activity function that is invoked by the orchestrator. Open *Hello/index.ts* to see that it's taking a name as input and returning a greeting. An activity function is where you perform "the real work" in your workflow: work such as making a database call or performing some non-deterministic computation.
 
 Finally, you'll add an HTTP triggered function that starts the orchestration.
 
@@ -168,7 +168,7 @@ You now have a Durable Functions app that can be run locally and deployed to Azu
 ::: zone pivot="node-model-v4"
 
 One of the benefits of the V4 Programming Model is the flexibility of where you write your functions.
-In the V4 Model, you can use a template to create all three functions in one file in your project.
+In the V4 Model, you can use a single template to create all three functions in one file in your project.
 
 1. In the command palette, search for and select `Azure Functions: Create Function...`.
 
@@ -184,7 +184,7 @@ Open *src/functions/hello.ts* to view the functions you created.
 
 You've created an orchestrator called `helloOrchestrator` to coordinate activity functions. Each call to `context.df.callActivity` invokes an activity function called `hello`.
 
-You've also added the `hello` activity function that is invoked by the orchestrator. In the same file, you can see that it's taking a name as input and returning a greeting. An activity function is where you perform actions such as making a database call or performing a computation.
+You've also added the `hello` activity function that is invoked by the orchestrator. In the same file, you can see that it's taking a name as input and returning a greeting. An activity function is where you perform "the real work" in your workflow: work such as making a database call or performing some non-deterministic computation.
 
 Lastly, you've also added an HTTP triggered function that starts an orchestration. In the same file, you can see that it uses `client.startNew` to start a new orchestration. Then it uses `client.createCheckStatusResponse` to return an HTTP response containing URLs that can be used to monitor and manage the new orchestration.
 
