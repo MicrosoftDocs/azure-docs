@@ -26,7 +26,7 @@ sections:
       - question: |
           Does Azure OpenAI support GPT-4?
         answer: |
-          Azure OpenAI supports the latest GPT-4 models. These models are currently in limited preview. For access, existing Azure OpenAI customers can [apply by filling out this form](TODO:Add link form from PG).
+          Azure OpenAI supports the latest GPT-4 models. These models are currently in limited preview. For access, existing Azure OpenAI customers can [apply by filling out this form](https://aka.ms/oai/get-gpt4).
       - question: |
           How do the capabilities of Azure OpenAI compare to OpenAI?
         answer: | 

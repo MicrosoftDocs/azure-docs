@@ -17,7 +17,7 @@ keywords:
 
 ## March 2023
 
-- **GPT-4 series models are now available in limited preview on Azure OpenAI**. To request access, existing Azure OpenAI customers can [apply by filling out this form](TODO:Add link form from PG).
+- **GPT-4 series models are now available in limited preview on Azure OpenAI**. To request access, existing Azure OpenAI customers can [apply by filling out this form](https://aka.ms/oai/get-gpt4).
 
 - **New ChatGPT API released in public preview on 3/21**. To learn more checkout the [updated quickstarts](./quickstart.md) and [how-to article](./how-to/chatgpt.md).
 
