@@ -210,10 +210,10 @@ Upon successful completion of the `azd up` command:
 
 ### Prepare the project
 
-1. Clone the [sample Dapr application](https://github.com/greenie-msft/bindings-dapr-python-cron-postgres) to your local machine.
+1. Clone the [sample Dapr application](https://github.com/Azure-Samples/bindings-dapr-python-cron-postgres) to your local machine.
 
    ```bash
-   git clone https://github.com/greenie-msft/bindings-dapr-python-cron-postgres.git
+   git clone https://github.com/Azure-Samples/bindings-dapr-python-cron-postgres.git
    ```
 
 1. Navigate into the sample's root directory.
@@ -288,7 +288,7 @@ Now that you've run the application locally using PostgreSQL and Docker Compose,
 
 ### Prepare the project
 
-Navigate into the [sample's](https://github.com/greenie-msft/bindings-dapr-python-cron-postgres) root directory.
+Navigate into the [sample's](https://github.com/Azure-Samples/bindings-dapr-python-cron-postgres) root directory.
 
 ```bash
 cd bindings-dapr-python-cron-postgres
