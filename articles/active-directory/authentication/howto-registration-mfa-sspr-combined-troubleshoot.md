@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot combined registration - Azure Active Directory
+title: Troubleshoot combined registration
 description: Troubleshoot Azure AD Multi-Factor Authentication and self-service password reset combined registration
 
 services: active-directory
