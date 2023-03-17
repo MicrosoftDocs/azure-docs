@@ -177,7 +177,7 @@ For Microsoft Graph the parameters for the **Send onboarding reminder email** ta
                 "name": "locale",
                 "value": "en-us"
                 }
-]
+        ]
 }
 
 ```
