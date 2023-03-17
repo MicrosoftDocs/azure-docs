@@ -4242,6 +4242,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory/active-directory-users-profile-azure-portal.md",
+      "redirect_url": "/azure/active-directory/fundamentals/how-to-manage-user-profile-info",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/active-directory-accessmanagement-managing-group-owners.md",
       "redirect_url": "/azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners",
       "redirect_document_id": false

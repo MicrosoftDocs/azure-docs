@@ -1,5 +1,5 @@
 ---
-title: Add or update user profile information
+title: How to manage user profile information
 description: Instructions about how to manage a user's profile and settings in Azure Active Directory.
 services: active-directory
 author: shlipsey3
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 11/21/2022
+ms.date: 03/17/2023
 ms.author: sarahlipsey
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
@@ -80,7 +80,7 @@ Go to **Azure AD** > **User settings**.
 
 ### Learn about the 'Stay signed in?' prompt
 
-The **Stay signed in?** prompt appears after a user successfully signs in. This process is known as **Keep me signed in** (KMSI). If a user answers **Yes** to this prompt, the KMSI service gives them a persistent [refresh token](../develop/developer-glossary.md#refresh-token). For federated tenants, the prompt will show after the user successfully authenticates with the federated identity service.
+The **Stay signed in?** prompt appears after a user successfully signs in. This process is known as **Keep me signed in** (KMSI). If a user answers **Yes** to this prompt, the KMSI service gives them a persistent [refresh token](../develop/developer-glossary.md#refresh-token). KMSI only works when the application doesn't store security tokens in local storage. The refresh tokens, or ESTS cookies, must be stored in session. For federated tenants, the prompt will show after the user successfully authenticates with the federated identity service.
 
 The following diagram shows the user sign-in flow for a managed tenant and federated tenant using the KMSI in prompt. This flow contains smart logic so that the **Stay signed in?** option won't be displayed if the machine learning system detects a high-risk sign-in or a sign-in from a shared device.
 
