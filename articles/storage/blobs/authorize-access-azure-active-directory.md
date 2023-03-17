@@ -6,7 +6,7 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/09/2023
+ms.date: 03/17/2023
 ms.author: jammart
 ms.subservice: common
 ---
@@ -62,10 +62,10 @@ When you use MSAL to acquire an OAuth token for access to Azure Storage, you nee
 
 The following table describes the values that you can provide for the resource ID. The resource ID for Azure Storage is the same for all public and sovereign clouds:
 
-|Resource ID  |Description  |
-|---------|---------|
-|`https://<account>.blob.core.windows.net` <br /><br /> `https://<account>.queue.core.windows.net`    | The service endpoint for a given storage account. Use this value to acquire a token for authorizing requests to that specific Azure Storage account and service only. Replace the value in brackets with the name of your storage account.      |
-|`https://storage.azure.com/`     | Use to acquire a token for authorizing requests to any Azure Storage account.        |
+| Resource ID | Description |
+|---|---|
+| `https://<account>.blob.core.windows.net` <br /><br /> `https://<account>.queue.core.windows.net` | The service endpoint for a given storage account. Use this value to acquire a token for authorizing requests to that specific Azure Storage account and service only. Replace the value in brackets with the name of your storage account. |
+| `https://storage.azure.com/` | Use to acquire a token for authorizing requests to any Azure Storage account. |
 
 ## Assign Azure roles for access rights
 
