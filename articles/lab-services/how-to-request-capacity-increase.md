@@ -50,7 +50,7 @@ In your support request, you need to provide the number of *additional* VM cores
 
 To determine the total number of cores for your request: `total VM cores = (# cores for the selected VM size) * (# VMs)`
 
-For example, you need more capacity for 20 *Medium* VMs. The total number of VM cores for 20 Medium VMs is 80 (4 cores per VM * 20).
+For example, you need more capacity for 20 *Medium* VMs. The number of additional VM cores for 20 Medium VMs is then 80 (4 cores per VM * 20).
 
 ## [Lab plan - August 2022 version](#tab/Labplans/)
 
@@ -92,7 +92,7 @@ For example, you need more capacity for 20 *Medium* VMs. You already have the fo
 
 The current #cores for the Small/Medium/Large size group is 20 (Small) + 80 (Medium) = 100 cores. You don't count the *Small GPU* cores because they're in a different size group.
 
-The total number of VMs for 20 additional Medium VMs is then 100 + (4 cores per Medium VM) * 20 = 180 cores.
+The total number of VM cores for 20 additional Medium VMs is then 100 + (4 cores per Medium VM) * 20 = 180 cores.
 
 ---
 
@@ -152,7 +152,7 @@ Depending on whether you use lab accounts or lab plans, you need to provide diff
 | **Region** | Select the region in the [Azure geography](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=lab-services) where you want the extra cores. |
 | **Does your virtual network reside in the same region as above?** | Select *Yes*, *No*, or *N/A*, depending on whether you use [advanced networking](./how-to-connect-peer-virtual-network.md) and have virtual networks in the region you selected. |
 | **Virtual machine size** | Select the virtual machine size that you require for the new cores. |
-| **Requested total core limit** | Enter the total number of cores you require. This number includes your existing cores + the number of additional cores you're requesting. See [Determine the total number of cores in your request](#prepare-to-submit-a-request) to learn how to calculate the total number of cores. |
+| **Requested total core limit** | Enter the total number of cores you require. This number includes your existing cores + the number of extra cores you're requesting. See [Determine the total number of cores in your request](#prepare-to-submit-a-request) to learn how to calculate the total number of cores. |
 
 ---
 
