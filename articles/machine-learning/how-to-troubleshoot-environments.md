@@ -1213,7 +1213,7 @@ This issue can happen when your Dockerfile is formatted incorrectly.
 **Troubleshooting steps**
 * Ensure Dockerfile is formatted correctly and is encoded in UTF-8
 
-**ResourcesS**
+**Resources**
 * [Dockerfile format](https://docs.docker.com/engine/reference/builder/#format)
 
 ## *Docker pull issues*
