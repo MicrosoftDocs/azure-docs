@@ -60,25 +60,27 @@ Update the state of the two offices, `UNIT26` and `UNIT27`:
 
 2. In the **Create New** window, select **HTTP Request**.
 
-3. Enter a **Request name** for the request, such as *POST Data Upload*.
+3. Enter a **Request name** for the request, such as *PUT Data Upload*.
 
-4. Enter the following URL to the [Feature Update States API] (replace `{Azure-Maps-Subscription-key}` with your Azure Maps subscription key and `statesetId` with the `statesetId`):
+4. Select the **PUT** HTTP method
+
+5. Enter the following URL to the [Feature Update States API] (replace `{Azure-Maps-Subscription-key}` with your Azure Maps subscription key and `statesetId` with the `statesetId`):
 
     ```http
     https://us.atlas.microsoft.com/featurestatesets/{statesetId}/featureStates/UNIT26?api-version=2.0&subscription-key={Your-Azure-Maps-Subscription-key}
     ```
 
-5. Select the **Headers** tab.
+6. Select the **Headers** tab.
 
-6. In the **KEY** field, select `Content-Type`. In the **VALUE** field, select `application/json`.
+7. In the **KEY** field, select `Content-Type`. In the **VALUE** field, select `application/json`.
 
      :::image type="content" source="./media/indoor-map-dynamic-styling/stateset-header.png"alt-text="Header tab information for stateset creation.":::
 
-7. Select the **Body** tab.
+8. Select the **Body** tab.
 
-8. In the dropdown lists, select **raw** and **JSON**.
+9. In the dropdown lists, select **raw** and **JSON**.
 
-9. Copy the following JSON style, and then paste it in the **Body** window:
+10. Copy the following JSON style, and then paste it in the **Body** window:
 
     ```json
     {
@@ -95,13 +97,13 @@ Update the state of the two offices, `UNIT26` and `UNIT27`:
     >[!IMPORTANT]
     >The update will be saved only if the posted time stamp is after the time stamp used in previous feature state update requests for the same feature ID.
 
-10. Change the URL you used in step 7 by replacing `UNIT26` with `UNIT27`:
+11. Change the URL you used in step 7 by replacing `UNIT26` with `UNIT27`:
 
     ```http
     https://us.atlas.microsoft.com/featurestatesets/{statesetId}/featureStates/UNIT27?api-version=2.0&subscription-key={Your-Azure-Maps-Subscription-key}
     ```
 
-11. Copy the following JSON style, and then paste it in the **Body** window:
+12. Copy the following JSON style, and then paste it in the **Body** window:
 
     ``` json
     {
