@@ -79,11 +79,8 @@ Starting from June 1, 2022, we have started rolling out a new version of HDInsig
 :::image type="content" source="./media/hdinsight-release-notes/interactive-query-3-1-for-hdi-5-1.png" alt-text="Screenshot of interactive query 3.1 for HDI 5.1":::
 
 > [!NOTE]
-> If you are creating an Interactive Query Cluster, you will see from the dropdown list another version as Interactive Query 3.1 (HDI 5.0).
-> * If you are going to use Spark 3.1 version along with Hive which require ACID support via Hive Warehouse Connector (HWC). 
-
-
-you need to select this version Interactive Query 3.1 (HDI 5.0).
+> * If you are creating an Interactive Query Cluster, you will see from the dropdown list another version as Interactive Query 3.1 (HDI 5.0).
+> * If you are going to use Spark 3.1 version along with Hive which require ACID support via Hive Warehouse Connector (HWC). You need to select this version Interactive Query 3.1 (HDI 5.0).
 
 ### Kafka 
 
