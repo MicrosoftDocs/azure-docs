@@ -12,11 +12,11 @@ ms.custom: devx-track-csharp
 
 Spatial queries are operations with which you can ask the remote rendering service which objects are located in an area. Spatial queries are frequently used to implement interactions, such as figuring out which object a user is pointing at.
 
-All spatial queries are evaluated on the server. Accordingly, the queries are asynchronous operations and results will arrive with a delay that depends on your network latency.
+All spatial queries are evaluated on the server. Accordingly, the queries are asynchronous operations and results arrive with a delay that depends on your network latency.
 
 ## Ray casts
 
-A *ray cast* is a spatial query where the runtime checks which objects are intersected by a ray, starting at a given position and pointing into a certain direction. As an optimization, a maximum ray distance is also given, to not search for objects that are too far away.
+A *ray cast* is a spatial query where the runtime checks which objects intersect a ray, starting at a given position and pointing into a certain direction. As an optimization, a maximum ray distance is also given, to not search for objects that are too far away.
 Although doing hundreds of ray casts each frame is computationally feasible on the server side, each query also generates network traffic, so the number of queries per frame should be kept as low as possible.
 
 
@@ -76,7 +76,7 @@ void CastRay(ApiHandle<RenderingSession> session)
 
 There are three hit collection modes:
 
-* **`Closest`:** In this mode, only the closest hit will be reported.
+* **`Closest`:** In this mode, only the closest hit is reported.
 * **`Any`:** Prefer this mode when all you want to know is *whether* a ray would hit anything, but don't care what was hit exactly. This query can be considerably cheaper to evaluate, but also has only few applications.
 * **`All`:** In this mode, all hits along the ray are reported, sorted by distance. Don't use this mode unless you really need more than the first hit. Limit the number of reported hits with the `MaxHits` option.
 
@@ -99,7 +99,7 @@ A Hit has the following properties:
 * **`HitPosition`:** The world space position where the ray intersected the object.
 * **`HitNormal`:** The world space surface normal of the mesh at the position of the intersection.
 * **`DistanceToHit`:** The distance from the ray starting position to the hit.
-* **`HitType`:** What was hit by the ray: `TriangleFrontFace`, `TriangleBackFace` or `Point`. By default, [ARR renders double sided](single-sided-rendering.md#prerequisites) so the triangles the user sees aren't necessarily front facing. If you want to differentiate between `TriangleFrontFace` and `TriangleBackFace` in your code, make sure your models are authored with correct face directions first.
+* **`HitType`:** What is hit by the ray: `TriangleFrontFace`, `TriangleBackFace` or `Point`. By default, [ARR renders double sided](single-sided-rendering.md#prerequisites) so the triangles the user sees aren't necessarily front facing. If you want to differentiate between `TriangleFrontFace` and `TriangleBackFace` in your code, make sure your models are authored with correct face directions first.
 
 ## Spatial queries
 
@@ -153,12 +153,14 @@ void QueryAABB(ApiHandle<RenderingSession> session)
 
 ## API documentation
 
-* [C# RenderingConnection.RayCastQueryAabbAsync()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.raycastqueryaabbasync)
-* [C# RenderingConnection.RayCastQueryObbAsync()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.raycastqueryobbasync)
-* [C# RenderingConnection.RayCastQuerySphereAsync()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.raycastquerysphereasync)
-* [C++ RenderingConnection::RayCastQueryAabbAsync()](/cpp/api/remote-rendering/renderingconnection#raycastqueryaabbasync)
-* [C++ RenderingConnection::RayCastQueryObbAsync()](/cpp/api/remote-rendering/renderingconnection#raycastqueryobbasync)
-* [C++ RenderingConnection::RayCastQuerySphereAsync()](/cpp/api/remote-rendering/renderingconnection#raycastquerysphereasync)
+* [C# RenderingConnection.RayCastQueryAsync()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.raycastqueryasync)
+* [C# RenderingConnection.SpatialQueryAabbAsync()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.spatialqueryaabbasync)
+* [C# RenderingConnection.SpatialQuerySphereAsync()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.spatialquerysphereasync)
+* [C# RenderingConnection.SpatialQueryObbAsync()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.spatialqueryobbasync)
+* [C++ RenderingConnection::RayCastQueryAsync()](/cpp/api/remote-rendering/renderingconnection#raycastqueryasync)
+* [C++ RenderingConnection::SpatialQueryAabbAsync()](/cpp/api/remote-rendering/renderingconnection#spatialqueryaabbasync)
+* [C++ RenderingConnection::SpatialQuerySphereAsync()](/cpp/api/remote-rendering/renderingconnection#spatialquerysphereasync)
+* [C++ RenderingConnection::SpatialQueryObbAsync()](/cpp/api/remote-rendering/renderingconnection#spatialqueryobbasync)
 
 ## Next steps
 
