@@ -113,13 +113,13 @@ The Connection factory can be instantiated with the below parameters -
       * traceFrames - boolean flag to collect AMQP trace frames for debugging.
       * *other configuration parameters*
 
----
-
 The factory can be created as below. The connection string is a required parameter, but the additional properties are optional.
 
 ```java
 ConnectionFactory factory = new ServiceBusJmsConnectionFactory(SERVICE_BUS_CONNECTION_STRING, null);
 ```
+
+---
 
 ### JMS destination
 
