@@ -1450,15 +1450,13 @@ groups:
     title: REST
 # Owner: mbullwin
 - id: openai-chat
-  title: 
+  title: API Options
   prompt: Chat API options
   pivots:
-  - id: programming-language-chat-completion
-    title: Chat Completion
+  - id: programming-language-chat-completions
+    title: Chat Completions
   - id: programming-language-chat-ml
     title: ChatML
-  - id: rest-api
-    title: REST
 # Owner: mbullwin
 - id: openai-create-resource
   title: Programming languages

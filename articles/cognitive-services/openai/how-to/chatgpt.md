@@ -27,14 +27,14 @@ The Completions API with ChatML uses the same [completion API](../reference.md#c
 
 This article will walk you through getting started with the new ChatGPT and GPT-4 models. It's important to use the techniques described here to get the best results. If you try to interact with the models the same way you did with the older models series the models will often be verbose and provide less useful responses.
 
-::: zone pivot="programming-language-chat-completions"
+::: zone pivot="programming-language-chat-completion"
 
-[!INCLUDE [Studio quickstart](includes/chat-completions.md)]
+[!INCLUDE [Studio quickstart](../includes/chat-completion.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-chat-ml"
 
-[!INCLUDE [Python SDK quickstart](includes/chat-markup-language.md)]
+[!INCLUDE [Python SDK quickstart](../includes/chat-markup-language.md)]
 
 ::: zone-end

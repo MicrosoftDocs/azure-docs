@@ -27,7 +27,7 @@ openai.api_version = "2023-03-15-preview"
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 response = openai.ChatCompletion.create(
-    engine="gpt-3.5-turbo", #This corresponds to the deployment name you chose when you deployed the ChatGPT or GPT-4 model.
+    engine="gpt-35-turbo", #This corresponds to the deployment name you chose when you deployed the ChatGPT or GPT-4 model.
     messages=[
         {"role": "system", "content": "Assistant is a large language model trained by OpenAI."},
         {"role": "user", "content": "What's the difference between garbanzo beans and chickpeas?"},
@@ -240,6 +240,8 @@ It's your responsibility to ensure the prompt and completion falls within the to
 
 The following code sample shows a simple chat loop example with how to handle a 4096 token count using OpenAI's tiktoken library. In this example once the token count is reached the oldest messages in the conversation transcript will be removed.
 
+The code requires tiktoken `0.3.0`. If you have an older version run `pip install tiktoken --upgrade`.
+
 ```python
 import tiktoken
 import openai
@@ -277,7 +279,7 @@ while(True):
         conv_history_tokens = num_tokens_from_messages(conversation)
         
     response = openai.ChatCompletion.create(
-        engine="gpt-3.5-turbo",
+        engine="gpt-35-turbo",
         messages = conversation,
         temperature=.7,
         max_tokens=max_response_tokens,
