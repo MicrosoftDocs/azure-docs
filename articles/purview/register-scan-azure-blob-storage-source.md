@@ -354,7 +354,7 @@ Once your data source has the  **Data Use Management** option set to **Enabled**
 ![Screenshot shows how to register a data source for policy with the option Data use management set to enable](./media/how-to-policies-data-owner-storage/register-data-source-for-policy-storage.png)
 
 ### Create a policy
-To create an access policy for Azure Blob Storage, follow this guide: [Data owner policy on a single storage account](./how-to-policies-data-owner-storage.md#create-and-publish-a-data-owner-policy).
+To create an access policy for Azure Blob Storage, follow this guide: [Provision read/modify access on a single storage account](./how-to-policies-data-owner-storage.md#create-and-publish-a-data-owner-policy).
 
 To create policies that cover all data sources inside a resource group or Azure subscription you can refer to [this section](register-scan-azure-multiple-sources.md#access-policy).
 

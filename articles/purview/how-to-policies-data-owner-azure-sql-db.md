@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 10/31/2022
+ms.date: 03/17/2023
 ms.custom: references_regions, event-tier1-build-2022
 ---
 # Provision access by data owner for Azure SQL Database (preview)
@@ -35,6 +35,7 @@ After you've registered your resources, you'll need to enable Data Use Managemen
 Once your data source has the **Data Use Management** toggle *Enabled*, it will look like this screenshot. This will enable the access policies to be used with the given Azure SQL server and all its contained databases.
 ![Screenshot shows how to register a data source for policy.](./media/how-to-policies-data-owner-sql/register-data-source-for-policy-azure-sql-db.png)
 
+[!INCLUDE [Access policies Azure SQL Database pre-requisites](./includes/access-policies-configuration-azure-sql-db.md)]
 
 ## Create and publish a data owner policy
 
