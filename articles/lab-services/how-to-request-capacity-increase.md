@@ -14,9 +14,11 @@ ms.date: 03/03/2023
 
 # Request a core limit increase
 
-If you reach the cores limit for your subscription, you can request a core limit increase (sometimes called an increase in capacity, or a quota increase) to continue using Azure Lab Services. The request process allows the Azure Lab Services team to ensure your subscription isn't involved in any cases of fraud or unintentional, sudden large-scale deployments. 
+This article describes how to collect the information and how to submit a support request for increasing the number of cores for Azure Lab Services in your Azure subscription.
 
-For information about creating support requests in general, see how to create a [How to create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
+When you reach the cores limit for your subscription, you can request a core limit increase (sometimes called an increase in capacity, or a quota increase) to continue using Azure Lab Services. The request process allows the Azure Lab Services team to ensure that your subscription isn't involved in any cases of fraud or unintentional, sudden large-scale deployments. 
+
+Learn more about the general [process for creating Azure support requests](/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
 ### Prerequisites
 
@@ -28,9 +30,9 @@ To create a support request, your Azure account must have one of the following r
 
 ## Prepare to submit a request
 
-Before you begin your request for a core limit increase, you should make sure that you have all the information you need available and verify that you have the appropriate permissions. Gather information like the number and size of cores you want to add, the regions you can use, and the location of resources like your existing labs and virtual networks.  
+Before you create a support request for a core limit increase, you need to gather additional information, such as the number and size of cores and the Azure regions. You might also have to perform some preparation steps before creating the request.
 
-## [Lab Account (Classic) - May 2019 version](#tab/LabAccounts/)
+## [Lab account - May 2019 version](#tab/LabAccounts/)
 
 ### Determine the regions for your labs
 
@@ -38,7 +40,7 @@ Azure Lab Services resources can exist in many regions. You can choose to deploy
 
 ### Determine the number of VM cores in your request
 
-In your support request, you need to provide the number of additional VM cores. Each VM size has a number of VM cores. Azure Lab Services groups VM sizes together in size groups. You request VM cores for a specific size group.
+In your support request, you need to provide the number of *additional* VM cores. Each VM size has a number of VM cores. Azure Lab Services groups VM sizes together in size groups. You request VM cores for a specific size group.
 
 - Small / Medium / Large cores
 - Medium (Nested Virtualization) / Large (Nested Virtualization) cores
@@ -50,7 +52,7 @@ To determine the total number of cores for your request: `total VM cores = (# co
 
 For example, you need more capacity for 20 *Medium* VMs. The total number of VM cores for 20 Medium VMs is 80 (4 cores per VM * 20).
 
-## [Lab Plans - August 2022 version](#tab/Labplans/)
+## [Lab plan - August 2022 version](#tab/Labplans/)
 
 ### Create a lab plan
 
@@ -66,7 +68,7 @@ Azure Lab Services resources can exist in many regions. You can choose to deploy
 
 ### Determine the number of VM cores in your request
 
-In your support request, you need to provide the total number of cores. This total includes both your existing number of cores, and the cores you want to add.
+In your support request, you need to provide the *total* number of cores. This total includes both your existing number of cores, and the cores you want to add.
 
 Azure Lab Services groups VM sizes together in size groups:
 
@@ -76,7 +78,7 @@ Azure Lab Services groups VM sizes together in size groups:
 - Small GPU (Visualization) cores
 - Medium GPU (Visualization) cores
 
-You request VM cores for a specific Azure region. When you select the region in the support request, you can view your current usage and limit per size group.
+You request VM cores for a specific Azure region. When you select the region in the support request, you can view your current usage and current limit per size group.
 
 To determine the total number of cores for your request: `total VM cores = (current # cores for the size group) + ((# cores for the selected VM size) * (# VMs))`
 
@@ -104,19 +106,19 @@ You can follow these steps to request a core limit increase:
 
 1. In the Azure portal, navigate to your lab plan or lab account, and then select **Request core limit increase**.
 
-  :::image type="content" source="./media/how-to-request-capacity-increase/request-from-lab-plan.png" alt-text="Screenshot of the Lab plan overview page in the Azure portal, highlighting the Request core limit increase button.":::
+    :::image type="content" source="./media/how-to-request-capacity-increase/request-from-lab-plan.png" alt-text="Screenshot of the Lab plan overview page in the Azure portal, highlighting the Request core limit increase button.":::
 
 1. On the **New support request** page, enter the following information, and then select **Next**.
 
-   | Name              | Value   |
-   | ----------------- | ------- |
-   | **Issue type**    | *Service and subscription limits (quotas)* |
-   | **Subscription**  | Select the subscription to which the request applies. |
-   | **Quota type**    | *Azure Lab Services* |
+    | Name              | Value   |
+    | ----------------- | ------- |
+    | **Issue type**    | *Service and subscription limits (quotas)* |
+    | **Subscription**  | Select the subscription to which the request applies. |
+    | **Quota type**    | *Azure Lab Services* |
 
-1. On the **Additional details** tab, select **Problem details** > **Enter details**.
+1. On the **Additional details** tab, select **Enter details** in the **Problem details** section.
 
-   :::image type="content" source="./media/how-to-request-capacity-increase/enter-details-link.png" alt-text="Screenshot of the Additional details page with Enter details highlighted."::: 
+    :::image type="content" source="./media/how-to-request-capacity-increase/enter-details-link.png" alt-text="Screenshot of the Additional details page with Enter details highlighted."::: 
 
 ## Make core limit increase request
 
@@ -124,7 +126,7 @@ When you request core limit increase, you must supply some information to help t
 
 Depending on whether you use lab accounts or lab plans, you need to provide different information on the **Quota details** page.
 
-#### [Lab Account (Classic) - May 2019 version](#tab/LabAccounts/)
+## [Lab account - May 2019 version](#tab/LabAccounts/)
 
 :::image type="content" source="./media/how-to-request-capacity-increase/lab-account-pane.png" alt-text="Screenshot of the Quota details page for Lab accounts.":::
 
@@ -140,7 +142,7 @@ Depending on whether you use lab accounts or lab plans, you need to provide diff
 | **What's the month-by-month usage plan for the requested cores?** | Enter the rate at which you want to add the extra cores, on a monthly basis. |
 | **Additional details** | Provide more information to make it easier for the Azure Lab Services team to process your request. For example, you could include your preferred date for the new cores to be available or if you plan to use GPU VM sizes. |
 
-#### [Lab Plans - August 2022 version](#tab/Labplans/)
+#### [Lab plan - August 2022 version](#tab/Labplans/)
 
 :::image type="content" source="./media/how-to-request-capacity-increase/lab-plan-pane.png" alt-text="Screenshot of the Quota details page for Lab Services v2.":::
 
@@ -157,6 +159,8 @@ Depending on whether you use lab accounts or lab plans, you need to provide diff
 When you've entered the required information and any extra details, select **Save and continue**.
 
 ## Complete the support request
+
+To complete the support request, enter the following information:
 
 1. Complete the remainder of the support request **Additional details** tab using the following information:
 
