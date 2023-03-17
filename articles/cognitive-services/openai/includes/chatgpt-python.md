@@ -22,9 +22,9 @@ keywords:
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI Service by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access?azure-portal=true).
 - [Python 3.7.1 or later version](https://www.python.org?azure-portal=true).
 - The following Python libraries: os.
-- An Azure OpenAI Service resource with either the `gpt-35-turbo`, or the `gpt-4-0314`<sup>1</sup> models deployed. These models are currently available in East US and South Central US. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
+- An Azure OpenAI Service resource with either the `gpt-35-turbo (version 0301)`, or the `gpt-4 (version 0314)`<sup>1</sup> models deployed. These models are currently available in East US and South Central US. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
 
-<sup>1</sup> **GPT-4 models are currently in limited preview.** Existing Azure OpenAI customers can [apply for access by filling out this form](TODO: Add link to form from PG).
+<sup>1</sup> **GPT-4 models are currently in limited preview.** Existing Azure OpenAI customers can [apply for access by filling out this form](https://aka.ms/oai/get-gpt4).
 
 ## Set up
 
@@ -48,7 +48,7 @@ To successfully make a call against Azure OpenAI, you'll need an **endpoint** an
 
 Go to your resource in the Azure portal. The **Endpoint and Keys** can be found in the **Resource Management** section. Copy your endpoint and access key as you'll need both for authenticating your API calls. You can use either `KEY1` or `KEY2`. Always having two keys allows you to securely rotate and regenerate keys without causing a service disruption.
 
-:::image type="content" source="../media/quickstarts/endpoint.png" alt-text="Screenshot of the overview blade for an OpenAI Resource in the Azure portal with the endpoint & access keys location circled in red." lightbox="../media/quickstarts/endpoint.png":::
+:::image type="content" source="../media/quickstarts/endpoint.png" alt-text="Screenshot of the overview UI for an OpenAI Resource in the Azure portal with the endpoint & access keys location circled in red." lightbox="../media/quickstarts/endpoint.png":::
 
 Create and assign persistent environment variables for your key and endpoint.
 
@@ -89,7 +89,7 @@ echo export OPENAI_API_BASE="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/environmen
 
 1. Create a new Python file called quickstart.py. Then open it up in your preferred editor or IDE.
 
-2. Replace the contents of quickstart.py with the following code. You will need need to set the `engine` variable to the deployment name you chose when you deployed the ChatGPT or GPT-4 models. Entering the model name will result in an error unless you chose a deployment name that is identical to the underlying model name.
+2. Replace the contents of quickstart.py with the following code. You need to set the `engine` variable to the deployment name you chose when you deployed the ChatGPT or GPT-4 models. Entering the model name will result in an error unless you chose a deployment name that is identical to the underlying model name.
 
     ```python
     #Note: The openai-python library support for Azure OpenAI is in preview.
@@ -101,7 +101,7 @@ echo export OPENAI_API_BASE="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/environmen
     openai.api_key = os.getenv("OPENAI_API_KEY")
 
     response = openai.ChatCompletion.create(
-        engine="gpt-3.5-turbo", # engine = "deployment_name".
+        engine="gpt-35-turbo", # engine = "deployment_name".
         messages=[
             {"role": "system", "content": "You are a helpful assistant."},
             {"role": "user", "content": "Does Azure OpenAI support customer managed keys?"},
@@ -147,7 +147,7 @@ echo export OPENAI_API_BASE="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/environmen
 Yes, most of the Azure Cognitive Services support customer managed keys. However, not all services support it. You can check the documentation of each service to confirm if customer managed keys are supported.
 ```
 
-### Understanding the prompt structure
+### Understanding the message structure
 
 The ChatGPT and GPT-4 models are optimized work with inputs formatted as a conversation.  The `messages` variable passes an array of dictionaries with different roles in the conversation delineated by system, user, and assistant. The system message can be used to prime the model by including context or instructions on how the model should respond.
 
@@ -155,12 +155,12 @@ The [ChatGPT & GPT-4 how-to guide](../how-to/chatgpt.md) provides an in-depth in
 
 ## Clean up resources
 
-If you want to clean up and remove an OpenAI resource, you can delete the resource. Before deleting the resource you must first delete any deployed models.
+If you want to clean up and remove an OpenAI resource, you can delete the resource. Before deleting the resource, you must first delete any deployed models.
 
 - [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 - [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## Next steps
 
-* Learn more about how to work with ChatGPT and the new `gpt-35-turbo` model with the [ChatGPT how-to guide](../how-to/chatgpt.md).
-* For more examples check out the [Azure OpenAI Samples GitHub repository](https://github.com/Azure/openai-samples)
+* Learn more about how to work with ChatGPT the GPT-4 models with [our how-to guide](../how-to/chatgpt.md).
+* For more examples, check out the [Azure OpenAI Samples GitHub repository](https://github.com/Azure/openai-samples)
