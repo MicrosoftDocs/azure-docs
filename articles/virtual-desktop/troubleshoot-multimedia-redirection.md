@@ -34,7 +34,7 @@ The following issues are ones we're already aware of, so you won't need to repor
 
 - Multimedia redirection won't work as expected if the VMs in your deployment are blocking cmd.exe.
   
-- Multimedia redirection is disabled by default on all sites except for the ones listed in [Websites that work with multimedia redirection](multimedia-redirection-intro.md#websites-that-work-with-multimedia-redirection). However, you can enable multimedia redirection features for all websites by following the directions in [Enable video playback for all sites](multimedia-redirection.md#enable-video-playback-for-all-sites) and [Enable calling redirection for all sites](multimedia-redirection.md#enable-calling-redirection-for-all-sites). We added the option to enable multimedia redirection on sites that aren't officially supported so organizations can test the feature on their company websites.
+- Multimedia redirection is disabled by default on all sites except for the ones listed in [Websites that work with multimedia redirection](multimedia-redirection-intro.md#websites-that-work-with-multimedia-redirection). However, you can enable multimedia redirection features for all websites by following the directions in [Enable video playback for all sites](multimedia-redirection.md#enable-video-playback-for-all-sites) and [Enable calling redirection for all sites](multimedia-redirection.md#enable-webrtc-calling-redirection). We added the option to enable multimedia redirection on sites that aren't officially supported so organizations can test the feature on their company websites.
 
 ### The MSI installer doesn't work
 
