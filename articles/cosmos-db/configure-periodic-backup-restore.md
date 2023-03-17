@@ -76,13 +76,13 @@ Use the following steps to change the default backup options for an existing Azu
     > [!NOTE]
     > You must have the Azure [Azure Cosmos DB Operator role](../role-based-access-control/built-in-roles.md#cosmos-db-operator) role assigned at the subscription level to configure backup storage redundancy.
 
-    :::image type="content" source="./media/configure-periodic-backup-restore/configure-backup-options-existing-accounts.png" alt-text="Screenshot of configuration options including; backup interval, retention, and storage redundancy for an existing Azure Cosmos DB account." border="true":::
+    :::image type="content" source="./media/configure-periodic-backup-restore/configure-backup-options-existing-accounts.png" alt-text="Screenshot of configuration options including backup interval, retention, and storage redundancy for an existing Azure Cosmos DB account." border="true":::
 
 ### Modify backup options using Azure portal - New account
 
 When provisioning a new account, from the **Backup Policy** tab, select **Periodic*** backup policy. The periodic policy allows you to configure the backup interval, backup retention, and backup storage redundancy. For example, you can choose **locally redundant backup storage** or **Zone redundant backup storage** options to prevent backup data replication outside your region.
 
-:::image type="content" source="./media/configure-periodic-backup-restore/configure-backup-options-new-accounts.png" alt-text="Screenshot of configurating a periodic or continuous backup policy for a new Azure Cosmos DB account." border="true":::
+:::image type="content" source="./media/configure-periodic-backup-restore/configure-backup-options-new-accounts.png" alt-text="Screenshot of configuring a periodic or continuous backup policy for a new Azure Cosmos DB account." border="true":::
 
 ### Modify backup options using Azure PowerShell
 
