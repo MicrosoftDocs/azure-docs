@@ -1,5 +1,5 @@
 ---
-title: Metrics server VPA throttleing in Azure Kubernetes Service (AKS)
+title: Metrics server VPA throttling in Azure Kubernetes Service (AKS)
 description: Learn how to vertically autoscale your pod on an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
 ms.custom: devx-track-azurecli
@@ -18,7 +18,7 @@ AKS cluster is running Kubernetes version 1.24 and higher.
 
 ## Metrics server crashloopbackoff or throttling
 
-If the Metrics Server throttling rate is high and the memory usage of its two pods are unbalanced, this indicates the Metrics Server requires more resources than the default values specified.
+If the Metrics Server throttling rate is high, and the memory usage of its two pods are unbalanced, this indicates the Metrics Server requires more resources than the default values specified.
 
 To update the coefficient values, create a ConfigMap in the overlay *kube-system* namespace to override the values in the Metrics Server specification. Perform the following steps to update the metrics server.
 
@@ -43,7 +43,7 @@ To update the coefficient values, create a ConfigMap in the overlay *kube-system
         memoryPerNode: 8Mi 
     ```
 
-    In this ConfigMap example, it changes the resource limit and request to the following:
+    In the ConfigMap example, the resource limit and request are changed to the following:
 
     * cpu: (100+1n) millicore
     * memory: (100+8n) mebibyte
@@ -62,7 +62,7 @@ To update the coefficient values, create a ConfigMap in the overlay *kube-system
     kubectl -n kube-system delete po metrics-server-pod-name
     ```
 
-4. To verify the updated resources took affect, run the following command to review the Metrics Server VPA log.
+4. To verify the updated resources took effect, run the following command to review the Metrics Server VPA log.
 
     ```bash
     kubectl -n kube-system logs metrics-server-pod-name -c metrics-server-vpa
@@ -79,11 +79,11 @@ To update the coefficient values, create a ConfigMap in the overlay *kube-system
     ERROR: logging before flag.Parse: I0315 23:12:33.957456       1 pod_nanny.go:145] Resources: [{Base:{i:{value:100 scale:-3} d:{Dec:<nil>} s:100m Format:DecimalSI} ExtraPerNode:{i:{value:0 scale:-3} d:{Dec:<nil>} s: Format:DecimalSI} Name:cpu} {Base:{i:{value:104857600 scale:0} d:{Dec:<nil>} s:100Mi Format:BinarySI} ExtraPerNode:{i:{value:0 scale:0} d:{Dec:<nil>} s: Format:BinarySI} Name:memory
     ```
 
-Be cautious of the *baseCPU*, *cpuPerNode*, *baseMemory*, and the *memoryPerNode* as the ConfigMap won't be validated by AKS. As a recommended practice, increase the value gradually to avoid unnecessary resource consumption. Proactively monitor resource usage when updating or creating the ConfigMap. A large number of resource requests could negatively impact the node.
+Be cautious of the *baseCPU*, *cpuPerNode*, *baseMemory*, and the *memoryPerNode*, because the ConfigMap isn't validated by AKS. As a recommended practice, increase the value gradually to avoid unnecessary resource consumption. Proactively monitor resource usage when updating or creating the ConfigMap. A large number of resource requests could negatively impact the node.
 
 ## Manually configure Metrics Server resource usage
 
-The Metrics Server VPA adjusts resource usage by the number of nodes. If the cluster scale up or down very often, the Metrics Server might restart frequently. In this case, you can bypass VPA and manually control its resource usage. This method to configure VPA is not to be performed in addition to the steps described in the previous section.
+The Metrics Server VPA adjusts resource usage by the number of nodes. If the cluster scale up or down often, the Metrics Server might restart frequently. In this case, you can bypass VPA and manually control its resource usage. This method to configure VPA isn't to be performed in addition to the steps described in the previous section.
 
 If you would like to bypass VPA for Metrics Server and manually control its resource usage, perform the following steps.
 
@@ -113,7 +113,7 @@ If you would like to bypass VPA for Metrics Server and manually control its reso
    * cpu: 100 millicore
    * memory: 100 mebibyte
 
-   So changing the number of nodes will not trigger the autoscaling.
+   Changing the number of nodes doesn't trigger autoscaling.
 
 2. Create the ConfigMap using the [kubectl apply][kubectl-apply] command and specify the name of your YAML manifest:
 
@@ -148,7 +148,7 @@ If you would like to bypass VPA for Metrics Server and manually control its reso
 
 ## Troubleshooting
 
-1. If you use the following configmap, the Metrics Server VPA customization won't work. You need add a unit for `baseCPU`.
+1. If you use the following configmap, the Metrics Server VPA customization aren't applied. You need add a unit for `baseCPU`.
 
     ```yml
     apiVersion: v1 
@@ -169,7 +169,7 @@ If you would like to bypass VPA for Metrics Server and manually control its reso
          memoryPerNode: 8Mi 
     ```
     
-   The following example output resembles the results showing the updated throttling settings were not applied.
+   The following example output resembles the results showing the updated throttling settings aren't applied.
     
     ```output
     ERROR: logging before flag.Parse: I0316 23:32:08.383389       1 pod_nanny.go:68] Invoked by [/pod_nanny --config-dir=/etc/config --cpu=44m 
@@ -193,7 +193,7 @@ If you would like to bypass VPA for Metrics Server and manually control its reso
 
 ## Next steps
 
-Metrics Server is a component in the core metrics pipeline. For more information see [Metrics Server API design][metrics-server-api-design]. 
+Metrics Server is a component in the core metrics pipeline. For more information see, [Metrics Server API design][metrics-server-api-design]. 
 
 <!-- EXTERNAL LINKS -->
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
