@@ -477,6 +477,15 @@ ml_client.online_endpoints.invoke(
 
 ## Clean up resources
 
+If you're not going to use the endpoint, delete it to stop using the resource.  Make sure no other deployments are using an endpoint before you delete it.
+
+```python
+ml_client.online_endpoints.begin_delete(name=online_endpoint_name)
+```
+
+> [!NOTE]
+> Expect the complete deletion to take approximately 6 to 8 minutes.
+
 If you plan to continue now to other tutorials, skip to [Next steps](#next-steps).
 
 ### Stop compute instance
