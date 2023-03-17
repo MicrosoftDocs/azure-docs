@@ -88,9 +88,8 @@ dotnet add package  Azure.AI.Vision.ImageAnalysis --prerelease
 
 From the project directory, open the *Program.cs* file that was created previously with [your new project](#set-up-application). Paste in the following code:
 
-[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/2/Program.cs?name=snippet-single)]
+[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/2/Program.cs?name=snippet_single)]
 
-:::code language="csharp" source="~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/2/Program.cs" id="snippet-single":::
 
 ```csharp
 using Azure.AI.Vision.Core.Input;

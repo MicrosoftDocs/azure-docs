@@ -50,7 +50,7 @@ Use the Image Analysis client library for Python to analyze a remote image to re
 
 1. Copy the following code into *quickstart.py*:
 
-    [!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/2/main.py?name=snippet-single)]
+    [!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/2/main.py?name=snippet_single)]
     
     ```python
     import os
