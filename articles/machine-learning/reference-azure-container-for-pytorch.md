@@ -28,7 +28,7 @@ Azure Container for PyTorch is a lightweight, standalone environment that includ
 * Ease of use: All components installed and validated against dozens of Microsoft workloads to reduce setup costs and accelerate time to value.
 * Latest Training Optimization Technologies: [ONNX RunTime](https://onnxruntime.ai/) , [DeepSpeed](https://www.deepspeed.ai/),  [MSCCL](https://github.com/microsoft/msccl),and others.
 * Integration with Azure Machine Learning: Track your PyTorch experiments on Azure Machine Learning studio or using the SDK.
-* The image is also available as a [DSVM](../virtual-machines/data-science-virtual-machines.md).
+* The image is also available as a [Data Science Virtual Machine (DSVM)](https://azure.microsoft.com/products/virtual-machines/data-science-virtual-machines/). To learn more about Data Science Virtual Machines, see [the DSVM overview documentation](data-science-virtual-machine/overview.md).
 * Azure customer support reduces training and deployment latency.
 * Improves training and deployment success rate.
 * Avoid unnecessary image builds.
