@@ -36,7 +36,7 @@ Use the following header to authenticate your request.
  
 ### Request body
 
-Use the following object in your request. The model will be named after the value you use for the `modellabel` parameter once training is complete.  
+Use the following object in your request. The model will be named after the value you use for the `modelLabel` parameter once training is complete.  
 
 ```json
 {
