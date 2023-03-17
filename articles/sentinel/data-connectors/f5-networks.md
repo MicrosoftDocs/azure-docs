@@ -17,7 +17,7 @@ The F5 firewall connector allows you to easily connect your F5 logs with Microso
 | Connector attribute | Description |
 | --- | --- |
 | **Log Analytics table(s)** | CommonSecurityLog (F5)<br/> |
-| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
+| **Data collection rules support** | [Workspace transform DCR](../../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Supported by** | [F5](https://www.f5.com/services/support) |
 
 ## Query samples
