@@ -85,7 +85,7 @@ To learn more about resource type limits, see the [Resource instance limit](../.
 
 ## Data residency
 
-Azure Arc-enabled servers doesn't store/process customer data outside the region the customer deploys the service instance in.
+Azure Arc-enabled servers stores customer data. By default, customer data stays within the region the customer deploys the service instance in. For region with data residency requirements, customer data is always kept within the same region.
 
 ## Next steps
 
