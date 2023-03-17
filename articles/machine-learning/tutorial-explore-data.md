@@ -34,7 +34,7 @@ The start of a machine learning project typically involves exploratory data anal
     * Create a workspace.
     * Create a cloud-based compute instance to use for your development environment.
     * Create a new notebook, if you want to copy/paste code into cells.
-    * Or, open the notebook version of this tutorial by opening **Put notebook location here** from the **Samples** section of studio.  Then select **Clone** to add the notebook to your **Files**.
+    * Or, open the notebook version of this tutorial by opening **tutorials/get-started-notebooks/explore-data.ipynb** from the **Samples** section of studio.  Then select **Clone** to add the notebook to your **Files**.
 
 ## Set your notebook kernel
 
