@@ -49,5 +49,6 @@ If the output is *Registering*, wait at least 10 minutes, and then retry the com
     - East Asia
     - Japan East
     - Japan West
+- Only **new** Storage accounts with zone-redundant storage (ZRS) are supported. That is, Storage accounts created in the subscription **after** the feature *AllowPurviewPolicyEnforcement* is *Registered*.
 
 If needed, you can also create a new Storage account by [following this guide](../../storage/common/storage-account-create.md).
