@@ -7,13 +7,13 @@ manager: sundraman
 services: azure-communication-services
 
 ms.author: prakulka
-ms.date: 03/15/2023
+ms.date: 03/16/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: sms
 ms.custom: mode-other
 ---
-# Quickstart: Apply for a short code
+# Quickstart: Apply for Toll-Free Verification
 
 ## Prerequisites
 
@@ -25,7 +25,7 @@ To begin toll-free verification, go to your Communication Services resource on t
 
 :::image type="content" source="./media/apply-for-short-code/manage-phone-azure-portal-start1.png"alt-text="Screenshot showing a Communication Services resource's main page.":::
 
-## Apply for a short code
+## Apply for a toll-free verification
 Navigate to the Regulatory Documents blade in the resource menu and click on "Add" button to launch the toll-free verification application wizard. For detailed guidance on how to fill out the program brief application check the [toll-free verification filling guidelines](../../concepts/sms/toll-free-verification-guidelines.md). 
 
 
