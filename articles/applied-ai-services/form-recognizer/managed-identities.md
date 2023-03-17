@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 02/09/2023
+ms.date: 03/17/2023
 ms.author: lajanuar
 monikerRange: '>=form-recog-2.1.0'
 recommendations: false
@@ -15,11 +15,11 @@ recommendations: false
 
 # Managed identities for Form Recognizer
 
-:::image type="content" source="media/managed-identities/rbac-flow.png" alt-text="Screenshot of managed identity flow (RBAC).":::
-
 [!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
 
 Managed identities for Azure resources are service principals that create an Azure Active Directory (Azure AD) identity and specific permissions for Azure managed resources:
+
+:::image type="content" source="media/managed-identities/rbac-flow.png" alt-text="Screenshot of managed identity flow (RBAC).":::
 
 * You can use managed identities to grant access to any resource that supports Azure AD authentication, including your own applications. Unlike security keys and authentication tokens, managed identities eliminate the need for developers to manage credentials.
 
@@ -27,8 +27,11 @@ Managed identities for Azure resources are service principals that create an Azu
 
 * There's no added cost to use managed identities in Azure.
 
-> [!TIP]
-> Managed identities eliminate the need for you to manage credentials, including Shared Access Signature (SAS) tokens. Managed identities are a safer way to grant access to data without having credentials in your code.
+> [!IMPORTANT]
+>
+> * Managed identities eliminate the need for you to manage credentials, including Shared Access Signature (SAS) tokens. 
+>
+> * Managed identities are a safer way to grant access to data without having credentials in your code.
 
 
 ## Private storage account access
