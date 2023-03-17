@@ -16,7 +16,9 @@ ms.custom: fasttrack-edit, devx-track-azurecli
 
 This article describes how to create a Linux virtual machine (VM) with Accelerated Networking (AccelNet) enabled by using the Azure command-line interface, Azure CLI. The article also discusses application binding requirements, and how to enable and manage Accelerated Networking on existing VMs.
 
-You can also create a VM with Accelerated Networking enabled by using the [Azure portal](/azure/virtual-machines/linux/quick-create-portal) or [Azure PowerShell](../virtual-network/create-vm-accelerated-networking-powershell.md). To view and manage Accelerated Networking on VMs through the Azure portal, see [Manage Accelerated Networking through the portal](#manage-accelerated-networking-through-the-portal).
+You can also create a VM with Accelerated Networking enabled by using the [Azure portal](quick-create-portal.md). For more information about managing Accelerated Networking on VMs through the Azure portal, see [Manage Accelerated Networking through the portal](#manage-accelerated-networking-through-the-portal).
+
+To use Azure PowerShell to create a Windows VM with Accelerated Networking enabled, see [Use Azure CLI to create a Linux VM with Accelerated Networking](create-vm-accelerated-networking-cli.md).
 
 ## Prerequisites
 

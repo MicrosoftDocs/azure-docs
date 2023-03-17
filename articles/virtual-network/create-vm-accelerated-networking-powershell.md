@@ -15,11 +15,11 @@ ms.author: allensu
 
 # Use Azure PowerShell to create a Windows VM with Accelerated Networking
 
-This article describes how to create a Windows virtual machine (VM) with Accelerated Networking (AccelNet) enabled by using Azure PowerShell. The article also discusses application binding requirements, and how to enable and manage Accelerated Networking on existing VMs.
+This article describes how to use Azure PowerShell to create a Windows virtual machine (VM) with Accelerated Networking (AccelNet) enabled. The article also discusses application binding requirements, and how to enable and manage Accelerated Networking on existing VMs.
 
-You can also create a Windows VM with Accelerated Networking enabled by using the [Azure portal](quick-create-portal.md). To manage Accelerated Networking on VMs through the Azure portal, see [Manage Accelerated Networking through the portal](#manage-accelerated-networking-through-the-portal).
+You can also create a VM with Accelerated Networking enabled by using the [Azure portal](quick-create-portal.md). For more information about managing Accelerated Networking on VMs through the Azure portal, see [Manage Accelerated Networking through the portal](#manage-accelerated-networking-through-the-portal).
 
-To create a Linux VM with Accelerated Networking enabled, see [Use Azure CLI to create a Linux VM with Accelerated Networking](create-vm-accelerated-networking-cli.md).
+To use Azure CLI to create a Linux VM with Accelerated Networking enabled, see [Use Azure CLI to create a Linux VM with Accelerated Networking](create-vm-accelerated-networking-cli.md).
 
 ## Prerequisites
 
@@ -49,11 +49,11 @@ In the following examples, replace the example parameters such as `<myResourceGr
      -AddressPrefix "192.168.1.0/24"
    ```
 
-1. Use [New-AzVirtualNetwork](/powershell/module/az.Network/New-azVirtualNetwork) to create a virtual network with the `<mySubnet>` subnet.
+1. Use [New-AzVirtualNetwork](/powershell/module/az.Network/New-azVirtualNetwork) to create the virtual network with the subnet.
 
    ```azurepowershell
    $vnet = New-AzVirtualNetwork -ResourceGroupName "<myResourceGroup>" `
-     -Location "<myAzureRegion" `
+     -Location "<myAzureRegion>" `
      -Name "<myVnet>" `
      -AddressPrefix "192.168.0.0/16" `
      -Subnet $Subnet
@@ -61,7 +61,7 @@ In the following examples, replace the example parameters such as `<myResourceGr
 
 ### Create a network security group
 
-1. A network security group (NSG) contains several default rules, one of which disables all inbound access from the internet. Use [New-AzNetworkSecurityRuleConfig](/powershell/module/az.Network/New-azNetworkSecurityRuleConfig) to create a new rule so that you can remotely connect to the VM.
+1. A network security group (NSG) contains several default rules, one of which disables all inbound access from the internet. Use [New-AzNetworkSecurityRuleConfig](/powershell/module/az.Network/New-azNetworkSecurityRuleConfig) to create a new rule so that you can remotely connect to the VM via Remote Desktop Protocol (RDP).
 
    ```azurepowershell
    $rdp = New-AzNetworkSecurityRuleConfig `
@@ -87,7 +87,7 @@ In the following examples, replace the example parameters such as `<myResourceGr
      -SecurityRules $rdp
    ```
 
-1. Use [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.Network/Set-azVirtualNetworkSubnetConfig) to associate the NSG to the `<mySubnet>` subnet. The NSG rules are effective for all resources deployed in the subnet.
+1. Use [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.Network/Set-azVirtualNetworkSubnetConfig) to associate the NSG to the subnet. The NSG rules are effective for all resources deployed in the subnet.
 
    ```azurepowershell
    Set-AzVirtualNetworkSubnetConfig `
@@ -123,7 +123,7 @@ In the following examples, replace the example parameters such as `<myResourceGr
 
 ### Create a VM and attach the network interface
 
-1. Use [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential) to set your VM credentials to the `$cred` variable, which prompts you to sign in.
+1. Use [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential) to set credentials for the VM and store them in the `$cred` variable, which prompts you to sign in.
 
    ```azurepowershell
    $cred = Get-Credential
@@ -167,21 +167,23 @@ In the following examples, replace the example parameters such as `<myResourceGr
 
 Once you create the VM in Azure, connect to the VM and confirm that the Ethernet controller is installed in Windows.
 
-1. Go to the [Azure portal](https://portal.azure.com) to manage your VMs. Search for and select **Virtual machines**.
+1. In the [Azure portal](https://portal.azure.com), search for and select *virtual machines*.
 
-2. In the virtual machine list, choose your new VM.
+1. On the **Virtual machines** page, select your new VM.
 
-3. In the VM overview page, if the **Status** of the VM is listed as **Creating**, wait until Azure finishes creating the VM. The **Status** will be changed to **Running** after VM creation is complete.
+1. On the VM's **Overview** page, select **Connect**.
 
-4. From the VM overview toolbar, select **Connect** > **RDP** > **Download RDP File**.
+1. On the **Connect** screen, select **Native RDP**.
 
-5. Open the RDP file, and then sign in to the VM with the credentials you entered in the [Create a VM and attach the network interface](#create-a-vm-and-attach-the-network-interface) section. If you've never connected to a Windows VM in Azure, see [Connect to virtual machine](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-virtual-machine).
+1. On the **Native RDP** screen, select **Download RDP file**.
 
-6. After the remote desktop session for your VM appears, right-click the Windows Start button and choose **Device Manager**.
+1. Open the downloaded RDP file, and then sign in to the VM with the credentials you entered when you created the VM.
 
-7. In the **Device Manager** window, expand the **Network adapters** node.
+1. On the remote VM, right-click the Windows **Start** button and select **Device Manager**.
 
-8. Confirm that the **Mellanox ConnectX-3 Virtual Function Ethernet Adapter** appears, as shown in the following image:
+1. In the **Device Manager** window, expand the **Network adapters** node.
+
+1. Confirm that the **Mellanox ConnectX-4 Lx Virtual Ethernet Adapter** appears, as shown in the following image:
 
     ![Mellanox ConnectX-3 Virtual Function Ethernet Adapter, new network adapter for accelerated networking, Device Manager](./media/create-vm-accelerated-networking/device-manager.png)
 
@@ -205,9 +207,9 @@ You can enable Accelerated Networking on an existing VM. The VM must meet the fo
 
 1. Stop or deallocate the VM or, if an availability set, all the VMs in the set:
 
-    ```azurepowershell
-    Stop-AzVM -ResourceGroup "myResourceGroup" -Name "myVM"
-    ```
+   ```azurepowershell
+   Stop-AzVM -ResourceGroup "<myResourceGroup>" -Name "<myVM>"
+   ```
 
    If you created your VM individually without an availability set, you must stop or deallocate only the individual VM to enable Accelerated Networking. If you created your VM with an availability set, you must stop or deallocate all VMs in the set before you can enable Accelerated Networking on any of the NICs. The VMs then end up on a cluster that supports Accelerated Networking.
 
@@ -215,21 +217,21 @@ You can enable Accelerated Networking on an existing VM. The VM must meet the fo
 
 1. Enable Accelerated Networking on the NIC of your VM:
 
-    ```azurepowershell
-    $nic = Get-AzNetworkInterface -ResourceGroupName "myResourceGroup" `
-        -Name "myNic"
-    
-    $nic.EnableAcceleratedNetworking = $true
-    
-    $nic | Set-AzNetworkInterface
-    ```
+   ```azurepowershell
+   $nic = Get-AzNetworkInterface -ResourceGroupName "<myResourceGroup>" `
+     -Name "<myNic>"
+   
+   $nic.EnableAcceleratedNetworking = $true
+   
+   $nic | Set-AzNetworkInterface
+   ```
 
 3. Restart your VM, or all the VMs in the availability set, and [confirm that Accelerated Networking is enabled](#confirm-the-ethernet-controller-is-installed).
 
-    ```azurepowershell
-    Start-AzVM -ResourceGroup "myResourceGroup" `
-        -Name "myVM"
-    ```
+   ```azurepowershell
+   Start-AzVM -ResourceGroup "<myResourceGroup>" `
+     -Name "<myVM>"
+   ```
 
 ### Virtual Machine Scale Sets
 
@@ -237,42 +239,42 @@ Azure Virtual Machine Scale Sets is slightly different but follows the same work
 
 1. Stop the VMs:
 
-    ```azurepowershell
-    Stop-AzVmss -ResourceGroupName "myResourceGroup" `
-        -VMScaleSetName "myScaleSet"
+   ```azurepowershell
+   Stop-AzVmss -ResourceGroupName "<myResourceGroup>" `
+     -VMScaleSetName "<myScaleSet>"
     ```
 
 1. Update the Accelerated Networking property under the NIC:
 
-    ```azurepowershell
-    $vmss = Get-AzVmss -ResourceGroupName "myResourceGroup" `
-        -VMScaleSetName "myScaleSet"
-    
-    $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].EnableAcceleratedNetworking = $true
-    
-    Update-AzVmss -ResourceGroupName "myResourceGroup" `
-        -VMScaleSetName "myScaleSet" `
-        -VirtualMachineScaleSet $vmss
-    ```
+   ```azurepowershell
+   $vmss = Get-AzVmss -ResourceGroupName "<myResourceGroup>" `
+     -VMScaleSetName "<myScaleSet>"
+   
+   $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].EnableAcceleratedNetworking = $true
+   
+   Update-AzVmss -ResourceGroupName "<myResourceGroup>" `
+     -VMScaleSetName "<myScaleSet>" `
+     -VirtualMachineScaleSet $vmss
+   ```
 
 1. Virtual Machine Scale Sets has an upgrade policy that applies updates by using automatic, rolling, or manual settings. Set the upgrade policy to automatic so that the changes are immediately picked up.
 
-    ```azurepowershell
-    $vmss.UpgradePolicy.Mode = "Automatic"
-    
-    Update-AzVmss -ResourceGroupName "myResourceGroup" `
-        -VMScaleSetName "myScaleSet" `
-        -VirtualMachineScaleSet $vmss
-    ```
+   ```azurepowershell
+   $vmss.UpgradePolicy.Mode = "Automatic"
+   
+   Update-AzVmss -ResourceGroupName "<myResourceGroup>" `
+     -VMScaleSetName "<myScaleSet>" `
+     -VirtualMachineScaleSet $vmss
+   ```
 
 1. Restart the scale set:
 
-    ```azurepowershell
-    Start-AzVmss -ResourceGroupName "myResourceGroup" `
-        -VMScaleSetName "myScaleSet"
-    ```
+   ```azurepowershell
+   Start-AzVmss -ResourceGroupName "<myResourceGroup>" `
+     -VMScaleSetName "<myScaleSet>"
+   ```
 
-Once you restart and the upgrades finish, the VF appears inside VMs that use a supported OS and VM size.
+Once you restart and the upgrades finish, the virtual function (VF) appears inside VMs that use a supported OS and VM size.
 
 ### Resize existing VMs with Accelerated Networking
 
