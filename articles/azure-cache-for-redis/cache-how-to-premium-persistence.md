@@ -35,7 +35,7 @@ You have two options for persistence with Azure Cache for Redis: the _Redis data
 
 Azure Cache for Redis persistence features are intended to be used to restore data to the same cache after data loss. The RDB/AOF persisted data files can't be imported to a new cache. To move data across caches, use the _Import and Export_ feature. For more information, see [Import and Export data in Azure Cache for Redis](cache-how-to-import-export-data.md).
 
-To generate any backups of data that can be added to a new cache, you can write automated scripts, using PowerShell or CLI, to export data periodically.
+To generate any backups of data that can be added to a new cache, you can write automated scripts using PowerShell or CLI that export data periodically.
 
 ## Prerequisites and limitations
 
@@ -205,9 +205,9 @@ az redisenterprise database update --cluster-name "cache1" --resource-group "rg1
 ---
 
 ## Managing Data Encryption
-Because Redis persistence creates data at rest, encrypting this data is an important topic for many users. Encryption options vary based on the tier of Azure Cache for Redis being used. 
+Because Redis persistence creates data at rest, encrypting this data is an important concern for many users. Encryption options vary based on the tier of Azure Cache for Redis being used. 
 
-With the **Premium** tier, data is streamed directly from the cache instance to Azure Storage when persistence is initiated. Various encryption methods can be used with Azure Storage, including Microsoft-managed keys, customer-managed keys, and customer-provided keys. These are laid out in the [Azure Storage encryption for data at rest](../storage/common/storage-service-encryption.md) page. 
+With the **Premium** tier, data is streamed directly from the cache instance to Azure Storage when persistence is initiated. Various encryption methods can be used with Azure Storage, including Microsoft-managed keys, customer-managed keys, and customer-provided keys. For information on encryption methods, see [Azure Storage encryption for data at rest](../storage/common/storage-service-encryption.md). 
 
 With the **Enterprise** and **Enterprise Flash** tiers, data is stored on a managed disk mounted to the cache instance. By default, the disk holding the persistence data, and the OS disk are encrypted using Microsoft-managed keys. A customer-managed key (CMK) can also be used to encrypt these disks. See [Encryption on Enterprise tier caches](cache-how-to-encryption.md) for instructions.  
 
@@ -276,14 +276,14 @@ Yes, you can use the same storage account for persistence across two different c
 
 ### Will I be charged for the storage being used in data persistence?
 
-- For **Premium** caches, you are charged for the storage being used per the pricing model of the storage account being used.
-- For **Enterprise** and **Enterprise Flash** caches, you aren't charged for the managed disk storage. It is included in the price.
+- For **Premium** caches, you're charged for the storage being used per the pricing model of the storage account being used.
+- For **Enterprise** and **Enterprise Flash** caches, you aren't charged for the managed disk storage. It's included in the price.
 
 ### How frequently does RDB and AOF persistence write to my blobs, and should I enable soft delete?
 
 We recommend that you avoid enabling soft delete on storage accounts when used with Azure Cache for Redis data persistence with the Premium tier. RDB and AOF persistence can write to your blobs as frequently as every hour, every few minutes, or every second. Also, enabling soft delete on a storage account means Azure Cache for Redis can't minimize storage costs by deleting the old backup data. 
 
-Soft delete quickly becomes expensive with the typical data sizes of a cache and write operations every second. For more information on soft delete costs, see [Pricing and billing](../storage/blobs/soft-delete-blob-overview.md).
+Soft delete quickly becomes expensive with the typical data sizes of a cache that also performs write operations every second. For more information on soft delete costs, see [Pricing and billing](../storage/blobs/soft-delete-blob-overview.md).
 
 ### Can I change the RDB backup frequency after I create the cache?
 
@@ -303,7 +303,8 @@ Use a second storage account for AOF persistence when you think you have higher 
 
 ### Does AOF persistence affect throughput, latency, or performance of my cache?
 
-AOF persistence can affect throughput by about 15% – 20% when the cache is below maximum load (CPU and Server Load both under 90%). There shouldn't be latency issues when the cache is within these limits. However, the cache does reach these limits sooner with AOF enabled.
+AOF persistence can affect throughput by about 15% to 20% when the cache is below maximum load (CPU and Server Load both under 90%). There shouldn't be latency issues when the cache is within these limits. However, the cache does reach these limits sooner with AOF enabled.
+<!-- This is super confusing. -->
 
 ### How can I remove the second storage account?
 
