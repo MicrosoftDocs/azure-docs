@@ -9,7 +9,7 @@ ms.author: heidist
 
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/12/2021
+ms.date: 04/05/2022
 ---
 
 # Indexes in Azure Cognitive Search
@@ -104,21 +104,19 @@ Although you can add new fields at any time, existing field definitions are lock
 
 In Azure Cognitive Search, the physical structure of an index is largely an internal implementation. You can access its schema, query its content, monitor its size, and manage capacity, but the clusters themselves (indices, [shards](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards), and other files and folders) are managed internally by Microsoft.
 
+You can monitor index size in the Indexes tab in the Azure portal, or by issuing a [GET INDEX request](/rest/api/searchservice/get-index) against your search service. You can also issue a [Service Statistics request](/rest/api/searchservice/get-service-statistics) and check the value of storage size.
+
 The size of an index is determined by:
 
 + Quantity and composition of your documents
-+ Index configuration (specifically, whether you include suggesters)
 + Attributes on individual fields
++ Index configuration (specifically, whether you include suggesters)
 
-You can monitor index size in the Indexes tab in the Azure portal, or by issuing a [GET INDEX request](/rest/api/searchservice/get-index) against your search service.
+Document composition and quantity is determined by what you choose to import. Remember that a search index should only contain searchable content. If source data includes binary fields, omit those fields unless you are using AI enrichment to crack and analyze the content to create text searchable information.
 
-### Factors influencing index size
+Field attributes determine behaviors. To support those behaviors, the indexing process creates the necessary data structures. For example, "searchable" invokes [full text search](search-lucene-query-architecture.md), which scans inverted indices for the tokenized term. In contrast, a "filterable" or "sortable" attribute supports iteration over unmodified strings. The example in the next section shows variations in index size based on the selected attributes.
 
-Document composition and quantity will be determined by what you choose to import. Remember that a search index should only contain searchable content. If source documents include binary fields, you would generally omit those fields from the index schema (unless you are using AI enrichment to crack and analyze the content to create text searchable information.)
-
-Index configuration can include other components besides documents, such as suggesters, customer analyzers, scoring profiles, CORS settings, and encryption key information. From the above list, the only component that has the potential for impacting index size is suggesters. [**Suggesters**](index-add-suggesters.md) are constructs that support type-ahead or autocomplete queries. As such, when you include a suggester, the indexing process will create the data structures necessary for verbatim character matches. Suggesters are implemented at the field level, so choose only those fields that are reasonable for type-ahead.
-
-Field attributes are the third consideration of index size. Attributes determine behaviors. To support those behaviors, the indexing process will create the supporting data structures. For example, "searchable" invokes [full text search](search-lucene-query-architecture.md), which scans inverted indices for the tokenized term. In contrast, a "filterable" or "sortable" attribute supports iteration over unmodified strings.
+[**Suggesters**](index-add-suggesters.md) are constructs that support type-ahead or autocomplete queries. As such, when you include a suggester, the indexing process will create the data structures necessary for verbatim character matches. Suggesters are implemented at the field level, so choose only those fields that are reasonable for type-ahead.
 
 ### Example demonstrating the storage implications of attributes and suggesters
 
@@ -169,6 +167,8 @@ You can get hands-on experience creating an index using almost any sample or wal
 But you'll also want to become familiar with methodologies for loading an index with data. Index definition and data import strategies are defined in tandem. The following articles provide more information about creating and loading an index.
 
 + [Create a search index](search-how-to-create-search-index.md)
+
++ [Create an index alias](search-how-to-alias.md)
 
 + [Data import overview](search-what-is-data-import.md)
 

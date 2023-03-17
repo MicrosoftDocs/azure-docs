@@ -14,7 +14,7 @@ ms.custom: "include file"
 ### What can I achieve with a Processing Unit?
 
 How much you can ingest and stream with a Processing Unit depends on various factors such as your producers, consumers, the rate at which you're ingesting and processing, and much more. 
-Please refer [Scaling with Event Hubs](../event-hubs-scalability.md) more details on Processing Units. 
+Please refer to [Scaling with Event Hubs](../event-hubs-scalability.md) more details on Processing Units. 
 
 ### Can I migrate my Standard namespaces to Premium namespace?
-We don't currently don't support migrating from standard namespaces to premium namespace.  
+We currently don't support migrating from standard namespaces to premium namespace.  

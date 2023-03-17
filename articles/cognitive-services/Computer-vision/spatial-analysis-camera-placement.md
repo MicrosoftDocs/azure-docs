@@ -7,13 +7,13 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/08/2021
 ms.author: pafarley
 ---
 
 
-# Camera placement guide
+# Where to place the camera?
 
 This article provides camera placement recommendations for Spatial Analysis (public preview). It includes general guidelines as well as specific recommendations for height, angle, and camera-to-focal-point-distance for all the included operations. 
 

@@ -3,7 +3,7 @@ title: Enable diagnostics logging
 description: Learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure.
 ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
-ms.date: 07/06/2021
+ms.date: 01/13/2022
 ms.custom: "devx-track-csharp, seodec18"
 
 ---
@@ -34,14 +34,14 @@ This article uses the [Azure portal](https://portal.azure.com) and Azure CLI to 
 
 ## Enable application logging (Windows)
 
-> [!NOTE]
-> Application logging for blob storage can only use storage accounts in the same region as the App Service
-
 To enable application logging for Windows apps in the [Azure portal](https://portal.azure.com), navigate to your app and select **App Service logs**.
 
 Select **On** for either **Application Logging (Filesystem)** or **Application Logging (Blob)**, or both. 
 
 The **Filesystem** option is for temporary debugging purposes, and turns itself off in 12 hours. The **Blob** option is for long-term logging, and needs a blob storage container to write logs to.  The **Blob** option also includes additional information in the log messages, such as the ID of the origin VM instance of the log message (`InstanceId`), thread ID (`Tid`), and a more granular timestamp ([`EventTickCount`](/dotnet/api/system.datetime.ticks)).
+
+> [!NOTE]
+> If your Azure Storage account is secured by firewall rules, see [Networking considerations](#networking-considerations).
 
 > [!NOTE]
 > Currently only .NET application logs can be written to the blob storage. Java, PHP, Node.js, Python application logs can only be stored on the App Service file system (without code modifications to write logs to external storage).
@@ -85,6 +85,9 @@ To enable web server logging for Windows apps in the [Azure portal](https://port
 
 For **Web server logging**, select **Storage** to store logs on blob storage, or **File System** to store logs on the App Service file system. 
 
+> [!NOTE]
+> If your Azure Storage account is secured by firewall rules, see [Networking considerations](#networking-considerations).
+
 In **Retention Period (Days)**, set the number of days the logs should be retained.
 
 > [!NOTE]
@@ -121,11 +124,13 @@ In your application code, you use the usual logging facilities to send log messa
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
     ```
 
-- By default, ASP.NET Core uses the [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) logging provider. For more information, see [ASP.NET Core logging in Azure](/aspnet/core/fundamentals/logging/). For information about WebJobs SDK logging, see [Get started with the Azure WebJobs SDK](./webjobs-sdk-get-started.md#enable-console-logging)
+    By default, ASP.NET Core uses the [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) logging provider. For more information, see [ASP.NET Core logging in Azure](/aspnet/core/fundamentals/logging/). For information about WebJobs SDK logging, see [Get started with the Azure WebJobs SDK](./webjobs-sdk-get-started.md#enable-console-logging)
+- Python applications can use the [OpenCensus package](../azure-monitor/app/opencensus-python.md) to send logs to the application diagnostics log.
+
 
 ## Stream logs
 
-Before you stream logs in real time, enable the log type that you want. Any information written to files ending in .txt, .log, or .htm that are stored in the */LogFiles* directory (d:/home/logfiles) is streamed by App Service.
+Before you stream logs in real time, enable the log type that you want. Any information written to the console output or files ending in .txt, .log, or .htm that are stored in the */home/LogFiles* directory (D:\home\LogFiles) is streamed by App Service.
 
 > [!NOTE]
 > Some types of logging buffer write to the log file, which can result in out of order events in the stream. For example, an application log entry that occurs when a user visits a page may be displayed in the stream before the corresponding HTTP log entry for the page request.
@@ -195,7 +200,7 @@ The following table shows the supported log types and descriptions:
 | AppServiceEnvironmentPlatformLogs | Yes | N/A | Yes | Yes | App Service Environment: scaling, configuration changes, and status logs|
 | AppServiceAuditLogs | Yes | Yes | Yes | Yes | Login activity via FTP and Kudu |
 | AppServiceFileAuditLogs | Yes | Yes | TBA | TBA | File changes made to the site content; **only available for Premium tier and above** |
-| AppServiceAppLogs | ASP.NET & Tomcat <sup>1</sup> | ASP.NET & Tomcat <sup>1</sup> | Java SE & Tomcat Blessed Images <sup>2</sup> | Java SE & Tomcat Blessed Images <sup>2</sup> | Application logs |
+| AppServiceAppLogs | ASP.NET, .NET Core, & Tomcat <sup>1</sup> | ASP.NET & Tomcat <sup>1</sup> | .NET Core, Java, SE & Tomcat Blessed Images <sup>2</sup> | Java SE & Tomcat Blessed Images <sup>2</sup> | Application logs |
 | AppServiceIPSecAuditLogs  | Yes | Yes | Yes | Yes | Requests from IP Rules |
 | AppServicePlatformLogs  | TBA | Yes | Yes | Yes | Container operation logs |
 | AppServiceAntivirusScanAuditLogs <sup>3</sup> | Yes | Yes | Yes | Yes | [Anti-virus scan logs](https://azure.github.io/AppService/2020/12/09/AzMon-AppServiceAntivirusScanAuditLogs.html) using Microsoft Defender for Cloud; **only available for Premium tier** | 
@@ -206,8 +211,16 @@ The following table shows the supported log types and descriptions:
 
 <sup>3</sup> AppServiceAntivirusScanAuditLogs log type is still currently in Preview
 
+## Networking considerations
+
+If you secure your Azure Storage account by [only allowing selected networks](../storage/common/storage-network-security.md#change-the-default-network-access-rule), it can receive logs from App Service only if both of the following are true:
+
+- The Azure Storage account is in a different Azure region from the App Service app.
+- All outbound addresses of the App Service app are [added to the Storage account's firewall rules](../storage/common/storage-network-security.md#managing-ip-network-rules). To find the outbound addresses for your app, see [Find outbound IPs](overview-inbound-outbound-ips.md#find-outbound-ips).
+
 ## <a name="nextsteps"></a> Next steps
 * [Query logs with Azure Monitor](../azure-monitor/logs/log-query-overview.md)
 * [How to Monitor Azure App Service](web-sites-monitor.md)
 * [Troubleshooting Azure App Service in Visual Studio](troubleshoot-dotnet-visual-studio.md)
 * [Analyze app Logs in HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
+* [Tutorial: Run a load test to identify performance bottlenecks in a web app](../load-testing/tutorial-identify-bottlenecks-azure-portal.md)

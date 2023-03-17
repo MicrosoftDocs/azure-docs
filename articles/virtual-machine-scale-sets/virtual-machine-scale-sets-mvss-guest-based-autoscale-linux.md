@@ -6,15 +6,13 @@ ms.author: jushiman
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.subservice: autoscale
-ms.date: 04/26/2019
-ms.reviewer: avverma
+ms.date: 11/22/2022
+ms.reviewer: mimckitt
 ms.custom: avverma
 
 ---
 
 # Autoscale using guest metrics in a Linux scale set template
-
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Uniform scale sets
 
 There are two broad types of metrics in Azure that are gathered from VMs and scale sets: Host metrics and Guest metrics. At a high level, if you would like to use standard CPU, disk, and network metrics, then host metrics are a good fit. If, however, you need a larger selection of metrics, then guest metrics should be looked into.
 

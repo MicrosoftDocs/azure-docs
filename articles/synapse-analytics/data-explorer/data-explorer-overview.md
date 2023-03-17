@@ -6,7 +6,6 @@ ms.date: 11/02/2021
 author: shsagir
 ms.author: shsagir
 ms.reviewer: maraheja
-services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: data-explorer
 ms.custom: ignite-fall-2021
@@ -17,6 +16,11 @@ ms.custom: ignite-fall-2021
 Azure Synapse Data Explorer provides customers with an interactive query experience to unlock insights from log and telemetry data. To complement existing SQL and Apache Spark analytics runtime engines, the Data Explorer analytics runtime is optimized for efficient log analytics using powerful indexing technology to automatically index free-text and semi-structured data commonly found in telemetry data.
 
 :::image type="content" border="false" source="../media/overview-what-is/synapse-architecture.png" alt-text="Diagram showing the Azure Synapse architecture.":::
+
+To learn more, see the following video:
+
+>
+> [!VIDEO https://learn.microsoft.com/shows/data-exposed/azure-synapse-data-explorer-for-log--telemetry-management/player?WT.mc_id=dataexposed-c9-niner]
 
 ## What makes Azure Synapse Data Explorer unique?
 
@@ -60,7 +64,7 @@ The implementation of the index depends on the type of the field, as follows:
 | Field type | Indexing implementation |
 | -- | -- |
 | **String** | The engine builds an inverted term index for string column values. Each string value is analyzed and split into normalized terms and an ordered list of logical positions, containing record ordinals, is recorded for each term. The resulting sorted list of terms and their associated positions is stored as an immutable B-tree. |
-| **Numeric**<br />**DateIime**<br />**TimeSpan** | The engine builds a simple range-based forward index. The index records the min/max values for each block, for a group of blocks and for the entire column within the data shard. |
+| **Numeric**<br />**DateTime**<br />**TimeSpan** | The engine builds a simple range-based forward index. The index records the min/max values for each block, for a group of blocks and for the entire column within the data shard. |
 | **Dynamic** | The ingestion process enumerates all "atomic" elements within the dynamic value, such as property names, values, and array elements, and forwards them to the index builder. Dynamic fields have the same inverted term index as string fields. |
 
 These efficient indexing capabilities enables Data Explore to make the data available in near-real-time for high-performance and high-concurrency queries. The system automatically optimizes data shards to further boost performance.

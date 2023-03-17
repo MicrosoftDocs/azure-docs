@@ -1,17 +1,20 @@
 ---
 title: Use the Azure Maps indoor maps module to develop iOS applications with Microsoft Creator services
 description: Learn how to use the Microsoft Azure Maps indoor maps module for the iOS SDK to render maps by embedding the module's JavaScript libraries.
-author: stevemunk
-ms.author: v-munksteve
-ms.date: 11/18/2021
+author: eriklindeman
+ms.author: eriklind
+ms.date: 12/10/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 ---
 
-# Using indoor maps in the iOS SDK
+# Indoor maps in the iOS SDK (Preview)
 
 The Azure Maps iOS SDK allows you to render indoor maps created in Azure Maps Creator services.
+
+> [!NOTE]
+> The iOS SDK will support *dynamic styling* in a future release, coming soon!
 
 ## Prerequisites
 

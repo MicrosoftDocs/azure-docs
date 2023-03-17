@@ -3,10 +3,10 @@ title: Azure virtual machine sizes for field-programmable gate arrays (FPGA)
 description: Lists the different FPGA optimized sizes available for virtual machines in Azure. Lists information about the number of vCPUs, data disks and NICs as well as storage throughput and network bandwidth for sizes in this series.
 author: vikancha-MSFT
 ms.service: virtual-machines
-ms.subservice: vm-sizes-fpga
+ms.subservice: sizes
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 02/03/2020
+ms.date: 02/27/2023
 ms.author: vikancha
 ---
 

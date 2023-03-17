@@ -7,7 +7,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/15/2021
+ms.date: 03/11/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -24,7 +24,7 @@ This article uses a sample ASP.NET web application to illustrate how to add Azur
 
 OpenID Connect (OIDC) is an authentication protocol that's built on OAuth 2.0. You can use OIDC to securely sign users in to an application. This web app sample uses [Microsoft Identity Web](https://www.nuget.org/packages/Microsoft.Identity.Web). Microsoft Identity Web is a set of ASP.NET Core libraries that simplify adding authentication and authorization support to web apps. 
 
-The sign-in flow involves the following steps:
+The sign in flow involves the following steps:
 
 1. Users go to the web app and select **Sign-in**. 
 1. The app initiates an authentication request and redirects users to Azure AD B2C.
@@ -34,7 +34,7 @@ The sign-in flow involves the following steps:
 
 When the ID token is expired or the app session is invalidated, the app initiates a new authentication request and redirects users to Azure AD B2C. If the Azure AD B2C [SSO session](session-behavior.md) is active, Azure AD B2C issues an access token without prompting users to sign in again. If the Azure AD B2C session expires or becomes invalid, users are prompted to sign in again.
 
-### Sign-out
+### Sign out
 
 [!INCLUDE [active-directory-b2c-app-integration-sign-out-flow](../../includes/active-directory-b2c-app-integration-sign-out-flow.md)] 
 
@@ -44,14 +44,14 @@ A computer that's running either of the following:
 
 # [Visual Studio](#tab/visual-studio)
 
-* [Visual Studio 2019 16.8 or later](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019), with the ASP.NET and web development workload
-* [.NET 5.0 SDK](https://dotnet.microsoft.com/download/dotnet)
+* [Visual Studio 2022 17.0 or later](https://visualstudio.microsoft.com/downloads), with the ASP.NET and web development workload
+* [.NET 6.0 SDK](https://dotnet.microsoft.com/download/dotnet)
 
 # [Visual Studio Code](#tab/visual-studio-code)
 
 * [Visual Studio Code](https://code.visualstudio.com/download)
 * [C# for Visual Studio Code (latest version)](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
-* [.NET 5.0 SDK](https://dotnet.microsoft.com/download/dotnet)
+* [.NET 6.0 SDK](https://dotnet.microsoft.com/download/dotnet)
 
 ---
 
@@ -65,9 +65,7 @@ To enable your application to sign in with Azure AD B2C, register your app in th
 
 During app registration, you'll specify the *redirect URI*. The redirect URI is the endpoint to which users are redirected by Azure AD B2C after they authenticate with Azure AD B2C. The app registration process generates an *application ID*, also known as the *client ID*, that uniquely identifies your app. After your app is registered, Azure AD B2C uses both the application ID and the redirect URI to create authentication requests. 
 
-### Step 2.1: Register the app
-
-To create the web app registration, do the following:
+To create the web app registration, use the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
@@ -76,7 +74,8 @@ To create the web app registration, do the following:
 1. Select **App registrations**, and then select **New registration**.
 1. Under **Name**, enter a name for the application (for example, *webapp1*).
 1. Under **Supported account types**, select **Accounts in any identity provider or organizational directory (for authenticating users with user flows)**. 
-1. Under **Redirect URI**, select **Web** and then, in the URL box, enter `https://localhost:5001/signin-oidc`.
+1. Under **Redirect URI**, select **Web** and then, in the URL box, enter `https://localhost:44316/signin-oidc`.
+1. Under  **Authentication**, go to **Implicit grant and hybrid flows**, select the **ID tokens (used for implicit and hybrid flows)** checkbox.
 1. Under **Permissions**, select the **Grant admin consent to openid and offline access permissions** checkbox.
 1. Select **Register**.
 1. Select **Overview**.
@@ -84,14 +83,6 @@ To create the web app registration, do the following:
 
     ![Screenshot of the web app Overview page for recording your web application ID.](./media/configure-authentication-sample-web-app/get-azure-ad-b2c-app-id.png)  
 
-
-### Step 2.2: Enable ID tokens
-
-For web apps that request an ID token directly from Azure AD B2C, enable the implicit grant flow in the app registration.
-
-1. On the left pane, under **Manage**, select **Authentication**.
-1. Under **Implicit grant**, select the **ID tokens (used for implicit and hybrid flows)** and **Access tokens (used for implicit flows)** checkboxes.
-1. Select **Save**.
 
 ## Step 3: Get the web app sample
 
@@ -111,9 +102,9 @@ Under the project root folder, open the *appsettings.json* file. This file conta
 
 |Section  |Key  |Value  |
 |---------|---------|---------|
-|AzureAdB2C|Instance| The first part of your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name) (for example, `https://contoso.b2clogin.com`).|
-|AzureAdB2C|Domain| Your Azure AD B2C tenant full [tenant name](tenant-management.md#get-your-tenant-name) (for example, `contoso.onmicrosoft.com`).|
-|AzureAdB2C|ClientId| The web API application ID from [step 2](#step-2-register-a-web-application).|
+|AzureAdB2C|Instance| The first part of your Azure AD B2C [tenant name]( tenant-management-read-tenant-name.md#get-your-tenant-name) (for example, `https://contoso.b2clogin.com`).|
+|AzureAdB2C|Domain| Your Azure AD B2C tenant full [tenant name]( tenant-management-read-tenant-name.md#get-your-tenant-name) (for example, `contoso.onmicrosoft.com`).|
+|AzureAdB2C|ClientId| The Web App Application (client) ID from [step 2](#step-2-register-a-web-application).|
 |AzureAdB2C|SignUpSignInPolicyId|The user flows or custom policy you created in [step 1](#step-1-configure-your-user-flow).|
 
 Your final configuration file should look like the following JSON:
@@ -131,16 +122,16 @@ Your final configuration file should look like the following JSON:
 ## Step 5: Run the sample web app
 
 1. Build and run the project.
-1. Go to `https://localhost:5001`. 
+1. Go to `https://localhost:44316`. 
 1. Select **Sign Up/In**.
 
-    ![Screenshot of the "Sign Up/In" button on the project Welcome page.](./media/configure-authentication-sample-web-app/web-app-sign-in.png)
+    :::image type="content" source="./media/configure-authentication-sample-web-app/web-app-sign-in.png" alt-text="Screenshot of the  sign in and sign up button on the project Welcome page.":::
 
-1. Complete the sign-up or sign-in process.
+1. Complete the sign-up or sign in process.
 
 After successful authentication, you'll see your display name on the navigation bar. To view the claims that the Azure AD B2C token returns to your app, select **Claims**.
 
-![Screenshot of the web app token claims.](./media/configure-authentication-sample-web-app/web-app-token-claims.png)
+  :::image type="content" source="./media/configure-authentication-sample-web-app/web-app-token-claims.png" alt-text="Screenshot of the web app token claims.":::
 
 ## Deploy your application 
 

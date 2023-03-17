@@ -4,7 +4,7 @@ description: Learn how to use the voluntary migration tool to migrate your class
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.date: 02/14/2020
+ms.date: 2/23/2022
 ---
 # Use the voluntary migration tool to migrate your classic alert rules
 

@@ -7,7 +7,7 @@ author: yulin-li
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/29/2021
 ms.author: yulili
 ms.custom: references_regions
@@ -15,9 +15,6 @@ zone_pivot_groups: programming-languages-set-nineteen
 ---
 
 # Lower speech synthesis latency using Speech SDK
-
-> [!NOTE]
-> This article requires Speech SDK 1.17.0 or later.
 
 The synthesis latency is critical to your applications.
 In this article, we will introduce the best practices to lower the latency and bring the best performance to your end users.
@@ -317,8 +314,10 @@ Meanwhile, a compressed audio format helps to save the users' network bandwidth,
 
 We support many compressed formats including `opus`, `webm`, `mp3`, `silk`, and so on, see the full list in [SpeechSynthesisOutputFormat](/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace#speechsynthesisoutputformat).
 For example, the bitrate of `Riff24Khz16BitMonoPcm` format is 384 kbps, while `Audio24Khz48KBitRateMonoMp3` only costs 48 kbps.
-Our Speech SDK will automatically use a compressed format for transmission when a `pcm` output format is set and `GStreamer` is properly installed.
+Our Speech SDK will automatically use a compressed format for transmission when a `pcm` output format is set.
+For Linux and Windows, `GStreamer` is required to enable this feature.
 Refer [this instruction](how-to-use-codec-compressed-audio-input-streams.md) to install and configure `GStreamer` for Speech SDK.
+For Android, iOS and macOS, no extra configuration is needed starting version 1.20.
 
 ## Others tips
 
@@ -331,7 +330,6 @@ See [How to configure OpenSSL for Linux](how-to-configure-openssl-linux.md#certi
 ### Use latest Speech SDK
 
 We keep improving the Speech SDK's performance, so try to use the latest Speech SDK in your application.
-For example, we fixed a `TCP_NODELAY` setting issue in [1.16.0](releasenotes.md#speech-sdk-1160-2021-march-release), which reduced extra one route trip time.
 
 ## Load test guideline
 

@@ -1,10 +1,10 @@
 ---
-title: Delegate application management administrator permissions - Azure AD | Microsoft Docs
+title: Delegate application management administrator permissions
 description: Grant permissions for application access management in Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: daveba
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles

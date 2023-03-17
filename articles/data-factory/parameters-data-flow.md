@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 08/18/2022
 ---
 
 # Parameterizing mapping data flows
@@ -44,7 +44,7 @@ You can quickly add additional parameters by selecting **New parameter** and spe
 
 Once you've created a data flow with parameters, you can execute it from a pipeline with the Execute Data Flow Activity. After you add the activity to your pipeline canvas, you will be presented with the available data flow parameters in the activity's **Parameters** tab.
 
-When assigning parameter values, you can use either the [pipeline expression language](control-flow-expression-language-functions.md) or the [data flow expression language](data-flow-expression-functions.md) based on spark types. Each mapping data flow can have any combination of pipeline and data flow expression parameters.
+When assigning parameter values, you can use either the [pipeline expression language](control-flow-expression-language-functions.md) or the [data flow expression language](data-transformation-functions.md) based on spark types. Each mapping data flow can have any combination of pipeline and data flow expression parameters.
 
 :::image type="content" source="media/data-flow/parameter-assign.png" alt-text="Screenshot shows the Parameters tab with Data Flow expression selected for the value of myparam.":::
 
@@ -105,6 +105,9 @@ A common pattern is to pass in a column name as a parameter value. If the column
 For example, if you wanted to map a string column based upon a parameter `columnName`, you can add a derived column transformation equal to `toString(byName($columnName))`.
 
 :::image type="content" source="media/data-flow/parameterize-column-name.png" alt-text="Passing in a column name as a parameter":::
+
+> [!NOTE]
+> In data flow expressions, string interpolation (substituting variables inside of the string) is not supported. Instead, concatenate the expression into string values. For example, `'string part 1' + $variable + 'string part 2'`
 
 ## Next steps
 * [Execute data flow activity](control-flow-execute-data-flow-activity.md)

@@ -3,12 +3,12 @@ title: 'Azure AD Connect sync: Make a change to the default configuration'
 description: Walks you through how to make a change to the configuration in Azure AD Connect sync.
 services: active-directory
 author: billmath
-manager: daveba
+manager: amycolannino
 ms.assetid: 7b9df836-e8a5-4228-97da-2faec9238b31
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/30/2018
+ms.date: 01/26/2023
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -137,7 +137,7 @@ String attributes are indexable by default, and the maximum length is 448 charac
 The userPrincipalName attribute in Active Directory is not always known by the users and might not be suitable as the sign-in ID. With the Azure AD Connect sync installation wizard, you can choose a different attribute--for example, *mail*. But in some cases, the attribute must be calculated.
 
 For example, the company Contoso has two Azure AD directories, one for production and one for testing. They want the users in their test tenant to use another suffix in the sign-in ID:  
-`userPrincipalName` <- `Word([userPrincipalName],1,"@") & "@contosotest.com"`.
+`Word([userPrincipalName],1,"@") & "@contosotest.com"`.
 
 In this expression, take everything left of the first @-sign (Word) and concatenate with a fixed string.
 

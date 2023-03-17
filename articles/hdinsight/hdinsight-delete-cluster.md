@@ -4,7 +4,7 @@ description: Information on the various ways that you can delete an Azure HDInsi
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive, devx-track-azurecli
-ms.date: 11/29/2019
+ms.date: 08/26/2022
 ---
 
 # Delete an HDInsight cluster using your browser, PowerShell, or the Azure CLI

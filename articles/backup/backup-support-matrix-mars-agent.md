@@ -1,8 +1,11 @@
 ---
 title: Support matrix for the MARS agent
 description: This article summarizes Azure Backup support when you back up machines that are running the Microsoft Azure Recovery Services (MARS) agent.
-ms.date: 06/04/2021
+ms.date: 12/28/2022
 ms.topic: conceptual
+ms.custom: engagement-fy23
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Support matrix for backup with the Microsoft Azure Recovery Services (MARS) agent
@@ -61,7 +64,9 @@ The operating systems must be 64 bit and should be running the latest services p
 
 **Operating system** | **Files/folders** | **System state** | **Software/Module requirements**
 --- | --- | --- | ---
+Windows 11 (Enterprise, Pro, Home) | Yes | No |  Check the corresponding server version for software/module requirements
 Windows 10 (Enterprise, Pro, Home) | Yes | No |  Check the corresponding server version for software/module requirements
+Windows Server 2022 (Standard, Datacenter, Essentials) | Yes | Yes |  Check the corresponding server version for software/module requirements
 Windows 8.1 (Enterprise, Pro)| Yes |No | Check the corresponding server version for software/module requirements
 Windows 8 (Enterprise, Pro) | Yes | No | Check the corresponding server version for software/module requirements
 Windows Server 2016 (Standard, Datacenter, Essentials) | Yes | Yes | - .NET 4.5 <br> - Windows PowerShell <br> - Latest Compatible Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0

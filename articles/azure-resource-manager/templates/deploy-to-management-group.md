@@ -2,13 +2,16 @@
 title: Deploy resources to management group
 description: Describes how to deploy resources at the management group scope in an Azure Resource Manager template.
 ms.topic: conceptual
-ms.date: 11/22/2021
+ms.date: 01/19/2022
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Management group deployments with ARM templates
 
 As your organization matures, you can deploy an Azure Resource Manager template (ARM template) to create resources at the management group level. For example, you may need to define and assign [policies](../../governance/policy/overview.md) or [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) for a management group. With management group level templates, you can declaratively apply policies and assign roles at the management group level.
+
+> [!TIP]
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [management group deployments](../bicep/deploy-to-management-group.md).
 
 ## Supported resources
 
@@ -76,7 +79,7 @@ To deploy to a management group, use the management group deployment commands.
 
 # [Azure CLI](#tab/azure-cli)
 
-For Azure CLI, use [az deployment mg create](/cli/azure/deployment/mg#az_deployment_mg_create):
+For Azure CLI, use [az deployment mg create](/cli/azure/deployment/mg#az-deployment-mg-create):
 
 ```azurecli-interactive
 az deployment mg create \

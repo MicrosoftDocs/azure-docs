@@ -1,11 +1,11 @@
 ---
-title: Standalone micro agent overview (Preview)
+title: Standalone micro agent overview 
 description: The Microsoft Defender for IoT security agents allow you to build security directly into your new IoT devices and Azure IoT projects.
-ms.date: 11/09/2021
-ms.topic: article
+ms.date: 01/12/2023
+ms.topic: conceptual
 ---
 
-# Standalone micro agent overview (Preview)
+# Standalone micro agent overview
 
 Security is a near-universal concern for IoT implementers. IoT devices have unique needs for endpoint monitoring, security posture management, and threat detection – all with highly specific performance requirements.
 
@@ -35,23 +35,6 @@ The Microsoft Defender for IoT micro agent is easy to deploy, and has minimal pe
 
 - **Flexible deployment**: As a standalone agent, The Microsoft Defender for IoT micro agent supports different distribution models and flexible deployment.
 
-## Data processing and residency
-
-> [!NOTE]
-> Microsoft Defender for IoT data processing and residency may take place in a region that is different than the IoT Hub region. Defender for IoT is using device twin, unmasked IP, and additional configuration data as part of its security detection logic.
-
-Defender for IoT data processing, and residency can occur in regions that are different than the IoT Hub's region. The mapping between the IoT Hub, and Defender for IoT regions is as follows:
-
-- For a Hub located in Europe, the data is stored in the *West Europe* region.
-
-- For a Hub located outside Europe, the data is stored in the *East US* region.
-
-Defender for IoT, uses the device twin, unmasked IP addresses, and additional configuration data as part of its security detection logic by default. To disable the device twin, and unmask the IP address collection, navigate to the data collection's settings page.
-
-:::image type="content" source="media/data-collection-settings.png" alt-text="Screenshot of the data collections setting page.":::
-
-For additional details, see how to [customize your Defender for IoT solution](concept-micro-agent-configuration.md).
-
 ## Next steps
 
-Check your [Micro agent authentication methods (Preview)](concept-security-agent-authentication.md).
+Check your [Micro agent authentication methods](concept-security-agent-authentication.md).

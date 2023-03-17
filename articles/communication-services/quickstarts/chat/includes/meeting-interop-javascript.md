@@ -3,9 +3,8 @@ title: Quickstart - Join a Teams meeting
 author: askaur
 ms.author: askaur
 ms.date: 06/30/2021
-ms.topic: quickstart
+ms.topic: include
 ms.service: azure-communication-services
-ms.custom: mode-other
 ---
 
 In this quickstart, you'll learn how to chat in a Teams meeting using the Azure Communication Services Chat SDK for JavaScript.

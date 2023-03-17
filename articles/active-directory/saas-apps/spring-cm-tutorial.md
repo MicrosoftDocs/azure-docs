@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with SpringCM | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with SpringCM'
 description: Learn how to configure single sign-on between Azure Active Directory and SpringCM.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/24/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with SpringCM
@@ -47,6 +47,8 @@ To configure the integration of SpringCM into Azure AD, you need to add SpringCM
 1. In the **Add from the gallery** section, type **SpringCM** in the search box.
 1. Select **SpringCM** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for SpringCM
 
 Configure and test Azure AD SSO with SpringCM using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in SpringCM.
@@ -76,7 +78,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://na11.springcm.com/atlas/SSO/SSOEndpoint.ashx?aid=<IDENTIFIER>`
 
     > [!NOTE]
-    > The value is not real. Update the value with the actual Sign-On URL. Contact [SpringCM Client support team](https://knowledge.springcm.com/support) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > The value is not real. Update the value with the actual Sign-On URL. Contact [SpringCM Client support team](https://support.docusign.com/s/) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Raw)** from the given options as per your requirement and save it on your computer.
 
@@ -137,7 +139,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 To enable Azure Active Directory users to sign in to SpringCM, they must be provisioned into SpringCM. In the case of SpringCM, provisioning is a manual task.
 
 > [!NOTE]
-> For more information, see [Create and Edit a SpringCM User](http://community.springcm.com/s/article/Create-and-Edit-a-SpringCM-User-1619481053). 
+> For more information, see [Create and Edit a SpringCM User](https://support.docusign.com/s/document-item?language=en_US&bundleId=fsk1642969066834&topicId=ynn1576609925288.html&_LANG=enus). 
 
 **To provision a user account to SpringCM, perform the following steps:**
 

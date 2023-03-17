@@ -4,16 +4,16 @@ titleSuffix: Azure Cognitive Search
 description: Reference for the full Lucene query syntax, as used in Azure Cognitive Search for wildcard, fuzzy search, RegEx, and other advanced query constructs.
 
 manager: nitinme
-author: brjohnstmsft
-ms.author: brjohnst
+author: bevloh
+ms.author: beloh
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/08/2021
+ms.date: 04/04/2022
 ---
 
 # Lucene query syntax in Azure Cognitive Search
 
-When creating queries, you can opt for the [Lucene Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) syntax for specialized query forms: wildcard, fuzzy search, proximity search, regular expressions. Much of the Lucene Query Parser syntax is [implemented intact in Azure Cognitive Search](search-lucene-query-architecture.md), with the exception of *range searches* which are constructed through **`$filter`** expressions. 
+When creating queries in Azure Cognitive Search, you can opt for the full [Lucene Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) syntax for specialized query forms: wildcard, fuzzy search, proximity search, regular expressions. Much of the Lucene Query Parser syntax is [implemented intact in Azure Cognitive Search](search-lucene-query-architecture.md), except for *range searches, which are constructed through **`$filter`** expressions. 
 
 To use full Lucene syntax, you'll set the queryType to "full" and pass in a query expression patterned for wildcard, fuzzy search, or one of the other query forms supported by the full syntax. In REST, query expressions are provided in the **`search`** parameter of a [Search Documents (REST API)](/rest/api/searchservice/search-documents) request.
 
@@ -32,7 +32,7 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 
 While not specific to any query type, the **`searchMode`** parameter is relevant in this example. Whenever operators are on the query, you should generally set `searchMode=all` to ensure that *all* of the criteria is matched.  
 
-For additional examples, see [Lucene query syntax examples](search-query-lucene-examples.md). For details about the query request and parameters, including searchMode, see [Search Documents (REST API)](/rest/api/searchservice/Search-Documents).
+For more examples, see [Lucene query syntax examples](search-query-lucene-examples.md). For details about the query request and parameters, including searchMode, see [Search Documents (REST API)](/rest/api/searchservice/Search-Documents).
 
 ## <a name="bkmk_syntax"></a> Syntax fundamentals  
 
@@ -44,7 +44,7 @@ Placement determines whether a symbol is interpreted as an operator or just anot
 
 For example, in Lucene full syntax, the tilde (~) is used for both fuzzy search and proximity search. When placed after a quoted phrase, ~ invokes proximity search. When placed at the end of a term, ~ invokes fuzzy search.
 
-Within a term, such as "business~analyst", the character is not evaluated as an operator. In this case, assuming the query is a term or phrase query, [full text search](search-lucene-query-architecture.md) with [lexical analysis](search-lucene-query-architecture.md#stage-2-lexical-analysis) strips out the ~ and breaks the term "business~analyst" in two: business OR analyst.
+Within a term, such as "business~analyst", the character isn't evaluated as an operator. In this case, assuming the query is a term or phrase query, [full text search](search-lucene-query-architecture.md) with [lexical analysis](search-lucene-query-architecture.md#stage-2-lexical-analysis) strips out the ~ and breaks the term "business~analyst" in two: business OR analyst.
 
 The example above is the tilde (~), but the same principle applies to every operator.
 
@@ -60,7 +60,7 @@ Special characters that require escaping include the following:
 
 ### Encoding unsafe and reserved characters in URLs
 
-Please ensure all unsafe and reserved characters are encoded in a URL. For example, '#' is an unsafe character because it is a fragment/anchor identifier in a URL. The character must be encoded to `%23` if used in a URL. '&' and '=' are examples of reserved characters as they delimit parameters and specify values in Azure Cognitive Search. Please see [RFC1738: Uniform Resource Locators (URL)](https://www.ietf.org/rfc/rfc1738.txt) for more details.
+Ensure all unsafe and reserved characters are encoded in a URL. For example, '#' is an unsafe character because it's a fragment/anchor identifier in a URL. The character must be encoded to `%23` if used in a URL. '&' and '=' are examples of reserved characters as they delimit parameters and specify values in Azure Cognitive Search. See [RFC1738: Uniform Resource Locators (URL)](https://www.ietf.org/rfc/rfc1738.txt) for more details.
 
 Unsafe characters are ``" ` < > # % { } | \ ^ ~ [ ]``. Reserved characters are `; / ? : @ = + &`.
 
@@ -70,9 +70,11 @@ You can embed Boolean operators in a query string to improve the precision of a 
 
 |Text operator | Character | Example | Usage |
 |--------------|----------- |--------|-------|
-| AND | `&`, `+` | `wifi + luxury` | Specifies terms that a match must contain. In the example, the query engine will look for documents containing both `wifi` and `luxury`. The plus character (`+`) is used for required terms. For example, `+wifi +luxury` stipulates that both terms must appear somewhere in the field of a single document.|
-| OR | `|` | `wifi | luxury` | Finds a match when either term is found. In the example, the query engine will return match on documents containing either `wifi` or `luxury` or both. Because OR is the default conjunction operator, you could also leave it out, such that `wifi luxury` is the equivalent of  `wifi | luxury`.|
-| NOT | `!`, `-` | `wifi –luxury` | Returns matches on documents that exclude the term. For example, `wifi –luxury` will search for documents that have the `wifi` term but not `luxury`. <br/><br/>The `searchMode` parameter on a query request controls whether a term with the NOT operator is ANDed or ORed with other terms in the query (assuming there is no `+` or `|` operator on the other terms). Valid values include `any` or `all`.  <br/><br/>`searchMode=any` increases the recall of queries by including more results, and by default `-` will be interpreted as "OR NOT". For example, `wifi -luxury` will match documents that either contain the term `wifi` or those that do not contain the term `luxury`.  <br/><br/>`searchMode=all` increases the precision of queries by including fewer results, and by default - will be interpreted as "AND NOT". For example, `wifi -luxury` will match documents that contain the term `wifi` and do not contain the term "luxury". This is arguably a more intuitive behavior for the `-` operator. Therefore, you should consider using `searchMode=all` instead of `searchMode=any` if you want to optimize searches for precision instead of recall, *and* Your users frequently use the `-` operator in searches.<br/><br/>When deciding on a `searchMode` setting, consider the user interaction patterns for queries in various applications. Users who are searching for information are more likely to include an operator in a query, as opposed to e-commerce sites that have more built-in navigation structures. |
+| AND | `+` | `wifi AND luxury` | Specifies terms that a match must contain. In the example, the query engine will look for documents containing both `wifi` and `luxury`. The plus character (`+`) can also be used directly in front of a term to make it required. For example, `+wifi +luxury` stipulates that both terms must appear somewhere in the field of a single document.|
+| OR | (none) <sup>1</sup> | `wifi OR luxury` | Finds a match when either term is found. In the example, the query engine will return match on documents containing either `wifi` or `luxury` or both. Because OR is the default conjunction operator, you could also leave it out, such that `wifi luxury` is the equivalent of  `wifi OR luxury`.|
+| NOT | `!`, `-` | `wifi –luxury` | Returns matches on documents that exclude the term. For example, `wifi –luxury` will search for documents that have the `wifi` term but not `luxury`. </p>It's important to note that the NOT operator (`NOT`, `!`, or `-`) behaves differently in full syntax than it does in simple syntax. In full syntax, negations will always be ANDed onto the query such that `wifi -luxury` is interpreted as "wifi AND NOT luxury" regardless of if the `searchMode` parameter is set to `any` or `all`. This gives you a more intuitive behavior for negations by default. </p>A single negation such as the query `-luxury` isn't allowed in full search syntax and will always return an empty result set.|
+
+<sup>1</sup> The `|` character isn't supported for OR operations.
 
 ##  <a name="bkmk_fields"></a> Fielded search
 
@@ -99,22 +101,24 @@ Fuzzy search can only be applied to terms, not phrases, but you can append the t
  
 ##  <a name="bkmk_proximity"></a> Proximity search
 
-Proximity searches are used to find terms that are near each other in a document. Insert a tilde "~" symbol at the end of a phrase followed by the number of words that create the proximity boundary. For example, `"hotel airport"~5` will find the terms "hotel" and "airport" within 5 words of each other in a document.  
+Proximity searches are used to find terms that are near each other in a document. Insert a tilde "~" symbol at the end of a phrase followed by the number of words that create the proximity boundary. For example, `"hotel airport"~5` will find the terms "hotel" and "airport" within five words of each other in a document.  
 
 ##  <a name="bkmk_termboost"></a> Term boosting
 
-Term boosting refers to ranking a document higher if it contains the boosted term, relative to documents that do not contain the term. This differs from scoring profiles in that scoring profiles boost certain fields, rather than specific terms.  
+Term boosting refers to ranking a document higher if it contains the boosted term, relative to documents that don't contain the term. This differs from scoring profiles in that scoring profiles boost certain fields, rather than specific terms.  
 
 The following example helps illustrate the differences. Suppose that there's a scoring profile that boosts matches in a certain field, say *genre* in the  [musicstoreindex example](index-add-scoring-profiles.md#bkmk_ex). Term boosting could be used to further boost certain search terms higher than others. For example, `rock^2 electronic` will boost documents that contain the search terms in the genre field higher than other searchable fields in the index. Further, documents that contain the search term *rock* will be ranked higher than the other search term *electronic* as a result of the term boost value (2).  
 
- To boost a term use the caret, "^", symbol with a boost factor (a number) at the end of the term you are searching. You can also boost phrases. The higher the boost factor, the more relevant the term will be relative to other search terms. By default, the boost factor is 1. Although the boost factor must be positive, it can be less than 1 (for example, 0.20).  
+ To boost a term, use the caret, "^", symbol with a boost factor (a number) at the end of the term you're searching. You can also boost phrases. The higher the boost factor, the more relevant the term will be relative to other search terms. By default, the boost factor is 1. Although the boost factor must be positive, it can be less than 1 (for example, 0.20).  
 
 ##  <a name="bkmk_regex"></a> Regular expression search  
  A regular expression search finds a match based on patterns that are valid under Apache Lucene, as documented in the [RegExp class](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/util/automaton/RegExp.html). In Azure Cognitive Search, a regular expression is enclosed between forward slashes `/`.
 
  For example, to find documents containing "motel" or "hotel", specify `/[mh]otel/`. Regular expression searches are matched against single words.
 
-Some tools and languages impose additional escape character requirements. For JSON, strings that include a forward slash are escaped with a backward slash: "microsoft.com/azure/" becomes `search=/.*microsoft.com\/azure\/.*/` where `search=/.* <string-placeholder>.*/` sets up the regular expression, and `microsoft.com\/azure\/` is the string with an escaped forward slash.
+Some tools and languages impose other escape character requirements. For JSON, strings that include a forward slash are escaped with a backward slash: "microsoft.com/azure/" becomes `search=/.*microsoft.com\/azure\/.*/` where `search=/.* <string-placeholder>.*/` sets up the regular expression, and `microsoft.com\/azure\/` is the string with an escaped forward slash.
+
+Two common symbols in regex queries are `.` and `*`. A `.` matches any one character and a `*` matches the previous character zero or more times.  For example, `/be./` will match the terms "bee" and "bet" while `/be*/` would match "be", "bee", and "beee" but not "bet". Together, `.*` allow you to match any series of characters so `/be.*/` would match any term that starts with "be" such as "better".
 
 ##  <a name="bkmk_wildcard"></a> Wildcard search
 
@@ -125,34 +129,34 @@ Note the Lucene query parser supports the use of these symbols with a single ter
 | Affix type | Description and examples |
 |------------|--------------------------|
 | prefix | Term fragment comes before `*` or `?`.  For example, a query expression of `search=alpha*` returns "alphanumeric" or "alphabetical". Prefix matching is supported in both simple and full syntax. |
-| suffix | Term fragment comes after  `*` or `?`, with a forward slash to delimit the construct. For example, `search=/.*numeric./` returns  "alphanumeric". |
-| infix  | Term fragments enclose `*` or `?`.  For example, `search=/.non*al./`returns "nonnumerical" and "nonsensical". |
+| suffix | Term fragment comes after  `*` or `?`, with a forward slash to delimit the construct. For example, `search=/.*numeric/` returns  "alphanumeric". |
+| infix  | Term fragments enclose `*` or `?`.  For example, `search=non*al` returns "nonnumerical" and "nonsensical". |
 
 You can combine operators in one expression. For example, `980?2*` matches on "98072-1222" and "98052-1234", where `?` matches on a single (required) character, and `*` matches on characters of an arbitrary length that follow.
 
-Suffix and infix matching requires the regular expression forward slash `/` delimiters. Generally, when writing code, you cannot use a * or ? symbol as the first character of a term, or within a term, without the `/`. In certain tools, such as Postman or Azure portal, escaping is built-in and you can often execute a query without the delimiter.
+Suffix matching requires the regular expression forward slash `/` delimiters. Generally, you can’t use a `*` or `?` symbol as the first character of a term, without the `/`. It's also important to note that the `*` will behave differently when used outside of regex queries. Outside or the regex forward slash `/` delimiters, the `*` is a wildcard character and will match any series of characters much like `.*` in regex. As an example, `search=/non.*al/` will produce the same result set as `search=non*al`.
 
 > [!NOTE]  
-> As a rule, pattern matching is slow so you might want to explore alternative methods, such as edge n-gram tokenization that creates tokens for sequences of characters in a term. With n-gram tokenization, the index will be larger, but queries might execute faster, depending on the pattern construction and the length of strings you are indexing.
+> As a rule, pattern matching is slow so you might want to explore alternative methods, such as edge n-gram tokenization that creates tokens for sequences of characters in a term. With n-gram tokenization, the index will be larger, but queries might execute faster, depending on the pattern construction and the length of strings you are indexing. For more information, see [Partial term search and patterns with special characters](search-query-partial-matching.md#tune-query-performance).
 >
 
 ### Impact of an analyzer on wildcard queries
 
-During query parsing, queries that are formulated as prefix, suffix, wildcard, or regular expressions are passed as-is to the query tree, bypassing [lexical analysis](search-lucene-query-architecture.md#stage-2-lexical-analysis). Matches will only be found if the index contains the strings in the format your query specifies. In most cases, you will need an analyzer during indexing that preserves string integrity so that partial term and pattern matching succeeds. For more information, see [Partial term search in Azure Cognitive Search queries](search-query-partial-matching.md).
+During query parsing, queries that are formulated as prefix, suffix, wildcard, or regular expressions are passed as-is to the query tree, bypassing [lexical analysis](search-lucene-query-architecture.md#stage-2-lexical-analysis). Matches will only be found if the index contains the strings in the format your query specifies. In most cases, you'll need an analyzer during indexing that preserves string integrity so that partial term and pattern matching succeeds. For more information, see [Partial term search in Azure Cognitive Search queries](search-query-partial-matching.md).
 
 Consider a situation where you may want the search query 'terminat*' to return results that contain terms such as 'terminate', 'termination' and 'terminates'.
 
-If you were to use the en.lucene (English Lucene) analyzer, it would apply aggressive stemming of each term. For example, 'terminate', 'termination', 'terminates' will all be tokenized down to the token 'termi' in your index. On the other side, terms in queries using wildcards or fuzzy search are not analyzed at all., so there would be no results that would match the 'terminat*' query.
+If you were to use the en.lucene (English Lucene) analyzer, it would apply aggressive stemming of each term. For example, 'terminate', 'termination', 'terminates' will all be tokenized down to the token 'termi' in your index. On the other side, terms in queries using wildcards or fuzzy search aren't analyzed at all., so there would be no results that would match the 'terminat*' query.
 
 On the other side, the Microsoft analyzers (in this case, the en.microsoft analyzer) are a bit more advanced and use lemmatization instead of stemming. This means that all generated tokens should be valid English words. For example, 'terminate', 'terminates' and 'termination' will mostly stay whole in the index, and would be a preferable choice for scenarios that depend a lot on wildcards and fuzzy search.
 
 ## Scoring wildcard and regex queries
 
-Azure Cognitive Search uses frequency-based scoring ([TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)) for text queries. However, for wildcard and regex queries where scope of terms can potentially be broad, the frequency factor is ignored to prevent the ranking from biasing towards matches from rarer terms. All matches are treated equally for wildcard and regex searches.
+Azure Cognitive Search uses frequency-based scoring ([BM25](https://en.wikipedia.org/wiki/Okapi_BM25)) for text queries. However, for wildcard and regex queries where scope of terms can potentially be broad, the frequency factor is ignored to prevent the ranking from biasing towards matches from rarer terms. All matches are treated equally for wildcard and regex searches.
 
 ## Special characters
 
-In some circumstances, you may want to search for a special character, like an '❤' emoji or the '€' sign. In such cases, make sure that the analyzer you use does not filter those characters out. The standard analyzer bypasses many special characters, excluding them from your index.
+In some circumstances, you may want to search for a special character, like an '❤' emoji or the '€' sign. In such cases, make sure that the analyzer you use doesn't filter those characters out. The standard analyzer bypasses many special characters, excluding them from your index.
 
 Analyzers that will tokenize special characters include the "whitespace" analyzer, which takes into consideration any character sequences separated by whitespaces as tokens (so the "❤" string would be considered a token). Also, a language analyzer like the Microsoft English analyzer ("en.microsoft"), would take the "€" string as a token. You can [test an analyzer](/rest/api/searchservice/test-analyzer) to see what tokens it generates for a given query.
 
@@ -166,7 +170,9 @@ Field grouping is similar but scopes the grouping to a single field. For example
 
 ## Query size limits
 
-There is a limit to the size of queries that you can send to Azure Cognitive Search. Specifically, you can have at most 1024 clauses (expressions separated by AND, OR, and so on). There is also a limit of approximately 32 KB on the size of any individual term in a query. If your application generates search queries programmatically, we recommend designing it in such a way that it does not generate queries of unbounded size.  
+Azure Cognitive Search imposes limits on query size and composition because unbounded queries can destabilize your search service. There are limits on query size and composition (the number of clauses). Limits also exist for the length of prefix search and for the complexity of regex search and wildcard search. If your application generates search queries programmatically, we recommend designing it in such a way that it doesn't generate queries of unbounded size.
+
+For more information on query limits, see [API request limits](search-limits-quotas-capacity.md#api-request-limits).
 
 ## See also
 

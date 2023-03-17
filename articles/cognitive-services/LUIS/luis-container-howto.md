@@ -8,13 +8,16 @@ manager: nitinme
 ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
-ms.date: 10/14/2021
+ms.topic: how-to
+ms.date: 01/18/2023
 ms.author: aahi
 keywords: on-premises, Docker, container
 ---
 
 # Install and run Docker containers for LUIS
+
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
 
 [!INCLUDE [container image location note](../containers/includes/image-location-note.md)]
 
@@ -35,7 +38,7 @@ To run the LUIS container, note the following prerequisites:
 * [Docker](https://docs.docker.com/) installed on a host computer. Docker must be configured to allow the containers to connect with and send billing data to Azure. 
     * On Windows, Docker must also be configured to support Linux containers.
     * You should have a basic understanding of [Docker concepts](https://docs.docker.com/get-started/overview/). 
-* A <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne"  title="Create a LUIS resource"  target="_blank">LUIS resource </a> with the free (F0) or standard (S) [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/).
+* A <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne"  title="Create a LUIS resource"  target="_blank">LUIS resource </a> with the free (F0) or standard (S) [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/).
 * A trained or published app packaged as a mounted input to the container with its associated App ID. You can get the packaged file from the LUIS portal or the Authoring APIs. If you are getting LUIS packaged app from the [authoring APIs](#authoring-apis-for-package-file), you will also need your _Authoring Key_.
 
 [!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
@@ -80,6 +83,10 @@ The below table lists minimum and recommended values for the container host. You
 Core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
 
 ## Get the container image with `docker pull`
+
+The LUIS container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/language` repository and is named `luis`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/language/luis`.
+
+To use the latest version of the container, you can use the `latest` tag. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/product/azure-cognitive-services/language/luis/tags).
 
 Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from the `mcr.microsoft.com/azure-cognitive-services/language/luis` repository:
 
@@ -211,7 +218,7 @@ To download the versioned package, refer to the [API documentation here][downloa
 
 ## Run the container with `docker run`
 
-Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run the container. Refer to [gathering required parameters](#gathering-required-parameters) for details on how to get the `{ENDPOINT_URI}` and `{API_KEY}` values.
+Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run the container. Refer to [gather required parameters](#gather-required-parameters) for details on how to get the `{ENDPOINT_URI}` and `{API_KEY}` values.
 
 [Examples](luis-container-configuration.md#example-docker-run-commands) of the `docker run` command are available.
 
@@ -262,8 +269,8 @@ Use the host, `http://localhost:5000`, for container APIs.
 
 |Package type|HTTP verb|Route|Query parameters|
 |--|--|--|--|
-|Published|GET, POST|`/luis/v3.0/apps/{appId}/slots/{slotName}/predict?`|`query={query}`<br>[`&verbose`]<br>[`&log`]<br>[`&show-all-intents`]|
-|Versioned|GET, POST|`/luis/v3.0/apps/{appId}/versions/{versionId}/predict?`|`query={query}`<br>[`&verbose`]<br>[`&log`]<br>[`&show-all-intents`]|
+|Published|GET, POST|`/luis/v3.0/apps/{appId}/slots/{slotName}/predict?` `/luis/prediction/v3.0/apps/{appId}/slots/{slotName}/predict?`|`query={query}`<br>[`&verbose`]<br>[`&log`]<br>[`&show-all-intents`]|
+|Versioned|GET, POST|`/luis/v3.0/apps/{appId}/versions/{versionId}/predict?` `/luis/prediction/v3.0/apps/{appId}/versions/{versionId}/predict`|`query={query}`<br>[`&verbose`]<br>[`&log`]<br>[`&show-all-intents`]|
 
 The query parameters configure how and what is returned in the query response:
 

@@ -15,6 +15,9 @@ ms.date: 04/08/2020
 
 # Export and delete your customer data in Language Understanding (LUIS) in Cognitive Services
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
+
 Delete customer data to ensure privacy and compliance.
 
 ## Summary of customer data request features​

@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 10/25/2022
 ms.author: yexu
 ---
 #  Fault tolerance of copy activity in Azure Data Factory and Synapse Analytics pipelines
@@ -28,6 +28,15 @@ The service supports the following fault tolerance scenarios when copying binary
 1. The files to be copied by the service are being deleted by other applications at the same time.
 2. Some particular folders or files do not allow the service access because ACLs of those files or folders require higher permission level than the configured connection information.
 3. One or more files are not verified to be consistent between source and destination store if you enable data consistency verification setting.
+
+## Enable fault tolerance with UI
+
+To configure fault tolerance in a Copy activity in a pipeline with UI, complete the following steps:
+
+1. If you did not create a Copy activity for your pipeline already, search for _Copy_ in the pipeline Activities pane, and drag a Copy Data activity to the pipeline canvas.
+1. Select the new Copy Data activity on the canvas if it is not already selected, and its  **Settings** tab, to configure fault tolerance.
+
+   :::image type="content" source="media/copy-activity-fault-tolerance/configure-fault-tolerance.png" alt-text="Shows the UI for a Copy Data activity on the Settings tab with the Fault Tolerance configuration highlighted.":::
 
 ### Configuration 
 When you copy binary files between storage stores, you can enable fault tolerance as followings: 

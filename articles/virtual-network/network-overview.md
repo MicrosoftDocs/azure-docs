@@ -7,7 +7,6 @@ ms.service: virtual-network
 ms.topic: conceptual
 ms.date: 08/17/2021
 ms.author: allensu
-
 ---
 
 # Virtual networks and virtual machines in Azure
@@ -105,7 +104,7 @@ This table lists the methods that you can use to create a virtual network and su
 
 ## Network security groups
 
-A [network security group (NSG)](../virtual-network/virtual-network-vnet-plan-design-arm.md) contains a list of Access Control List (ACL) rules that allow or deny network traffic to subnets, NICs, or both. NSGs can be associated with either subnets or individual NICs connected to a subnet. When an NSG is associated with a subnet, the ACL rules apply to all the VMs in that subnet. Traffic to an individual NIC can be restricted by associating an NSG directly to a NIC.
+A [network security group (NSG)](../virtual-network/network-security-groups-overview.md) contains a list of Access Control List (ACL) rules that allow or deny network traffic to subnets, NICs, or both. NSGs can be associated with either subnets or individual NICs connected to a subnet. When an NSG is associated with a subnet, the ACL rules apply to all the VMs in that subnet. Traffic to an individual NIC can be restricted by associating an NSG directly to a NIC.
 
 NSGs contain two sets of rules, inbound and outbound. The priority for a rule must be unique within each set. 
 
@@ -204,9 +203,9 @@ This table lists the methods that you can use to create a NAT gateway resource.
 
 | Method | Description |
 | ------ | ----------- |
-| [Azure portal](./nat-gateway/tutorial-create-nat-gateway-portal.md) | Creates a virtual network, subnet, public IP, NAT gateway, and a virtual machine to test the NAT gateway resource. |
-| [Azure PowerShell](./nat-gateway/tutorial-create-nat-gateway-powershell.md) | Includes the use of [New-AzNatGateway](/powershell/module/az.network/new-aznatgateway) to create a NAT gateway resource. Creates a virtual network, subnet, public IP, NAT gateway, and a virtual machine to test the NAT gateway resource. |
-| [Azure CLI](./nat-gateway/tutorial-create-nat-gateway-cli.md) | Includes the use of [az network nat gateway create](/cli/azure/network/nat#az_network_nat_gateway_create) to create a NAT gateway resource. Creates a virtual network, subnet, public IP, NAT gateway, and a virtual machine to test the NAT gateway resource. |
+| [Azure portal](./nat-gateway/quickstart-create-nat-gateway-portal.md) | Creates a virtual network, subnet, public IP, NAT gateway, and a virtual machine to test the NAT gateway resource. |
+| [Azure PowerShell](./nat-gateway/quickstart-create-nat-gateway-powershell.md) | Includes the use of [New-AzNatGateway](/powershell/module/az.network/new-aznatgateway) to create a NAT gateway resource. Creates a virtual network, subnet, public IP, NAT gateway, and a virtual machine to test the NAT gateway resource. |
+| [Azure CLI](./nat-gateway/quickstart-create-nat-gateway-cli.md) | Includes the use of [az network nat gateway create](/cli/azure/network/nat#az-network-nat-gateway-create) to create a NAT gateway resource. Creates a virtual network, subnet, public IP, NAT gateway, and a virtual machine to test the NAT gateway resource. |
 | [Template](./nat-gateway/quickstart-create-nat-gateway-template.md) | Creates a virtual network, subnet, public IP, and NAT gateway resource. |
 
 ## Azure Bastion 
@@ -221,15 +220,14 @@ This table lists the methods you can use to create an Azure Bastion deployment.
 | ------ | ----------- |
 | [Azure portal](../bastion/quickstart-host-portal.md) | Creates a virtual network, subnets, public IP, bastion host, and virtual machines. |
 | [Azure PowerShell](../bastion/bastion-create-host-powershell.md) | Creates a virtual network, subnets, public IP, and bastion host. Includes the use of [New-AzBastion](/powershell/module/az.network/new-azbastion) to create the bastion host. |
-| [Azure CLI](../bastion/create-host-cli.md) | Creates a virtual network, subnets, public IP, and bastion host. Includes the use of [az network bastion create](/cli/azure/network/bastion#az_network_bastion_create) to create the bastion host. |
+| [Azure CLI](../bastion/create-host-cli.md) | Creates a virtual network, subnets, public IP, and bastion host. Includes the use of [az network bastion create](/cli/azure/network/bastion#az-network-bastion-create) to create the bastion host. |
 | [Template](../virtual-network/template-samples.md) | For an example of a template deployment that integrates an Azure Bastion host with a sample deployment, see [Quickstart: Create a public load balancer to load balance VMs by using an ARM template](../load-balancer/quickstart-load-balancer-standard-public-template.md). |
 
 ## Next steps
 For VM-specific steps on how to manage Azure virtual networks for VMs, see the [Windows](../virtual-machines/windows/tutorial-virtual-network.md) or [Linux](../virtual-machines/linux/tutorial-virtual-network.md) tutorials.
 
-There are also tutorials on how to load balance VMs and create highly available applications for [Windows](../virtual-machines/windows/tutorial-load-balancer.md) or [Linux](../virtual-machines/linux/tutorial-load-balancer.md).
+There are also quickstarts on how to load balance VMs and create highly available applications using the [CLI](../load-balancer/quickstart-load-balancer-standard-public-cli.md) or [PowerShell](../load-balancer/quickstart-load-balancer-standard-public-powershell.md)
 
-- Learn how to configure [user-defined routes and IP forwarding](../virtual-network/virtual-networks-udr-overview.md).
 - Learn how to configure [VNet to VNet connections](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
 - Learn how to [Troubleshoot routes](../virtual-network/diagnose-network-routing-problem.md).
 - Learn more about [Virtual machine network bandwidth](../virtual-network/virtual-machine-network-throughput.md).

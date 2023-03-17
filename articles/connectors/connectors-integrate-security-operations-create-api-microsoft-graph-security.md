@@ -1,12 +1,12 @@
 ---
 title: Integrate and manage security operations & Microsoft Graph Security
-description: Improve your app's threat protection, detection, and response with Microsoft Graph Security & Azure Logic Apps
+description: Improve your app's threat protection, detection, and response with Microsoft Graph Security & Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: preetikr
-ms.reviewer: v-ching, estfan, logicappspm
-ms.topic: article
+ms.reviewer: v-ching, estfan, azla
+ms.topic: how-to
 ms.date: 02/21/2020
 tags: connectors
 ---
@@ -25,11 +25,11 @@ With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the [Microsoft
 
 Your logic app's workflow can use actions that get responses from the Microsoft Graph Security connector and make that output available to other actions in your workflow. You can also have other actions in your workflow use the output from the Microsoft Graph Security connector actions. For example, if you get high severity alerts through the Microsoft Graph Security connector, you can send those alerts in an email message by using the Outlook connector. 
 
-To learn more about Microsoft Graph Security, see the [Microsoft Graph Security API overview](/graph/security-concept-overview). If you're new to logic apps, review [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md). If you're looking for Power Automate or Power Apps, see [What is Power Automate?](https://flow.microsoft.com/) or [What is Power Apps?](https://powerapps.microsoft.com/)
+To learn more about Microsoft Graph Security, see the [Microsoft Graph Security API overview](/graph/security-concept-overview). If you're new to logic apps, review [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md). If you're looking for Power Automate or Power Apps, see [What is Power Automate?](https://make.powerautomate.com/) or [What is Power Apps?](https://powerapps.microsoft.com/)
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/). 
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * To use the Microsoft Graph Security connector, you must have *explicitly given* Azure Active Directory (AD) tenant administrator consent, which is part of the [Microsoft Graph Security Authentication requirements](/graph/security-authorization). This consent requires the Microsoft Graph Security connector's application ID and name, which you can also find in the [Azure portal](https://portal.azure.com):
 
@@ -45,7 +45,7 @@ To learn more about Microsoft Graph Security, see the [Microsoft Graph Security 
 
   * During your logic app's first run, your app can request consent from your Azure AD tenant administrator through the [application consent experience](../active-directory/develop/application-consent-experience.md).
    
-* Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Basic knowledge about how to create logic apps
 
 * The logic app where you want to access your Microsoft Graph Security entities, such as alerts. To use a Microsoft Graph Security trigger, you need a blank logic app. To use a Microsoft Graph Security action, you need a logic app that starts with the appropriate trigger for your scenario.
 
@@ -164,4 +164,5 @@ For technical details about triggers, actions, and limits, which are described b
 
 ## Next steps
 
-Learn about other [Logic Apps connectors](../connectors/apis-list.md)
+* [Managed connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
+* [Built-in connectors for Azure Logic Apps](built-in.md)

@@ -1,11 +1,11 @@
 ---
 title: Azure HPC Cache usage models
 description: Describes the different cache usage models and how to choose among them to set read-only or read/write caching and control other caching settings
-author: femila
+author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 07/12/2021
-ms.author: femila
+ms.date: 06/29/2022
+ms.author: rohogue
 ---
 <!-- filename is referenced from GUI in aka.ms/hpc-cache-usagemodel -->
 
@@ -74,13 +74,16 @@ This table summarizes the usage model differences:
 
 If you have questions about the best usage model for your Azure HPC Cache workflow, talk to your Azure representative or open a support request for help.
 
+> [!TIP]
+> A utility is available to write specific individual files back to a storage target without writing the entire cache contents. Learn more about the flush_file.py script in [Customize file write-back in Azure HPC Cache](custom-flush-script.md).
+
 ## Change usage models
 
 You can change usage models by editing the storage target, but some changes are not allowed because they create a small risk of file version conflict.
 
 You can't change **to** or **from** the model named **Read heavy, infrequent writes**. To change a storage target to this usage model, or to change it from this model to a different usage model, you have to delete the original storage target and create a new one.
 
-This restriction also applies to the usage model **Read heavy, checking the backing server every 3 hours**, which is less commonly used. Also, you can change between between the two "read heavy..." usage models, but not into or out of a different usage model style.
+This restriction also applies to the usage model **Read heavy, checking the backing server every 3 hours**, which is less commonly used. Also, you can change between the two "read heavy..." usage models, but not into or out of a different usage model style.
 
 This restriction is needed because of the way different usage models handle Network Lock Manager (NLM) requests. Azure HPC Cache sits between clients and the back-end storage system. Usually, the cache passes NLM requests through to the back-end storage system, but in some situations, the cache itself acknowledges the NLM request and returns a value to the client. In Azure HPC Cache, this only happens when you use the usage models **Read heavy, infrequent writes** or **Read heavy, checking the backing server every 3 hours**, or with a standard blob storage target, which doesn't have configurable usage models.
 

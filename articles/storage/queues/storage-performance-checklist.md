@@ -1,13 +1,15 @@
 ---
-title: Performance and scalability checklist for Queue Storage - Azure Storage
+title: Performance and scalability checklist for Queue Storage
+titleSuffix: Azure Storage
 description: A checklist of proven practices for use with Queue Storage in developing high-performance applications.
-author: tamram
+author: pauljewellmsft
 services: storage
-ms.author: tamram
+ms.author: pauljewell
 ms.date: 10/10/2019
 ms.topic: overview
 ms.service: storage
 ms.subservice: queues
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
@@ -17,7 +19,7 @@ ms.custom: devx-track-csharp
 
 Microsoft has developed a number of proven practices for developing high-performance applications with Queue Storage. This checklist identifies key practices that developers can follow to optimize performance. Keep these practices in mind while you are designing your application and throughout the process.
 
-Azure Storage has scalability and performance targets for capacity, transaction rate, and bandwidth. For more information about Azure Storage scalability targets, see [Scalability and performance targets for standard storage accounts](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) and [Scalability and performance targets for Queue Storage](scalability-targets.md).
+Azure Storage has scalability and performance targets for capacity, transaction rate, and bandwidth. For more information about Azure Storage scalability targets, see [Scalability and performance targets for standard storage accounts](../common/scalability-targets-standard-account.md?toc=/azure/storage/queues/toc.json) and [Scalability and performance targets for Queue Storage](scalability-targets.md).
 
 ## Checklist
 
@@ -192,5 +194,5 @@ Use queues to make your application architecture scalable. The following lists s
 ## Next steps
 
 - [Scalability and performance targets for Queue Storage](scalability-targets.md)
-- [Scalability and performance targets for standard storage accounts](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
+- [Scalability and performance targets for standard storage accounts](../common/scalability-targets-standard-account.md?toc=/azure/storage/queues/toc.json)
 - [Status and error codes](/rest/api/storageservices/Status-and-Error-Codes2)

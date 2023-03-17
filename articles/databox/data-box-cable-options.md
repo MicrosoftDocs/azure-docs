@@ -7,13 +7,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: how-to
-ms.date: 10/24/2018
+ms.date: 01/10/2023
 ms.author: alkohli
 ---
 
 # Cabling options for your Azure Data Box
 
-This article describes the various ways to cable your Azure Data Box for data transfer.
+This article describes the various ways to cable your Azure Data Box for data transfer. For a full list of supported cables, see the [list of supported cables and switches from Mellanox](https://network.nvidia.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf).
 
 ## Transfer via MGMT port
 

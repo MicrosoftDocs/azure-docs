@@ -1,18 +1,20 @@
 ---
-title: Transfer subscriptions under an Azure plan from one partner to another (Preview)
+title: Transfer subscriptions under an Azure plan from one partner to another
 description: This article helps you understand what you need to know before and after you transfer billing ownership of your Azure subscription.
 author: bandersmsft
 ms.reviewer: mcville
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 09/15/2021
+ms.date: 05/03/2022
 ms.author: banders
 ---
 
-# Transfer subscriptions under an Azure plan from one partner to another (Preview)
+# Transfer subscriptions under an Azure plan from one partner to another
 
-This article helps you understand what you need to know before and after you transfer billing ownership of your Azure subscription. To start an Azure subscription transfer that's under an Azure plan from one Microsoft partner to another, you need to contact your partner. The partner will send you instructions about how to begin. After the transfer process is complete, the billing ownership of your subscription is changed.
+This article helps customers of Microsoft partners to understand what they need to know before and after transferring billing ownership of an Azure subscription. To start an Azure subscription transfer that's under an Azure plan from one Microsoft partner to another, you need to contact your partner. The partner will send you instructions about how to begin. After the transfer process is complete, the billing ownership of your subscription is changed.
+
+The steps that a partner takes are documented at [Transfer a customer's Azure subscriptions and/or Reservations (under an Azure plan) to a different CSP](/partner-center/transfer-azure-subscriptions-under-azure-plan).
 
 ## User access
 
@@ -20,7 +22,7 @@ Access to existing users, groups, or service principals that were assigned using
 
 Consequently, it's important that you remove Azure RBAC access for the old partner and add access for the new partner. For more information about giving your new partner access, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md) For more information about removing your previous partner's Azure RBAC access, see [Remove Azure role assignments](../../role-based-access-control/role-assignments-remove.md).
 
-Additionally, your new partner doesn't automatically get [Admin on Behalf Of (AOBO)](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) access to your subscriptions. AOBO is necessary for your partner to manage the Azure subscriptions on your behalf. For more information about Azure privileges, see [Obtain permissions to manage a customer's service or subscription](/partner-center/customers-revoke-admin-privileges).
+Additionally, your new partner doesn't automatically get Admin on Behalf Of (AOBO) access to your subscriptions. AOBO is necessary for your partner to manage the Azure subscriptions on your behalf. For more information about Azure privileges, see [Obtain permissions to manage a customer's service or subscription](/partner-center/customers-revoke-admin-privileges).
 
 ## Stop a transfer
 

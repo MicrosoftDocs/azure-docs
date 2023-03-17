@@ -3,9 +3,9 @@ title: NV series migration guide
 description: NV series migration guide
 author: vikancha-MSFT
 ms.service: virtual-machines
-ms.subservice: vm-sizes-gpu
+ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 01/12/2020
+ms.date: 02/27/2023
 ms.author: vikancha
 ---
 # NV series migration guide

@@ -1,16 +1,16 @@
 ---
 title: Configure risk-based step-up consent
-titleSuffix: Azure AD
 description: Learn how to disable and enable risk-based step-up consent to reduce user exposure to malicious apps that make illicit consent requests.
 services: active-directory
-author: psignoret
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 11/17/2021
-ms.author: phsignor
+ms.author: jomondi
+ms.reviewer: phsignor
 ms.custom: contperf-fy21q2
 
 #customer intent: As an admin, I want to configure risk-based step-up consent.
@@ -23,7 +23,8 @@ For example, consent requests for newly registered multi-tenant apps that are no
 
 When a risky consent request is detected, the consent prompt displays a message that indicates that admin approval is needed. If the [admin consent request workflow](configure-admin-consent-workflow.md) is enabled, the user can send the request to an admin for further review directly from the consent prompt. If the admin consent request workflow isn't enabled, the following message is displayed:
 
-> "**AADSTS90094**: \<clientAppDisplayName> needs permission to access resources in your organization that only an admin can grant. Request an admin to grant permission to this app before you can use it."
+> **AADSTS90094**: \<clientAppDisplayName> needs permission to access resources in your organization that only an admin can grant. Request an admin to grant permission to this app before you can use it.
+
 In this case, an audit event is also logged with a category of "ApplicationManagement," an activity type of "Consent to application,"  and a status reason of "Risky application detected."
 
 ## Prerequisites

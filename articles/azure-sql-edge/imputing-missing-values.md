@@ -1,14 +1,16 @@
 ---
 title: Filling time gaps and imputing missing values - Azure SQL Edge
 description: Learn about filling time gaps and imputing missing values in Azure SQL Edge
-keywords: SQL Edge, timeseries
-services: sql-edge
+author: rwestMSFT
+ms.author: randolphwest
+ms.reviewer: randolphwest
+ms.date: 09/22/2020
 ms.service: sql-edge
 ms.topic: conceptual
-author: SQLSourabh
-ms.author: sourabha
-ms.reviewer: sstein
-ms.date: 09/22/2020
+keywords:
+  - SQL Edge
+  - timeseries
+services: sql-edge
 ---
 
 # Filling time gaps and imputing missing values

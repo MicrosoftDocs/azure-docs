@@ -3,9 +3,8 @@ title: Quickstart - Join a Teams meeting
 author: askaur
 ms.author: askaur
 ms.date: 06/30/2021
-ms.topic: quickstart
+ms.topic: include
 ms.service: azure-communication-services
-ms.custom: mode-other
 ---
 
 In this quickstart, you'll learn how to chat in a Teams meeting using the Azure Communication Services Chat SDK for iOS.
@@ -140,7 +139,7 @@ do {
 Replace `<COMMUNICATION_SERVICES_RESOURCE_ENDPOINT_HERE>` with the endpoint for your Communication Services resource.
 Replace `<USER_ACCESS_TOKEN_HERE>` with an access token that has Chat scope. 
 
-Read more about user access tokens: [User Access Token](../../access-tokens.md)
+Read more about user access tokens: [User Access Token](../../identity/access-tokens.md)
 
 ### Initialize the ChatThreadClient
 

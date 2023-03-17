@@ -12,7 +12,7 @@ zone_pivot_groups: acs-tollfree-shortcode
 # SMS Pricing 
 
 > [!IMPORTANT]
-> SMS messages can be sent to and received from United States phone numbers. Phone numbers located in other geographies are not yet supported by Communication Services SMS.
+> SMS messages can be sent to and received from United States and Canada phone numbers. Phone numbers located in other geographies are not yet supported by Communication Services SMS.
 
 ::: zone pivot="tollfree"
 [!INCLUDE [Toll-Free](./includes/sms-tollfree-pricing.md)]
@@ -30,7 +30,7 @@ In this quickstart, you learned how to send SMS messages using Azure Communicati
 > [Learn more about SMS](../concepts/sms/concepts.md)
 
 The following documents may be interesting to you:
-- Familiarize yourself with the [SMS SDK](../concepts/sms/sdk-features.md)
+- Familiarize yourself with one of the [SMS SDKs](../concepts/sms/sdk-features.md)
 - Get an SMS capable [phone number](../quickstarts/telephony/get-phone-number.md)
 - Get a [short code](../quickstarts/sms/apply-for-short-code.md)
 - [Phone number types in Azure Communication Services](../concepts/telephony/plan-solution.md)

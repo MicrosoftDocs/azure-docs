@@ -1,0 +1,75 @@
+### YamlMime:Hub
+
+title: Azure Native ISV Services
+summary: Use Azure Native ISV Services to seamlessly provision, manage, and integrate preferred third-party solutions on Azure.
+brand: azure
+
+metadata:
+  title: Azure Native ISV Services
+  description: Use Azure Native ISV Services to seamlessly provision, manage, and integrate preferred third-party solutions on Azure. 
+  author: flang-msft
+  ms.topic: hub-page
+  ms.date: 10/10/2022
+  ms.author: franlanglois
+
+highlightedContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+  items:
+    - title: What is Azure Native ISV Services?
+      itemType: overview
+      url: ./overview.md
+    - title: Find Azure Native ISV Services 
+      itemType: get-started
+      url: ./partners.md
+
+productDirectory:
+  title: Our partners
+  items:
+    # Card 1
+    - title: Elastic
+      imageSrc: ./media/index/elastic.svg
+      links:
+        - url: ./elastic/overview.md
+          text: Build modern search experiences and maximize visibility into the health, performance, and security of your infrastructure, applications, and data.
+    # Card 2
+    - title: Datadog 
+      imageSrc: ./media/index/datadog.svg
+      links:
+        - url: ./datadog/overview.md
+          text: Cloud-scale observability and security for your Azure, hybrid, or multi-cloud environment to troubleshoot quickly, increase uptime, and control costs.
+    # Card 3
+    - title: Logz.io
+      imageSrc: ./media/index/logz.io.svg
+      links:
+        - url: ./logzio/overview.md
+          text: Centralize log, metric, and tracing analytics in one observability platform.
+  # Card 4
+    - title: Dynatrace
+      imageSrc: ./media/index/dynatrace.svg
+      links:
+        - url: ./dynatrace/dynatrace-overview.md
+          text:  Get deep cloud observability, advanced AIOps, and continuous runtime application security.
+  # Card 5
+    - title: Confluent
+      imageSrc: ./media/index/confluent.svg
+      links:
+        - url: ./apache-kafka-confluent-cloud/overview.md
+          text: Deploy a fully managed, cloud-native Apache Kafka service.
+  # Card 6
+    - title: NGINX
+      imageSrc: ./media/index/nginx.svg
+      links:
+        - url: ./nginx/nginx-overview.md
+          text: Deliver secure, high-performance applications by using familiar and trusted load-balancing solutions.
+  # Card 7
+    - title: Qumulo Preview
+      imageSrc: ./media/index/qumulo.svg
+      links:
+        - url: ./qumulo/qumulo-overview.md
+          text: Use a multi-petabyte scale, single namespace, multi-protocol file data platform with the performance, security, and simplicity to meet the most demanding enterprise workloads.
+  # Card 8
+    - title: New Relic Preview
+      imageSrc: ./media/index/new-relic.svg
+      links:
+        - url: ./new-relic/new-relic-overview.md
+          text: Get end-to-end cloud observability to analyze and troubleshoot performance of applications, infrastructure, logs, real-user monitoring and more.

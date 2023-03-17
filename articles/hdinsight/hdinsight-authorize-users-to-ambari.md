@@ -4,7 +4,7 @@ description: 'How to manage Ambari user and group permissions for HDInsight clus
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 11/27/2019
+ms.date: 05/27/2022
 ---
 
 # Authorize users for Apache Ambari Views

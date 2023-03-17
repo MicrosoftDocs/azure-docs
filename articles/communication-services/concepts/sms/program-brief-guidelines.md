@@ -7,14 +7,12 @@ manager: shahen
 services: azure-communication-services
 
 ms.author: prakulka
-ms.date: 11/30/2021
+ms.date: 2/15/2022
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: sms
 ---
 # Short Code Program Brief Filling Guidelines
-[!INCLUDE [Short code eligibility notice](../../includes/public-preview-include.md)]
-
 [!INCLUDE [Short code eligibility notice](../../includes/public-preview-include-short-code-eligibility.md)]
 
 Azure Communication Services allows you to apply for a short code for SMS programs. In this document, we'll review the guidelines on how to fill out a program brief for short code registration. A program brief application consists of 4 sections:
@@ -68,26 +66,47 @@ This field captures the time duration in days until full production volume is re
 Short Code programs that solicit political donations are subject to [additional best practices](https://www.ctia.org/the-wireless-industry/industry-commitments/guidelines-for-federal-political-campaign-contributions-via-wireless-carriers-bill). 
 
 ### Privacy Policy and Terms and Conditions URL
-Message Senders are required to maintain a privacy policy and terms and conditions for all short code programs and make it accessible to customers from the initial call-to-action. 
+Message Senders are required to maintain a privacy policy and terms and conditions that are specific to all short code programs and make it accessible to customers from the initial call-to-action. 
 
-In this field, you can provide a URL of the privacy policy and terms and conditions where customers can access it. If you don’t have the privacy policy URL yet, you can provide the URL of screenshots of what the policy will look like (a design mockup of the website that will go live once the campaign is launched).
+In this field, you can provide a URL of the privacy policy and terms and conditions where customers can access it. If you don’t have the short code program specific privacy policy or terms of service URL yet, you can provide the URL of screenshots of what the short code program policies will look like (a design mockup of the website that will go live once the campaign is launched).
+
+Your terms of service must include terms specific to the short code program brief and must contain ALL of the following:
+- Program Name and Description
+- Message Frequency, it can be either listed as Message Frequency Varies or the accurate frequency, it also needs to match with what is listed in the call-to-action
+- The disclaimer: "Message and data rates may apply" written verbatim
+- Customer care information, for example: "For help call [phone number] or send an email to [email]"
+- Opt-Out message: "Text STOP to cancel"
+- A link to the Privacy Policy or the whole Privacy policy
+
+##### Example:
+**Terms of Service** 
+
+:::image type="content" source= "../media/short-code-terms.png" alt-text="Screenshot showing the terms of service mock up.":::
+
+Your terms of service must contain ALL of the following:
+- Program Name and Description
+- Message Frequency, it can be either listed as Message Frequency Varies or the accurate frequency, it also needs to match with what is listed in the CTA (Call-To-Action)
+- The disclaimer: "Message and data rates may apply" written verbatim
+- Customer care information, for example: "For help call [phone number] or send an email to [email]"
+- Opt-Out message: "Text STOP to cancel"
+- A link to the Privacy Policy or the whole Privacy policy. 
 
 > [!Note]
-> If you don’t have a URL of the website, mockups, or design, please send the screenshots to phone@microsoft.com.
+> If you don’t have a URL of the website, mockups, or design, please send an email with the screenshots to phone@microsoft.com with "[CompanyName - ProgramName] Short Code Request".
 
 ### Program Sign up type and URL 
-This field captures the call to action (CTA), an instruction for the customers to take action for ensuring that the customer consents to receive text messages, and understands the nature of the program. Call to action can be over SMS, Interactive Voice Response (IVR), website, or point of sale. Carriers require that all short code program brief applications are submitted with mock ups for the call to action.
+This field captures the call-to-action, an instruction for the customers to take action for ensuring that the customer consents to receive text messages, and understands the nature of the program. Call-to-action can be over SMS, Interactive Voice Response (IVR), website, or point of sale. Carriers require that all short code program brief applications are submitted with mock ups for the call-to-action.
 
-In these fields, you must provide a URL of the website where customers will discover the program, URL for screenshots of the website, URL of mockup of the website, or URL with the design.
+In these fields, you must provide a URL of the website where customers will discover the program, URL for screenshots of the website, URL of mockup of the website, or URL with the design. If the program sign up type is SMS, then you must provide the keywords the customer will send to the short code for opting in. 
 
 > [!Note]
-> If you don’t have a URL of the website, mockups, or design, please send the screenshots to phone@microsoft.com.
+> If you don’t have a URL of the website, mockups, or design, please send the screenshots to phone@microsoft.com with Subject "[CompanyName - ProgramName] Short Code Request".
 
-#### Guidelines for designing the call to action (CTA):
-1. The CTA needs to be clear as to what program the customer is joining or agreeing to.
+#### Guidelines for designing the call-to-action:
+1. The call-to-action needs to be clear as to what program the customer is joining or agreeing to.
    - Call-to-action must be clear and accurate; consent must not be obtained through deceptive means
    - Enrolling a user in multiple programs based on a single opt-in is prohibited, even when all programs operate on the same short code. Please refer to the [CTIA monitoring handbook](https://www.wmcglobal.com/hubfs/CTIA%20Short%20Code%20Monitoring%20Handbook%20-%20v1.8.pdf) for best practices.
-2. The CTA needs to include the abbreviated terms and conditions, which include:
+2. The call-to-action needs to include the abbreviated terms and conditions, which include:
    -	Program Name – as described above
    -	Message frequency (recurring message/subscriptions)
    -	Message and Data rates may apply
@@ -100,20 +119,26 @@ In these fields, you must provide a URL of the website where customers will disc
 ##### Examples:
 **SMS**
 
-Contoso.com: Announcing our Holiday Sale. Reply YES to save 5% on your next Contoso purchase. Txt OFF to stop, HELP for terms and conditions.
+Contoso.com: Announcing our Holiday Sale. Reply YES to save 5% on your next Contoso purchase. Msg&Data Rates May Apply. Txt HELP or terms&conditions. Txt STOP to opt-out.
 
 **Web opt-in**
 
-:::image type="content" source= "../media/short-code-web-optin.png" alt-text="Screenshot showing web opt-in mock up.":::
+:::image type="content" source= "../media/short-code-web-optin.png" alt-text="Screenshot showing the web opt-in mock up.":::
 
-**Point of sale (hardcopy leaflet)**
+**Point of sale (hardcopy leaflet) with SMS keyword call-to-action**
 
 :::image type="content" source= "../media/print-opt-in-mock.png" alt-text="Screenshot showing print opt-in mock up.":::
 
 **IVR**
 
-To sign up for our last-minute travel deals, Press 1.  Message and data rates may apply Visit margiestravel.com for privacy and terms and conditions.
+*Example 1:*
+ 
+**Agent** - To sign up for our last-minute travel deals, Press 1.  Message and data rates may apply. Visit margiestravel.com for privacy and terms and conditions.
 
+*Example 2:*
+
+**Contoso bot** - Would you like to receive appointment reminders through text message to the phone number you've saved in your account? Messages and data rates may apply. If you want to opt in, say YES, say NO to skip.  
+**End-User** - YES
 ## Contact Details
 
 ### Point of contact email address
@@ -139,6 +164,9 @@ In this field, you are required to provide information on traffic spikes and the
 Example: Traffic spikes are expected for delivery notifications program around holidays like Christmas.
 
 ## Templates
+
+Azure communication service offers an opt-out management service for short codes that allows customers to configure responses to mandatory keywords STOP/START/HELP. Prior to provisioning your short code, you will be asked for your preference to manage opt-outs. If you opt-in, the opt-out management service will automatically use your responses in the program brief for Opt-in/ Opt-out/ Help keywords in response to STOP/START/HELP keyword. 
+
 ### Opt-in confirmation message
 CTIA requires that the customer must actively opt into short code programs by sending a keyword from their mobile device to the short code, providing consent on website, IVR, etc.
 
@@ -151,14 +179,14 @@ Message senders are required to respond to messages containing the HELP keyword 
 
 In this field, you are required to provide a sample of the response message that is sent to the customer upon receiving the HELP keyword. 
 
-**Example:** Thanks for texting Contoso! Call 1-800-800-8000 for support.
+**Example:** Contoso Appointment reminders: Get help at support@contoso.com or 1-800 123 4567.Msg&Data Rates May Apply. Txt HELP for help. Txt STOP to opt-out.
 
 ### Opt-out message
 Message senders are required to have mechanisms to opt customers out of the program and respond to messages containing the STOP keyword with the program name and confirmation that no additional messages will be sent. 
 
 In this field, you are required to provide a sample of the response message that is sent to the customer upon receiving the STOP keyword. 
 
-**Example:** Contoso Alerts: You’re opted out and will receive no further messages.
+**Example:** Contoso Appointment reminders: You’re opted out and will receive no further messages.
 
 Please see our [guide on opt-outs](./sms-faq.md#how-does-azure-communication-services-handle-opt-outs-for-toll-free-numbers) to learn about how Azure Communication Services handles opt-outs.
 

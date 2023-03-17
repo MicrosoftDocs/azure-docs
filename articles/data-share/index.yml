@@ -10,9 +10,9 @@ metadata:
   ms.service: data-share #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.topic: landing-page # Required
   ms.collection: collection
-  author: hrasheed-msft #Required; your GitHub user alias, with correct capitalization.
-  ms.author: hrasheed #Required; microsoft alias of author; optional team alias.
-  ms.date: 10/20/2020 #Required; mm/dd/yyyy format.
+  author: sidontha #Required; your GitHub user alias, with correct capitalization.
+  ms.author: sidontha #Required; microsoft alias of author; optional team alias.
+  ms.date: 10/27/2022 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -78,3 +78,5 @@ landingContent:
             url: disaster-recovery.md           
           - text: Troubleshoot common issues
             url: data-share-troubleshoot.md
+          - text: Move Data Share account to new region
+            url: move-to-new-region.md

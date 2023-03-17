@@ -1,16 +1,16 @@
 ---
-title: VPN with Azure AD MFA using the NPS extension - Azure Active Directory
+title: VPN with Azure AD MFA using the NPS extension
 description: Integrate your VPN infrastructure with Azure AD MFA by using the Network Policy Server extension for Microsoft Azure.
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 08/04/2021
+ms.date: 01/29/2023
 
 ms.author: justinha
 author: justinha
-manager: daveba
+manager: amycolannino
 ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management

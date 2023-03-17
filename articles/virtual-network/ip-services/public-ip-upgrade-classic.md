@@ -34,11 +34,11 @@ In this section, you'll use the Azure PowerShell Service Management module to mi
 
 ```azurepowershell-interactive
 $validate = Move-AzureReservedIP -ReservedIPName 'myReservedIP' -Validate
-$validate.ValidationMessages
+$validate
 
 ```
 
-The previous command displays any warnings and errors that block migration. If validation is successful, you can continue with the following steps to **Prepare** and **Commit** the migration:
+The previous command displays the result of the operation or any warnings and errors that block migration. If validation is successful, you can continue with the following steps to **Prepare** and **Commit** the migration:
 
 ```azurepowershell-interactive
 Move-AzureReservedIP -ReservedIPName 'myReservedIP' -Prepare

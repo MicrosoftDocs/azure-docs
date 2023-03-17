@@ -1,5 +1,5 @@
 ---
-title: ADAL client app error handling best practices | Azure
+title: ADAL client app error handling best practices
 description: Provides error handling guidance and best practices for ADAL client applications.
 services: active-directory
 author: rwike77

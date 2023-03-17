@@ -1,5 +1,5 @@
 ---
-title: Azure Storage compliance offerings | Microsoft Docs
+title: Azure Storage compliance offerings
 description: Read a summary of compliance offerings on Azure Storage for national, regional, and industry-specific requirements governing the collection and usage of data.
 services: storage
 author: fhryo-msft

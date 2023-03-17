@@ -1,15 +1,14 @@
 ---
 title: 'Quickstart: Create a serverless Apache Spark pool using Synapse Studio'
 description: Create a serverless Apache Spark pool using Synapse Studio by following the steps in this guide.
-services: synapse-analytics
 author: saveenr
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: spark
 ms.date: 10/16/2020
 ms.author: saveenr
-ms.reviewer: jrasnick
-ms.custom: mode-other
+ms.reviewer: sngun
+ms.custom: mode-ui
 ---
 
 # Quickstart: Create a serverless Apache Spark pool using Synapse Studio
@@ -25,7 +24,7 @@ If you don't have an Azure subscription, [create a free account before you begin
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- You'll need an Azure subscription. If needed, [create a free Azure account](https://azure.microsoft.com/free/)
 - [Synapse workspace](./quickstart-create-workspace.md)
 
 ## Sign in to the Azure portal

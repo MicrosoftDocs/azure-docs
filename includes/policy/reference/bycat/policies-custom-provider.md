@@ -1,9 +1,9 @@
 ---
-author: georgewallace
+author: timwarner-msft
 ms.service: azure-policy
 ms.topic: include
-ms.date: 10/11/2021
-ms.author: gwallace
+ms.date: 02/21/2023
+ms.author: timwarner
 ms.custom: generated
 ---
 

@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.subservice: sql
 ms.date: 11/05/2020
 ms.author: fipopovi
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ---
 
 # Cost management for serverless SQL pool in Azure Synapse Analytics

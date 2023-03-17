@@ -1,5 +1,6 @@
 ---
-title: How to use Queue Storage from Java - Azure Storage
+title: How to use Queue Storage from Java
+titleSuffix: Azure Storage
 description: Learn how to use Queue Storage to create and delete queues. Learn to insert, peek, get, and delete messages with the Azure Storage client library for Java.
 author: normesta
 ms.author: normesta
@@ -8,6 +9,7 @@ ms.date: 08/19/2020
 ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
+ms.devlang: java
 ms.custom: devx-track-java
 ---
 

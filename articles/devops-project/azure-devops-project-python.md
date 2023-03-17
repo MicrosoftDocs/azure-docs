@@ -7,12 +7,11 @@ author: georgewallace
 ms.author: gwallace
 manager: gwallace
 ms.date: 03/24/2020
-ms.prod: devops
-ms.technology: devops-cicd
+ms.service: azure-devops-pipelines
 ms.topic: quickstart
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.custom: mvc, devx-track-python, mode-other
+ms.custom: mvc, devx-track-python, mode-api
 ---
 
 # Create a CI/CD pipeline for Python with Azure DevOps Starter

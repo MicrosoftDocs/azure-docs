@@ -4,6 +4,8 @@
   href: tokens.md
 - name: Configure authentication
   href: authentication.md
+- name: Move an Azure Remote Rendering account between regions
+  href: move-remote-rendering-account.md
 - name: Use the Azure Frontend APIs for authentication
   href: frontend-apis.md
 - name: Use the session management REST API

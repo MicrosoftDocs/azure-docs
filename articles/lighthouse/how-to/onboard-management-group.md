@@ -1,7 +1,7 @@
 ---
 title: Onboard all subscriptions in a management group
 description: You can deploy an Azure Policy to delegate all subscriptions within a management group to an Azure Lighthouse managing tenant.
-ms.date: 08/13/2021
+ms.date: 06/22/2022
 ms.topic: how-to
 ---
 

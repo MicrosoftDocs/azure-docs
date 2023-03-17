@@ -1,15 +1,14 @@
 ---
-title: Review access of an access package in Azure AD entitlement management
-description: Learn how to complete an access review of entitlement management access packages in Azure Active Directory access reviews.
+title: Review access of an access package in entitlement management
+description: Learn how to complete an access review of entitlement management access packages in access reviews.
 services: active-directory
 documentationCenter: ''
 author: amsliu
-manager: KarenH444
+manager: amycolannino
 editor: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 09/15/2021
@@ -21,9 +20,9 @@ ms.collection: M365-identity-device-management
 #Customer intent: As an administrator, I want to review the active assignments of my users to ensure everyone has the appropriate access.
 
 ---
-# Review access of an access package in Azure AD entitlement management
+# Review access of an access package in entitlement management
 
-Azure AD entitlement management simplifies how enterprises manage access to groups, applications, and SharePoint sites. This article describes how to perform access reviews for other users that are assigned to an access package as a designated reviewer.
+Entitlement management simplifies how enterprises manage access to groups, applications, and SharePoint sites. This article describes how to perform access reviews for other users that are assigned to an access package as a designated reviewer.
 
 ## Prerequisites
 

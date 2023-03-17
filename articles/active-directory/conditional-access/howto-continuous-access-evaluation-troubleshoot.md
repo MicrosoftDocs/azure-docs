@@ -5,13 +5,13 @@ description: Troubleshoot and respond to changes in user state faster with conti
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: how-to
-ms.date: 09/22/2021
+ms.topic: troubleshooting
+ms.date: 01/05/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
-ms.reviewer: jlu, shreyamalik
+manager: amycolannino
+ms.reviewer: vmahtani
 
 ms.collection: M365-identity-device-management
 ---
@@ -27,7 +27,7 @@ Administrators will have the opportunity to monitor user sign-ins where CAE is a
 1.	Browse to **Azure Active Directory** > **Sign-ins**. 
 1.	Apply the **Is CAE Token** filter. 
 
-[ ![Add a filter to the Sitn-ins log to see where CAE is being applied or not](./media/howto-continuous-access-evaluation-troubleshoot/azure-ad-sign-ins-log-apply-filter.png) ](./media/howto-continuous-access-evaluation-troubleshoot/azure-ad-sign-ins-log-apply-filter.png#lightbox)
+[ ![Add a filter to the Sign-ins log to see where CAE is being applied or not](./media/howto-continuous-access-evaluation-troubleshoot/azure-ad-sign-ins-log-apply-filter.png) ](./media/howto-continuous-access-evaluation-troubleshoot/azure-ad-sign-ins-log-apply-filter.png#lightbox)
 
 From here, admins will be presented with information about their user’s sign-in events. Select any sign-in to see details about the session, like which Conditional Access policies were applied and is CAE enabled. 
 
@@ -35,7 +35,7 @@ There are multiple sign-in requests for each authentication. Some will be shown 
 
 ### Searching for specific sign-in attempts
 
-Use filters to narrow your search. For example, if a user signed in to Teams, use the Application filter and set it to Teams. Admins may need to check the sign-ins from both interactive and non-interactive tabs to locate the specific sign-in. To further narrow the search, admins may apply multiple filters.
+Sign in logs contain information on Success as well as failure events. Use filters to narrow your search. For example, if a user signed in to Teams, use the Application filter and set it to Teams. Admins may need to check the sign-ins from both interactive and non-interactive tabs to locate the specific sign-in. To further narrow the search, admins may apply multiple filters.
 
 ## Continuous access evaluation workbooks
 
@@ -57,9 +57,15 @@ The **Continuous access evaluation insights** workbook contains the following ta
 
 ![Workbook table 1 showing potential IP address mismatches](./media/howto-continuous-access-evaluation-troubleshoot/continuous-access-evaluation-insights-workbook-table-1.png)
 
-The potential IP address mismatch between Azure AD & resource provider table allows admins to investigate sessions where the IP address detected by Azure AD doesn't match with the IP address detected by the Resource Provider. 
+The potential IP address mismatch between Azure AD & resource provider table allows admins to investigate sessions where the IP address detected by Azure AD doesn't match with the IP address detected by the resource provider. 
 
 This workbook table sheds light on these scenarios by displaying the respective IP addresses and whether a CAE token was issued during the session. 
+
+#### Continuous access evaluation insights per sign-in 
+
+The continuous access evaluation insights per sign-in page in the workbook connects multiple requests from the sign-in logs and displays a single request where a CAE token was issued. 
+
+This workbook can come in handy, for example,  when: A user opens Outlook on their desktop and attempts to access resources inside of Exchange Online. This sign-in action may map to multiple interactive and non-interactive sign-in requests in the logs making issues hard to diagnose.
 
 #### IP address configuration
 

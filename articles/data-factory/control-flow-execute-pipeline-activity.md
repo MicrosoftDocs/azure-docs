@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 10/25/2022
 ---
 
 # Execute Pipeline activity in Azure Data Factory and Synapse Analytics
@@ -259,6 +259,10 @@ The master pipeline forwards these values to the invoked pipeline as shown in th
 }
 
 ```
+
+> [!WARNING]
+>Execute Pipeline activity passes array parameter as string to the child pipeline.This is due to the fact that the payload is passed from the parent pipeline to the >child as string. We can see it when we check the input passed to the child pipeline. Plese check this [section](./data-factory-troubleshoot-guide.md#execute-pipeline-passes-array-parameter-as-string-to-the-child-pipeline) for more details. 
+
 ## Next steps
 See other supported control flow activities: 
 

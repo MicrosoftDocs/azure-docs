@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 07/30/2021
+ms.date: 06/06/2022
 ms.author: victorh
 ---
 
@@ -47,7 +47,9 @@ Azure Firewall can be configured during deployment to span multiple Availability
 
 You can also associate Azure Firewall to a specific zone just for proximity reasons, using the service standard 99.95% SLA.
 
-There's no additional cost for a firewall deployed in an Availability Zone. However, there are added costs for inbound and outbound data transfers associated with Availability Zones. For more information, see [Bandwidth pricing details](https://azure.microsoft.com/pricing/details/bandwidth/).
+There's no extra cost for a firewall deployed in more than one Availability Zone. However, there are added costs for inbound and outbound data transfers associated with Availability Zones. For more information, see [Bandwidth pricing details](https://azure.microsoft.com/pricing/details/bandwidth/).
+
+As the firewall scales, it creates instances in the zones it's in. So, if the firewall is in Zone 1 only, new instances are created in Zone 1. If the firewall is in all three zones, then it creates instances across the three zones as it scales.
 
 Azure Firewall Availability Zones are available in regions that support Availability Zones. For more information, see [Regions that support Availability Zones in Azure](../availability-zones/az-region.md)
 
@@ -96,15 +98,15 @@ Azure Firewall can also resolve names using Azure Private DNS. The virtual netwo
 
 You can use fully qualified domain names (FQDNs) in network rules based on DNS resolution in Azure Firewall and Firewall Policy. 
 
-The specified FQDNs in your rule collections are translated to IP addresses based on your firewall DNS settings. This capability allows you to filter outbound traffic using FQDNs with any TCP/UDP protocol (including NTP, SSH, RDP, and more). As this capability is based on DNS resolution, it is highly recommended you enable the DNS proxy to ensure name resolution is consistent with your protected virtual machines and firewall.
+The specified FQDNs in your rule collections are translated to IP addresses based on your firewall DNS settings. This capability allows you to filter outbound traffic using FQDNs with any TCP/UDP protocol (including NTP, SSH, RDP, and more). As this capability is based on DNS resolution, it's highly recommended you enable the DNS proxy to ensure name resolution is consistent with your protected virtual machines and firewall.
 
 ## Deploy Azure Firewall without public IP address in Forced Tunnel mode
 
 The Azure Firewall service requires a public IP address for operational purposes. While secure, some deployments prefer not to expose a public IP address directly to the Internet. 
 
-In such cases, you can deploy Azure Firewall in Forced Tunnel mode. This configuration creates a management NIC which is used by Azure Firewall for its operations. The Tenant Datapath network can be configured without a public IP address, and Internet traffic can be forced tunneled to another firewall or completely blocked.
+In such cases, you can deploy Azure Firewall in Forced Tunnel mode. This configuration creates a management NIC that is used by Azure Firewall for its operations. The Tenant Datapath network can be configured without a public IP address, and Internet traffic can be forced tunneled to another firewall or completely blocked.
 
-Forced Tunnel mode cannot be configured at run time. You can either redeploy the Firewall or use the stop and start facility to reconfigure an existing Azure Firewall in Forced Tunnel mode. Firewalls deployed in Secure Hubs are always deployed in Forced Tunnel mode.
+Forced Tunnel mode can't be configured at run time. You can either redeploy the Firewall or use the stop and start facility to reconfigure an existing Azure Firewall in Forced Tunnel mode. Firewalls deployed in Secure Hubs are always deployed in Forced Tunnel mode.
 
 ## Outbound SNAT support
 
@@ -129,7 +131,7 @@ This enables the following scenarios:
 
 ## Azure Monitor logging
 
-All events are integrated with Azure Monitor, allowing you to archive logs to a storage account, stream events to your Event Hub, or send them to Azure Monitor logs. For Azure Monitor log samples, see [Azure Monitor logs for Azure Firewall](./firewall-workbook.md).
+All events are integrated with Azure Monitor, allowing you to archive logs to a storage account, stream events to your event hub, or send them to Azure Monitor logs. For Azure Monitor log samples, see [Azure Monitor logs for Azure Firewall](./firewall-workbook.md).
 
 For more information, see [Tutorial: Monitor Azure Firewall logs and metrics](./firewall-diagnostics.md). 
 
@@ -159,7 +161,7 @@ You can create exceptions to your web category rules. Create a separate allow or
 
 ## Certifications
 
-Azure Firewall is Payment Card Industry (PCI), Service Organization Controls (SOC), International Organization for Standardization (ISO), and ICSA Labs compliant. For more information, see [Azure Firewall compliance certifications](compliance-certifications.md).
+Azure Firewall is Payment Card Industry (PCI), Service Organization Controls (SOC), and International Organization for Standardization (ISO) compliant. For more information, see [Azure Firewall compliance certifications](compliance-certifications.md).
 
 ## Next steps
 

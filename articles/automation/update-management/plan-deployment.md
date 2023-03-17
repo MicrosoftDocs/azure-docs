@@ -17,7 +17,7 @@ Update Management is an Azure Automation feature, and therefore requires an Auto
 
 Update Management depends on a Log Analytics workspace in Azure Monitor to store assessment and update status log data collected from managed machines. Integration with Log Analytics also enables detailed analysis and alerting in Azure Monitor. You can use an existing workspace in your subscription, or create a new one dedicated only for Update Management.
 
-If you are new to Azure Monitor Logs and the Log Analytics workspace, you should review the [Design a Log Analytics workspace](../../azure-monitor/logs/design-logs-deployment.md) deployment guide. 
+If you are new to Azure Monitor Logs and the Log Analytics workspace, you should review the [Design a Log Analytics workspace](../../azure-monitor/logs/workspace-design.md) deployment guide. 
 
 ## Step 3 - Supported operating systems
 

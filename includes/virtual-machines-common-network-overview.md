@@ -3,7 +3,7 @@ title: include file
 description: include file
 services: virtual-machines-windows
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.topic: include
 ms.date: 11/01/2018
 ms.author: cynthn
@@ -165,7 +165,7 @@ This table lists the methods that you can use to create a VM in a VNet.
 ## Next steps
 For VM-specific steps on how to manage Azure virtual networks for VMs, see the [Windows](../articles/virtual-machines/windows/tutorial-virtual-network.md) or [Linux](../articles/virtual-machines/linux/tutorial-virtual-network.md) tutorials.
 
-There are also tutorials on how to load balance VMs and create highly available applications for [Windows](../articles/virtual-machines/windows/tutorial-load-balancer.md) or [Linux](../articles/virtual-machines/linux/tutorial-load-balancer.md).
+There are also quickstarts on how to load balance VMs and create highly available applications using the [CLI](../load-balancer/quickstart-load-balancer-standard-public-cli.md) or [PowerShell](../load-balancer/quickstart-load-balancer-standard-public-powershell.md).
 
 - Learn how to configure [user-defined routes and IP forwarding](../articles/virtual-network/virtual-networks-udr-overview.md). 
 - Learn how to configure [VNet to VNet connections](../articles/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).

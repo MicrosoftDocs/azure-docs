@@ -9,7 +9,7 @@ manager: femila
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: article
 ms.date: 08/23/2021
 ms.author: sethm
@@ -313,7 +313,7 @@ public async Task<HttpResponseMessage> Put(DeviceInstallation deviceUpdate)
 }
 ```
 
-### Example code to register with a notification hub from a device using a registration ID
+### Example code to register with a notification hub from a backend using a registration ID
 
 From your app backend, you can perform basic CRUDS operations on registrations. For example:
 

@@ -1,17 +1,18 @@
 ---
 title: Azure Service Fabric CLI- sfctl settings telemetry 
 description: Learn about sfctl, the Azure Service Fabric command line interface. Includes a list of commands for configuring sfctl telemetry.
-author: jeffj6123
-
 ms.topic: reference
-ms.date: 1/16/2020
-ms.author: jejarry
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
 
 # sfctl settings telemetry
 Configure telemetry settings local to this instance of sfctl.
 
-Sfctl telemetry collects command name without parameters provided or their values, sfctl version, OS type, python version, the success or failure of the command, the error message returned.
+Sfctl telemetry collects command name without parameters provided or their values, sfctl version, OS type, Python version, the success or failure of the command, the error message returned.
 
 ## Commands
 

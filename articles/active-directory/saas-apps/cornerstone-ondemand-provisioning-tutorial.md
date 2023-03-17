@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Cornerstone OnDemand for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Cornerstone OnDemand for automatic user provisioning with Azure Active Directory'
 description: Learn how to configure Azure Active Directory to automatically provision and deprovision user accounts to Cornerstone OnDemand.
 services: active-directory
 author: zhchia
@@ -9,13 +9,17 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/27/2019
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
 # Tutorial: Configure Cornerstone OnDemand for automatic user provisioning
 
 This tutorial demonstrates the steps to perform in Cornerstone OnDemand and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and deprovision users or groups to Cornerstone OnDemand.
+
+> [!WARNING]
+> This provisioning integration is no longer supported. As a result of this, the provisioning functionality of the Cornerstone OnDemand application in the Azure Active Directory Enterprise App Gallery will be removed soon. The application's SSO functionality will remain intact. Microsoft is working with Cornerstone to build a new modernized provisioning integration, but there are no timelines on when this will be completed.
+
 
 > [!NOTE]
 > This tutorial describes a connector that's built on top of the Azure AD user provisioning service. For information on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to software-as-a-service (SaaS) applications with Azure Active Directory](../app-provisioning/user-provisioning.md).

@@ -9,13 +9,13 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: overview
-ms.date: 02/17/2021
+ms.date: 01/24/2023
 ms.author: mbaldwin
 ---
 
 # About keys
 
-Azure Key Vault provides two types of resources to store and manage cryptographic keys. Vaults support software-protected and HSM-protected (Hardware Security Module) keys. Managed HSMs only support HSM-protected keys. 
+Azure Key Vault provides two types of resources to store and manage cryptographic keys. Vaults support software-protected and HSM-protected (Hardware Security Module) keys. Managed HSMs only support HSM-protected keys.
 
 |Resource type|Key protection methods|Data-plane endpoint base URL|
 |--|--|--|
@@ -55,7 +55,7 @@ Key Vault supports RSA and EC keys. Managed HSM supports RSA, EC, and symmetric 
 
 |Key type|Vaults (Premium SKU only)|Managed HSMs|
 |--|--|--|
-|**EC-HSM**: Elliptic Curve key | Supported (P-256, P-384, P-521, P-256K)| Supported (P-256, P-256K, P-384, P-521)|
+|**EC-HSM**: Elliptic Curve key | Supported (P-256, P-384, P-521, secp256k1/P-256K)| Supported (P-256, secp256k1/P-256K, P-384, P-521)|
 |**RSA-HSM**: RSA key|Supported (2048-bit, 3072-bit, 4096-bit)|Supported (2048-bit, 3072-bit, 4096-bit)|
 |**oct-HSM**: Symmetric key|Not supported|Supported (128-bit, 192-bit, 256-bit)|
 |||
@@ -65,7 +65,7 @@ Key Vault supports RSA and EC keys. Managed HSM supports RSA, EC, and symmetric 
 |Key type|Vaults|Managed HSMs|
 |--|--|--|
 **RSA**: "Software-protected" RSA key|Supported  (2048-bit, 3072-bit, 4096-bit)|Not supported
-**EC**: "Software-protected" Elliptic Curve key |Supported  (P-256, P-384, P-521, P-256K)|Not supported
+**EC**: "Software-protected" Elliptic Curve key |Supported  (P-256, P-384, P-521, secp256k1/P-256K)|Not supported
 |||
 
 ### Compliance
@@ -88,6 +88,7 @@ See [Key types, algorithms, and operations](about-keys-details.md) for details a
 | Keyless TLS | - Use key [Client Libraries](../general/client-libraries.md#client-libraries-per-language-and-object) |
 
 ## Next steps
+- [Key management in Azure](../../security/fundamentals/key-management.md)
 - [About Key Vault](../general/overview.md)
 - [About Managed HSM](../managed-hsm/overview.md)
 - [About secrets](../secrets/about-secrets.md)

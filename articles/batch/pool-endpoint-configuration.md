@@ -26,16 +26,25 @@ Each NAT pool configuration includes one or more [network security group (NSG) r
 The following C# snippet shows how to configure the RDP endpoint on compute nodes in a Windows pool to deny all network traffic. The endpoint uses a frontend pool of ports in the range *60000 - 60099*. 
 
 ```csharp
-pool.NetworkConfiguration = new NetworkConfiguration
+using Microsoft.Azure.Batch;
+using Microsoft.Azure.Batch.Common;
+
+namespace AzureBatch
 {
-    EndpointConfiguration = new PoolEndpointConfiguration(new InboundNatPool[]
-    {
-      new InboundNatPool("RDP", InboundEndpointProtocol.Tcp, 3389, 60000, 60099, new NetworkSecurityGroupRule[]
+    public void SetPortsPool()
+    {   
+        pool.NetworkConfiguration = new NetworkConfiguration
         {
-            new NetworkSecurityGroupRule(162, NetworkSecurityGroupRuleAccess.Deny, "*"),
-        })
-    })    
-};
+            EndpointConfiguration = new PoolEndpointConfiguratio(new InboundNatPool[]
+            {
+              new InboundNatPool("RDP", InboundEndpointProtocol.Tcp, 3389, 60000, 60099, new NetworkSecurityGroupRule[]
+                {
+                    new NetworkSecurityGroupRule(162, NetworkSecurityGroupRuleAccess.Deny, "*"),
+                })
+            })    
+        };
+    }
+}
 ```
 
 ## Example: Deny all SSH traffic from the internet
@@ -43,25 +52,29 @@ pool.NetworkConfiguration = new NetworkConfiguration
 The following Python snippet shows how to configure the SSH endpoint on compute nodes in a Linux pool to deny all internet traffic. The endpoint uses a frontend pool of ports in the range *4000 - 4100*. 
 
 ```python
-pool.network_configuration = batchmodels.NetworkConfiguration(
-    endpoint_configuration=batchmodels.PoolEndpointConfiguration(
-        inbound_nat_pools=[batchmodels.InboundNATPool(
-            name='SSH',
-            protocol='tcp',
-            backend_port=22,
-            frontend_port_range_start=4000,
-            frontend_port_range_end=4100,
-            network_security_group_rules=[
-                batchmodels.NetworkSecurityGroupRule(
-                    priority=170,
-                    access=batchmodels.NetworkSecurityGroupRuleAccess.deny,
-                    source_address_prefix='Internet'
+from azure.batch import models as batchmodels
+
+class AzureBatch(object):
+    def set_ports_pool(self, **kwargs):
+        pool.network_configuration = batchmodels.NetworkConfiguration(
+            endpoint_configuration=batchmodels.PoolEndpointConfiguration(
+                inbound_nat_pools=[batchmodels.InboundNATPool(
+                    name='SSH',
+                    protocol='tcp',
+                    backend_port=22,
+                    frontend_port_range_start=4000,
+                    frontend_port_range_end=4100,
+                    network_security_group_rules=[
+                        batchmodels.NetworkSecurityGroupRule(
+                            priority=170,
+                            access=batchmodels.NetworkSecurityGroupRuleAccess.deny,
+                            source_address_prefix='Internet'
+                        )
+                    ]
                 )
-            ]
+                ]
+            )
         )
-        ]
-    )
-)
 ```
 
 ## Example: Allow RDP traffic from a specific IP address
@@ -69,17 +82,26 @@ pool.network_configuration = batchmodels.NetworkConfiguration(
 The following C# snippet shows how to configure the RDP endpoint on compute nodes in a Windows pool to allow RDP access only from IP address *198.51.100.7*. The second NSG rule denies traffic that does not match the IP address.
 
 ```csharp
-pool.NetworkConfiguration = new NetworkConfiguration
+using Microsoft.Azure.Batch;
+using Microsoft.Azure.Batch.Common;
+
+namespace AzureBatch
 {
-    EndpointConfiguration = new PoolEndpointConfiguration(new InboundNatPool[]
+    public void SetPortsPool()
     {
-        new InboundNatPool("RDP", InboundEndpointProtocol.Tcp, 3389, 7500, 8000, new NetworkSecurityGroupRule[]
-        {   
-            new NetworkSecurityGroupRule(179,NetworkSecurityGroupRuleAccess.Allow, "198.51.100.7"),
-            new NetworkSecurityGroupRule(180,NetworkSecurityGroupRuleAccess.Deny, "*")
-        })
-    })    
-};
+        pool.NetworkConfiguration = new NetworkConfiguration
+        {
+            EndpointConfiguration = new PoolEndpointConfiguration(new InboundNatPool[]
+            {
+                new InboundNatPool("RDP", InboundEndpointProtocol.Tcp, 3389, 7500, 8000, new NetworkSecurityGroupRule[]
+                {   
+                    new NetworkSecurityGroupRule(179, NetworkSecurityGroupRuleAccess.Allow, "198.51.100.7"),
+                    new NetworkSecurityGroupRule(180, NetworkSecurityGroupRuleAccess.Deny, "*")
+                })
+            })    
+        };
+    }
+}
 ```
 
 ## Example: Allow SSH traffic from a specific subnet
@@ -87,30 +109,34 @@ pool.NetworkConfiguration = new NetworkConfiguration
 The following Python snippet shows how to configure the SSH endpoint on compute nodes in a Linux pool to allow access only from the subnet *192.168.1.0/24*. The second NSG rule denies traffic that does not match the subnet.
 
 ```python
-pool.network_configuration = batchmodels.NetworkConfiguration(
-    endpoint_configuration=batchmodels.PoolEndpointConfiguration(
-        inbound_nat_pools=[batchmodels.InboundNATPool(
-            name='SSH',
-            protocol='tcp',
-            backend_port=22,
-            frontend_port_range_start=4000,
-            frontend_port_range_end=4100,
-            network_security_group_rules=[
-                batchmodels.NetworkSecurityGroupRule(
-                    priority=170,
-                    access='allow',
-                    source_address_prefix='192.168.1.0/24'
-                ),
-                batchmodels.NetworkSecurityGroupRule(
-                    priority=175,
-                    access='deny',
-                    source_address_prefix='*'
+from azure.batch import models as batchmodels
+
+class AzureBatch(object):
+    def set_ports_pool(self, **kwargs):
+        pool.network_configuration = batchmodels.NetworkConfiguration(
+            endpoint_configuration=batchmodels.PoolEndpointConfiguration(
+                inbound_nat_pools=[batchmodels.InboundNATPool(
+                    name='SSH',
+                    protocol='tcp',
+                    backend_port=22,
+                    frontend_port_range_start=4000,
+                    frontend_port_range_end=4100,
+                    network_security_group_rules=[
+                        batchmodels.NetworkSecurityGroupRule(
+                            priority=170,
+                            access='allow',
+                            source_address_prefix='192.168.1.0/24'
+                        ),
+                        batchmodels.NetworkSecurityGroupRule(
+                            priority=175,
+                            access='deny',
+                            source_address_prefix='*'
+                        )
+                    ]
                 )
-            ]
+                ]
+            )
         )
-        ]
-    )
-)
 ```
 
 ## Next steps

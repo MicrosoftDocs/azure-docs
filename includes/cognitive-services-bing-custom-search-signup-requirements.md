@@ -14,6 +14,6 @@ Start using the Bing Custom Search API by creating one of the following Azure re
    * Available through the Azure portal until you delete the resource.
    * Use the free pricing tier to try the service, and upgrade later to a paid tier for production.
 
-### [Multi-Service resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne)
+### [Multi-Service resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne)
    * Available through the Azure portal until you delete the resource.  
    * Use the same key and endpoint for your applications, across multiple Cognitive Services.

@@ -11,5 +11,5 @@ ms.date: 06/11/2021
 ms.author: pafarley
 ---
 
-> [!CAUTION]
-> The Content Moderator Review tool is now deprecated and will be retired on 12/31/2021.
+> [!IMPORTANT]
+> The Content Moderator Review APIs and online Review Tool were retired on 12/31/2021. The Moderation APIs are still available.

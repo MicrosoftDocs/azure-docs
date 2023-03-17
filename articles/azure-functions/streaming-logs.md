@@ -3,7 +3,8 @@ title: Stream execution logs in Azure Functions
 description: Learn how you can stream logs for functions in near real time.
 ms.date: 9/1/2020
 ms.topic: how-to
-ms.custom: "contperf-fy21q2, devx-track-azurepowershell"
+ms.custom: "contperf-fy21q2, devx-track-azurepowershell, devx-track-azurecli" 
+ms.devlang: azurecli
 # Customer intent: As a developer, I want to be able to configure streaming logs so that I can see what's happening in my functions in near real time.
 ---
 

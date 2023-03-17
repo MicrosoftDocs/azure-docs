@@ -7,7 +7,7 @@ manager: nitinme
 displayName: chat history, history, chat logs, logs
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/25/2021
 ms.custom: ignite-fall-2021
 ---
@@ -34,6 +34,7 @@ QnA Maker stores all chat logs and other telemetry, if you have enabled Applicat
     | join kind= inner (
     traces | extend id = operation_ParentId
     ) on id
+    | where message == "QnAMaker GenerateAnswer"
     | extend question = tostring(customDimensions['Question'])
     | extend answer = tostring(customDimensions['Answer'])
     | extend score = tostring(customDimensions['Score'])
@@ -113,6 +114,10 @@ traces | extend id = operation_ParentId
 | project timestamp, KbId, question, answer, score
 | order  by timestamp  desc
 ```
+
+> **NOTE**   
+> If you cannot get properly the log by using Application Insight, please confirm the Application Insights settings on the App Service resource.
+> Open App Service resource and go to Application Insights. And then please check whether it is Enabled or Disabled. If it is disabled, please enable it and then apply there.
 
 ## Next steps
 

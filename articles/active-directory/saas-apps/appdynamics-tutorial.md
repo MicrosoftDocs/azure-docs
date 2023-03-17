@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with AppDynamics | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with AppDynamics'
 description: Learn how to configure single sign-on between Azure Active Directory and AppDynamics.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/25/2021
+ms.date: 01/25/2023
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with AppDynamics
@@ -46,6 +46,8 @@ To configure the integration of AppDynamics into Azure AD, you need to add AppDy
 1. In the **Add from the gallery** section, type **AppDynamics** in the search box.
 1. Select **AppDynamics** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for AppDynamics
 
 Configure and test Azure AD SSO with AppDynamics using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in AppDynamics.
@@ -71,14 +73,17 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 4. On the **Basic SAML Configuration** section, perform the following steps:
 
-    a. In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://<companyname>.saas.appdynamics.com?accountName=<companyname>`
-
-    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+    a. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `https://<companyname>.saas.appdynamics.com/controller`
 
+    b. In the **Reply URL (Assertion Consumer Service URL)** text box, type a URL using the following pattern:
+    `https://<companyname>.saas.appdynamics.com/controller/saml-auth?accountName=<companyname>`
+
+    c. In the **Sign on URL** text box, type a URL using the following pattern:
+    `https://<companyname>.saas.appdynamics.com/?accountName=<companyname>`
+
     > [!NOTE]
-    > These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [AppDynamics Client support team](https://www.appdynamics.com/support/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [AppDynamics Client support team](https://www.appdynamics.com/support/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 

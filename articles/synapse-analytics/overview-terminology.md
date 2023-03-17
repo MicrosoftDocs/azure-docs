@@ -1,14 +1,13 @@
 ---
 title: Terminology - Azure Synapse Analytics
 description: Reference guide walking user through Azure Synapse Analytics
-services: synapse-analytics
 author: saveenr
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: overview
-ms.date: 11/02/2021
+ms.date: 08/19/2022
 ms.author: saveenr
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.custom: ignite-fall-2021
 ---
 
@@ -16,7 +15,7 @@ ms.custom: ignite-fall-2021
 
 This document guides you through the basic concepts of Azure Synapse Analytics.
 
-## Basics
+## Synapse workspace
 
 A **Synapse workspace** is a securable collaboration boundary for doing cloud-based enterprise analytics in Azure. A workspace is deployed in a specific region and has an associated ADLS Gen2 account and file system (for storing temporary data). A workspace is under a resource group.
 
@@ -32,14 +31,21 @@ A workspace can contain any number of **Linked service**, essentially connection
 
 Inside Synapse Studio, you can work with SQL pools by running **SQL scripts**.
 
+> [!NOTE]
+> Dedicated SQL pools in Azure Synapse is different from the dedicated SQL pool (formerly SQL DW). Not all features of the dedicated SQL pool in Azure Synapse workspaces apply to dedicated SQL pool (formerly SQL DW), and vice versa. To enable workspace features for an existing dedicated SQL pool (formerly SQL DW), see [How to enable a workspace for your dedicated SQL pool (formerly SQL DW)](sql-data-warehouse/workspace-connected-create.md).
+
 ## Apache Spark for Synapse
 
 To use Spark analytics, create and use **serverless Apache Spark pools** in your Synapse workspace. When you start using a Spark pool, the workspaces creates a **spark session** to handle the resources associated with that session.
 
 There are two ways within Synapse to use Spark:
 
-* **Spark Notebooks** for doing data Data Science and Engineering use Scala, PySpark, C#, and SparkSQL
+* **Spark Notebooks** for doing Data Science and Engineering use Scala, PySpark, C#, and SparkSQL
 * **Spark job definitions** for running batch Spark jobs using jar files.
+
+## SynapseML
+
+SynapseML (previously known as MMLSpark), is an open-source library that simplifies the creation of massively scalable machine learning (ML) pipelines. It is an ecosystem of tools used to expand the Apache Spark framework in several new directions. SynapseML unifies several existing machine learning frameworks and new Microsoft algorithms into a single, scalable API that’s usable across Python, R, Scala, .NET, and Java. To learn more, see the [key features of SynapseML](machine-learning/synapse-machine-learning-library.md).
 
 ## Pipelines
 

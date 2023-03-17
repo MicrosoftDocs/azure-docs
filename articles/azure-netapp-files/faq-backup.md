@@ -5,8 +5,8 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: conceptual
 author: b-hchen
-ms.author: b-hchen
-ms.date: 10/11/2021
+ms.author: anfdocs
+ms.date: 09/10/2022
 ---
 # Azure NetApp Files backup FAQs
 

@@ -2,14 +2,15 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 05/04/2020	
+ms.date: 06/10/2022
 ms.author: glenga
+ms.custom: devdivchpfy22
 ---
 A *log level* is assigned to every log. The value is an integer that indicates relative importance:
 
 |LogLevel    |Code| Description |
 |------------|---|--------------|
-|Trace       | 0 |Logs that contain the most detailed messages. These messages may contain sensitive application data. These messages are disabled by default and should never be enabled in a production environment.|
+|Trace       | 0 |Logs that contain the most detailed messages. These messages might contain sensitive application data. These messages are disabled by default and should never be enabled in a production environment.|
 |Debug       | 1 | Logs that are used for interactive investigation during development. These logs should primarily contain information useful for debugging and have no long-term value. |
 |Information | 2 | Logs that track the general flow of the application. These logs should have long-term value. |
 |Warning     | 3 | Logs that highlight an abnormal or unexpected event in the application flow, but don't otherwise cause the application execution to stop. |

@@ -1,14 +1,12 @@
 ---
 title: Integrate Fortinet with Microsoft Defender for IoT
-description: In this tutorial, you will learn how to integrate Microsoft Defender for IoT with Fortinet.
-author: ElazarK
-ms.author: v-ekrieg
+description: In this article, you'll learn how to integrate Microsoft Defender for IoT with Fortinet.
 ms.topic: tutorial
-ms.date: 11/09/2021
-ms.custom: template-tutorial
+ms.date: 01/01/2023
+ms.custom: how-to
 ---
 
-# Tutorial: Integrate Fortinet with Microsoft Defender for IoT
+# Integrate Fortinet with Microsoft Defender for IoT
 
 This tutorial will help you learn how to integrate, and use Fortinet with Microsoft Defender for IoT.
 
@@ -39,6 +37,7 @@ Using a Business Services view, the complexity of managing network and security 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+>
 > - Create an API key in Fortinet
 > - Set a forwarding rule to block malware-related alerts
 > - Block the source of suspicious alerts
@@ -98,6 +97,8 @@ When the API key is generated, save it as it will not be provided again.
 
 The FortiGate firewall can be used to block suspicious traffic.
 
+Forwarding alert rules run only on alerts triggered after the forwarding rule is created. Alerts already in the system from before the forwarding rule was created are not affected by the rule.
+
 **To set a forwarding rule to block malware-related alerts**:
 
 1. Sign in to the Microsoft Defender for IoT Management Console.
@@ -122,7 +123,7 @@ The FortiGate firewall can be used to block suspicious traffic.
 
 1. To configure the FortiGate forwarding rule, set the following parameters:
 
-    :::image type="content" source="media/tutorial-fortinet/configure.png" alt-text="Screenshot of the  configure the Create Forwarding Rule window.":::
+    :::image type="content" source="media/tutorial-fortinet/configure.png" alt-text="Screenshot of the configure the Create Forwarding Rule window.":::
 
     | Parameter | Description |
     |--|--|
@@ -173,6 +174,8 @@ Each Defender for IoT alert is then parsed without any other configuration on th
 :::image type="content" source="media/tutorial-fortinet/event-detail.png" alt-text="Screenshot of the view your event details in the Event Details window.":::
 
 You can then use Defender for IoT's Forwarding Rules to send alert information to FortiSIEM.
+
+Forwarding alert rules run only on alerts triggered after the forwarding rule is created. Alerts already in the system from before the forwarding rule was created are not affected by the rule.
 
 **To use Defender for IoT's Forwarding Rules to send alert information to FortiSIEM**:
 
@@ -253,7 +256,4 @@ There are no resources to clean up.
 
 ## Next steps
 
-In this tutorial, you learned how to get started with the Fortinet integration. Continue on to learn about our Palo Alto integration.
-
-> [!div class="nextstepaction"]
-> [Next steps button](./tutorial-palo-alto.md)
+In this article, you learned how to get started with the Fortinet integration. Continue on to learn about our [Palo Alto integration](./tutorial-palo-alto.md)

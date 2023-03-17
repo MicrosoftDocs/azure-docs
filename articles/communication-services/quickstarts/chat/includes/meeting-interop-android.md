@@ -263,7 +263,7 @@ Add the `sendMessage()` method to `MainActivity`. It will use the `ChatThreadCli
         // Set request options and send message
         SendChatMessageOptions options = new SendChatMessageOptions();
         options.setContent(messageBody.getText().toString());
-        options.setSenderDisplayName("ACS User");
+        options.setSenderDisplayName("Test User");
         chatThreadAsyncClient.sendMessage(options);
         // Clear the text box
         messageBody.setText("");
@@ -363,7 +363,7 @@ Finally, we will add the method for querying all accessible messages on the thre
             TextView messageView = new TextView(this);
             messageView.setText(message);
             // Compare with sender identifier and align LEFT/RIGHT accordingly
-            // ACS users are of type CommunicationUserIdentifier
+            // Azure Communication Services users are of type CommunicationUserIdentifier
             CommunicationIdentifier senderId = chatMessage.getSenderCommunicationIdentifier();
             if (senderId instanceof CommunicationUserIdentifier
                 && InitiatorId.equals(((CommunicationUserIdentifier) senderId).getId())) {

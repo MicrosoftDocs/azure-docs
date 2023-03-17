@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with ExponentHR | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with ExponentHR'
 description: Learn how to configure single sign-on between Azure Active Directory and ExponentHR.
 services: active-directory
 author: jeevansd
@@ -9,11 +9,11 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/06/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with ExponentHR
+# Tutorial: Azure AD SSO integration with ExponentHR
 
 In this tutorial, you'll learn how to integrate ExponentHR with Azure Active Directory (Azure AD). When you integrate ExponentHR with Azure AD, you can:
 
@@ -50,6 +50,8 @@ To configure the integration of ExponentHR into Azure AD, you need to add Expone
 1. In the **Add from the gallery** section, type **ExponentHR** in the search box.
 1. Select **ExponentHR** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for ExponentHR
 
 Configure and test Azure AD SSO with ExponentHR using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in ExponentHR.
@@ -76,7 +78,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Basic SAML Configuration** section, perform the following step:
 
     In the **Sign-on URL** text box, type the URL: 
-    `https://www.exponenthr.com/service/saml/login.aspx`
+    `https://www.exponenthr.com/service/saml/login`
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 

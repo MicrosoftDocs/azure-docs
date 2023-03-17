@@ -2,7 +2,6 @@
 title: Best practices for network resources
 titleSuffix: Azure Kubernetes Service
 description: Learn the cluster operator best practices for virtual network resources and connectivity in Azure Kubernetes Service (AKS)
-services: container-service
 ms.topic: conceptual
 ms.date: 03/10/2021
 
@@ -233,7 +232,7 @@ This article focused on network connectivity and security. For more information 
 [contour]: https://github.com/heptio/contour
 [haproxy]: https://www.haproxy.org
 [traefik]: https://github.com/containous/traefik
-[barracuda-waf]: https://www.barracuda.com/products/webapplicationfirewall/models/5
+[barracuda-waf]: https://www.barracuda.com/products/webapplicationfirewall/models/
 
 <!-- INTERNAL LINKS -->
 [aks-concepts-network]: concepts-network.md

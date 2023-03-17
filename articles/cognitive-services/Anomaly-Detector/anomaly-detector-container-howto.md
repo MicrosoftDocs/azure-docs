@@ -7,8 +7,8 @@ author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
-ms.topic: conceptual
-ms.date: 10/14/2021
+ms.topic: how-to
+ms.date: 01/27/2023
 ms.author: mbullwin
 ms.custom: cog-serv-seo-aug-2020
 keywords: on-premises, Docker, container, streaming, algorithms
@@ -65,11 +65,18 @@ Core and memory correspond to the `--cpus` and `--memory` settings, which are us
 
 ## Get the container image with `docker pull`
 
+The Anomaly Detector container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/decision` repository and is named `anomaly-detector`. The fully qualified container image name is `mcr.microsoft.com/azure-cognitive-services/decision/anomaly-detector`.
+
+To use the latest version of the container, you can use the `latest` tag. You can also find a full list of [image tags on the MCR](https://mcr.microsoft.com/product/azure-cognitive-services/decision/anomaly-detector/tags).
+
 Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image.
 
 | Container | Repository |
 |-----------|------------|
 | cognitive-services-anomaly-detector | `mcr.microsoft.com/azure-cognitive-services/decision/anomaly-detector:latest` |
+
+> [!TIP]
+> When using [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/), pay close attention to the casing of the container registry, repository, container image name and corresponding tag. They are case sensitive.
 
 <!--
 For a full description of available tags, such as `latest` used in the preceding command, see [anomaly-detector](https://go.microsoft.com/fwlink/?linkid=2083827&clcid=0x409) on Docker Hub.
@@ -91,7 +98,7 @@ Once the container is on the [host computer](#the-host-computer), use the follow
 
 ## Run the container with `docker run`
 
-Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run the container. Refer to [gathering required parameters](#gathering-required-parameters) for details on how to get the `{ENDPOINT_URI}` and `{API_KEY}` values.
+Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run the container. Refer to [gather required parameters](#gather-required-parameters) for details on how to get the `{ENDPOINT_URI}` and `{API_KEY}` values.
 
 [Examples](anomaly-detector-container-configuration.md#example-docker-run-commands) of the `docker run` command are available.
 

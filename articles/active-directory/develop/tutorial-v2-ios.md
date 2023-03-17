@@ -1,17 +1,14 @@
 ---
-title: "Tutorial: Create an iOS or macOS app that uses the Microsoft identity platform for authentication | Azure"
-titleSuffix: Microsoft identity platform
-description: In this tutorial, you build an iOS or macOS app that uses the Microsoft identity platform to sign in users and get an access token to call the Microsoft Graph API on their behalf.
-services: active-directory
-author: mmacy
+title: "Tutorial: Create an iOS or macOS app that uses the Microsoft identity platform for authentication"
+description: Build an iOS or macOS app that uses the Microsoft identity platform to sign in users and get an access token to call the Microsoft Graph API on their behalf.
+author: henrymbuguakiarie
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
-ms.workload: identity
-ms.date: 09/18/2020
-ms.author: marsma
+ms.date: 05/28/2022
+ms.author: henrymbugua
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40, has-adal-ref
 ---
@@ -20,7 +17,7 @@ ms.custom: aaddev, identityplatformtop40, has-adal-ref
 
 In this tutorial, you build an iOS or macOS app that integrates with the Microsoft identity platform to sign users and get an access token to call the Microsoft Graph API.
 
-When you've completed the guide, your application will accept sign-ins of personal Microsoft accounts (including outlook.com, live.com, and others) and work or school accounts from any company or organization that uses Azure Active Directory. This tutorial is applicable to both iOS and macOS apps. Some steps are different between the two platforms.
+When you've completed the tutorial, your application will accept sign-ins of personal Microsoft accounts (including outlook.com, live.com, and others) and work or school accounts from any company or organization that uses Azure Active Directory. This tutorial is applicable to both iOS and macOS apps. Some steps are different between the two platforms.
 
 In this tutorial:
 
@@ -75,8 +72,8 @@ If you'd like to download a completed version of the app you build in this tutor
 1. Select **Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)** under **Supported account types**.
 1. Select **Register**.
 1. Under **Manage**, select **Authentication** > **Add a platform** > **iOS/macOS**.
-1. Enter your project's Bundle ID. If you downloaded the code, this is `com.microsoft.identitysample.MSALiOS`. If you're creating your own project, select your project in Xcode and open the **General** tab. The bundle identifier appears in the **Identity** section.
-1. Select **Configure** and save the **MSAL Configuration** that appears in the **MSAL configuration** page so you can enter it when you configure your app later. 
+1. Enter your project's Bundle ID. If downloaded the code sample, the Bundle ID is `com.microsoft.identitysample.MSALiOS`. If you're creating your own project, select your project in Xcode and open the **General** tab. The bundle identifier appears in the **Identity** section.
+1. Select **Configure** and save the **MSAL Configuration** that appears in the **MSAL configuration** page so you can enter it when you configure your app later.
 1. Select **Done**.
 
 ## Add MSAL
@@ -85,7 +82,7 @@ Choose one of the following ways to install the MSAL library in your app:
 
 ### CocoaPods
 
-1. If you're using [CocoaPods](https://cocoapods.org/), install `MSAL` by first creating an empty file called `podfile` in the same folder as your project's `.xcodeproj` file. Add the following to `podfile`:
+1. If you're using [CocoaPods](https://cocoapods.org/), install `MSAL` by first creating an empty file called _podfile_ in the same folder as your project's _.xcodeproj_ file. Add the following to _podfile_:
 
    ```
    use_frameworks!
@@ -96,18 +93,18 @@ Choose one of the following ways to install the MSAL library in your app:
    ```
 
 2. Replace `<your-target-here>` with the name of your project.
-3. In a terminal window, navigate to the folder that contains the `podfile` you created and run `pod install` to install the MSAL library.
+3. In a terminal window, navigate to the folder that contains the _podfile_ you created and run `pod install` to install the MSAL library.
 4. Close Xcode and open `<your project name>.xcworkspace` to reload the project in Xcode.
 
 ### Carthage
 
-If you're using [Carthage](https://github.com/Carthage/Carthage), install `MSAL` by adding it to your `Cartfile`:
+If you're using [Carthage](https://github.com/Carthage/Carthage), install `MSAL` by adding it to your _Cartfile_:
 
 ```
 github "AzureAD/microsoft-authentication-library-for-objc" "master"
 ```
 
-From a terminal window, in the same directory as the updated `Cartfile`,  run the following command to have Carthage update the dependencies in your project.
+From a terminal window, in the same directory as the updated _Cartfile_,  run the following command to have Carthage update the dependencies in your project.
 
 iOS:
 
@@ -129,13 +126,13 @@ You can also use Git Submodule, or check out the latest release to use as a fram
 
 Next, we'll add your app registration to your code.
 
-First, add the following import statement to the top of the `ViewController.swift`, as well as `AppDelegate.swift` or `SceneDelegate.swift` files:
+First, add the following import statement to the top of the _ViewController.swift_ file and either _AppDelegate.swift_ or _SceneDelegate.swift_:
 
 ```swift
 import MSAL
 ```
 
-Then Add the following code to `ViewController.swift` prior to `viewDidLoad()`:
+Next, add the following code to _ViewController.swift_ before to `viewDidLoad()`:
 
 ```swift
 // Update the below to your client ID you received in the portal. The below is for running the demo only
@@ -151,7 +148,7 @@ var webViewParameters : MSALWebviewParameters?
 var currentAccount: MSALAccount?
 ```
 
-The only value you modify above is the value assigned to `kClientID`to be your [Application ID](./developer-glossary.md#application-id-client-id). This value is part of the MSAL Configuration data that you saved during the step at the beginning of this tutorial to register the application in the Azure portal.
+The only value you modify above is the value assigned to `kClientID` to be your [Application ID](./developer-glossary.md#application-client-id). This value is part of the MSAL Configuration data that you saved during the step at the beginning of this tutorial to register the application in the Azure portal.
 
 ## Configure Xcode project settings
 
@@ -161,9 +158,9 @@ Add a new keychain group to your project **Signing & Capabilities**. The keychai
 
 ## For iOS only, configure URL schemes
 
-In this step, you will register `CFBundleURLSchemes` so that the user can be redirected back to the app after sign in. By the way, `LSApplicationQueriesSchemes` also allows  your app to make use of Microsoft Authenticator.
+In this step, you'll register `CFBundleURLSchemes` so that the user can be redirected back to the app after sign in. By the way, `LSApplicationQueriesSchemes` also allows  your app to make use of Microsoft Authenticator.
 
-In Xcode, open `Info.plist` as a source code file, and add the following inside of the `<dict>` section. Replace `[BUNDLE_ID]` with the value you used in the Azure portal. If you downloaded the code, the bundle identifier is `com.microsoft.identitysample.MSALiOS`. If you're creating your own project, select your project in Xcode and open the **General** tab. The bundle identifier appears in the **Identity** section.
+In Xcode, open _Info.plist_ as a source code file, and add the following inside of the `<dict>` section. Replace `[BUNDLE_ID]` with the value you used in the Azure portal. If you downloaded the code, the bundle identifier is `com.microsoft.identitysample.MSALiOS`. If you're creating your own project, select your project in Xcode and open the **General** tab. The bundle identifier appears in the **Identity** section.
 
 ```xml
 <key>CFBundleURLTypes</key>
@@ -189,7 +186,7 @@ In Xcode, open `Info.plist` as a source code file, and add the following inside 
 
 ## Create your app's UI
 
-Now create a UI that includes a button to call the Microsoft Graph API, another to sign out,  and a text view to see some output by adding the following code to the `ViewController`class:
+Now create a UI that includes a button to call the Microsoft Graph API, another to sign out,  and a text view to see some output by adding the following code to the `ViewController` class:
 
 ### iOS UI
 
@@ -372,7 +369,7 @@ Next, also inside the `ViewController` class, replace the `viewDidLoad()` method
 
 ### Initialize MSAL
 
-Add the following `initMSAL` method to the `ViewController` class:
+To the `ViewController` class, add the `initMSAL` method:
 
 ```swift
     func initMSAL() throws {
@@ -390,7 +387,7 @@ Add the following `initMSAL` method to the `ViewController` class:
     }
 ```
 
-Add the following after `initMSAL` method to the `ViewController` class.
+Still in the `ViewController` class and after the `initMSAL` method, add the `initWebViewParams` method:
 
 ### iOS code:
 
@@ -408,9 +405,9 @@ func initWebViewParams() {
     }
 ```
 
-### For iOS only, handle the sign-in callback
+### Handle the sign-in callback (iOS only)
 
-Open the `AppDelegate.swift` file. To handle the callback after sign-in, add `MSALPublicClientApplication.handleMSALResponse` to the `appDelegate` class like this:
+Open the _AppDelegate.swift_ file. To handle the callback after sign-in, add `MSALPublicClientApplication.handleMSALResponse` to the `appDelegate` class like this:
 
 ```swift
 // Inside AppDelegate...
@@ -421,7 +418,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplication.Op
 
 ```
 
-**If you are using Xcode 11**, you should place MSAL callback into the `SceneDelegate.swift` instead.
+**If you are using Xcode 11**, you should place MSAL callback into the _SceneDelegate.swift_ instead.
 If you support both UISceneDelegate and UIApplicationDelegate for compatibility with older iOS, MSAL callback would need to be placed into both files.
 
 ```swift
@@ -442,9 +439,9 @@ func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>)
 
 Now, we can implement the application's UI processing logic and get tokens interactively through MSAL.
 
-MSAL exposes two primary methods for getting tokens: `acquireTokenSilently()` and `acquireTokenInteractively()`:
+MSAL exposes two primary methods for getting tokens: `acquireTokenSilently()` and `acquireTokenInteractively()`.
 
-- `acquireTokenSilently()` attempts to sign in a user and get tokens without any user interaction as long as an account is present. `acquireTokenSilently()` requires providing a valid `MSALAccount` which can be retrieved by using one of MSAL account enumeration APIs. This sample uses `applicationContext.getCurrentAccount(with: msalParameters, completionBlock: {})` to retrieve current account.
+- `acquireTokenSilently()` attempts to sign in a user and get tokens without user interaction as long as an account is present. `acquireTokenSilently()` require a valid `MSALAccount` which can be retrieved by using one of MSAL's account enumeration APIs. This tutorial uses `applicationContext.getCurrentAccount(with: msalParameters, completionBlock: {})` to retrieve the current account.
 
 - `acquireTokenInteractively()` always shows UI when attempting to sign in the user. It may use session cookies in the browser or an account in the Microsoft authenticator to provide an interactive-SSO experience.
 
@@ -513,7 +510,7 @@ Add the following code to the `ViewController` class:
 
 #### Get a token interactively
 
-The following code snippet gets a token for the first time by creating an `MSALInteractiveTokenParameters` object and calling `acquireToken`. Next you will add code that:
+The following code snippet gets a token for the first time by creating an `MSALInteractiveTokenParameters` object and calling `acquireToken`. Next you'll add code that:
 
 1. Creates `MSALInteractiveTokenParameters` with scopes.
 2. Calls `acquireToken()` with the created parameters.
@@ -812,7 +809,7 @@ Add the following helper methods to the `ViewController` class to complete the s
     }
 ```
 
-### For iOS only, get additional device information
+### iOS only: get additional device information
 
 Use following code to read current device configuration, including whether device is configured as shared:
 
@@ -839,13 +836,13 @@ Use following code to read current device configuration, including whether devic
 
 ### Multi-account applications
 
-This app is built for a single account scenario. MSAL also supports multi-account scenarios, but it requires some additional work from apps. You will need to create UI to help users select which account they want to use for each action that requires tokens. Alternatively, your app can implement a heuristic to select which account to use by querying all accounts from MSAL. For example, see `accountsFromDeviceForParameters:completionBlock:` [API](https://azuread.github.io/microsoft-authentication-library-for-objc/Classes/MSALPublicClientApplication.html#/c:objc(cs)MSALPublicClientApplication(im)accountsFromDeviceForParameters:completionBlock:)
+This app is built for a single account scenario. MSAL also supports multi-account scenarios, but it requires more application work. You'll need to create UI to help users select which account they want to use for each action that requires tokens. Alternatively, your app can implement a heuristic to select which account to use by querying all accounts from MSAL. For example, see `accountsFromDeviceForParameters:completionBlock:` [API](https://azuread.github.io/microsoft-authentication-library-for-objc/Classes/MSALPublicClientApplication.html#/c:objc(cs)MSALPublicClientApplication(im)accountsFromDeviceForParameters:completionBlock:)
 
 ## Test your app
 
 Build and deploy the app to a test device or simulator. You should be able to sign in and get tokens for Azure AD or personal Microsoft accounts.
 
-The first time a user signs into your app, they will be prompted by Microsoft identity to consent to the permissions requested. While most users are capable of consenting, some Azure AD tenants have disabled user consent, which requires admins to consent on behalf of all users. To support this scenario, register your app's scopes in the Azure portal.
+The first time a user signs into your app, they'll be prompted by Microsoft identity to consent to the permissions requested. While most users are capable of consenting, some Azure AD tenants have disabled user consent, which requires admins to consent on behalf of all users. To support this scenario, register your app's scopes in the Azure portal.
 
 After you sign in, the app will display the data returned from the Microsoft Graph `/me` endpoint.
 

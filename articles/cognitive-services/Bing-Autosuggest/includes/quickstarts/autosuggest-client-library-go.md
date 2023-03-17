@@ -14,12 +14,12 @@ Get started with the Bing Autosuggest client library for Go. Follow these steps 
 
 Use the Bing Autosuggest client library for Go to get search suggestions based on partial query strings.
 
-[Reference documentation](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/autosuggest) | [Library source code](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/textanalytics) | [Sample code](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/BingAutoSuggest/BingAutoSuggestQuickstart.go)
+[Reference documentation](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/autosuggest) | [Sample code](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/BingAutoSuggest/BingAutoSuggestQuickstart.go)
 
 ## Prerequisites
 
 * An Azure subscription. If you don't already have an Azure subscription, [you can create one for free](https://azure.microsoft.com/free/cognitive-services).
-* The latest version of [Go](https://golang.org/dl/).
+* The latest version of [Go](https://go.dev/dl/).
 
 Begin using the Bing Autosuggest client library by creating an Azure resource. Choose the resource type below that's right for you:
 
@@ -76,7 +76,7 @@ In a console window (cmd, PowerShell, Terminal, Bash), create a new workspace fo
 * **bin**: This directory contains the binary executable files that are created when you run `go install`.
 
 > [!TIP]
-> Learn more about the structure of a [Go workspace](https://golang.org/doc/code.html#Workspaces). This guide includes information for setting `$GOPATH` and `$GOROOT`.
+> Learn more about the structure of a [Go workspace](https://go.dev/doc/code.html#Workspaces). This guide includes information for setting `$GOPATH` and `$GOROOT`.
 
 Let's create a workspace called `my-app` and the required sub directories for `src`, `pkg`, and `bin`:
 

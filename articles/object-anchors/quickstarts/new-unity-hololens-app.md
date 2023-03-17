@@ -57,7 +57,7 @@ We'll first set up our project and Unity scene:
 1. Select the **Player settings...** button.
 1. The **Project Settings** window will open up.
 1. Select the **XR Plug-in Management** entry.
-1. Follow the <a href="/windows/mixed-reality/develop/unity/xr-project-setup#configuring-xr-plugin-management-for-openxr" target="_blank">Configuring XR Plugin Management for OpenXR</a> documentation to set up the **OpenXR** with **Microsoft HoloLens feature set** in the **Plug-in Providers** list.
+1. Follow the <a href="/windows/mixed-reality/develop/unity/new-openxr-project-with-mrtk#configure-the-project-for-the-hololens-2" target="_blank">Configuring XR Plugin Management for OpenXR</a> documentation to set up the **OpenXR** with **Microsoft HoloLens feature set** in the **Plug-in Providers** list.
 
 ## Set capabilities
 
@@ -72,7 +72,7 @@ We'll first set up our project and Unity scene:
 1. Select the **Quality** entry.
 1. In the column under the **Universal Windows Platform** logo, select on the arrow at the **Default** row and select **Very Low**. You'll know the setting is applied correctly when the box in the **Universal Windows Platform** column and **Very Low** row is green.
 1. Close the **Project Settings** and the **Build Settings** windows.
-1. Follow the <a href="/windows/mixed-reality/develop/unity/xr-project-setup#optimization" target="_blank">Optimization</a> documentation to apply the recommended project settings for HoloLens 2.
+1. Follow the <a href="/windows/mixed-reality/develop/unity/new-openxr-project-with-mrtk#optimization" target="_blank">Optimization</a> documentation to apply the recommended project settings for HoloLens 2.
 
 ## Set up the main virtual camera
 
@@ -111,4 +111,4 @@ You're ready to start adding your own code to the **ObjectSearch** script, using
 > [FAQ](../faq.md)
 
 > [!div class="nextstepaction"]
-> [Conversion SDK](/dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme-pre)
+> [Conversion SDK](/dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme)

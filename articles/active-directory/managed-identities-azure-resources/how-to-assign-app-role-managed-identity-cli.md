@@ -1,27 +1,27 @@
 ---
-title: Assign a managed identity to an application role using Azure CLI - Azure AD
+title: Assign a managed identity to an application role using Azure CLI
 description: Step-by-step instructions for assigning a managed identity access to another application's role, using Azure CLI.
 services: active-directory
-documentationcenter: 
-author: christoc
-manager:
-editor: 
+author: xstof
 
 ms.service: active-directory
 ms.subservice: msi
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/03/2021
 ms.author: christoc
 ms.collection: M365-identity-device-management 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurecli
+ms.devlang: azurecli
 ---
 
 # Assign a managed identity access to an application role using Azure CLI
 
 Managed identities for Azure resources provide Azure services with an identity in Azure Active Directory. They work without needing credentials in your code. Azure services use this identity to authenticate to services that support Azure AD authentication. Application roles provide a form of role-based access control, and allow a service to implement authorization rules.
+
+> [!NOTE]
+> The tokens which your application receives are cached by the underlying infrastructure, which means that any changes to the managed identity's roles can take significant time to take effect. For more information, see [Limitation of using managed identities for authorization](managed-identity-best-practice-recommendations.md#limitation-of-using-managed-identities-for-authorization).
 
 In this article, you learn how to assign a managed identity to an application role exposed by another application using Azure CLI.
 
@@ -29,7 +29,7 @@ In this article, you learn how to assign a managed identity to an application ro
 
 - If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md). **Be sure to review the [difference between a system-assigned and user-assigned managed identity](overview.md#managed-identity-types)**.
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Assign a managed identity access to another application's app role
 
@@ -61,7 +61,7 @@ In this article, you learn how to assign a managed identity to an application ro
 
     ```azurecli
     appName="{name for your application}"
-    serverSPOID=$(az ad sp list --filter "displayName eq 'My App'" --query '[0].objectId' -o tsv | tr -d '[:space:]')
+    serverSPOID=$(az ad sp list --filter "displayName eq '$appName'" --query '[0].id' -o tsv | tr -d '[:space:]')
     echo "object id for server service principal is: $serverSPOID"
     ```
 
@@ -72,7 +72,7 @@ In this article, you learn how to assign a managed identity to an application ro
 
     ```azurecli
     appID="{application id for your application}"
-    serverSPOID=$(az ad sp list --filter "appId eq '$appID'" --query '[0].objectId' -o tsv | tr -d '[:space:]')
+    serverSPOID=$(az ad sp list --filter "appId eq '$appID'" --query '[0].id' -o tsv | tr -d '[:space:]')
     echo "object id for server service principal is: $serverSPOID"
     ```
 
@@ -100,7 +100,7 @@ In this article, you learn how to assign a managed identity to an application ro
 
     ```azurecli
     roleguid="0566419e-bb95-4d9d-a4f8-ed9a0f147fa6"
-    az rest -m POST -u https://graph.microsoft.com/beta/servicePrincipals/$oidForMI/appRoleAssignments -b "{\"principalId\": \"$oidForMI\", \"resourceId\": \"$serverSPOID\",\"appRoleId\": \"$roleguid\"}"
+    az rest -m POST -u https://graph.microsoft.com/v1.0/servicePrincipals/$oidForMI/appRoleAssignments -b "{\"principalId\": \"$oidForMI\", \"resourceId\": \"$serverSPOID\",\"appRoleId\": \"$roleguid\"}"
     ```
 
 ## Next steps

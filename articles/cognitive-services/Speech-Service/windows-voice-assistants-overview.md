@@ -1,5 +1,5 @@
 ---
-title: Voice Assistants on Windows - Overview
+title: Voice Assistants on Windows overview - Speech Service
 titleSuffix: Azure Cognitive Services
 description: An overview of the voice assistants on Windows, including capabilities and development resources available.
 services: cognitive-services
@@ -7,14 +7,15 @@ author: cfogg6
 manager: trrwilson
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
-ms.date: 04/15/2020
+ms.topic: overview
+ms.date: 02/19/2022
 ms.author: travisw
+ms.custom: cogserv-non-critical-speech
 ---
 
-# Voice Assistants on Windows
+# What are Voice Assistants on Windows?
 
-On Windows 10 version 2004 and up, voice assistant applications can take advantage of the Windows ConversationalAgent APIs to achieve a complete voice-enabled assistant experience.
+Voice assistant applications can take advantage of the Windows ConversationalAgent APIs to achieve a complete voice-enabled assistant experience.
 
 ## Voice Assistant Features
 
@@ -50,6 +51,6 @@ The keyword spotter that triggers the application to start has achieved low powe
 
 ## Next steps
 
-- **Review the design guidelines:** Our [design guidelines](windows-voice-assistants-best-practices.md) lay out the key work required to provide the best possible experiences for voice activation on Windows 10.
-- **Visit the Getting Started page:** Start [here](how-to-windows-voice-assistants-get-started.md) for the steps to begin implementing voice assistants on Windows, from setting your development environment through an introduction to implementation guide.
-- **Try out the sample app**: To experience these capabilities firsthand, visit the [UWP Voice Assistant Sample](windows-voice-assistants-faq.yml#the-uwp-voice-assistant-sample) page and follow the steps to get the sample client running.
+- Review the [design guidelines](windows-voice-assistants-best-practices.md) to provide the best experiences for voice activation.
+- See the voice assistants on Windows [get started](how-to-windows-voice-assistants-get-started.md) page. 
+- See the [UWP Voice Assistant Sample](windows-voice-assistants-faq.yml#the-uwp-voice-assistant-sample) page and follow the steps to get the sample client running.

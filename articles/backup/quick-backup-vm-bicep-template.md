@@ -5,10 +5,10 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 11/17/2021
 ms.reviewer: Daya-Patil
-ms.custom: mvc, subject-bicepqs, devx-track-azurepowershell, mode-arm
-author: v-amallick
+ms.custom: mvc, subject-bicepqs, mode-arm
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 #  Back up a virtual machine in Azure with a Bicep template
@@ -30,7 +30,7 @@ To set up your environment for Bicep development, see [Install Bicep tools](../a
 
 The template used below is from [Azure quickstart templates](https://azure.microsoft.com/resources/templates/recovery-services-create-vm-and-configure-backup/). This template allows you to deploy simple Windows VM and Recovery Services vault configured with _DefaultPolicy_ for _Protection_.
 
-```json
+```bicep
 @description('Specifies a name for generating resource names.')
 @maxLength(8)
 param projectName string

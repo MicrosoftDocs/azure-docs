@@ -1,14 +1,13 @@
 ---
 title: CREATE EXTERNAL TABLE AS SELECT (CETAS) in Synapse SQL
 description: Using CREATE EXTERNAL TABLE AS SELECT (CETAS) with Synapse SQL
-services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: fipopovi
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ---
 
 # CETAS with Synapse SQL
@@ -102,7 +101,7 @@ WITH (
 AS
 SELECT decennialTime, stateName, SUM(population) AS population
 FROM
-    OPENROWSET(BULK 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=*/*.parquet',
+    OPENROWSET(BULK 'https://azureopendatastorage.dfs.core.windows.net/censusdatacontainer/release/us_population_county/year=*/*.parquet',
     FORMAT='PARQUET') AS [r]
 GROUP BY decennialTime, stateName
 GO
@@ -129,6 +128,43 @@ GO
 
 -- you can query the newly created external table
 SELECT * FROM population_by_year_state
+```
+
+### General example
+
+In this example we can see example of a template code for writing CETAS with a View as source and using Managed Identity as an authentication.
+
+```sql
+CREATE DATABASE [<mydatabase>];
+GO
+
+USE [<mydatabase>];
+GO
+
+CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<strong password>';
+
+CREATE DATABASE SCOPED CREDENTIAL [WorkspaceIdentity] WITH IDENTITY = 'Managed Identity';
+GO
+
+CREATE EXTERNAL FILE FORMAT [ParquetFF] WITH (
+    FORMAT_TYPE = PARQUET,
+    DATA_COMPRESSION = 'org.apache.hadoop.io.compress.SnappyCodec'
+);
+GO
+
+CREATE EXTERNAL DATA SOURCE [SynapseSQLwriteable] WITH (
+    LOCATION = 'https://<mystoageaccount>.dfs.core.windows.net/<mycontainer>/<mybaseoutputfolderpath>',
+    CREDENTIAL = [WorkspaceIdentity]
+);
+GO
+
+CREATE EXTERNAL TABLE [dbo].[<myexternaltable>] WITH (
+        LOCATION = '<myoutputsubfolder>/',
+        DATA_SOURCE = [SynapseSQLwriteable],
+        FILE_FORMAT = [ParquetFF]
+) AS
+SELECT * FROM [<myview>];
+GO
 ```
 
 ## Supported data types

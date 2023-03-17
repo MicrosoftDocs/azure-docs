@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Pendo | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Pendo'
 description: Learn how to configure single sign-on between Azure Active Directory and Pendo.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/08/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
@@ -45,6 +45,8 @@ To configure the integration of Pendo into Azure AD, you need to add Pendo from 
 1. In the **Add from the gallery** section, type **Pendo** in the search box.
 1. Select **Pendo** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for Pendo
 
 Configure and test Azure AD SSO with Pendo using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Pendo.
@@ -70,8 +72,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Set-up single sign-on with SAML** page, perform the following steps:
 
-    a. In the **Identifier** text box, type a URL using the following pattern:
-    `https://sso.connect.pingidentity.com/<CUSTOM_GUID>`
+    a. In the **Identifier** text box, enter `PingConnect`. (If this identifier is already used by another application, contact the [Pendo support team](mailto:support@pendo.io).)
+    
 
     b. In the **Relay State** text box, type a URL using the following pattern:
     `https://pingone.com/1.0/<CUSTOM_GUID>`

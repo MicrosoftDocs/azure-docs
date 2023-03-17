@@ -35,7 +35,7 @@ Parameters are case-sensitive.
 | Inputs | Description |
 |---------------------|-------------|
 | `defaultCountryHint` | (Optional) An ISO 3166-1 alpha-2 two letter country code can be provided to use as a hint to the language detection model if it cannot [disambiguate the language](../cognitive-services/language-service/language-detection/how-to/call-api.md#ambiguous-content). Specifically, the `defaultCountryHint` parameter is used with documents that don't specify the `countryHint` input explicitly.  |
-| `modelVersion`   | (Optional) Specifies the [version of the model](../cognitive-services/language-service/language-detection/how-to/call-api.md#specify-the-language-detection-model) to use when calling language detection. It will default to the latest available when not specified. We recommend you do not specify this value unless it's necessary. |
+| `modelVersion`   | (Optional) Specifies the [version of the model](../cognitive-services/language-service/concepts/model-lifecycle.md) to use when calling language detection. It will default to the latest available when not specified. We recommend you do not specify this value unless it's necessary. |
 
 ## Skill inputs
 

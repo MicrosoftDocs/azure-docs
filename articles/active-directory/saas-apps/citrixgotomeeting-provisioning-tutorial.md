@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure GoToMeeting for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure GoToMeeting for automatic user provisioning with Azure Active Directory'
 description: Learn how to configure single sign-on between Azure Active Directory and GoToMeeting.
 services: active-directory
 author: jeevansd
@@ -8,12 +8,15 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/26/2018
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 # Tutorial: Configure GoToMeeting for automatic user provisioning
 
 The objective of this tutorial is to show you the steps you need to perform in GoToMeeting and Azure AD to automatically provision and de-provision user accounts from Azure AD to GoToMeeting.
+
+> [!WARNING]
+> This provisioning integration is no longer supported. As a result of this, the provisioning functionality of the GoToMeeting application in the Azure Active Directory Enterprise App Gallery will be removed soon. The application's SSO functionality will remain intact. Microsoft is working with GoToMeeting to build a new modernized provisioning integration, but there are no timelines on when this will be completed. 
 
 ## Prerequisites
 

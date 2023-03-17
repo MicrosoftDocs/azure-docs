@@ -3,14 +3,15 @@ title: Quickstart -  Azure Key Vault secret client library for JavaScript (versi
 description: Learn how to create, retrieve, and delete secrets from an Azure key vault using the JavaScript client library
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 11/29/2021
+ms.date: 02/02/2023
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.custom: devx-track-js, mode-other
+ms.devlang: javascript
+ms.custom: devx-track-js, mode-api, passwordless-js
 ---
 
-# Quickstart: Azure Key Vault secret client library for JavaScript (version 4)
+# Quickstart: Azure Key Vault secret client library for JavaScript
 
 Get started with the Azure Key Vault secret client library for JavaScript. [Azure Key Vault](../general/overview.md) is a cloud service that provides a secure store for secrets. You can securely store keys, passwords, certificates, and other secrets. Azure key vaults may be created and managed through the Azure portal. In this quickstart, you learn how to create, retrieve, and delete secrets from an Azure key vault using the JavaScript client library
 
@@ -38,7 +39,7 @@ This quickstart assumes you are running [Azure CLI](/cli/azure/install-azure-cli
 
 1. Run the `login` command.
 
-    ```azurecli-interactive
+    ```azurecli
     az login
     ```
 
@@ -66,82 +67,73 @@ Create a Node.js application that uses your key vault.
 
 ## Install Key Vault packages
 
-1. Using the terminal, install the Azure Key Vault secrets library, [@azure/keyvault-secrets](https://www.npmjs.com/package/@azure/keyvault-secrets) for Node.js.
+1. Using the terminal, install the Azure Key Vault secrets client library, [@azure/keyvault-secrets](https://www.npmjs.com/package/@azure/keyvault-secrets) for Node.js.
 
     ```terminal
     npm install @azure/keyvault-secrets
     ```
 
-1. Install the Azure Identity library, [@azure/identity](https://www.npmjs.com/package/@azure/identity) package to authenticate to a Key Vault.
+1. Install the Azure Identity client library, [@azure/identity](https://www.npmjs.com/package/@azure/identity) package to authenticate to a Key Vault.
 
     ```terminal
     npm install @azure/identity
     ```
 
-## Create a Service principal
-
-Create a service principal and configure its access to Azure resources. Use a service principal instead of your own individual user account and password.
-
-1. Create the service principal with the Azure [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) command with the Azure CLI or [Cloud Shell](https://shell.azure.com). 
-
-    ```bash
-    az ad sp create-for-rbac --name YOUR-SERVICE-PRINCIPAL-NAME
-    ```
-
-2. Make note of the command response in order to set up your Azure authentication to the Azure SDK later in this quickstart:
-
-    ```json
-    {
-      "appId": "YOUR-SERVICE-PRINCIPAL-ID",
-      "displayName": "YOUR-SERVICE-PRINCIPAL-NAME",
-      "name": "http://YOUR-SERVICE-PRINCIPAL-NAME",
-      "password": "YOUR-SERVICE-PRINCIPAL-SECRET",
-      "tenant": "YOUR-TENANT-ID"
-    }
-    ```
-
 ## Grant access to your key vault
 
-Create an access policy for your key vault that grants secret permissions to your service principal with the [az keyvault set-policy](/cli/azure/keyvault#az_keyvault_set_policy) command.
+Create a vault access policy for your key vault that grants secret permissions to your user account with the [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy) command.
 
 ```azurecli
-az keyvault set-policy --name <your-key-vault-name> --spn <your-service-principal-id> --secret-permissions delete get list set purge
+az keyvault set-policy --name <your-key-vault-name> --upn user@domain.com --secret-permissions delete get list set purge update
 ```
 
 ## Set environment variables
 
-1. Collect the following required environment variables:
+This application is using key vault name as an environment variable called `KEY_VAULT_NAME`.
 
-    |Name|Value|
-    |--|--|
-    |AZURE_TENANT_ID|From the service principal result, YOUR-TENANT-ID.|
-    |AZURE_CLIENT_ID|From the service principal result, YOUR-SERVICE-PRINCIPAL-ID|
-    |AZURE_CLIENT_SECRET|From the service principal result, YOUR-SERVICE-PRINCIPAL-SECRET|
-    |KEYVAULT_URI|https://YOUR-KEY-VAULT-NAME.vault.azure.net/|
+### [Windows](#tab/windows)
 
-1. Select your command and run it four times, once for each of the keys and settings in the previous table. 
+```cmd
+set KEY_VAULT_NAME=<your-key-vault-name>
+````
 
-    # [Windows](#tab/env-windows)
-    
-    ```cmd
-    set name=value
-    ```
-    # [Windows PowerShell](#tab/env-windows-powershell)
-    
-    ```powershell
-    $Env:name="value"
-    ```
-    # [macOS or Linux](#tab/env-mac-linux)
-    
-    ```cmd
-    export name=value
-    ```
-    
-    ---
+### [PowerShell](#tab/powershell)
+
+Windows PowerShell
+```powershell
+$Env:KEY_VAULT_NAME="<your-key-vault-name>"
+```
+
+### [macOS or Linux](#tab/linux)
+
+```cmd
+export KEY_VAULT_NAME=<your-key-vault-name>
+```
+---
+
+
+## Authenticate and create a client
+
+Application requests to most Azure services must be authorized. Using the [DefaultAzureCredential](/javascript/api/@azure/identity/#@azure-identity-getdefaultazurecredential) method provided by the [Azure Identity client library](/javascript/api/@azure/identity) is the recommended approach for implementing passwordless connections to Azure services in your code. `DefaultAzureCredential` supports multiple authentication methods and determines which method should be used at runtime. This approach enables your app to use different authentication methods in different environments (local vs. production) without implementing environment-specific code. 
+
+In this quickstart, `DefaultAzureCredential` authenticates to key vault using the credentials of the local development user logged into the Azure CLI. When the application is deployed to Azure, the same `DefaultAzureCredential` code can automatically discover and use a managed identity that is assigned to an App Service, Virtual Machine, or other services. For more information, see [Managed Identity Overview](/azure/active-directory/managed-identities-azure-resources/overview).
+
+In this code, the name of your key vault is used to create the key vault URI, in the format `https://<your-key-vault-name>.vault.azure.net`. For more information about authenticating to key vault, see [Developer's Guide](/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
 
 ## Code example
 
 The code samples below will show you how to create a client, set a secret, retrieve a secret, and delete a secret. 
+
+This code uses the following [Key Vault Secret classes and methods](/javascript/api/overview/azure/keyvault-secrets-readme):
+    
+* [DefaultAzureCredential](/javascript/api/@azure/identity/#@azure-identity-getdefaultazurecredential)
+* [SecretClient class](/javascript/api/@azure/keyvault-secrets/secretclient)
+    * [setSecret](/javascript/api/@azure/keyvault-secrets/secretclient#@azure-keyvault-secrets-secretclient-setsecret)
+    * [getSecret](/javascript/api/@azure/keyvault-secrets/secretclient#@azure-keyvault-secrets-secretclient-getsecret)
+    * [updateSecretProperties](/javascript/api/@azure/keyvault-secrets/secretclient#@azure-keyvault-secrets-secretclient-updatesecretproperties)
+    * [beginDeleteSecret](/javascript/api/@azure/keyvault-secrets/secretclient#@azure-keyvault-secrets-secretclient-begindeletesecret)
+
+### Set up the app framework
 
 1. Create new text file and paste the following code into the **index.js** file. 
 
@@ -149,22 +141,24 @@ The code samples below will show you how to create a client, set a secret, retri
     const { SecretClient } = require("@azure/keyvault-secrets");
     const { DefaultAzureCredential } = require("@azure/identity");
     
-    // Load the .env file if it exists
-    const dotenv = require("dotenv");
-    dotenv.config();
-    
     async function main() {
-      // DefaultAzureCredential expects the following three environment variables:
+      // If you're using MSI, DefaultAzureCredential should "just work".
+      // Otherwise, DefaultAzureCredential expects the following three environment variables:
       // - AZURE_TENANT_ID: The tenant ID in Azure Active Directory
       // - AZURE_CLIENT_ID: The application (client) ID registered in the AAD tenant
       // - AZURE_CLIENT_SECRET: The client secret for the registered application
       const credential = new DefaultAzureCredential();
     
-      const url = process.env["KEYVAULT_URI"] || "<keyvault-url>";
+      const keyVaultName = process.env["KEY_VAULT_NAME"];
+      if(!keyVaultName) throw new Error("KEY_VAULT_NAME is empty");
+      const url = "https://" + keyVaultName + ".vault.azure.net";
     
       const client = new SecretClient(url, credential);
     
       // Create a secret
+      // The secret can be a string of any kind. For example,
+      // a multiline text block such as an RSA private key with newline characters,
+      // or a stringified JSON object, like `JSON.stringify({ mySecret: 'MySecretValue'})`.
       const uniqueString = new Date().getTime();
       const secretName = `secret${uniqueString}`;
       const result = await client.setSecret(secretName, "MySecretValue");
@@ -180,8 +174,7 @@ The code samples below will show you how to create a client, set a secret, retri
       });
       console.log("updated secret: ", updatedSecret);
     
-      // Delete the secret
-      // If we don't want to purge the secret later, we don't need to wait until this finishes
+      // Delete the secret immediately without ability to restore or purge.
       await client.beginDeleteSecret(secretName);
     }
     
@@ -235,7 +228,7 @@ The code samples below will show you how to create a client, set a secret, retri
 
 ## Integrating with App Configuration
 
-The Azure SDK provides a helper method, [parseKeyVaultSecretIdentifier](/javascript/api/@azure/keyvault-secrets/#parseKeyVaultSecretIdentifier_string_), to parse the given Key Vault Secret ID. This is necessary if you use [App Configuration](/azure/azure-app-configuration/) references to Key Vault. App Config stores the Key Vault Secret ID. You need the _parseKeyVaultSecretIdentifier_ method to parse that ID to get the secret name. Once you have the secret name, you can get the current secret value using code from this quickstart.  
+The Azure SDK provides a helper method, [parseKeyVaultSecretIdentifier](/javascript/api/@azure/keyvault-secrets/#parseKeyVaultSecretIdentifier_string_), to parse the given Key Vault Secret ID. This is necessary if you use [App Configuration](../../azure-app-configuration/index.yml) references to Key Vault. App Config stores the Key Vault Secret ID. You need the _parseKeyVaultSecretIdentifier_ method to parse that ID to get the secret name. Once you have the secret name, you can get the current secret value using code from this quickstart.  
 
 ## Next steps
 

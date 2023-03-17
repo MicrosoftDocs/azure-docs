@@ -2,21 +2,23 @@
 title: Template functions - date
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to work with dates.
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 05/03/2022
 ---
 
 # Date functions for ARM templates
 
-Resource Manager provides the following functions for working with dates in your Azure Resource Manager template (ARM template):
+This article describes the functions for working with dates in your Azure Resource Manager template (ARM template).
 
-* [dateTimeAdd](#datetimeadd)
-* [utcNow](#utcnow)
+> [!TIP]
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [date](../bicep/bicep-functions-date.md) functions.
 
 ## dateTimeAdd
 
 `dateTimeAdd(base, duration, [format])`
 
 Adds a time duration to a base value. ISO 8601 format is expected.
+
+In Bicep, use the [dateTimeAdd](../bicep/bicep-functions-date.md#datetimeadd) function.
 
 ### Parameters
 
@@ -48,11 +50,129 @@ The next example template shows how to set the start time for an Automation sche
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/date/datetimeadd-automation.json":::
 
+## dateTimeFromEpoch
+
+`dateTimeFromEpoch(epochTime)`
+
+Converts an epoch time integer value to an ISO 8601 datetime.
+
+In Bicep, use the [dateTimeFromEpoch](../bicep/bicep-functions-date.md#datetimefromepoch) function.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| epochTime | Yes | int | The epoch time to convert to a datetime string. |
+
+### Return value
+
+An ISO 8601 datetime string.
+
+### Example
+
+The following example shows output values for the epoch time functions.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "convertedEpoch": {
+      "type": "int",
+      "defaultValue": "[dateTimeToEpoch(dateTimeAdd(utcNow(), 'P1Y'))]"
+    }
+  },
+  "variables": {
+    "convertedDatetime": "[dateTimeFromEpoch(parameters('convertedEpoch'))]"
+  },
+  "resources": [],
+  "outputs": {
+    "epochValue": {
+      "type": "int",
+      "value": "[parameters('convertedEpoch')]"
+    },
+    "datetimeValue": {
+      "type": "string",
+      "value": "[variables('convertedDatetime')]"
+    }
+  }
+}
+```
+
+The output is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| datetimeValue | String | 2023-05-02T15:16:13Z |
+| epochValue | Int | 1683040573 |
+
+## dateTimeToEpoch
+
+`dateTimeToEpoch(dateTime)`
+
+Converts an ISO 8601 datetime string to an epoch time integer value.
+
+In Bicep, use the [dateTimeToEpoch](../bicep/bicep-functions-date.md#datetimetoepoch) function.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| dateTime | Yes | string | The datetime string to convert to an epoch time. |
+
+### Return value
+
+An integer that represents the number of seconds from midnight on January 1, 1970.
+
+### Examples
+
+The following example shows output values for the epoch time functions.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "convertedEpoch": {
+      "type": "int",
+      "defaultValue": "[dateTimeToEpoch(dateTimeAdd(utcNow(), 'P1Y'))]"
+    }
+  },
+  "variables": {
+    "convertedDatetime": "[dateTimeFromEpoch(parameters('convertedEpoch'))]"
+  },
+  "resources": [],
+  "outputs": {
+    "epochValue": {
+      "type": "int",
+      "value": "[parameters('convertedEpoch')]"
+    },
+    "datetimeValue": {
+      "type": "string",
+      "value": "[variables('convertedDatetime')]"
+    }
+  }
+}
+```
+
+The output is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| datetimeValue | String | 2023-05-02T15:16:13Z |
+| epochValue | Int | 1683040573 |
+
+The next example uses the epoch time value to set the expiration for a key in a key vault.
+
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.storage/storage-blob-encryption-with-cmk/azuredeploy.json" highlight="54,104":::
+
 ## utcNow
 
 `utcNow(format)`
 
 Returns the current (UTC) datetime value in the specified format. If no format is provided, the ISO 8601 (`yyyyMMddTHHmmssZ`) format is used. **This function can only be used in the default value for a parameter.**
+
+In Bicep, use the [utcNow](../bicep/bicep-functions-date.md#utcnow) function.
 
 ### Parameters
 
@@ -64,9 +184,9 @@ Returns the current (UTC) datetime value in the specified format. If no format i
 
 You can only use this function within an expression for the default value of a parameter. Using this function anywhere else in a template returns an error. The function isn't allowed in other parts of the template because it returns a different value each time it's called. Deploying the same template with the same parameters wouldn't reliably produce the same results.
 
-If you use the [option to rollback on error](rollback-on-error.md) to an earlier successful deployment, and the earlier deployment includes a parameter that uses utcNow, the parameter isn't reevaluated. Instead, the parameter value from the earlier deployment is automatically reused in the rollback deployment.
+If you use the [option to rollback on error](rollback-on-error.md) to an earlier successful deployment, and the earlier deployment includes a parameter that uses `utcNow`, the parameter isn't reevaluated. Instead, the parameter value from the earlier deployment is automatically reused in the rollback deployment.
 
-Be careful redeploying a template that relies on the utcNow function for a default value. When you redeploy and don't provide a value for the parameter, the function is reevaluated. If you want to update an existing resource rather than create a new one, pass in the parameter value from the earlier deployment.
+Be careful redeploying a template that relies on the `utcNow` function for a default value. When you redeploy and don't provide a value for the parameter, the function is reevaluated. If you want to update an existing resource rather than create a new one, pass in the parameter value from the earlier deployment.
 
 ### Return value
 

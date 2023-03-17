@@ -5,12 +5,11 @@ services: azure-government
 cloud: gov
 documentationcenter: ''
 ms.service: azure-government
-ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 03/09/2021
-ms.custom: mode-other
+ms.custom: mode-ui
 ---
 
 # Quickstart: Connect to Azure Government with Visual Studio

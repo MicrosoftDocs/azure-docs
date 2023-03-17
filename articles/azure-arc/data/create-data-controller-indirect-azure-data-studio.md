@@ -21,6 +21,7 @@ You can create a data controller using Azure Data Studio through the deployment 
 - You need access to a Kubernetes cluster and have your kubeconfig file configured to point to the Kubernetes cluster you want to deploy to.
 - You need to [install the client tools](install-client-tools.md) including **Azure Data Studio**, the Azure Data Studio extensions called **Azure Arc** and Azure CLI with the `arcdata` extension.
 - You need to log in to Azure in Azure Data Studio.  To do this: type CTRL/Command + SHIFT + P to open the command text window and type **Azure**.  Choose **Azure: Sign in**.   In the panel, that comes up click the + icon in the top right to add an Azure account.
+- You need to run `az login` in your local Command Prompt to login to Azure CLI.
 
 ## Use the Deployment Wizard to create Azure Arc data controller
 

@@ -4,8 +4,8 @@ description: "As a prudent step before upgrade or migrate data, export the datab
 ms.service: mysql
 ms.subservice: migration-guide
 ms.topic: how-to
-author: arunkumarthiags
-ms.author: arthiaga
+author: rothja
+ms.author: jroth
 ms.reviewer: maghan
 ms.custom:
 ms.date: 06/21/2021
@@ -124,7 +124,7 @@ If the upgrade checker reports no issues, it's safe to do an in-place upgrade by
 
 ## WWI scenario
 
-After successfully migrating the MySQL instance to 8.0, the WWI migration team realized the original [Database Migration Service (DMS)](https://datamigration.microsoft.com/scenario/mysql-to-azuremysql?step=1) migration path could no longer be used as the DMS tool currently only supports 5.6 and 5.7. DMS required network access. The WWI migration team wasn't ready to handle their complex network issues. These environmental issues narrowed their migration tool choice to MySQL Workbench.
+After successfully migrating the MySQL instance to 8.0, the WWI migration team realized the original [Database Migration Service (DMS)](01-mysql-migration-guide-intro.md) migration path could no longer be used as the DMS tool currently only supports 5.6 and 5.7. DMS required network access. The WWI migration team wasn't ready to handle their complex network issues. These environmental issues narrowed their migration tool choice to MySQL Workbench.
 
 ## Database objects
 

@@ -2,17 +2,21 @@
 author: mattchenderson
 ms.service: azure-functions
 ms.topic: include
-ms.date: 12/07/2021
+ms.date: 11/11/2022
 ms.author: mahender
 ---
 
 > [!NOTE]
-> [Version 5.x of the Storage extension NuGet package][extension-5.x] and [version 3.x of the extension bundle][bundle-3.x] currently do not include the [Table Storage bindings][tables]. If your app requires Table Storage, you will need to continue using [version 4.x of the extension NuGet package][extension-4.x] or [version 2.x of the extension bundle][bundle-2.x] for now.
+> Azure Blobs, Azure Queues, and Azure Tables now use separate extensions and are referenced individually. For example, to use the triggers and bindings for all three services in your .NET in-process app, you should add the following packages to your project:
+>
+> - [Microsoft.Azure.WebJobs.Extensions.Storage.Blobs]
+> - [Microsoft.Azure.WebJobs.Extensions.Storage.Queues]
+> - [Microsoft.Azure.WebJobs.Extensions.Tables]
+> 
+> Previously, the extensions shipped together as [Microsoft.Azure.WebJobs.Extensions.Storage, version 4.x]. This same package also has a [5.x version], which references the split packages for blobs and queues only. When upgrading your package references from older versions, you may therefore need to additionally reference the new [Microsoft.Azure.WebJobs.Extensions.Tables] NuGet package. Also, when referencing these newer split packages, make sure you are not referencing an older version of the combined storage package, as this will result in conflicts from two definitions of the same bindings. 
 
-[extension-5.x]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/5.0.0
-[bundle-3.x]: ../articles/azure-functions/functions-bindings-register.md#extension-bundles
-
-[tables]: ../articles/azure-functions/functions-bindings-storage-table.md
-
-[extension-4.x]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/4.0.5
-[bundle-2.x]: ../articles/azure-functions/functions-bindings-register.md#extension-bundles
+[Microsoft.Azure.WebJobs.Extensions.Storage.Blobs]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage.Blobs
+[Microsoft.Azure.WebJobs.Extensions.Storage.Queues]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage.Queues
+[Microsoft.Azure.WebJobs.Extensions.Tables]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Tables
+[Microsoft.Azure.WebJobs.Extensions.Storage, version 4.x]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/4.0.5
+[5.x version]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/5.0.0

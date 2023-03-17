@@ -1,20 +1,18 @@
 ---
-title: Azure Disk Encryption and Azure virtual machine scale sets extension sequencing 
+title: Azure Disk Encryption and Azure Virtual Machine Scale Sets extension sequencing 
 description: In this article, learn how to enable Microsoft Azure Disk Encryption for Linux IaaS VMs.
 author: ju-shim
 ms.author: jushiman
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.subservice: disks
-ms.date: 10/10/2019
+ms.date: 11/22/2022
 ms.reviewer: mimckitt
 ms.custom: mimckitt
 
 ---
 
-# Use Azure Disk Encryption with virtual machine scale set extension sequencing
-
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
+# Use Azure Disk Encryption with Virtual Machine Scale Set extension sequencing
 
 Extensions such as Azure disk encryption can be added to an Azure virtual machines scale set in a specified order. To do so, use [extension sequencing](virtual-machine-scale-sets-extension-sequencing.md). 
 
@@ -157,9 +155,9 @@ For a more in-depth template, see:
 
 
 ## Next steps
-- Learn more about extension sequencing: [Sequence extension provisioning in virtual machine scale sets](virtual-machine-scale-sets-extension-sequencing.md).
-- Learn more about the `provisionAfterExtensions` property: [Microsoft.Compute virtualMachineScaleSets/extensions template reference](/azure/templates/microsoft.compute/2018-10-01/virtualmachinescalesets/extensions).
-- [Azure Disk Encryption for virtual machine scale sets](disk-encryption-overview.md)
-- [Encrypt a virtual machine scale sets using the Azure CLI](disk-encryption-cli.md)
-- [Encrypt a virtual machine scale sets using the Azure PowerShell](disk-encryption-powershell.md)
+- Learn more about extension sequencing: [Sequence extension provisioning in Virtual Machine Scale Sets](virtual-machine-scale-sets-extension-sequencing.md).
+- Learn more about the `provisionAfterExtensions` property: [Microsoft.Compute virtualMachineScaleSets/extensions template reference](/azure/templates/microsoft.compute/2022-08-01/virtualmachinescalesets/extensions).
+- [Azure Disk Encryption for Virtual Machine Scale Sets](disk-encryption-overview.md)
+- [Encrypt a Virtual Machine Scale Sets using the Azure CLI](disk-encryption-cli.md)
+- [Encrypt a Virtual Machine Scale Sets using the Azure PowerShell](disk-encryption-powershell.md)
 - [Create and configure a key vault for Azure Disk Encryption](disk-encryption-key-vault.md)

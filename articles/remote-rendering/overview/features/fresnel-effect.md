@@ -14,11 +14,14 @@ The fresnel effect material feature is a non-physically correct, ad-hoc effect. 
 
 The fresnel effect gives affected objects a colored shine around their edges. Information about effect customization and examples of the rendering results can be found in the following sections.
 
+> [!NOTE]
+> The fresnel effect can't be applied to point clouds.
+
 ## Enabling the fresnel effect
 
 To use the fresnel effect feature, it needs to be enabled on the materials in question. You can enable it by setting the FresnelEffect bit of the [PbrMaterialFeatures](/dotnet/api/microsoft.azure.remoterendering.pbrmaterialfeatures) on the [PBR material](../../overview/features/pbr-materials.md). The same pattern applies to the [ColorMaterialFeatures](/dotnet/api/microsoft.azure.remoterendering) and the [Color material](../../overview/features/color-materials.md). See the code samples section for a usage demonstration.
 
-After enabling, the fresnel effect will immediately be visible. By default the shine will be white (1, 1, 1, 1) and have an exponent of 1. You can customize these settings using the parameter setters below.
+After enabled through the API, the fresnel effect will immediately be visible. By default the shine will be white (1, 1, 1, 1) and have an exponent of 1. You can customize these settings using the parameter setters below.
 
 ## Customizing the effect appearance
 

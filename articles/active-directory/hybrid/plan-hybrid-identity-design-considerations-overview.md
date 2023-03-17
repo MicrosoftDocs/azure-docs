@@ -1,19 +1,18 @@
 ---
-title: Azure Active Directory hybrid identity design considerations - overview | Microsoft Docs
+title: Azure Active Directory hybrid identity design considerations - overview
 description: Overview and content map of Hybrid Identity design considerations guide
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: daveba
+manager: amycolannino
 editor: ''
 
 ms.assetid: 100509c4-0b83-4207-90c8-549ba8372cf7
 ms.service: active-directory
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/30/2018
+ms.date: 01/19/2023
 ms.subservice: hybrid
 ms.author: billmath
 

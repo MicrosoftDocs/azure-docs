@@ -6,7 +6,7 @@ summary: Azure Network Function Manager offers an Azure Marketplace experience f
 metadata:
   title: Network Function Manager documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
   description: Learn about Network Function Manager.  # Required; article description that is displayed in search results. < 160 chars.
-  ms.service: vnf-manager #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.service: network-function-manager #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.topic: landing-page # Required
   author: prmitt #Required; your GitHub user alias, with correct capitalization.
   ms.author: prmitt #Required; microsoft alias of author; optional team alias.

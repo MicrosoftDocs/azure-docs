@@ -1,8 +1,6 @@
 ---
 title: Use proximity placement groups to reduce latency for Azure Kubernetes Service (AKS) clusters
 description: Learn how to use proximity placement groups to reduce latency for your AKS cluster workloads.
-services: container-service
-manager: gwallace
 ms.topic: article
 ms.date: 10/19/2020
 ---
@@ -45,7 +43,7 @@ Proximity placement groups are a node pool concept and associated with each indi
 
 The following example uses the [az group create][az-group-create] command to create a resource group named *myResourceGroup* in the *centralus* region. An AKS cluster named *myAKSCluster* is then created using the [az aks create][az-aks-create] command.
 
-Accelerated networking greatly improves networking performance of virtual machines. Ideally, use proximity placement groups in conjunction with accelerated networking. By default, AKS uses accelerated networking on [supported virtual machine instances](../virtual-network/create-vm-accelerated-networking-cli.md?toc=/azure/virtual-machines/linux/toc.json#limitations-and-constraints), which include most Azure virtual machine with two or more vCPUs.
+Accelerated networking greatly improves networking performance of virtual machines. Ideally, use proximity placement groups in conjunction with accelerated networking. By default, AKS uses accelerated networking on [supported virtual machine instances](../virtual-network/accelerated-networking-overview.md?toc=/azure/virtual-machines/linux/toc.json#limitations-and-constraints), which include most Azure virtual machine with two or more vCPUs.
 
 Create a new AKS cluster with a proximity placement group associated to the first system node pool:
 

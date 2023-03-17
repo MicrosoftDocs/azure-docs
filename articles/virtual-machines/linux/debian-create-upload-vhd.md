@@ -7,7 +7,7 @@ ms.collection: linux
 ms.topic: how-to
 ms.date: 11/10/2021
 ms.author: srijangupta
-
+ms.reviewer: mattmcinnes
 ---
 # Prepare a Debian VHD for Azure
 

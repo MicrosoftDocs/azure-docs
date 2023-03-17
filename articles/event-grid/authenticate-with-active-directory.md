@@ -1,11 +1,11 @@
 ---
-title: Authenticate Event Grid publishing clients using Azure Active Directory (Preview)
+title: Authenticate Event Grid publishing clients using Azure Active Directory
 description: This article describes how to authenticate Azure Event Grid publishing client using Azure Active Directory.  
 ms.topic: conceptual
-ms.date: 08/10/2021
+ms.date: 01/05/2022
 ---
 
-# Authentication and authorization with Azure Active Directory (Preview)
+# Authentication and authorization with Azure Active Directory
 This article describes how to authenticate Azure Event Grid publishing clients using Azure Active Directory (Azure AD).
 
 ## Overview
@@ -71,7 +71,7 @@ Following are the prerequisites to authenticate to Event Grid.
 
 - Install the SDK on your application.
    - [Java](/java/api/overview/azure/messaging-eventgrid-readme#include-the-package)
-   - [.NET](/dotnet/api/overview/azure/messaging.eventgrid-readme-pre#install-the-package)
+   - [.NET](/dotnet/api/overview/azure/messaging.eventgrid-readme#install-the-package)
    - [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventgrid/eventgrid#install-the-azureeventgrid-package)
    - [Python](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/eventgrid/azure-eventgrid#install-the-package)
 - Install the Azure Identity client library. The Event Grid SDK depends on the Azure Identity client library for authentication. 
@@ -83,17 +83,19 @@ Following are the prerequisites to authenticate to Event Grid.
 
 ### Publish events using Azure AD Authentication
 
-To send events to a topic, domain, or partner namespace, you can build the client in the following way. The api version that first provided support for Azure AD authentication is ``2021-06-01-preview``. Use that API version or a more recent version in your application.
+To send events to a topic, domain, or partner namespace, you can build the client in the following way. The api version that first provided support for Azure AD authentication is ``2018-01-01``. Use that API version or a more recent version in your application.
 
-```java 
-        DefaultAzureCredential credential = new DefaultAzureCredentialBuilder().build();
-        EventGridPublisherClient cloudEventClient = new EventGridPublisherClientBuilder()
-                .endpoint("<your-event-grid-topic-domain-or-partner-namespace-endpoint>?api-version=2021-06-01-preview")
-                .credential(credential)
-                .buildCloudEventPublisherClient();
+Sample:
+
+This C# snippet creates an Event Grid publisher client using an Application (Service Principal) with a client secret, to enable the DefaultAzureCredential method you will need to add the [Azure.Identity library](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/README.md). If you are using the official SDK it will handle the version for you.
+
+```csharp
+Environment.SetEnvironmentVariable("AZURE_CLIENT_ID", "");
+Environment.SetEnvironmentVariable("AZURE_TENANT_ID", "");
+Environment.SetEnvironmentVariable("AZURE_CLIENT_SECRET", "");
+
+EventGridPublisherClient client = new EventGridPublisherClient(new Uri("your-event-grid-topic-domain-or-partner-namespace-endpoint"), new DefaultAzureCredential());
 ```
-If you're using a security principal associated with a client publishing application, you have to configure environmental variables as shown in the [Java SDK readme article](/java/api/overview/azure/identity-readme#environment-variables). The `DefaultCredentialBuilder` reads those environment variables to use the right identity. For more information, see [Java API overview](/java/api/overview/azure/identity-readme#defaultazurecredential).
-
 
 For more information, see the following articles:
 

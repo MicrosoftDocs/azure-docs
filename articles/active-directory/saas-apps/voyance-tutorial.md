@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Voyance | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Voyance'
 description: Learn how to configure single sign-on between Azure Active Directory and Voyance.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/07/2019
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with Voyance
@@ -214,7 +214,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 In this section, a user called Britta Simon is created in Voyance. Voyance supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Voyance, a new one is created after authentication.
 
 >[!NOTE]
->If you need to create a user manually, you need to contact [Voyance support team](maiLto:support@nyansa.com).
+>If you need to create a user manually, you need to contact [Voyance support team](mailto:support@nyansa.com).
 
 ### Test single sign-on 
 

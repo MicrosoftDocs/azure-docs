@@ -1,12 +1,14 @@
 ---
 title: On-demand backup in Azure Service Fabric 
 description: Use the backup and restore feature in Service Fabric to back up your application data on a need basis.
-author: aagup
-
 ms.topic: conceptual
-ms.date: 10/30/2018
-ms.author: aagup
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # On-demand backup in Azure Service Fabric
 
 You can back up data of Reliable Stateful services and Reliable Actors to address disaster or data loss scenarios.

@@ -4,7 +4,8 @@ description: Describes recent terminology changes made to Azure monitoring servi
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/08/2019
+ms.date: 06/07/2022
+ms.reviewer: bwren
 
 ---
 
@@ -26,7 +27,7 @@ The term _log analytics_ now primarily applies to the page in the Azure portal u
 [Workspaces](logs/manage-access.md) that hold log data in Azure Monitor are still referred to as Log Analytics workspaces. The **Log Analytics** menu in the Azure portal has been renamed to **Log Analytics workspaces** and is where you [create new workspaces](logs/quick-create-workspace.md) and configure data sources. Analyze your logs and other monitoring data in **Azure Monitor** and configure your workspace in **Log Analytics workspaces**.
 
 ### Management solutions
-[Management solutions](insights/solutions.md) have been renamed to _monitoring solutions_, which better describes their functionality.
+[Management solutions](/previous-versions/azure/azure-monitor/insights/solutions) have been renamed to _monitoring solutions_, which better describes their functionality.
 
 
 ## August 2018 - Consolidation of monitoring services into Azure Monitor
@@ -46,12 +47,8 @@ Operations Management Suite (OMS) was a bundling of the following Azure manageme
 - Log Analytics
 - Site Recovery
 
-[New pricing has been introduced for these services](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/), and the OMS bundling is no longer available for new customers. None of the services that were part of OMS have changed, except for the consolidation into Azure Monitor described above. 
-
-
-
+[New pricing has been introduced for these services](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/), and the OMS bundling is no longer available for new customers. None of the services that were part of OMS have changed, except for the consolidation into Azure Monitor described above. The OMS portal was retired and is no longer available. 
 
 ## Next steps
 
 - Read an [overview of Azure Monitor](overview.md) that describes its different components and features.
-- Learn about the [transition of the OMS portal](./logs/oms-portal-transition.md).

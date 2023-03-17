@@ -2,20 +2,21 @@
 title: Develop U-SQL user-defined operators - Azure Data Lake Analytics
 description: Learn how to develop user-defined operators to be used and reused in Azure Data Lake Analytics jobs.
 ms.service: data-lake-analytics
-ms.reviewer: jasonh
+ms.reviewer: whhender
 ms.topic: how-to
-ms.date: 12/05/2016
+ms.date: 01/27/2023
 ---
 
 # Develop U-SQL user-defined operators (UDOs)
+
 This article describes how to develop user-defined operators to process data in a U-SQL job.
 
 ## Define and use a user-defined operator in U-SQL
 
 ### To create and submit a U-SQL job
 
-1. From the Visual Studio select **File > New > Project > U-SQL Project**.
-2. Click **OK**. Visual Studio creates a solution with a Script.usql file.
+1. From the Visual Studio menu, select **File > New > Project > U-SQL Project**.
+2. Select **OK**. Visual Studio creates a solution with a Script.usql file.
 3. From **Solution Explorer**, expand Script.usql, and then double-click **Script.usql.cs**.
 4. Paste the following code into the file:
 
@@ -105,15 +106,15 @@ This article describes how to develop user-defined operators to process data in 
    ```
 
 6. Specify the Data Lake Analytics account, Database, and Schema.
-7. From **Solution Explorer**, right-click **Script.usql**, and then click **Build Script**.
-8. From **Solution Explorer**, right-click **Script.usql**, and then click **Submit Script**.
-9. If you haven't connected to your Azure subscription, you will be prompted to enter your Azure account credentials.
-10. Click **Submit**. Submission results and job link are available in the Results window when the submission is completed.
-11. Click the **Refresh** button to see the latest job status and refresh the screen.
+7. From **Solution Explorer**, right-click **Script.usql**, and then select **Build Script**.
+8. From **Solution Explorer**, right-click **Script.usql**, and then select **Submit Script**.
+9. If you haven't connected to your Azure subscription, you'll be prompted to enter your Azure account credentials.
+10. Select **Submit**. Submission results and job link are available in the Results window when the submission is completed.
+11. Select the **Refresh** button to see the latest job status and refresh the screen.
 
 ### To see the output
 
-1. From **Server Explorer**, expand **Azure**, expand **Data Lake Analytics**, expand your Data Lake Analytics account, expand **Storage Accounts**, right-click the Default Storage, and then click **Explorer**.
+1. From **Server Explorer**, expand **Azure**, expand **Data Lake Analytics**, expand your Data Lake Analytics account, expand **Storage Accounts**, right-click the Default Storage, and then select **Explorer**.
 
 2. Expand Samples, expand Outputs, and then double-click **Drivers.csv**.
 

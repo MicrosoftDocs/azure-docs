@@ -2,7 +2,9 @@
 title: Tutorial - Quick container image build
 description: In this tutorial, you learn how to build a Docker container image in Azure with Azure Container Registry Tasks (ACR Tasks), then deploy it to Azure Container Instances.
 ms.topic: tutorial
-ms.date: 07/20/2021
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ms.custom: "seodec18, mvc, devx-track-azurecli"
 # Customer intent: As a developer or devops engineer, I want to quickly build container images in Azure, without having to install dependencies like Docker Engine, so that I can simplify my inner-loop development pipeline.
 ---
@@ -58,7 +60,7 @@ cd acr-build-helloworld-node
 
 The commands in this tutorial series are formatted for the Bash shell. If you prefer to use PowerShell, Command Prompt, or another shell, you may need to adjust the line continuation and environment variable format accordingly.
 
-[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
 ## Build in Azure with ACR Tasks
 
@@ -299,14 +301,14 @@ Now that you've tested your inner loop with a quick task, configure a **build ta
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
-[az-acr-build]: /cli/azure/acr#az_acr_build
-[az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac
-[az-container-attach]: /cli/azure/container#az_container_attach
-[az-container-create]: /cli/azure/container#az_container_create
-[az-container-delete]: /cli/azure/container#az_container_delete
-[az-keyvault-create]: /cli/azure/keyvault/secret#az_keyvault_create
-[az-keyvault-secret-set]: /cli/azure/keyvault/secret#az_keyvault_secret_set
-[az-login]: /cli/azure/reference-index#az_login
+[az-acr-build]: /cli/azure/acr#az-acr-build
+[az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
+[az-container-attach]: /cli/azure/container#az-container-attach
+[az-container-create]: /cli/azure/container#az-container-create
+[az-container-delete]: /cli/azure/container#az-container-delete
+[az-keyvault-create]: /cli/azure/keyvault/secret#az-keyvault-create
+[az-keyvault-secret-set]: /cli/azure/keyvault/secret#az-keyvault-secret-set
+[az-login]: /cli/azure/reference-index#az-login
 [service-principal-auth]: container-registry-auth-service-principal.md
 
 <!-- IMAGES -->

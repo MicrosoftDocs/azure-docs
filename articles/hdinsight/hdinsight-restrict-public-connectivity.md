@@ -2,8 +2,9 @@
 title: Restrict public connectivity in Azure HDInsight
 description: Learn how to remove access to all outbound public IP addresses.
 ms.service: hdinsight
+ms.custom: devx-track-azurepowershell
 ms.topic: conceptual
-ms.date: 09/20/2021
+ms.date: 12/31/2022
 ---
 
 # Restrict public connectivity in Azure HDInsight
@@ -151,7 +152,7 @@ For a complete template with many of the HDInsight enterprise security features,
 
 To create a cluster by using PowerShell, see the [example](/powershell/module/az.hdinsight/new-azhdinsightcluster#example-4--create-an-azure-hdinsight-cluster-with-relay-outbound-and-private-link-feature).
 
-To create a cluster by using the Azure CLI, see the [example](/cli/azure/hdinsight#az_hdinsight_create-examples).
+To create a cluster by using the Azure CLI, see the [example](/cli/azure/hdinsight#az-hdinsight-create-examples).
 
 ## Next steps
 

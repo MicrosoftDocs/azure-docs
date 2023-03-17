@@ -3,12 +3,12 @@ title: Understand Azure Active Directory Application Proxy connectors
 description: Learn about the Azure Active Directory Application Proxy connectors.
 services: active-directory
 author: kenwith
-manager: karenh444
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/27/2021
+ms.date: 11/17/2022
 ms.author: kenwith
 ms.reviewer: ashishj
 ---

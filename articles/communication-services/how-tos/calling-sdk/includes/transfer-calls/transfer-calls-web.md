@@ -8,9 +8,15 @@ ms.author: rifox
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-web.md)]
 
 > [!NOTE]
-> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'beta' release of ACS Calling Web SDK
+> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'beta' release of Azure Communication Services Calling Web SDK
 
-Call transfer is an extended feature of the core `Call` API. You first need to get the transfer feature API object:
+Call transfer is an extended feature of the core `Call` API. You first need to import calling Features from the Calling SDK:
+
+```js
+import { Features} from "@azure/communication-calling";
+```
+
+Then you can get the transfer feature API object from the call instance:
 
 ```js
 const callTransferApi = call.feature(Features.Transfer);
@@ -35,7 +41,7 @@ To transfer a current call, you can use the `transfer` API. `transfer` takes the
 - `disableForwardingAndUnanswered = true`: If the *transfer target* doesn't answer the transfer call, the transfer attempt ends.
 
 ```js
-// transfer target can be an ACS user
+// transfer target can be an Azure Communication Services user
 const id = { communicationUserId: <ACS_USER_ID> };
 ```
 

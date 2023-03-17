@@ -1,11 +1,8 @@
 ---
 title: TartanAir AirSim dataset
-titleSuffix: Azure Open Datasets
 description: Learn how to use the TartanAir dataset in Azure Open Datasets.
 ms.service: open-datasets
 ms.topic: sample
-author: peterclu
-ms.author: peterlu
 ms.date: 04/16/2021
 ---
 # TartanAir: AirSim simulation dataset for simultaneous localization and mapping (SLAM)

@@ -3,11 +3,12 @@ title: Deploy a ZRS managed disk
 description: Learn how to deploy a managed disk that uses zone-redundant storage (ZRS).
 author: roygara
 ms.author: rogarana
-ms.date: 09/01/2021
+ms.date: 12/14/2022
 ms.topic: how-to
-ms.service: virtual-machines
+ms.service: storage
 ms.subservice: disks
-ms.custom: references_regions, devx-track-azurepowershell
+ms.custom: references_regions, devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Deploy a managed disk that uses zone-redundant storage
@@ -24,14 +25,14 @@ For conceptual information on ZRS, see [Zone-redundant storage for managed disks
 
 ### Create a VM with a ZRS OS disk
 
-1. Sign in to the Azure portal.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Navigate to **Virtual machines** and follow the normal VM creation process.
 1. Select a supported region and set **Availability options** to **No infrastructure redundancy required**.
 
     :::image type="content" source="media/disks-deploy-zrs/disks-zrs-portal-basic.png" alt-text="Screenshot of the VM creation workflow, basic pane, redundancy and regions are highlighted." lightbox="media/disks-deploy-zrs/disks-zrs-portal-basic.png":::
 
 1. Proceed to the **Disks** pane.
-1. Select your disk and select one of the ZRS disks in the drop down.
+1. Select your disk and select one of the ZRS disks in the drop-down.
 
     :::image type="content" source="media/disks-deploy-zrs/disks-zrs-portal-select-blade.png" alt-text="Screenshot of the vm creation workflow, disks pane, OS disk dropdown is expanded with the ZRS premium SSD and standard SSD options highlighted." lightbox="media/disks-deploy-zrs/disks-zrs-portal-select-blade.png":::
 
@@ -127,7 +128,7 @@ az vm create -g $rgName \
 --subnet $vmNamePrefix"_subnet"
 
 ```
-#### Create a virtual machine scale set with ZRS Disks
+#### Create a Virtual Machine Scale Set with ZRS Disks
 ```azurecli
 location=westus2
 rgName=yourRGName
@@ -252,8 +253,7 @@ $vm1 = New-AzVm `
         -SubnetName $($vmNamePrefix+"_subnet") `
         -SecurityGroupName $($vmNamePrefix+"01_sg") `
         -PublicIpAddressName $($vmNamePrefix+"01_ip") `
-        -Credential $credential `
-        -OpenPorts 80,3389
+        -Credential $credential 
 
 
 $vm1 = Add-AzVMDataDisk -VM $vm1 -Name $sharedDiskName -CreateOption Attach -ManagedDiskId $sharedDisk.Id -Lun 0
@@ -279,7 +279,7 @@ $vm2 = Add-AzVMDataDisk -VM $vm1 -Name $sharedDiskName -CreateOption Attach -Man
 update-AzVm -VM $vm1 -ResourceGroupName $rgName
 ```
 
-#### Create a virtual machine scale set with ZRS Disks
+#### Create a Virtual Machine Scale Set with ZRS Disks
 ```powershell
 $vmLocalAdminUser = "yourLocalAdminUser"
 $vmLocalAdminSecurePassword = ConvertTo-SecureString "yourVMPassword" -AsPlainText -Force
@@ -399,7 +399,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
 -dataDiskType $sharedDataDiskType
 ```
 
-#### Create a virtual machine scale set with ZRS Disks
+#### Create a Virtual Machine Scale Set with ZRS Disks
 
 ```
 $vmssName="yourVMSSName"

@@ -1,10 +1,8 @@
 ---
 title: 'Connect a VNet to a VNet using a VNet-to-VNet connection: Azure CLI'
 description: Learn how to connect virtual networks together by using a VNet-to-VNet connection and Azure CLI.
-services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: cherylmc
-
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
@@ -280,7 +278,7 @@ When creating additional connections, it's important to verify that the IP addre
 * TestVNet5: 10.51.0.0/16 & 10.52.0.0/16
 * FrontEnd: 10.51.0.0/24
 * BackEnd: 10.52.0.0/24
-* GatewaySubnet: 10.52.255.0.0/27
+* GatewaySubnet: 10.52.255.0/27
 * GatewayName: VNet5GW
 * Public IP: VNet5GWIP
 * VPNType: RouteBased

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with CloudPassage | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with CloudPassage'
 description: Learn how to configure single sign-on between Azure Active Directory and CloudPassage.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/22/2019
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
@@ -50,6 +50,8 @@ To configure the integration of CloudPassage into Azure AD, you need to add Clou
 1. In the **Add from the gallery** section, type **CloudPassage** in the search box.
 1. Select **CloudPassage** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 
 ## Configure and test Azure AD single sign-on for CloudPassage
 
@@ -85,7 +87,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	![Screenshot shows the CloudPassage portal with the S S O Setup Documentation link called out.](./media/cloudpassage-tutorial/tutorial_cloudpassage_05.png)
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign-On URL and Reply URL. Contact [CloudPassage Client support team](https://www.cloudpassage.com/company/contact/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Sign-On URL and Reply URL. Contact [CloudPassage Client support team](https://fidelissecurity.com/contact/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. CloudPassage application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -208,8 +210,6 @@ When you click the CloudPassage tile in the Access Panel, you should be automati
 - [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
 - [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
-
-- [Try CloudPassage with Azure AD](https://aad.portal.azure.com/)
 
 <!--Image references-->
 

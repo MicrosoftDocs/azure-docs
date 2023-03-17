@@ -10,8 +10,6 @@ ms.custom: ignite-fall-2021
 
 # Connect your threat intelligence platform to Microsoft Sentinel
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 **See also**: [Connect Microsoft Sentinel to STIX/TAXII threat intelligence feeds](connect-threat-intelligence-taxii.md)
@@ -110,7 +108,7 @@ You now have all three pieces of information you need to configure your TIP or c
 
 1. Enter these values in the configuration of your integrated TIP or custom solution where required.
 
-1. For the target product, specify **Microsoft Sentinel**.
+1. For the target product, specify **Azure Sentinel**.  (Specifying "Microsoft Sentinel" will result in an error.)
 
 1. For the action, specify **alert**.
 

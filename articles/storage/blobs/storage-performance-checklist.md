@@ -1,14 +1,16 @@
 ---
-title: Performance and scalability checklist for Blob storage - Azure Storage
+title: Performance and scalability checklist for Blob storage
+titleSuffix: Azure Storage
 description: A checklist of proven practices for use with Blob storage in developing high-performance applications.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 04/19/2022
 ms.author: tamram
 ms.subservice: blobs
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
@@ -16,7 +18,7 @@ ms.custom: devx-track-csharp
 
 Microsoft has developed a number of proven practices for developing high-performance applications with Blob storage. This checklist identifies key practices that developers can follow to optimize performance. Keep these practices in mind while you are designing your application and throughout the process.
 
-Azure Storage has scalability and performance targets for capacity, transaction rate, and bandwidth. For more information about Azure Storage scalability targets, see [Scalability and performance targets for standard storage accounts](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) and [Scalability and performance targets for Blob storage](scalability-targets.md).
+Azure Storage has scalability and performance targets for capacity, transaction rate, and bandwidth. For more information about Azure Storage scalability targets, see [Scalability and performance targets for standard storage accounts](../common/scalability-targets-standard-account.md?toc=/azure/storage/blobs/toc.json) and [Scalability and performance targets for Blob storage](scalability-targets.md).
 
 ## Checklist
 
@@ -47,6 +49,7 @@ This article organizes proven practices for performance into a checklist you can
 | &nbsp; |Copying blobs |[Are you using the Azure Data Box family for importing large volumes of data?](#use-azure-data-box) |
 | &nbsp; |Content distribution |[Are you using a CDN for content distribution?](#content-distribution) |
 | &nbsp; |Use metadata |[Are you storing frequently used metadata about blobs in their metadata?](#use-metadata) |
+| &nbsp; |Performance tuning |[Are you proactively tuning client library options to optimize data transfer performance?](#performance-tuning-for-data-transfers) |
 | &nbsp; |Uploading quickly |[When trying to upload one blob quickly, are you uploading blocks in parallel?](#upload-one-large-blob-quickly) |
 | &nbsp; |Uploading quickly |[When trying to upload many blobs quickly, are you uploading blobs in parallel?](#upload-many-blobs-quickly) |
 | &nbsp; |Blob type |[Are you using page blobs or block blobs when appropriate?](#choose-the-correct-type-of-blob) |
@@ -96,7 +99,7 @@ Understanding how Azure Storage partitions your blob data is useful for enhancin
 
 Blob storage uses a range-based partitioning scheme for scaling and load balancing. Each blob has a partition key comprised of the full blob name (account+container+blob). The partition key is used to partition blob data into ranges. The ranges are then load-balanced across Blob storage.
 
-Range-based partitioning means that naming conventions that use  lexical ordering (for example, *mypayroll*, *myperformance*, *myemployees*, etc.) or timestamps (*log20160101*, *log20160102*, *log20160102*, etc.) are more likely to result in the partitions being co-located on the same partition server. , until increased load requires that they are split into smaller ranges. Co-locating blobs on the same partition server enhances performance, so an important part of performance enhancement involves naming blobs in a way that organizes them most effectively.
+Range-based partitioning means that naming conventions that use  lexical ordering (for example, *mypayroll*, *myperformance*, *myemployees*, etc.) or timestamps (*log20160101*, *log20160102*, *log20160102*, etc.) are more likely to result in the partitions being co-located on the same partition server until increased load requires that they are split into smaller ranges. Co-locating blobs on the same partition server enhances performance, so an important part of performance enhancement involves naming blobs in a way that organizes them most effectively.
 
 For example, all blobs within a container can be served by a single server until the load on these blobs requires further rebalancing of the partition ranges. Similarly, a group of lightly loaded accounts with their names arranged in lexical order may be served by a single server until the load on one or all of these accounts require them to be split across multiple partition servers.
 
@@ -104,7 +107,7 @@ Each load-balancing operation may impact the latency of storage calls during the
 
 You can follow some best practices to reduce the frequency of such operations.
 
-- If possible, use blob or block sizes greater than 4 MiB for standard storage accounts and greater than 256 KiB for premium storage accounts. Larger blob or block sizes automatically activate high-throughput block blobs. High-throughput block blobs provide high-performance ingest that is not affected by partition naming.
+- If possible, use blob or block sizes greater than 256 KiB for standard and premium storage accounts. Larger blob or block sizes automatically activate high-throughput block blobs. High-throughput block blobs provide high-performance ingest that is not affected by partition naming.
 - Examine the naming convention you use for accounts, containers, blobs, tables, and queues. Consider prefixing account, container, or blob names with a three-digit hash using a hashing function that best suits your needs.
 - If you organize your data using timestamps or numerical identifiers, make sure that you are not using an append-only (or prepend-only) traffic pattern. These patterns are not suitable for a range-based partitioning system. These patterns may lead to all traffic going to a single partition and limiting the system from effectively load balancing.
 
@@ -211,6 +214,9 @@ While parallelism can be great for performance, be careful about using unbounded
 
 For best performance, always use the latest client libraries and tools provided by Microsoft. Azure Storage client libraries are available for a variety of languages. Azure Storage also supports PowerShell and Azure CLI. Microsoft actively develops these client libraries and tools with performance in mind, keeps them up-to-date with the latest service versions, and ensures that they handle many of the proven performance practices internally.
 
+> [!TIP]
+> The [ABFS driver](data-lake-storage-abfs-driver.md) was designed to overcome the inherent deficiencies of WASB. Microsoft recommends using the ABFS driver over the WASB driver, as the ABFS driver is optimized specifically for big data analytics.
+
 ## Handle service errors
 
 Azure Storage returns an error when the service cannot process a request. Understanding the errors that may be returned by Azure Storage in a given scenario is helpful for optimizing performance.
@@ -229,7 +235,7 @@ For more information on Azure Storage error codes, see [Status and error codes](
 
 ## Copying and moving blobs
 
-Azure Storage provides a number of solutions for copying and moving blobs within a storage account, between storage accounts, and between on-premises systems and the cloud. This section describes some of these options in terms of their effects on performance. For information about efficiently transferring data to or from Blob storage, see [Choose an Azure solution for data transfer](../common/storage-choose-data-transfer-solution.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Azure Storage provides a number of solutions for copying and moving blobs within a storage account, between storage accounts, and between on-premises systems and the cloud. This section describes some of these options in terms of their effects on performance. For information about efficiently transferring data to or from Blob storage, see [Choose an Azure solution for data transfer](../common/storage-choose-data-transfer-solution.md?toc=/azure/storage/blobs/toc.json).
 
 ### Blob copy APIs
 
@@ -255,16 +261,17 @@ For more information about Azure CDN, see [Azure CDN](../../cdn/cdn-overview.md)
 
 The Blob service supports HEAD requests, which can include blob properties or metadata. For example, if your application needs the Exif (exchangeable image format) data from a photo, it can retrieve the photo and extract it. To save bandwidth and improve performance, your application can store the Exif data in the blob's metadata when the application uploads the photo. You can then retrieve the Exif data in metadata using only a HEAD request. Retrieving only metadata and not the full contents of the blob saves significant bandwidth and reduces the processing time required to extract the Exif data. Keep in mind that 8 KiB of metadata can be stored per blob.
 
+## Performance tuning for data transfers
+
+When an application transfers data using the Azure Storage client library, there are several factors that can affect speed, memory usage, and even the success or failure of the request. To maximize performance and reliability for data transfers, it's important to be proactive in configuring client library transfer options based on the environment your app will run in. To learn more, see [Performance tuning for uploads and downloads](storage-blobs-tune-upload-download.md).
+
 ## Upload blobs quickly
 
-To upload blobs quickly, first determine whether you will be uploading one blob or many. Use the below guidance to determine the correct method to use depending on your scenario.
+To upload blobs quickly, first determine whether you will be uploading one blob or many. Use the below guidance to determine the correct method to use depending on your scenario. If you're using the Azure Storage client library for data transfers, see [Performance tuning for data transfers](#performance-tuning-for-data-transfers) for further guidance.
 
 ### Upload one large blob quickly
 
-To upload a single large blob quickly, a client application can upload its blocks or pages in parallel, being mindful of the scalability targets for individual blobs and the storage account as a whole. The Azure Storage client libraries support uploading in parallel. For example, you can use the following properties to specify the number of concurrent requests permitted in .NET or Java. Client libraries for other supported languages provide similar options.
-
-- For .NET, set the [BlobRequestOptions.ParallelOperationThreadCount](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.paralleloperationthreadcount) property.
-- For Java/Android, call the [BlobRequestOptions.setConcurrentRequestCount(final Integer concurrentRequestCount)](/java/api/com.microsoft.azure.storage.blob.blobrequestoptions.setconcurrentrequestcount) method.
+To upload a single large blob quickly, a client application can upload its blocks or pages in parallel, being mindful of the scalability targets for individual blobs and the storage account as a whole. The Azure Storage client libraries support uploading in parallel. Client libraries for other supported languages provide similar options.
 
 ### Upload many blobs quickly
 
@@ -283,5 +290,5 @@ Page blobs are appropriate if the application needs to perform random writes on 
 ## Next steps
 
 - [Scalability and performance targets for Blob storage](scalability-targets.md)
-- [Scalability and performance targets for standard storage accounts](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Scalability and performance targets for standard storage accounts](../common/scalability-targets-standard-account.md?toc=/azure/storage/blobs/toc.json)
 - [Status and error codes](/rest/api/storageservices/Status-and-Error-Codes2)

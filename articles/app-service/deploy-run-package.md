@@ -37,7 +37,7 @@ az webapp config appsettings set --resource-group <group-name> --name <app-name>
 
 ## Run the package
 
-The easiest way to run a package in your App Service is with the Azure CLI [az webapp deployment source config-zip](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config_zip) command. For example:
+The easiest way to run a package in your App Service is with the Azure CLI [az webapp deployment source config-zip](/cli/azure/webapp/deployment/source#az-webapp-deployment-source-config-zip) command. For example:
 
 ```azurecli-interactive
 az webapp deployment source config-zip --resource-group <group-name> --name <app-name> --src <filename>.zip
@@ -49,7 +49,7 @@ The command also restarts the app. Because `WEBSITE_RUN_FROM_PACKAGE` is set, Ap
 
 ## Run from external URL instead
 
-You can also run a package from an external URL, such as Azure Blob Storage. You can use the [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to upload package files to your Blob storage account. You should use a private storage container with a [Shared Access Signature (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) or [use a managed identity](#fetch-a-package-from-azure-blob-storage-using-a-managed-identity) to enable the App Service runtime to access the package securely. 
+You can also run a package from an external URL, such as Azure Blob Storage. You can use the [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to upload package files to your Blob storage account. You should use a private storage container with a [Shared Access Signature (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) or [use a managed identity](#access-a-package-in-azure-blob-storage-using-a-managed-identity) to enable the App Service runtime to access the package securely. 
 
 Once you upload your file to Blob storage and have an SAS URL for the file, set the `WEBSITE_RUN_FROM_PACKAGE` app setting to the URL. The following example does it by using Azure CLI:
 
@@ -59,9 +59,20 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 If you publish an updated package with the same name to Blob storage, you need to restart your app so that the updated package is loaded into App Service.
 
-### Fetch a package from Azure Blob Storage using a managed identity
+### Access a package in Azure Blob Storage using a managed identity
 
 [!INCLUDE [Run from package via Identity](../../includes/app-service-run-from-package-via-identity.md)]
+
+## Deploy WebJob files when running from package
+
+There are two ways to deploy [WebJob](webjobs-create.md) files when you [enable running an app from package](#enable-running-from-package):
+
+
+- Deploy in the same ZIP package as your app: include them as you normally would in `<project-root>\app_data\jobs\...` (which maps to the deployment path `\site\wwwroot\app_data\jobs\...` as specified in the [WebJobs quickstart](webjobs-create.md#webjob-types)).
+- Deploy separately from the ZIP package of your app: Since the usual deployment path `\site\wwwroot\app_data\jobs\...` is now read-only, you can't deploy WebJob files there. Instead, deploy WebJob files to `\site\jobs\...`, which is not read only. WebJobs deployed to `\site\wwwroot\app_data\jobs\...` and `\site\jobs\...` both run.
+
+> [!NOTE]
+> When `\site\wwwroot` becomes read-only, operations like the creation of the *disable.job* will fail.
 
 ## Troubleshooting
 

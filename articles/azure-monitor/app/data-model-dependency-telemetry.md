@@ -3,8 +3,6 @@ title: Azure Monitor Application Insights Dependency Data Model
 description: Application Insights data model for dependency telemetry
 ms.topic: conceptual
 ms.date: 04/17/2017
-
-ms.reviewer: sergkanz
 ---
 
 # Dependency telemetry: Application Insights data model
@@ -55,8 +53,8 @@ Indication of successful or unsuccessful call.
 ## Next steps
 
 - Set up dependency tracking for [.NET](./asp-net-dependencies.md).
-- Set up dependency tracking for [Java](java-2x-agent.md).
+- Set up dependency tracking for [Java](./opentelemetry-enable.md?tabs=java).
 - [Write custom dependency telemetry](./api-custom-events-metrics.md#trackdependency)
 - See [data model](data-model.md) for Application Insights types and data model.
-- Check out [platforms](./platforms.md) supported by Application Insights.
+- Check out [platforms](./app-insights-overview.md#supported-languages) supported by Application Insights.
 

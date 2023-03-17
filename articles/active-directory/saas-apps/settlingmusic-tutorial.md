@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/17/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 # Tutorial: Azure AD SSO integration with Settling music
@@ -43,6 +43,8 @@ To configure the integration of Settling music into Azure AD, you need to add Se
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Settling music** in the search box.
 1. Select **Settling music** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for Settling music
 
@@ -84,7 +86,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 6. On the **Set up Settling music** section, copy the appropriate URL(s) as per your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+	![Copy configuration URLs](./media/settlingmusic-tutorial/copy-configuration-urls.png)
+
+	> [!NOTE]
+	> Please use the below URL for the Logout URL.
+	```Logout URL
+    https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0
+    ```
 
 ### Create an Azure AD test user
 
@@ -134,7 +142,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	b. In the **Login URL of the ID provider** textbox, paste the value of **Login URL** which you have copied from Azure portal.
 
-	c. In the **ID provider logout URL** textbox, paste the value of **Logout URL** which you have copied from Azure portal.
+	c. In the **ID provider logout URL** textbox, paste the value of **Logout URL** which is explained in [Configure Azure AD SSO](#configure-azure-ad-sso) section.
 
 	d. Click **Choose File** to upload the **Certificate (Base64)** which you have downloaded form Azure portal.
 

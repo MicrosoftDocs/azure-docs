@@ -3,14 +3,13 @@ title: 'Azure AD Connect: Use a SAML 2.0 Identity Provider for Single Sign On - 
 description: This document describes using a SAML 2.0 compliant Idp for single sign on.
 services: active-directory
 author: billmath
-manager: daveba
+manager: amycolannino
 ms.custom: it-pro
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 07/13/2017
+ms.date: 01/26/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -63,6 +62,9 @@ Within the SAML Response message, the Signature node contains information about 
        <ds:Transform Algorithm="https://www.w3.org/2001/10/xml-exc-c14n#"/>`
 9. The SignatureMethod Algorithm must match the following sample:
       `<ds:SignatureMethod Algorithm="https://www.w3.org/2000/09/xmldsig#rsa-sha1"/>`
+
+>[!NOTE]
+>In order to improve the security SHA-1 algorithm is deprecated. Ensure to use a more secure algorithm like SHA-256. More information [can be found](https://learn.microsoft.com/lifecycle/announcements/sha-1-signed-content-retired).
 
 ## Supported bindings
 Bindings are the transport-related communications parameters that are required. The following requirements apply to the bindings
@@ -263,7 +265,6 @@ This procedure shows how to add a single user to Azure AD.
       -FirstName Elwood `
       -LastName Folk `
       -AlternateEmailAddresses "Elwood.Folk@contoso.com" `
-      -LicenseAssignment "samlp2test:ENTERPRISEPACK" `
       -UsageLocation "US" 
     ```
 

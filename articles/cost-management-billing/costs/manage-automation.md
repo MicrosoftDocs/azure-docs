@@ -3,7 +3,7 @@ title: Manage Azure costs with automation
 description: This article explains how you can manage Azure costs with automation.
 author: bandersmsft
 ms.author: banders
-ms.date: 12/10/2021
+ms.date: 11/22/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -99,6 +99,9 @@ For modern customers with a Microsoft Customer Agreement, use the following call
 ```http
 GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDetails?startDate=2020-08-01&endDate=2020-08-05&$top=1000&api-version=2019-10-01
 ```
+
+> [!NOTE]
+> The `$filter` parameter isn't supported by Microsoft Customer Agreements.
 
 ### Get amortized cost details
 
@@ -285,14 +288,49 @@ You can configure budgets to start automated actions using Azure Action Groups. 
 
 ## Data latency and rate limits
 
-We recommend that you call the APIs no more than once per day. Cost Management data is refreshed every four hours as new usage data is received from Azure resource providers. Calling more frequently doesn't provide more data. Instead, it creates increased load. To learn more about how often data changes and how data latency is handled, see [Understand cost management data](understand-cost-mgt-data.md).
+We recommend that you call the APIs no more than once per day. Cost Management data is refreshed every four hours as new usage data is received from Azure resource providers. Calling more frequently doesn't provide more data. Instead, it creates increased load.
 
-### Error code 429 - Call count has exceeded rate limits
+### Query API query processing units
 
-To enable a consistent experience for all Cost Management subscribers, Cost Management APIs are rate limited. When you reach the limit, you receive the HTTP status code `429: Too many requests`. The current throughput limits for our APIs are as follows:
+In addition to the existing rate limiting processes, the [Query API](/rest/api/cost-management/query) also limits processing based on the cost of API calls. The cost of an API call is expressed as query processing units (QPUs). QPU is a performance currency, like [Cosmos DB RUs](../../cosmos-db/request-units.md). They abstract system resources like CPU and memory.
 
-- 30 calls per minute - It's done per scope, per user, or application.
-- 200 calls per minute - It's done per tenant, per user, or application.
+#### QPU calculation
+
+Currently, one QPU is deducted for one month of data queried from the allotted quotas. This logic might change without notice.
+
+#### QPU factors
+
+The following factor affects the number of QPUs consumed by an API request.
+
+- Date range, as the date range in the request increases, the number of QPUs consumed increases.
+
+Other QPU factors might be added without notice.
+
+#### QPU quotas
+
+The following quotas are configured per tenant. Requests are throttled when any of the following quotas are exhausted.
+
+- 12 QPU per 10 seconds
+- 60 QPU per 1 min
+- 600 QPU per 1 hour
+
+The quotas maybe be changed as needed and more quotas may be added.
+
+#### Response headers
+
+You can examine the response headers to track the number of QPUs consumed by an API request and number of QPUs remaining.
+
+`x-ms-ratelimit-microsoft.costmanagement-qpu-retry-after`
+
+Indicates the time to back-off in seconds. When a request is throttled with 429, back off for the time specified in this header before retrying the request.
+
+`x-ms-ratelimit-microsoft.costmanagement-qpu-consumed`
+
+QPUs consumed by an API call.
+
+`x-ms-ratelimit-microsoft.costmanagement-qpu-remaining`
+
+List of remaining quotas.
 
 ## Next steps
 

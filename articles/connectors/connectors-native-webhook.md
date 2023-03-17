@@ -1,10 +1,10 @@
 ---
 title: Wait and respond to events
-description: Automate workflows that trigger, pause, and resume based on events at a service endpoint by using Azure Logic Apps
+description: Automate workflows that trigger, pause, and resume based on events at a service endpoint by using Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: jonfan, logicappspm
-ms.topic: conceptual
+ms.reviewer: estfan, azla
+ms.topic: how-to
 ms.date: 08/27/2020
 tags: connectors
 ---
@@ -41,13 +41,11 @@ For information about encryption, security, and authorization for inbound calls 
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * The URL for an already deployed endpoint or API that supports the webhook subscribe and unsubscribe pattern for [webhook triggers in logic apps](../logic-apps/logic-apps-create-api-app.md#webhook-triggers) or [webhook actions in logic apps](../logic-apps/logic-apps-create-api-app.md#webhook-actions) as appropriate
 
-* Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md). If you're new to logic apps, review [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
-
-* The logic app where you want to wait for specific events at the target endpoint. To start with the HTTP Webhook trigger, [create a blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). To use the HTTP Webhook action, start your logic app with any trigger that you want. This example uses the HTTP trigger as the first step.
+* The logic app where you want to wait for specific events at the target endpoint. To start with the HTTP Webhook trigger, create a blank logic app workflow. To use the HTTP Webhook action, start your logic app with any trigger that you want. This example uses the HTTP trigger as the first step.
 
 ## Add an HTTP Webhook trigger
 
@@ -162,4 +160,5 @@ For more information about trigger and action parameters, which are similar to e
 ## Next steps
 
 * [Secure access and data - Access for inbound calls to request-based triggers](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)
-* [Connectors for Logic Apps](../connectors/apis-list.md)
+* [Managed connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
+* [Built-in connectors for Azure Logic Apps](built-in.md)

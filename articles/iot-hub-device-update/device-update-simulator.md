@@ -1,244 +1,247 @@
 ---
-title: Device Update for Azure IoT Hub tutorial using the Ubuntu (18.04 x64) Simulator Reference Agent | Microsoft Docs
-description: Get started with Device Update for Azure IoT Hub using the Ubuntu (18.04 x64) Simulator Reference Agent.
-author: valls
-ms.author: valls
-ms.date: 2/11/2021
+title: Try Device Update for Azure IoT Hub using a simulator agent
+description: Get started with Device Update for Azure IoT Hub using the Ubuntu (18.04 x64) simulator reference agent.
+author: kgremban
+ms.author: kgremban
+ms.date: 12/16/2022
 ms.topic: tutorial
 ms.service: iot-hub-device-update
 ---
 
-# Device Update for Azure IoT Hub tutorial using the Ubuntu (18.04 x64) Simulator Reference Agent
+# Tutorial: Device Update for Azure IoT Hub using the Ubuntu (18.04 x64) simulator reference agent
 
-Device Update for IoT Hub supports two forms of updates – image-based
-and package-based.
+This tutorial demonstrates an end-to-end image-based update using Device Update for IoT Hub. Device Update for Azure IoT Hub supports image-based, package-based, and script-based updates.
 
-Image updates provide a higher level of confidence in the end-state of the device. It is typically easier to replicate the results of an image-update between a pre-production environment and a production environment, since it doesn’t pose the same challenges as packages and their dependencies. Due to their atomic nature, one can also adopt an A/B failover model easily.
+Image updates provide a higher level of confidence in the end state of the device. It's typically easier to replicate the results of an image update between a pre-production environment and a production environment because it doesn't pose the same challenges as managing packages and their dependencies. Because of their atomic nature, you can also adopt an A/B failover model easily.
 
-This tutorial walks you through the steps to complete an end-to-end image-based update using Device Update for IoT Hub. 
-
-In this tutorial you will learn how to:
+In this tutorial, you'll learn how to:
 > [!div class="checklist"]
-> * Download and install image
-> * Add a tag to your IoT device
-> * Import an update
-> * Create a device group
-> * Deploy an image update
-> * Monitor the update deployment
+>
+> * Assign an IoT device to a Device Update group using tags.
+> * Download and install an image.
+> * Import an update.
+> * Deploy an image update.
+> * Monitor the update deployment.
 
 ## Prerequisites
-* If you haven't already done so, create a [Device Update account and instance](create-device-update-account.md), including configuring an IoT Hub.
 
-### Download and install
+* Create a [Device Update account and instance](create-device-update-account.md) configured with an IoT hub.
 
-* Az (Azure CLI) cmdlets for PowerShell:
-  * Open PowerShell > Install Azure CLI ("Y" for prompts to install from "untrusted" source)
+* Have an Ubuntu 18.04 device. This device can be either physical or a virtual machine.
 
-```powershell
-PS> Install-Module Az -Scope CurrentUser
-```
+* Download the zip file named `Tutorial_Simulator.zip` from [Release Assets](https://github.com/Azure/iot-hub-device-update/releases) in the latest release, and unzip it.
 
-### Enable WSL on your Windows device (Windows Subsystem for Linux)
+  If your test device is different than your development machine, download the zip file onto both.
 
-1. Open PowerShell as Administrator on your machine and run the following command (you might be asked to restart after each step; restart when asked):
+  You can use `wget` to download the zip file. Replace `<release_version>` with the latest release, for example `1.0.0`.
 
-```powershell
-PS> Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform
-PS> Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
-```
-
-(*You may be prompted to restart after this step*)
-
-2. Go to the Microsoft Store on the web and install [Ubuntu 18.04 LTS](https://www.microsoft.com/p/ubuntu-1804-lts/9n9tngvndl3q?activetab=pivot:overviewtab`).
-
-3. Start "Ubuntu 18.04 LTS" and install.
-
-4. When installed, you'll be asked to set root name (username) and password. Be sure to use a memorable root name password.
-
-5. In PowerShell, run the following command to set Ubuntu to be the default Linux distribution:
-
-```powershell
-PS> wsl --setdefault Ubuntu-18.04
-```
-
-6. List all Linux distributions, make sure that Ubuntu is the default one.
-
-```powershell
-PS> wsl --list
-```
-
-7. You should see: **Ubuntu-18.04 (Default)**
-
-## Download Device Update Ubuntu (18.04 x64) Simulator Reference Agent
-
-The Ubuntu reference agent can be downloaded from the *Assets* section from release notes [here](https://github.com/Azure/iot-hub-device-update/releases).
-
-There are two versions of the agent. For this tutorial, since you're exercising the image-based scenario, use AducIotAgentSim-microsoft-swupdate. If you were going to exercise the package-based scenario instead, you would use AducIotAgentSim-microsoft-apt.
-
-## Install Device Update Agent simulator
-
-1. Start Ubuntu WSL and enter the following command (note that extra space and dot at the end).
-
-  ```shell
-  explorer.exe .
+  ```bash
+  wget https://github.com/Azure/iot-hub-device-update/releases/download/<release_version>/Tutorial_Simulator.zip
   ```
 
-2. Copy AducIotAgentSim-microsoft-swupdate (or AducIotAgentSim-microsoft-apt) from your local folder where it was downloaded under /mnt to your home folder in WSL.
+## Register a device and configure a module identity
 
-3. Run the following command to make the binaries executable.
+Add a device to the device registry in your IoT hub. Every device that connects to IoT hub needs to be registered.
 
-  ```shell
-  sudo chmod u+x AducIotAgentSim-microsoft-swupdate
-  ```
+In this section, we'll also create a module identity. Modules are independent identities for components that exist on an IoT device, which allows for finer granularity when you have an IoT device running multiple processes. For this tutorial, you'll use this module identity for the Device Update agent that runs on the IoT device. For more information, see [Understand and use module twins in IoT Hub](../iot-hub/iot-hub-devguide-module-twins.md).
 
-  or
+1. From the [Azure portal](https://portal.azure.com), navigate to your IoT hub.
+1. On the left pane, select **Devices**. Then select **Add Device**.
+1. Under **Device ID**, enter a name for the device. Ensure that the **Autogenerate keys** checkbox is selected.
+1. Select **Save**.
+1. Now, you're returned to the **Devices** page and the device you created should be in the list. Select that device.
+1. Select **Add Module Identity**.
+1. Under **Module Identity Name**, enter a name for the module, for example, **DUAgent**.
+1. Select **Save**
 
-  ```shell
-  sudo chmod u+x AducIotAgentSim-microsoft-apt
-  ```
-Device Update for Azure IoT Hub software is subject to the following license terms:
-   * [Device update for IoT Hub license](https://github.com/Azure/iot-hub-device-update/blob/main/LICENSE.md)
-   * [Delivery optimization client license](https://github.com/microsoft/do-client/blob/main/LICENSE)
-   
-Read the license terms prior to using the agent. Your installation and use constitutes your acceptance of these terms. If you do not agree with the license terms, do not use the Device update for IoT Hub agent.
+### Copy the module connection string
 
-## Add device to Azure IoT Hub
+1. In the device view, you should see your new module listed under the **Module Identities** heading. Select the module name to open its details.
+1. Select the **Copy** icon next to **Connection string (primary key)**. Save this connection string to use when you configure the Device Update agent. This string is your *module connection string*.
 
-Once the Device Update Agent is running on an IoT device, the device needs to be added to the Azure IoT Hub.  From within Azure IoT Hub, a connection string will be generated for a particular device.
+### Add a tag to your module twin
 
-1. From the Azure portal, launch the Device Update IoT Hub.
-2. Create a new device.
-3. On the left-hand side of the page, navigate to 'IoT Devices' > Select "New".
-4. Provide a name for the device under 'Device ID'--Ensure that "Autogenerate keys" is checkbox is selected.
-5. Select 'Save'.
-6. Now, you'll be returned to the 'Devices' page and the device you created should be in the list. Select that device.
-7. In the device view, select the 'Copy' icon next to 'Primary Connection String'.
-8. Paste the copied characters somewhere for later use in the steps below. **This copied string is your device connection string**.
+1. Still on the module identity details page, select **Module Identity Twin**
+1. Add a new Device Update tag value at the same level as `modelId` and `version` in the twin file, as shown:
 
-## Add connection string to simulator
+   ```JSON
+   "tags": {
+       "ADUGroup": "DU-simulator-tutorial"
+   },
+   ```
 
-Start Device Update Agent on your new Software Devices.
+   :::image type="content" source="./media/device-update-simulator/add-tag-to-module-twin.png" alt-text="Screenshot of the ADUGroup tag in the module twin.":::
 
-1. Start Ubuntu.
-2. Run the Device Update Agent and specify the device connection string from the previous section wrapped with apostrophes:
+   Every device that's managed by Device Update needs this reserved tag, which assigns the device to a Device Update group. It can be in the device twin or in a module twin, as shown here. Each device can only be assigned to one Device Update group.
 
-Replace `<device connection string>` with your connection string
-```shell
-sudo ./AducIotAgentSim-microsoft-swupdate "<device connection string>"
-```
+1. Select **Save**. The portal reformats the module twin to incorporate the tag into the json structure.
 
-or
+## Install and configure the Device Update agent
 
-```shell
-./AducIotAgentSim-microsoft-apt -c '<device connection string>'
-```
+The Device Update agent runs on every device that's managed by Device Update. For this tutorial, we'll configure it to run as a simulator so that we can see how an update may be applied to a device without actually changing the device's configuration.
 
-3. Scroll up and look for the string indicating that the device is in "Idle" state. An "Idle" state signifies that the device is ready for service commands:
+1. On your IoT device, add the Microsoft package repository and then add the Microsoft package signing key to your list of trusted keys.
 
-```markdown
-Agent running. [main]
-```
+   ```bash
+   wget https://packages.microsoft.com/config/ubuntu/18.04/multiarch/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+   sudo dpkg -i packages-microsoft-prod.deb
+   rm packages-microsoft-prod.deb   
+   ```
 
-## Add a tag to your device
+1. Install the Device Update agent .deb packages.
 
-1. Log into [Azure portal](https://portal.azure.com) and navigate to the IoT Hub.
+   ```bash
+   sudo apt-get update
+   sudo apt-get install deviceupdate-agent
+   ```
 
-2. From 'IoT Devices' or 'IoT Edge' on the left navigation pane find your IoT device and navigate to the Device Twin or Module Twin.
+1. Open the agent's configuration file.
 
-3. In the Module Twin of the Device Update agent module, delete any existing Device Update tag value by setting them to null. If you are using Device identity with Device Update agent make these changes on the Device Twin.
+   ```bash
+   sudo nano /etc/adu/du-config.json
+   ```
 
-4. Add a new Device Update tag value as shown below.
+1. Update the following values in the configuration file:
 
-```JSON
-    "tags": {
-            "ADUGroup": "<CustomTagValue>"
-            }
-```
+   * **manufacturer**: `"Contoso"` - This value is used to classify the IoT device for targeting updates.
+   * **model**: `"Video"` - This value is used to classify the IoT device for targeting updates.
+   * **name**: `"aduagent"`
+   * **agents.connectionData**: Provide the connection string that you copied from the module identity.
+   * **agents.manufacturer**: `"Contoso"`
+   * **agents.model**: `"Video"`
 
-## Import update
+   For more information about the parameters in this step, see [Device Update configuration file](device-update-configuration-file.md).
 
-1. Download the [sample import manifest](https://github.com/Azure/iot-hub-device-update/releases/download/0.7.0/TutorialImportManifest_Sim.json) and [sample image update](https://github.com/Azure/iot-hub-device-update/releases/download/0.7.0-rc1/adu-update-image-raspberrypi3-0.6.5073.1.swu). _Note_: these are re-used update files from the Raspberry Pi tutorial, because the update in this tutorial will be simulated and therefore the specific file content doesn't matter. 
-2. Log in to the [Azure portal](https://portal.azure.com/) and navigate to your IoT Hub with Device Update. Then, select the Device Updates option under Automatic Device Management from the left-hand navigation bar.
+   > [!NOTE]
+   >You can also use the IoT Identity Service to provision the device. To do, that [install the iot indentity service](https://azure.github.io/iot-identity-service/installation.html) before installing the Device Update agent. Then, configure the Device Update agent with `"connectionType": "AIS"` and `connectionData` as a blank string in the configuration file.
 
-3. Select the Updates tab.
+1. Save and close the file. `CTRL`+`X`, `Y`, and `Enter`.
 
-4. Select "+ Import New Update".
+1. Set up the agent to run as a simulator. Run the following command on the IoT device so that the Device Update agent invokes the simulator handler to process a package update with SWUpdate (`microsoft/swupdate:1`).
 
-5. Select the folder icon or text box under "Select an Import Manifest File". You will see a file picker dialog. Select the _sample import manifest_ you downloaded in step 1 above.  Next, select the folder icon or text box under "Select one or more update files". You will see a file picker dialog. Select the _sample image update_ that you downloaded in step 1 above. 
+   ```bash
+     sudo /usr/bin/AducIotAgent --extension-type updateContentHandler --extension-id 'microsoft/swupdate:1' --register-extension /var/lib/adu/extensions/sources/libmicrosoft_simulator_1.so
+   ```
 
-   :::image type="content" source="media/import-update/select-update-files.png" alt-text="Screenshot showing update file selection." lightbox="media/import-update/select-update-files.png":::
+1. Unzip `Tutorial_Simulator.zip` file that you downloaded in the prerequisites and copy the `sample-du-simulator-data.json` file to the `tmp` folder.
 
-6. Select the folder icon or text box under "Select a storage container". Then select the appropriate storage account.
+   ```bash
+   cp sample-du-simulator-data.json /tmp/du-simulator-data.json
+   ```
 
-7. If you’ve already created a container, you can reuse it. (Otherwise, select "+ Container" to create a new storage container for updates.).  Select the container you wish to use and click "Select".
+   If /tmp doesn't exist, then run:
+
+   ```bash
+   sudo mkdir/tmp
+   sudo chown root:root/tmp
+   sudo chmod 1777/tmp
+   ```  
+
+1. Change permissions for the new file.
+
+   ```bash
+   sudo chown adu:adu /tmp/du-simulator-data.json
+   sudo chmod 664 /tmp/du-simulator-data.json
+   ```
   
-  :::image type="content" source="media/import-update/container.png" alt-text="Screenshot showing container selection." lightbox="media/import-update/container.png":::
+1. Restart the Device Update agent to apply your changes.
 
-8. Select "Submit" to start the import process.
+   ```bash
+    sudo systemctl restart deviceupdate-agent
+   ```
 
-9. The import process begins, and the screen changes to the "Import History" section. Select "Refresh" to view progress until the import process completes. Depending on the size of the update, this may complete in a few minutes but could take longer.
-   
-   :::image type="content" source="media/import-update/update-publishing-sequence-2.png" alt-text="Screenshot showing update import sequence." lightbox="media/import-update/update-publishing-sequence-2.png":::
+## Import an update
 
-10. When the Status column indicates the import has succeeded, select the "Ready to Deploy" header. You should see your imported update in the list now.
+In this section, you use the files `TutorialImportManifest_Sim.importmanifest.json` and `adu-update-image-raspberrypi3.swu` from the downloaded `Tutorial_Simulator.zip` in the prerequisites. The update file is reused from the Raspberry Pi tutorial. Because the update in this tutorial is simulated, the specific file content doesn't matter.
 
-[Learn more](import-update.md) about importing updates.
+1. On your development machine, sign in to the [Azure portal](https://portal.azure.com/) and go to your IoT hub that is configured with Device Update.
+1. On the navigation pane, under **Device Management**, select **Updates**.
+1. Select **Import a new update**.
+1. Select **Select from storage container**.
+1. Select an existing storage account or create a new account by selecting **+ Storage account**. Then, select an existing container or create a new container by selecting **+ Container**. This container will be used to stage your update files for importing.
 
-## Create update group
+   > [!NOTE]
+   > We recommend that you use a new container each time you import an update to avoid accidentally importing files from previous updates. If you don't use a new container, be sure to delete any files from the existing container before you finish this step.
 
-1. Go to the IoT Hub you previously connected to your Device Update instance.
+   :::image type="content" source="media/import-update/storage-account-ppr.png" alt-text="Screenshot that shows Storage accounts and Containers." lightbox="media/import-update/storage-account-ppr.png":::
 
-2. Select the Device Updates option under Automatic Device Management from the left-hand navigation bar.
+1. In your container, select **Upload** and go to the files you downloaded in the prerequisites. Select the **TutorialImportManifest_Sim.importmanifest.json** and the **adu-update-image-raspberrypi3.swu** files, then select **Upload**.
 
-3. Select the Groups tab at the top of the page. 
+1. Select the checkbox by each file, then select the **Select** button to return to the **Import update** page.
 
-4. Select the Add button to create a new group.
+   :::image type="content" source="media/device-update-simulator/select-container-files.png" alt-text="Screenshot that shows selecting uploaded files in the container.":::
 
-5. Select the IoT Hub tag you created in the previous step from the list. Select Create update group.
+1. On the **Import update** page, review the files to be imported. Then select **Import update** to start the import process.
 
-   :::image type="content" source="media/create-update-group/select-tag.PNG" alt-text="Screenshot showing tag selection." lightbox="media/create-update-group/select-tag.PNG":::
+   :::image type="content" source="media/device-update-simulator/import-update.png" alt-text="Screenshot that shows uploaded files that will be imported as an update.":::
 
-[Learn more](create-update-group.md) about adding tags and creating update groups
+1. The import process begins, and the screen switches to the **Import History** section. The **Status** column shows the import as **Running** while the import is in progress, and **Succeeded** when the import is complete. Use the **Refresh** button to update the status.
 
+1. When the **Status** column indicates the import has succeeded, select the **Available updates** header. You should see your imported update in the list now.
 
-## Deploy update
+   :::image type="content" source="media/device-update-simulator/available-updates.png" alt-text="Screenshot that shows the new update listed as an available update.":::
 
-1. Once the group is created, you should see a new update available for your device group, with a link to the update under Pending Updates. You may need to Refresh once. 
+For more information about the import process, see [Import an update to Device Update for IoT Hub](import-update.md).
 
-2. Click on the available update.
+## View device groups
 
-3. Confirm the correct group is selected as the target group. Schedule your deployment, then select Deploy update.
+Device Update uses groups to organize devices. Device Update automatically sorts devices into groups based on their assigned tags and compatibility properties. Each device belongs to only one group, but groups can have multiple subgroups to sort different device classes.
 
-   :::image type="content" source="media/deploy-update/select-update.png" alt-text="Select update" lightbox="media/deploy-update/select-update.png":::
+1. Go to the **Groups and Deployments** tab at the top of the **Updates** page.
 
-4. View the compliance chart. You should see the update is now in progress. 
+1. View the list of groups and the update compliance chart. The update compliance chart shows the count of devices in various states of compliance: **On latest update**, **New updates available**, and **Updates in progress**. [Learn about update compliance](device-update-compliance.md).
 
-   :::image type="content" source="media/deploy-update/update-in-progress.png" alt-text="Update in progress" lightbox="media/deploy-update/update-in-progress.png":::
+   :::image type="content" source="media/device-update-simulator/groups-and-deployments.png" alt-text="Screenshot that shows the update compliance view." lightbox="media/create-update-group/updated-view.png":::
 
-5. After your device is successfully updated, you should see your compliance chart and deployment details update to reflect the same. 
+   You should see a device group that contains the simulated device you set up in this tutorial along with any available updates for the devices in the new group. If there are devices that don't meet the device class requirements of the group, they'll show up in a corresponding invalid group.
 
-   :::image type="content" source="media/deploy-update/update-succeeded.png" alt-text="Update succeeded" lightbox="media/deploy-update/update-succeeded.png":::
+For more information about tags and groups, see [Manage device groups](create-update-group.md).
 
-## Monitor an update deployment
+## Deploy the update
 
-1. Select the Deployments tab at the top of the page.
+1. On the **Groups and Deployments** tab, you should see a new update available for your device group. A link to the update should be under **Status**. You might need to refresh the page.
 
-   :::image type="content" source="media/deploy-update/deployments-tab.png" alt-text="Deployments tab" lightbox="media/deploy-update/deployments-tab.png":::
+1. Select the group name to view its details.
 
-2. Select the deployment you created to view the deployment details.
+1. On the group details page, you should see that there's one new update available. Select **Deploy** to start the deployment.
 
-   :::image type="content" source="media/deploy-update/deployment-details.png" alt-text="Deployment details" lightbox="media/deploy-update/deployment-details.png":::
+   :::image type="content" source="media/device-update-simulator/group-details.png" alt-text="Screenshot that shows starting a group update deployment." lightbox="media/deploy-update/select-update.png":::
 
-3. Select Refresh to view the latest status details. Continue this process until the status changes to Succeeded.
+1. The update that we imported in the previous section is listed as the best available update for this group. Select **Deploy**.
 
-You have now completed a successful end-to-end image update using Device Update for IoT Hub using the Ubuntu (18.04 x64) Simulator Reference Agent.
+1. Schedule your deployment to start immediately, then select **Create**.
+
+1. On the group details page, navigate to the **Current updates** tab. Under **Deployment details**, **Status** turns to **Active**.
+
+1. After your device is successfully updated, return to the **Updates** page. You should see that your compliance chart and deployment details are updated to reflect the same.
+
+## Monitor the update deployment
+
+1. Return to the group details page and select the **Deployment history** tab.
+
+1. Select **View deployment details** next to the deployment you created.
+
+   :::image type="content" source="media/device-update-simulator/view-deployment-details.png" alt-text="Screenshot that shows Deployment details." lightbox="media/deploy-update/deployment-details.png":::
+
+1. Select **Refresh** to view the latest status details.
+
+You've now completed a successful end-to-end image update by using Device Update for IoT Hub using the Ubuntu (18.04 x64) simulator reference agent.
 
 ## Clean up resources
 
-When no longer needed, clean up your device update account, instance, IoT Hub and IoT device. 
+If you're going to continue to the next tutorial, keep your Device Update and IoT Hub resources.
+
+When no longer needed, you can delete these resources in the Azure portal.
+
+1. Navigate to your resource group in the [Azure portal](https://portal.azure.com).
+1. Choose which resources to delete.
+
+   * If you want to delete all the resources in the group, select **Delete resource group**.
+   * If you only want to delete select resources, use the check boxes to select the resources then select **Delete**.
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Troubleshooting](troubleshoot-device-update.md)
+In this tutorial, you learned how to import and deploy an image update. Next, learn how to update device packages.
 
+> [!div class="nextstepaction"]
+> [Device Update using the package agent](device-update-ubuntu-agent.md)

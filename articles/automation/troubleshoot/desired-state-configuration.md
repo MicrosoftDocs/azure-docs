@@ -3,8 +3,8 @@ title: Troubleshoot Azure Automation State Configuration issues
 description: This article tells how to troubleshoot and resolve Azure Automation State Configuration issues.
 services: automation
 ms.subservice:
-ms.date: 04/16/2019
-ms.topic: troubleshooting 
+ms.date: 10/17/2022
+ms.topic: troubleshooting
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -28,7 +28,7 @@ By compiling a DSC configuration on your local machine, you can discover and res
 
 ### 2. View DSC logs on your node
 
-If your configuration compiles successfully, but fails when applied to a node, you can find detailed information in the DSC logs. For information about where to find these logs, see [Where are the DSC Event Logs](/powershell/scripting/dsc/troubleshooting/troubleshooting#where-are-dsc-event-logs).
+If your configuration compiles successfully, but fails when applied to a node, you can find detailed information in the DSC logs. For information about where to find these logs, see [Where are the DSC Event Logs](/powershell/dsc/troubleshooting/troubleshooting#where-are-dsc-event-logs).
 
 The [xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics) module can assist you in parsing detailed information from the DSC logs. If you contact support, they require these logs to diagnose your issue.
 
@@ -36,7 +36,7 @@ You can install the `xDscDiagnostics` module on your local machine by following 
 
 To install the `xDscDiagnostics` module on your Azure machine, use [Invoke-AzVMRunCommand](/powershell/module/az.compute/invoke-azvmruncommand). You can also use the **Run command** option in the Azure portal by following the steps in [Run PowerShell scripts in your Windows VM with Run Command](../../virtual-machines/windows/run-command.md).
 
-For information on using **xDscDiagnostics**, see [Using xDscDiagnostics to analyze DSC logs](/powershell/scripting/dsc/troubleshooting/troubleshooting#using-xdscdiagnostics-to-analyze-dsc-logs). See also [xDscDiagnostics Cmdlets](https://github.com/PowerShell/xDscDiagnostics#cmdlets).
+For information on using **xDscDiagnostics**, see [Using xDscDiagnostics to analyze DSC logs](/powershell/dsc/troubleshooting/troubleshooting#using-xdscdiagnostics-to-analyze-dsc-logs). See also [xDscDiagnostics Cmdlets](https://github.com/PowerShell/xDscDiagnostics#cmdlets).
 
 ### 3. Ensure that nodes and the Automation workspace have required modules
 
@@ -101,9 +101,15 @@ VM has reported a failure when processing extension 'Microsoft.Powershell.DSC / 
 
 ### Cause
 
-This issue is caused by a bad or expired certificate. See [Re-register a node](../automation-dsc-onboarding.md#re-register-a-node).
+The following are the possible causes:
 
-This issue might also be caused by a proxy configuration not allowing access to ***.azure-automation.net**. For more information, see [Configuration of private networks](../automation-dsc-overview.md#network-planning). 
+- A bad or expired certificate. See [Re-register a node](../automation-dsc-onboarding.md#re-register-a-node).
+
+- A proxy configuration that isn't allowing access to ***.azure-automation.net**. For more information, see [Configuration of private networks](../automation-dsc-overview.md#network-planning). 
+
+- When you disable local authentication in Azure Automation. See [Disable local authentication](../disable-local-authentication.md). To fix it, see [re-enable local authentication](../disable-local-authentication.md#re-enable-local-authentication).
+
+- Client computer time is many minutes inaccurate from actual time. (To check time use: *w32tm /stripchart /computer:time.windows.com /samples:6*).
 
 ### Resolution
 
@@ -133,10 +139,10 @@ $certs += dir cert:\localmachine\CA | ?{$_.subject -like "CN=AzureDSCExtension*"
 "";"== DSC Certificates found: " + $certs.Count
 $certs | FL ThumbPrint,FriendlyName,Subject
 If (($certs.Count) -gt 0)
-{ 
-    ForEach ($Cert in $certs) 
+{
+    ForEach ($Cert in $certs)
     {
-        RD -LiteralPath ($Cert.Pspath) 
+        RD -LiteralPath ($Cert.Pspath)
     }
 }
 ```
@@ -323,7 +329,7 @@ The best workaround is to compile locally or in a CI/CD pipeline and upload the 
 
 #### Issue
 
-You receive a `GatewayTimeout` error when you upload a DSC configuration. 
+You receive a `GatewayTimeout` error when you upload a DSC configuration.
 
 ### Cause
 
@@ -331,7 +337,21 @@ DSC configurations that take a long time to compile can cause this error.
 
 ### Resolution
 
-You can make your DSC configurations parse faster by explicitly including the `ModuleName` parameter for any [Import-DSCResource](/powershell/scripting/dsc/configurations/import-dscresource) calls.
+You can make your DSC configurations parse faster by explicitly including the `ModuleName` parameter for any [Import-DSCResource](/powershell/dsc/configurations/import-dscresource) calls.
+
+## Scenario: Error while onboarding a machine
+
+#### Issue
+
+You receive a `agent has a problem` error when you onboard a machine.
+
+### Cause
+
+This is a known issue. You cannot assign the same configuration again as the node remains in pending state.
+
+### Resolution
+
+The work around is to apply different test configuration and apply the original configuration again.
 
 ## Next steps
 

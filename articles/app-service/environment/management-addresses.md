@@ -5,7 +5,7 @@ author: madsd
 
 ms.assetid: a7738a24-89ef-43d3-bff1-77f43d5a3952
 ms.topic: article
-ms.date: 11/10/2021
+ms.date: 10/24/2022
 ms.author: madsd
 ms.custom: seodec18, references_regions, devx-track-azurecli
 ---
@@ -14,11 +14,15 @@ ms.custom: seodec18, references_regions, devx-track-azurecli
 > This article is about the App Service Environment v2 which is used with Isolated App Service plans
 > 
 
-The App Service Environment (ASE) is a single tenant deployment of the Azure App Service that runs in your Azure Virtual Network (VNet).  While the ASE does run in your VNet, it must still be accessible from a number of dedicated IP addresses that are used by the Azure App Service to manage the service.  In the case of an ASE, the management traffic traverses the user-controlled network. If this traffic is blocked or misrouted, the ASE will become suspended. For details on the ASE networking dependencies, read [Networking considerations and the App Service Environment][networking]. For general information on the ASE, you can start with [Introduction to the App Service Environment][intro].
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+
+## Summary
+
+The App Service Environment (ASE) is a single tenant deployment of the Azure App Service that runs in your Azure Virtual Network. While the ASE does run in your virtual network, it must still be accessible from a number of dedicated IP addresses that are used by the Azure App Service to manage the service. In the case of an ASE, the management traffic traverses the user-controlled network. If this traffic is blocked or misrouted, the ASE will become suspended. For details on the ASE networking dependencies, read [Networking considerations and the App Service Environment][networking]. For general information on the ASE, you can start with [Introduction to the App Service Environment][intro].
 
 All ASEs have a public VIP which management traffic comes into. The incoming management traffic from these addresses comes in from to ports 454 and 455 on the public VIP of your ASE. This document lists the App Service source addresses for management traffic to the ASE. These addresses are also in the IP Service Tag named AppServiceManagement.
 
-The addresses noted below can be configured in a route table to avoid asymmetric routing problems with the management traffic. Routes act on traffic at the IP level and do not have an awareness of traffic direction or that the traffic is a part of a TCP reply message. If the reply address for a TCP request is different than the address it was sent to, you have an asymmetric routing problem. To avoid asymmetric routing problems with your ASE management traffic, you need to ensure that replies are sent back from the same address they were sent to. For details on how to configure your ASE to operate in an environment where outbound traffic is sent on premises, read [Configure your ASE with forced tunneling][forcedtunnel]
+The addresses noted below can be configured in a route table to avoid asymmetric routing problems with the management traffic. The address are also maintained in a service tag, that can be used as well. Routes act on traffic at the IP level and do not have an awareness of traffic direction or that the traffic is a part of a TCP reply message. If the reply address for a TCP request is different than the address it was sent to, you have an asymmetric routing problem. To avoid asymmetric routing problems with your ASE management traffic, you need to ensure that replies are sent back from the same address they were sent to. For details on how to configure your ASE to operate in an environment where outbound traffic is sent on premises, read [Configure your ASE with forced tunneling][forcedtunnel]
 
 ## List of management addresses ##
 
@@ -38,7 +42,7 @@ With Network Security Groups, you do not need to worry about the individual addr
 
 The management addresses can be placed in a route table with a next hop of internet to ensure that all inbound management traffic is able to go back through the same path. These routes are needed when configuring forced tunneling. To create the route table, you can use the portal, PowerShell or Azure CLI.  The commands to create a route table using Azure CLI from a PowerShell prompt are below. 
 
-```azurepowershell-interactive
+```azurecli
 $rg = "resource group name"
 $rt = "route table name"
 $location = "azure location"

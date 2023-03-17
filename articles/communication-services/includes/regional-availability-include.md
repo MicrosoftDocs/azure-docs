@@ -8,4 +8,4 @@ ms.custom: references_regions
 
 ---
 > [!IMPORTANT]
-> Phone number availability is currently restricted to Azure subscriptions that have a billing address in the United States (including Puerto Rico), United Kingdom or Ireland. For more information, visit the [Phone number types](../concepts/numbers/number-types.md) documentation.
+> SMS capabilities depend on the phone number you use and the country that you're operating within as determined by your Azure billing address. For more information, visit the [Subscription eligibility](../concepts/numbers/sub-eligibility-number-capability.md) documentation.

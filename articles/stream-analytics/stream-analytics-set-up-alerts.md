@@ -1,13 +1,12 @@
 ---
 title: Set up monitoring alerts for Azure Stream Analytics jobs
 description: This article describes how to use the Azure portal to set up monitoring and alerts for Azure Stream Analytics jobs.
-author: jseb225
-ms.author: sidram
-
+author: ajetasin
+ms.author: ajetasi
 ms.service: stream-analytics
 ms.topic: how-to
 ms.custom: contperf-fy21q1
-ms.date: 06/21/2019
+ms.date: 07/12/2022
 ---
 # Set up alerts for Azure Stream Analytics jobs
 
@@ -47,17 +46,6 @@ The following example demonstrates how to set up alerts for when your job enters
    Add an **Alert rule name**, **Description**, and your **Resource Group** to the **ALERT DETAILS** and click **Create alert rule** to create the rule for your Stream Analytics job.
 
    ![Screenshot shows the Create rule dialog box with ALERT DETAILS.](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule.png)
-   
-## Scenarios to monitor
-
-The following alerts are recommended for monitoring the performance of your Stream Analytics job. These metrics should be evaluated every minute over the last 5-minute period.
-
-|Metric|Condition|Time Aggregation|Threshold|Corrective Actions|
-|-|-|-|-|-|
-|SU% Utilization|Greater than|Maximum|80|There are multiple factors that increase SU% Utilization. You can scale with query parallelization or increase the number of streaming units. For more information, see [Leverage query parallelization in Azure Stream Analytics](stream-analytics-parallelization.md).|
-|Runtime errors|Greater than|Total|0|Examine the activity or resource logs and make appropriate changes to the inputs, query, or outputs.|
-|Watermark delay|Greater than|Maximum|When average value of this metric over the last 15 minutes is greater than late arrival tolerance (in seconds). If you have not modified the late arrival tolerance, the default is set to 5 seconds.|Try increasing the number of SUs or parallelizing your query. For more information on SUs, see [Understand and adjust Streaming Units](stream-analytics-streaming-unit-consumption.md#how-many-sus-are-required-for-a-job). For more information on parallelizing your query, see [Leverage query parallelization in Azure Stream Analytics](stream-analytics-parallelization.md).|
-|Input deserialization errors|Greater than|Total|0|Examine the activity or resource logs and make appropriate changes to the input. For more information on resource logs, see [Troubleshoot Azure Stream Analytics using resource logs](stream-analytics-job-diagnostic-logs.md)|
 
 ## Next steps
 

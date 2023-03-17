@@ -1,7 +1,6 @@
 ---
 title: include
-author: ElazarK
-ms.author: v-ekrieg
+author: batamig
 ms.date: 11/09/2021
 ms.topic: include
 ---
@@ -10,4 +9,4 @@ ms.topic: include
 
 > [!NOTE]
 >
-> Azure Defender for IoT is being renamed to Microsoft Defender for IoT. The documentation will be updated soon.
+> Azure Defender for IoT has been renamed to Microsoft Defender for IoT.

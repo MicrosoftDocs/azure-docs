@@ -7,12 +7,11 @@ author: georgewallace
 ms.author: gwallace
 manager: gwallace
 ms.date: 03/24/2020
-ms.prod: devops
-ms.technology: devops-cicd
+ms.service: azure-devops-pipelines
 ms.topic: quickstart
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java, mode-other
+ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java, mode-api
 ---
 
 # Set up a CI/CD pipeline for a Java app with Azure DevOps Starter

@@ -8,6 +8,9 @@ ms.date: 04/14/2020
 ---
 # Extend app at prediction runtime
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
+
 The app's schema (models and features) is trained and published to the prediction endpoint. This published model is used on the prediction runtime. You can pass new information, along with the user's utterance, to the prediction runtime to augment the prediction.
 
 Two prediction runtime schema changes include:

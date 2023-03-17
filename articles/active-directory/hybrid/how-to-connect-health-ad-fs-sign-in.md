@@ -1,17 +1,16 @@
 ---
-title: AD FS sign-ins in Azure AD with Connect Health | Microsoft Docs
+title: AD FS sign-ins in Azure AD with Connect Health
 description: This document describes how to integrate AD FS sign-ins with the Azure AD Connect Health sign-ins report.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 03/16/2021
+ms.date: 01/26/2023
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ---

@@ -1,13 +1,13 @@
 ---
-title: Azure Table storage monitoring data reference | Microsoft Docs
+title: Azure Table storage monitoring data reference
 description: Log and metrics reference for monitoring data from Azure Table storage.
 author: normesta
-services: azure-monitor
-ms.service: azure-monitor
+services: storage
+ms.service: storage
 ms.topic: reference
-ms.date: 10/02/2020
+ms.date: 08/18/2022
 ms.author: normesta
-ms.subservice: logs
+ms.subservice: tables
 ms.custom: monitoring
 ---
 
@@ -25,7 +25,7 @@ Capacity metrics values are sent to Azure Monitor every hour. The values are ref
 
 Azure Storage provides the following capacity metrics in Azure Monitor.
 
-#### Account Level
+#### Account-level metrics
 
 [!INCLUDE [Account level capacity metrics](../../../includes/azure-storage-account-capacity-metrics.md)]
 
@@ -38,6 +38,8 @@ This table shows [Table storage metrics](../../azure-monitor/essentials/metrics-
 | TableCapacity | The amount of Table storage used by the storage account. <br/><br/> Unit: Bytes <br/> Aggregation Type: Average <br/> Value example: 1024 |
 | TableCount   | The number of tables in the storage account. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Value example: 1024 |
 | TableEntityCount | The number of table entities in the storage account. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Value example: 1024 |
+
+To learn how to calculate Table storage capacity, see [Calculate the size/capacity of storage account and it services](https://techcommunity.microsoft.com/t5/azure-paas-blog/calculate-the-size-capacity-of-storage-account-and-it-services/ba-p/1064046).
 
 ### Transaction metrics
 
@@ -53,10 +55,9 @@ Azure Storage supports following dimensions for metrics in Azure Monitor.
 
 [!INCLUDE [Metrics dimensions](../../../includes/azure-storage-account-metrics-dimensions.md)]
 
-## Resource logs (preview)
+<a id="resource-logs-preview"></a>
 
-> [!NOTE]
-> Azure Storage logs in Azure Monitor is in public preview, and is available for preview testing in all public and US Government cloud regions. This preview enables logs for blobs (including Azure Data Lake Storage Gen2), files, queues, tables, premium storage accounts in general-purpose v1 and general-purpose v2 storage accounts. Classic storage accounts are not supported.
+## Resource logs
 
 The following table lists the properties for Azure Storage resource logs when they're collected in Azure Monitor Logs or Azure Storage. The properties describe the operation, the service, and the type of authorization that was used to perform the operation.
 

@@ -6,7 +6,7 @@ author: kengaderdus
 manager: CelesteDG
 
 ms.author: kengaderdus
-ms.date: 08/24/2021
+ms.date: 03/30/2022
 ms.custom: mvc
 ms.topic: how-to
 ms.service: active-directory
@@ -15,9 +15,9 @@ ms.subservice: B2C
 
 # Add a web API application to your Azure Active Directory B2C tenant
 
- Register web API resources in your tenant so that they can accept and respond to requests by client applications that present an access token. This article shows you how to register a web API in Azure Active Directory B2C (Azure AD B2C).
+This article shows you how to register web API resources in your Azure Active Directory B2C (Azure AD B2C) tenant so that they can accept and respond to requests by client applications that present an access token.
 
-To register an application in your Azure AD B2C tenant, you can use our new unified **App registrations** experience or our legacy  **Applications (Legacy)** experience. [Learn more about the new experience](./app-registrations-training-guide.md).
+To register an application in your Azure AD B2C tenant, you can use the Azure portal's new unified **App registrations** experience or the legacy **Applications (Legacy)** experience. [Learn more about the new experience](./app-registrations-training-guide.md).
 
 #### [App registrations](#tab/app-reg-ga/)
 
@@ -31,11 +31,6 @@ To register an application in your Azure AD B2C tenant, you can use our new unif
 1. Select **Register**.
 1. Record the **Application (client) ID** for use in your web API's code.
 
-If you have an application that implements the implicit grant flow, for example a [JavaScript-based single-page application (SPA)](tutorial-register-spa.md), you can enable the flow by following these steps:
-
-1. Under **Manage**, select **Authentication**.
-1. Under **Implicit grant**, select both the **Access tokens** and **ID tokens** check boxes.
-1. Select **Save**.
 
 #### [Applications (Legacy)](#tab/applications-legacy/)
 
@@ -48,7 +43,7 @@ If you have an application that implements the implicit grant flow, for example 
 1. For **Include web app/ web API** and **Allow implicit flow**, select **Yes**.
 1. For **Reply URL**, enter an endpoint where Azure AD B2C should return any tokens that your application requests. In your production application, you might set the reply URL to a value such as `https://localhost:44332`. For testing purposes, set the reply URL to `https://jwt.ms`.
 1. For **App ID URI**, enter the identifier used for your web API. The full identifier URI including the domain is generated for you. For example, `https://contosotenant.onmicrosoft.com/api`.
-1. Click **Create**.
+1. Select **Create**.
 1. On the properties page, record the application ID that you'll use when you configure the web application.
 
 * * *

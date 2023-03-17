@@ -2,8 +2,8 @@
 title: Scalability and Performance - Personalizer
 titleSuffix: Azure Cognitive Services
 description: "High-performance and high-traffic websites and applications have two main factors to consider with Personalizer for scalability and performance: latency and training throughput."
-author: jeffmend
-ms.author: jeffme
+author: jcodella
+ms.author: jacodel
 ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
@@ -31,16 +31,16 @@ Some applications require low latencies when returning a rank. Low latencies are
 
 Personalizer works by updating a model that is retrained based on messages sent asynchronously by Personalizer after Rank and Reward APIs. These messages are sent using an Azure EventHub for the application.
 
- It is unlikely most applications will reach the maximum joining and training throughput of Personalizer. While reaching this maximum will not slow down the application, it would imply Event Hub queues are getting filled internally faster than they can be cleaned up.
+ It's unlikely most applications will reach the maximum joining and training throughput of Personalizer. While reaching this maximum won't slow down the application, it would imply event hub queues are getting filled internally faster than they can be cleaned up.
 
 ## How to estimate your throughput requirements
 
 * Estimate the average number of bytes per ranking event adding the lengths of the context and action JSON documents.
 * Divide 20MB/sec by this estimated average bytes.
 
-For example, if your average payload has 500 features and each is an estimated 20 characters, then each event is approximately 10kb. With these estimates, 20,000,000 / 10,000 = 2,000 events/sec, which is about 173 million events/day. 
+For example, if your average payload has 500 features and each is an estimated 20 characters, then each event is approximately 10 kb. With these estimates, 20,000,000 / 10,000 = 2,000 events/sec, which is about 173 million events/day. 
 
-If you are reaching these limits, please contact our support team for architecture advice.
+If you're reaching these limits, please contact our support team for architecture advice.
 
 ## Next steps
 

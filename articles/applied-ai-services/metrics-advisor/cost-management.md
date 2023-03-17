@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
-ms.date: 07/06/2021
+ms.date: 09/06/2022
 ms.author: mbullwin
 ---
 
@@ -20,8 +20,9 @@ Azure Metrics Advisor monitors the performance of your organization's growth eng
 
 ## Key points about cost management and pricing
 
-- You will be charged for the number of **distinct time series** analyzed during a month. If one data point is analyzed for a time series, it will be calculated as well.
-- The number of distinct time series is **irrespective** of its granularity. An hourly time series and a daily time series will be charged at the same price. 
+- You will be charged for the number of **distinct [time series](glossary.md#time-series)** analyzed during a month. If one data point is analyzed for a time series, it will be calculated as well.
+- The number of distinct time series is **irrespective** of its [granularity](glossary.md#granularity). An hourly time series and a daily time series will be charged at the same price. 
+- The number of distinct time series is **highly related** to the data schema(choice of timestamp, dimension, measure) during onboarding. Please don't choose **timestamp or any IDs** as [dimension](glossary.md#dimension) to avoid dimension explosion, and introduce unexpected cost.
 - You will be charged based on the tiered pricing structure listed below. The first day of next month will initialize a new statistic window.  
 - The more time series you onboard to the service for analysis, the lower price you pay for each time series. 
 
@@ -96,5 +97,4 @@ Based on the tiered pricing model described above, 66,000 analyzed time series p
 - [Manage your data feeds](how-tos/manage-data-feeds.md)
 - [Configurations for different data sources](data-feeds-from-different-sources.md)
 - [Configure metrics and fine tune detection configuration](how-tos/configure-metrics.md)
-
 
