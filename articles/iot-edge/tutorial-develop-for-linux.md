@@ -412,11 +412,11 @@ Provide your container registry credentials to Docker so that it can push your c
 
 Visual Studio Code now has access to your container registry, so it's time to turn the solution code into a container image.
 
-In Visual Studio Code, open the *deployment.debug.template.json* deployment manifest file. The [deployment manifest](module-deployment-monitoring.md#deployment-manifest) describes the modules to be configured on the targeted IoT Edge device. Before deployment, you need to update your Azure Container Registry credentials and your module images with the proper `createOptions` values. For more information about createOption values, see [How to configure container create options for IoT Edge modules](how-to-use-create-options.md).
+In Visual Studio Code, open the *deployment.template.json* deployment manifest file. The [deployment manifest](module-deployment-monitoring.md#deployment-manifest) describes the modules to be configured on the targeted IoT Edge device. Before deployment, you need to update your Azure Container Registry credentials and your module images with the proper `createOptions` values. For more information about createOption values, see [How to configure container create options for IoT Edge modules](how-to-use-create-options.md).
 
 ::: zone pivot="iotedge-dev-cli"
 
-If you're using an Azure Container Registry to store your module image, add your credentials to the *edgeAgent* > *settings* > *registryCredentials* section in **deployment.debug.template.json**. Replace **myacr** with your own registry name in both places and provide your password and **Login server** address. For example:
+If you're using an Azure Container Registry to store your module image, add your credentials to the *edgeAgent* > *settings* > *registryCredentials* section in **deployment.template.json**. Replace **myacr** with your own registry name and provide your password and **Login server** address. For example:
 
 ```json
 "modulesContent": {
@@ -514,9 +514,13 @@ This process may take several minutes the first time, but is faster the next tim
 
 #### Update the build and image
 
-1. Open the **deployment.amd64.json** file in newly created config folder. The filename reflects the target architecture, so it's different if you chose a different architecture.
+::: zone pivot="iotedge-dev-ext"
 
-1. Notice that the two parameters that had placeholders now contain their proper values. The **registryCredentials** section has your registry username and password pulled from the *.env* file. The **SampleModule** has the full image repository with the name, version, and architecture tag from the *module.json* file.
+Open the **deployment.amd64.json** file in newly created config folder. The filename reflects the target architecture, so it's different if you chose a different architecture.
+
+Notice that the two parameters that had placeholders now contain their proper values. The **registryCredentials** section has your registry username and password pulled from the *.env* file. The **SampleModule** has the full image repository with the name, version, and architecture tag from the *module.json* file.
+
+::: zone-end
 
 1. Open the **module.json** file in the SampleModule folder.
 
@@ -525,19 +529,41 @@ This process may take several minutes the first time, but is faster the next tim
    >[!TIP]
    >Module versions enable version control, and allow you to test changes on a small set of devices before deploying updates to production. If you don't increment the module version before building and pushing, then you overwrite the repository in your container registry.
 
-6. Save your changes to the *module.json* file.
+1. Save your changes to the *module.json* file.
 
-::: zone pivot="iotedge-dev-ext"
+::: zone pivot="iotedge-dev-cli"
 
-7. Right-click the **deployment.template.json** file again, and again select **Build and Push IoT Edge Solution**.
+Build and push the updated image with a *0.0.2* version tag.
+
+For example, to build and push the image for the local registry or an Azure container registry, use the following commands:
+
+```bash
+# Build and push the 0.0.2 image for the local registry
+
+docker build --rm -f "./modules/filtermodule/Dockerfile.amd64.debug" -t localhost:5000/filtermodule:0.0.2-amd64 "./modules/filtermodule"
+
+docker push localhost:5000/filtermodule:0.0.2-amd64
+
+# Or build and push the 0.0.2 image for an Azure Container Registry
+
+docker build --rm -f "./modules/filtermodule/Dockerfile.amd64.debug" -t myacr.azurecr.io/filtermodule:0.0.2-amd64 "./modules/filtermodule"
+
+docker push myacr.azurecr.io/filtermodule:0.0.2-amd64
+```
 
 ::: zone-end
 
-8. Open the **deployment.amd64.json** file again. Notice the build system doesn't create a new file when you run the build and push command again. Rather, the same file updates to reflect the changes. The SampleModule image now points to the 0.0.2 version of the container.
+::: zone pivot="iotedge-dev-ext"
 
-9. To further verify what the build and push command did, go to the [Azure portal](https://portal.azure.com) and navigate to your container registry.
+Right-click the **deployment.template.json** file again, and again select **Build and Push IoT Edge Solution**.
 
-10. In your container registry, select **Repositories** then **samplemodule**. Verify that both versions of the image push to the registry.
+::: zone-end
+
+Open the **deployment.amd64.json** file again. Notice the build system doesn't create a new file when you run the build and push command again. Rather, the same file updates to reflect the changes. The SampleModule image now points to the 0.0.2 version of the container.
+
+To further verify what the build and push command did, go to the [Azure portal](https://portal.azure.com) and navigate to your container registry.
+
+In your container registry, select **Repositories** then **samplemodule**. Verify that both versions of the image push to the registry.
 
    :::image type="content" source="./media/tutorial-develop-for-linux/view-repository-versions.png" alt-text="Screenshot of where to view both image versions in your container registry." lightbox="./media/tutorial-develop-for-linux/view-repository-versions.png":::
 
