@@ -996,5 +996,6 @@
     href: https://azure.microsoft.com/updates/?product=service-fabric
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-fabric
+- name: Whats new    
 - name: Support and troubleshooting
   href: service-fabric-support.md
