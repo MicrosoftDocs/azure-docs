@@ -55,9 +55,9 @@ This table provides a brief description of each alert type. For more information
 |[Smart detection alerts](alerts-types.md#smart-detection-alerts)|Smart detection on an Application Insights resource automatically warns you of potential performance problems and failure anomalies in your web application. You can migrate smart detection on your Application Insights resource to create alert rules for the different smart detection modules.|
 |[Prometheus alerts (preview)](alerts-types.md#prometheus-alerts-preview)|Prometheus alerts are used for alerting on the performance and health of Kubernetes clusters, including Azure Kubernetes Service (AKS). The alert rules are based on PromQL, which is an open-source query language.|
 
-## Out-of-the-box alert rules (preview)
+## Recommended alert rules
 
-If you don't have alert rules defined for the selected resource, you can [enable recommended out-of-the-box alert rules in the Azure portal](alerts-manage-alert-rules.md#enable-recommended-alert-rules-in-the-azure-portal-preview).
+If you don't have alert rules defined for the selected resource, you can [enable recommended out-of-the-box alert rules in the Azure portal](alerts-manage-alert-rules.md#enable-recommended-alert-rules-in-the-azure-portal).
 
 > [!NOTE]
 > The alert rule recommendations feature is currently in preview and is only enabled for:

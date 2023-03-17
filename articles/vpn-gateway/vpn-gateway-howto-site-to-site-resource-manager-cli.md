@@ -4,10 +4,10 @@ description: Learn how to create an IPsec site-to-site VPN Gateway connection fr
 titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 07/26/2021
 ms.author: cherylmc
-
 ---
 # Create a virtual network with a Site-to-Site VPN connection using CLI
 
