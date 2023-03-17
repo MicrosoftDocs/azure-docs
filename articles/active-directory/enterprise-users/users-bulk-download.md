@@ -1,6 +1,6 @@
 ---
 
-title: Download a list of users in the Azure portal | Microsoft Docs
+title: Download a list of users in the Azure portal
 description: Download user records in bulk in the Azure admin center in Azure Active Directory. 
 services: active-directory 
 author: barclayn

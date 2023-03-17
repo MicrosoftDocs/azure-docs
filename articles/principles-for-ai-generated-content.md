@@ -10,7 +10,7 @@ ms.date: 02/26/2023
 
 # Our principles for using AI-generated content on Microsoft Learn
 
-Microsoft uses [Azure OpenAI Service](/azure/cognitive-services/openai/) to generate some of the text and code examples that we publish on [Microsoft Learn](/). This article describes our approach for using Azure OpenAI to generate technical content that supports our products and services.
+Microsoft uses [Azure OpenAI Service](./cognitive-services/openai/index.yml) to generate some of the text and code examples that we publish on [Microsoft Learn](/). This article describes our approach for using Azure OpenAI to generate technical content that supports our products and services.
 
 At Microsoft, we're working to add articles to Microsoft Learn that contain AI-generated content. Over time, more articles will feature AI-generated text and code samples.
 

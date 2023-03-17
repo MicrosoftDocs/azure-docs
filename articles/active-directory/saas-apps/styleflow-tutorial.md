@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Styleflow | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Styleflow'
 description: Learn how to configure single sign-on between Azure Active Directory and Styleflow.
 services: active-directory
 author: jeevansd

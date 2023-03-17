@@ -33,7 +33,7 @@ Data flows distribute the data processing over different nodes in a Spark cluste
 
 The default cluster size is four driver nodes and four worker nodes (small).  As you process more data, larger clusters are recommended. Below are the possible sizing options:
 
-| Worker cores | Driver cores | Total cores | Notes |
+| Worker Nodes | Driver Nodes | Total Nodes | Notes |
 | ------------ | ------------ | ----------- | ----- |
 | 4 | 4 | 8 | Small |
 | 8 | 8 | 16 | Medium |
@@ -58,10 +58,10 @@ While increasing the shuffle partitions, make sure data is spread across well. A
 Here are the steps on how it's  set in a custom integration runtime. You can't  set it for autoresolve integrtaion runtime.
 
 1. From ADF portal under **Manage**, select a custom integration run time and you go to edit mode.
-2. Under dataflow run time tab, go to **Compute Cusotm Properties** section.
+2. Under dataflow run time tab, go to **Compute Custom Properties** section.
 3. Select **Shuffle Partitions** under Property name, input value of your choice, like 250, 500 etc.
 
-You can do same by editing JSON file of runtime by adding array with property name and value after *cleanup* property.
+You can do same by editing JSON file of runtime by adding an array with property name and value after an existing property like  *cleanup* property.
 
 ## Time to live
 
