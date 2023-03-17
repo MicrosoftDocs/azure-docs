@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: how-to
-ms.date: 02/14/2023
+ms.date: 03/17/2023
 ---
 
 # Create a Translator resource

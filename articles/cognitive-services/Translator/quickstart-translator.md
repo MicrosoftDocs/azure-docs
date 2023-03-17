@@ -57,7 +57,7 @@ For more information on Translator authentication options, _see_ the [Translator
 Header|Value| Condition  |
 |--- |:--- |:---|
 |**Ocp-Apim-Subscription-Key** |Your Translator service key from the Azure portal.|&bullet; ***Required***|
-|**Ocp-Apim-Subscription-Region**|The region where your resource was created. |&bullet; ***Required*** when using a multi-service Cognitive Services or regional (non-global) resource.</br>&bullet; ***Optional*** when using a single-service global Translator Resource.
+|**Ocp-Apim-Subscription-Region**|The region where your resource was created. |&bullet; ***Required*** when using a multi-service Cognitive Services or regional (geographic) resource like **West US**.</br>&bullet; ***Optional*** when using a single-service global Translator Resource.
 |**Content-Type**|The content type of the payload. The accepted value is **application/json** or **charset=UTF-8**.|&bullet; **Required**|
 |**Content-Length**|The **length of the request** body.|&bullet; ***Optional***|
 
