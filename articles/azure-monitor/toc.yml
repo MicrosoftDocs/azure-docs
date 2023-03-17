@@ -663,17 +663,6 @@ items:
             href: app/javascript-sdk-upgrade.md
           - name: Troubleshooting
             href: /troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting
-        - name: Application Insights API summary
-          displayName: SDK, API, custom events, custom metrics, trackevent,trackmetric, getmetric, trackrequest, trackexception, tracktrace, trackdependency
-          href: app/api-custom-events-metrics.md
-        - name: Connection strings
-          href: app/sdk-connection-string.md
-          displayName: connection string, instrumentation key
-        - name: Sampling
-          displayName: adaptive sampling, fixed rate sample, fixed sampling, ingestion sampling
-          href: app/sampling.md
-        - name: Remove Application Insights
-          href: app/remove-application-insights.md
         - name: SDK support policy
           href: app/sdk-support-guidance.md
         - name: Advanced SDK topics
@@ -685,6 +674,19 @@ items:
             href: app/asp-net-exceptions.md
           - name: Log traces
             href: app/asp-net-trace-logs.md
+          - name: Statsbeat
+            href: app/statsbeat.md
+          - name: Application Insights API summary
+            displayName: SDK, API, custom events, custom metrics, trackevent, trackmetric, getmetric, trackrequest, trackexception, tracktrace, trackdependency
+            href: app/api-custom-events-metrics.md
+          - name: Connection strings
+            href: app/sdk-connection-string.md
+            displayName: connection string, instrumentation key
+          - name: Sampling
+            displayName: adaptive sampling, fixed rate sample, fixed sampling, ingestion sampling
+            href: app/sampling.md
+          - name: Remove Application Insights
+            href: app/remove-application-insights.md
       - name: OpenTelemetry instrumentation
         items:
         - name: Overview
@@ -889,8 +891,6 @@ items:
         displayName: geolocation, IP collection, IP tracking, IP storage
       - name: Separate development, test, and production
         href: app/separate-resources.md
-      - name: Statsbeat
-        href: app/statsbeat.md
     - name: Tutorials
       items:
       - name: Application Insights SDK for ASP.NET Core applications
