@@ -51,7 +51,62 @@ The connection factory object is used by the client to connect with the JMS prov
 
 Each connection factory is an instance of `ConnectionFactory`, `QueueConnectionFactory` or `TopicConnectionFactory` interface.
 
-To simplify connecting with Azure Service Bus, these interfaces are implemented through `ServiceBusJmsConnectionFactory`, `ServiceBusJmsQueueConnectionFactory` and `ServiceBusJmsTopicConnectionFactory` respectively. The Connection factory can be instantiated with the below parameters - 
+To simplify connecting with Azure Service Bus, these interfaces are implemented through `ServiceBusJmsConnectionFactory`, `ServiceBusJmsQueueConnectionFactory` and `ServiceBusJmsTopicConnectionFactory` respectively.
+
+> [!IMPORTANT]
+> Java applications leveraging JMS 2.0 API can connect to Azure Service Bus using the connection string, or using a `TokenCredential` for leveraging Azure Active Directory (AAD) backed authentication.
+
+# [System Assigned Managed Identity](#tab/system-assigned-managed-identity-backed-authentication)
+
+Create a [system assigned managed identity](/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm) on Azure, and use this to create a `TokenCredential`.
+
+```java
+TokenCredential tokenCredential = new DefaultAzureCredentialBuilder().build();
+```
+
+The Connection factory can than be instantiated with the below parameters.- 
+   * Token credential - Represents a credential capable of providing an OAuth token.
+   * Connection string - the connection string for the Azure Service Bus Premium tier namespace.
+   * ServiceBusJmsConnectionFactorySettings property bag which contains
+      * connectionIdleTimeoutMS - idle connection timeout in milliseconds.
+      * traceFrames - boolean flag to collect AMQP trace frames for debugging.
+      * *other configuration parameters*
+
+The factory can be created as below. The connection string is a required parameter, but the additional properties are optional.
+
+```java
+String host = "<YourNamespaceName>.servicebus.windows.net";
+ConnectionFactory factory = new ServiceBusJmsConnectionFactory(tokenCredential, host, null); 
+```
+
+# [User Assigned Managed Identity](#tab/user-assigned-managed-identity-backed-authentication)
+
+Create a [user assigned managed identity](/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity) on Azure, and use this to create a `TokenCredential`.
+
+```java
+TokenCredential tokenCredential = new DefaultAzureCredentialBuilder()
+                                                .managedIdentityClientId("<clientIDOfUserAssignedIdentity>")
+                                                .build();
+```
+
+The Connection factory can than be instantiated with the below parameters.- 
+   * Token credential - Represents a credential capable of providing an OAuth token.
+   * Connection string - the connection string for the Azure Service Bus Premium tier namespace.
+   * ServiceBusJmsConnectionFactorySettings property bag which contains
+      * connectionIdleTimeoutMS - idle connection timeout in milliseconds.
+      * traceFrames - boolean flag to collect AMQP trace frames for debugging.
+      * *other configuration parameters*
+
+The factory can be created as below. The connection string is a required parameter, but the additional properties are optional.
+
+```java
+String host = "<YourNamespaceName>.servicebus.windows.net";
+ConnectionFactory factory = new ServiceBusJmsConnectionFactory(tokenCredential, host, null); 
+```
+
+# [Connection string authentication](#tab/connection-string-authentication)
+
+The Connection factory can be instantiated with the below parameters - 
    * Connection string - the connection string for the Azure Service Bus Premium tier namespace.
    * ServiceBusJmsConnectionFactorySettings property bag which contains
       * connectionIdleTimeoutMS - idle connection timeout in milliseconds.
@@ -63,12 +118,6 @@ The factory can be created as below. The connection string is a required paramet
 ```java
 ConnectionFactory factory = new ServiceBusJmsConnectionFactory(SERVICE_BUS_CONNECTION_STRING, null);
 ```
-
-> [!IMPORTANT]
-> Java applications leveraging JMS 2.0 API must connect to Azure Service Bus using the connection string only. Currently, authentication for JMS clients is only supported using the Connection string.
->
-> Azure active directory (AAD) backed authentication is not currently supported.
->
 
 ### JMS destination
 
