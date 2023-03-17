@@ -178,7 +178,7 @@ To create an ephemeral volume and mount it in a container, deploy a new revision
 
 1. Select **Create new revision**.
 
-1. Select the container that you want to mount the volume in.
+1. Select the container where you want to mount the volume.
 
 1. In the *Edit a container* context pane, select the **Volume mounts** tab.
 
