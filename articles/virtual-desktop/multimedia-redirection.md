@@ -161,12 +161,15 @@ You can install the multimedia redirection extension using Group Policy, either 
 
 If you want to test the WebRTC calling redirection (preview) feature, you'll need to configure the Remote Desktop client to use Insider features, then enable the feature.
 
-To enable Insider features, on your client device, create a registry key with the following values:
+To enable Insider features, on your client device:
+
+1. Create a registry key with the following values:
    
-   - Key: HKLM\Software\Microsoft\MSRDC\Policies
-   - Type: REG_SZ
-   - Name: ReleaseRing
-   - Data: insider
+   - **Key**: HKLM\Software\Microsoft\MSRDC\Policies
+   - **Type**: REG_SZ
+   - **Name**: ReleaseRing
+
+2. Set the key's value to **insider**.
 
 ## Check the extension status
 
@@ -236,17 +239,17 @@ To enable calling redirection for all sites:
 
 1.	On your client device, create a registry key with the following values:
 
-   - Key: HKLM\Software\Microsoft\Terminal Server Client 
-   - Type: REG_DWORD 
-   - Name: AllowWebRTCRedirectAllSites 
-   - Data: 1 
+   - **Key**: HKLM\Software\Microsoft\Terminal Server Client 
+   - **Type**: REG_DWORD 
+   - **Name**: AllowWebRTCRedirectAllSites 
+
+1. Set the key's value to **1**.
 
 1.	Next, on your Azure Virtual Desktop host VM, select the **extension icon** in your browser.
 
-1. Select **Show Advanced Settings**.
+2. Select **Show Advanced Settings**.
 
-1. Toggle **Enable WebRTC for all sites (beta)** on.
-
+3. Toggle **Enable WebRTC for all sites (beta)** on.
 
 ## Next steps
 
