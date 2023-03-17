@@ -83,7 +83,7 @@ A PostgreSQL connection, even idle, can occupy about 10 MB of memory. Also, crea
 
 ### Availability zones
 
-- Manually moving servers to a different availability zone is currently not supported. However, you can enable HA using the preferred AZ as the standby zone. Once established, you can failover to the standby and subsequently disable HA. 
+- Manually moving servers to a different availability zone is currently not supported. However, you can enable HA using the preferred AZ as the standby zone. Once established, you can fail over to the standby and subsequently disable HA. 
 
 ### Postgres engine, extensions, and PgBouncer
 
@@ -103,7 +103,7 @@ A PostgreSQL connection, even idle, can occupy about 10 MB of memory. Also, crea
 ### Backing up a server
 
 - Backups are managed by the system, there's currently no way to run these backups manually. We recommend using `pg_dump` instead.
-- The first snapshot is a full backup and consecutive snapshots are differential backups. The differential backups only backup the changed data since the last snapshot backup. For example, if the size of your database is 40GB and your provisioned storage is 64GB, the first snapshot backup will be 40GB. Now, if you change 4GB of data, then the next differential snapshot backup size will only be 4GB. The transaction logs (write ahead logs - WAL) are separate from the full/differential backups, and are archived continuously.
+- The first snapshot is a full backup and consecutive snapshots are differential backups. The differential backups only back up the changed data since the last snapshot backup. For example, if the size of your database is 40GB and your provisioned storage is 64GB, the first snapshot backup will be 40GB. Now, if you change 4GB of data, then the next differential snapshot backup size will only be 4GB. The transaction logs (write ahead logs - WAL) are separate from the full/differential backups, and are archived continuously.
    
 ### Restoring a server
 
