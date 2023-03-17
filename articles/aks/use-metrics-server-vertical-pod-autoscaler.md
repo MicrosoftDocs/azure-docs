@@ -1,8 +1,7 @@
 ---
 title: Metrics server VPA throttling in Azure Kubernetes Service (AKS)
-description: Learn how to vertically autoscale your pod on an Azure Kubernetes Service (AKS) cluster.
+description: Learn how to vertically autoscale your Metrics Server pods on an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
-ms.custom: devx-track-azurecli
 ms.date: 03/17/2023
 ---
 
