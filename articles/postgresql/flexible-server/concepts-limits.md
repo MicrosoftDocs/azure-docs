@@ -55,7 +55,7 @@ A PostgreSQL connection, even idle, can occupy about 10 MB of memory. Also, crea
 ### Scale operations
 
 - At this time, scaling up the server storage requires a server restart.
-- - Server storage can only be scaled in 2x increments, see [Compute and Storage](concepts-compute-storage.md) for details.
+- Server storage can only be scaled in 2x increments, see [Compute and Storage](concepts-compute-storage.md) for details.
 - Decreasing server storage size is currently not supported. Only way to do is [dump and restore](../howto-migrate-using-dump-and-restore.md) it to a new Flexible Server.
    
 ### Server version upgrades
@@ -67,7 +67,7 @@ A PostgreSQL connection, even idle, can occupy about 10 MB of memory. Also, crea
 - Once configured, storage size can't be reduced. You have to create a new server with desired storage size, perform manual [dump and restore](../howto-migrate-using-dump-and-restore.md) and migrate your database(s) to the new server.
 - Currently, storage auto-grow feature isn't available. You can monitor the usage and increase the storage to a higher size. 
 - When the storage usage reaches 95% or if the available capacity is less than 5 GiB whichever is more, the server is automatically switched to **read-only mode** to avoid errors associated with disk-full situations. In rare cases, if the rate of data growth outpaces the time it takes switch to read-only mode, your Server may still run out of storage.
-- - We recommend to set alert rules for `storage used` or `storage percent` when they exceed certain thresholds so that you can proactively take action such as increasing the storage size. For example, you can set an alert if the storage percent exceeds 80% usage.
+- We recommend to set alert rules for `storage used` or `storage percent` when they exceed certain thresholds so that you can proactively take action such as increasing the storage size. For example, you can set an alert if the storage percent exceeds 80% usage.
 - If you're using logical replication, then you must drop the logical replication slot in the primary server if the corresponding subscriber no longer exists. Otherwise the WAL files start to get accumulated in the primary filling up the storage. If the storage threshold exceeds certain threshold and if the logical replication slot isn't in use (due to non-available subscriber), Flexible server automatically drops that unused logical replication slot. That action releases accumulated WAL files and avoids your server becoming unavailable due to storage getting filled situation. 
    
 ### Networking
@@ -108,7 +108,7 @@ A PostgreSQL connection, even idle, can occupy about 10 MB of memory. Also, crea
 ### Restoring a server
 
 - When using the Point-in-time-Restore feature, the new server is created with the same compute and storage configurations as the server isn't based on.
-- - VNET based database servers are restored into the same VNET when you restore from a backup.
+- VNET based database servers are restored into the same VNET when you restore from a backup.
 - The new server created during a restore doesn't have the firewall rules that existed on the original server. Firewall rules need to be created separately for the new server.
 - Restoring a deleted server isn't supported.
 - Cross region restore isn't supported.
