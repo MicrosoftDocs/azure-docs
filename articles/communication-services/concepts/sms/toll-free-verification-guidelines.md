@@ -29,7 +29,7 @@ This is the location your toll-free number is acquired for. Currently, toll-free
 
 ### Associated phone number(s)  
 
-This drop down displayes all the toll-free numbers you have in the Azure Communication Services resource. You are required to select the toll-free numbers that you would like to get verified. If you do not have a toll-free number, please navigate to the phone numbers blade to acquire a toll-free number first.  
+This drop down displays all the toll-free numbers you have in the Azure Communication Services resource. You are required to select the toll-free numbers that you would like to get verified. If you do not have a toll-free number, please navigate to the phone numbers blade to acquire a toll-free number first.  
 
 ### Are you using more than one sending phone number? 
 
