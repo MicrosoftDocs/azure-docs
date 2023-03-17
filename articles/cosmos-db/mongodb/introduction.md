@@ -93,7 +93,7 @@ All the APIs for MongoDB versions run on the same codebase, making upgrades a si
 
 2. Does Cosmos DB for MongoDB support documents larger than 2 MB?
 
-    Yes, documents larger than 2 MB are supported. This feature can be enabled on your database account via the Azure portal or programmatically. As with all MongoDB services, larger documents are not recommended and should be avoided if possible.
+    Yes, documents as large as 16 MB are supported.
 
 3. Does Cosmos DB for MongoDB support multi-field sort?
 
