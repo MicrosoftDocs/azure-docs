@@ -313,6 +313,32 @@ This section lists the Azure Blob Storage attributes you can use in your conditi
 > [!NOTE]
 > Attributes and values listed are considered case-insensitive, unless stated otherwise.
 
+The following table summarizes the available attributes by source:
+
+> [!div class="mx-tableFixed"]
+> | Source          | Display name              | Description                                                        |
+> | :-------------- | :------------------------ | :----------------------------------------------------------------- |
+> | **Environment** | | |
+> | | [Is private link](#is-private-link)       | Is access over a private link?                                     |
+> | | [Private endpoint](#private-endpoint)     | The name of the private endpoint from which an object is accessed. |
+> | | [Subnet name](#subnet-name)               | The name of the subnet from which an object is accessed.           |
+> | | [UTC now](#utc-now)                       | The current date and time in Coordinated Universal Time.           |
+> | **Request**      | | |
+> | | [Blob index tags [Keys]](#blob-index-tags-keys) | Index tags on a blob resource (keys).                        |
+> | | [Blob index tags [Values in key]](#blob-index-tags-values-in-key) | Index tags on a blob resource (values in key). |
+> | | [Blob prefix](#blob-prefix)               | Allowed prefix of blobs to be listed.                              |
+> | | [Snapshot](#snapshot)                     | The Snapshot identifier for the Blob snapshot.                     |
+> | | [Version ID](#version-id)                 | The version ID of the versioned Blob.                              |
+> | **Resource**     | | |
+> | | [Account name](#account-name)             | The storage account name.                                          |
+> | | [Blob index tags [Keys]](#blob-index-tags-keys) | Index tags on a blob resource (keys).                        |
+> | | [Blob index tags [Values in key]](#blob-index-tags-values-in-key) | Index tags on a blob resource (values in key). |
+> | | [Blob path](#blob-path)                   | Path of a virtual directory, blob, folder or file resource.        |
+> | | [Container name](#container-name)         | Name of a storage container or file system.                        |
+> | | [Encryption scope name](#encryption-scope-name) | Name of the encryption scope used to encrypt data.           |
+> | | [Is current version](#is-current-version) | Whether the resource is the current version of the blob.           |
+> | | [Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled) | Whether hierarchical namespace is enabled on the storage account. |
+
 ### Account name
 
 > [!div class="mx-tdCol2BreakAll"]
@@ -378,7 +404,7 @@ This section lists the Azure Blob Storage attributes you can use in your conditi
 > | **Display name** | Blob prefix |
 > | **Description** | Allowed prefix of blobs to be listed.<br/>Path of a virtual directory or folder resource. Use when you want to check the folders in a blob path. |
 > | **Attribute** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs:prefix` |
-> | **Attribute source** | Request |
+> | **Attribute source** | [Request](../../role-based-access-control/conditions-format.md#request-attributes) |
 > | **Attribute type** | [String](../../role-based-access-control/conditions-format.md#string-comparison-operators) |
 > | **Examples** | `@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:prefix] StringStartsWith 'readonly/'`<br/>[Example: Read or list blobs in named containers with a path](storage-auth-abac-examples.md#example-read-or-list-blobs-in-named-containers-with-a-path) |
 
@@ -417,7 +443,7 @@ This section lists the Azure Blob Storage attributes you can use in your conditi
 > | Property | Value |
 > | --- | --- |
 > | **Display name** | Is Current Version |
-> | **Description** | Identifies if the resource is the current version of the blob, in contrast of a snapshot or a specific blob version. |
+> | **Description** | Whether the resource is the current version of the blob, in contrast to a snapshot or a specific blob version. |
 > | **Attribute** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs:isCurrentVersion` |
 > | **Attribute source** | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
 > | **Attribute type** | [Boolean](../../role-based-access-control/conditions-format.md#boolean-comparison-operators) |
@@ -455,7 +481,7 @@ This section lists the Azure Blob Storage attributes you can use in your conditi
 > | Property | Value |
 > | --- | --- |
 > | **Display name** | Private endpoint |
-> | **Description** | The name of the private endpoint from an object is accessed.<br/>Use to restrict access over a specific private endpoint. |
+> | **Description** | The name of the private endpoint from which an object is accessed.<br/>Use to restrict access over a specific private endpoint. |
 > | **Attribute** | `Microsoft.Network/privateEndpoints` |
 > | **Attribute source** | [Environment](../../role-based-access-control/conditions-format.md#environment-attributes) |
 > | **Attribute type** | [String](../../role-based-access-control/conditions-format.md#string-comparison-operators) |
@@ -470,7 +496,7 @@ This section lists the Azure Blob Storage attributes you can use in your conditi
 > | **Display name** | Snapshot |
 > | **Description** | The Snapshot identifier for the Blob snapshot.<br/>Available for storage accounts where hierarchical namespace is not enabled and currently in preview for storage accounts where hierarchical namespace is enabled. |
 > | **Attribute** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs:snapshot` |
-> | **Attribute source** | Request |
+> | **Attribute source** | [Request](../../role-based-access-control/conditions-format.md#request-attributes) |
 > | **Attribute type** | [DateTime](../../role-based-access-control/conditions-format.md#datetime-comparison-operators) |
 > | **Exists support** | [True](../../role-based-access-control/conditions-format.md#exists) |
 > | **Hierarchical namespace support** | False |
@@ -483,7 +509,7 @@ This section lists the Azure Blob Storage attributes you can use in your conditi
 > | Property | Value |
 > | --- | --- |
 > | **Display name** | Subnet name |
-> | **Description** | The name of the subnet from an object is accessed.<br/>Use to restrict access to a specific subnet. |
+> | **Description** | The name of the subnet from which an object is accessed.<br/>Use to restrict access to a specific subnet. |
 > | **Attribute** | `Microsoft.Network/virtualNetworks/subnets` |
 > | **Attribute source** | [Environment](../../role-based-access-control/conditions-format.md#environment-attributes) |
 > | **Attribute type** | [String](../../role-based-access-control/conditions-format.md#string-comparison-operators) |
@@ -496,7 +522,7 @@ This section lists the Azure Blob Storage attributes you can use in your conditi
 > | Property | Value |
 > | --- | --- |
 > | **Display name** | UTC now |
-> | **Description** | The current time in Coordinated Universal Time.<br/>Use to control access to objects for a specific date and time period. |
+> | **Description** | The current date and time in Coordinated Universal Time.<br/>Use to control access to objects for a specific date and time period. |
 > | **Attribute** | `UtcNow` |
 > | **Attribute source** | [Environment](../../role-based-access-control/conditions-format.md#environment-attributes) |
 > | **Attribute type** | [DateTime](../../role-based-access-control/conditions-format.md#datetime-comparison-operators) |
@@ -510,7 +536,7 @@ This section lists the Azure Blob Storage attributes you can use in your conditi
 > | **Display name** | Version ID |
 > | **Description** | The version ID of the versioned Blob.<br/>Available only for storage accounts where hierarchical namespace is not enabled. |
 > | **Attribute** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs:versionId` |
-> | **Attribute source** | Request |
+> | **Attribute source** | [Request](../../role-based-access-control/conditions-format.md#request-attributes) |
 > | **Attribute type** | [DateTime](../../role-based-access-control/conditions-format.md#datetime-comparison-operators) |
 > | **Exists support** | [True](../../role-based-access-control/conditions-format.md#exists) |
 > | **Hierarchical namespace support** | False |
