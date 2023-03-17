@@ -14,7 +14,7 @@ ms.service: azure-communication-services
 
 # Bring your own storage (BYOS) overview
 
-[!INCLUDE [Private Preview Disclaimer](../includes/private-preview-include-section.md)]
+[!INCLUDE [Private Preview Disclaimer](../../../includes/private-preview-include-section.md)]
 
 Bring Your Own Storage (BYOS) for Call Recording allows you to specify an Azure blob storage account for storing Call Recording files. Now with BYOS, you can manage your Call Recording files in a flexible and customizable way, eliminating the need to store your files in a built-in Azure Communication Services temporary storage and manually download and upload them to a permanent one.
 
@@ -27,7 +27,7 @@ BYOS uses [Azure Managed Identities](https://learn.microsoft.com/en-us/azure/act
 
 ## Known Issues
 
-- When using BYOS for Call Recording in [Private Preview](../includes/private-preview-include-section.md), your files will be stored in a built-in storage for 48 hours after the exporting process to your blob storage.
+- When using BYOS for Call Recording in Private Preview, your files will be stored in a built-in storage for 48 hours after the exporting process to your blob storage.
 - Randomly you will see duplicated recording files being exported to your blob storage when using BYOS. Please make sure you delete the duplicated file to avoid extra storage costs in your storage account.
 
 
