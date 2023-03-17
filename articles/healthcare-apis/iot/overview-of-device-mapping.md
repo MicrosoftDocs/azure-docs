@@ -23,7 +23,7 @@ The MedTech service requires two types of [JSON](https://www.json.org/) mappings
 * The FHIR destination mapping allows configuration of the length of the observation period, FHIR data type used to store the values, and terminology code(s). 
 
 > [!NOTE]
-> The device and FHIR destination mappings are stored in [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction) and loaded from blob storage per compute execution. Once updated, the mappings should take effect immediately.
+> The device and FHIR destination mappings are reevaluated each time a message is processed. Any updates to either mapping will take effect immediately.
   
 ## Device mapping basics
 
