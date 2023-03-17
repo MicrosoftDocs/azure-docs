@@ -1,10 +1,11 @@
 ---
-title: Azure Front Door - Routing rule matching
+title: Routing rule matching
+titleSuffix: Azure Front Door
 description: This article helps you understand how Azure Front Door matches incoming requests to a routing rule.
 services: front-door
 author: duongau
 ms.service: frontdoor
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 03/08/2022
 ms.author: duau

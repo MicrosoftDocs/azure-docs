@@ -1,9 +1,7 @@
 ---
 title: 'Azure VPN Gateway configuration settings'
 description: Learn about VPN Gateway resources and configuration settings.
-services: vpn-gateway
 author: cherylmc
-
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 04/22/2022
@@ -109,7 +107,7 @@ In the following PowerShell example, we create a S2S connection that requires th
 ```azurepowershell-interactive
 New-AzVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg `
 -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
--ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
+-ConnectionType IPsec -SharedKey 'abc123'
 ```
 
 ## <a name="vpntype"></a>VPN types

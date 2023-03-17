@@ -1,13 +1,13 @@
 ---
 title: 'Quickstart: Create a public load balancer - Azure PowerShell'
 titleSuffix: Azure Load Balancer
-description: This quickstart shows how to create a load balancer using Azure PowerShell
+description: This quickstart shows how to create a load balancer using Azure PowerShell.
 author: mbender-ms
 ms.author: mbender
 ms.date: 03/17/2022
 ms.topic: quickstart
 ms.service: load-balancer
-ms.custom: devx-track-azurepowershell, mode-api
+ms.custom: devx-track-azurepowershell, mode-api, template-quickstart
 #Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.
 ---
 

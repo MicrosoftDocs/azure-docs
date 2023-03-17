@@ -2,22 +2,15 @@
 title: Create an Azure VM with Accelerated Networking using Azure CLI
 description: Learn how to create a Linux virtual machine with Accelerated Networking enabled.
 services: virtual-network
-documentationcenter: na
 author: asudbring
 manager: gedegrac
-editor: ''
 tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: virtual-network
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/24/2022
 ms.author: allensu
-ms.custom: fasttrack-edit
-
+ms.custom: fasttrack-edit, devx-track-azurecli
 ---
 # Create a Linux virtual machine with Accelerated Networking using Azure CLI
 

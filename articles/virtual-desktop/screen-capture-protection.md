@@ -33,7 +33,7 @@ To configure screen capture protection:
 3. Copy the **en-us\terminalserver-avd.adml** file to the **%windir%\PolicyDefinitions\en-us** folder.
 4. To confirm the files copied correctly, open the Group Policy Editor and go to **Computer Configuration** > **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Azure Virtual Desktop**. You should see one or more Azure Virtual Desktop policies, as shown in the following screenshot.
 
-   :::image type="content" source="media/azure-virtual-desktop-gpo.png" alt-text="Screenshot of the group policy editor" lightbox="media/azure-virtual-desktop-gpo.png":::
+   :::image type="content" source="media/administrative-template/azure-virtual-desktop-gpo.png" alt-text="Screenshot of the group policy editor." lightbox="media/administrative-template/azure-virtual-desktop-gpo.png":::
 
    > [!TIP]
    > You can also install administrative templates to the group policy Central Store in your Active Directory domain.

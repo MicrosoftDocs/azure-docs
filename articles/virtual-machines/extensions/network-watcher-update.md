@@ -2,20 +2,20 @@
 title: Update the Network Watcher extension to the latest version 
 description: Learn how to update the Azure Network Watcher extension to the latest version.
 services: virtual-machines
-author: shijaiswal
+author: halkazwini
 tags: azure-resource-manager
 ms.service: virtual-machines
-ms.topic: article
-ms.date: 01/16/2023
-ms.author: v-ksreedevan 
-ms.custom: devx-track-azurepowershell
-
+ms.topic: conceptual
+ms.date: 02/15/2023
+ms.author: halkazwini
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, template-concept, engagement-fy23
 ---
+
 # Update the Network Watcher extension to the latest version
 
 ## Overview
 
-[Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) is a network performance monitoring, diagnostic, and analytics service that monitors Azure networks. The Network Watcher Agent virtual machine (VM) extension is a requirement for capturing network traffic on demand and using other advanced functionality on Azure VMs. The Network Watcher extension is used by features like Connection Monitor, Connection Monitor (preview), connection troubleshoot, and packet capture.
+[Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) is a network performance monitoring, diagnostic, and analytics service that monitors Azure networks. The Network Watcher Agent virtual machine (VM) extension is a requirement for capturing network traffic on demand and using other advanced functionality on Azure VMs. The Network Watcher extension is used by features like connection monitor, connection monitor (preview), connection troubleshoot, and packet capture.
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ This article assumes you have the Network Watcher extension installed in your VM
 
 ## Latest version
 
-The latest version of the Network Watcher extension is currently `1.4.2423.1`.
+The latest version of the Network Watcher extension is `1.4.2423.1`.
 
 ### Identify latest version
 
@@ -180,7 +180,7 @@ Set-AzVMExtension -ResourceGroupName "myResourceGroup1" -Location "WestUS" -VMNa
 
 ```
 
-If that doesn't work. Remove and install the extension again, using the steps below. This will automatically add the latest version.
+If that doesn't work. Remove and install the extension again, using the steps below, to install latest version.
 
 Removing the extension 
 

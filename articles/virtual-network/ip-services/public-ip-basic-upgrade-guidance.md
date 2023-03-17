@@ -1,5 +1,4 @@
 ---
-
 title: Upgrading a basic public IP address to standard SKU - Guidance
 description: Overview of upgrade options and guidance for migrating basic public IP to standard public IP for future basic public IP address retirement
 author: asudbring

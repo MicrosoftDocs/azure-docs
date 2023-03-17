@@ -6,7 +6,7 @@ ms.author: shjia
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 2/14/2023
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -138,7 +138,7 @@ To create and run a new scan, do the following:
 
    :::image type="content" source="media/register-scan-on-premises-sql-server/on-premises-sql-set-up-scan-win-auth.png" alt-text="Set up scan":::
 
-1. You can scope your scan to specific tables by choosing the appropriate items in the list.
+1. You can scope your scan to specific tables by choosing the appropriate items in the list after enter Database name.
 
    :::image type="content" source="media/register-scan-on-premises-sql-server/on-premises-sql-scope-your-scan.png" alt-text="Scope your scan":::
 

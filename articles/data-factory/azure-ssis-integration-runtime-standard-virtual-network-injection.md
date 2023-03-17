@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell
 
 # Standard virtual network injection method
 
-[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 When using SQL Server Integration Services (SSIS) in Azure Data Factory (ADF) or Synpase Pipelines, there are two methods for you to join your Azure-SSIS integration runtime (IR) to a virtual network: standard and express. If you use the standard method, you need to configure your virtual network to meet these requirements:
 

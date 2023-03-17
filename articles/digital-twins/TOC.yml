@@ -123,12 +123,12 @@
       href: how-to-use-power-platform-logic-apps-connector.md
   - name: Connect output
     items:
-    - name: Manage endpoints and routes
-      href: how-to-manage-routes.md
-    - name: Route events with a managed identity
-      href: how-to-route-with-managed-identity.md
-    - name: Use data history with Azure Data Explorer
-      href: how-to-use-data-history.md
+    - name: Create endpoints
+      href: how-to-create-endpoints.md
+    - name: Create routes and filters
+      href: how-to-create-routes.md
+    - name: Create a data history connection
+      href: how-to-create-data-history-connection.md
     - name: Integrate with Azure Time Series Insights
       href: how-to-integrate-time-series-insights.md
     - name: Integrate with Azure Maps

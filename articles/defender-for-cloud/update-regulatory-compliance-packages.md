@@ -2,7 +2,7 @@
 title: The regulatory compliance dashboard in Microsoft Defender for Cloud
 description: Learn how to add and remove regulatory standards from the regulatory compliance dashboard in Defender for Cloud
 ms.topic: how-to
-ms.date: 01/11/2023
+ms.date: 02/07/2023
 ms.custom: ignite-2022
 ---
 
@@ -51,13 +51,14 @@ Available regulatory standards:
 - Australian Government ISM Protected
 - RMIT Malaysia
 
-**AWS**: When users onboard, every AWS account has the AWS Foundational Security Best Practices assigned. This is the AWS-specific guideline for security and compliance best practices based on common compliance frameworks.
+**AWS**: When users onboard, every AWS account has the AWS Foundational Security Best Practices assigned and can be viewed under Recommendations. This is the AWS-specific guideline for security and compliance best practices based on common compliance frameworks.
 
 Users that have one Defender bundle enabled can enable other standards. 
 
 Available AWS regulatory standards:
 
 - CIS 1.2.0
+- CIS 1.5.0
 - PCI DSS 3.2.1
 - AWS Foundational Security Best Practices
 
@@ -74,7 +75,7 @@ To add regulatory compliance standards on AWS accounts:
 
 More standards will be added to the dashboard and included in the information on [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
 
-**GCP**: When users onboard, every GCP project has the "GCP Default" standard assigned. 
+**GCP**: When users onboard, every GCP project has the "GCP Default" standard assigned and can be viewed under Recommendations. 
 
 Users that have one Defender bundle enabled can enable other standards. 
 

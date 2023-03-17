@@ -5,15 +5,10 @@ services: virtual-network
 documentationcenter: virtual-network
 author: asudbring
 manager: mtillman
-editor: ''
 tags: azure-resource-manager
 # Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
-
-ms.assetid: 
 ms.service: virtual-network
-ms.devlang: 
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: allensu

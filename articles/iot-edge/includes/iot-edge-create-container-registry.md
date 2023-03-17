@@ -16,23 +16,23 @@ If you don't already have a container registry, follow these steps to create a n
 
 1. In the [Azure portal](https://portal.azure.com), select **Create a resource** > **Containers** > **Container Registry**.
 
-1. Provide the following values to create your container registry:
+1. Provide the following required values to create your container registry:
 
    | Field | Value |
    | ----- | ----- |
    | Subscription | Select a subscription from the drop-down list. |
-   | Resource group | We recommend that you use the same resource group for all of the test resources that you create during the IoT Edge quickstarts and tutorials. For example, **IoTEdgeResources**. |
+   | Resource group | Use the same resource group for all of the test resources that you create during the IoT Edge quickstarts and tutorials. For example, **IoTEdgeResources**. |
    | Registry name | Provide a unique name. |
    | Location | Choose a location close to you. |
    | SKU | Select **Basic**. |
 
-1. Select **Create**.
+1. Select **Review + create**, then **Create**.
 
-1. Select your newly-created container registry from the **Resources** section of your Azure portal home page to open it.
+1. Select your new container registry from the **Resources** section of your Azure portal home page to open it.
 
 1. In the left pane of your container registry, select **Access keys** from the menu located under **Settings**.
 
-   :::image type="content" source="../media/iot-edge-create-container-registry/access-keys.png" alt-text="Screenshot of the Access Keys menu location.":::
+   :::image type="content" source="../media/iot-edge-create-container-registry/access-keys.png" alt-text="Screenshot of the Access Keys menu location." lightbox="../media/iot-edge-create-container-registry/access-keys.png":::
 
 1. Enable **Admin user** with the toggle button and view the **Username** and **Password** for your container registry.
 

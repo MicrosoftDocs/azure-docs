@@ -95,7 +95,7 @@ We recommend setting resource requests to two cores and 2 GiB as a starting poin
 
 ## Custom domain names and SSL certificates
 
-If you use custom domain names for the API Management endpoints, especially if you use a custom domain name for the Management endpoint, you might need to update the value of `config.service.endpoint` in the **\<gateway-name\>.yaml** file to replace the default domain name with the custom domain name. Make sure that the Management endpoint can be accessed from the pod of the self-hosted gateway in the Kubernetes cluster.
+If you use custom domain names for the [API Management endpoints](self-hosted-gateway-overview.md#fqdn-dependencies), especially if you use a custom domain name for the Management endpoint, you might need to update the value of `config.service.endpoint` in the **\<gateway-name\>.yaml** file to replace the default domain name with the custom domain name. Make sure that the Management endpoint can be accessed from the pod of the self-hosted gateway in the Kubernetes cluster.
 
 In this scenario, if the SSL certificate that's used by the Management endpoint isn't signed by a well-known CA certificate, you must make sure that the CA certificate is trusted by the pod of the self-hosted gateway.
 
@@ -186,7 +186,7 @@ Request throttling in a self-hosted gateway can be enabled by using the API Mana
 ## Security
 The self-hosted gateway is able to run as non-root in Kubernetes allowing customers to run the gateway securely.
 
-Here's an example of the security context for the self-hosted gateway:
+Here's an example of the security context for the self-hosted gateway container:
 ```yml
 securityContext:
   allowPrivilegeEscalation: false

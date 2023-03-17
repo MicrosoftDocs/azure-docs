@@ -138,8 +138,6 @@ landingContent:
             url: authorize-data-operations-portal.md
           - text: Manage access rights with Azure RBAC
             url: assign-azure-role-data-access.md
-          - text: Use a managed identity to authorize access to Blob Storage
-            url: authorize-managed-identity.md
   # Card
   - title: Transfer data
     linkLists:

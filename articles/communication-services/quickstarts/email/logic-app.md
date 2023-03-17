@@ -24,7 +24,7 @@ This quickstart will show how to send emails using the Azure Communication Servi
 
 - An active Azure Communication Services resource, or [create a Communication Services resource](../create-communication-resource.md).
 
-- An active Logic Apps resource (logic app), or [create a blank logic app but with the trigger that you want to use](../../../logic-apps/quickstart-create-first-logic-app-workflow.md). Currently, the Azure Communication Services Email connector provides only actions, so your logic app requires a trigger, at minimum.
+- An active Azure Logic Apps resource (logic app), or [create a Consumption logic app workflow with the trigger that you want to use](../../../logic-apps/quickstart-create-example-consumption-workflow.md). Currently, the Azure Communication Services Email connector provides only actions, so your logic app workflow requires a trigger, at minimum.
 
 - An Azure Communication Services Email resource with a [configured domain](../email/create-email-communication-resource.md) or [custom domain](../email/add-custom-verified-domains.md).
 
@@ -60,7 +60,7 @@ Add a new step in your workflow by using the Azure Communication Services Email 
 
 ## Test your logic app
 
-To manually start your workflow, on the designer toolbar, select **Run**. The workflow should create a user, issue an access token for that user, then remove it and delete the user. For more information, review [how to run your workflow](../../../logic-apps/quickstart-create-first-logic-app-workflow.md#run-workflow). You can check the outputs of these actions after the workflow runs successfully.
+To manually start your workflow, on the designer toolbar, select **Run**. The workflow should create a user, issue an access token for that user, then remove it and delete the user. For more information, review [how to run your workflow](../../../logic-apps/quickstart-create-example-consumption-workflow.md#run-workflow). You can check the outputs of these actions after the workflow runs successfully.
 
 You should have an email in the address specified. Additionally, you can use the Get email message status action to check the status of emails send through the Send email action. To learn more actions, check the [Azure Communication Services Email connector](/connectors/acsemail/)  documentation.
 
@@ -68,7 +68,7 @@ You should have an email in the address specified. Additionally, you can use the
 
 To remove a Communication Services subscription, delete the Communication Services resource or resource group. Deleting the resource group also deletes any other resources in that group. For more information, review [how to clean up Communication Services resources](../create-communication-resource.md#clean-up-resources).
 
-To clean up your logic app workflow and related resources, review [how to clean up Logic Apps resources](../../../logic-apps/quickstart-create-first-logic-app-workflow.md#clean-up-resources).
+To clean up your logic app workflow and related resources, review [how to clean up Logic Apps resources](../../../logic-apps/quickstart-create-example-consumption-workflow.md#clean-up-resources).
 
 ## Next steps
 

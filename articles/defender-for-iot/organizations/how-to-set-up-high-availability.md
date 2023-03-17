@@ -41,7 +41,7 @@ Sign back in to the primary appliance after redirection.
 
 Before you perform the procedures in this article, verify that you've met the following prerequisites:
 
-- Make sure that you have an [on-premises management console installed](/ot-deploy/install-software-on-premises-management-console.md) on both a primary appliance and a secondary appliance.
+- Make sure that you have an [on-premises management console installed](./ot-deploy/install-software-on-premises-management-console.md) on both a primary appliance and a secondary appliance.
 
     - Both your primary and secondary on-premises management console appliances must be running identical hardware models and software versions.
     - You must be able to access to both the primary and secondary on-premises management consoles as a [privileged user](references-work-with-defender-for-iot-cli-commands.md), for running CLI commands. For more information, see [On-premises users and roles for OT monitoring](roles-on-premises.md).

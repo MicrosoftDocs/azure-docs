@@ -23,13 +23,9 @@ sudo apt-get install build-essential libssl-dev libasound2 wget
 ```
 
 > [!IMPORTANT]
-> On Ubuntu 22.04, install `libssl1.1` either as a [binary package](http://security.ubuntu.com/ubuntu/pool/main/o/openssl/) such as `libssl1.1_1.1.1l-1ubuntu1.3_amd64.deb`, or by compiling it from sources. The Speech SDK does not support OpenSSL 3.0, which is the default in Ubuntu 22.04.
+> The Speech SDK does not support OpenSSL 3.0, which is the default in Ubuntu 22.04. 
 
-Here's an example of installing `libssl1.1` on Ubuntu 22.04:
-```Bash
-wget http://security.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1l-1ubuntu1.3_amd64.deb
-sudo dpkg -i libssl1.1_1.1.1l-1ubuntu1.3_amd64.deb
-```
+On Ubuntu 22.04 only, install the latest libssl1.1 either as a [binary package](http://security.ubuntu.com/ubuntu/pool/main/o/openssl/), or by compiling it from sources.
 
 # [Debian 9/10/11](#tab/debian)
 

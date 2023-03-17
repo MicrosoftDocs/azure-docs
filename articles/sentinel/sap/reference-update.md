@@ -1,5 +1,5 @@
 ---
-title: Microsoft Sentinel Solution for SAP container update script reference | Microsoft Docs
+title: Microsoft Sentinel solution for SAP® applications container update script reference | Microsoft Docs
 description: Description of command line options available with update deployment script
 author: MSFTandrelom
 ms.author: andrelom
@@ -9,7 +9,7 @@ ms.date: 03/02/2022
 
 # Update script reference
 
-The SAP data collector agent container uses an update script (available at [Microsoft Sentinel Solution for SAP GitHub](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP)) to simplify the update process.
+The SAP data collector agent container uses an update script (available at [Microsoft Sentinel solution for SAP® applications GitHub](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP)) to simplify the update process.
 
 This article shows how the script's behavior can be customized by configuring its parameters.
 
@@ -71,14 +71,14 @@ During the update process, the script identifies any containers running the SAP 
 
 **Required:** No
 
-**Explanation:** By default, the update script updates all containers running Microsoft Sentinel Solution for SAP. To update a single, or multiple containers, specify `--containername <containername>` switch. Switch can be specified multiple times, e.e. `--containername sapcon-A4H --containername sapcon-QQ1 --containername sapcon-QAT`. In such case, only specified containers will be updated. If container name specified does not exist, it will be skipped by the script.
+**Explanation:** By default, the update script updates all containers running Microsoft Sentinel solution for SAP® applications. To update a single, or multiple containers, specify `--containername <containername>` switch. Switch can be specified multiple times, e.e. `--containername sapcon-A4H --containername sapcon-QQ1 --containername sapcon-QAT`. In such case, only specified containers will be updated. If container name specified does not exist, it will be skipped by the script.
 
 ## Next steps
 
-Learn more about the Microsoft Sentinel Solution for SAP:
+Learn more about the Microsoft Sentinel solution for SAP® applications:
 
-- [Deploy Microsoft Sentinel Solution for SAP](deployment-overview.md)
-- [Prerequisites for deploying Microsoft Sentinel Solution for SAP](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
+- [Deploy Microsoft Sentinel solution for SAP® applications](deployment-overview.md)
+- [Prerequisites for deploying Microsoft Sentinel solution for SAP® applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
 - [Deploy SAP Change Requests (CRs) and configure authorization](preparing-sap.md)
 - [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md)
 - [Deploy SAP security content](deploy-sap-security-content.md)
@@ -88,13 +88,13 @@ Learn more about the Microsoft Sentinel Solution for SAP:
 
 Troubleshooting:
 
-- [Troubleshoot your Microsoft Sentinel Solution for SAP deployment](sap-deploy-troubleshoot.md)
+- [Troubleshoot your Microsoft Sentinel solution for SAP® applications deployment](sap-deploy-troubleshoot.md)
 - [Configure SAP Transport Management System](configure-transport.md)
 
 Reference files:
 
-- [Microsoft Sentinel Solution for SAP data reference](sap-solution-log-reference.md)
-- [Microsoft Sentinel Solution for SAP: security content reference](sap-solution-security-content.md)
+- [Microsoft Sentinel solution for SAP® applications data reference](sap-solution-log-reference.md)
+- [Microsoft Sentinel solution for SAP® applications: security content reference](sap-solution-security-content.md)
 - [Kickstart script reference](reference-kickstart.md)
 - [Systemconfig.ini file reference](reference-systemconfig.md)
 

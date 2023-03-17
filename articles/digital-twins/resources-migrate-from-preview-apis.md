@@ -4,7 +4,7 @@ titleSuffix: Azure Digital Twins
 description: Migrate from preview API versions of the control plane to the stable GA version
 author: baanders
 ms.author: baanders
-ms.date: 01/26/2023
+ms.date: 02/08/2023
 ms.topic: conceptual
 ms.service: digital-twins
 services: digital-twins
@@ -38,13 +38,13 @@ If you're using an associated SDK of the 2020-03-01-preview API, it's recommende
 * Go: Migrate from the [digitaltwins 2020-03-01-preview](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go@v68.0.0+incompatible/services/preview/digitaltwins/mgmt/2020-03-01-preview/digitaltwins) package to the [armsdigitaltwins v1.0.0](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/digitaltwins/armdigitaltwins) package, by following the [Go SDK migration guidance](https://github.com/Azure/azure-sdk-for-go/blob/main/documentation/MIGRATION_GUIDE.md).
 
 
-## Migrate from 2021-10-31-preview control plane API 
+## Migrate from 2021-06-30-preview control plane API 
 
 The target replacement API version ([2022-10-31 (GA) API version](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/stable/2022-10-31)) is backwards-compatible with the [2021-06-30-preview API version](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/preview/2021-06-30-preview). In addition to the 2021-06-30-preview API version's capabilities, the 2022-10-31 (GA) API version additionally introduces user-assigned managed identities. 
 
 There are no breaking changes for migrating to the target replacement API version ([2022-10-31 (GA) API version](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/stable/2022-10-31)). There's one minor change: Endpoints and TSDB connections now have an explicit *Updating* state defined in the API contract. 
 
-If you're using an associated SDK of the 2021-10-31-preview API, it's recommended to update to the latest version of the management SDK. Use the following links to know what additional changes are required to migrate to the new management SDK.
+If you're using an associated SDK of the 2021-06-30-preview API, it's recommended to update to the latest version of the management SDK. Use the following links to know what additional changes are required to migrate to the new management SDK.
 * .NET: Migrate from the [Microsoft.Azure.Management.DigitalTwins 1.2.0-beta.1](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/1.2.0-beta.1) package to the [Azure.ResourceManager.DigitalTwins 1.1.0](https://www.nuget.org/packages/Azure.ResourceManager.DigitalTwins/1.1.0) package, by following the [.NET SDK migration guidance](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/resourcemanager/Azure.ResourceManager/docs/MigrationGuide.md). 
 * Java: Migrate from the [azure-resourcemanager-digitaltwins:1.0.0-beta.2](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-digitaltwins/1.0.0-beta.2/jar) package to the [Azure.ResourceManager.DigitalTwins 1.1.0](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-digitaltwins/1.1.0/jar) package, or set the service version in the SDK client to call the 2022-10-31 (GA) API.
 

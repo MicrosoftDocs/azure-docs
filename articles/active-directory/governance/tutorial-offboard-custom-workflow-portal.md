@@ -28,9 +28,8 @@ You may learn more about running a workflow on-demand [here](on-demand-workflow.
 
 ## Prerequisites
 
-- Azure AD Premium P2
+The Lifecycle Workflows preview requires Azure AD Premium P2. For more information, see: [License requirements](what-are-lifecycle-workflows.md#license-requirements).
 
-For more information, see: [License requirements](what-are-lifecycle-workflows.md#license-requirements)
 
 ##  Before you begin
 

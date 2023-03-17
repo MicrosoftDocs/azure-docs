@@ -5,10 +5,13 @@
  author: roygara
  ms.service: storage
  ms.topic: include
- ms.date: 07/14/2022
+ ms.date: 03/16/2023
  ms.author: rogarana
  ms.custom: include file
 ---
 Currently only available in the following regions:
-- US East
+- North Europe
 - West Europe
+- East US
+- East US 2
+- West US 2

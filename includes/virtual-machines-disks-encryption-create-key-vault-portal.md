@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 01/19/2023
+ ms.date: 02/13/2023
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -33,10 +33,10 @@ Setting up customer-managed keys for your disks requires you to create resources
     :::image type="content" source="media/virtual-machines-disk-encryption-portal/server-side-encryption-create-a-key-vault.png" alt-text="Screenshot of the Azure Key Vault creation experience, showing the particular values you create." lightbox="media/virtual-machines-disk-encryption-portal/server-side-encryption-create-a-key-vault.png":::
 
 1. Once your key vault finishes deploying, select it.
-1. Select **Keys** under **Settings**.
+1. Select **Keys** under **Objects**.
 1. Select **Generate/Import**.
 
-    :::image type="content" source="media/virtual-machines-disk-encryption-portal/sever-side-encryption-key-vault-generate-settings.png" alt-text="Screenshot of the Key Vault resource settings pane, shows the generate/import button inside settings." lightbox="media/virtual-machines-disk-encryption-portal/sever-side-encryption-key-vault-generate-settings.png":::
+    :::image type="content" source="media/virtual-machines-disk-encryption-portal/server-side-encryption-key-vault-generate-settings.png" alt-text="Screenshot of the Key Vault resource settings pane, shows the generate/import button inside settings." lightbox="media/virtual-machines-disk-encryption-portal/server-side-encryption-key-vault-generate-settings.png":::
 
 1. Leave both **Key Type** set to **RSA** and **RSA Key Size** set to **2048**.
 1. Fill in the remaining selections as you like and then select **Create**.

@@ -1,24 +1,20 @@
 ---
 title: Troubleshoot Multimedia redirection on Azure Virtual Desktop - Azure
-description: Known issues and troubleshooting instructions for multimedia redirection for Azure Virtual Desktop (preview).
+description: Known issues and troubleshooting instructions for multimedia redirection for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 09/27/2022
+ms.date: 02/07/2023
 ms.author: helohr
 manager: femila
 ---
 # Troubleshoot multimedia redirection for Azure Virtual Desktop
 
-> [!IMPORTANT]
-> Multimedia redirection for Azure Virtual Desktop is currently in preview.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 >[!NOTE]
 >Azure Virtual Desktop doesn't currently support multimedia redirection on Azure Virtual Desktop for Microsoft 365 Government (GCC), GCC-High environments, and Microsoft 365 DoD.
 >
->Multimedia redirection on Azure Virtual Desktop is only available for the Windows Desktop client on Windows 11, Windows 10, or Windows 10 IoT Enterprise devices. Multimedia redirection requires the [Windows Desktop client, version 1.2.3573 or later](users/connect-windows.md) with Insider features enabled.
+> Multimedia redirection on Azure Virtual Desktop is only available for the [Windows Desktop client, version 1.2.3916 or later](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew). on Windows 11, Windows 10, or Windows 10 IoT Enterprise devices.
 
-This article describes known issues and troubleshooting instructions for multimedia redirection (MMR) for Azure Virtual Desktop (preview).
+This article describes known issues and troubleshooting instructions for multimedia redirection (MMR) for Azure Virtual Desktop.
 
 ## Known issues and limitations
 
@@ -28,11 +24,7 @@ The following issues are ones we're already aware of, so you won't need to repor
 
 - Multimedia redirection only works on the [Windows Desktop client](users/connect-windows.md).
 
-- While in preview, you must configure the Windows Desktop client to use Insider releases. For more information, see [Enable Windows Insider releases](users/client-features-windows.md#enable-windows-insider-releases).
-
 - Multimedia redirection doesn't currently support protected content, so videos from Netflix, for example, won't work.
-
-- During public preview, multimedia redirection will be disabled on all sites except for the sites listed in [Websites that work with MMR](multimedia-redirection-intro.md#websites-that-work-with-multimedia-redirection). However, you can enable multimedia redirection for all websites by following the steps in [Enable video playback for all sites](multimedia-redirection.md#enable-video-playback-for-all-sites). We added the extension so organizations can test the feature on their company websites.
 
 - When you resize the video window, the window's size will adjust faster than the video itself. You'll also see this issue when minimizing and maximizing the window.
 
@@ -55,8 +47,6 @@ The following issues are ones we're already aware of, so you won't need to repor
 
 - Video playback redirection doesn't currently support protected content, so videos from Pluralsight and Netflix won't work.
 
-- During public preview, video playback redirection will be disabled on all sites except for the sites listed in [Websites that work with MMR](multimedia-redirection-intro.md#websites-that-work-with-multimedia-redirection). However, if you have the extension, you can enable video playback redirection for all websites. We added the extension so organizations can test the feature on their company websites.
-
 - When you resize the video window, the window's size will adjust faster than the video itself. You'll also see this issue when minimizing and maximizing the window.
 
 ## Log collection
@@ -69,14 +59,10 @@ To enable log collection:
 
 1. Select **Show Advanced Settings**.
 
-1. For **Collect logs**, select **Start**.
-
-## Support during public preview
-
-If you run into issues while using the public preview version of multimedia redirection that this article can't solve, we recommend contacting Microsoft Support.
+2. For **Collect logs**, select **Start**.
 
 ## Next steps
 
-For more information about this feature and how it works, see [What is multimedia redirection for Azure Virtual Desktop? (preview)](multimedia-redirection-intro.md).
+For more information about this feature and how it works, see [What is multimedia redirection for Azure Virtual Desktop?](multimedia-redirection-intro.md).
 
-To learn how to use this feature, see [Multimedia redirection for Azure Virtual Desktop (preview)](multimedia-redirection.md).
+To learn how to use this feature, see [Multimedia redirection for Azure Virtual Desktop](multimedia-redirection.md).

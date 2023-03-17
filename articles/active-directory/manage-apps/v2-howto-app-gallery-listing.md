@@ -30,6 +30,7 @@ To publish your application in the gallery, you must first read and agree to spe
 - Implement support for *single sign-on* (SSO). To learn more about supported options, see [Plan a single sign-on deployment](plan-sso-deployment.md).
     - For password SSO, make sure that your application supports form authentication so that password vaulting can be used.
 	- For federated applications (OpenID and SAML/WS-Fed), the application must support the [software-as-a-service (SaaS) model](https://azure.microsoft.com/overview/what-is-saas/). Enterprise gallery applications must support multiple user configurations and not any specific user.
+	- For federated applications (OpenID and SAML/WS-Fed), the application can be single **or** multitenanted
 	- For Open ID Connect, the application must be multitenanted and the [Azure AD consent framework](../develop/consent-framework.md) must be correctly implemented.
 - Provisioning is optional yet highly recommended. To learn more about Azure AD SCIM, see [build a SCIM endpoint and configure user provisioning with Azure AD](../app-provisioning/use-scim-to-provision-users-and-groups.md).
 

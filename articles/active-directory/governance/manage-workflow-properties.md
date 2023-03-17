@@ -7,40 +7,42 @@ manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to 
-ms.date: 01/31/2022
+ms.date: 03/07/2023
 ms.subservice: compliance
 ms.custom: template-how-to 
 ---
 
 # Manage workflow properties (preview)
 
-Managing workflows can be accomplished in one of two ways.  
+Managing workflows can be accomplished in one of two ways:  
    - Updating the basic properties of a workflow without creating a new version of it
-   - Creating a new version of the updated workflow. 
+   - Creating a new version of the updated workflow
 
 You can update the following basic information without creating a new workflow.
    - display name
    - description
-   - whether or not it is enabled.
-   - Whether or not workflow schedule is enabled.
+   - whether or not it's enabled
+   - Whether or not workflow schedule is enabled
+   - task name
+   - task description
 
-If you change any other parameters, a new version is required to be created as outlined in the [Managing workflow versions](manage-workflow-tasks.md) article. 
+If you change any other parameters, a new version is required to be created as outlined in the [Managing workflow versions](manage-workflow-tasks.md) article.
 
-If done via the Azure portal, the new version is created automatically. If done using Microsoft Graph, you will have to manually create a new version of the workflow.  For more information, see [Edit the properties of a workflow using Microsoft Graph](#edit-the-properties-of-a-workflow-using-microsoft-graph).
+If done via the Azure portal, the new version is created automatically. If done using Microsoft Graph, you must manually create a new version of the workflow.  For more information, see [Edit the properties of a workflow using Microsoft Graph](#edit-the-properties-of-a-workflow-using-microsoft-graph).
 
 ## Edit the properties of a workflow using the Azure portal
 
-To edit the properties of a workflow using the Azure portal, you'll do the following steps:
+To edit the properties of a workflow using the Azure portal, you do the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Select **Azure Active Directory** and then select **Identity Governance**.
+1. Type in **Identity Governance** on the search bar near the top of the page and select it.
 
 1. On the left menu, select **Lifecycle workflows (Preview)**. 
 
 1. On the left menu, select **Workflows (Preview)**.
 
-1. Here you'll see a list of all of your current workflows. Select the workflow that you want to edit.
+1. Here you see a list of all of your current workflows. Select the workflow that you want to edit.
     
     :::image type="content" source="media/manage-workflow-properties/manage-list.png" alt-text="Screenshot of the manage workflow list.":::
 

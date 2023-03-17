@@ -3,6 +3,7 @@ title: Manage your Azure subscriptions at scale with management groups - Azure G
 description: Learn how to view, maintain, update, and delete your management group hierarchy.
 ms.date: 12/01/2022
 ms.topic: conceptual
+ms.custom: devx-track-azurepowershell
 ms.author: timwarner
 author: timwarner-msft
 ---

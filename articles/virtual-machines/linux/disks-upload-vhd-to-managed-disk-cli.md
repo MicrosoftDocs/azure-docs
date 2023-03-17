@@ -8,6 +8,7 @@ ms.date: 01/03/2023
 ms.topic: how-to
 ms.service: storage
 ms.subservice: disks
+ms.custom: devx-track-azurecli
 ---
 
 # Upload a VHD to Azure or copy a managed disk to another region - Azure CLI

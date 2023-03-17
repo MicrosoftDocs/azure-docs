@@ -50,7 +50,7 @@ landingContent:
           url: how-to-datastore.md
         - text: Access data in a notebook
           url: how-to-access-data-interactive.md
-        - text: Use Apache Spark in Azure ML
+        - text: Use Apache Spark in Azure Machine Learning
           url: interactive-data-wrangling-with-apache-spark-azure-ml.md
         - text: Create data assets
           url: how-to-create-data-assets.md
@@ -72,6 +72,8 @@ landingContent:
             url: tutorial-first-experiment-automated-ml.md
           - text: Use designer (drag-n-drop) in studio
             url: tutorial-designer-automobile-price-train-score.md
+          - text: Train with R
+            url: how-to-r-train-model.md
   # Card
   - title: Deploy models
     linkLists:
@@ -83,6 +85,8 @@ landingContent:
           url: how-to-deploy-online-endpoints.md
         - text: Batch scoring with batch endpoints 
           url: batch-inference/how-to-use-batch-endpoint.md
+        - text: Deploy R models
+          url: how-to-r-deploy-r-model.md
 
   # Card
   - title: "Manage the ML lifecycle (MLOps)"

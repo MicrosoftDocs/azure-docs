@@ -110,9 +110,9 @@ When indexing a video, default streaming settings are applied. Below are the str
     Output minutes (standard encoder): 130 x $0.015/minute = $1.95. 
 - **No streaming**: Insights are generated but no streaming operation is performed and the video isn't available on the Azure Video Indexer website.  When No streaming is selected, you aren't billed for encoding. 
 
-### Customizing content models - People/Animated characters and Brand categories 
+### Customizing content models 
 
-Azure Video Indexer allows you to customize some of its models to be adapted to your specific use case. These models include animated characters, brands, language, and person. If you have customized models, this section enables you to configure if one of the created models should be used for the indexing. 
+Azure Video Indexer allows you to customize some of its models to be adapted to your specific use case. These models include brands, language, and person. If you have customized models, this section enables you to configure if one of the created models should be used for the indexing. 
 
 ## Next steps
 

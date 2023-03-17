@@ -2,9 +2,7 @@
 title: 'Delete a virtual network gateway: PowerShell'
 titleSuffix: Azure VPN Gateway
 description: Learn how to delete a virtual network gateway using PowerShell.
-services: vpn-gateway
 author: cherylmc
-
 ms.service: vpn-gateway
 ms.date: 04/29/2021
 ms.author: cherylmc

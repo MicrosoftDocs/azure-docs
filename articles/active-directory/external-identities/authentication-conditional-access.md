@@ -1,5 +1,5 @@
 ---
-title: Authentication and Conditional Access for B2B users - Azure AD
+title: Authentication and Conditional Access for B2B users
 description: Learn how to enforce multi-factor authentication policies for Azure Active Directory B2B users.
 
 services: active-directory
@@ -87,6 +87,25 @@ When configuring a Conditional Access policy, you have granular control over the
 - **Other external users** - Applies to any users who don't fall into the categories above, but who are not considered internal members of your organization, meaning they don't authenticate internally via Azure AD, and the user object created in the resource Azure AD directory does not have a UserType of Member.
 
 Learn more about [Conditional Access user assignments](../conditional-access/concept-conditional-access-users-groups.md).
+
+### Comparing External Identities Conditional Access policies
+
+The following table gives a detailed comparison of the security policy and compliance options in Azure AD External Identities. Security policy and compliance are managed by the host/inviting organization under Conditional Access policies.
+
+|**Policy** |**B2B collaboration users**  |**B2B direct connect users**|
+| :------------ | :-------------- | :----- |
+|**Grant controls—Block access**   |   Supported       |   Supported      |
+|**Grant controls — Require multifactor authentication**     |  Supported        |   Supported, requires configuring your [inbound trust settings](cross-tenant-access-settings-b2b-direct-connect.md#to-change-inbound-trust-settings-for-mfa-and-device-state) to accept MFA claims from the external organization       |
+|**Grant controls — Require compliant device**     | Supported, requires configuring your [inbound trust settings](cross-tenant-access-settings-b2b-collaboration.md#to-change-inbound-trust-settings-for-mfa-and-device-claims) to accept compliant device claims from the external organization.      | Supported, requires configuring your [inbound trust settings](cross-tenant-access-settings-b2b-direct-connect.md#to-change-inbound-trust-settings-for-mfa-and-device-state) to accept compliant device claims from the external organization.         |
+|**Grant controls — Require Hybrid Azure AD joined device**   |  Supported, requires configuring your [inbound trust settings](cross-tenant-access-settings-b2b-collaboration.md#to-change-inbound-trust-settings-for-mfa-and-device-claims) to accept hybrid Azure AD joined device claims from the external organization  |   Supported, requires configuring your [inbound trust settings](cross-tenant-access-settings-b2b-direct-connect.md#to-change-inbound-trust-settings-for-mfa-and-device-state) to accept hybrid Azure AD joined device claims from the external organization       |
+|**Grant controls — Require approved client app**    | Not supported         |   Not supported       |
+|**Grant controls — Require app protection policy**     |  Not supported        |  Not supported        |
+|**Grant controls — Require password change**     |  Not supported        |    Not supported      |
+|**Grant controls — Terms of Use**     |  Supported       |  Not supported        |
+|**Session controls — Use app enforced restrictions**    |   Supported      |  Not supported        |
+|**Session controls — Use Conditional Access App control**     |  Supported       |   Not supported       |
+|**Session controls — Sign-in frequency**     |  Supported       |   Not supported       |
+|**Session controls — Persistent browser session**   |   Supported      |  Not supported        |
 
 ### MFA for Azure AD external users
 

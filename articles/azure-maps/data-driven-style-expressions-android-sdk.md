@@ -1,8 +1,8 @@
 ---
 title: Data-driven style Expressions in Android maps | Microsoft Azure Maps
 description: Learn about data-driven style expressions. See how to use these expressions in the Azure Maps Android SDK to adjust styles in maps.
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: azure-maps

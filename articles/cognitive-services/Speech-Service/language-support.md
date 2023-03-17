@@ -23,6 +23,9 @@ You can also get a list of locales and voices supported for each specific region
 
 Language support varies by Speech service functionality. 
 
+> [!NOTE]
+> See [Speech Containers](speech-container-howto.md#available-speech-containers) and [Embedded Speech](embedded-speech.md#models-and-voices) separately for their supported languages.
+
 **Choose a Speech feature**
 
 # [Speech-to-text](#tab/stt)

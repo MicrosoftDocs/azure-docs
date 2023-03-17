@@ -3,7 +3,7 @@ title: Open-source components and versions - Azure HDInsight 4.0
 description: Learn about the open-source  components and versions in Azure HDInsight 4.0.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 09/09/2022
+ms.date: 03/08/2023
 ---
 
 # HDInsight 4.0 component versions
@@ -12,7 +12,7 @@ In this article, you learn about the open-source components and versions in Azur
 
 ## Open-source components available with HDInsight version 4.0
 
-The Open-source component versions associated with HDInsight 4.0 are listed in the following table.
+The Open-source component versions associated with HDInsight 4.0 are present in the following table.
 
 | Component              | HDInsight 4.0 |
 |------------------------|---------------|
@@ -32,13 +32,27 @@ The Open-source component versions associated with HDInsight 4.0 are listed in t
 | Apache Ambari          | 2.7.0         |
 | Apache Zeppelin        | 0.8.0         |
 
-This table lists certain HDInsight 4.0 cluster types that have retired or will be retired soon.
+This table lists certain HDInsight 4.0 cluster types that have retired or will be retiring soon.
 
 | Cluster Type                    | Framework version | Support expiration date      | Retirement date |
 |---------------------------------|-------------------|------------------------------|-----------------|
 | HDInsight 4.0 Spark             | 2.3               | June 30, 2020                | June 30, 2020   |
 | HDInsight 4.0 Kafka             | 1.1               | Dec 31, 2020                 | Dec 31, 2020    |
 | HDInsight 4.0 Kafka             | 2.1.0             | Sep 30, 2022                 | Oct 1, 2022     |
+
+## Spark versions supported in Azure HDInsight
+
+Apache Spark versions supported in Azure HDIinsight 
+
+|Apache Spark version on HDInsight|Release date|Release stage|End of life announcement date|End of standard support|End of basic support|
+|--|--|--|--|--|--|
+|2.4|July 8, 2019|End of Life Announced (EOLA)| Feb10,2023| Aug 10,2023|Feb 10,2024|
+|3.1|March 11,2022|GA |-|-|-|
+|3.3|To be announced for Public Preview|-|-|-|-|
+
+## Apache Spark 2.4 to Spark 3.x Migration Guides 
+
+Spark 2.4 to Spark 3.x Migration Guides see [here](https://spark.apache.org/docs/latest/migration-guide.html). 
 
 ## Next steps
 
