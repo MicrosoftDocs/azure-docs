@@ -1,6 +1,6 @@
 ---
 title: Manage Microsoft Dev Box Preview projects
-titleSuffix: Microsoft Dev Box Preview
+titleSuffix: Microsoft Dev Box
 description: Learn how to manage multiple projects by assigning admin permissions and delegating project administration.
 services: dev-box
 ms.service: dev-box

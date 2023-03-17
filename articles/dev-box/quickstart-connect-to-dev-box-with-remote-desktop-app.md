@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Use a Remote Desktop client to connect to a dev box'
-titleSuffix: Microsoft Dev Box Preview
+titleSuffix: Microsoft Dev Box
 description: In this quickstart, you learn how to download a Remote Desktop client and connect to your dev box. 
 services: dev-box
 ms.service: dev-box

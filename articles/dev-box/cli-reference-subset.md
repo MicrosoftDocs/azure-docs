@@ -1,6 +1,6 @@
 ---
 title: Microsoft Dev Box Preview Azure CLI Reference
-titleSuffix: Microsoft Dev Box Preview
+titleSuffix: Microsoft Dev Box
 description: This article contains descriptions and definitions for a subset of the Dev Box Azure CLI extension.
 services: dev-box
 ms.service: dev-box

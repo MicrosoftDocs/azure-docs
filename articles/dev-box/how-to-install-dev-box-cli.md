@@ -1,6 +1,6 @@
 ---
 title: Install the Microsoft Dev Box Preview Azure CLI extension
-titleSuffix: Microsoft Dev Box Preview
+titleSuffix: Microsoft Dev Box
 description: Learn how to install the Azure CLI and the Microsoft Dev Box Preview CLI extension so you can create Dev Box resources from the command line.
 services: dev-box
 ms.service: dev-box

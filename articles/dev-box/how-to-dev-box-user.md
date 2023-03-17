@@ -1,6 +1,6 @@
 ---
 title: Provide access for dev box users
-titleSuffix: Microsoft Dev Box Preview
+titleSuffix: Microsoft Dev Box
 description: Learn how to provide access to projects for dev box users so that they can create and manage dev boxes.
 services: dev-box
 ms.service: dev-box

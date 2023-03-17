@@ -1,6 +1,6 @@
 ---
 title: Configure Azure Compute Gallery
-titleSuffix: Microsoft Dev Box Preview
+titleSuffix: Microsoft Dev Box
 description: Learn how to create a repository for managing and sharing Dev Box images.
 services: dev-box
 ms.service: dev-box

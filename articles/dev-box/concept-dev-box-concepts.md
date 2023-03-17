@@ -1,6 +1,6 @@
 ---
 title: Microsoft Dev Box Preview key concepts
-titleSuffix: Microsoft Dev Box Preview
+titleSuffix: Microsoft Dev Box
 description: Learn key concepts and terminology for Microsoft Dev Box Preview.
 services: dev-box
 ms.service: dev-box

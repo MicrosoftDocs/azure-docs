@@ -1,6 +1,6 @@
 ---
 title: Manage a dev box pool
-titleSuffix: Microsoft Dev Box Preview
+titleSuffix: Microsoft Dev Box
 description: This article describes how to create and delete Microsoft Dev Box Preview dev box pools.
 services: dev-box
 ms.service: dev-box

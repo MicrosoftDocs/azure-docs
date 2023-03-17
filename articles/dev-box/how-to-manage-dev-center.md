@@ -1,6 +1,6 @@
 ---
 title: Manage a dev center
-titleSuffix: Microsoft Dev Box Preview
+titleSuffix: Microsoft Dev Box
 description: This article describes how to create, delete, and manage Microsoft Dev Box Preview dev centers.
 services: dev-box
 ms.service: dev-box
