@@ -33,7 +33,7 @@ The service listens to input binding events from a system CRON and then outputs 
 
 ::: zone pivot="nodejs"
 
-## Run the Dapr application locally with Node.js
+## Run the Node.js application locally
 
 Before deploying the application to Azure Container Apps, start by running the PostgreSQL container and JavaScript service locally with [Docker Compose](https://docs.docker.com/compose/) and Dapr.
 
@@ -212,7 +212,7 @@ Upon successful completion of the `azd up` command:
 
 ::: zone pivot="python"
 
-## Run the Dapr application locally with Python
+## Run the Python application locally
 
 ### Prepare the project
 
@@ -389,7 +389,7 @@ Upon successful completion of the `azd up` command:
 
 ::: zone pivot="csharp"
 
-## Run the Dapr application locally with .NET
+## Run the .NET application locally
 
 ### Prepare the project
 
