@@ -586,7 +586,7 @@ To create a VM using an image shared to a community gallery, use the unique ID o
 
 Follow these instructions to get the list of Community images using CLI:
 ```
-#Step 1:  Show all 'Community images' in a specific location
+Step 1:  Show all 'Community images' in a specific location
 az sig list-community --location westus2
 
 Step 2: Once you have the public gallery name from Step 1, Get the Image definition (Name) of the image by running the following command
