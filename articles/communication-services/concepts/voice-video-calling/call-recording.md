@@ -19,7 +19,7 @@ ms.subservice: calling
 > [!NOTE]
 >  Call Recording is not enabled for [Teams interoperability](../teams-interop.md).
 
-Call Recording enables you to record multiple calling scenarios available in Azure Communication Services by providing you with a set of APIs to start, stop, pause and resume recording. Whether it's a PSTN (Public Switched Telephone Network), WebRTC (Web Real-Time Communication), or SIP (Session Initiation Protocol telephony) call, these APIs can be accessed from server-side business logic or via events triggered by user actions. 
+Call Recording enables you to record multiple calling scenarios available in Azure Communication Services by providing you with a set of APIs to start, stop, pause and resume recording. Whether it's a PSTN, WebRTC, or SIP call, these APIs can be accessed from your server-side business logic. Also, recordings can be triggered by a user action that tells the server application to start recording. 
 
 Depending on your business needs, you can use Call Recording for different Azure Communication Services calling implementations.
 For example, you can record 1:1 or 1:N scenarios for audio and video calls enabled by [Calling Client SDK](https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/calling-sdk-features). 
@@ -143,7 +143,7 @@ Regulations around the maintenance of personal data require the ability to expor
 
 ## Known Issues
 
-It's possible that when a call is created using Call Automation, you won't get a value in the `serverCallId`. If that's the case, get the `serverCallId` from the `CallConnected` event method described in [Get serverCallId](https://learn.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/callflows-for-customer-interactions?pivots=programming-language-csharp#configure-programcs-to-answer-the-call).
+It's possible that when a call is created using Call Automation, you don't get a value in the `serverCallId`. If that's the case, get the `serverCallId` from the `CallConnected` event method described in [Get serverCallId](https://learn.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/callflows-for-customer-interactions?pivots=programming-language-csharp#configure-programcs-to-answer-the-call).
 
 ## Next steps
 For more information, see the following articles:
