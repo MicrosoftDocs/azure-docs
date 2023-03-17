@@ -58,10 +58,10 @@ ID tokens are passed to websites and native clients. ID tokens contain profile i
 
 ## Token lifetime policies for refresh tokens and session tokens
 
-You can not set token lifetime policies for refresh tokens and session tokens. For lifetime, timeout, and revocation information on refresh tokens, see [Refresh tokens](refresh-tokens.md).
+You cannot set token lifetime policies for refresh tokens and session tokens. For lifetime, timeout, and revocation information on refresh tokens, see [Refresh tokens](refresh-tokens.md).
 
 > [!IMPORTANT]
-> As of January 30, 2021 you can not configure refresh and session token lifetimes. Azure Active Directory no longer honors refresh and session token configuration in existing policies.  New tokens issued after existing tokens have expired are now set to the [default configuration](#configurable-token-lifetime-properties). You can still configure access, SAML, and ID token lifetimes after the refresh and session token configuration retirement.
+> As of January 30, 2021 you cannot configure refresh and session token lifetimes. Azure Active Directory no longer honors refresh and session token configuration in existing policies.  New tokens issued after existing tokens have expired are now set to the [default configuration](#configurable-token-lifetime-properties). You can still configure access, SAML, and ID token lifetimes after the refresh and session token configuration retirement.
 >
 > Existing token's lifetime will not be changed. After they expire, a new token will be issued based on the default value.
 >
@@ -99,7 +99,7 @@ Refresh and session token configuration are affected by the following properties
 |Single-Factor Session Token Max Age  |MaxAgeSessionSingleFactor |Session tokens (persistent and nonpersistent)  |Until-revoked |
 |Multi-Factor Session Token Max Age  |MaxAgeSessionMultiFactor  |Session tokens (persistent and nonpersistent)  |Until-revoked |
 
-Non-persistent session tokens have a Max Inactive Time of 24 hours whereas persistent session tokens have a Max Inactive Time of 90 days. Anytime the SSO session token is used within its validity period, the validity period is extended another 24 hours or 90 days. If the SSO session token isn't used within its Max Inactive Time period, it's considered expired and will no longer be accepted. Any changes to this default periods should be change using [Conditional Access](../conditional-access/howto-conditional-access-session-lifetime.md).
+Non-persistent session tokens have a Max Inactive Time of 24 hours whereas persistent session tokens have a Max Inactive Time of 90 days. Anytime the SSO session token is used within its validity period, the validity period is extended another 24 hours or 90 days. If the SSO session token isn't used within its Max Inactive Time period, it's considered expired and will no longer be accepted. Any changes to this default period should be changed using [Conditional Access](../conditional-access/howto-conditional-access-session-lifetime.md).
 
 You can use PowerShell to find the policies that will be affected by the retirement.  Use the [PowerShell cmdlets](configure-token-lifetimes.md#get-started) to see the all policies created in your organization, or to find which apps and service principals are linked to a specific policy.
 
