@@ -71,7 +71,7 @@ Start by running the `order-processor` subscriber service with Dapr.
 1. Run the `order-processor` service with Dapr.
 
    ```bash
-   dapr run --app-port 5001 --app-id order-processing --app-protocol http --dapr-http-port 3501 --components-path ../components -- npm run start
+   dapr run --app-port 5001 --app-id order-processing --app-protocol http --dapr-http-port 3501 --resources-path ../components -- npm run start
    ```
 
 1. In a new terminal window, from the sample's root directory, navigate to the `checkout` publisher service.
@@ -89,7 +89,7 @@ Start by running the `order-processor` subscriber service with Dapr.
 1. Run the `checkout` service with Dapr.
 
    ```bash
-   dapr run --app-id checkout --app-protocol http --components-path ../components -- npm run start
+   dapr run --app-id checkout --app-protocol http --resources-path ../components -- npm run start
    ```
 
    #### Expected output
@@ -283,7 +283,7 @@ Start by running the `order-processor` subscriber service with Dapr.
 1. Run the `order-processor` service with Dapr.
 
    ```bash
-   dapr run --app-id order-processor --components-path ../components/ --app-port 5001 -- python3 app.py
+   dapr run --app-id order-processor --resources-path ../components/ --app-port 5001 -- python3 app.py
    ```
 
 1. In a new terminal window, from the sample's root directory, navigate to the `checkout` publisher service.
@@ -301,7 +301,7 @@ Start by running the `order-processor` subscriber service with Dapr.
 1. Run the `checkout` service with Dapr.
 
    ```bash
-   dapr run --app-id checkout --components-path ../components/ -- python3 app.py
+   dapr run --app-id checkout --resources-path ../components/ -- python3 app.py
    ```
 
    #### Expected output
@@ -495,7 +495,7 @@ Start by running the `order-processor` subscriber service with Dapr.
 1. Run the `order-processor` service with Dapr.
 
    ```bash
-   dapr run --app-id order-processor --components-path ../components/ --app-port 7001 -- dotnet run --project .
+   dapr run --app-id order-processor --resources-path ../components/ --app-port 7001 -- dotnet run --project .
    ```
 
 1. In a new terminal window, from the sample's root directory, navigate to the `checkout` publisher service.
@@ -513,7 +513,7 @@ Start by running the `order-processor` subscriber service with Dapr.
 1. Run the `checkout` service with Dapr.
 
    ```bash
-   dapr run --app-id checkout --components-path ../components/ -- dotnet run --project .
+   dapr run --app-id checkout --resources-path ../components/ -- dotnet run --project .
    ```
 
    #### Expected output
