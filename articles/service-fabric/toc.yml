@@ -6,6 +6,8 @@
     href: overview-managed-cluster.md
   - name: What is Service Fabric?
     href: service-fabric-overview.md
+  - name: Whats new
+    href: Whats-New.md
 - name: Quickstarts
   expanded: true
   items:
@@ -995,7 +997,6 @@
   - name: Service Updates
     href: https://azure.microsoft.com/updates/?product=service-fabric
   - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=service-fabric
-- name: Whats new    
+    href: https://azure.microsoft.com/documentation/videos/index/?services=service-fabric  
 - name: Support and troubleshooting
   href: service-fabric-support.md
