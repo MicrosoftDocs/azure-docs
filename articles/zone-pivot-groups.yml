@@ -1454,7 +1454,7 @@ groups:
   prompt: Chat API options
   pivots:
   - id: programming-language-chat-completions
-    title: Chat Completions
+    title: ChatCompletion
   - id: programming-language-chat-ml
     title: ChatML
 # Owner: mbullwin

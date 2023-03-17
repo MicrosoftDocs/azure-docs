@@ -14,20 +14,20 @@ keywords: ChatGPT
 
 ## Working with the ChatGPT and GPT-4 models
 
-The following code snippet shows the most basic way to use the ChatGPT and GPT-4 models with ChatML. If this is your first time using these models programattically we recommend starting with our quickstart [ChatGPT & GPT-4 Quickstart](../chatgpt-quickstart.md).
+The following code snippet shows the most basic way to use the ChatGPT and GPT-4 models with the ChatCompletion API. If this is your first time using these models programmatically, we recommend starting with our quickstart [ChatGPT & GPT-4 Quickstart](../chatgpt-quickstart.md).
 
-**GPT-4 models are currently in limited preview.** Existing Azure OpenAI customers can [apply for access by filling out this form](TODO: Add link to form from PG).
+**GPT-4 models are currently in limited preview.** Existing Azure OpenAI customers can [apply for access by filling out this form](**TODO: Add link to form from PG**).
 
 ```python
 import os
 import openai
 openai.api_type = "azure"
-openai.api_base = "https://{your-resource-name}.openai.azure.com/" #This corresponds to your Azure OpenAI resource's endpoint value
 openai.api_version = "2023-03-15-preview" 
+openai.api_base = os.getenv("OPENAI_API_BASE")  #Your Azure OpenAI resource's endpoint value .
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 response = openai.ChatCompletion.create(
-    engine="gpt-35-turbo", #This corresponds to the deployment name you chose when you deployed the ChatGPT or GPT-4 model.
+    engine="gpt-35-turbo", #The deployment name you chose when you deployed the ChatGPT or GPT-4 model.
     messages=[
         {"role": "system", "content": "Assistant is a large language model trained by OpenAI."},
         {"role": "user", "content": "What's the difference between garbanzo beans and chickpeas?"},
@@ -70,7 +70,7 @@ There is no difference between garbanzo beans and chickpeas — the terms are us
 > [!NOTE]  
 > The following parameters aren't available with the new ChatGPT and GPT-4 models: `logprobs`, `best_of`, and `echo`. If you set any of these parameters, you'll get an error.
 
-Every response will include a `finish_reason`. The possible values for `finish_reason` are:
+Every response includes a `finish_reason`. The possible values for `finish_reason` are:
 
 * **stop**: API returned complete model output.
 * **length**: Incomplete model output due to max_tokens parameter or token limit.
@@ -201,30 +201,29 @@ For example, for an entity extraction scenario, you might use the following prom
 
 ## Creating a basic conversation loop
 
-The examples so far have shown you the basic mechanics of interacting with the ChatCompletion API. This example shows you how to create a conversation loop that does the following:
+The examples so far have shown you the basic mechanics of interacting with the ChatCompletion API. This example shows you how to create a conversation loop that performs the following actions:
 
-- Continuously takes console input, and properly formats it as part of the messages array
-- Outputs responses which are printed to the console as well as formatted and added to the messages array.
+- Continuously takes console input, and properly formats it part of the messages array as user role content.
+- Outputs responses that are printed to the console and formatted and added to the messages array as assistant role content.
 
-This means that every time a new question is asked a running transcript of the conversation so far is sent along with the latest question. Since the model has no memory, you need to send an updated transcript with each new question or the model
-will lose context of the previous quesitons and answers.
+This means that every time a new question is asked, a running transcript of the conversation so far is sent along with the latest question. Since the model has no memory, you need to send an updated transcript with each new question or the model will lose context of the previous questions and answers.
 
 ```Python
 import os
 import openai
 openai.api_type = "azure"
-openai.api_base = "https://{your-resource-name}.openai.azure.com/" #This corresponds to your Azure OpenAI resource's endpoint value
 openai.api_version = "2023-03-15-preview" 
+openai.api_base = os.getenv("OPENAI_API_BASE")  # Your Azure OpenAI resource's endpoint value .
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 conversation=[{"role": "system", "content": "You are a helpful assistant."}]
 
 while(True):
-    user_input = input()     
+    user_input = input()      
     conversation.append({"role": "user", "content": user_input})
 
     response = openai.ChatCompletion.create(
-        engine="gpt-3.5-turbo", #This corresponds to the deployment name you chose when you deployed the ChatGPT or GPT-4 model.
+        engine="gpt-3.5-turbo", # The deployment name you chose when you deployed the ChatGPT or GPT-4 model.
         messages = conversation
     )
 
@@ -232,13 +231,15 @@ while(True):
     print("\n" + response['choices'][0]['message']['content'] + "\n")
 ```
 
+When you run the code above you will get a blank console window. Enter your first question in the window and then hit enter. Once the response is returned, you can repeat the process and keep asking questions.
+
 ## Managing conversations
 
-The previous example will run until you hit the models token limit. With each question asked, and answer received, the `messages` array grows in size. The token limit for `gpt-35-turbo` is 4096 tokens, whereas the token limits for `gpt-4` and `gpt-4-32k` are 8192 and 32768 respectively. These limits include the token count from both the prompt and completion. The number of tokens in the prompt combined with the value of the `max_tokens` parameter must stay under these limits or you'll receive an error.
+The previous example will run until you hit the model's token limit. With each question asked, and answer received, the `messages` array grows in size. The token limit for `gpt-35-turbo` is 4096 tokens, whereas the token limits for `gpt-4` and `gpt-4-32k` are 8192 and 32768 respectively. These limits include the token count from both the message array sent and the model response. The number of tokens in the messages array combined with the value of the `max_tokens` parameter must stay under these limits or you'll receive an error.
 
 It's your responsibility to ensure the prompt and completion falls within the token limit. This means that for longer conversations, you need to keep track of the token count and only send the model a prompt that falls within the limit.
 
-The following code sample shows a simple chat loop example with how to handle a 4096 token count using OpenAI's tiktoken library. In this example once the token count is reached the oldest messages in the conversation transcript will be removed.
+The following code sample shows a simple chat loop example with a technique for handling a 4096 token count using OpenAI's tiktoken library.
 
 The code requires tiktoken `0.3.0`. If you have an older version run `pip install tiktoken --upgrade`.
 
@@ -247,8 +248,8 @@ import tiktoken
 import openai
 import os
 openai.api_type = "azure"
-openai.api_base = "https://{your-resource-name}.openai.azure.com/" #This corresponds to your Azure OpenAI resource's endpoint value
 openai.api_version = "2023-03-15-preview" 
+openai.api_base = os.getenv("OPENAI_API_BASE")  # Your Azure OpenAI resource's endpoint value .
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 system_message = {"role": "system", "content": "You are a helpful assistant."}
@@ -275,11 +276,11 @@ while(True):
     conv_history_tokens = num_tokens_from_messages(conversation)
 
     while (conv_history_tokens+max_response_tokens >= token_limit):
-        del conversation[1]
+        del conversation[1] 
         conv_history_tokens = num_tokens_from_messages(conversation)
         
     response = openai.ChatCompletion.create(
-        engine="gpt-35-turbo",
+        engine="gpt-35-turbo", # The deployment name you chose when you deployed the ChatGPT or GPT-4 model.
         messages = conversation,
         temperature=.7,
         max_tokens=max_response_tokens,
@@ -289,10 +290,14 @@ while(True):
     print("\n" + response['choices'][0]['message']['content'] + "\n")
 ```
 
-The token counting portion of the code is a simplified version of one of [OpenAI's cookbook examples](https://github.com/openai/openai-cookbook/blob/main/examples/How_to_format_inputs_to_ChatGPT_models.ipynb).
+In this example once the token count is reached the oldest messages in the conversation transcript will be removed. `del` is used instead of `pop()` for efficiency, and we start at index 1 so as to always preserve the system message and only remove user/assistant messages. Over time, this method of managing the conversation can cause the conversation quality to degrade as the model will gradually lose context of the earlier portions of the conversation.
+
+An alternative approach is to limit the conversation duration to the max token length or a certain number of turns. Once the max token limit is reached and the model would lose context if you were to allow the conversation to continue, you can prompt the user that they need to begin a new conversation and clear the messages array to start a brand new conversation with the full token limit available.
+
+The token counting portion of the code demonstrated previously, is a simplified version of one of [OpenAI's cookbook examples](https://github.com/openai/openai-cookbook/blob/main/examples/How_to_format_inputs_to_ChatGPT_models.ipynb).
 
 ## Next steps
 
 * [Learn more about Azure OpenAI](../overview.md).
 * Get started with the ChatGPT model with [the ChatGPT quickstart](../chatgpt-quickstart.md).
-* For more examples check out the [Azure OpenAI Samples GitHub repository](https://github.com/Azure/openai-samples)
+* For more examples, check out the [Azure OpenAI Samples GitHub repository](https://github.com/Azure/openai-samples)
