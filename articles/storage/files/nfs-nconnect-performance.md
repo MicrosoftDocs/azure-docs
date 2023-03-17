@@ -41,9 +41,9 @@ With `nconnect`, you can increase performance at scale using fewer client machin
 
 We achieved the following performance results when using the `nconnect` mount option with NFS Azure file shares on Linux clients at scale. For more information on how we achieved these results, see [performance test configuration](#performance-test-configuration).
 
-:::image type="content" source="media/nfs-nconnect-performance/nconnect-iops-improvement.png" alt-text="Screenshot showing average improvement in IOPS when using nconnect with NFS Azure file shares." lightbox="media/nfs-nconnect-performance/nconnect-iops-improvement.png" border="false":::
+:::image type="content" source="media/nfs-nconnect-performance/nconnect-iops-improvement.png" alt-text="Screenshot showing average improvement in IOPS when using nconnect with NFS Azure file shares." border="false":::
 
-:::image type="content" source="media/nfs-nconnect-performance/nconnect-throughput-improvement.png" alt-text="Screenshot showing average improvement in throughput when using nconnect with NFS Azure file shares." lightbox="media/nfs-nconnect-performance/nconnect-throughput-improvement.png" border="false":::
+:::image type="content" source="media/nfs-nconnect-performance/nconnect-throughput-improvement.png" alt-text="Screenshot showing average improvement in throughput when using nconnect with NFS Azure file shares." border="false":::
 
 ## Recommendations
 
