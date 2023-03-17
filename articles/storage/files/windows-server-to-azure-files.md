@@ -4,7 +4,7 @@ description: Azure Files and Azure File Sync can be useful when replacing your o
 author: khdownie
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/15/2023
+ms.date: 03/17/2023
 ms.author: kendownie
 ms.subservice: files 
 ---
