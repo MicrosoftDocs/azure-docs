@@ -34,9 +34,9 @@ You can use the Azure portal or the Azure CLI to create applications.
 
 Use the following steps to create a large CPU and memory application using the Azure portal.
 
-1. Go to your service instance of Azure Spring Apps.
+1. Go to your Azure Spring Apps service instance.
 
-1. In the navigation pane, select **Apps**  and then select **Create app**.
+1. In the navigation pane, select **Apps**, and then select **Create app**.
 
 1. On the **Create App** page, provide a name for **App name** and select the desired **vCpu** and **Memory** values for your application.
 
@@ -104,5 +104,4 @@ az spring app scale \
 ## Next steps
 
 - [Build and deploy apps to Azure Spring Apps](/azure/spring-apps/quickstart-deploy-apps)
-
 - [Scale an application in Azure Spring Apps](/azure/spring-apps/how-to-scale-manual)
