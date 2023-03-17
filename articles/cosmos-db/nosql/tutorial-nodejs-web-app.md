@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.devlang: javascript
 ms.topic: tutorial
-ms.date: 03/16/2023
+ms.date: 03/17/2023
 ms.custom: devx-track-js, ignite-2022
 #Customer intent: As a developer, I want to build a Node.js web application to access and manage API for NoSQL account resources in Azure Cosmos DB, so that customers can better use the service.
 ---
@@ -94,7 +94,7 @@ Now, learn how create a basic Hello World Node.js project by using the Express f
 
 ## <a name="install-modules"></a>Install the required modules
 
-The **package.json** file is one of the files created in the root of the project. This file contains a list of other modules that are required for your Node.js application. When you deploy this application to Azure, this file is used to determine which modules should be installed on Azure to support your application. Install two more packages for this tutorial.
+The *package.json* file is one of the files created in the root of the project. This file contains a list of other modules that are required for your Node.js application. When you deploy this application to Azure, this file is used to determine which modules should be installed on Azure to support your application. Install two more packages for this tutorial.
 
 1. Install the **\@azure/cosmos** module via npm.
 
@@ -110,9 +110,9 @@ Now that you've completed the initial setup and configuration, learn how to writ
 
 1. At the root of your project directory, create a new directory named **models**.
 
-1. In the **models** directory, create a new file named **taskDao.js**. This file contains code required to create the database and container. It also defines methods to read, update, create, and find tasks in Azure Cosmos DB.
+1. In the **models** directory, create a new file named *taskDao.js*. This file contains code required to create the database and container. It also defines methods to read, update, create, and find tasks in Azure Cosmos DB.
 
-1. Copy the following code into the **taskDao.js** file:
+1. Copy the following code into the *taskDao.js* file:
 
    ```javascript
     // @ts-check
@@ -190,13 +190,13 @@ Now that you've completed the initial setup and configuration, learn how to writ
     module.exports = TaskDao
    ```
 
-1. Save and close the **taskDao.js** file.
+1. Save and close the *taskDao.js* file.
 
 ### Create the controller
 
-1. In the **routes** directory of your project, create a new file named **tasklist.js**.
+1. In the **routes** directory of your project, create a new file named *tasklist.js*.
 
-1. Add the following code to **tasklist.js**. This code loads the CosmosClient and async modules, which are used by **tasklist.js**. This code also defines the **TaskList** class, which is passed as an instance of the **TaskDao** object we defined earlier:
+1. Add the following code to *tasklist.js*. This code loads the CosmosClient and async modules, which are used by *tasklist.js*. This code also defines the *TaskList* class, which is passed as an instance of the *TaskDao* object we defined earlier:
    
    ```javascript
     const TaskDao = require("../models/TaskDao");
@@ -251,13 +251,13 @@ Now that you've completed the initial setup and configuration, learn how to writ
     module.exports = TaskList;
    ```
 
-1. Save and close the **tasklist.js** file.
+1. Save and close the *tasklist.js* file.
 
 ### Add config.js
 
-1. At the root of your project directory, create a new file named **config.js**.
+1. At the root of your project directory, create a new file named *config.js*.
 
-1. Add the following code to **config.js** file. This code defines configuration settings and values needed for our application.
+1. Add the following code to *config.js* file. This code defines configuration settings and values needed for our application.
    
    ```javascript
    const config = {};
@@ -278,15 +278,15 @@ Now that you've completed the initial setup and configuration, learn how to writ
    module.exports = config;
    ```
 
-1. In the **config.js** file, update the values of HOST and AUTH_KEY by using the values found in the **Keys** page of your Azure Cosmos DB account on the [Azure portal](https://portal.azure.com).
+1. In the *config.js* file, update the values of HOST and AUTH_KEY by using the values found in the **Keys** page of your Azure Cosmos DB account on the [Azure portal](https://portal.azure.com).
 
-1. Save and close the **config.js** file.
+1. Save and close the *config.js* file.
 
 ### Modify app.js
 
-1. In the project directory, open the **app.js** file. This file was created earlier when the Express web application was created.
+1. In the project directory, open the *app.js* file. This file was created earlier when the Express web application was created.
 
-1. Add the following code to the **app.js** file. This code defines the config file to be used and loads the values into some variables that you'll use in the next sections.
+1. Add the following code to the *app.js* file. This code defines the config file to be used and loads the values into some variables that you'll use in the next sections.
    
    ```javascript
     const CosmosClient = require('@azure/cosmos').CosmosClient
@@ -367,9 +367,9 @@ Now that you've completed the initial setup and configuration, learn how to writ
 
 Now build the user interface so that a user can interact with the application. The Express application you created in the previous sections uses **Jade** as the view engine.
 
-1. The **layout.jade** file in the **views** directory is used as a global template for other **.jade** files. In this step, you modify it to use Twitter Bootstrap, which is a toolkit used to design a website.
+1. The *layout.jade* file in the **views** directory is used as a global template for other *.jade* files. In this step, you modify it to use Twitter Bootstrap, which is a toolkit used to design a website.
 
-1. Open the **layout.jade** file found in the **views** folder and replace the contents with the following code:
+1. Open the *layout.jade* file found in the **views** folder and replace the contents with the following code:
 
    ```html
    doctype html
@@ -387,9 +387,9 @@ Now build the user interface so that a user can interact with the application. T
        script(src='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/bootstrap.min.js')
    ```
 
-    This code tells the **Jade** engine to render some HTML for the application and creates a **block** called **content** where you can supply the layout for the content pages. Save and close the **layout.jade** file.
+    This code tells the **Jade** engine to render some HTML for the application and creates a **block** called **content** where you can supply the layout for the content pages. Save and close the *layout.jade* file.
 
-1. Now open the **index.jade** file, the view that is used by the application, and replace the content of the file with the following code:
+1. Now open the *index.jade* file, the view that is used by the application, and replace the content of the file with the following code:
 
    ```html
    extends layout
@@ -433,11 +433,11 @@ Now build the user interface so that a user can interact with the application. T
           button.btn(type="submit") Add item
    ```
 
-This code extends layout and provides content for the **content** placeholder you saw in the **layout.jade** file earlier. In that layout, you created two HTML forms.
+This code extends layout and provides content for the **content** placeholder you saw in the *layout.jade* file earlier. In that layout, you created two HTML forms.
 
-The first form contains a table for your data and a button that allows you to update items by posting to **/completeTask** method of the controller.
+The first form contains a table for your data and a button that allows you to update items by posting to */completeTask* method of the controller.
 
-The second form contains two input fields and a button that allows you to create a new item by posting to the **/addtask** method of the controller, which is all you need for the application to work.
+The second form contains two input fields and a button that allows you to create a new item by posting to the */addtask* method of the controller, which is all you need for the application to work.
 
 ## <a name="run-app-locally"></a>Run your application locally
 
@@ -448,7 +448,7 @@ Now that you've built the application, you can run it locally by using the follo
     :::image type="content" source="./media/tutorial-nodejs-web-app/cosmos-db-node-js-localhost.png" alt-text="Screenshot of the My Todo List application in a browser window.":::
 
     > [!TIP]
-    > If you receive an error about the indent in the layout.jade file or the index.jade file, ensure that the first two lines in both files are left-justified, with no spaces. If there are spaces before the first two lines, remove them, save both files, and then refresh your browser window.
+    > If you receive an error about the indent in the *layout.jade* file or the *index.jade* file, ensure that the first two lines in both files are left-justified, with no spaces. If there are spaces before the first two lines, remove them, save both files, and then refresh your browser window.
 
 1. Use the Item Name and Item Category fields to enter a new task, and then select **Add Item** to create a document in Azure Cosmos DB with those properties.
 
