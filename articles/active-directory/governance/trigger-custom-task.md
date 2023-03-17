@@ -45,7 +45,7 @@ To use a custom task extension in your workflow, first a custom task extension m
     :::image type="content" source="media/trigger-custom-task/custom-task-extension-behavior.png" alt-text="Screenshot for choose task behavior for custom task extension.":::
 
 1. If you select **Launch and wait**, you're given an option of how long to wait for a response from the logic app before the task is considered a failure, and also options to set **Response authorization**. After choosing these options, you would be able to select **Next: Details**. 
-    :::image type="content" source="media/trigger-custom-task/custom-task-extension-launch-wait.png" alt-text="Screenshot of launch and wait option for custom task extension."::: 
+    :::image type="content" source="media/trigger-custom-task/custom-task-extension-launch-wait.png" alt-text="Screenshot of launch and wait option for custom task extension." lightbox="media/trigger-custom-task/custom-task-extension-launch-wait.png"::: 
      > [!NOTE]
      > For more information about custom task extension behavior, see: [Lifecycle Workflow extensibility](lifecycle-workflow-extensibility.md)
 1. On the **Logic App details** page, you select **Create new Logic App**, and specify the subscription and resource group where it will be located. You'll also give the new Azure Logic App a name.
