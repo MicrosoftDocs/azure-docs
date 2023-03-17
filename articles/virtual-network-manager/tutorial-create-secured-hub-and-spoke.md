@@ -5,8 +5,8 @@ author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: tutorial
-ms.date: 03/01/2023
-ms.custom: ignite-fall-2021, FY23 content-maintenance
+ms.date: 03/22/2023
+ms.custom: FY23 content-maintenance
 ---
 
 # Tutorial: Create a secured hub and spoke network
