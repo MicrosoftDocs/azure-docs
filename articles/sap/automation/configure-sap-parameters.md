@@ -22,35 +22,35 @@ This table contains the default parameters defined by the framework.
 ### User IDs
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Parameter                 | Description                                                                | Default Value                | Type       |
-> | ------------------------- | -------------------------------------------------------------------------- | ---------------------------- | ---------- | 
-> | `sapadm_uid`              | The UID for the sapadm account.                                            | 2100                         | Required   |
-> | `sidadm_uid`              | The UID for the sidadm account.                                            | 2003                         | Required   |
-> | `hdbadm_uid`              | The UID for the hdbadm account.                                            | 2200                         | Required   |
-> | `sapinst_gid`             | The GID for the sapinst group.                                             | 2001                         | Required   |
-> | `sapsys_gid`              | The GID for the sapsys group.                                              | 2000                         | Required   |
-> | `hdbshm_gid`              | The GID for the hdbshm group.                                              | 2002                         | Required   |
-> |                           |                                                                            |                              |            |
-> | `db2sidadm_uid`           | The UID for the db2sidadm account.                                         | 3004                         | Required   |
-> | `db2sapsid_uid`           | The UID for the db2sapsid account.                                         | 3005                         | Required   |
-> | `db2sysadm_gid`           | The UID for the db2sysadm group.                                           | 3000                         | Required   |
-> | `db2sysctrl_gid`          | The UID for the db2sysctrl group.                                          | 3001                         | Required   |
-> | `db2sysmaint_gid`         | The UID for the db2sysmaint group.                                         | 3002                         | Required   |
-> | `db2sysmon_gid`           | The UID for the db2sysmon group.                                           | 2003                         | Required   |
-> |                           |                                                                            |                              |            |
-> | `orasid_uid`              | The UID for the orasid account.                                            | 3100                         | Required   |
-> | `oracle_uid`              | The UID for the oracle account.                                            | 3101                         | Required   |
-> | `observer_uid`            | The UID for the observer account.                                          | 4000                         | Required   |
-> | `dba_gid`                 | The GID for the dba group.                                                 | 3100                         | Required   |
-> | `oper_gid`                | The GID for the oper group.                                                | 3101                         | Required   |
-> | `asmoper_gid`             | The GID for the asmoper group.                                             | 3102                         | Required   |
-> | `asmadmin_gid`            | The GID for the asmadmin group.                                            | 3103                         | Required   |
-> | `asmdba_gid`              | The GID for the asmdba group.                                              | 3104                         | Required   |
-> | `oinstall_gid`            | The GID for the oinstall group.                                            | 3105                         | Required   |
-> | `backupdba_gid`           | The GID for the backupdba group.                                           | 3106                         | Required   |
-> | `dgdba_gid`               | The GID for the dgdba group.                                               | 3107                         | Required   |
-> | `kmdba_gid`               | The GID for the kmdba group.                                               | 3108                         | Required   |
-> | `racdba_gid`              | The GID for the racdba group.                                              | 3108                         | Required   |
+> | Parameter                 | Description                                                                | Default Value                |
+> | ------------------------- | -------------------------------------------------------------------------- | ---------------------------- | 
+> | `sapadm_uid`              | The UID for the sapadm account.                                            | 2100                         |
+> | `sidadm_uid`              | The UID for the sidadm account.                                            | 2003                         |
+> | `hdbadm_uid`              | The UID for the hdbadm account.                                            | 2200                         |
+> | `sapinst_gid`             | The GID for the sapinst group.                                             | 2001                         |
+> | `sapsys_gid`              | The GID for the sapsys group.                                              | 2000                         |
+> | `hdbshm_gid`              | The GID for the hdbshm group.                                              | 2002                         |
+> |                           |                                                                            |                              |
+> | `db2sidadm_uid`           | The UID for the db2sidadm account.                                         | 3004                         |
+> | `db2sapsid_uid`           | The UID for the db2sapsid account.                                         | 3005                         |
+> | `db2sysadm_gid`           | The UID for the db2sysadm group.                                           | 3000                         |
+> | `db2sysctrl_gid`          | The UID for the db2sysctrl group.                                          | 3001                         |
+> | `db2sysmaint_gid`         | The UID for the db2sysmaint group.                                         | 3002                         |
+> | `db2sysmon_gid`           | The UID for the db2sysmon group.                                           | 2003                         |
+> |                           |                                                                            |                              |
+> | `orasid_uid`              | The UID for the orasid account.                                            | 3100                         |
+> | `oracle_uid`              | The UID for the oracle account.                                            | 3101                         |
+> | `observer_uid`            | The UID for the observer account.                                          | 4000                         |
+> | `dba_gid`                 | The GID for the dba group.                                                 | 3100                         |
+> | `oper_gid`                | The GID for the oper group.                                                | 3101                         |
+> | `asmoper_gid`             | The GID for the asmoper group.                                             | 3102                         |
+> | `asmadmin_gid`            | The GID for the asmadmin group.                                            | 3103                         |
+> | `asmdba_gid`              | The GID for the asmdba group.                                              | 3104                         |
+> | `oinstall_gid`            | The GID for the oinstall group.                                            | 3105                         |
+> | `backupdba_gid`           | The GID for the backupdba group.                                           | 3106                         |
+> | `dgdba_gid`               | The GID for the dgdba group.                                               | 3107                         |
+> | `kmdba_gid`               | The GID for the kmdba group.                                               | 3108                         |
+> | `racdba_gid`              | The GID for the racdba group.                                              | 3108                         |
 
 
 ## Parameters
@@ -182,6 +182,23 @@ Each row must specify the following parameters.
 > | `ascs_inst_no`               | The ASCS instance number for the instance                                                                        | Required   |
 > | `pas_inst_no`                | The PAS instance number for the instance                                                                         | Required   |
 > | `app_inst_no`                | The APP instance number for the instance                                                                         | Required   |
+
+
+## Overriding the default parameters
+
+You can override the default parameters by either specifying them in the sap-parameters.yaml file or by passing them as command line parameters to the Ansible playbooks.
+
+For example if you want to override the default value of the group ID for the sapinst group (`sapinst_gid`) parameter, you can do it by adding the following line to the sap-parameters.yaml file:
+
+```yaml
+sapinst_gid: 1000
+```
+
+If you want to provide them as parameters for the Ansible playbooks, you can do it by adding the following parameter to the command line:
+
+```bash
+ansible-playbook -i hosts SID_hosts.yaml --extra-vars "sapinst_gid=1000" .....
+```
 
 
 ## Next steps
