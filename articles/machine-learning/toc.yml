@@ -928,6 +928,9 @@
     - name: Curated environments
       displayName: environments, curated environments
       href: resource-curated-environments.md
+    - name: Azure Container for PyTorch 
+      href: reference-azure-container-for-pytorch.md
+      displayName: acpt
     - name: Azure CLI
       href: /cli/azure/ml
 - name: Resources
