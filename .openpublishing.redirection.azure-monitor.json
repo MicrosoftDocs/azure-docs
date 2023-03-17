@@ -36,6 +36,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/app/javascript.md",
+            "redirect_url": "/azure/azure-monitor/app/javascript-sdk",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/source-map-support.md",
+            "redirect_url": "/azure/azure-monitor/app/javascript-sdk-advanced",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/app/release-notes.md",
             "redirect_url": "/azure/azure-monitor/app/app-insights-overview",
             "redirect_document_id": false
@@ -43,6 +53,16 @@
         {
             "source_path_from_root": "/articles/azure-monitor/app/resource-manager-web-app.md",
             "redirect_url": "/previous-versions/azure/azure-monitor/app/resource-manager-web-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/devops.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/app/old-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/automate-custom-reports.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/app/custom-reports",
             "redirect_document_id": false
         },
         {
@@ -3863,18 +3883,23 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/platform/alerts-common-schema-definitions.md",
+            "source_path_from_root": "/articles/azure-monitor/platform/alerts-common-schema.md",
             "redirect_url": "/azure/azure-monitor/alerts/alerts-common-schema",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/platform/alerts-common-schema.md",
+            "source_path_from_root": "/articles/azure-monitor/platform/alerts-common-schema-definitions.md",
             "redirect_url": "/azure/azure-monitor/alerts/alerts-common-schema",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-monitor/alerts/alerts-common-schema-definitions.md",
             "redirect_url": "/azure/azure-monitor/alerts/alerts-common-schema",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-common-schema-test-action-definitions.md",
+            "redirect_url": "/azure/azure-monitor/alerts/alerts-payload-samples",
             "redirect_document_id": false
         },
         {
@@ -5999,6 +6024,26 @@
         {
             "source_path_from_root": "/articles/azure-monitor/app/availability-multistep.md",
             "redirect_url": "/previous-versions/azure/azure-monitor/app/availability-multistep",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/status-monitor-v2-overview.md",
+            "redirect_url": "/azure/azure-monitor/app/application-insights-asp-net-agent",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/status-monitor-v2-get-started.md",
+            "redirect_url": "/azure/azure-monitor/app/application-insights-asp-net-agent",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/status-monitor-v2-detailed-instructions.md",
+            "redirect_url": "/azure/azure-monitor/app/application-insights-asp-net-agent",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/status-monitor-v2-api-reference.md",
+            "redirect_url": "/azure/azure-monitor/app/application-insights-asp-net-agent",
             "redirect_document_id": false
         }
     ]

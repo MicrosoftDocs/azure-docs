@@ -58,4 +58,4 @@ For images stored in an Azure Compute Gallery (formerly known as Shared Image Ga
 
 ## Next steps
 
-- [Azure Compute Galleries overview](shared-image-galleries.md)	
+- [Azure Compute Galleries overview](shared-image-galleries.md)

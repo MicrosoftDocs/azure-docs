@@ -1,5 +1,5 @@
 ---
-title: What is group-based licensing - Azure Active Directory | Microsoft Docs
+title: What is group-based licensing
 description: Learn about Azure Active Directory group-based licensing, including how it works and best practices.
 services: active-directory
 keywords: Azure AD licensing

@@ -537,7 +537,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 #### Sample 2: Placement of different data replicas
 
 For certain scenarios, placement of different data replicas is of prime importance. For example, [HDFS replica placement](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html#Replica_Placement:_The_First_Baby_Steps)
-or container placement via an [orchestrator](https://kubernetes.io/docs/user-guide/node-selection/) might require you to know the `platformFaultDomain` and `platformUpdateDomain` the VM is running on.
+or container placement via an [orchestrator](https://kubernetes.io/docs/concepts/architecture/nodes/) might require you to know the `platformFaultDomain` and `platformUpdateDomain` the VM is running on.
 You can also use [Availability Zones](../availability-zones/az-overview.md) for the instances to make these decisions.
 You can query this data directly via IMDS.
 

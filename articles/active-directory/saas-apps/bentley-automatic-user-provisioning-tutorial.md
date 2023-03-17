@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Bentley - Automatic User Provisioning for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Bentley - Automatic User Provisioning for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Bentley - Automatic User Provisioning.
 services: active-directory
 documentationcenter: ''

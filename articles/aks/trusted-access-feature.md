@@ -152,7 +152,7 @@ az aks trustedaccess rolebinding delete --name <rolebinding name> --resource-gro
 
 For more information on AKS, see:
 
-* [Deploy and manage cluster extensions for AKS](/cluster-extensions.md)
+* [Deploy and manage cluster extensions for AKS](cluster-extensions.md)
 * [Deploy AzureML extension on AKS or Arc Kubernetes cluster](../machine-learning/how-to-deploy-kubernetes-extension.md)
 
 <!-- LINKS -->

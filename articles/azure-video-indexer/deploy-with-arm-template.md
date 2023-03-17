@@ -33,7 +33,7 @@ You need an Azure Media Services account. You can create one for free through [C
 
 ### Option 2: Deploy by using a PowerShell script
 
-1. Open the [template file](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/ARM-Quick-Start/avam.template.json) and inspect its contents.
+1. Open the [template file](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/Deploy-Samples/ArmTemplates/avam.template.json) and inspect its contents.
 2. Fill in the required parameters.
 3. Run the following PowerShell commands:
 
