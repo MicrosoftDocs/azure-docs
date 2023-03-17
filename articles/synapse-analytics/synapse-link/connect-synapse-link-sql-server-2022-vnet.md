@@ -22,10 +22,6 @@ In this section, you create an Azure Synapse workspace with a managed virtual ne
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Go to your Azure Synapse workspace, select **Networking**, and then select the **Allow Azure Synapse Link for Azure SQL Database to bypass firewall rules** checkbox.
-
-   :::image type="content" source="../media/connect-synapse-link-sql-database/enable-bypass-firewall-rules.png" alt-text="Screenshot that shows how to enable bypassing firewall rules.":::
-
 1. Open Synapse Studio, go to **Manage**, select **Integration runtimes**, and then select **AutoResolvingIntegrationRuntime**. 
 
 1. In the pop-up window, select the **Virtual network** tab, and then enable **Interactive authoring**. 
@@ -95,7 +91,7 @@ In this section, you create an Azure Synapse workspace with managed virtual netw
 
      :::image type="content" source="../media/connect-synapse-link-sql-database/blob-managed-private-endpoint.png" alt-text="Screenshot of azure blob storage.":::
 
-    c. Complete the managed private endpoint creation in the linked service for Azure Blob Storage.
+    c. Complete the managed private endpoint creation for Azure Blob Storage.
          
       :::image type="content" source="../media/connect-synapse-link-sql-database/create-managed-private-endpoint.png" alt-text="Screenshot of new managed private endpoint.":::
 
