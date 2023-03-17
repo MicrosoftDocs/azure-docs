@@ -89,7 +89,7 @@ Now that the table's created, you can create the transformation for it.
 ## Test the transformation
 Allow about 30 minutes for the transformation to take effect and then test it by running a query against the table. Only data sent to the table after the transformation was applied will be affected.
 
-For this tutorial, run some sample queries to send data to the `CDBDataPlaneRequests` table. Include some queries against `CDBDataPlaneRequests` so that you can verify that the transformation filters these records. Now the output has the new `Workspace_CF` column, and there are no records for `CDBDataPlaneRequests`.
+For this tutorial, run some sample queries to send data to the `CDBDataPlaneRequests` table. Include some queries against `CDBDataPlaneRequests` so that you can verify that the transformation filters these records.
 
 ## Troubleshooting
 This section describes different error conditions you might receive and how to correct them.
