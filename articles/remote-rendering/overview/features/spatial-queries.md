@@ -153,12 +153,14 @@ void QueryAABB(ApiHandle<RenderingSession> session)
 
 ## API documentation
 
-* [C# RenderingConnection.RayCastQueryAabbAsync()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.raycastqueryaabbasync)
-* [C# RenderingConnection.RayCastQueryObbAsync()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.raycastqueryobbasync)
-* [C# RenderingConnection.RayCastQuerySphereAsync()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.raycastquerysphereasync)
-* [C++ RenderingConnection::RayCastQueryAabbAsync()](/cpp/api/remote-rendering/renderingconnection#raycastqueryaabbasync)
-* [C++ RenderingConnection::RayCastQueryObbAsync()](/cpp/api/remote-rendering/renderingconnection#raycastqueryobbasync)
-* [C++ RenderingConnection::RayCastQuerySphereAsync()](/cpp/api/remote-rendering/renderingconnection#raycastquerysphereasync)
+* [C# RenderingConnection.RayCastQueryAsync()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.raycastqueryasync)
+* [C# RenderingConnection.SpatialQueryAabbAsync()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.spatialqueryaabbasync)
+* [C# RenderingConnection.SpatialQuerySphereAsync()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.spatialquerysphereasync)
+* [C# RenderingConnection.SpatialQueryObbAsync()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.spatialqueryobbasync)
+* [C++ RenderingConnection::RayCastQueryAsync()](/cpp/api/remote-rendering/renderingconnection#raycastqueryasync)
+* [C++ RenderingConnection::SpatialQueryAabbAsync()](/cpp/api/remote-rendering/renderingconnection#spatialqueryaabbasync)
+* [C++ RenderingConnection::SpatialQuerySphereAsync()](/cpp/api/remote-rendering/renderingconnection#spatialquerysphereasync)
+* [C++ RenderingConnection::SpatialQueryObbAsync()](/cpp/api/remote-rendering/renderingconnection#spatialqueryobbasync)
 
 ## Next steps
 
