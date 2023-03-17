@@ -50,6 +50,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     |Prompt|Selection|
     |--|--|
     |**Select a language for your function project**|Choose `JavaScript`.|
+    |**Select a JavaScript programming model**|Choose `Model V3`|
     |**Select a template for your project's first function**|Choose `HTTP trigger`.|
     |**Provide a function name**|Type `HttpExample`.|
     |**Authorization level**|Choose `Anonymous`, which enables anyone to call your function endpoint. To learn about authorization level, see [Authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys).|
