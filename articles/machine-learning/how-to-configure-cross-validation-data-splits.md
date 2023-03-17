@@ -11,6 +11,7 @@ ms.author: cesardl
 author: CESARDELATORRE
 ms.reviewer: ssalgado
 ms.date: 11/15/2021
+monikerRange: 'azureml-api-1'
 ---
 
 # Configure training, validation, cross-validation and test data in automated machine learning
