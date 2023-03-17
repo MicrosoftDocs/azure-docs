@@ -277,7 +277,7 @@ You can also get more information from the audit logs.  These logs can be access
 |Stage|Description|
 | - | - |
 |Determine the scenario| A prehire workflow that sends email to new manager. |
-|Determine the execution conditions|The workflow runs on new employees in the sales department, two(2) days before the employeeHireDate.|
+|Determine the execution conditions|The workflow runs on new employees in the sales department, two (2) days before the employeeHireDate.|
 |Review the tasks.|We use the predefined tasks in the workflow.  No extra tasks are added.|
 |Create the workflow in the portal|Use the predefined template for new hire in the portal.|
 |Enable and test the workflow| Use the on-demand feature to test the workflow on one user.|
