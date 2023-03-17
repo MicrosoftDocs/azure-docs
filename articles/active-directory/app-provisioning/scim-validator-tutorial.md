@@ -126,4 +126,4 @@ If you created any Azure resources in your testing that are no longer needed, do
 
 
 ## Next steps
-- [Learn how to add an app that is not in the Azure AD app gallery](../manage-apps/overview-application-gallery.md)
+- [Learn how to add an app that's not in the Azure AD app gallery](../manage-apps/overview-application-gallery.md)
