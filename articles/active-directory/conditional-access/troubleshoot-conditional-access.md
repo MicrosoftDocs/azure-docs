@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting sign-in problems with Conditional Access - Azure Active Directory
+title: Troubleshooting sign-in problems with Conditional Access
 description: This article describes what to do when your Conditional Access policies result in unexpected outcomes
 
 services: active-directory

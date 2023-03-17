@@ -1,5 +1,5 @@
 ---
-title: Bulk create users in the Azure portal | Microsoft Docs
+title: Bulk create users in the Azure portal
 description: Add users in bulk in the Azure portal in Azure Active Directory
 services: active-directory 
 author: barclayn

@@ -12,7 +12,7 @@ ms.custom: template-tutorial, devx-track-azurecli
 
 # Tutorial: Workload management in a multi-cluster environment with GitOps
 
-Enterprise organizations, developing cloud native applications, face challenges to deploy, configure and promote a great variety of applications and services across a fleet of Kubernetes clusters at scale. This fleet may include Azure Kubernetes Service (AKS) clusters as well as clusters running on other public cloud providers or in on-premises data centers that are connected to Azure through the Azure Arc.
+Enterprise organizations, developing cloud native applications, face challenges to deploy, configure and promote a great variety of applications and services across a fleet of Kubernetes clusters at scale. This fleet may include Azure Kubernetes Service (AKS) clusters as well as clusters running on other public cloud providers or in on-premises data centers that are connected to Azure through the Azure Arc. Refer to the [conceptual article](conceptual-workload-management.md), explaining the business process, challenges and solution architecture.
 
 This tutorial walks you through typical scenarios of the workload deployment and configuration in a multi-cluster Kubernetes environment. First, you deploy a sample infrastructure with a few GitHub repositories and AKS clusters. Next, you work through a set of use cases where you act as different personas working in the same environment: the Platform Team and the Application Team. 
 
@@ -595,5 +595,6 @@ In this tutorial, you have performed tasks for a few of the most common workload
 To understand the underlying concepts and mechanics deeper, refer to the following resources:
 
 > [!div class="nextstepaction"]
-> - [Workload Management in Multi-cluster environment with GitOps](https://github.com/microsoft/kalypso)
+> - [Concept: Workload Management in Multi-cluster environment with GitOps](conceptual-workload-management.md)
+> - [Sample implementation: Workload Management in Multi-cluster environment with GitOps](https://github.com/microsoft/kalypso)
 
