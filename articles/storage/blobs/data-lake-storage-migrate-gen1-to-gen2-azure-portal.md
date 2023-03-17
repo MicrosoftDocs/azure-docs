@@ -24,19 +24,19 @@ Here's a video that tells you more about it.
       > [!VIDEO https://learn-video.azurefd.net/vod/player?show=inside-azure-for-it&ep=migrate-azure-data-lake-storage-adls-from-gen1-to-gen2-by-using-the-azure-portal] 
    :::column-end:::
    :::column span="":::
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Chapters**:
+      **Chapters**:
    
-      - **00.37** - Introduction to Data Lake Storage migration
+     ▶️ 00.37 - Introduction
       
-      - **01:16** - Preparing for migration
+     ▶️ 01:16 - Preparing for migration
       
-      - **07:15** - Demo of a copy migration
+     ▶️ 07:15 - Demo: Copy migration
       
-      - **17:40** - Copy vs. complete migration: Comparison and use cases
+     ▶️ 17:40 - Copy vs. complete migration
       
-      - **19:43** - Demo of a complete migration
+     ▶️ 19:43 - Demo: Complete migration
       
-      - **33:15** - Post migration
+     ▶️ 33:15 - Post migration
    :::column-end:::
 :::row-end:::
 
