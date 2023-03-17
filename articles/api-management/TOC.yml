@@ -294,6 +294,8 @@
               href: authorizations-how-to-azure-ad.md
             - name: Configure and use authorization - GitHub
               href: authorizations-how-to-github.md
+            - name: Configure multiple authorization connections
+              href: configure-authorization-connection.md
           - name: Set up backend authentication
             items:
             - name: Mutual certificate authentication
