@@ -18,7 +18,7 @@ ms.date: 10/21/2021
 
  
 
-Azure Container for PyTorch is a lightweight, standalone environment that includes needed components to effectively run optimized training for large models on AzureML. The AzureML [curated environments](https://learn.microsoft.com/en-us/azure/machine-learning/resource-curated-environments) are available in the user’s workspace by default and are backed by cached Docker images that use the latest version of the AzureML SDK. It helps with reducing preparation costs and faster deployment time. ACPT can be used to quickly get started with various deep learning tasks with PyTorch on Azure.
+Azure Container for PyTorch is a lightweight, standalone environment that includes needed components to effectively run optimized training for large models on AzureML. The AzureML [curated environments](resource-curated-environments.md) are available in the user’s workspace by default and are backed by cached Docker images that use the latest version of the AzureML SDK. It helps with reducing preparation costs and faster deployment time. ACPT can be used to quickly get started with various deep learning tasks with PyTorch on Azure.
 
  
 
@@ -37,7 +37,7 @@ Azure Container for PyTorch is a lightweight, standalone environment that includ
 * Ease of use: All components installed and validated against dozens of Microsoft workloads to reduce setup costs and accelerate time to value  
 * Latest Training Optimization Technologies: [ONNX RunTime](https://onnxruntime.ai/) , [DeepSpeed](https://www.deepspeed.ai/),  [MSCCL](https://github.com/microsoft/msccl), and others.. 
 * Integration with Azure ML: Track your PyTorch experiments on ML Studio or using the AML SDK  
-* The image is also available as a [DSVM](https://azure.microsoft.com/en-us/products/virtual-machines/data-science-virtual-machines/)
+* The image is also available as a [DSVM](https://azure.microsoft.com/products/virtual-machines/data-science-virtual-machines/)
 * Azure Customer Support Reduces training and deployment latency.
 * Improves training and deployment success rate.
 * Avoid unnecessary image builds.
@@ -65,12 +65,12 @@ The following configurations are supported:
 
 | Environment Name | OS | GPU Version| Python Version | PyTorch Version | ORT-training Version | DeepSpeed Version | torch-ort Version |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|acpt-pytorch-2.0-cuda11.7 | Ubuntu 20.04 | cu117|3.8| 2.0 | 1.14.1 | 0.8.2 | 0.15.1
-|acpt-pytorch-1.13-cuda11.7 | Ubuntu 20.04  | cu117 | 3.8 | 1.13.1 | 1.14.0 | 0.8.0 | 1.14.0 |
-| acpt-pytorch-1.12-py39-cuda11.6 | Ubuntu 20.04  | cu116 | 3.9 | 1.12.1 | 1.13.1 | 0.7.3 | 1.13.1 |
-| acpt-pytorch-1.12-cuda11.6 | Ubuntu 20.04  | cu116 | 3.8 | 1.12.1 | 1.13.1 | 0.7.3 | 1.13.1 |
-|acpt-pytorch-1.11-cuda11.5 | Ubuntu 20.04  | cu115 | 3.8 | 1.11.0 | 1.11.1 | 0.7.3 | 1.11.0 | 
-|acpt-pytorch-1.11-cuda11.5 | Ubuntu 20.04  | cu113 | 3.8 | 1.11.0 | 1.11.1 | 0.7.3 | 1.11.1 |
+|acpt-pytorch-2.0-cuda11.7|Ubuntu 20.04|cu117|3.8|2.0|1.14.1|0.8.2 |0.14.0|
+|acpt-pytorch-1.13-cuda11.7|Ubuntu 20.04|cu117|3.8|1.13.1|1.14.1|0.8.2| 1.14.0|
+|acpt-pytorch-1.12-py39-cuda11.6|Ubuntu 20.04|cu116|3.9 |1.12.1|1.14.1| 0.8.2|1.14.0|
+|acpt-pytorch-1.12-cuda11.6|Ubuntu 20.04|cu116|3.8|1.12.1|1.14.1|0.8.2| 1.14.0|
+|acpt-pytorch-1.11-cuda11.5|Ubuntu 20.04|cu115|3.8|1.11.0|1.11.1|0.7.3| 1.11.0| 
+|acpt-pytorch-1.11-cuda11.3|Ubuntu 20.04|cu113|3.8|1.11.0|1.14.1|0.8.2| 1.14.0| 
 
  
 
@@ -84,8 +84,8 @@ Version updates for supported environments, including the base images they refer
  
 
 ## References
-https://learn.microsoft.com/en-us/azure/machine-learning/resource-curated-environments
+https://learn.microsoft.com/azure/machine-learning/resource-curated-environments
 
  
 
-https://learn.microsoft.com/en-us/azure/machine-learning/data-science-virtual-machine/overview
+https://learn.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview
