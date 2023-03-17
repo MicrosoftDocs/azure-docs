@@ -33,8 +33,7 @@ In this tutorial you learn how to use the Azure Machine Learning Python SDK v2 t
 > - Create Azure Machine Learning data assets
 > - Create reusable Azure Machine Learning components
 > - Create, validate and run Azure Machine Learning  pipelines
-> - Deploy the newly-trained model as an endpoint
-> - Call the Azure Machine Learning endpoint for inferencing
+
 
 During this tutorial, you create an Azure Machine Learning  pipeline to train a model for credit default prediction. The pipeline handles the data preparation, training and registering the trained model. Then run the pipeline, deploy the model and use it.
 
@@ -46,10 +45,24 @@ The two steps are first data preparation and second training.
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/machine-learning).
-- An Azure Machine Learning workspace. See [Create resources to get started](quickstart-create-resources.md) for information on how to create one.
+* Complete the [Create resources you need to get started](quickstart-create-resources.md) if you need help to:
+    * Create a workspace.
+    * Create a cloud-based compute instance to use for your development environment.
+    * Create a new notebook, if you want to copy/paste code into cells.
+    * Or, open the notebook version of this tutorial by opening **tutorials/get-started-notebooks/pipeline.ipynb** from the **Samples** section of studio.  Then select **Clone** to add the notebook to your **Files**.
 
-<!-- nbstart https://raw.githubusercontent.com/Azure/azureml-examples/get-started-notebooks/tutorials/get-started-notebooks/pipeline.ipynb -->
+1. On the top bar above your opened notebook, you'll see the compute instance you created during the  [Quickstart: Set up your Azure Machine Learning cloud workstation](quickstart-create-resources.md)  to use for running the notebook.
+
+1. If the compute instance is stopped, select **Start compute** and wait until it is running.
+
+    :::image type="content" source="media/tutorial-azure-ml-in-a-day/start-compute.png" alt-text="Screenshot shows how to start compute if it is stopped.":::
+
+2. Make sure that the kernel, found on the top right, is `Python 3.10 - SDK v2`.  If not, use the dropdown to select this kernel.
+
+    :::image type="content" source="media/tutorial-azure-ml-in-a-day/set-kernel.png" alt-text="Screenshot shows how to set the kernel.":::
+
+<!-- nbstart https://raw.githubusercontent.com/Azure/azureml-examples/get-started-tutorials/tutorials/get-started-notebooks/pipeline.ipynb -->
+
 
 ## Set up the pipeline resources
 
@@ -66,23 +79,6 @@ Before creating the pipeline, you need the following resources:
 Before we dive in the code, you need to connect to your Azure Machine Learning workspace. The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning.
 
 
-
-```python
-# Handle to the workspace
-from azure.ai.ml import MLClient
-
-# Authentication package
-from azure.identity import DefaultAzureCredential, InteractiveBrowserCredential
-
-try:
-    credential = DefaultAzureCredential()
-    # Check if given credential can get token successfully.
-    credential.get_token("https://management.azure.com/.default")
-except Exception as ex:
-    # Fall back to InteractiveBrowserCredential in case DefaultAzureCredential not work
-    credential = InteractiveBrowserCredential()
-```
-
 In the next cell, enter your Subscription ID, Resource Group name and Workspace name. To find your Subscription ID:
 1. In the upper right Azure Machine Learning studio toolbar, select your workspace name.
 1. You see the values you need for **<SUBSCRIPTION_ID>**, **<RESOURCE_GROUP>**, and **<AML_WORKSPACE_NAME>**.
@@ -91,7 +87,12 @@ In the next cell, enter your Subscription ID, Resource Group name and Workspace 
 
 
 ```python
-# Get a handle to the workspace
+from azure.ai.ml import MLClient
+from azure.identity import DefaultAzureCredential
+
+# authenticate
+credential = DefaultAzureCredential()
+# # Get a handle to the workspace
 ml_client = MLClient(
     credential=credential,
     subscription_id="<SUBSCRIPTION_ID>",
@@ -118,7 +119,7 @@ If you have been following along with the other tutorials in this series and alr
 from azure.ai.ml.entities import Data
 from azure.ai.ml.constants import AssetTypes
 
-web_path = "https://archive.ics.uci.edu/ml/machine-learning-databases/00350/default_of_credit_card_clients.xls"
+web_path = "https://archive.ics.uci.edu/ml/machine-learning-databases/00350/default%20of%20credit%20card%20clients.xls"
 
 credit_data = Data(
     name="creditcard_defaults",
@@ -150,7 +151,7 @@ In the future, you can fetch the same dataset from the workspace using `credit_d
 
 Each step of an Azure Machine Learning pipeline can use a different compute resource for running the specific job of that step. It can be single or multi-node machines with Linux or Windows OS, or a specific compute fabric like Spark.
 
-In this section, you provision a Linux  [compute cluster](how-to-create-attach-compute-cluster.md?tabs=python). See the [full list on VM sizes and prices](https://azure.microsoft.com/pricing/details/machine-learning/) .
+In this section, you provision a Linux  [compute cluster](how-to-create-attach-compute-cluster.md?tabs=python). See the [full list on VM sizes and prices](https://azure.microsoft.com/pricing/details/machine-learning/).
 
 For this tutorial, you only need a basic cluster so use a Standard_DS3_v2 model with 2 vCPU cores, 7-GB RAM and create an Azure Machine Learning Compute.
 > [!TIP]
@@ -161,6 +162,7 @@ For this tutorial, you only need a basic cluster so use a Standard_DS3_v2 model 
 ```python
 from azure.ai.ml.entities import AmlCompute
 
+# Name assigned to the compute cluster
 cpu_compute_target = "cpu-cluster"
 
 try:
@@ -175,8 +177,7 @@ except Exception:
 
     # Let's create the Azure Machine Learning compute object with the intended parameters
     cpu_cluster = AmlCompute(
-        # Name assigned to the compute cluster
-        name="cpu-cluster",
+        name=cpu_compute_target,
         # Azure Machine Learning Compute is the on-demand VM service
         type="amlcompute",
         # VM Family
@@ -190,13 +191,11 @@ except Exception:
         # Dedicated or LowPriority. The latter is cheaper but there is a chance of job termination
         tier="Dedicated",
     )
-
+    print(
+        f"AMLCompute with name {cpu_cluster.name} will be created, with compute size {cpu_cluster.size}"
+    )
     # Now, we pass the object to MLClient's create_or_update method
-    cpu_cluster = ml_client.begin_create_or_update(cpu_cluster)
-
-print(
-    f"AMLCompute with name {cpu_cluster.name} is created, the compute size is {cpu_cluster.size}"
-)
+    cpu_cluster = ml_client.compute.begin_create_or_update(cpu_cluster)
 ```
 
 ## Create a job environment for pipeline steps
@@ -236,7 +235,7 @@ dependencies:
     - azureml-mlflow==1.42.0
 ```
 
-The specification contains some usual packages, that you use in your pipeline (numpy, pip), together with some Azure Machine Learning specific packages (azureml-defaults, azureml-mlflow).
+The specification contains some usual packages, that you use in your pipeline (numpy, pip), together with some Azure Machine Learning specific packages (azureml-mlflow).
 
 The Azure Machine Learning packages aren't mandatory to run Azure Machine Learning jobs. However, adding these packages let you interact with Azure Machine Learning for logging metrics and registering models, all inside the Azure Machine Learning job. You use them in the training script later in this tutorial.
 
@@ -266,7 +265,7 @@ print(
 
 ## Build the training pipeline
 
-Now that you have all assets required to run your pipeline, it's time to build the pipeline itself, using the Azure Machine Learning Python SDK v2.
+Now that you have all assets required to run your pipeline, it's time to build the pipeline itself.
 
 Azure Machine Learning pipelines are reusable ML workflows that usually consist of several components. The typical life of a component is:
 
@@ -277,6 +276,9 @@ Azure Machine Learning pipelines are reusable ML workflows that usually consist 
 - Submit the pipeline.
 
 There are two ways to create a component, programmatic and yaml definition. The next two sections walk you through creating a component both ways. You can either create the two components trying both options or pick your preferred method.
+
+> [!NOTE]
+> In this tutorial for simplicity we are using the same compute for all components. However, you can set different computes for each component, for example by adding a line like `train_step.compute = "cpu-cluster"`. To view an example of building a pipeline with different computes for each component, see the [Basic pipeline job section in the cifar-10 pipeline tutorial](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/pipelines/2b_train_cifar_10_with_pytorch/train_cifar_10_with_pytorch.ipynb).
 
 ### Create component 1: data prep (using programmatic definition)
 
@@ -294,7 +296,7 @@ os.makedirs(data_prep_src_dir, exist_ok=True)
 
 This script performs the simple task of splitting the data into train and test datasets. Azure Machine Learning mounts datasets as folders to the computes, therefore, we created an auxiliary `select_first_file` function to access the data file inside the mounted input folder. 
 
-[MLFlow](https://mlflow.org/docs/latest/tracking.html) is used to log the parameters and metrics during our pipeline run.
+[MLFlow](concept-mlflow.md) is used to log the parameters and metrics during our pipeline run.
 
 
 ```python
@@ -350,7 +352,7 @@ if __name__ == "__main__":
 
 Now that you have a script that can perform the desired task, create an Azure Machine Learning Component from it.
 
-Use the general purpose **CommandComponent** that can run command line actions. This command line action can directly call system commands or run a script. The inputs/outputs are specified on the command line via the `${{ ... }}` notation.
+Use the general purpose `CommandComponent` that can run command line actions. This command line action can directly call system commands or run a script. The inputs/outputs are specified on the command line via the `${{ ... }}` notation.
 
 
 
@@ -548,8 +550,7 @@ command: >-
 
 ```
 
-Now create and register the component:
-
+Now create and register the component.  Registering it allows you to re-use it in other pipelines.  Also, anyone else with access to your workspace can use the registered component.
 
 
 ```python
@@ -558,10 +559,7 @@ from azure.ai.ml import load_component
 
 # Loading the component from the yml file
 train_component = load_component(source=os.path.join(train_src_dir, "train.yml"))
-```
 
-
-```python
 # Now we register the component to the workspace
 train_component = ml_client.create_or_update(train_component)
 
@@ -648,28 +646,29 @@ Once completed, the pipeline registers a model in your workspace as a result of 
 
 
 ```python
-import webbrowser
-
 # submit the pipeline job
 pipeline_job = ml_client.jobs.create_or_update(
     pipeline,
     # Project's name
     experiment_name="e2e_registered_components",
 )
-# open the pipeline in web browser
-webbrowser.open(pipeline_job.studio_url)
+ml_client.jobs.stream(pipeline_job.name)
 ```
 
-An output of "False" is expected from the previous cell. You can track the progress of your pipeline, by using the link generated in the previous cell. 
-When you select on each component, you see more information about the results of that component.
-There are two important parts to look for at this stage:
-* `Outputs+logs` > `user_logs` > `std_log.txt`
-This section shows the script run sdtout.
+You can track the progress of your pipeline, by using the link generated in the previous cell. When you first select this link, you may see that the pipeline is still running. Once it's complete, you can examine each component's results.
+
+Double-click the **Train Credit Defaults Model** component. 
+
+There are two important results you'll want to see about training:
+
+* View your logs:
+    1. Select the **Outputs+logs** tab.
+    1. Open the folders to `user_logs` > `std_log.txt`
+    This section shows the script run sdtout.
     :::image type="content" source="media/tutorial-pipeline-python-sdk/user-logs.jpg" alt-text="Screenshot of std_log.txt." lightbox="media/tutorial-pipeline-python-sdk/user-logs.jpg":::
 
-
-* `Outputs+logs` > `Metric`
-This section shows different logged metrics. In this example. mlflow `autologging`, has automatically logged the training metrics.
+* View your metrics: Select the **Metris** tab.  This section shows different logged metrics. In this example. mlflow `autologging`, has automatically logged the training metrics.
+    
     :::image type="content" source="media/tutorial-pipeline-python-sdk/metrics.jpg" alt-text="Screenshot shows logged metrics.txt." lightbox="media/tutorial-pipeline-python-sdk/metrics.jpg":::
 
 ## Deploy the model as an online endpoint
@@ -678,19 +677,22 @@ To learn how to deploy your model to an online endpoint, see [Deploy a model as 
 
 ## Clean up resources
 
-If you're not going to use the endpoint, delete it to stop using the resource.  Make sure no other deployments are using an endpoint before you delete it.
+If you plan to continue now to other tutorials, skip to [Next steps](#next-steps).
 
+### Stop compute instance
 
-> [!NOTE]
-> Expect this step to take approximately 6 to 8 minutes.
+If you're not going to use it now, stop the compute instance:
 
+1. In the studio, in the left navigation area, select **Compute**.
+1. In the top tabs, select **Compute instances**
+1. Select the compute instance in the list.
+1. On the top toolbar, select **Stop**.
 
-```python
-ml_client.online_endpoints.begin_delete(name=online_endpoint_name)
-```
-<!-- nbend -->
+### Delete all resources
+
+[!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> Learn more about [Azure Machine Learning logging](./how-to-use-mlflow-cli-runs.md).
+> Learn how to [Schedule machine learning pipeline jobs](how-to-schedule-pipeline-job.md)
