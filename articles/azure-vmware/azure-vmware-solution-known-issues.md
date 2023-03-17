@@ -17,8 +17,6 @@ Refer to the table below to find details about resolution dates or possible work
 | :------------------------------------- | :------------ | :------------- | :------------- |
 | [VMSA-2021-002 ESXiArgs](https://www.vmware.com/security/advisories/VMSA-2021-0002.html) OpenSLP vulnerability publicized in February 2023  | 2021  | [Disable OpenSLP service](https://kb.vmware.com/s/article/76372)  | February 2021 - Resolved in [ESXi 7.0 U3c](concepts-private-clouds-clusters.md#vmware-software-versions) |
 
-## Next steps
-
 In this article, you learned about the currently known issues with the Azure VMware Solution. For more information about the Azure VMware Solution, see:
 
 >[!div class="nextstepaction"]
