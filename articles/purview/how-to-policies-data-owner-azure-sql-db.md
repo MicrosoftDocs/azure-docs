@@ -62,13 +62,10 @@ After creating the policy, any of the Azure AD users in the Subject should now b
 
 If you require additional troubleshooting, see the [Next steps](#next-steps) section in this guide.
 
-## Additional information
+## Role definition detail
+This section contains a reference of how relevant Microsoft Purview data policy roles map to specific actions in SQL data sources.
 
-### Policy action mapping
-
-This section contains a reference of how actions in Microsoft Purview data policies map to specific actions in Azure SQL DB.
-
-| **Microsoft Purview policy action** | **Data source specific actions**     |
+| **Microsoft Purview policy role definition** | **Data source specific actions**     |
 |-------------------------------------|--------------------------------------|
 |||
 | *Read* |Microsoft.Sql/sqlservers/Connect |

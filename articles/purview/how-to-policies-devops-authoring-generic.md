@@ -115,9 +115,9 @@ SELECT * FROM [databaseName].schemaName.tableName
 
 
 ## Role definition detail
-This section contains a reference of how actions in Microsoft Purview data policies map to specific actions in Azure SQL MI.
+This section contains a reference of how relevant Microsoft Purview data policy roles map to specific actions in SQL data sources.
 
-| **DevOps role definition** | **Data source specific actions**     |
+| **Microsoft Purview policy role definition** | **Data source specific actions**     |
 |-------------------------------------|--------------------------------------|
 |                                     |                                      |
 | *SQL Performance Monitor* |Microsoft.Sql/sqlservers/Connect |
