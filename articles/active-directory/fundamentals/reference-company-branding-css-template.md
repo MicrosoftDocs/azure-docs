@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 03/03/2023
+ms.date: 03/17/2023
 ms.author: sarahlipsey
 ms.reviewer: almars
 ms.collection: M365-identity-device-management
@@ -22,7 +22,7 @@ Configuring your company branding for the user sign-in process provides a seamle
 
 ## HTML selectors
 
-The following HTML styles become the default body and link styles for the whole page. Applying styles for other links or text override HTML selectors.
+The following CSS styles become the default body and link styles for the whole page. Applying styles for other links or text override CSS selectors.
 
 - `body` - Styles for the whole page
 - Styles for links:

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 03/01/2023
+ms.date: 03/17/2023
 ms.author: sarahlipsey
 ms.reviewer: almars
 ms.custom: "it-pro, seodec18, fasttrack-edit"
@@ -50,11 +50,13 @@ The **Global Administrator** role is required to customize company branding.
 
 ### User experience
 
-When customizing the sign-in pages users see when accessing your organization's tenant-specific applications, there are some user experience scenarios you may need to consider.
+When customizing the sign-in pages that users see when accessing your organization's tenant-specific applications, there are some user experience scenarios you may need to consider.
 
 For Microsoft, Software as a Service (SaaS), and multi-tenant applications such as <https://myapps.microsoft.com>, or <https://outlook.com>, the customized sign-in page appears only after the user types their **Email** or **Phone number** and selects the **Next** button. 
 
-Some of the Microsoft applications support the home realm discovery `whr` query string parameter, or a domain variable. With the home realm discovery and domain parameter, the customized sign-in page appears immediately in the first step. 
+Some Microsoft applications support [Home Realm Discovery](../manage-apps/home-realm-discovery-policy.md) for authentication. In these scenarios, when a customer signs in to an Azure AD common sign-in page, Azure AD can use the customer's user name to determine where they should sign in. 
+
+For customers who access applications from a custom URL, the `whr` query string parameter, or a domain variable, can be used to apply company branding at the initial sign-in screen, not just after adding the email or phone number. For example, `whr=contoso.com` would appear in the custom URL for the app. With the Home Realm Discover and domain parameter included, the company branding appears immediately in the first sign-in step. Other domain hints can be included.
 
 In the following examples replace the contoso.com with your own tenant name, or verified domain name:
 
@@ -169,7 +171,7 @@ To create an inclusive experience for all of your users, you can customize the s
 
 The process for customizing the experience is the same as the [default sign-in experience](#basics) process, except you must select a language from the dropdown list in the **Basics** section. We recommend adding custom text in the same areas as your default sign-in experience. 
 
-Azure AD supports right-to-left functionality for languages such as Arabic and Hebrew that are read right-to-left. The layout adjusts automatically, based on the language selected.
+Azure AD supports right-to-left functionality for languages such as Arabic and Hebrew that are read right-to-left. The layout adjusts automatically, based on the user's browser settings.
 
 ![Screenshot of the sign-in experience in Hebrew, demonstrating the right-to-left layout.](media/how-to-customize-branding/righ-to-left-language-example.png)
 
