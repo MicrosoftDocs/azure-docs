@@ -6,7 +6,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/16/2023
+ms.date: 03/17/2023
 ms.author: alkohli
 ---
 # Use a config file to deploy an Azure Stack Edge device
@@ -1014,7 +1014,7 @@ You can set either an Azure Consistent Services or a Network File System configu
 1. Set the `DeviceVIP` property with a static Azure Consistent Services configuration. 
 
     ```azurepowershell
-    $acsVip = New-Object PSObject  -Property @{ Type = "ACS"; VipAddress = "192.168.181.10"; ClusterNetworkAddress = "192.168.0.0"; IsDhcpEnabled = $false }
+    $acsVip = New-Object PSObject  -Property @{ Type = "ACS"; VipAddress = "10.57.51.32"; ClusterNetworkAddress = "10.57.48.0"; IsDhcpEnabled = $false }
     ```
 
 1. Update the device with the `DeviceVIP` property.
@@ -1032,19 +1032,19 @@ You can set either an Azure Consistent Services or a Network File System configu
     Here's sample output:
 
    ```output
-    {
-    "acsVIP":  {
+   {
+   "acsVIP":  {
                    "type":  "ACS",
                    "name":  "Azure Consistent Services",
-                   "address":  "192.168.181.10",
+                   "address":  "10.57.51.32",
                    "network":  {
-                                   "name":  "Cluster Network 1",
-                                   "address":  "192.168.0.0",
-                                   "subnet":  "255.255.0.0",
+                                   "name":  "Cluster Network 3",
+                                   "address":  "10.57.48.0",
+                                   "subnet":  "255.255.248.0",
                                    "dhcpEnabled":  false
                                },
                    "isDhcpEnabled":  false
-               },
+    }
     }
     PS C:\> 
     ```
@@ -1060,7 +1060,7 @@ You can set either an Azure Consistent Services or a Network File System configu
 1. Set the `DeviceVIP` property to enable DHCP.
 
     ```azurepowershell
-    $acsVip = New-Object PSObject  -Property @{ Type = "ACS"; VipAddress = "192.168.181.10"; ClusterNetworkAddress = "192.168.0.0"; IsDhcpEnabled = $true }
+    $acsVip = New-Object PSObject  -Property @{ Type = "ACS"; VipAddress = "10.57.51.32"; ClusterNetworkAddress = "10.57.48.0"; IsDhcpEnabled = $true }
     ```
 
 1. Update the device with the `DeviceVIP` property.
@@ -1082,11 +1082,11 @@ You can set either an Azure Consistent Services or a Network File System configu
     "acsVIP":  {
                    "type":  "ACS",
                    "name":  "Azure Consistent Services",
-                   "address":  "192.168.181.10",
+                   "address":  "10.57.52.126",
                    "network":  {
-                                   "name":  "Cluster Network 1",
-                                   "address":  "192.168.0.0",
-                                   "subnet":  "255.255.0.0",
+                                   "name":  "Cluster Network 3",
+                                   "address":  "10.57.48.0",
+                                   "subnet":  "255.255.248.0",
                                    "dhcpEnabled":  true
                                },
                    "isDhcpEnabled":  true
@@ -1107,7 +1107,7 @@ You can set either an Azure Consistent Services or a Network File System configu
 1. Set the `DeviceVIP` property to enable DHCP.
 
     ```azurepowershell
-    $nfsVip = New-Object PSObject  -Property @{ Type = "NFS"; VipAddress = $null; ClusterNetworkAddress = "192.168.0.0"; IsDhcpEnabled = $false }
+    $nfsVip = New-Object PSObject  -Property @{ Type = "NFS"; VipAddress = "10.57.53.215"; ClusterNetworkAddress = "10.57.48.0"; IsDhcpEnabled = $false }
     ```
 
 1. Update the device with the `DeviceVIP` property.
@@ -1125,32 +1125,18 @@ You can set either an Azure Consistent Services or a Network File System configu
 
     ```Output
     {
-    "nfsVIP":  {
+        "nfsVIP":  {
                    "type":  "NFS",
                    "name":  "Network File System",
-                   "address":  "192.168.2.119",
+                   "address":  "10.57.53.215",
                    "network":  {
-                                   "name":  "Cluster Network 1",
-                                   "address":  "192.168.0.0",
-                                   "subnet":  "255.255.0.0",
+                                   "name":  "Cluster Network 3",
+                                   "address":  "10.57.48.0",
+                                   "subnet":  "255.255.248.0",
                                    "dhcpEnabled":  false
                                },
                    "isDhcpEnabled":  false
-               },
-    "clusterNetworks":  [
-                            {
-                                "name":  "Cluster Network 1",
-                                "address":  "192.168.0.0",
-                                "subnet":  "255.255.0.0",
-                                "dhcpEnabled":  false
-                            },
-                            {
-                                "name":  "Cluster Network 4",
-                                "address":  "10.126.72.0",
-                                "subnet":  "255.255.248.0",
-                                "dhcpEnabled":  false
-                            }
-                        ]
+               }
     }
     PS C:\>
     ```
@@ -1165,7 +1151,7 @@ You can set either an Azure Consistent Services or a Network File System configu
 1. Set the `DeviceVIP` property to enable DHCP.
 
     ```azurepowershell
-    $nfsVip = New-Object PSObject  -Property @{ Type = "NFS"; VipAddress = $null; ClusterNetworkAddress = "192.168.0.0"; IsDhcpEnabled = $true }
+    $nfsVip = New-Object PSObject  -Property @{ Type = "NFS"; VipAddress = "10.57.53.215"; ClusterNetworkAddress = "10.57.48.0"; IsDhcpEnabled = $true }
     ```
 
 1. Update the device with the `DeviceVIP` property.
@@ -1185,31 +1171,17 @@ You can set either an Azure Consistent Services or a Network File System configu
     ```output
     {
     "nfsVIP":  {
-                   "type":  "NFS",
-                   "name":  "Network File System",
-                   "address":  "192.168.2.119",
-                   "network":  {
-                                   "name":  "Cluster Network 1",
-                                   "address":  "192.168.0.0",
-                                   "subnet":  "255.255.0.0",
-                                   "dhcpEnabled":  true
-                               },
-                   "isDhcpEnabled":  true
-               },
-    "clusterNetworks":  [
-                            {
-                                "name":  "Cluster Network 1",
-                                "address":  "192.168.0.0",
-                                "subnet":  "255.255.0.0",
-                                "dhcpEnabled":  true
-                            },
-                            {
-                                "name":  "Cluster Network 4",
-                                "address":  "10.126.72.0",
+                "type":  "NFS",
+                "name":  "Network File System",
+                "address":  "10.57.50.196",
+                "network":  {
+                                "name":  "Cluster Network 3",
+                                "address":  "10.57.48.0",
                                 "subnet":  "255.255.248.0",
                                 "dhcpEnabled":  true
-                            }
-                        ]
+                            },
+                "isDhcpEnabled":  true
+                }
     }
     PS C:\>
     ```
