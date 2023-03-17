@@ -14,10 +14,10 @@ ms.author: franlanglois
 
 In this article, you learn how to configure disk encryption using Customer Managed Keys (CMK). The Enterprise and Enterprise Flash tiers of Azure Cache for Redis offer the ability to encrypt the OS and data persistence disks with customer-managed key encryption, at rest. Platform-managed keys (PMKs), also know as Microsoft-managed keys (MMKs), are used to encrypt the data. However, customer managed keys (CMK) can also be used to wrap the MMKs to control access to these keys. This makes the CMK a _key encryption key_ or KEK. For more information, see [key management in Azure](/azure/security/fundamentals/key-management).
 
-Data in a Redis server is stored in memory by default. This data isn't encrypted. You can implement your own encryption on the data before writing it to the cache. In some cases, data can reside on-disk, either due to the operations of the operating system, or because of deliberate actions to persist data using [export](cache-how-to-import-export-data) or [data persistence](cache-how-to-premium-persistence). 
+Data in a Redis server is stored in memory by default. This data isn't encrypted. You can implement your own encryption on the data before writing it to the cache. In some cases, data can reside on-disk, either due to the operations of the operating system, o`r because of deliberate actions to persist data using [export](cache-how-to-import-export-data.md) or [data persistence](cache-how-to-premium-persistence.md).
 
 > [!NOTE]
-> Operating Ssystem disk encryption is more important on the Premium tier because open-source Redis can page cache data to disk. The Enterprise tiers does not do page cache data to disk, which is an advantage of the Enterprise and Enterprise Flash tiers.
+> Operating system disk encryption is more important on the Premium tier because open-source Redis can page cache data to disk. The Enterprise tiers does not do page cache data to disk, which is an advantage of the Enterprise and Enterprise Flash tiers.
 >
 
 ## Scope of availability for CMK disk encryption

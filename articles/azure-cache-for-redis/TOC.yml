@@ -145,6 +145,8 @@
       href: cache-how-to-active-geo-replication.md
     - name: Save with reservations
       href: cache-reserved-pricing.md
+    - name: Configure active encryption for Enterprise
+      href: cache-how-to-encryption.md
     - name: Migrate to Azure Cache for Redis
       href: cache-migration-guide.md
     - name: Migrate from VNet injection to Private Link
