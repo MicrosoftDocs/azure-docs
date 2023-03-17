@@ -58,7 +58,7 @@ Before deploying the application to Azure Container Apps, start by running the P
    ```bash
    cd db
    ```
-1. Run the container with Docker Compose.
+1. Run the PostgreSQL container with Docker Compose.
 
    ```bash
    docker compose up -d
@@ -109,7 +109,7 @@ Before deploying the application to Azure Container Apps, start by running the P
    docker compose stop
    ```
 
-## Deploy the Dapr application template using `azd`
+## Deploy the Dapr application template using Azure Developer CLI
 
 Now that you've run the application locally, let's deploy the Dapr bindings application to Azure Container Apps using [`azd`](/azure/developer/azure-developer-cli/overview). During deployment, we will swap the local containerized PostgreSQL for an Azure PostgreSQL component.
 
@@ -237,7 +237,7 @@ Before deploying the application to Azure Container Apps, start by running the P
    ```bash
    cd db
    ```
-1. Run the container with Docker Compose.
+1. Run the PostgreSQL container with Docker Compose.
 
    ```bash
    docker compose up -d
@@ -288,7 +288,7 @@ Before deploying the application to Azure Container Apps, start by running the P
    docker compose stop
    ```
 
-## Deploy the Dapr application template using `azd`
+## Deploy the Dapr application template using Azure Developer CLI
 
 Now that you've run the application locally, let's deploy the Dapr bindings application to Azure Container Apps using [`azd`](/azure/developer/azure-developer-cli/overview). During deployment, we will swap the local containerized PostgreSQL for an Azure PostgreSQL component.
 
@@ -414,7 +414,7 @@ Before deploying the application to Azure Container Apps, start by running the P
    ```bash
    cd db
    ```
-1. Run the container with Docker Compose.
+1. Run the PostgreSQL container with Docker Compose.
 
    ```bash
    docker compose up -d
@@ -465,7 +465,7 @@ Before deploying the application to Azure Container Apps, start by running the P
    docker compose stop
    ```
 
-## Deploy the Dapr application template using `azd`
+## Deploy the Dapr application template using Azure Developer CLI
 
 Now that you've run the application locally, let's deploy the Dapr bindings application to Azure Container Apps using [`azd`](/azure/developer/azure-developer-cli/overview). During deployment, we will swap the local containerized PostgreSQL for an Azure PostgreSQL component.
 
