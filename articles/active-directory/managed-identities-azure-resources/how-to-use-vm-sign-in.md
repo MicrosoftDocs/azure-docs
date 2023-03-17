@@ -1,5 +1,5 @@
 ---
-title: Use managed identities on an Azure VM for sign-in - Azure ADV
+title: Use managed identities on an Azure VM for sign-inV
 description: Step-by-step instructions and examples for using an Azure VM-managed identities for Azure resources service principal for script client sign-in and resource access.
 services: active-directory
 documentationcenter: 

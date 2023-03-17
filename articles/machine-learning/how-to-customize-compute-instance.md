@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.custom: event-tier1-build-2022
 ms.topic: how-to
-author: swatig007
-ms.author: swatig
+ms.author: jcioffi
+author: jesscioffi
 ms.reviewer: sgilley
 ms.date: 05/04/2022
 ---
@@ -30,6 +30,8 @@ Some examples of what you can do in a setup script:
 * Set network proxies
 * Set environment variables
 * Install JupyterLab extensions
+
+[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## Create the setup script
 

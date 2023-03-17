@@ -1,5 +1,5 @@
 ---
-title: Invite internal users to B2B collaboration - Azure AD
+title: Invite internal users to B2B collaboration
 description: If you have internal user accounts for partners, distributors, suppliers, vendors, and other guests, you can change to Azure AD B2B collaboration by inviting them to sign in with their own external credentials or login. Use either PowerShell or the Microsoft Graph invitation API.
 
 services: active-directory
@@ -8,8 +8,8 @@ ms.subservice: B2B
 ms.topic: how-to
 ms.date: 03/02/2022
 
-ms.author: mimart
-author: msmimart
+ms.author: cmulligan
+author: csmulligan
 manager: celestedg
 
 ms.collection: M365-identity-device-management

@@ -17,7 +17,7 @@ By default, each OT network sensor is installed with the privileged *cyberx*, *s
 
 When setting up a sensor for the first time, sign in with one of these privileged users, create an initial user with an **Admin** role, and then create extra users for security analysts and read-only users.
 
-For more information, see [Install OT monitoring software](how-to-install-software.md#install-ot-monitoring-software) and [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
+For more information, see [Install OT monitoring software on OT sensors](how-to-install-software.md) and [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
 
 ## Add new OT sensor users
 
@@ -38,7 +38,7 @@ This procedure describes how to create new users for a specific OT network senso
     |**First Name**     |    Enter the user's first name.     |
     |**Last Name**     |   Enter the user's last name.      |
     |**Role**     |  Select one of the following user roles: **Admin**, **Security Analyst**, or **Read Only**. For more information, see [On-premises user roles](roles-on-premises.md#on-premises-user-roles).      |
-    |**Password**     |   Select the user type, either **Local** or **Active Directory User**. <br><br>For local users, enter a password for the user. Password requirements include: <br>- At least eight characters<br>- Both lowercase and uppercase alphabetic characters<br>- At least one numbers<br>- At least one symbol<br><br>Local user passwords can only be modified by **Admin** users.|
+    |**Password**     |   Select the user type, either **Local** or **Active Directory User**. <br><br>For local users, enter a password for the user. Password requirements include: <br>- At least eight characters<br>- Both lowercase and uppercase alphabetic characters<br>- At least one number<br>- At least one symbol<br><br>Local user passwords can only be modified by **Admin** users.|
 
     > [!TIP]
     > Integrating with Active Directory lets you associate groups of users with specific permission levels. If you want to create users using Active Directory, first configure [Active Directory on the sensor](manage-users-sensor.md#integrate-ot-sensor-users-with-active-directory) and then return to this procedure.
@@ -51,6 +51,7 @@ Your new user is added and is listed on the sensor **Users** page.
 To edit a user, select the **Edit** :::image type="icon" source="media/manage-users-on-premises-management-console/icon-edit.png" border="false"::: icon for the user you want to edit, and change any values as needed.
 
 To delete a user, select the **Delete** button for the user you want to delete.
+
 ## Integrate OT sensor users with Active Directory
 
 Configure an integration between your sensor and Active Directory to:
@@ -74,9 +75,9 @@ For more information, see [Active Directory support on sensors and on-premises m
 
     |Name  |Description  |
     |---------|---------|
-    |**Domain Controller FQDN**     | The fully qualified domain name (FQDN), exactly as it appears on your LDAP server. For example, enter `host1.subdomain.domain.com`.        |
-    |**Domain Controller Port**     | The port on which your LDAP is configured.        |
-    |**Primary Domain**     | The domain name, such as `subdomain.domain.com`, and then select the connection type for your LDAP configuration. <br><br>Supported connection types include: **LDAPS/NTLMv3** (recommended), **LDAP/NTLMv3**, or **LDAP/SASL-MD5**        |
+    |**Domain Controller FQDN**     | The fully qualified domain name (FQDN), exactly as it appears on your LDAP server. For example, enter `host1.subdomain.contoso.com`. <br><br> If you encounter an issue with the integration using the FQDN, check your DNS configuration. You can also enter the explicit IP of the LDAP server instead of the FQDN when setting up the integration.        |
+    |**Domain Controller Port**     | The port where your LDAP is configured.        |
+    |**Primary Domain**     | The domain name, such as `subdomain.contoso.com`, and then select the connection type for your LDAP configuration. <br><br>Supported connection types include: **LDAPS/NTLMv3** (recommended), **LDAP/NTLMv3**, or **LDAP/SASL-MD5**        |
     |**Active Directory Groups**     | Select **+ Add** to add an Active Directory group to each permission level listed, as needed. <br><br>        When you enter a group name, make sure that you enter the group name exactly as it's defined in your Active Directory configuration on the LDAP server. You'll use these group names when [adding new sensor users](#add-new-ot-sensor-users) with Active Directory.<br><br>        Supported permission levels include **Read-only**, **Security Analyst**, **Admin**, and **Trusted Domains**.        |
 
 
@@ -92,6 +93,9 @@ For more information, see [Active Directory support on sensors and on-premises m
 
 1. When you've added all your Active Directory servers, select **Save**.
 
+    For example: 
+    
+    :::image type="content" source="media/manage-users-sensor/active-directory-integration-example.png" alt-text="Screenshot of the active directory integration configuration on the sensor.":::
 
 ## Change a sensor user's password
 
@@ -158,14 +162,31 @@ This procedure descries how to recover privileged access to a sensor, for the *c
     >
     > Return to Azure, and select the settings icon in the top toolbar. On the **Directories + subscriptions** page, make sure that you've selected the subscription where your sensor was onboarded to Defender for IoT. Then repeat the steps in Azure to download the **password_recovery.zip** file and upload it on the sensor again.
 
-1. Select **Next**. A system-generated password for your sensor appears for you to use for the selected user. Make sure to write the password down as it won't be shown again.
+1. Select **Next**. A system-generated password for your sensor appears for you to use for the selected user. Make sure to write down the password as it won't be shown again.
 
 1. Select **Next** again to sign into your sensor with the new password.
 
+### Define maximum number of failed sign-ins
+
+Use the OT sensor's CLI access to define the number of maximum failed sign-ins before an OT sensor will prevent the user from signing in again from the same IP address.
+
+For more information, see [Defender for IoT CLI users and access](references-work-with-defender-for-iot-cli-commands.md).
+
+**Prerequisites**: This procedure is available for the *cyberx* user only.
+
+1. Sign into your OT sensor via SSH and run:
+
+    ```bash
+    nano /var/cyberx/components/xsense-web/cyberx_web/settings.py
+    ```
+
+1. In the **settings.py** file, set the `"MAX_FAILED_LOGINS"` value to the maximum number of failed sign ins you want to define. Make sure that you consider the number of concurrent users in your system.
+
+1. Exit the file and run `sudo monit restart all` to apply your changes.
+
 ## Control user session timeouts
 
-By default, on-premises users are signed out of their sessions after 30 minutes of inactivity. Admin users can use the local CLI to either turn this feature on or off, or to adjust the inactivity thresholds.
-For more information, see [Work with Defender for IoT CLI commands](references-work-with-defender-for-iot-cli-commands.md).
+By default, on-premises users are signed out of their sessions after 30 minutes of inactivity. Admin users can use the local CLI access to either turn this feature on or off, or to adjust the inactivity thresholds. For more information, see [Defender for IoT CLI users and access](references-work-with-defender-for-iot-cli-commands.md) and [CLI command reference from OT network sensors](cli-ot-sensor.md).
 
 > [!NOTE]
 > Any changes made to user session timeouts are reset to defaults when you [update the OT monitoring software](update-ot-software.md).

@@ -1,5 +1,5 @@
 ---
-title: B2B collaboration user claims mapping - Azure Active Directory
+title: B2B collaboration user claims mapping
 description: Customize the user claims that are issued in the SAML token for Azure Active Directory (Azure AD) B2B users.
 
 services: active-directory
@@ -8,8 +8,8 @@ ms.subservice: B2B
 ms.topic: conceptual
 ms.date: 11/24/2022
 
-ms.author: mimart
-author: msmimart
+ms.author: cmulligan
+author: csmulligan
 manager: celestedg
 
 

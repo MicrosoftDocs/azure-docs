@@ -5,26 +5,20 @@ author: ankitaduttaMSFT
 manager: evansma
 ms.service: resource-mover
 ms.topic: tutorial
-ms.date: 12/16/2022
+ms.date: 02/10/2023
 ms.author: ankitadutta
 ms.custom: mvc, engagement-fy23
 #Customer intent: As an Azure admin, I want to move SQL Server databases to a different Azure region.
 ---
 
-# Tutorial: Move Azure SQL Database resources to another region
+# Move Azure SQL Database resources to another region
 
 In this tutorial, you learn how to move Azure SQL databases and elastic pools to a different Azure region, using [Azure Resource Mover](overview.md).
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Check prerequisites and requirements.
-> * Select the resources you want to move.
-> * Resolve resource dependencies.
-> * Prepare and move the SQL Server to the target region.
-> * Prepare and move databases and elastic pools.
-> * Decide whether you want to discard or commit the move. 
-> * Optionally remove resources in the source region after the move. 
+> * Move Azure SQL databases and elastic pools to a different Azure region 
 
 > [!NOTE]
 > Tutorials show the quickest path for trying out a scenario, and use default options. 
@@ -104,14 +98,15 @@ To select the resources you want to move, follow these steps:
 
 To resolve the dependent resources you want to move, follow these steps:
 
-1. On **Across regions** page, if resources show a *Validate dependencies* message in the **Issues** column, select the **Validate dependencies** button. This starts the validation process.
-2. If dependencies are found, select **Add dependencies**.
+
+1. Dependencies are automatically validated in the background when you add the resources. If you still see the **Validate dependencies** option, select it to trigger the validation manually.
+1. If dependencies are found, select **Add dependencies**.
 
     :::image type="content" source="./media/tutorial-move-region-sql/add-dependencies.png" alt-text="Screenshot displays button to add dependencies." lightbox="./media/tutorial-move-region-sql/add-dependencies.png":::
    
 3. In **Add dependencies**, select the dependent resources > **Add dependencies**. You can monitor the progress in the notifications.
 
-4. Add additional dependencies if needed and validate dependencies again. 
+4. Dependencies are automatically validated in the background once you add the dependencies. If you see a **Validate dependencies** option, select it to trigger the manual validation. 
 
 5. On the **Across regions** page, verify that the resources are now in a *Prepare pending* state with no issues.
 
@@ -279,10 +274,4 @@ After the move, you can optionally delete resources in the source region.
 
 ## Next steps
 
-In this tutorial, you:
-
-> [!div class="checklist"]
-> * Moved Azure SQL databases to another Azure region.
-> * Moved Azure SQL elastic pools to another region.
-
-Now, try [moving Azure VMs to another region](./tutorial-move-region-virtual-machines.md).
+[Learn more](./tutorial-move-region-virtual-machines.md) about moving Azure VMs to another region.

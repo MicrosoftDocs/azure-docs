@@ -61,43 +61,41 @@ Use the following procedure to access the agent:
 
 Azure Spring Apps pre-installs the New Relic Java agent to */opt/agents/newrelic/java/newrelic-agent.jar*. Customers can activate the agent from applications' **JVM options**, as well as configure the agent using the [New Relic Java agent environment variables](https://docs.newrelic.com/docs/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables).
 
-## Portal
+## Azure portal
 
-You can also activate this agent from portal with the following procedure.
+You can also activate this agent from the Azure portal with the following procedure.
 
-1. Find the app from **Settings**/**Apps** in the navigation pane.
+1. In your Azure Spring Apps instance, select **Apps** in the navigation pane.
 
-   [![Find app to monitor](media/new-relic-monitoring/find-app.png)](media/new-relic-monitoring/find-app.png)
+   :::image type="content" source="media/new-relic-monitoring/find-app.png" alt-text="Screenshot of the Azure portal showing the Apps page for an Azure Spring Apps instance." lightbox="media/new-relic-monitoring/find-app.png":::
 
-2. Select the application to jump to the **Overview** page.
+1. Select the application from the list, and then select **Configuration** in the navigation pane.
 
-   [![Overview page](media/new-relic-monitoring/overview-page.png)](media/new-relic-monitoring/overview-page.png)
+1. Use the **General settings** tab to update values such as the JVM options.
 
-3. Select **Configuration** in the left navigation pane to add/update/delete the **Environment Variables** of the application.
+   :::image type="content" source="media/new-relic-monitoring/update-jvm-option.png" alt-text="Screenshot of the Azure portal showing the Configuration page for an app in an Azure Spring Apps instance, with the General settings tab selected." lightbox="media/new-relic-monitoring/update-jvm-option.png":::
 
-   [![Update environment](media/new-relic-monitoring/configurations-update-environment.png)](media/new-relic-monitoring/configurations-update-environment.png)
+1. Select **Environment variables** to add or update the variables used by your application.
 
-4. Select **General settings** to add/update/delete the **JVM options** of the application.
+   :::image type="content" source="media/new-relic-monitoring/configurations-update-environment.png" alt-text="Screenshot of the Azure portal showing the Configuration page for an app in an Azure Spring Apps instance, with the Environmental variables tab selected." lightbox="media/new-relic-monitoring/configurations-update-environment.png":::
 
-   [![Update JVM Option](media/new-relic-monitoring/update-jvm-option.png)](media/new-relic-monitoring/update-jvm-option.png)
-
-5. View the application api/gateway **Summary** page from the New Relic dashboard.
+1. View the application api/gateway **Summary** page from the New Relic dashboard.
 
    [![App summary page](media/new-relic-monitoring/app-summary-page.png)](media/new-relic-monitoring/app-summary-page.png)
 
-6. View the application customers-service **Summary** page from the New Relic dashboard.
+1. View the application customers-service **Summary** page from the New Relic dashboard.
 
    [![Customers-service page](media/new-relic-monitoring/customers-service.png)](media/new-relic-monitoring/customers-service.png)
 
-7. View the **Service Map** page from the New Relic dashboard.
+1. View the **Service Map** page from the New Relic dashboard.
 
    [![Service map page](media/new-relic-monitoring/service-map.png)](media/new-relic-monitoring/service-map.png)
 
-8. View the **JVMs** page of the application from the New Relic dashboard.
+1. View the **JVMs** page of the application from the New Relic dashboard.
 
    [![JVM page](media/new-relic-monitoring/jvm-page.png)](media/new-relic-monitoring/jvm-page.png)
 
-9. View the application profile from the New Relic dashboard.
+1. View the application profile from the New Relic dashboard.
 
    [![Application profile](media/new-relic-monitoring/profile-app.png)](media/new-relic-monitoring/profile-app.png)
 

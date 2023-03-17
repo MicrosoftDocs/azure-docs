@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 03/23/2022
+ms.date: 03/07/2023
 ms.author: danlep
 
 ---
@@ -83,7 +83,8 @@ Policy expressions provide a sophisticated means to control traffic and modify A
 API Management allows you to define policies at the following *scopes*, from most broad to most narrow:
 
 * Global (all APIs)
-* Product (APIs associated with a selected product)
+* Workspace (all APIs associated with a selected workspace)
+* Product (all APIs associated with a selected product)
 * API (all operations in an API)
 * Operation (single operation in an API) 
 
@@ -119,14 +120,14 @@ Example policy definition at API scope:
 
 In the example policy definition above:
 * The `cross-domain` statement would execute first.
-* The [`find-and-replace` policy](api-management-transformation-policies.md#Findandreplacestringinbody) would execute after any policies at a broader scope. 
+* The [`find-and-replace` policy](find-and-replace-policy.md) would execute after any policies at a broader scope. 
 
 >[!NOTE]
 > If you remove the `base` element at the API scope, only policies configured at the API scope will be applied. Neither product nor global scope policies would be applied.
 
 ### Use policy expressions to modify requests
 
-The following example uses [policy expressions][Policy expressions] and the [`set-header`](api-management-transformation-policies.md#SetHTTPheader) policy to add user data to the incoming request. The added header includes the user ID associated with the subscription key in the request, and the region where the gateway processing the request is hosted.
+The following example uses [policy expressions][Policy expressions] and the [`set-header`](set-header-policy.md) policy to add user data to the incoming request. The added header includes the user ID associated with the subscription key in the request, and the region where the gateway processing the request is hosted.
 
 ```xml
 <policies>
@@ -149,7 +150,7 @@ The following example uses [policy expressions][Policy expressions] and the [`se
 [Operation]: ./mock-api-responses.md
 
 [Advanced policies]: ./api-management-advanced-policies.md
-[Control flow]: ./api-management-advanced-policies.md#choose
-[Set variable]: ./api-management-advanced-policies.md#set-variable
+[Control flow]: choose-policy.md
+[Set variable]: set-variable-policy.md
 [Policy expressions]: ./api-management-policy-expressions.md
 

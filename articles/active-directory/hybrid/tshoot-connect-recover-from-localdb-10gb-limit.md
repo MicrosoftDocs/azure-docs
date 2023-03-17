@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: How to recover from LocalDB 10GB limit issue | Microsoft Docs'
+title: 'Azure AD Connect: How to recover from LocalDB 10GB limit issue'
 description: This topic describes how to recover Azure AD Connect Synchronization Service when it encounters LocalDB 10GB limit issue.
 services: active-directory
 documentationcenter: ''
@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: troubleshooting
-ms.date: 07/17/2017
+ms.date: 01/19/2023
 ms.subservice: hybrid
 ms.author: billmath
 

@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect sync: Understanding the default configuration | Microsoft Docs'
+title: 'Azure AD Connect sync: Understanding the default configuration'
 description: This article describes the default configuration in Azure AD Connect sync.
 services: active-directory
 documentationcenter: ''
@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/05/2022
+ms.date: 01/26/2023
 ms.subservice: hybrid
 ms.author: billmath
 

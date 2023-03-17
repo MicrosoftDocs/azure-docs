@@ -2,14 +2,15 @@
 title: Overview of user and admin consent
 description: Learn about the fundamental concepts of user and admin consent in Azure AD
 services: active-directory
-author: psignoret
-manager: mwongerapk
+author: omondiatieno
+manager: celesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: overview
 ms.date: 09/28/2022
-ms.author: phsignor
+ms.author: jomondi
+ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
 ---
 

@@ -77,7 +77,7 @@ An Event Grid notification `Microsoft.Communication.RecordingFileStatusUpdated` 
 {
     "id": string, // Unique guid for event
     "topic": string, // /subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}
-    "subject": string, // /recording/call/{call-id}/serverCallId/{serverCallId}
+    "subject": string, // /recording/call/{call-id}/serverCallId/{serverCallId}/recordingId/{recordingId}
     "data": {
         "recordingStorageInfo": {
             "recordingChunks": [

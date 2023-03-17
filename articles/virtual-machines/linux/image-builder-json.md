@@ -8,12 +8,12 @@ ms.date: 09/06/2022
 ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.custom: devx-track-azurepowershell, references_regions
+ms.custom: references_regions
 ---
 
 # Create an Azure Image Builder Bicep or ARM JSON template
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets
 
 Azure Image Builder uses a Bicep file or an ARM JSON template file to pass information into the Image Builder service. In this article we'll go over the sections of the files, so you can build your own. For latest API versions, see [template reference](/azure/templates/microsoft.virtualmachineimages/imagetemplates?tabs=bicep&pivots=deployment-language-bicep). To see examples of full .json files, see the [Azure Image Builder GitHub](https://github.com/Azure/azvmimagebuilder/tree/main/quickquickstarts).
 
@@ -683,8 +683,8 @@ customize: [
     type: 'WindowsUpdate'
     searchCriteria: 'IsInstalled=0'
     filters: [
-      exclude:$_.Title -like '*Preview*''
-      include:$true'
+     'exclude:$_.Title -like \'*Preview*\''
+     'include:$true'
     ]
     updateLimit: 20
   }
@@ -760,7 +760,7 @@ Image Builder will read these commands, these commands are written out to the AI
 
 Azure Image Builder supports three distribution targets:
 
-- **managedImage** - managed image.
+- **ManagedImage** - Managed image.
 - **sharedImage** - Azure Compute Gallery.
 - **VHD** - VHD in a storage account.
 
@@ -1172,7 +1172,7 @@ You can use the `validate` property to validate platform images and any customiz
 
 Azure Image Builder supports a 'Source-Validation-Only' mode that can be set using the `sourceValidationOnly` property. If the `sourceValidationOnly` property is set to true, the image specified in the `source` section will directly be validated. No separate build will be run to generate and then validate a customized image.
 
-The `inVMValidations` property takes a list of validators that will be performed on the image. Azure Image Builder supports both PowerShell and Shell validators.
+The `inVMValidations` property takes a list of validators that will be performed on the image. Azure Image Builder supports File, PowerShell and Shell validators.
 
 The `continueDistributeOnFailure` property is responsible for whether the output image(s) will be distributed if validation fails. By default, if validation fails and this property is set to false, the output image(s) won't be distributed. If validation fails and this property is set to true, the output image(s) will still be distributed. Use this option with caution as it may result in failed images being distributed for use. In either case (true or false), the end to end image run will be reported as a failed if a validation failure. This property has no effect on whether validation succeeds or not.
 
@@ -1191,31 +1191,37 @@ How to use the `validate` property to validate Windows images:
 
 ```json
 {
-  "properties": {
-    "validate": {
-      "continueDistributeOnFailure": false,
-      "sourceValidationOnly": false,
-      "inVMValidations": [
-        {
-          "type": "PowerShell",
-          "name": "test PowerShell validator inline",
-          "inline": [
-            "<command to run inline>"
-          ],
-          "validExitCodes": <exit code>,
-          "runElevated": <true or false>,
-          "runAsSystem": <true or false>
-        },
-        {
-          "type": "PowerShell",
-          "name": "<name>",
-          "scriptUri": "<path to script>",
-          "runElevated": <true false>,
-          "sha256Checksum": "<sha256 checksum>"
-        }
-      ]
-    }
-  }
+   "properties":{
+      "validate":{
+         "continueDistributeOnFailure":false,
+         "sourceValidationOnly":false,
+         "inVMValidations":[
+            {
+               "type":"File",
+               "destination":"string",
+               "sha256Checksum":"string",
+               "sourceUri":"string"
+            },
+            {
+               "type":"PowerShell",
+               "name":"test PowerShell validator inline",
+               "inline":[
+                  "<command to run inline>"
+               ],
+               "validExitCodes":"<exit code>",
+               "runElevated":"<true or false>",
+               "runAsSystem":"<true or false>"
+            },
+            {
+               "type":"PowerShell",
+               "name":"<name>",
+               "scriptUri":"<path to script>",
+               "runElevated":"<true false>",
+               "sha256Checksum":"<sha256 checksum>"
+            }
+         ]
+      }
+   }
 }
 ```
 

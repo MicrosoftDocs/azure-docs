@@ -2,16 +2,16 @@
 title: Azure Single Sign Out SAML Protocol
 description: This article describes the Single Sign-Out SAML Protocol in Azure Active Directory
 services: active-directory
-author: kenwith
+author: OwenRichards1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/25/2022
-ms.author: kenwith
+ms.author: owenrichards
+ms.reviewer: kenwith
 ms.custom: aaddev, engagement-fy23
-ms.reviewer: paulgarn
 ---
 
 # Single Sign-Out SAML Protocol

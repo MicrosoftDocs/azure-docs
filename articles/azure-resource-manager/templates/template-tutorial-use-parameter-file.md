@@ -5,8 +5,6 @@ author: mumian
 ms.date: 08/22/2022
 ms.topic: tutorial
 ms.author: jgao 
-ms.custom: devx-track-azurepowershell
-
 ---
 
 # Tutorial: Use parameter files to deploy your ARM template

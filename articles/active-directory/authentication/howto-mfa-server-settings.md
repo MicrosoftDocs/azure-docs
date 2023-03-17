@@ -1,12 +1,12 @@
 ---
-title: Configure MFA Server - Azure Active Directory
+title: Configure MFA Server
 description: Learn how to configure settings for Azure MFA Server in the Azure portal
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 10/29/2022
+ms.date: 01/29/2023
 
 ms.author: justinha
 author: justinha

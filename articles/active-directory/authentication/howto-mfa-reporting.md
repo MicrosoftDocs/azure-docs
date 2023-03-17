@@ -1,5 +1,5 @@
 ---
-title: Sign-in event details for Azure AD Multi-Factor Authentication - Azure Active Directory
+title: Sign-in event details for Azure AD Multi-Factor Authentication
 description: Learn how to view sign-in activity for Azure AD Multi-Factor Authentication events and status messages.
 
 services: multi-factor-authentication
@@ -143,7 +143,7 @@ The following additional information and reports are available for MFA events, i
 | Report | Location | Description |
 |:--- |:--- |:--- |
 | Blocked User History | Azure AD > Security > MFA > Block/unblock users | Shows the history of requests to block or unblock users. |
-| Usage for on-premises components | Azure AD > Security > MFA > Activity Report | Provides information on overall usage for MFA Server through the NPS extension, AD FS, and MFA Server. |
+| Usage for on-premises components | Azure AD > Security > MFA > Activity Report | Provides information on overall usage for MFA Server. NPS extension and AD FS logs for cloud MFA activity are now included in the [Sign-in logs](../reports-monitoring/concept-sign-ins.md), and no longer published on this report. |
 | Bypassed User History | Azure AD > Security > MFA > One-time bypass | Provides a history of MFA Server requests to bypass MFA for a user. |
 | Server status | Azure AD > Security > MFA > Server status | Displays the status of MFA Servers associated with your account. |
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Rally Software | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Rally Software'
 description: Learn how to configure single sign-on between Azure Active Directory and Rally Software.
 services: active-directory
 author: jeevansd

@@ -1,24 +1,28 @@
 ---
-title: "Quickstart: Create and use learning loop with SDK - Personalizer"
-description: This quickstart shows you how to create and manage your knowledge base using the Personalizer client library.
+title: "Quickstart: Create and use learning loop with client SDK - Personalizer"
+description: This quickstart shows you how to create and manage a Personalizer learning loop using the client library.
 author: jcodella
 ms.author: jacodel
 ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 9/1/2022
+ms.date: 02/02/2023
 ms.devlang: csharp, javascript, python
 ms.custom: cog-serv-seo-aug-2020, mode-api
 keywords: personalizer, Azure personalizer, machine learning
 zone_pivot_groups: programming-languages-set-six
 ---
 
-# Quickstart: Getting started with the Personalizer client library
+# Quickstart: Personalizer client library
 
-Imagine a scenario where a grocery e-retailer wishes to increase revenue by showing relevant and personalized products to each customer visiting their website. On the main page, there's a "Featured Product" section that displays a prepared meal product to prospective customers. However, the e-retailer would like to determine how to show the right product to the right customer in order to maximize the likelihood of a purchase.
+Get started with the Azure Personalizer client libraries to set up a basic learning loop. A learning loop is a system of decisions and feedback: an application requests a decision ranking from the service, then it uses the top-ranked choice and calculates a reward score from the outcome. It returns the reward score to the service. Over time, Personalizer uses AI algorithms to  make better decisions for any given context. Follow these steps to set up a sample application.
 
-In this quick-start, you'll learn how to use the Azure Personalizer service to do solve this problem in an automated, scalable, and adaptable fashion using the power of reinforcement learning. You'll learn how to create actions and their features, context features, and reward scores. You'll use the Personalizer client library to make calls to the [Rank and Reward APIs](what-is-personalizer.md#rank-and-reward-apis). You'll also run a cycle of Rank and Reward calls for three example users.
+## Example scenario
+
+In this quickstart, a grocery e-retailer wants to increase revenue by showing relevant and personalized products to each customer on its website. On the main page, there's a "Featured Product" section that displays a prepared meal product to prospective customers. The e-retailer would like to determine how to show the right product to the right customer in order to maximize the likelihood of a purchase.
+
+The Personalizer service solves this problem in an automated, scalable, and adaptable way using reinforcement learning. You'll learn how to create _actions_ and their features, _context features_, and _reward scores_. You'll use the Personalizer client library to make calls to the [Rank and Reward APIs](what-is-personalizer.md#rank-and-reward-apis).
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Get intent with C# SDK](./includes/quickstart-sdk-csharp.md)]
@@ -32,18 +36,19 @@ In this quick-start, you'll learn how to use the Azure Personalizer service to d
 [!INCLUDE [Get intent with Python SDK](./includes/quickstart-sdk-python.md)]
 ::: zone-end
 
+## Download the trained model
+
+If you'd like download a Personalizer model that has been trained on 5,000 events from the example above, visit the [Personalizer Samples repository](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/tree/master/quickstarts) and download the _Personalizer_QuickStart_Model.zip_ file. Then go to your Personalizer resource in the Azure portal, go to the **Setup** page and the **Import/export** tab, and import the file.
+
 ## Clean up resources
 
-To clean up your Cognitive Services subscription, you can delete the resource or the resource group, which will delete any associated resources.
+To clean up your Cognitive Services subscription, you can delete the resource or delete the resource group, which will delete any associated resources.
 
 * [Portal](../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../cognitive-services-apis-create-account-cli.md#clean-up-resources)
-
-## Download the quickstart trained model
-If you'd like download a Personalizer model that has been trained on 5,000 events from the QuickStart example, you can visit the [Azure-Samples repository](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/tree/master/quickstarts) and download the model zip file, then upload this to your Personalizer instance under the "Setup" -> "Model Import/Export" section. 
 
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [How Personalizer works](how-personalizer-works.md)
-> [Where to use Personalizer?](where-can-you-use-personalizer.md)
+> [Where to use Personalizer](where-can-you-use-personalizer.md)
