@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/16/2023
+ms.date: 03/17/2023
 ms.author: alkohli
 ---
 
@@ -66,6 +66,8 @@ Use the following steps to create a new management resource for your existing de
 1. On the **Review + create** tab, review **Terms and conditions** and **Basics** for your management resource, and then review and accept the **Privacy terms**. To complete the operation, select **Create**.
 
    [![Create management resource page Review and create tab on Azure portal. The Privacy terms checkbox is highlighted.](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-create-resource-05.png)](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-create-resource-05.png#lightbox)
+
+After you create the management resource for your device, use the following steps to complete device configuration.
 
 1. [Get the activation key](azure-stack-edge-gpu-deploy-prep.md?tabs=azure-portal#get-the-activation-key).
 
