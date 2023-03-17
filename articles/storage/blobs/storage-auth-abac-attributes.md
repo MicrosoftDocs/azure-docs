@@ -322,7 +322,7 @@ This section lists the Azure Blob Storage attributes you can use in your conditi
 > | **Description** | Name of a storage account. |
 > | **Attribute** | `Microsoft.Storage/storageAccounts:name` |
 > | **Attribute source** | Resource |
-> | **Attribute type** | String |
+> | **Attribute type** | [String](../../role-based-access-control/conditions-format.md#string-comparison-operators) |
 > | **Examples** | `@Resource[Microsoft.Storage/storageAccounts:name] StringEquals 'sampleaccount'`<br/>[Example: Read or write blobs in named storage account with specific encryption scope](storage-auth-abac-examples.md#example-read-or-write-blobs-in-named-storage-account-with-specific-encryption-scope) |
 
 ### Blob index tags [Keys]
@@ -334,7 +334,7 @@ This section lists the Azure Blob Storage attributes you can use in your conditi
 > | **Description** | Index tags on a blob resource.<br/>Arbitrary user-defined key-value properties that you can store alongside a blob resource. Use when you want to check the key in blob index tags. |
 > | **Attribute** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags&$keys$&` |
 > | **Attribute source** | Resource<br/>Request |
-> | **Attribute type** | StringList |
+> | **Attribute type** | [StringList](../../role-based-access-control/conditions-format.md#cross-product-comparison-operators) |
 > | **Is key case sensitive** | True |
 > | **Hierarchical namespace support** | False |
 > | **Examples** | `@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags&$keys$&] ForAllOfAnyValues:StringEquals {'Project', 'Program'}`<br/>[Example: Existing blobs must have blob index tag keys](storage-auth-abac-examples.md#example-existing-blobs-must-have-blob-index-tag-keys) |
@@ -349,7 +349,7 @@ This section lists the Azure Blob Storage attributes you can use in your conditi
 > | **Description** | Index tags on a blob resource.<br/>Arbitrary user-defined key-value properties that you can store alongside a blob resource. Use when you want to check both the key (case-sensitive) and value in blob index tags. |
 > | **Attribute** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags` |
 > | **Attribute source** | Resource<br/>Request |
-> | **Attribute type** | String |
+> | **Attribute type** | [String](../../role-based-access-control/conditions-format.md#string-comparison-operators) |
 > | **Is key case sensitive** | True |
 > | **Hierarchical namespace support** | False |
 > | **Examples** | `@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:`*keyname*`<$key_case_sensitive$>`<br/>`@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>] StringEquals 'Cascade'`<br/>[Example: Read blobs with a blob index tag](storage-auth-abac-examples.md#example-read-blobs-with-a-blob-index-tag) |
@@ -364,7 +364,7 @@ This section lists the Azure Blob Storage attributes you can use in your conditi
 > | **Description** | Path of a virtual directory, blob, folder or file resource.<br/>Use when you want to check the blob name or folders in a blob path. |
 > | **Attribute** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs:path` |
 > | **Attribute source** | Resource |
-> | **Attribute type** | String |
+> | **Attribute type** | [String](../../role-based-access-control/conditions-format.md#string-comparison-operators) |
 > | **Examples** | `@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:path] StringLike 'readonly/*'`<br/>[Example: Read blobs in named containers with a path](storage-auth-abac-examples.md#example-read-blobs-in-named-containers-with-a-path) |
 
 > [!NOTE]
@@ -379,7 +379,7 @@ This section lists the Azure Blob Storage attributes you can use in your conditi
 > | **Description** | Allowed prefix of blobs to be listed.<br/>Path of a virtual directory or folder resource. Use when you want to check the folders in a blob path. |
 > | **Attribute** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs:prefix` |
 > | **Attribute source** | Request |
-> | **Attribute type** | String |
+> | **Attribute type** | [String](../../role-based-access-control/conditions-format.md#string-comparison-operators) |
 > | **Examples** | `@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:prefix] StringStartsWith 'readonly/'`<br/>[Example: Read or list blobs in named containers with a path](storage-auth-abac-examples.md#example-read-or-list-blobs-in-named-containers-with-a-path) |
 
 > [!NOTE]
@@ -394,7 +394,7 @@ This section lists the Azure Blob Storage attributes you can use in your conditi
 > | **Description** | Name of a storage container or file system.<br/>Use when you want to check the container name. |
 > | **Attribute** | `Microsoft.Storage/storageAccounts/blobServices/containers:name` |
 > | **Attribute source** | Resource |
-> | **Attribute type** | String |
+> | **Attribute type** | [String](../../role-based-access-control/conditions-format.md#string-comparison-operators) |
 > | **Examples** | `@Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals 'blobs-example-container'`<br/>[Example: Read, write, or delete blobs in named containers](storage-auth-abac-examples.md#example-read-write-or-delete-blobs-in-named-containers) |
 
 ### Encryption scope name
@@ -406,8 +406,8 @@ This section lists the Azure Blob Storage attributes you can use in your conditi
 > | **Description** | Name of the encryption scope used to encrypt data.<br/>Available only for storage accounts where hierarchical namespace is not enabled. |
 > | **Attribute** | `Microsoft.Storage/storageAccounts/encryptionScopes:name` |
 > | **Attribute source** | Resource |
-> | **Attribute type** | String |
-> | **Exists support** | True |
+> | **Attribute type** | [String](../../role-based-access-control/conditions-format.md#string-comparison-operators) |
+> | **Exists support** | [True](../../role-based-access-control/conditions-format.md#exists) |
 > | **Examples** | `@Resource[Microsoft.Storage/storageAccounts/encryptionScopes:name] ForAnyOfAnyValues:StringEquals {'validScope1', 'validScope2'}`<br/>[Example: Read blobs with specific encryption scopes](storage-auth-abac-examples.md#example-read-blobs-with-specific-encryption-scopes) |
 > | **Learn more** | [Create and manage encryption scopes](encryption-scope-manage.md) |
 
@@ -420,7 +420,7 @@ This section lists the Azure Blob Storage attributes you can use in your conditi
 > | **Description** | Identifies if the resource is the current version of the blob, in contrast of a snapshot or a specific blob version. |
 > | **Attribute** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs:isCurrentVersion` |
 > | **Attribute source** | Resource |
-> | **Attribute type** | Boolean |
+> | **Attribute type** | [Boolean](../../role-based-access-control/conditions-format.md#boolean-comparison-operators) |
 > | **Examples** | `@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:isCurrentVersion] BoolEquals true`<br/>[Example: Read only current blob versions](storage-auth-abac-examples.md#example-read-only-current-blob-versions)<br/>[Example: Read current blob versions and a specific blob version](storage-auth-abac-examples.md#example-read-current-blob-versions-and-a-specific-blob-version) |
 
 ### Is hierarchical namespace enabled
@@ -432,7 +432,7 @@ This section lists the Azure Blob Storage attributes you can use in your conditi
 > | **Description** | Whether hierarchical namespace is enabled on the storage account.<br/>Applicable only at resource group scope or above. |
 > | **Attribute** | `Microsoft.Storage/storageAccounts:isHnsEnabled` |
 > | **Attribute source** | Resource |
-> | **Attribute type** | Boolean |
+> | **Attribute type** | [Boolean](../../role-based-access-control/conditions-format.md#boolean-comparison-operators) |
 > | **Examples** | `@Resource[Microsoft.Storage/storageAccounts:isHnsEnabled] BoolEquals true`<br/>[Example: Read only storage accounts with hierarchical namespace enabled](storage-auth-abac-examples.md#example-read-only-storage-accounts-with-hierarchical-namespace-enabled) |
 > | **Learn more** | [Azure Data Lake Storage Gen2 hierarchical namespace](data-lake-storage-namespace.md) |
 
@@ -444,7 +444,7 @@ This section lists the Azure Blob Storage attributes you can use in your conditi
 > | **Display name** | Is private link |
 > | **Description** | Whether access is over a private link.<br/>Use to require access over any private endpoint. |
 > | **Attribute** | `isPrivateLink` |
-> | **Attribute source** | Environment |
+> | **Attribute source** | [Environment](../../role-based-access-control/conditions-format.md#environment-attributes) |
 > | **Attribute type** | [Boolean](../../role-based-access-control/conditions-format.md#boolean-comparison-operators) |
 > | **Examples** | `@Environment[isPrivateLink] BoolEquals true`<br/>[Example: Allow read access to blobs based on private link and tags](storage-auth-abac-examples.md#example-allow-read-access-to-blobs-based-on-private-link-and-tags) |
 > | **Learn more** | [Use private endpoints for Azure Storage](../common/storage-private-endpoints.md) |
@@ -457,7 +457,7 @@ This section lists the Azure Blob Storage attributes you can use in your conditi
 > | **Display name** | Private endpoint |
 > | **Description** | The name of the private endpoint from an object is accessed.<br/>Use to restrict access over a specific private endpoint. |
 > | **Attribute** | `Microsoft.Network/privateEndpoints` |
-> | **Attribute source** | Environment |
+> | **Attribute source** | [Environment](../../role-based-access-control/conditions-format.md#environment-attributes) |
 > | **Attribute type** | [String](../../role-based-access-control/conditions-format.md#string-comparison-operators) |
 > | **Examples** | `@Environment[Microsoft.Network/privateEndpoints] StringEqualsIgnoreCase '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-group/providers/Microsoft.Network/privateEndpoints/privateendpoint1'`<br/>[Example: Allow read access to a container from only a private endpoint](storage-auth-abac-examples.md#example-allow-read-access-to-a-container-from-only-a-private-endpoint) |
 > | **Learn more** | [Use private endpoints for Azure Storage](../common/storage-private-endpoints.md) |
@@ -471,8 +471,8 @@ This section lists the Azure Blob Storage attributes you can use in your conditi
 > | **Description** | The Snapshot identifier for the Blob snapshot.<br/>Available for storage accounts where hierarchical namespace is not enabled and currently in preview for storage accounts where hierarchical namespace is enabled. |
 > | **Attribute** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs:snapshot` |
 > | **Attribute source** | Request |
-> | **Attribute type** | DateTime |
-> | **Exists support** | True |
+> | **Attribute type** | [DateTime](../../role-based-access-control/conditions-format.md#datetime-comparison-operators) |
+> | **Exists support** | [True](../../role-based-access-control/conditions-format.md#exists) |
 > | **Hierarchical namespace support** | False |
 > | **Examples** | `Exists @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:snapshot]`<br/>[Example: Read current blob versions and any blob snapshots](storage-auth-abac-examples.md#example-read-current-blob-versions-and-any-blob-snapshots) |
 > | **Learn more** | [Blob snapshots](snapshots-overview.md)<br/>[Azure Data Lake Storage Gen2 hierarchical namespace](data-lake-storage-namespace.md) |
@@ -485,7 +485,7 @@ This section lists the Azure Blob Storage attributes you can use in your conditi
 > | **Display name** | Subnet name |
 > | **Description** | The name of the subnet from an object is accessed.<br/>Use to restrict access to a specific subnet. |
 > | **Attribute** | `Microsoft.Network/virtualNetworks/subnets` |
-> | **Attribute source** | Environment |
+> | **Attribute source** | [Environment](../../role-based-access-control/conditions-format.md#environment-attributes) |
 > | **Attribute type** | [String](../../role-based-access-control/conditions-format.md#string-comparison-operators) |
 > | **Examples** | `@Environment[Microsoft.Network/virtualNetworks/subnets] StringEqualsIgnoreCase '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-group/providers/Microsoft.Network/virtualNetworks/virtualnetwork1/subnets/default'`<br/>[Example: Allow read access to blobs based on a subnet and tags](storage-auth-abac-examples.md#example-allow-read-access-to-blobs-based-on-a-subnet-and-tags) |
 > | **Learn more** | [Subnets](../../virtual-network/concepts-and-best-practices.md) |
@@ -498,7 +498,7 @@ This section lists the Azure Blob Storage attributes you can use in your conditi
 > | **Display name** | UTC now |
 > | **Description** | The current time in Coordinated Universal Time.<br/>Use to control access to objects for a specific date and time period. |
 > | **Attribute** | `UtcNow` |
-> | **Attribute source** | Environment |
+> | **Attribute source** | [Environment](../../role-based-access-control/conditions-format.md#environment-attributes) |
 > | **Attribute type** | [DateTime](../../role-based-access-control/conditions-format.md#datetime-comparison-operators) |
 > | **Examples** | `@Environment[UtcNow] DateTimeGreaterThan '2023-03-29T22:03:00.0Z'`<br/>[Example: Allow read access to blobs after a specific date and time](storage-auth-abac-examples.md#example-allow-read-access-to-blobs-after-a-specific-date-and-time) |
 
@@ -511,8 +511,8 @@ This section lists the Azure Blob Storage attributes you can use in your conditi
 > | **Description** | The version ID of the versioned Blob.<br/>Available only for storage accounts where hierarchical namespace is not enabled. |
 > | **Attribute** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs:versionId` |
 > | **Attribute source** | Request |
-> | **Attribute type** | DateTime |
-> | **Exists support** | True |
+> | **Attribute type** | [DateTime](../../role-based-access-control/conditions-format.md#datetime-comparison-operators) |
+> | **Exists support** | [True](../../role-based-access-control/conditions-format.md#exists) |
 > | **Hierarchical namespace support** | False |
 > | **Examples** | `@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:versionId] DateTimeEquals '2022-06-01T23:38:32.8883645Z'`<br/>[Example: Read current blob versions and a specific blob version](storage-auth-abac-examples.md#example-read-current-blob-versions-and-a-specific-blob-version)<br/>[Example: Read current blob versions and any blob snapshots](storage-auth-abac-examples.md#example-read-current-blob-versions-and-any-blob-snapshots) |
 > | **Learn more** | [Azure Data Lake Storage Gen2 hierarchical namespace](data-lake-storage-namespace.md) |
