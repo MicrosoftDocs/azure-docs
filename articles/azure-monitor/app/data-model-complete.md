@@ -286,11 +286,11 @@ PageView telemetry (in [Application Insights](./app-insights-overview.md)) is lo
 
 Modern browsers expose measurements for page load actions with the [Performance API](https://developer.mozilla.org/en-US/docs/Web/API/Performance_API). Application Insights simplifies these measurements by consolidating related timings into [standard browser metrics](../essentials/metrics-supported.md#microsoftinsightscomponents) as defined by these processing time definitions:
 
-1. Client <--> DNS: Client reaches out to DNS to resolve website hostname, DNS responds with IP address.
-1. Client <--> Web Server: Client creates TCP then TLS handshakes with web server.
-1. Client <--> Web Server: Client sends request payload, waits for server to execute request, and receives first response packet.
-1. Client <--Web Server: Client receives the rest of the response payload bytes from the web server.
-1. Client: Client now has full response payload and has to render contents into browser and load the DOM.
+* Client <--> DNS: Client reaches out to DNS to resolve website hostname, DNS responds with IP address.
+* Client <--> Web Server: Client creates TCP then TLS handshakes with web server.
+* Client <--> Web Server: Client sends request payload, waits for server to execute request, and receives first response packet.
+* Client <--Web Server: Client receives the rest of the response payload bytes from the web server.
+* Client: Client now has full response payload and has to render contents into browser and load the DOM.
  
 * `browserTimings/networkDuration` = #1 + #2
 * `browserTimings/sendDuration` = #3
@@ -303,7 +303,7 @@ Modern browsers expose measurements for page load actions with the [Performance 
     * If it’s not, then the *deprecated* [`PerformanceTiming`](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceTiming) interface is used and the delta between [`NavigationStart`](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceTiming/navigationStart) and [`LoadEventEnd`](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceTiming/loadEventEnd) is calculated.
     * The developer specifies a duration value when logging custom PageView events using the [trackPageView API call](./api-custom-events-metrics.md#page-views).
 
-![Screenshot of the Metrics page in Application Insights showing graphic displays of metrics data for a web application.](./media/javascript/page-view-load-time.png)
+:::image type="content" source="./media/javascript/page-view-load-time.png" alt-text="Screenshot of the Metrics page in Application Insights showing graphic displays of metrics data for a web application." lightbox="./media/javascript/page-view-load-time.png" border="false":::
 
 ## Context
 
