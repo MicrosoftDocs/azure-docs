@@ -185,7 +185,7 @@ To create an ephemeral volume and mount it in a container, deploy a new revision
 1. Under the *Ephemeral storage* section, create a new volume with the following information.
 
     - **Volume name**: A name for the ephemeral volume.
-    - **Mount path**: The path in the container to mount the volume.
+    - **Mount path**: The absolute path in the container to mount the volume.
 
 1. Select **Save** to save changes and exit the context pane.
 
@@ -400,12 +400,14 @@ To configure a volume mount for Azure Files storage in the Azure portal, add a f
 1. In the *Add file share* context menu, enter the following information:
 
     - **Name**: A name for the file share.
-    - **Subscription**: The subscription that contains the storage account.
-    - **Storage account**: The name of the storage account that contains the file share.
+    - **Storage account name**: The name of the storage account that contains the file share.
+    - **Storage account key**: The access key for the storage account.
     - **File share**: The name of the file share.
-    - **Access mode**: The access mode for the file share. Valid values are `ReadWrite` and `ReadOnly`.
+    - **Access mode**: The access mode for the file share. Valid values are "Read/Write" and "Read only".
 
-1. Select **Add**.
+1. Select **Add** to exit the context pane.
+
+1. Select **Save** to commit the changes.
 
 1. Navigate to your container app.
 
@@ -419,8 +421,8 @@ To configure a volume mount for Azure Files storage in the Azure portal, add a f
 
 1. Under the *File shares* section, create a new volume with the following information.
 
-    - **File share name**: A name for the file share.
-    - **Mount path**: The path in the container to mount the volume.
+    - **File share name**: The file share you added.
+    - **Mount path**: The absolute path in the container to mount the volume.
 
 1. Select **Save** to save changes and exit the context pane.
 
