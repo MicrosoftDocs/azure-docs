@@ -120,8 +120,8 @@ If you created any Azure resources in your testing that are no longer needed, do
 ## Known Issues with Azure AD SCIM Validator
 
 - Soft deletes (disables) aren’t yet supported.
-- The time zone format is randomly generated and will fail for systems that try to validate it.
-- The preferred language format is randomly generated and will fail for systems that try to validate it.
+- The time zone format is randomly generated and fails for systems that try to validate it.
+- The preferred language format is randomly generated and fails for systems that try to validate it.
 - The patch user remove attributes may attempt to remove mandatory/required attributes for certain systems. Such failures should be ignored.
 
 
