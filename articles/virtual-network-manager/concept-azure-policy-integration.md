@@ -79,7 +79,7 @@ Along with the required permissions, your subscriptions and management groups mu
 - `Microsoft.Network` is required to create virtual networks.
 - `Microsoft.PolicyInsights` is required to use Azure Policy.
 
-To set register the needed providers, use [Register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider?view=azps-9.4.0) in Azure PowerShell or [az provider register](/cli/azure/provider) in Azure CLI.
+To set register the needed providers, use [Register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider) in Azure PowerShell or [az provider register](/cli/azure/provider) in Azure CLI.
 
 ## Helpful tips
 
