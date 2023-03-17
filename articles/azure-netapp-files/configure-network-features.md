@@ -55,7 +55,7 @@ Two settings are available for network features:
 
 
   
-## Set network features option during volume creation
+## Set the network features option during volume creation
 
 This section shows you how to set the network features option when you create a new volume. 
 
@@ -77,7 +77,7 @@ This section shows you how to set the network features option when you create a 
 
     [ ![Screenshot that shows the Volumes page displaying the network features setting.](../media/azure-netapp-files/network-features-volume-list.png)](../media/azure-netapp-files/network-features-volume-list.png#lightbox)
 
-## Edit network features option for existing volumes
+## Edit the network features option for existing volumes
 
 You can edit the network features option for existing volumes and set it to use *Standard* or *Basic* network features. The setting applies to all volumes in the same network sibling set. 
 
