@@ -1,5 +1,5 @@
 ---
-title: Integrate Splunk using Azure Monitor | Microsoft Docs
+title: Integrate Splunk using Azure Monitor
 description: Learn how to integrate Azure Active Directory logs with Splunk using Azure Monitor.
 services: active-directory
 author: shlipsey3

@@ -1,5 +1,5 @@
 ---
-title: Configure authentication session management - Azure Active Directory
+title: Configure authentication session management
 description: Customize Azure AD authentication session configuration including user sign-in frequency and browser session persistence.
 
 services: active-directory

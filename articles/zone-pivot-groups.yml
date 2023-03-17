@@ -1449,6 +1449,15 @@ groups:
   - id: rest-api
     title: REST
 # Owner: mbullwin
+- id: openai-chat
+  title: API Options
+  prompt: Chat API options
+  pivots:
+  - id: programming-language-chat-completions
+    title: ChatCompletion
+  - id: programming-language-chat-ml
+    title: ChatML
+# Owner: mbullwin
 - id: openai-create-resource
   title: Programming languages
   prompt: Choose your preferred resource creation method
@@ -1880,9 +1889,9 @@ groups:
   prompt: Choose an option
   pivots:
   - id: powershell-hrd
-    title: PowerShell
+    title: Azure AD PowerShell
   - id: graph-hrd
-    title: Graph
+    title: Microsoft Graph
 ## template with all
 - id: enterprise-apps-all
   title: Manage Enterprise apps

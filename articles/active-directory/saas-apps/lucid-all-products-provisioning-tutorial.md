@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Lucid (All Products) for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Lucid (All Products) for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Lucid (All Products).
 services: active-directory
 documentationcenter: ''

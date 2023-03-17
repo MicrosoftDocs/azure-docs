@@ -1,5 +1,5 @@
 ---
-title: Configure SaaS apps for B2B collaboration - Azure AD
+title: Configure SaaS apps for B2B collaboration
 description: Learn how to configure SaaS apps for Azure Active Directory B2B collaboration and view additional available resources.
 
 services: active-directory

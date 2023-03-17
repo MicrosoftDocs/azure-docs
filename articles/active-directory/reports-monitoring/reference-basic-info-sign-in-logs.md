@@ -1,5 +1,5 @@
 ---
-title: Basic info in the Azure AD sign-in logs | Microsoft Docs
+title: Basic info in the Azure AD sign-in logs
 description: Learn what the basic info in the sign-in logs is about.
 services: active-directory
 author: shlipsey3
