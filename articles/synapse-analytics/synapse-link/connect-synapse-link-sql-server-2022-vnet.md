@@ -89,7 +89,7 @@ In this section, you create an Azure Synapse workspace with managed virtual netw
 
      b. Enter **blob** in the search box on **New managed private endpoint** pane, and then select **Azure Blob Storage**.
 
-     :::image type="content" source="../media/connect-synapse-link-sql-database/blob-managed-private-endpoint.png" alt-text="Screenshot of azure blob storage.":::
+     :::image type="content" source="../media/connect-synapse-link-sql-database/blob-managed-private-endpoint.png" alt-text="Screenshot of Azure blob storage.":::
 
     c. Complete the managed private endpoint creation for Azure Blob Storage.
          
