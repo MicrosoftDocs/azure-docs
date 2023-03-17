@@ -11,6 +11,7 @@ ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 11/04/2022
+monikerRange: 'azureml-api-1'
 ---
 
 # Failover for business continuity and disaster recovery
