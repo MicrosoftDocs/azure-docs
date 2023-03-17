@@ -66,7 +66,7 @@ The table below indicates the estimated downtime for each Microsoft SQL Server t
 
    
 
-    :::image type="content" source="media/sql-server-hybrid-benefit/sql-standalone-1.png" alt-text="SQL Server Management Studio connection to the migrated database." border="false":::  
+    :::image type="content" source="media/sql-server-hybrid-benefit/sql-standalone-1.png" alt-text="Diagram showing a SQL Server Management Studio connection to the migrated database." border="false":::  
 
 ## Next steps
 
