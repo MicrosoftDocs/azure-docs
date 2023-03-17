@@ -64,3 +64,4 @@ The following video provides an overview of on-premises provisoning.
 - [App provisioning](user-provisioning.md)
 - [Generic SQL connector](on-premises-sql-connector-configure.md)
 - [Tutorial: ECMA Connector Host generic SQL connector](tutorial-ecma-sql-connector.md)
+- [Known issues](known-issues.md)

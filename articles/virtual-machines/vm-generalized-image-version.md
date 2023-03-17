@@ -584,7 +584,19 @@ To create a VM using an image shared to a community gallery, use the unique ID o
 /CommunityGalleries/<community gallery name, like: ContosoImages-1a2b3c4d-1234-abcd-1234-1a2b3c4d5e6f>/Images/<image name>/Versions/latest
 ```
 
-As an end user, to get the public name of a community gallery, you need to use the portal. Go to **Virtual machines** > **Create** > **Azure virtual machine** > **Image** > **See all images** > **Community Images** > **Public gallery name**.
+Follow these instructions to get the list of Community images using CLI:
+```
+#Step 1:  Show all 'Community images' in a specific location
+az sig list-community --location westus2
+
+Step 2: Once you have the public gallery name from Step 1, Get the Image definition (Name) of the image by running the following command
+az sig image-definition list-community --public-gallery-name <<public gallery name>> --location westus2
+
+Step 3: Finally, run the following command to list different image versions available for the specific image
+az sig image-version list-community --public-gallery-name <<galleryname>> --gallery-image-definition <<image name>> --location westus2
+```
+
+To get the public name of a community gallery from portal. Go to **Virtual machines** > **Create** > **Azure virtual machine** > **Image** > **See all images** > **Community Images** > **Public gallery name**.
 
 In this example, we are creating a VM from a Linux image and creating SSH keys for authentication.
 
