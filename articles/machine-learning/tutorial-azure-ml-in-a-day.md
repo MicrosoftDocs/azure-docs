@@ -78,7 +78,7 @@ ml_client = MLClient(
     credential=credential,
     subscription_id="<SUBSCRIPTION_ID>",
     resource_group_name="<RESOURCE_GROUP>",
-    workspace_name="<AML_WORKSPACE_NAME>"
+    workspace_name="<AML_WORKSPACE_NAME>",
 )
 ```
 
@@ -112,10 +112,10 @@ try:
 except Exception:
     print("Creating a new cpu compute target...")
 
-    # Let's create the Azure ML compute object with the intended parameters
+    # Let's create the Azure Machine Learning compute object with the intended parameters
     cpu_cluster = AmlCompute(
         name=cpu_compute_target,
-        # Azure ML Compute is the on-demand VM service
+        # Azure Machine Learning Compute is the on-demand VM service
         type="amlcompute",
         # VM Family
         size="STANDARD_DS3_V2",
@@ -141,7 +141,7 @@ You'll create an Azure Machine Learning *command job* to train a model for credi
 
 The *training script* handles the data preparation, training and registering of the trained model. In this tutorial, you'll create a Python training script.
 
-Command jobs can be run from CLI, Python SDK, or studio interface. In this tutorial, you'll use the Azure  Machine Learning Python SDK v2 to create and run the command job.
+Command jobs can be run from CLI, Python SDK, or studio interface. In this tutorial, you'll use the Azure Machine Learning Python SDK v2 to create and run the command job.
 
 After running the training job, you'll deploy the model, then use it to produce a prediction.
 
@@ -312,7 +312,7 @@ job = command(
 
 ## Submit the job 
 
-It's now time to submit the job to run in Azure Machine Learning. This time you'll use `create_or_update`  on `ml_client.jobs`.
+It's now time to submit the job to run in Azure Machine Learning. This time you'll use `create_or_update`  on `ml_client`.
 
 
 ```python
@@ -321,7 +321,7 @@ ml_client.create_or_update(job)
 
 ## View job output and wait for job completion
 
-View the job in Azure Machine Learning studio by selecting the link in the output of the previous cell.
+View the job in Azure Machine Learning studio by selecting the link in the output of the previous cell. 
 
 The output of this job will look like this in the Azure Machine Learning studio. Explore the tabs for various details like metrics, outputs etc. Once completed, the job will register a model in your workspace as a result of training. 
 
@@ -332,17 +332,17 @@ The output of this job will look like this in the Azure Machine Learning studio.
 
 ## Deploy the model as an online endpoint
 
-Now deploy your machine learning model as a web service in the Azure cloud, an [`online endpoint`](concept-endpoints.md).
+Now deploy your machine learning model as a web service in the Azure cloud, an [`online endpoint`](concept-endpoints.md)..
 
 To deploy a machine learning service, you usually need:
 
 * The model assets (file, metadata) that you want to deploy. You've already registered these assets in your training job.
-* Some code to run as a service. The code executes the model on a given input request. This entry script receives data submitted to a deployed web service and passes it to the model, then returns the model's response to the client. The script is specific to your model. The entry script must understand the data that the model expects and returns. With an MLFlow model, as in this tutorial, this script is automatically created for you. Samples of scoring scripts can be found [here](https://github.com/Azure/azureml-examples/tree/sdk-preview/sdk/endpoints/online).
+* Some code to run as a service. The code executes the model on a given input request. This entry script receives data submitted to a deployed web service and passes it to the model, then returns the model's response to the client. The script is specific to your model. The entry script must understand the data that the model expects and returns. With an MLFlow model, as in this tutorial, this script is automatically created for you. Find more examples of [scoring scripts](https://github.com/Azure/azureml-examples/tree/main/sdk/python/endpoints/online).
 
 
 ## Create a new online endpoint
 
-Now that you have a registered model and an inference script, it's time to create your online endpoint. The endpoint name needs to be unique in the entire Azure region. For this tutorial, you'll create a unique name using  [`UUID`](https://en.wikipedia.org/wiki/Universally_unique_identifier).
+Now that you have a registered model and an inference script, it's time to create your online endpoint. The endpoint name needs to be unique in the entire Azure region. For this tutorial, you'll create a unique name using [`UUID`](https://en.wikipedia.org/wiki/Universally_unique_identifier).
 
 
 ```python
@@ -398,7 +398,7 @@ print(
 
 Once the endpoint is created, deploy the model with the entry script. Each endpoint can have multiple deployments. Direct traffic to these deployments can be specified using rules. Here you'll create a single deployment that handles 100% of the incoming traffic. We have chosen a color name for the deployment, for example, *blue*, *green*, *red* deployments, which is arbitrary.
 
-You can check the **Models** page on the Azure Machine Learning  studio, to identify the latest version of your registered model. Alternatively, the code below will retrieve the latest version number for you to use.
+You can check the **Models** page on Azure Machine Learning studio, to identify the latest version of your registered model. Alternatively, the code below will retrieve the latest version number for you to use.
 
 
 ```python
@@ -406,6 +406,7 @@ You can check the **Models** page on the Azure Machine Learning  studio, to iden
 latest_model_version = max(
     [int(m.version) for m in ml_client.models.list(name=registered_model_name)]
 )
+print(f'Latest model is version "{latest_model_version}" ')
 ```
 
 Deploy the latest version of the model.  

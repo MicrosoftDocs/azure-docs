@@ -51,7 +51,7 @@ The start of a machine learning project typically involves exploratory data anal
 
 ## Download the data used in this tutorial
 
-For data ingestion, the Azure Data Explorer handles raw data in [these formats](https://learn.microsoft.com/azure/data-explorer/ingestion-supported-formats). This tutorial uses this [CSV-format credit card client data sample](https://azuremlexamples.blob.core.windows.net/datasets/credit_card/default_of_credit_card_clients.csv). We see the steps proceed in an Azure Machine Learning resource. In that resource, we'll create a local folder with the suggested name of **data** directly under the folder where this notebook is located.
+For data ingestion, the Azure Data Explorer handles raw data in [these formats](/azure/data-explorer/ingestion-supported-formats). This tutorial uses this [CSV-format credit card client data sample](https://azuremlexamples.blob.core.windows.net/datasets/credit_card/default_of_credit_card_clients.csv). We see the steps proceed in an Azure Machine Learning resource. In that resource, we'll create a local folder with the suggested name of **data** directly under the folder where this notebook is located.
 
 1. Select **Open terminal** below the three dots, as shown in this image:
 
@@ -291,8 +291,8 @@ The cleaned parquet file is the latest version data source. This code shows the 
 import pandas as pd
 
 # get a handle of the data asset and print the URI
-data_asset_v1 = ml_client.data.get(name="credit-card", version="1")
-data_asset_v2 = ml_client.data.get(name="credit-card", version="2")
+data_asset_v1 = ml_client.data.get(name=data_name, version="1")
+data_asset_v2 = ml_client.data.get(name=data_name, version="2")
 
 # print the v1 data
 print(f"V1 Data asset URI: {data_asset_v1.path}")

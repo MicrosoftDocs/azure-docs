@@ -49,7 +49,7 @@ The two steps are first data preparation and second training.
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/machine-learning).
 - An Azure Machine Learning workspace. See [Create resources to get started](quickstart-create-resources.md) for information on how to create one.
 
-<!-- nbstart https://raw.githubusercontent.com/Azure/azureml-examples/new-tutorial-series/tutorials/get-started-notebooks/pipeline.ipynb -->
+<!-- nbstart https://raw.githubusercontent.com/Azure/azureml-examples/get-started-notebooks/tutorials/get-started-notebooks/pipeline.ipynb -->
 
 ## Set up the pipeline resources
 
