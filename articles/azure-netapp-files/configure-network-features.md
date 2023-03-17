@@ -22,7 +22,7 @@ The **Network Features** functionality enables you to indicate whether you want 
 
 This article helps you understand the options and shows you how to configure network features.
 
-The **Network Features** functionality is not available in Azure Government regions. See [supported regions](azure-netapp-files-network-topologies.md#supported-regions) for a full list. 
+The **Network Features** functionality isn't available in Azure Government regions. See [supported regions](azure-netapp-files-network-topologies.md#supported-regions) for a full list. 
 
 ## Options for network features 
 
@@ -36,7 +36,7 @@ Two settings are available for network features:
 * ***Basic***  
     This setting provides reduced IP limits (<1000) and no additional VNet features for the volumes.
 
-    You should set **Network Features** to *Basic* if you do not require VNet features.  
+    You should set **Network Features** to *Basic* if you don't require VNet features.  
 
 ## Considerations
 
@@ -45,15 +45,15 @@ Two settings are available for network features:
 * You can create or modify volumes with the Standard network features only if the corresponding [Azure region supports the Standard volume capability](azure-netapp-files-network-topologies.md#supported-regions). 
 
     * If the Standard volume capability is supported for the region, the Network Features field of the Create a Volume page defaults to *Standard*. You can change this setting to *Basic*. 
-    * If the Standard volume capability is not available for the region, the Network Features field of the Create a Volume page defaults to *Basic*, and you cannot modify the setting.
+    * If the Standard volume capability isn't available for the region, the Network Features field of the Create a Volume page defaults to *Basic*, and you can't modify the setting.
 
-* The ability to locate storage compatible with the desired type of network features depends on the VNet specified. If you cannot create a volume because of insufficient resources, you can try a different VNet for which compatible storage is available.
+* The ability to locate storage compatible with the desired type of network features depends on the VNet specified. If you can't create a volume because of insufficient resources, you can try a different VNet for which compatible storage is available.
 
-* You can create Basic volumes from Basic volume snapshots and Standard volumes from Standard volume snapshots. Creating a Basic volume from a Standard volume snapshot is not supported. Creating a Standard volume from a Basic volume snapshot is not supported.
+* You can create Basic volumes from Basic volume snapshots and Standard volumes from Standard volume snapshots. Creating a Basic volume from a Standard volume snapshot isn't supported. Creating a Standard volume from a Basic volume snapshot isn't supported.
 
-* When restoring a backup to a new volume, the new volume can be configure with Basic or Standard network features. 
+* When you restore a backup to a new volume, you can configure the new volume with Basic or Standard network features. 
 
-* Conversion between Basic and Standard network features in either direction is not currently supported.
+
   
 ## Set network features option during volume creation
 
