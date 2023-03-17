@@ -98,6 +98,8 @@ items:
       displayName: Best practices
     - name: Label data
       href: custom-text-classification/how-to/tag-data.md
+    - name: Auto label your data (preview)
+      href: custom-text-classification/how-to/use-autotagging.md
     - name: Train a model
       href: custom-text-classification/how-to/train-model.md
     - name: Model performance (preview)
