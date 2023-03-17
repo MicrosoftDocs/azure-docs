@@ -17,6 +17,6 @@ Return to the Azure portal for Azure SQL Database to verify it is now governed b
 1. Scroll down to **Microsoft Purview access policies**.
 
 1. Select the button to **Check for Microsoft Purview Governance**. Wait while the request is processed. It may take a few minutes. 
-   ![Screenshot that shows Azure SQL is governed by Microsoft Purview.](./media/how-to-policies-data-owner-sql/check-governed-status-azure-sql-db.png)
+   ![Screenshot that shows Azure SQL is governed by Microsoft Purview.](../media/how-to-policies-data-owner-sql/check-governed-status-azure-sql-db.png)
 
 1. Confirm that the Microsoft Purview Governance Status shows `Governed`. Note that **it may take a few minutes** after you enable *Data use management* in Microsoft Purview for the correct status to be reflected.
