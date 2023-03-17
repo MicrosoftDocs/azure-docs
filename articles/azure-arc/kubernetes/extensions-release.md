@@ -134,7 +134,7 @@ Changes made for this version:
 - Upgrades Flux to [v0.39.0](https://github.com/fluxcd/flux2/releases/tag/v0.39.0)
 - Flux extension is now supported on ARM64-based clusters
 
-- ### 1.6.4 (February 2023)
+### 1.6.4 (February 2023)
 
 Changes made for this version:
 
