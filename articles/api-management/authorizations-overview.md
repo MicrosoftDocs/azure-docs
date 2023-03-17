@@ -182,7 +182,7 @@ All underlying authorizations and access policies are also deleted.
 The access token is cached by the API management until 3 minutes before the token expiration time.
 
 
-### Next steps
+## Next steps
 
 Learn how to:
 - Configure [identity providers](authorizations-configure-common-providers.md) for authorizations
