@@ -138,7 +138,7 @@ Start by running the `order-processor` subscriber service with Dapr.
    dapr stop --app-id order-processor
    ```
 
-## Deploy the Dapr application template using `azd`
+## Deploy the Dapr application template using Azure Developer CLI
 
 Deploy the Dapr application to Azure Container Apps using [`azd`](/azure/developer/azure-developer-cli/overview).
 
@@ -350,7 +350,7 @@ Start by running the `order-processor` subscriber service with Dapr.
    dapr stop --app-id order-processor
    ```
 
-## Deploy the Dapr application template using `azd`
+## Deploy the Dapr application template using Azure Developer CLI
 
 Deploy the Dapr application to Azure Container Apps using [`azd`](/azure/developer/azure-developer-cli/overview).
 
@@ -562,7 +562,7 @@ Start by running the `order-processor` subscriber service with Dapr.
    dapr stop --app-id order-processor
    ```
 
-## Deploy the Dapr application template using `azd`
+## Deploy the Dapr application template using Azure Developer CLI
 
 Deploy the Dapr application to Azure Container Apps using [`azd`](/azure/developer/azure-developer-cli/overview).
 
