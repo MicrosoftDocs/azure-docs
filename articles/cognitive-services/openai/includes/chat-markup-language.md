@@ -29,7 +29,7 @@ openai.api_version = "2022-12-01"
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 response = openai.Completion.create(
-  engine="gpt-35-turbo", #This corresponds to the deployment name you chose when you deployed the ChatGPT or GPT-4 model.
+  engine="gpt-35-turbo", # The deployment name you chose when you deployed the ChatGPT or GPT-4 model.
   prompt="<|im_start|>system\nAssistant is a large language model trained by OpenAI.\n<|im_end|>\n<|im_start|>user\nWhat's the difference between garbanzo beans and chickpeas?\n<|im_end|>\n<|im_start|>assistant\n",
   temperature=0,
   max_tokens=500,
@@ -241,7 +241,7 @@ system_message = f"<|im_start|>system\n{'<your system message>'}\n<|im_end|>"
 messages = [{"sender": "user", "text": user_input}]
 
 response = openai.Completion.create(
-    engine="gpt-35-turbo", #This corresponds to the deployment name you chose when you deployed the ChatGPT or GPT-4 model.
+    engine="gpt-35-turbo", # The deployment name you chose when you deployed the ChatGPT or GPT-4 model.
     prompt=create_prompt(system_message, messages),
     temperature=0.5,
     max_tokens=250,
