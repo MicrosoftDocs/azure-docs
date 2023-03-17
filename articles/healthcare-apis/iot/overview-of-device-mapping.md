@@ -70,7 +70,7 @@ The validation process validates the device mapping before allowing it to be sav
 
 ## CollectionContent as the root device mapping template 
 
-CollectionContent is the root template type used by the MedTech service device mapping. The CollectionContent template represents a list of all templates that are used during the normalization processing stage. You can define one or more templates within the CollectionContent template, with each device message received by the MedTech service being evaluated against all templates.
+CollectionContent is the root template type used by the MedTech service device mapping. The CollectionContent template is a list of all templates that will be used during the normalization processing stage. You can define one or more templates within the CollectionContent template, with each device message received by the MedTech service being evaluated against all templates.
 
 You can use these template types within the CollectionContent template depending on your use case:
 
