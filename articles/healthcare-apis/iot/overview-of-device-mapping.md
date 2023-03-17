@@ -68,7 +68,7 @@ The validation process validates the device mapping before allowing it to be sav
 >
 > For example, some scenarios may require creating an Observation resource in the FHIR service that does not contain a value.
 
-## CollectionContent as the root device mapping template 
+## CollectionContent
 
 CollectionContent is the root template type used by the MedTech service device mapping. The CollectionContent template is a list of all templates that will be used during the normalization processing stage. You can define one or more templates within the CollectionContent template, with each device message received by the MedTech service being evaluated against all templates.
 
