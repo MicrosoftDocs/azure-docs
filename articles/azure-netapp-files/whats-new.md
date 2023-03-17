@@ -19,6 +19,10 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+* [Edit network features for existing volumes](configure-network-features.md#modify-network-features-option-for-existing-volumes) (Preview)
+
+
+
 ## March 2023
 
 * [Disable showmount](disable-showmount.md) (Preview)

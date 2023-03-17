@@ -18,7 +18,7 @@ ms.author: anfdocs
 ---
 # Configure network features for an Azure NetApp Files volume
 
-The **Network Features** functionality enables you to indicate whether you want to use VNet features for an Azure NetApp Files volume. With this functionality, you can set the option to ***Standard*** or ***Basic***. You can specify the setting when you create a new NFS, SMB, or dual-protocol volume. See [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) for details about network features.
+The **Network Features** functionality enables you to indicate whether you want to use VNet features for an Azure NetApp Files volume. With this functionality, you can set the option to ***Standard*** or ***Basic***. You can specify the setting when you create a new NFS, SMB, or dual-protocol volume. You can also modify the network features option on existing volumes. See [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) for details about network features.
 
 This article helps you understand the options and shows you how to configure network features.
 
@@ -40,11 +40,10 @@ Two settings are available for network features:
 
 ## Considerations
 
-* Regardless of the Network Features option you set (*Standard* or *Basic*), an Azure VNet can only have one subnet delegated to Azure NetApp files. See [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md#considerations). 
+* Regardless of the network features option you set (*Standard* or *Basic*), an Azure VNet can only have one subnet delegated to Azure NetApp files. See [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md#considerations). 
  
-* Currently, you can specify the network features setting only during the creation process of a new volume. You cannot modify the setting on existing volumes. 
+* You can create or modify volumes with the Standard network features only if the corresponding [Azure region supports the Standard volume capability](azure-netapp-files-network-topologies.md#supported-regions). 
 
-* You can create volumes with the Standard network features only if the corresponding [Azure region supports the Standard volume capability](azure-netapp-files-network-topologies.md#supported-regions). 
     * If the Standard volume capability is supported for the region, the Network Features field of the Create a Volume page defaults to *Standard*. You can change this setting to *Basic*. 
     * If the Standard volume capability is not available for the region, the Network Features field of the Create a Volume page defaults to *Basic*, and you cannot modify the setting.
 
@@ -56,9 +55,9 @@ Two settings are available for network features:
 
 * Conversion between Basic and Standard network features in either direction is not currently supported.
   
-## Set the Network Features option
+## Set network features option during volume creation
 
-This section shows you how to set the Network Features option. 
+This section shows you how to set the network features option when you create a new volume. 
 
 1. During the process of creating a new [NFS](azure-netapp-files-create-volumes.md), [SMB](azure-netapp-files-create-volumes-smb.md), or [dual-protocol](create-volumes-dual-protocol.md) volume, you can set the **Network Features** option to **Basic** or **Standard** under the Basic tab of the Create a Volume screen.
 
@@ -77,6 +76,19 @@ This section shows you how to set the Network Features option.
 3. You can select **Volumes** to display the network features setting for each volume:
 
     [ ![Screenshot that shows the Volumes page displaying the network features setting.](../media/azure-netapp-files/network-features-volume-list.png)](../media/azure-netapp-files/network-features-volume-list.png#lightbox)
+
+## Edit network features option for existing volumes
+
+You can edit the network features option for existing volumes and set it to use *Standard* or *Basic* network features. The setting applies to all volumes in the same network sibling set. 
+
+> [!IMPORTANT]
+> Updating the network features option might cause a network disruption on the volumes for up to 5 minutes. 
+
+1. Navigate to the volume that you want to change the network features option. 
+2. Select **Change network features**. 
+3. The **Edit network features** window displays the volumes that are in the same network sibling set. In the **Network features** filed, specify whether you want these volumes to use **Standard** or **Basic** network features. 
+
+    :::image type="content" source="../media/azure-netapp-files/edit-network-features.png" alt-text="Screenshot showing the Edit Network Features window" lightbox="../media/azure-netapp-files/azure-netapp-files/edit-network-features.png":::
 
 ## Next steps  
 
