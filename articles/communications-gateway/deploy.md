@@ -5,7 +5,7 @@ author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: how-to 
-ms.date: 03/16/2023
+ms.date: 03/17/2023
 ---
 
 # Deploy Azure Communications Gateway
@@ -29,11 +29,11 @@ In this step, you'll create the Azure Communications Gateway resource.
 
     :::image type="content" source="media/deploy/create.png" alt-text="Screenshot of the Azure portal. Shows the existing Azure Communications Gateway. A Create button allows you to create more Azure Communications Gateways.":::
 
-1. Use the information you collected in [Collect Azure Communications Gateway resource values](prepare-to-deploy.md#6-collect-basic-information-for-deploying-an-azure-communications-gateway) to fill out the fields in the **Basics** configuration section and then select **Next: Service Regions**.
+1. Use the information you collected in [Collect Azure Communications Gateway resource values](prepare-to-deploy.md#4-collect-basic-information-for-deploying-an-azure-communications-gateway) to fill out the fields in the **Basics** configuration section and then select **Next: Service Regions**.
 
     :::image type="content" source="media/deploy/basics.png" alt-text="Screenshot of the Create an Azure Communications Gateway portal, showing the Basics section.":::
 
-1. Use the information you collected in [Collect Service Regions configuration values](prepare-to-deploy.md#7-collect-service-regions-configuration-values) to fill out the fields in the **Service Regions** section and then select **Next: Tags**.
+1. Use the information you collected in [Collect Service Regions configuration values](prepare-to-deploy.md#5-collect-service-regions-configuration-values) to fill out the fields in the **Service Regions** section and then select **Next: Tags**.
 1. (Optional) Configure tags for your Azure Communications Gateway resource: enter a **Name** and **Value** for each tag you want to create.
 1. Select **Review + create**.
 
