@@ -54,7 +54,7 @@ Use an odd number of voting elements to achieve by an odd number of nodes in the
 - File share witness
 - Cloud witness
 
-If the cluster uses **Disk witness**, then the disk must be migrated with the cluster shared storage using the [Migrate fail over cluster] (#migrate failover cluster). 
+If the cluster uses **Disk witness**, then the disk must be migrated with the cluster shared storage using the [Migrate fail over cluster](#migrate-failover-cluster). 
 
 If the cluster uses a **File** **share witness** running on-premises, then the type of witness for your migrated cluster depends on the Azure VMware Solution scenario:
 
@@ -67,7 +67,7 @@ If the cluster uses a **File** **share witness** running on-premises, then the t
 
 For more information about quorum configuration and management, see [Failover Clustering documentation](https://learn.microsoft.com/windows-server/failover-clustering/manage-cluster-quorum). For more information about deploying a Cloud witness in Azure Blob Storage, see [Deploy a Cloud Witness for a Failover Cluster](https://learn.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness) documentation for the details.
 
-## Migrate fail over cluster
+## Migrate failover cluster
 
 For illustration purposes, in this document we're using a two-node cluster with Windows Server 2019 Datacenter and SQL Server 2019 Enterprise. Windows Server 2022 and SQL Server 2022 are also supported with this procedure.
 
@@ -75,11 +75,11 @@ For illustration purposes, in this document we're using a two-node cluster with 
 1. Access the first node of the cluster and open **Failover Cluster Manager**.
     1. Verify that the second node is in **Offline** state and that all clustered services and storage are under the control of the first node.
      
-         :::image type="content" source="media/sql-server-hybrid-benefit/sqlfci-1.png" alt-text="Windows Server Failover Cluster Manager cluster storage verification." border="false":::
+         :::image type="content" source="media/sql-server-hybrid-benefit/sql-failover-1.png" alt-text="Windows Server Failover Cluster Manager cluster storage verification." border="false":::
  
     1. Shut down the cluster.
     
-        :::image type="content" source="media/sql-server-hybrid-benefit/sqlfci-2.png" alt-text="Shut down your cluster using Windows Server Failover Cluster Manager." border="false":::
+        :::image type="content" source="media/sql-server-hybrid-benefit/failover-2.png" alt-text="Shut down your cluster using Windows Server Failover Cluster Manager." border="false":::
   
      1. Check that all cluster services are successfully stopped without errors.
 1. Shut down first node of the cluster.
@@ -87,7 +87,8 @@ For illustration purposes, in this document we're using a two-node cluster with 
     1. Remove all shared disks from the virtual machine configuration.
     1. Ensure that the **Delete files from datastore** checkbox isn't selected as this will permanently delete the disk from the datastore, and you'll need to recover the cluster from a previous backup.
     1. Set **SCSI Bus Sharing** from **Physical** to **None** in the virtual SCSI controllers used for the shared storage. Usually, these controllers are of VMware Paravirtual type.
-1. Edit the first node virtual machine settings. Set **SCSI Bus Sharing** from **Physical** to **None** in the SCSI controllers. 
+1. Edit the first node virtual machine settings. Set **SCSI Bus Sharing** from **Physical** to **None** in the SCSI controllers.
+ 
 1. From the vSphere Client,** go to the HCX plugin area. Under **Services**, select **Migration** > **Migrate**. 
        1. Select the second node virtual machine.
        1. Set the vSphere cluster in the remote private cloud that will run the migrated SQL cluster as the **Compute Container**.
@@ -101,6 +102,7 @@ For illustration purposes, in this document we're using a two-node cluster with 
        1. Select **Go** and the migration will initiate. 
 1. Repeat the same process for the first node.
 1. Access **Azure VMware Solution vSphere Client** and edit the first node settings and set back to physical SCSI Bus sharing the SCSI controller(s) managing the shared disks.
+
 1. Edit node 2 settings in **vSphere Client**.
        1. Set SCSI Bus sharing back to physical in the SCSI controller managing shared storage.
        1. Add the cluster shared disks to the node as additional storage. Assign them to the second SCSI controller. 
@@ -109,17 +111,17 @@ For illustration purposes, in this document we're using a two-node cluster with 
 1. Access the first node VM with **VMware Remote Console**.
        1. Verify virtual machine network configuration and ensure it can reach on-premises and Azure resources. 
        1. Open **Failover Cluster Manager** and verify cluster services.
-       :::image type="content" source="media/sql-server-hybrid-benefit/sqlfci-3.png" alt-text="Cluster summary in Failover Cluster Manager." border="false":::
+       :::image type="content" source="media/sql-server-hybrid-benefit/failover-3.png" alt-text="Cluster summary in Failover Cluster Manager." border="false":::
 
 1. Power on the second node virtual machine.
 1. Access the second node VM from the **VMware Remote Console**.
    1. Verify that Windows Server can reach the storage.
    1. In the **Failover Cluster Manager** review that the second node appears as **Online** status.
-    :::image type="content" source="media/sql-server-hybrid-benefit/sqlfci-4.png"  alt-text="Cluster node status in Failover Cluster Manager." border="false":::
+    :::image type="content" source="media/sql-server-hybrid-benefit/failover-4.png"  alt-text="Cluster node status in Failover Cluster Manager." border="false":::
 
 1. Using the **SQL Server Management Studio** connect to the SQL Server cluster resource network name. Check the database is online and accessible.
 
-:::image type="content" source="media/sql-server-hybrid-benefit/sqlfci-5.png" alt-text="SQL Server Management Studio connection verification to the migrated cluster instance database." border="false":::
+:::image type="content" source="media/sql-server-hybrid-benefit/fail-over-5.png" alt-text="SQL Server Management Studio connection verification to the migrated cluster instance database." border="false":::
     
 Finally, check the connectivity to SQL from other systems and applications in your infrastructure and verify that all applications using the database(s) can still access them. 
 

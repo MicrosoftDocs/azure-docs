@@ -10,7 +10,7 @@ ms.custom: engagement-fy23
 
 In this article, you’ll learn how to migrate Microsoft SQL Server Always-On Cluster to Azure VMware Solution.For VMware HCX, you can follow the vMotion migration procedure. 
 
-:::image type="content" source="media/sql-server-hybrid-benefit/sql-alwayson-architecture.png" alt-text="Diagram showing the architecture of always on SQL server for  Azure VMware Solution." border="false":::
+:::image type="content" source="media/sql-server-hybrid-benefit/sql-always-on-architecture.png" alt-text="Diagram showing the architecture of always on SQL server for  Azure VMware Solution." border="false":::
 
 ## Prerequisites
 
@@ -71,7 +71,7 @@ For details about configuring and managing the quorum, see [Failover Clustering 
     1. Select your primary replica and open **Availability Group** **Properties**.
 
 
-          :::image type="content" source="media/sql-server-hybrid-benefit/sql-alwayson-1.png" alt-text="Always On Availability Group properties" border="false":::
+          :::image type="content" source="media/sql-server-hybrid-benefit/sql-always-on-1.png" alt-text="Always On Availability Group properties" border="false":::
 
      1. Change **Availability Mode** to **Asynchronous commit** only for the replica to be migrated.
      1. Change **Failover Mode** to **Manual** for every member of the availability group.
@@ -89,7 +89,7 @@ For details about configuring and managing the quorum, see [Failover Clustering 
       1. Click **Go** and the migration will initiate. 
 1. Once the migration has been completed, access the migrated replica and verify connectivity with the rest of the members in the availability group.
 1. In SQL Server Management Studio, open the **Availability Group Dashboard** and verify that the replica appears as **Online**. 
-      :::image type="content" source="media/sql-server-hybrid-benefit/sql-alwayson-2.png" alt-text="Always On Availability Group Dashboard." border="false":::
+      :::image type="content" source="media/sql-server-hybrid-benefit/sql-always-on-2.png" alt-text="Always On Availability Group Dashboard." border="false":::
  
    1. **Data Loss** status in the **Failover Readiness** column is expected since the replica has been out-of-sync with the primary during the migration. 
 1. Edit the **Availability Group** **Properties** again and set **Availability Mode** back to **Synchronous commit**.
@@ -97,18 +97,18 @@ For details about configuring and managing the quorum, see [Failover Clustering 
 1. From the **Availability Group Dashboard** in SSMS click on **Start Failover Wizard**.
 1. Select the migrated replica and click **Next**.
 
-    :::image type="content" source="media/sql-server-hybrid-benefit/sql-alwayson-3.png" alt-text="New primary replica selection for failover." border="false":::
+    :::image type="content" source="media/sql-server-hybrid-benefit/sql-always-on-3.png" alt-text="New primary replica selection for failover." border="false":::
 
 1. Connect to the replica in the next screen with your DB admin credentials.
     :::image type="content" source="media/sql-server-hybrid-benefit/sql-alwayson-4.png" alt-text="New primary replica admin credentials connection." border="false":::
   
 1. Review the changes and click **Finish** to start the failover operation.
 
-    :::image type="content" source="media/sql-server-hybrid-benefit/sql-alwayson-5.png" alt-text="Availability Group failover operation review." border="false":::
+    :::image type="content" source="media/sql-server-hybrid-benefit/sql-always-on-5.png" alt-text="Availability Group failover operation review." border="false":::
 
  
 1. Monitor the progress of the failover in the next screen, and click **Close** when the operation is finished.
-    :::image type="content" source="media/sql-server-hybrid-benefit/sql-alwayson-6.png" alt-text="Failover successfully finished." border="false"::: 
+    :::image type="content" source="media/sql-server-hybrid-benefit/sql-always-on-6.png" alt-text="Failover successfully finished." border="false"::: 
 
 
 1. Refresh the **Object Explorer** view in SQL Server Management Studio (SSMS), and verify that the migrated instance is now the primary replica.
@@ -118,7 +118,7 @@ For details about configuring and managing the quorum, see [Failover Clustering 
     > Migrate one replica at a time and verify that all changes are synchronized back to the replica after each migration. Do not migrate all the replicas at the same time using **HCX Bulk Migration**. 
 1. After the migration of all the replicas is completed, access your Always-On availability group with **SQL Server Management Studio**.
     1. Open the Dashboard and verify there is no data loss in any of the replicas and that all are in a     **Synchronized** state.
-          :::image type="content" source="media/sql-server-hybrid-benefit/sql-alwayson-7.png" alt-text="Availability Group Dashboard with new primary replica and all migrated secondary replicas in synchronized state." border="false":::
+          :::image type="content" source="media/sql-server-hybrid-benefit/sql-always-on-7.png" alt-text="Availability Group Dashboard with new primary replica and all migrated secondary replicas in synchronized state." border="false":::
     1. Edit the **Properties** of the availability group and set **Failover Mode** to **Automatic** in all replicas.
     
        :::image type="content" source="media/sql-server-hybrid-benefit/sql-alwayson-8.png" alt-text="Set Failover back to Automatic for all replicas." border="false":::
