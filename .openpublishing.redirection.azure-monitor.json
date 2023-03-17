@@ -56,6 +56,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/app/devops.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/app/old-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/automate-custom-reports.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/app/custom-reports",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/app/resource-manager-function-app.md",
             "redirect_url": "/previous-versions/azure/azure-monitor/app/resource-manager-function-app",
             "redirect_document_id": false

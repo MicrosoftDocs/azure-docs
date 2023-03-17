@@ -181,8 +181,13 @@ The managed identity that will be assigned to the pod needs to be granted permis
 To run the demo, the *IDENTITY_CLIENT_ID* managed identity must have Virtual Machine Contributor permissions in the resource group that contains the Virtual Machine Scale Set of your AKS cluster.
 
 ```azurecli-interactive
+# Obtain the name of the resource group containing the Virtual Machine Scale set of your AKS cluster, commonly called the node resource group
 NODE_GROUP=$(az aks show -g myResourceGroup -n myAKSCluster --query nodeResourceGroup -o tsv)
+
+# Obtain the id of the node resource group 
 NODES_RESOURCE_ID=$(az group show -n $NODE_GROUP -o tsv --query "id")
+
+# Create a role assignment granting your managed identity permissions on the node resource group
 az role assignment create --role "Virtual Machine Contributor" --assignee "$IDENTITY_CLIENT_ID" --scope $NODES_RESOURCE_ID
 ```
 

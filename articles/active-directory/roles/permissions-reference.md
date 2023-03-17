@@ -1,5 +1,5 @@
 ---
-title: Azure AD built-in roles - Azure Active Directory
+title: Azure AD built-in roles
 description: Describes the Azure Active Directory built-in roles and permissions.
 services: active-directory
 author: rolyon
