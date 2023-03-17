@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 03/14/2023
+ms.date: 03/17/2023
 ms.author: jasteppe
 ---
 
@@ -18,9 +18,7 @@ This article provides an overview of the MedTech service device mapping.
 
 The MedTech service requires two types of [JSON](https://www.json.org/) mappings that are added to your MedTech service through the Azure portal or Azure Resource Manager API. 
 
-* The device mapping is the first type and is responsible for mapping values in the device message data sent to the MedTech service event hub endpoint to an internal, normalized data object. The device mapping contains expressions that the MedTech service uses to extract types, device identifiers, measurement date time, and the measurement value(s). The FHIR destination mapping is the second type and controls the mapping for FHIR Observations. 
-
-* The FHIR destination mapping allows configuration of the length of the observation period, FHIR data type used to store the values, and terminology code(s). 
+The device mapping is the first type and is responsible for mapping values in the device message data sent to the MedTech service event hub endpoint to an internal, normalized data object. The device mapping contains expressions that the MedTech service uses to extract types, device identifiers, measurement date time, and the measurement value(s). The FHIR destination mapping is the second type and controls the mapping for FHIR Observations. 
 
 > [!NOTE]
 > The device and FHIR destination mappings are reevaluated each time a message is processed. Any updates to either mapping will take effect immediately.
@@ -34,19 +32,7 @@ The device mapping contains collections of expression templates used to extract 
 
 This diagram provides an illustration of what happens during the normalization stage within the MedTech service.
 
-:::image type="content" source="media/overview-of-device-mapping/normalization-stage-processing-diagram.png" alt-text="Diagram example of the MedTech service device message data normalization processing stage." lightbox="media/overview-of-device-mapping/normalization-stage-processing-diagram.png":::
-
-The normalized data model has a few required properties that must be found and extracted:
-
-|Property|Description|
-|--------|-----------|
-|**Type**|The name/type to classify the measurement. This value is used to bind to the required FHIR destination mapping. Multiple mappings can output to the same type allowing you to map different representations across multiple devices to a single common output.|
-|**OccurenceTimeUtc**|The time the measurement occurred.|
-|**DeviceId**|The identifier for the device. This value should match an identifier on the device resource that exists on the destination FHIR service.|
-|**Properties**|Extract at least one property so the value can be saved in the Observation resource created. Properties are a collection of key value pairs extracted during normalization.|
-
-> [!IMPORTANT]
-> The full normalized model is defined by the [IMeasurement](https://github.com/microsoft/iomt-fhir/blob/master/src/lib/Microsoft.Health.Fhir.Ingest.Schema/IMeasurement.cs) interface.
+:::image type="content" source="media/overview-of-device-mapping/normalization-processing-stage-diagram.png" alt-text="Diagram example of the MedTech service device message data normalization processing stage." lightbox="media/overview-of-device-mapping/normalization-processing-stage-diagram.png":::
 
 ## Device mapping validations
 
@@ -70,9 +56,9 @@ The validation process validates the device mapping before allowing it to be sav
 
 ## CollectionContent
 
-CollectionContent is the root template type used by the MedTech service device mapping. The CollectionContent template is a list of all templates that will be used during the normalization processing stage. You can define one or more templates within the CollectionContent template, with each device message received by the MedTech service being evaluated against all templates.
+CollectionContent is the root template type used by the MedTech service device mapping. CollectionContent is a list of all templates that will be used during the normalization processing stage. You can define one or more templates within CollectionContent, with each device message received by the MedTech service being evaluated against all templates.
 
-You can use these template types within the CollectionContent template depending on your use case:
+You can use these template types within the CollectionContent depending on your use case:
 
  - [CalculatedContent](how-to-use-calculatedcontent-mappings.md) for device messages sent directly to your MedTech service event hub. CalculatedContent also supports the advanced features of [JMESPath](https://jmespath.org/), [JMESPath functions](https://jmespath.org/specification.html#built-in-functions) and the MedTech service [custom functions](how-to-use-custom-functions.md).
 
@@ -80,7 +66,7 @@ You can use these template types within the CollectionContent template depending
 
 - [IotJsonPathContentTemplate](how-to-use-iotjsonpathcontenttemplate-mappings.md) for device messages being routed through [Azure IoT Hub](/azure/iot-hub/iot-concepts-and-iot-hub) to your MedTech service event hub. 
 
-:::image type="content" source="media/overview-of-device-mapping/device-mappings-templates-diagram.png" alt-text="Diagram showing MedTech service device mapping templates architecture." lightbox="media/overview-of-device-mapping/device-mappings-templates-diagram.png":::
+:::image type="content" source="media/overview-of-device-mapping/device-mapping-templates-diagram.png" alt-text="Diagram showing MedTech service device mapping templates architecture." lightbox="media/overview-of-device-mapping/device-mapping-templates-diagram.png":::
                                                              
 ### Example
 
@@ -91,11 +77,9 @@ In this example, we're using a device message that is capturing `heartRate` data
 
 ```json
 {
-  "Body": {
-    "heartRate": "78",
-    "endDate": "2023-03-13T22:46:01.8750000",
-    "deviceId": "device123"
-  }
+  "heartRate": "78",
+  "endDate": "2023-03-13T22:46:01.8750000",
+  "deviceId": "device01"
 }    
 ```
 We're using this MedTech service device mapping for the normalization processing stage:
@@ -131,7 +115,7 @@ With the resulting normalized message looking like this after processing in the 
   {
     "type": "heartrate",
     "occurrenceTimeUtc": "2023-03-13T22:46:01.875Z",
-    "deviceId": "device123",
+    "deviceId": "device01",
     "properties": [
       {
         "name": "hr",
