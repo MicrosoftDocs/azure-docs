@@ -1,5 +1,5 @@
 ---
-title: Apply for a toll-free verification
+title: Apply for toll-free verification
 titleSuffix: An Azure Communication Services quickstart 
 description: Learn about how to apply for toll-free verification
 author: prakulka
