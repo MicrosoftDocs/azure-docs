@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Templafy OpenID Connect for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Templafy OpenID Connect for automatic user provisioning with Azure Active Directory'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Templafy OpenID Connect.
 services: active-directory
 author: twimmers

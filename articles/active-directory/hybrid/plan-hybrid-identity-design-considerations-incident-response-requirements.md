@@ -1,5 +1,5 @@
 ---
-title: Hybrid identity design - incident response requirements Azure | Microsoft Docs
+title: Hybrid identity design - incident response requirements Azure
 description: Determine monitoring and reporting capabilities for the hybrid identity solution that can be leveraged by IT to take actions to identify and mitigate a potential threat.
 documentationcenter: ''
 services: active-directory

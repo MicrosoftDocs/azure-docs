@@ -1,5 +1,5 @@
 ---
-title: 'Delete a Lifecycle workflow - Azure Active Directory'
+title: 'Delete a Lifecycle workflow'
 description: Describes how to delete a Lifecycle Workflow using.
 services: active-directory
 author: owinfreyATL
@@ -20,9 +20,7 @@ You can remove workflows that are no longer needed. Deleting these workflows all
 
 ## Prerequisites
 
-- Azure AD Premium P2
-
-For more information, see: [License requirements](what-are-lifecycle-workflows.md#license-requirements)
+The Lifecycle Workflows preview requires Azure AD Premium P2. For more information, see: [License requirements](what-are-lifecycle-workflows.md#license-requirements).
 
 ## Delete a workflow using the Azure portal
 
