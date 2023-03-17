@@ -164,9 +164,9 @@ You can migrate your application from the Baltimore CyberTrust Root to the DigiC
 2. **In addition** to the Baltimore Root, ensure the DigiCert Global G2 Root is added to your trusted root store. 
 3. Make sure you aren’t pinning any intermediate or leaf certificates and are using the public roots to perform TLS server validation. 
 4. In your IoT Central application you can find the Root Certification settings under **Settings** > **Application** > **Baltimore Cybertrust Migration**.  
-   1. Select “**DigiCert Global G2 Root**” to migrate to the new certificate root. 
-   2. Click “**Save**” to initiate the migration. 
-   3. If needed, you can migrate back to the Baltimore root by selecting “**Baltimore CyberTrust Root**“ and saving the changes. This option is available until 15 May 2023 and will then be disabled as Microsoft will start initiating the migration. 
+   1. Select **DigiCert Global G2 Root** to migrate to the new certificate root. 
+   2. Click **Save** to initiate the migration. 
+   3. If needed, you can migrate back to the Baltimore root by selecting **Baltimore CyberTrust Root** and saving the changes. This option is available until 15 May 2023 and will then be disabled as Microsoft will start initiating the migration. 
 
 ### How long will it take my devices to reconnect?
 
