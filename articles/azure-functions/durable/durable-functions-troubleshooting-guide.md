@@ -27,6 +27,8 @@ If neither the Diagnose and Solve problems tool nor the diagnostics documentatio
 
 ## Orchestration is stuck in the Pending state
 
+This section aplies to the scenario when orchestration couldn't be started successfully. 
+
 1. Check the Durable Task Framework traces for warnings or errors for the impacted orchestration instance ID. A sample query can be found in the [Trace Errors/Warnings section](#trace-errorswarnings).
 
 2. Check the Azure Storage control queues to see if the message is still in the queue. For more information on control queues, see the [Azure Storage provider control queue documentation](durable-functions-azure-storage-provider.md#control-queues).
